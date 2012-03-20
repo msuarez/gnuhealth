@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
+#    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
-#    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
     'name': 'GNU Health: Calendar',
     'version': '1.4.4',
@@ -32,9 +31,13 @@
         'health_calendar_view.xml',
     ],
     'name_es_ES': 'GNU Health : Calendario',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
-
+    'translation': [
+        'locale/es_ES.po',
+        'locale/fr_FR.po',
+        'locale/el.po',
+        'locale/fa.po',
+        'locale/it.po',
+    ],
     'description': ''' 
         This module add functionality to connect with a CalDAV client.
         ''',

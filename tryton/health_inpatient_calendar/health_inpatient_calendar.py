@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
+#    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
-#    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,8 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 

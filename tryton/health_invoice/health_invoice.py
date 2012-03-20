@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
+#    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2011  Adrián Bernardi, Mario Puntin
-#    $Id$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,13 +18,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 from datetime import timedelta
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval, Not, Equal, If, In, Bool, Get, Or, And, \
-        PYSONEncoder
-from trytond.pyson import Eval
-from trytond.pool import Pool
+from trytond.pyson import Eval, Equal
 
 
 class PatientData(ModelSQL, ModelView):

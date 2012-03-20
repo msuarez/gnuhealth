@@ -1,20 +1,23 @@
-# coding=utf-8
-
-#    Copyright (C) 2008-2012 Luis Falcon <lfalcon@gnusolidario.org>
-
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
+#
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
-
+#
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
-
+#
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+#
+##############################################################################
 
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
@@ -548,8 +551,8 @@ class PartyPatient (ModelSQL, ModelView):
     is_insurance_company = fields.Boolean('Insurance Company',
      help="Check if the party is an Insurance Company")
     is_pharmacy = fields.Boolean('Pharmacy',
-     help="Check if the party is a Pharmacy")
-     
+        help="Check if the party is a Pharmacy")
+
     lastname = fields.Char('Last Name', help="Last Name")
     insurance = fields.One2Many('gnuhealth.insurance', 'name', "Insurance")
     internal_user = fields.Many2One('res.user', 'Internal User',
@@ -834,8 +837,8 @@ class PatientData(ModelSQL, ModelView):
 
 PatientData()
 
-# PATIENT DISESASES INFORMATION
 
+# PATIENT DISESASES INFORMATION
 
 class PatientDiseaseInfo(ModelSQL, ModelView):
     "Patient Disease History"
@@ -899,8 +902,8 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
 PatientDiseaseInfo()
 
-# PATIENT APPOINTMENT
 
+# PATIENT APPOINTMENT
 
 class Appointment(ModelSQL, ModelView):
     "Patient Appointments"
@@ -1007,8 +1010,9 @@ class MedicationTemplate(ModelSQL, ModelView):
         ('weeks', 'weeks'),
         ('wr', 'when required'),
         ], 'unit', select=True, sort=False)
-    
-    frequency_prn = fields.Boolean ('PRN',help="Use it as needed, pro re nata")
+
+    frequency_prn = fields.Boolean ('PRN',
+        help='Use it as needed, pro re nata')
     admin_times = fields.Char('Admin hours',
         help='Suggested administration hours. For example, at 08:00, ' \
         '13:00 and 18:00 can be encoded like 08 13 18')
