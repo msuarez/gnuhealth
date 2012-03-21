@@ -22,17 +22,14 @@
             <field name="name">mmol</field>
             <field name="desc">millimol</field>
         </record>
-
         <record model="gnuhealth.dose.unit" id="ug">
             <field name="name">ug</field>
             <field name="desc">microgram</field>
         </record>
-
         <record model="gnuhealth.dose.unit" id="unit">
             <field name="name">unit</field>
             <field name="desc">unit</field>
         </record>
-
 
     </data>
 </tryton>
