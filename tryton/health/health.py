@@ -433,7 +433,12 @@ class Pathology(ModelSQL, ModelView):
     code = fields.Char('Code',
         help='Specific Code for the Disease (eg, ICD-10, SNOMED...\)')
     category = fields.Many2One('gnuhealth.pathology.category',
-        'Disease Category')
+        'Main Category',help='Select the main category for this disease' \
+        ' This is usually associated to the standard. For instance, the' \
+        ' chapter on the ICD-10 will be the main category for de disease')
+    groups = fields.One2Many ('gnuhealth.pathology.group','name','Groups', \
+        help='Specify the groups this pathology belongs. Some automated ' \
+        'processes act upon the code of the group')
     chromosome = fields.Char('Affected Chromosome',
      help="chromosome number")
     protein = fields.Char('Protein involved',
@@ -448,6 +453,19 @@ class Pathology(ModelSQL, ModelView):
 
 Pathology()
 
+class PathologyGroup(ModelSQL, ModelView):
+    "Pathology Groups"
+    _name= "gnuhealth.pathology.group"
+    name = fields.Many2One ('gnuhealth.pathology','Pathology', required=True)
+    group = fields.Char('Name', required=True, translate=True,
+        help="Group name")
+    code = fields.Char('Code',required=True,
+        help='for example MDG6 code will contain the Millennium Development' \
+        ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
+    desc = fields.Char('Short Description', required=True)
+    info = fields.Text('Detailed information')
+
+PathologyGroup()
 
 class ProcedureCode(ModelSQL, ModelView):
     "Medical Procedures"

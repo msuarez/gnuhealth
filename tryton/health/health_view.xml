@@ -948,6 +948,74 @@
         <menuitem action="action_gnuhealth_medicament_category_tree" id="gnuhealth_conf_medicament_category" parent="gnuhealth_conf_medicaments"/>
 
 
+<!-- Pathology Groups -->
+
+		<record model="ir.ui.view" id="gnuhealth_pathology_group_form">
+			<field name="model">gnuhealth.pathology.group</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<![CDATA[
+					<form string="Pathology Groups">
+                        <group id="pathology_group_header">
+                            <label name="name"/>
+                            <field name="name"/>
+                        <newline/>
+                        <label name="group"/>
+                        <field name="group"/>
+                        <label name="code"/>
+                        <field name="code"/>
+                        <label name="desc"/>
+                        <field name="desc"/>
+                        <newline/>
+                        </group>
+
+                        <separator string="Extra Information" colspan="4" id="pathology_groups_info"/>
+                        <group id="pathology_groups">
+                        <newline/>
+                        <field name="info" colspan="4"/>
+                        </group>
+                    </form>
+				]]>
+			</field>
+		</record>                    
+
+		<record model="ir.ui.view" id="gnuhealth_pathology_group_tree">
+			<field name="model">gnuhealth.pathology.group</field>
+			<field name="type">tree</field>	
+			<field name="arch" type="xml">
+				<![CDATA[
+					<tree string='Pathology Groups'>
+						<field name="name"></field>
+						<field name="group"></field>
+						<field name="code"></field>
+						<field name="desc"></field>
+					</tree>
+				]]>
+
+			</field>
+		</record>
+
+		<record model="ir.action.act_window" id="gnuhealth_action_pathology_group">
+				<field name="name">Pathology Groups</field>
+				<field name="res_model">gnuhealth.pathology.group</field>
+		</record>
+
+		<record model="ir.action.act_window.view" id="act_pathology_group_list_view">
+			<field name="sequence" eval="10"/>
+			<field name="view" ref="gnuhealth_pathology_group_tree"/>
+			<field name="act_window" ref="gnuhealth_action_pathology_group"/>
+		</record>
+
+		<record model="ir.action.act_window.view" id="act_pathology_group_form_view">
+			<field name="sequence" eval="20"/>
+			<field name="view" ref="gnuhealth_pathology_group_form"/>
+			<field name="act_window" ref="gnuhealth_action_pathology_group"/>
+		</record>
+
+
+		<menuitem action="gnuhealth_action_pathology_group" id="gnuhealth_conf_pathology_group" parent="gnuhealth_conf_pathology"/>
+
+
 
 <!-- Disease -->
 
@@ -958,13 +1026,21 @@
 				<![CDATA[
 					<form string="Pathology Info">
 						<notebook>
-							<page string="Main" id="disease_main">
-								<label name="name"/>
-								<field name="name"/>
-								<label name="code"/>
-								<field name="code"/>
-								<label name="category"/>
-								<field name="category"/>
+                            <page string="Main" id="disease_main">
+
+                                <group colspan="4" col="6" id="pathology_header">
+                                    <label name="name"/>
+                                    <field name="name"/>
+                                    <label name="code"/>
+                                    <field name="code"/>
+                                    <label name="category"/>
+                                    <field name="category"/>
+                                </group>
+                                <newline/>
+                                <group colspan="4" col="6" id="pathology_groups">
+                                    <field name="groups"/>
+                                </group>
+                
 							</page>
 							<page string="Genetics" id="disease_genetics">
 								<label name="chromosome"/>
