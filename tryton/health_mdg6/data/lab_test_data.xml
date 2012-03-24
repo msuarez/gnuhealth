@@ -55,13 +55,13 @@
 
         <record id="gnuhealth_test_culture_bactec_analysis0" model="gnuhealth.lab.test_type">
             <field eval="&quot;&quot;&quot;BAC&quot;&quot;&quot;" name="code"/>
-            <field name="product_id" ref="product_product_sputum_culture_analysischarges0"/>
+            <field name="product_id" ref="product_product_sputum_culture_lj_analysischarges0"/>
             <field eval="&quot;&quot;&quot;BACTEC CULTURE ANALYSIS&quot;&quot;&quot;" name="name"/>
         </record>
 
         <record id="gnuhealth_test_sputum_culture_lj_analysis0" model="gnuhealth.lab.test_type">
             <field eval="&quot;&quot;&quot;LJ&quot;&quot;&quot;" name="code"/>
-            <field name="product_id" ref="product_product_sputum_culture_analysischarges0"/>
+            <field name="product_id" ref="product_product_sputum_culture_lj_analysischarges0"/>
             <field eval="&quot;&quot;&quot;SPUTUM LOWENSTEIN-JENSEN CULTURE ANALYSIS&quot;&quot;&quot;" name="name"/>
         </record>
 
