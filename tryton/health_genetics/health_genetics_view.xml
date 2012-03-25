@@ -98,9 +98,9 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Patient Genetic Risks" fill="1">
+                <tree string="Patient Genetic Risks">
                     <field name="patient"/>
-                    <field name="disease_gene"/>
+                    <field name="disease_gene" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -131,10 +131,10 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Genetic Family Diseases" fill="1">
+                <tree string="Genetic Family Diseases">
                     <field name="name"/>
                     <field name="xory"/>
-                    <field name="relative"/>
+                    <field name="relative" expand="1"/>
                 </tree>
                 ]]>
             </field>
