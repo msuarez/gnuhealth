@@ -17,7 +17,6 @@
         </record>
 
         <record model="ir.property" id="property_inpatient_registration_sequence">
-            <field name="name">inpatient_registration_sequence</field>
             <field name="field" 
                 search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'inpatient_registration_sequence')]"/>
             <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_inpatient_registration'))"/>
