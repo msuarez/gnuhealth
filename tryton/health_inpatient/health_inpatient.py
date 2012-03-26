@@ -42,28 +42,28 @@ class InpatientRegistration(ModelSQL, ModelView):
     _name = 'gnuhealth.inpatient.registration'
     _description = __doc__
 
-    name = fields.Char('Registration Code', readonly=True, select="2")
+    name = fields.Char('Registration Code', readonly=True, select=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
-     required=True, select="1")
+     required=True, select=True)
     admission_type = fields.Selection([
         ('routine', 'Routine'),
         ('maternity', 'Maternity'),
         ('elective', 'Elective'),
         ('urgent', 'Urgent'),
         ('emergency', 'Emergency'),
-        ], 'Admission type', required=True, select="1")
+        ], 'Admission type', required=True, select=True)
     hospitalization_date = fields.DateTime('Hospitalization date',
-        required=True, select="1")
+        required=True, select=True)
     discharge_date = fields.DateTime('Discharge date', required=True,
-     select="1")
+     select=True)
     attending_physician = fields.Many2One('gnuhealth.physician',
-        'Attending Physician',select="2")
+        'Attending Physician',select=True)
     operating_physician = fields.Many2One('gnuhealth.physician',
         'Operating Physician')
     admission_reason = fields.Many2One('gnuhealth.pathology',
-        'Reason for Admission', help="Reason for Admission", select="1")
+        'Reason for Admission', help="Reason for Admission", select=True)
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
-     required=True, select="2")
+     required=True, select=True)
     nursing_plan = fields.Text('Nursing Plan')
     discharge_plan = fields.Text('Discharge Plan')
 
@@ -73,7 +73,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('cancelled', 'cancelled'),
         ('confirmed', 'confirmed'),
         ('hospitalized', 'hospitalized'),
-        ), 'Status', select="1")
+        ), 'Status', select=True)
 
 # Method to check for availability and make the hospital bed reservation
 

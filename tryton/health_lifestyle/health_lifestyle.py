@@ -165,9 +165,9 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.recreational_drugs'
     _description = __doc__
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', select='1')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
-        'Recreational Drug', select='1')
+        'Recreational Drug', select=True)
 
 PatientRecreationalDrugs()
 

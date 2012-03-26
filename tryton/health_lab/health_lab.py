@@ -54,9 +54,9 @@ class TestType(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Char('Test', 
-        help="Test type, eg X-Ray, hemogram,biopsy...", required=True, select="1")
+        help="Test type, eg X-Ray, hemogram,biopsy...", required=True, select=True)
     code = fields.Char('Code', 
-        help="Short name - code for the test", required=True, select="1")
+        help="Short name - code for the test", required=True, select=True)
     info = fields.Text('Description')
     product_id = fields.Many2One('product.product', 'Service', required=True)
     critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'test_type_id',
@@ -78,19 +78,19 @@ class Lab(ModelSQL, ModelView):
 
     name = fields.Char('ID', help="Lab result ID",readonly=True)
     test = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
-        help="Lab test type", required=True, select="1")
+        help="Lab test type", required=True, select=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
-     help="Patient ID", required=True, select="1")
+     help="Patient ID", required=True, select=True)
     pathologist = fields.Many2One('gnuhealth.physician', 'Pathologist',
-        help="Pathologist", select="2")
+        help="Pathologist", select=True)
     requestor = fields.Many2One('gnuhealth.physician', 'Physician',
-        help="Doctor who requested the test", select="2")
+        help="Doctor who requested the test", select=True)
     results = fields.Text('Results')
     diagnosis = fields.Text('Diagnosis')
     critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'gnuhealth_lab_id',
         'Lab Test Critearea')
-    date_requested = fields.DateTime('Date requested', required=True, select="1")
-    date_analysis = fields.DateTime('Date of the Analysis', select="1")
+    date_requested = fields.DateTime('Date requested', required=True, select=True)
+    date_analysis = fields.DateTime('Date of the Analysis', select=True)
 
     def __init__(self):
         super(Lab, self).__init__()
@@ -128,8 +128,8 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
     _name = 'gnuhealth.lab.test.units'
     _description = __doc__
 
-    name = fields.Char('Unit', select="1")
-    code = fields.Char('Code', select="1")
+    name = fields.Char('Unit', select=True)
+    code = fields.Char('Code', select=True)
 
     def __init__(self):
         super(GnuHealthLabTestUnits, self).__init__()
@@ -145,7 +145,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     _name = 'gnuhealth.lab.test.critearea'
     _description = __doc__
 
-    name = fields.Char('Analyte', required=True, select="1")
+    name = fields.Char('Analyte', required=True, select=True)
     excluded = fields.Boolean('Excluded',help='Select this option when' \
         ' this analyte is excluded from the test')
     result = fields.Float('Value')
@@ -161,8 +161,8 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
          on_change_with=['result', 'lower_limit', 'upper_limit'])
     units = fields.Many2One('gnuhealth.lab.test.units', 'Units')
     test_type_id = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
-     select="2")
-    gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases', select="2")
+     select=True)
+    gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases', select=True)
     sequence = fields.Integer('Sequence')
 
     def __init__(self):
@@ -195,17 +195,17 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type', required=True,
-     select="1")
-    date = fields.DateTime('Date', select="2")
+     select=True)
+    date = fields.DateTime('Date', select=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('tested', 'Tested'),
         ('cancel', 'Cancel'),
-        ], 'State', readonly=True, select="1")
+        ], 'State', readonly=True, select=True)
     patient_id = fields.Many2One('gnuhealth.patient', 'Patient', required=True,
-     select="1")
+     select=True)
     doctor_id = fields.Many2One('gnuhealth.physician', 'Doctor',
-        help="Doctor who Request the lab test.", select="1")
+        help="Doctor who Request the lab test.", select=True)
 
     def default_date(self):
         return datetime.now()

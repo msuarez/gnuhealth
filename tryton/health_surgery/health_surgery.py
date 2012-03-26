@@ -39,7 +39,7 @@ class Surgery(ModelSQL, ModelView):
         ('o', 'Optional'),
         ('r', 'Required'),
         ('u', 'Urgent'),
-        ], 'Surgery Classification', select='1')
+        ], 'Surgery Classification', select=True)
     surgeon = fields.Many2One('gnuhealth.physician', 'Surgeon',
         help="Surgeon who did the procedure")
     anesthetist = fields.Many2One('gnuhealth.physician', 'Anesthetist',
@@ -54,7 +54,7 @@ class Surgery(ModelSQL, ModelView):
                     'upper portion of tonsils and uvula'),
         ('Class 3', 'Soft and hard palate and base of the uvula are visible'),
         ('Class 4', 'Only Hard Palate visible'),
-        ], 'Mallampati Score', select='1')
+        ], 'Mallampati Score', select=True)
     preop_bleeding_risk = fields.Boolean('Risk of Massive bleeding',
         help="Check this box if patient has a risk of loosing more than 500 " \
         "ml in adults of over 7ml/kg in infants. If so, make sure that " \
@@ -80,7 +80,7 @@ class MedicalOperation(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
     procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
-        select="1",
+        select=True,
         help="Procedure Code, for example ICD-10-PCS Code 7-character string")
     notes = fields.Text('Notes')
 

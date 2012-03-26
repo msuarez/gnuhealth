@@ -26,17 +26,17 @@ class DiseaseGene(ModelSQL, ModelView):
     _name = 'gnuhealth.disease.gene'
     _description = __doc__
 
-    name = fields.Char('Official Symbol', select='1')
-    long_name = fields.Char('Official Long Name', select='1')
+    name = fields.Char('Official Symbol', select=True)
+    long_name = fields.Char('Official Long Name', select=True)
     gene_id = fields.Char('Gene ID',
-        help="default code from NCBI Entrez database.", select='2')
+        help="default code from NCBI Entrez database.", select=True)
     chromosome = fields.Char('Affected Chromosome',
-        help="Name of the affected chromosome", select='2')
+        help="Name of the affected chromosome", select=True)
     location = fields.Char('Location', help="Locus of the chromosome")
     dominance = fields.Selection([
         ('d', 'dominant'),
         ('r', 'recessive'),
-        ], 'Dominance', select='2')
+        ], 'Dominance', select=True)
     info = fields.Text('Information', help="Name of the protein(s) affected")
 
     def get_rec_name(self, ids, name):
@@ -56,9 +56,9 @@ class PatientGeneticRisk(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.genetic.risk'
     _description = __doc__
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', select='1')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
-        'Disease Gene', select='1')
+        'Disease Gene', select=True)
 
 PatientGeneticRisk()
 
@@ -68,12 +68,12 @@ class FamilyDiseases(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.family.diseases'
     _description = __doc__
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', select='1')
-    name = fields.Many2One('gnuhealth.pathology', 'Disease', select='1')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
+    name = fields.Many2One('gnuhealth.pathology', 'Disease', select=True)
     xory = fields.Selection([
         ('m', 'Maternal'),
         ('f', 'Paternal'),
-        ], 'Maternal or Paternal', select='1')
+        ], 'Maternal or Paternal', select=True)
 
     relative = fields.Selection([
         ('mother', 'Mother'),
@@ -90,7 +90,7 @@ class FamilyDiseases(ModelSQL, ModelView):
         ], 'Relative',
         help="First degree = siblings, mother and father; second degree = " \
         "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
-        select='1')
+        select=True)
 
 FamilyDiseases()
 
