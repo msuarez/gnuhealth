@@ -140,33 +140,8 @@
                             <field name="name"/>
                             <label name="code"/>
                             <field name="code"/>
-                            <field name="critearea" colspan="4">
-                                <tree string="Analyte">
-                                    <field name="sequence"/>
-                                    <field name="name"/>
-                                    <field name="lower_limit"/>
-                                    <field name="upper_limit"/>                                   
-                                    <field name="normal_range"/>
-                                    <field name="units"/>
-                                </tree>
-                                <form string="Analyte">
-                                    <label name="name"/>
-                                    <field name="name"/>
-                                    <label name="units"/>
-                                    <field name="units"/>
-                                    <label name="sequence"/>
-                                    <field name="sequence"/>
-                                    <newline/>
-                                    <label name="lower_limit"/>
-                                    <field name="lower_limit"/>
-                                    <label name="upper_limit"/>
-                                    <field name="upper_limit"/>
-                                    <newline/>                         
-                                    <separator colspan="4" id="analyte_reference" string="Reference Value / Range"/>
-                                    <newline/>                         
-                                    <field colspan="4" name="normal_range"/>
-                                </form>
-                            </field>
+                            <field name="critearea" colspan="4"
+                                view_ids="health_lab.test_critearea_view_tree_test_type,health_lab.test_critearea_view_form_test_type"/>
                             <label name="product_id"/>
                             <field name="product_id"/>
                         </page>
@@ -175,6 +150,50 @@
                             <field name="info"/>
                         </page>
                     </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="test_critearea_view_tree_test_type">
+            <field name="model">gnuhealth.lab.test.critearea</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Analyte">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="lower_limit"/>
+                    <field name="upper_limit"/>
+                    <field name="normal_range"/>
+                    <field name="units"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="test_critearea_view_form_test_type">
+            <field name="model">gnuhealth.lab.test.critearea</field>
+            <field name="type">form</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Analyte">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="units"/>
+                    <field name="units"/>
+                    <label name="sequence"/>
+                    <field name="sequence"/>
+                    <newline/>
+                    <label name="lower_limit"/>
+                    <field name="lower_limit"/>
+                    <label name="upper_limit"/>
+                    <field name="upper_limit"/>
+                    <newline/>
+                    <separator colspan="4" id="analyte_reference"
+                        string="Reference Value / Range"/>
+                    <newline/>
+                    <field colspan="4" name="normal_range"/>
                 </form>
                 ]]>
             </field>
@@ -240,45 +259,8 @@
                             <field name="date_requested"/>
                             <label name="requestor"/>
                             <field name="requestor"/>
-
-                            <field name="critearea" colspan="4">
-                                <tree editable="top" string="Test Cases"
-                                colors="If(Bool(Eval('warning')),'red','black')">
-
-                                    <field name="warning"/>
-                                    <field name="excluded"/>
-                                    <field name="name"/>
-                                    <field name="result"/>                              
-                                    <field name="result_text"/>
-                                    <field name="lower_limit"/>
-                                    <field name="upper_limit"/>
-                                    <field name="units"/>
-                                    <field name="remarks"/>
-                                </tree>
-                                <form string="Test Cases">
-                                    <label name="warning"/>
-                                    <field name="warning"/>                               
-                                    <label name="excluded"/>
-                                    <field name="excluded"/>
-                                    <label name="name"/>
-                                    <field name="name"/>
-                                    <label name="result"/>
-                                    <field name="result"/>
-                                    <label name="units"/>
-                                    <field name="units"/>
-                                    <label name="result_text"/>
-                                    <field name="result_text"/>
-                                    <label name="lower_limit"/>
-                                    <field name="lower_limit"/>
-                                    <label name="upper_limit"/>
-                                    <field name="upper_limit"/>                           
-                                    <label name="normal_range"/>
-                                    <field name="normal_range"/>
-                                    <label name="remarks"/>
-                                    <field name="remarks"/>
-                                </form>
-                            </field>
-
+                            <field name="critearea" colspan="4"
+                                view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
                         </page>
                         <page string="Extra Info" id="lab_extra_info">
                             <label name="results"/>
@@ -288,6 +270,58 @@
                             <field name="diagnosis"/>
                         </page>
                     </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="test_critearea_view_tree_lab">
+            <field name="model">gnuhealth.lab.test.critearea</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string="Test Cases"
+                    colors="If(Bool(Eval('warning')), 'red', 'black')">
+                    <field name="warning"/>
+                    <field name="excluded"/>
+                    <field name="name"/>
+                    <field name="result"/>
+                    <field name="result_text"/>
+                    <field name="lower_limit"/>
+                    <field name="upper_limit"/>
+                    <field name="units"/>
+                    <field name="remarks"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="test_critearea_view_form_lab">
+            <field name="model">gnuhealth.lab.test.critearea</field>
+            <field name="type">form</field>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Test Cases">
+                    <label name="warning"/>
+                    <field name="warning"/>
+                    <label name="excluded"/>
+                    <field name="excluded"/>
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="result"/>
+                    <field name="result"/>
+                    <label name="units"/>
+                    <field name="units"/>
+                    <label name="result_text"/>
+                    <field name="result_text"/>
+                    <label name="lower_limit"/>
+                    <field name="lower_limit"/>
+                    <label name="upper_limit"/>
+                    <field name="upper_limit"/>
+                    <label name="normal_range"/>
+                    <field name="normal_range"/>
+                    <label name="remarks"/>
+                    <field name="remarks"/>
                 </form>
                 ]]>
             </field>
