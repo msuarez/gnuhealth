@@ -112,8 +112,8 @@ class MakeMedicalAppointmentInvoice(Wizard):
                 invoice_data['account'] = \
                         appointment.patient.name.account_receivable.id
                 invoice_data['payment_term'] = \
-                        appointment.patient.name.payment_term and \
-                        appointment.patient.name.payment_term.id or \
+                        appointment.patient.name.customer_payment_term and \
+                        appointment.patient.name.customer_payment_term.id or \
                         False
 
             prods_data = {}

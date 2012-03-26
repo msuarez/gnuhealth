@@ -126,8 +126,10 @@ class MakeMedicalPrescriptionInvoice(Wizard):
                 invoice_data['invoice_address'] = res
                 invoice_data['account'] = \
                         pres.patient.name.account_receivable.id
-                invoice_data['payment_term'] = pres.patient.name.payment_term \
-                        and pres.patient.name.payment_term.id or False
+                invoice_data['payment_term'] = \
+                        pres.patient.name.customer_payment_term and \
+                        pres.patient.name.customer_payment_term.id or \
+                        False
 
             prods_data = {}
             for pres_id in prescriptions:

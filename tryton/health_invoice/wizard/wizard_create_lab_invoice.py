@@ -129,8 +129,8 @@ class CreateTestInvoice(Wizard):
                 invoice_data['account'] = \
                         test.patient_id.name.account_receivable.id
                 invoice_data['payment_term'] = \
-                        test.patient_id.name.payment_term and \
-                        test.patient_id.name.payment_term.id or False
+                        test.patient_id.name.customer_payment_term and \
+                        test.patient_id.name.customer_payment_term.id or False
                 invoice_data['journal'] = self._journal_id()
 
             prods_data = {}
