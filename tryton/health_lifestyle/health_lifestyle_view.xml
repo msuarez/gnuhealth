@@ -140,9 +140,9 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Patient Recreational Drugs" fill="1">
+                <tree string="Patient Recreational Drugs">
                     <field name="patient"/>
-                    <field name="recreational_drug"/>
+                    <field name="recreational_drug" expand="1"/>
                 </tree>
                 ]]>
             </field>

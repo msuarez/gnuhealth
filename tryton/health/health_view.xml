@@ -593,9 +593,9 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Family Members" fill="1">
+                <tree string="Family Members">
                     <field name="party"/>
-                    <field name="role"/>
+                    <field name="role" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1790,12 +1790,12 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Patient vaccination" fill="1">
+                <tree string="Patient vaccination">
                     <field name="vaccine"/>
                     <field name="dose"/>
                     <field name="date"/>
                     <field name="next_dose_date"/>
-                    <field name="observations"/>
+                    <field name="observations" expand="1"/>
                 </tree>
                 ]]>
             </field>
