@@ -2111,7 +2111,7 @@
                         </page>
 
                         <page string="Signs" id="page_patient_evaluation_signs">
-                            <group colspan="2" string="Vital Signs"
+                            <group colspan="4" col="6" string="Vital Signs"
                                 id="group_patient_evaluation_vital_signs">
                                 <label name="temperature"/>
                                 <field name="temperature"/>
@@ -2126,19 +2126,24 @@
                                 <label name="osat"/>
                                 <field name="osat"/>
                             </group>
-                            <group colspan="2" string="Anthropometry"
+                            <newline/>
+                            <group colspan="4" col="6" string="Anthropometry"
                                 id="group_patient_evaluation_anthropometry">
                                 <label name="weight"/>
                                 <field name="weight"/>
                                 <label name="height"/>
                                 <field name="height"/>
-                                <label name="abdominal_circ"/>
-                                <field name="abdominal_circ"/>
                                 <label name="head_circumference"/>
                                 <field name="head_circumference"/>
-                                <newline/>
+                                <label name="abdominal_circ"/>
+                                <field name="abdominal_circ"/>
+                                <label name="hip"/>
+                                <field name="hip"/>
                                 <label name="bmi"/>
                                 <field name="bmi"/>
+                                <label name="whr"/>
+                                <field name="whr"/>
+
                             </group>
                             <newline/>
                             <group colspan="4" string="Nutrition"
@@ -2149,8 +2154,7 @@
                                 <field name="dehydration"/>
                             </group>
                             <newline/>
-                            <newline/>
-                            <group colspan="4" col="8"
+                            <group colspan="4" col="10" string="Other Signs"
                                 id="group_patient_evaluation_signs">
                                 <label name="acropachy"/>
                                 <field name="acropachy"/>
@@ -2225,16 +2229,15 @@
                                 <label name="xerosis"/>
                                 <field name="xerosis"/>
                             </group>
+
                             <newline/>
-                            <group colspan="2" string="Glucose"
-                                id="group_patient_evaluation_glucose">
+
+                            <group colspan="4" col="6" string="Glucose and Lipids Profile"
+                                id="group_patient_evaluation_glucose_lipid">
                                 <label name="glycemia"/>
                                 <field name="glycemia"/>
                                 <label name="hba1c"/>
                                 <field name="hba1c"/>
-                            </group>
-                            <group colspan="2" string="Lipids"
-                                id="group_patient_evaluation_vital_lipids">
                                 <label name="cholesterol_total"/>
                                 <field name="cholesterol_total"/>
                                 <label name="hdl"/>
@@ -2244,6 +2247,7 @@
                                 <label name="tag"/>
                                 <field name="tag"/>
                             </group>
+
                         </page>
 
                         <page string="Symptoms" id="page_patient_evaluation_symptoms">

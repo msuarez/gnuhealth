@@ -1389,7 +1389,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         on_change_with=['weight', 'height', 'bmi'])
     head_circumference = fields.Float('Head Circumference',
         help='Head circumference')
-    abdominal_circ = fields.Float('Abdominal Circumference')
+    abdominal_circ = fields.Float('Waist')
+    hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100')
+    whr = fields.Float('WHR', help='Waist to hip ratio',
+        on_change_with=['abdominal_circ', 'hip', 'whr'])
     edema = fields.Boolean('Edema',
         help='Please also encode the correspondent disease on the patient'\
         'disease history. For example,  R60.1 in ICD-10 encoding')
@@ -1645,6 +1648,16 @@ class PatientEvaluation(ModelSQL, ModelView):
         loc_verbal = vals.get('loc_verbal')
         loc = int(loc_motor) + int(loc_eyes) + int(loc_verbal)
         return loc
+
+# Calculate the WH ratio
+    def on_change_with_whr(self, vals):
+        waist = vals.get('abdominal_circ')
+        hip = vals.get('hip')
+        if (hip > 0):
+            whr = waist / hip
+        else:
+            whr = 0
+        return whr
 
 PatientEvaluation()
 
