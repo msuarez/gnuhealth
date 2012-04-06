@@ -1834,6 +1834,37 @@
         </record>
 
 
+<!-- PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESIS -->
+
+        <record model="ir.ui.view" id="gnuhealth_diagnostic_hypothesis_form">
+            <field name="model">gnuhealth.diagnostic_hypothesis</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Diagnostic Hypothesis">
+                    <label name="pathology"/>
+                    <field name="pathology"/>
+                    <newline/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_diagnostic_hypothesis_tree">
+            <field name="model">gnuhealth.diagnostic_hypothesis</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Patient Evaluation other diagnostic hypotheses">
+                    <field name="pathology"/>
+                    <field name="comments"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
 <!-- PATIENT DISEASES -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">
@@ -2442,6 +2473,8 @@
                         <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
                             <label name="diagnosis"/>
                             <field name="diagnosis" colspan="4"/>
+                            <newline/>
+                            <field name="diagnostic_hypothesis" colspan="4"/>
                             <newline/>
                             <separator string="Information on Diagnosis" colspan="2"
                                 id="separator_evaluation_diagnosis_1"/>

@@ -1307,18 +1307,30 @@ class PrescriptionLine(ModelSQL, ModelView):
 PrescriptionLine()
 
 
-# PATIENT DIRECTIONS
+# PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
     'Patient Directions'
     _name = 'gnuhealth.directions'
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
-    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure')
+    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
     comments = fields.Char('Comments')
 
 Directions()
 
+
+# PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
+class DiagnosticHypothesis(ModelSQL, ModelView):
+    'Other Diagnostic Hypothesis'
+    _name = 'gnuhealth.diagnostic_hypothesis'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    comments = fields.Char('Comments')
+
+DiagnosticHypothesis()
 
 class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
@@ -1542,6 +1554,8 @@ class PatientEvaluation(ModelSQL, ModelView):
         'movements')
     diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
         help='Presumptive Diagnosis')
+    diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
+        'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
     directions = fields.Text('Plan')
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
