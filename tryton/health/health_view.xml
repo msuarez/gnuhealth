@@ -1865,6 +1865,37 @@
             </field>
         </record>
 
+<!-- PATIENT EVALUATION CLINICAL FINDINGS - SIGNS AND SYMPTOMS -->
+
+        <record model="ir.ui.view" id="gnuhealth_signs_and_symptoms_form">
+            <field name="model">gnuhealth.signs_and_symptoms</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Clinical Findinds - Signs and Symptoms">
+                    <label name="clinical"/>
+                    <field name="clinical"/>
+                    <newline/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_signs_and_symptoms_tree">
+            <field name="model">gnuhealth.signs_and_symptoms</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Clinical Findinds - Signs and Symptoms">
+                    <field name="clinical"/>
+                    <field name="comments"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
 <!-- PATIENT DISEASES -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">
@@ -2144,7 +2175,7 @@
                             <field name="evaluation_summary" colspan="4"/>
                         </page>
 
-                        <page string="Signs" id="page_patient_evaluation_signs">
+                        <page string="Clinical" id="page_patient_evaluation_signs">
                             <group colspan="4" col="6" string="Vital Signs"
                                 id="group_patient_evaluation_vital_signs">
                                 <label name="temperature"/>
@@ -2179,6 +2210,7 @@
                                 <field name="whr"/>
 
                             </group>
+
                             <newline/>
                             <group colspan="4" string="Nutrition"
                                 id="group_patient_evaluation_nutrition">
@@ -2188,6 +2220,14 @@
                                 <field name="dehydration"/>
                             </group>
                             <newline/>
+
+                            <group colspan="4"
+                                id="group_patient_evaluation_signs_symptoms">
+                                <field name="signs_and_symptoms"/>
+                            </group>
+
+<!-- Deprecated : We will use the disease model ICD-10 for encoding signs and symptoms --> 
+<!--
                             <group colspan="4" col="10" string="Other Signs"
                                 id="group_patient_evaluation_signs">
                                 <label name="acropachy"/>
@@ -2263,8 +2303,9 @@
                                 <label name="xerosis"/>
                                 <field name="xerosis"/>
                             </group>
-
+-->
                             <newline/>
+
 
                             <group colspan="4" col="6" string="Glucose and Lipids Profile"
                                 id="group_patient_evaluation_glucose_lipid">
@@ -2283,7 +2324,8 @@
                             </group>
 
                         </page>
-
+<!-- Deprecated : We will use the disease model ICD-10 for encoding signs and symptoms --> 
+<!--
                         <page string="Symptoms" id="page_patient_evaluation_symptoms">
                             <group colspan="4" id="group_patient_evaluation_symptoms">
                                 <group colspan="4" string="Pain"
@@ -2431,7 +2473,7 @@
                                 </group>
                             </group>
                         </page>
-
+-->
                         <page string="Mental Status" id="page_patient_evaluation_mental">
                             <group string="Glasgow Coma Scale" colspan="4"
                                 id="group_patient_evaluation_glasgow">

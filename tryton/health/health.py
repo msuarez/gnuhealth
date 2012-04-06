@@ -1332,6 +1332,18 @@ class DiagnosticHypothesis(ModelSQL, ModelView):
 
 DiagnosticHypothesis()
 
+# PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
+class SignsAndSymptoms(ModelSQL, ModelView):
+    'Evaluation Signs and Symptoms'
+    _name = 'gnuhealth.signs_and_symptoms'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    clinical = fields.Many2One('gnuhealth.pathology', 'Sign / Symptom', required=True)
+    comments = fields.Char('Comments')
+
+SignsAndSymptoms()
+
 class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     _name = 'gnuhealth.patient.evaluation'
@@ -1557,6 +1569,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Presumptive Diagnosis')
     diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
         'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
+    signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
+        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation")
+
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
     directions = fields.Text('Plan')
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
