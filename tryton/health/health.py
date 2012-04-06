@@ -1362,6 +1362,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ], 'Evaluation Type', sort=False)
     chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
     notes_complaint = fields.Text('Complaint details')
+    present_illness = fields.Text('Present Illness')
     evaluation_summary = fields.Text('Evaluation Summary')
     glycemia = fields.Float('Glycemia',
         help='Last blood glucose level. Can be approximative.')

@@ -2135,10 +2135,13 @@
                             <label name="chief_complaint"/>
                             <field name="chief_complaint"/>
                             <newline/>
+                            <separator string="Present Illness" colspan="4"
+                                id="separator_present_illness"/>
+                            <field name="evaluation_summary" colspan="4"/>
+                            <newline/>
                             <separator string="Evaluation Summary" colspan="4"
                                 id="separator_evaluation_summary"/>
                             <field name="evaluation_summary" colspan="4"/>
-                            <newline/>
                         </page>
 
                         <page string="Signs" id="page_patient_evaluation_signs">
