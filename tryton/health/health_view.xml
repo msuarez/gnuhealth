@@ -1875,6 +1875,8 @@
                 <form string="Clinical Findinds - Signs and Symptoms">
                     <label name="clinical"/>
                     <field name="clinical"/>
+                    <label name="sign_or_symptom"/>
+                    <field name="sign_or_symptom"/>
                     <newline/>
                     <label name="comments"/>
                     <field name="comments"/>
@@ -1889,6 +1891,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Clinical Findinds - Signs and Symptoms">
+                    <field name="sign_or_symptom"/>
                     <field name="clinical"/>
                     <field name="comments"/>
                 </tree>
