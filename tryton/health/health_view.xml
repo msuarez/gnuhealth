@@ -2168,7 +2168,7 @@
                             <newline/>
                             <separator string="Present Illness" colspan="4"
                                 id="separator_present_illness"/>
-                            <field name="evaluation_summary" colspan="4"/>
+                            <field name="present_illness" colspan="4"/>
                             <newline/>
                             <separator string="Evaluation Summary" colspan="4"
                                 id="separator_evaluation_summary"/>
