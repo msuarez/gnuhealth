@@ -2153,34 +2153,42 @@
                     <notebook>
 
                         <page string="Main Info" id="page_patient_evaluation_main">
-                            <label name="patient"/>
-                            <field name="patient"/>
-                            <label name="evaluation_date"/>
-                            <field name="evaluation_date"/>
-                            <label name="evaluation_start"/>
-                            <field name="evaluation_start"/>
-                            <label name="evaluation_endtime"/>
-                            <field name="evaluation_endtime"/>
+                            <group id="evaluation_header">
+                                <label name="patient"/>
+                                <field name="patient"/>
+                                <label name="evaluation_date"/>
+                                <field name="evaluation_date"/>
+                                <label name="evaluation_start"/>
+                                <field name="evaluation_start"/>
+                                <label name="evaluation_endtime"/>
+                                <field name="evaluation_endtime"/>
+                                <newline/>
+                                <label name="evaluation_type"/>
+                                <field name="evaluation_type"/>
+                                <label name="derived_from"/>
+                                <field name="derived_from"/>
+                                <label name="information_source"/>
+                                <field name="information_source"/>
+                                <label name="reliable_info"/>
+                                <field name="reliable_info"/>
+                            </group>
                             <newline/>
-                            <label name="evaluation_type"/>
-                            <field name="evaluation_type"/>
-                            <label name="derived_from"/>
-                            <field name="derived_from"/>
-                            <label name="information_source"/>
-                            <field name="information_source"/>
-                            <label name="reliable_info"/>
-                            <field name="reliable_info"/>
-
-                            <label name="chief_complaint"/>
-                            <field name="chief_complaint"/>                          
+                            <separator colspan="4"
+                                id="separator_chief_complaint"/>
+                            <newline/>
+                            <group string="Chief Complaint" id="eval_chief_complaint">      
+                                <field name="chief_complaint"/>
+                            </group>                          
                             <newline/>
                             <separator string="Present Illness" colspan="4"
-                                id="separator_present_illness"/>
+                                id="group_present_illness"/>
                             <field name="present_illness" colspan="4"/>
                             <newline/>
-                            <separator string="Evaluation Summary" colspan="4"
-                                id="separator_evaluation_summary"/>
+
+                            <group string="Evaluation Summary" colspan="4"
+                                id="group_evaluation_summary">
                             <field name="evaluation_summary" colspan="4"/>
+                            </group>
                         </page>
 
                         <page string="Clinical" id="page_patient_evaluation_signs">
