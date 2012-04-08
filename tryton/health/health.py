@@ -1362,6 +1362,10 @@ class PatientEvaluation(ModelSQL, ModelView):
     next_evaluation = fields.Many2One('gnuhealth.appointment',
         'Next Appointment')
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
+    information_source = fields.Char('Information Source',help="Source of" \
+        "Information, eg : Self, relative, friend ...")
+    reliable_info = fields.Boolean ('Reliable',help="Uncheck this option" \
+        "if the information provided by the source seems not reliable")
     derived_from = fields.Many2One('gnuhealth.physician',
         'Derived from Doctor',
         help='Physician who escalated / derived the case')
@@ -1682,6 +1686,12 @@ class PatientEvaluation(ModelSQL, ModelView):
         loc_verbal = vals.get('loc_verbal')
         loc = int(loc_motor) + int(loc_eyes) + int(loc_verbal)
         return loc
+
+    def default_information_source(self):
+        return 'Self'
+    
+    def default_reliable_info(self):
+        return True
 
 # Calculate the WH ratio
     def on_change_with_whr(self, vals):

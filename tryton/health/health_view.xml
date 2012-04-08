@@ -2166,8 +2166,13 @@
                             <field name="evaluation_type"/>
                             <label name="derived_from"/>
                             <field name="derived_from"/>
+                            <label name="information_source"/>
+                            <field name="information_source"/>
+                            <label name="reliable_info"/>
+                            <field name="reliable_info"/>
+
                             <label name="chief_complaint"/>
-                            <field name="chief_complaint"/>
+                            <field name="chief_complaint"/>                          
                             <newline/>
                             <separator string="Present Illness" colspan="4"
                                 id="separator_present_illness"/>
