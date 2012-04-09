@@ -2237,11 +2237,16 @@
                             </group>
                             <newline/>
 
+                            <field name="signs_and_symptoms"/>
+
+                            <newline/>
+<!--
                             <group colspan="4"
                                 id="group_patient_evaluation_signs_symptoms">
-                                <field name="signs_and_symptoms"/>
+                                
                             </group>
 
+-->
 <!-- Deprecated : We will use the disease model ICD-10 for encoding signs and symptoms --> 
 <!--
                             <group colspan="4" col="10" string="Other Signs"
