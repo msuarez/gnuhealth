@@ -39,22 +39,22 @@ class Surgery(ModelSQL, ModelView):
         ('o', 'Optional'),
         ('r', 'Required'),
         ('u', 'Urgent'),
-        ], 'Surgery Classification', select=True)
+        ], 'Classification', sort=False)
     surgeon = fields.Many2One('gnuhealth.physician', 'Surgeon',
         help="Surgeon who did the procedure")
     anesthetist = fields.Many2One('gnuhealth.physician', 'Anesthetist',
         help="Anesthetist in charge")
-    date = fields.DateTime('Date of the surgery')
+    date = fields.DateTime('Date')
     age = fields.Char('Patient age',
         help="Patient age at the moment of the surgery. Can be estimative")
-    description = fields.Char('Description')
+    description = fields.Char('Description', required = True)
     preop_mallampati = fields.Selection([
-        ('Class 1', 'Full visibility of tonsils, uvula and soft palate'),
-        ('Class 2', 'Visibility of hard and soft palate, ' \
+        ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft palate'),
+        ('Class 2', 'Class 2: Visibility of hard and soft palate, ' \
                     'upper portion of tonsils and uvula'),
-        ('Class 3', 'Soft and hard palate and base of the uvula are visible'),
-        ('Class 4', 'Only Hard Palate visible'),
-        ], 'Mallampati Score', select=True)
+        ('Class 3', 'Class 3: Soft and hard palate and base of the uvula are visible'),
+        ('Class 4', 'Class 4: Only Hard Palate visible'),
+        ], 'Mallampati Score', sort=False)
     preop_bleeding_risk = fields.Boolean('Risk of Massive bleeding',
         help="Check this box if patient has a risk of loosing more than 500 " \
         "ml in adults of over 7ml/kg in infants. If so, make sure that " \
