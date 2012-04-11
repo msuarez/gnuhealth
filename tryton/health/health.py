@@ -1307,47 +1307,6 @@ class PrescriptionLine(ModelSQL, ModelView):
 PrescriptionLine()
 
 
-# PATIENT EVALUATION DIRECTIONS
-class Directions(ModelSQL, ModelView):
-    'Patient Directions'
-    _name = 'gnuhealth.directions'
-    _description = __doc__
-
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
-    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
-    comments = fields.Char('Comments')
-
-Directions()
-
-
-# PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
-class DiagnosticHypothesis(ModelSQL, ModelView):
-    'Other Diagnostic Hypothesis'
-    _name = 'gnuhealth.diagnostic_hypothesis'
-    _description = __doc__
-
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
-    comments = fields.Char('Comments')
-
-DiagnosticHypothesis()
-
-# PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
-class SignsAndSymptoms(ModelSQL, ModelView):
-    'Evaluation Signs and Symptoms'
-    _name = 'gnuhealth.signs_and_symptoms'
-    _description = __doc__
-
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    sign_or_symptom = fields.Selection ([
-        ('sign','Sign'),
-        ('symptom','Symptom')],
-        'Subjective / Objective', required=True)
-    clinical = fields.Many2One('gnuhealth.pathology', 'Sign or Symptom', required=True)
-    comments = fields.Char('Comments')
-
-SignsAndSymptoms()
-
 class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     _name = 'gnuhealth.patient.evaluation'
@@ -1704,6 +1663,49 @@ class PatientEvaluation(ModelSQL, ModelView):
         return whr
 
 PatientEvaluation()
+
+
+
+# PATIENT EVALUATION DIRECTIONS
+class Directions(ModelSQL, ModelView):
+    'Patient Directions'
+    _name = 'gnuhealth.directions'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
+    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
+    comments = fields.Char('Comments')
+
+Directions()
+
+
+# PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
+class DiagnosticHypothesis(ModelSQL, ModelView):
+    'Other Diagnostic Hypothesis'
+    _name = 'gnuhealth.diagnostic_hypothesis'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    comments = fields.Char('Comments')
+
+DiagnosticHypothesis()
+
+# PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
+class SignsAndSymptoms(ModelSQL, ModelView):
+    'Evaluation Signs and Symptoms'
+    _name = 'gnuhealth.signs_and_symptoms'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    sign_or_symptom = fields.Selection ([
+        ('sign','Sign'),
+        ('symptom','Symptom')],
+        'Subjective / Objective', required=True)
+    clinical = fields.Many2One('gnuhealth.pathology', 'Sign or Symptom', required=True)
+    comments = fields.Char('Comments')
+
+SignsAndSymptoms()
 
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
