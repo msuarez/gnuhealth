@@ -1672,7 +1672,7 @@ class Directions(ModelSQL, ModelView):
     _name = 'gnuhealth.directions'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
+    name = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
     procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
     comments = fields.Char('Comments')
 
