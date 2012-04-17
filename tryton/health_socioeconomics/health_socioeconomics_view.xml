@@ -19,34 +19,31 @@
                             <notebook>
 
                                 <page string="Main" id="page_ses_main">
-                                    <group colspan="6" id="group_socioeconomics_holder">
-
-                                        <group col="4" id="group_socioecomics_main">
-                                            <group col="4" id="group_ses_holder2">
-                                                <label name="ses"/>
-                                                <field name="ses"/>
-                                                <newline/>
-                                                <label name="education"/>
-                                                <field name="education"/>
-                                                <newline/>
-                                                <label name="housing"/>
-                                                <field name="housing"/>
-                                                <newline/>
-                                                <label name="occupation"/>
-                                                <field name="occupation"/>
-                                            </group>
+                                    <group colspan="4" col="8" id="group_socioeconomics_holder">
+                                        <group col="6" id="group_ses_holder2">
+                                            <label name="ses"/>
+                                            <field name="ses"/>
+                                            <label name="housing"/>
+                                            <field name="housing"/>
+                                        </group>
+                                        <newline/>
+                                        <group col="6" id="group_socioecomics_work">
+                                            <label name="education"/>
+                                            <field name="education"/>
+                                            <label name="occupation"/>
+                                            <field name="occupation"/>
                                             <newline/>
-                                            <group col="6" id="group_socioecomics_work">
-                                                <label name="works_at_home"/>
-                                                <field name="works_at_home"/>
-                                                <label name="hours_outside"/>
-                                                <field name="hours_outside"/>
-                                                <label name="hostile_area"/>
-                                                <field name="hostile_area"/>
-                                            </group>
+                                            <label name="works_at_home"/>
+                                            <field name="works_at_home"/>
+                                            <label name="hours_outside"/>
+                                            <field name="hours_outside"/>
+                                            <label name="hostile_area"/>
+                                            <field name="hostile_area"/>
                                         </group>
 
-                                        <group col="6" id="group_ses_infraestructure">
+                                        <newline/>
+
+                                        <group col="8" id="group_ses_infraestructure">
                                             <label name="sewers"/>
                                             <field name="sewers"/>
                                             <label name="water"/>
@@ -66,32 +63,32 @@
                                             <label name="internet"/>
                                             <field name="internet"/>
 
-                                            <newline/>
-                                            <field colspan="6" name="ses_notes"/>
                                         </group>
 
+                                    </group>
+                                    <newline/>
+                                    <group string="Notes" id="fio">
+                                        <field colspan="6" name="ses_notes"/>
                                     </group>
                                 </page>
 
                                 <page string="Family" id="page_family">
-                                    <group col="8" string="Family APGAR" id="group_ses_family_apgar">
+                                    <group colspan="4" col="6" string="Family APGAR" id="group_ses_family_apgar">
                                         <label name="fam_apgar_help" />
                                         <field name="fam_apgar_help" />
                                         <label name="fam_apgar_discussion"/>
                                         <field name="fam_apgar_discussion"/>
-                                        <newline/>
                                         <label name="fam_apgar_decisions"/>
                                         <field name="fam_apgar_decisions"/>
                                         <label name="fam_apgar_timesharing"/>
                                         <field name="fam_apgar_timesharing"/>
-                                        <newline/>
                                         <label name="fam_apgar_affection"/>
                                         <field name="fam_apgar_affection"/>
                                         <label name="fam_apgar_score"/>
                                         <field name="fam_apgar_score"/>
                                     </group>
-
-                                    <group string="Other Family Issues" id="group_ses_other_family_issues">
+                                    <newline/>
+                                    <group colspan="4" col="8" string="Other Family Issues" id="group_ses_other_family_issues">
                                         <label name="single_parent"/>
                                         <field name="single_parent"/>
                                         <label name="domestic_violence"/>

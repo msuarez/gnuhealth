@@ -738,7 +738,7 @@ class PatientData(ModelSQL, ModelView):
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', select=True)
+        ], 'Sex', required=True)
     marital_status = fields.Selection([
         ('s', 'Single'),
         ('m', 'Married'),
