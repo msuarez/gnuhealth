@@ -180,7 +180,7 @@
                                             <field name="sleep_during_daytime"/>
                                         </group>
                                         <newline/>
-                                        <group id="group_diet">
+                                        <group colspan="4" id="group_diet">
                                             <label name="number_of_meals"/>
                                             <field name="number_of_meals"/>
                                             <label name="eats_alone"/>
@@ -198,7 +198,8 @@
                                             <label name="diet_info"/>
                                             <field name="diet_info"/>
                                         </group>
-                                        <group col="2" id="group_lifestyle">
+                                        <newline/>
+                                        <group colspan="4" string="Lifestyle Info" id="group_lifestyle">
                                             <field name="lifestyle_info"/>
                                         </group>
 
@@ -253,9 +254,7 @@
                                             </group>
                                         </page>
                                         <page string="Recreational Drugs" id="page_recreational_drugs">
-                                            <group colspan="4" id="group_recreational_drugs">
-                                                <field name="recreational_drugs"/>
-                                            </group>
+                                            <field name="recreational_drugs"/>
                                         </page>
                                     </notebook>
                                 </page>
@@ -277,7 +276,7 @@
                                         <field name="anticonceptive"/>
                                     </group>
                                     <newline/>
-                                    <group colspan="2" string="Sexual practices" id="group_other_sexual_practices">
+                                    <group colspan="4" string="Sexual practices" id="group_other_sexual_practices">
                                         <group id="group_sexual_holder">
                                             <label name="sex_oral"/>
                                             <field name="sex_oral"/>
@@ -293,10 +292,11 @@
                                             <field name="sex_with_prostitutes"/>
                                         </group>
                                     </group>
-
-                                    <group colspan="2" string="Notes" id="group_sexuality_notes">
+                                    <newline/>
+                                    <group colspan="4" string="Notes" id="group_sexuality_notes">
                                         <field name="sexuality_info"/>
                                     </group>
+
                                 </page>
 
                                 <page string="Safety" id="page_safety">
