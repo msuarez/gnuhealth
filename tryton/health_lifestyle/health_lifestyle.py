@@ -284,14 +284,14 @@ class MedicalPatient(ModelSQL, ModelView):
         ('1', 'Active'),
         ('2', 'Passive'),
         ('3', 'Both'),
-        ], 'Oral Sex')
+        ], 'Oral Sex', sort=False)
 
     sex_anal = fields.Selection([
         ('0', 'None'),
         ('1', 'Active'),
         ('2', 'Passive'),
         ('3', 'Both'),
-        ], 'Anal Sex')
+        ], 'Anal Sex', sort=False)
 
     prostitute = fields.Boolean('Prostitute',
         help="Check if the patient (he or she) is a prostitute")
