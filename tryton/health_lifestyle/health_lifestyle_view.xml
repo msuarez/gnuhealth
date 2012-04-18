@@ -301,7 +301,7 @@
 
                                 <page string="Safety" id="page_safety">
 
-                                    <group string="Drive and Home Safety" id="group_drive_and_safety">
+                                    <group colspan="4" col="6" string="Drive and Home Safety" id="group_drive_and_safety">
                                         <label name="motorcycle_rider"/>
                                         <field name="motorcycle_rider"/>
                                         <label name="helmet"/>
