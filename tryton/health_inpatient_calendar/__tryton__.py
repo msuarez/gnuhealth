@@ -21,7 +21,7 @@
 
 {
     'name': 'GNU Health: Inpatient Calendar',
-    'version': '1.4.4',
+    'version': '1.4.5',
     'author': 'GNU Solidario',
     'website': 'http://health.gnu.org',
     'depends': [
