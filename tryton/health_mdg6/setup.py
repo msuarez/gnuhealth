@@ -33,22 +33,22 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_health',
+setup(name='trytond_health_mdg6',
     version=info.get('version', '0.0.1'),
     description=info.get('description', ''),
     author=info.get('author', ''),
     author_email=info.get('email', ''),
     url=info.get('website', ''),
     download_url='http://ftp.gnu.org/gnu/health/',
-    package_dir={'trytond.modules.health': '.'},
+    package_dir={'trytond.modules.health_mdg6': '.'},
     packages=[
-        'trytond.modules.health',
-        'trytond.modules.health.tests',
+        'trytond.modules.health_mdg6',
         ],
     package_data={
-        'trytond.modules.health': info.get('xml', []) \
+        'trytond.modules.health_mdg6': info.get('xml', []) \
             + info.get('translation', []) \
             + ['report/*.odt', 'icons/*.svg'],
+
         },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -70,7 +70,7 @@ setup(name='trytond_health',
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    health = trytond.modules.health
+    health_mdg6 = trytond.modules.health_mdg6
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
