@@ -43,7 +43,6 @@ setup(name='trytond_health_history',
     package_dir={'trytond.modules.health_history': '.'},
     packages=[
         'trytond.modules.health_history',
-        'trytond.modules.health_history.tests',
         ],
     package_data={
         'trytond.modules.health_history': info.get('xml', []) \
