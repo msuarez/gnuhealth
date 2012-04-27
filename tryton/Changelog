@@ -1,3 +1,332 @@
+changeset:   179:3da08750cd46
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Apr 19 22:33:26 2012 -0300
+summary:     add setup.py and MANIFEST.in to health_history module
+
+changeset:   178:9723664e7c0a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Apr 19 21:53:26 2012 -0300
+summary:     update version in modules to 1.4.5
+
+changeset:   177:778e7f2457e2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 18 23:40:14 2012 -0300
+summary:     health_history: Improve patient evaluation and clinical history report
+
+changeset:   176:336adb359d1a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 18 23:34:41 2012 -0300
+summary:     health_genetics: improve views and required fields.
+
+changeset:   175:b3abbb6fa3eb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 18 22:53:55 2012 -0300
+summary:     health_history: Improve patient evaluation and clinical history report
+
+changeset:   174:6cc900fc5dc8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 18 15:44:44 2012 -0300
+summary:     health_history : Update clinical history report
+
+changeset:   173:299a25e709f7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 18 10:39:49 2012 -0300
+summary:     health_history : Update clinical history report
+
+changeset:   172:b23aa12d4d2e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 23:17:46 2012 -0300
+summary:     lifestyle : update home safety view
+
+changeset:   171:36e8ba2c1ea8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 23:10:39 2012 -0300
+summary:     lifestyle : disable sorting in sexual habits
+
+changeset:   170:4a382bb21fbb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 22:54:10 2012 -0300
+summary:     improve patient evaluation signs and symptoms view
+
+changeset:   169:9920a65f6070
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 22:10:29 2012 -0300
+summary:     use the signs and symptoms section / category in the patient evaluation
+
+changeset:   168:f1a86d95f29b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 17:59:27 2012 -0300
+summary:     Update lifestyle view
+
+changeset:   167:34c2263dd1f2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 17 17:18:38 2012 -0300
+summary:     Make patient sex a required field. Update socioeconomics view
+
+changeset:   166:f0b6a3c99a9c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Apr 16 14:13:00 2012 -0300
+summary:     fix direction procedures in patient evaluation, to point to evaluation instead of patient
+
+changeset:   165:1f039427ce4e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 13 23:54:43 2012 -0300
+summary:     fix bug https://savannah.gnu.org/bugs/index.php?36171
+
+changeset:   164:900f89849b7b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Apr 11 08:22:24 2012 -0300
+summary:     fix bug https://savannah.gnu.org/bugs/index.php?36149
+
+changeset:   163:f425160d8157
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Apr 10 23:35:34 2012 -0300
+summary:     update surgery module view
+
+changeset:   162:e04dae60a6e2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Apr 09 00:07:11 2012 -0300
+summary:     Update evaluation form and report
+
+changeset:   161:69c381cbbcec
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Apr 08 18:08:38 2012 -0300
+summary:     Improve patient evaluation form
+
+changeset:   160:6d3ed96d6e3c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Apr 08 17:12:06 2012 -0300
+summary:     Add patient evaluation source of information and reliability
+
+changeset:   159:e4eafb0c4d33
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Apr 08 16:45:12 2012 -0300
+summary:     Remove LibreOffice report lock file
+
+changeset:   158:2f91964beaed
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Apr 08 16:44:17 2012 -0300
+summary:     move the clinical history to a new module health_history
+
+changeset:   157:2abce0d4c0b4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 07 21:21:28 2012 -0300
+summary:     Update patient evaluation report
+
+changeset:   156:6108f1b20b18
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 07 15:52:05 2012 -0300
+summary:     Update Patient Evaluation - History taking report
+
+changeset:   155:41b714b604a8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 07 11:53:53 2012 -0300
+summary:     Initial commit for patient evaluation / clinical history reporting
+
+changeset:   154:83d56800c038
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 06 17:15:36 2012 -0300
+summary:     health : Improvement in Signs and Symptoms encodings
+
+changeset:   153:c2ac1be3c4b2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 06 00:35:56 2012 -0300
+summary:     health : Added present illness in main evaluation form
+
+changeset:   152:0a264f6134e7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 06 00:06:49 2012 -0300
+summary:     Add Differential Diagnosis / Other hypotheses to presumptive diagnosis
+
+changeset:   151:f982831f8dd8
+parent:      147:f9acb460f755
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Apr 05 19:57:47 2012 -0300
+summary:     Improve Patient evaluation form. Add WHR
+
+changeset:   150:a082a290b3cc
+branch:      unstable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Mar 26 17:52:31 2012 -0300
+summary:     Rename field payment_term to customer_payment_term
+
+changeset:   149:6f17aab7147a
+branch:      unstable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Mar 26 14:24:40 2012 -0300
+summary:     Replace nested view by reference id
+
+changeset:   148:557c20b25f3b
+branch:      unstable
+parent:      145:8f8b0f9c90d1
+parent:      147:f9acb460f755
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Mar 26 01:16:29 2012 -0300
+summary:     Merge with default
+
+changeset:   147:f9acb460f755
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Mar 26 01:09:45 2012 -0300
+summary:     Change select=1|2 to select=True
+
+changeset:   146:1f3a12971d70
+parent:      141:83ad9ba5f236
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sun Mar 25 15:48:04 2012 -0300
+summary:     Remove name field in ir.property (patch from unstable)
+
+changeset:   145:8f8b0f9c90d1
+branch:      unstable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sun Mar 25 14:28:47 2012 -0300
+summary:     Remove name field in ir.property
+
+changeset:   144:78b92c458e8e
+branch:      unstable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sun Mar 25 14:13:03 2012 -0300
+summary:     Add data for fields list_price and cost_price, both required in product model
+
+changeset:   143:2420da7f9a6c
+branch:      unstable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sun Mar 25 00:39:18 2012 -0300
+summary:     Replace fill by expand
+
+changeset:   142:c8ce6b3e728f
+branch:      unstable
+parent:      138:c22208e22f6b
+parent:      141:83ad9ba5f236
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Mar 24 13:30:42 2012 -0300
+summary:     Merge with default
+
+changeset:   141:83ad9ba5f236
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Mar 21 19:26:37 2012 -0300
+summary:     Style code refactoring for health module
+
+changeset:   140:8ad09e133551
+parent:      134:67bec2b10070
+parent:      139:ff1b8999c182
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Mar 20 23:14:05 2012 -0300
+summary:     New merge from unstable
+
+changeset:   139:ff1b8999c182
+parent:      137:aa79dbe7376c
+parent:      138:c22208e22f6b
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Mar 20 22:57:28 2012 -0300
+summary:     Merge with unstable
+
+changeset:   138:c22208e22f6b
+branch:      unstable
+parent:      136:1d12c14ee20d
+parent:      137:aa79dbe7376c
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Mar 20 11:24:45 2012 -0300
+summary:     Merge with default
+
+changeset:   137:aa79dbe7376c
+parent:      135:0b969a7a3826
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Mar 20 11:21:21 2012 -0300
+summary:     health : Fix missing of patient contact information when printing prescriptions
+
+changeset:   136:1d12c14ee20d
+branch:      unstable
+parent:      131:59c5b25db0b9
+parent:      135:0b969a7a3826
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Mar 20 00:30:20 2012 -0300
+summary:     Merge with default
+
+changeset:   135:0b969a7a3826
+parent:      133:45135a44f0a5
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Mar 20 00:25:26 2012 -0300
+summary:     health_invoice : Fix wrong on_change_appointment_date function
+
+changeset:   134:67bec2b10070
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Mar 20 23:09:52 2012 -0300
+summary:     Add groups to pathologies
+
+changeset:   133:45135a44f0a5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Mar 19 23:20:32 2012 -0300
+summary:     health_MDG6 :Update definition for Tuberculosis lab tests
+
+changeset:   132:b8e866af1cef
+parent:      130:8d4c9a215b4b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Mar 19 21:14:13 2012 -0300
+summary:     Initial commit for health_mdg6
+
+changeset:   131:59c5b25db0b9
+branch:      unstable
+parent:      128:caec8b377cad
+parent:      130:8d4c9a215b4b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Mar 19 17:02:56 2012 -0300
+summary:     Merge with default
+
+changeset:   130:8d4c9a215b4b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Mar 19 16:47:05 2012 -0300
+summary:     Update tests.
+
+changeset:   129:96debdf0fff9
+parent:      127:fa5437ec1e02
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Mar 19 16:46:23 2012 -0300
+summary:     Fix missing depends on fields.
+
+changeset:   128:caec8b377cad
+branch:      unstable
+parent:      126:9d0d4f74ade6
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Mar 16 19:02:12 2012 -0300
+summary:     Fixes for wrong merge
+
+changeset:   127:fa5437ec1e02
+parent:      125:9dd5b503d686
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Mar 16 18:07:00 2012 -0300
+summary:     Update default release version
+
+changeset:   126:9d0d4f74ade6
+branch:      unstable
+parent:      115:dbfeadf9f8ae
+parent:      125:9dd5b503d686
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Mar 12 19:46:45 2012 -0300
+summary:     Commiting previous unresolved merge
+
+changeset:   125:9dd5b503d686
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Mar 12 17:06:19 2012 -0300
+summary:     Added tag 1.4.4 for changeset ccc1709b5d4a
+
+changeset:   124:ccc1709b5d4a
+tag:         1.4.4
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 11 01:35:00 2012 -0300
+summary:     Add qrcode library requeriment in qrcodes module
+
+changeset:   123:a5ee7a9eb636
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 11 00:46:17 2012 -0300
+summary:     health_qrcodes: Fix setup.py
+
+changeset:   122:cfc7a3dd84df
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 10 22:41:23 2012 -0300
+summary:     Update Changelog and configure.ac
+
+
 changeset:   121:ef78bba8a003
 tag:         tip
 user:        Luis Falcon <lfalcon@gnusolidario.org>

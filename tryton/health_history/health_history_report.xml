@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.action.report" id="report_patient_evaluation">
+            <field name="name">Patient Evaluation and History</field>
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="report_name">patient.evaluation</field>
+            <field name="report">health_history/report/patient_evaluation.odt</field>
+        </record>
+
+        <record model="ir.action.keyword" id="keyword_patient_evaluation">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient.evaluation,-1</field>
+            <field name="action" ref="report_patient_evaluation"/>
+        </record>
+
+    </data>
+</tryton>

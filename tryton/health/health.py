@@ -738,7 +738,7 @@ class PatientData(ModelSQL, ModelView):
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', select=True)
+        ], 'Sex', required=True)
     marital_status = fields.Selection([
         ('s', 'Single'),
         ('m', 'Married'),
@@ -1307,19 +1307,6 @@ class PrescriptionLine(ModelSQL, ModelView):
 PrescriptionLine()
 
 
-# PATIENT DIRECTIONS
-class Directions(ModelSQL, ModelView):
-    'Patient Directions'
-    _name = 'gnuhealth.directions'
-    _description = __doc__
-
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
-    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure')
-    comments = fields.Char('Comments')
-
-Directions()
-
-
 class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     _name = 'gnuhealth.patient.evaluation'
@@ -1334,6 +1321,10 @@ class PatientEvaluation(ModelSQL, ModelView):
     next_evaluation = fields.Many2One('gnuhealth.appointment',
         'Next Appointment')
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
+    information_source = fields.Char('Information Source',help="Source of" \
+        "Information, eg : Self, relative, friend ...")
+    reliable_info = fields.Boolean ('Reliable',help="Uncheck this option" \
+        "if the information provided by the source seems not reliable")
     derived_from = fields.Many2One('gnuhealth.physician',
         'Derived from Doctor',
         help='Physician who escalated / derived the case')
@@ -1350,6 +1341,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ], 'Evaluation Type', sort=False)
     chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
     notes_complaint = fields.Text('Complaint details')
+    present_illness = fields.Text('Present Illness')
     evaluation_summary = fields.Text('Evaluation Summary')
     glycemia = fields.Float('Glycemia',
         help='Last blood glucose level. Can be approximative.')
@@ -1389,7 +1381,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         on_change_with=['weight', 'height', 'bmi'])
     head_circumference = fields.Float('Head Circumference',
         help='Head circumference')
-    abdominal_circ = fields.Float('Abdominal Circumference')
+    abdominal_circ = fields.Float('Waist')
+    hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100')
+    whr = fields.Float('WHR', help='Waist to hip ratio',
+        on_change_with=['abdominal_circ', 'hip', 'whr'])
     edema = fields.Boolean('Edema',
         help='Please also encode the correspondent disease on the patient'\
         'disease history. For example,  R60.1 in ICD-10 encoding')
@@ -1539,6 +1534,11 @@ class PatientEvaluation(ModelSQL, ModelView):
         'movements')
     diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
         help='Presumptive Diagnosis')
+    diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
+        'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
+    signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
+        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation")
+
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
     directions = fields.Text('Plan')
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
@@ -1646,7 +1646,66 @@ class PatientEvaluation(ModelSQL, ModelView):
         loc = int(loc_motor) + int(loc_eyes) + int(loc_verbal)
         return loc
 
+    def default_information_source(self):
+        return 'Self'
+    
+    def default_reliable_info(self):
+        return True
+
+# Calculate the WH ratio
+    def on_change_with_whr(self, vals):
+        waist = vals.get('abdominal_circ')
+        hip = vals.get('hip')
+        if (hip > 0):
+            whr = waist / hip
+        else:
+            whr = 0
+        return whr
+
 PatientEvaluation()
+
+
+
+# PATIENT EVALUATION DIRECTIONS
+class Directions(ModelSQL, ModelView):
+    'Patient Directions'
+    _name = 'gnuhealth.directions'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
+    comments = fields.Char('Comments')
+
+Directions()
+
+
+# PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
+class DiagnosticHypothesis(ModelSQL, ModelView):
+    'Other Diagnostic Hypothesis'
+    _name = 'gnuhealth.diagnostic_hypothesis'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    comments = fields.Char('Comments')
+
+DiagnosticHypothesis()
+
+# PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
+class SignsAndSymptoms(ModelSQL, ModelView):
+    'Evaluation Signs and Symptoms'
+    _name = 'gnuhealth.signs_and_symptoms'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    sign_or_symptom = fields.Selection ([
+        ('sign','Sign'),
+        ('symptom','Symptom')],
+        'Subjective / Objective', required=True)
+    clinical = fields.Many2One('gnuhealth.pathology', 'Sign or Symptom', domain=[('code', 'like','R%' )], required=True)
+    comments = fields.Char('Comments')
+
+SignsAndSymptoms()
 
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE

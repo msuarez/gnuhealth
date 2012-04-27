@@ -115,10 +115,10 @@
                 <![CDATA[
                 <form string="Patient Genetic Family Diseases">
                     <label name="name"/>
-                    <field name="name"/>
+                    <field colspan="4" name="name"/>
+                    <newline/>
                     <label name="xory"/>
                     <field name="xory"/>
-                    <newline/>
                     <label name="relative"/>
                     <field name="relative"/>
                 </form>

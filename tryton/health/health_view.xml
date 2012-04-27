@@ -1834,6 +1834,78 @@
         </record>
 
 
+<!-- PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESIS -->
+
+        <record model="ir.ui.view" id="gnuhealth_diagnostic_hypothesis_form">
+            <field name="model">gnuhealth.diagnostic_hypothesis</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Diagnostic Hypothesis">
+                    <label name="pathology"/>
+                    <field name="pathology"/>
+                    <newline/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_diagnostic_hypothesis_tree">
+            <field name="model">gnuhealth.diagnostic_hypothesis</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Patient Evaluation other diagnostic hypotheses">
+                    <field name="pathology"/>
+                    <field name="comments"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+<!-- PATIENT EVALUATION CLINICAL FINDINGS - SIGNS AND SYMPTOMS -->
+
+        <record model="ir.ui.view" id="gnuhealth_signs_and_symptoms_form">
+            <field name="model">gnuhealth.signs_and_symptoms</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Clinical Findinds - Signs and Symptoms">
+
+                    <group colspan="4" string="Sign or Symptom" id="group_sign_symptom">
+                        <field name="clinical"/>
+                    </group>
+
+                    <newline/>
+
+                    <label name="sign_or_symptom"/>
+                    <field name="sign_or_symptom"/>
+
+                    <newline/>
+                    <separator string="Comments" id="separator_signs_symptoms" colspan="4"/>
+                    <newline/>
+                    <field name="comments" colspan="4"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_signs_and_symptoms_tree">
+            <field name="model">gnuhealth.signs_and_symptoms</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Clinical Findinds - Signs and Symptoms">
+                    <field name="sign_or_symptom"/>
+                    <field name="clinical"/>
+                    <field name="comments"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
 <!-- PATIENT DISEASES -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">
@@ -2088,30 +2160,46 @@
                     <notebook>
 
                         <page string="Main Info" id="page_patient_evaluation_main">
-                            <label name="patient"/>
-                            <field name="patient"/>
-                            <label name="evaluation_date"/>
-                            <field name="evaluation_date"/>
-                            <label name="evaluation_start"/>
-                            <field name="evaluation_start"/>
-                            <label name="evaluation_endtime"/>
-                            <field name="evaluation_endtime"/>
+                            <group id="evaluation_header">
+                                <label name="patient"/>
+                                <field name="patient"/>
+                                <label name="evaluation_date"/>
+                                <field name="evaluation_date"/>
+                                <label name="evaluation_start"/>
+                                <field name="evaluation_start"/>
+                                <label name="evaluation_endtime"/>
+                                <field name="evaluation_endtime"/>
+                                <newline/>
+                                <label name="evaluation_type"/>
+                                <field name="evaluation_type"/>
+                                <label name="derived_from"/>
+                                <field name="derived_from"/>
+                                <label name="information_source"/>
+                                <field name="information_source"/>
+                                <label name="reliable_info"/>
+                                <field name="reliable_info"/>
+                            </group>
                             <newline/>
-                            <label name="evaluation_type"/>
-                            <field name="evaluation_type"/>
-                            <label name="derived_from"/>
-                            <field name="derived_from"/>
-                            <label name="chief_complaint"/>
-                            <field name="chief_complaint"/>
+                            <separator colspan="4"
+                                id="separator_chief_complaint"/>
                             <newline/>
-                            <separator string="Evaluation Summary" colspan="4"
-                                id="separator_evaluation_summary"/>
+                            <group string="Chief Complaint" id="eval_chief_complaint">      
+                                <field name="chief_complaint"/>
+                            </group>                          
+                            <newline/>
+                            <separator string="Present Illness" colspan="4"
+                                id="group_present_illness"/>
+                            <field name="present_illness" colspan="4"/>
+                            <newline/>
+
+                            <group string="Evaluation Summary" colspan="4"
+                                id="group_evaluation_summary">
                             <field name="evaluation_summary" colspan="4"/>
-                            <newline/>
+                            </group>
                         </page>
 
-                        <page string="Signs" id="page_patient_evaluation_signs">
-                            <group colspan="2" string="Vital Signs"
+                        <page string="Clinical" id="page_patient_evaluation_signs">
+                            <group colspan="4" col="6" string="Vital Signs"
                                 id="group_patient_evaluation_vital_signs">
                                 <label name="temperature"/>
                                 <field name="temperature"/>
@@ -2126,20 +2214,26 @@
                                 <label name="osat"/>
                                 <field name="osat"/>
                             </group>
-                            <group colspan="2" string="Anthropometry"
+                            <newline/>
+                            <group colspan="4" col="6" string="Anthropometry"
                                 id="group_patient_evaluation_anthropometry">
                                 <label name="weight"/>
                                 <field name="weight"/>
                                 <label name="height"/>
                                 <field name="height"/>
+                                <label name="whr"/>
+                                <field name="whr"/>
                                 <label name="abdominal_circ"/>
                                 <field name="abdominal_circ"/>
-                                <label name="head_circumference"/>
-                                <field name="head_circumference"/>
-                                <newline/>
+                                <label name="hip"/>
+                                <field name="hip"/>
                                 <label name="bmi"/>
                                 <field name="bmi"/>
+                                <label name="head_circumference"/>
+                                <field name="head_circumference"/>
+
                             </group>
+
                             <newline/>
                             <group colspan="4" string="Nutrition"
                                 id="group_patient_evaluation_nutrition">
@@ -2149,8 +2243,20 @@
                                 <field name="dehydration"/>
                             </group>
                             <newline/>
+
+                            <field name="signs_and_symptoms"/>
+
                             <newline/>
-                            <group colspan="4" col="8"
+<!--
+                            <group colspan="4"
+                                id="group_patient_evaluation_signs_symptoms">
+                                
+                            </group>
+
+-->
+<!-- Deprecated : We will use the disease model ICD-10 for encoding signs and symptoms --> 
+<!--
+                            <group colspan="4" col="10" string="Other Signs"
                                 id="group_patient_evaluation_signs">
                                 <label name="acropachy"/>
                                 <field name="acropachy"/>
@@ -2225,16 +2331,16 @@
                                 <label name="xerosis"/>
                                 <field name="xerosis"/>
                             </group>
+-->
                             <newline/>
-                            <group colspan="2" string="Glucose"
-                                id="group_patient_evaluation_glucose">
+
+
+                            <group colspan="4" col="6" string="Glucose and Lipids Profile"
+                                id="group_patient_evaluation_glucose_lipid">
                                 <label name="glycemia"/>
                                 <field name="glycemia"/>
                                 <label name="hba1c"/>
                                 <field name="hba1c"/>
-                            </group>
-                            <group colspan="2" string="Lipids"
-                                id="group_patient_evaluation_vital_lipids">
                                 <label name="cholesterol_total"/>
                                 <field name="cholesterol_total"/>
                                 <label name="hdl"/>
@@ -2244,8 +2350,10 @@
                                 <label name="tag"/>
                                 <field name="tag"/>
                             </group>
-                        </page>
 
+                        </page>
+<!-- Deprecated : We will use the disease model ICD-10 for encoding signs and symptoms --> 
+<!--
                         <page string="Symptoms" id="page_patient_evaluation_symptoms">
                             <group colspan="4" id="group_patient_evaluation_symptoms">
                                 <group colspan="4" string="Pain"
@@ -2393,7 +2501,7 @@
                                 </group>
                             </group>
                         </page>
-
+-->
                         <page string="Mental Status" id="page_patient_evaluation_mental">
                             <group string="Glasgow Coma Scale" colspan="4"
                                 id="group_patient_evaluation_glasgow">
@@ -2438,6 +2546,8 @@
                         <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
                             <label name="diagnosis"/>
                             <field name="diagnosis" colspan="4"/>
+                            <newline/>
+                            <field name="diagnostic_hypothesis" colspan="4"/>
                             <newline/>
                             <separator string="Information on Diagnosis" colspan="2"
                                 id="separator_evaluation_diagnosis_1"/>

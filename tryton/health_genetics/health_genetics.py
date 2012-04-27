@@ -58,7 +58,7 @@ class PatientGeneticRisk(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
-        'Disease Gene', select=True)
+        'Disease Gene', required=True)
 
 PatientGeneticRisk()
 
@@ -69,7 +69,7 @@ class FamilyDiseases(ModelSQL, ModelView):
     _description = __doc__
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
-    name = fields.Many2One('gnuhealth.pathology', 'Disease', select=True)
+    name = fields.Many2One('gnuhealth.pathology', 'Disease', required=True)
     xory = fields.Selection([
         ('m', 'Maternal'),
         ('f', 'Paternal'),
@@ -90,7 +90,7 @@ class FamilyDiseases(ModelSQL, ModelView):
         ], 'Relative',
         help="First degree = siblings, mother and father; second degree = " \
         "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
-        select=True)
+        required=True)
 
 FamilyDiseases()
 
