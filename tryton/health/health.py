@@ -586,28 +586,23 @@ class PartyPatient (ModelSQL, ModelView):
             ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
         ]
 
-# We use this method overwrite to make the fields that have a unique constraint
-# get the NULL value at PostgreSQL level, and not the value '' coming from the
-# client
+    def write(self, ids, values):
+        # We use this method overwrite to make the fields that have a unique
+        # constraint get the NULL value at PostgreSQL level, and not the value
+        # '' coming from the client
+        if 'ref' in values and not values['ref']:
+            values = values.copy()
+            values['ref'] = None
+        return super(PartyPatient, self).write(ids, values)
 
-    def write(self, ids, vals):
-        if 'ref' in vals.keys():
-            if vals['ref'] == '':
-                vals['ref'] = None
-        
-        return super(PartyPatient, self).write(ids, vals)
-
-# We use this method overwrite to make the fields that have a unique constraint
-# get the NULL value at PostgreSQL level, and not the value '' coming from the
-# client
-
-    def create(self, vals):
-        if 'ref' in vals.keys():
-            if vals['ref'] == '':
-                vals['ref'] = None
-        
-        return super(PartyPatient, self).create(vals)
-
+    def create(self, values):
+        # We use this method overwrite to make the fields that have a unique
+        # constraint get the NULL value at PostgreSQL level, and not the value
+        # '' coming from the client
+        if 'ref' in values and not values['ref']:
+            values = values.copy()
+            values['ref'] = None
+        return super(PartyPatient, self).create(values)
 
     def get_rec_name(self, ids, name):
         if not ids:
