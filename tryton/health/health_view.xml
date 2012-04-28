@@ -105,9 +105,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Dosages">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="abbreviation"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
+                    <field name="abbreviation" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -158,8 +158,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="doses">
-                    <field name="name"/>
-                    <field name="desc"/>
+                    <field name="name" expand="1"/>
+                    <field name="desc" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -210,8 +210,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Drug Forms">
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -262,8 +262,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Drug Forms">
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -314,8 +314,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Occupations">
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -368,9 +368,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Ethnicities">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="notes"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
+                    <field name="notes" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -421,8 +421,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Medical Specialties">
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -481,10 +481,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Physicians">
-                    <field name="name"/>
-                    <field name="specialty"/>
-                    <field name="code"/>
-                    <field name="institution"/>
+                    <field name="name" expand="1"/>
+                    <field name="specialty" expand="1"/>
+                    <field name="code" expand="1"/>
+                    <field name="institution" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -544,8 +544,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Families">
-                    <field name="name"/>
-                    <field name="operational_sector"/>
+                    <field name="name" expand="1"/>
+                    <field name="operational_sector" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -594,7 +594,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Family Members">
-                    <field name="party"/>
+                    <field name="party" expand="1"/>
                     <field name="role" expand="1"/>
                 </tree>
                 ]]>
@@ -646,8 +646,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Operational Areas List">
-                    <field name="name"/>
-                    <field name="info"/>
+                    <field name="name" expand="1"/>
+                    <field name="info" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -702,9 +702,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Operational Sector List">
-                    <field name="name"/>
-                    <field name="operational_area"/>
-                    <field name="info"/>
+                    <field name="name" expand="1"/>
+                    <field name="operational_area" expand="1"/>
+                    <field name="info" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -822,17 +822,17 @@
                     If(Equal(Eval('pregnancy_category'), 'D'), 'brown',
                     If(Equal(Eval('pregnancy_category'), 'C'), 'orange',
                     If(Equal(Eval('pregnancy_category'), 'N'), 'black', 'blue'))))">
-                    <field name="name"/>
-                    <field name="active_component"/>
+                    <field name="name" expand="1"/>
+                    <field name="active_component" expand="1"/>
                     <field name="category"/>
-                    <field name="pregnancy_warning"/>
-                    <field name="pregnancy_category"/>
+                    <field name="pregnancy_warning" expand="1"/>
+                    <field name="pregnancy_category" expand="1"/>
 
 <!-- TODO : Work on the FIELDS.RELATED conversion to Tryton
                     <field name="price"/>
                     <field name="qty_available" domain="[('qty_available',’>’,0)]"/>
 -->
-                    <field name="adverse_reaction"/>
+                    <field name="adverse_reaction" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -904,7 +904,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Medicament Categories">
-                    <field name="name"/>
+                    <field name="name" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -917,7 +917,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Medicament Categories" keyword_open="1">
-                    <field name="name"/>
+                    <field name="name" expand="1"/>
                     <field name="parent" tree_invisible="1"/>
                     <field name="childs" tree_invisible="1"/>
                 </tree>
@@ -984,10 +984,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Pathology Groups">
-                    <field name="name"/>
-                    <field name="group"/>
-                    <field name="code"/>
-                    <field name="desc"/>
+                    <field name="name" expand="1"/>
+                    <field name="group" expand="1"/>
+                    <field name="code" expand="1"/>
+                    <field name="desc" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1064,9 +1064,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Pathology">
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="category"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
+                    <field name="category" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1116,7 +1116,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Disease Categories">
-                    <field name="name"/>
+                    <field name="name" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1129,7 +1129,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Disease Categories" keyword_open="1">
-                    <field name="name"/>
+                    <field name="name" expand="1"/>
                     <field name="parent" tree_invisible="1"/>
                     <field name="childs" tree_invisible="1"/>
                 </tree>
@@ -1208,14 +1208,14 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Insurance List">
-                    <field name="number"/>
-                    <field name="name"/>
+                    <field name="number" expand="1" />
+                    <field name="name" expand="1"/>
                     <field name="plan_id"/>
                     <field name="insurance_type"/>
                     <field name="company"/>
                     <field name="category"/>
                     <field name="member_since"/>
-                    <field name="member_exp"/>
+                    <field name="member_exp" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1270,8 +1270,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Insurance Plans">
-                    <field name="name"/>
-                    <field name="is_default"/>
+                    <field name="name" expand="1"/>
+                    <field name="is_default" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1470,8 +1470,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Procedure">
-                    <field name="name"/>
-                    <field name="description"/>
+                    <field name="name" expand="1"/>
+                    <field name="description" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1615,12 +1615,12 @@
                 <![CDATA[
                 <tree string="Patient Medication"
                     colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="medicament"/>
-                    <field name="start_treatment"/>
-                    <field name="end_treatment"/>
+                    <field name="medicament" expand="1"/>
+                    <field name="start_treatment" expand="1"/>
+                    <field name="end_treatment" expand="1"/>
                     <field name="course_completed"/>
                     <field name="discontinued"/>
-                    <field name="is_active"/>
+                    <field name="is_active" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1675,14 +1675,14 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Patient appointment">
-                    <field name="name"/>
-                    <field name="patient"/>
-                    <field name="appointment_type"/>
-                    <field name="urgency"/>
+                    <field name="name" expand="1"/>
+                    <field name="patient" expand="1"/>
+                    <field name="appointment_type" expand="1"/>
+                    <field name="urgency" expand="1"/>
                     <field name="appointment_date"/>
                     <field name="speciality"/>
                     <field name="doctor"/>
-                    <field name="institution"/>
+                    <field name="institution" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1791,10 +1791,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Patient vaccination">
-                    <field name="vaccine"/>
-                    <field name="dose"/>
-                    <field name="date"/>
-                    <field name="next_dose_date"/>
+                    <field name="vaccine" expand="1"/>
+                    <field name="dose" expand="1"/>
+                    <field name="date" expand="1"/>
+                    <field name="next_dose_date" expand="1"/>
                     <field name="observations" expand="1"/>
                 </tree>
                 ]]>
@@ -1826,8 +1826,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Patient directions">
-                    <field name="procedure"/>
-                    <field name="comments"/>
+                    <field name="procedure" expand="1"/>
+                    <field name="comments" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1858,8 +1858,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Patient Evaluation other diagnostic hypotheses">
-                    <field name="pathology"/>
-                    <field name="comments"/>
+                    <field name="pathology" expand="1"/>
+                    <field name="comments" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1898,9 +1898,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Clinical Findinds - Signs and Symptoms">
-                    <field name="sign_or_symptom"/>
-                    <field name="clinical"/>
-                    <field name="comments"/>
+                    <field name="sign_or_symptom" expand="1"/>
+                    <field name="clinical" expand="1"/>
+                    <field name="comments" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -1981,8 +1981,8 @@
                 <![CDATA[
                 <tree string="Patient diseases"
                     colors="If(Bool(Eval('is_infectious')),'orange','black')">
-                    <field name="pathology"/>
-                    <field name="status"/>
+                    <field name="pathology" expand="1"/>
+                    <field name="status" expand="1"/>
                     <field name="is_active"/>
                     <field name="is_infectious"/>
                     <field name="disease_severity"/>
@@ -1990,7 +1990,7 @@
                     <field name="pregnancy_warning"/>
                     <field name="diagnosed_date"/>
                     <field name="healed_date"/>
-                    <field name="short_comment"/>
+                    <field name="short_comment" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2119,10 +2119,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="patient">
-                    <field name="name"/>
-                    <field name="lastname"/>
-                    <field name="ssn"/>
-                    <field name="identification_code"/>
+                    <field name="name" expand="1"/>
+                    <field name="lastname" expand="1"/>
+                    <field name="ssn" expand="1"/>
+                    <field name="identification_code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2576,14 +2576,14 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Evaluations">
-                    <field name="patient"/>
-                    <field name="evaluation_date"/>
-                    <field name="chief_complaint"/>
+                    <field name="patient" expand="1"/>
+                    <field name="evaluation_date" expand="1"/>
+                    <field name="chief_complaint" expand="1"/>
                     <field name="bmi"/>
                     <field name="systolic"/>
                     <field name="diastolic"/>
-                    <field name="diagnosis"/>
-                    <field name="next_evaluation"/>
+                    <field name="diagnosis" expand="1"/>
+                    <field name="next_evaluation" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2687,9 +2687,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Prescription lines">
-                    <field name="prnt"/>
-                    <field name="medicament"/>
-                    <field name="indication"/>
+                    <field name="prnt" expand="1"/>
+                    <field name="medicament" expand="1"/>
+                    <field name="indication" expand="1"/>
                     <field name="dose"/>
                     <field name="dose_unit"/>
                     <field name="form"/>
@@ -2698,7 +2698,7 @@
                     <field name="duration"/>
                     <field name="duration_period"/>
                     <field name="allow_substitution"/>
-                    <field name="short_comment"/>
+                    <field name="short_comment" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2749,10 +2749,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Prescription">
-                    <field name="prescription_id"/>
-                    <field name="patient"/>
+                    <field name="prescription_id" expand="1"/>
+                    <field name="patient" expand="1"/>
                     <field name="user_id"/>
-                    <field name="prescription_date"/>
+                    <field name="prescription_date" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2830,8 +2830,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Health Center Building">
-                    <field name="name"/>
-                    <field name="institution"/>
+                    <field name="name" expand="1"/>
+                    <field name="institution" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2885,8 +2885,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Health Center unit">
-                    <field name="name"/>
-                    <field name="institution"/>
+                    <field name="name" expand="1"/>
+                    <field name="institution" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -2974,11 +2974,11 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Health Center Ward Info">
-                    <field name="name"/>
-                    <field name="number_of_beds"/>
-                    <field name="gender"/>
-                    <field name="institution"/>
-                    <field name="state"/>
+                    <field name="name" expand="1"/>
+                    <field name="number_of_beds" expand="1"/>
+                    <field name="gender" expand="1"/>
+                    <field name="institution" expand="1"/>
+                    <field name="state" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -3039,9 +3039,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Health Center Bed Info">
-                    <field name="name"/>
-                    <field name="ward"/>
-                    <field name="state"/>
+                    <field name="name" expand="1"/>
+                    <field name="ward" expand="1"/>
+                    <field name="state" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -3101,7 +3101,7 @@
                     <field name="name"/>
                     <field name="institution"/>
                     <field name="building"/>
-                    <field name="unit"/>
+                    <field name="unit" expand="1"/>
                 </tree>
                 ]]>
             </field>
