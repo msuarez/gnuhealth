@@ -425,8 +425,8 @@ class Pathology(ModelSQL, ModelView):
 
     name = fields.Char('Name', required=True, translate=True,
         help='Disease name')
-    code = fields.Char('Code',
-        help='Specific Code for the Disease (eg, ICD-10, SNOMED...\)')
+    code = fields.Char('Code', required=True, 
+        help='Specific Code for the Disease (eg, ICD-10)')
     category = fields.Many2One('gnuhealth.pathology.category', 'Main Category',
         help='Select the main category for this disease This is usually'\
         ' associated to the standard. For instance, the chapter on the ICD-10'\
