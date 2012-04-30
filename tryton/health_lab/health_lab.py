@@ -104,10 +104,6 @@ class Lab(ModelSQL, ModelView):
     def default_analysis(self):
         return datetime.now()
 
-#    def default_name(self):
-#        sequence_obj = Pool().get('ir.sequence')
-#        return sequence_obj.get('gnuhealth.lab')
-
     def create(self, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
@@ -200,6 +196,7 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('tested', 'Tested'),
+        ('ordered', 'Ordered'),       
         ('cancel', 'Cancel'),
         ], 'State', readonly=True, select=True)
     patient_id = fields.Many2One('gnuhealth.patient', 'Patient', required=True,

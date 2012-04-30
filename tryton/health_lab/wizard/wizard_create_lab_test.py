@@ -19,78 +19,66 @@
 #
 ##############################################################################
 from trytond.model import ModelView
-from trytond.wizard import Wizard
+from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
+    Button
+from trytond.transaction import Transaction
+
 from trytond.pool import Pool
 
-
-class CreateTestReportInit(ModelView):
+class CreateLabTestOrderInit(ModelView):
     'Create Test Report Init'
     _name = 'gnuhealth.lab.test.create.init'
     _description = __doc__
 
-CreateTestReportInit()
+CreateLabTestOrderInit()
 
 
-class CreateTestReport(Wizard):
-    'Create Test Report'
+class CreateLabTestOrder(Wizard):
+    'Create Lab Test Report'
     _name = 'gnuhealth.lab.test.create'
 
-    states = {
-        'init': {
-            'result': {
-                'type': 'form',
-                'object': 'gnuhealth.lab.test.create.init',
-                'state': [
-                    ('end', 'Cancel', 'tryton-cancel'),
-                    ('create', 'Create Lab Test', 'tryton-ok', True),
-                ],
-            }
-        },
-        'create': {
-            'result': {
-                'type': 'action',
-                'action': '_create_lab_test',
-                'state': 'end',
-            },
-        },
-    }
+    start = StateView('gnuhealth.lab.test.create.init',
+        'health_lab.view_lab_make_test', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Create Test Order', 'create_lab_test', 'tryton-ok', True),
+            ])
+    
+    create_lab_test = StateTransition()
 
-    def _action_open_gnuhealth_lab(self, ids):
-        model_data_obj = Pool().get('ir.model.data')
-        act_window_obj = Pool().get('ir.action.act_window')
 
-        act_window_id = model_data_obj.get_id('health_lab',
-                'gnuhealth_action_tree_lab')
-        res = act_window_obj.read(act_window_id)
-        res['res_id'] = ids
-        return res
-
-    def _create_lab_test(self, data):
+    def transition_create_lab_test(self, session):
         test_request_obj = Pool().get('gnuhealth.patient.lab.test')
         lab_obj = Pool().get('gnuhealth.lab')
 
         test_report_data = {}
         test_cases = []
-        test_obj = test_request_obj.browse([data['id']])[0]
-        if test_obj.state == 'tested':
-            raise Exception('Test Report already created.')
-        test_report_data['test'] = test_obj.name.id
-        test_report_data['patient'] = test_obj.patient_id.id
-        test_report_data['requestor'] = test_obj.doctor_id.id
-        test_report_data['date_requested'] = test_obj.date
+        
+        test_obj = test_request_obj.browse(Transaction().context.get('active_ids'))
+        
+        for lab_test_order in test_obj:
+                  
+            if lab_test_order.state == 'ordered':
+                raise Exception('The Lab test order is already created.')
 
-        for critearea in test_obj.name.critearea:
-            test_cases.append(('create', {
-                    'name': critearea.name,
-                    'sequence': critearea.sequence,
-                    'lower_limit': critearea.lower_limit,
-                    'upper_limit': critearea.upper_limit,                    
-                    'normal_range': critearea.normal_range,
-                    'units': critearea.units.id,
-                }))
-        test_report_data['critearea'] = test_cases
-        lab_id = lab_obj.create(test_report_data)
-        test_request_obj.write([data['id']], {'state': 'tested'})
-        return self._action_open_gnuhealth_lab(lab_id)
+            test_report_data['test'] = lab_test_order.name.id
+            test_report_data['patient'] = lab_test_order.patient_id.id
+            test_report_data['requestor'] = lab_test_order.doctor_id.id
+            test_report_data['date_requested'] = lab_test_order.date
 
-CreateTestReport()
+            for critearea in lab_test_order.name.critearea:
+                test_cases.append(('create', {
+                        'name': critearea.name,
+                        'sequence': critearea.sequence,
+                        'lower_limit': critearea.lower_limit,
+                        'upper_limit': critearea.upper_limit,                    
+                        'normal_range': critearea.normal_range,
+                        'units': critearea.units.id,
+                    }))
+            test_report_data['critearea'] = test_cases
+            lab_id = lab_obj.create(test_report_data)
+            test_request_obj.write(lab_test_order.id, {'state': 'ordered'})
+                       
+        return 'end'
+        
+
+CreateLabTestOrder()
