@@ -38,8 +38,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Test Unit">
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -94,11 +94,11 @@
                 <![CDATA[
                 <tree string="Test Requests"
                     colors="If(Equal(Eval('state'), 'draft'), 'blue', If(In(Eval('state'), ['cancel','open']), 'gray', 'black'))">
-                    <field name="name"/>
-                    <field name="date"/>
-                    <field name="patient_id"/>
-                    <field name="doctor_id"/>
-                    <field name="state" readonly="1"/>
+                    <field name="name" expand="1"/>
+                    <field name="date" expand="1"/>
+                    <field name="patient_id" expand="1"/>
+                    <field name="doctor_id" expand="1"/>
+                    <field name="state" readonly="1" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -161,12 +161,12 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Analyte">
-                    <field name="sequence"/>
-                    <field name="name"/>
-                    <field name="lower_limit"/>
-                    <field name="upper_limit"/>
-                    <field name="normal_range"/>
-                    <field name="units"/>
+                    <field name="sequence" expand="1"/>
+                    <field name="name" expand="1"/>
+                    <field name="lower_limit" expand="1"/>
+                    <field name="upper_limit" expand="1"/>
+                    <field name="normal_range" expand="1"/>
+                    <field name="units" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -205,8 +205,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Lab test type'>
-                    <field name="name"/>
-                    <field name="code"/>
+                    <field name="name" expand="1"/>
+                    <field name="code" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -282,15 +282,15 @@
                 <![CDATA[
                 <tree editable="top" string="Test Cases"
                     colors="If(Bool(Eval('warning')), 'red', 'black')">
-                    <field name="warning"/>
-                    <field name="excluded"/>
-                    <field name="name"/>
-                    <field name="result"/>
-                    <field name="result_text"/>
-                    <field name="lower_limit"/>
-                    <field name="upper_limit"/>
-                    <field name="units"/>
-                    <field name="remarks"/>
+                    <field name="warning" expand="1"/>
+                    <field name="excluded" expand="1"/>
+                    <field name="name" expand="1"/>
+                    <field name="result" expand="1"/>
+                    <field name="result_text" expand="1"/>
+                    <field name="lower_limit" expand="1"/>
+                    <field name="upper_limit" expand="1"/>
+                    <field name="units" expand="1"/>
+                    <field name="remarks" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -333,10 +333,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Lab test type">
-                    <field name="name"/>
-                    <field name="test"/>
-                    <field name="patient"/>
-                    <field name="date_analysis"/>
+                    <field name="name" expand="1"/>
+                    <field name="test" expand="1"/>
+                    <field name="patient" expand="1"/>
+                    <field name="date_analysis" expand="1"/>
                 </tree>
                 ]]>
             </field>
