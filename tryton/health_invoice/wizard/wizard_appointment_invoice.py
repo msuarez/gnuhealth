@@ -21,9 +21,12 @@
 import logging
 
 from trytond.model import ModelView
-from trytond.wizard import Wizard
 
-logging.basicConfig(level=logging.DEBUG)
+from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
+    Button
+
+from trytond.transaction import Transaction
+
 
 from trytond.pool import Pool
 
@@ -38,46 +41,26 @@ MakeMedicalAppointmentInvoiceInit()
 class MakeMedicalAppointmentInvoice(Wizard):
     _name = 'gnuhealth.appointment.invoice'
 
-    states = {
-        'init': {
-            'result': {
-                'type': 'form',
-                'object': 'gnuhealth.appointment.invoice.init',
-                'state': [
-                    ('end', 'Cancel', 'tryton-cancel'),
-                    ('create', 'Create Invoices', 'tryton-ok', True),
-                ],
-            }
-        },
-        'create': {
-            'result': {
-                'type': 'action',
-                'action': '_create_invoice',
-                'state': 'end',
-            },
-        },
-    }
 
-    def _action_open_invoice(self, ids):
-        model_data_obj = Pool().get('ir.model.data')
-        act_window_obj = Pool().get('ir.action.act_window')
+    start = StateView('gnuhealth.appointment.invoice.init',
+        'health_lab.view_lab_make_test', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Create Invoices', 'create_invoices', 'tryton-ok', True),
+            ])
+    
+    create_invoices = StateTransition()
 
-        act_window_id = model_data_obj.get_id('account_invoice',
-                'act_invoice_out_invoice_form3')
-        res = act_window_obj.read(act_window_id)
-        res['res_id'] = ids
-        return res
 
-    def _create_invoice(self, data):
-        __logger = logging.getLogger(
-                'gnuhealth_invoice.wizard.appointment_invoice')
+    def transition_create_invoice(self, session):
+
         invoice_obj = Pool().get('account.invoice')
         appointment_obj = Pool().get('gnuhealth.appointment')
 
+        invoices = invoice_obj.browse(Transaction().context.get('active_ids'))
+        
+        for invoice in invoices:
         apps = data['ids']
         pats = []
-
-        __logger.debug(appointment_obj.browse(apps))
 
         for app_id in apps:
             pats.append(appointment_obj.browse(app_id).patient.name.id)
@@ -87,7 +70,7 @@ class MakeMedicalAppointmentInvoice(Wizard):
             for app_id in apps:
                 appointment = appointment_obj.browse(app_id)
 
-# Check if the appointment is invoice exempt, and stop the invoicing process
+                # Check if the appointment is invoice exempt, and stop the invoicing process
                 if appointment.no_invoice:
                     raise Exception('The appointment is invoice exempt')
 
@@ -164,7 +147,7 @@ class MakeMedicalAppointmentInvoice(Wizard):
 
             appointment_obj.write(apps, {'validity_status': 'invoiced'})
 
-            return self._action_open_invoice(invoice_id)
+            return 'end'
 
         else:
             raise Exception('When multiple appointments are selected, ' \

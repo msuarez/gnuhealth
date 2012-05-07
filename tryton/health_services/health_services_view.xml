@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- Health service -->
+
+        <record model="ir.ui.view" id="gnuhealth_health_service_view">
+            <field name="model">gnuhealth.health_service</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="service ">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="description"/>
+                    <field name="description"/>
+                    <newline/>
+                    <label name="appointment"/>
+                    <field name="appointment"/>
+                    <label name="patient"/>
+                    <field name="patient"/>
+                    <newline/>
+                    <field colspan="4" name="service"/>
+
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_health_service_tree">
+            <field name="model">gnuhealth.health_service</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Health service ">
+                    <field name="name"/>
+                    <field name="patient" expand="1"/>
+                    <field name="description" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        
+
+        <record model="ir.ui.view" id="gnuhealth_health_service_line_view">
+            <field name="model">gnuhealth.health_service.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Service">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="description"/>
+                    <field name="description"/>
+                    <label name="to_invoice"/>
+                    <field name="to_invoice"/>
+                    <label name="service"/>
+                    <field name="service"/>
+                    <label name="from_date"/>
+                    <field name="from_date"/>
+                    <label name="to_date"/>
+                    <field name="to_date"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_health_service_line_tree">
+            <field name="model">gnuhealth.health_service.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Health Service">
+                    <field name="to_inoice"/>
+                    <field name="service"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="date_from"/>
+                    <field name="date_from"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        
+
+        <record model="ir.action.act_window" id="gnuhealth_action_health_service">
+            <field name="name">Health services</field>
+            <field name="res_model">gnuhealth.health_service</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_health_service_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_health_service_tree"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_health_service_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_health_service_view"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+        <menuitem parent="health.gnuhealth_menu"
+            action="gnuhealth_action_health_service"
+            id="gnuhealth_health_service_menu"/>
+
+
+    </data>
+</tryton>

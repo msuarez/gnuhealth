@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2011  Adrián Bernardi, Mario Puntin
+#    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,6 +18,36 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+{
+    'name': 'GNU Health : Health Services and orders',
+    'name_es_ES': 'GNU Health : Servicios y órdenes',
+    'version': '1.4.6',
+    'author': 'GNU Solidario',
+    'email': 'health@gnusolidario.org',
+    'website': 'http://health.gnu.org',
+    'category': 'Generic Modules/Others',
+    'depends': [
+        'health',	
+    ],
+    
+    'description': '''
 
-from health_invoice import *
-from wizard import *
+This module allows grouping the services and orders related to a patient
+evaluation / encounter and or Hospitalization.
+It also permits invoicing the selected orders.
+
+''',
+    'description_es_ES': '''
+
+El módulo permite agrupar servicios y pruebas del paciente, realizadas
+durante la consulta o durante la hospitalización.
+
+Es posible factuar los servicios seleccionados.
+
+''',
+
+    'xml': [
+        'health_services_view.xml',
+    ],
+    'active': False,
+}

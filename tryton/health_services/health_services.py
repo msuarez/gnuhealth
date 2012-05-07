@@ -1,0 +1,54 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+from trytond.model import ModelView, ModelSQL, fields
+
+class HealthService(ModelSQL, ModelView):
+    'Health Service'
+    _name = 'gnuhealth.health_service'
+    _description = __doc__
+
+    name = fields.Char('ID', required=True)
+    description = fields.Char('Description', required=True)
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
+        help='Enter or select the date / ID of the appointment related to'\
+        ' this evaluation')
+    service = fields.One2Many('gnuhealth.health_service.line',
+        'name', 'Service', help="Enter the associated service")
+    
+    
+HealthService()
+
+
+class HealthServiceLine(ModelSQL, ModelView):
+    'Health Service'
+    _name = 'gnuhealth.health_service.line'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
+    to_invoice = fields.Boolean ('Invoice')
+    service = fields.Many2One('product.product', 'Product', required=True)
+    from_date = fields.Date('From')
+    to_date = fields.Date('To')
+
+    
+
+HealthServiceLine()
