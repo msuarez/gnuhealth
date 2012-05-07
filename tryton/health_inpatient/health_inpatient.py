@@ -23,6 +23,7 @@
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from trytond.pyson import Eval, Not, Bool, And, Equal
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -128,6 +129,10 @@ class InpatientRegistration(ModelSQL, ModelView):
     def default_state(self):
         return 'free'
 
+
+
+
+
     def __init__(self):
         super(InpatientRegistration, self).__init__()
 
@@ -145,6 +150,21 @@ class InpatientRegistration(ModelSQL, ModelView):
 
         self._error_messages.update({
                 'bed_is_not_available': 'Bed is not available'})
+
+
+        self._buttons.update({
+                'button_registration_confirm': {
+                    'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
+                    },
+                'button_registration_cancel': {
+                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                    },
+                'button_patient_discharge': {
+                    'invisible': Not(Equal(Eval('state'), 'hospitalized')),
+                    },
+                    
+                })
+
 
 InpatientRegistration()
 
