@@ -26,13 +26,13 @@ class HealthService(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Char('ID', required=True)
-    description = fields.Char('Description', required=True)
+    desc = fields.Char('Description', required=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
         help='Enter or select the date / ID of the appointment related to'\
         ' this evaluation')
-    service = fields.One2Many('gnuhealth.health_service.line',
-        'name', 'Service', help="Enter the associated service")
+    service_line = fields.One2Many('gnuhealth.health_service.line',
+        'name', 'Service Line', help="Service Line")
     
     
 HealthService()
@@ -44,8 +44,9 @@ class HealthServiceLine(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
+    desc = fields.Char('Description', required=True)
     to_invoice = fields.Boolean ('Invoice')
-    service = fields.Many2One('product.product', 'Product', required=True)
+    product = fields.Many2One('product.product', 'Product', required=True)
     from_date = fields.Date('From')
     to_date = fields.Date('To')
 

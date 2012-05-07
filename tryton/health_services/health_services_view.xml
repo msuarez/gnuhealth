@@ -13,15 +13,15 @@
                 <form string="service ">
                     <label name="name"/>
                     <field name="name"/>
-                    <label name="description"/>
-                    <field name="description"/>
+                    <label name="desc"/>
+                    <field name="desc"/>
                     <newline/>
                     <label name="appointment"/>
                     <field name="appointment"/>
                     <label name="patient"/>
                     <field name="patient"/>
                     <newline/>
-                    <field colspan="4" name="service"/>
+                    <field colspan="4" name="service_line"/>
 
                 </form>
                 ]]>
@@ -36,7 +36,7 @@
                 <tree string="Health service ">
                     <field name="name"/>
                     <field name="patient" expand="1"/>
-                    <field name="description" expand="1"/>
+                    <field name="desc" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -48,15 +48,15 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="Service">
+                <form string="Service Line">
                     <label name="name"/>
                     <field name="name"/>
-                    <label name="description"/>
-                    <field name="description"/>
+                    <label name="desc"/>
+                    <field name="desc"/>
                     <label name="to_invoice"/>
                     <field name="to_invoice"/>
-                    <label name="service"/>
-                    <field name="service"/>
+                    <label name="product"/>
+                    <field name="product"/>
                     <label name="from_date"/>
                     <field name="from_date"/>
                     <label name="to_date"/>
@@ -66,23 +66,25 @@
             </field>
         </record>
 
+
         <record model="ir.ui.view" id="gnuhealth_health_service_line_tree">
             <field name="model">gnuhealth.health_service.line</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Health Service">
-                    <field name="to_inoice"/>
-                    <field name="service"/>
-                    <field name="date_from"/>
-                    <field name="date_to"/>
-                    <field name="date_from"/>
-                    <field name="date_from"/>
+                <tree editable="top" string="Health Service Line">
+                    <field name="to_invoice"/>
+                    <field name="desc" expand="1"/>
+                    <field name="product" expand="1"/>
+                    <field name="from_date" expand="1"/>
+                    <field name="to_date" expand="1"/>
+
                 </tree>
                 ]]>
             </field>
         </record>
         
+
 
         <record model="ir.action.act_window" id="gnuhealth_action_health_service">
             <field name="name">Health services</field>
@@ -94,11 +96,13 @@
             <field name="view" ref="gnuhealth_health_service_tree"/>
             <field name="act_window" ref="gnuhealth_action_health_service"/>
         </record>
+
         <record model="ir.action.act_window.view" id="act_health_service_form_view">
             <field name="sequence" eval="20"/>
             <field name="view" ref="gnuhealth_health_service_view"/>
             <field name="act_window" ref="gnuhealth_action_health_service"/>
         </record>
+
 
         <menuitem parent="health.gnuhealth_menu"
             action="gnuhealth_action_health_service"
