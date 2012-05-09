@@ -18,41 +18,46 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView
 from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
     Button
 from trytond.transaction import Transaction
 
+from trytond.pool import Pool
 
-class HealthService(ModelSQL, ModelView):
-    'Health Service'
-    _name = 'gnuhealth.health_service'
+
+class CreateServiceInvoiceInit(ModelView):
+    'Create Service Invoice Init'
+    _name = 'gnuhealth.service.invoice.init'
     _description = __doc__
 
-    name = fields.Char('ID', required=True)
-    desc = fields.Char('Description', required=True)
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
-        help='Enter or select the date / ID of the appointment related to'\
-        ' this evaluation')
-    service_line = fields.One2Many('gnuhealth.health_service.line',
-        'name', 'Service Line', help="Service Line")
+CreateServiceInvoiceInit()
+
+
+class CreateServiceInvoice(Wizard):
+    'Create Service Invoice'
+    _name = 'gnuhealth.service.invoice.create'
+
+    start = StateView('gnuhealth.service.invoice.init',
+        'health_services.view_health_service_invoice', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Create Invoice', 'create_service_invoice', 'tryton-ok', True),
+            ])
     
-    
-HealthService()
+    create_service_invoice = StateTransition()
 
 
-class HealthServiceLine(ModelSQL, ModelView):
-    'Health Service'
-    _name = 'gnuhealth.health_service.line'
-    _description = __doc__
+    def transition_create_service_invoice(self, session):
+        health_service_obj = Pool().get('gnuhealth.health_service')
+        invoice_obj = Pool().get('account.invoice')
+        
+        selected_services = health_service_obj.browse(Transaction().context.get('active_ids'))
+        
+        for service in selected_services:
+                print service.desc
+        
+        return 'end'
+        
 
-    name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
-    desc = fields.Char('Description', required=True)
-    to_invoice = fields.Boolean ('Invoice')
-    product = fields.Many2One('product.product', 'Product', required=True)
-    from_date = fields.Date('From')
-    to_date = fields.Date('To')
-
-HealthServiceLine()
+CreateServiceInvoice()
 

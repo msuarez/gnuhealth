@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="view_health_service_invoice">
+            <field name="model">gnuhealth.service.invoice.init</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Health Services Invoices">
+                    <separator string="Do you want to generate the Invoice(s) ?"
+                        colspan="4" id="test_ask"/>
+                    <newline/>
+                    <separator string="Create Invoices" colspan="6"
+                        id="service_invoice_ask_create"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_create_health_service_invoice">
+            <field name="name">Create Health Service Invoice</field>
+            <field name="wiz_name">gnuhealth.service.invoice.create</field>
+            <field name="model">gnuhealth.health_service</field>
+        </record>
+        <record model="ir.action.keyword" id="act_create_health_service_invoice_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.health_service,-1</field>
+            <field name="action" ref="act_create_health_service_invoice"/>
+        </record>
+
+    </data>
+</tryton>

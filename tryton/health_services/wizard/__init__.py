@@ -18,37 +18,5 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'GNU Health : Health Services and orders',
-    'name_es_ES': 'GNU Health : Servicios y órdenes',
-    'version': '1.4.6',
-    'author': 'GNU Solidario',
-    'email': 'health@gnusolidario.org',
-    'website': 'http://health.gnu.org',
-    'category': 'Generic Modules/Others',
-    'depends': [
-        'health',	
-    ],
-    
-    'description': '''
 
-This module allows grouping the services and orders related to a patient
-evaluation / encounter and or Hospitalization.
-It also permits invoicing the selected orders.
-
-''',
-    'description_es_ES': '''
-
-El módulo permite agrupar servicios y pruebas del paciente, realizadas
-durante la consulta o durante la hospitalización.
-
-Es posible factuar los servicios seleccionados.
-
-''',
-
-    'xml': [
-        'health_services_view.xml',
-        'wizard/create_health_service_invoice.xml'
-    ],
-    'active': False,
-}
+from wizard_health_services import *
