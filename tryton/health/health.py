@@ -1638,13 +1638,13 @@ class PatientEvaluation(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
     def default_loc_eyes(self):
-        return 4
+        return '4'
 
     def default_loc_verbal(self):
-        return 5
+        return '5'
 
     def default_loc_motor(self):
-        return 6
+        return '6'
 
     def default_evaluation_type(self):
         return 'pa'
