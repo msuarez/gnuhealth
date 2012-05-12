@@ -11,18 +11,21 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="service ">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="desc"/>
-                    <field name="desc"/>
-                    <newline/>
-                    <label name="appointment"/>
-                    <field name="appointment"/>
-                    <label name="patient"/>
-                    <field name="patient"/>
+                    <group colspan="4" col="6" id="group_service_header">
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="desc"/>
+                        <field name="desc"/>
+                        <label name="patient"/>
+                        <field name="patient"/>
+                    </group>
+
                     <newline/>
                     <field colspan="4" name="service_line"/>
-
+                    <newline/>
+                    <label name="state"/>
+                    <field name="state"/>
+                    <button name="button_set_to_draft" string="Set to Draft" icon="icon-cancel" type="object"/>
                 </form>
                 ]]>
             </field>
@@ -37,6 +40,7 @@
                     <field name="name"/>
                     <field name="patient" expand="1"/>
                     <field name="desc" expand="1"/>
+                    <field name="state" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -57,10 +61,15 @@
                     <field name="to_invoice"/>
                     <label name="product"/>
                     <field name="product"/>
+                    <label name="qty"/>
+                    <field name="qty"/>
                     <label name="from_date"/>
                     <field name="from_date"/>
                     <label name="to_date"/>
                     <field name="to_date"/>
+                    <label name="appointment"/>
+                    <field name="appointment"/>
+
                 </form>
                 ]]>
             </field>
@@ -76,9 +85,9 @@
                     <field name="to_invoice"/>
                     <field name="desc" expand="1"/>
                     <field name="product" expand="1"/>
+                    <field name="qty" expand="1"/>
                     <field name="from_date" expand="1"/>
                     <field name="to_date" expand="1"/>
-
                 </tree>
                 ]]>
             </field>

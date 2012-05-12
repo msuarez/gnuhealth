@@ -3,6 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
+#    
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -57,6 +58,9 @@ class CreateServiceInvoice(Wizard):
         #Invoice Header
         for service in selected_services:
 
+            if service.state == 'invoiced':
+                    self.raise_user_error('duplicate_invoice')
+                    
             invoice_data = {}
 
             invoice_data['description'] = service.desc
@@ -84,7 +88,7 @@ class CreateServiceInvoice(Wizard):
                     invoice_lines.append(('create', {
                             'product': line['product'].id,
                             'description': line['desc'],
-                            'quantity': 1,
+                            'quantity': line['qty'],
                             'account': account,
                             'unit' : line['product'].default_uom.id,
                             'unit_price' : line['product'].list_price,
@@ -94,9 +98,19 @@ class CreateServiceInvoice(Wizard):
                 invoice_data['lines'] = invoice_lines
                                 
             invoice_document = invoice_obj.create(invoice_data)
+            
+            
+            # Change to invoiced the status on the service document.
+            health_service_obj.write(service.id, {'state': 'invoiced'})
         
         return 'end'
         
+    def __init__(self):
+        super(CreateServiceInvoice, self).__init__()
+        self._error_messages.update({
+            'duplicate_invoice': 'Service already invoiced'})
+            
+
 
 CreateServiceInvoice()
 

@@ -3,6 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011  Adrián Bernardi, Mario Puntin (health_invoice)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -22,6 +23,7 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
     Button
 from trytond.transaction import Transaction
+from trytond.pyson import Eval, Not, Bool, And, Equal
 
 
 class HealthService(ModelSQL, ModelView):
@@ -32,13 +34,34 @@ class HealthService(ModelSQL, ModelView):
     name = fields.Char('ID', required=True)
     desc = fields.Char('Description', required=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
-        help='Enter or select the date / ID of the appointment related to'\
-        ' this evaluation')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
     
-    
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('invoiced', 'Invoiced'),
+        ], 'State', readonly=True)
+
+    def default_state(self):
+        return 'draft'
+
+
+    def button_set_to_draft(self, ids):
+        self.write(ids, {'state': 'draft'})
+        return True
+        
+    def __init__(self):
+        super(HealthService, self).__init__()
+        self._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
+
+        self._rpc.update({'button_set_to_draft': True})
+        
+
+        self._buttons.update({
+            'button_set_to_draft': { 'invisible': Equal(Eval('state'), 'draft') }
+            })
+
 HealthService()
 
 
@@ -49,10 +72,18 @@ class HealthServiceLine(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
     desc = fields.Char('Description', required=True)
+    appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
+        help='Enter or select the date / ID of the appointment related to'\
+        ' this evaluation')
+
     to_invoice = fields.Boolean ('Invoice')
     product = fields.Many2One('product.product', 'Product', required=True)
+    qty = fields.Integer ('Qty')
     from_date = fields.Date('From')
     to_date = fields.Date('To')
+
+    def default_qty(self):
+        return 1
 
 HealthServiceLine()
 
