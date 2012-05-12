@@ -50,11 +50,50 @@ class CreateServiceInvoice(Wizard):
     def transition_create_service_invoice(self, session):
         health_service_obj = Pool().get('gnuhealth.health_service')
         invoice_obj = Pool().get('account.invoice')
+        party_obj = Pool().get('party.party')
         
         selected_services = health_service_obj.browse(Transaction().context.get('active_ids'))
         
+        #Invoice Header
         for service in selected_services:
-                print service.desc
+
+            invoice_data = {}
+
+            invoice_data['description'] = service.desc
+            invoice_data['party'] = service.patient.name.id  
+            invoice_data['account'] = service.patient.name.account_receivable.id
+            invoice_data['invoice_address'] = party_obj.address_get(service.patient.name.id, type='invoice')
+            invoice_data['reference'] = service.name
+           
+            invoice_data['payment_term'] = \
+                    service.patient.name.customer_payment_term and \
+                    service.patient.name.customer_payment_term.id or \
+                    False
+            
+
+        
+            #Invoice Lines
+            seq = 0
+            invoice_lines = []
+            
+            for line in service.service_line:
+                seq = seq + 1
+                account = line['product'].template.account_revenue_used.id
+
+                if line['to_invoice'] :                  
+                    invoice_lines.append(('create', {
+                            'product': line['product'].id,
+                            'description': line['desc'],
+                            'quantity': 1,
+                            'account': account,
+                            'unit' : line['product'].default_uom.id,
+                            'unit_price' : line['product'].list_price,
+                            'sequence': seq
+                        }))
+
+                invoice_data['lines'] = invoice_lines
+                                
+            invoice_document = invoice_obj.create(invoice_data)
         
         return 'end'
         
