@@ -781,18 +781,24 @@ class PatientData(ModelSQL, ModelView):
         'Vaccinations')
     medications = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medications')
-    prescriptions = fields.One2Many('gnuhealth.prescription.order', 'name',
-        'Prescriptions')
+
+# Removed in 1.6
+#    prescriptions = fields.One2Many('gnuhealth.prescription.order', 'name',
+#        'Prescriptions')
+
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
     critical_info = fields.Text('Important disease, allergy or procedures'\
         ' information',
         help='Write any important information on the patient\'s disease,'\
         ' surgeries, allergies, ...')
+
+# Removed it in 1.6
 # Not used anymore . Now we relate with a shortcut. Clearer
-    evaluation_ids = fields.One2Many('gnuhealth.patient.evaluation', 'patient',
-        'Evaluation')
-    admissions_ids = fields.One2Many('gnuhealth.patient.admission', 'name',
-        'Admission / Discharge')
+#    evaluation_ids = fields.One2Many('gnuhealth.patient.evaluation', 'patient',
+#        'Evaluation')
+#    admissions_ids = fields.One2Many('gnuhealth.patient.admission', 'name',
+#        'Admission / Discharge')
+
     general_info = fields.Text('General Information',
         help='General information about the patient')
     deceased = fields.Boolean('Deceased', help='Mark if the patient has died')
@@ -1404,6 +1410,11 @@ class PatientEvaluation(ModelSQL, ModelView):
     hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100')
     whr = fields.Float('WHR', help='Waist to hip ratio',
         on_change_with=['abdominal_circ', 'hip', 'whr'])
+
+# DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.4.6 .
+# NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
+# TO WORK WITH THE CLINICAL FINDINGS OF THE PATIENT
+
     edema = fields.Boolean('Edema',
         help='Please also encode the correspondent disease on the patient'\
         'disease history. For example,  R60.1 in ICD-10 encoding')
@@ -1479,6 +1490,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     erithema = fields.Boolean('Erithema',
         help='Please also encode the correspondent disease on the patient'\
         ' disease history.')
+
     loc = fields.Integer('Level of Consciousness',
         on_change_with=['loc_verbal', 'loc_motor', 'loc_eyes'],
         help='Level of Consciousness - on Glasgow Coma Scale :  1=coma -'\

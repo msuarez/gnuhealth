@@ -188,7 +188,8 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist'
     _name = 'gnuhealth.patient.psc'
     _description = __doc__
-
+    
+    
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
@@ -504,13 +505,16 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
 PediatricSymptomsChecklist()
 
 
+# REMOVED IN 1.6
+# WE USE A RELATE ACTION
 
 class PscEvaluation(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist Evaluation'
     _name = 'gnuhealth.patient'
     _description = __doc__
 
-    psc = fields.One2Many('gnuhealth.patient.psc', 'name',
+    psc = fields.One2Many('gnuhealth.patient.psc', 'patient',
         'Pediatric Symptoms Checklist')
 
 PscEvaluation()
+
