@@ -92,11 +92,11 @@ class Perinatal(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    admission_code = fields.Char('Admission Code', size=64)
+    admission_code = fields.Char('Admission Code')
     gravida_number = fields.Integer('Gravida #')
     abortion = fields.Boolean('Abortion')
     admission_date = fields.DateTime('Admission date',
-        help="Date when she was admitted to give birth")
+        help="Date when she was admitted to give birth", required=True)
     prenatal_evaluations = fields.Integer('Prenatal evaluations',
         help="Number of visits to the doctor during pregnancy")
     start_labor_mode = fields.Selection([
