@@ -11,9 +11,11 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="service ">
-                    <group colspan="4" col="6" id="group_service_header">
+                    <group colspan="4" col="8" id="group_service_header">                   
                         <label name="name"/>
                         <field name="name"/>
+                        <label name="service_date"/>
+                        <field name="service_date"/>
                         <label name="desc"/>
                         <field name="desc"/>
                         <label name="patient"/>
@@ -25,7 +27,7 @@
                     <newline/>
                     <label name="state"/>
                     <field name="state"/>
-                    <button name="button_set_to_draft" string="Set to Draft" icon="icon-cancel" type="object"/>
+                    <button name="button_set_to_draft" string="Set to Draft" type="object"/>
                 </form>
                 ]]>
             </field>
@@ -37,7 +39,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Health service ">
-                    <field name="name"/>
+                    <field name="name" expand="1"/>
+                    <field name="service_date" expand="1"/>                   
                     <field name="patient" expand="1"/>
                     <field name="desc" expand="1"/>
                     <field name="state" expand="1"/>
@@ -82,7 +85,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree editable="top" string="Health Service Line">
-                    <field name="to_invoice"/>
+                    <field name="to_invoice" expand="1"/>
                     <field name="desc" expand="1"/>
                     <field name="product" expand="1"/>
                     <field name="qty" expand="1"/>

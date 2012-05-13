@@ -19,21 +19,36 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, ModelSingleton
 from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
     Button
 from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool, And, Equal
+from trytond.pool import Pool
 
+
+
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
+    "Standard Sequences for GNU Health"
+
+    _description = __doc__
+    _name = "gnuhealth.sequences"
+
+    health_service_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Health Service Sequence', domain=[('code', '=', 'gnuhealth.health_service')],
+        required=True))
+
+GnuHealthSequences()
 
 class HealthService(ModelSQL, ModelView):
     'Health Service'
     _name = 'gnuhealth.health_service'
     _description = __doc__
 
-    name = fields.Char('ID', required=True)
+    name = fields.Char('ID', readonly=True)
     desc = fields.Char('Description', required=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
     
@@ -52,7 +67,7 @@ class HealthService(ModelSQL, ModelView):
         
     def __init__(self):
         super(HealthService, self).__init__()
-        self._sql_constraints = [
+        self._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
 
         self._rpc.update({'button_set_to_draft': True})
@@ -61,6 +76,18 @@ class HealthService(ModelSQL, ModelView):
         self._buttons.update({
             'button_set_to_draft': { 'invisible': Equal(Eval('state'), 'draft') }
             })
+
+    def create(self, values):
+        sequence_obj = Pool().get('ir.sequence')
+        config_obj = Pool().get('gnuhealth.sequences')
+
+        values = values.copy()
+        if not values.get('name'):
+            config = config_obj.browse(1)
+            values['name'] = sequence_obj.get_id(
+            config.health_service_sequence.id)
+
+        return super(HealthService, self).create(values)
 
 HealthService()
 

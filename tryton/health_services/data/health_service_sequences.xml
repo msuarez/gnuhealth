@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="1">
+
+        <!-- Sequences for Health Services -->
+        <record id="seq_type_gnuhealth_health_service" model="ir.sequence.type">
+            <field name="name">Health Service</field>
+            <field name="code">gnuhealth.health_service</field>
+        </record>
+        <record id="seq_gnuhealth_health_service" model="ir.sequence">
+            <field name="name">Health Service</field>
+            <field name="code">gnuhealth.health_service</field>
+            <field name="prefix">SERV ${year}/</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record model="ir.property" id="property_health_service_sequence">
+            <field name="field"
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'health_service_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_health_service'))"/>
+        </record>
+    </data>
+</tryton>

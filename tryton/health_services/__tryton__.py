@@ -27,7 +27,7 @@
     'website': 'http://health.gnu.org',
     'category': 'Generic Modules/Others',
     'depends': [
-        'health',	
+        'health','account_invoice',	
     ],
     
     'description': '''
@@ -48,7 +48,8 @@ Es posible factuar los servicios seleccionados.
 
     'xml': [
         'health_services_view.xml',
-        'wizard/create_health_service_invoice.xml'
+        'wizard/create_health_service_invoice.xml',
+        'data/health_service_sequences.xml'
     ],
     'active': False,
 }
