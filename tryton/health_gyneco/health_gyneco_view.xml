@@ -12,7 +12,7 @@
                 <form string="Perinatal Info">
                     <notebook>
                         <page string="Perinatal" id="page_main_perinatal">
-
+                        
                             <group id="group_perinatal_holder">
                                 <group string="Main" id="perinatal_main">
                                     <label name="admission_date"/>
