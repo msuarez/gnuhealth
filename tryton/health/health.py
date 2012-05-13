@@ -1411,10 +1411,10 @@ class PatientEvaluation(ModelSQL, ModelView):
     whr = fields.Float('WHR', help='Waist to hip ratio',
         on_change_with=['abdominal_circ', 'hip', 'whr'])
 
-# DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.4.6 .
+# DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
 # NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
 # TO WORK WITH THE CLINICAL FINDINGS OF THE PATIENT
-
+'''
     edema = fields.Boolean('Edema',
         help='Please also encode the correspondent disease on the patient'\
         'disease history. For example,  R60.1 in ICD-10 encoding')
@@ -1647,6 +1647,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     symptom_proctorrhagia = fields.Boolean('Proctorrhagia')
     symptom_xerostomia = fields.Boolean('Xerostomia')
     symptom_sexual_dysfunction = fields.Boolean('Sexual Dysfunction')
+'''
+
     notes = fields.Text('Notes')
 
     def default_loc_eyes(self):

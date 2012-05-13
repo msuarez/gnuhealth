@@ -508,6 +508,7 @@ PediatricSymptomsChecklist()
 # REMOVED IN 1.6
 # WE USE A RELATE ACTION
 
+'''
 class PscEvaluation(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist Evaluation'
     _name = 'gnuhealth.patient'
@@ -517,4 +518,4 @@ class PscEvaluation(ModelSQL, ModelView):
         'Pediatric Symptoms Checklist')
 
 PscEvaluation()
-
+'''
