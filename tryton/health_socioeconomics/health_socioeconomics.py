@@ -22,7 +22,6 @@ from trytond.model import ModelView, ModelSQL, fields
 
 
 class MedicalPatient(ModelSQL, ModelView):
-    'Socioeconomics. Inherits Medical Patient and adds new fields to model'
     _name = 'gnuhealth.patient'
     _description = __doc__
 
