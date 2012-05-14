@@ -35,19 +35,19 @@ class DrugsRecreational(ModelSQL, ModelView):
         ('1', 'Low'),
         ('2', 'High'),
         ('3', 'Extreme'),
-        ], 'Toxicity', select=True)
+        ], 'Toxicity', sort=False)
 
     addiction_level = fields.Selection([
         ('0', 'None'),
         ('1', 'Low'),
         ('2', 'High'),
         ('3', 'Extreme'),
-        ], 'Dependence', select=True)
+        ], 'Dependence', sort=False)
 
     legal_status = fields.Selection([
         ('0', 'Legal'),
         ('1', 'Illegal'),
-        ], 'Legal Status', select=True)
+        ], 'Legal Status', sort=False)
 
     category = fields.Selection([
         ('cannabinoid', 'Cannabinoids'),
@@ -57,7 +57,7 @@ class DrugsRecreational(ModelSQL, ModelView):
         ('opioid', 'Opioids'),
         ('stimulant', 'Stimulants'),
         ('other', 'Others'),
-        ], 'Category', select=True)
+        ], 'Category', sort=False)
 
     withdrawal_level = fields.Integer('Withdrawal',
         help="Presence and severity of characteristic withdrawal " \
@@ -165,9 +165,9 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.recreational_drugs'
     _description = __doc__
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
+    patient = fields.Many2One('gnuhealth.patient', 'Patient')
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
-        'Recreational Drug', select=True)
+        'Recreational Drug')
 
 PatientRecreationalDrugs()
 
@@ -249,17 +249,17 @@ class MedicalPatient(ModelSQL, ModelView):
         ('g', 'Homosexual'),
         ('b', 'Bisexual'),
         ('t', 'Transexual'),
-        ], 'Sexual Preferences')
+        ], 'Sexual Preferences', sort=False)
 
     sexual_practices = fields.Selection([
         ('s', 'Safe / Protected sex'),
         ('r', 'Risky / Unprotected sex'),
-        ], 'Sexual Practices')
+        ], 'Sexual Practices', sort=False)
 
     sexual_partners = fields.Selection([
         ('m', 'Monogamous'),
         ('t', 'Polygamous'),
-        ], 'Sexual Partners')
+        ], 'Sexual Partners', sort=False)
 
     sexual_partners_number = fields.Integer('Number of sexual partners')
 
@@ -277,7 +277,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ('8', 'Contraceptive injection'),
         ('9', 'Skin Patch'),
         ('10', 'Female condom'),
-        ], 'Anticonceptive Method')
+        ], 'Anticonceptive Method', sort=False)
 
     sex_oral = fields.Selection([
         ('0', 'None'),
