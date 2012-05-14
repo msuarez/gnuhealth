@@ -1414,6 +1414,89 @@ class PatientEvaluation(ModelSQL, ModelView):
 # DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
 # NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
 # TO WORK WITH THE CLINICAL FINDINGS OF THE PATIENT
+    loc = fields.Integer('Level of Consciousness',
+        on_change_with=['loc_verbal', 'loc_motor', 'loc_eyes'],
+        help='Level of Consciousness - on Glasgow Coma Scale :  1=coma -'\
+        ' 15=normal')
+    loc_eyes = fields.Selection([
+        ('1', 'Does not Open Eyes'),
+        ('2', 'Opens eyes in response to painful stimuli'),
+        ('3', 'Opens eyes in response to voice'),
+        ('4', 'Opens eyes spontaneously'),
+        ], 'Glasgow - Eyes', sort=False)
+
+    loc_verbal = fields.Selection([
+        ('1', 'Makes no sounds'),
+        ('2', 'Incomprehensible sounds'),
+        ('3', 'Utters inappropriate words'),
+        ('4', 'Confused, disoriented'),
+        ('5', 'Oriented, converses normally'),
+        ], 'Glasgow - Verbal', sort=False)
+
+    loc_motor = fields.Selection([
+        ('1', 'Makes no movement'),
+        ('2', 'Extension to painful stimuli - decerebrate response -'),
+        ('3', 'Abnormal flexion to painful stimuli (decorticate response)'),
+        ('4', 'Flexion / Withdrawal to painful stimuli'),
+        ('5', 'Localizes painful stimuli'),
+        ('6', 'Obeys commands'),
+        ], 'Glasgow - Motor', sort=False)
+
+    tremor = fields.Boolean('Tremor',
+        help='If associated  to a disease, please encode it on the patient'\
+        ' disease history')
+    violent = fields.Boolean('Violent Behaviour',
+        help='Check this box if the patient is agressive or violent at the'\
+        ' moment')
+    mood = fields.Selection([
+        ('n', 'Normal'),
+        ('s', 'Sad'),
+        ('f', 'Fear'),
+        ('r', 'Rage'),
+        ('h', 'Happy'),
+        ('d', 'Disgust'),
+        ('e', 'Euphoria'),
+        ('fl', 'Flat'),
+        ], 'Mood', sort=False)
+
+    orientation = fields.Boolean('Orientation',
+        help='Check this box if the patient is disoriented in time and/or'\
+        ' space')
+    memory = fields.Boolean('Memory',
+        help='Check this box if the patient has problems in short or long'\
+        ' term memory')
+    knowledge_current_events = fields.Boolean('Knowledge of Current Events',
+        help='Check this box if the patient can not respond to public'\
+        ' notorious events')
+    judgment = fields.Boolean('Jugdment',
+        help='Check this box if the patient can not interpret basic scenario'\
+        ' solutions')
+    abstraction = fields.Boolean('Abstraction',
+        help='Check this box if the patient presents abnormalities in'\
+        ' abstract reasoning')
+    vocabulary = fields.Boolean('Vocabulary',
+        help='Check this box if the patient lacks basic intelectual capacity,'\
+        ' when she/he can not describe elementary objects')
+    calculation_ability = fields.Boolean('Calculation Ability',
+        help='Check this box if the patient can not do simple arithmetic'\
+        ' problems')
+    object_recognition = fields.Boolean('Object Recognition',
+        help='Check this box if the patient suffers from any sort of gnosia'\
+        ' disorders, such as agnosia, prosopagnosia ...')
+    praxis = fields.Boolean('Praxis',
+        help='Check this box if the patient is unable to make voluntary'\
+        'movements')
+    diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
+        help='Presumptive Diagnosis')
+    diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
+        'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
+    signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
+        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation")
+
+    info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
+    directions = fields.Text('Plan')
+    actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
+        help='Procedures / Actions to take')
 
 
     notes = fields.Text('Notes')
