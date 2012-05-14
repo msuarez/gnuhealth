@@ -21,7 +21,7 @@
 {
 
     'name' : 'GNU Health : Installer',  
-    'version': '1.4.5',
+    'version': '1.6.0',
     'author' : 'GNU Solidario',
     'email' : 'health@gnusolidario.org',
     'website' : "http://health.gnu.org",
@@ -29,7 +29,7 @@
     'depends' : ['health','health_socioeconomics','health_lifestyle',
 		'health_genetics','health_icd10','health_gyneco',
 		'health_pediatrics','health_surgery','health_lab',
-        'health_inpatient'],
+        'health_inpatient','health_qrcodes','health_history'],
     'name_es_ES': 'GNU Health : Perfil de Instalación estándar',
    
     'description' : """
