@@ -627,7 +627,7 @@ class PartyAddress(ModelSQL, ModelView):
         help='Include the relationship with the patient - friend, co-worker,'\
         ' brother, ...')
     relative_id = fields.Many2One('party.party', 'Relative ID',
-        domain=[('is_patient', '=', True)],
+        domain=[('is_person', '=', True)],
         help='If the relative is also a patient, please include it here')
 
 PartyAddress()
