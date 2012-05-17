@@ -150,11 +150,11 @@ class NeonatalApgar(ModelSQL, ModelView):
         'apgar_grimace', 'apgar_pulse', 'apgar_appearance'])
 
     def on_change_with_apgar_score(self, vals):
-        apgar_appearance = vals.get('apgar_appearance')
-        apgar_pulse = vals.get('apgar_pulse')
-        apgar_grimace = vals.get('apgar_grimace')
-        apgar_activity = vals.get('apgar_activity')
-        apgar_respiration = vals.get('apgar_respiration')
+        apgar_appearance = vals.get('apgar_appearance') or '0'
+        apgar_pulse = vals.get('apgar_pulse') or '0'
+        apgar_grimace = vals.get('apgar_grimace') or '0'
+        apgar_activity = vals.get('apgar_activity') or '0'
+        apgar_respiration = vals.get('apgar_respiration') or '0'
 
         apgar_score = int(apgar_appearance) + int(apgar_pulse) + \
             int(apgar_grimace) + int(apgar_activity) + int(apgar_respiration)
