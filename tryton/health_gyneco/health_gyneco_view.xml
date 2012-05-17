@@ -14,7 +14,7 @@
                         <page string="Perinatal" id="page_main_perinatal">
                         
                             <group id="group_perinatal_holder">
-                                <group string="Main" id="perinatal_main">
+                                <group colspan="4" col="8" string="Main" id="perinatal_main">
                                     <label name="admission_date"/>
                                     <field name="admission_date"/>
                                     <label name="dismissed"/>
@@ -24,13 +24,15 @@
                                     <label name="gravida_number"/>
                                     <field name="gravida_number"/>
                                 </group>
-                                <group string="Gestational period (weeks / days)" id="group_gestational_period">
+                                <newline/>
+
+                                <group colspan="4" col="6" string="Gestational period" id="group_gestational_period">
+                                    <label name="gestational_weeks"/>
                                     <field name="gestational_weeks"/>
+                                    <label name="gestational_days"/>
                                     <field name="gestational_days"/>
                                     <label name="prenatal_evaluations"/>
                                     <field name="prenatal_evaluations"/>
-                                    <label name="abortion"/>
-                                    <field name="abortion"/>
                                 </group>
 
                             </group>
@@ -45,7 +47,7 @@
                             <newline/>
 
                             <group id="group_labor_holder1">
-                                <group string="Labor" id="group_labor_holder">
+                                <group id="group_labor_holder">
 
                                     <group id="group_labor">
                                         <label name="start_labor_mode"/>
@@ -55,7 +57,7 @@
                                     </group>
 
                                     <newline/>
-                                    <group string="Misc" id="group_misc">
+                                    <group colspan="4" col="12" string="Misc" id="group_misc">
                                         <label name="dystocia"/>
                                         <field name="dystocia"/>
                                         <label name="placenta_incomplete"/>
@@ -74,7 +76,9 @@
                             </group>
 
                             <newline/>
-                            <group id="group_deceased_info">
+                            <group colspan="4" col="6" id="group_deceased_info">
+                                <label name="abortion"/>
+                                <field name="abortion"/>
                                 <label name="mother_deceased"/>
                                 <field name="mother_deceased"/>
                                 <label name="place_of_death"/>
@@ -154,15 +158,15 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Puerperium Monitor'>
-                    <field name="date"/>
-                    <field name="systolic"/>
-                    <field name="diastolic"/>
-                    <field name="frequency"/>
-                    <field name="temperature"/>
-                    <field name="uterus_involution"/>
-                    <field name="lochia_amount"/>
-                    <field name="lochia_color"/>
-                    <field name="lochia_odor"/>
+                    <field name="date" expand="1"/>
+                    <field name="systolic" expand="1"/>
+                    <field name="diastolic" expand="1"/>
+                    <field name="frequency" expand="1"/>
+                    <field name="temperature" expand="1"/>
+                    <field name="uterus_involution" expand="1"/>
+                    <field name="lochia_amount" expand="1"/>
+                    <field name="lochia_color" expand="1"/>
+                    <field name="lochia_odor" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -222,15 +226,15 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Perinatal Monitor'>
-                    <field name="date"/>
-                    <field name="systolic"/>
-                    <field name="diastolic"/>
-                    <field name="frequency"/>
-                    <field name="dilation"/>
-                    <field name="fetus_position"/>
-                    <field name="f_frequency"/>
-                    <field name="bleeding"/>
-                    <field name="meconium"/>
+                    <field name="date" expand="1"/>
+                    <field name="dilation" expand="1"/>
+                    <field name="systolic" expand="1"/>
+                    <field name="diastolic" expand="1"/>
+                    <field name="frequency" expand="1"/>
+                    <field name="fetus_position" expand="1"/>
+                    <field name="f_frequency" expand="1"/>
+                    <field name="bleeding" expand="1"/>
+                    <field name="meconium" expand="1"/>
                 </tree>
                 ]]>
             </field>

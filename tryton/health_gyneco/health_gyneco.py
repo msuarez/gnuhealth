@@ -92,10 +92,10 @@ class Perinatal(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    admission_code = fields.Char('Admission Code')
+    admission_code = fields.Char('Code')
     gravida_number = fields.Integer('Gravida #')
     abortion = fields.Boolean('Abortion')
-    admission_date = fields.DateTime('Admission date',
+    admission_date = fields.DateTime('Admission',
         help="Date when she was admitted to give birth", required=True)
     prenatal_evaluations = fields.Integer('Prenatal evaluations',
         help="Number of visits to the doctor during pregnancy")
@@ -104,8 +104,8 @@ class Perinatal(ModelSQL, ModelView):
         ('i', 'Induced'),
         ('c', 'c-section'),
         ], 'Labor mode', select=True)
-    gestational_weeks = fields.Integer('Gestational weeks')
-    gestational_days = fields.Integer('Gestational days')
+    gestational_weeks = fields.Integer('Weeks')
+    gestational_days = fields.Integer('Days')
     fetus_presentation = fields.Selection([
         ('n', 'Correct'),
         ('o', 'Occiput / Cephalic Posterior'),
@@ -126,7 +126,7 @@ class Perinatal(ModelSQL, ModelView):
         'Puerperium monitor')
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medication and anesthesics')
-    dismissed = fields.DateTime('Dismissed from hospital')
+    dismissed = fields.DateTime('Dismissed')
     place_of_death = fields.Selection([
         ('ho', 'Hospital'),
         ('dr', 'At the delivery room'),
@@ -136,7 +136,7 @@ class Perinatal(ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('mother_deceased')))},
         depends=['mother_deceased'])
 
-    mother_deceased = fields.Boolean('Deceased',
+    mother_deceased = fields.Boolean('Maternal death',
         help="Mother died in the process")
 
     notes = fields.Text('Notes')
