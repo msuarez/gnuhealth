@@ -99,10 +99,10 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Perinatal Information'>
-                    <field name="admission_code"/>
-                    <field name="gravida_number"/>
-                    <field name="admission_date"/>
-                    <field name="gestational_weeks"/>
+                    <field name="admission_code" expand="1"/>
+                    <field name="gravida_number" expand="1"/>
+                    <field name="admission_date" expand="1"/>
+                    <field name="gestational_weeks" expand="1"/>
                 </tree>
                 ]]>
             </field>
@@ -255,7 +255,7 @@
                             <notebook>
 
                                 <page string="Gyneco" id="page_gyneco">
-                                    <group colspan="2" string="General" id="group_gyneco_general">
+                                    <group colspan="4" col="10" string="General" id="group_gyneco_general">
                                         <label name="fertile"/>
                                         <field name="fertile"/>
                                         <label name="currently_pregnant"/>
@@ -267,7 +267,10 @@
                                         <label name="menopause"/>
                                         <field name="menopause"/>
                                     </group>
-                                    <group colspan="2" string="Prevention and Screening" id="group_prevention">
+                                    <newline/>
+                                    <separator colspan="4" string="Prevention and Screening" id="separator_prevention"/>
+                                    <newline/>
+                                    <group id="group_prevention">
                                         <label name="breast_self_examination"/>
                                         <field name="breast_self_examination"/>
                                         <newline/>
@@ -287,24 +290,26 @@
                                 </page>
 
                                 <page string="Obstetrics" id="page_obs">
-                                    <group colspan="2" string="Obstetric" id="group_obstetrics">
+                                    <group colspan="4" col="10" string="Obstetric" id="group_obstetrics">
                                         <label name="gpa"/>
                                         <field name="gpa"/>
                                         <label name="gravida"/>
                                         <field name="gravida"/>
                                         <label name="full_term"/>
                                         <field name="full_term"/>
-                                        <label name="born_alive"/>
-                                        <field name="born_alive"/>
-                                        <label name="deaths_1st_week"/>
-                                        <field name="deaths_1st_week"/>
                                         <label name="premature"/>
                                         <field name="premature"/>
-                                        <label name="deaths_2nd_week"/>
-                                        <field name="deaths_2nd_week"/>
+                                        <label name="born_alive"/>
+                                        <field name="born_alive"/>
+                                        <newline/>
                                         <label name="abortions"/>
                                         <field name="abortions"/>
+                                        <label name="deaths_1st_week"/>
+                                        <field name="deaths_1st_week"/>
+                                        <label name="deaths_2nd_week"/>
+                                        <field name="deaths_2nd_week"/>
                                     </group>
+                                    <newline/>
                                     <field name="perinatal"/>
                                 </page>
 
