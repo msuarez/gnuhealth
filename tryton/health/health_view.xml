@@ -1405,11 +1405,38 @@
                     <xpath
                         expr="/form/label[@name=&quot;party&quot;]"
                         position="before">
+                        <newline/>
+
                         <label name="relative_id"/>
                         <field name="relative_id"/>
                         <label name="relationship"/>
                         <field name="relationship"/>
                         <newline/>
+                    </xpath>
+                    <xpath
+                        expr="/form/group/field[@name=&quot;active&quot;]"
+                        position="after">
+                        <label name="is_work"/>
+                        <field name="is_work"/>
+                        <label name="is_school"/>
+                        <field name="is_school"/>
+                    </xpath>
+
+                </data>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="address_view_tree">
+            <field name="model">party.address</field>
+            <field name="inherit" ref="party.address_view_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/tree/field[@name=&quot;active&quot;]" position="after">
+                        <field name="is_school"/>
+                        <field name="is_work"/>
                     </xpath>
                 </data>
                 ]]>

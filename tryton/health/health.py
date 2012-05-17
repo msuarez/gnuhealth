@@ -625,10 +625,13 @@ class PartyAddress(ModelSQL, ModelView):
 
     relationship = fields.Char('Relationship',
         help='Include the relationship with the patient - friend, co-worker,'\
-        ' brother, ...')
-    relative_id = fields.Many2One('party.party', 'Relative ID',
+        ' brother,...')
+    relative_id = fields.Many2One('party.party', 'Contact',
         domain=[('is_person', '=', True)],
         help='If the relative is also a patient, please include it here')
+        
+    is_school = fields.Boolean ("School",help="Check this box to mark the school address")
+    is_work = fields.Boolean ("Work",help="Check this box to mark the work address")
 
 PartyAddress()
 
