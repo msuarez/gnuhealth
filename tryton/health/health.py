@@ -164,7 +164,7 @@ class Physician(ModelSQL, ModelView):
         help='Instituion where she/he works')
     code = fields.Char('ID', help='MD License ID')
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
-        help='Specialty Code')
+        required=True, help='Specialty Code')
     info = fields.Text('Extra info')
 
     def get_rec_name(self, ids, name):

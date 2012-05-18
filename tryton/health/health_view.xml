@@ -1662,24 +1662,23 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Appointment">
-                    <group colspan="4" id="appointment_header">
+                    <group colspan="4" col="6" id="appointment_header">
                         <label name="name"/>
                         <field name="name"/>
                         <label name="institution"/>
                         <field name="institution"/>
-                        <newline/>
+                    
                         <label name="patient"/>
                         <field name="patient"/>
                         <label name="appointment_date"/>
                         <field name="appointment_date"/>
-                        <newline/>
                         <label name="urgency"/>
                         <field name="urgency"/>
                         <label name="appointment_type"/>
                         <field name="appointment_type"/>
                     </group>
                     <newline/>
-                    <group colspan="4" id="appointment_header">
+                    <group colspan="4" id="doc_appointment_header">
                         <label name="doctor"/>
                         <field name="doctor"/>
                         <label name="speciality"/>
