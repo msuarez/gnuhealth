@@ -1684,8 +1684,6 @@
                         <field name="doctor"/>
                         <label name="speciality"/>
                         <field name="speciality"/>
-                        <label name="consultations"/>
-                        <field name="consultations"/>
                     </group>
                     <separator string="Information"
                         id="sepatator_appointment_notes"/>
