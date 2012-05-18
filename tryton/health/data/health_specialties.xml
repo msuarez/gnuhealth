@@ -235,5 +235,10 @@
             <field name="code">VS</field>
         </record>
 
+        <record model="gnuhealth.specialty" id="60">
+            <field name="name">General Practitioner</field>
+            <field name="code">GP</field>
+        </record>
+
     </data>
 </tryton>
