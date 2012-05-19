@@ -1344,25 +1344,25 @@ class PatientEvaluation(ModelSQL, ModelView):
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
         help='Enter or select the date / ID of the appointment related to'\
         ' this evaluation')
-    evaluation_start = fields.DateTime('Start of Evaluation', required=True)
-    evaluation_endtime = fields.DateTime('End of Evaluation', required=True)
+    evaluation_start = fields.DateTime('Start', required=True)
+    evaluation_endtime = fields.DateTime('End', required=True)
     next_evaluation = fields.Many2One('gnuhealth.appointment',
         'Next Appointment')
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
-    information_source = fields.Char('Information Source',help="Source of" \
+    information_source = fields.Char('Source',help="Source of" \
         "Information, eg : Self, relative, friend ...")
     reliable_info = fields.Boolean ('Reliable',help="Uncheck this option" \
         "if the information provided by the source seems not reliable")
     derived_from = fields.Many2One('gnuhealth.physician',
-        'Derived from Doctor',
-        help='Physician who escalated / derived the case')
-    derived_to = fields.Many2One('gnuhealth.physician', 'Derived to Doctor',
+        'Derived from',
+        help='Physician who derived the case')
+    derived_to = fields.Many2One('gnuhealth.physician', 'Derived to',
         help='Physician to whom escalate / derive the case')
     evaluation_type = fields.Selection([
         ('a', 'Ambulatory'),
         ('e', 'Emergency'),
         ('i', 'Inpatient'),
-        ('pa', 'Pre-arraganged appointment'),
+        ('pa', 'Pre-arranged appointment'),
         ('pc', 'Periodic control'),
         ('p', 'Phone call'),
         ('t', 'Telemedicine'),

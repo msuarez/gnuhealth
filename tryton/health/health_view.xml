@@ -2193,15 +2193,8 @@
                                 <field name="evaluation_start"/>
                                 <label name="evaluation_endtime"/>
                                 <field name="evaluation_endtime"/>
-                                <newline/>
                                 <label name="evaluation_type"/>
                                 <field name="evaluation_type"/>
-                                <label name="derived_from"/>
-                                <field name="derived_from"/>
-                                <label name="information_source"/>
-                                <field name="information_source"/>
-                                <label name="reliable_info"/>
-                                <field name="reliable_info"/>
                             </group>
                             <newline/>
                             <separator colspan="4"
@@ -2212,13 +2205,21 @@
                             </group>                          
                             <newline/>
                             <separator string="Present Illness" colspan="4"
-                                id="group_present_illness"/>
+                                id="separator_present_illness"/>
                             <field name="present_illness" colspan="4"/>
                             <newline/>
-
-                            <group string="Evaluation Summary" colspan="4"
-                                id="group_evaluation_summary">
+                            <separator string="Evaluation Summary" colspan="4"
+                                id="separator_evaluation_summary"/>
+                            <newline/>
                             <field name="evaluation_summary" colspan="4"/>
+                            <newline/>
+                            <group colspan="4" col="6" id="group_eval_misc">
+                                <label name="derived_from"/>
+                                <field name="derived_from"/>
+                                <label name="information_source"/>
+                                <field name="information_source"/>
+                                <label name="reliable_info"/>
+                                <field name="reliable_info"/>
                             </group>
                         </page>
 
