@@ -52,18 +52,16 @@ class Appointment(ModelSQL, ModelView):
         patient_obj = Pool().get('gnuhealth.patient')
         physician_obj = Pool().get('gnuhealth.physician')
                 
-        patient = patient_obj.browse(values['patient'])
         if values['doctor']:
+            patient = patient_obj.browse(values['patient'])
             doctor = physician_obj.browse(values['doctor'])
-        else:
-            return False
-        values['event'] = event_obj.create({
-            'dtstart': values['appointment_date'],
-            'dtend': values['appointment_date'] + 
-                timedelta(minutes=values['appointment_time']),
-            'calendar': doctor.calendar.id,
-            'summary': patient.name.lastname + ', ' + patient.name.name,
-            })
+            values['event'] = event_obj.create({
+                'dtstart': values['appointment_date'],
+                'dtend': values['appointment_date'] + 
+                    timedelta(minutes=values['appointment_time']),
+                'calendar': doctor.calendar.id,
+                'summary': patient.name.lastname + ', ' + patient.name.name,
+                })
         return super(Appointment, self).create(values)
 
     def write(self, ids, values):
