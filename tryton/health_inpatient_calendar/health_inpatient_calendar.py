@@ -47,14 +47,15 @@ class InpatientRegistration(ModelSQL, ModelView):
 
         for inpatient_registration_id in ids:
             inpatient_registration = self.browse(inpatient_registration_id)
-            if not inpatient_registration.event:
-                event_id = event_obj.create({
-                    'dtstart': inpatient_registration.hospitalization_date,
-                    'dtend': inpatient_registration.discharge_date,
-                    'calendar': inpatient_registration.bed.calendar.id,
-                    'summary': inpatient_registration.patient.name.name
-                    })
-                self.write(inpatient_registration_id, {'event': event_id})
+            if inpatient_registration.bed.calendar:
+                if not inpatient_registration.event:
+                    event_id = event_obj.create({
+                        'dtstart': inpatient_registration.hospitalization_date,
+                        'dtend': inpatient_registration.discharge_date,
+                        'calendar': inpatient_registration.bed.calendar.id,
+                        'summary': inpatient_registration.patient.name.name
+                        })
+                    self.write(inpatient_registration_id, {'event': event_id})
 
         return True
 

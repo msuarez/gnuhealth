@@ -53,15 +53,16 @@ class Appointment(ModelSQL, ModelView):
         physician_obj = Pool().get('gnuhealth.physician')
                 
         if values['doctor']:
-            patient = patient_obj.browse(values['patient'])
             doctor = physician_obj.browse(values['doctor'])
-            values['event'] = event_obj.create({
-                'dtstart': values['appointment_date'],
-                'dtend': values['appointment_date'] + 
-                    timedelta(minutes=values['appointment_time']),
-                'calendar': doctor.calendar.id,
-                'summary': patient.name.lastname + ', ' + patient.name.name,
-                })
+            if doctor.calendar:
+                patient = patient_obj.browse(values['patient'])
+                values['event'] = event_obj.create({
+                    'dtstart': values['appointment_date'],
+                    'dtend': values['appointment_date'] + 
+                        timedelta(minutes=values['appointment_time']),
+                    'calendar': doctor.calendar.id,
+                    'summary': patient.name.lastname + ', ' + patient.name.name,
+                    })
         return super(Appointment, self).create(values)
 
     def write(self, ids, values):
@@ -71,27 +72,28 @@ class Appointment(ModelSQL, ModelView):
                 
         for appointment_id in ids:
             appointment = self.browse(appointment_id)
-            if 'appointment_date' in values:
-                event_obj.write(appointment.event.id, {
-                    'dtstart': values['appointment_date'],
-                    'dtend': values['appointment_date'] + 
-                        timedelta(minutes=appointment.appointment_time),
-                    })
-            if 'appointment_time' in values:
-                event_obj.write(appointment.event.id, {
-                    'dtend': appointment.appointment_date + 
-                        timedelta(minutes=values['appointment_time']),
-                    })
-            if 'doctor' in values:
-                doctor = physician_obj.browse(values['doctor'])
-                event_obj.write(appointment.event.id, {
-                    'calendar': doctor.calendar.id,
-                    })
-            if 'patient' in values:
-                patient = patient_obj.browse(values['patient'])
-                event_obj.write(appointment.event.id, {
-                    'summary': patient.name.name,
-                    })
+            if appointment.event:
+                if 'appointment_date' in values:
+                    event_obj.write(appointment.event.id, {
+                        'dtstart': values['appointment_date'],
+                        'dtend': values['appointment_date'] + 
+                            timedelta(minutes=appointment.appointment_time),
+                        })
+                if 'appointment_time' in values:
+                    event_obj.write(appointment.event.id, {
+                        'dtend': appointment.appointment_date + 
+                            timedelta(minutes=values['appointment_time']),
+                        })
+                if 'doctor' in values:
+                    doctor = physician_obj.browse(values['doctor'])
+                    event_obj.write(appointment.event.id, {
+                        'calendar': doctor.calendar.id,
+                        })
+                if 'patient' in values:
+                    patient = patient_obj.browse(values['patient'])
+                    event_obj.write(appointment.event.id, {
+                        'summary': patient.name.name,
+                        })
         return super(Appointment, self).write(ids, values)
         
     def delete(self, ids):
@@ -99,7 +101,8 @@ class Appointment(ModelSQL, ModelView):
 
         for appointment_id in ids:
             appointment = self.browse(appointment_id)
-            event_obj.delete(appointment.event.id)            
+            if appointment.event:
+                event_obj.delete(appointment.event.id)            
         return super(Appointment, self).delete(ids)        
         
 Appointment() 
