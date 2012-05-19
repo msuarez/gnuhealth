@@ -157,7 +157,10 @@ class Physician(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('party.party', 'Physician', required=True,
-        domain=[('is_doctor', '=', True)],
+        domain=[
+            ('is_doctor', '=', True),
+            ('is_person', '=', True),
+            ],
         help='Physician\'s Name, from the partner list')
     institution = fields.Many2One('party.party', 'Institution',
         domain=[('is_institution', '=', True)],
