@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="top_diseases_view_tree">
+            <field name="model">gnuhealth.top_diseases</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Top Diseases">
+                    <field name="disease"/>
+                    <field name="cases" sum="Cases"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="top_diseases_view_graph">
+            <field name="model">gnuhealth.top_diseases</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <graph string="Top Diseases">
+                    <x>
+                        <field name="disease"/>
+                    </x>
+                    <y>
+                        <field name="cases"/>
+                    </y>
+                </graph>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_top_diseases_form">
+            <field name="name">Top Diseases</field>
+            <field name="res_model">gnuhealth.top_diseases</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_top_diseases_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="top_diseases_view_tree"/>
+            <field name="act_window" ref="act_top_diseases_form"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_top_diseases_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="top_diseases_view_graph"/>
+            <field name="act_window" ref="act_top_diseases_form"/>
+        </record>
+
+        <record model="ir.ui.view" id="top_diseases_open_start_view_form">
+            <field name="model">gnuhealth.top_diseases.open.start</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Top Diseases">
+                    <label name="start_date"/>
+                    <field name="start_date"/>
+                    <label name="end_date"/>
+                    <field name="end_date"/>
+                    <label name="group"/>
+                    <field name="group"/>
+                    <label name="number_records"/>
+                    <field name="number_records"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.wizard" id="act_top_diseases_open">
+            <field name="name">Top Diseases</field>
+            <field name="wiz_name">gnuhealth.top_diseases.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu" 
+            action="act_top_diseases_open" icon="tryton-list" 
+            id="menu_top_diseases_open"/>
+
+        <record model="ir.ui.view" id="evaluations_sector_view_tree">
+            <field name="model">gnuhealth.evaluations_sector</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Evaluations per Operational Sector">
+                    <field name="sector"/>
+                    <field name="evaluations" sum="Evaluations"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="evaluations_sector_view_graph">
+            <field name="model">gnuhealth.evaluations_sector</field>
+            <field name="type">graph</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <graph string="Evaluations per Operational Sector">
+                    <x>
+                        <field name="sector"/>
+                    </x>
+                    <y>
+                        <field name="evaluations"/>
+                    </y>
+                </graph>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" id="act_evaluations_sector_form">
+            <field name="name">Evaluations per Sector</field>
+            <field name="res_model">gnuhealth.evaluations_sector</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_sector_view_tree"/>
+            <field name="act_window" ref="act_evaluations_sector_form"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="evaluations_sector_view_graph"/>
+            <field name="act_window" ref="act_evaluations_sector_form"/>
+        </record>
+
+        <record model="ir.ui.view" id="evaluations_sector_open_start_view_form">
+            <field name="model">gnuhealth.evaluations_sector.open.start</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Evaluations per Sector">
+                    <label name="start_date"/>
+                    <field name="start_date"/>
+                    <label name="end_date"/>
+                    <field name="end_date"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.wizard" id="act_evaluations_sector_open">
+            <field name="name">Evaluations per Sector</field>
+            <field name="wiz_name">gnuhealth.evaluations_sector.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu" 
+            action="act_evaluations_sector_open" icon="tryton-list" 
+            id="menu_evaluations_sector_open"/>
+
+        <record model="ir.ui.view" id="evaluations_sector_weekly_view_tree">
+            <field name="model">gnuhealth.evaluations_sector_weekly</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Evaluations per Sector per Week">
+                    <field name="year"/>
+                    <field name="week"/>
+                    <field name="sector"/>
+                    <field name="evaluations"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" 
+            id="act_evaluations_sector_weekly_form">
+            <field name="name">Evaluations per Sector per Week</field>
+            <field name="res_model">gnuhealth.evaluations_sector_weekly</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_weekly_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_sector_weekly_view_tree"/>
+            <field name="act_window" ref="act_evaluations_sector_weekly_form"/>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_sector_weekly_form"
+            id="menu_evaluations_sector_open_weekly"/>
+
+        <record model="ir.ui.view" id="evaluations_sector_monthly_view_tree">
+            <field name="model">gnuhealth.evaluations_sector_monthly</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Evaluations per Sector per Month">
+                    <field name="year"/>
+                    <field name="month"/>
+                    <field name="sector"/>
+                    <field name="evaluations"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window" 
+            id="act_evaluations_sector_monthly_form">
+            <field name="name">Evaluations per Sector per Month</field>
+            <field name="res_model">gnuhealth.evaluations_sector_monthly</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_monthly_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_sector_monthly_view_tree"/>
+            <field name="act_window" ref="act_evaluations_sector_monthly_form"/>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_sector_monthly_form"
+            id="menu_evaluations_sector_open_monthly"/>
+
+    </data>
+</tryton>

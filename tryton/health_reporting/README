@@ -1,0 +1,152 @@
+#    Copyright (C) 2008-2012  Luis Falcon
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+About GNU HEALTH 
+-----------------
+
+GNU HEALTH is a free, centralized Health and Hospital Information System that provides the following functionality :
+
+    * Electronic Medical Record (EMR)
+    * Hospital Information System (HIS)
+    * Health Information System
+
+
+Our goal is to contribute with health professionals around the world to improve the quality of life of the underprivileged, providing a free system that optimizes health promotion and disease prevention.
+
+
+GNU HEALTH at a glance:
+
+    * Strong focus on Preventive and Family Medicine
+    * Health Center administration (human resources, financial, stock, billing, ... )
+    * Medical stock and supply chain management ( including pharmaceuticals and drugs )
+    * Demographics, epidemiology and other statistical reports
+    * Socioeconomics : Living conditions, sewers, drinking water, economic income, family members,electricity ...
+    * Lifestyle : Excercise, hours of work, diet, sleep hours, smoking.... 
+    * Sexual education and habits
+    * Social exclusion and drug abuse indicators : Working children, sexual abuse, prostitution, teenage pregnancy, school withdawal, ...
+    * Includes commonly used illegal drugs, by the National Institute of Drug Abuse (NIDA) and their rating, addiction and tolerance, toxicity, etc...
+    * Laboratory Administration
+    * Prescription writing
+    * Patient appointment Administration (both ambulatory and inpatient)
+    * Inpatient (Hospitalization) Management
+    * Vademecum : Includes the World Health Organization (WHO) essential list of medicines.
+    * Genetic and Hereditary diseases. ( Over 4200 NCBI and Diseases genes )
+    * Includes International Classification of Diseases, version 10, as well as the ICD-10-PCS ( Procedure Coding System )
+
+
+The data model is designed in such a way that centralizes the information, so no duplication occurs.
+
+On the other hand, medical optimizes collaboration and communication between health professionals. For example, a doctor may request an specific lab test for a patient, this is processed by the pathologist which diagnoses it and inputs the result on the system. The doctor now has all the analysis information linked to the patient chart.
+
+GNU Health allows to attach documents (X-rays, Biopsy results, ... ) to the Patient chart.
+
+Standards:
+The information generated and gathered in GNU Health should be standard. We use ICD-10 for pathologies / diseases diagnoses. For example, instead of typing an arbitrary name for the condition, the doctor will be able to choose from over 14000 mutually exclusive classified diseases. This is very important for epidemiological and other statistical studies.
+
+GNU Health uses the information on genetics from the National Center for Biotechnology Information NCBI and Genecards to link genes disorders to diseases. This information is important to evaluate risks of the patient to contract an specific disease and the probability of transmitting it to next generations. GNU Health also registers all the relevant family history information of the patient.
+
+Similarly, the patient history will be in a format that medical centers all over the world would be able to process. Effective, paperless and fast way of practising medicine.
+
+Security
+--------
+It follows the access control and security model of Tryton
+
+
+Internationalization
+--------------------
+
+The main language will be English, but it can be easily translated to any other language using module translation.
+
+
+Download
+--------
+You can download the latest version or the development branch (svn) at the GNU Health project at GNU  . http://health.gnu.org
+
+Supporting Governments
+----------------------
+
+Special thanks to the European Community (OSOR) and to the Brazilian Portal do Software Público Brasileiro (SPB) for supporting Free Software and GNU Health, as a public good.
+
+
+
+Collaboration
+--------------
+
+There are many ways that you can contribute to the project, for example :
+
+    * Documentation
+    * Translation
+    * Bug reporting
+    * Quality Assurance
+    * Coding
+    * New functionality
+    * Implementations 
+
+You can also help by passing the word. Many health professionals do not know that there are free health systems that can be used for free. By letting them know about GNU Health, they will be able to iinvestigate it further and see whether it fits their needs.
+
+Tell your government officials and health authorities about Free software solutions in Health. No matter whether is GNU Health or other free health information system. What it matters is that they have to get involved in Free Software for the health sector. Tell them about the benefits about implementing a Free Health Information System.
+Governments like the European Commission and Brazil have already published GNU Health at their public software portals.
+
+
+Support GNU Solidario : 
+----------------------
+
+GNU Health is a project of GNU Solidario. GNU Solidario is an Non-profit Non-goverment-Organization (NGO) that works globally, delivering health and education with free software. Our friends at Amazee have created the space to have our own social network. Please join us at The GNU Solidario Social Network and share your ideas ! Join us at http://www.gnusolidario.org
+
+
+GNUsolidario works globally, delivering health and education to the underprivileged by means of free software. Your financial contribution, no matter how small, is crucial for our non-profit organization. Health and education are the basis for the development and dignity of societies. We already reached health centers, doctors, women, men and children from Nigeria, Ghana, Indonesia or Argentina, to name a few. With your donation, we'll be able to reach many others.
+
+GNU Solidario hosts IWEEE - The International Workshop on e-Health in Emerging Economies- a good way to support GNU Solidario and to get the latest on e-Health is to assist to the conferences. IWEEE is a biannual conference that takes place in the Canary Islands (Spain) and in Brazil.
+
+
+Contact
+-------
+If you want to get involved in GNU Health, please join the mailing lists at GNU Savannah. 
+
+	 http://savannah.gnu.org/mail/?group=health
+
+The more feedback and input we get from the medical community, the more complete the system will be, so please send us your suggestions to health@gnusolidario.org.
+
+
+
+** You need help to start a GNU Health project in your community
+
+We are committed to do our best in helping out projects that can improve the health of your country, region or village.
+We want the project to be a success, and since our resources are limited, we need to work together to make a great and sustainable project.
+Please keep in mind that most of the elegible projects will come from developing countries or NGOs helping out developing countries.
+In order to be elegible, we need the following information from you, your NGO or government :
+
+    * An introduction of the current needs
+    * The project will use free software, both at the server and workstations (client)
+    * There will be a local designated person that will be in charge of the project and the know-how transfer to the rest of the community. This person must be committed to be from the beginning of the project until two years after its completion.
+    * There must be a commitment of knowledge transfer to the rest of the team. 
+
+We will do our best to help you out with the implementation and training for the local team. Please send us a mail with that info to health@gnusolidario.org and we'll back to you as soon as possible.
+
+
+
+Thanks
+Luis Falcón
+Author and main developer
+lfalcon@gnusolidario.org
+
+
+Main links :
+
+http://health.gnu.org
+health@gnusolidario.org
+
+
