@@ -2184,17 +2184,20 @@
                     <notebook>
 
                         <page string="Main Info" id="page_patient_evaluation_main">
-                            <group id="evaluation_header">
+                            <group colspan="4" col="6" id="evaluation_header">
                                 <label name="patient"/>
                                 <field name="patient"/>
-                                <label name="evaluation_date"/>
-                                <field name="evaluation_date"/>
+                                <label name="evaluation_type"/>
+                                <field name="evaluation_type"/>
+                                <label name="specialty"/>
+                                <field name="specialty"/>
+                                <newline/>
+                                <label name="doctor"/>
+                                <field name="doctor"/>
                                 <label name="evaluation_start"/>
                                 <field name="evaluation_start"/>
                                 <label name="evaluation_endtime"/>
                                 <field name="evaluation_endtime"/>
-                                <label name="evaluation_type"/>
-                                <field name="evaluation_type"/>
                             </group>
                             <newline/>
                             <separator colspan="4"
@@ -2213,7 +2216,9 @@
                             <newline/>
                             <field name="evaluation_summary" colspan="4"/>
                             <newline/>
-                            <group colspan="4" col="6" id="group_eval_misc">
+                            <group colspan="4" col="8" id="group_eval_misc">
+                                <label name="evaluation_date"/>
+                                <field name="evaluation_date"/>
                                 <label name="derived_from"/>
                                 <field name="derived_from"/>
                                 <label name="information_source"/>

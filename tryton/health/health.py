@@ -1349,6 +1349,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     next_evaluation = fields.Many2One('gnuhealth.appointment',
         'Next Appointment')
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
     information_source = fields.Char('Source',help="Source of" \
         "Information, eg : Self, relative, friend ...")
     reliable_info = fields.Boolean ('Reliable',help="Uncheck this option" \
@@ -1366,7 +1368,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('pc', 'Periodic control'),
         ('p', 'Phone call'),
         ('t', 'Telemedicine'),
-        ], 'Evaluation Type', sort=False)
+        ], 'Type', sort=False)
     chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
     notes_complaint = fields.Text('Complaint details')
     present_illness = fields.Text('Present Illness')
