@@ -89,6 +89,289 @@ class OpenTopDiseases(Wizard):
 
 OpenTopDiseases()
 
+
+class EvaluationsDoctor(ModelSQL, ModelView):
+    'Evaluations per Doctor'
+    _name = 'gnuhealth.evaluations_doctor'
+    _description = __doc__
+
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def table_query(self):
+        clause = ' '
+        args = [True]
+        if Transaction().context.get('start_date'):
+            clause += 'AND evaluation_start >= %s '
+            args.append(Transaction().context['start_date'])
+        if Transaction().context.get('end_date'):
+            clause += 'AND evaluation_start <= %s '
+            args.append(Transaction().context['end_date'])
+        return ('SELECT DISTINCT(doctor) AS id, ' \
+                    'MAX(create_uid) AS create_uid, ' \
+                    'MAX(create_date) AS create_date, ' \
+                    'MAX(write_uid) AS write_uid, ' \
+                    'MAX(write_date) AS write_date, ' \
+                    'doctor, COUNT(*) AS evaluations ' \
+                'FROM gnuhealth_patient_evaluation ' \
+                'WHERE %s ' \
+                + clause + \
+                'GROUP BY doctor', args)
+
+EvaluationsDoctor()
+
+
+class OpenEvaluationsDoctorStart(ModelView):
+    'Open Evaluations per Doctor'
+    _name = 'gnuhealth.evaluations_doctor.open.start'
+    _description = __doc__
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
+
+OpenEvaluationsDoctorStart()
+
+
+class OpenEvaluationsDoctor(Wizard):
+    'Open Evaluations per Doctor'
+    _name = 'gnuhealth.evaluations_doctor.open'
+
+    start = StateView('gnuhealth.evaluations_doctor.open.start',
+        'health_reporting.evaluations_doctor_open_start_view_form', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Open', 'open_', 'tryton-ok', default=True),
+            ])
+    open_ = StateAction('health_reporting.act_evaluations_doctor_form')
+
+    def do_open_(self, session, action):
+        action['pyson_context'] = PYSONEncoder().encode({
+                'start_date': session.start.start_date,
+                'end_date': session.start.end_date,
+                })
+        return action, {}
+
+    def transition_open_(self, session):
+        return 'end'
+
+OpenEvaluationsDoctor()
+
+
+class EvaluationsDoctorWeekly(ModelSQL, ModelView):
+    'Evaluations per Doctor per Week'
+    _name = 'gnuhealth.evaluations_doctor_weekly'
+    _description = __doc__
+
+    year = fields.Char('Year', select=True)
+    week = fields.Integer('Week', select=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def __init__(self):
+        super(EvaluationsDoctorWeekly, self).__init__()
+        self._order.insert(0, ('year', 'DESC'))
+        self._order.insert(1, ('week', 'DESC'))
+        #self._order.insert(2, ('doctor', 'ASC')) /// wait for trytond-2.4.2
+
+    def table_query(self):
+        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
+                    'CAST(year AS ' + type_name + ') AS year, week, ' \
+                    'doctor, evaluations ' \
+                    'FROM ('
+                        'SELECT EXTRACT(WEEK FROM evaluation_start) + ' \
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
+                            'doctor * 1000000 AS id, ' \
+                        'MAX(create_uid) AS create_uid, ' \
+                        'MAX(create_date) AS create_date, ' \
+                        'MAX(write_uid) AS write_uid, ' \
+                        'MAX(write_date) AS write_date, ' \
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
+                        'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
+                        'doctor, COUNT(*) AS evaluations ' \
+                        'FROM gnuhealth_patient_evaluation ' \
+                        'GROUP BY year, week, doctor) AS ' + self._table, [])
+
+EvaluationsDoctorWeekly()
+
+
+class EvaluationsDoctorMonthly(ModelSQL, ModelView):
+    'Evaluations per Doctor per Month'
+    _name = 'gnuhealth.evaluations_doctor_monthly'
+    _description = __doc__
+
+    year = fields.Char('Year', select=True)
+    month = fields.Integer('Month', select=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def __init__(self):
+        super(EvaluationsDoctorMonthly, self).__init__()
+        self._order.insert(0, ('year', 'DESC'))
+        self._order.insert(1, ('month', 'DESC'))
+        #self._order.insert(2, ('doctor', 'ASC')) /// wait for trytond-2.4.2
+
+    def table_query(self):
+        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
+                    'CAST(year AS ' + type_name + ') AS year, month, ' \
+                    'doctor, evaluations ' \
+                    'FROM ('
+                        'SELECT EXTRACT(MONTH FROM evaluation_start) + ' \
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
+                            'doctor * 1000000 AS id, ' \
+                        'MAX(create_uid) AS create_uid, ' \
+                        'MAX(create_date) AS create_date, ' \
+                        'MAX(write_uid) AS write_uid, ' \
+                        'MAX(write_date) AS write_date, ' \
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
+                        'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
+                        'doctor, COUNT(*) AS evaluations ' \
+                        'FROM gnuhealth_patient_evaluation ' \
+                        'GROUP BY year, month, doctor) AS ' + self._table, [])
+
+EvaluationsDoctorMonthly()
+
+
+class EvaluationsSpecialty(ModelSQL, ModelView):
+    'Evaluations per Specialty'
+    _name = 'gnuhealth.evaluations_specialty'
+    _description = __doc__
+
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def table_query(self):
+        clause = ' '
+        args = [True]
+        if Transaction().context.get('start_date'):
+            clause += 'AND evaluation_start >= %s '
+            args.append(Transaction().context['start_date'])
+        if Transaction().context.get('end_date'):
+            clause += 'AND evaluation_start <= %s '
+            args.append(Transaction().context['end_date'])
+        return ('SELECT DISTINCT(specialty) AS id, ' \
+                    'MAX(create_uid) AS create_uid, ' \
+                    'MAX(create_date) AS create_date, ' \
+                    'MAX(write_uid) AS write_uid, ' \
+                    'MAX(write_date) AS write_date, ' \
+                    'specialty, COUNT(*) AS evaluations ' \
+                'FROM gnuhealth_patient_evaluation ' \
+                'WHERE %s ' \
+                + clause + \
+                'GROUP BY specialty', args)
+
+EvaluationsSpecialty()
+
+
+class OpenEvaluationsSpecialtyStart(ModelView):
+    'Open Evaluations per Specialty'
+    _name = 'gnuhealth.evaluations_specialty.open.start'
+    _description = __doc__
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
+
+OpenEvaluationsSpecialtyStart()
+
+
+class OpenEvaluationsSpecialty(Wizard):
+    'Open Evaluations per Specialty'
+    _name = 'gnuhealth.evaluations_specialty.open'
+
+    start = StateView('gnuhealth.evaluations_specialty.open.start',
+        'health_reporting.evaluations_specialty_open_start_view_form', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Open', 'open_', 'tryton-ok', default=True),
+            ])
+    open_ = StateAction('health_reporting.act_evaluations_specialty_form')
+
+    def do_open_(self, session, action):
+        action['pyson_context'] = PYSONEncoder().encode({
+                'start_date': session.start.start_date,
+                'end_date': session.start.end_date,
+                })
+        return action, {}
+
+    def transition_open_(self, session):
+        return 'end'
+
+OpenEvaluationsSpecialty()
+
+
+class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
+    'Evaluations per Specialty per Week'
+    _name = 'gnuhealth.evaluations_specialty_weekly'
+    _description = __doc__
+
+    year = fields.Char('Year', select=True)
+    week = fields.Integer('Week', select=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def __init__(self):
+        super(EvaluationsSpecialtyWeekly, self).__init__()
+        self._order.insert(0, ('year', 'DESC'))
+        self._order.insert(1, ('week', 'DESC'))
+        #self._order.insert(2, ('specialty', 'ASC')) /// wait for trytond-2.4.2
+
+    def table_query(self):
+        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
+                    'CAST(year AS ' + type_name + ') AS year, week, ' \
+                    'specialty, evaluations ' \
+                    'FROM ('
+                        'SELECT EXTRACT(WEEK FROM evaluation_start) + ' \
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
+                            'specialty * 1000000 AS id, ' \
+                        'MAX(create_uid) AS create_uid, ' \
+                        'MAX(create_date) AS create_date, ' \
+                        'MAX(write_uid) AS write_uid, ' \
+                        'MAX(write_date) AS write_date, ' \
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
+                        'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
+                        'specialty, COUNT(*) AS evaluations ' \
+                        'FROM gnuhealth_patient_evaluation ' \
+                        'GROUP BY year, week, specialty) AS ' + self._table, [])
+
+EvaluationsSpecialtyWeekly()
+
+
+class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
+    'Evaluations per Specialty per Month'
+    _name = 'gnuhealth.evaluations_specialty_monthly'
+    _description = __doc__
+
+    year = fields.Char('Year', select=True)
+    month = fields.Integer('Month', select=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    evaluations = fields.Integer('Evaluations')
+
+    def __init__(self):
+        super(EvaluationsSpecialtyMonthly, self).__init__()
+        self._order.insert(0, ('year', 'DESC'))
+        self._order.insert(1, ('month', 'DESC'))
+        #self._order.insert(2, ('specialty', 'ASC')) /// wait for trytond-2.4.2
+
+    def table_query(self):
+        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
+                    'CAST(year AS ' + type_name + ') AS year, month, ' \
+                    'specialty, evaluations ' \
+                    'FROM ('
+                        'SELECT EXTRACT(MONTH FROM evaluation_start) + ' \
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
+                            'specialty * 1000000 AS id, ' \
+                        'MAX(create_uid) AS create_uid, ' \
+                        'MAX(create_date) AS create_date, ' \
+                        'MAX(write_uid) AS write_uid, ' \
+                        'MAX(write_date) AS write_date, ' \
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
+                        'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
+                        'specialty, COUNT(*) AS evaluations ' \
+                        'FROM gnuhealth_patient_evaluation ' \
+                        'GROUP BY year, month, specialty) AS ' + self._table, [])
+
+EvaluationsSpecialtyMonthly()
+
+
 class EvaluationsSector(ModelSQL, ModelView):
     'Evaluations per Sector'
     _name = 'gnuhealth.evaluations_sector'
@@ -208,7 +491,7 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
                             'AND gfm.party = pp.id ' \
                             'AND gfm.name = gf.id ' \
                             'AND gf.operational_sector = gos.id ' \
-                            'GROUP BY year, week, gos.id) AS ' + self._table, [])
+                        'GROUP BY year, week, gos.id) AS ' + self._table, [])
 
 EvaluationsSectorWeekly()
 
@@ -256,6 +539,6 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
                             'AND gfm.party = pp.id ' \
                             'AND gfm.name = gf.id ' \
                             'AND gf.operational_sector = gos.id ' \
-                            'GROUP BY year, month, gos.id) AS ' + self._table, [])
+                        'GROUP BY year, month, gos.id) AS ' + self._table, [])
 
 EvaluationsSectorMonthly()
