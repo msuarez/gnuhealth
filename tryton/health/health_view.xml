@@ -959,8 +959,6 @@
                         <label name="name"/>
                         <field name="name"/>
                         <newline/>
-                        <label name="group"/>
-                        <field name="group"/>
                         <label name="code"/>
                         <field name="code"/>
                         <label name="desc"/>
@@ -985,7 +983,6 @@
                 <![CDATA[
                 <tree string="Pathology Groups">
                     <field name="name" expand="1"/>
-                    <field name="group" expand="1"/>
                     <field name="code" expand="1"/>
                     <field name="desc" expand="1"/>
                 </tree>
@@ -1014,6 +1011,36 @@
             parent="gnuhealth_conf_pathology"/>
 
 
+
+
+<!-- Disease Group Member-->
+
+        <record model="ir.ui.view" id="gnuhealth_disease_group_members_view">
+            <field name="model">gnuhealth.disease_group.members</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Pathology Group Member">
+                    <label name="disease_group"/>
+                    <field name="disease_group"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_disease_group_members_tree">
+            <field name="model">gnuhealth.disease_group.members</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Member of Pathology Groups">
+                    <field name="disease_group" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
 <!-- Disease -->
 
         <record model="ir.ui.view" id="gnuhealth_pathology_view">
@@ -1034,9 +1061,7 @@
                                 <field name="category"/>
                             </group>
                             <newline/>
-                            <group colspan="4" col="6" id="pathology_groups">
-                                <field name="groups"/>
-                            </group>
+                            <field name="groups"/>
                         </page>
 
                         <page string="Genetics" id="disease_genetics">

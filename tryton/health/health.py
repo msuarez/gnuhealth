@@ -420,6 +420,21 @@ class PathologyCategory(ModelSQL, ModelView):
 
 PathologyCategory()
 
+class PathologyGroup(ModelSQL, ModelView):
+    'Pathology Groups'
+    _name = 'gnuhealth.pathology.group'
+    _description = __doc__
+
+    name = fields.Char('Name', required=True, translate=True,
+        help='Group name')
+    code = fields.Char('Code', required=True,
+        help='for example MDG6 code will contain the Millennium Development'\
+        ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
+    desc = fields.Char('Short Description', required=True)
+    info = fields.Text('Detailed information')
+
+PathologyGroup()
+
 
 class Pathology(ModelSQL, ModelView):
     'Diseases'
@@ -434,7 +449,7 @@ class Pathology(ModelSQL, ModelView):
         help='Select the main category for this disease This is usually'\
         ' associated to the standard. For instance, the chapter on the ICD-10'\
         ' will be the main category for de disease')
-    groups = fields.One2Many('gnuhealth.pathology.group', 'name', 'Groups',
+    groups = fields.One2Many('gnuhealth.disease_group.members', 'name', 'Groups',
         help='Specify the groups this pathology belongs. Some automated'\
         ' processes act upon the code of the group')
     chromosome = fields.Char('Affected Chromosome', help='chromosome number')
@@ -451,22 +466,18 @@ class Pathology(ModelSQL, ModelView):
 
 Pathology()
 
-
-class PathologyGroup(ModelSQL, ModelView):
-    'Pathology Groups'
-    _name = 'gnuhealth.pathology.group'
+# DISEASE GROUP MEMBERS
+class DiseaseMembers(ModelSQL, ModelView):
+    'Disease group members'
+    _name = 'gnuhealth.disease_group.members'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
-    group = fields.Char('Name', required=True, translate=True,
-        help='Group name')
-    code = fields.Char('Code', required=True,
-        help='for example MDG6 code will contain the Millennium Development'\
-        ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
-    desc = fields.Char('Short Description', required=True)
-    info = fields.Text('Detailed information')
+    name = fields.Many2One('gnuhealth.pathology', 'Disease', readonly=True)
+    disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group', required=True)
 
-PathologyGroup()
+DiseaseMembers()
+
+
 
 
 class ProcedureCode(ModelSQL, ModelView):
@@ -1150,6 +1161,7 @@ class PatientMedication(ModelSQL, ModelView):
         return 1
 
 PatientMedication()
+
 
 
 # PATIENT VACCINATION INFORMATION
