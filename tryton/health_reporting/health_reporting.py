@@ -27,8 +27,9 @@ class TopDiseases(ModelSQL, ModelView):
             where_clause += 'AND gpe.evaluation_start <= %s '
             args.append(Transaction().context['end_date'])
         if Transaction().context.get('group'):
-            from_clause = ', gnuhealth_pathology_group gpg '
-            where_clause += 'AND gpg.name = gpe.diagnosis AND gpg.id = %s '
+            from_clause = ', gnuhealth_disease_group_members gdgm '
+            where_clause += 'AND gdgm.name = gpe.diagnosis ' \
+                'AND gdgm.disease_group = %s '
             args.append(Transaction().context['group'])
         number_records = '10'
         if Transaction().context.get('number_records'):

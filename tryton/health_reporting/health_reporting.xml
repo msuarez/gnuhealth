@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Top Diseases">
-                    <field name="disease"/>
+                    <field name="disease" expand="1"/>
                     <field name="cases" sum="Cases"/>
                 </tree>
                 ]]>
@@ -79,7 +79,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Evaluations per Doctor">
-                    <field name="doctor"/>
+                    <field name="doctor" expand="1"/>
                     <field name="evaluations" sum="Evaluations"/>
                 </tree>
                 ]]>
@@ -148,7 +148,7 @@
                 <tree string="Evaluations per Doctor per Week">
                     <field name="year"/>
                     <field name="week"/>
-                    <field name="doctor"/>
+                    <field name="doctor" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
@@ -177,7 +177,7 @@
                 <tree string="Evaluations per Doctor per Month">
                     <field name="year"/>
                     <field name="month"/>
-                    <field name="doctor"/>
+                    <field name="doctor" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
@@ -204,7 +204,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Evaluations per Specialty">
-                    <field name="specialty"/>
+                    <field name="specialty" expand="1"/>
                     <field name="evaluations" sum="Evaluations"/>
                 </tree>
                 ]]>
@@ -273,7 +273,7 @@
                 <tree string="Evaluations per Specialty per Week">
                     <field name="year"/>
                     <field name="week"/>
-                    <field name="specialty"/>
+                    <field name="specialty" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
@@ -302,7 +302,7 @@
                 <tree string="Evaluations per Specialty per Month">
                     <field name="year"/>
                     <field name="month"/>
-                    <field name="specialty"/>
+                    <field name="specialty" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
@@ -329,7 +329,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Evaluations per Operational Sector">
-                    <field name="sector"/>
+                    <field name="sector" expand="1"/>
                     <field name="evaluations" sum="Evaluations"/>
                 </tree>
                 ]]>
@@ -398,7 +398,7 @@
                 <tree string="Evaluations per Sector per Week">
                     <field name="year"/>
                     <field name="week"/>
-                    <field name="sector"/>
+                    <field name="sector" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
@@ -427,7 +427,7 @@
                 <tree string="Evaluations per Sector per Month">
                     <field name="year"/>
                     <field name="month"/>
-                    <field name="sector"/>
+                    <field name="sector" expand="1"/>
                     <field name="evaluations"/>
                 </tree>
                 ]]>
