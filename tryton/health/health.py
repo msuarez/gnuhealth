@@ -1507,15 +1507,15 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Check this box if the patient is unable to make voluntary'\
         'movements')
     diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
-        help='Presumptive Diagnosis')
+        help='Presumptive Diagnosis. If no diagnosis can be made'\
+        ', encode the main sign or symptom.', required=True)
     secondary_conditions = fields.One2Many('gnuhealth.secondary_condition',
-        'evaluation', 'Secondary', help="Secondary Conditions found on the patient")
+        'evaluation', 'Secondary Conditions', help="Other, Secondary conditions found on the patient")
 
     diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
         'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
     signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
-        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation")
-
+        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation.")
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
     directions = fields.Text('Plan')
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',

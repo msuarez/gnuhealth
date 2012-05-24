@@ -2399,10 +2399,9 @@
 
                         <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
                             <label name="diagnosis"/>
-                            <field name="diagnosis" colspan="4"/>
+                            <field name="diagnosis" colspan="3"/>
                             <newline/>
-                            <field name="secondary_conditions" colspan="2" />
-                            <field name="diagnostic_hypothesis" colspan="2" />
+                            <field name="secondary_conditions" colspan="4" />
                             <newline/>
                             <separator string="Information on Diagnosis" colspan="2"
                                 id="separator_evaluation_diagnosis_1"/>
@@ -2412,7 +2411,8 @@
                             <field name="info_diagnosis" colspan="2"/>
                             <field name="directions" colspan="2"/>
                             <newline/>
-                            <field name="actions" colspan="4"/>
+                            <field name="diagnostic_hypothesis" colspan="2" />
+                            <field name="actions" colspan="2"/>
                             <newline/>
                             <label name="next_evaluation"/>
                             <field name="next_evaluation"/>
