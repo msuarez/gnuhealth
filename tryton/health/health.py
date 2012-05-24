@@ -1508,6 +1508,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         'movements')
     diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
         help='Presumptive Diagnosis')
+    secondary_conditions = fields.One2Many('gnuhealth.secondary_condition',
+        'evaluation', 'Secondary', help="Secondary Conditions found on the patient")
+
     diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
         'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
     signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
@@ -1580,6 +1583,20 @@ class Directions(ModelSQL, ModelView):
     comments = fields.Char('Comments')
 
 Directions()
+
+
+
+# SECONDARY CONDITIONS ASSOCIATED TO THE PATIENT IN THE EVALUATION
+class SecondaryCondition(ModelSQL, ModelView):
+    'Secondary Conditions'
+    _name = 'gnuhealth.secondary_condition'
+    _description = __doc__
+
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    comments = fields.Char('Comments')
+
+SecondaryCondition()
 
 
 # PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
