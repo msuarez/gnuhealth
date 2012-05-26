@@ -190,6 +190,12 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history', 'name', 'Menstrual History')
 
+    mammography_history = fields.One2Many('gnuhealth.patient.mammography_history', 'name', 'Mammography History')
+
+    pap_history = fields.One2Many('gnuhealth.patient.pap_history', 'name', 'PAP smear History')
+
+    colposcopy_history = fields.One2Many('gnuhealth.patient.colposcopy_history', 'name', 'Colposcopy History')
+
 GnuHealthPatient()
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
@@ -199,7 +205,7 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    evaluation_date = fields.Date('Date', help="Last Menstrual Period Date", required=True)
+    evaluation_date = fields.Date('Date', help="Evaluation Date", required=True)
     lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
     lmp_length = fields.Integer('Length',required=True)
     is_regular = fields.Boolean('Regular')
@@ -229,3 +235,81 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     
 PatientMenstrualHistory()
     
+
+class PatientMammographyHistory(ModelSQL, ModelView):
+    'Mammography History'
+    _name = 'gnuhealth.patient.mammography_history'
+    _description = __doc__
+    
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    evaluation_date = fields.Date('Date', help=" Date")
+    last_mammography = fields.Date('Date', help="Last Mammography", required=True)
+    result = fields.Selection([
+        ('normal', 'normal'),
+        ('abnormal', 'abnormal'),
+        ], 'result', help="Please check the lab test results if the module is installed", sort=False)
+ 
+    comments = fields.Char('Remarks')
+    
+    def default_evaluation_date(self):
+        return Pool().get('ir.date').today()
+
+    def default_last_mammography(self):
+        return Pool().get('ir.date').today()
+
+    
+PatientMammographyHistory()
+
+class PatientPAPHistory(ModelSQL, ModelView):
+    'PAP Test History'
+    _name = 'gnuhealth.patient.pap_history'
+    _description = __doc__
+    
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    evaluation_date = fields.Date('Date', help=" Date")
+    last_pap = fields.Date('Date', help="Last Papanicolau", required=True)
+    result = fields.Selection([
+        ('negative', 'Negative'),
+        ('c1', 'ASC-US'),
+        ('c2', 'ASC-H'),
+        ('g1', 'ASG'),
+        ('c3', 'LSIL'),
+        ('c4', 'HSIL'),
+        ('g4', 'AIS'),
+        ], 'result', help="Please check the lab results if the module is installed", sort=False)
+ 
+    comments = fields.Char('Remarks')
+    
+    def default_evaluation_date(self):
+        return Pool().get('ir.date').today()
+
+    def default_last_pap(self):
+        return Pool().get('ir.date').today()
+    
+PatientPAPHistory()
+
+class PatientColposcopyHistory(ModelSQL, ModelView):
+    'Colposcopy History'
+    _name = 'gnuhealth.patient.colposcopy_history'
+    _description = __doc__
+    
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    evaluation_date = fields.Date('Date', help=" Date")
+    last_colposcopy = fields.Date('Date', help="Last colposcopy", required=True)
+    result = fields.Selection([
+        ('normal', 'normal'),
+        ('abnormal', 'abnormal'),
+        ], 'result', help="Please check the lab test results if the module is installed", sort=False)
+ 
+    comments = fields.Char('Remarks')
+    
+    def default_evaluation_date(self):
+        return Pool().get('ir.date').today()
+
+    def default_last_colposcopy(self):
+        return Pool().get('ir.date').today()
+
+PatientColposcopyHistory()

@@ -241,7 +241,7 @@
         </record>
 
 
-<!-- Menstrual information -->
+<!-- Menstrual history information -->
 
         <record model="ir.ui.view" id="gnuhealth_menstrual_history_view">
             <field name="model">gnuhealth.patient.menstrual_history</field>
@@ -267,6 +267,8 @@
                     <field name="is_regular"/>
                     <label name="dysmenorrhea"/>
                     <field name="dysmenorrhea"/>
+                    <label name="comments"/>
+                    <field name="comments"/>
                 </form>
                 ]]>
             </field>
@@ -284,14 +286,130 @@
                     <field name="frequency" expand="1"/>
                     <field name="volume" expand="1"/>
                     <field name="is_regular" expand="1"/>
-                    <field name="dysmenorrhea" expand="1"/>
-                    
+                    <field name="dysmenorrhea" expand="1"/>                    
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+<!-- PAP history information -->
+
+        <record model="ir.ui.view" id="gnuhealth_pap_history_view">
+            <field name="model">gnuhealth.patient.pap_history</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient pap History">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="evaluation"/>
+                    <field name="evaluation"/>
+                    <label name="evaluation_date"/>
+                    <field name="evaluation_date"/>
+                    <label name="last_pap"/>
+                    <field name="last_pap"/>
+                    <label name="result"/>
+                    <field name="result"/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_pap_history_tree">
+            <field name="model">gnuhealth.patient.pap_history</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string='PAP Tests'>
+                    <field name="last_pap" expand="1"/>
+                    <field name="result" expand="1"/>                    
+                    <field name="comments" expand="1"/>                    
                 </tree>
                 ]]>
             </field>
         </record>
 
 
+<!-- Mammography history information -->
+
+        <record model="ir.ui.view" id="gnuhealth_mammography_history_view">
+            <field name="model">gnuhealth.patient.mammography_history</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient mammography History">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="evaluation"/>
+                    <field name="evaluation"/>
+                    <label name="evaluation_date"/>
+                    <field name="evaluation_date"/>
+                    <label name="last_mammography"/>
+                    <field name="last_mammography"/>
+                    <label name="result"/>
+                    <field name="result"/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_mammography_history_tree">
+            <field name="model">gnuhealth.patient.mammography_history</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string='Mammography Tests'>
+                    <field name="last_mammography" expand="1"/>
+                    <field name="result" expand="1"/>                    
+                    <field name="comments" expand="1"/>                    
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+<!-- Colposcopy history information -->
+
+        <record model="ir.ui.view" id="gnuhealth_colposcopy_history_view">
+            <field name="model">gnuhealth.patient.colposcopy_history</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient colposcopy History">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="evaluation"/>
+                    <field name="evaluation"/>
+                    <label name="evaluation_date"/>
+                    <field name="evaluation_date"/>
+                    <label name="last_colposcopy"/>
+                    <field name="last_colposcopy"/>
+                    <label name="result"/>
+                    <field name="result"/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_colposcopy_history_tree">
+            <field name="model">gnuhealth.patient.colposcopy_history</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string='Colposcopy Tests'>
+                    <field name="last_colposcopy" expand="1"/>
+                    <field name="result" expand="1"/>                    
+                    <field name="comments" expand="1"/>                    
+                </tree>
+                ]]>
+            </field>
+        </record>
 
 
 <!-- Include the Gynecological and Obstetric pages into the Patient History -->
@@ -327,30 +445,27 @@
                                     </group>
                                     <newline/>
                                     <field name="menstrual_history"/>
-                                    <newline/>
-                                    <separator colspan="4" string="Prevention and Screening" id="separator_prevention"/>
-                                    <newline/>
-                                    <group id="group_prevention">
-                                        <label name="breast_self_examination"/>
-                                        <field name="breast_self_examination"/>
-                                        <newline/>
-                                        <label name="mammography"/>
-                                        <field name="mammography"/>
-                                        <label name="mammography_last"/>
-                                        <field name="mammography_last"/>
-                                        <label name="pap_test"/>
-                                        <field name="pap_test"/>
-                                        <label name="pap_test_last"/>
-                                        <field name="pap_test_last"/>
-                                        <label name="colposcopy"/>
-                                        <field name="colposcopy"/>
-                                        <label name="colposcopy_last"/>
-                                        <field name="colposcopy_last"/>
-                                    </group>
 
-                                    
                                 </page>
 
+                                <page string="Screening" id="page_gyneco">
+                                    <group colspan="4" col="8" id="group_prevention">
+                                        <label name="breast_self_examination"/>
+                                        <field name="breast_self_examination"/>
+                                        <label name="mammography"/>
+                                        <field name="mammography"/>
+                                        <label name="pap_test"/>
+                                        <field name="pap_test"/>
+                                        <label name="colposcopy"/>
+                                        <field name="colposcopy"/>
+                                    </group>
+                                    <newline/>
+                                    <field colspan="4" name="mammography_history"/>
+                                    <newline/>
+                                    <field name="pap_history"/>
+                                    <field name="colposcopy_history"/>
+                                    
+                                </page>
 
                                 <page string="Obstetrics" id="page_obs">
                                     <group colspan="4" col="10" string="Obstetric" id="group_obstetrics">
