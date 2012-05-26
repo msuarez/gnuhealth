@@ -20,6 +20,8 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
+from datetime import datetime
+from trytond.pool import Pool
 
 
 class PuerperiumMonitor(ModelSQL, ModelView):
@@ -186,4 +188,44 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
 
+    menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history', 'name', 'Menstrual History')
+
 GnuHealthPatient()
+
+class PatientMenstrualHistory(ModelSQL, ModelView):
+    'Menstrual History'
+    _name = 'gnuhealth.patient.menstrual_history'
+    _description = __doc__
+    
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+    evaluation_date = fields.Date('Date', help="Last Menstrual Period Date", required=True)
+    lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
+    lmp_length = fields.Integer('Length',required=True)
+    is_regular = fields.Boolean('Regular')
+    dysmenorrhea = fields.Boolean ('Dysmenorrhea')
+    frequency = fields.Selection([
+        ('amenorrhea', 'amenorrhea'),
+        ('oligomenorrhea', 'oligomenorrhea'),
+        ('eumenorrhea', 'eumenorrhea'),
+        ('polymenorrhea', 'polymenorrhea'),
+        ], 'frequency', sort=False)
+ 
+    volume = fields.Selection([
+        ('hypomenorrhea', 'hypomenorrhea'),
+        ('normal', 'normal'),
+        ('menorrhagia', 'menorrhagia'),
+        ], 'volume', sort=False)
+
+    
+    def default_evaluation_date(self):
+        return Pool().get('ir.date').today()
+
+    def default_frequency(self):
+        return 'eumenorrhea'
+
+    def default_volume(self):
+        return 'normal'
+    
+PatientMenstrualHistory()
+    

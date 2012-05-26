@@ -240,6 +240,60 @@
             </field>
         </record>
 
+
+<!-- Menstrual information -->
+
+        <record model="ir.ui.view" id="gnuhealth_menstrual_history_view">
+            <field name="model">gnuhealth.patient.menstrual_history</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient Menstrual History">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="evaluation"/>
+                    <field name="evaluation"/>
+                    <label name="evaluation_date"/>
+                    <field name="evaluation_date"/>
+                    <label name="lmp"/>
+                    <field name="lmp"/>
+                    <label name="lmp_length"/>
+                    <field name="lmp_length"/>
+                    <label name="frequency"/>
+                    <field name="frequency"/>
+                    <label name="volume"/>
+                    <field name="volume"/>
+                    <label name="is_regular"/>
+                    <field name="is_regular"/>
+                    <label name="dysmenorrhea"/>
+                    <field name="dysmenorrhea"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_menstrual_history_tree">
+            <field name="model">gnuhealth.patient.menstrual_history</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string='Menstrual History'>
+                    <field name="evaluation_date" expand="1"/>
+                    <field name="lmp" expand="1"/>
+                    <field name="lmp_length" expand="1"/>
+                    <field name="frequency" expand="1"/>
+                    <field name="volume" expand="1"/>
+                    <field name="is_regular" expand="1"/>
+                    <field name="dysmenorrhea" expand="1"/>
+                    
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
+
+
 <!-- Include the Gynecological and Obstetric pages into the Patient History -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_view">
@@ -272,6 +326,8 @@
                                         <field name="menopause"/>
                                     </group>
                                     <newline/>
+                                    <field name="menstrual_history"/>
+                                    <newline/>
                                     <separator colspan="4" string="Prevention and Screening" id="separator_prevention"/>
                                     <newline/>
                                     <group id="group_prevention">
@@ -291,7 +347,10 @@
                                         <label name="colposcopy_last"/>
                                         <field name="colposcopy_last"/>
                                     </group>
+
+                                    
                                 </page>
+
 
                                 <page string="Obstetrics" id="page_obs">
                                     <group colspan="4" col="10" string="Obstetric" id="group_obstetrics">
