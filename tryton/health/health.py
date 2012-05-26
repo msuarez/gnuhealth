@@ -603,6 +603,7 @@ class PartyPatient (ModelSQL, ModelView):
         super(PartyPatient, self).__init__()
         self._sql_constraints += [
             ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
+            ('internal_user_uniq', 'UNIQUE(internal_user)', 'This health professional is already assigned to a party')
         ]
 
     def write(self, ids, values):
