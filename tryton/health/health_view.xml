@@ -1358,14 +1358,18 @@
                             </group>
                             <newline/>
 
-                            <group col="8" colspan="4" id="party_specs">
+                            <group col="4" colspan="2" id="party_specs">
                                 <label name="activation_date"/>
                                 <field name="activation_date"/>
                                 <label name="ref"/>
                                 <field name="ref"/>
+                            </group>
+
+                            <group colspan="1" col="2" id="party_internal_user">                           
                                 <label name="internal_user"/>
                                 <field name="internal_user"/>
                             </group>
+                            
                             <newline/>
 
                             <field name="insurance" colspan="4"/>
