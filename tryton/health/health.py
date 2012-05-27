@@ -589,7 +589,7 @@ class PartyPatient (ModelSQL, ModelView):
         states={
             'invisible': Not(Bool(Eval('is_doctor'))),
             'required': Bool(Eval('is_doctor')),
-            },
+            }
         )
     insurance_company_type = fields.Selection([
         ('state', 'State'),
@@ -634,7 +634,6 @@ class PartyPatient (ModelSQL, ModelView):
                 name = patient.lastname + ', ' + patient.name
             res[patient.id] = name
         return res
-
 
 PartyPatient()
 
@@ -1529,6 +1528,19 @@ class PatientEvaluation(ModelSQL, ModelView):
 
 
     notes = fields.Text('Notes')
+
+    def default_doctor(self):
+        cursor = Transaction().cursor
+        user_obj = Pool().get('res.user')
+        user = user_obj.browse(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute ('SELECT id FROM party_party WHERE is_doctor=True AND internal_user = %s LIMIT 1',(login_user_id,))
+        partner_id = cursor.fetchone()
+        cursor = Transaction().cursor
+        cursor.execute ('SELECT id FROM gnuhealth_physician WHERE name = %s LIMIT 1',(partner_id[0],))
+        doctor_id = cursor.fetchone()
+
+        return int(doctor_id[0])
 
     def default_loc_eyes(self):
         return '4'
