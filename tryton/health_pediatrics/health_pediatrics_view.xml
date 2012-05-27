@@ -286,7 +286,7 @@
                             <field name="apgar_scores"/>
                             <newline/>
                             <group id="group_newborn_reanimation_holder">
-                                <group string="Reanimation" id="group_newborn_reanimation">
+                                <group colspan="3" col="10" id="group_newborn_reanimation">
                                     <label name="reanimation_stimulation"/>
                                     <field name="reanimation_stimulation"/>
                                     <label name="reanimation_aspiration"/>
@@ -297,9 +297,10 @@
                                     <field name="reanimation_mask"/>
                                     <label name="reanimation_oxygen"/>
                                     <field name="reanimation_oxygen"/>
+
                                 </group>
-                                <group string="Notes" id="group_newborn_reanimation_notes">
-                                    <field name="notes"/>
+                                <group string="Notes" colspan="3" id="group_newborn_notes">
+                                    <field colspan="3" name="notes"/>
                                 </group>
                             </group>
                             <newline/>
@@ -353,7 +354,7 @@
                             <field name="congenital_diseases"/>
                             <field name="medication"/>
                             <newline/>
-                            <group string="Tests" id="group_newborn_tests">
+                            <group colspan="4" col="6" string="Tests" id="group_newborn_tests">
                                 <label name="test_vdrl"/>
                                 <field name="test_vdrl"/>
                                 <label name="test_toxo"/>

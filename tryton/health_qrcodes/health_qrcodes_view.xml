@@ -31,7 +31,7 @@
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="//field[@name=&quot;notes&quot;]"
+                        expr="//group[@id=&quot;group_newborn_notes&quot;]"
                         position="after">
                         <group id="group_qr">
                             <field name="qr" widget="image"/>
