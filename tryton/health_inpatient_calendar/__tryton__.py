@@ -2,6 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#    MODULE : Inpatient Calendar
 #    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify

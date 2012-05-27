@@ -2,6 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#    MODULE : Reporting
 #    Copyright (C) 2008-2012  Sebastian Marro <smarro@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,18 +20,16 @@
 #
 ##############################################################################
 {
-    'name': 'GNU Health - Reporting',
-    'version': '1.6',
-    'author': 'GNU Solidario',
-    'email': 'health@gnusolidario.org',
-    'website': 'http://health.gnu.org/',
+    'name' : 'GNU Health : Reporting',  
+    'version': '1.6.0',
+    'author' : 'GNU Solidario',
+    'email' : 'health@gnusolidario.org',
+    'website' : "http://health.gnu.org",
+    'category' : 'Generic Modules/Others',
+    'depends': ['health'],
     'description': '''
-This module adds several statistical reports
+This module adds several statistical reports and charts.
 ''',
-    'depends': [
-        'health',
-    ],
-    'xml': [
-        'health_reporting.xml',
-    ],
+    
+    'xml': ['health_reporting.xml']
 }
