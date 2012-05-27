@@ -1531,7 +1531,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         'movements')
     diagnosis = fields.Many2One('gnuhealth.pathology', 'Presumptive Diagnosis',
         help='Presumptive Diagnosis. If no diagnosis can be made'\
-        ', encode the main sign or symptom.', required=True)
+        ', encode the main sign or symptom.')
     secondary_conditions = fields.One2Many('gnuhealth.secondary_condition',
         'evaluation', 'Secondary Conditions', help="Other, Secondary conditions found on the patient")
 
