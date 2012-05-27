@@ -22,6 +22,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
+from trytond.backend import TableHandler, FIELDS
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 
@@ -432,6 +433,23 @@ class PathologyGroup(ModelSQL, ModelView):
         ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
     desc = fields.Char('Short Description', required=True)
     info = fields.Text('Detailed information')
+
+    # Upgrade from GNU Health 1.4.5
+    def init(self, module_name):
+        super(PathologyGroup, self).init(module_name)
+
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, self, module_name)
+
+        # Drop old foreign key and change to char name      
+        table.drop_fk('name')
+
+        table.alter_type('name','varchar')
+
+        # Drop group column. No longer required
+        table.drop_column('group')
+        
+
 
 PathologyGroup()
 
