@@ -3,6 +3,18 @@
     <data>
 
 
+<!-- Add other relevant icons -->
+        <record model="ir.ui.icon" id="gnuhealth_services_icon">
+            <field name="name">gnuhealth-services</field>
+            <field name="path">icons/folder-documents.svg</field>
+        </record>
+
+<!-- Health Services Menu -->
+
+        <menuitem name="Health Services" id="gnuhealth_services_menu"
+            parent="health.gnuhealth_menu" sequence="997" icon="gnuhealth-services"/>
+
+
 <!-- Health service -->
 
         <record model="ir.ui.view" id="gnuhealth_health_service_view">
@@ -116,7 +128,7 @@
         </record>
 
 
-        <menuitem parent="health.gnuhealth_menu"
+        <menuitem parent="gnuhealth_services_menu"
             action="gnuhealth_action_health_service"
             id="gnuhealth_health_service_menu"/>
 
