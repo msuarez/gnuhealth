@@ -28,9 +28,8 @@
     'website' : "http://health.gnu.org",
     'category' : 'Generic Modules/Others',
     'depends' : ['health','health_socioeconomics','health_lifestyle',
-		'health_genetics','health_icd10','health_gyneco',
-		'health_pediatrics','health_surgery','health_lab',
-        'health_inpatient','health_qrcodes','health_history'],
+        'health_genetics','health_icd10','health_gyneco',
+        'health_pediatrics','health_surgery','health_lab', 'health_inpatient'],
     'name_es_ES': 'GNU Health : Perfil de Instalación estándar',
    
     'description' : """
