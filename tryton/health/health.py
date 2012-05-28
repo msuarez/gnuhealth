@@ -156,6 +156,7 @@ class Physician(ModelSQL, ModelView):
     'Physician'
     _name = 'gnuhealth.physician'
     _description = __doc__
+    _rec_name = 'code'
 
     name = fields.Many2One('party.party', 'Physician', required=True,
         domain=[
@@ -312,6 +313,7 @@ class Medicament(ModelSQL, ModelView):
     'Medicament'
     _name = 'gnuhealth.medicament'
     _description = __doc__
+    _rec_name = 'active_component'
 
     name = fields.Many2One('product.product', 'Product', required=True,
         domain=[('is_medicament', '=', True)],
@@ -513,6 +515,7 @@ class InsurancePlan(ModelSQL, ModelView):
     'Insurance Plan'
     _name = 'gnuhealth.insurance.plan'
     _description = __doc__
+    _rec_name = 'company'
 
     name = fields.Many2One('product.product', 'Plan', required=True,
         domain=[('type', '=', 'service')],
@@ -545,6 +548,7 @@ class Insurance(ModelSQL, ModelView):
     'Insurance'
     _name = 'gnuhealth.insurance'
     _description = __doc__
+    _rec_name = 'number'
 
     name = fields.Many2One('party.party', 'Owner')
     number = fields.Char('Number', required=True)
@@ -713,6 +717,7 @@ class PatientData(ModelSQL, ModelView):
     'Patient related information'
     _name = 'gnuhealth.patient'
     _description = __doc__
+    _rec_name = 'identification_code'
 
 # Get the patient age in the following format : 'YEARS MONTHS DAYS'
 # It will calculate the age of the patient while the patient is alive.
@@ -1774,6 +1779,7 @@ class HospitalBed(ModelSQL, ModelView):
     'Hospital Bed'
     _name = 'gnuhealth.hospital.bed'
     _description = __doc__
+    _rec_name = 'telephone_number'
 
     name = fields.Many2One('product.product', 'Bed', required=True,
         domain=[('is_bed', '=', True)],
