@@ -1554,11 +1554,14 @@ class PatientEvaluation(ModelSQL, ModelView):
         login_user_id = int(user.id)
         cursor.execute ('SELECT id FROM party_party WHERE is_doctor=True AND internal_user = %s LIMIT 1',(login_user_id,))
         partner_id = cursor.fetchone()
-        cursor = Transaction().cursor
-        cursor.execute ('SELECT id FROM gnuhealth_physician WHERE name = %s LIMIT 1',(partner_id[0],))
-        doctor_id = cursor.fetchone()
+        if not partner_id:
+            self.raise_user_error('No health professional associated to this user')
+        else:    
+            cursor = Transaction().cursor
+            cursor.execute ('SELECT id FROM gnuhealth_physician WHERE name = %s LIMIT 1',(partner_id[0],))
+            doctor_id = cursor.fetchone()
 
-        return int(doctor_id[0])
+            return int(doctor_id[0])
 
     def default_loc_eyes(self):
         return '4'
