@@ -2438,6 +2438,7 @@
                 <tree string="Evaluations">
                     <field name="patient" expand="1"/>
                     <field name="evaluation_date" expand="1"/>
+                    <field name="doctor" expand="1"/>
                     <field name="chief_complaint" expand="1"/>
                     <field name="bmi"/>
                     <field name="systolic"/>
