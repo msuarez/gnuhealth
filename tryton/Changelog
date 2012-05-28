@@ -1,3 +1,421 @@
+******* Version 1.6.0 *******
+changeset:   250:d5609fe6c424
+tag:         tip
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 23:50:19 2012 -0300
+summary:     Update setup.py Tryton version to 2.4
+
+changeset:   249:647e8b42235d
+tag:         tip
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 23:21:48 2012 -0300
+summary:     Demo: Add internal user to Betz Doctor
+
+changeset:   248:18352eb02e1f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:33:48 2012 -0300
+summary:     Add Doctor name in the patient evaluation tree view
+
+changeset:   247:4d89cccf6d47
+parent:      244:e6d6147e0b84
+parent:      246:3391026fbedc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:22:18 2012 -0300
+summary:     Merge
+
+changeset:   246:3391026fbedc
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 22:04:51 2012 -0300
+summary:     Remove health_qrcodes and health_history from Profile Modules
+
+changeset:   245:c13271bb18a9
+parent:      243:46f6252a873a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 21:50:25 2012 -0300
+summary:     Temporarily adds _rec_name to fix bug https://savannah.gnu.org/bugs/?36218
+
+changeset:   244:e6d6147e0b84
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:08:16 2012 -0300
+summary:     Check for doctor assignment when creating a patient evaluation
+
+lfm@bagheera:~/health/tryton$ hg log -r249:180
+changeset:   249:647e8b42235d
+tag:         tip
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 23:21:48 2012 -0300
+summary:     Demo: Add internal user to Betz Doctor
+
+changeset:   248:18352eb02e1f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:33:48 2012 -0300
+summary:     Add Doctor name in the patient evaluation tree view
+
+changeset:   247:4d89cccf6d47
+parent:      244:e6d6147e0b84
+parent:      246:3391026fbedc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:22:18 2012 -0300
+summary:     Merge
+
+changeset:   246:3391026fbedc
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 22:04:51 2012 -0300
+summary:     Remove health_qrcodes and health_history from Profile Modules
+
+changeset:   245:c13271bb18a9
+parent:      243:46f6252a873a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun May 27 21:50:25 2012 -0300
+summary:     Temporarily adds _rec_name to fix bug https://savannah.gnu.org/bugs/?36218
+
+changeset:   244:e6d6147e0b84
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 22:08:16 2012 -0300
+summary:     Check for doctor assignment when creating a patient evaluation
+
+changeset:   243:46f6252a873a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 19:51:00 2012 -0300
+summary:     Update headers with Module name
+
+changeset:   242:761f9fb9bc1f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 18:52:32 2012 -0300
+summary:     Remove the required attribute for the evaluation primary condition
+
+changeset:   241:f7e041eebf7a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 18:44:00 2012 -0300
+summary:     Improve Newborn views
+
+changeset:   240:87acbe20db3e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 17:57:18 2012 -0300
+summary:     Add icon for Health Services
+
+changeset:   239:25b0cde694c5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 27 17:22:42 2012 -0300
+summary:     Health: Add migration from 1.4.5 to 1.6.0
+
+changeset:   238:5ae62783206c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 26 22:37:58 2012 -0300
+summary:     Add Doctor associated to the login user in the patient evaluation
+
+changeset:   237:697014aaae62
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 26 17:57:40 2012 -0300
+summary:     Create constraint on internal user so it can be assigned to only one health professional
+
+changeset:   236:844eaf54a815
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 26 17:31:47 2012 -0300
+summary:     Make invisible the Internal user when the party is not a doctor, and required when the party is a doctor
+
+changeset:   235:c39e5945d634
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 26 01:12:13 2012 -0300
+summary:     Add Gynecological Screening History - Mammography, PAP and colposcopy
+
+changeset:   234:c672bfaf5f40
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 25 21:16:22 2012 -0300
+summary:     Add patient menstrual history
+
+changeset:   233:44cef613fccc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed May 23 22:19:55 2012 -0300
+summary:     Update evaluation view
+
+changeset:   232:fee391f3fb86
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed May 23 22:01:41 2012 -0300
+summary:     Add Secondary conditions to evaluation
+
+changeset:   231:c91d016a0390
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon May 21 21:48:07 2012 -0300
+summary:     Health Reporting: Fix Top Diseases per Disease Group
+
+changeset:   230:0c98e8d2f005
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon May 21 21:43:24 2012 -0300
+summary:     Demo: Improve demo database script
+
+changeset:   229:064add907856
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon May 21 01:16:11 2012 -0300
+summary:     Demo: Improve demo database script
+
+changeset:   228:e7c264eb4f46
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 19 21:25:35 2012 -0300
+summary:     Health : Fix Diseases groups and update views
+
+changeset:   227:e9ffe5fcc9d4
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat May 19 18:19:31 2012 -0300
+summary:     Health Reporting: Add Evaluations per Doctor and Evaluations per Specialty reports
+
+changeset:   226:fa3462308313
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat May 19 15:49:33 2012 -0300
+summary:     Health Calendar: fix bug https://savannah.gnu.org/bugs/index.php?36498
+
+changeset:   225:8a9e5754ad6b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat May 19 14:05:01 2012 -0300
+summary:     Health Calendar: fix bug https://savannah.gnu.org/bugs/index.php?36498
+
+changeset:   224:89140dc7dc38
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat May 19 02:03:53 2012 -0300
+summary:     Add health_reporting module
+
+changeset:   223:fb8a20a50308
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 21:54:25 2012 -0300
+summary:     Health: Fix physician domain. Add is_person
+
+changeset:   222:03a6f02dc567
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 21:49:57 2012 -0300
+summary:     Health: Inclusion of doctor and specialty in the evaluation form
+
+changeset:   221:578fdb62fa4a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 21:09:36 2012 -0300
+summary:     Health: Improve field terms
+
+changeset:   220:a71faf8c2f54
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 19:08:26 2012 -0300
+summary:     Health: Add General Practitioner to the specialties list
+
+changeset:   219:8d86b6919d80
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 18:55:54 2012 -0300
+summary:     Health : Make Medical specialty in Physician
+
+changeset:   218:2eeeaa66e822
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 18 17:44:26 2012 -0300
+summary:     Remove consultation services from appointment
+
+changeset:   217:c13e65946d57
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu May 17 12:46:24 2012 -0300
+summary:     Gynecology and Obstetrics : update perinatal view
+
+changeset:   216:0eebd2a7c095
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu May 17 11:29:28 2012 -0300
+summary:     Gynecology and Obstetrics : update main view
+
+changeset:   215:526e80325558
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed May 16 21:31:19 2012 -0300
+summary:     Pediatrics : Update APGAR score to 2.4
+
+changeset:   214:94b7ce5a6354
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed May 16 21:05:58 2012 -0300
+summary:     Add Workplace and School addresses
+
+changeset:   213:d8ecd6628ae3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue May 15 17:42:44 2012 -0300
+summary:     Health: Change the address domain searchfrom patient to person
+
+changeset:   212:a61b4670c44c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon May 14 00:34:52 2012 -0300
+summary:     healt: remove old / deprecated views from signs and symptoms
+
+changeset:   211:7614306a2156
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 22:57:48 2012 -0300
+summary:     Health : Add the Mental Status evaluation
+
+changeset:   210:4322677a20f8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 22:48:53 2012 -0300
+summary:     Socioeconomics : Fix Nonetype value on Family Functionality Score - Smilkstein APGAR
+
+changeset:   209:d3823945228b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 22:39:14 2012 -0300
+summary:     Remove socioceconomics description on patient object that overrode original
+
+changeset:   208:5c64f40f5caf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 22:20:29 2012 -0300
+summary:     lifestyle : Don't use alphabetical sorting on selection fields
+
+changeset:   207:5545cca00296
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 22:00:26 2012 -0300
+summary:     Include QR codes and Patient History in the standard health profile
+
+changeset:   206:af0ed6d05037
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 19:41:04 2012 -0300
+summary:     Remove deprecated fields and classes
+
+changeset:   205:6ffe1d246aa7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 19:24:50 2012 -0300
+summary:     Remove deprecated O2M fields
+
+changeset:   204:b966404bb28e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 17:57:54 2012 -0300
+summary:     Pediatrics : Sort PSC elements in frequency order
+
+changeset:   203:cdaf36a4c7e3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 17:47:23 2012 -0300
+summary:     Pediatrics : Fix NoneType value in PSC score
+
+changeset:   202:4e4227fdb4cf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 17:12:44 2012 -0300
+summary:     Obstetrics : Make required field the Admission date
+
+changeset:   201:cd83fd95bca1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 13 15:57:59 2012 -0300
+summary:     Add sequence to Health Services
+
+changeset:   200:bbceacb516f5
+parent:      185:60dc3ae73063
+parent:      199:eaab71824674
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 12 19:56:31 2012 -0300
+summary:     Merge from unstable
+
+changeset:   199:eaab71824674
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat May 12 19:03:37 2012 -0300
+summary:     Update Health services
+
+changeset:   198:821024d18962
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri May 11 22:11:35 2012 -0300
+summary:     Update Services wizard
+
+changeset:   197:e9ee8a0a3df1
+branch:      unstable
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri May 11 01:52:32 2012 -0300
+summary:     fix level of consciousness default values
+
+changeset:   196:36e75f422a23
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed May 09 00:00:21 2012 -0300
+summary:     Update the health_services module
+
+changeset:   195:f99afead6268
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon May 07 18:36:09 2012 -0300
+summary:     health_inpatient: Make compatible the button states logic for 2.4
+
+changeset:   194:d533be2c49b5
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon May 07 12:32:22 2012 -0300
+summary:     Update health_services tree view
+
+changeset:   193:016cfed69d7a
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun May 06 23:14:29 2012 -0300
+summary:     Init health_services module
+
+changeset:   192:4356caaf8dbb
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Apr 30 07:35:33 2012 -0300
+summary:     health_lab: Update view
+
+changeset:   191:d89c315e1fd6
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Apr 30 07:22:13 2012 -0300
+summary:     health_lab : Migration to 2.4
+
+changeset:   190:814049f596cc
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 28 21:18:45 2012 -0300
+summary:     Make the disease code required
+
+changeset:   189:a57ea7d1159f
+branch:      unstable
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Apr 29 01:44:54 2012 +0200
+summary:     Better way to replace empty ref by None
+
+changeset:   188:e2cb093fa9f9
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 28 20:26:20 2012 -0300
+summary:     Change to None the value of SSN when creating/saving the record when is null to be compatible with Tryton 2.4
+
+changeset:   187:cc28b8821f01
+branch:      unstable
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Apr 28 15:38:40 2012 -0300
+summary:     expand tree view fields
+
+changeset:   186:8c26b0177bdb
+branch:      unstable
+parent:      184:dfe65edd0857
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 27 22:39:10 2012 -0300
+summary:     health: update version number
+
+changeset:   185:60dc3ae73063
+parent:      183:3eba0e2af275
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 27 20:13:31 2012 -0300
+summary:     Added tag 1.4.5 for changeset 3eba0e2af275
+
+changeset:   184:dfe65edd0857
+branch:      unstable
+parent:      150:a082a290b3cc
+parent:      183:3eba0e2af275
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 27 20:06:28 2012 -0300
+summary:     Merge default branch
+
+changeset:   183:3eba0e2af275
+tag:         1.4.5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 20 11:49:31 2012 -0300
+summary:     Add MANIFEST file to health_mdg6
+
+changeset:   182:2abae05cff57
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Apr 20 11:36:30 2012 -0300
+summary:     fix setup.py in health_mdg6
+
+changeset:   181:69579ab88234
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Apr 19 22:59:53 2012 -0300
+summary:     remove test directory from setup.py in health_history
+
+changeset:   180:d05bc5f78883
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Apr 19 22:46:45 2012 -0300
+summary:     Update Changelog file
+
 changeset:   179:3da08750cd46
 tag:         tip
 user:        Luis Falcon <lfalcon@gnusolidario.org>
