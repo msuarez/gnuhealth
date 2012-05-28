@@ -43,6 +43,7 @@ def InitDatabase():
 
 def LoadBetzFamilyInfo():
     Party = Model.get('party.party')
+    User = Model.get('res.user')
     Family = Model.get('gnuhealth.family')
     FamilyMember = Model.get('gnuhealth.family_member')
     Patient = Model.get('gnuhealth.patient')
@@ -64,6 +65,7 @@ def LoadBetzFamilyInfo():
     party.lastname = 'Cordara'
     party.is_doctor = True
     party.is_person = True
+    party.internal_user, = User.find([('login', '=', 'admin')])
     party.save()
 
     physician = Physician()
