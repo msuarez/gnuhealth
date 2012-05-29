@@ -1308,7 +1308,7 @@
         <record model="ir.action.act_window" id="gnuhealth_action_insurance_company">
              <field name="name">Insurance Company</field>
              <field name="res_model">party.party</field>
-             <field name="domain">[('is_insurance_company', '=', 1)]</field>
+             <field name="domain">[('is_insurance_company', '=', True)]</field>
         </record>
 
         <record model="ir.action.act_window.view" id="act_insurance_company_list_view">
@@ -2645,7 +2645,7 @@
         <record model="ir.action.act_window" id="action_gnuhealth_hospital">
             <field name="name">Centers</field>
             <field name="res_model">party.party</field>
-            <field name="domain">[('is_institution', '=', 1)]</field>
+            <field name="domain">[('is_institution', '=', True)]</field>
         </record>
 
         <record model="ir.action.act_window.view" id="act_gnuhealth_hospital_view_list">
