@@ -61,6 +61,16 @@ def LoadBetzFamilyInfo():
     Newborn = Model.get('gnuhealth.newborn')
 
     party = Party()
+    party.name = 'GNU SOLIDARIO Hospital'
+    party.is_institution = True
+    party.save()
+
+    party = Party()
+    party.name = 'Insurator'
+    party.is_insurance_company = True
+    party.save()
+
+    party = Party()
     party.name = 'Cameron'
     party.lastname = 'Cordara'
     party.is_doctor = True
