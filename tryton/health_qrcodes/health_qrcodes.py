@@ -64,7 +64,7 @@ class Patient(ModelSQL, ModelView):
 
 # Make a PNG image from PIL without the need to create a temp file
             holder = StringIO.StringIO()
-            qr_image.save(holder, format='PNG')
+            qr_image.save(holder)
             qr_png = holder.getvalue()
             holder.close()
 
@@ -121,7 +121,7 @@ class Newborn(ModelSQL, ModelView):
 
 # Make a PNG image from PIL without the need to create a temp file
             holder = StringIO.StringIO()
-            qr_image.save(holder, format='PNG')
+            qr_image.save(holder)
             qr_png = holder.getvalue()
             holder.close()
 
