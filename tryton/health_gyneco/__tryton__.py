@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'GNU Health: Gynecology and Obstetrics',  
-    'version': '1.6.0',
+    'version': '1.6.1',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',

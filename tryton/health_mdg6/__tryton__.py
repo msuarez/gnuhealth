@@ -22,7 +22,7 @@
 {
 
     'name': 'GNU Health : MDG 6. HIV/AIDS, Malaria and Tuberculosis',
-    'version': '1.6.0',
+    'version': '1.6.1',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': "http://health.gnu.org",

@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'GNU Health: Calendar',
-    'version': '1.6.0',
+    'version': '1.6.1',
     'author': 'GNU Solidario',
     'website': 'http://health.gnu.org',
     'depends': [
