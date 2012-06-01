@@ -162,6 +162,10 @@ class InpatientRegistration(ModelSQL, ModelView):
                 'button_patient_discharge': {
                     'invisible': Not(Equal(Eval('state'), 'hospitalized')),
                     },
+
+                'button_registration_admission': {
+                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                    },
                     
                 })
 
