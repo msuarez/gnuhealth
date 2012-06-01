@@ -88,10 +88,10 @@ class InpatientRegistration(ModelSQL, ModelView):
                 FROM gnuhealth_inpatient_registration \
                 WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
                     OVERLAPS (timestamp %s, timestamp %s) \
-                  AND state = %s \
+                  AND (state = %s or state = %s) \
                   AND bed = CAST(%s AS INTEGER) ",
                 (reservation.hospitalization_date, reservation.discharge_date,
-                'confirmed', bed_id))
+                'confirmed','hospitalized', bed_id))
 
             res = cursor.fetchone()
 

@@ -1,3 +1,30 @@
+******* Version 1.6.1 *******
+changeset:   257:2c990be56c50
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue May 29 23:05:25 2012 -0300
+summary:     Add party attributes to the tree view (person, institution, pharmacy, doctor, patient, insurance)
+
+changeset:   256:e5b4cb71f007
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue May 29 21:56:33 2012 -0300
+summary:     Update version to 1.6.1
+
+changeset:   255:488a687cd5d9
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue May 29 16:45:41 2012 -0300
+summary:     QR Codes: Update to last version of qrcode libraray
+
+changeset:   254:da01cc122b2f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue May 29 12:52:33 2012 -0300
+summary:     Demo: Add GNU Solidario Hospital and Insurator parties
+
+changeset:   253:628e9e5a3864
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue May 29 11:50:37 2012 -0300
+summary:     Fix domain in Insurance Company and Health Centers
+
 ******* Version 1.6.0 *******
 changeset:   250:d5609fe6c424
 tag:         tip
