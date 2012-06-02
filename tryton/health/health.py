@@ -1811,6 +1811,9 @@ class HospitalBed(ModelSQL, ModelView):
     def default_bed_type(self):
         return 'gatch'
 
+    def default_state(self):
+        return 'free'
+
     def get_rec_name(self, ids, name):
         if not ids:
             return {}
