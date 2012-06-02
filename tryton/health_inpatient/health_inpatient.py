@@ -24,6 +24,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal
+from datetime import datetime
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -111,8 +112,15 @@ class InpatientRegistration(ModelSQL, ModelView):
         return True
 
     def button_registration_admission(self, ids):
-        self.write(ids, {'state': 'hospitalized'})
-        return True
+		registration_id = self.browse(ids)[0]
+
+		if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
+			self.raise_user_error ("The Admission date must be today")
+		else:
+			self.write(ids, {'state': 'hospitalized'})
+
+		
+		return True
 
     def create(self, values):
         sequence_obj = Pool().get('ir.sequence')
