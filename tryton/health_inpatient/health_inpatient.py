@@ -80,46 +80,57 @@ class InpatientRegistration(ModelSQL, ModelView):
 # Method to check for availability and make the hospital bed reservation
 
     def button_registration_confirm(self, ids):
-        cursor = Transaction().cursor
+		registration_id = self.browse(ids)[0]
+		bed_obj = Pool().get('gnuhealth.hospital.bed')
+		cursor = Transaction().cursor
+		bed_id = registration_id.bed.id
+		cursor.execute("SELECT COUNT(*) \
+			FROM gnuhealth_inpatient_registration \
+			WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
+				OVERLAPS (timestamp %s, timestamp %s) \
+			  AND (state = %s or state = %s) \
+			  AND bed = CAST(%s AS INTEGER) ",
+			(registration_id.hospitalization_date, registration_id.discharge_date,
+			'confirmed','hospitalized', str(bed_id)))
 
-        for reservation in self.browse(ids):
-            bed_id = str(reservation.bed.id)
+		res = cursor.fetchone()
+		
+		if res[0] > 0:
+			self.raise_user_error('bed_is_not_available')
+		else:
+			self.write(ids, {'state': 'confirmed'})
+			bed_obj.write(registration_id.bed.id, {'state': 'reserved'})
 
-            cursor.execute("SELECT COUNT(*) \
-                FROM gnuhealth_inpatient_registration \
-                WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
-                    OVERLAPS (timestamp %s, timestamp %s) \
-                  AND (state = %s or state = %s) \
-                  AND bed = CAST(%s AS INTEGER) ",
-                (reservation.hospitalization_date, reservation.discharge_date,
-                'confirmed','hospitalized', bed_id))
-
-            res = cursor.fetchone()
-
-        if res[0] > 0:
-            self.raise_user_error('bed_is_not_available')
-        else:
-            self.write(ids, {'state': 'confirmed'})
-
-        return True
+		return True
 
     def button_patient_discharge(self, ids):
+        registration_id = self.browse(ids)[0]
+        bed_obj = Pool().get('gnuhealth.hospital.bed')
+
         self.write(ids, {'state': 'free'})
+        bed_obj.write(registration_id.bed.id, {'state': 'free'})
         return True
 
     def button_registration_cancel(self, ids):
+        registration_id = self.browse(ids)[0]
+        bed_obj = Pool().get('gnuhealth.hospital.bed')
+
         self.write(ids, {'state': 'cancelled'})
+        bed_obj.write(registration_id.bed.id, {'state': 'free'})
         return True
 
     def button_registration_admission(self, ids):
-		registration_id = self.browse(ids)[0]
+        registration_id = self.browse(ids)[0]
+        bed_obj = Pool().get('gnuhealth.hospital.bed')
+        
+        if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
+            self.raise_user_error ("The Admission date must be today")
+        else:
+            self.write(ids, {'state': 'hospitalized'})
 
-		if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
-			self.raise_user_error ("The Admission date must be today")
-		else:
-			self.write(ids, {'state': 'hospitalized'})
-		
-		return True
+            bed_obj.write(registration_id.bed.id, {'state': 'occupied'})
+            
+        return True
 
     def create(self, values):
         sequence_obj = Pool().get('ir.sequence')
@@ -135,9 +146,6 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     def default_state(self):
         return 'free'
-
-
-
 
 
     def __init__(self):
