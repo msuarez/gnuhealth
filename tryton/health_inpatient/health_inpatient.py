@@ -118,7 +118,6 @@ class InpatientRegistration(ModelSQL, ModelView):
 			self.raise_user_error ("The Admission date must be today")
 		else:
 			self.write(ids, {'state': 'hospitalized'})
-
 		
 		return True
 
