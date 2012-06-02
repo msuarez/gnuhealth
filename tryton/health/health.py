@@ -1806,7 +1806,7 @@ class HospitalBed(ModelSQL, ModelView):
         ('reserved', 'Reserved'),
         ('occupied', 'Occupied'),
         ('na', 'Not available'),
-        ), 'Status', sort=False)
+        ), 'Status', readonly=True, sort=False)
 
     def default_bed_type(self):
         return 'gatch'
