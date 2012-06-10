@@ -276,7 +276,7 @@
                                         <field name="anticonceptive"/>
                                     </group>
                                     <newline/>
-                                    <group colspan="4" string="Sexual practices" id="group_other_sexual_practices">
+                                    <group colspan="4" col="6" string="Sexual practices" id="group_other_sexual_practices">
                                         <group id="group_sexual_holder">
                                             <label name="sex_oral"/>
                                             <field name="sex_oral"/>
@@ -284,19 +284,17 @@
                                             <label name="sex_anal"/>
                                             <field name="sex_anal"/>
                                         </group>
-                                        <group string="Prostitution" id="group_prostitution">
+                                        <group id="group_prostitution">
                                             <label name="prostitute"/>
                                             <field name="prostitute"/>
                                             <newline/>
                                             <label name="sex_with_prostitutes"/>
                                             <field name="sex_with_prostitutes"/>
                                         </group>
+                                        <group colspan="4" id="group_sexuality_notes">
+                                            <field name="sexuality_info"/>
+                                        </group>
                                     </group>
-                                    <newline/>
-                                    <group colspan="4" string="Notes" id="group_sexuality_notes">
-                                        <field name="sexuality_info"/>
-                                    </group>
-
                                 </page>
 
                                 <page string="Safety" id="page_safety">
