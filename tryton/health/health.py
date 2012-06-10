@@ -1221,7 +1221,7 @@ class PatientVaccination(ModelSQL, ModelView):
         domain=[('is_institution', '=', True)],
         help='Medical Center where the patient is being or was vaccinated')
     date = fields.DateTime('Date')
-    dose = fields.Integer('Dose Number')
+    dose = fields.Integer('Dose #')
     next_dose_date = fields.DateTime('Next Dose')
     observations = fields.Char('Observations')
 
