@@ -11,11 +11,21 @@
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="//group[@id=&quot;general_info&quot;]"
-                        position="after">
-                        <group string="QR Code" id="group_qr">
-                            <field name="qr" widget="image"/>
-                        </group>
+                        expr="//separator[@id=&quot;separator_misc&quot;]"
+                        position="replace">
+                        <separator colspan="2"
+                            string="Patient Extra Information"
+                            id="separator_misc"/>
+                        <separator colspan="2"
+                            string="QR Code"
+                            id="separator_qr"/>
+
+                    </xpath>
+                    <xpath
+                        expr="//field[@name=&quot;general_info&quot;]"
+                        position="replace">
+                        <field name="general_info" colspan="2"/>
+                        <field name="qr" widget="image"/>
                     </xpath>
                 </data>
                 ]]>

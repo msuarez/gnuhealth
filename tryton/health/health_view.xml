@@ -2164,11 +2164,14 @@
                                 </page>
 
                                 <page string="Misc" id="misc_info_page">
+                                    <group id="patient_info" colspan="4" col="4">    
                                     <separator colspan="4"
                                         string="Patient Extra Information"
                                         id="separator_misc"/>
                                     <newline/>
+
                                     <field name="general_info" colspan="4"/>
+                                    </group>
                                     <newline/>
                                     <group colspan="4" col="6" id="misc_info_group">
                                         <label name="deceased"/>
