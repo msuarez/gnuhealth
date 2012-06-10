@@ -180,7 +180,7 @@
                                             <field name="sleep_during_daytime"/>
                                         </group>
                                         <newline/>
-                                        <group colspan="4" id="group_diet">
+                                        <group colspan="4" col="8" id="group_diet">
                                             <label name="number_of_meals"/>
                                             <field name="number_of_meals"/>
                                             <label name="eats_alone"/>
@@ -199,7 +199,7 @@
                                             <field name="diet_info"/>
                                         </group>
                                         <newline/>
-                                        <group colspan="4" string="Lifestyle Info" id="group_lifestyle">
+                                        <group colspan="4" id="group_lifestyle">
                                             <field name="lifestyle_info"/>
                                         </group>
 
