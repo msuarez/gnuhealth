@@ -19,59 +19,61 @@
                             <notebook>
 
                                 <page string="Main" id="page_ses_main">
-                                    <group colspan="4" col="8" id="group_socioeconomics_holder">
-                                        <group col="6" id="group_ses_holder2">
-                                            <label name="ses"/>
-                                            <field name="ses"/>
-                                            <label name="housing"/>
-                                            <field name="housing"/>
-                                        </group>
-                                        <newline/>
-                                        <group col="6" id="group_socioecomics_work">
-                                            <label name="education"/>
-                                            <field name="education"/>
-                                            <label name="occupation"/>
-                                            <field name="occupation"/>
-                                            <newline/>
-                                            <label name="works_at_home"/>
-                                            <field name="works_at_home"/>
-                                            <label name="hours_outside"/>
-                                            <field name="hours_outside"/>
-                                            <label name="hostile_area"/>
-                                            <field name="hostile_area"/>
-                                        </group>
-
-                                        <newline/>
-
-                                        <group col="8" id="group_ses_infraestructure">
-                                            <label name="sewers"/>
-                                            <field name="sewers"/>
-                                            <label name="water"/>
-                                            <field name="water"/>
-
-                                            <label name="trash"/>
-                                            <field name="trash"/>
-                                            <label name="electricity"/>
-                                            <field name="electricity"/>
-                                            <label name="gas"/>
-                                            <field name="gas"/>
-
-                                            <label name="telephone"/>
-                                            <field name="telephone"/>
-                                            <label name="television"/>
-                                            <field name="television"/>
-                                            <label name="internet"/>
-                                            <field name="internet"/>
-
-                                        </group>
-
+                                    <group colspan="4" col="4" id="group_ses_holder2">
+                                        <label name="ses"/>
+                                        <field name="ses"/>
+                                        <label name="housing"/>
+                                        <field name="housing"/>
+                                        <label name="education"/>
+                                        <field name="education"/>
+                                        <label name="occupation"/>
+                                        <field name="occupation"/>
                                     </group>
                                     <newline/>
+                                    <group col="6" id="group_socioecomics_work">
+                                        <newline/>
+                                        <label name="works_at_home"/>
+                                        <field name="works_at_home"/>
+                                        <label name="hours_outside"/>
+                                        <field name="hours_outside"/>
+                                        <label name="hostile_area"/>
+                                        <field name="hostile_area"/>
+                                    </group>
+
+                                    <newline/>
+
+
+                                    <newline/>
                                     <group string="Notes" id="group_ses_notes">
-                                        <field colspan="6" name="ses_notes"/>
+                                        <field colspan="4" name="ses_notes"/>
                                     </group>
                                 </page>
 
+                                <page string="Infrastructure" id="page_infrastructure">
+
+                                    <group colspan="4" col="8" id="group_ses_infraestructure">
+                                        <label name="sewers"/>
+                                        <field name="sewers"/>
+                                        <label name="water"/>
+                                        <field name="water"/>
+
+                                        <label name="trash"/>
+                                        <field name="trash"/>
+                                        <label name="electricity"/>
+                                        <field name="electricity"/>
+                                        <label name="gas"/>
+                                        <field name="gas"/>
+
+                                        <label name="telephone"/>
+                                        <field name="telephone"/>
+                                        <label name="television"/>
+                                        <field name="television"/>
+                                        <label name="internet"/>
+                                        <field name="internet"/>
+
+                                    </group>
+                                </page>
+                                
                                 <page string="Family" id="page_family">
                                     <group colspan="4" col="6" string="Family APGAR" id="group_ses_family_apgar">
                                         <label name="fam_apgar_help" />
