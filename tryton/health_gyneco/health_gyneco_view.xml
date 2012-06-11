@@ -461,10 +461,12 @@
                                     </group>
                                     <newline/>
                                     <field colspan="4" name="mammography_history"/>
-                                    <newline/>
-                                    <field name="pap_history"/>
-                                    <field name="colposcopy_history"/>
                                     
+                                </page>
+
+                                <page string="Pap / Colpo" id="page_pap_colpo">
+                                    <field name="pap_history"/>
+                                    <field name="colposcopy_history"/>                                    
                                 </page>
 
                                 <page string="Obstetrics" id="page_obs">
@@ -477,9 +479,9 @@
                                         <field name="full_term"/>
                                         <label name="premature"/>
                                         <field name="premature"/>
+                                        <newline/>
                                         <label name="born_alive"/>
                                         <field name="born_alive"/>
-                                        <newline/>
                                         <label name="abortions"/>
                                         <field name="abortions"/>
                                         <label name="deaths_1st_week"/>
