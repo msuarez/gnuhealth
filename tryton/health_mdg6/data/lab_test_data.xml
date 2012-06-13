@@ -104,12 +104,33 @@ Immunocompromised        : &lt; 5 mm
             <field name="units" ref="gnuhealth_lab_test_units_mm"/>
         </record>
 
+<!-- SPUTUM BACILLOSCOPY -->
 
         <record id="gnuhealth_test_critearea_sputum_appearance" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Macroscopic appearance&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
         </record>
+
+        <record id="gnuhealth_test_critearea_sputum_volume" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Volume&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_afb_per_100_fields" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;AFB number per 100 fields&quot;&quot;&quot;" name="name"/>
+            <field eval="3" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_afb_per_field" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;AFB number per field&quot;&quot;&quot;" name="name"/>
+            <field eval="4" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+        </record>
+
+<!-- BACTEC -->
 
         <record id="gnuhealth_test_critearea_sputum_culture" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Result&quot;&quot;&quot;" name="name"/>
