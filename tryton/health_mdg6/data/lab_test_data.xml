@@ -59,6 +59,18 @@
             <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
+
+<!-- HIV -->
+
+        <record id="product_product_western_blot_analysischarges0" model="product.product">
+            <field name="name">Western Blot Analysis Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
 <!-- TEST TYPES DEFINITIONS -->
 
         <record id="gnuhealth_test_bacilloscopy_ZN_analysis0" model="gnuhealth.lab.test_type">
@@ -98,6 +110,14 @@
             <field name="product_id" ref="product_product_xpert_mtb_rif_analysischarges0"/>
             <field eval="&quot;&quot;&quot;Xpert MTB/RIF&quot;&quot;&quot;" name="name"/>
         </record>
+
+        <record id="gnuhealth_test_western_blot_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;WB&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_western_blot_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;WESTERN BLOT ASSAY&quot;&quot;&quot;" name="name"/>
+        </record>
+
+
 
 <!-- Lab test Units -->
 
@@ -186,6 +206,38 @@ Immunocompromised        : &lt; 5 mm
             <field eval="&quot;&quot;&quot;Result&quot;&quot;&quot;" name="name"/>
             <field eval="2" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_culture_bactec_analysis0"/>
+        </record>
+
+<!-- Western Blot Assay -->
+
+        <record id="gnuhealth_test_critearea_p24" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;P24&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_p31" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;P31&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_gp41" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;GP41&quot;&quot;&quot;" name="name"/>
+            <field eval="3" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_gp120" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;GP120&quot;&quot;&quot;" name="name"/>
+            <field eval="4" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_gp160" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;GP160&quot;&quot;&quot;" name="name"/>
+            <field eval="5" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
         </record>
 
     </data>
