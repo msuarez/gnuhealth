@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <tryton>
-    <data noupdate="1">
+    <data skiptest="1" noupdate="0">
 
 <!-- PRODUCTS DEFINITION-->
 
-        <record id="product_product_sputum_bacilloscopy_analysischarges0" model="product.product">
-            <field name="name">Sputum Bacilloscopy Analysis Charges</field>
+        <record id="product_product_bacilloscopy_ZN_analysischarges0" model="product.product">
+            <field name="name">Ziehl Neelsen Bacilloscopy Analysis Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
@@ -13,8 +13,18 @@
             <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
-        <record id="product_product_sputum_culture_lj_analysischarges0" model="product.product">
-            <field name="name">Sputum Lowenstein-Jensen Culture Analysis Charges</field>
+        <record id="product_product_bacilloscopy_FL_analysischarges0" model="product.product">
+            <field name="name">Fluorescent Bacilloscopy Analysis Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+
+        <record id="product_product_culture_lj_analysischarges0" model="product.product">
+            <field name="name">Lowenstein-Jensen Culture Analysis Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
@@ -51,23 +61,30 @@
 
 <!-- TEST TYPES DEFINITIONS -->
 
-        <record id="gnuhealth_test_sputum_bacilloscopy_analysis0" model="gnuhealth.lab.test_type">
-            <field eval="&quot;&quot;&quot;SSA&quot;&quot;&quot;" name="code"/>
-            <field name="product_id" ref="product_product_sputum_bacilloscopy_analysischarges0"/>
-            <field eval="&quot;&quot;&quot;SPUTUM BACILLOSCOPY ANALYSIS&quot;&quot;&quot;" name="name"/>
+        <record id="gnuhealth_test_bacilloscopy_ZN_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;BZN&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_bacilloscopy_ZN_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;ZIEHL NEELSEN BACILLOSCOPY&quot;&quot;&quot;" name="name"/>
+        </record>
+
+
+        <record id="gnuhealth_test_bacilloscopy_FL_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;BFL&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_bacilloscopy_FL_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;FLUORESCENT BACILLOSCOPY&quot;&quot;&quot;" name="name"/>
         </record>
 
 
         <record id="gnuhealth_test_culture_bactec_analysis0" model="gnuhealth.lab.test_type">
             <field eval="&quot;&quot;&quot;BAC&quot;&quot;&quot;" name="code"/>
-            <field name="product_id" ref="product_product_sputum_culture_lj_analysischarges0"/>
+            <field name="product_id" ref="product_product_culture_lj_analysischarges0"/>
             <field eval="&quot;&quot;&quot;BACTEC CULTURE ANALYSIS&quot;&quot;&quot;" name="name"/>
         </record>
 
-        <record id="gnuhealth_test_sputum_culture_lj_analysis0" model="gnuhealth.lab.test_type">
+        <record id="gnuhealth_test_culture_lj_analysis0" model="gnuhealth.lab.test_type">
             <field eval="&quot;&quot;&quot;LJ&quot;&quot;&quot;" name="code"/>
-            <field name="product_id" ref="product_product_sputum_culture_lj_analysischarges0"/>
-            <field eval="&quot;&quot;&quot;SPUTUM LOWENSTEIN-JENSEN CULTURE ANALYSIS&quot;&quot;&quot;" name="name"/>
+            <field name="product_id" ref="product_product_culture_lj_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;LOWENSTEIN-JENSEN CULTURE ANALYSIS&quot;&quot;&quot;" name="name"/>
         </record>
 
         <record id="gnuhealth_test_ppd_analysis0" model="gnuhealth.lab.test_type">
@@ -89,6 +106,11 @@
             <field eval="&quot;&quot;&quot;mm&quot;&quot;&quot;" name="name"/>
         </record>
 
+        <record id="gnuhealth_lab_test_units_ml" model="gnuhealth.lab.test.units">
+            <field eval="&quot;&quot;&quot;ml&quot;&quot;&quot;" name="code"/>
+            <field eval="&quot;&quot;&quot;ml&quot;&quot;&quot;" name="name"/>
+        </record>
+
 <!-- ANALYTES -->
 
         <record id="gnuhealth_test_critearea_ppd0" model="gnuhealth.lab.test.critearea">
@@ -104,35 +126,63 @@ Immunocompromised        : &lt; 5 mm
             <field name="units" ref="gnuhealth_lab_test_units_mm"/>
         </record>
 
-<!-- SPUTUM BACILLOSCOPY -->
+<!--  ZN BACILLOSCOPY -->
 
-        <record id="gnuhealth_test_critearea_sputum_appearance" model="gnuhealth.lab.test.critearea">
+        <record id="gnuhealth_test_critearea_appearance" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Macroscopic appearance&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
-            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_ZN_analysis0"/>
         </record>
 
-        <record id="gnuhealth_test_critearea_sputum_volume" model="gnuhealth.lab.test.critearea">
+        <record id="gnuhealth_test_critearea_volume" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Volume&quot;&quot;&quot;" name="name"/>
             <field eval="2" name="sequence"/>
-            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_ZN_analysis0"/>
+            <field name="units" ref="gnuhealth_lab_test_units_mm"/>
         </record>
 
         <record id="gnuhealth_test_critearea_afb_per_100_fields" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;AFB number per 100 fields&quot;&quot;&quot;" name="name"/>
             <field eval="3" name="sequence"/>
-            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_ZN_analysis0"/>
         </record>
 
         <record id="gnuhealth_test_critearea_afb_per_field" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;AFB number per field&quot;&quot;&quot;" name="name"/>
             <field eval="4" name="sequence"/>
-            <field name="test_type_id" ref="gnuhealth_test_sputum_bacilloscopy_analysis0"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_ZN_analysis0"/>
+        </record>
+
+<!--  FLUORESCENT BACILLOSCOPY -->
+
+        <record id="gnuhealth_test_critearea_appearance1" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Macroscopic appearance&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_FL_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_volume1" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Volume&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_FL_analysis0"/>
+            <field name="units" ref="gnuhealth_lab_test_units_mm"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_afb_per_100_fields1" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;AFB number per 100 fields&quot;&quot;&quot;" name="name"/>
+            <field eval="3" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_FL_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_afb_per_field1" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;AFB number per field&quot;&quot;&quot;" name="name"/>
+            <field eval="4" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_bacilloscopy_FL_analysis0"/>
         </record>
 
 <!-- BACTEC -->
 
-        <record id="gnuhealth_test_critearea_sputum_culture" model="gnuhealth.lab.test.critearea">
+        <record id="gnuhealth_test_critearea_culture" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Result&quot;&quot;&quot;" name="name"/>
             <field eval="2" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_culture_bactec_analysis0"/>
