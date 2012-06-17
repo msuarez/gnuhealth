@@ -71,6 +71,15 @@
             <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
+        <record id="product_product_ELISA_analysischarges0" model="product.product">
+            <field name="name">HIV ELISA Analysis Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
 <!-- TEST TYPES DEFINITIONS -->
 
         <record id="gnuhealth_test_bacilloscopy_ZN_analysis0" model="gnuhealth.lab.test_type">
@@ -117,6 +126,11 @@
             <field eval="&quot;&quot;&quot;WESTERN BLOT ASSAY&quot;&quot;&quot;" name="name"/>
         </record>
 
+        <record id="gnuhealth_test_ELISA_CMIA_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;ELISA-HIV&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_ELISA_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;HIV ELISA ASSAY - CMIA&quot;&quot;&quot;" name="name"/>
+        </record>
 
 
 <!-- Lab test Units -->
@@ -129,6 +143,11 @@
         <record id="gnuhealth_lab_test_units_ml" model="gnuhealth.lab.test.units">
             <field eval="&quot;&quot;&quot;ml&quot;&quot;&quot;" name="code"/>
             <field eval="&quot;&quot;&quot;ml&quot;&quot;&quot;" name="name"/>
+        </record>
+
+        <record id="gnuhealth_lab_test_units_sample_to_cut_off" model="gnuhealth.lab.test.units">
+            <field eval="&quot;&quot;&quot;s/co&quot;&quot;&quot;" name="code"/>
+            <field eval="&quot;&quot;&quot;Sample to cutoff ratio&quot;&quot;&quot;" name="name"/>
         </record>
 
 <!-- ANALYTES -->
@@ -238,6 +257,35 @@ Immunocompromised        : &lt; 5 mm
             <field eval="&quot;&quot;&quot;GP160&quot;&quot;&quot;" name="name"/>
             <field eval="5" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_western_blot_analysis0"/>
+        </record>
+
+<!-- ELISA -->
+
+        <record id="gnuhealth_test_critearea_elisa_CMIA_HIV1_sco" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;HIV-1&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field eval="&quot;&quot;&quot;
+Negative              : &lt; 1 s/co
+Borderline        : 0-4 s/co
+Positive          : &gt; 4 s/co
+&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
+            <field eval="1" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_sample_to_cut_off"/>
+            <field name="test_type_id" ref="gnuhealth_test_ELISA_CMIA_analysis0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_elisa_CMIA_HIV2_sco" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;HIV-2&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field eval="&quot;&quot;&quot;
+Negative              : &lt; 1 s/co
+Borderline        : &lt; 0-4 s/co
+&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
+            <field eval="1" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_sample_to_cut_off"/>
+            <field name="test_type_id" ref="gnuhealth_test_ELISA_CMIA_analysis0"/>
         </record>
 
     </data>
