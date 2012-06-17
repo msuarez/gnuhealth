@@ -1,3 +1,106 @@
+******* Version 1.6.2 *******
+changeset:   276:24cac71e9f84
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 17 10:51:58 2012 -0300
+summary:     Set the short name of Sample to Cutoff unit in HIV to s/co
+
+changeset:   275:3b5b486bc934
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 17 10:22:10 2012 -0300
+summary:     Add HIV ELISA Assay - Chemiluminescent Microparticle Immunoassay (CMIA) - to MDG6 module
+
+changeset:   274:6d05d668256f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jun 16 15:40:05 2012 -0300
+summary:     MDG6 : Add Western Blot assay
+
+changeset:   273:39b9ce4ef7bb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jun 16 14:42:16 2012 -0300
+summary:     Update Tuberculosis lab tests
+
+changeset:   272:2213e0e1863b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jun 13 17:48:08 2012 -0300
+summary:     MDG6 : Update tuberculosis bacilloscopy lab test
+
+changeset:   271:3095f29eb3a3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Jun 11 16:57:29 2012 -0300
+summary:     Health : Change appointment icon
+
+changeset:   270:8a7051d6d95c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 22:27:44 2012 -0300
+summary:     Socioecomics : Improve size remove scrolling from patient view
+
+changeset:   269:6b735277c573
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 22:10:56 2012 -0300
+summary:     Obstetrics : Improve patient view
+
+changeset:   268:5a9f50667a28
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 18:12:38 2012 -0300
+summary:     Lifestyle : Improve patient sexuality view
+
+changeset:   267:9da32bc208fc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 18:07:58 2012 -0300
+summary:     Lifestyle : Improve diet and exercise view
+
+changeset:   266:d70196c560db
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 17:32:41 2012 -0300
+summary:     Move the QR code to the misc section of the patient
+
+changeset:   265:4ff39c1d4167
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 10 16:34:14 2012 -0300
+summary:     Layout improvement. Avoid horizontal scroll in vaccine tree
+
+changeset:   264:7f4acf9566e2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jun 02 01:22:57 2012 -0300
+summary:     Default new bed creation status = Free
+
+changeset:   263:6402f1a0cf92
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jun 02 01:16:12 2012 -0300
+summary:     Automatically update bed status upon registration operations (free/reserved/occupied)
+
+changeset:   262:78de1f002b1a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jun 02 00:08:09 2012 -0300
+summary:     make hospital bed status a readonly field
+
+changeset:   261:b0036e550e96
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Jun 01 23:55:57 2012 -0300
+summary:     Inpatient : Improve tree view
+
+changeset:   260:5641a0eba411
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Jun 01 23:05:51 2012 -0300
+summary:     Avoid patient admission in other days other than the current date
+
+changeset:   259:540888dc95f0
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Jun 01 19:40:18 2012 -0300
+summary:     Hide the admission button when the patient hospitalization state is not confirmed
+
+changeset:   258:f3e95b98b414
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Jun 01 19:20:04 2012 -0300
+summary:     Fix bug #36574 . Bed assignment doesn't check hospitalized state
+
+changeset:   257:2c990be56c50
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue May 29 23:05:25 2012 -0300
+summary:     Add party attributes to the tree view (person, institution, pharmacy, doctor, patient, insurance)
+
+
 ******* Version 1.6.1 *******
 changeset:   257:2c990be56c50
 tag:         tip

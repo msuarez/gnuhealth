@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'GNU Health: Surgery',
-    'version': '1.6.1',
+    'version': '1.6.2',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',

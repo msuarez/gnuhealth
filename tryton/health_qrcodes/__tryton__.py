@@ -22,7 +22,7 @@
 {
     'name': 'GNU Health - QR Codes : Add QR code identification',
     'name_es_ES': 'GNU Health - QR Codes: Integra Identificación QR (Quick Recognition)',
-    'version': '1.6.1',
+    'version': '1.6.2',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org/',

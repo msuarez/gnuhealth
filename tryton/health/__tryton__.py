@@ -22,7 +22,7 @@
 {
     'name': 'GNU Health : Free Health and Hospital Information System',
     'name_es_ES': 'GNU Health : Sistema Libre de Gestión Hospitalaria y de Salud',
-    'version': '1.6.1',
+    'version': '1.6.2',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',
