@@ -1906,7 +1906,7 @@ fi
 
 
 if test "$trytond_path" = "no"; then
-	TRYTON_PATH=`python -c 'from distutils import sysconfig; print sysconfig.get_python_lib()'`
+	TRYTON_PATH=`$PYTHON -c 'from distutils import sysconfig; print sysconfig.get_python_lib()'`
 else
 	TRYTON_PATH=$trytond_path
 fi

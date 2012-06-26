@@ -1,4 +1,4 @@
-AC_INIT([GNU Health], [1.6.0], [health@gnusolidario.org], [GNU Health], [http://health.gnu.org])
+AC_INIT([GNU Health], [1.6.2], [health@gnusolidario.org], [GNU Health], [http://health.gnu.org])
 
 AC_PREFIX_DEFAULT(/usr)
 
@@ -10,7 +10,7 @@ AC_ARG_WITH(tryton,
 trytond_path="$withval", trytond_path="no")
 
 if test "$trytond_path" = "no"; then
-	TRYTON_PATH=`python -c 'from distutils import sysconfig; print sysconfig.get_python_lib()'`
+	TRYTON_PATH=`$PYTHON -c 'from distutils import sysconfig; print sysconfig.get_python_lib()'`
 else
 	TRYTON_PATH=$trytond_path
 fi
