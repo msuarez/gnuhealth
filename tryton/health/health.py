@@ -887,6 +887,20 @@ class PatientData(ModelSQL, ModelView):
         res.append(('name.lastname', clause[1], value))
         return res
 
+    # Search by the patient name or lastname
+    
+    def search_rec_name(self, name, clause):
+        ids = []
+        field = None
+        for field in ('name', 'lastname', 'ssn'):
+            ids = self.search([(field,) + clause[1:]], limit=1)
+            if ids:
+                break
+        if ids:
+            return [(field,) + clause[1:]]
+        return [(self._rec_name,) + clause[1:]]
+
+
     def __init__(self):
         super(PatientData, self).__init__()
         self._sql_constraints = [
