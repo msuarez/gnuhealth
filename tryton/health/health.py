@@ -1838,4 +1838,7 @@ class HospitalBed(ModelSQL, ModelView):
             res[bed.id] = name
         return res
 
+    def search_rec_name(self, name, clause):
+        return [('name',) + clause[1:]]
+        
 HospitalBed()
