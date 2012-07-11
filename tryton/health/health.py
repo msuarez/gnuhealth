@@ -22,7 +22,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
-from trytond.backend import TableHandler, FIELDS
+from trytond.backend import TableHandler
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 
@@ -381,6 +381,9 @@ class Medicament(ModelSQL, ModelView):
             res[medicament.id] = name
         return res
 
+    def check_xml_record(self, ids, values):
+        return True
+
 Medicament()
 
 
@@ -423,6 +426,7 @@ class PathologyCategory(ModelSQL, ModelView):
 
 PathologyCategory()
 
+
 class PathologyGroup(ModelSQL, ModelView):
     'Pathology Groups'
     _name = 'gnuhealth.pathology.group'
@@ -443,15 +447,13 @@ class PathologyGroup(ModelSQL, ModelView):
         cursor = Transaction().cursor
         table = TableHandler(cursor, self, module_name)
 
-        # Drop old foreign key and change to char name      
+        # Drop old foreign key and change to char name
         table.drop_fk('name')
 
-        table.alter_type('name','varchar')
+        table.alter_type('name', 'varchar')
 
         # Drop group column. No longer required
         table.drop_column('group')
-        
-
 
 PathologyGroup()
 
@@ -463,15 +465,15 @@ class Pathology(ModelSQL, ModelView):
 
     name = fields.Char('Name', required=True, translate=True,
         help='Disease name')
-    code = fields.Char('Code', required=True, 
+    code = fields.Char('Code', required=True,
         help='Specific Code for the Disease (eg, ICD-10)')
     category = fields.Many2One('gnuhealth.pathology.category', 'Main Category',
         help='Select the main category for this disease This is usually'\
         ' associated to the standard. For instance, the chapter on the ICD-10'\
         ' will be the main category for de disease')
-    groups = fields.One2Many('gnuhealth.disease_group.members', 'name', 'Groups',
-        help='Specify the groups this pathology belongs. Some automated'\
-        ' processes act upon the code of the group')
+    groups = fields.One2Many('gnuhealth.disease_group.members', 'name',
+        'Groups', help='Specify the groups this pathology belongs. Some' \
+        ' automated processes act upon the code of the group')
     chromosome = fields.Char('Affected Chromosome', help='chromosome number')
     protein = fields.Char('Protein involved',
         help='Name of the protein(s) affected')
@@ -486,6 +488,7 @@ class Pathology(ModelSQL, ModelView):
 
 Pathology()
 
+
 # DISEASE GROUP MEMBERS
 class DiseaseMembers(ModelSQL, ModelView):
     'Disease group members'
@@ -493,11 +496,10 @@ class DiseaseMembers(ModelSQL, ModelView):
     _description = __doc__
 
     name = fields.Many2One('gnuhealth.pathology', 'Disease', readonly=True)
-    disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group', required=True)
+    disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group',
+        required=True)
 
 DiseaseMembers()
-
-
 
 
 class ProcedureCode(ModelSQL, ModelView):
@@ -625,7 +627,8 @@ class PartyPatient (ModelSQL, ModelView):
         super(PartyPatient, self).__init__()
         self._sql_constraints += [
             ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
-            ('internal_user_uniq', 'UNIQUE(internal_user)', 'This health professional is already assigned to a party')
+            ('internal_user_uniq', 'UNIQUE(internal_user)',
+                'This health professional is already assigned to a party')
         ]
 
     def write(self, ids, values):
@@ -670,9 +673,11 @@ class PartyAddress(ModelSQL, ModelView):
     relative_id = fields.Many2One('party.party', 'Contact',
         domain=[('is_person', '=', True)],
         help='If the relative is also a patient, please include it here')
-        
-    is_school = fields.Boolean ("School",help="Check this box to mark the school address")
-    is_work = fields.Boolean ("Work",help="Check this box to mark the work address")
+
+    is_school = fields.Boolean("School", help="Check this box to mark the \
+        school address")
+    is_work = fields.Boolean("Work", help="Check this box to mark the work \
+        address")
 
 PartyAddress()
 
@@ -687,6 +692,9 @@ class Product(ModelSQL, ModelView):
         help='Check if the product is a vaccine')
     is_bed = fields.Boolean('Bed',
         help='Check if the product is a bed on the gnuhealth.center')
+
+    def check_xml_record(self, ids, values):
+        return True
 
 Product()
 
@@ -888,7 +896,7 @@ class PatientData(ModelSQL, ModelView):
         return res
 
     # Search by the patient name or lastname
-    
+
     def search_rec_name(self, name, clause):
         ids = []
         field = None
@@ -899,7 +907,6 @@ class PatientData(ModelSQL, ModelView):
         if ids:
             return [(field,) + clause[1:]]
         return [(self._rec_name,) + clause[1:]]
-
 
     def __init__(self):
         super(PatientData, self).__init__()
@@ -1205,7 +1212,6 @@ class PatientMedication(ModelSQL, ModelView):
 PatientMedication()
 
 
-
 # PATIENT VACCINATION INFORMATION
 class PatientVaccination(ModelSQL, ModelView):
     'Patient Vaccination information'
@@ -1312,14 +1318,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     def on_change_patient(self, vals):
         preg_warning = False
         presc_warning_ack = True
-        patient_sex = ''
 
         patient_obj = Pool().get('gnuhealth.patient')
 
         if vals.get('patient'):
             patient = patient_obj.browse(vals['patient'])
-            patient_sex = patient.sex
-            patient_age = patient.age
             patient_childbearing_age = patient.childbearing_age
 
 # Trigger the warning if the patient is at a childbearing age
@@ -1408,9 +1411,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
-    information_source = fields.Char('Source',help="Source of" \
+    information_source = fields.Char('Source', help="Source of" \
         "Information, eg : Self, relative, friend ...")
-    reliable_info = fields.Boolean ('Reliable',help="Uncheck this option" \
+    reliable_info = fields.Boolean('Reliable', help="Uncheck this option" \
         "if the information provided by the source seems not reliable")
     derived_from = fields.Many2One('gnuhealth.physician',
         'Derived from',
@@ -1552,17 +1555,19 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Presumptive Diagnosis. If no diagnosis can be made'\
         ', encode the main sign or symptom.')
     secondary_conditions = fields.One2Many('gnuhealth.secondary_condition',
-        'evaluation', 'Secondary Conditions', help="Other, Secondary conditions found on the patient")
+        'evaluation', 'Secondary Conditions', help="Other, Secondary \
+            conditions found on the patient")
 
     diagnostic_hypothesis = fields.One2Many('gnuhealth.diagnostic_hypothesis',
-        'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / Differential Diagnosis (DDx)")
+        'evaluation', 'Hypotheses / DDx', help="Other Diagnostic Hypotheses / \
+            Differential Diagnosis (DDx)")
     signs_and_symptoms = fields.One2Many('gnuhealth.signs_and_symptoms',
-        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms for the patient in this evaluation.")
+        'evaluation', 'Signs and Symptoms', help="Enter the Signs and Symptoms \
+        for the patient in this evaluation.")
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
     directions = fields.Text('Plan')
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
         help='Procedures / Actions to take')
-
 
     notes = fields.Text('Notes')
 
@@ -1571,13 +1576,16 @@ class PatientEvaluation(ModelSQL, ModelView):
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
         login_user_id = int(user.id)
-        cursor.execute ('SELECT id FROM party_party WHERE is_doctor=True AND internal_user = %s LIMIT 1',(login_user_id,))
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if not partner_id:
-            self.raise_user_error('No health professional associated to this user')
-        else:    
+            self.raise_user_error('No health professional associated to this \
+                user')
+        else:
             cursor = Transaction().cursor
-            cursor.execute ('SELECT id FROM gnuhealth_physician WHERE name = %s LIMIT 1',(partner_id[0],))
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
 
             return int(doctor_id[0])
@@ -1612,7 +1620,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def default_information_source(self):
         return 'Self'
-    
+
     def default_reliable_info(self):
         return True
 
@@ -1629,19 +1637,19 @@ class PatientEvaluation(ModelSQL, ModelView):
 PatientEvaluation()
 
 
-
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
     'Patient Directions'
     _name = 'gnuhealth.directions'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',required=True)
+    name = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
+    procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',
+            required=True)
     comments = fields.Char('Comments')
 
 Directions()
-
 
 
 # SECONDARY CONDITIONS ASSOCIATED TO THE PATIENT IN THE EVALUATION
@@ -1650,8 +1658,10 @@ class SecondaryCondition(ModelSQL, ModelView):
     _name = 'gnuhealth.secondary_condition'
     _description = __doc__
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology',
+        required=True)
     comments = fields.Char('Comments')
 
 SecondaryCondition()
@@ -1663,11 +1673,14 @@ class DiagnosticHypothesis(ModelSQL, ModelView):
     _name = 'gnuhealth.diagnostic_hypothesis'
     _description = __doc__
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology', required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
+    pathology = fields.Many2One('gnuhealth.pathology', 'Pathology',
+        required=True)
     comments = fields.Char('Comments')
 
 DiagnosticHypothesis()
+
 
 # PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
 class SignsAndSymptoms(ModelSQL, ModelView):
@@ -1675,12 +1688,14 @@ class SignsAndSymptoms(ModelSQL, ModelView):
     _name = 'gnuhealth.signs_and_symptoms'
     _description = __doc__
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
-    sign_or_symptom = fields.Selection ([
-        ('sign','Sign'),
-        ('symptom','Symptom')],
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
+    sign_or_symptom = fields.Selection([
+        ('sign', 'Sign'),
+        ('symptom', 'Symptom')],
         'Subjective / Objective', required=True)
-    clinical = fields.Many2One('gnuhealth.pathology', 'Sign or Symptom', domain=[('code', 'like','R%' )], required=True)
+    clinical = fields.Many2One('gnuhealth.pathology', 'Sign or Symptom',
+        domain=[('code', 'like', 'R%')], required=True)
     comments = fields.Char('Comments')
 
 SignsAndSymptoms()
@@ -1840,5 +1855,5 @@ class HospitalBed(ModelSQL, ModelView):
 
     def search_rec_name(self, name, clause):
         return [('name',) + clause[1:]]
-        
+
 HospitalBed()
