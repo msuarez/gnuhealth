@@ -7,11 +7,17 @@
         <record model="ir.ui.icon" id="gnuhealth_dna_icon">
             <field name="name">icon-dna</field>
             <field name="path">icons/dna.svg</field>
-        </record> 
+        </record>
 
         <menuitem name="Genetics" parent="health.gnuhealth_conf_menu"
             id="gnuhealth_conf_genetics" icon="icon-dna"/>
 
+<!-- Add other relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
 
 <!-- Genetic Risks -->
 
@@ -74,7 +80,7 @@
 
         <menuitem parent="gnuhealth_conf_genetics"
             action="gnuhealth_action_disease_gene"
-            id="gnuhealth_conf_disease_genes"/>
+            id="gnuhealth_conf_disease_genes" icon="gnuhealth-list"/>
 
 <!-- Patient Genetic Risk -->
 

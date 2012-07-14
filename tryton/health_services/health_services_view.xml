@@ -9,6 +9,11 @@
             <field name="path">icons/folder-documents.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
 <!-- Health Services Menu -->
 
         <menuitem name="Health Services" id="gnuhealth_services_menu"
@@ -23,7 +28,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="service ">
-                    <group colspan="4" col="8" id="group_service_header">                   
+                    <group colspan="4" col="8" id="group_service_header">
                         <label name="name"/>
                         <field name="name"/>
                         <label name="service_date"/>
@@ -52,7 +57,7 @@
                 <![CDATA[
                 <tree string="Health service ">
                     <field name="name" expand="1"/>
-                    <field name="service_date" expand="1"/>                   
+                    <field name="service_date" expand="1"/>
                     <field name="patient" expand="1"/>
                     <field name="desc" expand="1"/>
                     <field name="state" expand="1"/>
@@ -60,7 +65,7 @@
                 ]]>
             </field>
         </record>
-        
+
 
         <record model="ir.ui.view" id="gnuhealth_health_service_line_view">
             <field name="model">gnuhealth.health_service.line</field>
@@ -107,7 +112,7 @@
                 ]]>
             </field>
         </record>
-        
+
 
 
         <record model="ir.action.act_window" id="gnuhealth_action_health_service">
@@ -130,7 +135,7 @@
 
         <menuitem parent="gnuhealth_services_menu"
             action="gnuhealth_action_health_service"
-            id="gnuhealth_health_service_menu"/>
+            id="gnuhealth_health_service_menu" icon="gnuhealth-list"/>
 
 
     </data>

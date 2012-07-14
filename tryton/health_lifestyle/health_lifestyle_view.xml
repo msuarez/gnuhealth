@@ -2,6 +2,13 @@
 <tryton>
     <data>
 
+<!-- Add relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
 <!-- Recreational Drugs -->
 
         <record model="ir.ui.view" id="gnuhealth_drugs_recreational_view">
@@ -116,7 +123,7 @@
 
         <menuitem parent="health.gnuhealth_conf_misc"
             action="gnuhealth_action_drugs_recreational"
-            id="gnuhealth_conf_drugs_recreational"/>
+            id="gnuhealth_conf_drugs_recreational" icon="gnuhealth-list"/>
 
 <!-- Patient use of Drugs -->
 
@@ -236,7 +243,7 @@
                                                 <field name="alcohol_beer_number"/>
                                                 <label name="alcohol_wine_number"/>
                                                 <field name="alcohol_wine_number"/>
-    
+
                                                 <label name="alcohol_liquor_number"/>
                                                 <field name="alcohol_liquor_number"/>
                                                 <label name="drug_usage"/>
@@ -247,10 +254,10 @@
                                                 <field name="ex_drug_addict"/>
                                                 <label name="age_start_drugs"/>
                                                 <field name="age_start_drugs"/>
-    
+
                                                 <label name="age_quit_drugs"/>
                                                 <field name="age_quit_drugs"/>
-    
+
                                             </group>
                                         </page>
                                         <page string="Recreational Drugs" id="page_recreational_drugs">

@@ -13,6 +13,11 @@
             id="gnuhealth_pediatrics" sequence="60"
             icon="icon-baby-sitting"/>
 
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
 <!-- Pediatric Symptoms Evaluation -->
 
         <record model="ir.ui.view" id="gnuhealth_pediatric_symptoms_checklist_view">
@@ -26,14 +31,14 @@
                             <label name="patient"/>
                             <field name="patient"/>
                             <label name="evaluation_start"/>
-                            <field name="evaluation_start"/>                           
+                            <field name="evaluation_start"/>
 <!--
                             <label name="evaluation_end"/>
                             <field name="evaluation_end"/>
 -->
                             <label name="evaluation_date"/>
                             <field name="evaluation_date"/>
-                            
+
                             <label name="psc_total"/>
                             <field name="psc_total"/>
                         </group>
@@ -175,7 +180,7 @@
             <field name="act_window" ref="gnuhealth_action_psc"/>
         </record>
 
-        <menuitem parent="gnuhealth_pediatrics"
+        <menuitem parent="gnuhealth_pediatrics" icon="gnuhealth-list"
             action="gnuhealth_action_psc" id="gnuhealth_conf_edit_psc"/>
 
 
@@ -186,7 +191,7 @@
             <field name="name">PSC</field>
             <field name="res_model">gnuhealth.patient.psc</field>
             <field name="domain">[('patient', '=', Eval('active_id'))]</field>
-        </record>        
+        </record>
 
         <record model="ir.action.keyword"
                 id="act_open_psc_keyword1">
@@ -430,7 +435,7 @@
             <field name="act_window" ref="gnuhealth_action_newborn"/>
         </record>
 
-        <menuitem parent="gnuhealth_pediatrics"
+        <menuitem parent="gnuhealth_pediatrics" icon="gnuhealth-list"
             action="gnuhealth_action_newborn" id="gnuhealth_conf_edit_newborn"/>
 
     </data>

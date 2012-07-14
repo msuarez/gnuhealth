@@ -25,9 +25,9 @@
             <field name="name">gnuhealth-appointment</field>
             <field name="path">icons/appointment.svg</field>
         </record>
-        <record model="ir.ui.icon" id="gnuhealth_hospital_icon">
-            <field name="name">gnuhealth-hospital</field>
-            <field name="path">icons/hospital.svg</field>
+        <record model="ir.ui.icon" id="gnuhealth_center_icon">
+            <field name="name">gnuhealth-health-center</field>
+            <field name="path">icons/health-center.svg</field>
         </record>
         <record model="ir.ui.icon" id="gnuhealth_physician_icon">
             <field name="name">gnuhealth-physician</field>
@@ -45,6 +45,18 @@
             <field name="name">gnuhealth-report</field>
             <field name="path">icons/report.svg</field>
         </record>
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">icons/tryton-list.svg</field>
+        </record>
+        <record model="ir.ui.icon" id="gnuhealth_open_icon">
+            <field name="name">gnuhealth-open</field>
+            <field name="path">icons/tryton-open.svg</field>
+        </record>
+        <record model="ir.ui.icon" id="gnuhealth_preferences_icon">
+            <field name="name">gnuhealth-preferences</field>
+            <field name="path">icons/tryton-preferences.svg</field>
+        </record>
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
@@ -57,7 +69,7 @@
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
             parent="gnuhealth_menu" sequence="998" icon="gnuhealth-report"/>
         <menuitem name="Configuration" id="gnuhealth_conf_menu"
-            parent="gnuhealth_menu" sequence="999" icon="tryton-preferences"/>
+            parent="gnuhealth_menu" sequence="999" icon="gnuhealth-preferences"/>
 
 <!-- Configuration Menu -->
         <menuitem name="Diseases" id="gnuhealth_conf_pathology"
@@ -65,17 +77,17 @@
         <menuitem name="Procedures" id="gnuhealth_conf_procedure"
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
         <menuitem name="Health Centers" id="gnuhealth_conf_hospital"
-            parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-hospital"/>
+            parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-health-center"/>
         <menuitem name="Physicians" id="gnuhealth_conf_physicians"
             parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-physician"/>
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
-            parent="gnuhealth_conf_menu" sequence="60"/>
+            parent="gnuhealth_conf_menu" sequence="60" icon="gnuhealth-open"/>
         <menuitem name="Operational Areas" id="gnuhealth_conf_operational_areas"
-            parent="gnuhealth_conf_misc" sequence="10"/>
+            parent="gnuhealth_conf_misc" sequence="10" icon="gnuhealth-open"/>
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
-            parent="gnuhealth_conf_misc" sequence="20"/>
+            parent="gnuhealth_conf_misc" sequence="20" icon="gnuhealth-open"/>
 
 
 <!-- Medication Frequencies -->
@@ -129,7 +141,7 @@
             <field name="act_window" ref="gnuhealth_action_dosage"/>
         </record>
 
-        <menuitem action="gnuhealth_action_dosage"
+        <menuitem action="gnuhealth_action_dosage" icon="gnuhealth-list"
             id="gnuhealth_conf_dosage" parent="gnuhealth_conf_medicaments"/>
 
 
@@ -182,7 +194,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_dose" id="gnuhealth_conf_dose"
-            parent="gnuhealth_conf_medicaments"/>
+            icon="gnuhealth-list" parent="gnuhealth_conf_medicaments"/>
 
 
 <!-- Drug Administration Routes -->
@@ -234,7 +246,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_drug_route"
-            id="gnuhealth_conf_drug_route"
+            id="gnuhealth_conf_drug_route" icon="gnuhealth-list"
             parent="gnuhealth_conf_medicaments"/>
 
 <!-- Drug Forms -->
@@ -285,7 +297,7 @@
             <field name="act_window" ref="gnuhealth_action_drug_form"/>
         </record>
 
-        <menuitem action="gnuhealth_action_drug_form"
+        <menuitem action="gnuhealth_action_drug_form" icon="gnuhealth-list"
             id="gnuhealth_conf_drug_form" parent="gnuhealth_conf_medicaments"/>
 
 
@@ -337,7 +349,7 @@
             <field name="act_window" ref="gnuhealth_action_occupation"/>
         </record>
 
-        <menuitem action="gnuhealth_action_occupation"
+        <menuitem action="gnuhealth_action_occupation" icon="gnuhealth-list"
             id="gnuhealth_conf_occupation" parent="gnuhealth_conf_misc"/>
 
 
@@ -392,7 +404,7 @@
             <field name="act_window" ref="gnuhealth_action_ethnicity"/>
         </record>
 
-        <menuitem action="gnuhealth_action_ethnicity"
+        <menuitem action="gnuhealth_action_ethnicity" icon="gnuhealth-list"
             id="gnuhealth_conf_ethnicity" parent="gnuhealth_conf_misc"/>
 
 
@@ -444,7 +456,7 @@
             <field name="act_window" ref="gnuhealth_action_specialty"/>
         </record>
 
-        <menuitem action="gnuhealth_action_specialty"
+        <menuitem action="gnuhealth_action_specialty" icon="gnuhealth-list"
             id="gnuhealth_conf_specialty" parent="gnuhealth_conf_misc"/>
 
 
@@ -508,7 +520,7 @@
 
         <menuitem action="gnuhealth_action_physician"
             id="gnuhealth_edit_physician" parent="gnuhealth_conf_physicians"
-            sequence="1"/>
+            icon="gnuhealth-list" sequence="1"/>
 
 
 <!-- Family -->
@@ -568,7 +580,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_family" id="gnuhealth_edit_family"
-            parent="gnuhealth_patients_menu" sequence="30"/>
+            icon="gnuhealth-list" parent="gnuhealth_patients_menu" sequence="30"/>
 
 
 <!-- Family Members -->
@@ -619,7 +631,7 @@
 
         <menuitem action="gnuhealth_action_family_member"
             id="gnuhealth_edit_family_member" parent="gnuhealth_patients_menu"
-            sequence="40"/>
+            icon="gnuhealth-list" sequence="40"/>
 
 
 <!-- Operational Areas -->
@@ -670,7 +682,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_operational_area"
-            id="gnuhealth_conf_edit_operational_area"
+            id="gnuhealth_conf_edit_operational_area" icon="gnuhealth-list"
             parent="gnuhealth_conf_operational_areas" sequence="1"/>
 
 
@@ -729,7 +741,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_operational_sector"
-            id="gnuhealth_conf_edit_operational_sector"
+            id="gnuhealth_conf_edit_operational_sector" icon="gnuhealth-list"
             parent="gnuhealth_conf_operational_areas" sequence="2"/>
 
 
@@ -800,7 +812,7 @@
                             <label name="storage"/>
                             <field name="storage"/>
                         </page>
-        
+
                         <page string="Extra Info" id="medicament_extra_info">
                             <label name="notes"/>
                             <field name="notes"/>
@@ -856,7 +868,7 @@
 
         <menuitem action="gnuhealth_action_view_medicament"
             id="gnuhealth_edit_medicament" parent="gnuhealth_conf_medicaments"
-            sequence="2"/>
+            sequence="2" icon="gnuhealth-list"/>
 
 
 <!-- Medicament Categories -->
@@ -943,7 +955,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_medicament_category_tree"
-            id="gnuhealth_conf_medicament_category"
+            id="gnuhealth_conf_medicament_category" icon="gnuhealth-list"
             parent="gnuhealth_conf_medicaments"/>
 
 
@@ -1007,7 +1019,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_pathology_group"
-            id="gnuhealth_conf_pathology_group"
+            id="gnuhealth_conf_pathology_group" icon="gnuhealth-list"
             parent="gnuhealth_conf_pathology"/>
 
 
@@ -1114,14 +1126,14 @@
         </record>
 
         <menuitem action="gnuhealth_action_form_pathology"
-            id="gnuhealth_conf_pathology_pathology"
+            id="gnuhealth_conf_pathology_pathology" icon="gnuhealth-list"
             parent="gnuhealth_conf_pathology" sequence="1"/>
 
 
 <!-- Disease Categories -->
 
         <menuitem name="Categories" id="gnuhealth_conf_pathology_categories"
-            parent="gnuhealth_conf_pathology"/>
+            parent="gnuhealth_conf_pathology" icon="gnuhealth-open"/>
 
         <record model="ir.ui.view" id="gnuhealth_pathology_category_form">
             <field name="model">gnuhealth.pathology.category</field>
@@ -1180,7 +1192,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_pathology_category_tree"
-            id="gnuhealth_conf_pathology_category"
+            id="gnuhealth_conf_pathology_category" icon="gnuhealth-list"
             parent="gnuhealth_conf_pathology_categories"/>
 
 <!--
@@ -1264,7 +1276,7 @@
 
         <menuitem name="Insurances" action="gnuhealth_action_insurance"
             parent="gnuhealth_conf_insurances" sequence="1"
-            id="gnuhealth_conf_edit_insurance"/>
+            id="gnuhealth_conf_edit_insurance" icon="gnuhealth-list"/>
 
 
 <!-- Insurances plans -->
@@ -1323,7 +1335,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_insurance_company"
-            id="gnuhealth_conf_edit_insurance_company"
+            id="gnuhealth_conf_edit_insurance_company" icon="gnuhealth-list"
             parent="gnuhealth_conf_insurances" sequence="2"/>
 
 
@@ -1365,18 +1377,18 @@
                                 <field name="ref"/>
                             </group>
 
-                            <group colspan="1" col="2" id="party_internal_user">                           
+                            <group colspan="1" col="2" id="party_internal_user">
                                 <label name="internal_user"/>
                                 <field name="internal_user"/>
                             </group>
-                            
+
                             <newline/>
 
                             <field name="insurance" colspan="4"/>
 
                         </page>
 
-<!-- TODO attrs 
+<!-- TODO attrs
                         <page string="Insurance Plans" id="insurance_plans"
                             attrs="{'invisible': [('is_insurance_company', '=', False)]}">
                             <field name="insurance_company_type"/>
@@ -1554,9 +1566,9 @@
             <field name="view" ref="gnuhealth_procedure_view_form"/>
             <field name="act_window" ref="action_gnuhealth_procedure_view"/>
         </record>
- 
+
         <menuitem action="action_gnuhealth_procedure_view"
-            id="menu_gnuhealth_procedure_list"
+            id="menu_gnuhealth_procedure_list" icon="gnuhealth-list"
             parent="gnuhealth_conf_procedure"/>
 
 
@@ -1702,7 +1714,7 @@
                         <field name="name"/>
                         <label name="institution"/>
                         <field name="institution"/>
-                    
+
                         <label name="patient"/>
                         <field name="patient"/>
                         <label name="appointment_date"/>
@@ -1765,8 +1777,8 @@
 
         <menuitem action="action_gnuhealth_appointment_view"
             id="menu_gnuhealth_appointment_list"
-            parent="gnuhealth_appointment_menu"/>
-        
+            icon="gnuhealth-list" parent="gnuhealth_appointment_menu"/>
+
 <!-- Shortcut to the Appointments from the Patient -->
         <record model="ir.action.act_window" id="act_appointment_form1">
             <field name="name">Appointments</field>
@@ -2164,7 +2176,7 @@
                                 </page>
 
                                 <page string="Misc" id="misc_info_page">
-                                    <group id="patient_info" colspan="4" col="4">    
+                                    <group id="patient_info" colspan="4" col="4">
                                     <separator colspan="4"
                                         string="Patient Extra Information"
                                         id="separator_misc"/>
@@ -2197,7 +2209,7 @@
                         <page string="Diseases" id="patient_diseases">
                             <field name="diseases" colspan="4"/>
                         </page>
-                            
+
 <!-- Patient Evaluations NOW as a shortcut
                         <page string="Evaluations" id="patient_evaluations">
                             <field name="evaluation_ids" colspan="4"/>
@@ -2243,7 +2255,7 @@
 
         <menuitem action="action_gnuhealth_patient_view"
             id="menu_gnuhealth_patient_list" parent="gnuhealth_patients_menu"
-            sequence="10"/>
+            icon="gnuhealth-list" sequence="10"/>
 
 
 <!-- PATIENT EVALUATION -->
@@ -2276,9 +2288,9 @@
                             <separator colspan="4"
                                 id="separator_chief_complaint"/>
                             <newline/>
-                            <group string="Chief Complaint" id="eval_chief_complaint">      
+                            <group string="Chief Complaint" id="eval_chief_complaint">
                                 <field name="chief_complaint"/>
-                            </group>                          
+                            </group>
                             <newline/>
                             <separator string="Present Illness" colspan="4"
                                 id="separator_present_illness"/>
@@ -2460,7 +2472,7 @@
         </record>
 
 <!-- READ-ONLY TREE VIEW We create the patient evaluation from the patient form -->
-    
+
         <record model="ir.action.act_window" id="action_gnuhealth_patient_evaluation_view">
             <field name="name">Patient Evaluations</field>
             <field name="res_model">gnuhealth.patient.evaluation</field>
@@ -2473,7 +2485,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_patient_evaluation_view"
-            id="menu_gnuhealth_patient_evaluation_list"
+            id="menu_gnuhealth_patient_evaluation_list" icon="gnuhealth-list"
             parent="gnuhealth_reporting_menu"/>
 
 
@@ -2645,7 +2657,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_prescription_view"
-            id="menu_gnuhealth_prescription_list"
+            id="menu_gnuhealth_prescription_list" icon="gnuhealth-list"
             parent="gnuhealth_prescription_menu" sequence="10"/>
 
 
@@ -2669,7 +2681,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital"
-            id="gnuhealth_conf_hospital_center"
+            id="gnuhealth_conf_hospital_center" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="1"/>
 
 
@@ -2724,7 +2736,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_building_view"
-            id="gnuhealth_conf_hospital_building_add"
+            id="gnuhealth_conf_hospital_building_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="2"/>
 
 
@@ -2779,7 +2791,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_unit_view"
-            id="gnuhealth_conf_hospital_unit_add"
+            id="gnuhealth_conf_hospital_unit_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="3"/>
 
 
@@ -2871,7 +2883,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_ward_view"
-            id="gnuhealth_conf_hospital_ward_add"
+            id="gnuhealth_conf_hospital_ward_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="3"/>
 
 
@@ -2934,7 +2946,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_bed_view"
-            id="gnuhealth_conf_hospital_bed_add"
+            id="gnuhealth_conf_hospital_bed_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="4"/>
 
 
@@ -2994,7 +3006,7 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_or_view"
-            id="gnuhealth_conf_hospital_or_add"
+            id="gnuhealth_conf_hospital_or_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_hospital" sequence="5"/>
 
     </data>

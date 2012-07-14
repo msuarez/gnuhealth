@@ -2,6 +2,15 @@
 <tryton>
     <data>
 
+        <!-- Add relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
+        <!-- Reports -->
+
         <record model="ir.ui.view" id="top_diseases_view_tree">
             <field name="model">gnuhealth.top_diseases</field>
             <field name="type">tree</field>
@@ -69,9 +78,9 @@
             <field name="name">Top Diseases</field>
             <field name="wiz_name">gnuhealth.top_diseases.open</field>
         </record>
-        <menuitem parent="health.gnuhealth_reporting_menu" 
-            action="act_top_diseases_open" icon="tryton-list" 
-            id="menu_top_diseases_open" sequence="10"/>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_top_diseases_open" icon="gnuhealth-list"
+            id="menu_top_diseases_open" sequence="10" />
 
         <record model="ir.ui.view" id="evaluations_doctor_view_tree">
             <field name="model">gnuhealth.evaluations_doctor</field>
@@ -136,8 +145,8 @@
             <field name="name">Evaluations per Doctor</field>
             <field name="wiz_name">gnuhealth.evaluations_doctor.open</field>
         </record>
-        <menuitem parent="health.gnuhealth_reporting_menu" 
-            action="act_evaluations_doctor_open" icon="tryton-list" 
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_doctor_open" icon="gnuhealth-list"
             id="menu_evaluations_doctor_open" sequence="20"/>
 
         <record model="ir.ui.view" id="evaluations_doctor_weekly_view_tree">
@@ -154,7 +163,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_doctor_weekly_form">
             <field name="name">Evaluations per Doctor per Week</field>
             <field name="res_model">gnuhealth.evaluations_doctor_weekly</field>
@@ -167,7 +176,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_doctor_weekly_form"
-            id="menu_evaluations_doctor_open_weekly" sequence="30"/>
+            id="menu_evaluations_doctor_open_weekly" sequence="30"
+            icon="gnuhealth-list"/>
 
         <record model="ir.ui.view" id="evaluations_doctor_monthly_view_tree">
             <field name="model">gnuhealth.evaluations_doctor_monthly</field>
@@ -183,7 +193,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_doctor_monthly_form">
             <field name="name">Evaluations per Doctor per Month</field>
             <field name="res_model">gnuhealth.evaluations_doctor_monthly</field>
@@ -196,7 +206,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_doctor_monthly_form"
-            id="menu_evaluations_doctor_open_monthly" sequence="40"/>
+            id="menu_evaluations_doctor_open_monthly" sequence="40"
+            icon="gnuhealth-list"/>
 
         <record model="ir.ui.view" id="evaluations_specialty_view_tree">
             <field name="model">gnuhealth.evaluations_specialty</field>
@@ -261,8 +272,8 @@
             <field name="name">Evaluations per Specialty</field>
             <field name="wiz_name">gnuhealth.evaluations_specialty.open</field>
         </record>
-        <menuitem parent="health.gnuhealth_reporting_menu" 
-            action="act_evaluations_specialty_open" icon="tryton-list" 
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_specialty_open" icon="gnuhealth-list"
             id="menu_evaluations_specialty_open" sequence="50"/>
 
         <record model="ir.ui.view" id="evaluations_specialty_weekly_view_tree">
@@ -279,7 +290,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_specialty_weekly_form">
             <field name="name">Evaluations per Specialty per Week</field>
             <field name="res_model">gnuhealth.evaluations_specialty_weekly</field>
@@ -292,7 +303,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_specialty_weekly_form"
-            id="menu_evaluations_specialty_open_weekly" sequence="60"/>
+            id="menu_evaluations_specialty_open_weekly" sequence="60"
+            icon="gnuhealth-list"/>
 
         <record model="ir.ui.view" id="evaluations_specialty_monthly_view_tree">
             <field name="model">gnuhealth.evaluations_specialty_monthly</field>
@@ -308,7 +320,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_specialty_monthly_form">
             <field name="name">Evaluations per Specialty per Month</field>
             <field name="res_model">gnuhealth.evaluations_specialty_monthly</field>
@@ -321,7 +333,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_specialty_monthly_form"
-            id="menu_evaluations_specialty_open_monthly" sequence="70"/>
+            id="menu_evaluations_specialty_open_monthly" sequence="70"
+            icon="gnuhealth-list"/>
 
         <record model="ir.ui.view" id="evaluations_sector_view_tree">
             <field name="model">gnuhealth.evaluations_sector</field>
@@ -386,8 +399,8 @@
             <field name="name">Evaluations per Sector</field>
             <field name="wiz_name">gnuhealth.evaluations_sector.open</field>
         </record>
-        <menuitem parent="health.gnuhealth_reporting_menu" 
-            action="act_evaluations_sector_open" icon="tryton-list" 
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_sector_open" icon="gnuhealth-list"
             id="menu_evaluations_sector_open" sequence="80"/>
 
         <record model="ir.ui.view" id="evaluations_sector_weekly_view_tree">
@@ -404,7 +417,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_sector_weekly_form">
             <field name="name">Evaluations per Sector per Week</field>
             <field name="res_model">gnuhealth.evaluations_sector_weekly</field>
@@ -417,7 +430,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_sector_weekly_form"
-            id="menu_evaluations_sector_open_weekly" sequence="90"/>
+            id="menu_evaluations_sector_open_weekly" sequence="90"
+            icon="gnuhealth-list"/>
 
         <record model="ir.ui.view" id="evaluations_sector_monthly_view_tree">
             <field name="model">gnuhealth.evaluations_sector_monthly</field>
@@ -433,7 +447,7 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.action.act_window" 
+        <record model="ir.action.act_window"
             id="act_evaluations_sector_monthly_form">
             <field name="name">Evaluations per Sector per Month</field>
             <field name="res_model">gnuhealth.evaluations_sector_monthly</field>
@@ -446,7 +460,8 @@
         </record>
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_evaluations_sector_monthly_form"
-            id="menu_evaluations_sector_open_monthly" sequence="100"/>
+            id="menu_evaluations_sector_open_monthly" sequence="100"
+            icon="gnuhealth-list"/>
 
     </data>
 </tryton>

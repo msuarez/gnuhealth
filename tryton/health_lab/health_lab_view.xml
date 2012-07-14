@@ -3,7 +3,7 @@
     <data>
 
 <!-- Create the GNU HEALTH icon -->
-        
+
         <record model="ir.ui.icon" id="lab_icon">
             <field name="name">gnuhealth.lab</field>
             <field name="path">icons/lab_icon.svg</field>
@@ -14,6 +14,13 @@
 
         <menuitem name="Laboratory" parent="health.gnuhealth_conf_menu"
             id="gnuhealth_conf_laboratory" sequence="30" icon="gnuhealth.lab"/>
+
+<!-- Add other relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
 
 <!-- Lab Test Units -->
 
@@ -44,7 +51,7 @@
                 ]]>
             </field>
         </record>
-        
+
         <record model="ir.action.act_window" id="gnuhealth_action_lab_unit">
             <field name="name">Lab Test Units</field>
             <field name="res_model">gnuhealth.lab.test.units</field>
@@ -62,7 +69,7 @@
         </record>
 
         <menuitem parent="gnuhealth_conf_laboratory" action="gnuhealth_action_lab_unit"
-            id="gnuhealth_labtest_unit"/>
+            id="gnuhealth_labtest_unit" icon="gnuhealth-list"/>
 
 <!-- Lab Requests -->
 
@@ -122,7 +129,7 @@
         </record>
 
         <menuitem parent="gnuhealth_laboratory_menu" action="gnuhealth_action_lab_test_request"
-            id="gnuhealth_labtest_request"/>
+            id="gnuhealth_labtest_request" icon="gnuhealth-list"/>
 
 
 
@@ -230,7 +237,7 @@
         </record>
 
         <menuitem parent="gnuhealth_conf_laboratory" action="gnuhealth_action_list_test"
-            id="menu_gnuhealth_action_list_test"/>
+            id="menu_gnuhealth_action_list_test" icon="gnuhealth-list"/>
 
 
 <!-- Lab Test Results -->
@@ -361,7 +368,7 @@
         </record>
 
         <menuitem parent="gnuhealth_laboratory_menu" action="gnuhealth_action_tree_lab"
-            id="gnuhealth_action_lab_tree" sequence="2"/>
+            id="gnuhealth_action_lab_tree" sequence="2" icon="gnuhealth-list"/>
 
 <!-- Shortcut to the Lab Reports from the Patient -->
 
