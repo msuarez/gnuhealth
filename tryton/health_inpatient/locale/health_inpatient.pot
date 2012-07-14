@@ -1,0 +1,240 @@
+# 
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Luis Falcon <lfalcon@gnusolidario.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid "Bed is not available"
+msgstr ""
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid "The Registration code already exists"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,inpatient_registration_code:"
+msgid "Inpatient Registration"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,admission_reason:"
+msgid "Reason for Admission"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,admission_type:"
+msgid "Admission type"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,attending_physician:"
+msgid "Attending Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,bed:"
+msgid "Hospital Bed"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,discharge_date:"
+msgid "Discharge date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,discharge_plan:"
+msgid "Discharge Plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,hospitalization_date:"
+msgid "Hospitalization date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,name:"
+msgid "Registration Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,nursing_plan:"
+msgid "Nursing Plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,operating_physician:"
+msgid "Operating Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,state:"
+msgid "Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.registration,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,patient_status:"
+msgid "Hospitalization Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
+msgid "Inpatient Sequence"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,inpatient_registration_code:"
+msgid "Enter the patient hospitalization code"
+msgstr ""
+
+msgctxt "help:gnuhealth.inpatient.registration,admission_reason:"
+msgid "Reason for Admission"
+msgstr ""
+
+msgctxt "model:gnuhealth.inpatient.registration,name:"
+msgid "Add Calendar to the Inpatient Registration"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_inpatient_registration"
+msgid "Hospitalizations"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_inpatient_registration"
+msgid "Inpatient Registration"
+msgstr ""
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_registration"
+msgid "Inpatient Registration"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_inpatient_add"
+msgid "Hospitalizations"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_menu"
+msgid "Hospitalizations"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_inpatient_admin"
+msgid "Health Inpatient Administration"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Elective"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Emergency"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Maternity"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Routine"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Urgent"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "cancelled"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "confirmed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "free"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "hospitalized"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Administrative data"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admission"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admit the patient in the health institution and assign the bed"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel Registration"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel the patient registration process ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Care Plan"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm Registration / Make the reservation"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge Patient"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Inpatient Registration Info"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Inpatient Registration Information"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Patient Admission"
+msgstr ""
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "You are about to discharge the patient from the health institution."
+msgstr ""
+
