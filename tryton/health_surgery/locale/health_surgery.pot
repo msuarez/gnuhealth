@@ -1,0 +1,288 @@
+# 
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Luis Falcon <lfalcon@gnusolidario.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "field:gnuhealth.operation,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,name:"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,procedure:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operation,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,surgery:"
+msgid "Surgeries"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,admission:"
+msgid "Admission"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,age:"
+msgid "Patient age"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,classification:"
+msgid "Classification"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,description:"
+msgid "Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,extra_info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,operating_room:"
+msgid "Operating Room"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,pathology:"
+msgid "Base condition"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,patient:"
+msgid "Patient ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
+msgid "Antibiotic Prophylaxis"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_bleeding_risk:"
+msgid "Risk of Massive bleeding"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_mallampati:"
+msgid "Mallampati Score"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_oximeter:"
+msgid "Pulse Oximeter in place"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_site_marking:"
+msgid "Surgical Site Marking"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_sterility:"
+msgid "Sterility confirmed"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,procedures:"
+msgid "Procedures"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,surgeon:"
+msgid "Surgeon"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "help:gnuhealth.operation,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,age:"
+msgid "Patient age at the moment of the surgery. Can be estimative"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist in charge"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,code:"
+msgid "Health Center Unique code"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,pathology:"
+msgid "Base Condition / Reason"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
+msgid "Prophylactic antibiotic treatment within the last 60 minutes"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
+msgid "Check this box if patient has a risk of loosing more than 500 ml in adults of over 7ml/kg in infants. If so, make sure that intravenous access and fluids are available"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_oximeter:"
+msgid "Check this box when verified the pulse oximeter is in place and functioning"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_site_marking:"
+msgid "The surgeon has marked the surgical incision"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_sterility:"
+msgid "Nursing team has confirmed sterility of the devices and room"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,procedures:"
+msgid "List of the procedures in the surgery. Please enter the first one as the main procedure"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,surgeon:"
+msgid "Surgeon who did the procedure"
+msgstr ""
+
+msgctxt "model:gnuhealth.operation,name:"
+msgid "Operation - Surgical Procedures"
+msgstr ""
+
+msgctxt "model:gnuhealth.surgery,name:"
+msgid "Surgery Functionality"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_surgery_admin"
+msgid "Health Surgery Administration"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Optional"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Required"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Urgent"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 2: Visibility of hard and soft palate, upper portion of tonsils and uvula"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Full visibility of tonsils, uvula and soft palate"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Only Hard Palate visible"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Soft and hard palate and base of the uvula are visible"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Visibility of hard and soft palate, upper portion of tonsils and uvula"
+msgstr ""
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Operation"
+msgstr ""
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Operation Details / Incidents"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Surgeries"
+msgstr ""
+
+msgctxt "view:gnuhealth.procedure:"
+msgid "Procedure"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Details"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Mallampati Score"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Surgical Safety Checklist"
+msgstr ""
+

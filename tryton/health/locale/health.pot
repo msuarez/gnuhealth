@@ -5,1960 +5,2941 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"Last-Translator: Luis Falcon <lfalcon@gnusolidario.org>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgctxt "error:gnuhealth.dose.unit:0"
+msgctxt "error:gnuhealth.dose.unit:"
 msgid "The Unit must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.drug.form:0"
+msgctxt "error:gnuhealth.drug.form:"
 msgid "The Unit must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.drug.route:0"
+msgctxt "error:gnuhealth.drug.route:"
 msgid "The Name must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.ethnicity:0"
+msgctxt "error:gnuhealth.ethnicity:"
 msgid "The Name must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.family:0"
+msgctxt "error:gnuhealth.family:"
 msgid "The Family Code must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.hospital.or:0"
+msgctxt "error:gnuhealth.hospital.or:"
 msgid "The Operating Room code must be unique per Health Center"
 msgstr ""
 
-msgctxt "error:gnuhealth.medicament.category:0"
+msgctxt "error:gnuhealth.medicament.category:"
 msgid "You can not create recursive categories!"
 msgstr ""
 
-msgctxt "error:gnuhealth.medication.dosage:0"
+msgctxt "error:gnuhealth.medication.dosage:"
 msgid "The Unit must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.occupation:0"
+msgctxt "error:gnuhealth.occupation:"
 msgid "The Name must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.operational_area:0"
+msgctxt "error:gnuhealth.operational_area:"
 msgid "The operational area must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.operational_sector:0"
+msgctxt "error:gnuhealth.operational_sector:"
 msgid "The operational sector must be unique in each operational area!"
 msgstr ""
 
-msgctxt "error:gnuhealth.pathology.category:0"
+msgctxt "error:gnuhealth.pathology.category:"
 msgid "You can not create recursive categories!"
 msgstr ""
 
-msgctxt "error:gnuhealth.pathology:0"
+msgctxt "error:gnuhealth.pathology:"
 msgid "The disease code must be unique"
 msgstr ""
 
-msgctxt "error:gnuhealth.patient:0"
+msgctxt "error:gnuhealth.patient:"
 msgid "The Patient already exists !"
 msgstr ""
 
-msgctxt "error:gnuhealth.specialty:0"
+msgctxt "error:gnuhealth.prescription.order:"
+msgid ""
+"== DRUG AND PREGNANCY VERIFICATION ==\n"
+"\n"
+"- IS THE PATIENT PREGNANT ? \n"
+"- IS PLANNING to BECOME PREGNANT ?\n"
+"- HOW MANY WEEKS OF PREGNANCY \n"
+"\n"
+"- IS THE PATIENT BREASTFEEDING \n"
+"\n"
+"Verify and check for safety the prescribed drugs\n"
+msgstr ""
+
+msgctxt "error:gnuhealth.specialty:"
 msgid "The Specialty must be unique !"
 msgstr ""
 
-msgctxt "error:gnuhealth.vaccination:0"
+msgctxt "error:gnuhealth.vaccination:"
+msgid "EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE IT !!!"
+msgstr ""
+
+msgctxt "error:gnuhealth.vaccination:"
 msgid "EXPIRED VACCINE. PLEASE INFORM THE LOCAL HEALTH AUTHORITIES AND DO NOT USE IT !!!"
 msgstr ""
 
-msgctxt "error:gnuhealth.vaccination:0"
+msgctxt "error:gnuhealth.vaccination:"
 msgid "This vaccine dose has been given already to the patient"
 msgstr ""
 
-msgctxt "error:party.party:0"
+msgctxt "error:party.party:"
 msgid "The Patient SSN must be unique"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,appointment_date:0"
+msgctxt "error:party.party:"
+msgid "This health professional is already assigned to a party"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,appointment_date:"
 msgid "Date and Time"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,appointment_type:0"
+msgctxt "field:gnuhealth.appointment,appointment_type:"
 msgid "Type"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,comments:0"
+msgctxt "field:gnuhealth.appointment,comments:"
 msgid "Comments"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,consultations:0"
+msgctxt "field:gnuhealth.appointment,consultations:"
 msgid "Consultation Services"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,doctor:0"
+msgctxt "field:gnuhealth.appointment,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,doctor:"
 msgid "Physician"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,institution:0"
+msgctxt "field:gnuhealth.appointment,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,institution:"
 msgid "Health Center"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,name:0"
+msgctxt "field:gnuhealth.appointment,name:"
 msgid "Appointment ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,patient:0"
+msgctxt "field:gnuhealth.appointment,patient:"
 msgid "Patient"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,rec_name:0"
+msgctxt "field:gnuhealth.appointment,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,speciality:0"
+msgctxt "field:gnuhealth.appointment,speciality:"
 msgid "Specialty"
 msgstr ""
 
-msgctxt "field:gnuhealth.appointment,urgency:0"
+msgctxt "field:gnuhealth.appointment,urgency:"
 msgid "Urgency Level"
 msgstr ""
 
-msgctxt "field:gnuhealth.directions,comments:0"
+msgctxt "field:gnuhealth.appointment,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.diagnostic_hypothesis,comments:"
 msgid "Comments"
 msgstr ""
 
-msgctxt "field:gnuhealth.directions,name:0"
-msgid "Patient"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.directions,procedure:0"
-msgid "Procedure"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:gnuhealth.directions,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.dose.unit,desc:0"
-msgid "Description"
-msgstr ""
-
-msgctxt "field:gnuhealth.dose.unit,name:0"
-msgid "Unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.dose.unit,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.form,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.form,name:0"
-msgid "Form"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.form,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.route,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.route,name:0"
-msgid "Unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.drug.route,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.ethnicity,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.ethnicity,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.ethnicity,notes:0"
-msgid "Notes"
-msgstr ""
-
-msgctxt "field:gnuhealth.ethnicity,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.family,info:0"
-msgid "Extra Information"
-msgstr ""
-
-msgctxt "field:gnuhealth.family,members:0"
-msgid "Family Members"
-msgstr ""
-
-msgctxt "field:gnuhealth.family,name:0"
-msgid "Family"
-msgstr ""
-
-msgctxt "field:gnuhealth.family,operational_sector:0"
-msgid "Operational Sector"
-msgstr ""
-
-msgctxt "field:gnuhealth.family,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.family_member,name:0"
-msgid "Family"
-msgstr ""
-
-msgctxt "field:gnuhealth.family_member,party:0"
-msgid "Party"
-msgstr ""
-
-msgctxt "field:gnuhealth.family_member,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.family_member,role:0"
-msgid "Role"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,bed_type:0"
-msgid "Bed Type"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,extra_info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,name:0"
-msgid "Bed"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,state:0"
-msgid "Status"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,telephone_number:0"
-msgid "Telephone Number"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.bed,ward:0"
-msgid "Ward"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.building,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.building,extra_info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.building,institution:0"
-msgid "Institution"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.building,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.building,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,building:0"
-msgid "Building"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,extra_info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,institution:0"
-msgid "Institution"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.or,unit:0"
-msgid "Unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.unit,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.unit,extra_info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.unit,institution:0"
-msgid "Institution"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.unit,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.unit,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,ac:0"
-msgid "Air Conditioning"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,bio_hazard:0"
-msgid "Bio Hazard"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,building:0"
-msgid "Building"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,extra_info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,floor:0"
-msgid "Floor Number"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,gender:0"
-msgid "Gender"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,guest_sofa:0"
-msgid "Guest sofa-bed"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,institution:0"
-msgid "Institution"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,internet:0"
-msgid "Internet Access"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,microwave:0"
-msgid "Microwave"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,number_of_beds:0"
-msgid "Number of beds"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,private:0"
-msgid "Private"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,private_bathroom:0"
-msgid "Private Bathroom"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,refrigerator:0"
-msgid "Refrigetator"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,state:0"
-msgid "Status"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,telephone:0"
-msgid "Telephone access"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,tv:0"
-msgid "Television"
-msgstr ""
-
-msgctxt "field:gnuhealth.hospital.ward,unit:0"
-msgid "Unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,category:0"
-msgid "Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,company:0"
-msgid "Insurance Company"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,insurance_type:0"
-msgid "Insurance Type"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,member_exp:0"
-msgid "Expiration date"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,member_since:0"
-msgid "Member since"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,name:0"
-msgid "Owner"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,notes:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,number:0"
-msgid "Number"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,plan_id:0"
-msgid "Plan"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance.plan,company:0"
-msgid "Insurance Company"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance.plan,is_default:0"
-msgid "Default plan"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance.plan,name:0"
-msgid "Plan"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance.plan,notes:0"
-msgid "Extra info"
-msgstr ""
-
-msgctxt "field:gnuhealth.insurance.plan,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,active_component:0"
-msgid "Active component"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,adverse_reaction:0"
-msgid "Adverse Reactions"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,category:0"
-msgid "Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,composition:0"
-msgid "Composition"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,dosage:0"
-msgid "Dosage Instructions"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,indications:0"
-msgid "Indication"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,name:0"
-msgid "Product"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,notes:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,overdosage:0"
-msgid "Overdosage"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,pregnancy:0"
-msgid "Pregnancy and Lactancy"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,pregnancy_category:0"
-msgid "Pregnancy Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,pregnancy_warning:0"
-msgid "Pregnancy Warning"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,presentation:0"
-msgid "Presentation"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,storage:0"
-msgid "Storage Conditions"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament,therapeutic_action:0"
-msgid "Therapeutic effect"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament.category,childs:0"
-msgid "Children"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament.category,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament.category,parent:0"
-msgid "Parent"
-msgstr ""
-
-msgctxt "field:gnuhealth.medicament.category,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.dosage,abbreviation:0"
-msgid "Abbreviation"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.dosage,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.dosage,name:0"
-msgid "Frequency"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.dosage,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,admin_times:0"
-msgid "Admin hours"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,common_dosage:0"
-msgid "Frequency"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,dose:0"
-msgid "Dose"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,dose_unit:0"
-msgid "dose unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,duration:0"
-msgid "Treatment duration"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,duration_period:0"
-msgid "Treatment period"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,end_treatment:0"
-msgid "End"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,form:0"
-msgid "Form"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,frequency:0"
-msgid "Frequency"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,frequency_unit:0"
-msgid "unit"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,indication:0"
-msgid "Indication"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,medicament:0"
-msgid "Medicament"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,qty:0"
-msgid "x"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,route:0"
-msgid "Administration Route"
-msgstr ""
-
-msgctxt "field:gnuhealth.medication.template,start_treatment:0"
-msgid "Start"
-msgstr ""
-
-msgctxt "field:gnuhealth.occupation,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.occupation,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.occupation,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_area,info:0"
-msgid "Extra Information"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_area,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_area,operational_sector:0"
-msgid "Operational Sector"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_area,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_sector,info:0"
-msgid "Extra Information"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_sector,name:0"
-msgid "Op. Sector"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_sector,operational_area:0"
-msgid "Operational Area"
-msgstr ""
-
-msgctxt "field:gnuhealth.operational_sector,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,category:0"
-msgid "Disease Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,chromosome:0"
-msgid "Affected Chromosome"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,gene:0"
-msgid "Gene"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,info:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,protein:0"
-msgid "Protein involved"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology.category,childs:0"
-msgid "Children Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology.category,name:0"
-msgid "Category Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology.category,parent:0"
-msgid "Parent Category"
-msgstr ""
-
-msgctxt "field:gnuhealth.pathology.category,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,admissions_ids:0"
-msgid "Admission / Discharge"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,age:0"
-msgid "Age"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,blood_type:0"
-msgid "Blood Type"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,cod:0"
-msgid "Cause of Death"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,critical_info:0"
-msgid "Important disease, allergy or procedures information"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,current_address:0"
-msgid "Address"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,current_insurance:0"
-msgid "Insurance"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,deceased:0"
-msgid "Deceased"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,diseases:0"
-msgid "Diseases"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,dob:0"
-msgid "DoB"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,dod:0"
-msgid "Date of Death"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,ethnic_group:0"
-msgid "Ethnic group"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,evaluation_ids:0"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,evaluation:"
 msgid "Evaluation"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,family:0"
-msgid "Family"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,general_info:0"
-msgid "General Information"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,identification_code:0"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,id:"
 msgid "ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,lastname:0"
-msgid "Lastname"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,pathology:"
+msgid "Pathology"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,marital_status:0"
-msgid "Marital Status"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,medications:0"
-msgid "Medications"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,name:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,photo:0"
-msgid "Picture"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,prescriptions:0"
-msgid "Prescriptions"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,primary_care_doctor:0"
-msgid "Primary Care Doctor"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient,rec_name:0"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,rh:0"
-msgid "Rh"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,sex:0"
-msgid "Sex"
+msgctxt "field:gnuhealth.diagnostic_hypothesis,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient,vaccinations:0"
-msgid "Vaccinations"
+msgctxt "field:gnuhealth.directions,comments:"
+msgid "Comments"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,age:0"
-msgid "Age when diagnosed"
+msgctxt "field:gnuhealth.directions,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,allergy_type:0"
-msgid "Allergy type"
+msgctxt "field:gnuhealth.directions,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,date_start_treatment:0"
-msgid "Start"
+msgctxt "field:gnuhealth.directions,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,date_stop_treatment:0"
-msgid "End"
+msgctxt "field:gnuhealth.directions,name:"
+msgid "Evaluation"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,diagnosed_date:0"
-msgid "Date of Diagnosis"
+msgctxt "field:gnuhealth.directions,procedure:"
+msgid "Procedure"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,disease_severity:0"
-msgid "Severity"
+msgctxt "field:gnuhealth.directions,rec_name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,doctor:0"
-msgid "Physician"
+msgctxt "field:gnuhealth.directions,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,extra_info:0"
-msgid "Extra Info"
+msgctxt "field:gnuhealth.directions,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,healed_date:0"
-msgid "Healed"
+msgctxt "field:gnuhealth.disease_group.members,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,is_active:0"
-msgid "Active disease"
+msgctxt "field:gnuhealth.disease_group.members,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,is_allergy:0"
-msgid "Allergic Disease"
+msgctxt "field:gnuhealth.disease_group.members,disease_group:"
+msgid "Group"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,is_infectious:0"
-msgid "Infectious Disease"
+msgctxt "field:gnuhealth.disease_group.members,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,is_on_treatment:0"
-msgid "Currently on Treatment"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.disease,name:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.disease,pathology:0"
+msgctxt "field:gnuhealth.disease_group.members,name:"
 msgid "Disease"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,pcs_code:0"
-msgid "Code"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.disease,pregnancy_warning:0"
-msgid "Pregnancy warning"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.disease,rec_name:0"
+msgctxt "field:gnuhealth.disease_group.members,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,short_comment:0"
-msgid "Remarks"
+msgctxt "field:gnuhealth.disease_group.members,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,status:0"
-msgid "Status of the disease"
+msgctxt "field:gnuhealth.disease_group.members,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,treatment_description:0"
-msgid "Treatment Description"
+msgctxt "field:gnuhealth.dose.unit,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.disease,weeks_of_pregnancy:0"
-msgid "Contracted in pregnancy week #"
+msgctxt "field:gnuhealth.dose.unit,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.evaluation,abdominal_circ:0"
-msgid "Abdominal Circumference"
+msgctxt "field:gnuhealth.dose.unit,desc:"
+msgid "Description"
 msgstr ""
 
-msgctxt "field:gnuhealth.patient.evaluation,abstraction:0"
-msgid "Abstraction"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,acropachy:0"
-msgid "Acropachy"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,actions:0"
-msgid "P"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,alopecia:0"
-msgid "Alopecia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,arritmia:0"
-msgid "Arritmias"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,ascites:0"
-msgid "Ascites"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,bmi:0"
-msgid "Body Mass Index"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,bpm:0"
-msgid "Heart Rate"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,breast_asymmetry:0"
-msgid "Breast Asymmetry"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,breast_lump:0"
-msgid "Breast Lumps"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,bronchophony:0"
-msgid "Bronchophony"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,calculation_ability:0"
-msgid "Calculation Ability"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,chief_complaint:0"
-msgid "Chief Complaint"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,cholesterol_total:0"
-msgid "Last Cholesterol"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,cough:0"
-msgid "Cough"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,cyanosis:0"
-msgid "Cyanosis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,decreased_fremitus:0"
-msgid "Decreased Fremitus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,dehydration:0"
-msgid "Dehydration"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,derived_from:0"
-msgid "Derived from Doctor"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,derived_to:0"
-msgid "Derived to Doctor"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,diagnosis:0"
-msgid "Presumptive Diagnosis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,diastolic:0"
-msgid "Diastolic Pressure"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,directions:0"
-msgid "Plan"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,edema:0"
-msgid "Edema"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,erithema:0"
-msgid "Erithema"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_date:0"
-msgid "Appointment"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_endtime:0"
-msgid "End of Evaluation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_start:0"
-msgid "Start of Evaluation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_summary:0"
-msgid "Evaluation Summary"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_type:0"
-msgid "Evaluation Type"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,glycemia:0"
-msgid "Glycemia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,goiter:0"
-msgid "Goiter"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,gynecomastia:0"
-msgid "Gynecomastia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,hba1c:0"
-msgid "Glycated Hemoglobin"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,hdl:0"
-msgid "Last HDL"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,head_circumference:0"
-msgid "Head Circumference"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,heart_extra_sounds:0"
-msgid "Heart Extra Sounds"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,heart_murmurs:0"
-msgid "Heart Murmurs"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,height:0"
-msgid "Height"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,hematoma:0"
-msgid "Hematomas"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,hypertonia:0"
-msgid "Hypertonia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,hypotonia:0"
-msgid "Hypotonia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,increased_fremitus:0"
-msgid "Increased Fremitus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,info_diagnosis:0"
-msgid "Presumptive Diagnosis: Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,jaundice:0"
-msgid "Jaundice"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,judgment:0"
-msgid "Jugdment"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,jugular_engorgement:0"
-msgid "Jugular Engorgement"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,knowledge_current_events:0"
-msgid "Knowledge of Current Events"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,ldl:0"
-msgid "Last LDL"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,loc:0"
-msgid "Level of Consciousness"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,loc_eyes:0"
-msgid "Glasgow - Eyes"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,loc_motor:0"
-msgid "Glasgow - Motor"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,loc_verbal:0"
-msgid "Glasgow - Verbal"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,lung_adventitious_sounds:0"
-msgid "Lung Adventitious sounds"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,lynphadenitis:0"
-msgid "Linphadenitis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,malnutrition:0"
-msgid "Malnutrition"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,masses:0"
-msgid "Masses"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,memory:0"
-msgid "Memory"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,miosis:0"
-msgid "Miosis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,mood:0"
-msgid "Mood"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,mydriasis:0"
-msgid "Mydriasis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,next_evaluation:0"
-msgid "Next Appointment"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,nipple_discharge:0"
-msgid "Nipple Discharge"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,nipple_inversion:0"
-msgid "Nipple Inversion"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,notes:0"
-msgid "Notes"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,notes_complaint:0"
-msgid "Complaint details"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,nystagmus:0"
-msgid "Nystagmus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,object_recognition:0"
-msgid "Object Recognition"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,orientation:0"
-msgid "Orientation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,osat:0"
-msgid "Oxygen Saturation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,palpebral_ptosis:0"
-msgid "Palpebral Ptosis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,patient:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,peau_dorange:0"
-msgid "Peau d orange"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,petechiae:0"
-msgid "Petechiae"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,praxis:0"
-msgid "Praxis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,pressure_ulcers:0"
-msgid "Pressure Ulcers"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,respiratory_rate:0"
-msgid "Respiratory Rate"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_abdominal_distension:0"
-msgid "Abdominal Distension"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_abdominal_pain:0"
-msgid "Abdominal Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_amenorrhea:0"
-msgid "Amenorrhea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_amnesia:0"
-msgid "Amnesia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_anorexia:0"
-msgid "Anorexia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_arthralgia:0"
-msgid "Arthralgia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_astenia:0"
-msgid "Astenia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_blurry_vision:0"
-msgid "Blurry vision"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_cervical_pain:0"
-msgid "Cervical Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_chest_pain:0"
-msgid "Chest Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_chest_pain_excercise:0"
-msgid "Chest Painon excercise only"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_constipation:0"
-msgid "Constipation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_diarrhea:0"
-msgid "Diarrhea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_diplopia:0"
-msgid "Diplopia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_disturb_sleep:0"
-msgid "Disturbed Sleep"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_dizziness:0"
-msgid "Dizziness"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_dysmenorrhea:0"
-msgid "Dysmenorrhea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_dysphagia:0"
-msgid "Dysphagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_dyspnea:0"
-msgid "Dyspnea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_dysuria:0"
-msgid "Dysuria"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_ear_discharge:0"
-msgid "Ear Discharge"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_epistaxis:0"
-msgid "Epistaxis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_eye_glasses:0"
-msgid "Eye glasses"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_gingival_bleeding:0"
-msgid "Gingival Bleeding"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_headache:0"
-msgid "Headache"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_hematemesis:0"
-msgid "Hematemesis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_hemoptysis:0"
-msgid "Hemoptysis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_hoarseness:0"
-msgid "Hoarseness"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_insomnia:0"
-msgid "Insomnia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_lumbar_pain:0"
-msgid "Lumbar Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_melena:0"
-msgid "Melena"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_menorrhagia:0"
-msgid "Menorrhagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_metrorrhagia:0"
-msgid "Metrorrhagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_mood_swings:0"
-msgid "Mood Swings"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_myalgia:0"
-msgid "Myalgia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_nausea:0"
-msgid "Nausea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_nocturia:0"
-msgid "Nocturia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_odynophagia:0"
-msgid "Odynophagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_orthopnea:0"
-msgid "Orthopnea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_orthostatic_hypotension:0"
-msgid "Orthostatic hypotension"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_otalgia:0"
-msgid "Otalgia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_pain:0"
-msgid "Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_pain_intensity:0"
-msgid "Pain intensity"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_paralysis:0"
-msgid "Paralysis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_paresthesia:0"
-msgid "Paresthesia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_pelvic_pain:0"
-msgid "Pelvic Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_photophobia:0"
-msgid "Photophobia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_pollakiuria:0"
-msgid "Pollakiuiria"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_polydipsia:0"
-msgid "Polydipsia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_polyphagia:0"
-msgid "Polyphagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_polyuria:0"
-msgid "Polyuria"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_proctorrhagia:0"
-msgid "Proctorrhagia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_pruritus:0"
-msgid "Pruritus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_rectal_tenesmus:0"
-msgid "Rectal Tenesmus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_rinorrhea:0"
-msgid "Rinorrhea"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_sexual_dysfunction:0"
-msgid "Sexual Dysfunction"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_sore_throat:0"
-msgid "Sore throat"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_stress:0"
-msgid "Stressed-out"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_syncope:0"
-msgid "Syncope"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_thoracic_pain:0"
-msgid "Thoracic Pain"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_tinnitus:0"
-msgid "Tinnitus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_urethral_discharge:0"
-msgid "Urethral Discharge"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_vaginal_discharge:0"
-msgid "Vaginal Discharge"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_vertigo:0"
-msgid "Vertigo"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_vesical_tenesmus:0"
-msgid "Vesical Tenesmus"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_vomiting:0"
-msgid "Vomiting"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_weight_change:0"
-msgid "Sudden weight change"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,symptom_xerostomia:0"
-msgid "Xerostomia"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,systolic:0"
-msgid "Systolic Pressure"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,tag:0"
-msgid "Last TAGs"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,temperature:0"
-msgid "Temperature"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,tremor:0"
-msgid "Tremor"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,user_id:0"
-msgid "Last Changed by"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,violent:0"
-msgid "Violent Behaviour"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,vocabulary:0"
-msgid "Vocabulary"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,weight:0"
-msgid "Weight"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.evaluation,xerosis:0"
-msgid "Xerosis"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,adverse_reaction:0"
-msgid "Adverse Reactions"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,course_completed:0"
-msgid "Course Completed"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,discontinued:0"
-msgid "Discontinued"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,discontinued_reason:0"
-msgid "Reason for discontinuation"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,doctor:0"
-msgid "Physician"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,is_active:0"
-msgid "Active"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,name:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,notes:0"
-msgid "Extra Info"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,patient:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.patient.medication,template:0"
-msgid "Medication Template"
-msgstr ""
-
-msgctxt "field:gnuhealth.physician,code:0"
+msgctxt "field:gnuhealth.dose.unit,id:"
 msgid "ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.physician,info:0"
-msgid "Extra info"
+msgctxt "field:gnuhealth.dose.unit,name:"
+msgid "Unit"
 msgstr ""
 
-msgctxt "field:gnuhealth.physician,institution:0"
-msgid "Institution"
-msgstr ""
-
-msgctxt "field:gnuhealth.physician,name:0"
-msgid "Physician"
-msgstr ""
-
-msgctxt "field:gnuhealth.physician,rec_name:0"
+msgctxt "field:gnuhealth.dose.unit,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.physician,specialty:0"
-msgid "Specialty"
+msgctxt "field:gnuhealth.dose.unit,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.prescription.line,allow_substitution:0"
-msgid "Allow substitution"
+msgctxt "field:gnuhealth.dose.unit,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.prescription.line,name:0"
-msgid "Prescription ID"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,prnt:0"
-msgid "Print"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,quantity:0"
-msgid "Quantity"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,refills:0"
-msgid "Refills #"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,review:0"
-msgid "Review"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,short_comment:0"
-msgid "Comment"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.line,template:0"
-msgid "Medication Template"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,notes:0"
-msgid "Prescription Notes"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,patient:0"
-msgid "Patient"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,pharmacy:0"
-msgid "Pharmacy"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,prescription_date:0"
-msgid "Prescription Date"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,prescription_id:0"
-msgid "Prescription ID"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,prescription_line:0"
-msgid "Prescription line"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.prescription.order,user_id:0"
-msgid "Prescribing Doctor"
-msgstr ""
-
-msgctxt "field:gnuhealth.procedure,description:0"
-msgid "Long Text"
-msgstr ""
-
-msgctxt "field:gnuhealth.procedure,name:0"
+msgctxt "field:gnuhealth.drug.form,code:"
 msgid "Code"
 msgstr ""
 
-msgctxt "field:gnuhealth.procedure,rec_name:0"
+msgctxt "field:gnuhealth.drug.form,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.form,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.form,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.form,name:"
+msgid "Form"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.form,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.sequences,appointment_sequence:0"
-msgid "Appointment Sequence"
+msgctxt "field:gnuhealth.drug.form,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.sequences,patient_sequence:0"
-msgid "Patient Sequence"
+msgctxt "field:gnuhealth.drug.form,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.sequences,prescription_sequence:0"
-msgid "Prescription Sequence"
-msgstr ""
-
-msgctxt "field:gnuhealth.sequences,rec_name:0"
-msgid "Name"
-msgstr ""
-
-msgctxt "field:gnuhealth.specialty,code:0"
+msgctxt "field:gnuhealth.drug.route,code:"
 msgid "Code"
 msgstr ""
 
-msgctxt "field:gnuhealth.specialty,name:0"
-msgid "Specialty"
+msgctxt "field:gnuhealth.drug.route,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.specialty,rec_name:0"
+msgctxt "field:gnuhealth.drug.route,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.route,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.route,name:"
+msgid "Unit"
+msgstr ""
+
+msgctxt "field:gnuhealth.drug.route,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,date:0"
-msgid "Date"
+msgctxt "field:gnuhealth.drug.route,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,dose:0"
-msgid "Dose Number"
+msgctxt "field:gnuhealth.drug.route,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,institution:0"
-msgid "Institution"
+msgctxt "field:gnuhealth.ethnicity,code:"
+msgid "Code"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,name:0"
-msgid "Patient"
+msgctxt "field:gnuhealth.ethnicity,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,next_dose_date:0"
-msgid "Next Dose"
+msgctxt "field:gnuhealth.ethnicity,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,observations:0"
-msgid "Observations"
+msgctxt "field:gnuhealth.ethnicity,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,rec_name:0"
+msgctxt "field:gnuhealth.ethnicity,name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,vaccine:0"
+msgctxt "field:gnuhealth.ethnicity,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.ethnicity,rec_name:"
 msgid "Name"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,vaccine_expiration_date:0"
-msgid "Expiration date"
+msgctxt "field:gnuhealth.ethnicity,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:gnuhealth.vaccination,vaccine_lot:0"
-msgid "Lot Number"
+msgctxt "field:gnuhealth.ethnicity,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:party.address,relationship:0"
-msgid "Relationship"
+msgctxt "field:gnuhealth.family,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:party.address,relative_id:0"
-msgid "Relative ID"
+msgctxt "field:gnuhealth.family,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:party.party,activation_date:0"
-msgid "Activation date"
+msgctxt "field:gnuhealth.family,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "field:party.party,alias:0"
-msgid "Alias"
+msgctxt "field:gnuhealth.family,info:"
+msgid "Extra Information"
 msgstr ""
 
-msgctxt "field:party.party,insurance:0"
-msgid "Insurance"
+msgctxt "field:gnuhealth.family,members:"
+msgid "Family Members"
 msgstr ""
 
-msgctxt "field:party.party,insurance_company_type:0"
-msgid "Insurance Type"
+msgctxt "field:gnuhealth.family,name:"
+msgid "Family"
 msgstr ""
 
-msgctxt "field:party.party,insurance_plan_ids:0"
-msgid "Insurance Plans"
+msgctxt "field:gnuhealth.family,operational_sector:"
+msgid "Operational Sector"
 msgstr ""
 
-msgctxt "field:party.party,internal_user:0"
-msgid "Internal User"
+msgctxt "field:gnuhealth.family,rec_name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "field:party.party,is_doctor:0"
-msgid "Doctor"
+msgctxt "field:gnuhealth.family,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "field:party.party,is_institution:0"
-msgid "Institution"
+msgctxt "field:gnuhealth.family,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "field:party.party,is_insurance_company:0"
-msgid "Insurance Company"
+msgctxt "field:gnuhealth.family_member,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "field:party.party,is_patient:0"
-msgid "Patient"
+msgctxt "field:gnuhealth.family_member,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "field:party.party,is_person:0"
-msgid "Person"
+msgctxt "field:gnuhealth.family_member,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "field:party.party,lastname:0"
-msgid "Last Name"
+msgctxt "field:gnuhealth.family_member,name:"
+msgid "Family"
 msgstr ""
 
-msgctxt "field:party.party,ref:0"
-msgid "SSN"
+msgctxt "field:gnuhealth.family_member,party:"
+msgid "Party"
 msgstr ""
 
-msgctxt "field:product.product,is_bed:0"
+msgctxt "field:gnuhealth.family_member,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.family_member,role:"
+msgid "Role"
+msgstr ""
+
+msgctxt "field:gnuhealth.family_member,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.family_member,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,bed_type:"
+msgid "Bed Type"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,extra_info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.bed,name:"
 msgid "Bed"
 msgstr ""
 
-msgctxt "field:product.product,is_medicament:0"
-msgid "Medicament"
+msgctxt "field:gnuhealth.hospital.bed,rec_name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "field:product.product,is_vaccine:0"
-msgid "Vaccine"
+msgctxt "field:gnuhealth.hospital.bed,state:"
+msgid "Status"
 msgstr ""
 
-msgctxt "help:gnuhealth.appointment,consultations:0"
-msgid "Consultation Services"
+msgctxt "field:gnuhealth.hospital.bed,telephone_number:"
+msgid "Telephone Number"
 msgstr ""
 
-msgctxt "help:gnuhealth.appointment,doctor:0"
-msgid "Physician's Name"
+msgctxt "field:gnuhealth.hospital.bed,ward:"
+msgid "Ward"
 msgstr ""
 
-msgctxt "help:gnuhealth.appointment,institution:0"
-msgid "Medical Center"
+msgctxt "field:gnuhealth.hospital.bed,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.appointment,patient:0"
-msgid "Patient Name"
+msgctxt "field:gnuhealth.hospital.bed,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "help:gnuhealth.appointment,speciality:0"
-msgid "Medical Specialty / Sector"
+msgctxt "field:gnuhealth.hospital.building,code:"
+msgid "Code"
 msgstr ""
 
-msgctxt "help:gnuhealth.family,name:0"
-msgid "Family code within an operational sector"
+msgctxt "field:gnuhealth.hospital.building,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.family_member,name:0"
-msgid "Family code"
+msgctxt "field:gnuhealth.hospital.building,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "help:gnuhealth.family_member,party:0"
-msgid "Family code"
+msgctxt "field:gnuhealth.hospital.building,extra_info:"
+msgid "Extra Info"
 msgstr ""
 
-msgctxt "help:gnuhealth.family_member,role:0"
-msgid "Father, Mother, sibbling..."
+msgctxt "field:gnuhealth.hospital.building,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.bed,name:0"
-msgid "Bed Number"
+msgctxt "field:gnuhealth.hospital.building,institution:"
+msgid "Institution"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.bed,telephone_number:0"
-msgid "Telephone number / Extension"
+msgctxt "field:gnuhealth.hospital.building,name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.bed,ward:0"
-msgid "Ward or room"
+msgctxt "field:gnuhealth.hospital.building,rec_name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.building,institution:0"
-msgid "Medical Center"
+msgctxt "field:gnuhealth.hospital.building,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.building,name:0"
-msgid "Name of the building within the institution"
+msgctxt "field:gnuhealth.hospital.building,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.or,institution:0"
-msgid "Medical Center"
+msgctxt "field:gnuhealth.hospital.or,building:"
+msgid "Building"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.or,name:0"
-msgid "Name of the Operating Room"
+msgctxt "field:gnuhealth.hospital.or,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.unit,institution:0"
-msgid "Medical Center"
+msgctxt "field:gnuhealth.hospital.or,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.unit,name:0"
-msgid "Name of the unit, eg Neonatal, Intensive Care, ..."
+msgctxt "field:gnuhealth.hospital.or,extra_info:"
+msgid "Extra Info"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.ward,bio_hazard:0"
-msgid "Check this option if there is biological hazard"
+msgctxt "field:gnuhealth.hospital.or,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.ward,institution:0"
-msgid "Medical Center"
+msgctxt "field:gnuhealth.hospital.or,institution:"
+msgid "Institution"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.ward,name:0"
-msgid "Ward / Room code"
+msgctxt "field:gnuhealth.hospital.or,name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.ward,number_of_beds:0"
-msgid "Number of patients per ward"
+msgctxt "field:gnuhealth.hospital.or,rec_name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.hospital.ward,private:0"
-msgid "Check this option for private room"
+msgctxt "field:gnuhealth.hospital.or,unit:"
+msgid "Unit"
 msgstr ""
 
-msgctxt "help:gnuhealth.insurance,category:0"
-msgid "Insurance company plan / category"
+msgctxt "field:gnuhealth.hospital.or,write_date:"
+msgid "Write Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.insurance,plan_id:0"
-msgid "Insurance company plan"
+msgctxt "field:gnuhealth.hospital.or,write_uid:"
+msgid "Write User"
 msgstr ""
 
-msgctxt "help:gnuhealth.insurance.plan,is_default:0"
-msgid "Check if this is the default plan when assigning this insurance company to a patient"
+msgctxt "field:gnuhealth.hospital.unit,code:"
+msgid "Code"
 msgstr ""
 
-msgctxt "help:gnuhealth.insurance.plan,name:0"
-msgid "Insurance company plan"
+msgctxt "field:gnuhealth.hospital.unit,create_date:"
+msgid "Create Date"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,active_component:0"
-msgid "Active Component"
+msgctxt "field:gnuhealth.hospital.unit,create_uid:"
+msgid "Create User"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,composition:0"
-msgid "Components"
+msgctxt "field:gnuhealth.hospital.unit,extra_info:"
+msgid "Extra Info"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,dosage:0"
-msgid "Dosage / Indications"
+msgctxt "field:gnuhealth.hospital.unit,id:"
+msgid "ID"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,indications:0"
-msgid "Indications"
+msgctxt "field:gnuhealth.hospital.unit,institution:"
+msgid "Institution"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,name:0"
-msgid "Product Name"
+msgctxt "field:gnuhealth.hospital.unit,name:"
+msgid "Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,overdosage:0"
+msgctxt "field:gnuhealth.hospital.unit,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.unit,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.unit,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,ac:"
+msgid "Air Conditioning"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,bio_hazard:"
+msgid "Bio Hazard"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,building:"
+msgid "Building"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,extra_info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,floor:"
+msgid "Floor Number"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,gender:"
+msgid "Gender"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,guest_sofa:"
+msgid "Guest sofa-bed"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,internet:"
+msgid "Internet Access"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,microwave:"
+msgid "Microwave"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,number_of_beds:"
+msgid "Number of beds"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,private:"
+msgid "Private"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,private_bathroom:"
+msgid "Private Bathroom"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,refrigerator:"
+msgid "Refrigetator"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,state:"
+msgid "Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,telephone:"
+msgid "Telephone access"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,tv:"
+msgid "Television"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,unit:"
+msgid "Unit"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.hospital.ward,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,category:"
+msgid "Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,company:"
+msgid "Insurance Company"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,insurance_type:"
+msgid "Insurance Type"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,member_exp:"
+msgid "Expiration date"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,member_since:"
+msgid "Member since"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,name:"
+msgid "Owner"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,notes:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,number:"
+msgid "Number"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,plan_id:"
+msgid "Plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,company:"
+msgid "Insurance Company"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,is_default:"
+msgid "Default plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,name:"
+msgid "Plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,notes:"
+msgid "Extra info"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.insurance.plan,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,active_component:"
+msgid "Active component"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,adverse_reaction:"
+msgid "Adverse Reactions"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,category:"
+msgid "Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,composition:"
+msgid "Composition"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,dosage:"
+msgid "Dosage Instructions"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,indications:"
+msgid "Indication"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,name:"
+msgid "Product"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,notes:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,overdosage:"
 msgid "Overdosage"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,pregnancy:0"
+msgctxt "field:gnuhealth.medicament,pregnancy:"
+msgid "Pregnancy and Lactancy"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,pregnancy_category:"
+msgid "Pregnancy Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,pregnancy_warning:"
+msgid "Pregnancy Warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,presentation:"
+msgid "Presentation"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,storage:"
+msgid "Storage Conditions"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,therapeutic_action:"
+msgid "Therapeutic effect"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,childs:"
+msgid "Children"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,parent:"
+msgid "Parent"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medicament.category,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,abbreviation:"
+msgid "Abbreviation"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,name:"
+msgid "Frequency"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.dosage,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,admin_times:"
+msgid "Admin hours"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,common_dosage:"
+msgid "Frequency"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,dose:"
+msgid "Dose"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,dose_unit:"
+msgid "dose unit"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,duration:"
+msgid "Treatment duration"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,duration_period:"
+msgid "Treatment period"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,end_treatment:"
+msgid "End"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,form:"
+msgid "Form"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,frequency:"
+msgid "Frequency"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,frequency_prn:"
+msgid "PRN"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,frequency_unit:"
+msgid "unit"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,indication:"
+msgid "Indication"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,medicament:"
+msgid "Medicament"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,qty:"
+msgid "x"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,route:"
+msgid "Administration Route"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,start_treatment:"
+msgid "Start"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.medication.template,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.occupation,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,info:"
+msgid "Extra Information"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,operational_sector:"
+msgid "Operational Sector"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_area,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,info:"
+msgid "Extra Information"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,name:"
+msgid "Op. Sector"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,operational_area:"
+msgid "Operational Area"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.operational_sector,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,category:"
+msgid "Main Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,chromosome:"
+msgid "Affected Chromosome"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,gene:"
+msgid "Gene"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,groups:"
+msgid "Groups"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,protein:"
+msgid "Protein involved"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,childs:"
+msgid "Children Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,name:"
+msgid "Category Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,parent:"
+msgid "Parent Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.category,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,desc:"
+msgid "Short Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,info:"
+msgid "Detailed information"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.pathology.group,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,admissions_ids:"
+msgid "Admission / Discharge"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age:"
+msgid "Age"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,blood_type:"
+msgid "Blood Type"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,childbearing_age:"
+msgid "Potential for Childbearing"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,cod:"
+msgid "Cause of Death"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,critical_info:"
+msgid "Important disease, allergy or procedures information"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,current_address:"
+msgid "Address"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,current_insurance:"
+msgid "Insurance"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,deceased:"
+msgid "Deceased"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,diseases:"
+msgid "Diseases"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,dob:"
+msgid "DoB"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,dod:"
+msgid "Date of Death"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,ethnic_group:"
+msgid "Ethnic group"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,evaluation_ids:"
+msgid "Evaluation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,family:"
+msgid "Family"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,general_info:"
+msgid "General Information"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,identification_code:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,lastname:"
+msgid "Lastname"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,marital_status:"
+msgid "Marital Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,medications:"
+msgid "Medications"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,name:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,photo:"
+msgid "Picture"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,prescriptions:"
+msgid "Prescriptions"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,primary_care_doctor:"
+msgid "Primary Care Doctor"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,rh:"
+msgid "Rh"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sex:"
+msgid "Sex"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,ssn:"
+msgid "SSN"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,vaccinations:"
+msgid "Vaccinations"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,age:"
+msgid "Age when diagnosed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,allergy_type:"
+msgid "Allergy type"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,date_start_treatment:"
+msgid "Start"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,date_stop_treatment:"
+msgid "End"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,diagnosed_date:"
+msgid "Date of Diagnosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,disease_severity:"
+msgid "Severity"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,doctor:"
+msgid "Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,extra_info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,healed_date:"
+msgid "Healed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,is_active:"
+msgid "Active disease"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,is_allergy:"
+msgid "Allergic Disease"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,is_infectious:"
+msgid "Infectious Disease"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,is_on_treatment:"
+msgid "Currently on Treatment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,name:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,pathology:"
+msgid "Disease"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,pcs_code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,pregnancy_warning:"
+msgid "Pregnancy warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,short_comment:"
+msgid "Remarks"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,status:"
+msgid "Status of the disease"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,treatment_description:"
+msgid "Treatment Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,weeks_of_pregnancy:"
+msgid "Contracted in pregnancy week #"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disease,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,abdominal_circ:"
+msgid "Waist"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,abstraction:"
+msgid "Abstraction"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,acropachy:"
+msgid "Acropachy"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,actions:"
+msgid "Procedures"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,alopecia:"
+msgid "Alopecia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,arritmia:"
+msgid "Arritmias"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,ascites:"
+msgid "Ascites"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,bmi:"
+msgid "Body Mass Index"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,bpm:"
+msgid "Heart Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,breast_asymmetry:"
+msgid "Breast Asymmetry"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,breast_lump:"
+msgid "Breast Lumps"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,bronchophony:"
+msgid "Bronchophony"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,calculation_ability:"
+msgid "Calculation Ability"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,chief_complaint:"
+msgid "Chief Complaint"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,cholesterol_total:"
+msgid "Last Cholesterol"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,cough:"
+msgid "Cough"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,cyanosis:"
+msgid "Cyanosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,decreased_fremitus:"
+msgid "Decreased Fremitus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,dehydration:"
+msgid "Dehydration"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,derived_from:"
+msgid "Derived from"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,derived_to:"
+msgid "Derived to"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,diagnosis:"
+msgid "Presumptive Diagnosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,diagnostic_hypothesis:"
+msgid "Hypotheses / DDx"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,diastolic:"
+msgid "Diastolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,directions:"
+msgid "Plan"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,doctor:"
+msgid "Doctor"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,edema:"
+msgid "Edema"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,erithema:"
+msgid "Erithema"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,evaluation_date:"
+msgid "Appointment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,evaluation_endtime:"
+msgid "End"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,evaluation_start:"
+msgid "Start"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,evaluation_summary:"
+msgid "Evaluation Summary"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,evaluation_type:"
+msgid "Type"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,glycemia:"
+msgid "Glycemia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,goiter:"
+msgid "Goiter"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,gynecomastia:"
+msgid "Gynecomastia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hba1c:"
+msgid "Glycated Hemoglobin"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hdl:"
+msgid "Last HDL"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,head_circumference:"
+msgid "Head Circumference"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,heart_extra_sounds:"
+msgid "Heart Extra Sounds"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,heart_murmurs:"
+msgid "Heart Murmurs"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,height:"
+msgid "Height"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hematoma:"
+msgid "Hematomas"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hip:"
+msgid "Hip"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hypertonia:"
+msgid "Hypertonia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,hypotonia:"
+msgid "Hypotonia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,increased_fremitus:"
+msgid "Increased Fremitus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,info_diagnosis:"
+msgid "Presumptive Diagnosis: Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,information_source:"
+msgid "Source"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,jaundice:"
+msgid "Jaundice"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,judgment:"
+msgid "Jugdment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,jugular_engorgement:"
+msgid "Jugular Engorgement"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,knowledge_current_events:"
+msgid "Knowledge of Current Events"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,ldl:"
+msgid "Last LDL"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,loc:"
+msgid "Level of Consciousness"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,loc_eyes:"
+msgid "Glasgow - Eyes"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,loc_motor:"
+msgid "Glasgow - Motor"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,loc_verbal:"
+msgid "Glasgow - Verbal"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,lung_adventitious_sounds:"
+msgid "Lung Adventitious sounds"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,lynphadenitis:"
+msgid "Linphadenitis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,malnutrition:"
+msgid "Malnutrition"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,masses:"
+msgid "Masses"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,memory:"
+msgid "Memory"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,miosis:"
+msgid "Miosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,mood:"
+msgid "Mood"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,mydriasis:"
+msgid "Mydriasis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,next_evaluation:"
+msgid "Next Appointment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,nipple_discharge:"
+msgid "Nipple Discharge"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,nipple_inversion:"
+msgid "Nipple Inversion"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,notes_complaint:"
+msgid "Complaint details"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,nystagmus:"
+msgid "Nystagmus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,object_recognition:"
+msgid "Object Recognition"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,orientation:"
+msgid "Orientation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,osat:"
+msgid "Oxygen Saturation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,palpebral_ptosis:"
+msgid "Palpebral Ptosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,peau_dorange:"
+msgid "Peau d orange"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,petechiae:"
+msgid "Petechiae"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,praxis:"
+msgid "Praxis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,present_illness:"
+msgid "Present Illness"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,pressure_ulcers:"
+msgid "Pressure Ulcers"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,reliable_info:"
+msgid "Reliable"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,secondary_conditions:"
+msgid "Secondary Conditions"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,signs_and_symptoms:"
+msgid "Signs and Symptoms"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,specialty:"
+msgid "Specialty"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_abdominal_distension:"
+msgid "Abdominal Distension"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_abdominal_pain:"
+msgid "Abdominal Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_amenorrhea:"
+msgid "Amenorrhea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_amnesia:"
+msgid "Amnesia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_anorexia:"
+msgid "Anorexia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_arthralgia:"
+msgid "Arthralgia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_astenia:"
+msgid "Astenia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_blurry_vision:"
+msgid "Blurry vision"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_cervical_pain:"
+msgid "Cervical Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_chest_pain:"
+msgid "Chest Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_chest_pain_excercise:"
+msgid "Chest Painon excercise only"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_constipation:"
+msgid "Constipation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_diarrhea:"
+msgid "Diarrhea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_diplopia:"
+msgid "Diplopia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_disturb_sleep:"
+msgid "Disturbed Sleep"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_dizziness:"
+msgid "Dizziness"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_dysmenorrhea:"
+msgid "Dysmenorrhea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_dysphagia:"
+msgid "Dysphagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_dyspnea:"
+msgid "Dyspnea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_dysuria:"
+msgid "Dysuria"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_ear_discharge:"
+msgid "Ear Discharge"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_epistaxis:"
+msgid "Epistaxis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_eye_glasses:"
+msgid "Eye glasses"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_gingival_bleeding:"
+msgid "Gingival Bleeding"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_headache:"
+msgid "Headache"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_hematemesis:"
+msgid "Hematemesis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_hemoptysis:"
+msgid "Hemoptysis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_hoarseness:"
+msgid "Hoarseness"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_insomnia:"
+msgid "Insomnia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_lumbar_pain:"
+msgid "Lumbar Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_melena:"
+msgid "Melena"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_menorrhagia:"
+msgid "Menorrhagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_metrorrhagia:"
+msgid "Metrorrhagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_mood_swings:"
+msgid "Mood Swings"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_myalgia:"
+msgid "Myalgia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_nausea:"
+msgid "Nausea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_nocturia:"
+msgid "Nocturia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_odynophagia:"
+msgid "Odynophagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_orthopnea:"
+msgid "Orthopnea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_orthostatic_hypotension:"
+msgid "Orthostatic hypotension"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_otalgia:"
+msgid "Otalgia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_pain:"
+msgid "Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_pain_intensity:"
+msgid "Pain intensity"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_paralysis:"
+msgid "Paralysis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_paresthesia:"
+msgid "Paresthesia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_pelvic_pain:"
+msgid "Pelvic Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_photophobia:"
+msgid "Photophobia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_pollakiuria:"
+msgid "Pollakiuiria"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_polydipsia:"
+msgid "Polydipsia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_polyphagia:"
+msgid "Polyphagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_polyuria:"
+msgid "Polyuria"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_proctorrhagia:"
+msgid "Proctorrhagia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_pruritus:"
+msgid "Pruritus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_rectal_tenesmus:"
+msgid "Rectal Tenesmus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_rinorrhea:"
+msgid "Rinorrhea"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_sexual_dysfunction:"
+msgid "Sexual Dysfunction"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_sore_throat:"
+msgid "Sore throat"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_stress:"
+msgid "Stressed-out"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_syncope:"
+msgid "Syncope"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_thoracic_pain:"
+msgid "Thoracic Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_tinnitus:"
+msgid "Tinnitus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_urethral_discharge:"
+msgid "Urethral Discharge"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_vaginal_discharge:"
+msgid "Vaginal Discharge"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_vertigo:"
+msgid "Vertigo"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_vesical_tenesmus:"
+msgid "Vesical Tenesmus"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_vomiting:"
+msgid "Vomiting"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_weight_change:"
+msgid "Sudden weight change"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,symptom_xerostomia:"
+msgid "Xerostomia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,systolic:"
+msgid "Systolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,tag:"
+msgid "Last TAGs"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,temperature:"
+msgid "Temperature"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,tremor:"
+msgid "Tremor"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,user_id:"
+msgid "Last Changed by"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,violent:"
+msgid "Violent Behaviour"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,vocabulary:"
+msgid "Vocabulary"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,weight:"
+msgid "Weight"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,whr:"
+msgid "WHR"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,xerosis:"
+msgid "Xerosis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,adverse_reaction:"
+msgid "Adverse Reactions"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,course_completed:"
+msgid "Course Completed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,discontinued:"
+msgid "Discontinued"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,discontinued_reason:"
+msgid "Reason for discontinuation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,doctor:"
+msgid "Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,is_active:"
+msgid "Active"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,name:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,notes:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,template:"
+msgid "Medication Template"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.medication,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,code:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,info:"
+msgid "Extra info"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,name:"
+msgid "Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,specialty:"
+msgid "Specialty"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.physician,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,allow_substitution:"
+msgid "Allow substitution"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,name:"
+msgid "Prescription ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,prnt:"
+msgid "Print"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,quantity:"
+msgid "Quantity"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,refills:"
+msgid "Refills #"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,review:"
+msgid "Review"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,short_comment:"
+msgid "Comment"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,template:"
+msgid "Medication Template"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.line,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,notes:"
+msgid "Prescription Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,pharmacy:"
+msgid "Pharmacy"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,pregnancy_warning:"
+msgid "Pregancy Warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,prescription_date:"
+msgid "Prescription Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,prescription_id:"
+msgid "Prescription ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,prescription_line:"
+msgid "Prescription line"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,prescription_warning_ack:"
+msgid "Prescription verified"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,user_id:"
+msgid "Prescribing Doctor"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,description:"
+msgid "Long Text"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,name:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.procedure,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,comments:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,evaluation:"
+msgid "Evaluation"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,pathology:"
+msgid "Pathology"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.secondary_condition,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,appointment_sequence:"
+msgid "Appointment Sequence"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,patient_sequence:"
+msgid "Patient Sequence"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,prescription_sequence:"
+msgid "Prescription Sequence"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,clinical:"
+msgid "Sign or Symptom"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,comments:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,evaluation:"
+msgid "Evaluation"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,sign_or_symptom:"
+msgid "Subjective / Objective"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.signs_and_symptoms,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,name:"
+msgid "Specialty"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.specialty,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,dose:"
+msgid "Dose #"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,name:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,next_dose_date:"
+msgid "Next Dose"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,observations:"
+msgid "Observations"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,vaccine:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,vaccine_expiration_date:"
+msgid "Expiration date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,vaccine_lot:"
+msgid "Lot Number"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vaccination,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:party.address,is_school:"
+msgid "School"
+msgstr ""
+
+msgctxt "field:party.address,is_work:"
+msgid "Work"
+msgstr ""
+
+msgctxt "field:party.address,relationship:"
+msgid "Relationship"
+msgstr ""
+
+msgctxt "field:party.address,relative_id:"
+msgid "Contact"
+msgstr ""
+
+msgctxt "field:party.party,activation_date:"
+msgid "Activation date"
+msgstr ""
+
+msgctxt "field:party.party,alias:"
+msgid "Alias"
+msgstr ""
+
+msgctxt "field:party.party,insurance:"
+msgid "Insurance"
+msgstr ""
+
+msgctxt "field:party.party,insurance_company_type:"
+msgid "Insurance Type"
+msgstr ""
+
+msgctxt "field:party.party,insurance_plan_ids:"
+msgid "Insurance Plans"
+msgstr ""
+
+msgctxt "field:party.party,internal_user:"
+msgid "Internal User"
+msgstr ""
+
+msgctxt "field:party.party,is_doctor:"
+msgid "Doctor"
+msgstr ""
+
+msgctxt "field:party.party,is_institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:party.party,is_insurance_company:"
+msgid "Insurance Company"
+msgstr ""
+
+msgctxt "field:party.party,is_patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:party.party,is_person:"
+msgid "Person"
+msgstr ""
+
+msgctxt "field:party.party,is_pharmacy:"
+msgid "Pharmacy"
+msgstr ""
+
+msgctxt "field:party.party,lastname:"
+msgid "Last Name"
+msgstr ""
+
+msgctxt "field:party.party,ref:"
+msgid "SSN"
+msgstr ""
+
+msgctxt "field:product.product,is_bed:"
+msgid "Bed"
+msgstr ""
+
+msgctxt "field:product.product,is_medicament:"
+msgid "Medicament"
+msgstr ""
+
+msgctxt "field:product.product,is_vaccine:"
+msgid "Vaccine"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,consultations:"
+msgid "Consultation Services"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,doctor:"
+msgid "Physician's Name"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,institution:"
+msgid "Medical Center"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,patient:"
+msgid "Patient Name"
+msgstr ""
+
+msgctxt "help:gnuhealth.appointment,speciality:"
+msgid "Medical Specialty / Sector"
+msgstr ""
+
+msgctxt "help:gnuhealth.family,name:"
+msgid "Family code within an operational sector"
+msgstr ""
+
+msgctxt "help:gnuhealth.family_member,name:"
+msgid "Family code"
+msgstr ""
+
+msgctxt "help:gnuhealth.family_member,party:"
+msgid "Family code"
+msgstr ""
+
+msgctxt "help:gnuhealth.family_member,role:"
+msgid "Father, Mother, sibbling..."
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.bed,name:"
+msgid "Bed Number"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.bed,telephone_number:"
+msgid "Telephone number / Extension"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.bed,ward:"
+msgid "Ward or room"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.building,institution:"
+msgid "Medical Center"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.building,name:"
+msgid "Name of the building within the institution"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.or,institution:"
+msgid "Medical Center"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.or,name:"
+msgid "Name of the Operating Room"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.unit,institution:"
+msgid "Medical Center"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.unit,name:"
+msgid "Name of the unit, eg Neonatal, Intensive Care, ..."
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.ward,bio_hazard:"
+msgid "Check this option if there is biological hazard"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.ward,institution:"
+msgid "Medical Center"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.ward,name:"
+msgid "Ward / Room code"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.ward,number_of_beds:"
+msgid "Number of patients per ward"
+msgstr ""
+
+msgctxt "help:gnuhealth.hospital.ward,private:"
+msgid "Check this option for private room"
+msgstr ""
+
+msgctxt "help:gnuhealth.insurance,category:"
+msgid "Insurance company plan / category"
+msgstr ""
+
+msgctxt "help:gnuhealth.insurance,plan_id:"
+msgid "Insurance company plan"
+msgstr ""
+
+msgctxt "help:gnuhealth.insurance.plan,is_default:"
+msgid "Check if this is the default plan when assigning this insurance company to a patient"
+msgstr ""
+
+msgctxt "help:gnuhealth.insurance.plan,name:"
+msgid "Insurance company plan"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,active_component:"
+msgid "Active Component"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,composition:"
+msgid "Components"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,dosage:"
+msgid "Dosage / Indications"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,indications:"
+msgid "Indications"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,name:"
+msgid "Product Name"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,overdosage:"
+msgid "Overdosage"
+msgstr ""
+
+msgctxt "help:gnuhealth.medicament,pregnancy:"
 msgid "Warnings for Pregnant Women"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "help:gnuhealth.medicament,pregnancy_category:"
 msgid ""
 "** FDA Pregancy Categories ***\n"
 "CATEGORY A :Adequate and well-controlled human studies have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (and there is no evidence of risk in later trimesters).\n"
@@ -1974,544 +2955,616 @@ msgid ""
 "CATEGORY N : Not yet classified"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,pregnancy_warning:0"
+msgctxt "help:gnuhealth.medicament,pregnancy_warning:"
 msgid "The drug represents risk to pregnancy or lactancy"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,presentation:0"
+msgctxt "help:gnuhealth.medicament,presentation:"
 msgid "Packaging"
 msgstr ""
 
-msgctxt "help:gnuhealth.medicament,therapeutic_action:0"
+msgctxt "help:gnuhealth.medicament,therapeutic_action:"
 msgid "Therapeutic action"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.dosage,abbreviation:0"
+msgctxt "help:gnuhealth.medication.dosage,abbreviation:"
 msgid "Dosage abbreviation, such as tid in the US or tds in the UK"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.dosage,code:0"
+msgctxt "help:gnuhealth.medication.dosage,code:"
 msgid "Dosage Code,for example: SNOMED 229798009 = 3 times per day"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.dosage,name:0"
+msgctxt "help:gnuhealth.medication.dosage,name:"
 msgid "Common frequency name"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,admin_times:0"
+msgctxt "help:gnuhealth.medication.template,admin_times:"
 msgid "Suggested administration hours. For example, at 08:00, 13:00 and 18:00 can be encoded like 08 13 18"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,common_dosage:0"
+msgctxt "help:gnuhealth.medication.template,common_dosage:"
 msgid "Common / standard dosage frequency for this medicament"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,dose:0"
+msgctxt "help:gnuhealth.medication.template,dose:"
 msgid "Amount of medication (eg, 250 mg) per dose"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,dose_unit:0"
+msgctxt "help:gnuhealth.medication.template,dose_unit:"
 msgid "Unit of measure for the medication to be taken"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,duration:0"
+msgctxt "help:gnuhealth.medication.template,duration:"
 msgid "Period that the patient must take the medication. in minutes, hours, days, months, years or indefinately"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,duration_period:0"
+msgctxt "help:gnuhealth.medication.template,duration_period:"
 msgid "Period that the patient must take the medication in minutes, hours, days, months, years or indefinately"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,end_treatment:0"
+msgctxt "help:gnuhealth.medication.template,end_treatment:"
 msgid "Date of start of Treatment"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,form:0"
+msgctxt "help:gnuhealth.medication.template,form:"
 msgid "Drug form, such as tablet or gel"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,frequency:0"
+msgctxt "help:gnuhealth.medication.template,frequency:"
 msgid "Time in between doses the patient must wait (ie, for 1 pill each 8 hours, put here 8 and select \"hours\" in the unit field"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,indication:0"
+msgctxt "help:gnuhealth.medication.template,frequency_prn:"
+msgid "Use it as needed, pro re nata"
+msgstr ""
+
+msgctxt "help:gnuhealth.medication.template,indication:"
 msgid "Choose a disease for this medicament from the disease list. It can be an existing disease of the patient or a prophylactic."
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,medicament:0"
+msgctxt "help:gnuhealth.medication.template,medicament:"
 msgid "Prescribed Medicament"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,qty:0"
+msgctxt "help:gnuhealth.medication.template,qty:"
 msgid "Quantity of units (eg, 2 capsules) of the medicament"
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,route:0"
+msgctxt "help:gnuhealth.medication.template,route:"
 msgid "Drug administration route code."
 msgstr ""
 
-msgctxt "help:gnuhealth.medication.template,start_treatment:0"
+msgctxt "help:gnuhealth.medication.template,start_treatment:"
 msgid "Date of start of Treatment"
 msgstr ""
 
-msgctxt "help:gnuhealth.operational_area,name:0"
+msgctxt "help:gnuhealth.operational_area,name:"
 msgid "Operational Area of the city or region"
 msgstr ""
 
-msgctxt "help:gnuhealth.operational_sector,name:0"
+msgctxt "help:gnuhealth.operational_sector,name:"
 msgid "Region included in an operational area"
 msgstr ""
 
-msgctxt "help:gnuhealth.pathology,chromosome:0"
+msgctxt "help:gnuhealth.pathology,category:"
+msgid "Select the main category for this disease This is usually associated to the standard. For instance, the chapter on the ICD-10 will be the main category for de disease"
+msgstr ""
+
+msgctxt "help:gnuhealth.pathology,chromosome:"
 msgid "chromosome number"
 msgstr ""
 
-msgctxt "help:gnuhealth.pathology,code:0"
-msgid "Specific Code for the Disease (eg, ICD-10, SNOMED...\\)"
+msgctxt "help:gnuhealth.pathology,code:"
+msgid "Specific Code for the Disease (eg, ICD-10)"
 msgstr ""
 
-msgctxt "help:gnuhealth.pathology,gene:0"
+msgctxt "help:gnuhealth.pathology,gene:"
 msgid "Name of the gene(s) affected"
 msgstr ""
 
-msgctxt "help:gnuhealth.pathology,name:0"
+msgctxt "help:gnuhealth.pathology,groups:"
+msgid "Specify the groups this pathology belongs. Some automated processes act upon the code of the group"
+msgstr ""
+
+msgctxt "help:gnuhealth.pathology,name:"
 msgid "Disease name"
 msgstr ""
 
-msgctxt "help:gnuhealth.pathology,protein:0"
+msgctxt "help:gnuhealth.pathology,protein:"
 msgid "Name of the protein(s) affected"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,critical_info:0"
+msgctxt "help:gnuhealth.pathology.group,code:"
+msgid "for example MDG6 code will contain the Millennium Development Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS"
+msgstr ""
+
+msgctxt "help:gnuhealth.pathology.group,name:"
+msgid "Group name"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,critical_info:"
 msgid "Write any important information on the patient's disease, surgeries, allergies, ..."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,current_address:0"
+msgctxt "help:gnuhealth.patient,current_address:"
 msgid "Contact information. You may choose from the different contacts and addresses this patient has."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,current_insurance:0"
+msgctxt "help:gnuhealth.patient,current_insurance:"
 msgid "Insurance information. You may choose from the different insurances belonging to the patient"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,deceased:0"
+msgctxt "help:gnuhealth.patient,deceased:"
 msgid "Mark if the patient has died"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,dob:0"
+msgctxt "help:gnuhealth.patient,dob:"
 msgid "Date of Birth"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,family:0"
+msgctxt "help:gnuhealth.patient,family:"
 msgid "Family Code"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,general_info:0"
+msgctxt "help:gnuhealth.patient,general_info:"
 msgid "General information about the patient"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,identification_code:0"
-msgid "Patient Identifier provided by the Health Center.Is not the ID from the party form"
+msgctxt "help:gnuhealth.patient,identification_code:"
+msgid "Patient Identifier provided by the Health Center.Is not the Social Security Number"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,name:0"
+msgctxt "help:gnuhealth.patient,name:"
 msgid "Patient Name"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient,primary_care_doctor:0"
+msgctxt "help:gnuhealth.patient,primary_care_doctor:"
 msgid "Current primary care / family doctor"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,age:0"
+msgctxt "help:gnuhealth.patient.disease,age:"
 msgid "Patient age at the moment of the diagnosis. Can be estimative"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,date_start_treatment:0"
+msgctxt "help:gnuhealth.patient.disease,date_start_treatment:"
 msgid "Start of treatment date"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,date_stop_treatment:0"
+msgctxt "help:gnuhealth.patient.disease,date_stop_treatment:"
 msgid "End of treatment date"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,doctor:0"
+msgctxt "help:gnuhealth.patient.disease,doctor:"
 msgid "Physician who treated or diagnosed the patient"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,is_infectious:0"
+msgctxt "help:gnuhealth.patient.disease,is_infectious:"
 msgid "Check if the patient has an infectious / transmissible disease"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,pathology:0"
+msgctxt "help:gnuhealth.patient.disease,pathology:"
 msgid "Disease"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,pcs_code:0"
+msgctxt "help:gnuhealth.patient.disease,pcs_code:"
 msgid "Procedure code, for example, ICD-10-PCS Code 7-character string"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.disease,short_comment:0"
+msgctxt "help:gnuhealth.patient.disease,short_comment:"
 msgid "Brief, one-line remark of the disease. Longer description will go on the Extra info field"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,abstraction:0"
+msgctxt "help:gnuhealth.patient.evaluation,abstraction:"
 msgid "Check this box if the patient presents abnormalities in abstract reasoning"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,acropachy:0"
+msgctxt "help:gnuhealth.patient.evaluation,acropachy:"
 msgid "Check if the patient shows acropachy / clubbing"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,alopecia:0"
+msgctxt "help:gnuhealth.patient.evaluation,actions:"
+msgid "Procedures / Actions to take"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,alopecia:"
 msgid "Check when alopecia - including androgenic - is present"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,arritmia:0"
+msgctxt "help:gnuhealth.patient.evaluation,arritmia:"
 msgid "If associated  to a disease, please encode it on thepatient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,ascites:0"
+msgctxt "help:gnuhealth.patient.evaluation,ascites:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,bpm:0"
+msgctxt "help:gnuhealth.patient.evaluation,bpm:"
 msgid "Heart rate expressed in beats per minute"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,calculation_ability:0"
+msgctxt "help:gnuhealth.patient.evaluation,calculation_ability:"
 msgid "Check this box if the patient can not do simple arithmetic problems"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,chief_complaint:0"
+msgctxt "help:gnuhealth.patient.evaluation,chief_complaint:"
 msgid "Chief Complaint"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,cholesterol_total:0"
+msgctxt "help:gnuhealth.patient.evaluation,cholesterol_total:"
 msgid "Last cholesterol reading. Can be approximative"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,cough:0"
+msgctxt "help:gnuhealth.patient.evaluation,cough:"
 msgid "If associated  to a disease, please encode it on the patient disease history."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,cyanosis:0"
+msgctxt "help:gnuhealth.patient.evaluation,cyanosis:"
 msgid "If associated  to a disease, please encode it on the patient disease history. For example,  R23.0 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,dehydration:0"
+msgctxt "help:gnuhealth.patient.evaluation,dehydration:"
 msgid "Check this box if the patient show signs of dehydration. If associated  to a disease, please encode the  correspondent disease on the patient disease history. For example, Volume Depletion, E86 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,derived_from:0"
-msgid "Physician who escalated / derived the case"
+msgctxt "help:gnuhealth.patient.evaluation,derived_from:"
+msgid "Physician who derived the case"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,derived_to:0"
+msgctxt "help:gnuhealth.patient.evaluation,derived_to:"
 msgid "Physician to whom escalate / derive the case"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,diagnosis:0"
-msgid "Presumptive Diagnosis"
+msgctxt "help:gnuhealth.patient.evaluation,diagnosis:"
+msgid "Presumptive Diagnosis. If no diagnosis can be made, encode the main sign or symptom."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,edema:0"
+msgctxt "help:gnuhealth.patient.evaluation,diagnostic_hypothesis:"
+msgid "Other Diagnostic Hypotheses / Differential Diagnosis (DDx)"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,edema:"
 msgid "Please also encode the correspondent disease on the patient disease history. For example,  R60.1 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,erithema:0"
+msgctxt "help:gnuhealth.patient.evaluation,erithema:"
 msgid "Please also encode the correspondent disease on the patient disease history."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,evaluation_date:0"
+msgctxt "help:gnuhealth.patient.evaluation,evaluation_date:"
 msgid "Enter or select the date / ID of the appointment related to this evaluation"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,glycemia:0"
+msgctxt "help:gnuhealth.patient.evaluation,glycemia:"
 msgid "Last blood glucose level. Can be approximative."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,hba1c:0"
+msgctxt "help:gnuhealth.patient.evaluation,hba1c:"
 msgid "Last Glycated Hb level. Can be approximative."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,hdl:0"
+msgctxt "help:gnuhealth.patient.evaluation,hdl:"
 msgid "Last HDL Cholesterol reading. Can be approximative"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,head_circumference:0"
+msgctxt "help:gnuhealth.patient.evaluation,head_circumference:"
 msgid "Head circumference"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,heart_extra_sounds:0"
+msgctxt "help:gnuhealth.patient.evaluation,heart_extra_sounds:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,height:0"
+msgctxt "help:gnuhealth.patient.evaluation,height:"
 msgid "Height in centimeters, eg 175"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,hypertonia:0"
+msgctxt "help:gnuhealth.patient.evaluation,hip:"
+msgid "Hip circumference in centimeters, eg 100"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,hypertonia:"
 msgid "Please also encode the correspondent disease on the patient disease history."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,hypotonia:0"
+msgctxt "help:gnuhealth.patient.evaluation,hypotonia:"
 msgid "Please also encode the correspondent disease on the patient disease history."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,jaundice:0"
+msgctxt "help:gnuhealth.patient.evaluation,information_source:"
+msgid "Source ofInformation, eg : Self, relative, friend ..."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,jaundice:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,judgment:0"
+msgctxt "help:gnuhealth.patient.evaluation,judgment:"
 msgid "Check this box if the patient can not interpret basic scenario solutions"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,jugular_engorgement:0"
+msgctxt "help:gnuhealth.patient.evaluation,jugular_engorgement:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,knowledge_current_events:0"
+msgctxt "help:gnuhealth.patient.evaluation,knowledge_current_events:"
 msgid "Check this box if the patient can not respond to public notorious events"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,ldl:0"
+msgctxt "help:gnuhealth.patient.evaluation,ldl:"
 msgid "Last LDL Cholesterol reading. Can be approximative"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,loc:0"
+msgctxt "help:gnuhealth.patient.evaluation,loc:"
 msgid "Level of Consciousness - on Glasgow Coma Scale :  1=coma - 15=normal"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,lung_adventitious_sounds:0"
+msgctxt "help:gnuhealth.patient.evaluation,lung_adventitious_sounds:"
 msgid "Crackles, wheezes, ronchus.."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,lynphadenitis:0"
+msgctxt "help:gnuhealth.patient.evaluation,lynphadenitis:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,malnutrition:0"
+msgctxt "help:gnuhealth.patient.evaluation,malnutrition:"
 msgid "Check this box if the patient show signs of malnutrition. If associated  to a disease, please encode the correspondent disease on the patient disease history. For example, Moderate protein-energy malnutrition, E44.0 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,masses:0"
+msgctxt "help:gnuhealth.patient.evaluation,masses:"
 msgid "Check when there are findings of masses / tumors / lumps"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,memory:0"
+msgctxt "help:gnuhealth.patient.evaluation,memory:"
 msgid "Check this box if the patient has problems in short or long term memory"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,miosis:0"
+msgctxt "help:gnuhealth.patient.evaluation,miosis:"
 msgid "If associated  to a disease, please encode it on the patient disease history. For example,  H57.0 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,mydriasis:0"
+msgctxt "help:gnuhealth.patient.evaluation,mydriasis:"
 msgid "If associated  to a disease, please encode it on the patient disease history. For example,  H57.0 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,nystagmus:0"
+msgctxt "help:gnuhealth.patient.evaluation,nystagmus:"
 msgid "If associated  to a disease, please encode it on the patient disease history. For example,  H55 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,object_recognition:0"
+msgctxt "help:gnuhealth.patient.evaluation,object_recognition:"
 msgid "Check this box if the patient suffers from any sort of gnosia disorders, such as agnosia, prosopagnosia ..."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,orientation:0"
+msgctxt "help:gnuhealth.patient.evaluation,orientation:"
 msgid "Check this box if the patient is disoriented in time and/or space"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,osat:0"
+msgctxt "help:gnuhealth.patient.evaluation,osat:"
 msgid "Oxygen Saturation(arterial)."
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,palpebral_ptosis:0"
+msgctxt "help:gnuhealth.patient.evaluation,palpebral_ptosis:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,peau_dorange:0"
+msgctxt "help:gnuhealth.patient.evaluation,peau_dorange:"
 msgid "Check if the patient has prominent pores in the skin of the breast"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,praxis:0"
+msgctxt "help:gnuhealth.patient.evaluation,praxis:"
 msgid "Check this box if the patient is unable to make voluntarymovements"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,pressure_ulcers:0"
+msgctxt "help:gnuhealth.patient.evaluation,pressure_ulcers:"
 msgid "Check when Decubitus / Pressure ulcers are present"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,respiratory_rate:0"
+msgctxt "help:gnuhealth.patient.evaluation,reliable_info:"
+msgid "Uncheck this optionif the information provided by the source seems not reliable"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,respiratory_rate:"
 msgid "Respiratory rate expressed in breaths per minute"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,symptom_eye_glasses:0"
+msgctxt "help:gnuhealth.patient.evaluation,secondary_conditions:"
+msgid "Other, Secondary conditions found on the patient"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,signs_and_symptoms:"
+msgid "Enter the Signs and Symptoms for the patient in this evaluation."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,symptom_eye_glasses:"
 msgid "Eye glasses or contact lenses"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,symptom_orthostatic_hypotension:0"
+msgctxt "help:gnuhealth.patient.evaluation,symptom_orthostatic_hypotension:"
 msgid "If associated  to a disease,please encode it on the patient disease history. For example,  I95.1 in ICD-10 encoding"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,symptom_pain_intensity:0"
+msgctxt "help:gnuhealth.patient.evaluation,symptom_pain_intensity:"
 msgid "Pain intensity from 0(no pain) to 10(worst possible pain)"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,tag:0"
+msgctxt "help:gnuhealth.patient.evaluation,tag:"
 msgid "Triacylglycerol(triglicerides) level. Can be approximative"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,temperature:0"
+msgctxt "help:gnuhealth.patient.evaluation,temperature:"
 msgid "Temperature in celcius"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,tremor:0"
+msgctxt "help:gnuhealth.patient.evaluation,tremor:"
 msgid "If associated  to a disease, please encode it on the patient disease history"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,violent:0"
+msgctxt "help:gnuhealth.patient.evaluation,violent:"
 msgid "Check this box if the patient is agressive or violent at the moment"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,vocabulary:0"
+msgctxt "help:gnuhealth.patient.evaluation,vocabulary:"
 msgid "Check this box if the patient lacks basic intelectual capacity, when she/he can not describe elementary objects"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.evaluation,weight:0"
+msgctxt "help:gnuhealth.patient.evaluation,weight:"
 msgid "Weight in Kilos"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.medication,adverse_reaction:0"
+msgctxt "help:gnuhealth.patient.evaluation,whr:"
+msgid "Waist to hip ratio"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.medication,adverse_reaction:"
 msgid "Side effects or adverse reactions that the patient experienced"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.medication,discontinued_reason:0"
+msgctxt "help:gnuhealth.patient.medication,discontinued_reason:"
 msgid "Short description for discontinuing the treatment"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.medication,doctor:0"
+msgctxt "help:gnuhealth.patient.medication,doctor:"
 msgid "Physician who prescribed the medicament"
 msgstr ""
 
-msgctxt "help:gnuhealth.patient.medication,is_active:0"
+msgctxt "help:gnuhealth.patient.medication,is_active:"
 msgid "Check if the patient is currently taking the medication"
 msgstr ""
 
-msgctxt "help:gnuhealth.physician,code:0"
+msgctxt "help:gnuhealth.physician,code:"
 msgid "MD License ID"
 msgstr ""
 
-msgctxt "help:gnuhealth.physician,institution:0"
+msgctxt "help:gnuhealth.physician,institution:"
 msgid "Instituion where she/he works"
 msgstr ""
 
-msgctxt "help:gnuhealth.physician,name:0"
+msgctxt "help:gnuhealth.physician,name:"
 msgid "Physician's Name, from the partner list"
 msgstr ""
 
-msgctxt "help:gnuhealth.physician,specialty:0"
+msgctxt "help:gnuhealth.physician,specialty:"
 msgid "Specialty Code"
 msgstr ""
 
-msgctxt "help:gnuhealth.prescription.line,prnt:0"
+msgctxt "help:gnuhealth.prescription.line,prnt:"
 msgid "Check this box to print this line of the prescription."
 msgstr ""
 
-msgctxt "help:gnuhealth.prescription.line,short_comment:0"
+msgctxt "help:gnuhealth.prescription.line,short_comment:"
 msgid "Short comment on the specific drug"
 msgstr ""
 
-msgctxt "help:gnuhealth.prescription.order,prescription_id:0"
+msgctxt "help:gnuhealth.prescription.order,prescription_id:"
 msgid "Type in the ID of this prescription"
 msgstr ""
 
-msgctxt "help:gnuhealth.specialty,code:0"
+msgctxt "help:gnuhealth.specialty,code:"
 msgid "ie, ADP"
 msgstr ""
 
-msgctxt "help:gnuhealth.specialty,name:0"
+msgctxt "help:gnuhealth.specialty,name:"
 msgid "ie, Addiction Psychiatry"
 msgstr ""
 
-msgctxt "help:gnuhealth.vaccination,institution:0"
+msgctxt "help:gnuhealth.vaccination,institution:"
 msgid "Medical Center where the patient is being or was vaccinated"
 msgstr ""
 
-msgctxt "help:gnuhealth.vaccination,vaccine:0"
+msgctxt "help:gnuhealth.vaccination,vaccine:"
 msgid "Vaccine Name. Make sure that the vaccine (product) has all the proper information at product level. Information such as provider, supplier code, tracking number, etc.. This  information must always be present. If available, please copy / scan the vaccine leaflet and attach it to this record"
 msgstr ""
 
-msgctxt "help:gnuhealth.vaccination,vaccine_lot:0"
+msgctxt "help:gnuhealth.vaccination,vaccine_lot:"
 msgid "Please check on the vaccine (product) production lot numberand tracking number when available !"
 msgstr ""
 
-msgctxt "help:party.address,relationship:0"
-msgid "Include the relationship with the patient - friend, co-worker, brother, ..."
+msgctxt "help:party.address,is_school:"
+msgid "Check this box to mark the school address"
 msgstr ""
 
-msgctxt "help:party.address,relative_id:0"
+msgctxt "help:party.address,is_work:"
+msgid "Check this box to mark the work address"
+msgstr ""
+
+msgctxt "help:party.address,relationship:"
+msgid "Include the relationship with the patient - friend, co-worker, brother,..."
+msgstr ""
+
+msgctxt "help:party.address,relative_id:"
 msgid "If the relative is also a patient, please include it here"
 msgstr ""
 
-msgctxt "help:party.party,activation_date:0"
+msgctxt "help:party.party,activation_date:"
 msgid "Date of activation of the party"
 msgstr ""
 
-msgctxt "help:party.party,alias:0"
+msgctxt "help:party.party,alias:"
 msgid "Common name that the Party is reffered"
 msgstr ""
 
-msgctxt "help:party.party,internal_user:0"
-msgid "In Medical is the user (doctor, nurse) that logins.When the party is a doctor or a health proffesional, it will be the user that maps the doctor's party name. It must be present."
+msgctxt "help:party.party,internal_user:"
+msgid "In GNU Health is the user (doctor, nurse) that logins.When the party is a doctor or a health professional, it will be the user that maps the doctor's party name. It must be present."
 msgstr ""
 
-msgctxt "help:party.party,is_doctor:0"
+msgctxt "help:party.party,is_doctor:"
 msgid "Check if the party is a doctor"
 msgstr ""
 
-msgctxt "help:party.party,is_institution:0"
+msgctxt "help:party.party,is_institution:"
 msgid "Check if the party is a Medical Center"
 msgstr ""
 
-msgctxt "help:party.party,is_insurance_company:0"
+msgctxt "help:party.party,is_insurance_company:"
 msgid "Check if the party is an Insurance Company"
 msgstr ""
 
-msgctxt "help:party.party,is_patient:0"
+msgctxt "help:party.party,is_patient:"
 msgid "Check if the party is a patient"
 msgstr ""
 
-msgctxt "help:party.party,is_person:0"
+msgctxt "help:party.party,is_person:"
 msgid "Check if the party is a person."
 msgstr ""
 
-msgctxt "help:party.party,lastname:0"
+msgctxt "help:party.party,is_pharmacy:"
+msgid "Check if the party is a Pharmacy"
+msgstr ""
+
+msgctxt "help:party.party,lastname:"
 msgid "Last Name"
 msgstr ""
 
-msgctxt "help:party.party,ref:0"
+msgctxt "help:party.party,ref:"
 msgid "Patient Social Security Number or equivalent"
 msgstr ""
 
-msgctxt "help:product.product,is_bed:0"
+msgctxt "help:product.product,is_bed:"
 msgid "Check if the product is a bed on the gnuhealth.center"
 msgstr ""
 
-msgctxt "help:product.product,is_medicament:0"
+msgctxt "help:product.product,is_medicament:"
 msgid "Check if the product is a medicament"
 msgstr ""
 
-msgctxt "help:product.product,is_vaccine:0"
+msgctxt "help:product.product,is_vaccine:"
 msgid "Check if the product is a vaccine"
 msgstr ""
 
-msgctxt "model:gnuhealth.appointment,name:0"
+msgctxt "model:gnuhealth.appointment,name:"
 msgid "Patient Appointments"
 msgstr ""
 
-msgctxt "model:gnuhealth.directions,name:0"
+msgctxt "model:gnuhealth.diagnostic_hypothesis,name:"
+msgid "Other Diagnostic Hypothesis"
+msgstr ""
+
+msgctxt "model:gnuhealth.directions,name:"
 msgid "Patient Directions"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease_group.members,name:"
+msgid "Disease group members"
 msgstr ""
 
 msgctxt "model:gnuhealth.dose.unit,desc:kg"
@@ -2542,7 +3595,7 @@ msgctxt "model:gnuhealth.dose.unit,desc:unit"
 msgid "unit"
 msgstr ""
 
-msgctxt "model:gnuhealth.dose.unit,name:0"
+msgctxt "model:gnuhealth.dose.unit,name:"
 msgid "Drug Dose Unit"
 msgstr ""
 
@@ -2574,7 +3627,7 @@ msgctxt "model:gnuhealth.dose.unit,name:unit"
 msgid "unit"
 msgstr ""
 
-msgctxt "model:gnuhealth.drug.form,name:0"
+msgctxt "model:gnuhealth.drug.form,name:"
 msgid "Drug Form"
 msgstr ""
 
@@ -2954,7 +4007,7 @@ msgctxt "model:gnuhealth.drug.form,name:WIP"
 msgid "Wipe "
 msgstr ""
 
-msgctxt "model:gnuhealth.drug.route,name:0"
+msgctxt "model:gnuhealth.drug.route,name:"
 msgid "Drug Administration Route"
 msgstr ""
 
@@ -3146,7 +4199,7 @@ msgctxt "model:gnuhealth.drug.route,name:route_9"
 msgid "Intra-arterial "
 msgstr ""
 
-msgctxt "model:gnuhealth.ethnicity,name:0"
+msgctxt "model:gnuhealth.ethnicity,name:"
 msgid "Ethnicity"
 msgstr ""
 
@@ -3178,39 +4231,39 @@ msgctxt "model:gnuhealth.ethnicity,name:eth7"
 msgid "Indian American"
 msgstr ""
 
-msgctxt "model:gnuhealth.family,name:0"
-msgid "gnuhealth.family"
+msgctxt "model:gnuhealth.family,name:"
+msgid "Family"
 msgstr ""
 
-msgctxt "model:gnuhealth.family_member,name:0"
-msgid "gnuhealth.family_member"
+msgctxt "model:gnuhealth.family_member,name:"
+msgid "Family Member"
 msgstr ""
 
-msgctxt "model:gnuhealth.hospital.bed,name:0"
+msgctxt "model:gnuhealth.hospital.bed,name:"
 msgid "Hospital Bed"
 msgstr ""
 
-msgctxt "model:gnuhealth.hospital.building,name:0"
+msgctxt "model:gnuhealth.hospital.building,name:"
 msgid "Hospital Building"
 msgstr ""
 
-msgctxt "model:gnuhealth.hospital.or,name:0"
+msgctxt "model:gnuhealth.hospital.or,name:"
 msgid "Operating Room"
 msgstr ""
 
-msgctxt "model:gnuhealth.hospital.unit,name:0"
+msgctxt "model:gnuhealth.hospital.unit,name:"
 msgid "Hospital Unit"
 msgstr ""
 
-msgctxt "model:gnuhealth.hospital.ward,name:0"
+msgctxt "model:gnuhealth.hospital.ward,name:"
 msgid "Hospital Ward"
 msgstr ""
 
-msgctxt "model:gnuhealth.insurance,name:0"
+msgctxt "model:gnuhealth.insurance,name:"
 msgid "Insurance"
 msgstr ""
 
-msgctxt "model:gnuhealth.insurance.plan,name:0"
+msgctxt "model:gnuhealth.insurance.plan,name:"
 msgid "Insurance Plan"
 msgstr ""
 
@@ -4639,7 +5692,7 @@ msgid "potassium chloride"
 msgstr ""
 
 msgctxt "model:gnuhealth.medicament,active_component:meds_em42"
-msgid "sodium calcium edetate "
+msgid "sodium calcium edetate"
 msgstr ""
 
 msgctxt "model:gnuhealth.medicament,active_component:meds_em420"
@@ -4982,11 +6035,11 @@ msgctxt "model:gnuhealth.medicament,active_component:meds_em99"
 msgid "ethambutol + isoniazid + rifampicin"
 msgstr ""
 
-msgctxt "model:gnuhealth.medicament,name:0"
+msgctxt "model:gnuhealth.medicament,name:"
 msgid "Medicament"
 msgstr ""
 
-msgctxt "model:gnuhealth.medicament.category,name:0"
+msgctxt "model:gnuhealth.medicament.category,name:"
 msgid "Medicament Category"
 msgstr ""
 
@@ -5678,7 +6731,7 @@ msgctxt "model:gnuhealth.medicament.category,name:medicament"
 msgid "Medicaments"
 msgstr ""
 
-msgctxt "model:gnuhealth.medication.dosage,name:0"
+msgctxt "model:gnuhealth.medication.dosage,name:"
 msgid "Medication Common Frequencies"
 msgstr ""
 
@@ -5766,11 +6819,11 @@ msgctxt "model:gnuhealth.medication.dosage,name:422114001"
 msgid "1 time"
 msgstr ""
 
-msgctxt "model:gnuhealth.medication.template,name:0"
+msgctxt "model:gnuhealth.medication.template,name:"
 msgid "Template for medication"
 msgstr ""
 
-msgctxt "model:gnuhealth.occupation,name:0"
+msgctxt "model:gnuhealth.occupation,name:"
 msgid "Occupation"
 msgstr ""
 
@@ -8386,59 +9439,71 @@ msgctxt "model:gnuhealth.occupation,name:occ99"
 msgid "Crystallographer"
 msgstr ""
 
-msgctxt "model:gnuhealth.operational_area,name:0"
+msgctxt "model:gnuhealth.operational_area,name:"
 msgid "Operational Area"
 msgstr ""
 
-msgctxt "model:gnuhealth.operational_sector,name:0"
+msgctxt "model:gnuhealth.operational_sector,name:"
 msgid "Operational Sector"
 msgstr ""
 
-msgctxt "model:gnuhealth.pathology,name:0"
-msgid "gnuhealth.pathology"
+msgctxt "model:gnuhealth.pathology,name:"
+msgid "Diseases"
 msgstr ""
 
-msgctxt "model:gnuhealth.pathology.category,name:0"
+msgctxt "model:gnuhealth.pathology.category,name:"
 msgid "Disease Categories"
 msgstr ""
 
-msgctxt "model:gnuhealth.patient,name:0"
+msgctxt "model:gnuhealth.pathology.group,name:"
+msgid "Pathology Groups"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient,name:"
 msgid "Patient related information"
 msgstr ""
 
-msgctxt "model:gnuhealth.patient.disease,name:0"
+msgctxt "model:gnuhealth.patient.disease,name:"
 msgid "Patient Disease History"
 msgstr ""
 
-msgctxt "model:gnuhealth.patient.evaluation,name:0"
+msgctxt "model:gnuhealth.patient.evaluation,name:"
 msgid "Patient Evaluation"
 msgstr ""
 
-msgctxt "model:gnuhealth.patient.medication,name:0"
+msgctxt "model:gnuhealth.patient.medication,name:"
 msgid "Patient Medication"
 msgstr ""
 
-msgctxt "model:gnuhealth.physician,name:0"
+msgctxt "model:gnuhealth.physician,name:"
 msgid "Physician"
 msgstr ""
 
-msgctxt "model:gnuhealth.prescription.line,name:0"
+msgctxt "model:gnuhealth.prescription.line,name:"
 msgid "Prescription Line"
 msgstr ""
 
-msgctxt "model:gnuhealth.prescription.order,name:0"
+msgctxt "model:gnuhealth.prescription.order,name:"
 msgid "Prescription Order"
 msgstr ""
 
-msgctxt "model:gnuhealth.procedure,name:0"
+msgctxt "model:gnuhealth.procedure,name:"
 msgid "Medical Procedures"
 msgstr ""
 
-msgctxt "model:gnuhealth.sequences,name:0"
+msgctxt "model:gnuhealth.secondary_condition,name:"
+msgid "Secondary Conditions"
+msgstr ""
+
+msgctxt "model:gnuhealth.sequences,name:"
 msgid "Standard Sequences for GNU Health"
 msgstr ""
 
-msgctxt "model:gnuhealth.specialty,name:0"
+msgctxt "model:gnuhealth.signs_and_symptoms,name:"
+msgid "Evaluation Signs and Symptoms"
+msgstr ""
+
+msgctxt "model:gnuhealth.specialty,name:"
 msgid "Medical Specialty"
 msgstr ""
 
@@ -8662,6 +9727,10 @@ msgctxt "model:gnuhealth.specialty,name:6"
 msgid "Biochemistry"
 msgstr ""
 
+msgctxt "model:gnuhealth.specialty,name:60"
+msgid "General Practitioner"
+msgstr ""
+
 msgctxt "model:gnuhealth.specialty,name:7"
 msgid "Cardiology"
 msgstr ""
@@ -8674,7 +9743,7 @@ msgctxt "model:gnuhealth.specialty,name:9"
 msgid "Clinical laboratory sciences"
 msgstr ""
 
-msgctxt "model:gnuhealth.vaccination,name:0"
+msgctxt "model:gnuhealth.vaccination,name:"
 msgid "Patient Vaccination information"
 msgstr ""
 
@@ -8796,6 +9865,10 @@ msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_operational_sector"
 msgid "Operational Sectors"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_pathology_group"
+msgid "Pathology Groups"
 msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_physician"
@@ -8962,6 +10035,10 @@ msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_category"
 msgid "Disease categories"
 msgstr ""
 
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_group"
+msgid "Pathology Groups"
+msgstr ""
+
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_pathology"
 msgid "Diseases"
 msgstr ""
@@ -9002,6 +10079,10 @@ msgctxt "model:ir.ui.menu,name:gnuhealth_patients_menu"
 msgid "Patients"
 msgstr ""
 
+msgctxt "model:ir.ui.menu,name:gnuhealth_prescription_menu"
+msgid "Prescriptions"
+msgstr ""
+
 msgctxt "model:ir.ui.menu,name:gnuhealth_reporting_menu"
 msgid "Reporting"
 msgstr ""
@@ -9024,6 +10105,10 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_procedure_list"
 msgid "Procedures"
+msgstr ""
+
+msgctxt "model:product.category,name:prod_insurance"
+msgid "Insurances"
 msgstr ""
 
 msgctxt "model:product.category,name:prod_medicament"
@@ -10474,924 +11559,987 @@ msgctxt "model:product.template,name:prod_em99"
 msgid "ethambutol + isoniazid + rifampicin"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,appointment_type:0"
+msgctxt "model:res.group,name:group_health_admin"
+msgid "Health Administration"
+msgstr ""
+
+msgctxt "selection:gnuhealth.appointment,appointment_type:"
 msgid "Ambulatory"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,appointment_type:0"
+msgctxt "selection:gnuhealth.appointment,appointment_type:"
 msgid "Inpatient"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,appointment_type:0"
+msgctxt "selection:gnuhealth.appointment,appointment_type:"
 msgid "Outpatient"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,urgency:0"
+msgctxt "selection:gnuhealth.appointment,urgency:"
 msgid "Medical Emergency"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,urgency:0"
+msgctxt "selection:gnuhealth.appointment,urgency:"
 msgid "Normal"
 msgstr ""
 
-msgctxt "selection:gnuhealth.appointment,urgency:0"
+msgctxt "selection:gnuhealth.appointment,urgency:"
 msgid "Urgent"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Circo Electric"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Clinitron"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Electric"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Gatch Bed"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Low Air Loss"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Low Bed"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,bed_type:0"
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Stretcher"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,state:0"
+msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Free"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,state:0"
+msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Not available"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,state:0"
+msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Occupied"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.bed,state:0"
+msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Reserved"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,gender:0"
+msgctxt "selection:gnuhealth.hospital.ward,gender:"
 msgid "Men Ward"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,gender:0"
+msgctxt "selection:gnuhealth.hospital.ward,gender:"
 msgid "Unisex"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,gender:0"
+msgctxt "selection:gnuhealth.hospital.ward,gender:"
 msgid "Women Ward"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,state:0"
+msgctxt "selection:gnuhealth.hospital.ward,state:"
 msgid "Beds available"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,state:0"
+msgctxt "selection:gnuhealth.hospital.ward,state:"
 msgid "Full"
 msgstr ""
 
-msgctxt "selection:gnuhealth.hospital.ward,state:0"
+msgctxt "selection:gnuhealth.hospital.ward,state:"
 msgid "Not available"
 msgstr ""
 
-msgctxt "selection:gnuhealth.insurance,insurance_type:0"
+msgctxt "selection:gnuhealth.insurance,insurance_type:"
 msgid "Labour Union / Syndical"
 msgstr ""
 
-msgctxt "selection:gnuhealth.insurance,insurance_type:0"
+msgctxt "selection:gnuhealth.insurance,insurance_type:"
 msgid "Private"
 msgstr ""
 
-msgctxt "selection:gnuhealth.insurance,insurance_type:0"
+msgctxt "selection:gnuhealth.insurance,insurance_type:"
 msgid "State"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "A"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "B"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "C"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "D"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "N"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medicament,pregnancy_category:0"
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "X"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "days"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "hours"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "indefinite"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "minutes"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "months"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,duration_period:0"
+msgctxt "selection:gnuhealth.medication.template,duration_period:"
 msgid "years"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "days"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "hours"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "minutes"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "seconds"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "weeks"
 msgstr ""
 
-msgctxt "selection:gnuhealth.medication.template,frequency_unit:0"
+msgctxt "selection:gnuhealth.medication.template,frequency_unit:"
 msgid "when required"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,blood_type:0"
+msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "A"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,blood_type:0"
+msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "AB"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,blood_type:0"
+msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "B"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,blood_type:0"
+msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "O"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,marital_status:0"
+msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Divorced"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,marital_status:0"
+msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Married"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,marital_status:0"
+msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Separated"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,marital_status:0"
+msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Single"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,marital_status:0"
+msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Widowed"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,rh:0"
+msgctxt "selection:gnuhealth.patient,rh:"
 msgid "+"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,rh:0"
+msgctxt "selection:gnuhealth.patient,rh:"
 msgid "-"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,sex:0"
+msgctxt "selection:gnuhealth.patient,sex:"
 msgid "Female"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient,sex:0"
+msgctxt "selection:gnuhealth.patient,sex:"
 msgid "Male"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,allergy_type:0"
+msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
 msgid "Drug Allergy"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,allergy_type:0"
+msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
 msgid "Food Allergy"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,allergy_type:0"
+msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
 msgid "Misc Allergy"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,allergy_type:0"
+msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
 msgid "Misc Contraindication"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,disease_severity:0"
+msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
 msgid "Mild"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,disease_severity:0"
+msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
 msgid "Moderate"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,disease_severity:0"
+msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
 msgid "Severe"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "acute"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "chronic"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "healed"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "improving"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "unchanged"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.disease,status:0"
+msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "worsening"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Ambulatory"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Emergency"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Inpatient"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Periodic control"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Phone call"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Pre-arraganged appointment"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:0"
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
+msgid "Pre-arranged appointment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Telemedicine"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:"
 msgid "Does not Open Eyes"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:"
 msgid "Opens eyes in response to painful stimuli"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:"
 msgid "Opens eyes in response to voice"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:"
 msgid "Opens eyes spontaneously"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Abnormal flexion to painful stimuli (decorticate response)"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Extension to painful stimuli - decerebrate response -"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Flexion / Withdrawal to painful stimuli"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Localizes painful stimuli"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Makes no movement"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_motor:"
 msgid "Obeys commands"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:"
 msgid "Confused, disoriented"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:"
 msgid "Incomprehensible sounds"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:"
 msgid "Makes no sounds"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:"
 msgid "Oriented, converses normally"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:0"
+msgctxt "selection:gnuhealth.patient.evaluation,loc_verbal:"
 msgid "Utters inappropriate words"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Disgust"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Euphoria"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Fear"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Flat"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Happy"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Normal"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Rage"
 msgstr ""
 
-msgctxt "selection:gnuhealth.patient.evaluation,mood:0"
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Sad"
 msgstr ""
 
-msgctxt "selection:party.party,insurance_company_type:0"
+msgctxt "selection:gnuhealth.signs_and_symptoms,sign_or_symptom:"
+msgid "Sign"
+msgstr ""
+
+msgctxt "selection:gnuhealth.signs_and_symptoms,sign_or_symptom:"
+msgid "Symptom"
+msgstr ""
+
+msgctxt "selection:party.party,insurance_company_type:"
 msgid "Labour Union / Syndical"
 msgstr ""
 
-msgctxt "selection:party.party,insurance_company_type:0"
+msgctxt "selection:party.party,insurance_company_type:"
 msgid "Private"
 msgstr ""
 
-msgctxt "selection:party.party,insurance_company_type:0"
+msgctxt "selection:party.party,insurance_company_type:"
 msgid "State"
 msgstr ""
 
-msgctxt "view:gnuhealth.appointment:0"
+msgctxt "view:gnuhealth.appointment:"
 msgid "Appointment"
 msgstr ""
 
-msgctxt "view:gnuhealth.appointment:0"
+msgctxt "view:gnuhealth.appointment:"
 msgid "Information"
 msgstr ""
 
-msgctxt "view:gnuhealth.appointment:0"
+msgctxt "view:gnuhealth.appointment:"
 msgid "Patient appointment"
 msgstr ""
 
-msgctxt "view:gnuhealth.dose.unit:0"
+msgctxt "view:gnuhealth.diagnostic_hypothesis:"
+msgid "Diagnostic Hypothesis"
+msgstr ""
+
+msgctxt "view:gnuhealth.diagnostic_hypothesis:"
+msgid "Patient Evaluation other diagnostic hypotheses"
+msgstr ""
+
+msgctxt "view:gnuhealth.directions:"
+msgid "Patient directions"
+msgstr ""
+
+msgctxt "view:gnuhealth.directions:"
+msgid "directions"
+msgstr ""
+
+msgctxt "view:gnuhealth.disease_group.members:"
+msgid "Member of Pathology Groups"
+msgstr ""
+
+msgctxt "view:gnuhealth.disease_group.members:"
+msgid "Pathology Group Member"
+msgstr ""
+
+msgctxt "view:gnuhealth.dose.unit:"
 msgid "dose"
 msgstr ""
 
-msgctxt "view:gnuhealth.dose.unit:0"
+msgctxt "view:gnuhealth.dose.unit:"
 msgid "doses"
 msgstr ""
 
-msgctxt "view:gnuhealth.drug.form:0"
+msgctxt "view:gnuhealth.drug.form:"
 msgid "Drug Form"
 msgstr ""
 
-msgctxt "view:gnuhealth.drug.form:0"
+msgctxt "view:gnuhealth.drug.form:"
 msgid "Drug Forms"
 msgstr ""
 
-msgctxt "view:gnuhealth.drug.route:0"
+msgctxt "view:gnuhealth.drug.route:"
 msgid "Drug Form"
 msgstr ""
 
-msgctxt "view:gnuhealth.drug.route:0"
+msgctxt "view:gnuhealth.drug.route:"
 msgid "Drug Forms"
 msgstr ""
 
-msgctxt "view:gnuhealth.ethnicity:0"
+msgctxt "view:gnuhealth.ethnicity:"
 msgid "Ethnicities"
 msgstr ""
 
-msgctxt "view:gnuhealth.ethnicity:0"
+msgctxt "view:gnuhealth.ethnicity:"
 msgid "ethnicity"
 msgstr ""
 
-msgctxt "view:gnuhealth.family:0"
+msgctxt "view:gnuhealth.family:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.family:0"
+msgctxt "view:gnuhealth.family:"
 msgid "Families"
 msgstr ""
 
-msgctxt "view:gnuhealth.family:0"
+msgctxt "view:gnuhealth.family:"
 msgid "Family"
 msgstr ""
 
-msgctxt "view:gnuhealth.family:0"
+msgctxt "view:gnuhealth.family:"
 msgid "Members"
 msgstr ""
 
-msgctxt "view:gnuhealth.family_member:0"
+msgctxt "view:gnuhealth.family_member:"
 msgid "Family Member"
 msgstr ""
 
-msgctxt "view:gnuhealth.family_member:0"
+msgctxt "view:gnuhealth.family_member:"
 msgid "Family Members"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.bed:0"
+msgctxt "view:gnuhealth.hospital.bed:"
 msgid "Bed"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.bed:0"
+msgctxt "view:gnuhealth.hospital.bed:"
 msgid "Health Center Bed Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.building:0"
+msgctxt "view:gnuhealth.hospital.building:"
 msgid "Building"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.building:0"
+msgctxt "view:gnuhealth.hospital.building:"
 msgid "Health Center Building"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.or:0"
+msgctxt "view:gnuhealth.hospital.or:"
 msgid "Operating Room"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.unit:0"
+msgctxt "view:gnuhealth.hospital.unit:"
 msgid "Health Center unit"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.unit:0"
+msgctxt "view:gnuhealth.hospital.unit:"
 msgid "unit"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.ward:0"
+msgctxt "view:gnuhealth.hospital.ward:"
 msgid "Health Center Ward"
 msgstr ""
 
-msgctxt "view:gnuhealth.hospital.ward:0"
+msgctxt "view:gnuhealth.hospital.ward:"
 msgid "Health Center Ward Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.insurance.plan:0"
+msgctxt "view:gnuhealth.insurance.plan:"
 msgid "Insurance Plans"
 msgstr ""
 
-msgctxt "view:gnuhealth.insurance:0"
+msgctxt "view:gnuhealth.insurance:"
 msgid "Insurance List"
 msgstr ""
 
-msgctxt "view:gnuhealth.insurance:0"
+msgctxt "view:gnuhealth.insurance:"
 msgid "Insurances"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament.category:0"
+msgctxt "view:gnuhealth.medicament.category:"
 msgid "Medicament Categories"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament.category:0"
+msgctxt "view:gnuhealth.medicament.category:"
 msgid "Medicament categories"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Adverse Reactions"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Composition"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Indications"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Main Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Notes"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Pregnancy"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Presentation"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "Storage"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "medicament"
 msgstr ""
 
-msgctxt "view:gnuhealth.medicament:0"
+msgctxt "view:gnuhealth.medicament:"
 msgid "medicaments"
 msgstr ""
 
-msgctxt "view:gnuhealth.medication.dosage:0"
+msgctxt "view:gnuhealth.medication.dosage:"
 msgid "Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.medication.dosage:0"
+msgctxt "view:gnuhealth.medication.dosage:"
 msgid "Dosages"
 msgstr ""
 
-msgctxt "view:gnuhealth.occupation:0"
+msgctxt "view:gnuhealth.occupation:"
 msgid "Occupations"
 msgstr ""
 
-msgctxt "view:gnuhealth.occupation:0"
+msgctxt "view:gnuhealth.occupation:"
 msgid "occupation"
 msgstr ""
 
-msgctxt "view:gnuhealth.operational_area:0"
+msgctxt "view:gnuhealth.operational_area:"
 msgid "Operational Area"
 msgstr ""
 
-msgctxt "view:gnuhealth.operational_area:0"
+msgctxt "view:gnuhealth.operational_area:"
 msgid "Operational Areas List"
 msgstr ""
 
-msgctxt "view:gnuhealth.operational_sector:0"
+msgctxt "view:gnuhealth.operational_sector:"
 msgid "Operational Sector List"
 msgstr ""
 
-msgctxt "view:gnuhealth.operational_sector:0"
+msgctxt "view:gnuhealth.operational_sector:"
 msgid "Region Operational Sector"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology.category:0"
+msgctxt "view:gnuhealth.pathology.category:"
 msgid "Disease Categories"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology.category:0"
+msgctxt "view:gnuhealth.pathology.category:"
 msgid "Disease categories"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology:0"
+msgctxt "view:gnuhealth.pathology.group:"
+msgid "Extra Information"
+msgstr ""
+
+msgctxt "view:gnuhealth.pathology.group:"
+msgid "Pathology Groups"
+msgstr ""
+
+msgctxt "view:gnuhealth.pathology:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology:0"
+msgctxt "view:gnuhealth.pathology:"
 msgid "Genetics"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology:0"
+msgctxt "view:gnuhealth.pathology:"
 msgid "Main"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology:0"
+msgctxt "view:gnuhealth.pathology:"
 msgid "Pathology"
 msgstr ""
 
-msgctxt "view:gnuhealth.pathology:0"
+msgctxt "view:gnuhealth.pathology:"
 msgid "Pathology Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Allergies"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Main"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Patient Diseases"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Patient diseases"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Pregnancy"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.disease:0"
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Therapy"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Anthropometry"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Chief Complaint"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Clinical"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Diagnosis"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Evaluation Summary"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Evaluations"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Glasgow Coma Scale"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
-msgid "Glucose"
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Glucose and Lipids Profile"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Information on Diagnosis"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
-msgid "Lipids"
-msgstr ""
-
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Main Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Mental Assessment and Impairments"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Mental Status"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Nutrition"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
-msgid "Pain"
-msgstr ""
-
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Patient Evaluation"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
-msgid "Signs"
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Present Illness"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
-msgid "Symptoms"
-msgstr ""
-
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Treatment Plan"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.evaluation:0"
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Vital Signs"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Admnistration"
 msgstr ""
 
-#, fuzzy
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Adverse Reactions and Notes"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Common Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "General Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Medication"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Notes"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Patient Medication"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Prescribing doctor"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Specific Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Status"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Treatment duration"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient.medication:0"
+msgctxt "view:gnuhealth.patient.medication:"
 msgid "Treatment period"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Diseases"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "General Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Main"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Main Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Medication"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Misc"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Patient Allergies and Critical Information"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Patient Extra Information"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Patient General Information"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "Picture"
 msgstr ""
 
-msgctxt "view:gnuhealth.patient:0"
+msgctxt "view:gnuhealth.patient:"
 msgid "patient"
 msgstr ""
 
-msgctxt "view:gnuhealth.physician:0"
+msgctxt "view:gnuhealth.physician:"
 msgid "Extra Info"
 msgstr ""
 
-msgctxt "view:gnuhealth.physician:0"
+msgctxt "view:gnuhealth.physician:"
 msgid "Physicians"
 msgstr ""
 
-msgctxt "view:gnuhealth.physician:0"
+msgctxt "view:gnuhealth.physician:"
 msgid "physician"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.line:0"
+msgctxt "view:gnuhealth.prescription.line:"
 msgid "Common Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.line:0"
+msgctxt "view:gnuhealth.prescription.line:"
 msgid "Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.line:0"
+msgctxt "view:gnuhealth.prescription.line:"
 msgid "Prescription Line"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.line:0"
+msgctxt "view:gnuhealth.prescription.line:"
 msgid "Prescription lines"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.line:0"
+msgctxt "view:gnuhealth.prescription.line:"
 msgid "Specific Dosage"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.order:0"
+msgctxt "view:gnuhealth.prescription.order:"
 msgid "Notes"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.order:0"
+msgctxt "view:gnuhealth.prescription.order:"
 msgid "Patient and Doctor Information"
 msgstr ""
 
-msgctxt "view:gnuhealth.prescription.order:0"
+msgctxt "view:gnuhealth.prescription.order:"
 msgid "Prescription"
 msgstr ""
 
-msgctxt "view:gnuhealth.procedure:0"
+msgctxt "view:gnuhealth.procedure:"
 msgid "Procedure"
 msgstr ""
 
-msgctxt "view:gnuhealth.specialty:0"
+msgctxt "view:gnuhealth.secondary_condition:"
+msgid "Diagnostic Hypothesis"
+msgstr ""
+
+msgctxt "view:gnuhealth.secondary_condition:"
+msgid "Patient Evaluation secondary condition"
+msgstr ""
+
+msgctxt "view:gnuhealth.signs_and_symptoms:"
+msgid "Clinical Findinds - Signs and Symptoms"
+msgstr ""
+
+msgctxt "view:gnuhealth.signs_and_symptoms:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "view:gnuhealth.signs_and_symptoms:"
+msgid "Sign or Symptom"
+msgstr ""
+
+msgctxt "view:gnuhealth.specialty:"
 msgid "Medical Specialties"
 msgstr ""
 
-msgctxt "view:gnuhealth.specialty:0"
+msgctxt "view:gnuhealth.specialty:"
 msgid "specialty"
 msgstr ""
 
-msgctxt "view:gnuhealth.vaccination:0"
+msgctxt "view:gnuhealth.vaccination:"
 msgid "Notes"
 msgstr ""
 
-msgctxt "view:gnuhealth.vaccination:0"
+msgctxt "view:gnuhealth.vaccination:"
 msgid "Patient vaccination"
 msgstr ""
 
-msgctxt "view:gnuhealth.vaccination:0"
+msgctxt "view:gnuhealth.vaccination:"
 msgid "vaccination"
 msgstr ""
 
-msgctxt "view:party.party:0"
+msgctxt "view:party.party:"
 msgid "Health"
 msgstr ""
 
-msgctxt "view:product.product:0"
+msgctxt "view:product.product:"
 msgid "Health"
 msgstr ""
 
