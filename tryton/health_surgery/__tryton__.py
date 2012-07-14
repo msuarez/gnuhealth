@@ -29,14 +29,14 @@
         'health',
     ],
     'name_es_ES': 'GNU Health : Cirugía',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
+    'translation': [
+    ],
 
     'description': '''
 
 Basic Surgery Module for GNU Health
 
-If you want to include standard codings for procedures, please install 
+If you want to include standard codings for procedures, please install
 corresponding module, like ICD10-PCS
 
 ''',

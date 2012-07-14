@@ -29,9 +29,8 @@
         'health',
     ],
     'name_es_ES': 'GNU Health : Estilos de vida',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
-
+    'translation': [
+    ],
     'description': '''
 
 Gathers information about the habits and sexuality of the patient

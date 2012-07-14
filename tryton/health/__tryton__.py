@@ -153,10 +153,5 @@ Características de GNU Health :
         'health_report.xml',
     ],
     'translation': [
-        'locale/es_ES.po',
-        'locale/fr_FR.po',
-        'locale/el.po',
-        'locale/fa.po',
-        'locale/it.po',
     ],
 }

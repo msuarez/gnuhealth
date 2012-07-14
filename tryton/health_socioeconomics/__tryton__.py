@@ -29,9 +29,9 @@
         'health',
     ],
     'name_es_ES': 'GNU Health : Socioeconomía',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
-    
+    'translation': [
+    ],
+
     'description': '''
 
 
@@ -43,7 +43,7 @@ Among others, we include the following factors :
 - Educational level
 - Infrastructure (electricity, sewers, ... )
 - Family affection ( APGAR )
-- Drug addiction 
+- Drug addiction
 - Hostile environment
 - Teenage Pregnancy
 - Working children

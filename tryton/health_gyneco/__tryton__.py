@@ -20,7 +20,7 @@
 #
 ##############################################################################
 {
-    'name': 'GNU Health: Gynecology and Obstetrics',  
+    'name': 'GNU Health: Gynecology and Obstetrics',
     'version': '1.6.2',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
@@ -29,15 +29,14 @@
         'health',
     ],
     'name_es_ES': 'GNU Health : Ginecología y Obstetricia',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
-
+    'translation': [
+    ],
     'description': '''
 
 This module includes :
 
 - Gynecological Information
-- Obstetric information 
+- Obstetric information
 - Perinatal Information and monitoring
 - Puerperium
 

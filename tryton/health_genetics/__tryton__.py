@@ -30,9 +30,8 @@
         'health',
     ],
     'name_es_ES': 'GNU Health : Genética',
-    'translation': ['locale/es_ES.po', 'locale/fr_FR.po', 'locale/el.po',
-        'locale/fa.po','locale/it.po'],
-    
+    'translation': [
+    ],
     'description': '''
 
 Family history and genetic risks
