@@ -20,12 +20,8 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields, ModelSingleton
-from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
-    Button
-from trytond.transaction import Transaction
-from trytond.pyson import Eval, Not, Bool, And, Equal
+from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
-
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
@@ -35,10 +31,12 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     _name = "gnuhealth.sequences"
 
     health_service_sequence = fields.Property(fields.Many2One('ir.sequence',
-        'Health Service Sequence', domain=[('code', '=', 'gnuhealth.health_service')],
-        required=True))
+        'Health Service Sequence', domain=[
+            ('code', '=', 'gnuhealth.health_service')
+        ], required=True))
 
 GnuHealthSequences()
+
 
 class HealthService(ModelSQL, ModelView):
     'Health Service'
@@ -51,7 +49,7 @@ class HealthService(ModelSQL, ModelView):
     service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
-    
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('invoiced', 'Invoiced'),
@@ -60,21 +58,20 @@ class HealthService(ModelSQL, ModelView):
     def default_state(self):
         return 'draft'
 
-
     def button_set_to_draft(self, ids):
         self.write(ids, {'state': 'draft'})
         return True
-        
+
     def __init__(self):
         super(HealthService, self).__init__()
         self._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
 
         self._rpc.update({'button_set_to_draft': True})
-        
 
         self._buttons.update({
-            'button_set_to_draft': { 'invisible': Equal(Eval('state'), 'draft') }
+            'button_set_to_draft': {'invisible': Equal(Eval('state'),
+                'draft')}
             })
 
     def create(self, values):
@@ -103,9 +100,9 @@ class HealthServiceLine(ModelSQL, ModelView):
         help='Enter or select the date / ID of the appointment related to'\
         ' this evaluation')
 
-    to_invoice = fields.Boolean ('Invoice')
+    to_invoice = fields.Boolean('Invoice')
     product = fields.Many2One('product.product', 'Product', required=True)
-    qty = fields.Integer ('Qty')
+    qty = fields.Integer('Qty')
     from_date = fields.Date('From')
     to_date = fields.Date('To')
 
