@@ -1,3 +1,22 @@
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2012  Sebastian Marro <smarro@gnusolidario.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, StateAction, Button
 from trytond.backend import FIELDS
@@ -15,7 +34,7 @@ class TopDiseases(ModelSQL, ModelView):
     def __init__(self):
         super(TopDiseases, self).__init__()
         self._order.insert(0, ('cases', 'DESC'))
-        
+
     def table_query(self):
         from_clause = ' '
         where_clause = ' '
