@@ -36,6 +36,7 @@
     'translation': [
     ],
     'description': '''
+>>>>>>> other
         This module add functionality to connect with a CalDAV client.
         ''',
     'description_es_ES': '''

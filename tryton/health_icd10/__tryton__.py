@@ -37,5 +37,7 @@ Organización Mundial de la Salud - Clasificación Internacional de Enfermedades
 ''',
 	"xml" : ["data/disease_categories.xml","data/diseases.xml"],
 
+    'translation': [],
+
 	"active": False 
 }
