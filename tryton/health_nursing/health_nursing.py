@@ -32,10 +32,7 @@ class PatientRounding(ModelSQL, ModelView):
     'Patient Rounding'
     _name = 'gnuhealth.patient.rounding'
     _description = __doc__
-    _inherits = {'gnuhealth.patient.evaluation': 'rounding'}
 
-    rounding = fields.Many2One('gnuhealth.patient.evaluation',
-        'Patient Rounding')
     environmental_assessment = fields.Char('Environment', help="Environment" \
         "assessment . State any disorder in the room.") 
     
