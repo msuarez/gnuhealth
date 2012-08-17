@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Create the GNU HEALTH NURSING icon -->
+        <record model="ir.ui.icon" id="gnuhealth_nursing_icon">
+            <field name="name">gnuhealth-nursing</field>
+            <field name="path">icons/gnuhealth_nurse.svg</field>
+        </record>
+
+<!-- Initial Menu -->
+        <menuitem name="Nursing" id="gnuhealth_nursing_menu"
+            parent="health.gnuhealth_menu" sequence="10" icon="gnuhealth-nursing"/>
+
+
+
+
+    </data>
+</tryton>

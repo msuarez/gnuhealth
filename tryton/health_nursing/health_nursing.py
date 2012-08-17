@@ -33,6 +33,13 @@ class PatientRounding(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.rounding'
     _description = __doc__
 
+
+    patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
+
+    evaluation_start = fields.DateTime('Start', required=True)
+    evaluation_endtime = fields.DateTime('End', required=True)
+
     environmental_assessment = fields.Char('Environment', help="Environment" \
         "assessment . State any disorder in the room.") 
     
@@ -43,7 +50,35 @@ class PatientRounding(ModelSQL, ModelView):
     proximity = fields.Boolean ('Proximity', help="Check if personal items, water, alarm, ... are not in easy reach")
     pump = fields.Boolean ('Pumps', help="Check if there is any issues with the pumps - IVs ... ")
     personal_needs = fields.Boolean ('Personal needs',help="Check if the patient requests anything")
+
+    # Vital Signs
+    systolic = fields.Integer('Systolic Pressure')
+    diastolic = fields.Integer('Diastolic Pressure')
+    bpm = fields.Integer('Heart Rate',
+        help='Heart rate expressed in beats per minute')
+    respiratory_rate = fields.Integer('Respiratory Rate',
+        help='Respiratory rate expressed in breaths per minute')
+    osat = fields.Integer('Oxygen Saturation',
+        help='Oxygen Saturation(arterial).')
+    temperature = fields.Float('Temperature',
+        help='Temperature in celcius')
+
+    weight = fields.Float('Weight', help='Weight in Kilos')
+    height = fields.Float('Height', help='Height in centimeters, eg 175')
+    bmi = fields.Float('Body Mass Index',
+        on_change_with=['weight', 'height', 'bmi'])
+
+    #Glycemia
+    glycemia = fields.Float('Glycemia', help='Blood Glucose level')
     
-    glycemia = fields.Float('Glycemia', help='Glucose level')
+    depression = fields.Boolean ('Depression signs',help="Check this if the patient shows signs of depression")
+
+    evolution = fields.Selection([
+        ('n', 'Status Quo'),
+        ('i', 'Improving'),
+        ('w', 'Worsening'),
+        ], 'Evolution', required=True, help="Check your judgement of current patient condition", sort=False)
+
+    round_summary = fields.Text('Round Summary')
 
 PatientRounding()
