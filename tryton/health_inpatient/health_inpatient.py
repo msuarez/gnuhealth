@@ -56,7 +56,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         ], 'Admission type', required=True, select=True)
     hospitalization_date = fields.DateTime('Hospitalization date',
         required=True, select=True)
-    discharge_date = fields.DateTime('Discharge date', required=True,
+    discharge_date = fields.DateTime('Expected Discharge Date', required=True,
      select=True)
     attending_physician = fields.Many2One('gnuhealth.physician',
         'Attending Physician',select=True)
