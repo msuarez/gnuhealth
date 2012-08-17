@@ -80,28 +80,31 @@ class InpatientRegistration(ModelSQL, ModelView):
 # Method to check for availability and make the hospital bed reservation
 
     def button_registration_confirm(self, ids):
-		registration_id = self.browse(ids)[0]
-		bed_obj = Pool().get('gnuhealth.hospital.bed')
-		cursor = Transaction().cursor
-		bed_id = registration_id.bed.id
-		cursor.execute("SELECT COUNT(*) \
-			FROM gnuhealth_inpatient_registration \
-			WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
-				OVERLAPS (timestamp %s, timestamp %s) \
-			  AND (state = %s or state = %s) \
-			  AND bed = CAST(%s AS INTEGER) ",
-			(registration_id.hospitalization_date, registration_id.discharge_date,
-			'confirmed','hospitalized', str(bed_id)))
+        registration_id = self.browse(ids)[0]
+        bed_obj = Pool().get('gnuhealth.hospital.bed')
+        cursor = Transaction().cursor
+        bed_id = registration_id.bed.id
+        cursor.execute("SELECT COUNT(*) \
+            FROM gnuhealth_inpatient_registration \
+            WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
+                OVERLAPS (timestamp %s, timestamp %s) \
+              AND (state = %s or state = %s) \
+              AND bed = CAST(%s AS INTEGER) ",
+            (registration_id.hospitalization_date, registration_id.discharge_date,
+            'confirmed','hospitalized', str(bed_id)))
 
-		res = cursor.fetchone()
-		
-		if res[0] > 0:
-			self.raise_user_error('bed_is_not_available')
-		else:
-			self.write(ids, {'state': 'confirmed'})
-			bed_obj.write(registration_id.bed.id, {'state': 'reserved'})
+        res = cursor.fetchone()
 
-		return True
+        if (registration_id.discharge_date.date() < registration_id.hospitalization_date.date()):
+            self.raise_user_error ("The Discharge date must later than the Admission")
+
+        if res[0] > 0:
+            self.raise_user_error('bed_is_not_available')
+        else:
+            self.write(ids, {'state': 'confirmed'})
+            bed_obj.write(registration_id.bed.id, {'state': 'reserved'})
+
+        return True
 
     def button_patient_discharge(self, ids):
         registration_id = self.browse(ids)[0]
