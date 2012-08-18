@@ -43,22 +43,22 @@ class Appointment(ModelSQL, ModelView):
         help="Calendar Event")
     appointment_time = fields.Integer('Appointment Time',
         help='Appointment Time (Minutes)')
-        
+
     def default_appointment_time(self):
         return 30
-        
+
     def create(self, values):
         event_obj = Pool().get('calendar.event')
         patient_obj = Pool().get('gnuhealth.patient')
         physician_obj = Pool().get('gnuhealth.physician')
-                
+
         if values['doctor']:
             doctor = physician_obj.browse(values['doctor'])
             if doctor.calendar:
                 patient = patient_obj.browse(values['patient'])
                 values['event'] = event_obj.create({
                     'dtstart': values['appointment_date'],
-                    'dtend': values['appointment_date'] + 
+                    'dtend': values['appointment_date'] +
                         timedelta(minutes=values['appointment_time']),
                     'calendar': doctor.calendar.id,
                     'summary': patient.name.lastname + ', ' + patient.name.name,
@@ -67,21 +67,23 @@ class Appointment(ModelSQL, ModelView):
 
     def write(self, ids, values):
         event_obj = Pool().get('calendar.event')
-        patient_obj = Pool().get('gnuhealth.patient')        
+        patient_obj = Pool().get('gnuhealth.patient')
         physician_obj = Pool().get('gnuhealth.physician')
-                
+
+        if isinstance(ids, (int, long)):
+            ids = [ids]
         for appointment_id in ids:
             appointment = self.browse(appointment_id)
             if appointment.event:
                 if 'appointment_date' in values:
                     event_obj.write(appointment.event.id, {
                         'dtstart': values['appointment_date'],
-                        'dtend': values['appointment_date'] + 
+                        'dtend': values['appointment_date'] +
                             timedelta(minutes=appointment.appointment_time),
                         })
                 if 'appointment_time' in values:
                     event_obj.write(appointment.event.id, {
-                        'dtend': appointment.appointment_date + 
+                        'dtend': appointment.appointment_date +
                             timedelta(minutes=values['appointment_time']),
                         })
                 if 'doctor' in values:
@@ -95,14 +97,16 @@ class Appointment(ModelSQL, ModelView):
                         'summary': patient.name.name,
                         })
         return super(Appointment, self).write(ids, values)
-        
+
     def delete(self, ids):
         event_obj = Pool().get('calendar.event')
 
+        if isinstance(ids, (int, long)):
+            ids = [ids]
         for appointment_id in ids:
             appointment = self.browse(appointment_id)
             if appointment.event:
-                event_obj.delete(appointment.event.id)            
-        return super(Appointment, self).delete(ids)        
-        
-Appointment() 
+                event_obj.delete(appointment.event.id)
+        return super(Appointment, self).delete(ids)
+
+Appointment()
