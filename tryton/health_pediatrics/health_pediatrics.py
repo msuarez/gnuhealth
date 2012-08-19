@@ -86,7 +86,7 @@ class Newborn(ModelSQL, ModelView):
         'newborn_id', 'Medication')
     responsible = fields.Many2One('gnuhealth.physician', 'Doctor in charge',
         help="Signed by the health professional")
-    dismissed = fields.DateTime('Dismissed from hospital')
+    dismissed = fields.DateTime('Discharged')
     bd = fields.Boolean('Stillbirth')
     died_at_delivery = fields.Boolean('Died at delivery room')
     died_at_the_hospital = fields.Boolean('Died at the hospital')

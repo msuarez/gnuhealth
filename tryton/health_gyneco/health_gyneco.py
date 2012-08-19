@@ -128,7 +128,7 @@ class Perinatal(ModelSQL, ModelView):
         'Puerperium monitor')
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medication and anesthesics')
-    dismissed = fields.DateTime('Dismissed')
+    dismissed = fields.DateTime('Discharged')
     place_of_death = fields.Selection([
         ('ho', 'Hospital'),
         ('dr', 'At the delivery room'),
