@@ -39,7 +39,7 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     event = fields.Many2One('calendar.event', 'Calendar Event', readonly=True,
         help="Calendar Event")
-        
+
     def button_registration_confirm(self, ids):
         super(InpatientRegistration, self).button_registration_confirm(ids)
 
@@ -67,16 +67,16 @@ class InpatientRegistration(ModelSQL, ModelView):
         for inpatient_registration_id in ids:
             inpatient_registration = self.browse(inpatient_registration_id)
             if inpatient_registration.event:
-                event_obj.delete(inpatient_registration.event.id)            
+                event_obj.delete(inpatient_registration.event.id)
 
         return True
-        
+
     def write(self, ids, values):
         event_obj = Pool().get('calendar.event')
-        patient_obj = Pool().get('gnuhealth.patient')        
+        patient_obj = Pool().get('gnuhealth.patient')
         hospital_bed_obj = Pool().get('gnuhealth.hospital.bed')
-                
-        if not type(ids).__name__=='list':
+
+        if isinstance(ids, (int, long)):
             ids = [ids]
         for inpatient_registration_id in ids:
             inpatient_registration = self.browse(inpatient_registration_id)
@@ -100,15 +100,16 @@ class InpatientRegistration(ModelSQL, ModelView):
                         'summary': patient.name.name,
                         })
         return super(InpatientRegistration, self).write(ids, values)
-        
+
     def delete(self, ids):
         event_obj = Pool().get('calendar.event')
 
+        if isinstance(ids, (int, long)):
+            ids = [ids]
         for inpatient_registration_id in ids:
             inpatient_registration = self.browse(inpatient_registration_id)
             if inpatient_registration.event:
-                event_obj.delete(inpatient_registration.event.id)            
-        return super(InpatientRegistration, self).delete(ids)        
-        
-InpatientRegistration() 
+                event_obj.delete(inpatient_registration.event.id)
+        return super(InpatientRegistration, self).delete(ids)
 
+InpatientRegistration()
