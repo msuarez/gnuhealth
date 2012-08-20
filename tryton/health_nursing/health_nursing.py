@@ -64,7 +64,7 @@ class PatientRounding(ModelSQL, ModelView):
     osat = fields.Integer('Oxygen Saturation',
         help='Oxygen Saturation(arterial).')
     temperature = fields.Float('Temperature',
-        help='Temperature in celcius')
+        help='Temperature in celsius')
 
 
     #Glycemia
