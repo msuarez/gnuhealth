@@ -22,6 +22,8 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from datetime import datetime
 from trytond.pool import Pool
+from trytond.transaction import Transaction
+from trytond.backend import TableHandler
 
 
 # Class : PatientRounding
@@ -44,7 +46,8 @@ class PatientRounding(ModelSQL, ModelView):
         "assessment . State any disorder in the room.") 
     
     # The 6 P's of rounding
-    pain = fields.Integer('Pain', help="Enter the pain in a 1 to 10 scale")
+    pain = fields.Boolean('Pain', help="Check if the patient is in pain")
+    pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to 10")
     potty = fields.Boolean ('Potty', help="Check if the patient needs to urinate / defecate")
     position = fields.Boolean ('Position', help="Check if the patient needs to be repositioned or is unconfortable")
     proximity = fields.Boolean ('Proximity', help="Check if personal items, water, alarm, ... are not in easy reach")
@@ -80,5 +83,24 @@ class PatientRounding(ModelSQL, ModelView):
         ], 'Evolution', required=True, help="Check your judgement of current patient condition", sort=False)
 
     round_summary = fields.Text('Round Summary')
+
+    def default_health_professional(self):
+        cursor = Transaction().cursor
+        user_obj = Pool().get('res.user')
+        user = user_obj.browse(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if not partner_id:
+            self.raise_user_error('No health professional associated to this \
+                user')
+        else:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+
+            return int(doctor_id[0])
 
 PatientRounding()
