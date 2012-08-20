@@ -84,6 +84,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     round_summary = fields.Text('Round Summary')
 
+
     def default_health_professional(self):
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
@@ -103,4 +104,6 @@ class PatientRounding(ModelSQL, ModelView):
 
             return int(doctor_id[0])
 
+    def default_evaluation_start(self):
+        return datetime.now()
 PatientRounding()

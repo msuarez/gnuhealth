@@ -10,7 +10,7 @@
 
 <!-- Initial Menu -->
         <menuitem name="Nursing" id="gnuhealth_nursing_menu"
-            parent="health.gnuhealth_menu" sequence="10" icon="gnuhealth-nursing"/>
+            parent="health.gnuhealth_menu" sequence="900" icon="gnuhealth-nursing"/>
 
 <!-- Rounding view -->
 
