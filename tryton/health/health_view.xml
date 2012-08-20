@@ -78,7 +78,7 @@
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
         <menuitem name="Health Centers" id="gnuhealth_conf_hospital"
             parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-health-center"/>
-        <menuitem name="Physicians" id="gnuhealth_conf_physicians"
+        <menuitem name="Health Professionals" id="gnuhealth_conf_physicians"
             parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-physician"/>
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
@@ -492,7 +492,7 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Physicians">
+                <tree string="Health Professionals">
                     <field name="name" expand="1"/>
                     <field name="specialty" expand="1"/>
                     <field name="code" expand="1"/>
@@ -503,7 +503,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_physician">
-            <field name="name">Physicians</field>
+            <field name="name">Health Professionals</field>
             <field name="res_model">gnuhealth.physician</field>
         </record>
 
