@@ -153,17 +153,17 @@ MedicalSpecialty()
 
 
 class Physician(ModelSQL, ModelView):
-    'Physician'
+    'Health Professional'
     _name = 'gnuhealth.physician'
     _description = __doc__
     _rec_name = 'code'
 
-    name = fields.Many2One('party.party', 'Physician', required=True,
+    name = fields.Many2One('party.party', 'Health Professional', required=True,
         domain=[
             ('is_doctor', '=', True),
             ('is_person', '=', True),
             ],
-        help='Physician\'s Name, from the partner list')
+        help='Health Professional\'s Name, from the partner list')
     institution = fields.Many2One('party.party', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Instituion where she/he works')
