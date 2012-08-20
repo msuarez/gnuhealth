@@ -32,6 +32,8 @@
                         <field name="evaluation_end"/>
                         <label name="environmental_assessment"/>
                         <field name="environmental_assessment"/>
+                        <label name="warning"/>
+                        <field name="warning"/>
                     </group>
 
                     <newline/>
@@ -95,7 +97,8 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Evaluations">
+                <tree string="Roundings" colors="If(Bool(Eval('warning')),'red','black')">
+                    <field name="warning"/>
                     <field name="patient" expand="1"/>
                     <field name="evaluation_start" expand="1"/>
                     <field name="health_professional" expand="1"/>

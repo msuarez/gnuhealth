@@ -66,13 +66,9 @@ class PatientRounding(ModelSQL, ModelView):
     temperature = fields.Float('Temperature',
         help='Temperature in celcius')
 
-    weight = fields.Float('Weight', help='Weight in Kilos')
-    height = fields.Float('Height', help='Height in centimeters, eg 175')
-    bmi = fields.Float('Body Mass Index',
-        on_change_with=['weight', 'height', 'bmi'])
 
     #Glycemia
-    glycemia = fields.Float('Glycemia', help='Blood Glucose level')
+    glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
     
     depression = fields.Boolean ('Depression signs',help="Check this if the patient shows signs of depression")
 
@@ -84,7 +80,9 @@ class PatientRounding(ModelSQL, ModelView):
 
     round_summary = fields.Text('Round Summary')
 
-
+    warning = fields.Boolean('Warning', help="Check this box to alert the supervisor about this patient rounding" \
+        ". It will be shown in red in the rounding list")
+    
     def default_health_professional(self):
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
@@ -104,6 +102,8 @@ class PatientRounding(ModelSQL, ModelView):
 
             return int(doctor_id[0])
 
+
     def default_evaluation_start(self):
         return datetime.now()
+
 PatientRounding()
