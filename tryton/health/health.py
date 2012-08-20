@@ -1624,6 +1624,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_reliable_info(self):
         return True
 
+    def default_evaluation_start(self):
+        return datetime.now()
+
 # Calculate the WH ratio
     def on_change_with_whr(self, vals):
         waist = vals.get('abdominal_circ')
