@@ -34,11 +34,11 @@ class PatientRounding(ModelSQL, ModelView):
     _description = __doc__
 
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
 
     evaluation_start = fields.DateTime('Start', required=True)
-    evaluation_endtime = fields.DateTime('End', required=True)
+    evaluation_end = fields.DateTime('End', required=True)
 
     environmental_assessment = fields.Char('Environment', help="Environment" \
         "assessment . State any disorder in the room.") 
