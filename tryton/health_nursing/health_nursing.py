@@ -43,7 +43,7 @@ class PatientRounding(ModelSQL, ModelView):
     evaluation_end = fields.DateTime('End', required=True)
 
     environmental_assessment = fields.Char('Environment', help="Environment" \
-        "assessment . State any disorder in the room.") 
+        " assessment . State any disorder in the room.") 
     
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
@@ -82,6 +82,10 @@ class PatientRounding(ModelSQL, ModelView):
 
     warning = fields.Boolean('Warning', help="Check this box to alert the supervisor about this patient rounding" \
         ". It will be shown in red in the rounding list")
+
+    procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name', 'Procedures',
+        help="List of the procedures in this rounding. Please enter the first " \
+        "one as the main procedure")
     
     def default_health_professional(self):
         cursor = Transaction().cursor
@@ -107,3 +111,17 @@ class PatientRounding(ModelSQL, ModelView):
         return datetime.now()
 
 PatientRounding()
+
+
+class RoundingProcedure(ModelSQL, ModelView):
+    'Rounding - Procedure'
+    _name = 'gnuhealth.rounding_procedure'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.patient.rounding', 'Rounding')
+    procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
+        select=True,
+        help="Procedure Code, for example ICD-10-PCS Code 7-character string")
+    notes = fields.Text('Notes')
+
+RoundingProcedure()

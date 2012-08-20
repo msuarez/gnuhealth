@@ -12,6 +12,39 @@
         <menuitem name="Nursing" id="gnuhealth_nursing_menu"
             parent="health.gnuhealth_menu" sequence="900" icon="gnuhealth-nursing"/>
 
+
+<!-- Procedure-->
+
+        <record model="ir.ui.view" id="gnuhealth_rounding_view">
+            <field name="model">gnuhealth.rounding_procedure</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Rounding Procedure">
+                    <label name="procedure"/>
+                    <field name="procedure"/>
+                    <newline/>
+                    <separator string="Procedure Details / Incidents" colspan="4" id="separator_procedure_details"/>
+                    <newline/>
+                    <field name="notes" colspan="4"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_procedure_tree">
+            <field name="model">gnuhealth.rounding_procedure</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Rounding Procedure'>
+                    <field name="procedure"/>
+                    <field name="notes"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        
 <!-- Rounding view -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_view">
@@ -20,72 +53,77 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Patinent Rounding View">
+                    <notebook>
+                        <page string="Main" id="rounding_main">
+                            <group colspan="2" id="group_admin_data">
+                                <label name="patient"/>
+                                <field name="patient"/>
+                                <label name="health_professional"/>
+                                <field name="health_professional"/>
+                                <label name="evaluation_start"/>
+                                <field name="evaluation_start"/>
+                                <label name="evaluation_end"/>
+                                <field name="evaluation_end"/>
+                                <label name="environmental_assessment"/>
+                                <field name="environmental_assessment"/>
+                                <label name="warning"/>
+                                <field name="warning"/>
+                            </group>
 
-                    <group colspan="2" id="group_admin_data">
-                        <label name="patient"/>
-                        <field name="patient"/>
-                        <label name="health_professional"/>
-                        <field name="health_professional"/>
-                        <label name="evaluation_start"/>
-                        <field name="evaluation_start"/>
-                        <label name="evaluation_end"/>
-                        <field name="evaluation_end"/>
-                        <label name="environmental_assessment"/>
-                        <field name="environmental_assessment"/>
-                        <label name="warning"/>
-                        <field name="warning"/>
-                    </group>
+                            <newline/>
 
-                    <newline/>
+                            <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
+                                <label name="pain"/>
+                                <field name="pain"/>
+                                <label name="potty"/>
+                                <field name="potty"/>
+                                <label name="position"/>
+                                <field name="position"/>
+                                <label name="proximity"/>
+                                <field name="proximity"/>
+                                <label name="pump"/>
+                                <field name="pump"/>
+                                <label name="personal_needs"/>
+                                <field name="personal_needs"/>
+                            </group>
 
-                    <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
-                        <label name="pain"/>
-                        <field name="pain"/>
-                        <label name="potty"/>
-                        <field name="potty"/>
-                        <label name="position"/>
-                        <field name="position"/>
-                        <label name="proximity"/>
-                        <field name="proximity"/>
-                        <label name="pump"/>
-                        <field name="pump"/>
-                        <label name="personal_needs"/>
-                        <field name="personal_needs"/>
-                    </group>
+                            <newline/>
 
-                    <newline/>
+                            <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">
+                                <label name="temperature"/>
+                                <field name="temperature"/>
+                                <label name="systolic"/>
+                                <field name="systolic"/>
+                                <label name="diastolic"/>
+                                <field name="diastolic"/>
+                                <label name="bpm"/>
+                                <field name="bpm"/>
+                                <label name="respiratory_rate"/>
+                                <field name="respiratory_rate"/>
+                                <label name="osat"/>
+                                <field name="osat"/>
+                            </group>
 
-                    <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">
-                        <label name="temperature"/>
-                        <field name="temperature"/>
-                        <label name="systolic"/>
-                        <field name="systolic"/>
-                        <label name="diastolic"/>
-                        <field name="diastolic"/>
-                        <label name="bpm"/>
-                        <field name="bpm"/>
-                        <label name="respiratory_rate"/>
-                        <field name="respiratory_rate"/>
-                        <label name="osat"/>
-                        <field name="osat"/>
-                    </group>
+                            <newline/>
 
-                    <newline/>
-
-                    <group colspan="4" col="6" id="group_patient_rounding_others" string="Other">
-                        <label name="glycemia"/>
-                        <field name="glycemia"/>
-                        <label name="depression"/>
-                        <field name="depression"/>
-                        <label name="evolution"/>
-                        <field name="evolution"/>
-                    </group>
-
-                    <newline/>
-                    <separator string="Round summary" id="separator_round_summary"/>
-                    <newline/>
-                    
-                    <field name="round_summary"/>
+                            <group colspan="4" col="6" id="group_patient_rounding_others" string="Other">
+                                <label name="glycemia"/>
+                                <field name="glycemia"/>
+                                <label name="depression"/>
+                                <field name="depression"/>
+                                <label name="evolution"/>
+                                <field name="evolution"/>
+                            </group>
+                            <newline/>
+                            <separator string="Round summary" id="separator_round_summary"/>
+                            <newline/>
+                            
+                            <field name="round_summary"/>
+                        </page>
+                        <page string="Procedures and Meds" id="rounding_procedures">
+                            <field name="procedures"/>
+                        </page>
+                    </notebook>
                 </form>
                 ]]>
 
@@ -109,7 +147,7 @@
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_patient_rounding_view">
-            <field name="name">Patient Roundings</field>
+            <field name="name">Roundings</field>
             <field name="res_model">gnuhealth.patient.rounding</field>
         </record>
 
