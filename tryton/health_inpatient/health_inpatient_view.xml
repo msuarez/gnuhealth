@@ -33,6 +33,7 @@
             <field name="path">../health/icons/tryton-list.svg</field>
         </record>
 
+
 <!-- Patient hospitalization and bed registration (in-patient registration) -->
 
         <record model="ir.ui.view" id="gnuhealth_inpatient_registration_view">
@@ -94,6 +95,9 @@
 
                             </group>
 
+                        </page>
+                        <page string="Medication" id="page_inpatient_medication">
+                            <field name="medications"/>                        
                         </page>
                         <page string="Care Plan" id="page_care_plan">
                             <label name="nursing_plan"/>
@@ -214,5 +218,141 @@
             </field>
         </record>
 
+<!-- Inpatient Medication -->
+
+
+        <record model="ir.ui.view" id="gnuhealth_inpatient_medication_form">
+            <field name="model">gnuhealth.inpatient.medication</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Inpatient Medication">
+                    <notebook>
+
+                        <page string="General Info" id="inpatient_medication_general_info">
+                            <group id="inpatient_medication_header" string="Medication">
+                                <label name="medicament"/>
+                                <field name="medicament"/>
+                                <label name="indication"/>
+                                <field name="indication"/>
+                            </group>
+                            <newline/>
+                            <newline/>
+                            <group id="inpatient_treatment_period"
+                                string="Treatment period">
+                                <label name="start_treatment"/>
+                                <field name="start_treatment"/>
+                                <label name="end_treatment"/>
+                                <field name="end_treatment"/>
+                            </group>
+                            <newline/>
+                            <group id="inpatient_medicament_form"
+                                string="Admnistration">
+                                <label name="form"/>
+                                <field name="form"/>
+                                <label name="route"/>
+                                <field name="route"/>
+                            </group>
+                            <newline/>
+                            <group id="inpatient_medicament_dosage" colspan="4" col="8"
+                                string="Dosage">
+                                <label name="dose"/>
+                                <field name="dose"/>
+                                <label name="dose_unit"/>
+                                <field name="dose_unit"/>
+                                <label name="qty"/>
+                                <field name="qty"/>
+                                <label name="common_dosage"/>
+                                <field name="common_dosage"/>
+                            </group>
+                            <newline/>
+                            <field colspan="4" name="admin_times"/>
+
+                            <newline/>
+                        </page>
+
+                        <page id="inpatient_medication_misc" string="Extra Info">
+
+                            <group id="inpatient_treatment_status" string="Status">
+                                <label name="is_active"/>
+                                <field name="is_active"/>
+                                <label name="course_completed"/>
+                                <field name="course_completed"/>
+                                <label name="discontinued"/>
+                                <field name="discontinued"/>
+                                <label name="discontinued_reason"/>
+                                <field name="discontinued_reason"/>
+                            </group>
+                            <newline/>
+                            <group id="inpatient_medication_adeverse_effects"
+                                string="Adverse Reactions and Notes">
+                                <field name="adverse_reaction"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_inpatient_medication_tree">
+            <field name="model">gnuhealth.inpatient.medication</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Inpatient Medication"
+                    colors="If(Bool(Eval('is_active')),'blue','grey')">
+                    <field name="medicament" expand="1"/>
+                    <field name="start_treatment" expand="1"/>
+                    <field name="end_treatment" expand="1"/>
+                    <field name="course_completed"/>
+                    <field name="discontinued"/>
+                    <field name="is_active" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
+
+<!-- Inpatient Medication admin times -->
+
+        <record id="gnuhealth_inpatient_med_admin_time_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.medication.admin_time</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Inpatient Medication Admin Times">
+                        <label name="admin_time"/>
+                        <field name="admin_time"/>
+                        <label name="dose"/>
+                        <field name="dose"/>
+                        <label name="dose_unit"/>
+                        <field name="dose_unit"/>
+                        <label name="remarks"/>
+                        <field name="remarks"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="gnuhealth_inpatient_med_admin_time_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.medication.admin_time</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree editable="top" string="Inpatient Medication Admin Times">
+                        <field name="admin_time"/>
+                        <field name="dose"/>
+                        <field name="dose_unit"/>
+                        <field name="remarks"/>                                              
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
     </data>
 </tryton>
+

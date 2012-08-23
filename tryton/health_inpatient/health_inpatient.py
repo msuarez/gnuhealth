@@ -67,8 +67,10 @@ class InpatientRegistration(ModelSQL, ModelView):
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
      required=True, select=True)
     nursing_plan = fields.Text('Nursing Plan')
+    medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
+        'Medications')
     discharge_plan = fields.Text('Discharge Plan')
-
+    
     info = fields.Text('Extra Info')
     state = fields.Selection((
         ('free', 'free'),
@@ -242,3 +244,112 @@ class PatientData(ModelSQL, ModelView):
         'get_patient_status')
 
 PatientData()
+
+class InpatientMedication (ModelSQL, ModelView):
+    'Inpatient Medication'
+    _name = 'gnuhealth.inpatient.medication'
+    _description = __doc__
+    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
+
+    medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
+        required=True, help='Prescribed Medicament')
+    indication = fields.Many2One('gnuhealth.pathology', 'Indication',
+        help='Choose a disease for this medicament from the disease list. It'\
+        ' can be an existing disease of the patient or a prophylactic.')
+
+    start_treatment = fields.DateTime('Start',
+        help='Date of start of Treatment', required=True)
+    end_treatment = fields.DateTime('End', help='Date of start of Treatment')
+
+    dose = fields.Float('Dose',
+        help='Amount of medication (eg, 250 mg) per dose', required=True)
+    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',required=True,
+        help='Unit of measure for the medication to be taken')
+    route = fields.Many2One('gnuhealth.drug.route', 'Administration Route',required=True,
+        help='Drug administration route code.')
+    form = fields.Many2One('gnuhealth.drug.form', 'Form',required=True,
+        help='Drug form, such as tablet or gel')
+    qty = fields.Integer('x',required=True,
+        help='Quantity of units (eg, 2 capsules) of the medicament')
+    common_dosage = fields.Many2One('gnuhealth.medication.dosage', 'Frequency',
+        help='Common / standard dosage frequency for this medicament')
+
+    admin_times = fields.One2Many ('gnuhealth.inpatient.medication.admin_time','name',"Admin times")
+    frequency = fields.Integer('Frequency',
+        help='Time in between doses the patient must wait (ie, for 1 pill'\
+        ' each 8 hours, put here 8 and select \"hours\" in the unit field')
+    frequency_unit = fields.Selection([
+        ('seconds', 'seconds'),
+        ('minutes', 'minutes'),
+        ('hours', 'hours'),
+        ('days', 'days'),
+        ('weeks', 'weeks'),
+        ('wr', 'when required'),
+        ], 'unit', select=True, sort=False)
+
+    frequency_prn = fields.Boolean('PRN',
+        help='Use it as needed, pro re nata')
+        
+    is_active = fields.Boolean('Active',
+        on_change_with=['discontinued', 'course_completed'],
+        help='Check if the patient is currently taking the medication')
+    discontinued = fields.Boolean('Discontinued',
+        on_change_with=['is_active', 'course_completed'])
+    course_completed = fields.Boolean('Course Completed',
+        on_change_with=['is_active', 'discontinued'])
+    discontinued_reason = fields.Char('Reason for discontinuation',
+        states={
+            'invisible': Not(Bool(Eval('discontinued'))),
+            'required': Bool(Eval('discontinued')),
+            },
+        depends=['discontinued'],
+        help='Short description for discontinuing the treatment',)
+    adverse_reaction = fields.Text('Adverse Reactions',
+        help='Side effects or adverse reactions that the patient experienced')
+
+    def on_change_with_is_active(self, vals):
+        discontinued = vals.get('discontinued')
+        course_completed = vals.get('course_completed')
+        is_active = True
+        if (discontinued or course_completed):
+            is_active = False
+        return is_active
+
+    def on_change_with_discontinued(self, vals):
+        discontinued = vals.get('discontinued')
+        is_active = vals.get('is_active')
+        course_completed = vals.get('course_completed')
+        if (is_active or course_completed):
+            discontinued = False
+        return (discontinued)
+
+    def on_change_with_course_completed(self, vals):
+        is_active = vals.get('is_active')
+        course_completed = vals.get('discontinued')
+        discontinued = vals.get('discontinued')
+        if (is_active or discontinued):
+            course_completed = False
+        return (course_completed)
+
+    def default_is_active(self):
+        return True
+
+InpatientMedication()
+
+class InpatientMedicationAdminTimes (ModelSQL, ModelView):
+    'Inpatient Medication Admin Times'
+    _name="gnuhealth.inpatient.medication.admin_time"
+    _description = __doc__
+
+    
+    name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
+    admin_time = fields.Time ("Time")
+    dose = fields.Float('Dose',
+        help='Amount of medication (eg, 250 mg) per dose')
+    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
+        help='Unit of measure for the medication to be taken')
+
+    remarks = fields.Text('Remarks',
+        help='specific remarks for this dose')
+    
+InpatientMedicationAdminTimes()
