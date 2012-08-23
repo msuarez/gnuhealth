@@ -275,6 +275,8 @@ class InpatientMedication (ModelSQL, ModelView):
         help='Common / standard dosage frequency for this medicament')
 
     admin_times = fields.One2Many ('gnuhealth.inpatient.medication.admin_time','name',"Admin times")
+    log_history = fields.One2Many ('gnuhealth.inpatient.medication.log','name',"Log History")
+
     frequency = fields.Integer('Frequency',
         help='Time in between doses the patient must wait (ie, for 1 pill'\
         ' each 8 hours, put here 8 and select \"hours\" in the unit field')
@@ -353,3 +355,45 @@ class InpatientMedicationAdminTimes (ModelSQL, ModelView):
         help='specific remarks for this dose')
     
 InpatientMedicationAdminTimes()
+
+class InpatientMedicationLog (ModelSQL, ModelView):
+    'Inpatient Medication Log History'
+    _name="gnuhealth.inpatient.medication.log"
+    _description = __doc__
+
+    
+    name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
+    admin_time = fields.DateTime ("Date", readonly=True)
+    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
+
+    dose = fields.Float('Dose',
+        help='Amount of medication (eg, 250 mg) per dose')
+    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
+        help='Unit of measure for the medication to be taken')
+
+    remarks = fields.Text('Remarks',
+        help='specific remarks for this dose')
+
+    def default_health_professional(self):
+        cursor = Transaction().cursor
+        user_obj = Pool().get('res.user')
+        user = user_obj.browse(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if not partner_id:
+            self.raise_user_error('No health professional associated to this \
+                user')
+        else:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+
+            return int(doctor_id[0])
+
+    def default_admin_time(self):
+        return datetime.now()
+
+InpatientMedicationLog()

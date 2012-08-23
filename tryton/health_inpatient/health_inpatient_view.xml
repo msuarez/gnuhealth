@@ -288,6 +288,9 @@
                                 string="Adverse Reactions and Notes">
                                 <field name="adverse_reaction"/>
                             </group>
+                            <newline/>
+                            <field name="log_history"/>
+                            
                         </page>
 
                     </notebook>
@@ -304,9 +307,10 @@
                 <![CDATA[
                 <tree string="Inpatient Medication"
                     colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="medicament" expand="1"/>
+                    <field name="medicament" expand="1"/>                   
                     <field name="start_treatment" expand="1"/>
                     <field name="end_treatment" expand="1"/>
+                    <field name="admin_times"/>
                     <field name="course_completed"/>
                     <field name="discontinued"/>
                     <field name="is_active" expand="1"/>
@@ -347,11 +351,55 @@
                         <field name="admin_time"/>
                         <field name="dose"/>
                         <field name="dose_unit"/>
-                        <field name="remarks"/>                                              
+                        <field name="remarks" expand="1"/>                                              
                     </tree>
                 ]]>
             </field>
         </record>
+
+
+<!-- Inpatient Medication History Log -->
+
+        <record id="gnuhealth_inpatient_med_log_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.medication.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Inpatient Medication Log">
+                        <label name="admin_time"/>
+                        <field name="admin_time"/>
+                        <label name="health_professional"/>
+                        <field name="health_professional"/>
+                        <label name="dose"/>
+                        <field name="dose"/>
+                        <label name="dose_unit"/>
+                        <field name="dose_unit"/>
+                        <label name="remarks"/>
+                        <field name="remarks"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="gnuhealth_inpatient_med_log_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.medication.log</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree editable="top" string="Inpatient Medication Log">
+                        <field name="admin_time"/>
+                        <field name="health_professional"/>
+                        <field name="dose"/>
+                        <field name="dose_unit"/>
+                        <field name="remarks" expand="1"/>                                              
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+
+
+
 
     </data>
 </tryton>
