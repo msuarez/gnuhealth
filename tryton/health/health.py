@@ -596,7 +596,7 @@ class PartyPatient (ModelSQL, ModelView):
         help='Check if the party is a person.')
     is_patient = fields.Boolean('Patient',
         help='Check if the party is a patient')
-    is_doctor = fields.Boolean('Doctor', help='Check if the party is a doctor')
+    is_doctor = fields.Boolean('Health Prof', help='Check if the party is a health professional')
     is_institution = fields.Boolean('Institution',
         help='Check if the party is a Medical Center')
     is_insurance_company = fields.Boolean('Insurance Company',

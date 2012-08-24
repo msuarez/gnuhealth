@@ -305,7 +305,7 @@ class InpatientMedication (ModelSQL, ModelView):
             'required': Bool(Eval('discontinued')),
             },
         depends=['discontinued'],
-        help='Short description for discontinuing the treatment',)
+        help='Short description for discontinuing the treatment')
     adverse_reaction = fields.Text('Adverse Reactions',
         help='Side effects or adverse reactions that the patient experienced')
 
@@ -323,7 +323,7 @@ class InpatientMedication (ModelSQL, ModelView):
         course_completed = vals.get('course_completed')
         if (is_active or course_completed):
             discontinued = False
-        return (discontinued)
+        return discontinued
 
     def on_change_with_course_completed(self, vals):
         is_active = vals.get('is_active')
@@ -331,7 +331,7 @@ class InpatientMedication (ModelSQL, ModelView):
         discontinued = vals.get('discontinued')
         if (is_active or discontinued):
             course_completed = False
-        return (course_completed)
+        return course_completed
 
     def default_is_active(self):
         return True
