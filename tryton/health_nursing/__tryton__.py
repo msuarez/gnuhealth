@@ -25,7 +25,7 @@
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',
-    'depends': ['health'],  
+    'depends': ['health', 'health_inpatient'],
     'name_es_ES': 'GNU Health : Enfermería',
     'translation': [],
     'description': '''
@@ -41,6 +41,9 @@ Este módulo incluye la funcionalidad de enfermería, tanto para hospitalizacion
 
 ''',
 
-    'xml': ['health_nursing_view.xml'],
+    'xml': [
+        'health_nursing_view.xml',
+        'security/access_rights.xml'
+    ],
     'active': False,
 }

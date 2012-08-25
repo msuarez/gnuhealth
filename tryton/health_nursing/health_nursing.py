@@ -19,11 +19,9 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval, Not, Bool
 from datetime import datetime
 from trytond.pool import Pool
 from trytond.transaction import Transaction
-from trytond.backend import TableHandler
 
 
 # Class : PatientRounding
@@ -43,8 +41,8 @@ class PatientRounding(ModelSQL, ModelView):
     evaluation_end = fields.DateTime('End', required=True)
 
     environmental_assessment = fields.Char('Environment', help="Environment" \
-        " assessment . State any disorder in the room.") 
-    
+        " assessment . State any disorder in the room.")
+
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
     pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to 10")
@@ -69,7 +67,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
-    
+
     depression = fields.Boolean ('Depression signs',help="Check this if the patient shows signs of depression")
 
     evolution = fields.Selection([
