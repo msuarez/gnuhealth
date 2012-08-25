@@ -50,29 +50,27 @@
 <!-- END OF lifestyle ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
-<!-- BEGIN FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- BEGIN DEFAULT ACCESS RIGHTS -->
 
-<!-- Access rights to models for the health front desk group -->
+<!-- Default access rights to models -->
 
-        <record model="ir.model.access" id="access_health_drugs_recreational_frontdesk">
+        <record model="ir.model.access" id="access_health_drugs_recreational">
             <field name="model" search="[('model', '=', 'gnuhealth.drugs_recreational')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
+            <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_patient_recreational_drugs_frontdesk">
+        <record model="ir.model.access" id="access_health_patient_recreational_drugs">
             <field name="model" search="[('model', '=', 'gnuhealth.patient.recreational_drugs')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-<!-- END OF FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- END OF DEFAULT ACCESS RIGHTS -->
 
 
 <!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
@@ -123,31 +121,6 @@
         </record>
 
 <!-- END OF SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-
-<!-- BEGIN BACK OFFICE GROUP ACCESS RIGHTS -->
-
-<!-- Access rights to models for the health back office group -->
-
-        <record model="ir.model.access" id="access_health_drugs_recreational_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.drugs_recreational')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_patient_recreational_drugs_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.recreational_drugs')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-<!-- END OF BACK OFFICE GROUP ACCESS RIGHTS -->
 
     </data>
 </tryton>

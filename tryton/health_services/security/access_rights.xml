@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is part of GNU Health. GPL v3+ -->
+<!-- Luis Falcon . GNU Solidario -->
+<!-- Default template for permission groups -->
+
+<tryton>
+    <data>
+
+<!-- BEGIN SERVICES ADMINISTRATION GROUP ACCESS RIGHTS -->
+
+<!-- Create the Health services Administration group -->
+        <record model="res.group" id="group_health_services_admin">
+            <field name="name">Health Services Administration</field>
+        </record>
+
+<!-- Assign the Group to the "admin" user -->
+
+        <record model="res.user-res.group" id="user_admin_group_health_services">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_health_services_admin"/>
+        </record>
+
+<!-- Access to Menus -->
+
+        <record model="ir.ui.menu-res.group" id="menu_health_group_health_services_admin">
+            <field name="menu" ref="gnuhealth_services_menu"/>
+            <field name="group" ref="group_health_services_admin"/>
+        </record>
+
+<!-- Access rights to models for the health services admin group -->
+
+        <record model="ir.model.access" id="access_health_services_operation_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service')]"/>
+            <field name="group" ref="group_health_services_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+        <record model="ir.model.access" id="access_health_surgery_services_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service.line')]"/>
+            <field name="group" ref="group_health_services_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+<!-- END OF SERVICES ADMINISTRATION GROUP ACCESS RIGHTS -->
+
+
+<!-- BEGIN DEFAULT ACCESS RIGHTS -->
+
+<!-- Default access rights to models -->
+
+        <record model="ir.model.access" id="access_health_services_operation">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+
+        <record model="ir.model.access" id="access_health_surgery_services">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service.line')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+<!-- END OF DEFAULT ACCESS RIGHTS -->
+
+
+<!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
+
+<!-- Access to Menus -->
+
+        <record model="ir.ui.menu-res.group" id="menu_health_group_health_services_doctor">
+            <field name="menu" ref="gnuhealth_services_menu"/>
+            <field name="group" ref="health.group_health_doctor"/>
+        </record>
+
+<!-- Access rights to models for the health doctor group -->
+
+        <record model="ir.model.access" id="access_health_services_operation_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+        <record model="ir.model.access" id="access_health_surgery_services_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service.line')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+<!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
+
+
+<!-- BEGIN BACK OFFICE GROUP ACCESS RIGHTS -->
+
+<!-- Access to Menus -->
+
+        <record model="ir.ui.menu-res.group" id="menu_health_group_health_services_back_office">
+            <field name="menu" ref="gnuhealth_services_menu"/>
+            <field name="group" ref="health.group_health_back_office"/>
+        </record>
+
+<!-- Access rights to models for the health back office group -->
+
+        <record model="ir.model.access" id="access_health_services_operation_back_office">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service')]"/>
+            <field name="group" ref="health.group_health_back_office"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
+        <record model="ir.model.access" id="access_health_surgery_services_back_office">
+            <field name="model" search="[('model', '=', 'gnuhealth.health_service.line')]"/>
+            <field name="group" ref="health.group_health_back_office"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+<!-- END OF BACK OFFICE GROUP ACCESS RIGHTS -->
+
+    </data>
+</tryton>

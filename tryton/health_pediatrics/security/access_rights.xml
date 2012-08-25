@@ -59,38 +59,35 @@
 <!-- END OF PEDIATRICS ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
-<!-- BEGIN FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- BEGIN DEFAULT ACCESS RIGHTS -->
 
-<!-- Access rights to models for the health front desk group -->
+<!-- Default access rights to models -->
 
-        <record model="ir.model.access" id="access_health_pediatrics_neonatal_apgar_frontdesk">
+        <record model="ir.model.access" id="access_health_pediatrics_neonatal_apgar">
             <field name="model" search="[('model', '=', 'gnuhealth.neonatal.apgar')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_pediatrics_newborn_frontdesk">
+        <record model="ir.model.access" id="access_health_pediatrics_newborn">
             <field name="model" search="[('model', '=', 'gnuhealth.newborn')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
+            <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_pediatrics_patient_psc_frontdesk">
+        <record model="ir.model.access" id="access_health_pediatrics_patient_psc">
             <field name="model" search="[('model', '=', 'gnuhealth.patient.psc')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-<!-- END OF FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- END OF DEFAULT ACCESS RIGHTS -->
 
 
 <!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
@@ -132,40 +129,6 @@
         </record>
 
 <!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
-
-
-<!-- BEGIN SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-<!-- Access rights to models for the health social worker group -->
-
-        <record model="ir.model.access" id="access_health_pediatrics_neonatal_apgar_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.neonatal.apgar')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_pediatrics_newborn_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.newborn')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_pediatrics_patient_psc_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.psc')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-<!-- END OF SOCIAL WORKER GROUP ACCESS RIGHTS -->
 
 
 <!-- BEGIN BACK OFFICE GROUP ACCESS RIGHTS -->

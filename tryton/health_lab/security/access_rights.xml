@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is part of GNU Health. GPL v3+ -->
-<!-- Luis Falcon . GNU Solidario --> 
+<!-- Luis Falcon . GNU Solidario -->
 <!-- Default template for permission groups -->
 
 <tryton>
     <data>
-        
+
 <!-- BEGIN lab ADMINISTRATION GROUP ACCESS RIGHTS -->
-        
+
 <!-- Create the Health lab Administration group -->
         <record model="res.group" id="group_health_lab_admin">
             <field name="name">Health lab Administration</field>
         </record>
 
 <!-- Assign the Group to the "admin" user -->
-        
+
         <record model="res.user-res.group" id="user_admin_group_health_lab">
             <field name="user" ref="res.user_admin"/>
             <field name="group" ref="group_health_lab_admin"/>
         </record>
 
-<!-- Access to Menus -->        
+<!-- Access to Menus -->
 
         <record model="ir.ui.menu-res.group" id="menu_health_group_health_lab_conf_admin">
             <field name="menu" ref="gnuhealth_conf_laboratory"/>
@@ -89,6 +89,152 @@
         </record>
 
 <!-- END OF lab ADMINISTRATION GROUP ACCESS RIGHTS -->
+
+
+<!-- BEGIN DEFAULT ACCESS RIGHTS -->
+
+<!-- Default access rights to models -->
+
+        <record model="ir.model.access" id="access_health_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_create_init">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.create.init')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_critearea">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.critearea')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_type">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test_type')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_units">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.units')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_patient_lab_test">
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.lab.test')]"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+<!-- END OF DEFAULT ACCESS RIGHTS -->
+
+
+<!-- BEGIN lab USER GROUP ACCESS RIGHTS -->
+
+<!-- Create the demo_lab user -->
+        <record model="res.user" id="user_demo_lab">
+            <field name="name">Health Lab</field>
+            <field name="login">demo_lab</field>
+            <field name="password">gnusolidario</field>
+        </record>
+
+<!-- Create the Health lab group -->
+        <record model="res.group" id="group_health_lab">
+            <field name="name">Health Lab</field>
+        </record>
+
+<!-- Assign the Group to the "demo_lab" user -->
+
+        <record model="res.user-res.group" id="user_demo_lab_group_health_lab">
+            <field name="user" ref="user_demo_lab"/>
+            <field name="group" ref="group_health_lab"/>
+        </record>
+
+<!-- Access to Menus -->
+
+        <record model="ir.ui.menu-res.group" id="menu_health_group_health_lab">
+            <field name="menu" ref="health.gnuhealth_menu"/>
+            <field name="group" ref="group_health_lab"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_lab_group_health_lab">
+            <field name="menu" ref="gnuhealth_laboratory_menu"/>
+            <field name="group" ref="group_health_lab"/>
+        </record>
+
+<!-- Access rights to models for the health lab admin group -->
+
+        <record model="ir.model.access" id="access_health_lab_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_create_init_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.create.init')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_critearea_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.critearea')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_type_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test_type')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_units_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.units')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_patient_lab_test_lab">
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.lab.test')]"/>
+            <field name="group" ref="group_health_lab"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+<!-- END OF lab USER GROUP ACCESS RIGHTS -->
 
     </data>
 </tryton>

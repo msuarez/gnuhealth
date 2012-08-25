@@ -45,15 +45,12 @@
 <!-- END OF SURGERY ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
-<!-- BEGIN FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- BEGIN DEFAULT ACCESS RIGHTS -->
 
-<!-- Access to Menus -->
+<!-- Default access rights to models -->
 
-<!-- Access rights to models for the health front desk group -->
-
-        <record model="ir.model.access" id="access_health_surgery_operation_frontdesk">
+        <record model="ir.model.access" id="access_health_surgery_operation">
             <field name="model" search="[('model', '=', 'gnuhealth.operation')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -61,16 +58,15 @@
         </record>
 
 
-        <record model="ir.model.access" id="access_health_surgery_surgery_frontdesk">
+        <record model="ir.model.access" id="access_health_surgery_surgery">
             <field name="model" search="[('model', '=', 'gnuhealth.surgery')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-<!-- END OF FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- END OF DEFAULT ACCESS RIGHTS -->
 
 
 <!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
@@ -100,61 +96,6 @@
 
 <!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
 
-
-<!-- BEGIN SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-<!-- Access to Menus -->
-
-<!-- Access rights to models for the health social worker group -->
-
-        <record model="ir.model.access" id="access_health_surgery_operation_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.operation')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-
-        <record model="ir.model.access" id="access_health_surgery_surgery_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.surgery')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-<!-- END OF SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-
-<!-- BEGIN BACK OFFICE GROUP ACCESS RIGHTS -->
-
-<!-- Access to Menus -->
-
-<!-- Access rights to models for the health back office group -->
-
-        <record model="ir.model.access" id="access_health_surgery_operation_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.operation')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-
-        <record model="ir.model.access" id="access_health_surgery_surgery_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.surgery')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-<!-- END OF BACK OFFICE GROUP ACCESS RIGHTS -->
 
     </data>
 </tryton>

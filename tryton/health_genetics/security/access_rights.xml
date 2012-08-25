@@ -60,31 +60,28 @@
 <!-- END OF GENETICS ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
-<!-- BEGIN FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- BEGIN GENETICS DEFAULT ACCESS RIGHTS -->
 
-<!-- Access rights to models for the health front desk group -->
+<!-- Default access rights to models -->
 
-        <record model="ir.model.access" id="access_health_genetics_disease_gene_frontdesk">
+        <record model="ir.model.access" id="access_health_genetics_disease_gene">
             <field name="model" search="[('model', '=', 'gnuhealth.disease.gene')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
+            <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_genetics_patient_family_diseases_frontdesk">
+        <record model="ir.model.access" id="access_health_genetics_patient_family_diseases">
             <field name="model" search="[('model', '=', 'gnuhealth.patient.family.diseases')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_genetics_patient_genetic_risk_frontdesk">
+        <record model="ir.model.access" id="access_health_genetics_patient_genetic_risk">
             <field name="model" search="[('model', '=', 'gnuhealth.patient.genetic.risk')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -92,7 +89,7 @@
         </record>
 
 
-<!-- END OF FRONT DESK GROUP ACCESS RIGHTS -->
+<!-- END OF DEFAULT ACCESS RIGHTS -->
 
 
 <!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
@@ -127,75 +124,6 @@
         </record>
 
 <!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
-
-
-<!-- BEGIN SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-<!-- Access rights to models for the health social worker group -->
-
-        <record model="ir.model.access" id="access_health_genetics_disease_gene_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.disease.gene')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_genetics_patient_family_diseases_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.family.diseases')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_genetics_patient_genetic_risk_social_worker">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.genetic.risk')]"/>
-            <field name="group" ref="health.group_health_social_worker"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-<!-- END OF SOCIAL WORKER GROUP ACCESS RIGHTS -->
-
-
-<!-- BEGIN BACK OFFICE GROUP ACCESS RIGHTS -->
-
-<!-- Access rights to models for the health back office group -->
-
-        <record model="ir.model.access" id="access_health_genetics_disease_gene_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.disease.gene')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_genetics_patient_family_diseases_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.family.diseases')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_genetics_patient_genetic_risk_back_office">
-            <field name="model" search="[('model', '=', 'gnuhealth.patient.genetic.risk')]"/>
-            <field name="group" ref="health.group_health_back_office"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-
-<!-- END OF BACK OFFICE GROUP ACCESS RIGHTS -->
 
     </data>
 </tryton>

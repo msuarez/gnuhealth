@@ -31,7 +31,7 @@
     'depends': [
         'health','account_invoice',	
     ],
-    
+
     'description': '''
 
 This module allows grouping the services and orders related to a patient
@@ -51,7 +51,8 @@ Es posible factuar los servicios seleccionados.
     'xml': [
         'health_services_view.xml',
         'wizard/create_health_service_invoice.xml',
-        'data/health_service_sequences.xml'
+        'data/health_service_sequences.xml',
+        'security/access_rights.xml'
     ],
     'active': False,
 }
