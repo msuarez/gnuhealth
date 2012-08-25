@@ -20,7 +20,6 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
-from datetime import datetime
 from trytond.pool import Pool
 
 
@@ -188,42 +187,48 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
 
-    menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history', 'name', 'Menstrual History')
+    menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history',
+        'name', 'Menstrual History')
 
-    mammography_history = fields.One2Many('gnuhealth.patient.mammography_history', 'name', 'Mammography History')
+    mammography_history = fields.One2Many( \
+        'gnuhealth.patient.mammography_history', 'name', 'Mammography History')
 
-    pap_history = fields.One2Many('gnuhealth.patient.pap_history', 'name', 'PAP smear History')
+    pap_history = fields.One2Many('gnuhealth.patient.pap_history', 'name',
+        'PAP smear History')
 
-    colposcopy_history = fields.One2Many('gnuhealth.patient.colposcopy_history', 'name', 'Colposcopy History')
+    colposcopy_history = fields.One2Many('gnuhealth.patient.colposcopy_history',
+        'name', 'Colposcopy History')
 
 GnuHealthPatient()
+
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'
     _name = 'gnuhealth.patient.menstrual_history'
     _description = __doc__
-    
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
+        required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
     evaluation_date = fields.Date('Date', help="Evaluation Date", required=True)
     lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
-    lmp_length = fields.Integer('Length',required=True)
+    lmp_length = fields.Integer('Length', required=True)
     is_regular = fields.Boolean('Regular')
-    dysmenorrhea = fields.Boolean ('Dysmenorrhea')
+    dysmenorrhea = fields.Boolean('Dysmenorrhea')
     frequency = fields.Selection([
         ('amenorrhea', 'amenorrhea'),
         ('oligomenorrhea', 'oligomenorrhea'),
         ('eumenorrhea', 'eumenorrhea'),
         ('polymenorrhea', 'polymenorrhea'),
         ], 'frequency', sort=False)
- 
+
     volume = fields.Selection([
         ('hypomenorrhea', 'hypomenorrhea'),
         ('normal', 'normal'),
         ('menorrhagia', 'menorrhagia'),
         ], 'volume', sort=False)
 
-    
     def default_evaluation_date(self):
         return Pool().get('ir.date').today()
 
@@ -232,42 +237,49 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
 
     def default_volume(self):
         return 'normal'
-    
+
 PatientMenstrualHistory()
-    
+
 
 class PatientMammographyHistory(ModelSQL, ModelView):
     'Mammography History'
     _name = 'gnuhealth.patient.mammography_history'
     _description = __doc__
-    
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
+        required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
     evaluation_date = fields.Date('Date', help=" Date")
-    last_mammography = fields.Date('Date', help="Last Mammography", required=True)
+    last_mammography = fields.Date('Date', help="Last Mammography",
+        required=True)
     result = fields.Selection([
         ('normal', 'normal'),
         ('abnormal', 'abnormal'),
-        ], 'result', help="Please check the lab test results if the module is installed", sort=False)
- 
+        ], 'result', help="Please check the lab test results if the module is \
+            installed", sort=False)
+
     comments = fields.Char('Remarks')
-    
+
     def default_evaluation_date(self):
         return Pool().get('ir.date').today()
 
     def default_last_mammography(self):
         return Pool().get('ir.date').today()
 
-    
+
 PatientMammographyHistory()
+
 
 class PatientPAPHistory(ModelSQL, ModelView):
     'PAP Test History'
     _name = 'gnuhealth.patient.pap_history'
     _description = __doc__
-    
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
+        required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
     evaluation_date = fields.Date('Date', help=" Date")
     last_pap = fields.Date('Date', help="Last Papanicolau", required=True)
     result = fields.Selection([
@@ -278,34 +290,39 @@ class PatientPAPHistory(ModelSQL, ModelView):
         ('c3', 'LSIL'),
         ('c4', 'HSIL'),
         ('g4', 'AIS'),
-        ], 'result', help="Please check the lab results if the module is installed", sort=False)
- 
+        ], 'result', help="Please check the lab results if the module is \
+            installed", sort=False)
+
     comments = fields.Char('Remarks')
-    
+
     def default_evaluation_date(self):
         return Pool().get('ir.date').today()
 
     def default_last_pap(self):
         return Pool().get('ir.date').today()
-    
+
 PatientPAPHistory()
+
 
 class PatientColposcopyHistory(ModelSQL, ModelView):
     'Colposcopy History'
     _name = 'gnuhealth.patient.colposcopy_history'
     _description = __doc__
-    
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True, required=True)
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', readonly=True)
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
+        required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        readonly=True)
     evaluation_date = fields.Date('Date', help=" Date")
     last_colposcopy = fields.Date('Date', help="Last colposcopy", required=True)
     result = fields.Selection([
         ('normal', 'normal'),
         ('abnormal', 'abnormal'),
-        ], 'result', help="Please check the lab test results if the module is installed", sort=False)
- 
+        ], 'result', help="Please check the lab test results if the module is \
+            installed", sort=False)
+
     comments = fields.Char('Remarks')
-    
+
     def default_evaluation_date(self):
         return Pool().get('ir.date').today()
 
