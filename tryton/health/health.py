@@ -895,7 +895,7 @@ class PatientData(ModelSQL, ModelView):
         res.append(('name.lastname', clause[1], value))
         return res
 
-    # Search by the patient name or lastname
+    # Search by the patient name, lastname or SSN
 
     def search_rec_name(self, name, clause):
         ids = []

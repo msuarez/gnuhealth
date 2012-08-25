@@ -35,8 +35,8 @@ class PatientRounding(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.rounding'
     _description = __doc__
 
+    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code', required=True)
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
 
     evaluation_start = fields.DateTime('Start', required=True)
@@ -86,7 +86,7 @@ class PatientRounding(ModelSQL, ModelView):
     procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name', 'Procedures',
         help="List of the procedures in this rounding. Please enter the first " \
         "one as the main procedure")
-    
+
     def default_health_professional(self):
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')

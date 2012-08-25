@@ -56,8 +56,8 @@
                     <notebook>
                         <page string="Main" id="rounding_main">
                             <group colspan="2" id="group_admin_data">
-                                <label name="patient"/>
-                                <field name="patient"/>
+                                <label name="name"/>
+                                <field name="name"/>
                                 <label name="health_professional"/>
                                 <field name="health_professional"/>
                                 <label name="evaluation_start"/>
@@ -120,7 +120,7 @@
                             
                             <field name="round_summary"/>
                         </page>
-                        <page string="Procedures and Meds" id="rounding_procedures">
+                        <page string="Procedures" id="rounding_procedures">
                             <field name="procedures"/>
                         </page>
                     </notebook>
@@ -137,7 +137,8 @@
                 <![CDATA[
                 <tree string="Roundings" colors="If(Bool(Eval('warning')),'red','black')">
                     <field name="warning"/>
-                    <field name="patient" expand="1"/>
+                    <field name="name" expand="1"/>
+                    <field name="patient" expand="1"/>                    
                     <field name="evaluation_start" expand="1"/>
                     <field name="health_professional" expand="1"/>
                     <field name="evolution" expand="1"/>
