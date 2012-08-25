@@ -26,6 +26,10 @@
             <field name="menu" ref="gnuhealth_services_menu"/>
             <field name="group" ref="group_health_services_admin"/>
         </record>
+        <record model="ir.ui.menu-res.group" id="menu_account_group_health_services_admin">
+            <field name="menu" ref="account.menu_account"/>
+            <field name="group" ref="group_health_services_admin"/>
+        </record>
 
 <!-- Access rights to models for the health services admin group -->
 
@@ -112,8 +116,12 @@
 
 <!-- Access to Menus -->
 
-        <record model="ir.ui.menu-res.group" id="menu_health_group_health_services_back_office">
+        <record model="ir.ui.menu-res.group" id="menu_health_group_health_back_office">
             <field name="menu" ref="gnuhealth_services_menu"/>
+            <field name="group" ref="health.group_health_back_office"/>
+        </record>
+        <record model="ir.ui.menu-res.group" id="menu_account_group_health_back_office">
+            <field name="menu" ref="account.menu_account"/>
             <field name="group" ref="health.group_health_back_office"/>
         </record>
 
