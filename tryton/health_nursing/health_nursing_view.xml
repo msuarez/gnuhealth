@@ -52,7 +52,7 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="Patinent Rounding View">
+                <form string="Patient Rounding View">
                     <notebook>
                         <page string="Main" id="rounding_main">
                             <group colspan="2" id="group_admin_data">
