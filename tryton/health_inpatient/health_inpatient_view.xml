@@ -407,7 +407,23 @@
             </field>
         </record>
 
-<!-- Tree view for the Inpatient diets -->
+<!-- Tree view for the Therapeutic diets -->
+
+        <record id="gnuhealth_inpatient_diet_therapeutic_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.diet.therapeutic</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree editable="top" string="Therapeutic Diet">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="description"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+<!-- Tree view for the Therapeutic diet -->
 
         <record id="gnuhealth_inpatient_diet_tree" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.diet</field>
