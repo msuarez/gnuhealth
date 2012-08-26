@@ -39,6 +39,33 @@ class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
 InpatientSequences()
 
 
+# Therapeutic Diet types
+
+class DietTherapeutic (ModelSQL, ModelView):
+    'Diet Therapy'
+    _name="gnuhealth.diet.therapeutic"
+    _description = __doc__
+    
+    name = fields.Char('Type', required=True, translate=True)
+    code = fields.Char('Code', required=True)
+    description = fields.Text ('Indications', required=True , translate=True )
+    
+DietTherapeutic()
+
+
+# Diet by belief / religion
+
+class DietBelief (ModelSQL, ModelView):
+    'Diet by Belief'
+    _name="gnuhealth.diet.belief"
+    _description = __doc__
+    
+    name = fields.Char('Type', required=True, translate=True)
+    code = fields.Char('Code', required=True)
+    description = fields.Text ('Description', required=True , translate=True )
+    
+DietBelief()
+
 class InpatientRegistration(ModelSQL, ModelView):
     'Patient admission History'
     _name = 'gnuhealth.inpatient.registration'
@@ -69,6 +96,21 @@ class InpatientRegistration(ModelSQL, ModelView):
     nursing_plan = fields.Text('Nursing Plan')
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
         'Medications')
+    therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
+        'Therapeutic Diets')
+
+    diet_belief = fields.Many2One('gnuhealth.diet.belief',
+        'Belief', help="Enter the patient belief or religion to chose the proper diet")
+
+    diet_vegetarian = fields.Selection((
+        ('none', 'None'),
+        ('vegetarian', 'Vegetarian'),
+        ('lacto', 'Lacto vegetarian'),
+        ('lactoovo', 'Lacto-ovo vegetarian'),
+        ('pescetarian', 'Pescetarian'),
+        ('vegan', 'Vegan'),
+        ), 'Vegetarian', sort=False, required=True)
+
     discharge_plan = fields.Text('Discharge Plan')
     
     info = fields.Text('Extra Info')
@@ -397,3 +439,19 @@ class InpatientMedicationLog (ModelSQL, ModelView):
         return datetime.now()
 
 InpatientMedicationLog()
+
+
+
+class InpatientDiet (ModelSQL, ModelView):
+    'Inpatient Diet'
+    _name="gnuhealth.inpatient.diet"
+    _description = __doc__
+
+
+    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')    
+    diet = fields.Many2One('gnuhealth.diet.therapeutic', 'Diet', required=True)
+    remarks = fields.Text('Remarks',
+        help='specific remarks for this diet / patient')
+    
+InpatientDiet()
+

@@ -96,9 +96,19 @@
                             </group>
 
                         </page>
+                        <page string="Nutrition" id="page_inpatient_nutrition">
+                            <label name="diet_belief"/>
+                            <field name="diet_belief"/>                        
+                            <label name="diet_vegetarian"/>
+                            <field name="diet_vegetarian"/>                        
+                            <newline/>
+                            <field colspan="4" name="therapeutic_diets"/>
+                        </page>
+
                         <page string="Medication" id="page_inpatient_medication">
                             <field name="medications"/>                        
                         </page>
+
                         <page string="Care Plan" id="page_care_plan">
                             <label name="nursing_plan"/>
                             <field name="nursing_plan"/>
@@ -397,7 +407,20 @@
             </field>
         </record>
 
+<!-- Tree view for the Inpatient diets -->
 
+        <record id="gnuhealth_inpatient_diet_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.diet</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree editable="top" string="Inpatient Diet">
+                        <field name="diet"/>
+                        <field name="remarks"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
 
 
 
