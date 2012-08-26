@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <record model="gnuhealth.diet.therapeutic" id="GB1">
+            <field name="name">Gastric Bypass Stage 1</field>
+            <field name="code">GB1</field>
+            <field name="description">Sugar-Free fluids</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="GB2">
+            <field name="name">Gastric Bypass Stage 2</field>
+            <field name="code">GB2</field>
+            <field name="description">Easily digested, semi-liquid foods to be consumed in small amounts.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="GB3">
+            <field name="name">Gastric Bypass Stage 3</field>
+            <field name="code">GB3</field>
+            <field name="description">Soft or pureed foods that are easy to chew and digest</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="GB3">
+            <field name="name">Gastric Bypass Stage 4</field>
+            <field name="code">GB4</field>
+            <field name="description">Soft foods such as cooked vegetables and soft or ground meats</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="FLLF">
+            <field name="name">Full Liquid Lactose Free</field>
+            <field name="code">FLLF</field>
+            <field name="description">This diet is frequently used for GYN surgical patients. Provides foods such as non-cream based soups, Jell-O, juice, lactaid milk, tea and coffee</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="SLL">
+            <field name="name">Surgical Low Lactose</field>
+            <field name="code">SLL</field>
+            <field name="description">Soft bland foods that have low fiber content. Lactose is limited.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="PGMY">
+            <field name="name">Post-Gastrectomy</field>
+            <field name="code">PGMY</field>
+            <field name="description">Low sugar, low fat, low lactose foods. No fluids with meals. Small frequent feedings</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="REG">
+            <field name="name">Regular</field>
+            <field name="code">REG</field>
+            <field name="description">No dietary modifications required</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="MS">
+            <field name="name">Mechanical Soft / Dental Soft</field>
+            <field name="code">MS</field>
+            <field name="description">For patients who have difficulty in chewing or swallowing</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="DYSP">
+            <field name="name">Dysphagia Puree</field>
+            <field name="code">DYSP</field>
+            <field name="description">For patients with problems chewing and swallowing or esophageal inflammation or varices. Food consistency is blended. Liquids must be ordered
+separately as regular, nectar, or honey.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="DYSA">
+            <field name="name">Dysphagia Altered</field>
+            <field name="code">DYSA</field>
+            <field name="description">Mechanically altered. Meats are ground or minced. Foods are moist, soft-textured, and easily formed into a bolus. All vegetables
+are fork-mashable. Liquids must be ordered separately as regular, nectar, or honey.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="DYSAD">
+            <field name="name">Dysphagia Advanced</field>
+            <field name="code">DYSAD</field>
+            <field name="description">Foods are nearly regular textures with the exception of hard, sticky, or crunchy foods. Foods are moist, bite-sized pieces. All
+vegetables are fork-mashable. Liquids must be ordered separately as regular, nectar, or honey.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="CARDIAC">
+            <field name="name">Cardiac</field>
+            <field name="code">Cardiac</field>
+            <field name="description">Provides controlled amounts of sodium, cholesterol, saturated and total fat</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="LOWFAT">
+            <field name="name">Low-Fat</field>
+            <field name="code">LOWFAT</field>
+            <field name="description">Provides less than 30% energy from fat.</field>
+        </record>
+
+    </data>
+</tryton>
