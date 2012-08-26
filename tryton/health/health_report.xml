@@ -63,5 +63,17 @@
             <field name="action" ref="report_prescription_order"/>
         </record>
 
+        <record model="ir.action.report" id="report_appointment_receipt">
+            <field name="name">Appointment Receipt</field>
+            <field name="model">gnuhealth.appointment</field>
+            <field name="report_name">appointment.receipt</field>
+            <field name="report">health/report/appointment_receipt.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_receipt_appointment">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.appointment,-1</field>
+            <field name="action" ref="report_appointment_receipt"/>
+        </record>
+
     </data>
 </tryton>
