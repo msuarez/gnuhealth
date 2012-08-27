@@ -2,6 +2,12 @@
 <tryton>
     <data skiptest="1" noupdate="1">
 
+        <record model="gnuhealth.diet.therapeutic" id="NPO">
+            <field name="name">Nothing by Mouth / NPO </field>
+            <field name="code">NPO</field>
+            <field name="description">Nil per Os. Withhold oral food and fluids from the patient</field>
+        </record>
+
         <record model="gnuhealth.diet.therapeutic" id="GB1">
             <field name="name">Gastric Bypass Stage 1</field>
             <field name="code">GB1</field>
@@ -20,7 +26,7 @@
             <field name="description">Soft or pureed foods that are easy to chew and digest</field>
         </record>
 
-        <record model="gnuhealth.diet.therapeutic" id="GB3">
+        <record model="gnuhealth.diet.therapeutic" id="GB4">
             <field name="name">Gastric Bypass Stage 4</field>
             <field name="code">GB4</field>
             <field name="description">Soft foods such as cooked vegetables and soft or ground meats</field>
@@ -87,6 +93,103 @@ vegetables are fork-mashable. Liquids must be ordered separately as regular, nec
             <field name="name">Low-Fat</field>
             <field name="code">LOWFAT</field>
             <field name="description">Provides less than 30% energy from fat.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="NAS">
+            <field name="name">Not Added Salt - NAS</field>
+            <field name="code">NAS</field>
+            <field name="description">4 grams Sodium. Provides a moderate sodium restriction by eliminating foods and condiments high in sodium</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="2GS">
+            <field name="name">2 gram Sodium</field>
+            <field name="code">2GS</field>
+            <field name="description">Used in the treatment of conditions characterized by edema, including the following: cirrhosis of the
+liver with ascites, Congested Heart Failure - CHF, essential hypertension and renal disease.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="RENAL">
+            <field name="name">RENAL</field>
+            <field name="code">RENAL</field>
+            <field name="description">Provides adequate protein (80 - 100g/d) and limited amounts of potassium (2g) and sodium (2g) for the dialyzed patient.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="PRERENAL">
+            <field name="name">PRERENAL</field>
+            <field name="code">PRERENAL</field>
+            <field name="description">Provides limited amounts of protein (40-60g/d), potassium (2g/d), and sodium (2g/d) for the pre-dialyzed patient.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="GISOFT">
+            <field name="name">GI Soft - Low Residue</field>
+            <field name="code">GISOFT</field>
+            <field name="description">The diet limits most raw, highly-seasoned and fried foods. The diet contains only moderate amounts of fiber</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="BLAND">
+            <field name="name">Bland</field>
+            <field name="code">BLAND</field>
+            <field name="description">The diet eliminates seasoned foods and condiments that may stimulate gastric discomfort and GERD</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="CCH">
+            <field name="name">Consistent Carbohydrate</field>
+            <field name="code">CCH</field>
+            <field name="description">1200-3000 cal/day .The diet provides consistent amount of carbohydrate based on caloric level to allow for optimal blood glucose control. The diet provides a Bedtime snack for all calorie levels. (45% CHO, 25% protein, 30% fat)</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="CDD">
+            <field name="name">Gestational Diabetic Diet</field>
+            <field name="code">CDD</field>
+            <field name="description">1800-3000 cal/day .The diet provides consistent amount of carbohydrate based on caloric level to allow for optimal blood glucose control. Snacks provided between meals to provide approximately 35-40% of Kcal from CHO.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="EMESIS">
+            <field name="name">Hyperemesis</field>
+            <field name="code">EMESIS</field>
+            <field name="description">The diet provides bland, room temperature or cold foods separated into solids and liquids. Patients on this diet may request additional foods they feel can be tolerated. Patients are encouraged to separate their intake of food and drink</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="SFM">
+            <field name="name">Small Frequent Meals</field>
+            <field name="code">SFM</field>
+            <field name="description">The diet provides 6 small meals daily</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="CLIQUID">
+            <field name="name">Clear Liquid</field>
+            <field name="code">CLIQUID</field>
+            <field name="description">The diet is indicated for short-term use whenever an acute illness or surgery causes intolerance to food; or to temporarily restrict undigested material in the GI tract. The diet is not nutritionally adequate.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="CLIQUIDNCS">
+            <field name="name">Clear Liquid / NCS</field>
+            <field name="code">CLIQUIDNCS</field>
+            <field name="description">Clear liquid diet providing sugar-free products only (No Concentrated Sugar). This diet provides very limited amounts of carbohydrate.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="FULLLIQUID">
+            <field name="name">Full Liquid</field>
+            <field name="code">FULLLIQUID</field>
+            <field name="description">The diet consists of foods that are liquid at body temperature. Foods are easy to digest and provide minimal stimulation to the GI tract. The diet is not nutritionally adequate.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="NEUTROPENIC">
+            <field name="name">Neutropenic</field>
+            <field name="code">NEUTROPENIC</field>
+            <field name="description">The diet eliminates certain foods to provide a lower level of bacteria than is present in a typical hospital diet.</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="GLUTENFREE">
+            <field name="name">Gluten Free</field>
+            <field name="code">GLUTENFREE</field>
+            <field name="description">The diet omits foods processed with Gluten. The diet is the primary means of treatment for celiac sprue</field>
+        </record>
+
+        <record model="gnuhealth.diet.therapeutic" id="FINGERFOOD">
+            <field name="name">Finger Food</field>
+            <field name="code">FINGERFOOD</field>
+            <field name="description">Indicated for patients who may not be able to use utensils or for patients confined to a flat-lying position who require heart healthy foods.</field>
         </record>
 
     </data>

@@ -58,6 +58,7 @@ Contiene los procesos relacionados a la internación (Hospitalización y asignac
 
     'xml': [
         'health_inpatient_view.xml','data/health_inpatient_sequence.xml',
+        'data/inpatient_diets.xml','data/diets_beliefs.xml',
         'security/access_rights.xml'
     ],
     'active': False,

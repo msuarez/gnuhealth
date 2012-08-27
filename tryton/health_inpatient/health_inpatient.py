@@ -49,6 +49,13 @@ class DietTherapeutic (ModelSQL, ModelView):
     name = fields.Char('Type', required=True, translate=True)
     code = fields.Char('Code', required=True)
     description = fields.Text ('Indications', required=True , translate=True )
+
+    def __init__(self):
+        super(DietTherapeutic, self).__init__()
+
+        self._sql_constraints = [
+            ('code_uniq', 'unique(code)',
+             'The Diet code already exists')]
     
 DietTherapeutic()
 
@@ -60,9 +67,16 @@ class DietBelief (ModelSQL, ModelView):
     _name="gnuhealth.diet.belief"
     _description = __doc__
     
-    name = fields.Char('Type', required=True, translate=True)
+    name = fields.Char('Belief', required=True, translate=True)
     code = fields.Char('Code', required=True)
     description = fields.Text ('Description', required=True , translate=True )
+
+    def __init__(self):
+        super(DietBelief, self).__init__()
+
+        self._sql_constraints = [
+            ('code_uniq', 'unique(code)',
+             'The Diet code already exists')]
     
 DietBelief()
 
@@ -100,7 +114,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         'Therapeutic Diets')
 
     diet_belief = fields.Many2One('gnuhealth.diet.belief',
-        'Belief', help="Enter the patient belief or religion to chose the proper diet")
+        'Belief', help="Enter the patient belief or religion to choose the proper diet")
 
     diet_vegetarian = fields.Selection((
         ('none', 'None'),
@@ -450,7 +464,7 @@ class InpatientDiet (ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')    
     diet = fields.Many2One('gnuhealth.diet.therapeutic', 'Diet', required=True)
-    remarks = fields.Text('Remarks',
+    remarks = fields.Text('Remarks / Directions',
         help='specific remarks for this diet / patient')
     
 InpatientDiet()
