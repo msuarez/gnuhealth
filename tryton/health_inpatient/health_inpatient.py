@@ -46,7 +46,7 @@ class DietTherapeutic (ModelSQL, ModelView):
     _name="gnuhealth.diet.therapeutic"
     _description = __doc__
     
-    name = fields.Char('Type', required=True, translate=True)
+    name = fields.Char('Diet type', required=True, translate=True)
     code = fields.Char('Code', required=True)
     description = fields.Text ('Indications', required=True , translate=True )
 
@@ -124,6 +124,8 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('pescetarian', 'Pescetarian'),
         ('vegan', 'Vegan'),
         ), 'Vegetarian', sort=False, required=True)
+
+    nutrition_notes = fields.Text('Nutrition notes / directions')
 
     discharge_plan = fields.Text('Discharge Plan')
     

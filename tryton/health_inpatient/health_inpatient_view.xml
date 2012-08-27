@@ -103,6 +103,11 @@
                             <field name="diet_vegetarian"/>                        
                             <newline/>
                             <field colspan="4" name="therapeutic_diets"/>
+                            <newline/>
+                            <separator colspan="4" id="separator_nutrition_notes" string="Other nutrition notes / directions"/>
+                            <newline/>
+                            <field colspan="4" name="nutrition_notes"/>                        
+                            
                         </page>
 
                         <page string="Medication" id="page_inpatient_medication">
@@ -415,8 +420,12 @@
             <field name="arch" type="xml">
                 <![CDATA[
                     <form string="Diet related to beliefs">
+                        <label name="name"/>
                         <field name="name"/>
+                        <label name="code"/>
                         <field name="code"/>
+                        <newline/>
+                        <separator id="separator_diet_belief_description" colspan="4" string="Diet Description"/>
                         <newline/>
                         <field colspan="4" name="description"/>
                     </form>
@@ -440,6 +449,27 @@
             </field>
         </record>
 
+<!-- Form view for the Therapeutic diet -->
+
+        <record id="gnuhealth_inpatient_diet_therapeutic_form" model="ir.ui.view">
+            <field name="model">gnuhealth.diet.therapeutic</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Therapeutic Diet">
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="code"/>
+                        <field name="code"/>
+                        <newline/>
+                        <separator id="separator_diet_description" colspan="4" string="Diet Description and Indications"/>
+                        <newline/>
+                        <field colspan="4" name="description"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
 <!-- Tree view for the Therapeutic diets -->
 
         <record id="gnuhealth_inpatient_diet_therapeutic_tree" model="ir.ui.view">
@@ -456,7 +486,7 @@
             </field>
         </record>
 
-<!-- Form view for the Therapeutic diet -->
+<!-- Form view for the Inpatient diet -->
 
         <record id="gnuhealth_inpatient_diet_form" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.diet</field>
@@ -476,7 +506,7 @@
         </record>
 
 
-<!-- Tree view for the Therapeutic diet -->
+<!-- Tree view for the Inpatient diet -->
 
         <record id="gnuhealth_inpatient_diet_tree" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.diet</field>
@@ -490,7 +520,6 @@
                 ]]>
             </field>
         </record>
-
 
 
     </data>
