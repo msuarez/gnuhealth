@@ -71,6 +71,4 @@ setup(name='trytond_health_nursing',
     [trytond.modules]
     health_nursing = trytond.modules.health_nursing
     """,
-    test_suite='tests',
-    test_loader='trytond.test_loader:Loader',
     )
