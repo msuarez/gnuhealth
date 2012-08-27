@@ -22,7 +22,7 @@
 {
 
 	'name' : 'GNU Health : Procedure Coding System .- ICD10-PCS',  
-    'version': '1.6.2',
+    'version': '1.6.3',
 	'author' : 'GNU Solidario',
 	'email' : 'health@gnusolidario.org',
 	'depends' : ['health'],

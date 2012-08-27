@@ -22,7 +22,7 @@
 {
 
     'name' : 'GNU Health : Installer',  
-    'version': '1.6.2',
+    'version': '1.6.3',
     'author' : 'GNU Solidario',
     'email' : 'health@gnusolidario.org',
     'website' : "http://health.gnu.org",

@@ -23,7 +23,7 @@
 {
     'name': 'GNU Health : Health Services and orders',
     'name_es_ES': 'GNU Health : Servicios y órdenes',
-    'version': '1.6.2',
+    'version': '1.6.3',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',

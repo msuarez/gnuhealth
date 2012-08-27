@@ -1,3 +1,275 @@
+******* Version 1.6.3 *******
+changeset:   328:8ae570074717
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 23:38:46 2012 -0300
+summary:     Autoexpand medication administration history log fields
+
+changeset:   327:44588b46ca51
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 23:32:09 2012 -0300
+summary:     Add beliefs and religion related diets
+
+changeset:   326:39dd8913760c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 20:04:10 2012 -0300
+summary:     Add initial hospital therapeutic diets
+
+changeset:   325:7d6a92aa4bc4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 19:09:49 2012 -0300
+summary:     Add tree view for therapeutic diets
+
+changeset:   324:ec2af156fe17
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 17:42:13 2012 -0300
+summary:     Add Inpatient diets
+
+changeset:   323:3eb44fb3ad3f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 26 14:42:08 2012 -0300
+summary:     Add Appointment report
+
+changeset:   322:bb29dc060de6
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Aug 25 17:49:32 2012 -0300
+summary:     Add group and demo user for Nursing
+
+changeset:   321:ad2b57beb920
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Aug 25 17:20:48 2012 -0300
+summary:     Add Financial Menu to Back Office group
+
+changeset:   320:d9090f83d480
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Aug 25 15:21:59 2012 -0300
+summary:     Improve standard security profiles
+
+changeset:   319:54639aef8a47
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Aug 25 04:29:55 2012 -0300
+summary:     Create standard security profiles
+
+changeset:   318:9100bf941b65
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 24 23:14:09 2012 -0300
+summary:     Use the registration code in the nursing roundings
+
+changeset:   317:7ec1bc1a2184
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 24 21:10:27 2012 -0300
+summary:     Fix typo in nursing rounding view
+
+changeset:   316:e7a0ccd35d9b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 24 20:54:00 2012 -0300
+summary:     Improve Nurse icon - by Leonardo D'Acchile
+
+changeset:   315:d5be29cfc18f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 24 20:43:58 2012 -0300
+summary:     Replace doctor by Health professional in party
+
+changeset:   314:a3b4ff957744
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Aug 23 00:14:27 2012 -0300
+summary:     Add Inpatient drug administration log
+
+changeset:   313:11a54ab29a47
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Aug 22 23:36:42 2012 -0300
+summary:     Added main functionality for inpatient medication
+
+changeset:   312:0f4a710689ba
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 18:41:55 2012 -0300
+summary:     Nursing : Add rounding procedures
+
+changeset:   311:c779640b622d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 16:25:48 2012 -0300
+summary:     Health_nursing: Fix typo in temperature
+
+changeset:   310:9eb71eb4fcbf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 16:15:25 2012 -0300
+summary:     Add warning-alert flag in patient rounding
+
+changeset:   309:bcfb97d39bbd
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 15:37:39 2012 -0300
+summary:     Health: Add current date-time for patient evaluation
+
+changeset:   308:db3b77f85dfe
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 15:31:23 2012 -0300
+summary:     Add current date-time for patient rounding
+
+changeset:   307:3fed70e4a66d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 15:14:50 2012 -0300
+summary:     Change physician by health professional in views
+
+changeset:   306:99ac925a3396
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 15:07:45 2012 -0300
+summary:     Change physician by health professional in generic contexts
+
+changeset:   305:80d6c576ef3d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 13:50:38 2012 -0300
+summary:     Add default health professional to the patient roundings
+
+changeset:   304:c97b86adc769
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 20 03:41:28 2012 -0300
+summary:     Add main view for patient rounding
+
+changeset:   303:ddad47ec6bec
+parent:      301:7a9ba427b83d
+parent:      302:4033e656e042
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 19 18:47:17 2012 -0300
+summary:     Use Discharge instead of dismissed . Fix bug https://savannah.gnu.org/bugs/?37090
+
+changeset:   302:4033e656e042
+parent:      300:70499d2c12a3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Aug 18 17:08:57 2012 -0300
+summary:     Fix proteus error with write and delete methods of calendar modules
+
+changeset:   301:7a9ba427b83d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Aug 19 18:46:03 2012 -0300
+summary:     Use Discharge instead of dismissed . Fix bug https://savannah.gnu.org/bugs/?37090
+
+changeset:   300:70499d2c12a3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 17 17:58:51 2012 -0300
+summary:     Check that discharge date is after admission. Fix bug https://savannah.gnu.org/bugs/index.php?37058
+
+changeset:   299:3d5c89e20216
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 17 17:18:22 2012 -0300
+summary:     Change to expected the patient discharge date
+
+changeset:   298:8e7d096595d8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Aug 17 17:10:23 2012 -0300
+summary:     Add Nursing menu and icon
+
+changeset:   297:59333b789ece
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 06 19:06:02 2012 -0300
+summary:     Remove inheritance in the new patient rounding model
+
+changeset:   296:3f38a45e7e53
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 06 17:18:36 2012 -0300
+summary:     Initial Nursing module declaration
+
+changeset:   295:ee166c845b69
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Aug 04 16:00:58 2012 -0300
+summary:     Add pot file for socioeconomics
+
+changeset:   294:235238a42d4e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 28 02:36:19 2012 -0300
+summary:     Add tests to health_reporting and health_services modules
+
+changeset:   293:061da9a3333b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 28 02:33:23 2012 -0300
+summary:     Fix some PEP8 and Pyflakes warnings
+
+changeset:   292:afab73e9e420
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 28 02:31:36 2012 -0300
+summary:     Add missing copyright
+
+changeset:   291:1eac8295f632
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 14 12:58:33 2012 -0300
+summary:     Update icons in all menu items and buttons
+
+changeset:   290:46f80a173b2e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 14 12:57:59 2012 -0300
+summary:     Remove translation files to get them from transifex
+
+changeset:   289:d84c5d0b9342
+parent:      287:b705b462b429
+parent:      288:c3bd0d17248e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jul 14 12:46:20 2012 -0300
+summary:     merge
+
+changeset:   288:c3bd0d17248e
+parent:      286:a320ce088c72
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 14 12:44:38 2012 -0300
+summary:     Update icons in all menu items and buttons
+
+changeset:   287:b705b462b429
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jul 14 12:45:13 2012 -0300
+summary:     Add localization template files for modules
+
+changeset:   286:a320ce088c72
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jul 14 12:21:00 2012 -0300
+summary:     Remove translation files to get them from transifex
+
+changeset:   285:8d7088624269
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Jul 11 20:33:20 2012 -0300
+summary:     Allow to modify WHO Medicaments values
+
+changeset:   284:0d7f4032a1f4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jul 11 13:27:56 2012 -0300
+summary:     remove translation files to get them from transifex
+
+changeset:   283:68a87092ef12
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jul 10 00:59:05 2012 -0300
+summary:     Search hospitalization by bed
+
+changeset:   282:0e5531783d9e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Jul 02 16:44:05 2012 -0300
+summary:     Search patient by name, lastname or SSN
+
+changeset:   281:e874cbe1d208
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Jun 26 19:00:21 2012 -0300
+summary:     Speps. Patch autoconf, configure and Makefile.in .- Archlinux.
+
+changeset:   280:e71bd22bcbdd
+parent:      278:af465746d97c
+parent:      279:a3116b724999
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 17 22:47:14 2012 -0300
+summary:     merge
+
+changeset:   279:a3116b724999
+parent:      277:9cc0ac823fd2
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Jun 17 22:41:04 2012 -0300
+summary:     Gyneco : Remove not declared field in form view
+
+changeset:   278:af465746d97c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 17 22:46:18 2012 -0300
+summary:     Added tag 1.6.2 for changeset 9cc0ac823fd2
+
+changeset:   277:9cc0ac823fd2
+tag:         1.6.2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jun 17 16:21:38 2012 -0300
+summary:     Update Changelog and version number
+
 ******* Version 1.6.2 *******
 changeset:   276:24cac71e9f84
 tag:         tip
