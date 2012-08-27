@@ -43,6 +43,7 @@ setup(name='trytond_health_nursing',
     package_dir={'trytond.modules.health_nursing': '.'},
     packages=[
         'trytond.modules.health_nursing',
+        'trytond.modules.health_nursing.tests',
         ],
     package_data={
         'trytond.modules.health_nursing': info.get('xml', []) \
@@ -71,4 +72,6 @@ setup(name='trytond_health_nursing',
     [trytond.modules]
     health_nursing = trytond.modules.health_nursing
     """,
+    test_suite='tests',
+    test_loader='trytond.test_loader:Loader',
     )
