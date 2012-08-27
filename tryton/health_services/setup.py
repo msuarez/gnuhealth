@@ -44,7 +44,7 @@ setup(name='trytond_health_services',
     packages=[
         'trytond.modules.health_services',
         'trytond.modules.health_services.tests',
-        'trytond.modules.health_lab.wizard',
+        'trytond.modules.health_services.wizard',
         ],
     package_data={
         'trytond.modules.health_services': info.get('xml', []) \
