@@ -397,8 +397,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                     <tree editable="top" string="Inpatient Medication Log">
-                        <field name="admin_time"/>
-                        <field name="health_professional"/>
+                        <field name="admin_time" expand="1"/>
+                        <field name="health_professional" expand="1"/>
                         <field name="dose"/>
                         <field name="dose_unit"/>
                         <field name="remarks" expand="1"/>                                              
