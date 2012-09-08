@@ -1002,6 +1002,26 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         self._order.insert(2, ('is_infectious', 'DESC'))
         self._order.insert(3, ('diagnosed_date', 'DESC'))
 
+
+    def __init__(self):
+        super(PatientDiseaseInfo, self).__init__()
+
+        self._constraints += [
+            ('validate_disease_period', 'end_date_before_start'),
+
+            ]
+            
+        self._error_messages.update({
+            'end_date_before_start': 'The HEALED date is BEFORE DIAGNOSED DATE !',
+            })
+
+    def validate_disease_period (self, ids):
+        for disease_data in self.browse(ids):
+            if (disease_data.healed_date < disease_data.diagnosed_date):
+                return False
+            else:
+                return True
+
 PatientDiseaseInfo()
 
 
