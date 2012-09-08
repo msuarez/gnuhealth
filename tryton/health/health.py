@@ -1008,11 +1008,13 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
         self._constraints += [
             ('validate_disease_period', 'end_date_before_start'),
+            ('validate_treatment_dates', 'end_treatment_date_before_start'),
 
             ]
             
         self._error_messages.update({
             'end_date_before_start': 'The HEALED date is BEFORE DIAGNOSED DATE !',
+            'end_treatment_date_before_start': 'The Treatment END DATE is BEFORE the start date!',
             })
 
     def validate_disease_period (self, ids):
@@ -1021,6 +1023,14 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
                 return False
             else:
                 return True
+
+    def validate_treatment_dates (self, ids):
+        for disease_data in self.browse(ids):
+            if (disease_data.date_stop_treatment < disease_data.date_start_treatment):
+                return False
+            else:
+                return True
+
 
 PatientDiseaseInfo()
 
@@ -1247,6 +1257,7 @@ class PatientMedication(ModelSQL, ModelView):
                 return False
             else:
                 return True
+
                 
 PatientMedication()
 
