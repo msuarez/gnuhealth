@@ -622,7 +622,7 @@ class PartyPatient (ModelSQL, ModelView):
         ], 'Insurance Type', select=True)
     insurance_plan_ids = fields.One2Many('gnuhealth.insurance.plan', 'company',
         'Insurance Plans')
-
+            
     def __init__(self):
         super(PartyPatient, self).__init__()
         self._sql_constraints += [
@@ -637,7 +637,7 @@ class PartyPatient (ModelSQL, ModelView):
         # '' coming from the client
         if 'ref' in values and not values['ref']:
             values = values.copy()
-            values['ref'] = None
+            values['ref'] = None                
         return super(PartyPatient, self).write(ids, values)
 
     def create(self, values):
@@ -1209,6 +1209,25 @@ class PatientMedication(ModelSQL, ModelView):
     def default_qty(self):
         return 1
 
+    def __init__(self):
+        super(PatientMedication, self).__init__()
+
+        self._constraints += [
+            ('validate_medication_dates', 'end_date_before_start'),
+
+            ]
+            
+        self._error_messages.update({
+            'end_date_before_start': 'The Medication END DATE is BEFORE the start date!',
+            })
+
+    def validate_medication_dates (self, ids):
+        for medication_data in self.browse(ids):
+            if (medication_data.end_treatment < medication_data.start_treatment):
+                return False
+            else:
+                return True
+                
 PatientMedication()
 
 

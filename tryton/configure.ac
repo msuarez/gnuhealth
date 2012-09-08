@@ -1,4 +1,4 @@
-AC_INIT([GNU Health], [1.6.2], [health@gnusolidario.org], [GNU Health], [http://health.gnu.org])
+AC_INIT([GNU Health], [1.6.3], [health@gnusolidario.org], [GNU Health], [http://health.gnu.org])
 
 AC_PREFIX_DEFAULT(/usr)
 
