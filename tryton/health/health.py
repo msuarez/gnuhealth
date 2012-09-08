@@ -1303,10 +1303,14 @@ class PatientVaccination(ModelSQL, ModelView):
         ]
         self._constraints = [
             ('check_vaccine_expiration_date', 'expired_vaccine'),
+            ('validate_next_dose_date', 'next_dose_before_first'),
+            
         ]
         self._error_messages.update({
             'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '\
                     'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
+            'next_dose_before_first': 'The Vaccine next dose is BEFORE the first one !'
+
         })
 
     def default_date(self):
@@ -1314,6 +1318,13 @@ class PatientVaccination(ModelSQL, ModelView):
 
     def default_dose(self):
         return 1
+
+    def validate_next_dose_date (self, ids):
+        for vaccine_data in self.browse(ids):
+            if (vaccine_data.next_dose_date < vaccine_data.date):
+                return False
+            else:
+                return True
 
 PatientVaccination()
 
