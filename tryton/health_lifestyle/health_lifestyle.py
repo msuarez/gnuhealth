@@ -19,7 +19,9 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
+from datetime import datetime
 
+from trytond.pyson import Eval, Greater
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
@@ -183,8 +185,6 @@ class PatientCAGE(ModelSQL, ModelView):
 
     evaluation_date = fields.DateTime('Date')
 
-    user_id = fields.Many2One('res.user', 'Healh Professional', readonly=True)
-
     cage_c = fields.Boolean('Hard to Cut down', help='Have you ever felt you needed to Cut down on your drinking ?')
     cage_a = fields.Boolean('Angry with Critics', help='Have people Annoyed you by criticizing your drinking ?')
     cage_g = fields.Boolean('Guilt', help='Have you ever felt Guilty about drinking ?')
@@ -207,6 +207,9 @@ class PatientCAGE(ModelSQL, ModelView):
             total=total + 1
 
         return total
+
+    def default_evaluation_date(self):
+        return datetime.now()
 
 PatientCAGE()
 

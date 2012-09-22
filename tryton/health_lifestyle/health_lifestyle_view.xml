@@ -185,7 +185,7 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree editable="top" string="Patient CAGE">
+                <tree editable="top" string="Patient CAGE" colors = "If(Greater(Eval('cage_score',0), 1),'red','blue')"> 
                     <field name="evaluation_date"/>
                     <field name="cage_c"/>
                     <field name="cage_a"/>
