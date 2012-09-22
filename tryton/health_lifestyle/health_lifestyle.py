@@ -172,6 +172,44 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
 PatientRecreationalDrugs()
 
 
+''' CAGE questionnaire to assess patient dependency to alcohol '''
+
+class PatientCAGE(ModelSQL, ModelView):
+    'Patient CAGE Questionnaire'
+    _name = 'gnuhealth.patient.cage'
+    _description = __doc__
+    
+    name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+
+    evaluation_date = fields.DateTime('Date')
+
+    user_id = fields.Many2One('res.user', 'Healh Professional', readonly=True)
+
+    cage_c = fields.Boolean('Hard to Cut down', help='Have you ever felt you needed to Cut down on your drinking ?')
+    cage_a = fields.Boolean('Angry with Critics', help='Have people Annoyed you by criticizing your drinking ?')
+    cage_g = fields.Boolean('Guilt', help='Have you ever felt Guilty about drinking ?')
+    cage_e = fields.Boolean('Eye-opener', help='Have you ever felt you needed a drink first thing in the morning (Eye-opener) to steady your nerves or to get rid of a hangover?')
+    
+    cage_score = fields.Integer('CAGE Score',
+        on_change_with=['cage_c','cage_a','cage_g','cage_e'])
+    
+    
+    def on_change_with_cage_score(self, vals):
+        total = 0
+
+        if vals.get('cage_c'):
+            total=total + 1
+        if vals.get('cage_a'):
+            total=total + 1
+        if vals.get('cage_g'):
+            total=total + 1
+        if vals.get('cage_e'):
+            total=total + 1
+
+        return total
+
+PatientCAGE()
+
 class MedicalPatient(ModelSQL, ModelView):
     _name = 'gnuhealth.patient'
 
@@ -299,5 +337,8 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Check if the patient (he or she) has sex with prostitutes")
 
     sexuality_info = fields.Text('Extra Information')
+
+    cage = fields.One2Many('gnuhealth.patient.cage',
+        'name', 'CAGE')
 
 MedicalPatient()
