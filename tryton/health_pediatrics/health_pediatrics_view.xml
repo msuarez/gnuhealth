@@ -126,11 +126,7 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="PSC - Pediatric Symptoms Checklist History">
-<!--
-                <tree string="PSC - Pediatric Symptoms Checklist History"
-                    colors="If(Greater(Eval('psc_total'),27),'red','blue')">
--->
+                <tree string="PSC - Pediatric Symptoms Checklist History" colors = "If(Greater(Eval('psc_total',0), 27),'red','blue')">
                     <field name="patient"/>
                     <field name="evaluation_start"/>
                     <field name="psc_total"/>
