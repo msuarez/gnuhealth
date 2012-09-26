@@ -22,6 +22,44 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 
+class ObstetricEvaluation(ModelSQL, ModelView):
+    'Obstetric Evaluation'
+    _name = 'gnuhealth.patient.obstetric.evaluation'
+    _description = __doc__
+
+
+    def get_patient_evaluation_data(self, ids, name):
+        result = {}
+        
+        for evaluation_data in self.browse(ids):
+            if name == 'systolic':
+                result[evaluation_data.id] = evaluation_data.evaluation.systolic
+            if name == 'diastolic':
+                result[evaluation_data.id] = evaluation_data.evaluation.diastolic
+            if name == 'evaluation_date':
+                result[evaluation_data.id] = evaluation_data.evaluation.evaluation_start
+
+        return result
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
+
+    evaluation_date = fields.Function(fields.DateTime('Date'),
+        'get_patient_evaluation_data')
+
+    systolic = fields.Function(fields.Integer('Systolic'),
+        'get_patient_evaluation_data')
+    diastolic = fields.Function(fields.Integer('Diastolic'),
+        'get_patient_evaluation_data')
+
+    frequency = fields.Integer('Heart Frequency')
+
+    fundal_height = fields.Integer('Fundal Height',
+        help="Distance between the symphysis pubis and the uterine fundus " \
+        "(S-FD) in cm")
+        
+ObstetricEvaluation()
+
 
 class PuerperiumMonitor(ModelSQL, ModelView):
     'Puerperium Monitor'
@@ -198,6 +236,8 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     colposcopy_history = fields.One2Many('gnuhealth.patient.colposcopy_history',
         'name', 'Colposcopy History')
+
+    obstetric_evaluation = fields.One2Many('gnuhealth.patient.obstetric.evaluation', 'name', 'Obstetric Evaluation')
 
 GnuHealthPatient()
 

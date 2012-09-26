@@ -1662,7 +1662,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def default_evaluation_type(self):
         return 'pa'
-
+        
     def on_change_with_bmi(self, vals):
         height = vals.get('height')
         weight = vals.get('weight')

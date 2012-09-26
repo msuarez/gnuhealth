@@ -2,6 +2,42 @@
 <tryton>
     <data>
 
+
+<!-- Obstetric Evaluation -->
+
+        <record model="ir.ui.view" id="gnuhealth_obstetric_evaluation_view">
+            <field name="model">gnuhealth.patient.obstetric.evaluation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Obstetric Evaluation">
+                    <label name="evaluation"/>
+                    <field name="evaluation"/>
+                    <label name="systolic"/>
+                    <field name="systolic"/>
+                    <label name="diastolic"/>
+                    <field name="diastolic"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_obstetric_evaluation_tree">
+            <field name="model">gnuhealth.patient.obstetric.evaluation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Obstetric Evaluations'>
+                    <field name="evaluation_date" expand="1"/>
+                    <field name="systolic" expand="1"/>
+                    <field name="diastolic" expand="1"/>
+                    
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
 <!-- Perinatal -->
 
         <record model="ir.ui.view" id="gnuhealth_perinatal_view">
@@ -488,6 +524,7 @@
                                         <field name="deaths_2nd_week"/>
                                     </group>
                                     <newline/>
+                                    <field name="obstetric_evaluation"/>
                                     <field name="perinatal"/>
                                 </page>
 
