@@ -18,10 +18,9 @@
                     <label name="pdd"/>
                     <field name="pdd"/>
                     <newline/>
-                    <field name="obstetric_evaluation"/>
+                    <field colspan="4" name="prenatal_evaluations"/>
                     <newline/>
-
-                    <field name="perinatal"/>
+                    <field colspan="4" name="perinatal"/>
 
                 </form>
                 ]]>
@@ -46,12 +45,12 @@
 
 <!-- Obstetric Evaluation -->
 
-        <record model="ir.ui.view" id="gnuhealth_obstetric_evaluation_view">
-            <field name="model">gnuhealth.patient.obstetric.evaluation</field>
+        <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_view">
+            <field name="model">gnuhealth.patient.prenatal.evaluation</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="Obstetric Evaluation">
+                <form string="Prenatal Evaluation">
                     <label name="evaluation"/>
                     <field name="evaluation"/>
                     <label name="systolic"/>
@@ -63,12 +62,12 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_obstetric_evaluation_tree">
-            <field name="model">gnuhealth.patient.obstetric.evaluation</field>
+        <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_tree">
+            <field name="model">gnuhealth.patient.prenatal.evaluation</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string='Obstetric Evaluations'>
+                <tree string='Prenatal Evaluations'>
                     <field name="evaluation_date" expand="1"/>
                     <field name="systolic" expand="1"/>
                     <field name="diastolic" expand="1"/>
@@ -566,6 +565,7 @@
                                         <label name="deaths_2nd_week"/>
                                         <field name="deaths_2nd_week"/>
                                     </group>
+                                        <field name="pregnancy_history"/>
                                 </page>
 
                             </notebook>
