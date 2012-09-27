@@ -22,11 +22,13 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 
-class ObstetricEvaluation(ModelSQL, ModelView):
-    'Obstetric Evaluation'
-    _name = 'gnuhealth.patient.obstetric.evaluation'
-    _description = __doc__
 
+
+
+class PrenatalEvaluation(ModelSQL, ModelView):
+    'Prenatal Evaluation'
+    _name = 'gnuhealth.patient.prenatal.evaluation'
+    _description = __doc__
 
     def get_patient_evaluation_data(self, ids, name):
         result = {}
@@ -41,7 +43,9 @@ class ObstetricEvaluation(ModelSQL, ModelView):
 
         return result
 
+
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
 
     evaluation_date = fields.Function(fields.DateTime('Date'),
@@ -58,7 +62,8 @@ class ObstetricEvaluation(ModelSQL, ModelView):
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
         
-ObstetricEvaluation()
+
+PrenatalEvaluation()
 
 
 class PuerperiumMonitor(ModelSQL, ModelView):
@@ -136,8 +141,11 @@ class Perinatal(ModelSQL, ModelView):
     abortion = fields.Boolean('Abortion')
     admission_date = fields.DateTime('Admission',
         help="Date when she was admitted to give birth", required=True)
-    prenatal_evaluations = fields.Integer('Prenatal evaluations',
+
+# Deprecated in 1.6.4
+    prenatal_evaluations = fields.Integer('Prenatal evaluations', \
         help="Number of visits to the doctor during pregnancy")
+
     start_labor_mode = fields.Selection([
         ('n', 'Normal'),
         ('i', 'Induced'),
@@ -161,6 +169,9 @@ class Perinatal(ModelSQL, ModelView):
     forceps = fields.Boolean('Use of forceps')
     monitoring = fields.One2Many('gnuhealth.perinatal.monitor', 'name',
         'Monitors')
+# Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
+# and is included in the obstetric evaluation history
+
     puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name',
         'Puerperium monitor')
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
@@ -181,6 +192,32 @@ class Perinatal(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
 Perinatal()
+
+class PatientPregnancy(ModelSQL, ModelView):
+    'Patient Pregnancy'
+    _name = 'gnuhealth.patient.pregnancy'
+    _description = __doc__
+
+    def get_pregnancy_due_date(self, ids, name):
+        result = {}
+        
+        for pregnancy_data in self.browse(ids):
+            result[pregnancy_data.id] = pregnancy_data.lmp
+
+        return result
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    gravida = fields.Integer ('Gravida #')
+    lmp = fields.Date ('LMP', help="Last Menstrual Period")
+    pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
+
+    prenatal_evaluations = fields.One2Many('gnuhealth.prenatal', 'name', 'Prenatal Evaluations')
+
+    perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
+
+    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
+
+PatientPregnancy()
 
 
 class GnuHealthPatient(ModelSQL, ModelView):
@@ -223,6 +260,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     deaths_2nd_week = fields.Integer('Deceased after 2nd week',
         help="Number of babies that die after the second week")
 
+# Deprecated since 1.6.4 - Included in the obstetric history
     perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
 
     menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history',
@@ -237,7 +275,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     colposcopy_history = fields.One2Many('gnuhealth.patient.colposcopy_history',
         'name', 'Colposcopy History')
 
-    obstetric_evaluation = fields.One2Many('gnuhealth.patient.obstetric.evaluation', 'name', 'Obstetric Evaluation')
+    pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name', 'Pregnancies')
 
 GnuHealthPatient()
 

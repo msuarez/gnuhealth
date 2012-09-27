@@ -3,6 +3,47 @@
     <data>
 
 
+<!-- Patient Pregnancies -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_pregnancy_view">
+            <field name="model">gnuhealth.patient.pregnancy</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Pregnancies">
+                    <label name="gravida"/>
+                    <field name="gravida"/>
+                    <label name="lmp"/>
+                    <field name="lmp"/>
+                    <label name="pdd"/>
+                    <field name="pdd"/>
+                    <newline/>
+                    <field name="obstetric_evaluation"/>
+                    <newline/>
+
+                    <field name="perinatal"/>
+
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_pregnancy_tree">
+            <field name="model">gnuhealth.patient.pregnancy</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Pregnancies'>
+                    <field name="gravida" expand="1"/>
+                    <field name="lmp" expand="1"/>
+                    <field name="pdd" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
+
 <!-- Obstetric Evaluation -->
 
         <record model="ir.ui.view" id="gnuhealth_obstetric_evaluation_view">
@@ -67,8 +108,10 @@
                                     <field name="gestational_weeks"/>
                                     <label name="gestational_days"/>
                                     <field name="gestational_days"/>
+<!-- Deprecated in 1.6.4
                                     <label name="prenatal_evaluations"/>
                                     <field name="prenatal_evaluations"/>
+-->
                                 </group>
 
                             </group>
@@ -523,9 +566,6 @@
                                         <label name="deaths_2nd_week"/>
                                         <field name="deaths_2nd_week"/>
                                     </group>
-                                    <newline/>
-                                    <field name="obstetric_evaluation"/>
-                                    <field name="perinatal"/>
                                 </page>
 
                             </notebook>
