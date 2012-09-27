@@ -1093,6 +1093,21 @@ class Appointment(ModelSQL, ModelView):
 
         return super(Appointment, self).create(values)
 
+    def default_doctor(self):
+        cursor = Transaction().cursor
+        user_obj = Pool().get('res.user')
+        user = user_obj.browse(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+            return int(doctor_id[0])
+
     def default_urgency(self):
         return 'a'
 
@@ -1471,12 +1486,13 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
+        domain=[('patient', '=', Eval('patient'))],
         help='Enter or select the date / ID of the appointment related to'\
         ' this evaluation')
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_endtime = fields.DateTime('End', required=True)
     next_evaluation = fields.Many2One('gnuhealth.appointment',
-        'Next Appointment')
+        'Next Appointment', domain=[('patient', '=', Eval('patient'))])
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
