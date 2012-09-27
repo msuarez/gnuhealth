@@ -156,7 +156,6 @@ class Physician(ModelSQL, ModelView):
     'Health Professional'
     _name = 'gnuhealth.physician'
     _description = __doc__
-    _rec_name = 'code'
 
     name = fields.Many2One('party.party', 'Health Professional', required=True,
         domain=[
@@ -181,7 +180,6 @@ class Physician(ModelSQL, ModelView):
                 name = doctor.name.name
                 if doctor.name.lastname:
                     name = doctor.name.lastname + ', ' + name
-
             res[doctor.id] = name
         return res
 
@@ -622,7 +620,7 @@ class PartyPatient (ModelSQL, ModelView):
         ], 'Insurance Type', select=True)
     insurance_plan_ids = fields.One2Many('gnuhealth.insurance.plan', 'company',
         'Insurance Plans')
-            
+
     def __init__(self):
         super(PartyPatient, self).__init__()
         self._sql_constraints += [
@@ -637,7 +635,7 @@ class PartyPatient (ModelSQL, ModelView):
         # '' coming from the client
         if 'ref' in values and not values['ref']:
             values = values.copy()
-            values['ref'] = None                
+            values['ref'] = None
         return super(PartyPatient, self).write(ids, values)
 
     def create(self, values):
@@ -659,6 +657,17 @@ class PartyPatient (ModelSQL, ModelView):
                 name = patient.lastname + ', ' + patient.name
             res[patient.id] = name
         return res
+
+    def search_rec_name(self, name, clause):
+        ids = []
+        field = None
+        for field in ('name', 'lastname'):
+            ids = self.search([(field,) + clause[1:]], limit=1)
+            if ids:
+                break
+        if ids:
+            return [(field,) + clause[1:]]
+        return [(self._rec_name,) + clause[1:]]
 
 PartyPatient()
 
@@ -725,7 +734,6 @@ class PatientData(ModelSQL, ModelView):
     'Patient related information'
     _name = 'gnuhealth.patient'
     _description = __doc__
-    _rec_name = 'identification_code'
 
 # Get the patient age in the following format : 'YEARS MONTHS DAYS'
 # It will calculate the age of the patient while the patient is alive.
@@ -1662,7 +1670,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def default_evaluation_type(self):
         return 'pa'
-        
+
     def on_change_with_bmi(self, vals):
         height = vals.get('height')
         weight = vals.get('weight')
