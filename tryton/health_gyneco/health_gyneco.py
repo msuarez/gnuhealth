@@ -219,6 +219,13 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
 
+
+    def __init__(self):
+        super(PatientPregnancy, self).__init__()
+        self._sql_constraints = [
+            ('gravida_uniq', 'UNIQUE(gravida)', 'The pregancy must be unique !'),
+        ]
+
 PatientPregnancy()
 
 
