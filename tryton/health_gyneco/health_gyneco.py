@@ -21,6 +21,7 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
+import datetime
 
 
 
@@ -202,7 +203,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         result = {}
         
         for pregnancy_data in self.browse(ids):
-            result[pregnancy_data.id] = pregnancy_data.lmp
+            result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
 
         return result
 
