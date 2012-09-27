@@ -11,12 +11,14 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Pregnancies">
-                    <label name="gravida"/>
-                    <field name="gravida"/>
-                    <label name="lmp"/>
-                    <field name="lmp"/>
-                    <label name="pdd"/>
-                    <field name="pdd"/>
+                    <group id="group_pregnancy_header" colspan="4" col="6">
+                        <label name="gravida"/>
+                        <field name="gravida"/>
+                        <label name="lmp"/>
+                        <field name="lmp"/>
+                        <label name="pdd"/>
+                        <field name="pdd"/>
+                    </group>
                     <newline/>
                     <field colspan="4" name="prenatal_evaluations"/>
                     <newline/>
@@ -43,7 +45,7 @@
 
 
 
-<!-- Obstetric Evaluation -->
+<!-- PRENATAL Evaluation -->
 
         <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_view">
             <field name="model">gnuhealth.patient.prenatal.evaluation</field>

@@ -208,7 +208,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         return result
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    gravida = fields.Integer ('Gravida #')
+    gravida = fields.Integer ('Gravida #', required=True)
     lmp = fields.Date ('LMP', help="Last Menstrual Period")
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
 
