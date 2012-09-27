@@ -551,24 +551,17 @@
                                 </page>
 
                                 <page string="Obstetrics" id="page_obs">
-                                    <group colspan="4" col="10" string="Obstetric" id="group_obstetrics">
-                                        <label name="gpa"/>
-                                        <field name="gpa"/>
+                                    <group colspan="4" col="12" id="group_obstetrics">
                                         <label name="gravida"/>
                                         <field name="gravida"/>
                                         <label name="full_term"/>
                                         <field name="full_term"/>
                                         <label name="premature"/>
                                         <field name="premature"/>
-                                        <newline/>
                                         <label name="born_alive"/>
                                         <field name="born_alive"/>
                                         <label name="abortions"/>
                                         <field name="abortions"/>
-                                        <label name="deaths_1st_week"/>
-                                        <field name="deaths_1st_week"/>
-                                        <label name="deaths_2nd_week"/>
-                                        <field name="deaths_2nd_week"/>
                                     </group>
                                         <field name="pregnancy_history"/>
                                 </page>

@@ -253,16 +253,22 @@ class GnuHealthPatient(ModelSQL, ModelView):
     premature = fields.Integer('Premature', help="Premature Deliveries")
     abortions = fields.Integer('Abortions')
     full_term = fields.Integer('Full Term', help="Full term pregnancies")
+
+# GPA Deprecated in 1.6.4. It will be used as a function or report from the other fields 
     gpa = fields.Char('GPA',
         help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 " \
         "Pregnancies, 3 viable and 1 abortion")
+
     born_alive = fields.Integer('Born Alive')
+# Deceased in 1st week or after 2nd weeks are deprecated since 1.6.4 . The information will
+# be retrieved from the neonatal or infant record
+
     deaths_1st_week = fields.Integer('Deceased during 1st week',
         help="Number of babies that die in the first week")
     deaths_2nd_week = fields.Integer('Deceased after 2nd week',
         help="Number of babies that die after the second week")
 
-# Deprecated since 1.6.4 - Included in the obstetric history
+# Perinatal Deprecated since 1.6.4 - Included in the obstetric history
     perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
 
     menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history',
