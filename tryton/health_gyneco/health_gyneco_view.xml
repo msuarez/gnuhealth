@@ -11,13 +11,15 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Pregnancies">
-                    <group id="group_pregnancy_header" colspan="4" col="6">
+                    <group id="group_pregnancy_header" colspan="4" col="8">
                         <label name="gravida"/>
                         <field name="gravida"/>
                         <label name="lmp"/>
                         <field name="lmp"/>
                         <label name="pdd"/>
                         <field name="pdd"/>
+                        <label name="warning"/>
+                        <field name="warning"/>
                     </group>
                     <newline/>
                     <field colspan="4" name="prenatal_evaluations"/>
@@ -34,10 +36,11 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string='Pregnancies'>
-                    <field name="gravida" expand="1"/>
+                <tree string='Pregnancies' colors="If(Bool(Eval('warning')),'orange','black')">
+                    <field name="gravida"/>
                     <field name="lmp" expand="1"/>
                     <field name="pdd" expand="1"/>
+                    <field name="warning" expand="1"/>                    
                 </tree>
                 ]]>
             </field>

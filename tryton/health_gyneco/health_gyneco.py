@@ -209,6 +209,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Gravida #', required=True)
+    warning = fields.Boolean ('Warning', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period")
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
 
