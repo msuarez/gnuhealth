@@ -1684,6 +1684,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_loc_motor(self):
         return '6'
 
+    def default_loc(self):
+        return 15
+
     def default_evaluation_type(self):
         return 'pa'
 
