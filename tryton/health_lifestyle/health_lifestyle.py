@@ -28,7 +28,7 @@ class DrugsRecreational(ModelSQL, ModelView):
     _name = 'gnuhealth.drugs_recreational'
     _description = __doc__
 
-    name = fields.Char('Name', help="Name of the drug")
+    name = fields.Char('Name', translate=True, help="Name of the drug")
     street_name = fields.Char('Street names',
         help="Common name of the drug in street jargon")
 
