@@ -554,8 +554,6 @@
                                     <group colspan="4" col="12" id="group_obstetrics">
                                         <label name="gravida"/>
                                         <field name="gravida"/>
-                                        <label name="full_term"/>
-                                        <field name="full_term"/>
                                         <label name="premature"/>
                                         <field name="premature"/>
                                         <label name="stillbirths"/>
