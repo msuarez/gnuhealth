@@ -209,7 +209,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Gravida #', required=True)
-    warning = fields.Boolean ('Warning', help="Check this box if this is pregancy is or was NOT normal")
+    warning = fields.Boolean ('Anomalous', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period")
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
 
@@ -259,6 +259,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     gravida = fields.Integer('Gravida', help="Number of pregnancies")
     premature = fields.Integer('Premature', help="Premature Deliveries")
     abortions = fields.Integer('Abortions')
+    stillbirths = fields.Integer('Stillbirths')
     full_term = fields.Integer('Full Term', help="Full term pregnancies")
 
 # GPA Deprecated in 1.6.4. It will be used as a function or report from the other fields 
