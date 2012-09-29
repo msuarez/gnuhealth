@@ -256,7 +256,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     colposcopy_last = fields.Date('Last colposcopy',
         help="Enter the date of the last colposcopy")
 
-    gravida = fields.Integer('Gravida', help="Number of pregnancies")
+    gravida = fields.Integer('Pregnancies', help="Number of pregnancies")
     premature = fields.Integer('Premature', help="Premature Deliveries")
     abortions = fields.Integer('Abortions')
     stillbirths = fields.Integer('Stillbirths')
