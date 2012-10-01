@@ -137,25 +137,25 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Number of hours a day the patient spend outside the house")
 
     def default_sewers(self):
-        return 1
+        return True
 
     def default_water(self):
-        return 1
+        return True
 
     def defaul_trash(self):
-        return 1
+        return True
 
     def default_electricity(self):
-        return 1
+        return True
 
     def default_gas(self):
-        return 1
+        return True
 
     def default_telephone(self):
-        return 1
+        return True
 
     def default_television(self):
-        return 1
+        return True
 
     def on_change_with_fam_apgar_score(self, vals):
         fam_apgar_help = int(vals.get('fam_apgar_help'))
