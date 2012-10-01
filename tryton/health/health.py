@@ -1009,17 +1009,10 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         self._order.insert(1, ('disease_severity', 'DESC'))
         self._order.insert(2, ('is_infectious', 'DESC'))
         self._order.insert(3, ('diagnosed_date', 'DESC'))
-
-
-    def __init__(self):
-        super(PatientDiseaseInfo, self).__init__()
-
         self._constraints += [
             ('validate_disease_period', 'end_date_before_start'),
             ('validate_treatment_dates', 'end_treatment_date_before_start'),
-
             ]
-            
         self._error_messages.update({
             'end_date_before_start': 'The HEALED date is BEFORE DIAGNOSED DATE !',
             'end_treatment_date_before_start': 'The Treatment END DATE is BEFORE the start date!',
@@ -1269,7 +1262,7 @@ class PatientMedication(ModelSQL, ModelView):
             ('validate_medication_dates', 'end_date_before_start'),
 
             ]
-            
+
         self._error_messages.update({
             'end_date_before_start': 'The Medication END DATE is BEFORE the start date!',
             })
@@ -1281,7 +1274,7 @@ class PatientMedication(ModelSQL, ModelView):
             else:
                 return True
 
-                
+
 PatientMedication()
 
 
@@ -1327,7 +1320,7 @@ class PatientVaccination(ModelSQL, ModelView):
         self._constraints = [
             ('check_vaccine_expiration_date', 'expired_vaccine'),
             ('validate_next_dose_date', 'next_dose_before_first'),
-            
+
         ]
         self._error_messages.update({
             'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '\
