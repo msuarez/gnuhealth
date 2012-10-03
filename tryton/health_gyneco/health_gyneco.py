@@ -24,6 +24,39 @@ from trytond.pool import Pool
 import datetime
 
 
+class PatientPregnancy(ModelSQL, ModelView):
+    'Patient Pregnancy'
+    _name = 'gnuhealth.patient.pregnancy'
+    _description = __doc__
+
+    def get_pregnancy_due_date(self, ids, name):
+        result = {}
+        
+        for pregnancy_data in self.browse(ids):
+            result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
+
+        return result
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    gravida = fields.Integer ('Gravida #', required=True)
+    warning = fields.Boolean ('Anomalous', help="Check this box if this is pregancy is or was NOT normal")
+    lmp = fields.Date ('LMP', help="Last Menstrual Period", required=True)
+    pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
+
+    prenatal_evaluations = fields.One2Many('gnuhealth.patient.prenatal.evaluation', 'name', 'Prenatal Evaluations')
+
+    perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
+
+    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
+
+
+    def __init__(self):
+        super(PatientPregnancy, self).__init__()
+        self._sql_constraints = [
+            ('gravida_uniq', 'UNIQUE(gravida)', 'The pregancy must be unique !'),
+        ]
+
+PatientPregnancy()
 
 
 class PrenatalEvaluation(ModelSQL, ModelView):
@@ -45,8 +78,8 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         return result
 
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')    
+
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
 
     evaluation_date = fields.Function(fields.DateTime('Date'),
@@ -54,6 +87,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     systolic = fields.Function(fields.Integer('Systolic'),
         'get_patient_evaluation_data')
+
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
@@ -72,7 +106,7 @@ class PuerperiumMonitor(ModelSQL, ModelView):
     _name = 'gnuhealth.puerperium.monitor'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     date = fields.DateTime('Date and Time', required=True)
     systolic = fields.Integer('Systolic Pressure')
     diastolic = fields.Integer('Diastolic Pressure')
@@ -104,11 +138,11 @@ PuerperiumMonitor()
 
 
 class PerinatalMonitor(ModelSQL, ModelView):
-    'Perinatal monitor'
+    'Perinatal and monitor'
     _name = 'gnuhealth.perinatal.monitor'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     date = fields.DateTime('Date and Time')
     systolic = fields.Integer('Systolic Pressure')
     diastolic = fields.Integer('Diastolic Pressure')
@@ -136,10 +170,14 @@ class Perinatal(ModelSQL, ModelView):
     _name = 'gnuhealth.perinatal'
     _description = __doc__
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     admission_code = fields.Char('Code')
+
+# 1.6.4 Gravida number and aboirtion information go now in the pregnancy header
+# It will be calculated as a function if needed
     gravida_number = fields.Integer('Gravida #')
     abortion = fields.Boolean('Abortion')
+
     admission_date = fields.DateTime('Admission',
         help="Date when she was admitted to give birth", required=True)
 
@@ -173,8 +211,9 @@ class Perinatal(ModelSQL, ModelView):
 # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
 # and is included in the obstetric evaluation history
 
-    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name',
-        'Puerperium monitor')
+#    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name',
+#        'Puerperium monitor')
+
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medication and anesthesics')
     dismissed = fields.DateTime('Discharged')
@@ -194,39 +233,6 @@ class Perinatal(ModelSQL, ModelView):
 
 Perinatal()
 
-class PatientPregnancy(ModelSQL, ModelView):
-    'Patient Pregnancy'
-    _name = 'gnuhealth.patient.pregnancy'
-    _description = __doc__
-
-    def get_pregnancy_due_date(self, ids, name):
-        result = {}
-        
-        for pregnancy_data in self.browse(ids):
-            result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
-
-        return result
-
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    gravida = fields.Integer ('Gravida #', required=True)
-    warning = fields.Boolean ('Anomalous', help="Check this box if this is pregancy is or was NOT normal")
-    lmp = fields.Date ('LMP', help="Last Menstrual Period")
-    pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
-
-    prenatal_evaluations = fields.One2Many('gnuhealth.patient.prenatal.evaluation', 'name', 'Prenatal Evaluations')
-
-    perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
-
-    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
-
-
-    def __init__(self):
-        super(PatientPregnancy, self).__init__()
-        self._sql_constraints = [
-            ('gravida_uniq', 'UNIQUE(gravida)', 'The pregancy must be unique !'),
-        ]
-
-PatientPregnancy()
 
 
 class GnuHealthPatient(ModelSQL, ModelView):
@@ -263,21 +269,22 @@ class GnuHealthPatient(ModelSQL, ModelView):
     full_term = fields.Integer('Full Term', help="Full term pregnancies")
 
 # GPA Deprecated in 1.6.4. It will be used as a function or report from the other fields 
-    gpa = fields.Char('GPA',
-        help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 " \
-        "Pregnancies, 3 viable and 1 abortion")
+#    gpa = fields.Char('GPA',
+#        help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 " \
+#        "Pregnancies, 3 viable and 1 abortion")
 
-    born_alive = fields.Integer('Born Alive')
+# Deprecated. The born alive number will be calculated from pregnancies - abortions - stillbirths
+#    born_alive = fields.Integer('Born Alive')
 # Deceased in 1st week or after 2nd weeks are deprecated since 1.6.4 . The information will
 # be retrieved from the neonatal or infant record
 
-    deaths_1st_week = fields.Integer('Deceased during 1st week',
-        help="Number of babies that die in the first week")
-    deaths_2nd_week = fields.Integer('Deceased after 2nd week',
-        help="Number of babies that die after the second week")
+#    deaths_1st_week = fields.Integer('Deceased during 1st week',
+#        help="Number of babies that die in the first week")
+#    deaths_2nd_week = fields.Integer('Deceased after 2nd week',
+#        help="Number of babies that die after the second week")
 
 # Perinatal Deprecated since 1.6.4 - Included in the obstetric history
-    perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
+#    perinatal = fields.One2Many('gnuhealth.perinatal', 'name', 'Perinatal Info')
 
     menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history',
         'name', 'Menstrual History')
