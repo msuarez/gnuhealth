@@ -57,12 +57,16 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prenatal Evaluation">
-                    <label name="evaluation"/>
-                    <field name="evaluation"/>
-                    <label name="systolic"/>
-                    <field name="systolic"/>
-                    <label name="diastolic"/>
-                    <field name="diastolic"/>
+                    <group id="prenatal_evaluation_group_header" colspan="4" col="8">
+                        <label name="evaluation"/>
+                        <field name="evaluation"/>
+                        <label name="systolic"/>
+                        <field name="systolic"/>
+                        <label name="diastolic"/>
+                        <field name="diastolic"/>
+                        <label name="frequency"/>
+                        <field name="frequency"/>                       
+                    </group>
                 </form>
                 ]]>
             </field>
@@ -75,9 +79,9 @@
                 <![CDATA[
                 <tree string='Prenatal Evaluations'>
                     <field name="evaluation_date" expand="1"/>
-                    <field name="systolic" expand="1"/>
-                    <field name="diastolic" expand="1"/>
-                    
+                    <field name="systolic"/>
+                    <field name="diastolic"/>
+                    <field name="frequency"/>                    
                 </tree>
                 ]]>
             </field>
