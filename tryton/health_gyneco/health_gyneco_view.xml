@@ -71,6 +71,8 @@
                         <field name="mother_weight"/>                                               
                         <label name="fundal_height"/>
                         <field name="fundal_height"/>                                               
+                        <label name="gestational_weeks"/>
+                        <field name="gestational_weeks"/>                                               
                     </group>
                 </form>
                 ]]>
@@ -84,11 +86,14 @@
                 <![CDATA[
                 <tree string='Prenatal Evaluations'>
                     <field name="evaluation_date"/>
+                    <field name="gestational_weeks"/>                                               
                     <field name="systolic"/>
                     <field name="diastolic"/>
                     <field name="mother_frequency"/>                    
                     <field name="mother_weight"/>                                               
                     <field name="fundal_height"/>                                               
+                    <field name="gestational_days"/>                                               
+
                 </tree>
                 ]]>
             </field>

@@ -81,6 +81,16 @@ class PrenatalEvaluation(ModelSQL, ModelView):
             if name == 'evaluation_date':
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_start
 
+            if name == 'gestational_weeks':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = (gestational_age.days)/7
+
+            if name == 'gestational_days':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = gestational_age.days
+                
         return result
 
 
@@ -101,6 +111,12 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         'get_patient_evaluation_data')
     
     mother_weight = fields.Function(fields.Float('Mother\'s weight'),
+        'get_patient_evaluation_data')
+
+    gestational_weeks = fields.Function(fields.Integer('Gestational weeks'),
+        'get_patient_evaluation_data')
+
+    gestational_days = fields.Function(fields.Integer('Gestational days'),
         'get_patient_evaluation_data')
 
     fundal_height = fields.Integer('Fundal Height',
