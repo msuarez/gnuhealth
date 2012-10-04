@@ -57,15 +57,20 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prenatal Evaluation">
-                    <group id="prenatal_evaluation_group_header" colspan="4" col="8">
+                    <group id="prenatal_evaluation_group_header" colspan="4" col="10">
                         <label name="evaluation"/>
                         <field name="evaluation"/>
                         <label name="systolic"/>
                         <field name="systolic"/>
                         <label name="diastolic"/>
                         <field name="diastolic"/>
-                        <label name="frequency"/>
-                        <field name="frequency"/>                       
+                        <label name="mother_frequency"/>
+                        <field name="mother_frequency"/>                       
+                        <newline/>
+                        <label name="mother_weight"/>
+                        <field name="mother_weight"/>                                               
+                        <label name="fundal_height"/>
+                        <field name="fundal_height"/>                                               
                     </group>
                 </form>
                 ]]>
@@ -78,10 +83,12 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Prenatal Evaluations'>
-                    <field name="evaluation_date" expand="1"/>
+                    <field name="evaluation_date"/>
                     <field name="systolic"/>
                     <field name="diastolic"/>
-                    <field name="frequency"/>                    
+                    <field name="mother_frequency"/>                    
+                    <field name="mother_weight"/>                                               
+                    <field name="fundal_height"/>                                               
                 </tree>
                 ]]>
             </field>

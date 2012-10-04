@@ -72,8 +72,11 @@ class PrenatalEvaluation(ModelSQL, ModelView):
                 result[evaluation_data.id] = evaluation_data.evaluation.systolic
             if name == 'diastolic':
                 result[evaluation_data.id] = evaluation_data.evaluation.diastolic
-            if name == 'frequency':
+            if name == 'mother_frequency':
                 result[evaluation_data.id] = evaluation_data.evaluation.bpm
+
+            if name == 'mother_weight':
+                result[evaluation_data.id] = evaluation_data.evaluation.weight
 
             if name == 'evaluation_date':
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_start
@@ -94,9 +97,11 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
-    frequency = fields.Function(fields.Integer('BPM'),
+    mother_frequency = fields.Function(fields.Integer('BPM'),
         'get_patient_evaluation_data')
     
+    mother_weight = fields.Function(fields.Float('Mother\'s weight'),
+        'get_patient_evaluation_data')
 
     fundal_height = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
