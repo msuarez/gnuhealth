@@ -107,13 +107,15 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
-    mother_frequency = fields.Function(fields.Integer('BPM'),
+    mother_frequency = fields.Function(fields.Integer('Mother Freq', help="Mother heart frequency"),
         'get_patient_evaluation_data')
     
-    mother_weight = fields.Function(fields.Float('Mother\'s weight'),
+    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
+
+    mother_weight = fields.Function(fields.Float('Mother weight'),
         'get_patient_evaluation_data')
 
-    gestational_weeks = fields.Function(fields.Integer('Gestational weeks'),
+    gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
         'get_patient_evaluation_data')
 
     gestational_days = fields.Function(fields.Integer('Gestational days'),

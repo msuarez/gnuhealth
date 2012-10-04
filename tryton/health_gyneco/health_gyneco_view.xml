@@ -57,7 +57,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prenatal Evaluation">
-                    <group id="prenatal_evaluation_group_header" colspan="4" col="10">
+                    <group id="prenatal_evaluation_group_header" colspan="4" col="6">
                         <label name="evaluation"/>
                         <field name="evaluation"/>
                         <label name="systolic"/>
@@ -66,11 +66,13 @@
                         <field name="diastolic"/>
                         <label name="mother_frequency"/>
                         <field name="mother_frequency"/>                       
-                        <newline/>
+                        
                         <label name="mother_weight"/>
                         <field name="mother_weight"/>                                               
                         <label name="fundal_height"/>
                         <field name="fundal_height"/>                                               
+                        <label name="fetus_frequency"/>
+                        <field name="fetus_frequency"/>                                               
                         <label name="gestational_weeks"/>
                         <field name="gestational_weeks"/>                                               
                     </group>
@@ -85,14 +87,15 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Prenatal Evaluations'>
-                    <field name="evaluation_date"/>
-                    <field name="gestational_weeks"/>                                               
-                    <field name="systolic"/>
-                    <field name="diastolic"/>
-                    <field name="mother_frequency"/>                    
-                    <field name="mother_weight"/>                                               
-                    <field name="fundal_height"/>                                               
-                    <field name="gestational_days"/>                                               
+                    <field name="evaluation_date" expand="1"/>
+                    <field name="gestational_weeks" expand="1"/>                                               
+                    <field name="systolic" expand="1"/>
+                    <field name="diastolic" expand="1"/>
+                    <field name="mother_frequency" expand="1"/>                    
+                    <field name="mother_weight" expand="1"/>                                               
+                    <field name="fundal_height" expand="1"/>                                               
+                    <field name="fetus_frequency" expand="1"/>                                               
+                    <field name="gestational_days" expand="1"/>                                               
 
                 </tree>
                 ]]>
