@@ -125,6 +125,15 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
+        <record model="ir.model.access" id="access_health_nursing_inpatient_registration_nursing">
+            <field name="model" search="[('model', '=', 'gnuhealth.inpatient.registration')]"/>
+            <field name="group" ref="group_health_nursing"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
 <!-- END OF NURSING GROUP ACCESS RIGHTS -->
 
     </data>
