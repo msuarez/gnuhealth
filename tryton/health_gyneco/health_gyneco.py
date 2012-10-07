@@ -270,6 +270,12 @@ class Perinatal(ModelSQL, ModelView):
         ('urethral', 'Urethral'),
         ], 'Lacerations', sort=False)
 
+    invasive_placentation = fields.Selection([
+        ('accreta', 'Accreta'),
+        ('increta', 'Increta'),
+        ('percreta', 'Percreta'),
+        ], 'Invasive Placentation', sort=False)
+
 
 # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
 # and is included in the obstetric evaluation history

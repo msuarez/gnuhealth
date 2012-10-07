@@ -116,9 +116,9 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="Perinatal Info">
+                <form string="Perinatal and Intrapartum Information">
                     <notebook>
-                        <page string="Perinatal" id="page_main_perinatal">
+                        <page string="Main" id="page_main_perinatal">
                         
                             <group id="group_perinatal_holder" colspan="4" col="6">
                                 <label name="gestational_weeks"/>
@@ -141,7 +141,14 @@
                             <field colspan="4" name="monitoring"/>
                             <newline/>
 
-                            <group colspan="4" col="10" id="group_misc">
+                            <separator colspan="4" string="Notes" id="perinatal_notes_separator"/>
+                            <field name="notes"/>
+                        </page>
+
+
+                        <page id="perinatal_misc" string="Additional Info">
+
+                            <group colspan="4" col="12" id="group_misc">
                                 <label name="dystocia"/>
                                 <field name="dystocia"/>
                                 <label name="placenta_incomplete"/>
@@ -155,16 +162,10 @@
                                 <newline/>
                                 <label name="laceration"/>
                                 <field name="laceration"/>                                
-
+                                <label name="invasive_placentation"/>
+                                <field name="invasive_placentation"/>                                
                             </group>
                             <newline/>
-
-                            <separator colspan="4" string="Notes" id="perinatal_notes_separator"/>
-                            <field name="notes"/>
-                        </page>
-
-
-                        <page id="perinatal_misc" string="Misc">
 
                             <field colspan="4" name="medication"/>
                                 
