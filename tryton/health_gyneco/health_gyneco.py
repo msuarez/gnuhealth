@@ -283,6 +283,8 @@ class Perinatal(ModelSQL, ModelView):
 #    puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name',
 #        'Puerperium monitor')
 
+
+# Deprecated in 1.6.4. The medication and procedures will be done in the nursing and surgery modules
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medication and anesthesics')
     dismissed = fields.DateTime('Discharged')

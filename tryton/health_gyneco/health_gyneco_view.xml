@@ -148,24 +148,36 @@
 
                         <page id="perinatal_misc" string="Additional Info">
 
-                            <group colspan="4" col="12" id="group_misc">
+                            <group colspan="4" col="8" id="group_misc">
                                 <label name="dystocia"/>
                                 <field name="dystocia"/>
-                                <label name="placenta_incomplete"/>
-                                <field name="placenta_incomplete"/>
-                                <label name="placenta_retained"/>
-                                <field name="placenta_retained"/>
                                 <label name="episiotomy"/>
                                 <field name="episiotomy"/>
                                 <label name="forceps"/>
                                 <field name="forceps"/>
-                                <newline/>
                                 <label name="laceration"/>
                                 <field name="laceration"/>                                
+
+                            </group>
+
+                            <newline/>
+                            <separator colspan="4" id="separator_placenta" string="Placenta anomalies"/>
+                            <newline/>
+                            
+                            <group colspan="4" col="6" id="group_placenta">
+
                                 <label name="invasive_placentation"/>
                                 <field name="invasive_placentation"/>                                
+                                <label name="placenta_incomplete"/>
+                                <field name="placenta_incomplete"/>
+                                <label name="placenta_retained"/>
+                                <field name="placenta_retained"/>
+
                             </group>
                                 
+                            <newline/>
+
+                            <separator colspan="4" id="perinatal_other" string="Other"/>
                             <newline/>
 
                             <group colspan="4" col="6" id="group_deceased_info">
