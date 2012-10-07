@@ -120,69 +120,54 @@
                     <notebook>
                         <page string="Perinatal" id="page_main_perinatal">
                         
-                            <group id="group_perinatal_holder">
-                                <group colspan="4" col="8" string="Main" id="perinatal_main">
-                                    <label name="admission_date"/>
-                                    <field name="admission_date"/>
-                                    <label name="dismissed"/>
-                                    <field name="dismissed"/>
-                                    <label name="admission_code"/>
-                                    <field name="admission_code"/>
-                                </group>
-                                <newline/>
+                            <group id="group_perinatal_holder" colspan="4" col="6">
+                                <label name="gestational_weeks"/>
+                                <field name="gestational_weeks"/>
+                                <label name="admission_date"/>
+                                <field name="admission_date"/>
+                                <label name="admission_code"/>
+                                <field name="admission_code"/>
+                            </group>
+  
+                            <newline/>
 
-                                <group colspan="4" col="6" string="Gestational period" id="group_gestational_period">
-                                    <label name="gestational_weeks"/>
-                                    <field name="gestational_weeks"/>
-                                    <label name="gestational_days"/>
-                                    <field name="gestational_days"/>
-<!-- Deprecated in 1.6.4
-                                    <label name="prenatal_evaluations"/>
-                                    <field name="prenatal_evaluations"/>
--->
-                                </group>
+                            <group id="group_labor">
+                                <label name="start_labor_mode"/>
+                                <field name="start_labor_mode"/>
+                                <label name="fetus_presentation"/>
+                                <field name="fetus_presentation"/>
+                            </group>
+                            <newline/>
+                            <field colspan="4" name="monitoring"/>
+                            <newline/>
 
+                            <group colspan="4" col="12" id="group_misc">
+                                <label name="dystocia"/>
+                                <field name="dystocia"/>
+                                <label name="placenta_incomplete"/>
+                                <field name="placenta_incomplete"/>
+                                <label name="placenta_retained"/>
+                                <field name="placenta_retained"/>
+                                <label name="episiotomy"/>
+                                <field name="episiotomy"/>
+                                <label name="vaginal_tearing"/>
+                                <field name="vaginal_tearing"/>
+                                <label name="forceps"/>
+                                <field name="forceps"/>
                             </group>
                             <newline/>
 
-                            <group id="meds">
-                                <field colspan="4" name="monitoring"/>
-                                <newline/>
-                                <field name="medication"/>
-                                <field name="notes"/>
-                            </group>
+                            <separator colspan="4" string="Notes" id="perinatal_notes_separator"/>
+                            <field name="notes"/>
+                        </page>
+
+
+                        <page id="perinatal_misc" string="Misc">
+
+                            <field colspan="4" name="medication"/>
+                                
                             <newline/>
 
-                            <group id="group_labor_holder1">
-                                <group id="group_labor_holder">
-
-                                    <group id="group_labor">
-                                        <label name="start_labor_mode"/>
-                                        <field name="start_labor_mode"/>
-                                        <label name="fetus_presentation"/>
-                                        <field name="fetus_presentation"/>
-                                    </group>
-
-                                    <newline/>
-                                    <group colspan="4" col="12" string="Misc" id="group_misc">
-                                        <label name="dystocia"/>
-                                        <field name="dystocia"/>
-                                        <label name="placenta_incomplete"/>
-                                        <field name="placenta_incomplete"/>
-                                        <label name="placenta_retained"/>
-                                        <field name="placenta_retained"/>
-                                        <label name="episiotomy"/>
-                                        <field name="episiotomy"/>
-                                        <label name="vaginal_tearing"/>
-                                        <field name="vaginal_tearing"/>
-                                        <label name="forceps"/>
-                                        <field name="forceps"/>
-                                    </group>
-
-                                </group>
-                            </group>
-
-                            <newline/>
                             <group colspan="4" col="6" id="group_deceased_info">
                                 <label name="abortion"/>
                                 <field name="abortion"/>
@@ -190,15 +175,15 @@
                                 <field name="mother_deceased"/>
                                 <label name="place_of_death"/>
                                 <field name="place_of_death"/>
+
                             </group>
-
+                            <newline/>
+                            
+                            <label name="dismissed"/>
+                            <field name="dismissed"/>
+                       
                         </page>
 
-<!-- Since 1.6.4 not to be used here anymore 
-                        <page string="Puerperium" id="page_puerperium">
-                            <field name="puerperium_monitor"/>
-                        </page>
--->
                     </notebook>
                 </form>
                 ]]>
