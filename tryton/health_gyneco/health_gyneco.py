@@ -91,6 +91,9 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
                 result[evaluation_data.id] = gestational_age.days
                 
+            if name == 'evaluation_summary':
+                result[evaluation_data.id] = evaluation_data.evaluation.evaluation_summary
+
         return result
 
 
@@ -107,12 +110,12 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
-    mother_frequency = fields.Function(fields.Integer('Mother Freq', help="Mother heart frequency"),
+    mother_frequency = fields.Function(fields.Integer('Mother\'s Freq', help="Mother heart frequency"),
         'get_patient_evaluation_data')
     
     fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
 
-    mother_weight = fields.Function(fields.Float('Mother weight'),
+    mother_weight = fields.Function(fields.Float('Mother\'s weight'),
         'get_patient_evaluation_data')
 
     gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
@@ -125,6 +128,8 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
         
+    evaluation_summary = fields.Function(fields.Text('Summary'),
+        'get_patient_evaluation_data')
 
 PrenatalEvaluation()
 
