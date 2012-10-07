@@ -169,8 +169,8 @@
                             <newline/>
 
                             <group colspan="4" col="6" id="group_deceased_info">
-                                <label name="abortion"/>
-                                <field name="abortion"/>
+                                <label name="stillbirth"/>
+                                <field name="stillbirth"/>
                                 <label name="mother_deceased"/>
                                 <field name="mother_deceased"/>
                                 <label name="place_of_death"/>

@@ -219,7 +219,11 @@ class Perinatal(ModelSQL, ModelView):
 # 1.6.4 Gravida number and abortion information go now in the pregnancy header
 # It will be calculated as a function if needed
     gravida_number = fields.Integer('Gravida #')
+
+# Use stillbirth instead of abortion in Perinatal context
     abortion = fields.Boolean('Abortion')
+
+    stillbirth = fields.Boolean('Stillbirth')
 
     admission_date = fields.DateTime('Admission',
         help="Date when she was admitted to give birth", required=True)
