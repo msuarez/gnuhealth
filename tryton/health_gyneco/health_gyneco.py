@@ -258,6 +258,19 @@ class Perinatal(ModelSQL, ModelView):
     forceps = fields.Boolean('Use of forceps')
     monitoring = fields.One2Many('gnuhealth.perinatal.monitor', 'name',
         'Monitors')
+
+    laceration = fields.Selection([
+        ('perineal', 'Perineal'),
+        ('vaginal', 'Vaginal'),
+        ('cervical', 'Cervical'),
+        ('broad_ligament', 'Broad Ligament'),
+        ('vulvar', 'Vulvar'),
+        ('rectal', 'Rectal'),
+        ('bladder', 'Bladder'),
+        ('urethral', 'Urethral'),
+        ], 'Lacerations', sort=False)
+
+
 # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
 # and is included in the obstetric evaluation history
 

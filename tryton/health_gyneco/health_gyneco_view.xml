@@ -141,7 +141,7 @@
                             <field colspan="4" name="monitoring"/>
                             <newline/>
 
-                            <group colspan="4" col="12" id="group_misc">
+                            <group colspan="4" col="10" id="group_misc">
                                 <label name="dystocia"/>
                                 <field name="dystocia"/>
                                 <label name="placenta_incomplete"/>
@@ -150,10 +150,12 @@
                                 <field name="placenta_retained"/>
                                 <label name="episiotomy"/>
                                 <field name="episiotomy"/>
-                                <label name="vaginal_tearing"/>
-                                <field name="vaginal_tearing"/>
                                 <label name="forceps"/>
                                 <field name="forceps"/>
+                                <newline/>
+                                <label name="laceration"/>
+                                <field name="laceration"/>                                
+
                             </group>
                             <newline/>
 
