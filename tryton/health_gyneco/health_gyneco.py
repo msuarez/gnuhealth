@@ -203,10 +203,20 @@ class Perinatal(ModelSQL, ModelView):
     _name = 'gnuhealth.perinatal'
     _description = __doc__
 
+    def get_perinatal_information(self, ids, name):
+        result = {}
+        
+        for perinatal_data in self.browse(ids):
+            if name == 'gestational_weeks':
+                gestational_age = datetime.datetime.date(perinatal_data.admission_date) - perinatal_data.name.lmp
+                result[perinatal_data.id] = (gestational_age.days)/7
+
+        return result
+
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     admission_code = fields.Char('Code')
 
-# 1.6.4 Gravida number and aboirtion information go now in the pregnancy header
+# 1.6.4 Gravida number and abortion information go now in the pregnancy header
 # It will be calculated as a function if needed
     gravida_number = fields.Integer('Gravida #')
     abortion = fields.Boolean('Abortion')
@@ -223,7 +233,10 @@ class Perinatal(ModelSQL, ModelView):
         ('i', 'Induced'),
         ('c', 'c-section'),
         ], 'Labor mode', select=True)
-    gestational_weeks = fields.Integer('Weeks')
+
+    gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
+        'get_perinatal_information')
+
     gestational_days = fields.Integer('Days')
     fetus_presentation = fields.Selection([
         ('n', 'Correct'),
