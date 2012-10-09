@@ -148,7 +148,7 @@
 
                         <page id="perinatal_misc" string="Additional Info">
 
-                            <group colspan="4" col="8" id="group_misc">
+                            <group colspan="4" col="10" id="group_misc">
                                 <label name="dystocia"/>
                                 <field name="dystocia"/>
                                 <label name="episiotomy"/>
@@ -157,6 +157,8 @@
                                 <field name="forceps"/>
                                 <label name="laceration"/>
                                 <field name="laceration"/>                                
+                                <label name="hematoma"/>
+                                <field name="hematoma"/>                                
 
                             </group>
 

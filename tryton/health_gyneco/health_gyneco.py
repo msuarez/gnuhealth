@@ -270,6 +270,12 @@ class Perinatal(ModelSQL, ModelView):
         ('urethral', 'Urethral'),
         ], 'Lacerations', sort=False)
 
+    hematoma = fields.Selection([
+        ('vaginal', 'Vaginal'),
+        ('vulvar', 'Vulvar'),
+        ('retroperitoneal', 'Retroperitoneal'),
+        ], 'Hematomas', sort=False)
+
     invasive_placentation = fields.Selection([
         ('accreta', 'Accreta'),
         ('increta', 'Increta'),
