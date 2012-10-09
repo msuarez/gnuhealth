@@ -255,7 +255,7 @@ class Perinatal(ModelSQL, ModelView):
     placenta_retained = fields.Boolean('Retained Placenta')
     episiotomy = fields.Boolean('Episiotomy')
     vaginal_tearing = fields.Boolean('Vaginal tearing')
-    forceps = fields.Boolean('Use of forceps')
+    forceps = fields.Boolean('Forceps')
     monitoring = fields.One2Many('gnuhealth.perinatal.monitor', 'name',
         'Monitors')
 
@@ -274,7 +274,7 @@ class Perinatal(ModelSQL, ModelView):
         ('vaginal', 'Vaginal'),
         ('vulvar', 'Vulvar'),
         ('retroperitoneal', 'Retroperitoneal'),
-        ], 'Hematomas', sort=False)
+        ], 'Hematoma', sort=False)
 
     invasive_placentation = fields.Selection([
         ('accreta', 'Accreta'),

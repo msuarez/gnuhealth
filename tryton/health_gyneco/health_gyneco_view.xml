@@ -270,10 +270,6 @@
                 <![CDATA[
                 <tree string='Puerperium Monitor'>
                     <field name="date" expand="1"/>
-                    <field name="systolic" expand="1"/>
-                    <field name="diastolic" expand="1"/>
-                    <field name="frequency" expand="1"/>
-                    <field name="temperature" expand="1"/>
                     <field name="uterus_involution" expand="1"/>
                     <field name="lochia_amount" expand="1"/>
                     <field name="lochia_color" expand="1"/>
