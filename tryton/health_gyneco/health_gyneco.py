@@ -149,18 +149,18 @@ class PuerperiumMonitor(ModelSQL, ModelView):
         ('n', 'normal'),
         ('e', 'abundant'),
         ('h', 'hemorrhage'),
-        ], 'Lochia amount', select=True)
+        ], 'Lochia amount', sort=False)
 
     lochia_color = fields.Selection([
         ('r', 'rubra'),
         ('s', 'serosa'),
         ('a', 'alba'),
-        ], 'Lochia color', select=True)
+        ], 'Lochia color', sort=False)
 
     lochia_odor = fields.Selection([
         ('n', 'normal'),
         ('o', 'offensive'),
-        ], 'Lochia odor', select=True)
+        ], 'Lochia odor', sort=False)
 
     uterus_involution = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
@@ -193,7 +193,7 @@ class PerinatalMonitor(ModelSQL, ModelView):
         ('cb', 'Complete Breech'),
         ('t', 'Transverse Lie'),
         ('t', 'Footling Breech'),
-        ], 'Fetus Position', select=True)
+        ], 'Fetus Position', sort=False)
 
 PerinatalMonitor()
 
@@ -235,8 +235,8 @@ class Perinatal(ModelSQL, ModelView):
     start_labor_mode = fields.Selection([
         ('n', 'Normal'),
         ('i', 'Induced'),
-        ('c', 'c-section'),
-        ], 'Labor mode', select=True)
+        ('c', 'C-section'),
+        ], 'Labor mode', sort=False)
 
     gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
         'get_perinatal_information')
@@ -249,7 +249,7 @@ class Perinatal(ModelSQL, ModelView):
         ('cb', 'Complete Breech'),
         ('t', 'Transverse Lie'),
         ('t', 'Footling Breech'),
-        ], 'Fetus Presentation', select=True)
+        ], 'Fetus Presentation', sort=False)
     dystocia = fields.Boolean('Dystocia')
     placenta_incomplete = fields.Boolean('Incomplete Placenta')
     placenta_retained = fields.Boolean('Retained Placenta')
@@ -302,7 +302,7 @@ class Perinatal(ModelSQL, ModelView):
         ('th', 'Being transferred to other hospital'),
         ], 'Place of Death', help="Place where the mother died",
         states={'invisible': Not(Bool(Eval('mother_deceased')))},
-        depends=['mother_deceased'])
+        depends=['mother_deceased'],sort=False)
 
     mother_deceased = fields.Boolean('Maternal death',
         help="Mother died in the process")
