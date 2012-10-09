@@ -276,6 +276,7 @@ class Perinatal(ModelSQL, ModelView):
         ('percreta', 'Percreta'),
         ], 'Invasive Placentation', sort=False)
 
+    placenta_previa = fields.Boolean('Placenta Previa')
 
 # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
 # and is included in the obstetric evaluation history
