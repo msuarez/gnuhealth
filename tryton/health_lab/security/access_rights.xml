@@ -146,6 +146,68 @@
 <!-- END OF DEFAULT ACCESS RIGHTS -->
 
 
+<!-- BEGIN DOCTOR GROUP ACCESS RIGHTS -->
+
+
+<!-- Default access rights to models -->
+
+        <record model="ir.model.access" id="access_health_lab_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_create_init_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.create.init')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_critearea_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.critearea')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_type_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test_type')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_test_units_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.lab.test.units')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_lab_patient_lab_test_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.lab.test')]"/>
+            <field name="group" ref="health.group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+<!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
+
+
 <!-- BEGIN lab USER GROUP ACCESS RIGHTS -->
 
 <!-- Create the demo_lab user -->
