@@ -37,11 +37,12 @@
 	
 	This module takes has the functionality for pediatric patients :
 	
-	- Neonatal : from birth to 1 week .
-	- Infancy : 1 week to 1 year
-	- Toddler and early childhood : 1 to 5 years of age
-	- Late childhood : 6 to 12 years of age
-	
+	- Neonatal 
+	- Infancy 
+	- Toddler and early childhood 
+	- Late childhood 
+    - Adolescence
+    
 	This module focuses on the basic pediatric evaluation, making emphasis in the nutritional, growth and development of the infant and child.
 ''',
 
@@ -49,10 +50,10 @@
 
 Cubre la funcionalidad principal para pacientes pediátricos :
 
-- Neonatología ( desde el nacimiento a 1 semana de vida )
-- Infancia : 1 semana a 1 año
-- Comienza a Gatear and niñez temprana : 1 a 5 años
-- Niñez : 6 a 12 años
+- Neonatología 
+- Infancia 
+- Niñez 
+- Adolescencia
 
 Nos focalizamos en la evaluación pediátrica básica, haciendo énfasis en el desarrollo nutricional y crecimiento del niño.
 
