@@ -104,6 +104,10 @@
             <field name="menu" ref="gnuhealth_nursing_menu"/>
             <field name="group" ref="group_health_nursing"/>
         </record>
+        <record model="ir.ui.menu-res.group" id="menu_patients_group_health_nursing">
+            <field name="menu" ref="health.gnuhealth_patients_menu"/>
+            <field name="group" ref="group_health_nursing"/>
+        </record>
 
 <!-- Access rights to models for the health nursing group -->
 
@@ -131,6 +135,24 @@
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_patient_evaluation_nursing">
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="group" ref="group_health_nursing"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_health_vaccination_nursing">
+            <field name="model" search="[('model', '=', 'gnuhealth.vaccination')]"/>
+            <field name="group" ref="group_health_nursing"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
