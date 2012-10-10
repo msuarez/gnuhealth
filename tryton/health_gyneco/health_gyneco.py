@@ -172,33 +172,6 @@ class PuerperiumMonitor(ModelSQL, ModelView):
 PuerperiumMonitor()
 
 
-class PerinatalMonitor(ModelSQL, ModelView):
-    'Perinatal monitor'
-    _name = 'gnuhealth.perinatal.monitor'
-    _description = __doc__
-
-    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
-    date = fields.DateTime('Date and Time')
-    systolic = fields.Integer('Systolic Pressure')
-    diastolic = fields.Integer('Diastolic Pressure')
-    contractions = fields.Integer('Contractions')
-    frequency = fields.Integer('Mother\'s Heart Frequency')
-    dilation = fields.Integer('Cervix dilation')
-    f_frequency = fields.Integer('Fetus Heart Frequency')
-    meconium = fields.Boolean('Meconium')
-    bleeding = fields.Boolean('Bleeding')
-    fundal_height = fields.Integer('Fundal Height')
-    fetus_position = fields.Selection([
-        ('n', 'Correct'),
-        ('o', 'Occiput / Cephalic Posterior'),
-        ('fb', 'Frank Breech'),
-        ('cb', 'Complete Breech'),
-        ('t', 'Transverse Lie'),
-        ('t', 'Footling Breech'),
-        ], 'Fetus Position', sort=False)
-
-PerinatalMonitor()
-
 
 class Perinatal(ModelSQL, ModelView):
     'Perinatal Information'
@@ -312,6 +285,33 @@ class Perinatal(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
 Perinatal()
+
+class PerinatalMonitor(ModelSQL, ModelView):
+    'Perinatal Monitor'
+    _name = 'gnuhealth.perinatal.monitor'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.perinatal', 'Patient Perinatal Evaluation')
+    date = fields.DateTime('Date and Time')
+    systolic = fields.Integer('Systolic Pressure')
+    diastolic = fields.Integer('Diastolic Pressure')
+    contractions = fields.Integer('Contractions')
+    frequency = fields.Integer('Mother\'s Heart Frequency')
+    dilation = fields.Integer('Cervix dilation')
+    f_frequency = fields.Integer('Fetus Heart Frequency')
+    meconium = fields.Boolean('Meconium')
+    bleeding = fields.Boolean('Bleeding')
+    fundal_height = fields.Integer('Fundal Height')
+    fetus_position = fields.Selection([
+        ('n', 'Correct'),
+        ('o', 'Occiput / Cephalic Posterior'),
+        ('fb', 'Frank Breech'),
+        ('cb', 'Complete Breech'),
+        ('t', 'Transverse Lie'),
+        ('t', 'Footling Breech'),
+        ], 'Fetus Position', sort=False)
+
+PerinatalMonitor()
 
 
 
