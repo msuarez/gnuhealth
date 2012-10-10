@@ -63,7 +63,7 @@
                         <label name="gestational_weeks"/>
                         <field name="gestational_weeks"/>                                               
                     </group>
-                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="8">
+                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="10">
                     
                         <label name="systolic"/>
                         <field name="systolic"/>
@@ -73,6 +73,8 @@
                         <field name="mother_frequency"/>                  
                         <label name="mother_weight"/>
                         <field name="mother_weight"/>
+                        <label name="preeclampsia"/>
+                        <field name="preeclampsia"/>
                     </group>
                     
                     <group string="Fetus Information" id="prenatal_evaluation_group_fetus" colspan="4" col="8">
@@ -100,7 +102,8 @@
                     <field name="mother_frequency" expand="1"/>                    
                     <field name="mother_weight" expand="1"/>                                               
                     <field name="fundal_height" expand="1"/>                                               
-                    <field name="fetus_frequency" expand="1"/>                                               
+                    <field name="fetus_frequency" expand="1"/>
+                    <field name="preeclampsia" expand="1"/>                                                                   
                     <field name="gestational_days" expand="1"/>                                               
 
                 </tree>

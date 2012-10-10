@@ -110,12 +110,14 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
-    mother_frequency = fields.Function(fields.Integer('Mother\'s Freq', help="Mother heart frequency"),
+    mother_frequency = fields.Function(fields.Integer('Heart Rate', help="Mother heart frequency"),
         'get_patient_evaluation_data')
     
     fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
 
-    mother_weight = fields.Function(fields.Float('Mother\'s weight'),
+    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
+
+    mother_weight = fields.Function(fields.Float('Weight', help="Mother weight"),
         'get_patient_evaluation_data')
 
     gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
@@ -171,7 +173,7 @@ PuerperiumMonitor()
 
 
 class PerinatalMonitor(ModelSQL, ModelView):
-    'Perinatal and monitor'
+    'Perinatal monitor'
     _name = 'gnuhealth.perinatal.monitor'
     _description = __doc__
 
