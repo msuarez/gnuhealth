@@ -1718,6 +1718,17 @@ class PatientEvaluation(ModelSQL, ModelView):
             whr = 0
         return whr
 
+    def get_rec_name(self, ids, name):
+        if not ids:
+            return {}
+        res = {}
+        for evaluation in self.browse(ids):
+            if evaluation.evaluation_start:
+                name = str(evaluation.evaluation_start)
+            res[evaluation.id] = name
+        return res
+
+
 PatientEvaluation()
 
 
