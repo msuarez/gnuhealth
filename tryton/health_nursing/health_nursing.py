@@ -24,7 +24,7 @@ from trytond.pool import Pool
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.backend import TableHandler
 from trytond.transaction import Transaction
-
+from trytond.pyson import Eval
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
@@ -149,7 +149,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     name = fields.Char('ID', readonly=True)
     patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
     base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')    
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation')
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation', domain=[('patient', '=', Eval('patient'))])
     ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
 
