@@ -43,6 +43,7 @@ Este módulo incluye la funcionalidad de enfermería, tanto para hospitalizacion
 
     'xml': [
         'health_nursing_view.xml',
+        'data/health_nursing_sequences.xml',        
         'security/access_rights.xml'
     ],
     'active': False,

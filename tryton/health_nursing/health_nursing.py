@@ -21,7 +21,23 @@
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 from trytond.pool import Pool
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.backend import TableHandler
 from trytond.transaction import Transaction
+
+
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
+    "Standard Sequences for GNU Health"
+
+    _description = __doc__
+    _name = "gnuhealth.sequences"
+
+    ambulatory_care_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Health Ambulatory Care', domain=[
+            ('code', '=', 'gnuhealth.ambulatory_care')
+        ], required=True))
+
+GnuHealthSequences()
 
 
 # Class : PatientRounding
@@ -123,3 +139,75 @@ class RoundingProcedure(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
 RoundingProcedure()
+
+class PatientAmbulatoryCare(ModelSQL, ModelView):
+    'Patient Ambulatory Care'
+    _name = 'gnuhealth.patient.ambulatory_care'
+    _description = __doc__
+
+
+    name = fields.Char('ID', readonly=True) 
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation')
+    ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
+    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
+
+    session_number = fields.Integer('Session #', required=True)
+
+    session_start = fields.DateTime('Start', required=True)
+    session_end = fields.DateTime('End', required=True)
+
+    next_evaluation = fields.DateTime('End', required=True)
+
+    session_notes = fields.Text('Notes', required=True)
+
+    def create(self, values):
+        sequence_obj = Pool().get('ir.sequence')
+        config_obj = Pool().get('gnuhealth.sequences')
+
+        values = values.copy()
+        if not values.get('name'):
+            config = config_obj.browse(1)
+            values['name'] = sequence_obj.get_id(
+            config.ambulatory_care_sequence.id)
+
+        return super(PatientAmbulatoryCare, self).create(values)
+
+    def default_health_professional(self):
+        cursor = Transaction().cursor
+        user_obj = Pool().get('res.user')
+        user = user_obj.browse(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if not partner_id:
+            self.raise_user_error('No health professional associated to this \
+                user')
+        else:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+
+            return int(doctor_id[0])
+
+
+    def default_session_start(self):
+        return datetime.now()
+
+
+PatientAmbulatoryCare()
+
+
+class AmbulatoryCareProcedure(ModelSQL, ModelView):
+    'Ambulatory Care Procedure'
+    _name = 'gnuhealth.ambulatory_care_procedure'
+    _description = __doc__
+
+    name = fields.Many2One('gnuhealth.patient.ambulatory_care', 'Session')
+    procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
+        select=True,
+        help="Procedure Code, for example ICD-10-PCS Code 7-character string")
+    comments = fields.Char('Comments')
+
+AmbulatoryCareProcedure()
