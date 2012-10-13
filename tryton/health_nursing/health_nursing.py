@@ -146,17 +146,51 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     _description = __doc__
 
 
-    name = fields.Char('ID', readonly=True) 
+    name = fields.Char('ID', readonly=True)
+    patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
+    base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')    
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation')
     ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
 
+    procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name', 'Procedures',
+        help="List of the procedures in this session. Please enter the first " \
+        "one as the main procedure")
+
+
     session_number = fields.Integer('Session #', required=True)
 
     session_start = fields.DateTime('Start', required=True)
+
+    # Vital Signs
+    systolic = fields.Integer('Systolic Pressure')
+    diastolic = fields.Integer('Diastolic Pressure')
+    bpm = fields.Integer('Heart Rate',
+        help='Heart rate expressed in beats per minute')
+    respiratory_rate = fields.Integer('Respiratory Rate',
+        help='Respiratory rate expressed in breaths per minute')
+    osat = fields.Integer('Oxygen Saturation',
+        help='Oxygen Saturation(arterial).')
+    temperature = fields.Float('Temperature',
+        help='Temperature in celsius')
+
+    warning = fields.Boolean('Warning', help="Check this box to alert the supervisor about this session" \
+        ". It will be shown in red in the session list")
+
+    #Glycemia
+    glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
+
+    evolution = fields.Selection([
+        ('initial', 'Initial'),
+        ('n', 'Status Quo'),
+        ('i', 'Improving'),
+        ('w', 'Worsening'),
+        ], 'Evolution', required=True, help="Check your judgement of current patient condition", sort=False)
+
+
     session_end = fields.DateTime('End', required=True)
 
-    next_evaluation = fields.DateTime('End', required=True)
+    next_session = fields.DateTime('Next Session')
 
     session_notes = fields.Text('Notes', required=True)
 
