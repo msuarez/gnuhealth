@@ -31,7 +31,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     def get_pregnancy_due_date(self, ids, name):
         result = {}
-        
+
         for pregnancy_data in self.browse(ids):
             result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
 
@@ -66,7 +66,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     def get_patient_evaluation_data(self, ids, name):
         result = {}
-        
+
         for evaluation_data in self.browse(ids):
             if name == 'systolic':
                 result[evaluation_data.id] = evaluation_data.evaluation.systolic
@@ -90,16 +90,17 @@ class PrenatalEvaluation(ModelSQL, ModelView):
                 gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
 
                 result[evaluation_data.id] = gestational_age.days
-                
+
             if name == 'evaluation_summary':
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_summary
 
         return result
 
 
-    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')    
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
+        required=True)
 
     evaluation_date = fields.Function(fields.DateTime('Date'),
         'get_patient_evaluation_data')
@@ -112,7 +113,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     mother_frequency = fields.Function(fields.Integer('Heart Rate', help="Mother heart frequency"),
         'get_patient_evaluation_data')
-    
+
     fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
 
     preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
@@ -129,7 +130,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     fundal_height = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
-        
+
     evaluation_summary = fields.Function(fields.Text('Summary'),
         'get_patient_evaluation_data')
 
@@ -180,7 +181,7 @@ class Perinatal(ModelSQL, ModelView):
 
     def get_perinatal_information(self, ids, name):
         result = {}
-        
+
         for perinatal_data in self.browse(ids):
             if name == 'gestational_weeks':
                 gestational_age = datetime.datetime.date(perinatal_data.admission_date) - perinatal_data.name.lmp
@@ -348,7 +349,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     stillbirths = fields.Integer('Stillbirths')
     full_term = fields.Integer('Full Term', help="Full term pregnancies")
 
-# GPA Deprecated in 1.6.4. It will be used as a function or report from the other fields 
+# GPA Deprecated in 1.6.4. It will be used as a function or report from the other fields
 #    gpa = fields.Char('GPA',
 #        help="Gravida, Para, Abortus Notation. For example G4P3A1 : 4 " \
 #        "Pregnancies, 3 viable and 1 abortion")
@@ -391,7 +392,7 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        readonly=True)
+        domain=[('patient', '=', Eval('name'))])
     evaluation_date = fields.Date('Date', help="Evaluation Date", required=True)
     lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
     lmp_length = fields.Integer('Length', required=True)
@@ -430,7 +431,7 @@ class PatientMammographyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        readonly=True)
+        domain=[('patient', '=', Eval('name'))])
     evaluation_date = fields.Date('Date', help=" Date")
     last_mammography = fields.Date('Date', help="Last Mammography",
         required=True)
@@ -460,7 +461,7 @@ class PatientPAPHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        readonly=True)
+        domain=[('patient', '=', Eval('name'))])
     evaluation_date = fields.Date('Date', help=" Date")
     last_pap = fields.Date('Date', help="Last Papanicolau", required=True)
     result = fields.Selection([
@@ -493,7 +494,7 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        readonly=True)
+        domain=[('patient', '=', Eval('name'))])
     evaluation_date = fields.Date('Date', help=" Date")
     last_colposcopy = fields.Date('Date', help="Last colposcopy", required=True)
     result = fields.Selection([
