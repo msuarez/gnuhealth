@@ -21,6 +21,8 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
+from trytond.transaction import Transaction
+
 import datetime
 
 
@@ -38,7 +40,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         return result
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
-    gravida = fields.Integer ('Gravida #', required=True)
+    gravida = fields.Integer ('Pregnancy #', required=True)
     warning = fields.Boolean ('Anomalous', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period", required=True)
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
@@ -53,7 +55,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     def __init__(self):
         super(PatientPregnancy, self).__init__()
         self._sql_constraints = [
-            ('gravida_uniq', 'UNIQUE(gravida)', 'The pregancy must be unique !'),
+            ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
         ]
 
 PatientPregnancy()
@@ -95,12 +97,10 @@ class PrenatalEvaluation(ModelSQL, ModelView):
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_summary
 
         return result
-
-
+    
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        required=True)
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
 
     evaluation_date = fields.Function(fields.DateTime('Date'),
         'get_patient_evaluation_data')
@@ -133,7 +133,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     evaluation_summary = fields.Function(fields.Text('Summary'),
         'get_patient_evaluation_data')
-
+        
 PrenatalEvaluation()
 
 
