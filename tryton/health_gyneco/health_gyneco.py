@@ -78,15 +78,6 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         result = {}
 
         for evaluation_data in self.browse(ids):
-            if name == 'systolic':
-                result[evaluation_data.id] = evaluation_data.evaluation.systolic
-            if name == 'diastolic':
-                result[evaluation_data.id] = evaluation_data.evaluation.diastolic
-            if name == 'mother_frequency':
-                result[evaluation_data.id] = evaluation_data.evaluation.bpm
-
-            if name == 'mother_weight':
-                result[evaluation_data.id] = evaluation_data.evaluation.weight
 
             if name == 'evaluation_date':
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_start
@@ -107,27 +98,21 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         return result
 
     
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', on_change=['evaluation'], required=True)
 
+    evaluation_date = fields.DateTime('Date')
 
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
+    systolic = fields.Integer('Systolic')
 
-    evaluation_date = fields.Function(fields.DateTime('Date'),
+    diastolic = fields.Integer('Diastolic')
+
+    mother_heart_rate = fields.Integer('Heart Rate', help="Mother heart frequency")
+
+    mother_weight = fields.Float('Weight', help="Mother weight")
+
+    gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
         'get_patient_evaluation_data')
-
-    systolic = fields.Integer('Systolic', on_change_with = ['evaluation'])
-
-    diastolic = fields.Function(fields.Integer('Diastolic'),
-        'get_patient_evaluation_data')
-
-    mother_frequency = fields.Function(fields.Integer('Heart Rate', help="Mother heart frequency"),
-        'get_patient_evaluation_data')
-
-    mother_weight = fields.Function(fields.Float('Weight', help="Mother weight"),
-        'get_patient_evaluation_data')
-
-    gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
-        'get_patient_evaluation_data')
-
+        
     gestational_days = fields.Function(fields.Integer('Gestational days'),
         'get_patient_evaluation_data')
 
@@ -138,11 +123,31 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     evaluation_summary = fields.Function(fields.Text('Summary'),
         'get_patient_evaluation_data')
 
-    def on_change_with_systolic(self, vals):
+    def on_change_evaluation(self, vals):
+        systolic = False
+        diastolic = False
+        weight = False
+        heart_rate = False
+        evaluation_date = False
+        
         evaluation_obj = Pool().get('gnuhealth.patient.evaluation')
-        evaluation = evaluation_obj.browse(vals['evaluation'])
-        return evaluation.systolic
+        
+        if vals.get('evaluation'):
+            evaluation = evaluation_obj.browse(vals['evaluation'])
+            systolic = evaluation.systolic
+            diastolic = evaluation.diastolic
+            weight = evaluation.weight
+            heart_rate = evaluation.bpm           
+            evaluation_date = evaluation.evaluation_start          
 
+        return {
+            'systolic': systolic,
+            'diastolic': diastolic,
+            'mother_heart_rate': heart_rate,
+            'mother_weight': weight,
+            'evaluation_date': evaluation_date,
+        }
+        
 PrenatalEvaluation()
 
 
