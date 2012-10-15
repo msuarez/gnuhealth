@@ -66,6 +66,14 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.prenatal.evaluation'
     _description = __doc__
 
+
+    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
+
+    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
+    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
+
+
+
     def get_patient_evaluation_data(self, ids, name):
         result = {}
 
@@ -97,26 +105,22 @@ class PrenatalEvaluation(ModelSQL, ModelView):
                 result[evaluation_data.id] = evaluation_data.evaluation.evaluation_summary
 
         return result
+
     
-    name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
+
 
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', required=True)
 
     evaluation_date = fields.Function(fields.DateTime('Date'),
         'get_patient_evaluation_data')
 
-    systolic = fields.Function(fields.Integer('Systolic'),
-        'get_patient_evaluation_data')
+    systolic = fields.Integer('Systolic', on_change_with = ['evaluation'])
 
     diastolic = fields.Function(fields.Integer('Diastolic'),
         'get_patient_evaluation_data')
 
     mother_frequency = fields.Function(fields.Integer('Heart Rate', help="Mother heart frequency"),
         'get_patient_evaluation_data')
-
-    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
-
-    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
 
     mother_weight = fields.Function(fields.Float('Weight', help="Mother weight"),
         'get_patient_evaluation_data')
@@ -133,7 +137,12 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     evaluation_summary = fields.Function(fields.Text('Summary'),
         'get_patient_evaluation_data')
-        
+
+    def on_change_with_systolic(self, vals):
+        evaluation_obj = Pool().get('gnuhealth.patient.evaluation')
+        evaluation = evaluation_obj.browse(vals['evaluation'])
+        return evaluation.systolic
+
 PrenatalEvaluation()
 
 

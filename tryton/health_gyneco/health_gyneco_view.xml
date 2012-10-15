@@ -57,6 +57,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prenatal Evaluation">
+
                     <group id="prenatal_evaluation_group_header" colspan="4" col="4">
                         <label name="evaluation"/>
                         <field name="evaluation"/>
