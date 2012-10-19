@@ -69,84 +69,6 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
 
-    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
-    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
-
-
-
-    def get_patient_evaluation_data(self, ids, name):
-        result = {}
-
-        for evaluation_data in self.browse(ids):
-
-            if name == 'evaluation_date':
-                result[evaluation_data.id] = evaluation_data.evaluation.evaluation_start
-
-            if name == 'gestational_weeks':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = (gestational_age.days)/7
-
-            if name == 'gestational_days':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = gestational_age.days
-
-            if name == 'evaluation_summary':
-                result[evaluation_data.id] = evaluation_data.evaluation.evaluation_summary
-
-        return result
-
-    
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation', on_change=['evaluation'], required=True)
-
-    evaluation_date = fields.DateTime('Date')
-
-    systolic = fields.Integer('Systolic')
-
-    diastolic = fields.Integer('Diastolic')
-
-    mother_heart_rate = fields.Integer('Heart Rate', help="Mother heart frequency")
-
-    mother_weight = fields.Float('Weight', help="Mother weight")
-
-    gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
-        'get_patient_evaluation_data')
-        
-    gestational_days = fields.Function(fields.Integer('Gestational days'),
-        'get_patient_evaluation_data')
-
-    fundal_height = fields.Integer('Fundal Height',
-        help="Distance between the symphysis pubis and the uterine fundus " \
-        "(S-FD) in cm")
-
-    evaluation_summary = fields.Function(fields.Text('Summary'),
-        'get_patient_evaluation_data')
-
-    def on_change_evaluation(self, vals):
-        systolic = False
-        diastolic = False
-        weight = False
-        heart_rate = False
-        evaluation_date = False
-        
-        evaluation_obj = Pool().get('gnuhealth.patient.evaluation')
-        
-        if vals.get('evaluation'):
-            evaluation = evaluation_obj.browse(vals['evaluation'])
-            systolic = evaluation.systolic
-            diastolic = evaluation.diastolic
-            weight = evaluation.weight
-            heart_rate = evaluation.bpm           
-            evaluation_date = evaluation.evaluation_start          
-
-        return {
-            'systolic': systolic,
-            'diastolic': diastolic,
-            'mother_heart_rate': heart_rate,
-            'mother_weight': weight,
-            'evaluation_date': evaluation_date,
-        }
         
 PrenatalEvaluation()
 
@@ -396,6 +318,50 @@ class GnuHealthPatient(ModelSQL, ModelView):
     pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name', 'Pregnancies')
 
 GnuHealthPatient()
+
+
+class PatientEvaluation(ModelSQL, ModelView):
+    _name = 'gnuhealth.patient.evaluation'
+    _description = __doc__
+
+'''
+    def get_patient_evaluation_data(self, ids, name):
+        result = {}
+
+        for evaluation_data in self.browse(ids):
+
+            if name == 'gestational_weeks':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = (gestational_age.days)/7
+
+            if name == 'gestational_days':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = gestational_age.days
+
+
+        return result
+
+
+
+    gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
+        'get_patient_evaluation_data')
+        
+    gestational_days = fields.Function(fields.Integer('Gestational days'),
+        'get_patient_evaluation_data')
+'''
+
+
+    fundal_height = fields.Integer('Fundal Height',
+        help="Distance between the symphysis pubis and the uterine fundus " \
+        "(S-FD) in cm")
+
+    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
+    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
+
+
+PatientEvaluation()
 
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
