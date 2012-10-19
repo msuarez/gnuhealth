@@ -163,8 +163,9 @@ class Perinatal(ModelSQL, ModelView):
         ('t', 'Footling Breech'),
         ], 'Fetus Presentation', sort=False)
     dystocia = fields.Boolean('Dystocia')
-    placenta_incomplete = fields.Boolean('Incomplete Placenta')
-    placenta_retained = fields.Boolean('Retained Placenta')
+    placenta_incomplete = fields.Boolean('Incomplete', help='Incomplete Placenta')
+    placenta_retained = fields.Boolean('Retained', help='Retained Placenta')
+    abruptio_placentae = fields.Boolean('Abrupto Placentae',help='Abruptio Placentae')
     episiotomy = fields.Boolean('Episiotomy')
     vaginal_tearing = fields.Boolean('Vaginal tearing')
     forceps = fields.Boolean('Forceps')
@@ -324,7 +325,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.evaluation'
     _description = __doc__
 
-'''
+
+    '''
     def get_patient_evaluation_data(self, ids, name):
         result = {}
 
@@ -342,7 +344,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
 
         return result
-
+    '''
 
 
     gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
@@ -350,7 +352,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         
     gestational_days = fields.Function(fields.Integer('Gestational days'),
         'get_patient_evaluation_data')
-'''
 
 
     fundal_height = fields.Integer('Fundal Height',
@@ -362,6 +363,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
 
 PatientEvaluation()
+
 
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
