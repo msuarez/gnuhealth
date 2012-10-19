@@ -155,12 +155,9 @@ class Perinatal(ModelSQL, ModelView):
 
     gestational_days = fields.Integer('Days')
     fetus_presentation = fields.Selection([
-        ('n', 'Correct'),
-        ('o', 'Occiput / Cephalic Posterior'),
-        ('fb', 'Frank Breech'),
-        ('cb', 'Complete Breech'),
-        ('t', 'Transverse Lie'),
-        ('t', 'Footling Breech'),
+        ('cephalic', 'Cephalic'),
+        ('breech', 'Breech'),
+        ('shoulder', 'Shoulder'),
         ], 'Fetus Presentation', sort=False)
     dystocia = fields.Boolean('Dystocia')
     placenta_incomplete = fields.Boolean('Incomplete', help='Incomplete Placenta')
