@@ -18,8 +18,8 @@
                         <field name="lmp"/>
                         <label name="pdd"/>
                         <field name="pdd"/>
-                        <label name="warning"/>
-                        <field name="warning"/>
+                        <label name="current_pregnancy"/>
+                        <field name="current_pregnancy"/>
                     </group>
 <!--
                     <newline/>
@@ -28,7 +28,16 @@
                     <newline/>
                     <field name="perinatal"/>
                     <field name="puerperium_monitor"/>
+                    <newline/>
 
+                    <group id="group_pregnancy_footer" colspan="4" col="6">
+                        <label name="pregnancy_end"/>
+                        <field name="pregnancy_end"/>
+                        <label name="pregnancy_end_date"/>
+                        <field name="pregnancy_end_date"/>
+                        <label name="warning"/>
+                        <field name="warning"/>
+                    </group>    
                 </form>
                 ]]>
             </field>
@@ -43,6 +52,9 @@
                     <field name="gravida"/>
                     <field name="lmp" expand="1"/>
                     <field name="pdd" expand="1"/>
+                    <field name="current_pregnancy" expand="1"/>
+                    <field name="pregnancy_end_date" expand="1"/>
+                    <field name="pregnancy_end" expand="1"/>
                     <field name="warning" expand="1"/>                    
                 </tree>
                 ]]>
@@ -53,7 +65,7 @@
 
 <!-- Include PRENATAL information in Patient Evaluation model -->
 
-
+<!--
         <record model="ir.ui.view" id="gnuhealth_patient_evaluation_view">
             <field name="model">gnuhealth.patient.evaluation</field>
             <field name="inherit" ref="health.gnuhealth_patient_evaluation_view" />
@@ -66,7 +78,7 @@
                         position="after">
 
                         <page
-                            string="Gyneco / Obs" id="page_gyneco_obs_eval"
+                            string="Gyneco / Obs" id="page_gyneco_obs_eval_eval"
                             states="{'invisible': Equal(Eval('sex'), 'm')}">
 
 
@@ -94,6 +106,7 @@
             </field>
         </record>
 
+-->
 
 
 <!-- Perinatal -->
@@ -296,6 +309,7 @@
                     </group>
                     <newline/>
                     <group colspan="4" string="Fetus" id="group_perinatal_fetus_monitor">
+
                         <label name="fetus_position"/>
                         <field name="fetus_position"/>
                         <label name="f_frequency"/>
@@ -584,6 +598,7 @@
                 ]]>
             </field>
         </record>
+
 
     </data>
 </tryton>

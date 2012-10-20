@@ -51,11 +51,23 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
 
+    current_pregnancy = fields.Boolean('Current Pregnancy', help="This field marks the current pregnancy")
 
+    pregnancy_end = fields.Selection([
+        ('live_birth', 'Live birth'),
+        ('abortion', 'Abortion'),
+        ('stillbirth', 'Stillbirth'),
+        ('status_unknown', 'Status unknown'),
+        ], 'Result', sort=False)
+
+    pregnancy_end_date = fields.Date ('Date')
+    
     def __init__(self):
         super(PatientPregnancy, self).__init__()
         self._sql_constraints = [
             ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
+            ('pregnancy_uniq', 'UNIQUE(current_pregnancy)', 'Records indicate that the patient is currently pregnant !'),
+
         ]
 
 PatientPregnancy()
@@ -68,8 +80,23 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Patient Evaluation', readonly=True)
 
+    gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
+        'get_patient_evaluation_data')
         
+    gestational_days = fields.Function(fields.Integer('Gestational days'),
+        'get_patient_evaluation_data')
+
+
+    fundal_height = fields.Integer('Fundal Height',
+        help="Distance between the symphysis pubis and the uterine fundus " \
+        "(S-FD) in cm")
+
+    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
+    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
+
+    
 PrenatalEvaluation()
 
 
@@ -343,20 +370,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         return result
     '''
 
-
-    gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
-        'get_patient_evaluation_data')
-        
-    gestational_days = fields.Function(fields.Integer('Gestational days'),
-        'get_patient_evaluation_data')
-
-
-    fundal_height = fields.Integer('Fundal Height',
-        help="Distance between the symphysis pubis and the uterine fundus " \
-        "(S-FD) in cm")
-
-    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
-    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
 
 
 PatientEvaluation()
