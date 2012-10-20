@@ -195,10 +195,11 @@ class Perinatal(ModelSQL, ModelView):
         help="Number of visits to the doctor during pregnancy")
 
     start_labor_mode = fields.Selection([
-        ('n', 'Normal'),
-        ('i', 'Induced'),
+        ('v', 'Vaginal - Spontaneous'),
+        ('ve', 'Vaginal - Vacuum Extraction'),
+        ('vf', 'Vaginal - Forceps Extraction'),
         ('c', 'C-section'),
-        ], 'Labor mode', sort=False)
+        ], 'Delivery mode', sort=False)
 
     gestational_weeks = fields.Function(fields.Integer('Gestational wks'),
         'get_perinatal_information')
