@@ -61,15 +61,37 @@ class PatientPregnancy(ModelSQL, ModelView):
         ], 'Result', sort=False)
 
     pregnancy_end_date = fields.Date ('Date')
-    
+
+    def check_patient_current_pregnancy(self, ids):
+        ''' Check for only one current pregnancy in the patient '''
+        cursor = Transaction().cursor
+        for pregnancy in self.browse(ids):
+            cursor.execute("SELECT count(name) " \
+                "FROM " + self._table + "  \
+                WHERE (name = %s AND current_pregnancy)", \
+                str(pregnancy.name.id))
+
+            if cursor.fetchone()[0] > 1:
+                return False
+            return True
+
     def __init__(self):
         super(PatientPregnancy, self).__init__()
+        self._constraints += [
+            ('check_patient_current_pregnancy', 'patient_already_pregnant'),
+        ]
+        
         self._sql_constraints = [
             ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
-            ('pregnancy_uniq', 'UNIQUE(current_pregnancy)', 'Records indicate that the patient is currently pregnant !'),
-
         ]
 
+        self._error_messages.update({
+            'patient_already_pregnant': 'Our records indicate that the patient is already pregnant !'})
+     
+
+    def default_current_pregnancy(self):
+        return True
+                
 PatientPregnancy()
 
 
