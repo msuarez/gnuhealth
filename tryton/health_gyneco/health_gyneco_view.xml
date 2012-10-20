@@ -180,20 +180,6 @@
                             </group>
                                 
                             <newline/>
-
-                            <separator colspan="4" id="perinatal_other" string="Other"/>
-                            <newline/>
-
-                            <group colspan="4" col="6" id="group_deceased_info">
-                                <label name="stillbirth"/>
-                                <field name="stillbirth"/>
-                                <label name="mother_deceased"/>
-                                <field name="mother_deceased"/>
-                                <label name="place_of_death"/>
-                                <field name="place_of_death"/>
-
-                            </group>
-                            <newline/>
                             
                             <label name="dismissed"/>
                             <field name="dismissed"/>

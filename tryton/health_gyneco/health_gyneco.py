@@ -181,15 +181,16 @@ class Perinatal(ModelSQL, ModelView):
 # It will be calculated as a function if needed
     gravida_number = fields.Integer('Gravida #')
 
-# Use stillbirth instead of abortion in Perinatal context
+# Deprecated. Use End of Pregnancy as a general concept in the pregnancy model
+# Abortion / Stillbirth / Live Birth
     abortion = fields.Boolean('Abortion')
 
-    stillbirth = fields.Boolean('Stillbirth')
+#    stillbirth = fields.Boolean('Stillbirth')
 
     admission_date = fields.DateTime('Admission',
         help="Date when she was admitted to give birth", required=True)
 
-# Deprecated in 1.6.4
+# Prenatal evaluations deprecated in 1.6.4. Will be computed automatically
     prenatal_evaluations = fields.Integer('Prenatal evaluations', \
         help="Number of visits to the doctor during pregnancy")
 
@@ -211,7 +212,7 @@ class Perinatal(ModelSQL, ModelView):
     dystocia = fields.Boolean('Dystocia')
     placenta_incomplete = fields.Boolean('Incomplete', help='Incomplete Placenta')
     placenta_retained = fields.Boolean('Retained', help='Retained Placenta')
-    abruptio_placentae = fields.Boolean('Abrupto Placentae',help='Abruptio Placentae')
+    abruptio_placentae = fields.Boolean('Abruptio Placentae',help='Abruptio Placentae')
     episiotomy = fields.Boolean('Episiotomy')
     vaginal_tearing = fields.Boolean('Vaginal tearing')
     forceps = fields.Boolean('Forceps')
@@ -254,6 +255,10 @@ class Perinatal(ModelSQL, ModelView):
     medication = fields.One2Many('gnuhealth.patient.medication', 'name',
         'Medication and anesthesics')
     dismissed = fields.DateTime('Discharged')
+    pregnancy_end_date = fields.DateTime('End of pregnancy')   
+
+# Deprecated in 1.6.4 . Use the death information in the patient model
+# Date and cause of death
     place_of_death = fields.Selection([
         ('ho', 'Hospital'),
         ('dr', 'At the delivery room'),
