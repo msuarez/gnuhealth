@@ -30,11 +30,13 @@
                     <field name="puerperium_monitor"/>
                     <newline/>
 
-                    <group id="group_pregnancy_footer" colspan="4" col="6">
-                        <label name="pregnancy_end"/>
-                        <field name="pregnancy_end"/>
+                    <group id="group_pregnancy_footer" colspan="4" col="8">
                         <label name="pregnancy_end_date"/>
                         <field name="pregnancy_end_date"/>
+                        <label name="pregnancy_end"/>
+                        <field name="pregnancy_end"/>
+                        <label name="iugr"/>
+                        <field name="iugr"/>
                         <label name="warning"/>
                         <field name="warning"/>
                     </group>    
@@ -55,6 +57,7 @@
                     <field name="current_pregnancy" expand="1"/>
                     <field name="pregnancy_end_date" expand="1"/>
                     <field name="pregnancy_end" expand="1"/>
+                    <field name="iugr" expand="1"/>
                     <field name="warning" expand="1"/>                    
                 </tree>
                 ]]>
@@ -139,6 +142,7 @@
                     <field name="fundal_height" expand="1"/>                                               
                     <field name="fetus_heart_rate" expand="1"/>
                     <field name="efw" expand="1"/>
+                    <field name="iugr" expand="1"/>                    
                     <field name="hypertension" expand="1"/>                                                                   
                     <field name="preeclampsia" expand="1"/>                                                                   
                     <field name="overweight" expand="1"/>                                               

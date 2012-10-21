@@ -41,7 +41,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Pregnancy #', required=True)
-    warning = fields.Boolean ('Anomalous', help="Check this box if this is pregancy is or was NOT normal")
+    warning = fields.Boolean ('Problem', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period", required=True)
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
 
@@ -60,7 +60,12 @@ class PatientPregnancy(ModelSQL, ModelView):
         ('status_unknown', 'Status unknown'),
         ], 'Result', sort=False)
 
-    pregnancy_end_date = fields.Date ('Date')
+    pregnancy_end_date = fields.DateTime ('End of Pregnancy Date')
+
+    iugr = fields.Selection([
+        ('symmetric', 'Symmetric'),
+        ('assymetric', 'Assymetric'),
+        ], 'IUGR', sort=False)
 
     def check_patient_current_pregnancy(self, ids):
         ''' Check for only one current pregnancy in the patient '''
@@ -155,7 +160,8 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     fetal_fl= fields.Integer('FL', help="Fetal Femur Length")
 
     oligohydramnios = fields.Boolean('Oligohydramnios')
-    polihydramnios= fields.Integer('Polihydramnios')
+    polihydramnios= fields.Boolean('Polihydramnios')
+    iugr= fields.Boolean('IUGR',help="Intra uterine growth restriction")
     
 PrenatalEvaluation()
 
