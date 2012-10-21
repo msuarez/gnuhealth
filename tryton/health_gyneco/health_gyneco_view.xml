@@ -119,7 +119,8 @@
                 <form string="Perinatal and Intrapartum Information">
                     <notebook>
                         <page string="Main" id="page_main_perinatal">
-                        
+
+<!--                        
                             <group id="group_perinatal_holder" colspan="4" col="6">
                                 <label name="gestational_weeks"/>
                                 <field name="gestational_weeks"/>
@@ -128,7 +129,7 @@
                                 <label name="admission_code"/>
                                 <field name="admission_code"/>
                             </group>
-  
+-->  
                             <newline/>
 
                             <group id="group_labor">
@@ -148,13 +149,11 @@
 
                         <page id="perinatal_misc" string="Additional Info">
 
-                            <group colspan="4" col="10" id="group_misc">
+                            <group colspan="4" col="8" id="group_misc">
                                 <label name="dystocia"/>
                                 <field name="dystocia"/>
                                 <label name="episiotomy"/>
                                 <field name="episiotomy"/>
-                                <label name="forceps"/>
-                                <field name="forceps"/>
                                 <label name="laceration"/>
                                 <field name="laceration"/>                                
                                 <label name="hematoma"/>
@@ -178,12 +177,7 @@
                                 <label name="abruptio_placentae"/>
                                 <field name="abruptio_placentae"/>
                             </group>
-                                
-                            <newline/>
-                            
-                            <label name="dismissed"/>
-                            <field name="dismissed"/>
-                       
+                                                       
                         </page>
 
                     </notebook>
