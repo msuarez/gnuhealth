@@ -96,9 +96,26 @@ PatientPregnancy()
 
 
 class PrenatalEvaluation(ModelSQL, ModelView):
-    'Prenatal Evaluation'
+    'Prenatal and Antenatal Evaluations'
     _name = 'gnuhealth.patient.prenatal.evaluation'
     _description = __doc__
+
+    def get_patient_evaluation_data(self, ids, name):
+        result = {}
+        
+        for evaluation_data in self.browse(ids):
+ 
+            if name == 'gestational_weeks':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = (gestational_age.days)/7
+
+            if name == 'gestational_days':
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+
+                result[evaluation_data.id] = gestational_age.days
+                
+        return result
 
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
@@ -111,13 +128,33 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         'get_patient_evaluation_data')
 
 
+    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia")
+    overweight = fields.Boolean('Overweight', help="Check this box if the mother is overweight or obesity")
+    diabetes = fields.Boolean('Diabetes', help="Check this box if the mother has glucose intolerance or diabetes")
+
+    invasive_placentation = fields.Selection([
+        ('normal', 'Normal decidua'),
+        ('accreta', 'Accreta'),
+        ('increta', 'Increta'),
+        ('percreta', 'Percreta'),
+        ], 'Placentation', sort=False)
+
+    placenta_previa = fields.Boolean('Placenta Previa')
+    vasa_previa = fields.Boolean('Vasa Previa')
+
     fundal_height = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
 
-    fetus_frequency = fields.Integer('Fetus Freq', help="Fetus heart frequency")
-    preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia, independently from the information on the patient evaluation")
+    fetus_heart_rate = fields.Integer('Fetus heart rate', help="Fetus heart rate")
+    efw= fields.Integer('EFW', help="Estimated Fetal Weight")
+    fetal_bpd= fields.Integer('BPD', help="Fetal Biparietal Diameter")
+    fetal_ac= fields.Integer('AC', help="Fetal Abdominal Circumference")
+    fetal_hc= fields.Integer('HC', help="Fetal Head Circumference")
+    fetal_fl= fields.Integer('FL', help="Fetal Femur Length")
 
+    oligohydramnios = fields.Boolean('Oligohydramnios')
+    polyhydramnios= fields.Integer('Polihydramnios')
     
 PrenatalEvaluation()
 
@@ -216,7 +253,7 @@ class Perinatal(ModelSQL, ModelView):
     abruptio_placentae = fields.Boolean('Abruptio Placentae',help='Abruptio Placentae')
     episiotomy = fields.Boolean('Episiotomy')
 
-#Vaginal tearing and forceps variables are deprecatedsincd 1.6.4. 
+#Vaginal tearing and forceps variables are deprecated in 1.6.4. 
 #They are included in laceration and delivery mode respectively
 
     vaginal_tearing = fields.Boolean('Vaginal tearing')
@@ -241,13 +278,6 @@ class Perinatal(ModelSQL, ModelView):
         ('retroperitoneal', 'Retroperitoneal'),
         ], 'Hematoma', sort=False)
 
-    invasive_placentation = fields.Selection([
-        ('accreta', 'Accreta'),
-        ('increta', 'Increta'),
-        ('percreta', 'Percreta'),
-        ], 'Invasive Placentation', sort=False)
-
-    placenta_previa = fields.Boolean('Placenta Previa')
 
 # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
 # and is included in the obstetric evaluation history

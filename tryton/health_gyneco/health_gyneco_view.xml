@@ -21,10 +21,10 @@
                         <label name="current_pregnancy"/>
                         <field name="current_pregnancy"/>
                     </group>
-<!--
+
                     <newline/>
                     <field colspan="4" name="prenatal_evaluations"/>
--->
+
                     <newline/>
                     <field name="perinatal"/>
                     <field name="puerperium_monitor"/>
@@ -62,51 +62,96 @@
         </record>
 
 
+<!-- PRENATAL Evaluation -->
 
-<!-- Include PRENATAL information in Patient Evaluation model -->
-
-<!--
-        <record model="ir.ui.view" id="gnuhealth_patient_evaluation_view">
-            <field name="model">gnuhealth.patient.evaluation</field>
-            <field name="inherit" ref="health.gnuhealth_patient_evaluation_view" />
+        <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_view">
+            <field name="model">gnuhealth.patient.prenatal.evaluation</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;page_patient_evaluation_mental&quot;]"
-                        position="after">
+                <form string="Prenatal Evaluation">
+                    <group id="prenatal_evaluation_group_header" colspan="4" col="4">
+                        <label name="evaluation"/>
+                        <field name="evaluation"/>
+                        <label name="gestational_weeks"/>
+                        <field name="gestational_weeks"/>                                               
+                    </group>
+                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="6">
+                    
+                        <label name="preeclampsia"/>
+                        <field name="preeclampsia"/>
+                        <label name="overweight"/>
+                        <field name="overweight"/>
+                        <label name="diabetes"/>
+                        <field name="diabetes"/>
 
-                        <page
-                            string="Gyneco / Obs" id="page_gyneco_obs_eval_eval"
-                            states="{'invisible': Equal(Eval('sex'), 'm')}">
+                    </group>
 
+                    <group string="Placenta" id="prenatal_evaluation_group_placenta" colspan="4" col="6">
+                        <label name="placenta_previa"/>
+                        <field name="placenta_previa"/>
+                        <label name="invasive_placentation"/>
+                        <field name="invasive_placentation"/>
+                        <label name="vasa_previa"/>
+                        <field name="vasa_previa"/>
+                    </group>
 
-                            <separator id="separator_prenatal_evaluation" string="Prenatal Evaluation"/>
-                
-                            <group id="prenatal_evaluation_group_header" colspan="4" col="4">
-                                <label name="evaluation"/>
-                                <field name="evaluation"/>
-                                <label name="gestational_weeks"/>
-                                <field name="gestational_weeks"/>                                               
-                                <label name="preeclampsia"/>
-                                <field name="preeclampsia"/>
-                            </group>
-                            
-                            <group string="Fetus Information" id="prenatal_evaluation_group_fetus" colspan="4" col="8">
-                                <label name="fundal_height"/>
-                                <field name="fundal_height"/>                                               
-                                <label name="fetus_frequency"/>
-                                <field name="fetus_frequency"/>                                               
-                            </group>
-                        </page>
-                        </xpath>
-                    </data>
+                    <newline/>
+                    
+                    <group string="Fetus Information" id="prenatal_evaluation_group_fetus" colspan="4" col="8">
+                        <label name="fundal_height"/>
+                        <field name="fundal_height"/>                                               
+                        <label name="fetus_heart_rate"/>
+                        <field name="fetus_heart_rate"/>                                               
+                        <label name="efw"/>
+                        <field name="efw"/>                                               
+
+                        <newline/>
+                        <separator colspan="4" string="Fetal Biometry" id="separator_fetal_biometry"/>
+                        <newline/>
+
+                        <label name="fetal_bpd"/>
+                        <field name="fetal_bpd"/>                                               
+                        <label name="fetal_hc"/>
+                        <field name="fetal_hc"/>                                               
+                        <label name="fetal_ac"/>
+                        <field name="fetal_ac"/>                                               
+                        <label name="fetal_fl"/>
+                        <field name="fetal_fl"/>                                               
+
+                    </group>
+                    <field name="evaluation_summary"/>
+                </form>
                 ]]>
             </field>
         </record>
 
--->
+        <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_tree">
+            <field name="model">gnuhealth.patient.prenatal.evaluation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Prenatal Evaluations'>
+                    <field name="evaluation_date" expand="1"/>
+                    <field name="gestational_weeks" expand="1"/>                                               
+                    <field name="fundal_height" expand="1"/>                                               
+                    <field name="fetus_heart_rate" expand="1"/>
+                    <field name="efw" expand="1"/>
+                    <field name="preeclampsia" expand="1"/>                                                                   
+                    <field name="overweight" expand="1"/>                                               
+                    <field name="diabetes" expand="1"/>                                               
+                    <field name="invasive_placentation" expand="1"/>                                               
+                    <field name="placenta_previa" expand="1"/>                                               
+                    <field name="vasa_previa" expand="1"/>                                               
+                    <field name="oligohydramnios" expand="1"/>                                               
+                    <field name="polihydramnios" expand="1"/>                                               
+
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
 
 
 <!-- Perinatal -->
