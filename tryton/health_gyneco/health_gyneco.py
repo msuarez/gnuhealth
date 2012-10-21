@@ -128,6 +128,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         'get_patient_evaluation_data')
 
 
+    hypertension = fields.Boolean('Hypertension', help="Check this box if the mother has hypertension")
     preeclampsia = fields.Boolean('Preeclampsia', help="Check this box if the mother has pre-eclampsia")
     overweight = fields.Boolean('Overweight', help="Check this box if the mother is overweight or obesity")
     diabetes = fields.Boolean('Diabetes', help="Check this box if the mother has glucose intolerance or diabetes")
@@ -154,7 +155,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     fetal_fl= fields.Integer('FL', help="Fetal Femur Length")
 
     oligohydramnios = fields.Boolean('Oligohydramnios')
-    polyhydramnios= fields.Integer('Polihydramnios')
+    polihydramnios= fields.Integer('Polihydramnios')
     
 PrenatalEvaluation()
 

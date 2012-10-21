@@ -76,8 +76,10 @@
                         <label name="gestational_weeks"/>
                         <field name="gestational_weeks"/>                                               
                     </group>
-                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="6">
+                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="8">
                     
+                        <label name="hypertension"/>
+                        <field name="hypertension"/>
                         <label name="preeclampsia"/>
                         <field name="preeclampsia"/>
                         <label name="overweight"/>
@@ -137,6 +139,7 @@
                     <field name="fundal_height" expand="1"/>                                               
                     <field name="fetus_heart_rate" expand="1"/>
                     <field name="efw" expand="1"/>
+                    <field name="hypertension" expand="1"/>                                                                   
                     <field name="preeclampsia" expand="1"/>                                                                   
                     <field name="overweight" expand="1"/>                                               
                     <field name="diabetes" expand="1"/>                                               
