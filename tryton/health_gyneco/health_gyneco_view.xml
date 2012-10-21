@@ -33,6 +33,8 @@
                     <group id="group_pregnancy_footer" colspan="4" col="8">
                         <label name="pregnancy_end_date"/>
                         <field name="pregnancy_end_date"/>
+                        <label name="pregnancy_end_age"/>
+                        <field name="pregnancy_end_age"/>
                         <label name="pregnancy_end"/>
                         <field name="pregnancy_end"/>
                         <label name="iugr"/>
@@ -56,6 +58,7 @@
                     <field name="pdd" expand="1"/>
                     <field name="current_pregnancy" expand="1"/>
                     <field name="pregnancy_end_date" expand="1"/>
+                    <field name="pregnancy_end_age" expand="1"/>
                     <field name="pregnancy_end" expand="1"/>
                     <field name="iugr" expand="1"/>
                     <field name="warning" expand="1"/>                    
@@ -74,8 +77,8 @@
                 <![CDATA[
                 <form string="Prenatal Evaluation">
                     <group id="prenatal_evaluation_group_header" colspan="4" col="4">
-                        <label name="evaluation"/>
-                        <field name="evaluation"/>
+                        <label name="evaluation_date"/>
+                        <field name="evaluation_date"/>
                         <label name="gestational_weeks"/>
                         <field name="gestational_weeks"/>                                               
                     </group>

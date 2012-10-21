@@ -31,19 +31,27 @@ class PatientPregnancy(ModelSQL, ModelView):
     _name = 'gnuhealth.patient.pregnancy'
     _description = __doc__
 
-    def get_pregnancy_due_date(self, ids, name):
+    def get_pregnancy_data(self, ids, name):
         result = {}
 
         for pregnancy_data in self.browse(ids):
-            result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
-
+            if name == 'pdd':
+                result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
+                
+            if name == 'pregnancy_end_age': 
+                if pregnancy_data.pregnancy_end_date:
+                    gestational_age = datetime.datetime.date(pregnancy_data.pregnancy_end_date) - pregnancy_data.lmp
+                    result[pregnancy_data.id] = (gestational_age.days)/7
+                else:
+                    result[pregnancy_data.id] = 0
+                    
         return result
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Pregnancy #', required=True)
     warning = fields.Boolean ('Problem', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period", required=True)
-    pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_due_date')
+    pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_data')
 
     prenatal_evaluations = fields.One2Many('gnuhealth.patient.prenatal.evaluation', 'name', 'Prenatal Evaluations')
 
@@ -61,6 +69,9 @@ class PatientPregnancy(ModelSQL, ModelView):
         ], 'Result', sort=False)
 
     pregnancy_end_date = fields.DateTime ('End of Pregnancy Date')
+
+    pregnancy_end_age = fields.Function(fields.Char('Weeks'),
+        'get_pregnancy_data')
 
     iugr = fields.Selection([
         ('symmetric', 'Symmetric'),
@@ -111,12 +122,12 @@ class PrenatalEvaluation(ModelSQL, ModelView):
         for evaluation_data in self.browse(ids):
  
             if name == 'gestational_weeks':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
 
                 result[evaluation_data.id] = (gestational_age.days)/7
 
             if name == 'gestational_days':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation.evaluation_start) - evaluation_data.name.lmp
+                gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
 
                 result[evaluation_data.id] = gestational_age.days
                 
@@ -126,6 +137,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Patient Evaluation', readonly=True)
 
+    evaluation_date = fields.DateTime('Date', required=True)
     gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
         'get_patient_evaluation_data')
         
