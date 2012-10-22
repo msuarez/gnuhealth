@@ -59,14 +59,14 @@
                 <![CDATA[
                 <tree string='Pregnancies' colors="If(Bool(Eval('warning')),'orange','black')">
                     <field name="gravida"/>
-                    <field name="lmp"/>
-                    <field name="pdd"/>
-                    <field name="current_pregnancy"/>
-                    <field name="pregnancy_end_date"/>
-                    <field name="pregnancy_end_age"/>
-                    <field name="pregnancy_end_result"/>
-                    <field name="iugr"/>
-                    <field name="warning"/>                    
+                    <field name="lmp" expand="1"/>
+                    <field name="pdd" expand="1"/>
+                    <field name="current_pregnancy" expand="1"/>
+                    <field name="pregnancy_end_date" expand="1"/>
+                    <field name="pregnancy_end_age" expand="1"/>
+                    <field name="pregnancy_end_result" expand="1"/>
+                    <field name="iugr" expand="1"/>
+                    <field name="warning" expand="1"/>                    
                 </tree>
                 ]]>
             </field>
@@ -133,7 +133,6 @@
                         <field name="fetal_fl"/>                                               
 
                     </group>
-                    <field name="evaluation_summary"/>
                 </form>
                 ]]>
             </field>
@@ -180,7 +179,6 @@
                     <notebook>
                         <page string="Main" id="page_main_perinatal">
 
-<!--                        
                             <group id="group_perinatal_holder" colspan="4" col="6">
                                 <label name="gestational_weeks"/>
                                 <field name="gestational_weeks"/>
@@ -189,7 +187,7 @@
                                 <label name="admission_code"/>
                                 <field name="admission_code"/>
                             </group>
--->  
+
                             <newline/>
 
                             <group id="group_labor">
@@ -275,19 +273,8 @@
                     <group colspan="4" string="Main" id="group_puerperium_monitor">
                         <label name="date"/>
                         <field name="date"/>
-                        <newline/>
-                        <label name="systolic"/>
-                        <field name="systolic"/>
-                        <label name="diastolic"/>
-                        <field name="diastolic"/>
-                        <label name="frequency"/>
-                        <field name="frequency"/>
-                        <newline/>
-                        <label name="temperature"/>
-                        <field name="temperature"/>
                         <label name="uterus_involution"/>
                         <field name="uterus_involution"/>
-                        <newline/>
                     </group>
                     <newline/>
                     <group colspan="4" string="Lochia" id="group_lochia">

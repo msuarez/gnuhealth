@@ -197,9 +197,12 @@ class PuerperiumMonitor(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     date = fields.DateTime('Date and Time', required=True)
+# Deprecated in 1.6.4 All the clinical information will be taken at the main evaluation.
+# systolic / diastolic / frequency / temperature
     systolic = fields.Integer('Systolic Pressure')
     diastolic = fields.Integer('Diastolic Pressure')
     frequency = fields.Integer('Heart Frequency')
+    temperature = fields.Float('Temperature')
 
     lochia_amount = fields.Selection([
         ('n', 'normal'),
@@ -221,7 +224,6 @@ class PuerperiumMonitor(ModelSQL, ModelView):
     uterus_involution = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
-    temperature = fields.Float('Temperature')
 
 PuerperiumMonitor()
 
@@ -358,7 +360,6 @@ class PerinatalMonitor(ModelSQL, ModelView):
     bleeding = fields.Boolean('Bleeding')
     fundal_height = fields.Integer('Fundal Height')
     fetus_position = fields.Selection([
-        ('n', 'Correct'),
         ('o', 'Occiput / Cephalic Posterior'),
         ('fb', 'Frank Breech'),
         ('cb', 'Complete Breech'),
