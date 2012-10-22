@@ -49,7 +49,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Pregnancy #', required=True)
-    warning = fields.Boolean ('Problem', help="Check this box if this is pregancy is or was NOT normal")
+    warning = fields.Boolean ('Warn', help="Check this box if this is pregancy is or was NOT normal")
     lmp = fields.Date ('LMP', help="Last Menstrual Period", required=True)
     pdd = fields.Function (fields.Date('Pregnancy Due Date'), 'get_pregnancy_data')
 
@@ -60,23 +60,35 @@ class PatientPregnancy(ModelSQL, ModelView):
     puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
 
     current_pregnancy = fields.Boolean('Current Pregnancy', help="This field marks the current pregnancy")
-
-    pregnancy_end = fields.Selection([
+    
+    
+    pregnancy_end_result = fields.Selection([
         ('live_birth', 'Live birth'),
         ('abortion', 'Abortion'),
         ('stillbirth', 'Stillbirth'),
         ('status_unknown', 'Status unknown'),
-        ], 'Result', sort=False)
+        ], 'Result', sort=False,
+            states={
+            'invisible': Bool(Eval('current_pregnancy')),
+            'required': Not(Bool(Eval('current_pregnancy'))),
+            })
 
-    pregnancy_end_date = fields.DateTime ('End of Pregnancy Date')
 
-    pregnancy_end_age = fields.Function(fields.Char('Weeks'),
+
+    pregnancy_end_date = fields.DateTime ('End of Pregnancy',
+        states={
+            'invisible': Bool(Eval('current_pregnancy')),
+            'required': Not(Bool(Eval('current_pregnancy'))),
+            })
+
+    pregnancy_end_age = fields.Function(fields.Char('Weeks',help="Weeks at the end of pregnancy"),
         'get_pregnancy_data')
 
     iugr = fields.Selection([
         ('symmetric', 'Symmetric'),
         ('assymetric', 'Assymetric'),
         ], 'IUGR', sort=False)
+
 
     def check_patient_current_pregnancy(self, ids):
         ''' Check for only one current pregnancy in the patient '''

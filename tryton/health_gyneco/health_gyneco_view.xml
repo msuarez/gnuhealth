@@ -30,13 +30,18 @@
                     <field name="puerperium_monitor"/>
                     <newline/>
 
-                    <group id="group_pregnancy_footer" colspan="4" col="8">
+                    <group id="group_pregnancy_footer" colspan="4" col="10">                    
                         <label name="pregnancy_end_date"/>
                         <field name="pregnancy_end_date"/>
+ 
+<!--                       
+
                         <label name="pregnancy_end_age"/>
                         <field name="pregnancy_end_age"/>
-                        <label name="pregnancy_end"/>
-                        <field name="pregnancy_end"/>
+-->
+
+                        <label name="pregnancy_end_result"/>
+                        <field name="pregnancy_end_result"/>
                         <label name="iugr"/>
                         <field name="iugr"/>
                         <label name="warning"/>
@@ -54,14 +59,14 @@
                 <![CDATA[
                 <tree string='Pregnancies' colors="If(Bool(Eval('warning')),'orange','black')">
                     <field name="gravida"/>
-                    <field name="lmp" expand="1"/>
-                    <field name="pdd" expand="1"/>
-                    <field name="current_pregnancy" expand="1"/>
-                    <field name="pregnancy_end_date" expand="1"/>
-                    <field name="pregnancy_end_age" expand="1"/>
-                    <field name="pregnancy_end" expand="1"/>
-                    <field name="iugr" expand="1"/>
-                    <field name="warning" expand="1"/>                    
+                    <field name="lmp"/>
+                    <field name="pdd"/>
+                    <field name="current_pregnancy"/>
+                    <field name="pregnancy_end_date"/>
+                    <field name="pregnancy_end_age"/>
+                    <field name="pregnancy_end_result"/>
+                    <field name="iugr"/>
+                    <field name="warning"/>                    
                 </tree>
                 ]]>
             </field>
