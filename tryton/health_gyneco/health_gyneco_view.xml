@@ -30,22 +30,22 @@
                     <field name="puerperium_monitor"/>
                     <newline/>
 
-                    <group id="group_pregnancy_footer" colspan="4" col="10">                    
-                        <label name="pregnancy_end_date"/>
-                        <field name="pregnancy_end_date"/>
- 
-<!--                       
-
-                        <label name="pregnancy_end_age"/>
-                        <field name="pregnancy_end_age"/>
--->
-
-                        <label name="pregnancy_end_result"/>
-                        <field name="pregnancy_end_result"/>
+                    <group id="group_pregnancy_footer1" colspan="4" col="8">                    
+                        <label name="fetuses"/>
+                        <field name="fetuses"/>
+                        <label name="monozygotic"/>
+                        <field name="monozygotic"/>
                         <label name="iugr"/>
                         <field name="iugr"/>
                         <label name="warning"/>
                         <field name="warning"/>
+                    </group>
+                    <newline/>
+                    <group id="group_pregnancy_footer2" colspan="4" col="4">                                            
+                        <label name="pregnancy_end_date"/>
+                        <field name="pregnancy_end_date"/>
+                        <label name="pregnancy_end_result"/>
+                        <field name="pregnancy_end_result"/>
                     </group>    
                 </form>
                 ]]>
@@ -66,6 +66,7 @@
                     <field name="pregnancy_end_age" expand="1"/>
                     <field name="pregnancy_end_result" expand="1"/>
                     <field name="iugr" expand="1"/>
+                    <field name="fetuses" expand="1"/>
                     <field name="warning" expand="1"/>                    
                 </tree>
                 ]]>
@@ -251,11 +252,6 @@
                 <![CDATA[
                 <tree string='Perinatal and Intrapartum Information'>
                     <field name="admission_date" expand="1"/>
-<!--
-                    <field name="admission_code" expand="1"/>
-
-                    <field name="gravida_number" expand="1"/>
--->
                     <field name="gestational_weeks" expand="1"/>
                 </tree>
                 ]]>

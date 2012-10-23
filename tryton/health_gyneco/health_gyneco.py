@@ -61,6 +61,9 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     current_pregnancy = fields.Boolean('Current Pregnancy', help="This field marks the current pregnancy")
     
+
+    fetuses = fields.Integer ('Fetuses', required=True)
+    monozygotic = fields.Boolean('Monozygotic')
     
     pregnancy_end_result = fields.Selection([
         ('live_birth', 'Live birth'),
