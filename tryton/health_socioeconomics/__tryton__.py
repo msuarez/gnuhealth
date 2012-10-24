@@ -21,7 +21,7 @@
 ##############################################################################
 {
     'name': 'GNU Health : Socioeconomics',
-    'version': '1.6.3',
+    'version': '1.6.4',
     'author': 'GNU Solidario',
     'email': 'health@gnusolidario.org',
     'website': 'http://health.gnu.org',

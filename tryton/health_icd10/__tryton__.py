@@ -22,7 +22,7 @@
 {
 
 	'name' : 'GNU Health: International Classification of Diseases .- ICD-10',  
-    'version': '1.6.3',
+    'version': '1.6.4',
 	'author' : 'GNU Solidario',
 	"website" : "http://health.gnu.org",
 	'email' : 'health@gnusolidario.org',
