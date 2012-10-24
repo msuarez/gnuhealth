@@ -122,6 +122,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     def default_current_pregnancy(self):
         return True
+
                 
 PatientPregnancy()
 
@@ -188,7 +189,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     oligohydramnios = fields.Boolean('Oligohydramnios')
     polihydramnios= fields.Boolean('Polihydramnios')
-    iugr= fields.Boolean('IUGR',help="Intra uterine growth restriction")
+    iugr= fields.Boolean('IUGR',help="Intra Uterine Growth Restriction")
     
 PrenatalEvaluation()
 
@@ -380,7 +381,24 @@ class GnuHealthPatient(ModelSQL, ModelView):
     _name = 'gnuhealth.patient'
     _description = __doc__
 
-    currently_pregnant = fields.Boolean('Currently Pregnant')
+
+    def get_pregnancy_info(self, ids, name):
+        result = {}
+
+        for pregnancy_data in self.browse(ids):
+            
+            if name == 'currently_pregnant':
+                for pregnancy_history in pregnancy_data.pregnancy_history:
+                    pregnancy_status = pregnancy_history.current_pregnancy
+                    if pregnancy_status == True:                     
+                        result[pregnancy_data.id] = True
+                        return result
+                        
+            result[pregnancy_data.id] = False
+        return result
+
+
+    currently_pregnant = fields.Function(fields.Boolean('Pregnant'),'get_pregnancy_info')
     fertile = fields.Boolean('Fertile',
         help="Check if patient is in fertile age")
     menarche = fields.Integer('Menarche age')
@@ -439,38 +457,8 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name', 'Pregnancies')
 
+
 GnuHealthPatient()
-
-
-class PatientEvaluation(ModelSQL, ModelView):
-    _name = 'gnuhealth.patient.evaluation'
-    _description = __doc__
-
-
-    '''
-    def get_patient_evaluation_data(self, ids, name):
-        result = {}
-
-        for evaluation_data in self.browse(ids):
-
-            if name == 'gestational_weeks':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation_start) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = (gestational_age.days)/7
-
-            if name == 'gestational_days':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation_start) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = gestational_age.days
-
-
-        return result
-    '''
-
-
-
-PatientEvaluation()
-
 
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
