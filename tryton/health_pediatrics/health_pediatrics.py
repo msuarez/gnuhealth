@@ -438,6 +438,9 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         user = user_obj.browse(Transaction().user)
         return int(user.id)
 
+    def default_psc_total(self):
+        return 0
+
     def on_change_with_psc_total(self, vals):
 
         psc_aches_pains = vals.get('psc_aches_pains') or '0'
@@ -477,6 +480,7 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         psc_takes_things_from_others = vals.get('psc_takes_things_from_others') or '0'
         psc_refuses_to_share = vals.get('psc_refuses_to_share') or '0'
 
+
         psc_total = int(psc_aches_pains) + int(psc_spend_time_alone) + \
             int(psc_tires_easily) + int(psc_fidgety) + \
             int(psc_trouble_with_teacher) + \
@@ -502,6 +506,7 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
 
         return psc_total
 
+        
 PediatricSymptomsChecklist()
 
 
