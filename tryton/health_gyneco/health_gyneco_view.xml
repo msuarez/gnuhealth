@@ -225,14 +225,10 @@
                             <newline/>
                             
                             <group colspan="4" col="10" id="group_placenta">
-                                <label name="invasive_placentation"/>
-                                <field name="invasive_placentation"/>                                
                                 <label name="placenta_incomplete"/>
                                 <field name="placenta_incomplete"/>
                                 <label name="placenta_retained"/>
                                 <field name="placenta_retained"/>
-                                <label name="placenta_previa"/>
-                                <field name="placenta_previa"/>
                                 <label name="abruptio_placentae"/>
                                 <field name="abruptio_placentae"/>
                             </group>
