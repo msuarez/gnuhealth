@@ -211,6 +211,9 @@ class PatientCAGE(ModelSQL, ModelView):
     def default_evaluation_date(self):
         return datetime.now()
 
+    def default_cage_score(self):
+        return 0
+        
 PatientCAGE()
 
 class MedicalPatient(ModelSQL, ModelView):

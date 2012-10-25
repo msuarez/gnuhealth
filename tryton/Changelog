@@ -1,3 +1,448 @@
+changeset:   420:b7c59654e72b
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 24 17:38:56 2012 -0300
+summary:     Update Nursing translation terms template
+
+changeset:   419:ab0255bf93e6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 24 17:27:25 2012 -0300
+summary:     Update Gynecology and Obstetrics translation terms template
+
+changeset:   418:d1ccf75bb529
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 24 17:19:41 2012 -0300
+summary:     Update version number to 1.6.4
+
+changeset:   417:6177886b52e7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Oct 23 23:18:57 2012 -0300
+summary:     Automatically set the patient pregnancy status upon her pregnancy history
+
+changeset:   416:a0bd543cd6ba
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Oct 23 16:55:37 2012 -0300
+summary:     Add number of fetuses and monozygotic pregnancies
+
+changeset:   415:773014befee3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 22 00:15:35 2012 -0300
+summary:     Fix perinatal monitor view and update fetal position
+
+changeset:   414:aa5749774ccf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 21 23:55:17 2012 -0300
+summary:     Add visibility for fields end of pregnancy and result of pregnancy depending on current pregnancy
+
+changeset:   413:cacac451e3ae
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 21 03:22:37 2012 -0300
+summary:     Compute automatically the gestational age at the end of the pregnancy
+
+changeset:   412:95fcea7d19e4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 21 01:14:58 2012 -0300
+summary:     Add IUGR types and reorder end of pregnancy
+
+changeset:   411:b4769bde5252
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 21 00:21:57 2012 -0300
+summary:     Fix polihydramnios field typo and mother HTN
+
+changeset:   410:161414a9ee83
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 21 00:05:17 2012 -0300
+summary:     Include information about placentation, ultrasound and fetal biometrics in prenatal evaluation
+
+changeset:   409:eabf4d4884fe
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 20 21:51:46 2012 -0300
+summary:     Simplify perinatal view
+
+changeset:   408:465f92f5c683
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 20 17:44:32 2012 -0300
+summary:     Include vaginal assisted vacuum and forceps extraction to delivery mode
+
+changeset:   407:ef9d358a951f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 20 16:00:10 2012 -0300
+summary:     Simplify end of birth recording, as well as maternal death information
+
+changeset:   406:73ef348b3b7b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 20 15:22:49 2012 -0300
+summary:     Implement check for each patient current pregnancy
+
+changeset:   405:0f53183a8ac5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 20 11:12:28 2012 -0300
+summary:     Add currently pregnant status, result of pregnancy and date to pregnancy model
+
+changeset:   404:638371399df3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Oct 19 17:36:58 2012 -0300
+summary:     Correct labor fetus presentation
+
+changeset:   403:34ebccdd2d18
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Oct 19 17:11:13 2012 -0300
+summary:     Add abruptio placentae
+
+changeset:   402:0fd47ab21cf8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Oct 19 16:03:39 2012 -0300
+summary:     New design for pregnancy prenatal evaluations, using the main evaluation model
+
+changeset:   401:a93f6c2c242e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 15 13:20:56 2012 -0300
+summary:     Include other vital signs dinamically in prenatal evaluation
+
+changeset:   400:3dbd13561bf9
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 15 09:26:39 2012 -0300
+summary:     Start the transition from function to dinamic calculation of parameters in prenatal evaluations
+
+changeset:   399:a4148e2e0004
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 14 16:42:38 2012 -0300
+summary:     Fix constraint in patient pregnancy
+
+changeset:   398:4fbbf820356a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Oct 13 21:08:27 2012 -0300
+summary:     Add patient domain for related evaluations in gyneco
+
+changeset:   397:4cdaa0ada6d6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 13 18:42:11 2012 -0300
+summary:     Use the evaluation date and time for record name in the patient evaluation model
+
+changeset:   396:ea89df84c786
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 13 18:27:54 2012 -0300
+summary:     Add data directory in nursing, with the nursing sequences
+
+changeset:   395:f5b0433f986e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 13 18:26:14 2012 -0300
+summary:     Add patient domain for related evaluations in ambulatory care
+
+changeset:   394:f7db73cbafe1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 13 18:09:03 2012 -0300
+summary:     Add view and fields to Ambulatory Care
+
+changeset:   393:591bfbf4632a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Oct 13 15:37:23 2012 -0300
+summary:     Initial model for patient ambulatory care
+
+changeset:   392:2dbc59f3d7ae
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 10 20:30:12 2012 -0300
+summary:     Fix M2O field in perinatal monitor
+
+changeset:   391:5b774936b09c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 10 18:33:58 2012 -0300
+summary:     Add preeclampsia warning in the prenatal evaluation
+
+changeset:   390:1c48770a3391
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 10 18:01:42 2012 -0300
+summary:     Add adolescence in pediatrics
+
+changeset:   389:8db54faa7eb7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Oct 10 03:49:24 2012 -0300
+summary:     Add procedures access to group_health_nursing
+
+changeset:   388:5c5795b4645a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Oct 10 03:35:38 2012 -0300
+summary:     Add evaluations and vaccination access to group_health_nursing
+
+changeset:   387:edb9c9b3c809
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Oct 10 03:20:43 2012 -0300
+summary:     Add lab access to group_health_doctor
+
+changeset:   386:383cc46d742b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 08 21:55:13 2012 -0300
+summary:     Avoid sorting in selection fields
+
+changeset:   385:d31370a26714
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 08 21:28:52 2012 -0300
+summary:     Optimize perinatal and puerperium views
+
+changeset:   384:f3fa17f09f7b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 08 21:10:34 2012 -0300
+summary:     Add partum pelvic hematomas
+
+changeset:   383:beafcb1d5d9c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Oct 08 21:00:40 2012 -0300
+summary:     Add placenta previa condition in pregnancy
+
+changeset:   382:a4a55173d3cc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 19:51:14 2012 -0300
+summary:     Reorganization of perinatal extra information view
+
+changeset:   381:345ee8d3879f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 19:38:28 2012 -0300
+summary:     Remove the  medication field from the perinatal view. The functionality will be carried with the nursing and surgery modules
+
+changeset:   380:fc6e55625fbf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 18:40:44 2012 -0300
+summary:     Add Invasive placentation types
+
+changeset:   379:7d200dca21c2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 18:10:09 2012 -0300
+summary:     Add Intrapartum lacerations
+
+changeset:   378:bf5d661362b1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 17:26:32 2012 -0300
+summary:     Use Stillbirth instead of abortion in perinatal information
+
+changeset:   377:6dc171f03d8f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 17:00:35 2012 -0300
+summary:     Automatically calculate the gestaional week at patient admission
+
+changeset:   376:5fc496fd843d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 16:11:10 2012 -0300
+summary:     Improve layout for perinatal view
+
+changeset:   375:ef7797245619
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 12:00:47 2012 -0300
+summary:     Remove gravida number from the perinatal information view. It's taken from the pregnancy
+
+changeset:   374:dec0ae91f9a5
+parent:      372:22efa1f052d1
+parent:      373:57e3122730ad
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 11:55:46 2012 -0300
+summary:     Merge patient registration access group
+
+changeset:   373:57e3122730ad
+parent:      371:7d0c7d48994b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Oct 06 16:04:43 2012 -0300
+summary:     Add inpatient registration access to group_health_nursing
+
+changeset:   372:22efa1f052d1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Oct 07 11:53:18 2012 -0300
+summary:     Improve prenatal evaluation view
+
+changeset:   371:7d0c7d48994b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Oct 04 15:07:09 2012 -0300
+summary:     Add fetus heart frequency in prenatal evaluation
+
+changeset:   370:4f8e98422ed6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Oct 04 01:29:02 2012 -0300
+summary:     Add Gestational week and days in the obstetric prenatal evaluation
+
+changeset:   369:a93cca04ac96
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 03 23:16:33 2012 -0300
+summary:     Add mother weight and fundal height to prenatal evaluation view and tree
+
+changeset:   368:70ff2383af10
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 03 22:34:06 2012 -0300
+summary:     Add mother heart frequency in the prenatal evaluation
+
+changeset:   367:e9925219ddf1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 03 18:58:06 2012 -0300
+summary:     Remove gravida number from the perinatal tree, since it's now part of the main pregnancy form
+
+changeset:   366:1b789ca8b52f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 03 17:05:38 2012 -0300
+summary:     Show puerperium info in the main pregnancy view
+
+changeset:   365:3cab3d982c67
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Oct 03 16:13:12 2012 -0300
+summary:     Create the group different stages in patient pregnancy model
+
+changeset:   364:965be63df0ec
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Oct 01 19:39:40 2012 -0300
+summary:     Remove duplicated declaration of PatientDiseaseInfo init method
+
+changeset:   363:23bef382a8aa
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Oct 01 19:38:12 2012 -0300
+summary:     Change return values in default methods of socioeconomics
+
+changeset:   362:c59b8dfffede
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 29 07:27:44 2012 -0300
+summary:     Change Gravida by Pregnancies
+
+changeset:   361:3a8258aa45ab
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 29 07:26:45 2012 -0300
+summary:     Remove Full term pregnancies from view and change Gravida by Pregnancies
+
+changeset:   360:629dc7ef9319
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 29 07:15:09 2012 -0300
+summary:     Add stillbirths in the patient obstetric summary
+
+changeset:   359:e7a5ed2a9b2b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Sep 28 19:51:42 2012 -0300
+summary:     Add translation property to recreational drug
+
+changeset:   358:d3130f1d8455
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Fri Sep 28 14:56:07 2012 -0300
+summary:     Add default value to Glasgow patient evaluation
+
+changeset:   357:42a84e48b4df
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 20:10:50 2012 -0300
+summary:     Add constraint to pregnancy number
+
+changeset:   356:ba289255da59
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 20:05:23 2012 -0300
+summary:     Simplify obstetrics header
+
+changeset:   355:dd4681a4d8a4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 17:41:09 2012 -0300
+summary:     Add warning flag for problem pregnancies
+
+changeset:   354:df2864453e92
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 17:23:31 2012 -0300
+summary:     Create Pregancy header in view
+
+changeset:   353:5e2c2c9eff2b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 14:25:22 2012 -0300
+summary:     Calculate Pregnancy Due Date from patient Last Menstrual Period
+
+changeset:   352:132ddb937eca
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 13:42:30 2012 -0300
+summary:     Add prenatal evaluation view
+
+changeset:   351:b800ea0dcdca
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Sep 27 10:17:10 2012 -0300
+summary:     Add default doctor (current user) in appointments.
+
+changeset:   350:52f357b5a240
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Sep 27 09:30:18 2012 -0300
+summary:     Fix some issues searching for Patients and Doctors
+
+changeset:   349:908399cf3c4c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Sep 27 09:23:50 2012 -0300
+summary:     Change appointment access to health_doctor_group
+
+changeset:   348:c50a0c19371a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Sep 27 00:01:06 2012 -0300
+summary:     Initial reorganization of patient obstetric history
+
+changeset:   347:2f753feeb4db
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Sep 26 17:09:09 2012 -0300
+summary:     Add initial obstetric evaluation model
+
+changeset:   346:67372b2242ca
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Sep 23 16:15:41 2012 -0300
+summary:     Optimize Pediatric Symptoms Checklist for psychosocial risk with colors
+
+changeset:   345:6cb5e29f2c3b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 22 20:45:34 2012 -0300
+summary:     Mark in red Alcohol CAGE tree view when score is 2 or greater
+
+changeset:   344:bc53cb390a76
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 22 17:46:24 2012 -0300
+summary:     Add Alcohol addiction CAGE questionnaire
+
+changeset:   343:4fad694a0699
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Sep 19 15:40:46 2012 -0300
+summary:     Add medication.template access to health_doctor_group
+
+changeset:   342:18172819a876
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 08 17:59:49 2012 -0300
+summary:     Validate patient vaccine next dose
+
+changeset:   341:957126f838a8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 08 16:36:16 2012 -0300
+summary:     Validate patient disease treatment period
+
+changeset:   340:7e5db4be9349
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 08 16:07:06 2012 -0300
+summary:     Validate patient disease period dates - between diagnosed and heal
+
+changeset:   339:92bd3f2910eb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Sep 08 15:47:56 2012 -0300
+summary:     Validate patient medication periods
+
+changeset:   338:a69b017130bb
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Aug 27 02:30:18 2012 -0300
+summary:     Add tests for Nursing Module
+
+changeset:   337:1b8e5596850e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Aug 27 02:14:15 2012 -0300
+summary:     Remove tests from nursing setup.py
+
+changeset:   336:446bf41371f3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Aug 27 02:08:31 2012 -0300
+summary:     Remove tests from nursing setup.py
+
+changeset:   335:0900415f74b0
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Aug 27 02:02:29 2012 -0300
+summary:     Add wizard package to services setup.py
+
+changeset:   334:5f7fb8e42811
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Aug 27 01:52:42 2012 -0300
+summary:     Add wizard package to services setup.py
+
+changeset:   333:9c7d94d6fc42
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Mon Aug 27 01:08:21 2012 -0300
+summary:     Update Changelog file
+
+
 ******* Version 1.6.3 *******
 changeset:   332:135fc3fd0978
 tag:         tip
