@@ -100,7 +100,7 @@ class PatientPregnancy(ModelSQL, ModelView):
             cursor.execute("SELECT count(name) " \
                 "FROM " + self._table + "  \
                 WHERE (name = %s AND current_pregnancy)", \
-                str(pregnancy.name.id))
+                (str(pregnancy.name.id),))
 
             if cursor.fetchone()[0] > 1:
                 return False
