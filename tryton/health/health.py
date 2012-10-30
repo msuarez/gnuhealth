@@ -1020,10 +1020,11 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
     def validate_disease_period (self, ids):
         for disease_data in self.browse(ids):
-            if (disease_data.healed_date < disease_data.diagnosed_date):
-                return False
-            else:
-                return True
+            res = True
+            if disease_data.healed_date:
+                if (disease_data.healed_date < disease_data.diagnosed_date):
+                    res = False
+            return res
 
     def validate_treatment_dates (self, ids):
         for disease_data in self.browse(ids):
@@ -1269,11 +1270,11 @@ class PatientMedication(ModelSQL, ModelView):
 
     def validate_medication_dates (self, ids):
         for medication_data in self.browse(ids):
-            if (medication_data.end_treatment < medication_data.start_treatment):
-                return False
-            else:
-                return True
-
+            res = True
+            if medication_data.end_treatment:
+                if (medication_data.end_treatment < medication_data.start_treatment):
+                    res = False
+            return res
 
 PatientMedication()
 
