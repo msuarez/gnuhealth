@@ -10,7 +10,7 @@ install:
 	cp -a health_* $(DESTDIR)/$(tryton_modules)
 
 install_man:
-	install -Dm 644 man/gnuhealth.1 $(DESTDIR)/$(MANTARGET)/gnuhealth.1
+	install -Dm 644 health/man/gnuhealth.1 $(DESTDIR)/$(MANTARGET)/gnuhealth.1
 
 update_version:
 	perl -p -i -e "s/'version'.*$$/'version': '`cat version`',/" */__tryton__.py
