@@ -27,6 +27,18 @@ from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 
 
+__all__ = [ 'DrugDoseUnits','MedicationFrequency','DrugForm','DrugRoute',
+    'Occupation','Ethnicity','MedicalSpecialty','Physician','OperationalArea',
+    'OperationalSector','Family','FamilyMember','MedicamentCategory',
+    'Medicament','PathologyCategory','PathologyGroup','Pathology',
+    'DiseaseMembers','ProcedureCode','InsurancePlan','Insurance',
+    'PartyPatient','PartyAddress','Product','GnuHealthSequences','PatientData',
+    'PatientDiseaseInfo','Appointment','MedicationTemplate',
+    'PatientMedication','PatientVaccination','PatientPrescriptionOrder',
+    'PrescriptionLine','PatientEvaluation','Directions','SecondaryCondition',
+    'DiagnosticHypothesis','SignsAndSymptoms','HospitalBuilding',
+    'HospitalUnit','HospitalOR','HospitalWard','HospitalBed'] 
+
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
     _name = 'gnuhealth.dose.unit'
