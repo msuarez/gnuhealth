@@ -54,8 +54,6 @@ class DrugDoseUnits(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
 
-DrugDoseUnits()
-
 
 class MedicationFrequency(ModelSQL, ModelView):
     'Medication Common Frequencies'
@@ -76,8 +74,6 @@ class MedicationFrequency(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
 
-MedicationFrequency()
-
 
 class DrugForm(ModelSQL, ModelView):
     'Drug Form'
@@ -93,8 +89,6 @@ class DrugForm(ModelSQL, ModelView):
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
-
-DrugForm()
 
 
 class DrugRoute(ModelSQL, ModelView):
@@ -112,8 +106,6 @@ class DrugRoute(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
 
-DrugRoute()
-
 
 class Occupation(ModelSQL, ModelView):
     'Occupation'
@@ -129,8 +121,6 @@ class Occupation(ModelSQL, ModelView):
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
-
-Occupation()
 
 
 class Ethnicity(ModelSQL, ModelView):
@@ -149,8 +139,6 @@ class Ethnicity(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
 
-Ethnicity()
-
 
 class MedicalSpecialty(ModelSQL, ModelView):
     'Medical Specialty'
@@ -167,8 +155,6 @@ class MedicalSpecialty(ModelSQL, ModelView):
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
         ]
-
-MedicalSpecialty()
 
 
 class Physician(ModelSQL, ModelView):
@@ -202,8 +188,6 @@ class Physician(ModelSQL, ModelView):
             res[doctor.id] = name
         return res
 
-Physician()
-
 
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
@@ -223,8 +207,6 @@ class OperationalArea(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)',
                     'The operational area must be unique !'),
         ]
-
-OperationalArea()
 
 
 class OperationalSector(ModelSQL, ModelView):
@@ -247,8 +229,6 @@ class OperationalSector(ModelSQL, ModelView):
                     ' operational area!'),
         ]
 
-OperationalSector()
-
 
 class Family(ModelSQL, ModelView):
     'Family'
@@ -270,8 +250,6 @@ class Family(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Family Code must be unique !'),
         ]
 
-Family()
-
 
 class FamilyMember(ModelSQL, ModelView):
     'Family Member'
@@ -284,8 +262,6 @@ class FamilyMember(ModelSQL, ModelView):
         domain=[('is_person', '=', True)],
         help='Family code')
     role = fields.Char('Role', help='Father, Mother, sibbling...')
-
-FamilyMember()
 
 
 # Use the template as in Product category.
@@ -326,8 +302,6 @@ class MedicamentCategory(ModelSQL, ModelView):
         for category in self.browse(ids):
             res[category.id] = _name(category)
         return res
-
-MedicamentCategory()
 
 
 class Medicament(ModelSQL, ModelView):
@@ -405,8 +379,6 @@ class Medicament(ModelSQL, ModelView):
     def check_xml_record(self, ids, values):
         return True
 
-Medicament()
-
 
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'
@@ -446,8 +418,6 @@ class PathologyCategory(ModelSQL, ModelView):
             res[category.id] = _name(category)
         return res
 
-PathologyCategory()
-
 
 class PathologyGroup(ModelSQL, ModelView):
     'Pathology Groups'
@@ -476,8 +446,6 @@ class PathologyGroup(ModelSQL, ModelView):
 
         # Drop group column. No longer required
         table.drop_column('group')
-
-PathologyGroup()
 
 
 class Pathology(ModelSQL, ModelView):
@@ -509,8 +477,6 @@ class Pathology(ModelSQL, ModelView):
             ('code_uniq', 'UNIQUE(code)', 'The disease code must be unique'),
         ]
 
-Pathology()
-
 
 # DISEASE GROUP MEMBERS
 class DiseaseMembers(ModelSQL, ModelView):
@@ -522,8 +488,6 @@ class DiseaseMembers(ModelSQL, ModelView):
     disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group',
         required=True)
 
-DiseaseMembers()
-
 
 class ProcedureCode(ModelSQL, ModelView):
     'Medical Procedures'
@@ -532,8 +496,6 @@ class ProcedureCode(ModelSQL, ModelView):
 
     name = fields.Char('Code', required=True)
     description = fields.Char('Long Text', translate=True)
-
-ProcedureCode()
 
 
 class InsurancePlan(ModelSQL, ModelView):
@@ -565,8 +527,6 @@ class InsurancePlan(ModelSQL, ModelView):
                 name = plan.name.name
             res[plan.id] = name
         return res
-
-InsurancePlan()
 
 
 class Insurance(ModelSQL, ModelView):
@@ -602,8 +562,6 @@ class Insurance(ModelSQL, ModelView):
                 name = insurance.company.name + ' : ' + insurance.number
             res[insurance.id] = name
         return res
-
-Insurance()
 
 
 class PartyPatient (ModelSQL, ModelView):
@@ -695,8 +653,6 @@ class PartyPatient (ModelSQL, ModelView):
             return [(field,) + clause[1:]]
         return [(self._rec_name,) + clause[1:]]
 
-PartyPatient()
-
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
@@ -714,8 +670,6 @@ class PartyAddress(ModelSQL, ModelView):
     is_work = fields.Boolean("Work", help="Check this box to mark the work \
         address")
 
-PartyAddress()
-
 
 class Product(ModelSQL, ModelView):
     'Product'
@@ -730,8 +684,6 @@ class Product(ModelSQL, ModelView):
 
     def check_xml_record(self, ids, values):
         return True
-
-Product()
 
 
 # GNU HEALTH SEQUENCES
@@ -751,8 +703,6 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     prescription_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Prescription Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.prescription.order')]))
-
-GnuHealthSequences()
 
 
 # PATIENT GENERAL INFORMATION
@@ -973,8 +923,6 @@ class PatientData(ModelSQL, ModelView):
             res[patient.id] = name
         return res
 
-PatientData()
-
 
 # PATIENT DISESASES INFORMATION
 class PatientDiseaseInfo(ModelSQL, ModelView):
@@ -1061,8 +1009,6 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
             else:
                 return True
 
-
-PatientDiseaseInfo()
 
 
 # PATIENT APPOINTMENT
@@ -1151,8 +1097,6 @@ class Appointment(ModelSQL, ModelView):
             res[appointment.id] = name
         return res
 
-Appointment()
-
 
 # MEDICATION TEMPLATE
 # TEMPLATE USED IN MEDICATION AND PRESCRIPTION ORDERS
@@ -1211,8 +1155,6 @@ class MedicationTemplate(ModelSQL, ModelView):
     start_treatment = fields.DateTime('Start',
         help='Date of start of Treatment')
     end_treatment = fields.DateTime('End', help='Date of start of Treatment')
-
-MedicationTemplate()
 
 
 # PATIENT MEDICATION TREATMENT
@@ -1306,8 +1248,6 @@ class PatientMedication(ModelSQL, ModelView):
                     res = False
             return res
 
-PatientMedication()
-
 
 # PATIENT VACCINATION INFORMATION
 class PatientVaccination(ModelSQL, ModelView):
@@ -1373,8 +1313,6 @@ class PatientVaccination(ModelSQL, ModelView):
                 return False
             else:
                 return True
-
-PatientVaccination()
 
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
@@ -1465,8 +1403,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
         return super(PatientPrescriptionOrder, self).create(values)
 
-PatientPrescriptionOrder()
-
 
 # PRESCRIPTION LINE
 class PrescriptionLine(ModelSQL, ModelView):
@@ -1501,8 +1437,6 @@ class PrescriptionLine(ModelSQL, ModelView):
 
     def default_prnt(self):
         return True
-
-PrescriptionLine()
 
 
 class PatientEvaluation(ModelSQL, ModelView):
@@ -1762,8 +1696,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         return res
 
 
-PatientEvaluation()
-
 
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
@@ -1776,8 +1708,6 @@ class Directions(ModelSQL, ModelView):
     procedure = fields.Many2One('gnuhealth.procedure', 'Procedure',
             required=True)
     comments = fields.Char('Comments')
-
-Directions()
 
 
 # SECONDARY CONDITIONS ASSOCIATED TO THE PATIENT IN THE EVALUATION
@@ -1792,8 +1722,6 @@ class SecondaryCondition(ModelSQL, ModelView):
         required=True)
     comments = fields.Char('Comments')
 
-SecondaryCondition()
-
 
 # PATIENT EVALUATION OTHER DIAGNOSTIC HYPOTHESES
 class DiagnosticHypothesis(ModelSQL, ModelView):
@@ -1806,8 +1734,6 @@ class DiagnosticHypothesis(ModelSQL, ModelView):
     pathology = fields.Many2One('gnuhealth.pathology', 'Pathology',
         required=True)
     comments = fields.Char('Comments')
-
-DiagnosticHypothesis()
 
 
 # PATIENT EVALUATION CLINICAL FINDINGS (SIGNS AND SYMPTOMS)
@@ -1826,8 +1752,6 @@ class SignsAndSymptoms(ModelSQL, ModelView):
         domain=[('code', 'like', 'R%')], required=True)
     comments = fields.Char('Comments')
 
-SignsAndSymptoms()
-
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):
@@ -1843,8 +1767,6 @@ class HospitalBuilding(ModelSQL, ModelView):
     code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
 
-HospitalBuilding()
-
 
 class HospitalUnit(ModelSQL, ModelView):
     'Hospital Unit'
@@ -1858,8 +1780,6 @@ class HospitalUnit(ModelSQL, ModelView):
         help='Medical Center')
     code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
-
-HospitalUnit()
 
 
 class HospitalOR(ModelSQL, ModelView):
@@ -1885,8 +1805,6 @@ class HospitalOR(ModelSQL, ModelView):
                     'The Operating Room code must be unique per Health' \
                     ' Center'),
         ]
-
-HospitalOR()
 
 
 class HospitalWard(ModelSQL, ModelView):
@@ -1932,8 +1850,6 @@ class HospitalWard(ModelSQL, ModelView):
 
     def default_number_of_beds(self):
         return 1
-
-HospitalWard()
 
 
 class HospitalBed(ModelSQL, ModelView):
@@ -1984,5 +1900,3 @@ class HospitalBed(ModelSQL, ModelView):
 
     def search_rec_name(self, name, clause):
         return [('name',) + clause[1:]]
-
-HospitalBed()
