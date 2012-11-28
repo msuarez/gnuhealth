@@ -19,4 +19,52 @@
 #
 ##############################################################################
 
-from health import *
+from trytond.pool import Pool
+
+def register():
+    Pool.register(
+        'DrugDoseUnits',
+        'MedicationFrequency',
+        'DrugForm',
+        'DrugRoute',
+        'Occupation',
+        'Ethnicity',
+        'MedicalSpecialty',
+        'Physician',
+        'OperationalArea',
+        'OperationalSector',
+        'Family',
+        'FamilyMember',
+        'MedicamentCategory',
+        'Medicament',
+        'PathologyCategory',
+        'PathologyGroup',
+        'Pathology',
+        'DiseaseMembers',
+        'ProcedureCode',
+        'InsurancePlan',
+        'Insurance',
+        'PartyPatient',
+        'PartyAddress',
+        'Product',
+        'GnuHealthSequences',
+        'PatientData',
+        'PatientDiseaseInfo',
+        'Appointment',
+        'MedicationTemplate',
+        'PatientMedication',
+        'PatientVaccination',
+        'PatientPrescriptionOrder',
+        'PrescriptionLine',
+        'PatientEvaluation',
+        'Directions',
+        'SecondaryCondition',
+        'DiagnosticHypothesis',
+        'SignsAndSymptoms',
+        'HospitalBuilding',
+        'HospitalUnit',
+        'HospitalOR',
+        'HospitalWard',
+        'HospitalBed',
+        module='health', type_='model')
+
