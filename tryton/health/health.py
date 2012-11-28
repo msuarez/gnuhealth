@@ -47,8 +47,9 @@ class DrugDoseUnits(ModelSQL, ModelView):
     name = fields.Char('Unit', required=True, select=True, translate=True)
     desc = fields.Char('Description', translate=True)
 
-    def __init__(self):
-        super(DrugDoseUnits, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(DrugDoseUnits, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
@@ -68,8 +69,9 @@ class MedicationFrequency(ModelSQL, ModelView):
     abbreviation = fields.Char('Abbreviation',
         help='Dosage abbreviation, such as tid in the US or tds in the UK')
 
-    def __init__(self):
-        super(MedicationFrequency, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(MedicationFrequency, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
@@ -85,8 +87,9 @@ class DrugForm(ModelSQL, ModelView):
     name = fields.Char('Form', required=True, select=True, translate=True)
     code = fields.Char('Code')
 
-    def __init__(self):
-        super(DrugForm, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(DrugForm, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
@@ -102,8 +105,9 @@ class DrugRoute(ModelSQL, ModelView):
     name = fields.Char('Unit', required=True, select=True, translate=True)
     code = fields.Char('Code')
 
-    def __init__(self):
-        super(DrugRoute, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(DrugRoute, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
@@ -119,8 +123,9 @@ class Occupation(ModelSQL, ModelView):
     name = fields.Char('Name', required=True, translate=True)
     code = fields.Char('Code')
 
-    def __init__(self):
-        super(Occupation, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Occupation, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
@@ -137,8 +142,9 @@ class Ethnicity(ModelSQL, ModelView):
     code = fields.Char('Code')
     notes = fields.Char('Notes')
 
-    def __init__(self):
-        super(Ethnicity, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Ethnicity, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
@@ -155,8 +161,9 @@ class MedicalSpecialty(ModelSQL, ModelView):
         help='ie, Addiction Psychiatry')
     code = fields.Char('Code', help='ie, ADP')
 
-    def __init__(self):
-        super(MedicalSpecialty, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(MedicalSpecialty, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
         ]
@@ -209,8 +216,9 @@ class OperationalArea(ModelSQL, ModelView):
         'operational_area', 'Operational Sector', readonly=True)
     info = fields.Text('Extra Information')
 
-    def __init__(self):
-        super(OperationalArea, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(OperationalArea, cls).__setup__()
         self._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)',
                     'The operational area must be unique !'),
@@ -230,8 +238,9 @@ class OperationalSector(ModelSQL, ModelView):
         'Operational Area')
     info = fields.Text('Extra Information')
 
-    def __init__(self):
-        super(OperationalSector, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(OperationalSector, cls).__setup__()
         self._sql_constraints += [
             ('name_uniq', 'UNIQUE(name, operational_area)',
                     'The operational sector must be unique in each' \
@@ -254,8 +263,9 @@ class Family(ModelSQL, ModelView):
         'Family Members')
     info = fields.Text('Extra Information')
 
-    def __init__(self):
-        super(Family, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Family, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Family Code must be unique !'),
         ]
@@ -290,8 +300,9 @@ class MedicamentCategory(ModelSQL, ModelView):
     childs = fields.One2Many('gnuhealth.medicament.category', 'parent',
         string='Children')
 
-    def __init__(self):
-        super(MedicamentCategory, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(MedicamentCategory, cls).__setup__()
         self._order.insert(0, ('name', 'ASC'))
         self._constraints += [
             ('check_recursion', 'recursive_categories'),
@@ -408,8 +419,9 @@ class PathologyCategory(ModelSQL, ModelView):
     childs = fields.One2Many('gnuhealth.pathology.category', 'parent',
         'Children Category')
 
-    def __init__(self):
-        super(PathologyCategory, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PathologyCategory, cls).__setup__()
         self._order.insert(0, ('name', 'ASC'))
         self._constraints += [
             ('check_recursion', 'recursive_categories'),
@@ -490,8 +502,9 @@ class Pathology(ModelSQL, ModelView):
     gene = fields.Char('Gene', help='Name of the gene(s) affected')
     info = fields.Text('Extra Info')
 
-    def __init__(self):
-        super(Pathology, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Pathology, cls).__setup__()
         self._sql_constraints += [
             ('code_uniq', 'UNIQUE(code)', 'The disease code must be unique'),
         ]
@@ -633,8 +646,9 @@ class PartyPatient (ModelSQL, ModelView):
     insurance_plan_ids = fields.One2Many('gnuhealth.insurance.plan', 'company',
         'Insurance Plans')
 
-    def __init__(self):
-        super(PartyPatient, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PartyPatient, cls).__setup__()
         self._sql_constraints += [
             ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
@@ -928,8 +942,9 @@ class PatientData(ModelSQL, ModelView):
             return [(field,) + clause[1:]]
         return [(self._rec_name,) + clause[1:]]
 
-    def __init__(self):
-        super(PatientData, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PatientData, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
         ]
@@ -1015,8 +1030,9 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     def default_is_active(self):
         return True
 
-    def __init__(self):
-        super(PatientDiseaseInfo, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PatientDiseaseInfo, cls).__setup__()
         self._order.insert(0, ('is_active', 'DESC'))
         self._order.insert(1, ('disease_severity', 'DESC'))
         self._order.insert(2, ('is_infectious', 'DESC'))
@@ -1083,8 +1099,9 @@ class Appointment(ModelSQL, ModelView):
         domain=[('type', '=', 'service')],
         help='Consultation Services')
 
-    def __init__(self):
-        super(Appointment, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Appointment, cls).__setup__()
         self._order.insert(0, ('name', 'DESC'))
 
     def create(self, values):
@@ -1268,8 +1285,9 @@ class PatientMedication(ModelSQL, ModelView):
     def default_qty(self):
         return 1
 
-    def __init__(self):
-        super(PatientMedication, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PatientMedication, cls).__setup__()
 
         self._constraints += [
             ('validate_medication_dates', 'end_date_before_start'),
@@ -1324,8 +1342,9 @@ class PatientVaccination(ModelSQL, ModelView):
     next_dose_date = fields.DateTime('Next Dose')
     observations = fields.Char('Observations')
 
-    def __init__(self):
-        super(PatientVaccination, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PatientVaccination, cls).__setup__()
         self._sql_constraints = [
             ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
                     'This vaccine dose has been given already to the patient'),
@@ -1387,8 +1406,9 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
-    def __init__(self):
-        super(PatientPrescriptionOrder, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
         self._constraints = [
             ('check_prescription_warning', 'drug_pregnancy_warning'),
         ]
@@ -1857,8 +1877,9 @@ class HospitalOR(ModelSQL, ModelView):
     unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit')
     extra_info = fields.Text('Extra Info')
 
-    def __init__(self):
-        super(HospitalOR, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(HospitalOR, cls).__setup__()
         self._sql_constraints = [
             ('name_uniq', 'UNIQUE(name, institution)',
                     'The Operating Room code must be unique per Health' \
