@@ -975,7 +975,8 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         ], 'Status of the disease', select=True, sort=False)
     extra_info = fields.Text('Extra Info')
 
-    def default_is_active(self):
+    @staticmethod
+    def default_is_active():
         return True
 
     @classmethod
@@ -1062,7 +1063,8 @@ class Appointment(ModelSQL, ModelView):
 
         return super(Appointment, self).create(values)
 
-    def default_doctor(self):
+    @staticmethod
+    def default_doctor():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
@@ -1077,13 +1079,16 @@ class Appointment(ModelSQL, ModelView):
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])
 
-    def default_urgency(self):
+    @staticmethod
+    def default_urgency():
         return 'a'
 
-    def default_appointment_date(self):
+    @staticmethod
+    def default_appointment_date():
         return datetime.now()
 
-    def default_appointment_type(self):
+    @staticmethod
+    def default_appointment_type():
         return 'ambulatory'
 
     def get_rec_name(self, ids, name):
@@ -1212,19 +1217,24 @@ class PatientMedication(ModelSQL, ModelView):
             course_completed = False
         return (course_completed)
 
-    def default_is_active(self):
+    @staticmethod
+    def default_is_active():
         return True
 
-#    def default_start_treatment(self):
+#   @staticmethod
+#    def default_start_treatment():
 #        return time.strftime('%Y-%m-%d %H:%M:%S')
 
-    def default_frequency_unit(self):
+    @staticmethod
+    def default_frequency_unit():
         return 'hours'
 
-    def default_duration_period(self):
+    @staticmethod
+    def default_duration_period():
         return 'days'
 
-    def default_qty(self):
+    @staticmethod
+    def default_qty():
         return 1
 
     @classmethod
@@ -1301,10 +1311,12 @@ class PatientVaccination(ModelSQL, ModelView):
 
         })
 
-    def default_date(self):
+    @staticmethod
+    def default_date():
         return datetime.now()
 
-    def default_dose(self):
+    @staticmethod
+    def default_dose():
         return 1
 
     def validate_next_dose_date (self, ids):
@@ -1383,10 +1395,12 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'pregnancy_warning': preg_warning,
         }
 
-    def default_prescription_date(self):
+    @staticmethod
+    def default_prescription_date():
         return datetime.now()
 
-    def default_user_id(self):
+    @staticmethod
+    def default_user_id():
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
         return int(user.id)
@@ -1423,19 +1437,24 @@ class PrescriptionLine(ModelSQL, ModelView):
     prnt = fields.Boolean('Print',
         help='Check this box to print this line of the prescription.')
 
-    def default_qty(self):
+    @staticmethod
+    def default_qty():
         return 1
 
-    def default_duration_period(self):
+    @staticmethod
+    def default_duration_period():
         return 'days'
 
-    def default_frequency_unit(self):
+    @staticmethod
+    def default_frequency_unit():
         return 'hours'
 
-    def default_quantity(self):
+    @staticmethod
+    def default_quantity():
         return 1
 
-    def default_prnt(self):
+    @staticmethod
+    def default_prnt():
         return True
 
 
@@ -1616,7 +1635,8 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     notes = fields.Text('Notes')
 
-    def default_doctor(self):
+    @staticmethod
+    def default_doctor():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
@@ -1635,19 +1655,24 @@ class PatientEvaluation(ModelSQL, ModelView):
 
             return int(doctor_id[0])
 
-    def default_loc_eyes(self):
+    @staticmethod
+    def default_loc_eyes():
         return '4'
 
-    def default_loc_verbal(self):
+    @staticmethod
+    def default_loc_verbal():
         return '5'
 
-    def default_loc_motor(self):
+    @staticmethod
+    def default_loc_motor():
         return '6'
 
-    def default_loc(self):
+    @staticmethod
+    def default_loc():
         return 15
 
-    def default_evaluation_type(self):
+    @staticmethod
+    def default_evaluation_type():
         return 'pa'
 
     def on_change_with_bmi(self, vals):
@@ -1666,13 +1691,16 @@ class PatientEvaluation(ModelSQL, ModelView):
         loc = int(loc_motor) + int(loc_eyes) + int(loc_verbal)
         return loc
 
-    def default_information_source(self):
+    @staticmethod
+    def default_information_source():
         return 'Self'
 
-    def default_reliable_info(self):
+    @staticmethod
+    def default_reliable_info():
         return True
 
-    def default_evaluation_start(self):
+    @staticmethod
+    def default_evaluation_start():
         return datetime.now()
 
 # Calculate the WH ratio
@@ -1845,10 +1873,12 @@ class HospitalWard(ModelSQL, ModelView):
         ), 'Status', sort=False)
     extra_info = fields.Text('Extra Info')
 
-    def default_gender(self):
+    @staticmethod
+    def default_gender():
         return 'unisex'
 
-    def default_number_of_beds(self):
+    @staticmethod
+    def default_number_of_beds():
         return 1
 
 
@@ -1882,10 +1912,12 @@ class HospitalBed(ModelSQL, ModelView):
         ('na', 'Not available'),
         ), 'Status', readonly=True, sort=False)
 
-    def default_bed_type(self):
+    @staticmethod
+    def default_bed_type():
         return 'gatch'
 
-    def default_state(self):
+    @staticmethod
+    def default_state():
         return 'free'
 
     def get_rec_name(self, ids, name):
