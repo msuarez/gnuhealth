@@ -433,11 +433,11 @@ class PathologyGroup(ModelSQL, ModelView):
     info = fields.Text('Detailed information')
 
     # Upgrade from GNU Health 1.4.5
-    def init(self, module_name):
-        super(PathologyGroup, self).init(module_name)
+    def __register__(cls, module_name):
+        super(PathologyGroup, cls).init(module_name)
 
         cursor = Transaction().cursor
-        table = TableHandler(cursor, self, module_name)
+        table = TableHandler(cursor, cls, module_name)
 
         # Drop old foreign key and change to char name
         table.drop_fk('name')
@@ -446,6 +446,9 @@ class PathologyGroup(ModelSQL, ModelView):
 
         # Drop group column. No longer required
         table.drop_column('group')
+
+        # Migration from 2.4: drop required on sequence
+        table.not_null_action('sequence', action='remove')
 
 
 class Pathology(ModelSQL, ModelView):
