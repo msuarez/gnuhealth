@@ -42,7 +42,6 @@ __all__ = [ 'DrugDoseUnits','MedicationFrequency','DrugForm','DrugRoute',
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
     _name = 'gnuhealth.dose.unit'
-    _description = __doc__
 
     name = fields.Char('Unit', required=True, select=True, translate=True)
     desc = fields.Char('Description', translate=True)
@@ -58,7 +57,6 @@ class DrugDoseUnits(ModelSQL, ModelView):
 class MedicationFrequency(ModelSQL, ModelView):
     'Medication Common Frequencies'
     _name = 'gnuhealth.medication.dosage'
-    _description = __doc__
 
     name = fields.Char('Frequency', required=True, select=True, translate=True,
         help='Common frequency name')
@@ -78,7 +76,6 @@ class MedicationFrequency(ModelSQL, ModelView):
 class DrugForm(ModelSQL, ModelView):
     'Drug Form'
     _name = 'gnuhealth.drug.form'
-    _description = __doc__
 
     name = fields.Char('Form', required=True, select=True, translate=True)
     code = fields.Char('Code')
@@ -94,7 +91,6 @@ class DrugForm(ModelSQL, ModelView):
 class DrugRoute(ModelSQL, ModelView):
     'Drug Administration Route'
     _name = 'gnuhealth.drug.route'
-    _description = __doc__
 
     name = fields.Char('Unit', required=True, select=True, translate=True)
     code = fields.Char('Code')
@@ -110,7 +106,6 @@ class DrugRoute(ModelSQL, ModelView):
 class Occupation(ModelSQL, ModelView):
     'Occupation'
     _name = 'gnuhealth.occupation'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, translate=True)
     code = fields.Char('Code')
@@ -126,7 +121,6 @@ class Occupation(ModelSQL, ModelView):
 class Ethnicity(ModelSQL, ModelView):
     'Ethnicity'
     _name = 'gnuhealth.ethnicity'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, translate=True)
     code = fields.Char('Code')
@@ -143,7 +137,6 @@ class Ethnicity(ModelSQL, ModelView):
 class MedicalSpecialty(ModelSQL, ModelView):
     'Medical Specialty'
     _name = 'gnuhealth.specialty'
-    _description = __doc__
 
     name = fields.Char('Specialty', required=True, translate=True,
         help='ie, Addiction Psychiatry')
@@ -160,7 +153,6 @@ class MedicalSpecialty(ModelSQL, ModelView):
 class Physician(ModelSQL, ModelView):
     'Health Professional'
     _name = 'gnuhealth.physician'
-    _description = __doc__
 
     name = fields.Many2One('party.party', 'Health Professional', required=True,
         domain=[
@@ -192,7 +184,6 @@ class Physician(ModelSQL, ModelView):
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
     _name = 'gnuhealth.operational_area'
-    _description = __doc__
 
     name = fields.Char('Name', required=True,
         help='Operational Area of the city or region')
@@ -212,7 +203,6 @@ class OperationalArea(ModelSQL, ModelView):
 class OperationalSector(ModelSQL, ModelView):
     'Operational Sector'
     _name = 'gnuhealth.operational_sector'
-    _description = __doc__
 
     name = fields.Char('Op. Sector', required=True,
         help='Region included in an operational area')
@@ -233,7 +223,6 @@ class OperationalSector(ModelSQL, ModelView):
 class Family(ModelSQL, ModelView):
     'Family'
     _name = 'gnuhealth.family'
-    _description = __doc__
 
     name = fields.Char('Family', required=True,
         help='Family code within an operational sector')
@@ -254,7 +243,6 @@ class Family(ModelSQL, ModelView):
 class FamilyMember(ModelSQL, ModelView):
     'Family Member'
     _name = 'gnuhealth.family_member'
-    _description = __doc__
 
     name = fields.Many2One('gnuhealth.family', 'Family', required=True,
         select=True, help='Family code')
@@ -268,7 +256,6 @@ class FamilyMember(ModelSQL, ModelView):
 class MedicamentCategory(ModelSQL, ModelView):
     'Medicament Category'
     _name = 'gnuhealth.medicament.category'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, translate=True)
     parent = fields.Many2One('gnuhealth.medicament.category', 'Parent',
@@ -307,7 +294,6 @@ class MedicamentCategory(ModelSQL, ModelView):
 class Medicament(ModelSQL, ModelView):
     'Medicament'
     _name = 'gnuhealth.medicament'
-    _description = __doc__
     _rec_name = 'active_component'
 
     name = fields.Many2One('product.product', 'Product', required=True,
@@ -383,7 +369,6 @@ class Medicament(ModelSQL, ModelView):
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'
     _name = 'gnuhealth.pathology.category'
-    _description = __doc__
 
     name = fields.Char('Category Name', required=True, translate=True)
     parent = fields.Many2One('gnuhealth.pathology.category', 'Parent Category',
@@ -422,7 +407,6 @@ class PathologyCategory(ModelSQL, ModelView):
 class PathologyGroup(ModelSQL, ModelView):
     'Pathology Groups'
     _name = 'gnuhealth.pathology.group'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, translate=True,
         help='Group name')
@@ -455,7 +439,6 @@ class PathologyGroup(ModelSQL, ModelView):
 class Pathology(ModelSQL, ModelView):
     'Diseases'
     _name = 'gnuhealth.pathology'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, translate=True,
         help='Disease name')
@@ -486,7 +469,6 @@ class Pathology(ModelSQL, ModelView):
 class DiseaseMembers(ModelSQL, ModelView):
     'Disease group members'
     _name = 'gnuhealth.disease_group.members'
-    _description = __doc__
 
     name = fields.Many2One('gnuhealth.pathology', 'Disease', readonly=True)
     disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group',
@@ -496,7 +478,6 @@ class DiseaseMembers(ModelSQL, ModelView):
 class ProcedureCode(ModelSQL, ModelView):
     'Medical Procedures'
     _name = 'gnuhealth.procedure'
-    _description = __doc__
 
     name = fields.Char('Code', required=True)
     description = fields.Char('Long Text', translate=True)
@@ -505,7 +486,6 @@ class ProcedureCode(ModelSQL, ModelView):
 class InsurancePlan(ModelSQL, ModelView):
     'Insurance Plan'
     _name = 'gnuhealth.insurance.plan'
-    _description = __doc__
     _rec_name = 'company'
 
     name = fields.Many2One('product.product', 'Plan', required=True,
@@ -536,7 +516,6 @@ class InsurancePlan(ModelSQL, ModelView):
 class Insurance(ModelSQL, ModelView):
     'Insurance'
     _name = 'gnuhealth.insurance'
-    _description = __doc__
     _rec_name = 'number'
 
     name = fields.Many2One('party.party', 'Owner')
@@ -694,7 +673,6 @@ class Product(ModelSQL, ModelView):
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     'Standard Sequences for GNU Health'
     _name = 'gnuhealth.sequences'
-    _description = __doc__
 
     patient_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Patient Sequence', required=True,
@@ -713,7 +691,6 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
 class PatientData(ModelSQL, ModelView):
     'Patient related information'
     _name = 'gnuhealth.patient'
-    _description = __doc__
 
 # Get the patient age in the following format : 'YEARS MONTHS DAYS'
 # It will calculate the age of the patient while the patient is alive.
@@ -932,7 +909,6 @@ class PatientData(ModelSQL, ModelView):
 class PatientDiseaseInfo(ModelSQL, ModelView):
     'Patient Disease History'
     _name = 'gnuhealth.patient.disease'
-    _description = __doc__
 
     name = fields.Many2One('gnuhealth.patient', 'Patient')
     pathology = fields.Many2One('gnuhealth.pathology', 'Disease',
@@ -1020,7 +996,6 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 class Appointment(ModelSQL, ModelView):
     'Patient Appointments'
     _name = 'gnuhealth.appointment'
-    _description = __doc__
 
     name = fields.Char('Appointment ID', readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Physician',
@@ -1112,7 +1087,6 @@ class Appointment(ModelSQL, ModelView):
 class MedicationTemplate(ModelSQL, ModelView):
     'Template for medication'
     _name = 'gnuhealth.medication.template'
-    _description = __doc__
 
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
         required=True, help='Prescribed Medicament')
@@ -1171,7 +1145,6 @@ class PatientMedication(ModelSQL, ModelView):
     'Patient Medication'
     _name = 'gnuhealth.patient.medication'
     _inherits = {'gnuhealth.medication.template': 'template'}
-    _description = __doc__
 
     template = fields.Many2One('gnuhealth.medication.template',
         'Medication Template')
@@ -1267,7 +1240,6 @@ class PatientMedication(ModelSQL, ModelView):
 class PatientVaccination(ModelSQL, ModelView):
     'Patient Vaccination information'
     _name = 'gnuhealth.vaccination'
-    _description = __doc__
 
     def check_vaccine_expiration_date(self, ids):
         vaccine = self.browse(ids[0])
@@ -1335,7 +1307,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
     _name = 'gnuhealth.prescription.order'
     _rec_name = 'prescription_id'
-    _description = __doc__
 
     def check_prescription_warning(self, ids):
         prescription = self.browse(ids[0])
@@ -1427,7 +1398,6 @@ class PrescriptionLine(ModelSQL, ModelView):
     'Prescription Line'
     _name = 'gnuhealth.prescription.line'
     _inherits = {'gnuhealth.medication.template': 'template'}
-    _description = __doc__
 
     template = fields.Many2One('gnuhealth.medication.template',
         'Medication Template')
@@ -1465,7 +1435,6 @@ class PrescriptionLine(ModelSQL, ModelView):
 class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     _name = 'gnuhealth.patient.evaluation'
-    _description = __doc__
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
@@ -1733,7 +1702,6 @@ class PatientEvaluation(ModelSQL, ModelView):
 class Directions(ModelSQL, ModelView):
     'Patient Directions'
     _name = 'gnuhealth.directions'
-    _description = __doc__
 
     name = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
@@ -1746,7 +1714,6 @@ class Directions(ModelSQL, ModelView):
 class SecondaryCondition(ModelSQL, ModelView):
     'Secondary Conditions'
     _name = 'gnuhealth.secondary_condition'
-    _description = __doc__
 
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
@@ -1759,7 +1726,6 @@ class SecondaryCondition(ModelSQL, ModelView):
 class DiagnosticHypothesis(ModelSQL, ModelView):
     'Other Diagnostic Hypothesis'
     _name = 'gnuhealth.diagnostic_hypothesis'
-    _description = __doc__
 
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
@@ -1772,7 +1738,6 @@ class DiagnosticHypothesis(ModelSQL, ModelView):
 class SignsAndSymptoms(ModelSQL, ModelView):
     'Evaluation Signs and Symptoms'
     _name = 'gnuhealth.signs_and_symptoms'
-    _description = __doc__
 
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
@@ -1789,7 +1754,6 @@ class SignsAndSymptoms(ModelSQL, ModelView):
 class HospitalBuilding(ModelSQL, ModelView):
     'Hospital Building'
     _name = 'gnuhealth.hospital.building'
-    _description = __doc__
 
     name = fields.Char('Name', required=True,
         help='Name of the building within the institution')
@@ -1803,7 +1767,6 @@ class HospitalBuilding(ModelSQL, ModelView):
 class HospitalUnit(ModelSQL, ModelView):
     'Hospital Unit'
     _name = 'gnuhealth.hospital.unit'
-    _description = __doc__
 
     name = fields.Char('Name', required=True,
         help='Name of the unit, eg Neonatal, Intensive Care, ...')
@@ -1817,7 +1780,6 @@ class HospitalUnit(ModelSQL, ModelView):
 class HospitalOR(ModelSQL, ModelView):
     'Operating Room'
     _name = 'gnuhealth.hospital.or'
-    _description = __doc__
 
     name = fields.Char('Name', required=True,
         help='Name of the Operating Room')
@@ -1842,7 +1804,6 @@ class HospitalOR(ModelSQL, ModelView):
 class HospitalWard(ModelSQL, ModelView):
     'Hospital Ward'
     _name = 'gnuhealth.hospital.ward'
-    _description = __doc__
 
     name = fields.Char('Name', required=True, help='Ward / Room code')
     institution = fields.Many2One('party.party', 'Institution',
@@ -1889,7 +1850,6 @@ class HospitalWard(ModelSQL, ModelView):
 class HospitalBed(ModelSQL, ModelView):
     'Hospital Bed'
     _name = 'gnuhealth.hospital.bed'
-    _description = __doc__
     _rec_name = 'telephone_number'
 
     name = fields.Many2One('product.product', 'Bed', required=True,
