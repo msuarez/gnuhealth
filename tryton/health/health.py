@@ -168,7 +168,7 @@ class Physician(ModelSQL, ModelView):
         required=True, help='Specialty Code')
     info = fields.Text('Extra info')
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -274,7 +274,7 @@ class MedicamentCategory(ModelSQL, ModelView):
             'recursive_categories': 'You can not create recursive categories!',
         })
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -353,7 +353,7 @@ class Medicament(ModelSQL, ModelView):
     storage = fields.Text('Storage Conditions')
     notes = fields.Text('Extra Info')
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -387,7 +387,7 @@ class PathologyCategory(ModelSQL, ModelView):
             'recursive_categories': 'You can not create recursive categories!',
         })
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -502,7 +502,7 @@ class InsurancePlan(ModelSQL, ModelView):
 
     notes = fields.Text('Extra info')
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -536,7 +536,7 @@ class Insurance(ModelSQL, ModelView):
         help='Insurance company plan')
     notes = fields.Text('Extra Info')
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -614,7 +614,7 @@ class PartyPatient (ModelSQL, ModelView):
             values['ref'] = None
         return super(PartyPatient, self).create(values)
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -892,7 +892,7 @@ class PatientData(ModelSQL, ModelView):
 
         return super(PatientData, self).create(values)
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -1070,7 +1070,7 @@ class Appointment(ModelSQL, ModelView):
     def default_appointment_type():
         return 'ambulatory'
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -1686,7 +1686,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             whr = 0
         return whr
 
-    def get_rec_name(self, ids, name):
+    def get_rec_name(self, name):
         if not ids:
             return {}
         res = {}
@@ -1884,15 +1884,9 @@ class HospitalBed(ModelSQL, ModelView):
     def default_state():
         return 'free'
 
-    def get_rec_name(self, ids, name):
-        if not ids:
-            return {}
-        res = {}
-        for bed in self.browse(ids):
-            if bed.name:
-                name = bed.name.name
-            res[bed.id] = name
-        return res
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
 
     def search_rec_name(cls, name, clause):
         return [('name',) + clause[1:]]
