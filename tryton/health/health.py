@@ -49,7 +49,7 @@ class DrugDoseUnits(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugDoseUnits, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
 
@@ -68,7 +68,7 @@ class MedicationFrequency(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(MedicationFrequency, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
 
@@ -83,7 +83,7 @@ class DrugForm(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugForm, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
         ]
 
@@ -98,7 +98,7 @@ class DrugRoute(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugRoute, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
 
@@ -113,7 +113,7 @@ class Occupation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Occupation, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
 
@@ -129,7 +129,7 @@ class Ethnicity(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Ethnicity, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
 
@@ -145,7 +145,7 @@ class MedicalSpecialty(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(MedicalSpecialty, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
         ]
 
@@ -194,7 +194,7 @@ class OperationalArea(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(OperationalArea, cls).__setup__()
-        self._sql_constraints += [
+        cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)',
                     'The operational area must be unique !'),
         ]
@@ -213,7 +213,7 @@ class OperationalSector(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(OperationalSector, cls).__setup__()
-        self._sql_constraints += [
+        cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name, operational_area)',
                     'The operational sector must be unique in each' \
                     ' operational area!'),
@@ -235,7 +235,7 @@ class Family(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Family, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Family Code must be unique !'),
         ]
 
@@ -266,11 +266,11 @@ class MedicamentCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(MedicamentCategory, cls).__setup__()
-        self._order.insert(0, ('name', 'ASC'))
-        self._constraints += [
+        cls._order.insert(0, ('name', 'ASC'))
+        cls._constraints += [
             ('check_recursion', 'recursive_categories'),
         ]
-        self._error_messages.update({
+        cls._error_messages.update({
             'recursive_categories': 'You can not create recursive categories!',
         })
 
@@ -379,11 +379,11 @@ class PathologyCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PathologyCategory, cls).__setup__()
-        self._order.insert(0, ('name', 'ASC'))
-        self._constraints += [
+        cls._order.insert(0, ('name', 'ASC'))
+        cls._constraints += [
             ('check_recursion', 'recursive_categories'),
         ]
-        self._error_messages.update({
+        cls._error_messages.update({
             'recursive_categories': 'You can not create recursive categories!',
         })
 
@@ -460,7 +460,7 @@ class Pathology(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Pathology, cls).__setup__()
-        self._sql_constraints += [
+        cls._sql_constraints += [
             ('code_uniq', 'UNIQUE(code)', 'The disease code must be unique'),
         ]
 
@@ -590,7 +590,7 @@ class PartyPatient (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
-        self._sql_constraints += [
+        cls._sql_constraints += [
             ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')
@@ -876,7 +876,7 @@ class PatientData(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientData, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
         ]
 
@@ -962,15 +962,15 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientDiseaseInfo, cls).__setup__()
-        self._order.insert(0, ('is_active', 'DESC'))
-        self._order.insert(1, ('disease_severity', 'DESC'))
-        self._order.insert(2, ('is_infectious', 'DESC'))
-        self._order.insert(3, ('diagnosed_date', 'DESC'))
-        self._constraints += [
+        cls._order.insert(0, ('is_active', 'DESC'))
+        cls._order.insert(1, ('disease_severity', 'DESC'))
+        cls._order.insert(2, ('is_infectious', 'DESC'))
+        cls._order.insert(3, ('diagnosed_date', 'DESC'))
+        cls._constraints += [
             ('validate_disease_period', 'end_date_before_start'),
             ('validate_treatment_dates', 'end_treatment_date_before_start'),
             ]
-        self._error_messages.update({
+        cls._error_messages.update({
             'end_date_before_start': 'The HEALED date is BEFORE DIAGNOSED DATE !',
             'end_treatment_date_before_start': 'The Treatment END DATE is BEFORE the start date!',
             })
@@ -1028,7 +1028,7 @@ class Appointment(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Appointment, cls).__setup__()
-        self._order.insert(0, ('name', 'DESC'))
+        cls._order.insert(0, ('name', 'DESC'))
 
     def create(self, values):
         sequence_obj = Pool().get('ir.sequence')
@@ -1218,12 +1218,12 @@ class PatientMedication(ModelSQL, ModelView):
     def __setup__(cls):
         super(PatientMedication, cls).__setup__()
 
-        self._constraints += [
+        cls._constraints += [
             ('validate_medication_dates', 'end_date_before_start'),
 
             ]
 
-        self._error_messages.update({
+        cls._error_messages.update({
             'end_date_before_start': 'The Medication END DATE is BEFORE the start date!',
             })
 
@@ -1271,16 +1271,16 @@ class PatientVaccination(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientVaccination, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
                     'This vaccine dose has been given already to the patient'),
         ]
-        self._constraints = [
+        cls._constraints = [
             ('check_vaccine_expiration_date', 'expired_vaccine'),
             ('validate_next_dose_date', 'next_dose_before_first'),
 
         ]
-        self._error_messages.update({
+        cls._error_messages.update({
             'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '\
                     'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
             'next_dose_before_first': 'The Vaccine next dose is BEFORE the first one !'
@@ -1334,10 +1334,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()
-        self._constraints = [
+        cls._constraints = [
             ('check_prescription_warning', 'drug_pregnancy_warning'),
         ]
-        self._error_messages.update({
+        cls._error_messages.update({
             'drug_pregnancy_warning': \
                     '== DRUG AND PREGNANCY VERIFICATION ==\n\n' \
                     '- IS THE PATIENT PREGNANT ? \n' \
@@ -1794,7 +1794,7 @@ class HospitalOR(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalOR, cls).__setup__()
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name, institution)',
                     'The Operating Room code must be unique per Health' \
                     ' Center'),
