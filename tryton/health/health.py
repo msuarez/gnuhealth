@@ -419,7 +419,7 @@ class PathologyGroup(ModelSQL, ModelView):
     
     def __register__(cls, module_name):
         # Upgrade from GNU Health 1.4.5
-        super(PathologyGroup, cls).init(module_name)
+        super(PathologyGroup, cls).__register__(module_name)
 
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
@@ -871,7 +871,7 @@ class PatientData(ModelSQL, ModelView):
                 break
         if ids:
             return [(field,) + clause[1:]]
-        return [(self._rec_name,) + clause[1:]]
+        return [(cls._rec_name,) + clause[1:]]
 
     @classmethod
     def __setup__(cls):
