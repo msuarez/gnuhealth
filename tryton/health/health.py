@@ -169,15 +169,10 @@ class Physician(ModelSQL, ModelView):
     info = fields.Text('Extra info')
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for doctor in self.browse(ids):
-            if doctor.name:
-                name = doctor.name.name
-                if doctor.name.lastname:
-                    name = doctor.name.lastname + ', ' + name
-            res[doctor.id] = name
+        if self.name:
+            res = self.name.name
+            if self.name.lastname:
+                res = self.name.lastname + ', ' + name
         return res
 
 
@@ -275,21 +270,10 @@ class MedicamentCategory(ModelSQL, ModelView):
         })
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-
-        def _name(category):
-            if category.id in res:
-                return res[category.id]
-            elif category.parent:
-                return _name(category.parent) + ' / ' + category.name
-            else:
-                return category.name
-        for category in self.browse(ids):
-            res[category.id] = _name(category)
-        return res
-
+        if self.parent:
+            return self.parent.get_rec_name(name) + ' / ' + self.name
+        else:
+            return self.name
 
 class Medicament(ModelSQL, ModelView):
     'Medicament'
@@ -354,13 +338,7 @@ class Medicament(ModelSQL, ModelView):
     notes = fields.Text('Extra Info')
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for medicament in self.browse(ids):
-            name = medicament.name.name
-            res[medicament.id] = name
-        return res
+        return self.name.name
 
     def check_xml_record(self, ids, values):
         return True
@@ -388,20 +366,10 @@ class PathologyCategory(ModelSQL, ModelView):
         })
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-
-        def _name(category):
-            if category.id in res:
-                return res[category.id]
-            elif category.parent:
-                return _name(category.parent) + ' / ' + category.name
-            else:
-                return category.name
-        for category in self.browse(ids):
-            res[category.id] = _name(category)
-        return res
+        if self.parent:
+            return self.parent.get_rec_name(name) + ' / ' + self.name
+        else:
+            return self.name
 
 
 class PathologyGroup(ModelSQL, ModelView):
@@ -503,14 +471,7 @@ class InsurancePlan(ModelSQL, ModelView):
     notes = fields.Text('Extra info')
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for plan in self.browse(ids):
-            if plan.name:
-                name = plan.name.name
-            res[plan.id] = name
-        return res
+        return self.name.name
 
 
 class Insurance(ModelSQL, ModelView):
@@ -537,14 +498,7 @@ class Insurance(ModelSQL, ModelView):
     notes = fields.Text('Extra Info')
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for insurance in self.browse(ids):
-            if insurance.company:
-                name = insurance.company.name + ' : ' + insurance.number
-            res[insurance.id] = name
-        return res
+        return (self.company.name + ' : ' + insurance.number)
 
 
 class PartyPatient (ModelSQL, ModelView):
@@ -615,15 +569,7 @@ class PartyPatient (ModelSQL, ModelView):
         return super(PartyPatient, self).create(values)
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for patient in self.browse(ids):
-            name = patient.name
-            if patient.lastname:
-                name = patient.lastname + ', ' + patient.name
-            res[patient.id] = name
-        return res
+        return (self.patient.lastname + ', ' + patient.name)
 
     def search_rec_name(cls, name, clause):
         ids = []
@@ -893,16 +839,7 @@ class PatientData(ModelSQL, ModelView):
         return super(PatientData, self).create(values)
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for patient in self.browse(ids):
-            if patient.name:
-                name = patient.name.name
-                if patient.name.lastname:
-                    name = patient.name.lastname + ', ' + name
-            res[patient.id] = name
-        return res
+        return (self.name.lastname + ', ' + name)
 
 
 # PATIENT DISESASES INFORMATION
@@ -1071,15 +1008,7 @@ class Appointment(ModelSQL, ModelView):
         return 'ambulatory'
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for appointment in self.browse(ids):
-            if appointment.name:
-                name = appointment.name
-#                name = str(appointment['appointment_date'])
-            res[appointment.id] = name
-        return res
+        return self.name
 
 
 # MEDICATION TEMPLATE
@@ -1687,14 +1616,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         return whr
 
     def get_rec_name(self, name):
-        if not ids:
-            return {}
-        res = {}
-        for evaluation in self.browse(ids):
-            if evaluation.evaluation_start:
-                name = str(evaluation.evaluation_start)
-            res[evaluation.id] = name
-        return res
+        return self.str(evaluation.evaluation_start)
 
 
 
