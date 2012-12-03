@@ -384,7 +384,7 @@ class PathologyGroup(ModelSQL, ModelView):
     desc = fields.Char('Short Description', required=True)
     info = fields.Text('Detailed information')
 
-    
+    @classmethod
     def __register__(cls, module_name):
         # Upgrade from GNU Health 1.4.5
         super(PathologyGroup, cls).__register__(module_name)
