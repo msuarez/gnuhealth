@@ -340,7 +340,8 @@ class Medicament(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return self.name.name
 
-    def check_xml_record(self, ids, values):
+    @classmethod
+    def check_xml_record(cls, records, values):
         return True
 
 
@@ -611,7 +612,8 @@ class Product(ModelSQL, ModelView):
     is_bed = fields.Boolean('Bed',
         help='Check if the product is a bed on the gnuhealth.center')
 
-    def check_xml_record(self, ids, values):
+    @classmethod
+    def check_xml_record(cls, records, values):
         return True
 
 
