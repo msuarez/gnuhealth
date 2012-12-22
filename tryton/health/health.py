@@ -646,7 +646,7 @@ class PatientData(ModelSQL, ModelView):
 # It will calculate the age of the patient while the patient is alive.
 # When the patient dies, it will show the age at time of death.
 
-    def patient_age(self, ids, name):
+    def patient_age(self, name):
 
         def compute_age_from_dates(patient_dob, patient_deceased,
             patient_dod, patient_sex):
@@ -682,12 +682,8 @@ class PatientData(ModelSQL, ModelView):
                 else:
                     return False
 
-        result = {}
-
-        for patient_data in self.browse(ids):
-            result[patient_data.id] = compute_age_from_dates(patient_data.dob,
-            patient_data.deceased, patient_data.dod, patient_data.sex)
-        return result
+        return compute_age_from_dates(self.dob, self.deceased, self.dod,
+            self.sex)
 
     name = fields.Many2One('party.party', 'Patient', required=True,
         domain=[
@@ -786,11 +782,8 @@ class PatientData(ModelSQL, ModelView):
     childbearing_age = fields.Function(fields.Boolean(
             'Potential for Childbearing'), 'patient_age')
 
-    def get_patient_ssn(self, ids, name):
-        res = {}
-        for patient in self.browse(ids):
-            res[patient.id] = patient.name.ref
-        return res
+    def get_patient_ssn(self, name):
+        return self.name.ref
 
     def search_patient_ssn(self, name, clause):
         res = []
@@ -798,11 +791,8 @@ class PatientData(ModelSQL, ModelView):
         res.append(('name.ref', clause[1], value))
         return res
 
-    def get_patient_lastname(self, ids, name):
-        res = {}
-        for patient in self.browse(ids):
-            res[patient.id] = patient.name.lastname
-        return res
+    def get_patient_lastname(self, name):
+        return self.name.lastname
 
     def search_patient_lastname(self, name, clause):
         res = []
