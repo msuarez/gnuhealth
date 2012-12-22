@@ -981,7 +981,7 @@ class Appointment(ModelSQL, ModelView):
     def default_doctor():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        user = user_obj(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
@@ -1097,29 +1097,14 @@ class PatientMedication(ModelSQL, ModelView):
     notes = fields.Text('Extra Info')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
 
-    def on_change_with_is_active(self, vals):
-        discontinued = vals.get('discontinued')
-        course_completed = vals.get('course_completed')
-        is_active = True
-        if (discontinued or course_completed):
-            is_active = False
-        return is_active
+    def on_change_with_is_active(self):
+        return not (self.discontinued or self.course_completed)
 
-    def on_change_with_discontinued(self, vals):
-        discontinued = vals.get('discontinued')
-        is_active = vals.get('is_active')
-        course_completed = vals.get('course_completed')
-        if (is_active or course_completed):
-            discontinued = False
-        return (discontinued)
+    def on_change_with_discontinued(self):
+        return not (self.is_active or self.course_completed)
 
-    def on_change_with_course_completed(self, vals):
-        is_active = vals.get('is_active')
-        course_completed = vals.get('discontinued')
-        discontinued = vals.get('discontinued')
-        if (is_active or discontinued):
-            course_completed = False
-        return (course_completed)
+    def on_change_with_course_completed(self):
+        return not (self.is_active or self.discontinued)
 
     @staticmethod
     def default_is_active():
@@ -1235,11 +1220,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     __name__ = 'gnuhealth.prescription.order'
     _rec_name = 'prescription_id'
 
-    def check_prescription_warning(self, ids):
-        prescription = self.browse(ids[0])
-        if prescription.prescription_warning_ack:
-            return True
-        return False
+    def check_prescription_warning(self):
+        return self.prescription_warning_ack
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True,
         on_change=['patient'])
@@ -1277,20 +1259,15 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 # Method that makes the doctor to acknowledge if there is any
 # warning in the prescription
 
-    def on_change_patient(self, vals):
+    def on_change_patient(self):
         preg_warning = False
         presc_warning_ack = True
 
-        patient_obj = Pool().get('gnuhealth.patient')
-
-        if vals.get('patient'):
-            patient = patient_obj.browse(vals['patient'])
-            patient_childbearing_age = patient.childbearing_age
-
-# Trigger the warning if the patient is at a childbearing age
-        if (patient_childbearing_age):
-            preg_warning = True
-            presc_warning_ack = False
+        if self.patient:
+            # Trigger the warning if the patient is at a childbearing age
+            if (self.patient.childbearing_age):
+                preg_warning = True
+                presc_warning_ack = False
 
         return {
             'prescription_warning_ack': presc_warning_ack,
@@ -1304,10 +1281,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     @staticmethod
     def default_user_id():
         user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        user = user_obj(Transaction().user)
         return int(user.id)
 
-    @staticmethod
+    @classmethod
     def create(cls, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
@@ -1540,15 +1517,12 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_doctor():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        user = user_obj(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
-        if not partner_id:
-            self.raise_user_error('No health professional associated to this \
-                user')
-        else:
+        if partner_id:
             cursor = Transaction().cursor
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
@@ -1576,21 +1550,17 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_evaluation_type():
         return 'pa'
 
-    def on_change_with_bmi(self, vals):
-        height = vals.get('height')
-        weight = vals.get('weight')
+    def on_change_with_bmi(self):
+        height = self.height
+        weight = self.weight
         if (height > 0):
             bmi = weight / ((height / 100) ** 2)
         else:
             bmi = 0
         return bmi
 
-    def on_change_with_loc(self, vals):
-        loc_motor = vals.get('loc_motor')
-        loc_eyes = vals.get('loc_eyes')
-        loc_verbal = vals.get('loc_verbal')
-        loc = int(loc_motor) + int(loc_eyes) + int(loc_verbal)
-        return loc
+    def on_change_with_loc(self):
+        return int(self.loc_motor) + int(self.loc_eyes) + int(self.loc_verbal)
 
     @staticmethod
     def default_information_source():
@@ -1605,9 +1575,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         return datetime.now()
 
 # Calculate the WH ratio
-    def on_change_with_whr(self, vals):
-        waist = vals.get('abdominal_circ')
-        hip = vals.get('hip')
+    def on_change_with_whr(self):
+        waist = self.abdominal_circ
+        hip = self.hip
         if (hip > 0):
             whr = waist / hip
         else:
@@ -1615,7 +1585,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         return whr
 
     def get_rec_name(self, name):
-        return self.str(evaluation.evaluation_start)
+        return str(self.evaluation_start)
 
 
 
