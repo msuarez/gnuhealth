@@ -909,20 +909,18 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
             'end_treatment_date_before_start': 'The Treatment END DATE is BEFORE the start date!',
             })
 
-    def validate_disease_period (self, ids):
-        for disease_data in self.browse(ids):
-            res = True
-            if disease_data.healed_date:
-                if (disease_data.healed_date < disease_data.diagnosed_date):
-                    res = False
-            return res
+    def validate_disease_period (self):
+        res = True
+        if self.healed_date:
+            if (self.healed_date < self.diagnosed_date):
+                res = False
+        return res
 
-    def validate_treatment_dates (self, ids):
-        for disease_data in self.browse(ids):
-            if (disease_data.date_stop_treatment < disease_data.date_start_treatment):
-                return False
-            else:
-                return True
+    def validate_treatment_dates (self):
+        if (self.date_stop_treatment < self.date_start_treatment):
+            return False
+        else:
+            return True
 
 
 
@@ -1139,13 +1137,12 @@ class PatientMedication(ModelSQL, ModelView):
             'end_date_before_start': 'The Medication END DATE is BEFORE the start date!',
             })
 
-    def validate_medication_dates (self, ids):
-        for medication_data in self.browse(ids):
-            res = True
-            if medication_data.end_treatment:
-                if (medication_data.end_treatment < medication_data.start_treatment):
-                    res = False
-            return res
+    def validate_medication_dates (self):
+        res = True
+        if self.end_treatment:
+            if (self.end_treatment < self.start_treatment):
+                res = False
+        return res
 
 
 # PATIENT VACCINATION INFORMATION
@@ -1153,10 +1150,9 @@ class PatientVaccination(ModelSQL, ModelView):
     'Patient Vaccination information'
     __name__ = 'gnuhealth.vaccination'
 
-    def check_vaccine_expiration_date(self, ids):
-        vaccine = self.browse(ids[0])
-        if vaccine.vaccine_expiration_date:
-            if vaccine.vaccine_expiration_date < datetime.date(vaccine.date):
+    def check_vaccine_expiration_date(self):
+        if self.vaccine_expiration_date:
+            if self.vaccine_expiration_date < datetime.date(self.date):
                 return False
         return True
 
@@ -1207,12 +1203,11 @@ class PatientVaccination(ModelSQL, ModelView):
     def default_dose():
         return 1
 
-    def validate_next_dose_date (self, ids):
-        for vaccine_data in self.browse(ids):
-            if (vaccine_data.next_dose_date < vaccine_data.date):
-                return False
-            else:
-                return True
+    def validate_next_dose_date (self):
+        if (self.next_dose_date < self.date):
+            return False
+        else:
+            return True
 
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
