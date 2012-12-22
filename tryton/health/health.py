@@ -824,13 +824,13 @@ class PatientData(ModelSQL, ModelView):
 
     @classmethod
     def create(cls, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('identification_code'):
-            config = config_obj(1)
-            values['identification_code'] = sequence_obj.get_id(
+            config = Config(1)
+            values['identification_code'] = Sequence.get_id(
             config.patient_sequence.id)
 
         return super(PatientData, cls).create(values)
@@ -966,13 +966,13 @@ class Appointment(ModelSQL, ModelView):
 
     @classmethod
     def create(cls, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj(1)
-            values['name'] = sequence_obj.get_id(
+            config = Config(1)
+            values['name'] = Sequence.get_id(
             config.appointment_sequence.id)
 
         return super(Appointment, cls).create(values)
@@ -980,8 +980,8 @@ class Appointment(ModelSQL, ModelView):
     @staticmethod
     def default_doctor():
         cursor = Transaction().cursor
-        user_obj = Pool().get('res.user')
-        user = user_obj(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
@@ -1280,19 +1280,19 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     @staticmethod
     def default_user_id():
-        user_obj = Pool().get('res.user')
-        user = user_obj(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         return int(user.id)
 
     @classmethod
     def create(cls, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('prescription_id'):
-            config = config_obj(1)
-            values['prescription_id'] = sequence_obj.get_id(
+            config = Config(1)
+            values['prescription_id'] = Sequence.get_id(
             config.prescription_sequence.id)
 
         return super(PatientPrescriptionOrder, cls).create(values)
@@ -1516,8 +1516,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     @staticmethod
     def default_doctor():
         cursor = Transaction().cursor
-        user_obj = Pool().get('res.user')
-        user = user_obj(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
