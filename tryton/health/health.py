@@ -576,13 +576,12 @@ class PartyPatient (ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        ids = []
         field = None
         for field in ('name', 'lastname'):
-            ids = cls.search([(field,) + clause[1:]], limit=1)
-            if ids:
+            parties = cls.search([(field,) + clause[1:]], limit=1)
+            if parties:
                 break
-        if ids:
+        if parties:
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
 
@@ -807,13 +806,12 @@ class PatientData(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        ids = []
         field = None
         for field in ('name', 'lastname', 'ssn'):
-            ids = cls.search([(field,) + clause[1:]], limit=1)
-            if ids:
+            patients = cls.search([(field,) + clause[1:]], limit=1)
+            if patients:
                 break
-        if ids:
+        if patients:
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
 
