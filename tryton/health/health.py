@@ -837,7 +837,7 @@ class PatientData(ModelSQL, ModelView):
 
         values = values.copy()
         if not values.get('identification_code'):
-            config = config_obj.browse(1)
+            config = config_obj(1)
             values['identification_code'] = sequence_obj.get_id(
             config.patient_sequence.id)
 
@@ -979,7 +979,7 @@ class Appointment(ModelSQL, ModelView):
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj.browse(1)
+            config = config_obj(1)
             values['name'] = sequence_obj.get_id(
             config.appointment_sequence.id)
 
@@ -1322,7 +1322,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
         values = values.copy()
         if not values.get('prescription_id'):
-            config = config_obj.browse(1)
+            config = config_obj(1)
             values['prescription_id'] = sequence_obj.get_id(
             config.prescription_sequence.id)
 
