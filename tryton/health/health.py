@@ -785,7 +785,8 @@ class PatientData(ModelSQL, ModelView):
     def get_patient_ssn(self, name):
         return self.name.ref
 
-    def search_patient_ssn(self, name, clause):
+    @classmethod
+    def search_patient_ssn(cls, name, clause):
         res = []
         value = clause[2]
         res.append(('name.ref', clause[1], value))
@@ -794,7 +795,8 @@ class PatientData(ModelSQL, ModelView):
     def get_patient_lastname(self, name):
         return self.name.lastname
 
-    def search_patient_lastname(self, name, clause):
+    @classmethod
+    def search_patient_lastname(cls, name, clause):
         res = []
         value = clause[2]
         res.append(('name.lastname', clause[1], value))
