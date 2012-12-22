@@ -574,6 +574,7 @@ class PartyPatient (ModelSQL, ModelView):
     def get_rec_name(self, name):
         return (self.lastname + ', ' + self.name)
 
+    @classmethod
     def search_rec_name(cls, name, clause):
         ids = []
         field = None
@@ -804,11 +805,12 @@ class PatientData(ModelSQL, ModelView):
 
     # Search by the patient name, lastname or SSN
 
+    @classmethod
     def search_rec_name(cls, name, clause):
         ids = []
         field = None
         for field in ('name', 'lastname', 'ssn'):
-            ids = self.search([(field,) + clause[1:]], limit=1)
+            ids = cls.search([(field,) + clause[1:]], limit=1)
             if ids:
                 break
         if ids:
@@ -836,7 +838,7 @@ class PatientData(ModelSQL, ModelView):
         return super(PatientData, cls).create(values)
 
     def get_rec_name(self, name):
-        return (self.name.lastname + ', ' + name)
+        return (self.name.lastname + ', ' + self.name.name)
 
 
 # PATIENT DISESASES INFORMATION
@@ -1774,5 +1776,6 @@ class HospitalBed(ModelSQL, ModelView):
         if self.name:
             return self.name.name
 
+    @classmethod
     def search_rec_name(cls, name, clause):
         return [('name',) + clause[1:]]
