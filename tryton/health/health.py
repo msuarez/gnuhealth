@@ -499,7 +499,7 @@ class Insurance(ModelSQL, ModelView):
     notes = fields.Text('Extra Info')
 
     def get_rec_name(self, name):
-        return (self.company.name + ' : ' + insurance.number)
+        return (self.company.name + ' : ' + self.number)
 
 
 class PartyPatient (ModelSQL, ModelView):
@@ -572,7 +572,7 @@ class PartyPatient (ModelSQL, ModelView):
         return super(PartyPatient, cls).create(values)
 
     def get_rec_name(self, name):
-        return (self.patient.lastname + ', ' + patient.name)
+        return (self.lastname + ', ' + self.name)
 
     def search_rec_name(cls, name, clause):
         ids = []
