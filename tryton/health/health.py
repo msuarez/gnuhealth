@@ -37,7 +37,7 @@ __all__ = [ 'DrugDoseUnits','MedicationFrequency','DrugForm','DrugRoute',
     'PatientMedication','PatientVaccination','PatientPrescriptionOrder',
     'PrescriptionLine','PatientEvaluation','Directions','SecondaryCondition',
     'DiagnosticHypothesis','SignsAndSymptoms','HospitalBuilding',
-    'HospitalUnit','HospitalOR','HospitalWard','HospitalBed'] 
+    'HospitalUnit','HospitalOR','HospitalWard','HospitalBed']
 
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
@@ -551,23 +551,25 @@ class PartyPatient (ModelSQL, ModelView):
                 'This health professional is already assigned to a party')
         ]
 
-    def write(self, ids, values):
+    @classmethod
+    def write(cls, parties, values):
         # We use this method overwrite to make the fields that have a unique
         # constraint get the NULL value at PostgreSQL level, and not the value
         # '' coming from the client
         if 'ref' in values and not values['ref']:
             values = values.copy()
             values['ref'] = None
-        return super(PartyPatient, self).write(ids, values)
+        return super(PartyPatient, cls).write(parties, values)
 
-    def create(self, values):
+    @classmethod
+    def create(cls, values):
         # We use this method overwrite to make the fields that have a unique
         # constraint get the NULL value at PostgreSQL level, and not the value
         # '' coming from the client
         if 'ref' in values and not values['ref']:
             values = values.copy()
             values['ref'] = None
-        return super(PartyPatient, self).create(values)
+        return super(PartyPatient, cls).create(values)
 
     def get_rec_name(self, name):
         return (self.patient.lastname + ', ' + patient.name)
@@ -828,7 +830,8 @@ class PatientData(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
         ]
 
-    def create(self, values):
+    @classmethod
+    def create(cls, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
 
@@ -838,7 +841,7 @@ class PatientData(ModelSQL, ModelView):
             values['identification_code'] = sequence_obj.get_id(
             config.patient_sequence.id)
 
-        return super(PatientData, self).create(values)
+        return super(PatientData, cls).create(values)
 
     def get_rec_name(self, name):
         return (self.name.lastname + ', ' + name)
@@ -969,7 +972,8 @@ class Appointment(ModelSQL, ModelView):
         super(Appointment, cls).__setup__()
         cls._order.insert(0, ('name', 'DESC'))
 
-    def create(self, values):
+    @classmethod
+    def create(cls, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
 
@@ -979,7 +983,7 @@ class Appointment(ModelSQL, ModelView):
             values['name'] = sequence_obj.get_id(
             config.appointment_sequence.id)
 
-        return super(Appointment, self).create(values)
+        return super(Appointment, cls).create(values)
 
     @staticmethod
     def default_doctor():
@@ -1311,7 +1315,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         user = user_obj.browse(Transaction().user)
         return int(user.id)
 
-    def create(self, values):
+    @staticmethod
+    def create(cls, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
 
@@ -1321,7 +1326,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             values['prescription_id'] = sequence_obj.get_id(
             config.prescription_sequence.id)
 
-        return super(PatientPrescriptionOrder, self).create(values)
+        return super(PatientPrescriptionOrder, cls).create(values)
 
 
 # PRESCRIPTION LINE
