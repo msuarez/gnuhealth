@@ -19,4 +19,12 @@
 #
 ##############################################################################
 
-from health_calendar import *
+from trytond.pool import Pool
+from .health_calendar import *
+
+
+def register():
+    Pool.register(
+        Physician,
+        Appointment,
+        module='health_calendar', type_='model')

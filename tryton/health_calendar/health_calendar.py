@@ -19,9 +19,11 @@
 #
 ##############################################################################
 from datetime import timedelta
-
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
+
+
+__all__ = ['Physician', 'Appointment']
 
 
 class Physician(ModelSQL, ModelView):
@@ -30,8 +32,6 @@ class Physician(ModelSQL, ModelView):
     _description = __doc__
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar')
-
-Physician()
 
 
 class Appointment(ModelSQL, ModelView):
@@ -108,5 +108,3 @@ class Appointment(ModelSQL, ModelView):
             if appointment.event:
                 event_obj.delete(appointment.event.id)
         return super(Appointment, self).delete(ids)
-
-Appointment()
