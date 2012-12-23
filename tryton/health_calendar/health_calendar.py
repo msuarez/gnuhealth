@@ -28,16 +28,14 @@ __all__ = ['Physician', 'Appointment']
 
 class Physician(ModelSQL, ModelView):
     "Add Calendar to Physician"
-    _name = "gnuhealth.physician"
-    _description = __doc__
+    __name__ = "gnuhealth.physician"
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar')
 
 
 class Appointment(ModelSQL, ModelView):
     'Add Calendar to the Appointment'
-    _name = 'gnuhealth.appointment'
-    _description = __doc__
+    __name__ = 'gnuhealth.appointment'
 
     event = fields.Many2One('calendar.event', 'Calendar Event', readonly=True,
         help="Calendar Event")
