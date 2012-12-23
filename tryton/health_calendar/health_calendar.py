@@ -75,24 +75,24 @@ class Appointment(ModelSQL, ModelView):
         for appointment in appointments:
             if appointment.event:
                 if 'appointment_date' in values:
-                    Event.write(appointment.event.id, {
+                    Event.write([appointment.event], {
                         'dtstart': values['appointment_date'],
                         'dtend': values['appointment_date'] +
                             timedelta(minutes=appointment.appointment_time),
                         })
                 if 'appointment_time' in values:
-                    Event.write(appointment.event.id, {
+                    Event.write([appointment.event], {
                         'dtend': appointment.appointment_date +
                             timedelta(minutes=values['appointment_time']),
                         })
                 if 'doctor' in values:
                     doctor = Physician(values['doctor'])
-                    Event.write(appointment.event.id, {
+                    Event.write([appointment.event], {
                         'calendar': doctor.calendar.id,
                         })
                 if 'patient' in values:
                     patient = Patient(values['patient'])
-                    Event.write(appointment.event.id, {
+                    Event.write([appointment.event], {
                         'summary': patient.name.name,
                         })
         return super(Appointment, cls).write(appointments, values)
@@ -103,5 +103,5 @@ class Appointment(ModelSQL, ModelView):
 
         for appointment in appointments:
             if appointment.event:
-                Event.delete(appointment.event.id)
+                Event.delete([appointment.event])
         return super(Appointment, cls).delete(appointments)
