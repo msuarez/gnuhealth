@@ -42,67 +42,66 @@ class Appointment(ModelSQL, ModelView):
     appointment_time = fields.Integer('Appointment Time',
         help='Appointment Time (Minutes)')
 
-    def default_appointment_time(self):
+    @staticmethod
+    def default_appointment_time():
         return 30
 
-    def create(self, values):
-        event_obj = Pool().get('calendar.event')
-        patient_obj = Pool().get('gnuhealth.patient')
-        physician_obj = Pool().get('gnuhealth.physician')
+    @classmethod
+    def create(cls, values):
+        Event = Pool().get('calendar.event')
+        Patient = Pool().get('gnuhealth.patient')
+        Physician = Pool().get('gnuhealth.physician')
 
         if values['doctor']:
-            doctor = physician_obj.browse(values['doctor'])
+            doctor = Physician(values['doctor'])
             if doctor.calendar:
-                patient = patient_obj.browse(values['patient'])
-                values['event'] = event_obj.create({
+                patient = Patient(values['patient'])
+                values['event'] = Event.create({
                     'dtstart': values['appointment_date'],
                     'dtend': values['appointment_date'] +
                         timedelta(minutes=values['appointment_time']),
                     'calendar': doctor.calendar.id,
-                    'summary': patient.name.lastname + ', ' + patient.name.name,
+                    'summary': patient.name.lastname + ', ' +
+                        patient.name.name,
                     })
-        return super(Appointment, self).create(values)
+        return super(Appointment, cls).create(values)
 
-    def write(self, ids, values):
-        event_obj = Pool().get('calendar.event')
-        patient_obj = Pool().get('gnuhealth.patient')
-        physician_obj = Pool().get('gnuhealth.physician')
+    @classmethod
+    def write(cls, appointments, values):
+        Event = Pool().get('calendar.event')
+        Patient = Pool().get('gnuhealth.patient')
+        Physician = Pool().get('gnuhealth.physician')
 
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        for appointment_id in ids:
-            appointment = self.browse(appointment_id)
+        for appointment in appointments:
             if appointment.event:
                 if 'appointment_date' in values:
-                    event_obj.write(appointment.event.id, {
+                    Event.write(appointment.event.id, {
                         'dtstart': values['appointment_date'],
                         'dtend': values['appointment_date'] +
                             timedelta(minutes=appointment.appointment_time),
                         })
                 if 'appointment_time' in values:
-                    event_obj.write(appointment.event.id, {
+                    Event.write(appointment.event.id, {
                         'dtend': appointment.appointment_date +
                             timedelta(minutes=values['appointment_time']),
                         })
                 if 'doctor' in values:
-                    doctor = physician_obj.browse(values['doctor'])
-                    event_obj.write(appointment.event.id, {
+                    doctor = Physician(values['doctor'])
+                    Event.write(appointment.event.id, {
                         'calendar': doctor.calendar.id,
                         })
                 if 'patient' in values:
-                    patient = patient_obj.browse(values['patient'])
-                    event_obj.write(appointment.event.id, {
+                    patient = Patient(values['patient'])
+                    Event.write(appointment.event.id, {
                         'summary': patient.name.name,
                         })
-        return super(Appointment, self).write(ids, values)
+        return super(Appointment, cls).write(appointments, values)
 
-    def delete(self, ids):
-        event_obj = Pool().get('calendar.event')
+    @classmethod
+    def delete(cls, appointments):
+        Event = Pool().get('calendar.event')
 
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        for appointment_id in ids:
-            appointment = self.browse(appointment_id)
+        for appointment in appointments:
             if appointment.event:
-                event_obj.delete(appointment.event.id)
-        return super(Appointment, self).delete(ids)
+                Event.delete(appointment.event.id)
+        return super(Appointment, cls).delete(appointments)
