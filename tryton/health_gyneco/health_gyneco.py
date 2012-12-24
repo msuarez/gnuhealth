@@ -35,22 +35,6 @@ class PatientPregnancy(ModelSQL, ModelView):
     'Patient Pregnancy'
     __name__ = 'gnuhealth.patient.pregnancy'
 
-    def get_pregnancy_data(self, ids, name):
-        result = {}
-
-        for pregnancy_data in self.browse(ids):
-            if name == 'pdd':
-                result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
-
-            if name == 'pregnancy_end_age':
-                if pregnancy_data.pregnancy_end_date:
-                    gestational_age = datetime.datetime.date(pregnancy_data.pregnancy_end_date) - pregnancy_data.lmp
-                    result[pregnancy_data.id] = (gestational_age.days)/7
-                else:
-                    result[pregnancy_data.id] = 0
-
-        return result
-
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
     gravida = fields.Integer ('Pregnancy #', required=True)
     warning = fields.Boolean ('Warn', help="Check this box if this is pregancy is or was NOT normal")
@@ -96,6 +80,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         ('assymetric', 'Assymetric'),
         ], 'IUGR', sort=False)
 
+    @classmethod
     def __setup__(cls):
         super(PatientPregnancy, cls).__setup__()
         cls._constraints += [
@@ -109,45 +94,34 @@ class PatientPregnancy(ModelSQL, ModelView):
         cls._error_messages.update({
             'patient_already_pregnant': 'Our records indicate that the patient is already pregnant !'})
 
-    def check_patient_current_pregnancy(self, ids):
+    def check_patient_current_pregnancy(self):
         ''' Check for only one current pregnancy in the patient '''
         cursor = Transaction().cursor
-        for pregnancy in self.browse(ids):
-            cursor.execute("SELECT count(name) " \
-                "FROM " + self._table + "  \
-                WHERE (name = %s AND current_pregnancy)", \
-                (str(pregnancy.name.id),))
-
-            if cursor.fetchone()[0] > 1:
-                return False
-            return True
+        cursor.execute("SELECT count(name) " \
+            "FROM " + self._table + "  \
+            WHERE (name = %s AND current_pregnancy)", \
+            (str(self.name.id),))
+        if cursor.fetchone()[0] > 1:
+            return False
+        return True
 
     @staticmethod
     def default_current_pregnancy():
         return True
 
+    def get_pregnancy_data(self, name):
+        if name == 'pdd':
+            return self.lmp + datetime.timedelta(days=280)
+        if name == 'pregnancy_end_age':
+            if self.pregnancy_end_date:
+                gestational_age = datetime.datetime.date(self.pregnancy_end_date) - self.lmp
+                return (gestational_age.days)/7
+            else:
+                return 0
 
 class PrenatalEvaluation(ModelSQL, ModelView):
     'Prenatal and Antenatal Evaluations'
     __name__ = 'gnuhealth.patient.prenatal.evaluation'
-
-    def get_patient_evaluation_data(self, ids, name):
-        result = {}
-
-        for evaluation_data in self.browse(ids):
-
-            if name == 'gestational_weeks':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = (gestational_age.days)/7
-
-            if name == 'gestational_days':
-                gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
-
-                result[evaluation_data.id] = gestational_age.days
-
-        return result
-
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Patient Evaluation', readonly=True)
@@ -190,6 +164,13 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     polihydramnios= fields.Boolean('Polihydramnios')
     iugr= fields.Boolean('IUGR',help="Intra Uterine Growth Restriction")
 
+    def get_patient_evaluation_data(self, name):
+        if name == 'gestational_weeks':
+            gestational_age = datetime.datetime.date(self.evaluation_date) - self.name.lmp
+            return (gestational_age.days)/7
+        if name == 'gestational_days':
+            gestational_age = datetime.datetime.date(self.evaluation_date) - self.name.lmp
+            return gestational_age.days
 
 class PuerperiumMonitor(ModelSQL, ModelView):
     'Puerperium Monitor'
@@ -229,16 +210,6 @@ class PuerperiumMonitor(ModelSQL, ModelView):
 class Perinatal(ModelSQL, ModelView):
     'Perinatal Information'
     __name__ = 'gnuhealth.perinatal'
-
-    def get_perinatal_information(self, ids, name):
-        result = {}
-
-        for perinatal_data in self.browse(ids):
-            if name == 'gestational_weeks':
-                gestational_age = datetime.datetime.date(perinatal_data.admission_date) - perinatal_data.name.lmp
-                result[perinatal_data.id] = (gestational_age.days)/7
-
-        return result
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     admission_code = fields.Char('Code')
@@ -337,6 +308,10 @@ class Perinatal(ModelSQL, ModelView):
 
     notes = fields.Text('Notes')
 
+    def get_perinatal_information(self, name):
+        if name == 'gestational_weeks':
+            gestational_age = datetime.datetime.date(self.admission_date) - self.name.lmp
+            return (gestational_age.days)/7
 
 class PerinatalMonitor(ModelSQL, ModelView):
     'Perinatal Monitor'
@@ -366,23 +341,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
     'Add to the Medical patient_data class (gnuhealth.patient) the ' \
     'gynecological and obstetric fields.'
     __name__ = 'gnuhealth.patient'
-
-
-    def get_pregnancy_info(self, ids, name):
-        result = {}
-
-        for pregnancy_data in self.browse(ids):
-
-            if name == 'currently_pregnant':
-                for pregnancy_history in pregnancy_data.pregnancy_history:
-                    pregnancy_status = pregnancy_history.current_pregnancy
-                    if pregnancy_status == True:
-                        result[pregnancy_data.id] = True
-                        return result
-
-            result[pregnancy_data.id] = False
-        return result
-
 
     currently_pregnant = fields.Function(fields.Boolean('Pregnant'),'get_pregnancy_info')
     fertile = fields.Boolean('Fertile',
@@ -443,6 +401,12 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
     pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name', 'Pregnancies')
 
+    def get_pregnancy_info(self, name):
+        if name == 'currently_pregnant':
+            for pregnancy_history in self.pregnancy_history:
+                if pregnancy_history.current_pregnancy:
+                    return True
+        return False
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'
