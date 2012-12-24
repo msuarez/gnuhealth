@@ -122,7 +122,8 @@ class PatientPregnancy(ModelSQL, ModelView):
                 return False
             return True
 
-    def default_current_pregnancy(self):
+    @staticmethod
+    def default_current_pregnancy():
         return True
 
 
@@ -469,13 +470,16 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
         ('menorrhagia', 'menorrhagia'),
         ], 'volume', sort=False)
 
-    def default_evaluation_date(self):
+    @staticmethod
+    def default_evaluation_date():
         return Pool().get('ir.date').today()
 
-    def default_frequency(self):
+    @staticmethod
+    def default_frequency():
         return 'eumenorrhea'
 
-    def default_volume(self):
+    @staticmethod
+    def default_volume():
         return 'normal'
 
 
@@ -498,10 +502,12 @@ class PatientMammographyHistory(ModelSQL, ModelView):
 
     comments = fields.Char('Remarks')
 
-    def default_evaluation_date(self):
+    @staticmethod
+    def default_evaluation_date():
         return Pool().get('ir.date').today()
 
-    def default_last_mammography(self):
+    @staticmethod
+    def default_last_mammography():
         return Pool().get('ir.date').today()
 
 
@@ -528,10 +534,12 @@ class PatientPAPHistory(ModelSQL, ModelView):
 
     comments = fields.Char('Remarks')
 
-    def default_evaluation_date(self):
+    @staticmethod
+    def default_evaluation_date():
         return Pool().get('ir.date').today()
 
-    def default_last_pap(self):
+    @staticmethod
+    def default_last_pap():
         return Pool().get('ir.date').today()
 
 
@@ -553,8 +561,10 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
 
     comments = fields.Char('Remarks')
 
-    def default_evaluation_date(self):
+    @staticmethod
+    def default_evaluation_date():
         return Pool().get('ir.date').today()
 
-    def default_last_colposcopy(self):
+    @staticmethod
+    def default_last_colposcopy():
         return Pool().get('ir.date').today()
