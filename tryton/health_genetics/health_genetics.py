@@ -27,8 +27,7 @@ __all__ = ['DiseaseGene', 'PatientGeneticRisk', 'FamilyDiseases',
 
 class DiseaseGene(ModelSQL, ModelView):
     'Disease Genes'
-    _name = 'gnuhealth.disease.gene'
-    _description = __doc__
+    __name__ = 'gnuhealth.disease.gene'
 
     name = fields.Char('Official Symbol', select=True)
     long_name = fields.Char('Official Long Name', select=True)
@@ -55,8 +54,7 @@ class DiseaseGene(ModelSQL, ModelView):
 
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'
-    _name = 'gnuhealth.patient.genetic.risk'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.genetic.risk'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
@@ -65,8 +63,7 @@ class PatientGeneticRisk(ModelSQL, ModelView):
 
 class FamilyDiseases(ModelSQL, ModelView):
     'Family Diseases'
-    _name = 'gnuhealth.patient.family.diseases'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.family.diseases'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     name = fields.Many2One('gnuhealth.pathology', 'Disease', required=True)
@@ -96,8 +93,7 @@ class FamilyDiseases(ModelSQL, ModelView):
 class GnuHealthPatient (ModelSQL, ModelView):
     'Add to the Medical patient_data class (gnuhealth.patient) the genetic ' \
     'and family risks'
-    _name = 'gnuhealth.patient'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient'
 
     genetic_risks = fields.One2Many('gnuhealth.patient.genetic.risk',
         'patient', 'Genetic Risks')
