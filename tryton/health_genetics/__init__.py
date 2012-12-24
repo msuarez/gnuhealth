@@ -19,4 +19,14 @@
 #
 ##############################################################################
 
-from health_genetics import * 
+from trytond.pool import Pool
+from .health_genetics import *
+
+
+def register():
+    Pool.register(
+        DiseaseGene,
+        PatientGeneticRisk,
+        FamilyDiseases,
+        GnuHealthPatient,
+        module='health_genetics', type_='model')

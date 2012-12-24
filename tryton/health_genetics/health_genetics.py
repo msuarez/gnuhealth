@@ -21,6 +21,10 @@
 from trytond.model import ModelView, ModelSQL, fields
 
 
+__all__ = ['DiseaseGene', 'PatientGeneticRisk', 'FamilyDiseases',
+    'GnuHealthPatient']
+
+
 class DiseaseGene(ModelSQL, ModelView):
     'Disease Genes'
     _name = 'gnuhealth.disease.gene'
@@ -48,8 +52,6 @@ class DiseaseGene(ModelSQL, ModelView):
             res[gene.id] = name
         return res
 
-DiseaseGene()
-
 
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'
@@ -59,8 +61,6 @@ class PatientGeneticRisk(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
         'Disease Gene', required=True)
-
-PatientGeneticRisk()
 
 
 class FamilyDiseases(ModelSQL, ModelView):
@@ -92,8 +92,6 @@ class FamilyDiseases(ModelSQL, ModelView):
         "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
         required=True)
 
-FamilyDiseases()
-
 
 class GnuHealthPatient (ModelSQL, ModelView):
     'Add to the Medical patient_data class (gnuhealth.patient) the genetic ' \
@@ -105,5 +103,3 @@ class GnuHealthPatient (ModelSQL, ModelView):
         'patient', 'Genetic Risks')
     family_history = fields.One2Many('gnuhealth.patient.family.diseases',
         'patient', 'Family History')
-
-GnuHealthPatient()
