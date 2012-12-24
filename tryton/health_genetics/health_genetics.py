@@ -42,14 +42,8 @@ class DiseaseGene(ModelSQL, ModelView):
         ], 'Dominance', select=True)
     info = fields.Text('Information', help="Name of the protein(s) affected")
 
-    def get_rec_name(self, ids, name):
-        if not ids:
-            return {}
-        res = {}
-        for gene in self.browse(ids):
-            name = str(gene['name'] + ':' + gene['long_name'])
-            res[gene.id] = name
-        return res
+    def get_rec_name(self, name):
+        return self.name + ':' + self.long_name
 
 
 class PatientGeneticRisk(ModelSQL, ModelView):
@@ -85,7 +79,7 @@ class FamilyDiseases(ModelSQL, ModelView):
         ('grandmother', 'Grandmother'),
         ('cousin', 'Cousin'),
         ], 'Relative',
-        help="First degree = siblings, mother and father; second degree = " \
+        help="First degree = siblings, mother and father; second degree = "
         "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
         required=True)
 
