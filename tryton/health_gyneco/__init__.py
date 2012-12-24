@@ -19,4 +19,20 @@
 #
 ##############################################################################
 
-from health_gyneco import *
+from trytond.pool import Pool
+from .health_gyneco import *
+
+
+def register():
+    Pool.register(
+        PatientPregnancy,
+        PrenatalEvaluation,
+        PuerperiumMonitor,
+        Perinatal,
+        PerinatalMonitor,
+        GnuHealthPatient,
+        PatientMenstrualHistory,
+        PatientMammographyHistory,
+        PatientPAPHistory,
+        PatientColposcopyHistory,
+        module='health_gyneco', type_='model')

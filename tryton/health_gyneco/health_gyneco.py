@@ -18,12 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import datetime
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 
-import datetime
+
+__all__ = ['PatientPregnancy', 'PrenatalEvaluation', 'PuerperiumMonitor',
+    'Perinatal', 'PerinatalMonitor', 'GnuHealthPatient',
+    'PatientMenstrualHistory', 'PatientMammographyHistory',
+    'PatientPAPHistory', 'PatientColposcopyHistory']
 
 
 class PatientPregnancy(ModelSQL, ModelView):
@@ -37,14 +42,14 @@ class PatientPregnancy(ModelSQL, ModelView):
         for pregnancy_data in self.browse(ids):
             if name == 'pdd':
                 result[pregnancy_data.id] = pregnancy_data.lmp + datetime.timedelta(days=280)
-                
-            if name == 'pregnancy_end_age': 
+
+            if name == 'pregnancy_end_age':
                 if pregnancy_data.pregnancy_end_date:
                     gestational_age = datetime.datetime.date(pregnancy_data.pregnancy_end_date) - pregnancy_data.lmp
                     result[pregnancy_data.id] = (gestational_age.days)/7
                 else:
                     result[pregnancy_data.id] = 0
-                    
+
         return result
 
     name = fields.Many2One('gnuhealth.patient', 'Patient ID')
@@ -60,11 +65,11 @@ class PatientPregnancy(ModelSQL, ModelView):
     puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor', 'name', 'Puerperium monitor')
 
     current_pregnancy = fields.Boolean('Current Pregnancy', help="This field marks the current pregnancy")
-    
+
 
     fetuses = fields.Integer ('Fetuses', required=True)
     monozygotic = fields.Boolean('Monozygotic')
-    
+
     pregnancy_end_result = fields.Selection([
         ('live_birth', 'Live birth'),
         ('abortion', 'Abortion'),
@@ -111,20 +116,17 @@ class PatientPregnancy(ModelSQL, ModelView):
         self._constraints += [
             ('check_patient_current_pregnancy', 'patient_already_pregnant'),
         ]
-        
+
         self._sql_constraints = [
             ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
         ]
 
         self._error_messages.update({
             'patient_already_pregnant': 'Our records indicate that the patient is already pregnant !'})
-     
+
 
     def default_current_pregnancy(self):
         return True
-
-                
-PatientPregnancy()
 
 
 class PrenatalEvaluation(ModelSQL, ModelView):
@@ -134,9 +136,9 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
     def get_patient_evaluation_data(self, ids, name):
         result = {}
-        
+
         for evaluation_data in self.browse(ids):
- 
+
             if name == 'gestational_weeks':
                 gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
 
@@ -146,7 +148,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
                 gestational_age = datetime.datetime.date(evaluation_data.evaluation_date) - evaluation_data.name.lmp
 
                 result[evaluation_data.id] = gestational_age.days
-                
+
         return result
 
 
@@ -156,7 +158,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     evaluation_date = fields.DateTime('Date', required=True)
     gestational_weeks = fields.Function(fields.Integer('Gestational Weeks'),
         'get_patient_evaluation_data')
-        
+
     gestational_days = fields.Function(fields.Integer('Gestational days'),
         'get_patient_evaluation_data')
 
@@ -190,8 +192,6 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     oligohydramnios = fields.Boolean('Oligohydramnios')
     polihydramnios= fields.Boolean('Polihydramnios')
     iugr= fields.Boolean('IUGR',help="Intra Uterine Growth Restriction")
-    
-PrenatalEvaluation()
 
 
 class PuerperiumMonitor(ModelSQL, ModelView):
@@ -228,9 +228,6 @@ class PuerperiumMonitor(ModelSQL, ModelView):
     uterus_involution = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus " \
         "(S-FD) in cm")
-
-PuerperiumMonitor()
-
 
 
 class Perinatal(ModelSQL, ModelView):
@@ -290,7 +287,7 @@ class Perinatal(ModelSQL, ModelView):
     abruptio_placentae = fields.Boolean('Abruptio Placentae',help='Abruptio Placentae')
     episiotomy = fields.Boolean('Episiotomy')
 
-#Vaginal tearing and forceps variables are deprecated in 1.6.4. 
+#Vaginal tearing and forceps variables are deprecated in 1.6.4.
 #They are included in laceration and delivery mode respectively
 
     vaginal_tearing = fields.Boolean('Vaginal tearing')
@@ -345,7 +342,6 @@ class Perinatal(ModelSQL, ModelView):
 
     notes = fields.Text('Notes')
 
-Perinatal()
 
 class PerinatalMonitor(ModelSQL, ModelView):
     'Perinatal Monitor'
@@ -371,9 +367,6 @@ class PerinatalMonitor(ModelSQL, ModelView):
         ('t', 'Footling Breech'),
         ], 'Fetus Position', sort=False)
 
-PerinatalMonitor()
-
-
 
 class GnuHealthPatient(ModelSQL, ModelView):
     'Add to the Medical patient_data class (gnuhealth.patient) the ' \
@@ -386,14 +379,14 @@ class GnuHealthPatient(ModelSQL, ModelView):
         result = {}
 
         for pregnancy_data in self.browse(ids):
-            
+
             if name == 'currently_pregnant':
                 for pregnancy_history in pregnancy_data.pregnancy_history:
                     pregnancy_status = pregnancy_history.current_pregnancy
-                    if pregnancy_status == True:                     
+                    if pregnancy_status == True:
                         result[pregnancy_data.id] = True
                         return result
-                        
+
             result[pregnancy_data.id] = False
         return result
 
@@ -458,9 +451,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
     pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name', 'Pregnancies')
 
 
-GnuHealthPatient()
-
-
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'
     _name = 'gnuhealth.patient.menstrual_history'
@@ -497,8 +487,6 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     def default_volume(self):
         return 'normal'
 
-PatientMenstrualHistory()
-
 
 class PatientMammographyHistory(ModelSQL, ModelView):
     'Mammography History'
@@ -525,9 +513,6 @@ class PatientMammographyHistory(ModelSQL, ModelView):
 
     def default_last_mammography(self):
         return Pool().get('ir.date').today()
-
-
-PatientMammographyHistory()
 
 
 class PatientPAPHistory(ModelSQL, ModelView):
@@ -560,8 +545,6 @@ class PatientPAPHistory(ModelSQL, ModelView):
     def default_last_pap(self):
         return Pool().get('ir.date').today()
 
-PatientPAPHistory()
-
 
 class PatientColposcopyHistory(ModelSQL, ModelView):
     'Colposcopy History'
@@ -587,5 +570,3 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
 
     def default_last_colposcopy(self):
         return Pool().get('ir.date').today()
-
-PatientColposcopyHistory()
