@@ -33,8 +33,7 @@ __all__ = ['PatientPregnancy', 'PrenatalEvaluation', 'PuerperiumMonitor',
 
 class PatientPregnancy(ModelSQL, ModelView):
     'Patient Pregnancy'
-    _name = 'gnuhealth.patient.pregnancy'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.pregnancy'
 
     def get_pregnancy_data(self, ids, name):
         result = {}
@@ -131,8 +130,7 @@ class PatientPregnancy(ModelSQL, ModelView):
 
 class PrenatalEvaluation(ModelSQL, ModelView):
     'Prenatal and Antenatal Evaluations'
-    _name = 'gnuhealth.patient.prenatal.evaluation'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.prenatal.evaluation'
 
     def get_patient_evaluation_data(self, ids, name):
         result = {}
@@ -196,8 +194,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
 
 class PuerperiumMonitor(ModelSQL, ModelView):
     'Puerperium Monitor'
-    _name = 'gnuhealth.puerperium.monitor'
-    _description = __doc__
+    __name__ = 'gnuhealth.puerperium.monitor'
 
     name = fields.Many2One('gnuhealth.patient.pregnancy', 'Patient Pregnancy')
     date = fields.DateTime('Date and Time', required=True)
@@ -232,8 +229,7 @@ class PuerperiumMonitor(ModelSQL, ModelView):
 
 class Perinatal(ModelSQL, ModelView):
     'Perinatal Information'
-    _name = 'gnuhealth.perinatal'
-    _description = __doc__
+    __name__ = 'gnuhealth.perinatal'
 
     def get_perinatal_information(self, ids, name):
         result = {}
@@ -345,8 +341,7 @@ class Perinatal(ModelSQL, ModelView):
 
 class PerinatalMonitor(ModelSQL, ModelView):
     'Perinatal Monitor'
-    _name = 'gnuhealth.perinatal.monitor'
-    _description = __doc__
+    __name__ = 'gnuhealth.perinatal.monitor'
 
     name = fields.Many2One('gnuhealth.perinatal', 'Patient Perinatal Evaluation')
     date = fields.DateTime('Date and Time')
@@ -371,8 +366,7 @@ class PerinatalMonitor(ModelSQL, ModelView):
 class GnuHealthPatient(ModelSQL, ModelView):
     'Add to the Medical patient_data class (gnuhealth.patient) the ' \
     'gynecological and obstetric fields.'
-    _name = 'gnuhealth.patient'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient'
 
 
     def get_pregnancy_info(self, ids, name):
@@ -453,8 +447,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'
-    _name = 'gnuhealth.patient.menstrual_history'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.menstrual_history'
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
@@ -490,8 +483,7 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
 
 class PatientMammographyHistory(ModelSQL, ModelView):
     'Mammography History'
-    _name = 'gnuhealth.patient.mammography_history'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.mammography_history'
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
@@ -517,8 +509,7 @@ class PatientMammographyHistory(ModelSQL, ModelView):
 
 class PatientPAPHistory(ModelSQL, ModelView):
     'PAP Test History'
-    _name = 'gnuhealth.patient.pap_history'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.pap_history'
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
@@ -548,8 +539,7 @@ class PatientPAPHistory(ModelSQL, ModelView):
 
 class PatientColposcopyHistory(ModelSQL, ModelView):
     'Colposcopy History'
-    _name = 'gnuhealth.patient.colposcopy_history'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.colposcopy_history'
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
