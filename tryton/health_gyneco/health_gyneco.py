@@ -96,6 +96,18 @@ class PatientPregnancy(ModelSQL, ModelView):
         ('assymetric', 'Assymetric'),
         ], 'IUGR', sort=False)
 
+    def __setup__(cls):
+        super(PatientPregnancy, cls).__setup__()
+        cls._constraints += [
+            ('check_patient_current_pregnancy', 'patient_already_pregnant'),
+        ]
+
+        cls._sql_constraints = [
+            ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
+        ]
+
+        cls._error_messages.update({
+            'patient_already_pregnant': 'Our records indicate that the patient is already pregnant !'})
 
     def check_patient_current_pregnancy(self, ids):
         ''' Check for only one current pregnancy in the patient '''
@@ -109,20 +121,6 @@ class PatientPregnancy(ModelSQL, ModelView):
             if cursor.fetchone()[0] > 1:
                 return False
             return True
-
-    def __init__(self):
-        super(PatientPregnancy, self).__init__()
-        self._constraints += [
-            ('check_patient_current_pregnancy', 'patient_already_pregnant'),
-        ]
-
-        self._sql_constraints = [
-            ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must be unique for this patient !'),
-        ]
-
-        self._error_messages.update({
-            'patient_already_pregnant': 'Our records indicate that the patient is already pregnant !'})
-
 
     def default_current_pregnancy(self):
         return True
