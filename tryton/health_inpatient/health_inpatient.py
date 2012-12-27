@@ -34,7 +34,7 @@ __all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
     "Inpatient Registration Sequences for GNU Health"
 
-    _name = "gnuhealth.sequences"
+    __name__ = "gnuhealth.sequences"
 
     inpatient_registration_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Inpatient Sequence', domain=[('code', '=', 'gnuhealth.inpatient.registration')],
@@ -45,8 +45,7 @@ class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
 
 class DietTherapeutic (ModelSQL, ModelView):
     'Diet Therapy'
-    _name="gnuhealth.diet.therapeutic"
-    _description = __doc__
+    __name__="gnuhealth.diet.therapeutic"
 
     name = fields.Char('Diet type', required=True, translate=True)
     code = fields.Char('Code', required=True)
@@ -64,8 +63,7 @@ class DietTherapeutic (ModelSQL, ModelView):
 
 class DietBelief (ModelSQL, ModelView):
     'Diet by Belief'
-    _name="gnuhealth.diet.belief"
-    _description = __doc__
+    __name__="gnuhealth.diet.belief"
 
     name = fields.Char('Belief', required=True, translate=True)
     code = fields.Char('Code', required=True)
@@ -81,8 +79,7 @@ class DietBelief (ModelSQL, ModelView):
 
 class InpatientRegistration(ModelSQL, ModelView):
     'Patient admission History'
-    _name = 'gnuhealth.inpatient.registration'
-    _description = __doc__
+    __name__ = 'gnuhealth.inpatient.registration'
 
     name = fields.Char('Registration Code', readonly=True, select=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
@@ -249,8 +246,7 @@ class InpatientRegistration(ModelSQL, ModelView):
 
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'
-    _name = 'gnuhealth.appointment'
-    _description = __doc__
+    __name__ = 'gnuhealth.appointment'
 
     inpatient_registration_code = fields.Many2One(
         'gnuhealth.inpatient.registration', 'Inpatient Registration',
@@ -259,8 +255,7 @@ class Appointment(ModelSQL, ModelView):
 
 class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
-    _name = 'gnuhealth.patient'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient'
 
     def get_patient_status(self, ids, name):
         cursor = Transaction().cursor
@@ -298,8 +293,8 @@ class PatientData(ModelSQL, ModelView):
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
-    _name = 'gnuhealth.inpatient.medication'
-    _description = __doc__
+    __name__ = 'gnuhealth.inpatient.medication'
+
     name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
 
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
@@ -390,9 +385,7 @@ class InpatientMedication (ModelSQL, ModelView):
 
 class InpatientMedicationAdminTimes (ModelSQL, ModelView):
     'Inpatient Medication Admin Times'
-    _name="gnuhealth.inpatient.medication.admin_time"
-    _description = __doc__
-
+    __name__="gnuhealth.inpatient.medication.admin_time"
 
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
     admin_time = fields.Time ("Time")
@@ -407,8 +400,7 @@ class InpatientMedicationAdminTimes (ModelSQL, ModelView):
 
 class InpatientMedicationLog (ModelSQL, ModelView):
     'Inpatient Medication Log History'
-    _name="gnuhealth.inpatient.medication.log"
-    _description = __doc__
+    __name__="gnuhealth.inpatient.medication.log"
 
 
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
@@ -448,8 +440,7 @@ class InpatientMedicationLog (ModelSQL, ModelView):
 
 class InpatientDiet (ModelSQL, ModelView):
     'Inpatient Diet'
-    _name="gnuhealth.inpatient.diet"
-    _description = __doc__
+    __name__="gnuhealth.inpatient.diet"
 
 
     name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
