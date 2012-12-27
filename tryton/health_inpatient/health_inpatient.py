@@ -51,6 +51,7 @@ class DietTherapeutic (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     description = fields.Text ('Indications', required=True , translate=True )
 
+    @classmethod
     def __setup__(cls):
         super(DietTherapeutic, cls).__setup__()
 
@@ -69,6 +70,7 @@ class DietBelief (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     description = fields.Text ('Description', required=True , translate=True )
 
+    @classmethod
     def __setup__(cls):
         super(DietBelief, cls).__setup__()
 
@@ -208,6 +210,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         return 'free'
 
 
+    @classmethod
     def __setup__(cls):
         super(InpatientRegistration, cls).__setup__()
 
@@ -258,7 +261,10 @@ class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
     __name__ = 'gnuhealth.patient'
 
-    def get_patient_status(self, ids, name):
+    patient_status = fields.Function(fields.Char('Hospitalization Status'),
+        'get_patient_status')
+
+    def get_patient_status(self, name):
         cursor = Transaction().cursor
 
         def get_hospitalization_status(patient_dbid):
@@ -274,23 +280,17 @@ class PatientData(ModelSQL, ModelView):
 
             return patient_status
 
-        result = {}
+        result = ''
 
-# Get the patient (DB) id to be used in the search on the medical inpatient
-# registration table lookup
+        # Get the patient (DB) id to be used in the search on the medical inpatient
+        # registration table lookup
 
-        for patient_data in self.browse(ids):
-            patient_dbid = patient_data.id
+        patient_dbid = self.id
 
-            if patient_dbid:
-                result[patient_data.id] = \
-                        get_hospitalization_status(patient_dbid)
+        if patient_dbid:
+            result = get_hospitalization_status(patient_dbid)
 
         return result
-
-    patient_status = fields.Function(fields.Char('Hospitalization Status'),
-        'get_patient_status')
-
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
