@@ -19,4 +19,20 @@
 #
 ##############################################################################
 
-from health_inpatient import * 
+from trytond.pool import Pool
+from .health_inpatient import *
+
+
+def register():
+    Pool.register(
+        InpatientSequences,
+        DietTherapeutic,
+        DietBelief,
+        InpatientRegistration,
+        Appointment,
+        PatientData,
+        InpatientMedication,
+        InpatientMedicationAdminTimes,
+        InpatientMedicationLog,
+        InpatientDiet,
+        module='health_inpatient', type_='model')

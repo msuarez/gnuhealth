@@ -18,13 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-
+from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal
-from datetime import datetime
+
+
+__all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
+    'InpatientRegistration', 'Appointment', 'PatientData',
+    'InpatientMedication', 'InpatientMedicationAdminTimes',
+    'InpatientMedicationLog', 'InpatientDiet']
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -36,8 +40,6 @@ class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
         'Inpatient Sequence', domain=[('code', '=', 'gnuhealth.inpatient.registration')],
         required=True))
 
-InpatientSequences()
-
 
 # Therapeutic Diet types
 
@@ -45,7 +47,7 @@ class DietTherapeutic (ModelSQL, ModelView):
     'Diet Therapy'
     _name="gnuhealth.diet.therapeutic"
     _description = __doc__
-    
+
     name = fields.Char('Diet type', required=True, translate=True)
     code = fields.Char('Code', required=True)
     description = fields.Text ('Indications', required=True , translate=True )
@@ -56,8 +58,6 @@ class DietTherapeutic (ModelSQL, ModelView):
         self._sql_constraints = [
             ('code_uniq', 'unique(code)',
              'The Diet code already exists')]
-    
-DietTherapeutic()
 
 
 # Diet by belief / religion
@@ -66,7 +66,7 @@ class DietBelief (ModelSQL, ModelView):
     'Diet by Belief'
     _name="gnuhealth.diet.belief"
     _description = __doc__
-    
+
     name = fields.Char('Belief', required=True, translate=True)
     code = fields.Char('Code', required=True)
     description = fields.Text ('Description', required=True , translate=True )
@@ -77,8 +77,7 @@ class DietBelief (ModelSQL, ModelView):
         self._sql_constraints = [
             ('code_uniq', 'unique(code)',
              'The Diet code already exists')]
-    
-DietBelief()
+
 
 class InpatientRegistration(ModelSQL, ModelView):
     'Patient admission History'
@@ -128,7 +127,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     nutrition_notes = fields.Text('Nutrition notes / directions')
 
     discharge_plan = fields.Text('Discharge Plan')
-    
+
     info = fields.Text('Extra Info')
     state = fields.Selection((
         ('free', 'free'),
@@ -185,14 +184,14 @@ class InpatientRegistration(ModelSQL, ModelView):
     def button_registration_admission(self, ids):
         registration_id = self.browse(ids)[0]
         bed_obj = Pool().get('gnuhealth.hospital.bed')
-        
+
         if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
             self.raise_user_error ("The Admission date must be today")
         else:
             self.write(ids, {'state': 'hospitalized'})
 
             bed_obj.write(registration_id.bed.id, {'state': 'occupied'})
-            
+
         return True
 
     def create(self, values):
@@ -244,11 +243,8 @@ class InpatientRegistration(ModelSQL, ModelView):
                 'button_registration_admission': {
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
-                    
+
                 })
-
-
-InpatientRegistration()
 
 
 class Appointment(ModelSQL, ModelView):
@@ -259,8 +255,6 @@ class Appointment(ModelSQL, ModelView):
     inpatient_registration_code = fields.Many2One(
         'gnuhealth.inpatient.registration', 'Inpatient Registration',
         help="Enter the patient hospitalization code")
-
-Appointment()
 
 
 class PatientData(ModelSQL, ModelView):
@@ -301,7 +295,6 @@ class PatientData(ModelSQL, ModelView):
     patient_status = fields.Function(fields.Char('Hospitalization Status'),
         'get_patient_status')
 
-PatientData()
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
@@ -349,7 +342,7 @@ class InpatientMedication (ModelSQL, ModelView):
 
     frequency_prn = fields.Boolean('PRN',
         help='Use it as needed, pro re nata')
-        
+
     is_active = fields.Boolean('Active',
         on_change_with=['discontinued', 'course_completed'],
         help='Check if the patient is currently taking the medication')
@@ -394,14 +387,13 @@ class InpatientMedication (ModelSQL, ModelView):
     def default_is_active(self):
         return True
 
-InpatientMedication()
 
 class InpatientMedicationAdminTimes (ModelSQL, ModelView):
     'Inpatient Medication Admin Times'
     _name="gnuhealth.inpatient.medication.admin_time"
     _description = __doc__
 
-    
+
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
     admin_time = fields.Time ("Time")
     dose = fields.Float('Dose',
@@ -411,15 +403,14 @@ class InpatientMedicationAdminTimes (ModelSQL, ModelView):
 
     remarks = fields.Text('Remarks',
         help='specific remarks for this dose')
-    
-InpatientMedicationAdminTimes()
+
 
 class InpatientMedicationLog (ModelSQL, ModelView):
     'Inpatient Medication Log History'
     _name="gnuhealth.inpatient.medication.log"
     _description = __doc__
 
-    
+
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
     admin_time = fields.DateTime ("Date", readonly=True)
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
@@ -454,9 +445,6 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     def default_admin_time(self):
         return datetime.now()
 
-InpatientMedicationLog()
-
-
 
 class InpatientDiet (ModelSQL, ModelView):
     'Inpatient Diet'
@@ -464,10 +452,7 @@ class InpatientDiet (ModelSQL, ModelView):
     _description = __doc__
 
 
-    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')    
+    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
     diet = fields.Many2One('gnuhealth.diet.therapeutic', 'Diet', required=True)
     remarks = fields.Text('Remarks / Directions',
         help='specific remarks for this diet / patient')
-    
-InpatientDiet()
-
