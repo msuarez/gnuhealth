@@ -356,29 +356,17 @@ class InpatientMedication (ModelSQL, ModelView):
     adverse_reaction = fields.Text('Adverse Reactions',
         help='Side effects or adverse reactions that the patient experienced')
 
-    def on_change_with_is_active(self, vals):
-        discontinued = vals.get('discontinued')
-        course_completed = vals.get('course_completed')
+    def on_change_with_is_active(self):
         is_active = True
-        if (discontinued or course_completed):
+        if (self.discontinued or self.course_completed):
             is_active = False
         return is_active
 
-    def on_change_with_discontinued(self, vals):
-        discontinued = vals.get('discontinued')
-        is_active = vals.get('is_active')
-        course_completed = vals.get('course_completed')
-        if (is_active or course_completed):
-            discontinued = False
-        return discontinued
+    def on_change_with_discontinued(self):
+        return not (self.is_active or self.course_completed)
 
-    def on_change_with_course_completed(self, vals):
-        is_active = vals.get('is_active')
-        course_completed = vals.get('discontinued')
-        discontinued = vals.get('discontinued')
-        if (is_active or discontinued):
-            course_completed = False
-        return course_completed
+    def on_change_with_course_completed(self):
+        return not (self.is_active or self.discontinued)
 
     @staticmethod
     def default_is_active():
