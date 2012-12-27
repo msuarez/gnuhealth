@@ -203,7 +203,8 @@ class InpatientRegistration(ModelSQL, ModelView):
 
         return super(InpatientRegistration, self).create(values)
 
-    def default_state(self):
+    @staticmethod
+    def default_state():
         return 'free'
 
 
@@ -379,7 +380,8 @@ class InpatientMedication (ModelSQL, ModelView):
             course_completed = False
         return course_completed
 
-    def default_is_active(self):
+    @staticmethod
+    def default_is_active():
         return True
 
 
@@ -415,7 +417,8 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     remarks = fields.Text('Remarks',
         help='specific remarks for this dose')
 
-    def default_health_professional(self):
+    @staticmethod
+    def default_health_professional():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
@@ -434,7 +437,8 @@ class InpatientMedicationLog (ModelSQL, ModelView):
 
             return int(doctor_id[0])
 
-    def default_admin_time(self):
+    @staticmethod
+    def default_admin_time():
         return datetime.now()
 
 
