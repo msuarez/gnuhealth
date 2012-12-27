@@ -51,10 +51,10 @@ class DietTherapeutic (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     description = fields.Text ('Indications', required=True , translate=True )
 
-    def __init__(self):
-        super(DietTherapeutic, self).__init__()
+    def __setup__(cls):
+        super(DietTherapeutic, cls).__setup__()
 
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('code_uniq', 'unique(code)',
              'The Diet code already exists')]
 
@@ -69,10 +69,10 @@ class DietBelief (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     description = fields.Text ('Description', required=True , translate=True )
 
-    def __init__(self):
-        super(DietBelief, self).__init__()
+    def __setup__(cls):
+        super(DietBelief, cls).__setup__()
 
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('code_uniq', 'unique(code)',
              'The Diet code already exists')]
 
@@ -207,26 +207,26 @@ class InpatientRegistration(ModelSQL, ModelView):
         return 'free'
 
 
-    def __init__(self):
-        super(InpatientRegistration, self).__init__()
+    def __setup__(cls):
+        super(InpatientRegistration, cls).__setup__()
 
-        self._rpc.update({
+        cls._rpc.update({
             'button_registration_confirm': True,
             'button_patient_discharge': True,
             'button_registration_cancel': True,
             'button_registration_admission': True,
         })
 
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'unique(name)',
              'The Registration code already exists')
         ]
 
-        self._error_messages.update({
+        cls._error_messages.update({
                 'bed_is_not_available': 'Bed is not available'})
 
 
-        self._buttons.update({
+        cls._buttons.update({
                 'button_registration_confirm': {
                     'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
                     },
