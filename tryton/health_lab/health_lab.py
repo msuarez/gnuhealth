@@ -167,15 +167,10 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     def default_excluded():
         return False
 
-    def on_change_with_warning(self, vals):
-        lower_limit = vals.get('lower_limit')
-        upper_limit = vals.get('upper_limit')
-        result = vals.get ('result')
-        if (result < lower_limit or result > upper_limit):
-            warning = True
-        else:
-            warning = False
-        return warning
+    def on_change_with_warning(self):
+        if (self.result < self.lower_limit or self.result > self.upper_limit):
+            return True
+        return False
 
 
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
