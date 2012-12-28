@@ -19,4 +19,12 @@
 #
 ##############################################################################
 
-from health_inpatient_calendar import *
+from trytond.pool import Pool
+from .health_inpatient_calendar import *
+
+
+def register():
+    Pool.register(
+        HospitalBed,
+        InpatientRegistration,
+        module='health_inpatient_calendar', type_='model')

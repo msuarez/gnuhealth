@@ -22,14 +22,15 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 
 
+__all__ = ['HospitalBed', 'InpatientRegistration']
+
+
 class HospitalBed(ModelSQL, ModelView):
     "Add Calendar to Hospital Bed"
     _name = "gnuhealth.hospital.bed"
     _description = __doc__
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar')
-
-HospitalBed()
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -111,5 +112,3 @@ class InpatientRegistration(ModelSQL, ModelView):
             if inpatient_registration.event:
                 event_obj.delete(inpatient_registration.event.id)
         return super(InpatientRegistration, self).delete(ids)
-
-InpatientRegistration()
