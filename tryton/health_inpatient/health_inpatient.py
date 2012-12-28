@@ -33,12 +33,11 @@ __all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
     "Inpatient Registration Sequences for GNU Health"
-
     __name__ = "gnuhealth.sequences"
 
-    inpatient_registration_sequence = fields.Property(fields.Many2One('ir.sequence',
-        'Inpatient Sequence', domain=[('code', '=', 'gnuhealth.inpatient.registration')],
-        required=True))
+    inpatient_registration_sequence = fields.Property(fields.Many2One(
+        'ir.sequence', 'Inpatient Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.inpatient.registration')]))
 
 
 # Therapeutic Diet types
@@ -49,7 +48,7 @@ class DietTherapeutic (ModelSQL, ModelView):
 
     name = fields.Char('Diet type', required=True, translate=True)
     code = fields.Char('Code', required=True)
-    description = fields.Text ('Indications', required=True , translate=True )
+    description = fields.Text('Indications', required=True, translate=True)
 
     @classmethod
     def __setup__(cls):
@@ -68,7 +67,7 @@ class DietBelief (ModelSQL, ModelView):
 
     name = fields.Char('Belief', required=True, translate=True)
     code = fields.Char('Code', required=True)
-    description = fields.Text ('Description', required=True , translate=True )
+    description = fields.Text('Description', required=True, translate=True)
 
     @classmethod
     def __setup__(cls):
@@ -96,24 +95,23 @@ class InpatientRegistration(ModelSQL, ModelView):
     hospitalization_date = fields.DateTime('Hospitalization date',
         required=True, select=True)
     discharge_date = fields.DateTime('Expected Discharge Date', required=True,
-     select=True)
+        select=True)
     attending_physician = fields.Many2One('gnuhealth.physician',
-        'Attending Physician',select=True)
+        'Attending Physician', select=True)
     operating_physician = fields.Many2One('gnuhealth.physician',
         'Operating Physician')
     admission_reason = fields.Many2One('gnuhealth.pathology',
         'Reason for Admission', help="Reason for Admission", select=True)
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
-     required=True, select=True)
+        required=True, select=True)
     nursing_plan = fields.Text('Nursing Plan')
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
         'Medications')
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
         'Therapeutic Diets')
-
     diet_belief = fields.Many2One('gnuhealth.diet.belief',
-        'Belief', help="Enter the patient belief or religion to choose the proper diet")
-
+        'Belief', help="Enter the patient belief or religion to choose the \
+            proper diet")
     diet_vegetarian = fields.Selection((
         ('none', 'None'),
         ('vegetarian', 'Vegetarian'),
@@ -122,11 +120,8 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('pescetarian', 'Pescetarian'),
         ('vegan', 'Vegan'),
         ), 'Vegetarian', sort=False, required=True)
-
     nutrition_notes = fields.Text('Nutrition notes / directions')
-
     discharge_plan = fields.Text('Discharge Plan')
-
     info = fields.Text('Extra Info')
     state = fields.Selection((
         ('free', 'free'),
@@ -146,7 +141,8 @@ class InpatientRegistration(ModelSQL, ModelView):
                 'bed_is_not_available': 'Bed is not available'})
         cls._buttons.update({
                 'confirmed': {
-                    'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
+                    'invisible': And(Not(Equal(Eval('state'), 'free')),
+                        Not(Equal(Eval('state'), 'cancelled'))),
                     },
                 'cancel': {
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
@@ -174,14 +170,14 @@ class InpatientRegistration(ModelSQL, ModelView):
                 OVERLAPS (timestamp %s, timestamp %s) \
               AND (state = %s or state = %s) \
               AND bed = CAST(%s AS INTEGER) ",
-            (registration_id.hospitalization_date, registration_id.discharge_date,
-            'confirmed','hospitalized', str(bed_id)))
-
+            (registration_id.hospitalization_date,
+            registration_id.discharge_date,
+            'confirmed', 'hospitalized', str(bed_id)))
         res = cursor.fetchone()
-
-        if (registration_id.discharge_date.date() < registration_id.hospitalization_date.date()):
-            cls.raise_user_error ("The Discharge date must later than the Admission")
-
+        if (registration_id.discharge_date.date() <
+            registration_id.hospitalization_date.date()):
+            cls.raise_user_error("The Discharge date must later than the \
+                Admission")
         if res[0] > 0:
             cls.raise_user_error('bed_is_not_available')
         else:
@@ -212,11 +208,11 @@ class InpatientRegistration(ModelSQL, ModelView):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
-            cls.raise_user_error ("The Admission date must be today")
+        if (registration_id.hospitalization_date.date() !=
+            datetime.today().date()):
+            cls.raise_user_error("The Admission date must be today")
         else:
             cls.write(registrations, {'state': 'hospitalized'})
-
             Bed.write([registration_id.bed], {'state': 'occupied'})
 
     @classmethod
@@ -229,7 +225,6 @@ class InpatientRegistration(ModelSQL, ModelView):
             config = Config(1)
             values['name'] = Sequence.get_id(
                 config.inpatient_registration_sequence.id)
-
         return super(InpatientRegistration, cls).create(values)
 
     @staticmethod
@@ -257,64 +252,58 @@ class PatientData(ModelSQL, ModelView):
         cursor = Transaction().cursor
 
         def get_hospitalization_status(patient_dbid):
-            cursor.execute('SELECT state ' \
-                'FROM gnuhealth_inpatient_registration ' \
-                'WHERE patient = %s ' \
+            cursor.execute('SELECT state '
+                'FROM gnuhealth_inpatient_registration '
+                'WHERE patient = %s '
                   'AND state = \'hospitalized\' ', (str(patient_dbid),))
-
             try:
                 patient_status = str(cursor.fetchone()[0])
             except:
                 patient_status = 'outpatient'
-
             return patient_status
 
         result = ''
 
-        # Get the patient (DB) id to be used in the search on the medical inpatient
-        # registration table lookup
-
+        # Get the patient (DB) id to be used in the search on the medical
+        # inpatient registration table lookup
         patient_dbid = self.id
-
         if patient_dbid:
             result = get_hospitalization_status(patient_dbid)
-
         return result
+
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
     __name__ = 'gnuhealth.inpatient.medication'
 
-    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
-
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code')
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
         required=True, help='Prescribed Medicament')
     indication = fields.Many2One('gnuhealth.pathology', 'Indication',
-        help='Choose a disease for this medicament from the disease list. It'\
+        help='Choose a disease for this medicament from the disease list. It'
         ' can be an existing disease of the patient or a prophylactic.')
-
     start_treatment = fields.DateTime('Start',
         help='Date of start of Treatment', required=True)
     end_treatment = fields.DateTime('End', help='Date of start of Treatment')
-
     dose = fields.Float('Dose',
         help='Amount of medication (eg, 250 mg) per dose', required=True)
-    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',required=True,
-        help='Unit of measure for the medication to be taken')
-    route = fields.Many2One('gnuhealth.drug.route', 'Administration Route',required=True,
-        help='Drug administration route code.')
-    form = fields.Many2One('gnuhealth.drug.form', 'Form',required=True,
+    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
+        required=True, help='Unit of measure for the medication to be taken')
+    route = fields.Many2One('gnuhealth.drug.route', 'Administration Route',
+        required=True, help='Drug administration route code.')
+    form = fields.Many2One('gnuhealth.drug.form', 'Form', required=True,
         help='Drug form, such as tablet or gel')
-    qty = fields.Integer('x',required=True,
+    qty = fields.Integer('x', required=True,
         help='Quantity of units (eg, 2 capsules) of the medicament')
     common_dosage = fields.Many2One('gnuhealth.medication.dosage', 'Frequency',
         help='Common / standard dosage frequency for this medicament')
-
-    admin_times = fields.One2Many ('gnuhealth.inpatient.medication.admin_time','name',"Admin times")
-    log_history = fields.One2Many ('gnuhealth.inpatient.medication.log','name',"Log History")
-
+    admin_times = fields.One2Many('gnuhealth.inpatient.medication.admin_time',
+        'name', "Admin times")
+    log_history = fields.One2Many('gnuhealth.inpatient.medication.log', 'name',
+        "Log History")
     frequency = fields.Integer('Frequency',
-        help='Time in between doses the patient must wait (ie, for 1 pill'\
+        help='Time in between doses the patient must wait (ie, for 1 pill'
         ' each 8 hours, put here 8 and select \"hours\" in the unit field')
     frequency_unit = fields.Selection([
         ('seconds', 'seconds'),
@@ -324,10 +313,8 @@ class InpatientMedication (ModelSQL, ModelView):
         ('weeks', 'weeks'),
         ('wr', 'when required'),
         ], 'unit', select=True, sort=False)
-
     frequency_prn = fields.Boolean('PRN',
         help='Use it as needed, pro re nata')
-
     is_active = fields.Boolean('Active',
         on_change_with=['discontinued', 'course_completed'],
         help='Check if the patient is currently taking the medication')
@@ -367,12 +354,11 @@ class InpatientMedicationAdminTimes (ModelSQL, ModelView):
     __name__="gnuhealth.inpatient.medication.admin_time"
 
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
-    admin_time = fields.Time ("Time")
+    admin_time = fields.Time("Time")
     dose = fields.Float('Dose',
         help='Amount of medication (eg, 250 mg) per dose')
     dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
         help='Unit of measure for the medication to be taken')
-
     remarks = fields.Text('Remarks',
         help='specific remarks for this dose')
 
@@ -381,16 +367,14 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     'Inpatient Medication Log History'
     __name__="gnuhealth.inpatient.medication.log"
 
-
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
-    admin_time = fields.DateTime ("Date", readonly=True)
-    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
-
+    admin_time = fields.DateTime("Date", readonly=True)
+    health_professional = fields.Many2One('gnuhealth.physician',
+        'Health Professional', readonly=True)
     dose = fields.Float('Dose',
         help='Amount of medication (eg, 250 mg) per dose')
     dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
         help='Unit of measure for the medication to be taken')
-
     remarks = fields.Text('Remarks',
         help='specific remarks for this dose')
 
@@ -403,15 +387,11 @@ class InpatientMedicationLog (ModelSQL, ModelView):
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
-        if not partner_id:
-            self.raise_user_error('No health professional associated to this \
-                user')
-        else:
+        if partner_id:
             cursor = Transaction().cursor
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
-
             return int(doctor_id[0])
 
     @staticmethod
@@ -423,8 +403,8 @@ class InpatientDiet (ModelSQL, ModelView):
     'Inpatient Diet'
     __name__="gnuhealth.inpatient.diet"
 
-
-    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code')
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code')
     diet = fields.Many2One('gnuhealth.diet.therapeutic', 'Diet', required=True)
     remarks = fields.Text('Remarks / Directions',
         help='specific remarks for this diet / patient')
