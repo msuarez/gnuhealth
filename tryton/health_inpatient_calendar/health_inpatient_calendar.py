@@ -39,74 +39,66 @@ class InpatientRegistration(ModelSQL, ModelView):
     event = fields.Many2One('calendar.event', 'Calendar Event', readonly=True,
         help="Calendar Event")
 
-    def button_registration_confirm(self, ids):
-        super(InpatientRegistration, self).button_registration_confirm(ids)
+    @classmethod
+    def confirmed(cls, registrations):
+        super(InpatientRegistration, cls).confirmed(registrations)
 
-        event_obj = Pool().get('calendar.event')
+        Event = Pool().get('calendar.event')
 
-        for inpatient_registration_id in ids:
-            inpatient_registration = self.browse(inpatient_registration_id)
+        for inpatient_registration in registrations:
             if inpatient_registration.bed.calendar:
                 if not inpatient_registration.event:
-                    event_id = event_obj.create({
+                    event = Event.create({
                         'dtstart': inpatient_registration.hospitalization_date,
                         'dtend': inpatient_registration.discharge_date,
                         'calendar': inpatient_registration.bed.calendar.id,
                         'summary': inpatient_registration.patient.name.name
                         })
-                    self.write(inpatient_registration_id, {'event': event_id})
+                    cls.write([inpatient_registration], {'event': event.id})
 
-        return True
+    @classmethod
+    def discharge(cls, registrations):
+        super(InpatientRegistration, cls).discharge(registrations)
 
-    def button_patient_discharge(self, ids):
-        super(InpatientRegistration, self).button_patient_discharge(ids)
+        Event = Pool().get('calendar.event')
 
-        event_obj = Pool().get('calendar.event')
-
-        for inpatient_registration_id in ids:
-            inpatient_registration = self.browse(inpatient_registration_id)
+        for inpatient_registration in registrations:
             if inpatient_registration.event:
-                event_obj.delete(inpatient_registration.event.id)
+                Event.delete([inpatient_registration.event])
 
-        return True
+    @classmethod
+    def write(cls, registrations, values):
+        Event = Pool().get('calendar.event')
+        Patient = Pool().get('gnuhealth.patient')
+        HospitalBed = Pool().get('gnuhealth.hospital.bed')
 
-    def write(self, ids, values):
-        event_obj = Pool().get('calendar.event')
-        patient_obj = Pool().get('gnuhealth.patient')
-        hospital_bed_obj = Pool().get('gnuhealth.hospital.bed')
-
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        for inpatient_registration_id in ids:
-            inpatient_registration = self.browse(inpatient_registration_id)
+        for inpatient_registration in registrations:
             if inpatient_registration.event:
                 if 'hospitalization_date' in values:
-                    event_obj.write(inpatient_registration.event.id, {
+                    Event.write([inpatient_registration.event], {
                         'dtstart': values['hospitalization_date'],
                         })
                 if 'discharge_date' in values:
-                    event_obj.write(inpatient_registration.event.id, {
+                    Event.write([inpatient_registration.event], {
                         'dtend': values['discharge_date'],
                         })
                 if 'bed' in values:
-                    bed = hospital_bed_obj.browse(values['bed'])
-                    event_obj.write(inpatient_registration.event.id, {
+                    bed = HospitalBed(values['bed'])
+                    Event.write([inpatient_registration.event], {
                         'calendar': bed.calendar.id,
                         })
                 if 'patient' in values:
-                    patient = patient_obj.browse(values['patient'])
-                    event_obj.write(inpatient_registration.event.id, {
+                    patient = Patient(values['patient'])
+                    Event.write([inpatient_registration.event], {
                         'summary': patient.name.name,
                         })
-        return super(InpatientRegistration, self).write(ids, values)
+        return super(InpatientRegistration, cls).write(registrations, values)
 
-    def delete(self, ids):
-        event_obj = Pool().get('calendar.event')
+    @classmethod
+    def delete(cls, registrations):
+        Event = Pool().get('calendar.event')
 
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        for inpatient_registration_id in ids:
-            inpatient_registration = self.browse(inpatient_registration_id)
+        for inpatient_registration in registrations:
             if inpatient_registration.event:
-                event_obj.delete(inpatient_registration.event.id)
-        return super(InpatientRegistration, self).delete(ids)
+                Event.delete([inpatient_registration.event])
+        return super(InpatientRegistration, cls).delete(registrations)
