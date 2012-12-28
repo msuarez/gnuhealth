@@ -102,17 +102,18 @@ class Lab(ModelSQL, ModelView):
     def default_analysis():
         return datetime.now()
 
-    def create(self, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+    @classmethod
+    def create(cls, values):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj.browse(1)
-            values['name'] = sequence_obj.get_id(
-            config.lab_sequence.id)
+            config = Config(1)
+            values['name'] = Sequence.get_id(
+                config.lab_sequence.id)
 
-        return super(Lab, self).create(values)
+        return super(Lab, cls).create(values)
 
 
 class GnuHealthLabTestUnits(ModelSQL, ModelView):
