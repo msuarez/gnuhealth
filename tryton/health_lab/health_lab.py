@@ -59,9 +59,10 @@ class TestType(ModelSQL, ModelView):
     critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'test_type_id',
         'Test Cases')
 
-    def __init__(self):
-        super(TestType, self).__init__()
-        self._sql_constraints = [
+    @classmethod
+    def __setup__(cls):
+        super(TestType, cls).__setup__()
+        cls._sql_constraints = [
             ('code_uniq', 'unique(name)', 'The Lab Test code must be unique'),
         ]
 
@@ -86,9 +87,10 @@ class Lab(ModelSQL, ModelView):
     date_requested = fields.DateTime('Date requested', required=True, select=True)
     date_analysis = fields.DateTime('Date of the Analysis', select=True)
 
-    def __init__(self):
-        super(Lab, self).__init__()
-        self._sql_constraints += [
+    @classmethod
+    def __setup__(cls):
+        super(Lab, cls).__setup__()
+        cls._sql_constraints += [
             ('id_uniq', 'unique (name)', 'The test ID code must be unique'),
         ]
 
@@ -118,9 +120,10 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
     name = fields.Char('Unit', select=True)
     code = fields.Char('Code', select=True)
 
-    def __init__(self):
-        super(GnuHealthLabTestUnits, self).__init__()
-        self._sql_constraints = [
+    @classmethod
+    def __setup__(cls):
+        super(GnuHealthLabTestUnits, cls).__setup__()
+        cls._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Unit name must be unique'),
         ]
 
@@ -149,9 +152,10 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases', select=True)
     sequence = fields.Integer('Sequence')
 
-    def __init__(self):
-        super(GnuHealthTestCritearea, self).__init__()
-        self._order.insert(0, ('sequence', 'ASC'))
+    @classmethod
+    def __setup__(cls):
+        super(GnuHealthTestCritearea, cls).__setup__()
+        cls._order.insert(0, ('sequence', 'ASC'))
 
     def default_sequence(self):
         return 1
