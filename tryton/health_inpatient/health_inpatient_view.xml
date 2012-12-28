@@ -82,14 +82,14 @@
                             <group colspan="4" id="group_registration_holder1">
                                 <group colspan="2" id="group_registration_holder2">
                                     <field name="state" readonly="1"/>
-                                    <button name="button_registration_confirm" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
+                                    <button name="confirmed" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
 
                                 </group>
 
                                 <group colspan="2" id="group_registration_holder3">
-                                    <button name="button_registration_cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
-                                    <button name="button_registration_admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
-                                    <button name="button_patient_discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
+                                    <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
+                                    <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
+                                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
 
                                 </group>
 

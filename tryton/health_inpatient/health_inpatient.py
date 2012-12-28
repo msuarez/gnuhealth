@@ -138,12 +138,6 @@ class InpatientRegistration(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(InpatientRegistration, cls).__setup__()
-        cls.__rpc__.update({
-            'button_registration_confirm': True,
-            'button_patient_discharge': True,
-            'button_registration_cancel': True,
-            'button_registration_admission': True,
-        })
         cls._sql_constraints = [
             ('name_uniq', 'unique(name)',
              'The Registration code already exists')
@@ -151,23 +145,25 @@ class InpatientRegistration(ModelSQL, ModelView):
         cls._error_messages.update({
                 'bed_is_not_available': 'Bed is not available'})
         cls._buttons.update({
-                'button_registration_confirm': {
+                'confirmed': {
                     'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
                     },
-                'button_registration_cancel': {
+                'cancel': {
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
-                'button_patient_discharge': {
+                'discharge': {
                     'invisible': Not(Equal(Eval('state'), 'hospitalized')),
                     },
-                'button_registration_admission': {
+                'admission': {
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
                 })
 
     ## Method to check for availability and make the hospital bed reservation
 
-    def button_registration_confirm(self, registrations):
+    @classmethod
+    @ModelView.button
+    def confirmed(cls, registrations):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
         cursor = Transaction().cursor
@@ -184,44 +180,44 @@ class InpatientRegistration(ModelSQL, ModelView):
         res = cursor.fetchone()
 
         if (registration_id.discharge_date.date() < registration_id.hospitalization_date.date()):
-            self.raise_user_error ("The Discharge date must later than the Admission")
+            cls.raise_user_error ("The Discharge date must later than the Admission")
 
         if res[0] > 0:
-            self.raise_user_error('bed_is_not_available')
+            cls.raise_user_error('bed_is_not_available')
         else:
-            self.write(registrations, {'state': 'confirmed'})
+            cls.write(registrations, {'state': 'confirmed'})
             Bed.write([registration_id.bed], {'state': 'reserved'})
 
-        return True
-
-    def button_patient_discharge(self, registrations):
+    @classmethod
+    @ModelView.button
+    def discharge(cls, registrations):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        self.write(registrations, {'state': 'free'})
+        cls.write(registrations, {'state': 'free'})
         Bed.write([registration_id.bed], {'state': 'free'})
-        return True
 
-    def button_registration_cancel(self, registrations):
+    @classmethod
+    @ModelView.button
+    def cancel(cls, registrations):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        self.write(registrations, {'state': 'cancelled'})
+        cls.write(registrations, {'state': 'cancelled'})
         Bed.write([registration_id.bed], {'state': 'free'})
-        return True
 
-    def button_registration_admission(self, registrations):
+    @classmethod
+    @ModelView.button
+    def admission(cls, registrations):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
         if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
-            self.raise_user_error ("The Admission date must be today")
+            cls.raise_user_error ("The Admission date must be today")
         else:
-            self.write(registrations, {'state': 'hospitalized'})
+            cls.write(registrations, {'state': 'hospitalized'})
 
             Bed.write([registration_id.bed], {'state': 'occupied'})
-
-        return True
 
     @classmethod
     def create(cls, values):
