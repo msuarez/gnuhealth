@@ -19,18 +19,18 @@
 #
 ##############################################################################
 from trytond.model import ModelView
-from trytond.wizard import Wizard, StateTransition, StateView, StateTransition, \
-    Button
+from trytond.wizard import Wizard, StateTransition, StateView, Button
 from trytond.transaction import Transaction
-
 from trytond.pool import Pool
+
+
+__all__ = ['CreateLabTestOrderInit', 'CreateLabTestOrder']
+
 
 class CreateLabTestOrderInit(ModelView):
     'Create Test Report Init'
     _name = 'gnuhealth.lab.test.create.init'
     _description = __doc__
-
-CreateLabTestOrderInit()
 
 
 class CreateLabTestOrder(Wizard):
@@ -42,7 +42,7 @@ class CreateLabTestOrder(Wizard):
             Button('Cancel', 'end', 'tryton-cancel'),
             Button('Create Test Order', 'create_lab_test', 'tryton-ok', True),
             ])
-    
+
     create_lab_test = StateTransition()
 
 
@@ -52,11 +52,11 @@ class CreateLabTestOrder(Wizard):
 
         test_report_data = {}
         test_cases = []
-        
+
         test_obj = test_request_obj.browse(Transaction().context.get('active_ids'))
-        
+
         for lab_test_order in test_obj:
-                  
+
             if lab_test_order.state == 'ordered':
                 raise Exception('The Lab test order is already created.')
 
@@ -70,15 +70,13 @@ class CreateLabTestOrder(Wizard):
                         'name': critearea.name,
                         'sequence': critearea.sequence,
                         'lower_limit': critearea.lower_limit,
-                        'upper_limit': critearea.upper_limit,                    
+                        'upper_limit': critearea.upper_limit,
                         'normal_range': critearea.normal_range,
                         'units': critearea.units.id,
                     }))
             test_report_data['critearea'] = test_cases
             lab_id = lab_obj.create(test_report_data)
             test_request_obj.write(lab_test_order.id, {'state': 'ordered'})
-                       
-        return 'end'
-        
 
-CreateLabTestOrder()
+        return 'end'
+

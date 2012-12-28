@@ -19,6 +19,27 @@
 #
 ##############################################################################
 
-from health_lab import *
+from trytond.pool import Pool
+from .health_lab import *
 from report import *
 from wizard import *
+
+
+def register():
+    Pool.register(
+        GnuHealthSequences,
+        PatientData,
+        TestType,
+        Lab,
+        GnuHealthLabTestUnits,
+        GnuHealthTestCritearea,
+        GnuHealthPatientLabTest,
+        module='health_lab', type_='model')
+    Pool.register(
+        CreateLabTestOrderInit,
+        CreateLabTestOrder,
+        module='health_lab', type_='wizard')
+    Pool.register(
+        LabTest,
+        LabTestReport,
+        module='health_lab', type_='report')

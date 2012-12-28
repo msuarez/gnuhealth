@@ -22,6 +22,9 @@ from trytond.transaction import Transaction
 from trytond.modules.company import CompanyReport
 
 
+__all__ = ['LabTest', 'LabTestReport']
+
+
 class LabTest(CompanyReport):
     _name = 'patient.labtest'
 
@@ -72,10 +75,6 @@ class LabTest(CompanyReport):
         else:
             return ''
 
-LabTest()
-
 
 class LabTestReport(CompanyReport):
     _name = 'patient.labtest.report'
-
-LabTestReport()

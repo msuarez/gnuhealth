@@ -21,8 +21,12 @@
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
-
 from trytond.pool import Pool
+
+
+__all__ = ['GnuHealthSequences', 'PatientData', 'TestType', 'Lab',
+    'GnuHealthLabTestUnits', 'GnuHealthTestCritearea',
+    'GnuHealthPatientLabTest']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
@@ -35,7 +39,6 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
         'Lab Sequence', domain=[('code', '=', 'gnuhealth.lab')],
         required=True))
 
-GnuHealthSequences()
 
 class PatientData(ModelSQL, ModelView):
     'Patient lab tests'
@@ -45,17 +48,15 @@ class PatientData(ModelSQL, ModelView):
     lab_test_ids = fields.One2Many('gnuhealth.patient.lab.test', 'patient_id',
         'Lab Tests Required')
 
-PatientData()
-
 
 class TestType(ModelSQL, ModelView):
     'Type of Lab test'
     _name = 'gnuhealth.lab.test_type'
     _description = __doc__
 
-    name = fields.Char('Test', 
+    name = fields.Char('Test',
         help="Test type, eg X-Ray, hemogram,biopsy...", required=True, select=True)
-    code = fields.Char('Code', 
+    code = fields.Char('Code',
         help="Short name - code for the test", required=True, select=True)
     info = fields.Text('Description')
     product_id = fields.Many2One('product.product', 'Service', required=True)
@@ -67,8 +68,6 @@ class TestType(ModelSQL, ModelView):
         self._sql_constraints = [
             ('code_uniq', 'unique(name)', 'The Lab Test code must be unique'),
         ]
-
-TestType()
 
 
 class Lab(ModelSQL, ModelView):
@@ -116,8 +115,6 @@ class Lab(ModelSQL, ModelView):
 
         return super(Lab, self).create(values)
 
-Lab()
-
 
 class GnuHealthLabTestUnits(ModelSQL, ModelView):
     'Lab Test Units'
@@ -132,8 +129,6 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
         self._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Unit name must be unique'),
         ]
-
-GnuHealthLabTestUnits()
 
 
 class GnuHealthTestCritearea(ModelSQL, ModelView):
@@ -170,7 +165,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
 
     def default_excluded(self):
         return False
-        
+
     def on_change_with_warning(self, vals):
         lower_limit = vals.get('lower_limit')
         upper_limit = vals.get('upper_limit')
@@ -180,9 +175,6 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
         else:
             warning = False
         return warning
-        
-
-GnuHealthTestCritearea()
 
 
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
@@ -196,7 +188,7 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('tested', 'Tested'),
-        ('ordered', 'Ordered'),       
+        ('ordered', 'Ordered'),
         ('cancel', 'Cancel'),
         ], 'State', readonly=True, select=True)
     patient_id = fields.Many2One('gnuhealth.patient', 'Patient', required=True,
@@ -228,4 +220,3 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
         else:
             return False
 
-GnuHealthPatientLabTest()
