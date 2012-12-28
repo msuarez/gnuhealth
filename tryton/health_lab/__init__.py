@@ -34,9 +34,9 @@ def register():
         GnuHealthLabTestUnits,
         GnuHealthTestCritearea,
         GnuHealthPatientLabTest,
+        CreateLabTestOrderInit,
         module='health_lab', type_='model')
     Pool.register(
-        CreateLabTestOrderInit,
         CreateLabTestOrder,
         module='health_lab', type_='wizard')
     Pool.register(

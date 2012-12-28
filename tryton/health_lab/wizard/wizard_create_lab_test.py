@@ -45,16 +45,16 @@ class CreateLabTestOrder(Wizard):
     create_lab_test = StateTransition()
 
 
-    def transition_create_lab_test(self, session):
-        test_request_obj = Pool().get('gnuhealth.patient.lab.test')
-        lab_obj = Pool().get('gnuhealth.lab')
+    def transition_create_lab_test(self):
+        TestRequest = Pool().get('gnuhealth.patient.lab.test')
+        Lab = Pool().get('gnuhealth.lab')
 
         test_report_data = {}
         test_cases = []
 
-        test_obj = test_request_obj.browse(Transaction().context.get('active_ids'))
+        tests = TestRequest.browse(Transaction().context.get('active_ids'))
 
-        for lab_test_order in test_obj:
+        for lab_test_order in tests:
 
             if lab_test_order.state == 'ordered':
                 raise Exception('The Lab test order is already created.')
@@ -71,11 +71,11 @@ class CreateLabTestOrder(Wizard):
                         'lower_limit': critearea.lower_limit,
                         'upper_limit': critearea.upper_limit,
                         'normal_range': critearea.normal_range,
-                        'units': critearea.units.id,
+                        'units': critearea.units and critearea.units.id,
                     }))
             test_report_data['critearea'] = test_cases
-            lab_id = lab_obj.create(test_report_data)
-            test_request_obj.write(lab_test_order.id, {'state': 'ordered'})
+            Lab.create(test_report_data)
+            TestRequest.write([lab_test_order], {'state': 'ordered'})
 
         return 'end'
 
