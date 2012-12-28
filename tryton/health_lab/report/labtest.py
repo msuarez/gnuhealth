@@ -26,7 +26,7 @@ __all__ = ['LabTest', 'LabTestReport']
 
 
 class LabTest(CompanyReport):
-    _name = 'patient.labtest'
+    __name__ = 'patient.labtest'
 
     def parse(self, report, objects, datas, localcontext):
         localcontext['get_test'] = self._get_test
@@ -77,4 +77,4 @@ class LabTest(CompanyReport):
 
 
 class LabTestReport(CompanyReport):
-    _name = 'patient.labtest.report'
+    __name__ = 'patient.labtest.report'

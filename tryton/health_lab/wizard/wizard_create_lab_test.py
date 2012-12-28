@@ -29,13 +29,12 @@ __all__ = ['CreateLabTestOrderInit', 'CreateLabTestOrder']
 
 class CreateLabTestOrderInit(ModelView):
     'Create Test Report Init'
-    _name = 'gnuhealth.lab.test.create.init'
-    _description = __doc__
+    __name__ = 'gnuhealth.lab.test.create.init'
 
 
 class CreateLabTestOrder(Wizard):
     'Create Lab Test Report'
-    _name = 'gnuhealth.lab.test.create'
+    __name__ = 'gnuhealth.lab.test.create'
 
     start = StateView('gnuhealth.lab.test.create.init',
         'health_lab.view_lab_make_test', [

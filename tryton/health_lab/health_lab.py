@@ -31,9 +31,7 @@ __all__ = ['GnuHealthSequences', 'PatientData', 'TestType', 'Lab',
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
-
-    _description = __doc__
-    _name = "gnuhealth.sequences"
+    __name__ = "gnuhealth.sequences"
 
     lab_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Lab Sequence', domain=[('code', '=', 'gnuhealth.lab')],
@@ -42,8 +40,7 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
 
 class PatientData(ModelSQL, ModelView):
     'Patient lab tests'
-    _name = 'gnuhealth.patient'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient'
 
     lab_test_ids = fields.One2Many('gnuhealth.patient.lab.test', 'patient_id',
         'Lab Tests Required')
@@ -51,8 +48,7 @@ class PatientData(ModelSQL, ModelView):
 
 class TestType(ModelSQL, ModelView):
     'Type of Lab test'
-    _name = 'gnuhealth.lab.test_type'
-    _description = __doc__
+    __name__ = 'gnuhealth.lab.test_type'
 
     name = fields.Char('Test',
         help="Test type, eg X-Ray, hemogram,biopsy...", required=True, select=True)
@@ -72,8 +68,7 @@ class TestType(ModelSQL, ModelView):
 
 class Lab(ModelSQL, ModelView):
     'Lab Test'
-    _name = 'gnuhealth.lab'
-    _description = __doc__
+    __name__ = 'gnuhealth.lab'
 
     name = fields.Char('ID', help="Lab result ID",readonly=True)
     test = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
@@ -118,8 +113,7 @@ class Lab(ModelSQL, ModelView):
 
 class GnuHealthLabTestUnits(ModelSQL, ModelView):
     'Lab Test Units'
-    _name = 'gnuhealth.lab.test.units'
-    _description = __doc__
+    __name__ = 'gnuhealth.lab.test.units'
 
     name = fields.Char('Unit', select=True)
     code = fields.Char('Code', select=True)
@@ -133,8 +127,7 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
 
 class GnuHealthTestCritearea(ModelSQL, ModelView):
     'Lab Test Critearea'
-    _name = 'gnuhealth.lab.test.critearea'
-    _description = __doc__
+    __name__ = 'gnuhealth.lab.test.critearea'
 
     name = fields.Char('Analyte', required=True, select=True)
     excluded = fields.Boolean('Excluded',help='Select this option when' \
@@ -179,8 +172,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
 
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
     'Patient Lab Test'
-    _name = 'gnuhealth.patient.lab.test'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.lab.test'
 
     name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type', required=True,
      select=True)
