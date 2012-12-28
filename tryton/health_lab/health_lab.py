@@ -94,10 +94,12 @@ class Lab(ModelSQL, ModelView):
             ('id_uniq', 'unique (name)', 'The test ID code must be unique'),
         ]
 
-    def default_date_requested(self):
+    @staticmethod
+    def default_date_requested():
         return datetime.now()
 
-    def default_analysis(self):
+    @staticmethod
+    def default_analysis():
         return datetime.now()
 
     def create(self, values):
@@ -157,10 +159,12 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
         super(GnuHealthTestCritearea, cls).__setup__()
         cls._order.insert(0, ('sequence', 'ASC'))
 
-    def default_sequence(self):
+    @staticmethod
+    def default_sequence():
         return 1
 
-    def default_excluded(self):
+    @staticmethod
+    def default_excluded():
         return False
 
     def on_change_with_warning(self, vals):
@@ -192,24 +196,27 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
     doctor_id = fields.Many2One('gnuhealth.physician', 'Doctor',
         help="Doctor who Request the lab test.", select=True)
 
-    def default_date(self):
+    @staticmethod
+    def default_date():
         return datetime.now()
 
-    def default_state(self):
+    @staticmethod
+    def default_state():
         return 'draft'
 
-    def default_doctor_id(self):
-        user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+    @staticmethod
+    def default_doctor_id():
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         uid = int(user.id)
 
-        party_id = Pool().get('party.party').search([
+        parties = Pool().get('party.party').search([
                 ('internal_user', '=', uid)])
-        if party_id:
-            dr_id = Pool().get('gnuhealth.physician').search([
-                    ('name', '=', party_id[0])])
-            if dr_id:
-                return dr_id[0]
+        if parties:
+            doctors = Pool().get('gnuhealth.physician').search([
+                    ('name', '=', parties[0].id)])
+            if doctors:
+                return doctors[0].id
             else:
                 raise Exception('There is no physician defined ' \
                                 'for current user.')
