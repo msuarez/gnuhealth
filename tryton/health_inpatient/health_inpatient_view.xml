@@ -82,14 +82,14 @@
                             <group colspan="4" id="group_registration_holder1">
                                 <group colspan="2" id="group_registration_holder2">
                                     <field name="state" readonly="1"/>
-                                    <button name="button_registration_confirm" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok" type="object"/>
+                                    <button name="button_registration_confirm" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
 
                                 </group>
 
                                 <group colspan="2" id="group_registration_holder3">
-                                    <button name="button_registration_cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?" type="object"/>
-                                    <button name="button_registration_admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed" type="object"/>
-                                    <button name="button_patient_discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution." type="object"/>
+                                    <button name="button_registration_cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
+                                    <button name="button_registration_admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
+                                    <button name="button_patient_discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
 
                                 </group>
 
@@ -98,20 +98,20 @@
                         </page>
                         <page string="Nutrition" id="page_inpatient_nutrition">
                             <label name="diet_belief"/>
-                            <field name="diet_belief"/>                        
+                            <field name="diet_belief"/>
                             <label name="diet_vegetarian"/>
-                            <field name="diet_vegetarian"/>                        
+                            <field name="diet_vegetarian"/>
                             <newline/>
                             <field colspan="4" name="therapeutic_diets"/>
                             <newline/>
                             <separator colspan="4" id="separator_nutrition_notes" string="Other nutrition notes / directions"/>
                             <newline/>
-                            <field colspan="4" name="nutrition_notes"/>                        
-                            
+                            <field colspan="4" name="nutrition_notes"/>
+
                         </page>
 
                         <page string="Medication" id="page_inpatient_medication">
-                            <field name="medications"/>                        
+                            <field name="medications"/>
                         </page>
 
                         <page string="Care Plan" id="page_care_plan">
@@ -305,7 +305,7 @@
                             </group>
                             <newline/>
                             <field name="log_history"/>
-                            
+
                         </page>
 
                     </notebook>
@@ -322,7 +322,7 @@
                 <![CDATA[
                 <tree string="Inpatient Medication"
                     colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="medicament" expand="1"/>                   
+                    <field name="medicament" expand="1"/>
                     <field name="start_treatment" expand="1"/>
                     <field name="end_treatment" expand="1"/>
                     <field name="admin_times"/>
@@ -366,7 +366,7 @@
                         <field name="admin_time"/>
                         <field name="dose"/>
                         <field name="dose_unit"/>
-                        <field name="remarks" expand="1"/>                                              
+                        <field name="remarks" expand="1"/>
                     </tree>
                 ]]>
             </field>
@@ -406,7 +406,7 @@
                         <field name="health_professional" expand="1"/>
                         <field name="dose"/>
                         <field name="dose_unit"/>
-                        <field name="remarks" expand="1"/>                                              
+                        <field name="remarks" expand="1"/>
                     </tree>
                 ]]>
             </field>

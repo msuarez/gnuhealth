@@ -135,11 +135,41 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('hospitalized', 'hospitalized'),
         ), 'Status', select=True)
 
-# Method to check for availability and make the hospital bed reservation
+    @classmethod
+    def __setup__(cls):
+        super(InpatientRegistration, cls).__setup__()
+        cls.__rpc__.update({
+            'button_registration_confirm': True,
+            'button_patient_discharge': True,
+            'button_registration_cancel': True,
+            'button_registration_admission': True,
+        })
+        cls._sql_constraints = [
+            ('name_uniq', 'unique(name)',
+             'The Registration code already exists')
+        ]
+        cls._error_messages.update({
+                'bed_is_not_available': 'Bed is not available'})
+        cls._buttons.update({
+                'button_registration_confirm': {
+                    'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
+                    },
+                'button_registration_cancel': {
+                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                    },
+                'button_patient_discharge': {
+                    'invisible': Not(Equal(Eval('state'), 'hospitalized')),
+                    },
+                'button_registration_admission': {
+                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                    },
+                })
 
-    def button_registration_confirm(self, ids):
-        registration_id = self.browse(ids)[0]
-        bed_obj = Pool().get('gnuhealth.hospital.bed')
+    ## Method to check for availability and make the hospital bed reservation
+
+    def button_registration_confirm(self, registrations):
+        registration_id = registrations[0]
+        Bed = Pool().get('gnuhealth.hospital.bed')
         cursor = Transaction().cursor
         bed_id = registration_id.bed.id
         cursor.execute("SELECT COUNT(*) \
@@ -159,93 +189,56 @@ class InpatientRegistration(ModelSQL, ModelView):
         if res[0] > 0:
             self.raise_user_error('bed_is_not_available')
         else:
-            self.write(ids, {'state': 'confirmed'})
-            bed_obj.write(registration_id.bed.id, {'state': 'reserved'})
+            self.write(registrations, {'state': 'confirmed'})
+            Bed.write([registration_id.bed], {'state': 'reserved'})
 
         return True
 
-    def button_patient_discharge(self, ids):
-        registration_id = self.browse(ids)[0]
-        bed_obj = Pool().get('gnuhealth.hospital.bed')
+    def button_patient_discharge(self, registrations):
+        registration_id = registrations[0]
+        Bed = Pool().get('gnuhealth.hospital.bed')
 
-        self.write(ids, {'state': 'free'})
-        bed_obj.write(registration_id.bed.id, {'state': 'free'})
+        self.write(registrations, {'state': 'free'})
+        Bed.write([registration_id.bed], {'state': 'free'})
         return True
 
-    def button_registration_cancel(self, ids):
-        registration_id = self.browse(ids)[0]
-        bed_obj = Pool().get('gnuhealth.hospital.bed')
+    def button_registration_cancel(self, registrations):
+        registration_id = registrations[0]
+        Bed = Pool().get('gnuhealth.hospital.bed')
 
-        self.write(ids, {'state': 'cancelled'})
-        bed_obj.write(registration_id.bed.id, {'state': 'free'})
+        self.write(registrations, {'state': 'cancelled'})
+        Bed.write([registration_id.bed], {'state': 'free'})
         return True
 
-    def button_registration_admission(self, ids):
-        registration_id = self.browse(ids)[0]
-        bed_obj = Pool().get('gnuhealth.hospital.bed')
+    def button_registration_admission(self, registrations):
+        registration_id = registrations[0]
+        Bed = Pool().get('gnuhealth.hospital.bed')
 
         if ( registration_id.hospitalization_date.date() <> datetime.today().date()):
             self.raise_user_error ("The Admission date must be today")
         else:
-            self.write(ids, {'state': 'hospitalized'})
+            self.write(registrations, {'state': 'hospitalized'})
 
-            bed_obj.write(registration_id.bed.id, {'state': 'occupied'})
+            Bed.write([registration_id.bed], {'state': 'occupied'})
 
         return True
 
-    def create(self, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+    @classmethod
+    def create(cls, values):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj.browse(1)
-            values['name'] = sequence_obj.get_id(
-            config.inpatient_registration_sequence.id)
+            config = Config(1)
+            values['name'] = Sequence.get_id(
+                config.inpatient_registration_sequence.id)
 
-        return super(InpatientRegistration, self).create(values)
+        return super(InpatientRegistration, cls).create(values)
 
     @staticmethod
     def default_state():
         return 'free'
-
-
-    @classmethod
-    def __setup__(cls):
-        super(InpatientRegistration, cls).__setup__()
-
-        cls._rpc.update({
-            'button_registration_confirm': True,
-            'button_patient_discharge': True,
-            'button_registration_cancel': True,
-            'button_registration_admission': True,
-        })
-
-        cls._sql_constraints = [
-            ('name_uniq', 'unique(name)',
-             'The Registration code already exists')
-        ]
-
-        cls._error_messages.update({
-                'bed_is_not_available': 'Bed is not available'})
-
-
-        cls._buttons.update({
-                'button_registration_confirm': {
-                    'invisible': And(Not(Equal(Eval('state'), 'free')), Not(Equal(Eval('state'), 'cancelled'))),
-                    },
-                'button_registration_cancel': {
-                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
-                    },
-                'button_patient_discharge': {
-                    'invisible': Not(Equal(Eval('state'), 'hospitalized')),
-                    },
-
-                'button_registration_admission': {
-                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
-                    },
-
-                })
 
 
 class Appointment(ModelSQL, ModelView):
@@ -408,8 +401,8 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     @staticmethod
     def default_health_professional():
         cursor = Transaction().cursor
-        user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
