@@ -735,7 +735,7 @@ class PatientData(ModelSQL, ModelView):
         ('B', 'B'),
         ('AB', 'AB'),
         ('O', 'O'),
-        ], 'Blood Type')
+        ], 'Blood Type',sort=False)
     rh = fields.Selection([
         ('+', '+'),
         ('-', '-'),
