@@ -3,7 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    MODULE : Health Services
-#    Copyright (C) 2008-2012  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2008-2013  Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011  Adrian Bernardi - Mario Puntin (health_invoice)
 #
 #    This program is free software: you can redistribute it and/or modify

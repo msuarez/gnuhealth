@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2008-2012  Luis Falcon
+#    Copyright (C) 2008-2013  Luis Falcon
 #    Copyright (C) 2012-2012  Sebastián Marró
 
 #    This program is free software: you can redistribute it and/or modify
