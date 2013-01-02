@@ -168,5 +168,3 @@ class MedicalPatient(ModelSQL, ModelView):
             fam_apgar_affection)
 
         return total
-
-MedicalPatient()
