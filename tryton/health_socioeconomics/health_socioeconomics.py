@@ -23,7 +23,7 @@ from trytond.model import ModelView, ModelSQL, fields
 __all__ = ['MedicalPatient']
 
 class MedicalPatient(ModelSQL, ModelView):
-    _name = 'gnuhealth.patient'
+    __name__ = 'gnuhealth.patient'
 
     ses = fields.Selection([
         ('0', 'Lower'),
