@@ -20,6 +20,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 
+__all__ = ['MedicalPatient']
 
 class MedicalPatient(ModelSQL, ModelView):
     _name = 'gnuhealth.patient'
