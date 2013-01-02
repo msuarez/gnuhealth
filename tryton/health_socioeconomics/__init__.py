@@ -19,4 +19,10 @@
 #
 ##############################################################################
 
-from health_socioeconomics import *
+from trytond.pool import Pool
+from .health_socioeconomics import *
+
+def register():
+    Pool.register(
+        MedicalPatient,
+        module='health_socioeconomics', type_='model')
