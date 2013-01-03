@@ -136,24 +136,31 @@ class MedicalPatient(ModelSQL, ModelView):
     hours_outside = fields.Integer('Hours outside home',
         help="Number of hours a day the patient spend outside the house")
 
+    @staticmethod
     def default_sewers(self):
         return True
 
+    @staticmethod
     def default_water(self):
         return True
 
+    @staticmethod
     def defaul_trash(self):
         return True
 
+    @staticmethod
     def default_electricity(self):
         return True
 
+    @staticmethod
     def default_gas(self):
         return True
 
+    @staticmethod
     def default_telephone(self):
         return True
 
+    @staticmethod
     def default_television(self):
         return True
 
