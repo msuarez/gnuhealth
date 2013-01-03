@@ -40,6 +40,5 @@ def register():
         CreateLabTestOrder,
         module='health_lab', type_='wizard')
     Pool.register(
-        LabTest,
         LabTestReport,
         module='health_lab', type_='report')
