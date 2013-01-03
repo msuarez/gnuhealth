@@ -145,7 +145,7 @@ class MedicalPatient(ModelSQL, ModelView):
         return True
 
     @staticmethod
-    def defaul_trash(self):
+    def default_trash(self):
         return True
 
     @staticmethod
