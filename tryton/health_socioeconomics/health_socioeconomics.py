@@ -137,31 +137,31 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Number of hours a day the patient spend outside the house")
 
     @staticmethod
-    def default_sewers(self):
+    def default_sewers():
         return True
 
     @staticmethod
-    def default_water(self):
+    def default_water():
         return True
 
     @staticmethod
-    def default_trash(self):
+    def default_trash():
         return True
 
     @staticmethod
-    def default_electricity(self):
+    def default_electricity():
         return True
 
     @staticmethod
-    def default_gas(self):
+    def default_gas():
         return True
 
     @staticmethod
-    def default_telephone(self):
+    def default_telephone():
         return True
 
     @staticmethod
-    def default_television(self):
+    def default_television():
         return True
 
     def on_change_with_fam_apgar_score(self):
