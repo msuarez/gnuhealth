@@ -164,12 +164,12 @@ class MedicalPatient(ModelSQL, ModelView):
     def default_television(self):
         return True
 
-    def on_change_with_fam_apgar_score(self, vals):
-        fam_apgar_help = int(vals.get('fam_apgar_help'))
-        fam_apgar_timesharing = int(vals.get('fam_apgar_timesharing') or '0')
-        fam_apgar_discussion = int(vals.get('fam_apgar_discussion') or '0')
-        fam_apgar_decisions = int(vals.get('fam_apgar_decisions') or '0')
-        fam_apgar_affection = int(vals.get('fam_apgar_affection') or '0')
+    def on_change_with_fam_apgar_score(self):
+        fam_apgar_help = int(self.fam_apgar_help)
+        fam_apgar_timesharing = int(self.fam_apgar_timesharing or '0')
+        fam_apgar_discussion = int(self.fam_apgar_discussion or '0')
+        fam_apgar_decisions = int(self.fam_apgar_decisions or '0')
+        fam_apgar_affection = int(self.fam_apgar_affection or '0')
         total = (fam_apgar_help + fam_apgar_timesharing +
             fam_apgar_discussion + fam_apgar_decisions +
             fam_apgar_affection)
