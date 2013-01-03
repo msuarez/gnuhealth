@@ -51,7 +51,8 @@ class TestType(ModelSQL, ModelView):
     __name__ = 'gnuhealth.lab.test_type'
 
     name = fields.Char('Test',
-        help="Test type, eg X-Ray, hemogram,biopsy...", required=True, select=True)
+        help="Test type, eg X-Ray, hemogram,biopsy...", required=True,
+        select=True)
     code = fields.Char('Code',
         help="Short name - code for the test", required=True, select=True)
     info = fields.Text('Description')
@@ -71,7 +72,7 @@ class Lab(ModelSQL, ModelView):
     'Lab Test'
     __name__ = 'gnuhealth.lab'
 
-    name = fields.Char('ID', help="Lab result ID",readonly=True)
+    name = fields.Char('ID', help="Lab result ID", readonly=True)
     test = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
         help="Lab test type", required=True, select=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
@@ -82,9 +83,10 @@ class Lab(ModelSQL, ModelView):
         help="Doctor who requested the test", select=True)
     results = fields.Text('Results')
     diagnosis = fields.Text('Diagnosis')
-    critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'gnuhealth_lab_id',
-        'Lab Test Critearea')
-    date_requested = fields.DateTime('Date requested', required=True, select=True)
+    critearea = fields.One2Many('gnuhealth.lab.test.critearea',
+        'gnuhealth_lab_id', 'Lab Test Critearea')
+    date_requested = fields.DateTime('Date requested', required=True,
+        select=True)
     date_analysis = fields.DateTime('Date of the Analysis', select=True)
 
     @classmethod
@@ -136,23 +138,25 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     __name__ = 'gnuhealth.lab.test.critearea'
 
     name = fields.Char('Analyte', required=True, select=True)
-    excluded = fields.Boolean('Excluded',help='Select this option when' \
+    excluded = fields.Boolean('Excluded', help='Select this option when'
         ' this analyte is excluded from the test')
     result = fields.Float('Value')
-    result_text = fields.Char('Result - Text',help='Non-numeric results. For example '\
-        'qualitative values, morphological, colors ...')
+    result_text = fields.Char('Result - Text', help='Non-numeric results. For '
+        'example qualitative values, morphological, colors ...')
     remarks = fields.Char('Remarks')
     normal_range = fields.Text('Reference')
-    lower_limit = fields.Float ('Lower Limit')
-    upper_limit = fields.Float ('Upper Limit')
-    warning = fields.Boolean('Warn',help='Warns the patient about this analyte result' \
-        ' It is useful to contextualize the result to each patient status ' \
+    lower_limit = fields.Float('Lower Limit')
+    upper_limit = fields.Float('Upper Limit')
+    warning = fields.Boolean('Warn', help='Warns the patient about this '
+        ' analyte result'
+        ' It is useful to contextualize the result to each patient status '
         ' like age, sex, comorbidities, ...',
          on_change_with=['result', 'lower_limit', 'upper_limit'])
     units = fields.Many2One('gnuhealth.lab.test.units', 'Units')
     test_type_id = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
      select=True)
-    gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases', select=True)
+    gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases',
+        select=True)
     sequence = fields.Integer('Sequence')
 
     @classmethod
@@ -178,8 +182,8 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
     'Patient Lab Test'
     __name__ = 'gnuhealth.patient.lab.test'
 
-    name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type', required=True,
-     select=True)
+    name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type',
+        required=True, select=True)
     date = fields.DateTime('Date', select=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -214,7 +218,7 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
             if doctors:
                 return doctors[0].id
             else:
-                raise Exception('There is no physician defined ' \
+                raise Exception('There is no physician defined '
                                 'for current user.')
         else:
             return False
