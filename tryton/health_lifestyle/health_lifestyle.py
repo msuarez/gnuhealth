@@ -31,7 +31,7 @@ class DrugsRecreational(ModelSQL, ModelView):
     __name__ = 'gnuhealth.drugs_recreational'
 
     name = fields.Char('Name', translate=True, help="Name of the drug")
-    street__name__ = fields.Char('Street names',
+    street_name = fields.Char('Street names',
         help="Common name of the drug in street jargon")
 
     toxicity = fields.Selection([
