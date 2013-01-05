@@ -159,8 +159,6 @@ class DrugsRecreational(ModelSQL, ModelView):
 
     info = fields.Text('Extra Info')
 
-DrugsRecreational()
-
 
 class PatientRecreationalDrugs(ModelSQL, ModelView):
     'Patient use of Recreational Drugs'
@@ -170,9 +168,6 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
         'Recreational Drug')
-
-PatientRecreationalDrugs()
-
 
 ''' CAGE questionnaire to assess patient dependency to alcohol '''
 
@@ -214,7 +209,7 @@ class PatientCAGE(ModelSQL, ModelView):
     def default_cage_score(self):
         return 0
         
-PatientCAGE()
+
 
 class MedicalPatient(ModelSQL, ModelView):
     _name = 'gnuhealth.patient'
@@ -347,4 +342,3 @@ class MedicalPatient(ModelSQL, ModelView):
     cage = fields.One2Many('gnuhealth.patient.cage',
         'name', 'CAGE')
 
-MedicalPatient()

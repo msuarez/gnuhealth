@@ -19,4 +19,14 @@
 #
 ##############################################################################
 
-from health_lifestyle import *
+from trytond.pool import Pool
+from .health_lifestyle import *
+
+
+def register():
+    Pool.register(
+        DrugsRecreational,
+        PatientRecreationalDrugs,
+        PatientCAGE,
+        MedicalPatient,
+        module='health_lifestyle', type_='model')
