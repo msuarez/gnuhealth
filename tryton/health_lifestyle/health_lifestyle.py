@@ -189,16 +189,16 @@ class PatientCAGE(ModelSQL, ModelView):
         on_change_with=['cage_c','cage_a','cage_g','cage_e'])
     
     
-    def on_change_with_cage_score(self, vals):
+    def on_change_with_cage_score(self):
         total = 0
 
-        if vals.get('cage_c'):
+        if self.cage_c:
             total=total + 1
-        if vals.get('cage_a'):
+        if self.cage_a:
             total=total + 1
-        if vals.get('cage_g'):
+        if self.cage_g:
             total=total + 1
-        if vals.get('cage_e'):
+        if self.cage_e:
             total=total + 1
 
         return total
