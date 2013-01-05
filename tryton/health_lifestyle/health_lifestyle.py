@@ -28,10 +28,10 @@ __all__ = ['DrugsRecreational','PatientRecreationalDrugs','PatientCAGE',
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
-    _name = 'gnuhealth.drugs_recreational'
+    __name__ = 'gnuhealth.drugs_recreational'
 
     name = fields.Char('Name', translate=True, help="Name of the drug")
-    street_name = fields.Char('Street names',
+    street__name__ = fields.Char('Street names',
         help="Common name of the drug in street jargon")
 
     toxicity = fields.Selection([
@@ -164,7 +164,7 @@ class DrugsRecreational(ModelSQL, ModelView):
 
 class PatientRecreationalDrugs(ModelSQL, ModelView):
     'Patient use of Recreational Drugs'
-    _name = 'gnuhealth.patient.recreational_drugs'
+    __name__ = 'gnuhealth.patient.recreational_drugs'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
@@ -174,7 +174,7 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
 
 class PatientCAGE(ModelSQL, ModelView):
     'Patient CAGE Questionnaire'
-    _name = 'gnuhealth.patient.cage'
+    __name__ = 'gnuhealth.patient.cage'
     
     name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
@@ -212,7 +212,7 @@ class PatientCAGE(ModelSQL, ModelView):
 
 
 class MedicalPatient(ModelSQL, ModelView):
-    _name = 'gnuhealth.patient'
+    __name__ = 'gnuhealth.patient'
 
     exercise = fields.Boolean('Exercise')
     exercise_minutes_day = fields.Integer('Minutes / day',
