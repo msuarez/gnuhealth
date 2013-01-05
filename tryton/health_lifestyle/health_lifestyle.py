@@ -203,10 +203,12 @@ class PatientCAGE(ModelSQL, ModelView):
 
         return total
 
-    def default_evaluation_date(self):
+    @staticmethod
+    def default_evaluation_date():
         return datetime.now()
 
-    def default_cage_score(self):
+    @staticmethod
+    def default_cage_score():
         return 0
         
 
