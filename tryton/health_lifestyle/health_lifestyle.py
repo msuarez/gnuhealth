@@ -23,6 +23,9 @@ from datetime import datetime
 
 from trytond.pyson import Eval, Greater
 
+__all__ = ['DrugsRecreational','PatientRecreationalDrugs','PatientCAGE',
+        'MedicalPatient']
+
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
     _name = 'gnuhealth.drugs_recreational'
