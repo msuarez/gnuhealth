@@ -29,7 +29,6 @@ __all__ = ['DrugsRecreational','PatientRecreationalDrugs','PatientCAGE',
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
     _name = 'gnuhealth.drugs_recreational'
-    _description = __doc__
 
     name = fields.Char('Name', translate=True, help="Name of the drug")
     street_name = fields.Char('Street names',
@@ -166,7 +165,6 @@ class DrugsRecreational(ModelSQL, ModelView):
 class PatientRecreationalDrugs(ModelSQL, ModelView):
     'Patient use of Recreational Drugs'
     _name = 'gnuhealth.patient.recreational_drugs'
-    _description = __doc__
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
@@ -177,7 +175,6 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
 class PatientCAGE(ModelSQL, ModelView):
     'Patient CAGE Questionnaire'
     _name = 'gnuhealth.patient.cage'
-    _description = __doc__
     
     name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
