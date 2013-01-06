@@ -25,7 +25,6 @@ from .health_surgery import *
 def register():
     Pool.register(
         Surgery,
-        PatientRecreationalDrugs,
         MedicalOperation,
         MedicalPatient,
         module='health_surgery', type_='model')
