@@ -23,7 +23,7 @@ from trytond.model import ModelView, ModelSQL, fields
 
 class Surgery(ModelSQL, ModelView):
     'Surgery Functionality'
-    _name = 'gnuhealth.surgery'
+    __name__ = 'gnuhealth.surgery'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID')
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
@@ -74,7 +74,7 @@ Surgery()
 
 class MedicalOperation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
-    _name = 'gnuhealth.operation'
+    __name__ = 'gnuhealth.operation'
 
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
     procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
@@ -88,7 +88,7 @@ MedicalOperation()
 class MedicalPatient(ModelSQL, ModelView):
     'Add to the Medical patient_data class (medical.patient) the surgery ' \
     'field.'
-    _name = 'gnuhealth.patient'
+    __name__ = 'gnuhealth.patient'
 
     surgery = fields.One2Many('gnuhealth.surgery', 'patient', 'Surgeries')
 
