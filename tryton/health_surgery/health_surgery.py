@@ -20,6 +20,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 
+__all__ = ['Surgery','MedicalOperation','MedicalPatient'] 
 
 class Surgery(ModelSQL, ModelView):
     'Surgery Functionality'
