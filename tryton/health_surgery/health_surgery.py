@@ -70,9 +70,6 @@ class Surgery(ModelSQL, ModelView):
         help="Nursing team has confirmed sterility of the devices and room")
     extra_info = fields.Text('Extra Info')
 
-Surgery()
-
-
 class MedicalOperation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
     __name__ = 'gnuhealth.operation'
@@ -83,8 +80,6 @@ class MedicalOperation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS Code 7-character string")
     notes = fields.Text('Notes')
 
-MedicalOperation()
-
 
 class MedicalPatient(ModelSQL, ModelView):
     'Add to the Medical patient_data class (medical.patient) the surgery ' \
@@ -92,5 +87,3 @@ class MedicalPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     surgery = fields.One2Many('gnuhealth.surgery', 'patient', 'Surgeries')
-
-MedicalPatient()
