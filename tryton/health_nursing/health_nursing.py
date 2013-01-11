@@ -143,7 +143,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     name = fields.Char('ID', readonly=True)
     patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
     base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation', domain=[('patient', '=', Eval('patient'))])
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation', domain=[('patient', '=', Eval('patient'))], depends=['patient'])
     ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
 
@@ -188,7 +188,8 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
 
     session_notes = fields.Text('Notes', required=True)
 
-    def create(self, values):
+    @classmethod
+    def create(cls, values):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
@@ -198,7 +199,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             values['name'] = Sequence.get_id(
                 config.ambulatory_care_sequence.id)
 
-        return super(PatientAmbulatoryCare, self).create(values)
+        return super(PatientAmbulatoryCare, cls).create(values)
 
     @staticmethod
     def default_health_professional():
