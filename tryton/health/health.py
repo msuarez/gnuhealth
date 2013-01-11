@@ -1328,13 +1328,14 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
-        domain=[('patient', '=', Eval('patient'))],
+        domain=[('patient', '=', Eval('patient'))], depends=['patient'],
         help='Enter or select the date / ID of the appointment related to'
         ' this evaluation')
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_endtime = fields.DateTime('End', required=True)
     next_evaluation = fields.Many2One('gnuhealth.appointment',
-        'Next Appointment', domain=[('patient', '=', Eval('patient'))])
+        'Next Appointment', domain=[('patient', '=', Eval('patient'))],
+        depends=['patient'])
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
