@@ -102,8 +102,8 @@ class PatientRounding(ModelSQL, ModelView):
     @staticmethod
     def default_health_professional():
         cursor = Transaction().cursor
-        user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
@@ -189,22 +189,22 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     session_notes = fields.Text('Notes', required=True)
 
     def create(self, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj.browse(1)
-            values['name'] = sequence_obj.get_id(
-            config.ambulatory_care_sequence.id)
+            config = Config(1)
+            values['name'] = Sequence.get_id(
+                config.ambulatory_care_sequence.id)
 
         return super(PatientAmbulatoryCare, self).create(values)
 
     @staticmethod
     def default_health_professional():
         cursor = Transaction().cursor
-        user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         login_user_id = int(user.id)
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
