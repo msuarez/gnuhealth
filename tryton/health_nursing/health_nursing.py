@@ -31,9 +31,7 @@ __all__ = ['GnuHealthSequences', 'PatientRounding', 'RoundingProcedure',
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
-
-    _description = __doc__
-    _name = "gnuhealth.sequences"
+    __name__ = "gnuhealth.sequences"
 
     ambulatory_care_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Health Ambulatory Care', domain=[
@@ -47,8 +45,7 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
 
 class PatientRounding(ModelSQL, ModelView):
     'Patient Rounding'
-    _name = 'gnuhealth.patient.rounding'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.rounding'
 
     name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code', required=True)
 
@@ -128,8 +125,7 @@ class PatientRounding(ModelSQL, ModelView):
 
 class RoundingProcedure(ModelSQL, ModelView):
     'Rounding - Procedure'
-    _name = 'gnuhealth.rounding_procedure'
-    _description = __doc__
+    __name__ = 'gnuhealth.rounding_procedure'
 
     name = fields.Many2One('gnuhealth.patient.rounding', 'Rounding')
     procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
@@ -140,9 +136,7 @@ class RoundingProcedure(ModelSQL, ModelView):
 
 class PatientAmbulatoryCare(ModelSQL, ModelView):
     'Patient Ambulatory Care'
-    _name = 'gnuhealth.patient.ambulatory_care'
-    _description = __doc__
-
+    __name__ = 'gnuhealth.patient.ambulatory_care'
 
     name = fields.Char('ID', readonly=True)
     patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
@@ -230,8 +224,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
 
 class AmbulatoryCareProcedure(ModelSQL, ModelView):
     'Ambulatory Care Procedure'
-    _name = 'gnuhealth.ambulatory_care_procedure'
-    _description = __doc__
+    __name__ = 'gnuhealth.ambulatory_care_procedure'
 
     name = fields.Many2One('gnuhealth.patient.ambulatory_care', 'Session')
     procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
