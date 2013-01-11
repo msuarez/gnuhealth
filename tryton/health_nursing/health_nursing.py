@@ -99,7 +99,8 @@ class PatientRounding(ModelSQL, ModelView):
         help="List of the procedures in this rounding. Please enter the first " \
         "one as the main procedure")
 
-    def default_health_professional(self):
+    @staticmethod
+    def default_health_professional():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
@@ -108,7 +109,7 @@ class PatientRounding(ModelSQL, ModelView):
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if not partner_id:
-            self.raise_user_error('No health professional associated to this \
+            raise Exception('No health professional associated to this \
                 user')
         else:
             cursor = Transaction().cursor
@@ -119,7 +120,8 @@ class PatientRounding(ModelSQL, ModelView):
             return int(doctor_id[0])
 
 
-    def default_evaluation_start(self):
+    @staticmethod
+    def default_evaluation_start():
         return datetime.now()
 
 
@@ -198,7 +200,8 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
 
         return super(PatientAmbulatoryCare, self).create(values)
 
-    def default_health_professional(self):
+    @staticmethod
+    def default_health_professional():
         cursor = Transaction().cursor
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
@@ -207,7 +210,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if not partner_id:
-            self.raise_user_error('No health professional associated to this \
+            raise Exception('No health professional associated to this \
                 user')
         else:
             cursor = Transaction().cursor
@@ -218,7 +221,8 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             return int(doctor_id[0])
 
 
-    def default_session_start(self):
+    @staticmethod
+    def default_session_start():
         return datetime.now()
 
 
