@@ -47,24 +47,29 @@ class PatientRounding(ModelSQL, ModelView):
     'Patient Rounding'
     __name__ = 'gnuhealth.patient.rounding'
 
-    name = fields.Many2One('gnuhealth.inpatient.registration', 'Registration Code', required=True)
-
-    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
-
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code', required=True)
+    health_professional = fields.Many2One('gnuhealth.physician',
+        'Health Professional', readonly=True)
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_end = fields.DateTime('End', required=True)
-
-    environmental_assessment = fields.Char('Environment', help="Environment" \
+    environmental_assessment = fields.Char('Environment', help="Environment"
         " assessment . State any disorder in the room.")
 
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
-    pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to 10")
-    potty = fields.Boolean ('Potty', help="Check if the patient needs to urinate / defecate")
-    position = fields.Boolean ('Position', help="Check if the patient needs to be repositioned or is unconfortable")
-    proximity = fields.Boolean ('Proximity', help="Check if personal items, water, alarm, ... are not in easy reach")
-    pump = fields.Boolean ('Pumps', help="Check if there is any issues with the pumps - IVs ... ")
-    personal_needs = fields.Boolean ('Personal needs',help="Check if the patient requests anything")
+    pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to "
+        "10")
+    potty = fields.Boolean('Potty', help="Check if the patient needs to "
+        "urinate / defecate")
+    position = fields.Boolean('Position', help="Check if the patient needs to "
+        "be repositioned or is unconfortable")
+    proximity = fields.Boolean('Proximity', help="Check if personal items, "
+        "water, alarm, ... are not in easy reach")
+    pump = fields.Boolean('Pumps', help="Check if there is any issues with "
+        "the pumps - IVs ... ")
+    personal_needs = fields.Boolean('Personal needs', help="Check if the "
+        "patient requests anything")
 
     # Vital Signs
     systolic = fields.Integer('Systolic Pressure')
@@ -78,26 +83,24 @@ class PatientRounding(ModelSQL, ModelView):
     temperature = fields.Float('Temperature',
         help='Temperature in celsius')
 
-
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
 
-    depression = fields.Boolean ('Depression signs',help="Check this if the patient shows signs of depression")
-
+    depression = fields.Boolean('Depression signs', help="Check this if the "
+        "patient shows signs of depression")
     evolution = fields.Selection([
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
-        ], 'Evolution', required=True, help="Check your judgement of current patient condition", sort=False)
-
+        ], 'Evolution', required=True, help="Check your judgement of current "
+        "patient condition", sort=False)
     round_summary = fields.Text('Round Summary')
-
-    warning = fields.Boolean('Warning', help="Check this box to alert the supervisor about this patient rounding" \
-        ". It will be shown in red in the rounding list")
-
-    procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name', 'Procedures',
-        help="List of the procedures in this rounding. Please enter the first " \
-        "one as the main procedure")
+    warning = fields.Boolean('Warning', help="Check this box to alert the "
+        "supervisor about this patient rounding. It will be shown in red in "
+        "the rounding list")
+    procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name',
+        'Procedures', help="List of the procedures in this rounding. Please "
+        "enter the first one as the main procedure")
 
     @staticmethod
     def default_health_professional():
@@ -116,9 +119,7 @@ class PatientRounding(ModelSQL, ModelView):
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
-
             return int(doctor_id[0])
-
 
     @staticmethod
     def default_evaluation_start():
@@ -141,19 +142,20 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.ambulatory_care'
 
     name = fields.Char('ID', readonly=True)
-    patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
-    base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')
-    evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation', domain=[('patient', '=', Eval('patient'))], depends=['patient'])
-    ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
-    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
-
-    procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name', 'Procedures',
-        help="List of the procedures in this session. Please enter the first " \
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    base_condition = fields.Many2One('gnuhealth.pathology', 'Base Condition')
+    evaluation = fields.Many2One('gnuhealth.patient.evaluation',
+        'Related Evaluation', domain=[('patient', '=', Eval('patient'))],
+        depends=['patient'])
+    ordering_professional = fields.Many2One('gnuhealth.physician',
+        'Ordering Physician')
+    health_professional = fields.Many2One('gnuhealth.physician',
+        'Health Professional', readonly=True)
+    procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name',
+        'Procedures',
+        help="List of the procedures in this session. Please enter the first "
         "one as the main procedure")
-
-
     session_number = fields.Integer('Session #', required=True)
-
     session_start = fields.DateTime('Start', required=True)
 
     # Vital Signs
@@ -168,8 +170,9 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     temperature = fields.Float('Temperature',
         help='Temperature in celsius')
 
-    warning = fields.Boolean('Warning', help="Check this box to alert the supervisor about this session" \
-        ". It will be shown in red in the session list")
+    warning = fields.Boolean('Warning', help="Check this box to alert the "
+        "supervisor about this session. It will be shown in red in the "
+        "session list")
 
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
@@ -179,13 +182,10 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
-        ], 'Evolution', required=True, help="Check your judgement of current patient condition", sort=False)
-
-
+        ], 'Evolution', required=True, help="Check your judgement of current "
+        "patient condition", sort=False)
     session_end = fields.DateTime('End', required=True)
-
     next_session = fields.DateTime('Next Session')
-
     session_notes = fields.Text('Notes', required=True)
 
     @classmethod
@@ -198,7 +198,6 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             config = Config(1)
             values['name'] = Sequence.get_id(
                 config.ambulatory_care_sequence.id)
-
         return super(PatientAmbulatoryCare, cls).create(values)
 
     @staticmethod
@@ -218,9 +217,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
-
             return int(doctor_id[0])
-
 
     @staticmethod
     def default_session_start():
