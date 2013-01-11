@@ -19,4 +19,15 @@
 #
 ##############################################################################
 
-from health_nursing import *
+from trytond.pool import Pool
+from .health_nursing import *
+
+
+def register():
+    Pool.register(
+        GnuHealthSequences,
+        PatientRounding,
+        RoundingProcedure,
+        PatientAmbulatoryCare,
+        AmbulatoryCareProcedure,
+        module='health_nursing', type_='model')

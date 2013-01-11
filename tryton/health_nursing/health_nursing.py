@@ -18,13 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from datetime import datetime
 from trytond.pool import Pool
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
-from trytond.backend import TableHandler
 from trytond.transaction import Transaction
 from trytond.pyson import Eval
+
+
+__all__ = ['GnuHealthSequences', 'PatientRounding', 'RoundingProcedure',
+    'PatientAmbulatoryCare', 'AmbulatoryCareProcedure']
+
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
@@ -36,8 +39,6 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
         'Health Ambulatory Care', domain=[
             ('code', '=', 'gnuhealth.ambulatory_care')
         ], required=True))
-
-GnuHealthSequences()
 
 
 # Class : PatientRounding
@@ -124,8 +125,6 @@ class PatientRounding(ModelSQL, ModelView):
     def default_evaluation_start(self):
         return datetime.now()
 
-PatientRounding()
-
 
 class RoundingProcedure(ModelSQL, ModelView):
     'Rounding - Procedure'
@@ -138,7 +137,6 @@ class RoundingProcedure(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS Code 7-character string")
     notes = fields.Text('Notes')
 
-RoundingProcedure()
 
 class PatientAmbulatoryCare(ModelSQL, ModelView):
     'Patient Ambulatory Care'
@@ -148,7 +146,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
 
     name = fields.Char('ID', readonly=True)
     patient = fields.Many2One ('gnuhealth.patient', 'Patient', required=True)
-    base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')    
+    base_condition = fields.Many2One ('gnuhealth.pathology', 'Base Condition')
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Related Evaluation', domain=[('patient', '=', Eval('patient'))])
     ordering_professional = fields.Many2One('gnuhealth.physician', 'Ordering Physician')
     health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional', readonly=True)
@@ -230,9 +228,6 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         return datetime.now()
 
 
-PatientAmbulatoryCare()
-
-
 class AmbulatoryCareProcedure(ModelSQL, ModelView):
     'Ambulatory Care Procedure'
     _name = 'gnuhealth.ambulatory_care_procedure'
@@ -243,5 +238,3 @@ class AmbulatoryCareProcedure(ModelSQL, ModelView):
         select=True,
         help="Procedure Code, for example ICD-10-PCS Code 7-character string")
     comments = fields.Char('Comments')
-
-AmbulatoryCareProcedure()
