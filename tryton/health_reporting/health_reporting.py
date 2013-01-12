@@ -41,9 +41,10 @@ class TopDiseases(ModelSQL, ModelView):
     disease = fields.Many2One('gnuhealth.pathology', 'Disease', select=True)
     cases = fields.Integer('Cases')
 
-    def __init__(self):
-        super(TopDiseases, self).__init__()
-        self._order.insert(0, ('cases', 'DESC'))
+    @classmethod
+    def __setup__(cls):
+        super(TopDiseases, cls).__setup__()
+        cls._order.insert(0, ('cases', 'DESC'))
 
     def table_query(self):
         from_clause = ' '
@@ -181,11 +182,12 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsDoctorWeekly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('week', 'DESC'))
-        #self._order.insert(2, ('doctor', 'ASC')) /// wait for trytond-2.4.2
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsDoctorWeekly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('week', 'DESC'))
+        cls._order.insert(2, ('doctor', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
@@ -216,11 +218,12 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsDoctorMonthly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('month', 'DESC'))
-        #self._order.insert(2, ('doctor', 'ASC')) /// wait for trytond-2.4.2
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsDoctorMonthly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('month', 'DESC'))
+        cls._order.insert(2, ('doctor', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
@@ -309,11 +312,12 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsSpecialtyWeekly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('week', 'DESC'))
-        #self._order.insert(2, ('specialty', 'ASC')) /// wait for trytond-2.4.2
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsSpecialtyWeekly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('week', 'DESC'))
+        cls._order.insert(2, ('specialty', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
@@ -344,11 +348,12 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsSpecialtyMonthly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('month', 'DESC'))
-        #self._order.insert(2, ('specialty', 'ASC')) /// wait for trytond-2.4.2
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsSpecialtyMonthly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('month', 'DESC'))
+        cls._order.insert(2, ('specialty', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
@@ -448,11 +453,12 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
     sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsSectorWeekly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('week', 'DESC'))
-        self._order.insert(2, ('sector', 'ASC'))
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsSectorWeekly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('week', 'DESC'))
+        cls._order.insert(2, ('sector', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
@@ -493,11 +499,12 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
     sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def __init__(self):
-        super(EvaluationsSectorMonthly, self).__init__()
-        self._order.insert(0, ('year', 'DESC'))
-        self._order.insert(1, ('month', 'DESC'))
-        self._order.insert(2, ('sector', 'ASC'))
+    @classmethod
+    def __setup__(cls):
+        super(EvaluationsSectorMonthly, cls).__setup__()
+        cls._order.insert(0, ('year', 'DESC'))
+        cls._order.insert(1, ('month', 'DESC'))
+        cls._order.insert(2, ('sector', 'ASC'))
 
     def table_query(self):
         type_name = FIELDS[self.year._type].sql_type(self.year)[0]
