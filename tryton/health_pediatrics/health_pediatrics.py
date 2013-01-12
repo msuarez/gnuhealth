@@ -29,8 +29,7 @@ __all__ = ['Newborn', 'NeonatalApgar', 'NeonatalMedication',
 
 class Newborn(ModelSQL, ModelView):
     'Newborn Information'
-    _name = 'gnuhealth.newborn'
-    _description = __doc__
+    __name__ = 'gnuhealth.newborn'
 
     name = fields.Char('Newborn ID')
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
@@ -110,8 +109,7 @@ class Newborn(ModelSQL, ModelView):
 
 class NeonatalApgar(ModelSQL, ModelView):
     'Neonatal APGAR Score'
-    _name = 'gnuhealth.neonatal.apgar'
-    _description = __doc__
+    __name__ = 'gnuhealth.neonatal.apgar'
 
     name = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
 
@@ -166,24 +164,21 @@ class NeonatalApgar(ModelSQL, ModelView):
 
 class NeonatalMedication(ModelSQL, ModelView):
     'Neonatal Medication. Inherit and Add field to Medication model'
-    _name = 'gnuhealth.patient.medication'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.medication'
 
     newborn_id = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
 
 
 class NeonatalCongenitalDiseases(ModelSQL, ModelView):
     'Congenital Diseases. Inherit Disease object for use in neonatology'
-    _name = 'gnuhealth.patient.disease'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.disease'
 
     newborn_id = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
 
 
 class PediatricSymptomsChecklist(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist'
-    _name = 'gnuhealth.patient.psc'
-    _description = __doc__
+    __name__ = 'gnuhealth.patient.psc'
 
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
