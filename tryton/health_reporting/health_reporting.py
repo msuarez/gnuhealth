@@ -103,16 +103,16 @@ class OpenTopDiseases(Wizard):
             ])
     open_ = StateAction('health_reporting.act_top_diseases_form')
 
-    def do_open_(self, session, action):
+    def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
-                'start_date': session.start.start_date,
-                'end_date': session.start.end_date,
-                'group': session.start.group.id,
-                'number_records': session.start.number_records,
+                'start_date': self.start.start_date,
+                'end_date': self.start.end_date,
+                'group': self.start.group.id,
+                'number_records': self.start.number_records,
                 })
         return action, {}
 
-    def transition_open_(self, session):
+    def transition_open_(self):
         return 'end'
 
 
@@ -164,14 +164,14 @@ class OpenEvaluationsDoctor(Wizard):
             ])
     open_ = StateAction('health_reporting.act_evaluations_doctor_form')
 
-    def do_open_(self, session, action):
+    def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
-                'start_date': session.start.start_date,
-                'end_date': session.start.end_date,
+                'start_date': self.start.start_date,
+                'end_date': self.start.end_date,
                 })
         return action, {}
 
-    def transition_open_(self, session):
+    def transition_open_(self):
         return 'end'
 
 
@@ -297,14 +297,14 @@ class OpenEvaluationsSpecialty(Wizard):
             ])
     open_ = StateAction('health_reporting.act_evaluations_specialty_form')
 
-    def do_open_(self, session, action):
+    def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
-                'start_date': session.start.start_date,
-                'end_date': session.start.end_date,
+                'start_date': self.start.start_date,
+                'end_date': self.start.end_date,
                 })
         return action, {}
 
-    def transition_open_(self, session):
+    def transition_open_(self):
         return 'end'
 
 
@@ -441,14 +441,14 @@ class OpenEvaluationsSector(Wizard):
             ])
     open_ = StateAction('health_reporting.act_evaluations_sector_form')
 
-    def do_open_(self, session, action):
+    def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
-                'start_date': session.start.start_date,
-                'end_date': session.start.end_date,
+                'start_date': self.start.start_date,
+                'end_date': self.start.end_date,
                 })
         return action, {}
 
-    def transition_open_(self, session):
+    def transition_open_(self):
         return 'end'
 
 
