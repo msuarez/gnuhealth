@@ -20,7 +20,9 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 
-__all__ = ['Surgery','MedicalOperation','MedicalPatient'] 
+
+__all__ = ['Surgery', 'MedicalOperation', 'MedicalPatient']
+
 
 class Surgery(ModelSQL, ModelView):
     'Surgery Functionality'
@@ -31,7 +33,7 @@ class Surgery(ModelSQL, ModelView):
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
     code = fields.Char('Code', required=True, help="Health Center Unique code")
     procedures = fields.One2Many('gnuhealth.operation', 'name', 'Procedures',
-        help="List of the procedures in the surgery. Please enter the first " \
+        help="List of the procedures in the surgery. Please enter the first "
         "one as the main procedure")
     pathology = fields.Many2One('gnuhealth.pathology', 'Base condition',
         help="Base Condition / Reason")
@@ -47,20 +49,22 @@ class Surgery(ModelSQL, ModelView):
     date = fields.DateTime('Date')
     age = fields.Char('Patient age',
         help="Patient age at the moment of the surgery. Can be estimative")
-    description = fields.Char('Description', required = True)
+    description = fields.Char('Description', required=True)
     preop_mallampati = fields.Selection([
-        ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft palate'),
-        ('Class 2', 'Class 2: Visibility of hard and soft palate, ' \
+        ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft '
+                    'palate'),
+        ('Class 2', 'Class 2: Visibility of hard and soft palate, '
                     'upper portion of tonsils and uvula'),
-        ('Class 3', 'Class 3: Soft and hard palate and base of the uvula are visible'),
+        ('Class 3', 'Class 3: Soft and hard palate and base of the uvula are '
+                    'visible'),
         ('Class 4', 'Class 4: Only Hard Palate visible'),
         ], 'Mallampati Score', sort=False)
     preop_bleeding_risk = fields.Boolean('Risk of Massive bleeding',
-        help="Check this box if patient has a risk of loosing more than 500 " \
-        "ml in adults of over 7ml/kg in infants. If so, make sure that " \
+        help="Check this box if patient has a risk of loosing more than 500 "
+        "ml in adults of over 7ml/kg in infants. If so, make sure that "
         "intravenous access and fluids are available")
     preop_oximeter = fields.Boolean('Pulse Oximeter in place',
-        help="Check this box when verified the pulse oximeter is in place " \
+        help="Check this box when verified the pulse oximeter is in place "
         "and functioning")
     preop_site_marking = fields.Boolean('Surgical Site Marking',
         help="The surgeon has marked the surgical incision")
@@ -69,6 +73,7 @@ class Surgery(ModelSQL, ModelView):
     preop_sterility = fields.Boolean('Sterility confirmed',
         help="Nursing team has confirmed sterility of the devices and room")
     extra_info = fields.Text('Extra Info')
+
 
 class MedicalOperation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
