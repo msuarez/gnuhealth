@@ -427,8 +427,8 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
 
     @staticmethod
     def default_user_id():
-        user_obj = Pool().get('res.user')
-        user = user_obj.browse(Transaction().user)
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
         return int(user.id)
 
     @staticmethod
