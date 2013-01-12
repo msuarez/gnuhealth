@@ -150,12 +150,12 @@ class NeonatalApgar(ModelSQL, ModelView):
         on_change_with=['apgar_respiration', 'apgar_activity',
         'apgar_grimace', 'apgar_pulse', 'apgar_appearance'])
 
-    def on_change_with_apgar_score(self, vals):
-        apgar_appearance = vals.get('apgar_appearance') or '0'
-        apgar_pulse = vals.get('apgar_pulse') or '0'
-        apgar_grimace = vals.get('apgar_grimace') or '0'
-        apgar_activity = vals.get('apgar_activity') or '0'
-        apgar_respiration = vals.get('apgar_respiration') or '0'
+    def on_change_with_apgar_score(self):
+        apgar_appearance = self.apgar_appearance or '0'
+        apgar_pulse = self.apgar_pulse or '0'
+        apgar_grimace = self.apgar_grimace or '0'
+        apgar_activity = self.apgar_activity or '0'
+        apgar_respiration = self.apgar_respiration or '0'
 
         apgar_score = int(apgar_appearance) + int(apgar_pulse) + \
             int(apgar_grimace) + int(apgar_activity) + int(apgar_respiration)
@@ -433,44 +433,44 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
     def default_psc_total(self):
         return 0
 
-    def on_change_with_psc_total(self, vals):
+    def on_change_with_psc_total(self):
 
-        psc_aches_pains = vals.get('psc_aches_pains') or '0'
-        psc_spend_time_alone = vals.get('psc_spend_time_alone') or '0'
-        psc_tires_easily = vals.get('psc_tires_easily') or '0'
-        psc_fidgety = vals.get('psc_fidgety') or '0'
-        psc_trouble_with_teacher = vals.get('psc_trouble_with_teacher') or '0'
-        psc_less_interest_in_school = vals.get('psc_less_interest_in_school') or '0'
-        psc_acts_as_driven_by_motor = vals.get('psc_acts_as_driven_by_motor') or '0'
-        psc_daydreams_too_much = vals.get('psc_daydreams_too_much') or '0'
-        psc_distracted_easily = vals.get('psc_distracted_easily') or '0'
-        psc_afraid_of_new_situations = vals.get('psc_afraid_of_new_situations') or '0'
-        psc_sad_unhappy = vals.get('psc_sad_unhappy') or '0'
-        psc_irritable_angry = vals.get('psc_irritable_angry') or '0'
-        psc_feels_hopeless = vals.get('psc_feels_hopeless') or '0'
-        psc_trouble_concentrating = vals.get('psc_trouble_concentrating') or '0'
+        psc_aches_pains = self.psc_aches_pains or '0'
+        psc_spend_time_alone = self.psc_spend_time_alone or '0'
+        psc_tires_easily = self.psc_tires_easily or '0'
+        psc_fidgety = self.psc_fidgety or '0'
+        psc_trouble_with_teacher = self.psc_trouble_with_teacher or '0'
+        psc_less_interest_in_school = self.psc_less_interest_in_school or '0'
+        psc_acts_as_driven_by_motor = self.psc_acts_as_driven_by_motor or '0'
+        psc_daydreams_too_much = self.psc_daydreams_too_much or '0'
+        psc_distracted_easily = self.psc_distracted_easily or '0'
+        psc_afraid_of_new_situations = self.psc_afraid_of_new_situations or '0'
+        psc_sad_unhappy = self.psc_sad_unhappy or '0'
+        psc_irritable_angry = self.psc_irritable_angry or '0'
+        psc_feels_hopeless = self.psc_feels_hopeless or '0'
+        psc_trouble_concentrating = self.psc_trouble_concentrating or '0'
         psc_less_interested_in_friends = \
-                vals.get('psc_less_interested_in_friends') or '0'
-        psc_fights_with_others = vals.get('psc_fights_with_others') or '0'
-        psc_absent_from_school = vals.get('psc_absent_from_school') or '0'
-        psc_school_grades_dropping = vals.get('psc_school_grades_dropping') or '0'
-        psc_down_on_self = vals.get('psc_down_on_self') or '0'
-        psc_visit_doctor_finds_ok = vals.get('psc_visit_doctor_finds_ok') or '0'
-        psc_trouble_sleeping = vals.get('psc_trouble_sleeping') or '0'
-        psc_worries_a_lot = vals.get('psc_worries_a_lot') or '0'
-        psc_wants_to_be_with_parents = vals.get('psc_wants_to_be_with_parents') or '0'
-        psc_feels_is_bad_child = vals.get('psc_feels_is_bad_child') or '0'
-        psc_takes_unnecesary_risks = vals.get('psc_takes_unnecesary_risks') or '0'
-        psc_gets_hurt_often = vals.get('psc_gets_hurt_often') or '0'
-        psc_having_less_fun = vals.get('psc_having_less_fun') or '0'
-        psc_act_as_younger = vals.get('psc_act_as_younger') or '0'
-        psc_does_not_listen_to_rules = vals.get('psc_does_not_listen_to_rules') or '0'
-        psc_does_not_show_feelings = vals.get('psc_does_not_show_feelings') or '0'
+                self.psc_less_interested_in_friends or '0'
+        psc_fights_with_others = self.psc_fights_with_others or '0'
+        psc_absent_from_school = self.psc_absent_from_school or '0'
+        psc_school_grades_dropping = self.psc_school_grades_dropping or '0'
+        psc_down_on_self = self.psc_down_on_self or '0'
+        psc_visit_doctor_finds_ok = self.psc_visit_doctor_finds_ok or '0'
+        psc_trouble_sleeping = self.psc_trouble_sleeping or '0'
+        psc_worries_a_lot = self.psc_worries_a_lot or '0'
+        psc_wants_to_be_with_parents = self.psc_wants_to_be_with_parents or '0'
+        psc_feels_is_bad_child = self.psc_feels_is_bad_child or '0'
+        psc_takes_unnecesary_risks = self.psc_takes_unnecesary_risks or '0'
+        psc_gets_hurt_often = self.psc_gets_hurt_often or '0'
+        psc_having_less_fun = self.psc_having_less_fun or '0'
+        psc_act_as_younger = self.psc_act_as_younger or '0'
+        psc_does_not_listen_to_rules = self.psc_does_not_listen_to_rules or '0'
+        psc_does_not_show_feelings = self.psc_does_not_show_feelings or '0'
         psc_does_not_get_people_feelings = \
-                vals.get('psc_does_not_get_people_feelings') or '0'
-        psc_teases_others = vals.get('psc_teases_others') or '0'
-        psc_takes_things_from_others = vals.get('psc_takes_things_from_others') or '0'
-        psc_refuses_to_share = vals.get('psc_refuses_to_share') or '0'
+                self.psc_does_not_get_people_feelings or '0'
+        psc_teases_others = self.psc_teases_others or '0'
+        psc_takes_things_from_others = self.psc_takes_things_from_others or '0'
+        psc_refuses_to_share = self.psc_refuses_to_share or '0'
 
 
         psc_total = int(psc_aches_pains) + int(psc_spend_time_alone) + \
