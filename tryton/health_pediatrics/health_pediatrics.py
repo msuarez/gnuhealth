@@ -99,10 +99,11 @@ class Newborn(ModelSQL, ModelView):
     cod = fields.Many2One('gnuhealth.pathology', 'Cause of death')
     notes = fields.Text('Notes')
 
-    def __init__(self):
-        super(Newborn, self).__init__()
+    @classmethod
+    def __setup__(cls):
+        super(Newborn, cls).__setup__()
 
-        self._sql_constraints = [
+        cls._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
         ]
 
