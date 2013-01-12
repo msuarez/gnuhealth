@@ -19,4 +19,12 @@
 #
 ##############################################################################
 
-from health_qrcodes import *
+from trytond.pool import Pool
+from .health_qrcodes import *
+
+
+def register():
+    Pool.register(
+        Patient,
+        Newborn,
+        module='health_qrcodes', type_='model')

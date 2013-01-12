@@ -23,6 +23,9 @@ import StringIO
 from trytond.model import ModelView, ModelSQL, fields
 
 
+__all__ = ['Patient', 'Newborn']
+
+
 # Add the QR field and QR image in the patient model
 
 class Patient(ModelSQL, ModelView):
@@ -75,8 +78,6 @@ class Patient(ModelSQL, ModelView):
 # Add the QR Code to the Patient
     qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
 
-Patient()
-
 
 # Add the QR code field and image to the Newborn
 
@@ -103,11 +104,11 @@ class Newborn(ModelSQL, ModelView):
                 newborn_mother_lastname = ''
                 newborn_mother_name = ''
                 newborn_mother_id = ''
-                
+
             newborn_name = newborn_data.name or ''
 
             newborn_sex = newborn_data.sex or ''
-            
+
             newborn_birth_date = newborn_data.birth_date or ''
 
             qr_string = 'ID: ' + newborn_name \
@@ -132,4 +133,3 @@ class Newborn(ModelSQL, ModelView):
 # Add the QR Code to the Newborn
     qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
 
-Newborn()
