@@ -24,6 +24,9 @@ from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
 
 
+__all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine']
+
+
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
 
@@ -34,8 +37,6 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
         'Health Service Sequence', domain=[
             ('code', '=', 'gnuhealth.health_service')
         ], required=True))
-
-GnuHealthSequences()
 
 
 class HealthService(ModelSQL, ModelView):
@@ -86,8 +87,6 @@ class HealthService(ModelSQL, ModelView):
 
         return super(HealthService, self).create(values)
 
-HealthService()
-
 
 class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
@@ -108,6 +107,4 @@ class HealthServiceLine(ModelSQL, ModelView):
 
     def default_qty(self):
         return 1
-
-HealthServiceLine()
 

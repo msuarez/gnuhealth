@@ -19,5 +19,18 @@
 #
 ##############################################################################
 
-from health_services import * 
-from wizard import * 
+from trytond.pool import Pool
+from .health_services import *
+from wizard import *
+
+
+def register():
+    Pool.register(
+        GnuHealthSequences,
+        HealthService,
+        HealthServiceLine,
+        CreateServiceInvoiceInit,
+        module='health_services', type_='model')
+    Pool.register(
+        CreateServiceInvoice,
+        module='health_services', type_='wizard')
