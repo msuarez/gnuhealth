@@ -21,10 +21,10 @@
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 
-from trytond.pyson import Eval, Greater
 
-__all__ = ['DrugsRecreational','PatientRecreationalDrugs','PatientCAGE',
+__all__ = ['DrugsRecreational', 'PatientRecreationalDrugs', 'PatientCAGE',
         'MedicalPatient']
+
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
@@ -64,30 +64,30 @@ class DrugsRecreational(ModelSQL, ModelView):
         ], 'Category', sort=False)
 
     withdrawal_level = fields.Integer('Withdrawal',
-        help="Presence and severity of characteristic withdrawal " \
+        help="Presence and severity of characteristic withdrawal "
         "symptoms.\nUsing Henningfield rating. 1=highest and 6=lowest")
 
     reinforcement_level = fields.Integer('Reinforcement',
-        help="A measure of the substance's ability to get users to take it " \
-        " again and again, and in preference to other substances.\nUsing " \
+        help="A measure of the substance's ability to get users to take it "
+        " again and again, and in preference to other substances.\nUsing "
         " Henningfield rating. 1=highest and 6=lowest")
 
     tolerance_level = fields.Integer('Tolerance',
-        help="How much of the substance is needed to satisfy increasing " \
-        "cravings for it, and the level of stable need that is eventually " \
+        help="How much of the substance is needed to satisfy increasing "
+        "cravings for it, and the level of stable need that is eventually "
         "reached.\nUsing Henningfield rating. 1=highest and 6=lowest")
 
     dependence_level = fields.Integer('Dependence',
-        help="How difficult it is for the user to quit, the relapse rate, " \
-        "the percentage of people who eventually become dependent, the " \
-        "rating users give their own need for the substance and the " \
-        "degree to which the substance will be used in the face of " \
-        "evidence that it causes harm.\nUsing Henningfield rating. " \
+        help="How difficult it is for the user to quit, the relapse rate, "
+        "the percentage of people who eventually become dependent, the "
+        "rating users give their own need for the substance and the "
+        "degree to which the substance will be used in the face of "
+        "evidence that it causes harm.\nUsing Henningfield rating. "
         "1=highest and 6=lowest")
 
     intoxication_level = fields.Integer('Intoxication',
-        help="the level of intoxication is associated with addiction and "\
-        "increases the personal and social damage a substance may do. \n" \
+        help="the level of intoxication is associated with addiction and "
+        "increases the personal and social damage a substance may do. \n"
         "Using Henningfield rating. 1=highest and 6=lowest")
 
     route_oral = fields.Boolean('Oral')
@@ -105,58 +105,58 @@ class DrugsRecreational(ModelSQL, ModelView):
         help="Injection - Intravenous, Intramuscular...")
 
     dea_schedule_i = fields.Boolean('DEA schedule I',
-        help="Schedule I and II drugs have a high potential for abuse. " \
-        "They require greater storage security and have a quota on " \
-        "manufacturing, among other restrictions. Schedule I drugs are " \
-        "available for research only and have no approved medical use; " \
-        "Schedule II drugs are available only by prescription " \
-        "(unrefillable) and require a form for ordering. Schedule III " \
-        "and IV drugs are available by prescription, may have five " \
-        "refills in 6 months, and may be ordered orally. " \
+        help="Schedule I and II drugs have a high potential for abuse. "
+        "They require greater storage security and have a quota on "
+        "manufacturing, among other restrictions. Schedule I drugs are "
+        "available for research only and have no approved medical use; "
+        "Schedule II drugs are available only by prescription "
+        "(unrefillable) and require a form for ordering. Schedule III "
+        "and IV drugs are available by prescription, may have five "
+        "refills in 6 months, and may be ordered orally. "
         "Some Schedule V drugs are available over the counter")
 
     dea_schedule_ii = fields.Boolean('II',
-        help="Schedule I and II drugs have a high potential for abuse." \
-        "They require greater storage security and have a quota on" \
-        "manufacturing, among other restrictions. Schedule I drugs are" \
-        "available for research only and have no approved medical use; " \
-        "Schedule II drugs are available only by prescription " \
-        "(unrefillable) and require a form for ordering. Schedule III " \
-        "and IV drugs are available by prescription, may have five" \
-        "refills in 6 months, and may be ordered orally. " \
+        help="Schedule I and II drugs have a high potential for abuse."
+        "They require greater storage security and have a quota on"
+        "manufacturing, among other restrictions. Schedule I drugs are"
+        "available for research only and have no approved medical use; "
+        "Schedule II drugs are available only by prescription "
+        "(unrefillable) and require a form for ordering. Schedule III "
+        "and IV drugs are available by prescription, may have five"
+        "refills in 6 months, and may be ordered orally. "
         "Some Schedule V drugs are available over the counter")
 
     dea_schedule_iii = fields.Boolean('III',
-        help="Schedule I and II drugs have a high potential for abuse. " \
-        "They require greater storage security and have a quota on " \
-        "manufacturing, among other restrictions. Schedule I drugs are " \
-        "available for research only and have no approved medical use; " \
-        "Schedule II drugs are available only by prescription " \
-        "(unrefillable) and require a form for ordering. Schedule III " \
-        "and IV drugs are available by prescription, may have five " \
-        "refills in 6 months, and may be ordered orally. " \
+        help="Schedule I and II drugs have a high potential for abuse. "
+        "They require greater storage security and have a quota on "
+        "manufacturing, among other restrictions. Schedule I drugs are "
+        "available for research only and have no approved medical use; "
+        "Schedule II drugs are available only by prescription "
+        "(unrefillable) and require a form for ordering. Schedule III "
+        "and IV drugs are available by prescription, may have five "
+        "refills in 6 months, and may be ordered orally. "
         "Some Schedule V drugs are available over the counter")
 
     dea_schedule_iv = fields.Boolean('IV',
-        help="Schedule I and II drugs have a high potential for abuse. " \
-        "They require greater storage security and have a quota on " \
-        "manufacturing, among other restrictions. Schedule I drugs are " \
-        "available for research only and have no approved medical use; " \
-        "Schedule II drugs are available only by prescription " \
-        "(unrefillable) and require a form for ordering. Schedule III " \
-        "and IV drugs are available by prescription, may have five " \
-        "refills in 6 months, and may be ordered orally. " \
+        help="Schedule I and II drugs have a high potential for abuse. "
+        "They require greater storage security and have a quota on "
+        "manufacturing, among other restrictions. Schedule I drugs are "
+        "available for research only and have no approved medical use; "
+        "Schedule II drugs are available only by prescription "
+        "(unrefillable) and require a form for ordering. Schedule III "
+        "and IV drugs are available by prescription, may have five "
+        "refills in 6 months, and may be ordered orally. "
         "Some Schedule V drugs are available over the counter")
 
     dea_schedule_v = fields.Boolean('V',
-        help="Schedule I and II drugs have a high potential for abuse. " \
-        "They require greater storage security and have a quota on " \
-        "manufacturing, among other restrictions. Schedule I drugs are " \
-        "available for research only and have no approved medical use; " \
-        "Schedule II drugs are available only by prescription " \
-        "(unrefillable) and require a form for ordering. Schedule III " \
-        "and IV drugs are available by prescription, may have five " \
-        "refills in 6 months, and may be ordered orally. " \
+        help="Schedule I and II drugs have a high potential for abuse. "
+        "They require greater storage security and have a quota on "
+        "manufacturing, among other restrictions. Schedule I drugs are "
+        "available for research only and have no approved medical use; "
+        "Schedule II drugs are available only by prescription "
+        "(unrefillable) and require a form for ordering. Schedule III "
+        "and IV drugs are available by prescription, may have five "
+        "refills in 6 months, and may be ordered orally. "
         "Some Schedule V drugs are available over the counter")
 
     info = fields.Text('Extra Info')
@@ -170,36 +170,41 @@ class PatientRecreationalDrugs(ModelSQL, ModelView):
     recreational_drug = fields.Many2One('gnuhealth.drugs_recreational',
         'Recreational Drug')
 
+
 ''' CAGE questionnaire to assess patient dependency to alcohol '''
 
 class PatientCAGE(ModelSQL, ModelView):
     'Patient CAGE Questionnaire'
     __name__ = 'gnuhealth.patient.cage'
-    
+
     name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     evaluation_date = fields.DateTime('Date')
 
-    cage_c = fields.Boolean('Hard to Cut down', help='Have you ever felt you needed to Cut down on your drinking ?')
-    cage_a = fields.Boolean('Angry with Critics', help='Have people Annoyed you by criticizing your drinking ?')
-    cage_g = fields.Boolean('Guilt', help='Have you ever felt Guilty about drinking ?')
-    cage_e = fields.Boolean('Eye-opener', help='Have you ever felt you needed a drink first thing in the morning (Eye-opener) to steady your nerves or to get rid of a hangover?')
-    
+    cage_c = fields.Boolean('Hard to Cut down', help='Have you ever felt you '
+        'needed to Cut down on your drinking ?')
+    cage_a = fields.Boolean('Angry with Critics', help='Have people Annoyed '
+        'you by criticizing your drinking ?')
+    cage_g = fields.Boolean('Guilt', help='Have you ever felt Guilty about '
+        'drinking ?')
+    cage_e = fields.Boolean('Eye-opener', help='Have you ever felt you '
+        'needed a drink first thing in the morning (Eye-opener) to steady '
+        'your nerves or to get rid of a hangover?')
+
     cage_score = fields.Integer('CAGE Score',
-        on_change_with=['cage_c','cage_a','cage_g','cage_e'])
-    
-    
+        on_change_with=['cage_c', 'cage_a', 'cage_g', 'cage_e'])
+
     def on_change_with_cage_score(self):
         total = 0
 
         if self.cage_c:
-            total=total + 1
+            total = total + 1
         if self.cage_a:
-            total=total + 1
+            total = total + 1
         if self.cage_g:
-            total=total + 1
+            total = total + 1
         if self.cage_e:
-            total=total + 1
+            total = total + 1
 
         return total
 
@@ -210,7 +215,6 @@ class PatientCAGE(ModelSQL, ModelView):
     @staticmethod
     def default_cage_score():
         return 0
-        
 
 
 class MedicalPatient(ModelSQL, ModelView):
@@ -222,7 +226,7 @@ class MedicalPatient(ModelSQL, ModelView):
     sleep_hours = fields.Integer('Hours of sleep',
         help="Average hours of sleep per day")
     sleep_during_daytime = fields.Boolean('Sleeps at daytime',
-        help="Check if the patient sleep hours are during daylight rather " \
+        help="Check if the patient sleep hours are during daylight rather "
         "than at night")
     number_of_meals = fields.Integer('Meals per day')
     eats_alone = fields.Boolean('Eats alone',
@@ -263,9 +267,8 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Age of start drugs")
     age_quit_drugs = fields.Integer('Age quit drugs ',
         help="Date of quitting drugs")
-    recreational_drugs = fields.One2Many('gnuhealth.patient.recreational_drugs',
-        'patient', 'Drugs')
-
+    recreational_drugs = fields.One2Many(
+        'gnuhealth.patient.recreational_drugs', 'patient', 'Drugs')
     traffic_laws = fields.Boolean('Obeys Traffic Laws',
         help="Check if the patient is a safe driver")
     car_revision = fields.Boolean('Car Revision',
@@ -273,10 +276,10 @@ class MedicalPatient(ModelSQL, ModelView):
     car_seat_belt = fields.Boolean('Seat belt',
         help="Safety measures when driving : safety belt")
     car_child_safety = fields.Boolean('Car Child Safety',
-        help="Safety measures when driving : child seats, " \
+        help="Safety measures when driving : child seats, "
         "proper seat belting, not seating on the front seat, ....")
     home_safety = fields.Boolean('Home safety',
-        help="Keep safety measures for kids in the kitchen, " \
+        help="Keep safety measures for kids in the kitchen, "
         "correct storage of chemicals, ...")
     motorcycle_rider = fields.Boolean('Motorcycle Rider',
         help="The patient rides motorcycles")
