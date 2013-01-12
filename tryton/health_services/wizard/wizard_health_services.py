@@ -64,7 +64,8 @@ class CreateServiceInvoice(Wizard):
             invoice_data['description'] = service.desc
             invoice_data['party'] = service.patient.name.id
             invoice_data['account'] = service.patient.name.account_receivable.id
-            invoice_data['invoice_address'] = Party.address_get(service.patient.name.id, type='invoice')
+            party_address = Party.address_get(service.patient.name, type='invoice')
+            invoice_data['invoice_address'] = party_address.id
             invoice_data['reference'] = service.name
 
             invoice_data['payment_term'] = \
@@ -99,7 +100,7 @@ class CreateServiceInvoice(Wizard):
 
 
             # Change to invoiced the status on the service document.
-            HealthService.write(service.id, {'state': 'invoiced'})
+            HealthService.write([service], {'state': 'invoiced'})
 
         return 'end'
 

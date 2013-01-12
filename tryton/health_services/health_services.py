@@ -53,26 +53,24 @@ class HealthService(ModelSQL, ModelView):
         ('invoiced', 'Invoiced'),
         ], 'State', readonly=True)
 
-    @staticmethod
-    def default_state():
-        return 'draft'
-
-    def button_set_to_draft(self, ids):
-        self.write(ids, {'state': 'draft'})
-        return True
-
     @classmethod
     def __setup__(cls):
         super(HealthService, cls).__setup__()
         cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
-
-        cls.__rpc__.update({'button_set_to_draft': True})
-
         cls._buttons.update({
             'button_set_to_draft': {'invisible': Equal(Eval('state'),
                 'draft')}
             })
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+    @classmethod
+    @ModelView.button
+    def button_set_to_draft(cls, services):
+        cls.write(services, {'state': 'draft'})
 
     @classmethod
     def create(cls, values):
