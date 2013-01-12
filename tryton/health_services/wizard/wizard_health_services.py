@@ -103,8 +103,9 @@ class CreateServiceInvoice(Wizard):
 
         return 'end'
 
-    def __init__(self):
-        super(CreateServiceInvoice, self).__init__()
-        self._error_messages.update({
+    @classmethod
+    def __setup__(cls):
+        super(CreateServiceInvoice, cls).__setup__()
+        cls._error_messages.update({
             'duplicate_invoice': 'Service already invoiced'})
 

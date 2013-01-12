@@ -60,14 +60,15 @@ class HealthService(ModelSQL, ModelView):
         self.write(ids, {'state': 'draft'})
         return True
 
-    def __init__(self):
-        super(HealthService, self).__init__()
-        self._sql_constraints += [
+    @classmethod
+    def __setup__(cls):
+        super(HealthService, cls).__setup__()
+        cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
 
-        self._rpc.update({'button_set_to_draft': True})
+        cls.__rpc__.update({'button_set_to_draft': True})
 
-        self._buttons.update({
+        cls._buttons.update({
             'button_set_to_draft': {'invisible': Equal(Eval('state'),
                 'draft')}
             })
