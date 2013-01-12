@@ -425,12 +425,14 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         'psc_teases_others', 'psc_takes_things_from_others',
         'psc_refuses_to_share'])
 
-    def default_user_id(self):
+    @staticmethod
+    def default_user_id():
         user_obj = Pool().get('res.user')
         user = user_obj.browse(Transaction().user)
         return int(user.id)
 
-    def default_psc_total(self):
+    @staticmethod
+    def default_psc_total():
         return 0
 
     def on_change_with_psc_total(self):
