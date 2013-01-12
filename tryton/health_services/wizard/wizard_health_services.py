@@ -30,13 +30,12 @@ __all__ = ['CreateServiceInvoiceInit', 'CreateServiceInvoice']
 
 class CreateServiceInvoiceInit(ModelView):
     'Create Service Invoice Init'
-    _name = 'gnuhealth.service.invoice.init'
-    _description = __doc__
+    __name__ = 'gnuhealth.service.invoice.init'
 
 
 class CreateServiceInvoice(Wizard):
     'Create Service Invoice'
-    _name = 'gnuhealth.service.invoice.create'
+    __name__ = 'gnuhealth.service.invoice.create'
 
     start = StateView('gnuhealth.service.invoice.init',
         'health_services.view_health_service_invoice', [

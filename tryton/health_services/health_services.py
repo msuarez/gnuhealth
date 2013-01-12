@@ -29,9 +29,7 @@ __all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
-
-    _description = __doc__
-    _name = "gnuhealth.sequences"
+    __name__ = "gnuhealth.sequences"
 
     health_service_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Health Service Sequence', domain=[
@@ -41,8 +39,7 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
 
 class HealthService(ModelSQL, ModelView):
     'Health Service'
-    _name = 'gnuhealth.health_service'
-    _description = __doc__
+    __name__ = 'gnuhealth.health_service'
 
     name = fields.Char('ID', readonly=True)
     desc = fields.Char('Description', required=True)
@@ -90,8 +87,7 @@ class HealthService(ModelSQL, ModelView):
 
 class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
-    _name = 'gnuhealth.health_service.line'
-    _description = __doc__
+    __name__ = 'gnuhealth.health_service.line'
 
     name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
     desc = fields.Char('Description', required=True)
