@@ -19,4 +19,15 @@
 #
 ##############################################################################
 
-from health_pediatrics import *
+from trytond.pool import Pool
+from .health_pediatrics import *
+
+
+def register():
+    Pool.register(
+        Newborn,
+        NeonatalApgar,
+        NeonatalMedication,
+        NeonatalCongenitalDiseases,
+        PediatricSymptomsChecklist,
+        module='health_pediatrics', type_='model')

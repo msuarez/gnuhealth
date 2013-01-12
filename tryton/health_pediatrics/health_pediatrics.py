@@ -23,11 +23,15 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
+__all__ = ['Newborn', 'NeonatalApgar', 'NeonatalMedication',
+    'NeonatalCongenitalDiseases', 'PediatricSymptomsChecklist']
+
+
 class Newborn(ModelSQL, ModelView):
     'Newborn Information'
     _name = 'gnuhealth.newborn'
     _description = __doc__
-    
+
     name = fields.Char('Newborn ID')
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
     newborn_name = fields.Char('Baby\'s name')
@@ -95,15 +99,13 @@ class Newborn(ModelSQL, ModelView):
     tod = fields.DateTime('Time of Death')
     cod = fields.Many2One('gnuhealth.pathology', 'Cause of death')
     notes = fields.Text('Notes')
-    
+
     def __init__(self):
         super(Newborn, self).__init__()
 
         self._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
         ]
-
-Newborn()
 
 
 class NeonatalApgar(ModelSQL, ModelView):
@@ -161,8 +163,6 @@ class NeonatalApgar(ModelSQL, ModelView):
 
         return apgar_score
 
-NeonatalApgar()
-
 
 class NeonatalMedication(ModelSQL, ModelView):
     'Neonatal Medication. Inherit and Add field to Medication model'
@@ -170,8 +170,6 @@ class NeonatalMedication(ModelSQL, ModelView):
     _description = __doc__
 
     newborn_id = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
-
-NeonatalMedication()
 
 
 class NeonatalCongenitalDiseases(ModelSQL, ModelView):
@@ -181,15 +179,13 @@ class NeonatalCongenitalDiseases(ModelSQL, ModelView):
 
     newborn_id = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
 
-NeonatalCongenitalDiseases()
-
 
 class PediatricSymptomsChecklist(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist'
     _name = 'gnuhealth.patient.psc'
     _description = __doc__
-    
-    
+
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
@@ -505,9 +501,6 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
             int(psc_refuses_to_share)
 
         return psc_total
-
-        
-PediatricSymptomsChecklist()
 
 
 # REMOVED IN 1.6
