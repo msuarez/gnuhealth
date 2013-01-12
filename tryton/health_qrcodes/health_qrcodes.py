@@ -32,48 +32,44 @@ class Patient(ModelSQL, ModelView):
     'Patient'
     __name__ = 'gnuhealth.patient'
 
-    def make_qrcode(self, ids, name):
+    def make_qrcode(self, name):
 # Create the QR code
-        result = {}
-        for patient_data in self.browse(ids):
 
-            patient_ssn = patient_data.ssn or ''
+        patient_ssn = self.ssn or ''
 
-            patient_blood_type = patient_data.blood_type or ''
+        patient_blood_type = self.blood_type or ''
 
-            patient_rh = patient_data.rh or ''
+        patient_rh = self.rh or ''
 
-            patient_sex = patient_data.sex or ''
+        patient_sex = self.sex or ''
 
-            patient_dob = patient_data.dob or ''
+        patient_dob = self.dob or ''
 
-            patient_id = patient_data.identification_code or ''
+        patient_id = self.identification_code or ''
 
-            if patient_data.lastname:
-                patient_lastname = patient_data.lastname + ', '
-            else:
-                patient_lastname = ''
+        if self.lastname:
+            patient_lastname = self.lastname + ', '
+        else:
+            patient_lastname = ''
 
-            qr_string = 'ID: ' + patient_id \
-                + '\nName: ' + patient_lastname + ',' \
-                    + patient_data.name.name \
-                + '\nSSN: ' + patient_ssn \
-                + '\nSex: ' + patient_sex \
-                + '\nDoB: ' + str(patient_dob) \
-                + '\nBlood Type: ' + patient_blood_type \
-                    + ' ' + patient_rh
+        qr_string = 'ID: ' + patient_id \
+            + '\nName: ' + patient_lastname + ',' \
+                + self.name.name \
+            + '\nSSN: ' + patient_ssn \
+            + '\nSex: ' + patient_sex \
+            + '\nDoB: ' + str(patient_dob) \
+            + '\nBlood Type: ' + patient_blood_type \
+                + ' ' + patient_rh
 
-            qr_image = qrcode.make(qr_string)
+        qr_image = qrcode.make(qr_string)
 
 # Make a PNG image from PIL without the need to create a temp file
-            holder = StringIO.StringIO()
-            qr_image.save(holder)
-            qr_png = holder.getvalue()
-            holder.close()
+        holder = StringIO.StringIO()
+        qr_image.save(holder)
+        qr_png = holder.getvalue()
+        holder.close()
 
-            result[patient_data.id] = buffer(qr_png)
-
-        return result
+        return  buffer(qr_png)
 
 # Add the QR Code to the Patient
     qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
@@ -85,50 +81,46 @@ class Newborn(ModelSQL, ModelView):
     'NewBorn'
     __name__ = 'gnuhealth.newborn'
 
-    def make_qrcode(self, ids, name):
+    def make_qrcode(self, name):
 # Create the QR code
-        result = {}
-        for newborn_data in self.browse(ids):
 
-            if newborn_data.mother:
-                if newborn_data.mother.name.lastname:
-                    newborn_mother_lastname = newborn_data.mother.name.lastname + ', '
-                else:
-                    newborn_mother_lastname = ''
-
-                newborn_mother_name = newborn_data.mother.name.name or ''
-
-                newborn_mother_id = newborn_data.mother.identification_code or ''
-
+        if self.mother:
+            if self.mother.name.lastname:
+                newborn_mother_lastname = self.mother.name.lastname + ', '
             else:
                 newborn_mother_lastname = ''
-                newborn_mother_name = ''
-                newborn_mother_id = ''
 
-            newborn_name = newborn_data.name or ''
+            newborn_mother_name = self.mother.name.name or ''
 
-            newborn_sex = newborn_data.sex or ''
+            newborn_mother_id = self.mother.identification_code or ''
 
-            newborn_birth_date = newborn_data.birth_date or ''
+        else:
+            newborn_mother_lastname = ''
+            newborn_mother_name = ''
+            newborn_mother_id = ''
 
-            qr_string = 'ID: ' + newborn_name \
-                + '\nMother: ' + newborn_mother_lastname \
-                        + newborn_mother_name \
-                + '\nMother\'s ID: ' + newborn_mother_id \
-                + '\nSex: ' + newborn_sex \
-                + '\nDoB: ' + str(newborn_birth_date)
+        newborn_name = self.name or ''
 
-            qr_image = qrcode.make(qr_string)
+        newborn_sex = self.sex or ''
+
+        newborn_birth_date = self.birth_date or ''
+
+        qr_string = 'ID: ' + newborn_name \
+            + '\nMother: ' + newborn_mother_lastname \
+                    + newborn_mother_name \
+            + '\nMother\'s ID: ' + newborn_mother_id \
+            + '\nSex: ' + newborn_sex \
+            + '\nDoB: ' + str(newborn_birth_date)
+
+        qr_image = qrcode.make(qr_string)
 
 # Make a PNG image from PIL without the need to create a temp file
-            holder = StringIO.StringIO()
-            qr_image.save(holder)
-            qr_png = holder.getvalue()
-            holder.close()
+        holder = StringIO.StringIO()
+        qr_image.save(holder)
+        qr_png = holder.getvalue()
+        holder.close()
 
-            result[newborn_data.id] = buffer(qr_png)
-
-        return result
+        return buffer(qr_png)
 
 # Add the QR Code to the Newborn
     qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
