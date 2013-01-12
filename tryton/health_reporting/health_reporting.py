@@ -107,7 +107,7 @@ class OpenTopDiseases(Wizard):
         action['pyson_context'] = PYSONEncoder().encode({
                 'start_date': self.start.start_date,
                 'end_date': self.start.end_date,
-                'group': self.start.group.id,
+                'group': self.start.group.id if self.start.group else None,
                 'number_records': self.start.number_records,
                 })
         return action, {}
