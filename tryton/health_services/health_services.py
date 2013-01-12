@@ -47,7 +47,6 @@ class HealthService(ModelSQL, ModelView):
     service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
-
     state = fields.Selection([
         ('draft', 'Draft'),
         ('invoiced', 'Invoiced'),
@@ -89,12 +88,12 @@ class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
     __name__ = 'gnuhealth.health_service.line'
 
-    name = fields.Many2One('gnuhealth.health_service', 'Service', readonly=True)
+    name = fields.Many2One('gnuhealth.health_service', 'Service',
+        readonly=True)
     desc = fields.Char('Description', required=True)
     appointment = fields.Many2One('gnuhealth.appointment', 'Appointment',
-        help='Enter or select the date / ID of the appointment related to'\
+        help='Enter or select the date / ID of the appointment related to'
         ' this evaluation')
-
     to_invoice = fields.Boolean('Invoice')
     product = fields.Many2One('product.product', 'Product', required=True)
     qty = fields.Integer('Qty')

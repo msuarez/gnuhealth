@@ -40,73 +40,65 @@ class CreateServiceInvoice(Wizard):
     start = StateView('gnuhealth.service.invoice.init',
         'health_services.view_health_service_invoice', [
             Button('Cancel', 'end', 'tryton-cancel'),
-            Button('Create Invoice', 'create_service_invoice', 'tryton-ok', True),
+            Button('Create Invoice', 'create_service_invoice', 'tryton-ok',
+                True),
             ])
-
     create_service_invoice = StateTransition()
-
-
-    def transition_create_service_invoice(self):
-        HealthService = Pool().get('gnuhealth.health_service')
-        Invoice = Pool().get('account.invoice')
-        Party = Pool().get('party.party')
-
-        selected_services = HealthService.browse(Transaction().context.get('active_ids'))
-
-        #Invoice Header
-        for service in selected_services:
-
-            if service.state == 'invoiced':
-                    self.raise_user_error('duplicate_invoice')
-
-            invoice_data = {}
-
-            invoice_data['description'] = service.desc
-            invoice_data['party'] = service.patient.name.id
-            invoice_data['account'] = service.patient.name.account_receivable.id
-            party_address = Party.address_get(service.patient.name, type='invoice')
-            invoice_data['invoice_address'] = party_address.id
-            invoice_data['reference'] = service.name
-
-            invoice_data['payment_term'] = \
-                    service.patient.name.customer_payment_term and \
-                    service.patient.name.customer_payment_term.id or \
-                    False
-
-
-
-            #Invoice Lines
-            seq = 0
-            invoice_lines = []
-
-            for line in service.service_line:
-                seq = seq + 1
-                account = line['product'].template.account_revenue_used.id
-
-                if line['to_invoice'] :
-                    invoice_lines.append(('create', {
-                            'product': line['product'].id,
-                            'description': line['desc'],
-                            'quantity': line['qty'],
-                            'account': account,
-                            'unit' : line['product'].default_uom.id,
-                            'unit_price' : line['product'].list_price,
-                            'sequence': seq
-                        }))
-
-                invoice_data['lines'] = invoice_lines
-
-            Invoice.create(invoice_data)
-
-
-            # Change to invoiced the status on the service document.
-            HealthService.write([service], {'state': 'invoiced'})
-
-        return 'end'
 
     @classmethod
     def __setup__(cls):
         super(CreateServiceInvoice, cls).__setup__()
         cls._error_messages.update({
             'duplicate_invoice': 'Service already invoiced'})
+
+    def transition_create_service_invoice(self):
+        HealthService = Pool().get('gnuhealth.health_service')
+        Invoice = Pool().get('account.invoice')
+        Party = Pool().get('party.party')
+
+        services = HealthService.browse(Transaction().context.get(
+            'active_ids'))
+
+        #Invoice Header
+        for service in services:
+            if service.state == 'invoiced':
+                    self.raise_user_error('duplicate_invoice')
+            invoice_data = {}
+            invoice_data['description'] = service.desc
+            invoice_data['party'] = service.patient.name.id
+            invoice_data['account'] = \
+                service.patient.name.account_receivable.id
+            party_address = Party.address_get(service.patient.name,
+                type='invoice')
+            invoice_data['invoice_address'] = party_address.id
+            invoice_data['reference'] = service.name
+            invoice_data['payment_term'] = \
+                    service.patient.name.customer_payment_term and \
+                    service.patient.name.customer_payment_term.id or \
+                    False
+
+            #Invoice Lines
+            seq = 0
+            invoice_lines = []
+            for line in service.service_line:
+                seq = seq + 1
+                account = line['product'].template.account_revenue_used.id
+                if line['to_invoice']:
+                    invoice_lines.append(('create', {
+                            'product': line['product'].id,
+                            'description': line['desc'],
+                            'quantity': line['qty'],
+                            'account': account,
+                            'unit': line['product'].default_uom.id,
+                            'unit_price': line['product'].list_price,
+                            'sequence': seq
+                        }))
+                invoice_data['lines'] = invoice_lines
+
+            Invoice.create(invoice_data)
+
+            # Change to invoiced the status on the service document.
+            HealthService.write([service], {'state': 'invoiced'})
+
+        return 'end'
 
