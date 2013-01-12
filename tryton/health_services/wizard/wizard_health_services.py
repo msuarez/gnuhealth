@@ -46,7 +46,7 @@ class CreateServiceInvoice(Wizard):
     create_service_invoice = StateTransition()
 
 
-    def transition_create_service_invoice(self, session):
+    def transition_create_service_invoice(self):
         HealthService = Pool().get('gnuhealth.health_service')
         Invoice = Pool().get('account.invoice')
         Party = Pool().get('party.party')
@@ -95,7 +95,7 @@ class CreateServiceInvoice(Wizard):
 
                 invoice_data['lines'] = invoice_lines
 
-            invoice_document = Invoice.create(invoice_data)
+            Invoice.create(invoice_data)
 
 
             # Change to invoiced the status on the service document.
