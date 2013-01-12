@@ -53,7 +53,8 @@ class HealthService(ModelSQL, ModelView):
         ('invoiced', 'Invoiced'),
         ], 'State', readonly=True)
 
-    def default_state(self):
+    @staticmethod
+    def default_state():
         return 'draft'
 
     def button_set_to_draft(self, ids):
@@ -102,6 +103,7 @@ class HealthServiceLine(ModelSQL, ModelView):
     from_date = fields.Date('From')
     to_date = fields.Date('To')
 
-    def default_qty(self):
+    @staticmethod
+    def default_qty():
         return 1
 
