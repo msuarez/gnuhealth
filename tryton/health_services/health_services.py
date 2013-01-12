@@ -74,7 +74,8 @@ class HealthService(ModelSQL, ModelView):
                 'draft')}
             })
 
-    def create(self, values):
+    @classmethod
+    def create(cls, values):
         sequence_obj = Pool().get('ir.sequence')
         config_obj = Pool().get('gnuhealth.sequences')
 
@@ -84,7 +85,7 @@ class HealthService(ModelSQL, ModelView):
             values['name'] = sequence_obj.get_id(
             config.health_service_sequence.id)
 
-        return super(HealthService, self).create(values)
+        return super(HealthService, cls).create(values)
 
 
 class HealthServiceLine(ModelSQL, ModelView):
