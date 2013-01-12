@@ -36,8 +36,7 @@ __all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
 
 class TopDiseases(ModelSQL, ModelView):
     'Top Diseases'
-    _name = 'gnuhealth.top_diseases'
-    _description = __doc__
+    __name__ = 'gnuhealth.top_diseases'
 
     disease = fields.Many2One('gnuhealth.pathology', 'Disease', select=True)
     cases = fields.Integer('Cases')
@@ -83,8 +82,8 @@ class TopDiseases(ModelSQL, ModelView):
 
 class OpenTopDiseasesStart(ModelView):
     'Open Top Diseases'
-    _name = 'gnuhealth.top_diseases.open.start'
-    _description = __doc__
+    __name__ = 'gnuhealth.top_diseases.open.start'
+
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
     group = fields.Many2One('gnuhealth.pathology.group', 'Disease Group')
@@ -93,7 +92,7 @@ class OpenTopDiseasesStart(ModelView):
 
 class OpenTopDiseases(Wizard):
     'Open Top Diseases'
-    _name = 'gnuhealth.top_diseases.open'
+    __name__ = 'gnuhealth.top_diseases.open'
 
     start = StateView('gnuhealth.top_diseases.open.start',
         'health_reporting.top_diseases_open_start_view_form', [
@@ -117,8 +116,7 @@ class OpenTopDiseases(Wizard):
 
 class EvaluationsDoctor(ModelSQL, ModelView):
     'Evaluations per Doctor'
-    _name = 'gnuhealth.evaluations_doctor'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_doctor'
 
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
     evaluations = fields.Integer('Evaluations')
@@ -146,15 +144,15 @@ class EvaluationsDoctor(ModelSQL, ModelView):
 
 class OpenEvaluationsDoctorStart(ModelView):
     'Open Evaluations per Doctor'
-    _name = 'gnuhealth.evaluations_doctor.open.start'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_doctor.open.start'
+
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
 
 
 class OpenEvaluationsDoctor(Wizard):
     'Open Evaluations per Doctor'
-    _name = 'gnuhealth.evaluations_doctor.open'
+    __name__ = 'gnuhealth.evaluations_doctor.open'
 
     start = StateView('gnuhealth.evaluations_doctor.open.start',
         'health_reporting.evaluations_doctor_open_start_view_form', [
@@ -176,8 +174,7 @@ class OpenEvaluationsDoctor(Wizard):
 
 class EvaluationsDoctorWeekly(ModelSQL, ModelView):
     'Evaluations per Doctor per Week'
-    _name = 'gnuhealth.evaluations_doctor_weekly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_doctor_weekly'
 
     year = fields.Char('Year', select=True)
     week = fields.Integer('Week', select=True)
@@ -212,8 +209,7 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
 
 class EvaluationsDoctorMonthly(ModelSQL, ModelView):
     'Evaluations per Doctor per Month'
-    _name = 'gnuhealth.evaluations_doctor_monthly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_doctor_monthly'
 
     year = fields.Char('Year', select=True)
     month = fields.Integer('Month', select=True)
@@ -248,8 +244,7 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
 
 class EvaluationsSpecialty(ModelSQL, ModelView):
     'Evaluations per Specialty'
-    _name = 'gnuhealth.evaluations_specialty'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_specialty'
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
     evaluations = fields.Integer('Evaluations')
@@ -277,15 +272,15 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
 
 class OpenEvaluationsSpecialtyStart(ModelView):
     'Open Evaluations per Specialty'
-    _name = 'gnuhealth.evaluations_specialty.open.start'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_specialty.open.start'
+
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
 
 
 class OpenEvaluationsSpecialty(Wizard):
     'Open Evaluations per Specialty'
-    _name = 'gnuhealth.evaluations_specialty.open'
+    __name__ = 'gnuhealth.evaluations_specialty.open'
 
     start = StateView('gnuhealth.evaluations_specialty.open.start',
         'health_reporting.evaluations_specialty_open_start_view_form', [
@@ -307,8 +302,7 @@ class OpenEvaluationsSpecialty(Wizard):
 
 class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
     'Evaluations per Specialty per Week'
-    _name = 'gnuhealth.evaluations_specialty_weekly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_specialty_weekly'
 
     year = fields.Char('Year', select=True)
     week = fields.Integer('Week', select=True)
@@ -343,8 +337,7 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
 
 class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
     'Evaluations per Specialty per Month'
-    _name = 'gnuhealth.evaluations_specialty_monthly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_specialty_monthly'
 
     year = fields.Char('Year', select=True)
     month = fields.Integer('Month', select=True)
@@ -379,8 +372,7 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
 
 class EvaluationsSector(ModelSQL, ModelView):
     'Evaluations per Sector'
-    _name = 'gnuhealth.evaluations_sector'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_sector'
 
     sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
     evaluations = fields.Integer('Evaluations')
@@ -419,15 +411,15 @@ class EvaluationsSector(ModelSQL, ModelView):
 
 class OpenEvaluationsSectorStart(ModelView):
     'Open Evaluations per Sector'
-    _name = 'gnuhealth.evaluations_sector.open.start'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_sector.open.start'
+
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
 
 
 class OpenEvaluationsSector(Wizard):
     'Open Evaluations per Sector'
-    _name = 'gnuhealth.evaluations_sector.open'
+    __name__ = 'gnuhealth.evaluations_sector.open'
 
     start = StateView('gnuhealth.evaluations_sector.open.start',
         'health_reporting.evaluations_sector_open_start_view_form', [
@@ -449,8 +441,7 @@ class OpenEvaluationsSector(Wizard):
 
 class EvaluationsSectorWeekly(ModelSQL, ModelView):
     'Evaluations per Sector per Week'
-    _name = 'gnuhealth.evaluations_sector_weekly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_sector_weekly'
 
     year = fields.Char('Year', select=True)
     week = fields.Integer('Week', select=True)
@@ -495,8 +486,7 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
 
 class EvaluationsSectorMonthly(ModelSQL, ModelView):
     'Evaluations per Sector per Month'
-    _name = 'gnuhealth.evaluations_sector_monthly'
-    _description = __doc__
+    __name__ = 'gnuhealth.evaluations_sector_monthly'
 
     year = fields.Char('Year', select=True)
     month = fields.Integer('Month', select=True)
