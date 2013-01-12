@@ -46,7 +46,8 @@ class TopDiseases(ModelSQL, ModelView):
         super(TopDiseases, cls).__setup__()
         cls._order.insert(0, ('cases', 'DESC'))
 
-    def table_query(self):
+    @staticmethod
+    def table_query():
         from_clause = ' '
         where_clause = ' '
         args = [True]
@@ -122,7 +123,8 @@ class EvaluationsDoctor(ModelSQL, ModelView):
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def table_query(self):
+    @staticmethod
+    def table_query():
         clause = ' '
         args = [True]
         if Transaction().context.get('start_date'):
@@ -189,8 +191,9 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
         cls._order.insert(1, ('week', 'DESC'))
         cls._order.insert(2, ('doctor', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, week, ' \
                     'doctor, evaluations ' \
@@ -206,7 +209,7 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
                         'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
                         'doctor, COUNT(*) AS evaluations ' \
                         'FROM gnuhealth_patient_evaluation ' \
-                        'GROUP BY year, week, doctor) AS ' + self._table, [])
+                        'GROUP BY year, week, doctor) AS ' + cls._table, [])
 
 
 class EvaluationsDoctorMonthly(ModelSQL, ModelView):
@@ -225,8 +228,9 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
         cls._order.insert(1, ('month', 'DESC'))
         cls._order.insert(2, ('doctor', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, month, ' \
                     'doctor, evaluations ' \
@@ -242,7 +246,7 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
                         'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
                         'doctor, COUNT(*) AS evaluations ' \
                         'FROM gnuhealth_patient_evaluation ' \
-                        'GROUP BY year, month, doctor) AS ' + self._table, [])
+                        'GROUP BY year, month, doctor) AS ' + cls._table, [])
 
 
 class EvaluationsSpecialty(ModelSQL, ModelView):
@@ -252,7 +256,8 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def table_query(self):
+    @staticmethod
+    def table_query():
         clause = ' '
         args = [True]
         if Transaction().context.get('start_date'):
@@ -319,8 +324,9 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
         cls._order.insert(1, ('week', 'DESC'))
         cls._order.insert(2, ('specialty', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, week, ' \
                     'specialty, evaluations ' \
@@ -336,7 +342,7 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
                         'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
                         'specialty, COUNT(*) AS evaluations ' \
                         'FROM gnuhealth_patient_evaluation ' \
-                        'GROUP BY year, week, specialty) AS ' + self._table, [])
+                        'GROUP BY year, week, specialty) AS ' + cls._table, [])
 
 
 class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
@@ -355,8 +361,9 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
         cls._order.insert(1, ('month', 'DESC'))
         cls._order.insert(2, ('specialty', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, month, ' \
                     'specialty, evaluations ' \
@@ -372,7 +379,7 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
                         'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
                         'specialty, COUNT(*) AS evaluations ' \
                         'FROM gnuhealth_patient_evaluation ' \
-                        'GROUP BY year, month, specialty) AS ' + self._table, [])
+                        'GROUP BY year, month, specialty) AS ' + cls._table, [])
 
 
 class EvaluationsSector(ModelSQL, ModelView):
@@ -382,7 +389,8 @@ class EvaluationsSector(ModelSQL, ModelView):
     sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
     evaluations = fields.Integer('Evaluations')
 
-    def table_query(self):
+    @staticmethod
+    def table_query():
         clause = ' '
         args = [True]
         if Transaction().context.get('start_date'):
@@ -460,8 +468,9 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
         cls._order.insert(1, ('week', 'DESC'))
         cls._order.insert(2, ('sector', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, week, ' \
                     'sector, evaluations ' \
@@ -487,7 +496,7 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
                             'AND gfm.party = pp.id ' \
                             'AND gfm.name = gf.id ' \
                             'AND gf.operational_sector = gos.id ' \
-                        'GROUP BY year, week, gos.id) AS ' + self._table, [])
+                        'GROUP BY year, week, gos.id) AS ' + cls._table, [])
 
 
 class EvaluationsSectorMonthly(ModelSQL, ModelView):
@@ -506,8 +515,9 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
         cls._order.insert(1, ('month', 'DESC'))
         cls._order.insert(2, ('sector', 'ASC'))
 
-    def table_query(self):
-        type_name = FIELDS[self.year._type].sql_type(self.year)[0]
+    @classmethod
+    def table_query(cls):
+        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
                     'CAST(year AS ' + type_name + ') AS year, month, ' \
                     'sector, evaluations ' \
@@ -533,5 +543,5 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
                             'AND gfm.party = pp.id ' \
                             'AND gfm.name = gf.id ' \
                             'AND gf.operational_sector = gos.id ' \
-                        'GROUP BY year, month, gos.id) AS ' + self._table, [])
+                        'GROUP BY year, month, gos.id) AS ' + cls._table, [])
 
