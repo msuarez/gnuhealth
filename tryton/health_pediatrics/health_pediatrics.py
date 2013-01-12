@@ -47,7 +47,6 @@ class Newborn(ModelSQL, ModelView):
     weight = fields.Integer('Weight', help="Weight in grams (g)")
     apgar1 = fields.Integer('APGAR 1st minute')
     apgar5 = fields.Integer('APGAR 5th minute')
-
     apgar_scores = fields.One2Many('gnuhealth.neonatal.apgar', 'name',
         'APGAR scores')
     meconium = fields.Boolean('Meconium')
@@ -64,7 +63,7 @@ class Newborn(ModelSQL, ModelView):
     test_billirubin = fields.Boolean('Billirubin')
     test_audition = fields.Boolean('Audition')
     test_metabolic = fields.Boolean('Metabolic ("heel stick screening")',
-        help="Test for Fenilketonuria, Congenital Hypothyroidism, " \
+        help="Test for Fenilketonuria, Congenital Hypothyroidism, "
         "Quistic Fibrosis, Galactosemia")
     neonatal_ortolani = fields.Boolean('Positive Ortolani')
     neonatal_barlow = fields.Boolean('Positive Barlow')
@@ -181,11 +180,10 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
     'Pediatric Symptoms Checklist'
     __name__ = 'gnuhealth.patient.psc'
 
-
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     evaluation_date = fields.Many2One('gnuhealth.appointment', 'Appointment',
-        help="Enter or select the date / ID of the appointment related to " \
+        help="Enter or select the date / ID of the appointment related to "
         "this evaluation")
 
     evaluation_start = fields.DateTime('Date', required=True)
@@ -374,7 +372,6 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         ('2', 'Often'),
         ], 'Does not show feelings', sort=False)
 
-
     psc_does_not_get_people_feelings = fields.Selection([
         ('0', 'Never'),
         ('1', 'Sometimes'),
@@ -473,7 +470,6 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         psc_teases_others = self.psc_teases_others or '0'
         psc_takes_things_from_others = self.psc_takes_things_from_others or '0'
         psc_refuses_to_share = self.psc_refuses_to_share or '0'
-
 
         psc_total = int(psc_aches_pains) + int(psc_spend_time_alone) + \
             int(psc_tires_easily) + int(psc_fidgety) + \
