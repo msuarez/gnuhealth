@@ -76,15 +76,14 @@ class HealthService(ModelSQL, ModelView):
 
     @classmethod
     def create(cls, values):
-        sequence_obj = Pool().get('ir.sequence')
-        config_obj = Pool().get('gnuhealth.sequences')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
 
         values = values.copy()
         if not values.get('name'):
-            config = config_obj.browse(1)
-            values['name'] = sequence_obj.get_id(
-            config.health_service_sequence.id)
-
+            config = Config(1)
+            values['name'] = Sequence.get_id(
+                config.health_service_sequence.id)
         return super(HealthService, cls).create(values)
 
 

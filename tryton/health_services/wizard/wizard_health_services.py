@@ -47,11 +47,11 @@ class CreateServiceInvoice(Wizard):
 
 
     def transition_create_service_invoice(self, session):
-        health_service_obj = Pool().get('gnuhealth.health_service')
-        invoice_obj = Pool().get('account.invoice')
-        party_obj = Pool().get('party.party')
+        HealthService = Pool().get('gnuhealth.health_service')
+        Invoice = Pool().get('account.invoice')
+        Party = Pool().get('party.party')
 
-        selected_services = health_service_obj.browse(Transaction().context.get('active_ids'))
+        selected_services = HealthService.browse(Transaction().context.get('active_ids'))
 
         #Invoice Header
         for service in selected_services:
@@ -64,7 +64,7 @@ class CreateServiceInvoice(Wizard):
             invoice_data['description'] = service.desc
             invoice_data['party'] = service.patient.name.id
             invoice_data['account'] = service.patient.name.account_receivable.id
-            invoice_data['invoice_address'] = party_obj.address_get(service.patient.name.id, type='invoice')
+            invoice_data['invoice_address'] = Party.address_get(service.patient.name.id, type='invoice')
             invoice_data['reference'] = service.name
 
             invoice_data['payment_term'] = \
@@ -95,11 +95,11 @@ class CreateServiceInvoice(Wizard):
 
                 invoice_data['lines'] = invoice_lines
 
-            invoice_document = invoice_obj.create(invoice_data)
+            invoice_document = Invoice.create(invoice_data)
 
 
             # Change to invoiced the status on the service document.
-            health_service_obj.write(service.id, {'state': 'invoiced'})
+            HealthService.write(service.id, {'state': 'invoiced'})
 
         return 'end'
 
