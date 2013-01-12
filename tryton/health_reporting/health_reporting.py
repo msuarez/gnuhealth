@@ -65,20 +65,20 @@ class TopDiseases(ModelSQL, ModelView):
         number_records = '10'
         if Transaction().context.get('number_records'):
             number_records = Transaction().context['number_records']
-        return ('SELECT DISTINCT(gpe.diagnosis) AS id, ' \
-                    'MAX(gpe.create_uid) AS create_uid, ' \
-                    'MAX(gpe.create_date) AS create_date, ' \
-                    'MAX(gpe.write_uid) AS write_uid, ' \
-                    'MAX(gpe.write_date) AS write_date, ' \
-                    'gpe.diagnosis as disease, ' \
-                    'COUNT(*) AS cases ' \
-                'FROM gnuhealth_patient_evaluation gpe ' \
-                + from_clause + \
-                'WHERE gpe.diagnosis is not null ' \
-                'AND %s ' \
-                + where_clause + \
-                'GROUP BY gpe.diagnosis ' \
-                'ORDER BY cases DESC ' \
+        return ('SELECT DISTINCT(gpe.diagnosis) AS id, '
+                    'MAX(gpe.create_uid) AS create_uid, '
+                    'MAX(gpe.create_date) AS create_date, '
+                    'MAX(gpe.write_uid) AS write_uid, '
+                    'MAX(gpe.write_date) AS write_date, '
+                    'gpe.diagnosis as disease, '
+                    'COUNT(*) AS cases '
+                'FROM gnuhealth_patient_evaluation gpe '
+                + from_clause +
+                'WHERE gpe.diagnosis is not null '
+                'AND %s '
+                + where_clause +
+                'GROUP BY gpe.diagnosis '
+                'ORDER BY cases DESC '
                 'LIMIT ' + number_records, args)
 
 
@@ -133,15 +133,15 @@ class EvaluationsDoctor(ModelSQL, ModelView):
         if Transaction().context.get('end_date'):
             clause += 'AND evaluation_start <= %s '
             args.append(Transaction().context['end_date'])
-        return ('SELECT DISTINCT(doctor) AS id, ' \
-                    'MAX(create_uid) AS create_uid, ' \
-                    'MAX(create_date) AS create_date, ' \
-                    'MAX(write_uid) AS write_uid, ' \
-                    'MAX(write_date) AS write_date, ' \
-                    'doctor, COUNT(*) AS evaluations ' \
-                'FROM gnuhealth_patient_evaluation ' \
-                'WHERE %s ' \
-                + clause + \
+        return ('SELECT DISTINCT(doctor) AS id, '
+                    'MAX(create_uid) AS create_uid, '
+                    'MAX(create_date) AS create_date, '
+                    'MAX(write_uid) AS write_uid, '
+                    'MAX(write_date) AS write_date, '
+                    'doctor, COUNT(*) AS evaluations '
+                'FROM gnuhealth_patient_evaluation '
+                'WHERE %s '
+                + clause +
                 'GROUP BY doctor', args)
 
 
@@ -194,21 +194,21 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, week, ' \
-                    'doctor, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'doctor, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(WEEK FROM evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
-                            'doctor * 1000000 AS id, ' \
-                        'MAX(create_uid) AS create_uid, ' \
-                        'MAX(create_date) AS create_date, ' \
-                        'MAX(write_uid) AS write_uid, ' \
-                        'MAX(write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
-                        'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
-                        'doctor, COUNT(*) AS evaluations ' \
-                        'FROM gnuhealth_patient_evaluation ' \
+                        'SELECT EXTRACT(WEEK FROM evaluation_start) + '
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + '
+                            'doctor * 1000000 AS id, '
+                        'MAX(create_uid) AS create_uid, '
+                        'MAX(create_date) AS create_date, '
+                        'MAX(write_uid) AS write_uid, '
+                        'MAX(write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, '
+                        'EXTRACT(WEEK FROM evaluation_start) AS week, '
+                        'doctor, COUNT(*) AS evaluations '
+                        'FROM gnuhealth_patient_evaluation '
                         'GROUP BY year, week, doctor) AS ' + cls._table, [])
 
 
@@ -231,21 +231,21 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, month, ' \
-                    'doctor, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'doctor, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(MONTH FROM evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
-                            'doctor * 1000000 AS id, ' \
-                        'MAX(create_uid) AS create_uid, ' \
-                        'MAX(create_date) AS create_date, ' \
-                        'MAX(write_uid) AS write_uid, ' \
-                        'MAX(write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
-                        'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
-                        'doctor, COUNT(*) AS evaluations ' \
-                        'FROM gnuhealth_patient_evaluation ' \
+                        'SELECT EXTRACT(MONTH FROM evaluation_start) + '
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + '
+                            'doctor * 1000000 AS id, '
+                        'MAX(create_uid) AS create_uid, '
+                        'MAX(create_date) AS create_date, '
+                        'MAX(write_uid) AS write_uid, '
+                        'MAX(write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, '
+                        'EXTRACT(MONTH FROM evaluation_start) AS month, '
+                        'doctor, COUNT(*) AS evaluations '
+                        'FROM gnuhealth_patient_evaluation '
                         'GROUP BY year, month, doctor) AS ' + cls._table, [])
 
 
@@ -253,7 +253,8 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
     'Evaluations per Specialty'
     __name__ = 'gnuhealth.evaluations_specialty'
 
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @staticmethod
@@ -266,15 +267,15 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
         if Transaction().context.get('end_date'):
             clause += 'AND evaluation_start <= %s '
             args.append(Transaction().context['end_date'])
-        return ('SELECT DISTINCT(specialty) AS id, ' \
-                    'MAX(create_uid) AS create_uid, ' \
-                    'MAX(create_date) AS create_date, ' \
-                    'MAX(write_uid) AS write_uid, ' \
-                    'MAX(write_date) AS write_date, ' \
-                    'specialty, COUNT(*) AS evaluations ' \
-                'FROM gnuhealth_patient_evaluation ' \
-                'WHERE %s ' \
-                + clause + \
+        return ('SELECT DISTINCT(specialty) AS id, '
+                    'MAX(create_uid) AS create_uid, '
+                    'MAX(create_date) AS create_date, '
+                    'MAX(write_uid) AS write_uid, '
+                    'MAX(write_date) AS write_date, '
+                    'specialty, COUNT(*) AS evaluations '
+                'FROM gnuhealth_patient_evaluation '
+                'WHERE %s '
+                + clause +
                 'GROUP BY specialty', args)
 
 
@@ -314,7 +315,8 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
 
     year = fields.Char('Year', select=True)
     week = fields.Integer('Week', select=True)
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @classmethod
@@ -327,21 +329,21 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, week, ' \
-                    'specialty, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'specialty, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(WEEK FROM evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
-                            'specialty * 1000000 AS id, ' \
-                        'MAX(create_uid) AS create_uid, ' \
-                        'MAX(create_date) AS create_date, ' \
-                        'MAX(write_uid) AS write_uid, ' \
-                        'MAX(write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
-                        'EXTRACT(WEEK FROM evaluation_start) AS week, ' \
-                        'specialty, COUNT(*) AS evaluations ' \
-                        'FROM gnuhealth_patient_evaluation ' \
+                        'SELECT EXTRACT(WEEK FROM evaluation_start) + '
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + '
+                            'specialty * 1000000 AS id, '
+                        'MAX(create_uid) AS create_uid, '
+                        'MAX(create_date) AS create_date, '
+                        'MAX(write_uid) AS write_uid, '
+                        'MAX(write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, '
+                        'EXTRACT(WEEK FROM evaluation_start) AS week, '
+                        'specialty, COUNT(*) AS evaluations '
+                        'FROM gnuhealth_patient_evaluation '
                         'GROUP BY year, week, specialty) AS ' + cls._table, [])
 
 
@@ -351,7 +353,8 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
 
     year = fields.Char('Year', select=True)
     month = fields.Integer('Month', select=True)
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty', select=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @classmethod
@@ -364,29 +367,31 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, month, ' \
-                    'specialty, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'specialty, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(MONTH FROM evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM evaluation_start) * 100 + ' \
-                            'specialty * 1000000 AS id, ' \
-                        'MAX(create_uid) AS create_uid, ' \
-                        'MAX(create_date) AS create_date, ' \
-                        'MAX(write_uid) AS write_uid, ' \
-                        'MAX(write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM evaluation_start) AS year, ' \
-                        'EXTRACT(MONTH FROM evaluation_start) AS month, ' \
-                        'specialty, COUNT(*) AS evaluations ' \
-                        'FROM gnuhealth_patient_evaluation ' \
-                        'GROUP BY year, month, specialty) AS ' + cls._table, [])
+                        'SELECT EXTRACT(MONTH FROM evaluation_start) + '
+                            'EXTRACT(YEAR FROM evaluation_start) * 100 + '
+                            'specialty * 1000000 AS id, '
+                        'MAX(create_uid) AS create_uid, '
+                        'MAX(create_date) AS create_date, '
+                        'MAX(write_uid) AS write_uid, '
+                        'MAX(write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM evaluation_start) AS year, '
+                        'EXTRACT(MONTH FROM evaluation_start) AS month, '
+                        'specialty, COUNT(*) AS evaluations '
+                        'FROM gnuhealth_patient_evaluation '
+                        'GROUP BY year, month, specialty) AS ' + cls._table,
+                        [])
 
 
 class EvaluationsSector(ModelSQL, ModelView):
     'Evaluations per Sector'
     __name__ = 'gnuhealth.evaluations_sector'
 
-    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
+    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @staticmethod
@@ -399,26 +404,26 @@ class EvaluationsSector(ModelSQL, ModelView):
         if Transaction().context.get('end_date'):
             clause += 'AND gpe.evaluation_start <= %s '
             args.append(Transaction().context['end_date'])
-        return ('SELECT DISTINCT(gos.id) AS id, ' \
-                    'MAX(gpe.create_uid) AS create_uid, ' \
-                    'MAX(gpe.create_date) AS create_date, ' \
-                    'MAX(gpe.write_uid) AS write_uid, ' \
-                    'MAX(gpe.write_date) AS write_date, ' \
-                    'gos.id as sector, ' \
-                    'COUNT(*) AS evaluations ' \
-                'FROM party_party pp, ' \
-                    'gnuhealth_patient_evaluation gpe, ' \
-                    'gnuhealth_patient gp, ' \
-                    'gnuhealth_family_member gfm, ' \
-                    'gnuhealth_family gf, ' \
-                    'gnuhealth_operational_sector gos ' \
-                'WHERE gpe.patient = gp.id ' \
-                    'AND gp.name = pp.id ' \
-                    'AND gfm.party = pp.id ' \
-                    'AND gfm.name = gf.id ' \
-                    'AND gf.operational_sector = gos.id ' \
-                    'AND %s ' \
-                + clause + \
+        return ('SELECT DISTINCT(gos.id) AS id, '
+                    'MAX(gpe.create_uid) AS create_uid, '
+                    'MAX(gpe.create_date) AS create_date, '
+                    'MAX(gpe.write_uid) AS write_uid, '
+                    'MAX(gpe.write_date) AS write_date, '
+                    'gos.id as sector, '
+                    'COUNT(*) AS evaluations '
+                'FROM party_party pp, '
+                    'gnuhealth_patient_evaluation gpe, '
+                    'gnuhealth_patient gp, '
+                    'gnuhealth_family_member gfm, '
+                    'gnuhealth_family gf, '
+                    'gnuhealth_operational_sector gos '
+                'WHERE gpe.patient = gp.id '
+                    'AND gp.name = pp.id '
+                    'AND gfm.party = pp.id '
+                    'AND gfm.name = gf.id '
+                    'AND gf.operational_sector = gos.id '
+                    'AND %s '
+                + clause +
                 'GROUP BY gos.id', args)
 
 
@@ -458,7 +463,8 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
 
     year = fields.Char('Year', select=True)
     week = fields.Integer('Week', select=True)
-    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
+    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @classmethod
@@ -471,31 +477,31 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, week, ' \
-                    'sector, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'sector, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(WEEK FROM gpe.evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM gpe.evaluation_start) * 100 + ' \
-                            'gos.id * 1000000 AS id, ' \
-                        'MAX(gpe.create_uid) AS create_uid, ' \
-                        'MAX(gpe.create_date) AS create_date, ' \
-                        'MAX(gpe.write_uid) AS write_uid, ' \
-                        'MAX(gpe.write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM gpe.evaluation_start) AS year, ' \
-                        'EXTRACT(WEEK FROM gpe.evaluation_start) AS week, ' \
-                        'gos.id as sector, COUNT(*) AS evaluations ' \
-                        'FROM party_party pp, ' \
-                            'gnuhealth_patient_evaluation gpe, ' \
-                            'gnuhealth_patient gp, ' \
-                            'gnuhealth_family_member gfm, ' \
-                            'gnuhealth_family gf, ' \
-                            'gnuhealth_operational_sector gos ' \
-                        'WHERE gpe.patient = gp.id ' \
-                            'AND gp.name = pp.id ' \
-                            'AND gfm.party = pp.id ' \
-                            'AND gfm.name = gf.id ' \
-                            'AND gf.operational_sector = gos.id ' \
+                        'SELECT EXTRACT(WEEK FROM gpe.evaluation_start) + '
+                            'EXTRACT(YEAR FROM gpe.evaluation_start) * 100 + '
+                            'gos.id * 1000000 AS id, '
+                        'MAX(gpe.create_uid) AS create_uid, '
+                        'MAX(gpe.create_date) AS create_date, '
+                        'MAX(gpe.write_uid) AS write_uid, '
+                        'MAX(gpe.write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM gpe.evaluation_start) AS year, '
+                        'EXTRACT(WEEK FROM gpe.evaluation_start) AS week, '
+                        'gos.id as sector, COUNT(*) AS evaluations '
+                        'FROM party_party pp, '
+                            'gnuhealth_patient_evaluation gpe, '
+                            'gnuhealth_patient gp, '
+                            'gnuhealth_family_member gfm, '
+                            'gnuhealth_family gf, '
+                            'gnuhealth_operational_sector gos '
+                        'WHERE gpe.patient = gp.id '
+                            'AND gp.name = pp.id '
+                            'AND gfm.party = pp.id '
+                            'AND gfm.name = gf.id '
+                            'AND gf.operational_sector = gos.id '
                         'GROUP BY year, week, gos.id) AS ' + cls._table, [])
 
 
@@ -505,7 +511,8 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
 
     year = fields.Char('Year', select=True)
     month = fields.Integer('Month', select=True)
-    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector', select=True)
+    sector = fields.Many2One('gnuhealth.operational_sector', 'Sector',
+        select=True)
     evaluations = fields.Integer('Evaluations')
 
     @classmethod
@@ -518,30 +525,30 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
     @classmethod
     def table_query(cls):
         type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, ' \
-                    'CAST(year AS ' + type_name + ') AS year, month, ' \
-                    'sector, evaluations ' \
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'sector, evaluations '
                     'FROM ('
-                        'SELECT EXTRACT(MONTH FROM gpe.evaluation_start) + ' \
-                            'EXTRACT(YEAR FROM gpe.evaluation_start) * 100 + ' \
-                            'gos.id * 1000000 AS id, ' \
-                        'MAX(gpe.create_uid) AS create_uid, ' \
-                        'MAX(gpe.create_date) AS create_date, ' \
-                        'MAX(gpe.write_uid) AS write_uid, ' \
-                        'MAX(gpe.write_date) AS write_date, ' \
-                        'EXTRACT(YEAR FROM gpe.evaluation_start) AS year, ' \
-                        'EXTRACT(MONTH FROM gpe.evaluation_start) AS month, ' \
-                        'gos.id as sector, COUNT(*) AS evaluations ' \
-                        'FROM party_party pp, ' \
-                            'gnuhealth_patient_evaluation gpe, ' \
-                            'gnuhealth_patient gp, ' \
-                            'gnuhealth_family_member gfm, ' \
-                            'gnuhealth_family gf, ' \
-                            'gnuhealth_operational_sector gos ' \
-                        'WHERE gpe.patient = gp.id ' \
-                            'AND gp.name = pp.id ' \
-                            'AND gfm.party = pp.id ' \
-                            'AND gfm.name = gf.id ' \
-                            'AND gf.operational_sector = gos.id ' \
+                        'SELECT EXTRACT(MONTH FROM gpe.evaluation_start) + '
+                            'EXTRACT(YEAR FROM gpe.evaluation_start) * 100 + '
+                            'gos.id * 1000000 AS id, '
+                        'MAX(gpe.create_uid) AS create_uid, '
+                        'MAX(gpe.create_date) AS create_date, '
+                        'MAX(gpe.write_uid) AS write_uid, '
+                        'MAX(gpe.write_date) AS write_date, '
+                        'EXTRACT(YEAR FROM gpe.evaluation_start) AS year, '
+                        'EXTRACT(MONTH FROM gpe.evaluation_start) AS month, '
+                        'gos.id as sector, COUNT(*) AS evaluations '
+                        'FROM party_party pp, '
+                            'gnuhealth_patient_evaluation gpe, '
+                            'gnuhealth_patient gp, '
+                            'gnuhealth_family_member gfm, '
+                            'gnuhealth_family gf, '
+                            'gnuhealth_operational_sector gos '
+                        'WHERE gpe.patient = gp.id '
+                            'AND gp.name = pp.id '
+                            'AND gfm.party = pp.id '
+                            'AND gfm.name = gf.id '
+                            'AND gf.operational_sector = gos.id '
                         'GROUP BY year, month, gos.id) AS ' + cls._table, [])
 
