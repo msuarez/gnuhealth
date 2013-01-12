@@ -23,6 +23,17 @@ from trytond.backend import FIELDS
 from trytond.pyson import PYSONEncoder
 from trytond.transaction import Transaction
 
+
+__all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
+    'EvaluationsDoctor', 'OpenEvaluationsDoctorStart', 'OpenEvaluationsDoctor',
+    'EvaluationsDoctorWeekly', 'EvaluationsDoctorMonthly',
+    'EvaluationsSpecialty', 'OpenEvaluationsSpecialtyStart',
+    'OpenEvaluationsSpecialty', 'EvaluationsSpecialtyWeekly',
+    'EvaluationsSpecialtyMonthly', 'EvaluationsSector',
+    'OpenEvaluationsSectorStart', 'OpenEvaluationsSector',
+    'EvaluationsSectorWeekly', 'EvaluationsSectorMonthly']
+
+
 class TopDiseases(ModelSQL, ModelView):
     'Top Diseases'
     _name = 'gnuhealth.top_diseases'
@@ -69,8 +80,6 @@ class TopDiseases(ModelSQL, ModelView):
                 'ORDER BY cases DESC ' \
                 'LIMIT ' + number_records, args)
 
-TopDiseases()
-
 
 class OpenTopDiseasesStart(ModelView):
     'Open Top Diseases'
@@ -80,8 +89,6 @@ class OpenTopDiseasesStart(ModelView):
     end_date = fields.Date('End Date')
     group = fields.Many2One('gnuhealth.pathology.group', 'Disease Group')
     number_records = fields.Char('Number of Records')
-
-OpenTopDiseasesStart()
 
 
 class OpenTopDiseases(Wizard):
@@ -106,8 +113,6 @@ class OpenTopDiseases(Wizard):
 
     def transition_open_(self, session):
         return 'end'
-
-OpenTopDiseases()
 
 
 class EvaluationsDoctor(ModelSQL, ModelView):
@@ -138,8 +143,6 @@ class EvaluationsDoctor(ModelSQL, ModelView):
                 + clause + \
                 'GROUP BY doctor', args)
 
-EvaluationsDoctor()
-
 
 class OpenEvaluationsDoctorStart(ModelView):
     'Open Evaluations per Doctor'
@@ -147,8 +150,6 @@ class OpenEvaluationsDoctorStart(ModelView):
     _description = __doc__
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
-
-OpenEvaluationsDoctorStart()
 
 
 class OpenEvaluationsDoctor(Wizard):
@@ -171,8 +172,6 @@ class OpenEvaluationsDoctor(Wizard):
 
     def transition_open_(self, session):
         return 'end'
-
-OpenEvaluationsDoctor()
 
 
 class EvaluationsDoctorWeekly(ModelSQL, ModelView):
@@ -210,8 +209,6 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
                         'FROM gnuhealth_patient_evaluation ' \
                         'GROUP BY year, week, doctor) AS ' + self._table, [])
 
-EvaluationsDoctorWeekly()
-
 
 class EvaluationsDoctorMonthly(ModelSQL, ModelView):
     'Evaluations per Doctor per Month'
@@ -248,8 +245,6 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
                         'FROM gnuhealth_patient_evaluation ' \
                         'GROUP BY year, month, doctor) AS ' + self._table, [])
 
-EvaluationsDoctorMonthly()
-
 
 class EvaluationsSpecialty(ModelSQL, ModelView):
     'Evaluations per Specialty'
@@ -279,8 +274,6 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
                 + clause + \
                 'GROUP BY specialty', args)
 
-EvaluationsSpecialty()
-
 
 class OpenEvaluationsSpecialtyStart(ModelView):
     'Open Evaluations per Specialty'
@@ -288,8 +281,6 @@ class OpenEvaluationsSpecialtyStart(ModelView):
     _description = __doc__
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
-
-OpenEvaluationsSpecialtyStart()
 
 
 class OpenEvaluationsSpecialty(Wizard):
@@ -312,8 +303,6 @@ class OpenEvaluationsSpecialty(Wizard):
 
     def transition_open_(self, session):
         return 'end'
-
-OpenEvaluationsSpecialty()
 
 
 class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
@@ -351,8 +340,6 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
                         'FROM gnuhealth_patient_evaluation ' \
                         'GROUP BY year, week, specialty) AS ' + self._table, [])
 
-EvaluationsSpecialtyWeekly()
-
 
 class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
     'Evaluations per Specialty per Month'
@@ -388,8 +375,6 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
                         'specialty, COUNT(*) AS evaluations ' \
                         'FROM gnuhealth_patient_evaluation ' \
                         'GROUP BY year, month, specialty) AS ' + self._table, [])
-
-EvaluationsSpecialtyMonthly()
 
 
 class EvaluationsSector(ModelSQL, ModelView):
@@ -431,8 +416,6 @@ class EvaluationsSector(ModelSQL, ModelView):
                 + clause + \
                 'GROUP BY gos.id', args)
 
-EvaluationsSector()
-
 
 class OpenEvaluationsSectorStart(ModelView):
     'Open Evaluations per Sector'
@@ -440,8 +423,6 @@ class OpenEvaluationsSectorStart(ModelView):
     _description = __doc__
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
-
-OpenEvaluationsSectorStart()
 
 
 class OpenEvaluationsSector(Wizard):
@@ -464,8 +445,6 @@ class OpenEvaluationsSector(Wizard):
 
     def transition_open_(self, session):
         return 'end'
-
-OpenEvaluationsSector()
 
 
 class EvaluationsSectorWeekly(ModelSQL, ModelView):
@@ -513,8 +492,6 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
                             'AND gf.operational_sector = gos.id ' \
                         'GROUP BY year, week, gos.id) AS ' + self._table, [])
 
-EvaluationsSectorWeekly()
-
 
 class EvaluationsSectorMonthly(ModelSQL, ModelView):
     'Evaluations per Sector per Month'
@@ -561,4 +538,3 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
                             'AND gf.operational_sector = gos.id ' \
                         'GROUP BY year, month, gos.id) AS ' + self._table, [])
 
-EvaluationsSectorMonthly()
