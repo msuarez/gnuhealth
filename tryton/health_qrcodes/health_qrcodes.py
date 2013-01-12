@@ -30,7 +30,7 @@ __all__ = ['Patient', 'Newborn']
 
 class Patient(ModelSQL, ModelView):
     'Patient'
-    _name = 'gnuhealth.patient'
+    __name__ = 'gnuhealth.patient'
 
     def make_qrcode(self, ids, name):
 # Create the QR code
@@ -83,7 +83,7 @@ class Patient(ModelSQL, ModelView):
 
 class Newborn(ModelSQL, ModelView):
     'NewBorn'
-    _name = 'gnuhealth.newborn'
+    __name__ = 'gnuhealth.newborn'
 
     def make_qrcode(self, ids, name):
 # Create the QR code
