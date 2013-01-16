@@ -576,7 +576,10 @@ class PartyPatient (ModelSQL, ModelView):
         return super(PartyPatient, cls).create(values)
 
     def get_rec_name(self, name):
-        return (self.lastname + ', ' + self.name)
+        if self.lastname:
+            return self.lastname + ', ' + self.name
+        else:
+            return self.name
 
     @classmethod
     def search_rec_name(cls, name, clause):
@@ -835,7 +838,10 @@ class PatientData(ModelSQL, ModelView):
         return super(PatientData, cls).create(values)
 
     def get_rec_name(self, name):
-        return (self.name.lastname + ', ' + self.name.name)
+        if self.name.lastname:
+            return self.name.lastname + ', ' + self.name.name
+        else:
+            return self.name.name
 
 
 # PATIENT DISESASES INFORMATION
