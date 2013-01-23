@@ -461,7 +461,7 @@ class InsurancePlan(ModelSQL, ModelView):
     _rec_name = 'company'
 
     name = fields.Many2One('product.product', 'Plan', required=True,
-        domain=[('type', '=', 'service'), ('product.category', '=', Eval('Insurances'),],
+        domain=[('type', '=', 'service'), ('product.category', '=', Eval('Insurances')),],
         help='Insurance company plan')
 
     company = fields.Many2One('party.party', 'Insurance Company',
