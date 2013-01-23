@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="0">
+
+    <!-- WE ADD THE BASIC PRODUCTS RELATED TO THE INSURANCE -->
+
+    <!-- Add category -->
+        <record model="product.category" id="prod_cat_insurance">
+            <field name="name">Insurances</field>
+        </record>
+    </data>
+</tryton>
