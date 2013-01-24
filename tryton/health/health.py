@@ -461,7 +461,7 @@ class InsurancePlan(ModelSQL, ModelView):
     _rec_name = 'company'
 
     name = fields.Many2One('product.product', 'Plan', required=True,
-        domain=[('type', '=', 'service'), ('category', '=', Eval('Insurances')),],
+        domain=[('type', '=', 'service'), ('is_insurance_plan', '=', True)],
         help='Insurance company plan')
 
     company = fields.Many2One('party.party', 'Insurance Company',
@@ -620,6 +620,8 @@ class Product(ModelSQL, ModelView):
         help='Check if the product is a vaccine')
     is_bed = fields.Boolean('Bed',
         help='Check if the product is a bed on the gnuhealth.center')
+    is_insurance_plan = fields.Boolean('Insurance Plan',
+        help='Check if the product is an insurance plan')
 
     @classmethod
     def check_xml_record(cls, records, values):

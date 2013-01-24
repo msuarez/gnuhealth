@@ -1504,13 +1504,16 @@
                         expr="/form/notebook/page[@id=&quot;general&quot;]"
                         position="after">
                         <page string="Health" id="product_gnuhealth">
-                            <group col="6" colspan="4" id="product_specs">
+                            <group col="8" colspan="4" id="product_specs">
                                 <label name="is_medicament"/>
                                 <field name="is_medicament"/>
                                 <label name="is_vaccine"/>
                                 <field name="is_vaccine"/>
                                 <label name="is_bed"/>
                                 <field name="is_bed"/>
+                                <label name="is_insurance_plan"/>
+                                <field name="is_insurance_plan"/>
+
                             </group>
                         </page>
                     </xpath>
