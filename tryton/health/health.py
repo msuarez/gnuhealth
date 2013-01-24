@@ -1184,7 +1184,7 @@ class PatientVaccination(ModelSQL, ModelView):
             ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
                     'This vaccine dose has been given already to the patient'),
         ]
-        cls._constraints = [
+        cls._constraints += [
             ('check_vaccine_expiration_date', 'expired_vaccine'),
             ('validate_next_dose_date', 'next_dose_before_first'),
 
@@ -1233,7 +1233,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()
-        cls._constraints = [
+        cls._constraints += [
             ('check_prescription_warning', 'drug_pregnancy_warning'),
         ]
         cls._error_messages.update({
@@ -1498,6 +1498,20 @@ class PatientEvaluation(ModelSQL, ModelView):
     actions = fields.One2Many('gnuhealth.directions', 'name', 'Procedures',
         help='Procedures / Actions to take')
     notes = fields.Text('Notes')
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientEvaluation, cls).__setup__()
+        cls._constraints += [
+            ('check_health_professional', 'health_professional_warning'),
+        ]
+        cls._error_messages.update({
+            'health_professional_warning':
+                    'No health professional associated to this user',
+        })
+
+    def check_health_professional(self):
+        return self.health_professional
 
     @staticmethod
     def default_doctor():

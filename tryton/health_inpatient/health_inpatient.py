@@ -378,6 +378,20 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     remarks = fields.Text('Remarks',
         help='specific remarks for this dose')
 
+    @classmethod
+    def __setup__(cls):
+        super(InpatientMedicationLog, cls).__setup__()
+        cls._constraints += [
+            ('check_health_professional', 'health_professional_warning'),
+        ]
+        cls._error_messages.update({
+            'health_professional_warning':
+                    'No health professional associated to this user',
+        })
+
+    def check_health_professional(self):
+        return self.health_professional
+
     @staticmethod
     def default_health_professional():
         cursor = Transaction().cursor

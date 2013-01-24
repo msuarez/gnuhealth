@@ -102,6 +102,20 @@ class PatientRounding(ModelSQL, ModelView):
         'Procedures', help="List of the procedures in this rounding. Please "
         "enter the first one as the main procedure")
 
+    @classmethod
+    def __setup__(cls):
+        super(PatientRounding, cls).__setup__()
+        cls._constraints += [
+            ('check_health_professional', 'health_professional_warning'),
+        ]
+        cls._error_messages.update({
+            'health_professional_warning':
+                    'No health professional associated to this user',
+        })
+
+    def check_health_professional(self):
+        return self.health_professional
+
     @staticmethod
     def default_health_professional():
         cursor = Transaction().cursor
@@ -111,10 +125,7 @@ class PatientRounding(ModelSQL, ModelView):
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
-        if not partner_id:
-            raise Exception('No health professional associated to this \
-                user')
-        else:
+        if partner_id:
             cursor = Transaction().cursor
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
@@ -189,6 +200,20 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     session_notes = fields.Text('Notes', required=True)
 
     @classmethod
+    def __setup__(cls):
+        super(PatientAmbulatoryCare, cls).__setup__()
+        cls._constraints += [
+            ('check_health_professional', 'health_professional_warning'),
+        ]
+        cls._error_messages.update({
+            'health_professional_warning':
+                    'No health professional associated to this user',
+        })
+
+    def check_health_professional(self):
+        return self.health_professional
+
+    @classmethod
     def create(cls, values):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
@@ -209,10 +234,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
-        if not partner_id:
-            raise Exception('No health professional associated to this \
-                user')
-        else:
+        if partner_id:
             cursor = Transaction().cursor
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))

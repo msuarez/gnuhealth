@@ -217,9 +217,6 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
                     ('name', '=', parties[0].id)])
             if doctors:
                 return doctors[0].id
-            else:
-                raise Exception('There is no physician defined '
-                                'for current user.')
         else:
             return False
 
