@@ -1513,7 +1513,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         })
 
     def check_health_professional(self):
-        return self.health_professional
+        return self.doctor
 
     @staticmethod
     def default_doctor():
