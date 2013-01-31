@@ -1,3 +1,819 @@
+changeset:   585:749a2ae98327
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 20:21:01 2013 -0300
+summary:     Update setup.py to Tryton version 2.6
+
+changeset:   584:c3269d3e960b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 20:13:22 2013 -0300
+summary:     update version to 1.8.0
+
+changeset:   583:df41bdf73d79
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 20:12:09 2013 -0300
+summary:     update configure.ac
+
+changeset:   582:9e764a3fe63a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 19:16:04 2013 -0300
+summary:     health_history:Fix medication history report for empty indications or diagnoses
+
+changeset:   581:03f51ed2fcf2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 15:36:25 2013 -0300
+summary:     change health professional to doctor in evaluation
+
+changeset:   580:31691c3c525d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jan 24 22:11:35 2013 -0300
+summary:     demo : Remove random patients from demo data script
+
+changeset:   579:d8fad6e8f0c1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 24 01:33:29 2013 +0000
+summary:     health: Add insurance plan to product specs
+
+changeset:   578:b37c8cd5bf2f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Jan 23 21:17:31 2013 -0300
+summary:     Add check_health_professional constraint
+
+changeset:   577:9c8ead7cc955
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 24 00:14:21 2013 +0000
+summary:     health: Include insurance info in health_products.xml datafile
+
+changeset:   576:13de2b55dfe0
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 23 22:56:27 2013 +0000
+summary:     health : Include Insurance datafile in tryton.cfg
+
+changeset:   575:180ffa1e8387
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 23 22:52:39 2013 +0000
+summary:     health : Add datafile for insurances. Create the insurance category in products
+
+changeset:   574:eb05f4c5ebff
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 23 22:49:37 2013 +0000
+summary:     health: fix noupdate = 1 in product data file
+
+changeset:   573:f15c1a7eb66c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Jan 16 18:25:46 2013 -0300
+summary:     health : Fix get_rec_name methods
+
+changeset:   572:e82afbef03f5
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 13:39:12 2013 -0300
+summary:     lifestyle : PEP8 and PyFlakes
+
+changeset:   571:ca99c3b2d56a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 13:25:59 2013 -0300
+summary:     surgery : PEP8
+
+changeset:   570:13b3c94f4a5f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 13:16:43 2013 -0300
+summary:     services : PEP8
+
+changeset:   569:b1577bfd3588
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 13:02:21 2013 -0300
+summary:     services : Migrate button. Fix wizard
+
+changeset:   568:79304b1c8b62
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:43:31 2013 -0300
+summary:     services : Migrate wizard
+
+changeset:   567:10aec1a390de
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:40:54 2013 -0300
+summary:     services : Rename xxx_obj into Xxx
+
+changeset:   566:e8f852c8958f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:37:06 2013 -0300
+summary:     services : Migrate create method
+
+changeset:   565:b3f7356e2bb4
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:35:01 2013 -0300
+summary:     services : Migrate default_xxx methods
+
+changeset:   564:464976d30689
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:32:49 2013 -0300
+summary:     services : Replace __init__ by __setup__
+
+changeset:   563:65a47828d34b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:29:36 2013 -0300
+summary:     services : Remove _description. Rename _name into __name__
+
+changeset:   562:4ec527a27cd1
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:27:53 2013 -0300
+summary:     services : Define __all__. Replace class instance by Pool.register
+
+changeset:   561:91f8ccc46a02
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 12:22:16 2013 -0300
+summary:     services : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   560:125d00177370
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 01:21:46 2013 -0300
+summary:     reporting : PEP8
+
+changeset:   559:6264f3d031e2
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 01:14:37 2013 -0300
+summary:     reporting : Fix OpenTopDiseases
+
+changeset:   558:398bc2c47f5c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 01:07:40 2013 -0300
+summary:     reporting : Migrate wizards
+
+changeset:   557:0abab8587051
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 01:03:30 2013 -0300
+summary:     reporting : Migrate table_query methods
+
+changeset:   556:e8faab9733ec
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:53:54 2013 -0300
+summary:     reporting : Replace __init__ by __setup__
+
+changeset:   555:f77a8e090cc9
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:48:13 2013 -0300
+summary:     reporting : Remove _description. Rename _name into __name__
+
+changeset:   554:c1eecacdc9c8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:44:16 2013 -0300
+summary:     reporting : Define __all__. Replace class instance by Pool.register
+
+changeset:   553:62e978e06d7d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:32:03 2013 -0300
+summary:     reporting : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   552:de0d9d5bb568
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:21:33 2013 -0300
+summary:     qrcodes : Migrate getter methods
+
+changeset:   551:53d6d3e26708
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:11:10 2013 -0300
+summary:     qrcodes : Rename _name into __name__
+
+changeset:   550:766cd7f4518a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 12 00:09:08 2013 -0300
+summary:     qrcodes : Define __all__. Replace class instance by Pool.register
+
+changeset:   549:f1e34ca86a3d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:58:40 2013 -0300
+summary:     qrcodes : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   548:2db5e5b4b0b3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:47:08 2013 -0300
+summary:     profile : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   547:41ce6b5f2663
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:35:00 2013 -0300
+summary:     pediatrics : PEP8
+
+changeset:   546:0809e562d91f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:25:44 2013 -0300
+summary:     pediatrics : Rename xxx_obj into Xxx. Remove browse for int
+
+changeset:   545:88c6e891385c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:23:42 2013 -0300
+summary:     pediatrics : Migrate default_xxx methods
+
+changeset:   544:d0133457821e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:21:54 2013 -0300
+summary:     pediatrics : Migrate on_change_with methods
+
+changeset:   543:e38027e52ffd
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:15:20 2013 -0300
+summary:     pediatrics : Replace __init__ by __setup__
+
+changeset:   542:41a0841a264f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:12:53 2013 -0300
+summary:     pediatrics : Remove _description. Rename _name into __name__
+
+changeset:   541:d738aed5989a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 21:09:48 2013 -0300
+summary:     pediatrics : Define __all__. Replace class instance by Pool.register
+
+changeset:   540:ca804a7d6802
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 20:58:12 2013 -0300
+summary:     pediatrics : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   539:938696a56cd2
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 20:28:10 2013 -0300
+summary:     nursing : PEP8
+
+changeset:   538:a4004b3716cb
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 20:08:02 2013 -0300
+summary:     health : Add missing depends
+
+changeset:   537:ad8c121ef0b8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 20:00:52 2013 -0300
+summary:     nursing : Migrate create method. Add missing depends
+
+changeset:   536:8a34d6ddfd86
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:47:58 2013 -0300
+summary:     nursing : Rename xxx_obj into Xxx. Remove browse for int
+
+changeset:   535:57b795934dfc
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:44:29 2013 -0300
+summary:     nursing : Migrate default_xxx methods
+
+changeset:   534:79c17c3dade3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:38:54 2013 -0300
+summary:     nursing : Remove _description. Rename _name into __name__
+
+changeset:   533:fd86cd837993
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:34:02 2013 -0300
+summary:     health_nursing : Define __all__. Replace class instance by Pool.register
+
+changeset:   532:eb6458520e05
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:23:51 2013 -0300
+summary:     nursing : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   531:199f5dcab751
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 11 16:15:13 2013 -0300
+summary:     mdg6 : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   530:41623cf9287b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jan 06 23:05:56 2013 +0000
+summary:     surgery : Fix class in __init__.py
+
+changeset:   529:3d1e11c3dbb3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jan 06 23:04:25 2013 +0000
+summary:     surgery : Classes instantiation migration
+
+changeset:   528:2b752de5741d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jan 06 22:59:10 2013 +0000
+summary:     surgery : Define __all__ with module classes
+
+changeset:   527:c6f2727c9942
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jan 06 22:55:57 2013 +0000
+summary:     surgery : migrate _name -> __name__
+
+changeset:   526:f66864ee74ee
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Jan 06 22:54:28 2013 +0000
+summary:     surgery : remove _description
+
+changeset:   525:0a7933bb134d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 18:32:12 2013 +0000
+summary:     surgery : Add documentation file
+
+changeset:   524:436a225e1607
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 17:55:14 2013 +0000
+summary:     surgery : migrate __tryton__.py to tryton.cfg
+
+changeset:   523:2dcf253e2e79
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 17:29:03 2013 +0000
+summary:     lifestyle : Add label for drug intoxication level
+
+changeset:   522:5a02b580d16e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 17:25:02 2013 +0000
+summary:     lifestyle: fix street_name variable
+
+changeset:   521:85c750c43a29
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:55:31 2013 +0000
+summary:     lifestyle: migrate on_change_with method
+
+changeset:   520:6d9c87d7e969
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:47:53 2013 +0000
+summary:     lifestyle: migrate default_xxxx methods
+
+changeset:   519:bad21ffe82ba
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:43:28 2013 +0000
+summary:     lifestyle: Define _name -> __name__
+
+changeset:   518:18eaa70f65c8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:27:02 2013 +0000
+summary:     lifestyle: remove _description from classes
+
+changeset:   517:642c12c698ce
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:24:12 2013 +0000
+summary:     lifestyle: Define __all__ with the module classes
+
+changeset:   516:0ecbf7c28e99
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 16:17:12 2013 +0000
+summary:     lifestyle : Migrate __init__.py to Tryton 2.6
+
+changeset:   515:96efaf3e1d1e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 11:34:38 2013 +0000
+summary:     lifestyle : Add documentation rst file
+
+changeset:   514:2d43ce2f6df3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Jan 05 11:28:52 2013 +0000
+summary:     lifestyle : Migrate from __tryton__.py to tryton.cfg
+
+changeset:   513:7b03ab22a6b0
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 03 23:01:00 2013 +0000
+summary:     Update default update behaviour for WHO essential medicines products
+
+changeset:   512:95d846c80f9c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 03 22:33:29 2013 +0000
+summary:     socioeconomics: remove self from default values
+
+changeset:   511:7e51c3915fd5
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jan 03 01:13:26 2013 -0300
+summary:     health_lab : PEP8
+
+changeset:   510:e4ee28efb9dd
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jan 03 01:07:11 2013 -0300
+summary:     health_lab : Migrate report
+
+changeset:   509:d4f338230472
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 03 00:17:51 2013 +0000
+summary:     socioeconomics: migrate on_change_with method
+
+changeset:   508:857420b44516
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 03 00:12:57 2013 +0000
+summary:     socioeconomics: fix default method on trash recollection field
+
+changeset:   507:33a3796580ac
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Jan 03 00:12:10 2013 +0000
+summary:     socioeconomics: migrate default methods
+
+changeset:   506:275c59363038
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 23:42:36 2013 +0000
+summary:     socioeconomics: migrate _name -> __name__
+
+changeset:   505:1668bc63274f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 23:24:28 2013 +0000
+summary:     socioeconomics: Remove MedicalPatient instantiation from the main file
+
+changeset:   504:ddc8e175c16b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 23:21:51 2013 +0000
+summary:     socioeconomics: Include __all__ classes
+
+changeset:   503:5910352bb7ab
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 23:18:54 2013 +0000
+summary:     socioeconomics: Remove _description
+
+changeset:   502:6e34f542d627
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 18:53:46 2013 +0000
+summary:     socioeconomics : migrate __init__.py to Tryton 2.6
+
+changeset:   501:504b4cb201f6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 10:45:27 2013 +0000
+summary:     socioeconomics : add documentation file
+
+changeset:   500:b7b4f8827ff5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 09:48:36 2013 +0000
+summary:     health_socioeconomics: migrate __tryton__.py to tryton.cfg
+
+changeset:   499:1ffd0b502c42
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 09:44:53 2013 +0000
+summary:     health_history: migrate __tryton__.py to tryton.cfg
+
+changeset:   498:53ec2c8c6ed1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 02 09:13:16 2013 +0000
+summary:     Update date on header files
+
+changeset:   497:a02bb7f7ba2c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Jan 01 23:26:03 2013 +0000
+summary:     Remove sorting in blood group field
+
+changeset:   496:cc430363d21b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 20:00:53 2012 -0300
+summary:     health_lab : Migrate wizard
+
+changeset:   495:f1509bbf8ff2
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:44:19 2012 -0300
+summary:     health_lab : Migrate create method. Rename xxx_obj into Xxx.
+
+changeset:   494:dc7b87ad5604
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:40:57 2012 -0300
+summary:     health_lab : Migrate on_change_with method
+
+changeset:   493:d759806c1e3e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:36:57 2012 -0300
+summary:     health_lab : Migrate default_xxx methods
+
+changeset:   492:d0853c86309e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:26:28 2012 -0300
+summary:     health_lab : Replace __init__ by __setup__
+
+changeset:   491:efa8ccd3d3f8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:22:11 2012 -0300
+summary:     health_lab : Remove _description. Rename _name into __name__
+
+changeset:   490:4306823d7657
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:19:05 2012 -0300
+summary:     health_lab : Define __all__. Replace class instance by Pool.register
+
+changeset:   489:001117de394c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 19:06:15 2012 -0300
+summary:     health_lab : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   488:40828cc42bc4
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 18:59:08 2012 -0300
+summary:     health_inpatient_calendar : Migrate write and delete methods. Rename xxx_obj into Xxx.
+
+changeset:   487:de27f94ef381
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 18:31:51 2012 -0300
+summary:     health_inpatient_calendar : Remove _description. Rename _name into __name__
+
+changeset:   486:19e7c5fa9df7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 18:11:31 2012 -0300
+summary:     health_inpatient_calendar : Define __all__. Replace class instance by Pool.register
+
+changeset:   485:2230bc5e88fe
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 18:07:12 2012 -0300
+summary:     health_inpatient_calendar : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   484:2da065a51a52
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 17:16:32 2012 -0300
+summary:     health_inpatient : PEP8
+
+changeset:   483:f2f0aed41f14
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 28 17:02:42 2012 -0300
+summary:     health_inpatient : Add @classmethod and @ModelView.button to button methods
+
+changeset:   482:4fd23ad5d9cf
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Dec 27 21:15:34 2012 -0300
+summary:     health_inpatient : Migrate create method. Rename xxx_obj into Xxx.
+
+changeset:   481:ad93f0db8061
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 23:38:06 2012 -0300
+summary:     health_inpatient : Migrate getter methods. Add @classmethod to __setup__ methods
+
+changeset:   480:217a093a8e54
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:53:07 2012 -0300
+summary:     health_inpatient : Migrate on_change_with methods
+
+changeset:   479:e4c161fa0e54
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:47:07 2012 -0300
+summary:     health_inpatient : Migrate default_xxx methods
+
+changeset:   478:4b1331b994cb
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:36:33 2012 -0300
+summary:     health_inpatient : Replace __init__ by __setup__
+
+changeset:   477:860731dbc4c7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:32:15 2012 -0300
+summary:     health_inpatient : Remove _description. Rename _name into __name__
+
+changeset:   476:436c04ca270f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:26:51 2012 -0300
+summary:     health_inpatient : Define __all__. Replace class instance by Pool.register
+
+changeset:   475:24dd4bf16403
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 22:11:24 2012 -0300
+summary:     health_inpatient : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   474:0ee3a55221f8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Dec 26 20:58:34 2012 -0300
+summary:     health_icd10pcs : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   473:6663a4b94191
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 20:11:47 2012 -0300
+summary:     health_icd10 : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   472:05f495481488
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 17:09:30 2012 -0300
+summary:     health_gyneco : PEP8
+
+changeset:   471:e23bd923393c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 16:45:25 2012 -0300
+summary:     health_gyneco : Migrate constraint and getter methods
+
+changeset:   470:bee7f9ffab8d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 16:08:53 2012 -0300
+summary:     health_gyneco : Migrate default_xxx methods
+
+changeset:   469:2edca4eb3c0e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 15:58:30 2012 -0300
+summary:     health_gyneco : Replace __init__ by __setup__
+
+changeset:   468:8b86126aaf4e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 15:52:10 2012 -0300
+summary:     health_gyneco : Remove _description. Rename _name into __name__
+
+changeset:   467:0c2c4e7fa488
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 15:47:18 2012 -0300
+summary:     health_gyneco : Define __all__. Replace class instance by Pool.register
+
+changeset:   466:163b16b53a5f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 15:32:38 2012 -0300
+summary:     health_gyneco : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   465:dcd6c827c824
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 15:19:28 2012 -0300
+summary:     health_genetics : Migrate get_rec_name method
+
+changeset:   464:f7c1afb05bfc
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 14:53:15 2012 -0300
+summary:     health_genetics : Remove _description. Rename _name into __name__
+
+changeset:   463:14845d25d093
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 24 14:13:37 2012 -0300
+summary:     health_genetics : Define __all__. Replace class instance by Pool.register
+
+changeset:   462:7e756ccd99d1
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 17:49:58 2012 -0300
+summary:     health_genetics : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   461:d386be49f017
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 15:40:53 2012 -0300
+summary:     health_calendar : List of instance as parameter in write and delete methods
+
+changeset:   460:9ce6c5e92018
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 14:15:10 2012 -0300
+summary:     health_calendar : Migrate default_xxx, create, write and delete methods
+
+changeset:   459:b51e965e5e9e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 13:50:33 2012 -0300
+summary:     health_calendar : Remove _description. Rename _name into __name__
+
+changeset:   458:283c760f0f25
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 13:46:25 2012 -0300
+summary:     health_calendar : Define __all__. Replace class instance by Pool.register
+
+changeset:   457:817e98f2c6c2
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Dec 23 13:36:05 2012 -0300
+summary:     health_calendar : Migrate from __tryton__.py to tryton.cfg. Add doc/index.rst
+
+changeset:   456:273ccad27850
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 21:13:05 2012 -0300
+summary:     health : PEP8
+
+changeset:   455:a3ad333b92da
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 19:49:20 2012 -0300
+summary:     health : Migrate return value of search methods
+
+changeset:   454:a6c6ecc4814b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 19:11:27 2012 -0300
+summary:     health : Add @classmethod to search_rec_name methods
+
+changeset:   453:735bbb1f601f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 18:59:51 2012 -0300
+summary:     health : Migrate constraint methods
+
+changeset:   452:93461d123298
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 18:38:15 2012 -0300
+summary:     health : Rename xxx_obj into Xxx
+
+changeset:   451:c5e1055d8ed1
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 18:22:51 2012 -0300
+summary:     health : Migrate on_change and on_change_with methods
+
+changeset:   450:4c3008ce95bd
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 16:31:46 2012 -0300
+summary:     health : Migrate searcher methods
+
+changeset:   449:4f2ce59ecca6
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 16:22:40 2012 -0300
+summary:     health : Migrate getter methods
+
+changeset:   448:12f914bed4c7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 16:05:51 2012 -0300
+summary:     health : Remove browse for int
+
+changeset:   447:0aba3a55944f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 15:57:58 2012 -0300
+summary:     health : Fix get_rec_name methods
+
+changeset:   446:7ea00c04139e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 22 15:41:41 2012 -0300
+summary:     health : Migrate create and write methods
+
+changeset:   445:d5bb63f7f308
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Dec 03 16:42:53 2012 -0300
+summary:     health : Method check_xml_record replace by classmethod with records.
+
+changeset:   444:6c0e5ddfe3a2
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Dec 03 14:39:26 2012 -0300
+summary:     health : Fixes missing @classmethod for __register__ function.
+
+changeset:   443:55e7d33cf546
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Dec 03 00:41:07 2012 -0300
+summary:     health : Fixes declaration of register models.
+
+changeset:   442:e1e60b849b22
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Dec 02 00:58:28 2012 -0300
+summary:     Migrate get_rec_name methods
+
+changeset:   441:fcc21a1aa047
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Dec 02 00:27:02 2012 -0300
+summary:     Fix __register__ method in PathologyGroup class
+
+changeset:   440:e5a1d0e9ea4c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Dec 02 00:08:04 2012 -0300
+summary:     Fix self -> cls in constraints
+
+changeset:   439:ffbb376b6467
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 23:16:15 2012 -0300
+summary:     migrate get_rec_name to Active Record
+
+changeset:   438:e8c022e40b64
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 22:48:13 2012 -0300
+summary:     Change model name from _name to __name__
+
+changeset:   437:0d5a6fdb7cd9
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 22:43:52 2012 -0300
+summary:     Remove _description = __doc__
+
+changeset:   436:a4a99700265e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 20:22:22 2012 -0300
+summary:     put comment inside the method
+
+changeset:   435:b0a2911ee678
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 18:53:14 2012 -0300
+summary:     Migrate init -> __register__
+
+changeset:   434:d2198a901b56
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 18:03:47 2012 -0300
+summary:     Migrate search_rec_name methods
+
+changeset:   433:7d39e4c9531e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Dec 01 17:56:14 2012 -0300
+summary:     Add @staticmethod to default values methods
+
+changeset:   432:1a4b12ced500
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Nov 28 14:33:30 2012 -0300
+summary:     Register models in __init__.py
+
+changeset:   431:a9bba30ee02e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Nov 28 11:30:49 2012 -0300
+summary:     Migration : remove class instantiation on health.py
+
+changeset:   430:26957be1d6fe
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Nov 28 11:18:19 2012 -0300
+summary:     Migrate __init__ to __setup__
+
+changeset:   429:30c1cd3983e1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Nov 22 18:38:27 2012 -0300
+summary:     Add classes list to __all__
+
+changeset:   428:2b264505f684
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Nov 22 18:24:45 2012 -0300
+summary:     Migrate from __tryton__.py to tryton.cfg in health core module. Add doc/index.rst
+
+changeset:   427:027cadedac33
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Nov 22 12:05:55 2012 -0300
+summary:     Fix install man page missing suffix. Thanks Emilien Klein
+
+changeset:   426:c18c26665d23
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Oct 30 01:06:57 2012 -0300
+summary:     Fix validate_disease_period and validate_medication_dates inserting with proteus
+
+changeset:   425:09c72b4e2afb
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Oct 26 01:18:01 2012 -0300
+summary:     Fix parameter in check_patient_current_pregnancy method
+
+changeset:   424:2784bd19c550
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Oct 25 01:08:35 2012 -0300
+summary:     Remove unused fields in obstretrics
+
+changeset:   423:0dc031fe9ac2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Oct 25 00:13:00 2012 -0300
+summary:     Update changelog to version 1.6.4
+
 ******** VERSION 1.6.4 **********
 
 changeset:   422:b8726d66cd46
