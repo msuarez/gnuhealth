@@ -1223,6 +1223,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     prescription_id = fields.Char('Prescription ID',
         readonly=True, help='Type in the ID of this prescription')
     prescription_date = fields.DateTime('Prescription Date')
+# In 1.8 we associate the prescribing doctor to the physician name
+# instead to the old user_id (res.user)
     user_id = fields.Many2One('res.user', 'Prescribing Doctor', readonly=True)
     pharmacy = fields.Many2One('party.party', 'Pharmacy',
         domain=[('is_pharmacy', '=', True)])
@@ -1232,11 +1234,15 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     pregnancy_warning = fields.Boolean('Pregancy Warning', readonly=True)
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
+    doctor = fields.Many2One('gnuhealth.physician', 'Prescribing Doctor', readonly=True)
+    
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()
         cls._constraints += [
             ('check_prescription_warning', 'drug_pregnancy_warning'),
+            ('check_health_professional', 'health_professional_warning'),
+
         ]
         cls._error_messages.update({
             'drug_pregnancy_warning':
@@ -1246,7 +1252,31 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
                     '- HOW MANY WEEKS OF PREGNANCY \n\n'
                     '- IS THE PATIENT BREASTFEEDING \n\n'
                     'Verify and check for safety the prescribed drugs\n',
+            'health_professional_warning':
+                    'No health professional associated to this user',
         })
+
+
+    def check_health_professional(self):
+        return self.doctor
+
+    @staticmethod
+    def default_doctor():
+        cursor = Transaction().cursor
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+
+            return int(doctor_id[0])
+
 
     def check_prescription_warning(self):
         return self.prescription_warning_ack

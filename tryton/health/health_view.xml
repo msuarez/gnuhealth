@@ -2606,8 +2606,8 @@
                         <field name="prescription_id"/>
                         <label name="prescription_date"/>
                         <field name="prescription_date"/>
-                        <label name="user_id"/>
-                        <field name="user_id"/>
+                        <label name="doctor"/>
+                        <field name="doctor"/>
                         <label name="pharmacy"/>
                         <field name="pharmacy"/>
                         <group colspan="2" id="prescription_warning">
@@ -2636,7 +2636,7 @@
                 <tree string="Prescription">
                     <field name="prescription_id" expand="1"/>
                     <field name="patient" expand="1"/>
-                    <field name="user_id"/>
+                    <field name="doctor"/>
                     <field name="prescription_date" expand="1"/>
                 </tree>
                 ]]>
