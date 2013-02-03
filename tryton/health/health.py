@@ -1301,7 +1301,7 @@ class PrescriptionLine(ModelSQL, ModelView):
         'Medication Template')
     name = fields.Many2One('gnuhealth.prescription.order', 'Prescription ID')
     review = fields.DateTime('Review')
-    quantity = fields.Integer('Quantity')
+    quantity = fields.Integer('Units', help="Number of units of the medicament. Example : 30 capsules of amoxicillin")
     refills = fields.Integer('Refills #')
     allow_substitution = fields.Boolean('Allow substitution')
     short_comment = fields.Char('Comment',
