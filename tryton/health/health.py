@@ -1207,11 +1207,14 @@ class PatientVaccination(ModelSQL, ModelView):
         return 1
 
     def validate_next_dose_date(self):
-        if (self.next_dose_date < self.date):
-            return False
+        if (self.next_dose_date):
+            if (self.next_dose_date < self.date):
+                return False
+            else:
+                return True
+        # If the next dose is not available, then keep going.
         else:
             return True
-
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
