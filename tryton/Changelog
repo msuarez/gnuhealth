@@ -1,3 +1,78 @@
+changeset:   600:695029c92701
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 16:24:56 2013 -0300
+summary:     health_history: Improve patient history report header
+
+changeset:   599:1becbefe6d44
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 14:42:49 2013 -0300
+summary:     health: add newpage for every new prescriptionreport  - when doing batch printing
+
+changeset:   598:1d7834aefa8e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 14:41:05 2013 -0300
+summary:     health: add patient city in the prescription report
+
+changeset:   597:fae34b8baf35
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 13:56:29 2013 -0300
+summary:     health: avoid traceback when prescription doctor is not defined, for backward compatibility
+
+changeset:   596:2f80adbcafdf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 13:41:46 2013 -0300
+summary:     health:improve prescription report
+
+changeset:   595:d949caa4a635
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Feb 07 20:46:13 2013 -0300
+summary:     health_history : fix report to allow empty surgery base condition
+
+changeset:   594:ac83428db6fa
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Feb 07 20:33:18 2013 -0300
+summary:     health: fix vaccination validation when the next dose is not available
+
+changeset:   593:585a9ed828c4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Feb 07 20:20:43 2013 -0300
+summary:     health_history: Use default and custom admin times in the prescription report
+
+changeset:   592:1d26bc86f764
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 03 20:35:09 2013 -0300
+summary:     health: Show the prescribing doctor in the prescription form, instead of the internal user
+
+changeset:   591:237f815b6339
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 03 16:03:33 2013 -0300
+summary:     health:change description of quatinty to units of the drug in the prescription model
+
+changeset:   590:556742843274
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 03 15:26:41 2013 -0300
+summary:     health:improve prescription report
+
+changeset:   589:a65a6d9398f6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 02 11:13:42 2013 -0300
+summary:     health_history : Put the patient occupation label only in the header of the evaluation and remove it from the socioeconomics section
+
+changeset:   588:f61035be8aec
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 02 11:03:07 2013 -0300
+summary:     health_history : Improve Diagnostics section in the report
+
+changeset:   587:30d9cb0a12cd
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 02 10:23:15 2013 -0300
+summary:     health_history: Fix report when mission patient DoB
+
+changeset:   586:c1d6a2e1ec5b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Jan 30 21:07:57 2013 -0300
+summary:     Update Changelog
+
 changeset:   585:749a2ae98327
 tag:         tip
 user:        Luis Falcon <lfalcon@gnusolidario.org>
