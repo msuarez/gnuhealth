@@ -1,3 +1,23 @@
+changeset:   604:88767f9cc16c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 18:42:35 2013 -0300
+summary:     health_qrcodes : Fix traceback in report when newborn mother is not provided
+
+changeset:   603:760c1a667dbc
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 18:39:07 2013 -0300
+summary:     health_pediatrics : Fix traceback in report when newborn mother is not rprovided
+
+changeset:   602:b66a076af342
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 17:52:09 2013 -0300
+summary:     health_nursing: Remove unused patient field from the tree view
+
+changeset:   601:0f78674c0c85
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 17:17:02 2013 -0300
+summary:     Update Changelog
+
 changeset:   600:695029c92701
 user:        Luis Falcon <lfalcon@gnusolidario.org>
 date:        Sat Feb 09 16:24:56 2013 -0300
