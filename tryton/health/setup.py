@@ -30,9 +30,7 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version, _ = info.get('version', '0.0.1').split('.', 2)
-major_version = int(major_version)
-minor_version = int(minor_version)
+major_version, minor_version = 2, 6
 
 requires = []
 
