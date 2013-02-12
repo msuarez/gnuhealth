@@ -15,13 +15,27 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import re
 from setuptools import setup
+import re
+import os
+import ConfigParser
 
-info = eval(open('__tryton__.py').read())
-major_version, minor_version = 2, 6
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+config = ConfigParser.ConfigParser()
+config.readfp(open('tryton.cfg'))
+info = dict(config.items('tryton'))
+
+for key in ('depends', 'extras_depend', 'xml'):
+    if key in info:
+        info[key] = info[key].strip().splitlines()
+major_version, minor_version, _ = info.get('version', '0.0.1').split('.', 2)
+major_version = int(major_version)
+minor_version = int(minor_version)
 
 requires = []
+
 for dep in info.get('depends', []):
     if dep.startswith('health'):
         requires.append('trytond_%s == %s' %
@@ -35,21 +49,24 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', ''),
-    author=info.get('author', ''),
-    author_email=info.get('email', ''),
-    url=info.get('website', ''),
+    description=info.get('description', 'GNU Health core module'),
+    long_description=read('README'),
+    author='GNU Solidario',
+    author_email='health@gnusolidario.org',
+    url='http://health.gnu.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'trytond.modules.health': '.'},
     packages=[
         'trytond.modules.health',
         'trytond.modules.health.tests',
         ],
+
     package_data={
         'trytond.modules.health': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
         },
+
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
