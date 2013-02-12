@@ -60,7 +60,7 @@ setup(name='trytond_health_calendar',
     package_data={
         'trytond.modules.health_calendar': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[
