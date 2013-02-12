@@ -47,7 +47,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health_history',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Nursing Module'),
+    description=info.get('description', 'GNU Health Patient History Module'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
