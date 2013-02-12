@@ -55,7 +55,6 @@ setup(name='trytond_health_icd10',
     package_dir={'trytond.modules.health_icd10': '.'},
     packages=[
         'trytond.modules.health_icd10',
-        'trytond.modules.health_icd10.tests',
         ],
     package_data={
         'trytond.modules.health_icd10': info.get('xml', []) \

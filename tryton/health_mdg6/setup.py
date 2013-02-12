@@ -55,7 +55,6 @@ setup(name='trytond_health_mdg6',
     package_dir={'trytond.modules.health_mdg6': '.'},
     packages=[
         'trytond.modules.health_mdg6',
-        'trytond.modules.health_mdg6.tests',
         ],
     package_data={
         'trytond.modules.health_mdg6': info.get('xml', []) \
