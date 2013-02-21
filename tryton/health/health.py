@@ -731,6 +731,7 @@ class PatientData(ModelSQL, ModelView):
     marital_status = fields.Selection([
         ('s', 'Single'),
         ('m', 'Married'),
+        ('c', 'Concubinage'),
         ('w', 'Widowed'),
         ('d', 'Divorced'),
         ('x', 'Separated'),
