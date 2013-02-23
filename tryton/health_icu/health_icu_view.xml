@@ -25,10 +25,14 @@
                     <label name="name"/>
                     <field name="name"/>
                     <newline/>
-                    <label name="icu_admission_date"/>
-                    <field name="icu_admission_date"/>
-                    <label name="icu_discharge_date"/>
-                    <field name="icu_discharge_date"/>
+                    <group id="icu_group_dates" string="Period" col="6" colspan="4">
+						<label name="icu_admission_date"/>
+						<field name="icu_admission_date"/>
+						<label name="discharged_from_icu"/>
+						<field name="discharged_from_icu"/>
+						<label name="icu_discharge_date"/>
+						<field name="icu_discharge_date"/>
+                    </group>
                 </form>
                 ]]>
             </field>
