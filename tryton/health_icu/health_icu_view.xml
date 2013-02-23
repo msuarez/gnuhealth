@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Create the GNU HEALTH ICU icon -->
+        <record model="ir.ui.icon" id="gnuhealth_icu_icon">
+            <field name="name">gnuhealth-icu</field>
+            <field name="path">icons/gnuhealth_icu.svg</field>
+        </record>
+
+<!-- Initial Menu -->
+        <menuitem name="Intensive Care" id="gnuhealth_icu_menu"
+            parent="health_inpatient.gnuhealth_inpatient_menu" sequence="900" icon="gnuhealth-icu"/>
+
+
+<!-- Inpatient ICU-->
+
+
+        <record model="ir.ui.view" id="gnuhealth_inpatient_icu_form">
+            <field name="model">gnuhealth.inpatient.icu</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Intensive Care Unit">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <newline/>
+                    <label name="icu_admission_date"/>
+                    <field name="icu_admission_date"/>
+                    <label name="icu_discharge_date"/>
+                    <field name="icu_discharge_date"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_inpatient_icu_tree">
+            <field name="model">gnuhealth.inpatient.icu</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Intensive Care Unit'>
+                    <field name="name"/>
+                    <field name="icu_admission_date"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.action.act_window" id="action_gnuhealth_inpatient_icu_form">
+            <field name="name">ICU Admissions</field>
+            <field name="res_model">gnuhealth.inpatient.icu</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_inpatient_icu_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_icu_tree"/>
+            <field name="act_window" ref="action_gnuhealth_inpatient_icu_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_inpatient_icu_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_icu_form"/>
+            <field name="act_window" ref="action_gnuhealth_inpatient_icu_form"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_inpatient_icu_form"
+            id="menu_gnuhealth_inpatient_icu_list" icon="gnuhealth-list"
+            parent="gnuhealth_icu_menu"/>
+
+
+    </data>
+</tryton>
