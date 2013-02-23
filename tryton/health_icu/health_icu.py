@@ -26,7 +26,7 @@ from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool
 
 
-__all__ = ['InpatientRegistration','InpatientIcu']
+__all__ = ['InpatientRegistration','InpatientIcu','ApacheII']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -70,4 +70,26 @@ class InpatientIcu(ModelSQL, ModelView):
         depends=['discharged_from_icu'])
     icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
 
+
+class ApacheII(ModelSQL, ModelView):
+    'Apache II scoring'
+    __name__ = 'gnuhealth.icu.apache2'
+    
+    age = fields.Integer ('Age', help='Patient age in years',required=True)
+    gcs = fields.Integer ('GSC', help='Last Glasgow Coma Scale'
+        ' You can use the GSC calculator from the Patient Evaluation Form.')
+    temperature = fields.Float ('Temperature', help='Rectal temperature')
+    mean_ap = fields.Integer ('MAP',help = 'Mean Arterial Pressure')
+    heart_rate = fields.Integer ('Heart Rate')
+    respiratory_rate = fields.Integer ('Respiratory Rate')
+    fio2 = fields.Integer ('FiO2')
+    pa02 = fields.Integer ('PaO2')
+    ph = fields.Float ('pH')
+    sodium = fields.Integer ('Sodium')
+    potassium = fields.Integer ('Potassium')
+    creatinine = fields.Integer ('Creatinine')
+    arf = fields.Integer ('ARF', help='Acute Renal Failure')
+    wbc = fields.Integer ('WBC')
+    hematocrit = fields.Float ('Hematocrit')
+    
     
