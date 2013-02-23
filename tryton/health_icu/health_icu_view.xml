@@ -25,9 +25,11 @@
                     <label name="name"/>
                     <field name="name"/>
                     <newline/>
-                    <group id="icu_group_dates" string="Period" col="6" colspan="4">
+                    <group id="icu_group_dates" string="Period" col="8" colspan="4">
 						<label name="icu_admission_date"/>
 						<field name="icu_admission_date"/>
+						<label name="icu_stay"/>
+						<field name="icu_stay"/>
 						<label name="discharged_from_icu"/>
 						<field name="discharged_from_icu"/>
 						<label name="icu_discharge_date"/>
@@ -47,6 +49,9 @@
                 <tree string='Intensive Care Unit'>
                     <field name="name"/>
                     <field name="icu_admission_date"/>
+                    <field name="discharged_from_icu"/>
+                    <field name="icu_discharge_date"/>
+					<field name="icu_stay"/>
                 </tree>
                 ]]>
             </field>

@@ -20,6 +20,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool
@@ -44,19 +45,17 @@ class InpatientIcu(ModelSQL, ModelView):
     def icu_duration(self, name):
 
         now = datetime.now()
-        admission = datetime.strptime(str(icu_admission_date), '%Y-%m-%d %H:%M:%S')
+        admission = datetime.strptime(str(self.icu_admission_date), '%Y-%m-%d %H:%M:%S')
 
-        if discharged_from_icu:
-            discharge = datetime.strptime(icu_discharge_date, '%Y-%m-%d %H:%M:%S')
+        if self.discharged_from_icu:
+            discharge = datetime.strptime(str(self.icu_discharge_date), '%Y-%m-%d %H:%M:%S')
             delta = relativedelta(discharge, admission)
-            msg = "Discharged"
         else:
             delta = relativedelta(now, admission)
             msg = ''
         years_months_days = str(delta.years) + 'y ' \
                 + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd' + msg
-
+                + str(delta.days) + 'd'
         return years_months_days
 
     
@@ -69,5 +68,6 @@ class InpatientIcu(ModelSQL, ModelView):
             'required': Bool(Eval('discharged_from_icu')),
             },
         depends=['discharged_from_icu'])
+    icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
 
     
