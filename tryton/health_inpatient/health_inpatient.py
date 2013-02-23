@@ -231,6 +231,28 @@ class InpatientRegistration(ModelSQL, ModelView):
     def default_state():
         return 'free'
 
+    
+    # Allow searching by the hospitalization code or patient name
+    
+    def get_rec_name(self, name):
+        if self.patient:
+            return self.name + ': ' + self.patient.name.name + ' ' + \
+             self.patient.name.lastname
+        else:
+            return self.name
+
+    
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        field = None
+        for field in ('name', 'patient'):
+            registrations = cls.search([(field,) + clause[1:]], limit=1)
+            if registrations:
+                break
+        if registrations:
+            return [(field,) + clause[1:]]
+        return [(cls._rec_name,) + clause[1:]]
+
 
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'
