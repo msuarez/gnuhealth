@@ -97,5 +97,28 @@ class ApacheII(ModelSQL, ModelView):
         ' You can use the GSC calculator from the Patient Evaluation Form.')
     chronic_condition = fields.Boolean ('Chronic condition', help='Organ Failure '
         'or immunocompromised patient')
-    apache_score = fields.Integer ('Score')
+    apache_score = fields.Integer ('Score', on_change_with = 
+        ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
+        'fio2','pao2','ph','serum_sodium','serum_potassium','serum_creatinine',
+        'arf','wbc','hematocrit','gcs','chronic_condition'])
     
+
+
+    def on_change_with_apache_score(self):
+    # Calculate the APACHE SCORE from the variables in the    
+        
+        total = 0
+        # Age 
+        if (self.age):
+            if (self.age > 44 and self.age < 55):
+                total = total + 2
+            elif (self.age > 54 and self.age < 65):
+                total = total + 3
+            elif (self.age > 64 and self.age < 75):
+                total = total + 5
+            elif (self.age > 74):
+                total = total + 6
+
+            
+        return total
+
