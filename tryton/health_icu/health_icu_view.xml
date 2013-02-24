@@ -13,6 +13,111 @@
             parent="health_inpatient.gnuhealth_inpatient_menu" sequence="900" icon="gnuhealth-icu"/>
 
 
+<!-- APACHE II Score -->
+
+        <record model="ir.ui.view" id="gnuhealth_icu_apache2_form">
+            <field name="model">gnuhealth.icu.apache2</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="APACHE II Score">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="score_date"/>
+                    <field name="score_date"/>
+					
+                    <label name="age"/>
+                    <field name="age"/>
+                    <newline/>
+                    <separator id="separator_apache_physisological" string='Physiological' colspan='4'/>
+                    <newline/>
+                    <label name="temperature"/>
+                    <field name="temperature"/>
+                    <label name="mean_ap"/>
+                    <field name="mean_ap"/>
+                    <label name="heart_rate"/>
+                    <field name="respiratory_rate"/>
+                    <label name="temperature"/>
+                    <field name="temperature"/>
+                    <label name="fio2"/>
+                    <field name="pao2"/>
+                    <label name="temperature"/>
+                    <field name="temperature"/>
+                    <label name="serum_sodium"/>
+                    <field name="serum_potassium"/>
+                    <label name="serum_creatinine"/>
+                    <field name="serum_creatinine"/>
+                    <label name="hematocrit"/>
+                    <field name="hematocrit"/>
+                    <label name="arf"/>
+                    <field name="arf"/>
+                    <newline/>
+                    <separator id="separator_apache_chronic" string='Chronic' colspan='4'/>
+                    <newline/>
+                    <label name="chronic_condition"/>
+                    <field name="chronic_condition"/>
+                    <newline/>
+                    <separator id="separator_apache_total" colspan='4'/>
+                    <newline/>
+                    <label name="apache_score"/>
+                    <field name="apache_score"/>
+
+               </form>
+                ]]>
+            </field>
+        </record>
+
+
+      <record model="ir.ui.view" id="gnuhealth_icu_apache2_tree">
+            <field name="model">gnuhealth.icu.apache2</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Apache II Scores'>
+                    <field name="name"/>
+                    <field name="score_date"/>
+                    <field name="apache_score"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+                
+
+        <record model="ir.action.act_window" id="action_gnuhealth_icu_apache2_form">
+            <field name="name">APACHE II Score</field>
+            <field name="res_model">gnuhealth.icu.apache2</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_apache2_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_icu_apache2_tree"/>
+            <field name="act_window" ref="action_gnuhealth_icu_apache2_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_apache2_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_icu_apache2_form"/>
+            <field name="act_window" ref="action_gnuhealth_icu_apache2_form"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_icu_apache2_form"
+            id="menu_gnuhealth_icu_apache2_list" icon="gnuhealth-list"
+            parent="gnuhealth_icu_menu"/>
+					
+
+<!-- Shortcut to the Apache II Score from the Inpatient ICU section -->
+        <record model="ir.action.act_window" id="act_apache_form1">
+            <field name="name">APACHE II</field>
+            <field name="res_model">gnuhealth.icu.apache2</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_apache_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.inpatient.icu,-1</field>
+            <field name="action" ref="act_apache_form1"/>
+        </record>
+
 <!-- Inpatient ICU-->
 
 

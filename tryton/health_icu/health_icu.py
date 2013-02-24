@@ -75,21 +75,27 @@ class ApacheII(ModelSQL, ModelView):
     'Apache II scoring'
     __name__ = 'gnuhealth.icu.apache2'
     
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code', required=True)
+    score_date = fields.DateTime('Date', help="Date of the score",required=True)
+
     age = fields.Integer ('Age', help='Patient age in years',required=True)
-    gcs = fields.Integer ('GSC', help='Last Glasgow Coma Scale'
-        ' You can use the GSC calculator from the Patient Evaluation Form.')
     temperature = fields.Float ('Temperature', help='Rectal temperature')
     mean_ap = fields.Integer ('MAP',help = 'Mean Arterial Pressure')
     heart_rate = fields.Integer ('Heart Rate')
     respiratory_rate = fields.Integer ('Respiratory Rate')
     fio2 = fields.Integer ('FiO2')
-    pa02 = fields.Integer ('PaO2')
+    pao2 = fields.Integer ('PaO2')
     ph = fields.Float ('pH')
-    sodium = fields.Integer ('Sodium')
-    potassium = fields.Integer ('Potassium')
-    creatinine = fields.Integer ('Creatinine')
+    serum_sodium = fields.Integer ('Sodium')
+    serum_potassium = fields.Integer ('Potassium')
+    serum_creatinine = fields.Integer ('Creatinine')
     arf = fields.Integer ('ARF', help='Acute Renal Failure')
     wbc = fields.Integer ('WBC')
     hematocrit = fields.Float ('Hematocrit')
-    
+    gcs = fields.Integer ('GSC', help='Last Glasgow Coma Scale'
+        ' You can use the GSC calculator from the Patient Evaluation Form.')
+    chronic_condition = fields.Boolean ('Chronic condition', help='Organ Failure '
+        'or immunocompromised patient')
+    apache_score = fields.Integer ('Score')
     
