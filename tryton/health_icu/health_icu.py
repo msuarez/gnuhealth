@@ -84,8 +84,12 @@ class ApacheII(ModelSQL, ModelView):
     mean_ap = fields.Integer ('MAP',help = 'Mean Arterial Pressure')
     heart_rate = fields.Integer ('Heart Rate')
     respiratory_rate = fields.Integer ('Respiratory Rate')
-    fio2 = fields.Integer ('FiO2')
+    fio2 = fields.Float ('FiO2')
     pao2 = fields.Integer ('PaO2')
+    paco2 = fields.Integer ('PaCO2')
+    aado2 = fields.Integer ('A-a DO2', on_change_with =
+        ['fio2','pao2','paco2'])
+
     ph = fields.Float ('pH')
     serum_sodium = fields.Integer ('Sodium')
     serum_potassium = fields.Integer ('Potassium')
@@ -99,11 +103,20 @@ class ApacheII(ModelSQL, ModelView):
         'or immunocompromised patient')
     apache_score = fields.Integer ('Score', on_change_with = 
         ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
-        'fio2','pao2','ph','serum_sodium','serum_potassium','serum_creatinine',
-        'arf','wbc','hematocrit','gcs','chronic_condition'])
+        'fio2','pao2','aado2','ph','serum_sodium','serum_potassium',
+        'serum_creatinine','arf','wbc','hematocrit','gcs','chronic_condition'])
     
 
+    #Default FiO2 PaO2 and PaCO2 so we do the A-a gradient 
+    #calculation with non-null values
 
+
+    def on_change_with_aado2(self):
+    # Calculates the Alveolar-arterial difference
+    # based on FiO2, PaCO2 and PaO2 values
+        if ( self.fio2 and self.paco2 and self.pao2 ):
+            return (713 * self.fio2) - (self.paco2 / 0.8) - self.pao2
+     
     def on_change_with_apache_score(self):
     # Calculate the APACHE SCORE from the variables in the    
         
@@ -147,7 +160,7 @@ class ApacheII(ModelSQL, ModelView):
             if ((self.heart_rate >= 55 and self.heart_rate < 70) or
                 (self.heart_rate >= 110 and self.heart_rate < 140)):
                     total = total + 2
-            if ((self.heart_rate >= 40 and self.heart_rate < 55) or
+            elif ((self.heart_rate >= 40 and self.heart_rate < 55) or
                 (self.heart_rate >= 140 and self.heart_rate < 180)):
                     total = total + 3
             elif (self.heart_rate >= 180 or self.heart_rate < 40):
@@ -158,12 +171,38 @@ class ApacheII(ModelSQL, ModelView):
             if ((self.respiratory_rate >= 10 and self.respiratory_rate < 12) or
                 (self.respiratory_rate >= 25 and self.respiratory_rate < 35)):
                     total = total + 1
-            if (self.respiratory_rate >= 6 and self.respiratory_rate < 10):
+            elif (self.respiratory_rate >= 6 and self.respiratory_rate < 10):
                     total = total + 2
-            if (self.respiratory_rate >= 35 and self.respiratory_rate < 50):
+            elif (self.respiratory_rate >= 35 and self.respiratory_rate < 50):
                     total = total + 3
             elif (self.respiratory_rate >= 50 or self.respiratory_rate < 6):
                 total = total + 4
+
+        # FIO2 
+        if (self.fio2):
+            # If Fi02 is greater than 0.5, we measure the AaDO2 gradient
+            # Otherwise, we take into account the Pa02 value 
+ 
+            if (self.fio2 >= 0.5):
+                if (self.aado2 >= 200 and self.aado2 < 350):
+                    total = total + 2
+
+                elif (self.aado2 >= 350 and self.aado2 < 500):
+                    total = total + 3
+
+                elif (self.aado2 >= 500):
+                    total = total + 4
+            
+            else:
+                if (self.pao2 >= 61 and self.pao2 < 71):
+                    total = total + 1
+                
+                elif (self.pao2 >= 55 and self.pao2 < 61):
+                    total = total + 3
+
+                elif (self.pao2 < 55):
+                    total = total + 4
+                
             
         return total
 
