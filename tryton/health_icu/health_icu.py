@@ -215,6 +215,19 @@ class ApacheII(ModelSQL, ModelView):
                     total = total + 3
             elif (self.ph >= 7.7 or self.ph < 7.15):
                 total = total + 4
+
+        # Serum Sodium 
+        if (self.serum_sodium):
+            if (self.serum_sodium >= 150 and self.serum_sodium < 155):
+                    total = total + 1
+            elif ((self.serum_sodium >= 155 and self.serum_sodium < 160) or
+                (self.serum_sodium >= 120 and self.serum_sodium < 130)):
+                    total = total + 2
+            elif ((self.serum_sodium >= 160 and self.serum_sodium < 180) or
+                (self.serum_sodium >= 111 and self.serum_sodium < 120)):
+                    total = total + 3
+            elif (self.serum_sodium >= 180 or self.serum_sodium < 111):
+                total = total + 4
             
         return total
 
