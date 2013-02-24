@@ -240,6 +240,16 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 3
             elif (self.serum_potassium >= 7 or self.serum_potassium < 2.5):
                 total = total + 4
+
+        # Serum Creatinine 
+        if (self.serum_creatinine):
+            if ((self.serum_creatinine < 0.6) or
+                (self.serum_creatinine >= 1.5 and self.serum_creatinine < 2)):
+                    total = total + 2
+            elif (self.serum_creatinine >= 2 and self.serum_creatinine < 3.5):
+                total = total + 3
+            elif (self.serum_creatinine >= 3.5):
+                total = total + 4
             
         return total
 
