@@ -152,6 +152,18 @@ class ApacheII(ModelSQL, ModelView):
                     total = total + 3
             elif (self.heart_rate >= 180 or self.heart_rate < 40):
                 total = total + 4
+
+        # Respiratory Rate 
+        if (self.respiratory_rate):
+            if ((self.respiratory_rate >= 10 and self.respiratory_rate < 12) or
+                (self.respiratory_rate >= 25 and self.respiratory_rate < 35)):
+                    total = total + 1
+            if (self.respiratory_rate >= 6 and self.respiratory_rate < 10):
+                    total = total + 2
+            if (self.respiratory_rate >= 35 and self.respiratory_rate < 50):
+                    total = total + 3
+            elif (self.respiratory_rate >= 50 or self.respiratory_rate < 6):
+                total = total + 4
             
         return total
 
