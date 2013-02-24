@@ -92,9 +92,9 @@ class ApacheII(ModelSQL, ModelView):
 
     ph = fields.Float ('pH')
     serum_sodium = fields.Integer ('Sodium')
-    serum_potassium = fields.Integer ('Potassium')
-    serum_creatinine = fields.Integer ('Creatinine')
-    arf = fields.Integer ('ARF', help='Acute Renal Failure')
+    serum_potassium = fields.Float ('Potassium')
+    serum_creatinine = fields.Float ('Creatinine')
+    arf = fields.Boolean ('ARF', help='Acute Renal Failure')
     wbc = fields.Integer ('WBC')
     hematocrit = fields.Float ('Hematocrit')
     gcs = fields.Integer ('GSC', help='Last Glasgow Coma Scale'
@@ -227,6 +227,18 @@ class ApacheII(ModelSQL, ModelView):
                 (self.serum_sodium >= 111 and self.serum_sodium < 120)):
                     total = total + 3
             elif (self.serum_sodium >= 180 or self.serum_sodium < 111):
+                total = total + 4
+
+        # Serum Potassium 
+        if (self.serum_potassium):
+            if ((self.serum_potassium >= 3 and self.serum_potassium < 3.5) or
+                (self.serum_potassium >= 5.5 and self.serum_potassium < 6)):
+                    total = total + 1
+            elif (self.serum_potassium >= 2.5 and self.serum_potassium < 3):
+                total = total + 2
+            elif (self.serum_potassium >= 6 and self.serum_potassium < 7):
+                total = total + 3
+            elif (self.serum_potassium >= 7 or self.serum_potassium < 2.5):
                 total = total + 4
             
         return total
