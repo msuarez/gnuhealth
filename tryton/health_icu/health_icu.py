@@ -250,6 +250,16 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 3
             elif (self.serum_creatinine >= 3.5):
                 total = total + 4
+
+        # Hematocrit 
+        if (self.hematocrit):
+            if (self.hematocrit >= 46 and self.hematocrit < 50):
+                total = total + 1
+            elif ((self.hematocrit >= 50 and self.hematocrit < 60) or
+                (self.hematocrit >= 20 and self.hematocrit < 30)):
+                    total = total + 2
+            elif (self.hematocrit >= 60 or self.hematocrit < 20):
+                total = total + 4
             
         return total
 
