@@ -95,7 +95,8 @@ class ApacheII(ModelSQL, ModelView):
     serum_potassium = fields.Float ('Potassium')
     serum_creatinine = fields.Float ('Creatinine')
     arf = fields.Boolean ('ARF', help='Acute Renal Failure')
-    wbc = fields.Integer ('WBC')
+    wbc = fields.Float ('WBC', help="White blood cells x 1000 - if you"
+        " want to input 4500 wbc / ml, type in 4.5")
     hematocrit = fields.Float ('Hematocrit')
     gcs = fields.Integer ('GSC', help='Last Glasgow Coma Scale'
         ' You can use the GSC calculator from the Patient Evaluation Form.')
@@ -259,6 +260,16 @@ class ApacheII(ModelSQL, ModelView):
                 (self.hematocrit >= 20 and self.hematocrit < 30)):
                     total = total + 2
             elif (self.hematocrit >= 60 or self.hematocrit < 20):
+                total = total + 4
+
+        # WBC ( x 1000 )
+        if (self.wbc):
+            if (self.wbc >= 15 and self.wbc < 20):
+                total = total + 1
+            elif ((self.wbc >= 20 and self.wbc < 40) or
+                (self.wbc >= 1 and self.wbc < 3)):
+                    total = total + 2
+            elif (self.wbc >= 40 or self.wbc < 1):
                 total = total + 4
             
         return total
