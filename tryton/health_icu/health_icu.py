@@ -203,6 +203,18 @@ class ApacheII(ModelSQL, ModelView):
                 elif (self.pao2 < 55):
                     total = total + 4
                 
+
+        # Arterial pH 
+        if (self.ph):
+            if (self.ph >= 7.5 and self.ph < 7.6):
+                    total = total + 1
+            elif (self.ph >= 7.25 and self.ph < 7.33):
+                    total = total + 2
+            elif ((self.ph >= 7.15 and self.ph < 7.25) or
+                (self.ph >= 7.6 and self.ph < 7.7)):
+                    total = total + 3
+            elif (self.ph >= 7.7 or self.ph < 7.15):
+                total = total + 4
             
         return total
 
