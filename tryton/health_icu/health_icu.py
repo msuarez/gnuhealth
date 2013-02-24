@@ -141,6 +141,17 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 3
             elif (self.mean_ap >= 160 or self.mean_ap < 50):
                 total = total + 4
+
+        # Heart Rate 
+        if (self.heart_rate):
+            if ((self.heart_rate >= 55 and self.heart_rate < 70) or
+                (self.heart_rate >= 110 and self.heart_rate < 140)):
+                    total = total + 2
+            if ((self.heart_rate >= 40 and self.heart_rate < 55) or
+                (self.heart_rate >= 140 and self.heart_rate < 180)):
+                    total = total + 3
+            elif (self.heart_rate >= 180 or self.heart_rate < 40):
+                total = total + 4
             
         return total
 
