@@ -131,6 +131,16 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 3
             elif (self.temperature >= 41 or self.temperature < 30):
                 total = total + 4
+
+        # Mean Arterial Pressure (MAP) 
+        if (self.mean_ap):
+            if ((self.mean_ap >= 110 and self.mean_ap < 130) or
+                (self.mean_ap >= 50 and self.mean_ap < 70)):
+                    total = total + 2
+            elif (self.mean_ap >= 130 and self.mean_ap < 160):
+                total = total + 3
+            elif (self.mean_ap >= 160 or self.mean_ap < 50):
+                total = total + 4
             
         return total
 
