@@ -119,6 +119,18 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.age > 74):
                 total = total + 6
 
+        # Temperature 
+        if (self.temperature):
+            if ((self.temperature >= 38.5 and self.temperature < 39) or
+                (self.temperature >= 34 and self.temperature < 36)):
+                    total = total + 1
+            elif (self.temperature >= 32 and self.temperature < 34):
+                total = total + 2
+            elif ((self.temperature >= 30 and self.temperature < 32) or
+                (self.temperature >= 39 and self.temperature < 41)):
+                total = total + 3
+            elif (self.temperature >= 41 or self.temperature < 30):
+                total = total + 4
             
         return total
 
