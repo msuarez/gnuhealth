@@ -244,13 +244,17 @@ class ApacheII(ModelSQL, ModelView):
 
         # Serum Creatinine 
         if (self.serum_creatinine):
+            arf_factor=1
+            if (self.arf):
+            # We multiply by 2 the score if there is concomitant ARF
+                arf_factor=2
             if ((self.serum_creatinine < 0.6) or
                 (self.serum_creatinine >= 1.5 and self.serum_creatinine < 2)):
-                    total = total + 2
+                    total = total + 2*arf_factor
             elif (self.serum_creatinine >= 2 and self.serum_creatinine < 3.5):
-                total = total + 3
+                total = total + 3*arf_factor
             elif (self.serum_creatinine >= 3.5):
-                total = total + 4
+                total = total + 4*arf_factor
 
         # Hematocrit 
         if (self.hematocrit):
