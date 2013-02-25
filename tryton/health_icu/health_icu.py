@@ -102,10 +102,18 @@ class ApacheII(ModelSQL, ModelView):
         ' You can use the GSC calculator from the Patient Evaluation Form.')
     chronic_condition = fields.Boolean ('Chronic condition', help='Organ Failure '
         'or immunocompromised patient')
+    hospital_admission_type = fields.Selection([
+        ('me', 'Medical or emergency postoperative'),
+        ('el', 'elective postoperative')],
+        'Hospital Admission Type', states={
+            'invisible': Not(Bool(Eval('chronic_condition'))),
+            'required': Bool(Eval('chronic_condition'))})
+
     apache_score = fields.Integer ('Score', on_change_with = 
         ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
         'fio2','pao2','aado2','ph','serum_sodium','serum_potassium',
-        'serum_creatinine','arf','wbc','hematocrit','gcs','chronic_condition'])
+        'serum_creatinine','arf','wbc','hematocrit','gcs','chronic_condition',
+        'hospital_admission_type'])
     
 
     #Default FiO2 PaO2 and PaCO2 so we do the A-a gradient 
@@ -275,6 +283,13 @@ class ApacheII(ModelSQL, ModelView):
                     total = total + 2
             elif (self.wbc >= 40 or self.wbc < 1):
                 total = total + 4
-            
+
+        # Immnunocompromised or severe organ failure
+        if (self.chronic_condition):
+            if (self.hospital_admission_type == 'me'):
+                total = total + 5
+            else:
+                total = total + 2
+                
         return total
 

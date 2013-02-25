@@ -66,6 +66,9 @@
                     <newline/>
                     <label name="chronic_condition"/>
                     <field name="chronic_condition"/>
+                    <label name="hospital_admission_type"/>
+                    <field name="hospital_admission_type"/>
+
                     <newline/>
                     <separator id="separator_apache_total" colspan='4'/>
                     <newline/>
