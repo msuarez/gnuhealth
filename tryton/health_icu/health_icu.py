@@ -79,7 +79,7 @@ class ApacheII(ModelSQL, ModelView):
         'Registration Code', required=True)
     score_date = fields.DateTime('Date', help="Date of the score",required=True)
 
-    age = fields.Integer ('Age', help='Patient age in years',required=True)
+    age = fields.Integer ('Age', help='Patient age in years')
     temperature = fields.Float ('Temperature', help='Rectal temperature')
     mean_ap = fields.Integer ('MAP',help = 'Mean Arterial Pressure')
     heart_rate = fields.Integer ('Heart Rate')
