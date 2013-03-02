@@ -258,6 +258,51 @@
         </record>
 
 
+<!-- Rounding view -->
+<!-- Update the existing rounding view with information about Intensive Care Unit - ICU -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_icu_rounding_view">
+            <field name="model">gnuhealth.patient.rounding</field>
+            <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_view" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+
+                    <xpath
+                        expr="/form/notebook/page/group/label[@name='warning']"
+                        position="replace">
+                    </xpath>
+
+                    <xpath
+                        expr="/form/notebook/page/group/field[@name='warning']"
+                        position="replace">
+                    </xpath>
+
+                    <xpath
+                        expr="/form/notebook/page/group/field[@name='environmental_assessment']"
+                        position="after">
+                        <group colspan="1" col="4" id="group_rounding_icu_warning">
+							<label name="icu_patient"/>
+							<field name="icu_patient"/>
+							<label name="warning"/>
+							<field name="warning"/>
+						</group>
+                    </xpath>
+
+                    <xpath
+                        expr="/form/notebook/page[@id='rounding_main']"
+                        position="after">
+
+                        <page id='rounding_icu' string='ICU'></page>
+
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
+
+
         <record model="ir.action.act_window" id="action_gnuhealth_inpatient_icu_form">
             <field name="name">ICU Admissions</field>
             <field name="res_model">gnuhealth.inpatient.icu</field>

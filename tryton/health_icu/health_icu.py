@@ -26,7 +26,8 @@ from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool
 
 
-__all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII']
+__all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII',
+            'PatientRounding']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -355,3 +356,13 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 2
                 
         return total
+
+# Nursing Rounding for ICU
+# Append to the existing model the new functionality for ICU
+
+class PatientRounding(ModelSQL, ModelView):
+    'Patient Rounding'
+    __name__ = 'gnuhealth.patient.rounding'
+
+    icu_patient = fields.Boolean('ICU', help='Check this box if this is'
+    'an Intensive Care Unit rounding.')

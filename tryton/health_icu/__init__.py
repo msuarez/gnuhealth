@@ -29,4 +29,5 @@ def register():
 		InpatientIcu,
 		Glasgow,
 		ApacheII,
+		PatientRounding,
         module='health_icu', type_='model')
