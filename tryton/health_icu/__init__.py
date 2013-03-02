@@ -27,5 +27,6 @@ def register():
     Pool.register(
 		InpatientRegistration,
 		InpatientIcu,
+		Glasgow,
 		ApacheII,
         module='health_icu', type_='model')

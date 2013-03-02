@@ -26,7 +26,7 @@ from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool
 
 
-__all__ = ['InpatientRegistration','InpatientIcu','ApacheII']
+__all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -69,6 +69,63 @@ class InpatientIcu(ModelSQL, ModelView):
             },
         depends=['discharged_from_icu'])
     icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
+
+
+class Glasgow(ModelSQL, ModelView):
+    'Glasgow Coma Scale'
+    __name__ = 'gnuhealth.icu.glasgow'
+
+
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code', required=True)
+
+    evaluation_date = fields.DateTime('Date', help="Date / Time",required=True)
+
+    glasgow = fields.Integer('Glasgow',
+        on_change_with=['glasgow_verbal', 'glasgow_motor', 'glasgow_eyes'],
+        help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
+        ' 9-12 Moderate, > 13 minor')
+    glasgow_eyes = fields.Selection([
+        ('1', 'Does not Open Eyes'),
+        ('2', 'Opens eyes in response to painful stimuli'),
+        ('3', 'Opens eyes in response to voice'),
+        ('4', 'Opens eyes spontaneously'),
+        ], 'Eyes', sort=False)
+    glasgow_verbal = fields.Selection([
+        ('1', 'Makes no sounds'),
+        ('2', 'Incomprehensible sounds'),
+        ('3', 'Utters inappropriate words'),
+        ('4', 'Confused, disoriented'),
+        ('5', 'Oriented, converses normally'),
+        ], 'Verbal', sort=False)
+    glasgow_motor = fields.Selection([
+        ('1', 'Makes no movement'),
+        ('2', 'Extension to painful stimuli - decerebrate response -'),
+        ('3', 'Abnormal flexion to painful stimuli (decorticate response)'),
+        ('4', 'Flexion / Withdrawal to painful stimuli'),
+        ('5', 'localizes painful stimuli'),
+        ('6', 'Obeys commands'),
+        ], 'Motor', sort=False)
+
+    @staticmethod
+    def default_glasgow_eyes():
+        return '4'
+
+    @staticmethod
+    def default_glasgow_verbal():
+        return '5'
+
+    @staticmethod
+    def default_glasgow_motor():
+        return '6'
+
+    @staticmethod
+    def default_glasgow():
+        return 15
+
+    def on_change_with_glasgow(self):
+        return int(self.glasgow_motor) + int(self.glasgow_eyes) + int(self.glasgow_verbal)
+
 
 
 class ApacheII(ModelSQL, ModelView):
@@ -292,4 +349,3 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 2
                 
         return total
-

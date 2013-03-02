@@ -1449,10 +1449,10 @@ class PatientEvaluation(ModelSQL, ModelView):
     # DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
     # NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
     # TO WORK WITH THE CLINICAL FINDINGS OF THE PATIENT
-    loc = fields.Integer('Level of Consciousness',
+    loc = fields.Integer('Glasgow',
         on_change_with=['loc_verbal', 'loc_motor', 'loc_eyes'],
-        help='Level of Consciousness - on Glasgow Coma Scale :  1=coma -'
-        ' 15=normal')
+        help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
+        ' 9-12 Moderate, > 13 minor')
     loc_eyes = fields.Selection([
         ('1', 'Does not Open Eyes'),
         ('2', 'Opens eyes in response to painful stimuli'),
