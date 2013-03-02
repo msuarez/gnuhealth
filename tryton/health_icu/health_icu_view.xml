@@ -13,6 +13,91 @@
             parent="health_inpatient.gnuhealth_inpatient_menu" sequence="900" icon="gnuhealth-icu"/>
 
 
+<!-- Glasgow Coma Scale -->
+
+        <record model="ir.ui.view" id="gnuhealth_icu_glasgow_form">
+            <field name="model">gnuhealth.icu.glasgow</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="glasgow Score">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="evaluation_date"/>
+                    <field name="evaluation_date"/>
+				
+                    <newline/>
+                    <group id="group_glasgow_header" colspan='4'>
+						<label name="glasgow_eyes"/>
+						<field name="glasgow_eyes"/>
+						<label name="glasgow_verbal"/>
+						<field name="glasgow_eyes"/>
+						<label name="glasgow_motor"/>
+						<field name="glasgow_motor"/>
+						<label name="glasgow"/>
+						<field name="glasgow"/>
+					</group>
+               </form>
+                ]]>
+            </field>
+        </record>
+
+
+      <record model="ir.ui.view" id="gnuhealth_icu_glasgow_tree">
+            <field name="model">gnuhealth.icu.glasgow</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Glasgow Scores'>
+                    <field name="name"/>
+                    <field name="evaluation_date"/>
+					<field name="glasgow_eyes"/>
+					<field name="glasgow_eyes"/>
+					<field name="glasgow_motor"/>
+                    <field name="glasgow"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+                
+
+        <record model="ir.action.act_window" id="action_gnuhealth_icu_glasgow_form">
+            <field name="name">Glasgow Evaluation</field>
+            <field name="res_model">gnuhealth.icu.glasgow</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_glasgow_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_icu_glasgow_tree"/>
+            <field name="act_window" ref="action_gnuhealth_icu_glasgow_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_glasgow_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_icu_glasgow_form"/>
+            <field name="act_window" ref="action_gnuhealth_icu_glasgow_form"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_icu_glasgow_form"
+            id="menu_gnuhealth_icu_glasgow_list" icon="gnuhealth-list"
+            parent="gnuhealth_icu_menu"/>
+					
+
+<!-- Shortcut to the glasgow scale from the Inpatient ICU section -->
+        <record model="ir.action.act_window" id="act_glasgow_form1">
+            <field name="name">glasgow</field>
+            <field name="res_model">gnuhealth.icu.glasgow</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_glasgow_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.inpatient.icu,-1</field>
+            <field name="action" ref="act_glasgow_form1"/>
+        </record>
+
+
+
 <!-- APACHE II Score -->
 
         <record model="ir.ui.view" id="gnuhealth_icu_apache2_form">
