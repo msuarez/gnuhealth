@@ -132,6 +132,12 @@ class Glasgow(ModelSQL, ModelView):
     def on_change_with_glasgow(self):
         return int(self.glasgow_motor) + int(self.glasgow_eyes) + int(self.glasgow_verbal)
 
+    # Return the Glasgow Score
+    def get_rec_name(self, name):
+        if self.name:
+            res = str(self.glasgow) + ': ' + 'E' + self.glasgow_eyes + ' V' + \
+                self.glasgow_verbal + ' M' + self.glasgow_motor 
+        return res
 
 
 
@@ -366,3 +372,4 @@ class PatientRounding(ModelSQL, ModelView):
 
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
     'an Intensive Care Unit rounding.')
+    gsc = fields.Many2One ('gnuhealth.icu.glasgow','GSC',domain = [('name', '=', Eval('name'))])

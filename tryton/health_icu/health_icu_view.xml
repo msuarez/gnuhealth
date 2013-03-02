@@ -294,7 +294,10 @@
                         expr="/form/notebook/page[@id='rounding_main']"
                         position="after">
 
-                        <page id='rounding_icu' string='ICU'></page>
+                        <page id='rounding_icu' string='ICU'>
+							<label name="gsc"/>
+							<field name="gsc"/>
+                        </page>
 
                     </xpath>
                 </data>
