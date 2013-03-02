@@ -86,25 +86,25 @@ class Glasgow(ModelSQL, ModelView):
         help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
         ' 9-12 Moderate, > 13 minor')
     glasgow_eyes = fields.Selection([
-        ('1', 'Does not Open Eyes'),
-        ('2', 'Opens eyes in response to painful stimuli'),
-        ('3', 'Opens eyes in response to voice'),
-        ('4', 'Opens eyes spontaneously'),
+        ('1', '1 : Does not Open Eyes'),
+        ('2', '2 : Opens eyes in response to painful stimuli'),
+        ('3', '3 : Opens eyes in response to voice'),
+        ('4', '4 : Opens eyes spontaneously'),
         ], 'Eyes', sort=False)
     glasgow_verbal = fields.Selection([
-        ('1', 'Makes no sounds'),
-        ('2', 'Incomprehensible sounds'),
-        ('3', 'Utters inappropriate words'),
-        ('4', 'Confused, disoriented'),
-        ('5', 'Oriented, converses normally'),
+        ('1', '1 : Makes no sounds'),
+        ('2', '2 : Incomprehensible sounds'),
+        ('3', '3 : Utters inappropriate words'),
+        ('4', '4 : Confused, disoriented'),
+        ('5', '5 : Oriented, converses normally'),
         ], 'Verbal', sort=False)
     glasgow_motor = fields.Selection([
-        ('1', 'Makes no movement'),
-        ('2', 'Extension to painful stimuli - decerebrate response -'),
-        ('3', 'Abnormal flexion to painful stimuli (decorticate response)'),
-        ('4', 'Flexion / Withdrawal to painful stimuli'),
-        ('5', 'localizes painful stimuli'),
-        ('6', 'Obeys commands'),
+        ('1', '1 : Makes no movement'),
+        ('2', '2 : Extension to painful stimuli - decerebrate response -'),
+        ('3', '3 : Abnormal flexion to painful stimuli (decorticate response)'),
+        ('4', '4 : Flexion / Withdrawal to painful stimuli'),
+        ('5', '5 : localizes painful stimuli'),
+        ('6', '6 : Obeys commands'),
         ], 'Motor', sort=False)
 
     @staticmethod

@@ -20,7 +20,7 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="glasgow Score">
+                <form string="Patient Glasgow Scores">
                     <label name="name"/>
                     <field name="name"/>
                     <label name="evaluation_date"/>
@@ -62,7 +62,7 @@
                 
 
         <record model="ir.action.act_window" id="action_gnuhealth_icu_glasgow_form">
-            <field name="name">Glasgow Evaluation</field>
+            <field name="name">Glasgow</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
         </record>
 
@@ -83,9 +83,9 @@
             parent="gnuhealth_icu_menu"/>
 					
 
-<!-- Shortcut to the glasgow scale from the Inpatient ICU section -->
+<!-- Shortcut to the Glasgow scale from the Inpatient ICU section -->
         <record model="ir.action.act_window" id="act_glasgow_form1">
-            <field name="name">glasgow</field>
+            <field name="name">Glasgow</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
             <field name="domain">[('name', '=', Eval('active_id'))]</field>
         </record>
