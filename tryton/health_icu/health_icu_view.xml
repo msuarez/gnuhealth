@@ -31,7 +31,7 @@
 						<label name="glasgow_eyes"/>
 						<field name="glasgow_eyes"/>
 						<label name="glasgow_verbal"/>
-						<field name="glasgow_eyes"/>
+						<field name="glasgow_verbal"/>
 						<label name="glasgow_motor"/>
 						<field name="glasgow_motor"/>
 						<label name="glasgow"/>
@@ -52,7 +52,7 @@
                     <field name="name"/>
                     <field name="evaluation_date"/>
 					<field name="glasgow_eyes"/>
-					<field name="glasgow_eyes"/>
+					<field name="glasgow_verbal"/>
 					<field name="glasgow_motor"/>
                     <field name="glasgow"/>
                 </tree>

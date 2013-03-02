@@ -123,8 +123,14 @@ class Glasgow(ModelSQL, ModelView):
     def default_glasgow():
         return 15
 
+    # Default evaluation date
+    @staticmethod
+    def default_evaluation_date():
+        return datetime.now()
+
     def on_change_with_glasgow(self):
         return int(self.glasgow_motor) + int(self.glasgow_eyes) + int(self.glasgow_verbal)
+
 
 
 
