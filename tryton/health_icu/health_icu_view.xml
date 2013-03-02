@@ -62,7 +62,7 @@
                 
 
         <record model="ir.action.act_window" id="action_gnuhealth_icu_glasgow_form">
-            <field name="name">Glasgow</field>
+            <field name="name">GCS</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
         </record>
 
@@ -85,7 +85,7 @@
 
 <!-- Shortcut to the Glasgow scale from the Inpatient ICU section -->
         <record model="ir.action.act_window" id="act_glasgow_form1">
-            <field name="name">Glasgow</field>
+            <field name="name">Glasgow Coma Scale</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
             <field name="domain">[('name', '=', Eval('active_id'))]</field>
         </record>
