@@ -407,6 +407,7 @@ class PatientRounding(ModelSQL, ModelView):
         'Ventilation', help="NPPV = Non-Invasive Positive " 
             "Pressure Ventilation, BiPAP-CPAP \n"
             "ETT - Endotracheal Tube")
+
     
     respiration_type = fields.Selection([
         ('regular', 'Regular'),
@@ -416,6 +417,8 @@ class PatientRounding(ModelSQL, ModelView):
         ('intercostal', 'Intercostal')],
         'Respiration')
 
+    oxygen_mask = fields.Boolean ('Oxigen Mask')
+    fio2 = fields.Integer ('FiO2')
 
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
