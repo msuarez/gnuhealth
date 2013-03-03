@@ -386,6 +386,16 @@ class PatientRounding(ModelSQL, ModelView):
     
     anisocoria = fields.Boolean ('Anisocoria') 
  
+     
+    pupillary_reactivity = fields.Selection([
+        ('brisk', 'Brisk'),
+        ('sluggish', 'Sluggish'),
+        ('nonreactive', 'Nonreactive')],
+        'Pupillary Reactivity')
+
+    pupil_consensual_resp = fields.Boolean ('Consensual Response',
+        help = "Pupillary Consensual Response") 
+
     # Respiratory assesment
     
     ventilation = fields.Selection([

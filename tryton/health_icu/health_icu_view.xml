@@ -307,6 +307,12 @@
 								<field name="left_pupil"/>
 								<label name="right_pupil"/>
 								<field name="right_pupil"/>
+								<newline/>
+								<label name="pupillary_reactivity"/>
+								<field name="pupillary_reactivity"/>
+								<label name="pupil_consensual_resp"/>
+								<field name="pupil_consensual_resp"/>
+
 							</group>
 							<newline/>
 							<group id="group_rounding_icu_respiratory" colspan="4" col="8" string="Respiratory">
