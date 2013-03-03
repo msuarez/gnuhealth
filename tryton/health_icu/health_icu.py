@@ -401,7 +401,7 @@ class PatientRounding(ModelSQL, ModelView):
     
     ventilation = fields.Selection([
         ('own', 'Maintains Own'),
-        ('nppv', 'Non-Invasive'),
+        ('nppv', 'Non-Invasive Positive Pressure'),
         ('ett', 'ETT'),
         ('tracheostomy', 'Tracheostomy')],
         'Ventilation', help="NPPV = Non-Invasive Positive " 
@@ -424,7 +424,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('intercostal', 'Intercostal')],
         'Respiration')
 
-    oxygen_mask = fields.Boolean ('Oxigen Mask')
+    oxygen_mask = fields.Boolean ('Oxygen Mask')
     fio2 = fields.Integer ('FiO2')
 
     def on_change_with_anisocoria(self):
