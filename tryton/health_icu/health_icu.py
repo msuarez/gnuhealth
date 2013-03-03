@@ -403,7 +403,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('own', 'Maintains Own'),
         ('nppv', 'Non-Invasive'),
         ('ett', 'ETT'),
-        ('tracheostomy', 'Traqcheostomy')],
+        ('tracheostomy', 'Tracheostomy')],
         'Ventilation', help="NPPV = Non-Invasive Positive " 
             "Pressure Ventilation, BiPAP-CPAP \n"
             "ETT - Endotracheal Tube")
