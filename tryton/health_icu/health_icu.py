@@ -23,7 +23,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from trytond.pool import Pool
 from trytond.transaction import Transaction
-from trytond.pyson import Eval, Not, Bool
+from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII',
@@ -407,6 +407,13 @@ class PatientRounding(ModelSQL, ModelView):
         'Ventilation', help="NPPV = Non-Invasive Positive " 
             "Pressure Ventilation, BiPAP-CPAP \n"
             "ETT - Endotracheal Tube")
+
+    ett_size = fields.Integer ('ETT Size', states={
+            'invisible': Not(Equal(Eval('ventilation'), 'ett'))})
+    
+
+    tracheostomy_size = fields.Integer ('Tracheostomy size', states={
+            'invisible': Not(Equal(Eval('ventilation'), 'tracheostomy'))})
 
     
     respiration_type = fields.Selection([
