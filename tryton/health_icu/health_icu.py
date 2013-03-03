@@ -132,7 +132,7 @@ class Glasgow(ModelSQL, ModelView):
     def on_change_with_glasgow(self):
         return int(self.glasgow_motor) + int(self.glasgow_eyes) + int(self.glasgow_verbal)
 
-    # Return the Glasgow Score
+    # Return the Glasgow Score with each component
     def get_rec_name(self, name):
         if self.name:
             res = str(self.glasgow) + ': ' + 'E' + self.glasgow_eyes + ' V' + \
@@ -373,3 +373,20 @@ class PatientRounding(ModelSQL, ModelView):
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
     'an Intensive Care Unit rounding.')
     gsc = fields.Many2One ('gnuhealth.icu.glasgow','GSC',domain = [('name', '=', Eval('name'))])
+
+    pupil_dilation = fields.Selection([
+        ('normal', 'Normal'),
+        ('miosis', 'Miosis'),
+        ('mydriasis', 'Mydriasis')],
+        'Pupil Dilation')
+    
+    left_pupil = fields.Integer ('L', help="size in mm of left pupil")
+    right_pupil = fields.Integer ('R', help="size in mm of right pupil")
+    
+    anisocoria = fields.Boolean ('Anisocoria') 
+ 
+
+
+    @staticmethod
+    def default_pupil_dilation():
+        return 'normal'

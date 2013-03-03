@@ -295,8 +295,19 @@
                         position="after">
 
                         <page id='rounding_icu' string='ICU'>
-							<label name="gsc"/>
-							<field name="gsc"/>
+							<group id="group_rounding_icu_neurologic" colspan="4" col="8" string="Neurologic">
+								<label name="gsc"/>
+								<field name="gsc"/>
+								<newline/>
+								<label name="pupil_dilation"/>
+								<field name="pupil_dilation"/>
+								<label name="anisocoria"/>
+								<field name="anisocoria"/>
+								<label name="left_pupil"/>
+								<field name="left_pupil"/>
+								<label name="right_pupil"/>
+								<field name="right_pupil"/>
+							</group>
                         </page>
 
                     </xpath>
