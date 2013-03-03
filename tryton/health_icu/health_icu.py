@@ -384,7 +384,8 @@ class PatientRounding(ModelSQL, ModelView):
     left_pupil = fields.Integer ('L', help="size in mm of left pupil")
     right_pupil = fields.Integer ('R', help="size in mm of right pupil")
     
-    anisocoria = fields.Boolean ('Anisocoria') 
+    anisocoria = fields.Boolean ('Anisocoria',
+        on_change_with=['left_pupil', 'right_pupil'],) 
  
      
     pupillary_reactivity = fields.Selection([
@@ -415,6 +416,12 @@ class PatientRounding(ModelSQL, ModelView):
         ('intercostal', 'Intercostal')],
         'Respiration')
 
+
+    def on_change_with_anisocoria(self):
+        if (self.left_pupil == self.right_pupil):
+            return False
+        else:
+            return True
 
     @staticmethod
     def default_pupil_dilation():

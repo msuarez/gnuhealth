@@ -301,12 +301,13 @@
 								<newline/>
 								<label name="pupil_dilation"/>
 								<field name="pupil_dilation"/>
-								<label name="anisocoria"/>
-								<field name="anisocoria"/>
-								<label name="left_pupil"/>
-								<field name="left_pupil"/>
 								<label name="right_pupil"/>
 								<field name="right_pupil"/>
+								<label name="left_pupil"/>
+								<field name="left_pupil"/>
+								<label name="anisocoria"/>
+								<field name="anisocoria"/>
+
 								<newline/>
 								<label name="pupillary_reactivity"/>
 								<field name="pupillary_reactivity"/>
