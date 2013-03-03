@@ -29,5 +29,6 @@ def register():
 		InpatientIcu,
 		Glasgow,
 		ApacheII,
+		MechanicalVentilation,
 		PatientRounding,
         module='health_icu', type_='model')

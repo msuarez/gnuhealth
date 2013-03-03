@@ -235,6 +235,8 @@
 						<label name="icu_discharge_date"/>
 						<field name="icu_discharge_date"/>
                     </group>
+					<newline/>
+					<field name="mv_history"/>
                 </form>
                 ]]>
             </field>
@@ -256,6 +258,53 @@
                 ]]>
             </field>
         </record>
+
+
+<!-- Patient Mechanical Ventilation -->
+
+
+        <record model="ir.ui.view" id="gnuhealth_icu_ventilation_form">
+            <field name="model">gnuhealth.icu.ventilation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient Mechanical Ventilation">
+					<group id="group_icu_ventilation" colspan="4" col="8" string="Mechanical Ventilation">
+						<label name="mv_start"/>
+						<field name="mv_start"/>
+						<label name="mv_end"/>
+						<field name="mv_end"/>
+						<label name="mv_period"/>
+						<field name="mv_period"/>
+						<label name="ventilation"/>
+						<field name="ventilation"/>
+						<label name="ett_size"/>
+						<field name="ett_size"/>
+						<label name="tracheostomy_size"/>
+						<field name="tracheostomy_size"/>
+					</group>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_icu_ventilation_tree">
+            <field name="model">gnuhealth.icu.ventilation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string='Patient Mechanical Ventilation'>
+                    <field name="ventilation"/>
+                    <field name="mv_start"/>
+                    <field name="mv_end"/>
+					<field name="mv_period"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
 
 
 <!-- Rounding view -->
@@ -317,13 +366,6 @@
 							</group>
 							<newline/>
 							<group id="group_rounding_icu_respiratory" colspan="4" col="8" string="Respiratory">
-								<label name="ventilation"/>
-								<field name="ventilation"/>
-								<label name="ett_size"/>
-								<field name="ett_size"/>
-								<label name="tracheostomy_size"/>
-								<field name="tracheostomy_size"/>
-								
 								<label name="oxygen_mask"/>
 								<field name="oxygen_mask"/>
 								<label name="fio2"/>
@@ -341,7 +383,7 @@
 
 
         <record model="ir.action.act_window" id="action_gnuhealth_inpatient_icu_form">
-            <field name="name">ICU Admissions</field>
+            <field name="name">Patient ICU Info</field>
             <field name="res_model">gnuhealth.inpatient.icu</field>
         </record>
 

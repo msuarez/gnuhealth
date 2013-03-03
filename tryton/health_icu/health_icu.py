@@ -27,7 +27,7 @@ from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII',
-            'PatientRounding']
+            'MechanicalVentilation','PatientRounding']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -70,6 +70,9 @@ class InpatientIcu(ModelSQL, ModelView):
             },
         depends=['discharged_from_icu'])
     icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
+
+    mv_history = fields.One2Many('gnuhealth.icu.ventilation',
+        'name', "Mechanical Ventilation History")
 
 
 class Glasgow(ModelSQL, ModelView):
@@ -363,8 +366,58 @@ class ApacheII(ModelSQL, ModelView):
                 
         return total
 
+
+class MechanicalVentilation(ModelSQL, ModelView):
+    'Mechanical Ventilation History'
+    __name__ = 'gnuhealth.icu.ventilation'
+
+
+    def mv_duration(self, name):
+        # Calculate the Mechanical Ventilation time
+        now = datetime.now()
+        mv_init = now
+        mv_finnish = now
+        
+        if self.mv_start:
+            mv_init = datetime.strptime(str(self.mv_start), '%Y-%m-%d %H:%M:%S')
+
+        if self.mv_end:
+            mv_finnish = datetime.strptime(str(self.mv_end), '%Y-%m-%d %H:%M:%S')
+            delta = relativedelta(mv_finnish, mv_init)
+        else:
+            delta = relativedelta(now, mv_init)
+        
+        
+        years_months_days = str(delta.years) + 'y ' \
+                + str(delta.months) + 'm ' \
+                + str(delta.days) + 'd'
+        return years_months_days
+
+    name = fields.Many2One ('gnuhealth.inpatient.icu',
+        'Patient ICU Admission', required = True)
+
+    ventilation = fields.Selection([
+        ('none', 'None - Maintains Own'),
+        ('nppv', 'Non-Invasive Positive Pressure'),
+        ('ett', 'ETT'),
+        ('tracheostomy', 'Tracheostomy')],
+        'Mechanical Ventilation', help="NPPV = Non-Invasive Positive " 
+            "Pressure Ventilation, BiPAP-CPAP \n"
+            "ETT - Endotracheal Tube")
+
+    ett_size = fields.Integer ('ETT Size', states={
+            'invisible': Not(Equal(Eval('ventilation'), 'ett'))})
+    
+
+    tracheostomy_size = fields.Integer ('Tracheostomy size', states={
+            'invisible': Not(Equal(Eval('ventilation'), 'tracheostomy'))})
+
+    mv_start = fields.DateTime('From', help="Start of Mechanical Ventilation",required=True)
+    mv_end = fields.DateTime('To', help="End of Mechanical Ventilation",required=True)
+    mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
+
 # Nursing Rounding for ICU
-# Append to the existing model the new functionality for ICU
+# Inherit and append to the existing model the new functionality for ICU
 
 class PatientRounding(ModelSQL, ModelView):
     'Patient Rounding'
@@ -399,22 +452,6 @@ class PatientRounding(ModelSQL, ModelView):
 
     # Respiratory assesment
     
-    ventilation = fields.Selection([
-        ('own', 'Maintains Own'),
-        ('nppv', 'Non-Invasive Positive Pressure'),
-        ('ett', 'ETT'),
-        ('tracheostomy', 'Tracheostomy')],
-        'Ventilation', help="NPPV = Non-Invasive Positive " 
-            "Pressure Ventilation, BiPAP-CPAP \n"
-            "ETT - Endotracheal Tube")
-
-    ett_size = fields.Integer ('ETT Size', states={
-            'invisible': Not(Equal(Eval('ventilation'), 'ett'))})
-    
-
-    tracheostomy_size = fields.Integer ('Tracheostomy size', states={
-            'invisible': Not(Equal(Eval('ventilation'), 'tracheostomy'))})
-
     
     respiration_type = fields.Selection([
         ('regular', 'Regular'),
