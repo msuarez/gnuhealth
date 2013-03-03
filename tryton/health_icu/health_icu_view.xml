@@ -308,6 +308,13 @@
 								<label name="right_pupil"/>
 								<field name="right_pupil"/>
 							</group>
+							<newline/>
+							<group id="group_rounding_icu_respiratory" colspan="4" col="8" string="Respiratory">
+								<label name="ventilation"/>
+								<field name="ventilation"/>
+								<label name="respiration_type"/>
+								<field name="respiration_type"/>
+							</group>
                         </page>
 
                     </xpath>

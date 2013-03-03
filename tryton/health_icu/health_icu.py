@@ -372,6 +372,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
     'an Intensive Care Unit rounding.')
+    # Neurological assesment
     gsc = fields.Many2One ('gnuhealth.icu.glasgow','GSC',domain = [('name', '=', Eval('name'))])
 
     pupil_dilation = fields.Selection([
@@ -385,6 +386,24 @@ class PatientRounding(ModelSQL, ModelView):
     
     anisocoria = fields.Boolean ('Anisocoria') 
  
+    # Respiratory assesment
+    
+    ventilation = fields.Selection([
+        ('own', 'Maintains Own'),
+        ('nppv', 'Non-Invasive'),
+        ('ett', 'ETT'),
+        ('tracheostomy', 'Traqcheostomy')],
+        'Ventilation', help="NPPV = Non-Invasive Positive " 
+            "Pressure Ventilation, BiPAP-CPAP \n"
+            "ETT - Endotracheal Tube")
+    
+    respiration_type = fields.Selection([
+        ('regular', 'Regular'),
+        ('deep', 'Deep'),
+        ('shallow', 'Shallow'),
+        ('labored', 'Labored'),
+        ('intercostal', 'Intercostal')],
+        'Respiration')
 
 
     @staticmethod
