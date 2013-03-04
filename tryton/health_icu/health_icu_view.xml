@@ -236,7 +236,7 @@
 						<field name="icu_discharge_date"/>
                     </group>
 					<newline/>
-					<field name="mv_history"/>
+					<field name="mv_history" colspan="4"/>
                 </form>
                 ]]>
             </field>
@@ -283,6 +283,10 @@
 						<label name="tracheostomy_size"/>
 						<field name="tracheostomy_size"/>
 					</group>
+					<newline/>
+					<label name="remarks"/>
+					<field name="remarks"/>
+					
                 </form>
                 ]]>
             </field>
@@ -299,6 +303,7 @@
                     <field name="mv_start"/>
                     <field name="mv_end"/>
 					<field name="mv_period"/>
+					<field name="remarks"/>
                 </tree>
                 ]]>
             </field>

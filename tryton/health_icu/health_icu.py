@@ -415,7 +415,8 @@ class MechanicalVentilation(ModelSQL, ModelView):
     mv_start = fields.DateTime('From', help="Start of Mechanical Ventilation",required=True)
     mv_end = fields.DateTime('To', help="End of Mechanical Ventilation",required=True)
     mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
-
+    remarks = fields.Char ('Remarks')
+    
 # Nursing Rounding for ICU
 # Inherit and append to the existing model the new functionality for ICU
 
