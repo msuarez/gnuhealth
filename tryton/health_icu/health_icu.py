@@ -401,7 +401,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
         ('nppv', 'Non-Invasive Positive Pressure'),
         ('ett', 'ETT'),
         ('tracheostomy', 'Tracheostomy')],
-        'Mechanical Ventilation', help="NPPV = Non-Invasive Positive " 
+        'Type', help="NPPV = Non-Invasive Positive " 
             "Pressure Ventilation, BiPAP-CPAP \n"
             "ETT - Endotracheal Tube")
 
@@ -415,8 +415,35 @@ class MechanicalVentilation(ModelSQL, ModelView):
     mv_start = fields.DateTime('From', help="Start of Mechanical Ventilation",required=True)
     mv_end = fields.DateTime('To', help="End of Mechanical Ventilation",required=True)
     mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
+    current_mv = fields.Boolean ('Current')
     remarks = fields.Char ('Remarks')
-    
+
+    @classmethod
+    def __setup__(cls):
+        super(MechanicalVentilation, cls).__setup__()
+        cls._constraints += [
+            ('check_patient_current_mv', 'patient_already_on_mv'),
+        ]
+
+        cls._error_messages.update({
+            'patient_already_on_mv': 'Our records indicate that the patient'
+                ' is already on Mechanical Ventilation !'})
+
+    def check_patient_current_mv(self):
+        # Check for only one current mechanical ventilation on patient
+        cursor = Transaction().cursor
+        cursor.execute("SELECT count(name) "
+            "FROM " + self._table + "  \
+            WHERE (name = %s AND current_mv)",
+            (str(self.name.id),))
+        if cursor.fetchone()[0] > 1:
+            return False
+        return True
+
+    @staticmethod
+    def default_current_mv():
+        return True
+
 # Nursing Rounding for ICU
 # Inherit and append to the existing model the new functionality for ICU
 

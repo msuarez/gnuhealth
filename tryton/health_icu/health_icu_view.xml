@@ -270,6 +270,8 @@
                 <![CDATA[
                 <form string="Patient Mechanical Ventilation">
 					<group id="group_icu_ventilation" colspan="4" col="8" string="Mechanical Ventilation">
+						<label name="current_mv"/>
+						<field name="current_mv"/>
 						<label name="mv_start"/>
 						<field name="mv_start"/>
 						<label name="mv_end"/>
@@ -299,11 +301,12 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Patient Mechanical Ventilation'>
+					<field name="current_mv"/>
                     <field name="ventilation"/>
                     <field name="mv_start"/>
                     <field name="mv_end"/>
 					<field name="mv_period"/>
-					<field name="remarks"/>
+					<field name="remarks" expand="1"/>
                 </tree>
                 ]]>
             </field>
