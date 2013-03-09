@@ -18,13 +18,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView
+from datetime import datetime
+from trytond.model import ModelView, fields
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
-__all__ = ['CreateLabTestOrderInit', 'CreateLabTestOrder']
+__all__ = ['CreateLabTestOrderInit', 'CreateLabTestOrder', 'RequestTest',
+    'RequestPatientLabTestStart', 'RequestPatientLabTest']
 
 
 class CreateLabTestOrderInit(ModelView):
@@ -43,7 +45,6 @@ class CreateLabTestOrder(Wizard):
             ])
 
     create_lab_test = StateTransition()
-
 
     def transition_create_lab_test(self):
         TestRequest = Pool().get('gnuhealth.patient.lab.test')
@@ -79,3 +80,81 @@ class CreateLabTestOrder(Wizard):
 
         return 'end'
 
+
+class RequestTest(ModelView):
+    'Request - Test'
+    __name__ = 'gnuhealth.request-test'
+    _table = 'gnuhealth_request_test'
+
+    request = fields.Many2One('gnuhealth.patient.lab.test.request.start',
+        'Request', required=True)
+    test = fields.Many2One('gnuhealth.lab.test_type', 'Test', required=True)
+
+
+class RequestPatientLabTestStart(ModelView):
+    'Request Patient Lab Test Start'
+    __name__ = 'gnuhealth.patient.lab.test.request.start'
+
+    date = fields.DateTime('Fecha')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor',
+        help="Doctor who Request the lab tests.")
+    tests = fields.Many2Many('gnuhealth.request-test', 'request', 'test',
+        'Tests', required=True)
+    urgent = fields.Boolean('Urgent')
+
+    @staticmethod
+    def default_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_patient():
+        if Transaction().context.get('active_model') == 'gnuhealth.patient':
+            return Transaction().context.get('active_id')
+
+    @staticmethod
+    def default_doctor():
+        cursor = Transaction().cursor
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+            return int(doctor_id[0])
+
+
+class RequestPatientLabTest(Wizard):
+    'Request Patient Lab Test'
+    __name__ = 'gnuhealth.patient.lab.test.request'
+
+    start = StateView('gnuhealth.patient.lab.test.request.start',
+        'health_lab.patient_lab_test_request_start_view_form', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Request', 'request', 'tryton-ok', default=True),
+            ])
+    request = StateTransition()
+
+    def transition_request(self):
+        PatientLabTest = Pool().get('gnuhealth.patient.lab.test')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        config = Config(1)
+        request_number = Sequence.get_id(config.lab_request_sequence.id)
+        lab_test = {}
+        for test in self.start.tests:
+            lab_test['request'] = request_number
+            lab_test['name'] = test.id
+            lab_test['patient_id'] = self.start.patient.id
+            lab_test['doctor_id'] = self.start.doctor.id
+            lab_test['date'] = self.start.date
+            lab_test['urgent'] = self.start.urgent
+            PatientLabTest.create(lab_test)
+
+        return 'end'

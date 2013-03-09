@@ -29,5 +29,42 @@
             <field name="action" ref="act_create_lab_test"/>
         </record>
 
+        <record model="ir.ui.view" id="patient_lab_test_request_start_view_form">
+            <field name="model">gnuhealth.patient.lab.test.request.start</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Request Lab Test">
+                    <label name="date"/>
+                    <field name="date"/>
+                    <label name="urgent"/>
+                    <field name="urgent"/>
+                    <label name="patient"/>
+                    <field name="patient"/>
+                    <label name="doctor"/>
+                    <field name="doctor" widget="selection"/>
+                    <newline/>
+                    <field name="tests" colspan="4"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.wizard" id="patient_lab_test_request">
+            <field name="name">Request Lab Test</field>
+            <field name="wiz_name">gnuhealth.patient.lab.test.request</field>
+        </record>
+
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu"
+            action="patient_lab_test_request"
+            id="menu_patient_lab_test_request" sequence="10"
+            icon="gnuhealth-execute"/>
+
+        <record model="ir.action.keyword"
+                id="act_open_patient_lab_request_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="patient_lab_test_request"/>
+        </record>
+
     </data>
 </tryton>
