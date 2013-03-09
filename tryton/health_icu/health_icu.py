@@ -413,7 +413,11 @@ class MechanicalVentilation(ModelSQL, ModelView):
             'invisible': Not(Equal(Eval('ventilation'), 'tracheostomy'))})
 
     mv_start = fields.DateTime('From', help="Start of Mechanical Ventilation",required=True)
-    mv_end = fields.DateTime('To', help="End of Mechanical Ventilation",required=True)
+    mv_end = fields.DateTime('To', help="End of Mechanical Ventilation", states={
+            'invisible': Bool(Eval('current_mv')),
+            'required': Not(Bool(Eval('current_mv'))),
+            },
+        depends=['current_mv'])
     mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
     current_mv = fields.Boolean ('Current')
     remarks = fields.Char ('Remarks')
