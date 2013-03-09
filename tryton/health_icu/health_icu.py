@@ -180,7 +180,7 @@ class ApacheII(ModelSQL, ModelView):
         ('el', 'elective postoperative')],
         'Hospital Admission Type', states={
             'invisible': Not(Bool(Eval('chronic_condition'))),
-            'required': Bool(Eval('chronic_condition'))})
+            'required': Bool(Eval('chronic_condition'))}, sort=False)
 
     apache_score = fields.Integer ('Score', on_change_with = 
         ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
@@ -403,7 +403,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
         ('tracheostomy', 'Tracheostomy')],
         'Type', help="NPPV = Non-Invasive Positive " 
             "Pressure Ventilation, BiPAP-CPAP \n"
-            "ETT - Endotracheal Tube")
+            "ETT - Endotracheal Tube", sort=False)
 
     ett_size = fields.Integer ('ETT Size', states={
             'invisible': Not(Equal(Eval('ventilation'), 'ett'))})
@@ -464,7 +464,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('normal', 'Normal'),
         ('miosis', 'Miosis'),
         ('mydriasis', 'Mydriasis')],
-        'Pupil Dilation')
+        'Pupil Dilation', sort=False)
     
     left_pupil = fields.Integer ('L', help="size in mm of left pupil")
     right_pupil = fields.Integer ('R', help="size in mm of right pupil")
@@ -477,7 +477,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('brisk', 'Brisk'),
         ('sluggish', 'Sluggish'),
         ('nonreactive', 'Nonreactive')],
-        'Pupillary Reactivity')
+        'Pupillary Reactivity', sort=False)
 
     pupil_consensual_resp = fields.Boolean ('Consensual Response',
         help = "Pupillary Consensual Response") 
@@ -491,7 +491,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('shallow', 'Shallow'),
         ('labored', 'Labored'),
         ('intercostal', 'Intercostal')],
-        'Respiration')
+        'Respiration', sort=False)
 
     oxygen_mask = fields.Boolean ('Oxygen Mask')
     fio2 = fields.Integer ('FiO2')
