@@ -22,6 +22,11 @@
             <field name="path">../health/icons/tryton-list.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_execute_icon">
+            <field name="name">gnuhealth-execute</field>
+            <field name="path">icons/execute_icon.svg</field>
+        </record>
+
 <!-- Lab Test Units -->
 
         <record model="ir.ui.view" id="gnuhealth_lab_unit_form">
@@ -56,7 +61,6 @@
             <field name="name">Lab Test Units</field>
             <field name="res_model">gnuhealth.lab.test.units</field>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_lab_unit_tree_view">
             <field name="sequence" eval="10"/>
             <field name="view" ref="gnuhealth_lab_unit_tree"/>
@@ -79,6 +83,9 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Test Requests">
+                    <label name="request"/>
+                    <field name="request"/>
+                    <newline/>
                     <label name="name"/>
                     <field name="name"/>
                     <label name="date"/>
@@ -87,6 +94,8 @@
                     <field name="patient_id"/>
                     <label name="doctor_id"/>
                     <field name="doctor_id"/>
+                    <label name="urgent"/>
+                    <field name="urgent"/>
                     <label name="state"/>
                     <field name="state" readonly="1"/>
                 </form>
@@ -101,11 +110,13 @@
                 <![CDATA[
                 <tree string="Test Requests"
                     colors="If(Equal(Eval('state'), 'draft'), 'blue', If(In(Eval('state'), ['cancel','open']), 'gray', 'black'))">
+                    <field name="request" expand="1"/>
                     <field name="name" expand="1"/>
                     <field name="date" expand="1"/>
                     <field name="patient_id" expand="1"/>
                     <field name="doctor_id" expand="1"/>
                     <field name="state" readonly="1" expand="1"/>
+                    <field name="urgent"/>
                 </tree>
                 ]]>
             </field>
@@ -114,9 +125,7 @@
         <record model="ir.action.act_window" id="gnuhealth_action_lab_test_request">
             <field name="name">Lab Test Requests</field>
             <field name="res_model">gnuhealth.patient.lab.test</field>
-            <field name="context">{'group_by': [], 'search_default_today': 1, 'search_default_draft': 1}</field>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_lab_test_request_tree_view">
             <field name="sequence" eval="10"/>
             <field name="view" ref="gnuhealth_lab_test_request_tree"/>
@@ -129,9 +138,7 @@
         </record>
 
         <menuitem parent="gnuhealth_laboratory_menu" action="gnuhealth_action_lab_test_request"
-            id="gnuhealth_labtest_request" icon="gnuhealth-list"/>
-
-
+            id="gnuhealth_labtest_request" icon="gnuhealth-list" sequence="20"/>
 
 <!-- Lab Test Type / Model -->
 
@@ -223,13 +230,11 @@
             <field name="name">Lab Test Types</field>
             <field name="res_model">gnuhealth.lab.test_type</field>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_list_test_tree_view">
             <field name="sequence" eval="10"/>
             <field name="view" ref="gnuhealth_lab_test_tree"/>
             <field name="act_window" ref="gnuhealth_action_list_test"/>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_list_test_form_view">
             <field name="sequence" eval="20"/>
             <field name="view" ref="gnuhealth_lab_test_view"/>
@@ -352,15 +357,12 @@
         <record model="ir.action.act_window" id="gnuhealth_action_tree_lab">
             <field name="name">Lab Tests Results</field>
             <field name="res_model">gnuhealth.lab</field>
-            <field name="context">{'group_by': [], 'search_default_today': 1}</field>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_tree_lab_tree_view">
             <field name="sequence" eval="10"/>
             <field name="view" ref="gnuhealth_lab_tree"/>
             <field name="act_window" ref="gnuhealth_action_tree_lab"/>
         </record>
-
         <record model="ir.action.act_window.view" id="gnuhealth_action_tree_lab_form_view">
             <field name="sequence" eval="20"/>
             <field name="view" ref="gnuhealth_lab_view"/>
@@ -368,7 +370,7 @@
         </record>
 
         <menuitem parent="gnuhealth_laboratory_menu" action="gnuhealth_action_tree_lab"
-            id="gnuhealth_action_lab_tree" sequence="2" icon="gnuhealth-list"/>
+            id="gnuhealth_action_lab_tree" sequence="30" icon="gnuhealth-list"/>
 
 <!-- Shortcut to the Lab Reports from the Patient -->
 

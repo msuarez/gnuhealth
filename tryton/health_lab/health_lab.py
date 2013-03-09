@@ -36,6 +36,9 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     lab_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Lab Sequence', domain=[('code', '=', 'gnuhealth.lab')],
         required=True))
+    lab_request_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Patient Lab Request Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.lab.test')]))
 
 
 class PatientData(ModelSQL, ModelView):
@@ -195,6 +198,15 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
      select=True)
     doctor_id = fields.Many2One('gnuhealth.physician', 'Doctor',
         help="Doctor who Request the lab test.", select=True)
+    request = fields.Integer('Request', readonly=True)
+    urgent = fields.Boolean('Urgent')
+
+    @classmethod
+    def __setup__(cls):
+        super(GnuHealthPatientLabTest, cls).__setup__()
+        cls._order.insert(0, ('date', 'DESC'))
+        cls._order.insert(1, ('request', 'DESC'))
+        cls._order.insert(2, ('name', 'ASC'))
 
     @staticmethod
     def default_date():
@@ -220,3 +232,15 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
         else:
             return False
 
+    @classmethod
+    def create(cls, values):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        values = values.copy()
+        if not values.get('request'):
+            config = Config(1)
+            values['request'] = Sequence.get_id(
+                config.lab_request_sequence.id)
+
+        return super(GnuHealthPatientLabTest, cls).create(values)
