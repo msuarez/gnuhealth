@@ -62,6 +62,7 @@ class InpatientIcu(ModelSQL, ModelView):
     
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
+    
     icu_admission_date = fields.DateTime('ICU Admission', help="ICU Admission Date",required=True)
     discharged_from_icu = fields.Boolean('Discharged')
     icu_discharge_date = fields.DateTime('Discharge', states={
@@ -533,7 +534,8 @@ class PatientRounding(ModelSQL, ModelView):
             'required': Bool(Eval('peep')),
             },
         depends=['peep'])
-
+    
+    sce = fields.Boolean ('SCE', help="Subcutaneous Emphysema")
     lips_lesion = fields.Boolean ('Lips lesion')
     oral_mucosa_lesion = fields.Boolean ('Oral mucosa lesion')
 
