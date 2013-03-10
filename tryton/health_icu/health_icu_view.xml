@@ -425,13 +425,16 @@
 
                             <newline/>    
 
-							<group id="group_rounding_icu_respiratory" colspan="4" col="8" string="Respiratory">
+							<group id="group_rounding_icu_respiratory" string="Respiratory">
 								<label name="oxygen_mask"/>
 								<field name="oxygen_mask"/>
 								<label name="fio2"/>
 								<field name="fio2"/>
 								<label name="respiration_type"/>
 								<field name="respiration_type"/>
+								<label name="trachea_alignment"/>
+								<field name="trachea_alignment"/>
+
 								<newline/>
 								<label name="peep"/>
 								<field name="peep"/>
@@ -442,7 +445,7 @@
 								<label name="lips_lesion"/>
 								<field name="lips_lesion"/>
                                 <newline/>
-                                <group id="chest_expansion" string="Chest Expansion" colspan="3" col="6">
+                                <group id="chest_expansion" string="Chest Expansion" colspan="4" col="6">
                                     <label name="chest_expansion"/>
                                     <field name="chest_expansion"/>
                                     <label name="paradoxical_expansion"/>
@@ -450,6 +453,7 @@
                                     <label name="tracheal_tug"/>
                                     <field name="tracheal_tug"/>
 								</group>
+                                <newline/>
 							</group>
 
                             <newline/>    

@@ -544,9 +544,15 @@ class PatientRounding(ModelSQL, ModelView):
         'Expansion', sort=False)
     paradoxical_expansion = fields.Boolean('Paradoxical', help="Paradoxical Chest Expansion")
     tracheal_tug = fields.Boolean('Tracheal Tug')
-    
+
+    # Trachea position
+    trachea_alignment =  fields.Selection([
+        ('midline', 'Midline'),
+        ('right', 'Deviated right'),
+        ('left', 'Deviated left')],
+        'Tracheal alignment', sort=False)
+
     # Chest Drainages
-    
     chest_drainages = fields.One2Many('gnuhealth.icu.chest_drainage',
         'name', "Drainages")
 
