@@ -62,6 +62,9 @@ class InpatientIcu(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
     
+    admitted = fields.Boolean('Admitted',help="Will be set when the patient \
+     is currently admitted at ICU", readonly=True )
+    
     icu_admission_date = fields.DateTime('ICU Admission', help="ICU Admission Date",required=True)
     discharged_from_icu = fields.Boolean('Discharged')
     icu_discharge_date = fields.DateTime('Discharge', states={
@@ -74,6 +77,31 @@ class InpatientIcu(ModelSQL, ModelView):
     mv_history = fields.One2Many('gnuhealth.icu.ventilation',
         'name', "Mechanical Ventilation History")
 
+    @classmethod
+    def __setup__(cls):
+        super(InpatientIcu, cls).__setup__()
+        cls._constraints += [
+            ('check_patient_admitted_at_icu', 'patient_already_at_icu'),
+        ]
+
+        cls._error_messages.update({
+            'patient_already_at_icu': 'Our records indicate that the patient'
+                ' is already admitted at ICU'})
+
+    def check_patient_admitted_at_icu(self):
+        # Verify that the patient is not at ICU already
+        cursor = Transaction().cursor
+        cursor.execute("SELECT count(name) "
+            "FROM " + self._table + "  \
+            WHERE (name = %s AND admitted)",
+            (str(self.name.id),))
+        if cursor.fetchone()[0] > 1:
+            return False
+        return True
+
+    @staticmethod
+    def default_admitted():
+        return True
 
 class Glasgow(ModelSQL, ModelView):
     'Glasgow Coma Scale'

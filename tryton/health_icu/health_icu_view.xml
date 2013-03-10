@@ -250,6 +250,7 @@
                 <![CDATA[
                 <tree string='Intensive Care Unit'>
                     <field name="name"/>
+                    <field name="admitted"/>
                     <field name="icu_admission_date"/>
                     <field name="discharged_from_icu"/>
                     <field name="icu_discharge_date"/>
