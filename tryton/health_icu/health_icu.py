@@ -53,7 +53,6 @@ class InpatientIcu(ModelSQL, ModelView):
             delta = relativedelta(discharge, admission)
         else:
             delta = relativedelta(now, admission)
-            msg = ''
         years_months_days = str(delta.years) + 'y ' \
                 + str(delta.months) + 'm ' \
                 + str(delta.days) + 'd'
