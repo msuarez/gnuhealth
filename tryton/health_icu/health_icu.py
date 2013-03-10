@@ -27,7 +27,7 @@ from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII',
-            'MechanicalVentilation','PatientRounding']
+            'MechanicalVentilation','ChestDrainageAssessment','PatientRounding']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -448,6 +448,36 @@ class MechanicalVentilation(ModelSQL, ModelView):
     def default_current_mv():
         return True
 
+
+
+class ChestDrainageAssessment(ModelSQL, ModelView):
+    'Chest Drainage Asessment'
+    __name__ = 'gnuhealth.icu.chest_drainage'
+
+
+    name = fields.Many2One ('gnuhealth.patient.rounding','Rounding', required=True)
+    location =  fields.Selection([
+        ('rl', 'Right Pleura'),
+        ('ll', 'Left Pleura'),
+        ('mediastinum', 'Mediastinum')],
+        'Location', sort=False)
+    fluid_aspect =  fields.Selection([
+        ('serous', 'Serous'),
+        ('bloody', 'Bloody'),
+        ('chylous', 'Chylous'),
+        ('purulent', 'Purulent')],
+        'Aspect', sort=False)
+    suction = fields.Boolean('Suction')
+    suction_pressure = fields.Integer('cm H2O', states={
+            'invisible': Not(Bool(Eval('suction'))),
+            'required': Bool(Eval('suction')),
+            },
+        depends=['suction'])
+    oscillation = fields.Boolean ('Oscillation')
+    air_leak = fields.Boolean ('Air Leak')
+    fluid_volume = fields.Integer ('Volume')
+    remarks = fields.Char ('Remarks')
+
 # Nursing Rounding for ICU
 # Inherit and append to the existing model the new functionality for ICU
 
@@ -511,9 +541,15 @@ class PatientRounding(ModelSQL, ModelView):
     chest_expansion = fields.Selection([
         ('symmetric', 'Symmetrical'),
         ('asymmetric', 'Asymmetrical')],
-        'Chest Expansion', sort=False)
-    paradoxical_expansion = fields.Boolean('Paradoxical Expansion')
+        'Expansion', sort=False)
+    paradoxical_expansion = fields.Boolean('Paradoxical', help="Paradoxical Chest Expansion")
     tracheal_tug = fields.Boolean('Tracheal Tug')
+    
+    # Chest Drainages
+    
+    chest_drainages = fields.One2Many('gnuhealth.icu.chest_drainage',
+        'name', "Drainages")
+
     
 
     def on_change_with_anisocoria(self):

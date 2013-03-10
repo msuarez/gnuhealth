@@ -30,5 +30,6 @@ def register():
 		Glasgow,
 		ApacheII,
 		MechanicalVentilation,
+        ChestDrainageAssessment,
 		PatientRounding,
         module='health_icu', type_='model')

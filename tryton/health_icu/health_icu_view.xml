@@ -315,6 +315,56 @@
 
 
 
+<!-- Patient Chest Drainage Assesment -->
+
+        <record model="ir.ui.view" id="gnuhealth_icu_chest_drainage_form">
+            <field name="model">gnuhealth.icu.chest_drainage</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient Chest Drainage Assesment">
+                    <label name="location"/>
+                    <field name="location"/>
+                    <label name="suction"/>
+                    <field name="suction"/>
+                    <label name="suction_pressure"/>
+                    <field name="suction_pressure"/>
+                    <label name="fluid_volume"/>
+                    <field name="fluid_volume"/>
+                    <label name="fluid_aspect"/>
+                    <field name="fluid_aspect"/>
+                    <label name="oscillation"/>
+                    <field name="oscillation"/>
+                    <label name="air_leak"/>
+                    <field name="air_leak"/>
+                    <label name="remarks"/>
+                    <field name="remarks"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_icu_chest_drainage_tree">
+            <field name="model">gnuhealth.icu.chest_drainage</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string="Patient Chest Drainage Assesment">
+                    <field name="location" expand="1"/>
+                    <field name="suction"/>
+                    <field name="suction_pressure"/>
+                    <field name="fluid_volume"/>
+                    <field name="fluid_aspect"/>
+                    <field name="oscillation"/>
+                    <field name="air_leak"/>
+                    <field name="remarks" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+                
+
 <!-- Rounding view -->
 <!-- Update the existing rounding view with information about Intensive Care Unit - ICU -->
 
@@ -372,7 +422,9 @@
 								<field name="pupil_consensual_resp"/>
 
 							</group>
-							<newline/>
+
+                            <newline/>    
+
 							<group id="group_rounding_icu_respiratory" colspan="4" col="8" string="Respiratory">
 								<label name="oxygen_mask"/>
 								<field name="oxygen_mask"/>
@@ -389,15 +441,21 @@
 								<field name="oral_mucosa_lesion"/>
 								<label name="lips_lesion"/>
 								<field name="lips_lesion"/>
-								<newline/>
-								<label name="chest_expansion"/>
-								<field name="chest_expansion"/>
-								<label name="paradoxical_expansion"/>
-								<field name="paradoxical_expansion"/>
-								<label name="tracheal_tug"/>
-								<field name="tracheal_tug"/>
-								
+                                <newline/>
+                                <group id="chest_expansion" string="Chest Expansion" colspan="3" col="6">
+                                    <label name="chest_expansion"/>
+                                    <field name="chest_expansion"/>
+                                    <label name="paradoxical_expansion"/>
+                                    <field name="paradoxical_expansion"/>
+                                    <label name="tracheal_tug"/>
+                                    <field name="tracheal_tug"/>
+								</group>
 							</group>
+
+                            <newline/>    
+                            <field name="chest_drainages" colspan="4"/>
+
+ 
                         </page>
 
                     </xpath>
