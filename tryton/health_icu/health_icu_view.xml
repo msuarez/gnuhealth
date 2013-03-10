@@ -380,6 +380,12 @@
 								<field name="fio2"/>
 								<label name="respiration_type"/>
 								<field name="respiration_type"/>
+								<newline/>
+								<label name="peep"/>
+								<field name="peep"/>
+								<label name="peep_pressure"/>
+								<field name="peep_pressure"/>
+								
 							</group>
                         </page>
 

@@ -483,7 +483,7 @@ class PatientRounding(ModelSQL, ModelView):
         help = "Pupillary Consensual Response") 
 
     # Respiratory assesment
-    
+    # Mechanical ventilation information is on the patient ICU general info
     
     respiration_type = fields.Selection([
         ('regular', 'Regular'),
@@ -495,6 +495,14 @@ class PatientRounding(ModelSQL, ModelView):
 
     oxygen_mask = fields.Boolean ('Oxygen Mask')
     fio2 = fields.Integer ('FiO2')
+
+    peep = fields.Boolean ('PEEP')
+    
+    peep_pressure = fields.Integer ('cm H2O', help="Pressure", states={
+            'invisible': Not(Bool(Eval('peep'))),
+            'required': Bool(Eval('peep')),
+            },
+        depends=['peep'])
 
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
