@@ -224,6 +224,9 @@
                 <form string="Intensive Care Unit">
                     <label name="name"/>
                     <field name="name"/>
+                    <label name="admitted"/>
+                    <field name="admitted"/>
+
                     <newline/>
                     <group id="icu_group_dates" string="Period" col="8" colspan="4">
 						<label name="icu_admission_date"/>
@@ -250,7 +253,7 @@
                 <![CDATA[
                 <tree string='Intensive Care Unit'>
                     <field name="name"/>
-                    <field name="admitted"/>
+                    <field name="admitted" expand="1"/>
                     <field name="icu_admission_date"/>
                     <field name="discharged_from_icu"/>
                     <field name="icu_discharge_date"/>

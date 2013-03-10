@@ -63,7 +63,7 @@ class InpatientIcu(ModelSQL, ModelView):
         'Registration Code', required=True)
     
     admitted = fields.Boolean('Admitted',help="Will be set when the patient \
-     is currently admitted at ICU", readonly=True )
+     is currently admitted at ICU", on_change_with=['discharged_from_icu'],)
     
     icu_admission_date = fields.DateTime('ICU Admission', help="ICU Admission Date",required=True)
     discharged_from_icu = fields.Boolean('Discharged')
@@ -102,6 +102,14 @@ class InpatientIcu(ModelSQL, ModelView):
     @staticmethod
     def default_admitted():
         return True
+
+    def on_change_with_admitted(self):
+        # Reset the admission flag when the patient is discharged from ICU
+        if self.discharged_from_icu:
+            res = False
+        else:
+            res = True
+        return res
 
 class Glasgow(ModelSQL, ModelView):
     'Glasgow Coma Scale'
