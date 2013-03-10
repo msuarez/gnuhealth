@@ -385,6 +385,17 @@
 								<field name="peep"/>
 								<label name="peep_pressure"/>
 								<field name="peep_pressure"/>
+								<label name="oral_mucosa_lesion"/>
+								<field name="oral_mucosa_lesion"/>
+								<label name="lips_lesion"/>
+								<field name="lips_lesion"/>
+								<newline/>
+								<label name="chest_expansion"/>
+								<field name="chest_expansion"/>
+								<label name="paradoxical_expansion"/>
+								<field name="paradoxical_expansion"/>
+								<label name="tracheal_tug"/>
+								<field name="tracheal_tug"/>
 								
 							</group>
                         </page>

@@ -504,6 +504,18 @@ class PatientRounding(ModelSQL, ModelView):
             },
         depends=['peep'])
 
+    lips_lesion = fields.Boolean ('Lips lesion')
+    oral_mucosa_lesion = fields.Boolean ('Oral mucosa lesion')
+
+    # Chest expansion characteristics
+    chest_expansion = fields.Selection([
+        ('symmetric', 'Symmetrical'),
+        ('asymmetric', 'Asymmetrical')],
+        'Chest Expansion', sort=False)
+    paradoxical_expansion = fields.Boolean('Paradoxical Expansion')
+    tracheal_tug = fields.Boolean('Tracheal Tug')
+    
+
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False
