@@ -21,9 +21,10 @@
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond.backend import TableHandler
-from trytond.pyson import Eval, Not, Bool
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.pool import Pool
 
 
@@ -34,6 +35,7 @@ __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 'InsurancePlan',
     'Insurance', 'PartyPatient', 'PartyAddress', 'Product',
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo', 'Appointment',
+    'AppointmentReport', 'OpenAppointmentReportStart', 'OpenAppointmentReport',
     'MedicationTemplate', 'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
@@ -786,6 +788,8 @@ class PatientData(ModelSQL, ModelView):
         depends=['deceased'])
     childbearing_age = fields.Function(fields.Boolean(
             'Potential for Childbearing'), 'patient_age')
+    appointments = fields.One2Many('gnuhealth.appointment', 'patient',
+        'Appointments')
 
     @classmethod
     def __setup__(cls):
@@ -1014,6 +1018,133 @@ class Appointment(ModelSQL, ModelView):
         return self.name
 
 
+class AppointmentReport(ModelSQL, ModelView):
+    'Appointment Report'
+    __name__ = 'gnuhealth.appointment.report'
+
+    identification_code = fields.Char('Identification Code')
+    ref = fields.Char('SSN')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor')
+    age = fields.Function(fields.Char('Age'), 'get_patient_age')
+    sex = fields.Selection([('m', 'Male'), ('f', 'Female')], 'Sex')
+    address = fields.Function(fields.Char('Address'), 'get_address')
+    insurance = fields.Function(fields.Char('Insurance'), 'get_insurance')
+    appointment_date = fields.Date('Date')
+    appointment_date_time = fields.DateTime('Date and Time')
+    diagnosis = fields.Function(fields.Many2One('gnuhealth.pathology',
+        'Presumptive Diagnosis'), 'get_diagnosis')
+
+    @classmethod
+    def __setup__(cls):
+        super(AppointmentReport, cls).__setup__()
+        cls._order.insert(0, ('appointment_date_time', 'ASC'))
+
+    @classmethod
+    def table_query(cls):
+        where_clause = ' '
+        args = []
+        if Transaction().context.get('date'):
+            where_clause += "AND a.appointment_date >= %s AND " \
+                "a.appointment_date < %s + integer '1' "
+            args.append(Transaction().context['date'])
+            args.append(Transaction().context['date'])
+        if Transaction().context.get('doctor'):
+            where_clause += 'AND a.doctor = %s '
+            args.append(Transaction().context['doctor'])
+        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
+                    'identification_code, ref, patient, sex, '
+                    'appointment_date, appointment_date_time, doctor '
+                    'FROM ('
+                        'SELECT a.id, a.create_uid, a.create_date, '
+                        'a.write_uid, a.write_date, p.identification_code, '
+                        'r.ref, p.id as patient, p.sex, a.appointment_date, '
+                        'a.appointment_date as appointment_date_time, '
+                        'a.doctor '
+                        'FROM gnuhealth_appointment a, '
+                        'gnuhealth_patient p, party_party r '
+                        'WHERE a.patient = p.id '
+                        + where_clause +
+                        'AND p.name = r.id) AS ' + cls._table, args)
+
+    def get_address(self, name):
+        res = ''
+        if self.patient.name.addresses:
+            res = self.patient.name.addresses[0].full_address
+        return res
+
+    def get_insurance(self, name):
+        res = ''
+        if self.patient.current_insurance:
+            res = self.patient.current_insurance.company.name
+        return res
+
+    def get_diagnosis(self, name):
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+
+        res = None
+        evaluations = Evaluation.search([
+            ('evaluation_date', '=', self.id)
+        ])
+        if evaluations:
+            evaluation = evaluations[0]
+            if evaluation.diagnosis:
+                res = evaluation.diagnosis.id
+        return res
+
+    def get_patient_age(self, name):
+        return self.patient.age
+
+
+class OpenAppointmentReportStart(ModelView):
+    'Open Appointment Report'
+    __name__ = 'gnuhealth.appointment.report.open.start'
+    date = fields.Date('Date', required=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', required=True)
+
+    @staticmethod
+    def default_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_doctor():
+        cursor = Transaction().cursor
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+            return int(doctor_id[0])
+
+
+class OpenAppointmentReport(Wizard):
+    'Open Appointment Report'
+    __name__ = 'gnuhealth.appointment.report.open'
+
+    start = StateView('gnuhealth.appointment.report.open.start',
+        'health.appointments_report_open_start_view_form', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Open', 'open_', 'tryton-ok', default=True),
+            ])
+    open_ = StateAction('health.act_appointments_report_view_tree')
+
+    def do_open_(self, action):
+        action['pyson_context'] = PYSONEncoder().encode({
+                'date': self.start.date,
+                'doctor': self.start.doctor.id,
+                })
+        return action, {}
+
+    def transition_open_(self):
+        return 'end'
+
+
 # MEDICATION TEMPLATE
 # TEMPLATE USED IN MEDICATION AND PRESCRIPTION ORDERS
 class MedicationTemplate(ModelSQL, ModelView):
@@ -1239,7 +1370,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
     doctor = fields.Many2One('gnuhealth.physician', 'Prescribing Doctor', readonly=True)
-    
+
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()

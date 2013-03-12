@@ -1763,7 +1763,7 @@
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_appointment_view">
-            <field name="name">appointments</field>
+            <field name="name">Appointments</field>
             <field name="res_model">gnuhealth.appointment</field>
         </record>
 
@@ -1793,6 +1793,72 @@
             <field name="keyword">form_relate</field>
             <field name="model">gnuhealth.patient,-1</field>
             <field name="action" ref="act_appointment_form1"/>
+        </record>
+
+<!-- Appointments Report -->
+        <record model="ir.ui.view" id="appointments_report_view_tree">
+            <field name="model">gnuhealth.appointment.report</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Appointments Report" keyword_open="1">
+                    <field name="identification_code"/>
+                    <field name="ref"/>
+                    <field name="patient"/>
+                    <field name="age"/>
+                    <field name="sex"/>
+                    <field name="address"/>
+                    <field name="insurance"/>
+                    <field name="diagnosis"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.act_window"
+            id="act_appointments_report_view_tree">
+            <field name="name">Appointments Report</field>
+            <field name="res_model">gnuhealth.appointment.report</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_appointments_report_view_tree_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="appointments_report_view_tree"/>
+            <field name="act_window" ref="act_appointments_report_view_tree"/>
+        </record>
+
+        <record model="ir.ui.view" id="appointments_report_open_start_view_form">
+            <field name="model">gnuhealth.appointment.report.open.start</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Appointment Report">
+                    <label name="date"/>
+                    <field name="date"/>
+                    <label name="doctor"/>
+                    <field name="doctor" widget="selection"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.action.wizard" id="appointments_report_open">
+            <field name="name">Appointments Report</field>
+            <field name="wiz_name">gnuhealth.appointment.report.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_appointment_menu"
+            action="appointments_report_open"
+            id="menu_appointments_report_view_tree" sequence="30"
+            icon="gnuhealth-list"/>
+
+        <record model="ir.action.act_window" id="act_appointment_report_patient">
+            <field name="name">Patient</field>
+            <field name="res_model">gnuhealth.patient</field>
+            <field name="context">{'appointments': [Eval('active_id')]}</field>
+            <field name="domain">[('appointments', 'in', [Eval('active_id')], 'parent')]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_appointment_report_patient_keyword1">
+            <field name="keyword">tree_open</field>
+            <field name="model">gnuhealth.appointment.report,-1</field>
+            <field name="action" ref="act_appointment_report_patient"/>
         </record>
 
 <!-- Shortcut to the Patient Evaluations -->

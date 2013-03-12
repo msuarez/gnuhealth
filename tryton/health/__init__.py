@@ -53,6 +53,8 @@ def register():
         PatientData,
         PatientDiseaseInfo,
         Appointment,
+        AppointmentReport,
+        OpenAppointmentReportStart,
         MedicationTemplate,
         PatientMedication,
         PatientVaccination,
@@ -69,3 +71,6 @@ def register():
         HospitalWard,
         HospitalBed,
         module='health', type_='model')
+    Pool.register(
+        OpenAppointmentReport,
+        module='health', type_='wizard')
