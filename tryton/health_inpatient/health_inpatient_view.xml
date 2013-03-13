@@ -78,7 +78,8 @@
                                 </group>
                             </group>
                             <newline/>
-
+                            <field name="bed_transfers"/>
+                            <newline/>
                             <group colspan="4" id="group_registration_holder1">
                                 <group colspan="2" id="group_registration_holder2">
                                     <field name="state" readonly="1"/>
@@ -516,6 +517,40 @@
                     <tree editable="top" string="Inpatient Diet">
                         <field name="diet" expand="1"/>
                         <field name="remarks" expand="1"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+
+<!-- Bed transfer history -->
+
+        <record id="gnuhealth_bed_transfer_form" model="ir.ui.view">
+            <field name="model">gnuhealth.bed.transfer</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Bed Transfer History">
+                        <label name="bed_from"/>
+                        <field name="bed_from"/>
+                        <label name="bed_to"/>
+                        <field name="bed_to"/>
+                        <label name="reason"/>
+                        <field name="reason"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="gnuhealth_bed_transfer_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.bed.transfer</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree editable="top" string="Bed Transfer History">
+                        <field name="bed_from" expand="1"/>
+                        <field name="bed_to" expand="1"/>
+                        <field name="reason" expand="1"/>
                     </tree>
                 ]]>
             </field>

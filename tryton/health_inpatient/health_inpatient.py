@@ -26,7 +26,7 @@ from trytond.pyson import Eval, Not, Bool, And, Equal
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
-    'InpatientRegistration', 'Appointment', 'PatientData',
+    'InpatientRegistration','BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet']
 
@@ -129,6 +129,9 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('confirmed', 'confirmed'),
         ('hospitalized', 'hospitalized'),
         ), 'Status', select=True)
+
+    bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
+        'Transfer History')
 
     @classmethod
     def __setup__(cls):
@@ -253,6 +256,19 @@ class InpatientRegistration(ModelSQL, ModelView):
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
 
+
+
+class BedTransfer(ModelSQL, ModelView):
+    'Bed transfers'
+    __name__ = 'gnuhealth.bed.transfer'
+
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code')
+    bed_from = fields.Many2One('gnuhealth.hospital.bed', 'From',
+        required=True)
+    bed_to = fields.Many2One('gnuhealth.hospital.bed', 'To',
+        required=True)
+    reason = fields.Char('Reason',required=True)
 
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'

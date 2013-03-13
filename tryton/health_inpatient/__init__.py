@@ -29,6 +29,7 @@ def register():
         DietTherapeutic,
         DietBelief,
         InpatientRegistration,
+        BedTransfer,
         Appointment,
         PatientData,
         InpatientMedication,
