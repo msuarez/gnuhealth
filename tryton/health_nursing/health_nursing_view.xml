@@ -106,7 +106,11 @@
 
                             <newline/>
 
-                            <group colspan="4" col="6" id="group_patient_rounding_others" string="Other">
+                            <group colspan="4" col="10" id="group_patient_rounding_others" string="Other">
+                                <label name="diuresis"/>
+                                <field name="diuresis"/>
+                                <label name="urinary_catheter"/>
+                                <field name="urinary_catheter"/>
                                 <label name="glycemia"/>
                                 <field name="glycemia"/>
                                 <label name="depression"/>

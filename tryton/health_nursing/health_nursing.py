@@ -83,6 +83,11 @@ class PatientRounding(ModelSQL, ModelView):
     temperature = fields.Float('Temperature',
         help='Temperature in celsius')
 
+    # Diuresis
+    
+    diuresis = fields.Integer('Diuresis',help="volume in ml")
+    urinary_catheter = fields.Boolean('Urinary Catheter')
+    
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
 
