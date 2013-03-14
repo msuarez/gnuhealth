@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="gnuhealth_medicament_tree_stock">
+            <field name="model">gnuhealth.medicament</field>
+            <field name="inherit" ref="health.gnuhealth_medicament_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath
+                            expr="/tree/field[@name=&quot;category&quot;]"
+                            position="after">
+                            <field name="quantity"/>
+                        </xpath>
+                    </data>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</tryton>
