@@ -141,7 +141,8 @@ class InpatientRegistration(ModelSQL, ModelView):
              'The Registration code already exists')
         ]
         cls._error_messages.update({
-                'bed_is_not_available': 'Bed is not available'})
+                'bed_is_not_available': 'Bed is not available',
+                'destination_bed_unavailable': 'Destination bed unavailable'})
         cls._buttons.update({
                 'confirmed': {
                     'invisible': And(Not(Equal(Eval('state'), 'free')),
@@ -157,6 +158,11 @@ class InpatientRegistration(ModelSQL, ModelView):
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
                 })
+
+        # Check if bed is free when transfering the patient within the center
+        cls._constraints += [
+            ('validate_bed_transfer', 'destination_bed_unavailable'),
+            ]
 
     ## Method to check for availability and make the hospital bed reservation
 
@@ -256,6 +262,15 @@ class InpatientRegistration(ModelSQL, ModelView):
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
 
+
+    def validate_bed_transfer(self):
+        res = True
+        if self.bed_transfers:
+            if (self.bed_transfers[0].bed_to.state == 'occupied'):
+                res = False
+            else:
+                res = True
+        return res
 
 
 class BedTransfer(ModelSQL, ModelView):
