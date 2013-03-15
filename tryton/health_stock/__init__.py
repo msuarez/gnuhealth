@@ -26,4 +26,10 @@ from .health_stock import *
 def register():
     Pool.register(
         Medicament,
+        Party,
+        ShipmentOut,
+        CreatePrescriptionShipmentInit,
         module='health_stock', type_='model')
+    Pool.register(
+        CreatePrescriptionShipment,
+        module='health_stock', type_='wizard')

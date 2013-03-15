@@ -18,5 +18,46 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="view_party_form">
+            <field name="model">party.party</field>
+            <field name="inherit" ref="party.party_view_form"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath
+                            expr="/form/notebook/page[@id=&quot;stock&quot;]/field[@name=&quot;supplier_location&quot;]"
+                            position="after">
+                            <label name="warehouse"/>
+                            <field name="warehouse"/>
+                        </xpath>
+                    </data>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_create_prescription_shipment">
+            <field name="model">gnuhealth.prescription.shipment.init</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Create Prescription Shipment">
+                        <separator string="Create Shipment?" colspan="4"
+                            id="shipment_ask"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_create_prescription_shipment">
+            <field name="name">Create Prescription Shipment</field>
+            <field name="wiz_name">gnuhealth.prescription.shipment.create</field>
+            <field name="model">gnuhealth.prescription.order</field>
+        </record>
+        <record model="ir.action.keyword" id="act_create_prescription_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.prescription.order,-1</field>
+            <field name="action" ref="act_create_prescription_shipment"/>
+        </record>
+
     </data>
 </tryton>
