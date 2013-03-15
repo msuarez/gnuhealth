@@ -1348,6 +1348,7 @@ class PatientVaccination(ModelSQL, ModelView):
         else:
             return True
 
+
 class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
     __name__ = 'gnuhealth.prescription.order'
@@ -1368,8 +1369,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     notes = fields.Text('Prescription Notes')
     pregnancy_warning = fields.Boolean('Pregancy Warning', readonly=True)
     prescription_warning_ack = fields.Boolean('Prescription verified')
-
-    doctor = fields.Many2One('gnuhealth.physician', 'Prescribing Doctor', readonly=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Prescribing Doctor',
+        readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -1377,7 +1378,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         cls._constraints += [
             ('check_prescription_warning', 'drug_pregnancy_warning'),
             ('check_health_professional', 'health_professional_warning'),
-
         ]
         cls._error_messages.update({
             'drug_pregnancy_warning':
@@ -1390,7 +1390,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'health_professional_warning':
                     'No health professional associated to this user',
         })
-
 
     def check_health_professional(self):
         return self.doctor
@@ -1411,7 +1410,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             doctor_id = cursor.fetchone()
 
             return int(doctor_id[0])
-
 
     def check_prescription_warning(self):
         return self.prescription_warning_ack
@@ -1454,6 +1452,16 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             config.prescription_sequence.id)
 
         return super(PatientPrescriptionOrder, cls).create(values)
+
+    @classmethod
+    def copy(cls, prescriptions, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['prescription_id'] = None
+        default['prescription_date'] = cls.default_prescription_date()
+        return super(PatientPrescriptionOrder, cls).copy(prescriptions,
+            default=default)
 
 
 # PRESCRIPTION LINE
