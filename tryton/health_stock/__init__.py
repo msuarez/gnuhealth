@@ -28,6 +28,11 @@ def register():
         Medicament,
         Party,
         ShipmentOut,
+        Move,
+        PatientAmbulatoryCare,
+        PatientAmbulatoryCareLineMedicament,
+        PatientAmbulatoryCareLineSupply,
+        PatientAmbulatoryCareLineVaccine,
         CreatePrescriptionShipmentInit,
         module='health_stock', type_='model')
     Pool.register(
