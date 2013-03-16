@@ -27,6 +27,7 @@ def register():
     Pool.register(
         Medicament,
         Party,
+        Lot,
         ShipmentOut,
         Move,
         PatientAmbulatoryCare,

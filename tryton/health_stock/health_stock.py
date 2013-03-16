@@ -26,7 +26,7 @@ from trytond.exceptions import UserError
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 
-__all__ = ['Medicament', 'Party', 'ShipmentOut', 'Move',
+__all__ = ['Medicament', 'Party', 'Lot', 'ShipmentOut', 'Move',
     'PatientAmbulatoryCare', 'PatientAmbulatoryCareLineMedicament',
     'PatientAmbulatoryCareLineSupply', 'PatientAmbulatoryCareLineVaccine',
     'PatientRounding', 'PatientRoundingLineMedicament',
@@ -76,6 +76,27 @@ class Party:
         locations = Location.search(cls.warehouse.domain)
         if len(locations) == 1:
             return locations[0].id
+
+
+class Lot:
+    __name__ = 'stock.lot'
+    expiration_date = fields.Date('Expiration Date')
+    quantity = fields.Function(fields.Float('Quantity'), 'sum_lot_quantity')
+
+    def sum_lot_quantity(self, name):
+        Move = Pool().get('stock.move')
+
+        moves = Move.search([
+            ('lot', '=', self.id),
+            ('product', '=', self.product.id)
+        ])
+        quantity = 0
+        for move in moves:
+            if move.to_location.type == 'storage':
+                quantity += move.quantity
+            if move.from_location.type == 'storage':
+                quantity -= move.quantity
+        return quantity
 
 
 class ShipmentOut:
@@ -153,11 +174,11 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                 if vaccine.lot:
                     if vaccine.lot.number:
                         lot_number = vaccine.lot.number
-                    if vaccine.lot.due_date:
-                        due_date = vaccine.lot.due_date
+                    if vaccine.lot.expiration_date:
+                        expiration_date = vaccine.lot.expiration_date
                 else:
                     lot_number = ''
-                    due_date = ''
+                    expiration_date = ''
                 vaccination_data = {
                     'name': patient.id,
                     'vaccine': vaccine.vaccine.id,
@@ -167,7 +188,7 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                     'date': datetime.now(),
                     'dose': vaccine.dose,
                     'next_dose_date': vaccine.next_dose_date,
-                    'vaccine_expiration_date': due_date
+                    'vaccine_expiration_date': expiration_date
                     }
                 Vaccination.create(vaccination_data)
                 vaccines_to_ship.append(vaccine)
@@ -195,8 +216,8 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                 move_info['unit_price'] = 1
                 move_info['ambulatory_care'] = ambulatory.id
                 if medicament.lot:
-                    if  medicament.lot.due_date \
-                    and medicament.lot.due_date < Date.today():
+                    if  medicament.lot.expiration_date \
+                    and medicament.lot.expiration_date < Date.today():
                         raise UserError('Expired medicaments')
                     move_info['lot'] = medicament.lot.id
 
@@ -217,8 +238,8 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                 move_info['unit_price'] = 1
                 move_info['ambulatory_care'] = ambulatory.id
                 if medical_supply.lot:
-                    if  medical_supply.lot.due_date \
-                    and medical_supply.lot.due_date < Date.today():
+                    if  medical_supply.lot.expiration_date \
+                    and medical_supply.lot.expiration_date < Date.today():
                         raise UserError('Expired supplies')
                     move_info['lot'] = medical_supply.lot.id
 
@@ -239,8 +260,8 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                 move_info['unit_price'] = 1
                 move_info['ambulatory_care'] = ambulatory.id
                 if vaccine.lot:
-                    if  vaccine.lot.due_date \
-                    and vaccine.lot.due_date < Date.today():
+                    if  vaccine.lot.expiration_date \
+                    and vaccine.lot.expiration_date < Date.today():
                         raise UserError('Expired vaccines')
                     move_info['lot'] = vaccine.lot.id
                 new_move = Move.create(move_info)
@@ -401,8 +422,8 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                 move_info['unit_price'] = 1
                 move_info['rounding'] = rounding.id
                 if medicament.lot:
-                    if  medicament.lot.due_date \
-                    and medicament.lot.due_date < Date.today():
+                    if  medicament.lot.expiration_date \
+                    and medicament.lot.expiration_date < Date.today():
                         raise UserError('Expired medicaments')
                     move_info['lot'] = medicament.lot.id
                 new_move = Move.create(move_info)
@@ -422,8 +443,8 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                     move_info['unit_price'] = 1
                     move_info['rounding'] = rounding.id
                     if medical_supply.lot:
-                        if  medical_supply.lot.due_date \
-                        and medical_supply.lot.due_date < Date.today():
+                        if  medical_supply.lot.expiration_date \
+                        and medical_supply.lot.expiration_date < Date.today():
                             raise UserError('Expired supplies')
                         move_info['lot'] = medical_supply.lot.id
                     new_move = Move.create(move_info)
@@ -443,8 +464,8 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                 move_info['unit_price'] = 1
                 move_info['rounding'] = rounding.id
                 if vaccine.lot:
-                    if  vaccine.lot.due_date \
-                    and vaccine.lot.due_date < Date.today():
+                    if  vaccine.lot.expiration_date \
+                    and vaccine.lot.expiration_date < Date.today():
                         raise UserError('Expired vaccines')
                     move_info['lot'] = vaccine.lot.id
                 new_move = Move.create(move_info)
