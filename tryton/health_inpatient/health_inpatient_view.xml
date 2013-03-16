@@ -134,7 +134,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Inpatient Registration Info"
-                 colors="If(Equal(Eval('state'), 'hospitalized'), 'cyan',If(Equal(Eval('admission_type'), 'emergency'), 'red', If(Equal(Eval('admission_type'), 'maternity'), 'blue','black')))">
+                 colors="If(And(Equal(Eval('state'), 'hospitalized'), Equal(Eval('admission_type'), 'elective' )), 'blue',If(Equal(Eval('admission_type'), 'emergency'), 'red', If(Equal(Eval('admission_type'), 'maternity'), 'blue','black')))">
                     <field name="name" expand="1"/>
                     <field name="patient" expand="1"/>
                     <field name="hospitalization_date" expand="1"/>
