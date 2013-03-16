@@ -33,6 +33,10 @@ def register():
         PatientAmbulatoryCareLineMedicament,
         PatientAmbulatoryCareLineSupply,
         PatientAmbulatoryCareLineVaccine,
+        PatientRounding,
+        PatientRoundingLineMedicament,
+        PatientRoundingLineSupply,
+        PatientRoundingLineVaccine,
         CreatePrescriptionShipmentInit,
         module='health_stock', type_='model')
     Pool.register(
