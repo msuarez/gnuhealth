@@ -130,6 +130,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('hospitalized', 'hospitalized'),
         ), 'Status', select=True)
 
+    
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
         'Transfer History')
 
@@ -159,10 +160,6 @@ class InpatientRegistration(ModelSQL, ModelView):
                     },
                 })
 
-        # Check if bed is free when transfering the patient within the center
-        cls._constraints += [
-            ('validate_bed_transfer', 'destination_bed_unavailable'),
-            ]
 
     ## Method to check for availability and make the hospital bed reservation
 
@@ -224,6 +221,7 @@ class InpatientRegistration(ModelSQL, ModelView):
             cls.write(registrations, {'state': 'hospitalized'})
             Bed.write([registration_id.bed], {'state': 'occupied'})
 
+ 
     @classmethod
     def create(cls, values):
         Sequence = Pool().get('ir.sequence')
@@ -263,27 +261,18 @@ class InpatientRegistration(ModelSQL, ModelView):
         return [(cls._rec_name,) + clause[1:]]
 
 
-    def validate_bed_transfer(self):
-        res = True
-        if self.bed_transfers:
-            if (self.bed_transfers[0].bed_to.state == 'occupied'):
-                res = False
-            else:
-                res = True
-        return res
-
-
 class BedTransfer(ModelSQL, ModelView):
     'Bed transfers'
     __name__ = 'gnuhealth.bed.transfer'
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code')
+    transfer_date = fields.DateTime('Date')
     bed_from = fields.Many2One('gnuhealth.hospital.bed', 'From',
-        required=True)
+        )
     bed_to = fields.Many2One('gnuhealth.hospital.bed', 'To',
-        required=True)
-    reason = fields.Char('Reason',required=True)
+        )
+    reason = fields.Char('Reason')
 
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'

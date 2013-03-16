@@ -531,6 +531,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                     <form string="Bed Transfer History">
+                        <label name="transfer_date"/>
+                        <field name="transfer_date"/>
                         <label name="bed_from"/>
                         <field name="bed_from"/>
                         <label name="bed_to"/>
@@ -548,6 +550,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                     <tree editable="top" string="Bed Transfer History">
+                        <field name="transfer_date" expand="1"/>
                         <field name="bed_from" expand="1"/>
                         <field name="bed_to" expand="1"/>
                         <field name="reason" expand="1"/>

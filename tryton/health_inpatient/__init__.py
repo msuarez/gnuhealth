@@ -21,6 +21,7 @@
 
 from trytond.pool import Pool
 from .health_inpatient import *
+from wizard import *
 
 
 def register():
@@ -36,4 +37,10 @@ def register():
         InpatientMedicationAdminTimes,
         InpatientMedicationLog,
         InpatientDiet,
+        CreateBedTransferInit,
         module='health_inpatient', type_='model')
+    
+    Pool.register(
+        CreateBedTransfer,
+        module='health_inpatient', type_='wizard')
+
