@@ -27,7 +27,7 @@ from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration','InpatientIcu','Glasgow','ApacheII',
-            'MechanicalVentilation','ChestDrainageAssessment','PatientRounding']
+            'MechanicalVentilation','ChestDrainageAssessment','ECG','PatientRounding']
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -514,10 +514,42 @@ class ChestDrainageAssessment(ModelSQL, ModelView):
     fluid_volume = fields.Integer ('Volume')
     remarks = fields.Char ('Remarks')
 
-# Nursing Rounding for ICU
-# Inherit and append to the existing model the new functionality for ICU
 
+class ECG(ModelSQL, ModelView):
+    'ECG'
+    __name__ = 'gnuhealth.icu.ecg'
+    
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code', required=True)
+   
+    lead = fields.Selection([
+        ('i','I'),
+        ('ii','II'),
+        ('iii','III'),
+        ('avf','aVF'),
+        ('avr','aVR'),
+        ('avl','aVL'),
+        ('v1','V1'),
+        ('v2','V2'),
+        ('v3','V3'),
+        ('v4','V4'),
+        ('v5','V5'),
+        ('v6','V6')],
+        'Lead', sort=False)
+        
+    rate = fields.Integer ('Rate')
+    pr = fields.Integer ('PR')
+    qrs = fields.Integer ('QRS')
+    qt = fields.Integer ('QT')
+    st = fields.Integer ('ST')
+    pr = fields.Integer ('Rate')
+    twave = fields.Integer ('T wave')
+    interpretation = fields.Char ('Interpretation')
+    
 class PatientRounding(ModelSQL, ModelView):
+    # Nursing Rounding for ICU
+    # Inherit and append to the existing model the new functionality for ICU
+
     'Patient Rounding'
     __name__ = 'gnuhealth.patient.rounding'
 
@@ -596,6 +628,7 @@ class PatientRounding(ModelSQL, ModelView):
     # Chest X-Ray
     xray = fields.Binary('Xray')
 
+    
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False

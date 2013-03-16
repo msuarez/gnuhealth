@@ -31,5 +31,6 @@ def register():
 		ApacheII,
 		MechanicalVentilation,
         ChestDrainageAssessment,
+        ECG,
 		PatientRounding,
         module='health_icu', type_='model')

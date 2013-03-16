@@ -369,6 +369,70 @@
         </record>
                 
 
+<!-- ECG -->
+
+        <record model="ir.ui.view" id="gnuhealth_icu_ecg_form">
+            <field name="model">gnuhealth.icu.ecg</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient ECG Assesment">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="lead"/>
+                    <field name="lead"/>
+                    <label name="pr"/>
+                    <field name="pr"/>
+                    <label name="qrs"/>
+                    <field name="qrs"/>
+                    <label name="qt"/>
+                    <field name="qt"/>
+                    <label name="st"/>
+                    <field name="st"/>
+                    <label name="twave"/>
+                    <field name="twave"/>
+                    <label name="interpretation"/>
+                    <field name="interpretation"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_icu_ecg_tree">
+            <field name="model">gnuhealth.icu.ecg</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string="Patient ECG Assesment">
+                    <field name="name"/>
+                    <field name="lead" expand="1"/>
+                    <field name="pr"/>
+                    <field name="qrs"/>
+                    <field name="qt"/>
+                    <field name="st"/>
+                    <field name="twave"/>
+                    <field name="interpretation"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+                
+
+<!-- Shortcut to the ECG from the Inpatient ICU section -->
+        <record model="ir.action.act_window" id="act_ecg_form1">
+            <field name="name">ECG</field>
+            <field name="res_model">gnuhealth.icu.ecg</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_ecg_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.inpatient.icu,-1</field>
+            <field name="action" ref="act_ecg_form1"/>
+        </record>
+
+
 <!-- Rounding view -->
 <!-- Update the existing rounding view with information about Intensive Care Unit - ICU -->
 
