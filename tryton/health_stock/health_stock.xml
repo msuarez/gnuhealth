@@ -150,43 +150,57 @@
             </field>
         </record>
 
-       <record model="ir.ui.view" id="ambulatory_care_view_form">
-           <field name="model">gnuhealth.patient.ambulatory_care</field>
-           <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_view"/>
-           <field name="arch" type="xml">
-               <![CDATA[
-                   <data>
-                       <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_other_information&quot;]" position="after">
-                           <page string="Medication" id="medication">
-                               <label name="care_location"/>
-                               <field name="care_location" colspan="4"/>
-                               <field name="medication_line" colspan="4"
-                                   view_ids="health_stock.gnuhealth_ambulatory_care_medication_tree"/>
-                               <field name="medical_supply_line" colspan="4"
-                                   view_ids="health_stock.gnuhealth_ambulatory_care_medical_supply_tree"/>
-                               <field name="vaccine_line" colspan="4"
-                                   view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
-                           </page>
-                           <page string="Stock Moves" id="Stock Moves">
-                               <field name="moves" colspan="4" />
-                           </page>
-                       </xpath>
-                        <xpath expr="/form/notebook"
+        <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_tree">
+            <field name="model">gnuhealth.patient.ambulatory_care</field>
+            <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath expr="/tree/field[@name=&quot;evolution&quot;]"
                             position="after">
-                            <group col="5" colspan="4" id="buttons">
-                               <label name="state"/>
-                               <field name="state"/>
-                               <button name="done" string="Done" icon="tryton-go-next"/>
-                            </group>
+                            <field name="state"/>
                         </xpath>
-                        <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_main&quot;]/field[@name=&quot;session_notes&quot;]"
-                            position="replace_attributes">
-                            <field name="session_notes" height="50"/>
-                        </xpath>
-                   </data>
+                    </data>
                 ]]>
-           </field>
-       </record>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="ambulatory_care_view_form">
+            <field name="model">gnuhealth.patient.ambulatory_care</field>
+            <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_view"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_other_information&quot;]" position="after">
+                            <page string="Medication" id="medication">
+                                <label name="care_location"/>
+                                <field name="care_location" colspan="4"/>
+                                <field name="medication_line" colspan="4"
+                                    view_ids="health_stock.gnuhealth_ambulatory_care_medication_tree"/>
+                                <field name="medical_supply_line" colspan="4"
+                                    view_ids="health_stock.gnuhealth_ambulatory_care_medical_supply_tree"/>
+                                <field name="vaccine_line" colspan="4"
+                                    view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
+                            </page>
+                            <page string="Stock Moves" id="Stock Moves">
+                                <field name="moves" colspan="4" />
+                            </page>
+                        </xpath>
+                         <xpath expr="/form/notebook"
+                             position="after">
+                             <group col="5" colspan="4" id="buttons">
+                                <label name="state"/>
+                                <field name="state"/>
+                                <button name="done" string="Done" icon="tryton-go-next"/>
+                             </group>
+                         </xpath>
+                         <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_main&quot;]/field[@name=&quot;session_notes&quot;]"
+                             position="replace_attributes">
+                             <field name="session_notes" height="50"/>
+                         </xpath>
+                    </data>
+                 ]]>
+            </field>
+        </record>
 
         <record model="ir.ui.view" id="gnuhealth_rounding_line_medication_tree">
             <field name="model">gnuhealth.patient.rounding.line.medicament</field>
@@ -251,6 +265,20 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="gnuhealth_patient_rounding_tree">
+            <field name="model">gnuhealth.patient.rounding</field>
+            <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <data>
+                        <xpath expr="/tree/field[@name=&quot;evolution&quot;]"
+                            position="after">
+                            <field name="state"/>
+                        </xpath>
+                    </data>
+                ]]>
+            </field>
+        </record>
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_view">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_view"/>

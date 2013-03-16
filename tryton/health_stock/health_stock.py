@@ -34,6 +34,11 @@ __all__ = ['Medicament', 'Party', 'Lot', 'ShipmentOut', 'Move',
     'CreatePrescriptionShipmentInit', 'CreatePrescriptionShipment']
 __metaclass__ = PoolMeta
 
+_STATES = {
+    'readonly': Eval('state') == 'done',
+    }
+_DEPENDS = ['state']
+
 
 class Medicament:
     __name__ = 'gnuhealth.medicament'
@@ -117,22 +122,26 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
     'Patient Ambulatory Care'
     __name__ = 'gnuhealth.patient.ambulatory_care'
 
+    care_location = fields.Many2One('stock.location', 'Care Location',
+        states={
+            'required': True,
+            'readonly': Eval('state') == 'done',
+        }, depends=_DEPENDS)
     medication_line = fields.One2Many(
         'gnuhealth.patient.ambulatory_care.line.medicament', 'name',
-        'Medication')
+        'Medication', states=_STATES, depends=_DEPENDS)
     medical_supply_line = fields.One2Many(
         'gnuhealth.patient.ambulatory_care.line.supply', 'name',
-        'Medical Supplies')
+        'Medical Supplies', states=_STATES, depends=_DEPENDS)
     vaccine_line = fields.One2Many(
-        'gnuhealth.patient.ambulatory_care.line.vaccine', 'name', "Vaccines")
+        'gnuhealth.patient.ambulatory_care.line.vaccine', 'name', 'Vaccines',
+        states=_STATES, depends=_DEPENDS)
     moves = fields.One2Many('stock.move', 'ambulatory_care', 'Stock Moves',
         readonly=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
         ], 'State', readonly=True)
-    care_location = fields.Many2One('stock.location', 'Care Location',
-        required=True)
 
     @classmethod
     def __setup__(cls):
@@ -349,20 +358,27 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     'Patient Ambulatory Care'
     __name__ = 'gnuhealth.patient.rounding'
 
+    hospitalization_warehouse = fields.Many2One('stock.location',
+        'Hospitalization Warehouse',
+        states={
+            'required': True,
+            'readonly': Eval('state') == 'done',
+        }, depends=_DEPENDS)
     medication_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.medicament', 'name', 'Medication')
+        'gnuhealth.patient.rounding.line.medicament', 'name', 'Medication',
+        states=_STATES, depends=_DEPENDS)
     medical_supply_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.supply', 'name', 'Medical Supplies')
+        'gnuhealth.patient.rounding.line.supply', 'name', 'Medical Supplies',
+        states=_STATES, depends=_DEPENDS)
     vaccine_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.vaccine', 'name', "Vaccines")
+        'gnuhealth.patient.rounding.line.vaccine', 'name', 'Vaccines',
+        states=_STATES, depends=_DEPENDS,)
     moves = fields.One2Many('stock.move', 'rounding', 'Stock Moves',
         readonly=True)
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
         ], 'State', readonly=True)
-    hospitalization_warehouse = fields.Many2One('stock.location',
-        'Hospitalization Warehouse', required=True)
 
     @classmethod
     def __setup__(cls):
