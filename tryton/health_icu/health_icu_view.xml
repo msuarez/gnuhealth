@@ -429,37 +429,42 @@
 
                             <newline/>    
 
-							<group id="group_rounding_icu_respiratory" string="Respiratory">
-								<label name="oxygen_mask"/>
-								<field name="oxygen_mask"/>
-								<label name="fio2"/>
-								<field name="fio2"/>
-								<label name="respiration_type"/>
-								<field name="respiration_type"/>
-								<label name="trachea_alignment"/>
-								<field name="trachea_alignment"/>
+							<group colspan="4" id="group_rounding_icu_respiratory" string="Respiratory">
+                                <group id="chest_icu_main">
+                                    <label name="oxygen_mask"/>
+                                    <field name="oxygen_mask"/>
+                                    <label name="fio2"/>
+                                    <field name="fio2"/>
+                                    <label name="respiration_type"/>
+                                    <field name="respiration_type"/>
+                                    <label name="trachea_alignment"/>
+                                    <field name="trachea_alignment"/>
+                                    <newline/>
+                                    <label name="peep"/>
+                                    <field name="peep"/>
+                                    <label name="peep_pressure"/>
+                                    <field name="peep_pressure"/>
+                                    <label name="sce"/>
+                                    <field name="sce"/>
+                                    <label name="oral_mucosa_lesion"/>
+                                    <field name="oral_mucosa_lesion"/>
+                                    <label name="lips_lesion"/>
+                                    <field name="lips_lesion"/>
+                                    <newline/>
+                                    <group id="chest_expansion" string="Chest Expansion" colspan="4" col="6">
+                                        <label name="chest_expansion"/>
+                                        <field name="chest_expansion"/>
+                                        <label name="paradoxical_expansion"/>
+                                        <field name="paradoxical_expansion"/>
+                                        <label name="tracheal_tug"/>
+                                        <field name="tracheal_tug"/>
+                                    </group>
+                                </group>
+                                <group string="Xray" id="patient_xray">
+                                    <field name="xray" img_width="200" img_height="200"
+                                        height="200" width="200" widget="image"/>
+                                </group>
 
-								<newline/>
-								<label name="peep"/>
-								<field name="peep"/>
-								<label name="peep_pressure"/>
-								<field name="peep_pressure"/>
-								<label name="sce"/>
-								<field name="sce"/>
-								<label name="oral_mucosa_lesion"/>
-								<field name="oral_mucosa_lesion"/>
-								<label name="lips_lesion"/>
-								<field name="lips_lesion"/>
-                                <newline/>
-                                <group id="chest_expansion" string="Chest Expansion" colspan="4" col="6">
-                                    <label name="chest_expansion"/>
-                                    <field name="chest_expansion"/>
-                                    <label name="paradoxical_expansion"/>
-                                    <field name="paradoxical_expansion"/>
-                                    <label name="tracheal_tug"/>
-                                    <field name="tracheal_tug"/>
-								</group>
-                                <newline/>
 							</group>
 
                             <newline/>    

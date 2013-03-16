@@ -593,7 +593,8 @@ class PatientRounding(ModelSQL, ModelView):
     chest_drainages = fields.One2Many('gnuhealth.icu.chest_drainage',
         'name', "Drainages")
 
-    
+    # Chest X-Ray
+    xray = fields.Binary('Xray')
 
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
