@@ -103,7 +103,12 @@ class InpatientRegistration(ModelSQL, ModelView):
     admission_reason = fields.Many2One('gnuhealth.pathology',
         'Reason for Admission', help="Reason for Admission", select=True)
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
-        required=True, select=True)
+        states={
+            'required': Not(Bool(Eval('name'))),
+            'readonly': Bool(Eval('name')),
+            },
+        depends=['name'],
+)
     nursing_plan = fields.Text('Nursing Plan')
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
         'Medications')
