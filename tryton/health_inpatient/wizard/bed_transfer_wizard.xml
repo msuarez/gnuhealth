@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="view_patient_bed_transfer">
+            <field name="model">gnuhealth.bed.transfer.init</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Patient Bed Transfer">
+                    <label name="newbed"/>
+                    <field name="newbed"/>
+                    <label name="reason"/>
+                    <field name="reason"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_create_patient_bed_transfer">
+            <field name="name">Bed Transfer</field>
+            <field name="wiz_name">gnuhealth.bed.transfer.create</field>
+            <field name="model">gnuhealth.inpatient.registration</field>
+        </record>
+        <record model="ir.action.keyword" id="act_create_patient_bed_transfer_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.inpatient.registration,-1</field>
+            <field name="action" ref="act_create_patient_bed_transfer"/>
+        </record>
+
+    </data>
+</tryton>

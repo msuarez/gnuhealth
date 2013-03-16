@@ -132,7 +132,7 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
-        'Transfer History')
+        'Transfer History', readonly=True)
 
     @classmethod
     def __setup__(cls):
