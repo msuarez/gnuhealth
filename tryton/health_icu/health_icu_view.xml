@@ -383,18 +383,29 @@
                     <field name="lead"/>
                     <label name="axis"/>
                     <field name="axis"/>
-                    <label name="pr"/>
-                    <field name="pr"/>
-                    <label name="qrs"/>
-                    <field name="qrs"/>
-                    <label name="qt"/>
-                    <field name="qt"/>
-                    <label name="st"/>
-                    <field name="st"/>
-                    <label name="twave"/>
-                    <field name="twave"/>
+                    <label name="rate"/>
+                    <field name="rate"/>
+                    <label name="pacemaker"/>
+                    <field name="pacemaker"/>
+                    <label name="rhythm"/>
+                    <field name="rhythm"/>
+                    <newline/>
+                    <group id="ecg_intervals" colspan="4" col="6">
+                        <label name="pr"/>
+                        <field name="pr"/>
+                        <label name="qrs"/>
+                        <field name="qrs"/>
+                        <label name="qt"/>
+                        <field name="qt"/>
+                    </group>
+                    <newline/>
+                    <label name="st_segment"/>
+                    <field name="st_segment"/>
+                    <label name="twave_inversion"/>
+                    <field name="twave_inversion"/>
+                    <newline/>
                     <label name="interpretation"/>
-                    <field name="interpretation"/>
+                    <field name="interpretation" colspan="3"/>
                     <newline/>
                     
                     <field colspan="4" name="ecg_strip" widget="image"/>
@@ -415,12 +426,14 @@
                     <field name="name"/>
                     <field name="lead"/>
                     <field name="axis"/>
+                    <field name="rhythm"/>
+                    <field name="pacemaker"/>
                     <field name="rate"/>
                     <field name="pr"/>
                     <field name="qrs"/>
                     <field name="qt"/>
-                    <field name="st"/>
-                    <field name="twave"/>
+                    <field name="st_segment"/>
+                    <field name="twave_inversion"/>
                     <field name="interpretation" expand="1"/>
                 </tree>
                 ]]>

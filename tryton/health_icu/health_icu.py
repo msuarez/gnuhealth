@@ -546,24 +546,43 @@ class ECG(ModelSQL, ModelView):
         'Axis', sort=False, required=True)
         
     rate = fields.Integer ('Rate', required=True)
-    pr = fields.Integer ('PR')
-    qrs = fields.Integer ('QRS')
-    qt = fields.Integer ('QT')
-    st = fields.Integer ('ST')
-    twave = fields.Integer ('T wave')
+
+    rhythm = fields.Selection([
+        ('regular','Regular'),
+        ('irregular','Irregular')],
+        'Rhythm', sort=False, required=True)
+
+    pacemaker = fields.Selection([
+        ('sa','Sinus Node'),
+        ('av','Atrioventricular'),
+        ('pk','Purkinje')
+        ],
+        'Pacemaker', sort=False, required=True)
+
+    pr = fields.Integer ('PR', help="Duration of PR interval in milliseconds")
+    qrs = fields.Integer ('QRS', help="Duration of QRS interval in milliseconds")
+    qt = fields.Integer ('QT', help="Duration of QT interval in milliseconds")
+    st_segment = fields.Selection([
+        ('normal','Normal'),
+        ('depressed','Depressed'),
+        ('elevated','Elevated')],
+        'ST Segment', sort=False, required=True)
+
+    twave_inversion = fields.Boolean ('T wave inversion')
+    
     interpretation = fields.Char ('Interpretation', required=True)
     ecg_strip = fields.Binary ('ECG Strip')
 
     # Default ECG date
     @staticmethod
-    def default_evaluation_date():
+    def default_ecg_date():
         return datetime.now()
     
 
     # Return the ECG Interpretation with main components
     def get_rec_name(self, name):
         if self.name:
-            res = str(self.interpretation) + 'Rate ' + str(self.rate) 
+            res = str(self.interpretation) + ' // Rate ' + str(self.rate) 
         return res
 
 
