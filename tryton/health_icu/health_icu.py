@@ -537,6 +537,13 @@ class ECG(ModelSQL, ModelView):
         ('v5','V5'),
         ('v6','V6')],
         'Lead', sort=False)
+
+    axis = fields.Selection([
+        ('normal','Normal Axis'),
+        ('left','Left deviation'),
+        ('right','Right deviation'),
+        ('extreme_right','Extreme right deviation')],
+        'Axis', sort=False, required=True)
         
     rate = fields.Integer ('Rate', required=True)
     pr = fields.Integer ('PR')
