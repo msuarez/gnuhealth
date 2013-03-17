@@ -672,6 +672,17 @@ class PatientRounding(ModelSQL, ModelView):
     
     ecg = fields.Many2One ('gnuhealth.icu.ecg','ECG',domain = [('name', '=', Eval('name'))])
     
+    venous_access =  fields.Selection([
+        ('none', 'None'),
+        ('central', 'Central catheter'),
+        ('peripheral', 'Peripheral')],
+        'Venous Access', sort=False)
+    
+    swan_ganz = fields.Boolean('Swan Ganz', help="Pulmonary Artery Catheterization - PAC -")
+
+    arterial_access = fields.Boolean('Arterial Access')
+
+    
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False

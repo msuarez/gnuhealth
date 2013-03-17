@@ -572,19 +572,25 @@
                                     <field name="xray" img_width="200" img_height="200"
                                         height="200" width="200" widget="image"/>
                                 </group>
-
                                 <newline/>    
-                                <field name="chest_drainages" colspan="4"/>
-                                <newline/>    
-
 							</group>
-                            
+                            <field name="chest_drainages" colspan="4"/>
+                            <newline/>
 							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiologic and Circulatory">
-                                <label name="ecg"/>
-                                <field name="ecg"/>
+                                <group id="icu_cardio_ecg" colspan="4" col="4">
+                                    <label name="ecg"/>
+                                    <field name="ecg" colspan="3"/>
+                                </group>
+                                <newline/>
+                                <group id="icu_vessel_access" colspan="4" col="6">
+                                    <label name="venous_access"/>
+                                    <field name="venous_access"/>
+                                    <label name="swan_ganz"/>
+                                    <field name="swan_ganz"/>
+                                    <label name="arterial_access"/>
+                                    <field name="arterial_access"/>
+                                </group>
                             </group>
-
-
  
                         </page>
 
