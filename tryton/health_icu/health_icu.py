@@ -542,7 +542,6 @@ class ECG(ModelSQL, ModelView):
     qrs = fields.Integer ('QRS')
     qt = fields.Integer ('QT')
     st = fields.Integer ('ST')
-    pr = fields.Integer ('Rate')
     twave = fields.Integer ('T wave')
     interpretation = fields.Char ('Interpretation')
     

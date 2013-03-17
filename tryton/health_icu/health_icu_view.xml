@@ -406,13 +406,13 @@
                 <![CDATA[
                 <tree editable="top" string="Patient ECG Assesment">
                     <field name="name"/>
-                    <field name="lead" expand="1"/>
+                    <field name="lead"/>
                     <field name="pr"/>
                     <field name="qrs"/>
                     <field name="qt"/>
                     <field name="st"/>
                     <field name="twave"/>
-                    <field name="interpretation"/>
+                    <field name="interpretation" expand="1"/>
                 </tree>
                 ]]>
             </field>
