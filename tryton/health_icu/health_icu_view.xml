@@ -393,6 +393,10 @@
                     <field name="twave"/>
                     <label name="interpretation"/>
                     <field name="interpretation"/>
+                    <newline/>
+                    
+                    <field colspan="4" name="ecg_strip" widget="image"/>
+
                 </form>
                 ]]>
             </field>
@@ -405,6 +409,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree editable="top" string="Patient ECG Assesment">
+                    <field name="ecg_date"/>
                     <field name="name"/>
                     <field name="lead"/>
                     <field name="pr"/>

@@ -521,7 +521,8 @@ class ECG(ModelSQL, ModelView):
     
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
-   
+
+    ecg_date = fields.DateTime ('Date')
     lead = fields.Selection([
         ('i','I'),
         ('ii','II'),
@@ -543,8 +544,14 @@ class ECG(ModelSQL, ModelView):
     qt = fields.Integer ('QT')
     st = fields.Integer ('ST')
     twave = fields.Integer ('T wave')
-    interpretation = fields.Char ('Interpretation')
-    
+    interpretation = fields.Char ('Interpretation', required=True)
+    ecg_strip = fields.Binary ('ECG Strip')
+
+    # Default ECG date
+    @staticmethod
+    def default_evaluation_date():
+        return datetime.now()
+
 class PatientRounding(ModelSQL, ModelView):
     # Nursing Rounding for ICU
     # Inherit and append to the existing model the new functionality for ICU
