@@ -522,7 +522,7 @@ class ECG(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
 
-    ecg_date = fields.DateTime ('Date')
+    ecg_date = fields.DateTime ('Date', required = True)
     lead = fields.Selection([
         ('i','I'),
         ('ii','II'),
@@ -538,7 +538,7 @@ class ECG(ModelSQL, ModelView):
         ('v6','V6')],
         'Lead', sort=False)
         
-    rate = fields.Integer ('Rate')
+    rate = fields.Integer ('Rate', required=True)
     pr = fields.Integer ('PR')
     qrs = fields.Integer ('QRS')
     qt = fields.Integer ('QT')
@@ -551,6 +551,14 @@ class ECG(ModelSQL, ModelView):
     @staticmethod
     def default_evaluation_date():
         return datetime.now()
+    
+
+    # Return the ECG Interpretation with main components
+    def get_rec_name(self, name):
+        if self.name:
+            res = str(self.interpretation) + 'Rate ' + str(self.rate) 
+        return res
+
 
 class PatientRounding(ModelSQL, ModelView):
     # Nursing Rounding for ICU
@@ -562,7 +570,7 @@ class PatientRounding(ModelSQL, ModelView):
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
     'an Intensive Care Unit rounding.')
     # Neurological assesment
-    gsc = fields.Many2One ('gnuhealth.icu.glasgow','GSC',domain = [('name', '=', Eval('name'))])
+    gcs = fields.Many2One ('gnuhealth.icu.glasgow','GCS',domain = [('name', '=', Eval('name'))])
 
     pupil_dilation = fields.Selection([
         ('normal', 'Normal'),
@@ -634,6 +642,9 @@ class PatientRounding(ModelSQL, ModelView):
     # Chest X-Ray
     xray = fields.Binary('Xray')
 
+    # Cardiologic and Circulatory assessment
+    
+    ecg = fields.Many2One ('gnuhealth.icu.ecg','ECG',domain = [('name', '=', Eval('name'))])
     
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):

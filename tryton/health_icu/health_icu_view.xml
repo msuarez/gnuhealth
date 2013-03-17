@@ -412,6 +412,7 @@
                     <field name="ecg_date"/>
                     <field name="name"/>
                     <field name="lead"/>
+                    <field name="rate"/>
                     <field name="pr"/>
                     <field name="qrs"/>
                     <field name="qt"/>
@@ -423,6 +424,28 @@
             </field>
         </record>
                 
+
+        <record model="ir.action.act_window" id="action_gnuhealth_icu_ecg_form">
+            <field name="name">ECG</field>
+            <field name="res_model">gnuhealth.icu.ecg</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_ecg_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_icu_ecg_tree"/>
+            <field name="act_window" ref="action_gnuhealth_icu_ecg_form"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_ecg_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_icu_ecg_form"/>
+            <field name="act_window" ref="action_gnuhealth_icu_ecg_form"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_icu_ecg_form"
+            id="menu_gnuhealth_icu_ecg_list" icon="gnuhealth-list"
+            parent="gnuhealth_icu_menu"/>
+					
 
 <!-- Shortcut to the ECG from the Inpatient ICU section -->
         <record model="ir.action.act_window" id="act_ecg_form1">
@@ -476,8 +499,8 @@
 
                         <page id='rounding_icu' string='ICU'>
 							<group id="group_rounding_icu_neurologic" colspan="4" col="8" string="Neurologic">
-								<label name="gsc"/>
-								<field name="gsc"/>
+								<label name="gcs"/>
+								<field name="gcs"/>
 								<newline/>
 								<label name="pupil_dilation"/>
 								<field name="pupil_dilation"/>
@@ -534,10 +557,17 @@
                                         height="200" width="200" widget="image"/>
                                 </group>
 
-							</group>
+                                <newline/>    
+                                <field name="chest_drainages" colspan="4"/>
+                                <newline/>    
 
-                            <newline/>    
-                            <field name="chest_drainages" colspan="4"/>
+							</group>
+                            
+							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiologic and Circulatory">
+                                <label name="ecg"/>
+                                <field name="ecg"/>
+                            </group>
+
 
  
                         </page>
