@@ -21,16 +21,16 @@
 from datetime import datetime
 from trytond.model import Workflow, ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, Button, StateTransition
-from trytond.pyson import Eval, Not, Bool
+from trytond.pyson import If, Or, Eval, Not, Bool
 from trytond.exceptions import UserError
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 
 __all__ = ['Medicament', 'Party', 'Lot', 'ShipmentOut', 'Move',
-    'PatientAmbulatoryCare', 'PatientAmbulatoryCareLineMedicament',
-    'PatientAmbulatoryCareLineSupply', 'PatientAmbulatoryCareLineVaccine',
-    'PatientRounding', 'PatientRoundingLineMedicament',
-    'PatientRoundingLineSupply', 'PatientRoundingLineVaccine',
+    'PatientAmbulatoryCare', 'PatientAmbulatoryCareMedicament',
+    'PatientAmbulatoryCareMedicalSupply', 'PatientAmbulatoryCareVaccine',
+    'PatientRounding', 'PatientRoundingMedicament',
+    'PatientRoundingMedicalSupply', 'PatientRoundingVaccine',
     'CreatePrescriptionShipmentInit', 'CreatePrescriptionShipment']
 __metaclass__ = PoolMeta
 
@@ -124,17 +124,19 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
 
     care_location = fields.Many2One('stock.location', 'Care Location',
         states={
-            'required': True,
+            'required': If(Or(Bool(Eval('medicaments')),
+                Bool(Eval('medical_supplies')),
+                Bool(Eval('vaccines'))), True, False),
             'readonly': Eval('state') == 'done',
-        }, depends=_DEPENDS)
-    medication_line = fields.One2Many(
-        'gnuhealth.patient.ambulatory_care.line.medicament', 'name',
-        'Medication', states=_STATES, depends=_DEPENDS)
-    medical_supply_line = fields.One2Many(
-        'gnuhealth.patient.ambulatory_care.line.supply', 'name',
+        }, depends=['state', 'medicaments'])
+    medicaments = fields.One2Many(
+        'gnuhealth.patient.ambulatory_care.medicament', 'name',
+        'Medicaments', states=_STATES, depends=_DEPENDS)
+    medical_supplies = fields.One2Many(
+        'gnuhealth.patient.ambulatory_care.medical_supply', 'name',
         'Medical Supplies', states=_STATES, depends=_DEPENDS)
-    vaccine_line = fields.One2Many(
-        'gnuhealth.patient.ambulatory_care.line.vaccine', 'name', 'Vaccines',
+    vaccines = fields.One2Many(
+        'gnuhealth.patient.ambulatory_care.vaccine', 'name', 'Vaccines',
         states=_STATES, depends=_DEPENDS)
     moves = fields.One2Many('stock.move', 'ambulatory_care', 'Stock Moves',
         readonly=True)
@@ -173,21 +175,20 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
 
         for ambulatory in ambulatory_cares:
             patient = Patient(ambulatory.patient.id)
-            for medicament in ambulatory.medication_line:
+            for medicament in ambulatory.medicaments:
                 medicaments_to_ship.append(medicament)
 
-            for medical_supply in ambulatory.medical_supply_line:
+            for medical_supply in ambulatory.medical_supplies:
                 supplies_to_ship.append(medical_supply)
 
-            for vaccine in ambulatory.vaccine_line:
+            for vaccine in ambulatory.vaccines:
+                lot_number = ''
+                expiration_date = ''
                 if vaccine.lot:
                     if vaccine.lot.number:
                         lot_number = vaccine.lot.number
                     if vaccine.lot.expiration_date:
                         expiration_date = vaccine.lot.expiration_date
-                else:
-                    lot_number = ''
-                    expiration_date = ''
                 vaccination_data = {
                     'name': patient.id,
                     'vaccine': vaccine.vaccine.id,
@@ -282,9 +283,9 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
         return True
 
 
-class PatientAmbulatoryCareLineMedicament(ModelSQL, ModelView):
-    'Patient Ambulatory Care Line'
-    __name__ = 'gnuhealth.patient.ambulatory_care.line.medicament'
+class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
+    'Patient Ambulatory Care Medicament'
+    __name__ = 'gnuhealth.patient.ambulatory_care.medicament'
 
     name = fields.Many2One('gnuhealth.patient.ambulatory_care',
         'Ambulatory ID')
@@ -310,9 +311,9 @@ class PatientAmbulatoryCareLineMedicament(ModelSQL, ModelView):
         return res
 
 
-class PatientAmbulatoryCareLineSupply(ModelSQL, ModelView):
-    'Patient Ambulatory Care Line Medical Supply'
-    __name__ = 'gnuhealth.patient.ambulatory_care.line.supply'
+class PatientAmbulatoryCareMedicalSupply(ModelSQL, ModelView):
+    'Patient Ambulatory Care Medical Supply'
+    __name__ = 'gnuhealth.patient.ambulatory_care.medical_supply'
 
     name = fields.Many2One('gnuhealth.patient.ambulatory_care',
         'Ambulatory ID')
@@ -331,9 +332,9 @@ class PatientAmbulatoryCareLineSupply(ModelSQL, ModelView):
         return 1
 
 
-class PatientAmbulatoryCareLineVaccine(ModelSQL, ModelView):
-    'Patient Ambulatory Care Line Vaccine'
-    __name__ = 'gnuhealth.patient.ambulatory_care.line.vaccine'
+class PatientAmbulatoryCareVaccine(ModelSQL, ModelView):
+    'Patient Ambulatory Care Vaccine'
+    __name__ = 'gnuhealth.patient.ambulatory_care.vaccine'
 
     name = fields.Many2One('gnuhealth.patient.ambulatory_care',
         'Ambulatory ID')
@@ -341,7 +342,7 @@ class PatientAmbulatoryCareLineVaccine(ModelSQL, ModelView):
         domain=[('is_vaccine', '=', True)])
     quantity = fields.Integer('Quantity')
     dose = fields.Integer('Dose')
-    next_dose_date = fields.DateTime('Next Dose', required=True)
+    next_dose_date = fields.DateTime('Next Dose')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
     lot = fields.Many2One('stock.lot', 'Lot',
@@ -358,20 +359,22 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     'Patient Ambulatory Care'
     __name__ = 'gnuhealth.patient.rounding'
 
-    hospitalization_warehouse = fields.Many2One('stock.location',
-        'Hospitalization Warehouse',
+    hospitalization_location = fields.Many2One('stock.location',
+        'Hospitalization Location',
         states={
-            'required': True,
+            'required': If(Or(Bool(Eval('medicaments')),
+                Bool(Eval('medical_supplies')),
+                Bool(Eval('vaccines'))), True, False),
             'readonly': Eval('state') == 'done',
         }, depends=_DEPENDS)
-    medication_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.medicament', 'name', 'Medication',
+    medicaments = fields.One2Many(
+        'gnuhealth.patient.rounding.medicament', 'name', 'Medicaments',
         states=_STATES, depends=_DEPENDS)
-    medical_supply_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.supply', 'name', 'Medical Supplies',
+    medical_supplies = fields.One2Many(
+        'gnuhealth.patient.rounding.medical_supply', 'name', 'Medical Supplies',
         states=_STATES, depends=_DEPENDS)
-    vaccine_line = fields.One2Many(
-        'gnuhealth.patient.rounding.line.vaccine', 'name', 'Vaccines',
+    vaccines = fields.One2Many(
+        'gnuhealth.patient.rounding.vaccine', 'name', 'Vaccines',
         states=_STATES, depends=_DEPENDS,)
     moves = fields.One2Many('stock.move', 'rounding', 'Stock Moves',
         readonly=True)
@@ -399,20 +402,46 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     @ModelView.button
     @Workflow.transition('done')
     def done(cls, roundings):
+        pool = Pool()
+        Patient = pool.get('gnuhealth.patient')
+        Vaccination = pool.get('gnuhealth.vaccination')
+
         lines_to_ship = {}
         medicaments_to_ship = []
         supplies_to_ship = []
         vaccines_to_ship = []
 
         for rounding in roundings:
-            for medicament in rounding.medication_line:
+            patient = Patient(rounding.name.patient.id)
+
+            for medicament in rounding.medicaments:
                 medicaments_to_ship.append(medicament)
 
-            for medical_supply in rounding.medical_supply_line:
+            for medical_supply in rounding.medical_supplies:
                 supplies_to_ship.append(medical_supply)
 
-            for vaccine in rounding.vaccine_line:
+            for vaccine in rounding.vaccines:
+                lot_number = ''
+                expiration_date = ''
+                if vaccine.lot:
+                    if vaccine.lot.number:
+                        lot_number = vaccine.lot.number
+                    if vaccine.lot.expiration_date:
+                        expiration_date = vaccine.lot.expiration_date
+                vaccination_data = {
+                    'name': patient.id,
+                    'vaccine': vaccine.vaccine.id,
+                    'vaccine_lot': lot_number,
+                    'institution': Transaction().context.get('company')
+                        or None,
+                    'date': datetime.now(),
+                    'dose': vaccine.dose,
+                    'next_dose_date': vaccine.next_dose_date,
+                    'vaccine_expiration_date': expiration_date
+                    }
+                Vaccination.create(vaccination_data)
                 vaccines_to_ship.append(vaccine)
+
 
         lines_to_ship['medicaments'] = medicaments_to_ship
         lines_to_ship['supplies'] = supplies_to_ship
@@ -432,7 +461,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                 move_info['uom'] = medicament.medicament.name.default_uom.id
                 move_info['quantity'] = medicament.quantity
                 move_info['from_location'] = \
-                    rounding.hospitalization_warehouse.id
+                    rounding.hospitalization_location.id
                 move_info['to_location'] = \
                 rounding.name.patient.name.customer_location.id
                 move_info['unit_price'] = 1
@@ -453,7 +482,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                     move_info['uom'] = medical_supply.product.default_uom.id
                     move_info['quantity'] = medical_supply.quantity
                     move_info['from_location'] = \
-                        rounding.hospitalization_warehouse.id
+                        rounding.hospitalization_location.id
                     move_info['to_location'] = \
                     rounding.name.patient.name.customer_location.id
                     move_info['unit_price'] = 1
@@ -474,7 +503,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                 move_info['uom'] = vaccine.vaccine.default_uom.id
                 move_info['quantity'] = vaccine.quantity
                 move_info['from_location'] = \
-                    rounding.hospitalization_warehouse.id
+                    rounding.hospitalization_location.id
                 move_info['to_location'] = \
                 rounding.name.patient.name.customer_location.id
                 move_info['unit_price'] = 1
@@ -493,9 +522,9 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
         return True
 
 
-class PatientRoundingLineMedicament(ModelSQL, ModelView):
-    'Patient Rounding Line Medicament'
-    __name__ = 'gnuhealth.patient.rounding.line.medicament'
+class PatientRoundingMedicament(ModelSQL, ModelView):
+    'Patient Rounding Medicament'
+    __name__ = 'gnuhealth.patient.rounding.medicament'
 
     name = fields.Many2One('gnuhealth.patient.rounding', 'Ambulatory ID')
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
@@ -520,9 +549,9 @@ class PatientRoundingLineMedicament(ModelSQL, ModelView):
         return res
 
 
-class PatientRoundingLineSupply(ModelSQL, ModelView):
-    'Patient Rounding Line Medical Supply'
-    __name__ = 'gnuhealth.patient.rounding.line.supply'
+class PatientRoundingMedicalSupply(ModelSQL, ModelView):
+    'Patient Rounding Medical Supply'
+    __name__ = 'gnuhealth.patient.rounding.medical_supply'
 
     name = fields.Many2One('gnuhealth.patient.rounding', 'Ambulatory ID')
     product = fields.Many2One('product.product', 'Medical Supply',
@@ -540,14 +569,16 @@ class PatientRoundingLineSupply(ModelSQL, ModelView):
         return 1
 
 
-class PatientRoundingLineVaccine(ModelSQL, ModelView):
-    'Patient Ambulatory Care Line Vaccine'
-    __name__ = 'gnuhealth.patient.rounding.line.vaccine'
+class PatientRoundingVaccine(ModelSQL, ModelView):
+    'Patient Ambulatory Care Vaccine'
+    __name__ = 'gnuhealth.patient.rounding.vaccine'
 
     name = fields.Many2One('gnuhealth.patient.rounding', 'Rounding ID')
     vaccine = fields.Many2One('product.product', 'Name', required=True,
         domain=[('is_vaccine', '=', True)])
     quantity = fields.Integer('Quantity')
+    dose = fields.Integer('Dose')
+    next_dose_date = fields.DateTime('Next Dose')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
     lot = fields.Many2One('stock.lot', 'Lot',

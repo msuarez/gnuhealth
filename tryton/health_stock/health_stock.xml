@@ -66,12 +66,12 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medication_tree">
-           <field name="model">gnuhealth.patient.ambulatory_care.line.medicament</field>
+        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medicament_tree">
+           <field name="model">gnuhealth.patient.ambulatory_care.medicament</field>
            <field name="type">tree</field>
            <field name="arch" type="xml">
                <![CDATA[
-                   <tree string="Medication">
+                   <tree string="Medicament">
                        <field name="medicament"/>
                        <field name="quantity"/>
                        <field name="lot"/>
@@ -80,12 +80,12 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medication_form">
-           <field name="model">gnuhealth.patient.ambulatory_care.line.medicament</field>
+        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medicament_form">
+           <field name="model">gnuhealth.patient.ambulatory_care.medicament</field>
            <field name="type">form</field>
            <field name="arch" type="xml">
                <![CDATA[
-                   <form string="Medication">
+                   <form string="Medicament">
                        <label name="medicament"/>
                        <field name="medicament"/>
                        <label name="quantity"/>
@@ -100,8 +100,8 @@
                ]]>
            </field>
         </record>
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medical_supply_tree">
-            <field name="model">gnuhealth.patient.ambulatory_care.line.supply</field>
+        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medical_supplies_tree">
+            <field name="model">gnuhealth.patient.ambulatory_care.medical_supply</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
@@ -115,7 +115,7 @@
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_tree">
-            <field name="model">gnuhealth.patient.ambulatory_care.line.vaccine</field>
+            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
@@ -130,11 +130,11 @@
             </field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_form">
-            <field name="model">gnuhealth.patient.ambulatory_care.line.vaccine</field>
+            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                    <form string="vaccines">
+                    <form string="Vaccines">
                         <label name="vaccine"/>
                         <field name="vaccine"/>
                         <label name="quantity"/>
@@ -173,12 +173,12 @@
                         <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_other_information&quot;]" position="after">
                             <page string="Medication" id="medication">
                                 <label name="care_location"/>
-                                <field name="care_location" colspan="4"/>
-                                <field name="medication_line" colspan="4"
-                                    view_ids="health_stock.gnuhealth_ambulatory_care_medication_tree"/>
-                                <field name="medical_supply_line" colspan="4"
-                                    view_ids="health_stock.gnuhealth_ambulatory_care_medical_supply_tree"/>
-                                <field name="vaccine_line" colspan="4"
+                                <field name="care_location"/>
+                                <field name="medicaments" colspan="4"
+                                    view_ids="health_stock.gnuhealth_ambulatory_care_medicament_tree"/>
+                                <field name="medical_supplies" colspan="4"
+                                    view_ids="health_stock.gnuhealth_ambulatory_care_medical_supplies_tree"/>
+                                <field name="vaccines" colspan="4"
                                     view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
                             </page>
                             <page string="Stock Moves" id="Stock Moves">
@@ -202,12 +202,12 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_rounding_line_medication_tree">
-            <field name="model">gnuhealth.patient.rounding.line.medicament</field>
+        <record model="ir.ui.view" id="gnuhealth_rounding_medicament_tree">
+            <field name="model">gnuhealth.patient.rounding.medicament</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                    <tree string="Medication">
+                    <tree string="Medicament">
                         <field name="medicament"/>
                         <field name="quantity"/>
                         <field name="lot"/>
@@ -216,13 +216,12 @@
                 ]]>
             </field>
         </record>
-
-        <record model="ir.ui.view" id="gnuhealth_rounding_line_medication_form">
-            <field name="model">gnuhealth.patient.rounding.line.medicament</field>
+        <record model="ir.ui.view" id="gnuhealth_rounding_medicament_form">
+            <field name="model">gnuhealth.patient.rounding.medicament</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                    <form string="Medication">
+                    <form string="Medicament">
                         <label name="medicament"/>
                         <field name="medicament"/>
                         <label name="quantity"/>
@@ -237,8 +236,9 @@
                 ]]>
             </field>
         </record>
-        <record model="ir.ui.view" id="gnuhealth_rounding_line_medical_supply_tree">
-            <field name="model">gnuhealth.patient.rounding.line.supply</field>
+
+        <record model="ir.ui.view" id="gnuhealth_rounding_medical_supply_tree">
+            <field name="model">gnuhealth.patient.rounding.medical_supply</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
@@ -251,8 +251,8 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_rounding_line_vaccine_tree">
-            <field name="model">gnuhealth.patient.rounding.line.vaccine</field>
+        <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_tree">
+            <field name="model">gnuhealth.patient.rounding.vaccine</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
@@ -260,7 +260,29 @@
                         <field name="vaccine"/>
                         <field name="quantity"/>
                         <field name="lot"/>
+                        <field name="dose"/>
+                        <field name="next_dose_date"/>
                     </tree>
+                ]]>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_form">
+            <field name="model">gnuhealth.patient.rounding.vaccine</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Vaccines">
+                        <label name="vaccine"/>
+                        <field name="vaccine"/>
+                        <label name="quantity"/>
+                        <field name="quantity"/>
+                        <label name="lot"/>
+                        <field name="lot"/>
+                        <label name="dose"/>
+                        <field name="dose"/>
+                        <label name="next_dose_date"/>
+                        <field name="next_dose_date"/>
+                    </form>
                 ]]>
             </field>
         </record>
@@ -288,14 +310,14 @@
                         <xpath expr="/form/notebook/page[@id=&quot;rounding_procedures&quot;]"
                             position="after">
                             <page string="Medication" id="medication">
-                                <label name="hospitalization_warehouse"/>
-                                <field name="hospitalization_warehouse" colspan="4"/>
-                                <field name="medication_line" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_line_medication_tree" />
-                                <field name="medical_supply_line" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_line_medical_supply_tree" />
-                                <field name="vaccine_line" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_line_vaccine_tree" />
+                                <label name="hospitalization_location"/>
+                                <field name="hospitalization_location"/>
+                                <field name="medicaments" colspan="4"
+                                    view_ids="health_stock.gnuhealth_rounding_medicament_tree" />
+                                <field name="medical_supplies" colspan="4"
+                                    view_ids="health_stock.gnuhealth_rounding_medical_supply_tree" />
+                                <field name="vaccines" colspan="4"
+                                    view_ids="health_stock.gnuhealth_rounding_vaccine_tree" />
                             </page>
                             <page string="Stock Moves" id="Stock Moves">
                                 <field name="moves" colspan="4" />
