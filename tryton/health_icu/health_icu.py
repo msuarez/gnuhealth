@@ -41,8 +41,8 @@ class InpatientRegistration(ModelSQL, ModelView):
 class InpatientIcu(ModelSQL, ModelView):
     'Patient ICU Information'
     __name__ = 'gnuhealth.inpatient.icu'
-    
-    
+
+
     def icu_duration(self, name):
 
         now = datetime.now()
@@ -58,13 +58,13 @@ class InpatientIcu(ModelSQL, ModelView):
                 + str(delta.days) + 'd'
         return years_months_days
 
-    
+
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
-    
+
     admitted = fields.Boolean('Admitted',help="Will be set when the patient \
      is currently admitted at ICU", on_change_with=['discharged_from_icu'],)
-    
+
     icu_admission_date = fields.DateTime('ICU Admission', help="ICU Admission Date",required=True)
     discharged_from_icu = fields.Boolean('Discharged')
     icu_discharge_date = fields.DateTime('Discharge', states={
@@ -175,7 +175,7 @@ class Glasgow(ModelSQL, ModelView):
     def get_rec_name(self, name):
         if self.name:
             res = str(self.glasgow) + ': ' + 'E' + self.glasgow_eyes + ' V' + \
-                self.glasgow_verbal + ' M' + self.glasgow_motor 
+                self.glasgow_verbal + ' M' + self.glasgow_motor
         return res
 
 
@@ -183,7 +183,7 @@ class Glasgow(ModelSQL, ModelView):
 class ApacheII(ModelSQL, ModelView):
     'Apache II scoring'
     __name__ = 'gnuhealth.icu.apache2'
-    
+
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
     score_date = fields.DateTime('Date', help="Date of the score",required=True)
@@ -218,14 +218,14 @@ class ApacheII(ModelSQL, ModelView):
             'invisible': Not(Bool(Eval('chronic_condition'))),
             'required': Bool(Eval('chronic_condition'))}, sort=False)
 
-    apache_score = fields.Integer ('Score', on_change_with = 
+    apache_score = fields.Integer ('Score', on_change_with =
         ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
         'fio2','pao2','aado2','ph','serum_sodium','serum_potassium',
         'serum_creatinine','arf','wbc','hematocrit','gcs','chronic_condition',
         'hospital_admission_type'])
-    
 
-    #Default FiO2 PaO2 and PaCO2 so we do the A-a gradient 
+
+    #Default FiO2 PaO2 and PaCO2 so we do the A-a gradient
     #calculation with non-null values
 
 
@@ -234,12 +234,12 @@ class ApacheII(ModelSQL, ModelView):
     # based on FiO2, PaCO2 and PaO2 values
         if ( self.fio2 and self.paco2 and self.pao2 ):
             return (713 * self.fio2) - (self.paco2 / 0.8) - self.pao2
-     
+
     def on_change_with_apache_score(self):
-    # Calculate the APACHE SCORE from the variables in the    
-        
+    # Calculate the APACHE SCORE from the variables in the
+
         total = 0
-        # Age 
+        # Age
         if (self.age):
             if (self.age > 44 and self.age < 55):
                 total = total + 2
@@ -250,7 +250,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.age > 74):
                 total = total + 6
 
-        # Temperature 
+        # Temperature
         if (self.temperature):
             if ((self.temperature >= 38.5 and self.temperature < 39) or
                 (self.temperature >= 34 and self.temperature < 36)):
@@ -263,7 +263,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.temperature >= 41 or self.temperature < 30):
                 total = total + 4
 
-        # Mean Arterial Pressure (MAP) 
+        # Mean Arterial Pressure (MAP)
         if (self.mean_ap):
             if ((self.mean_ap >= 110 and self.mean_ap < 130) or
                 (self.mean_ap >= 50 and self.mean_ap < 70)):
@@ -273,7 +273,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.mean_ap >= 160 or self.mean_ap < 50):
                 total = total + 4
 
-        # Heart Rate 
+        # Heart Rate
         if (self.heart_rate):
             if ((self.heart_rate >= 55 and self.heart_rate < 70) or
                 (self.heart_rate >= 110 and self.heart_rate < 140)):
@@ -284,7 +284,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.heart_rate >= 180 or self.heart_rate < 40):
                 total = total + 4
 
-        # Respiratory Rate 
+        # Respiratory Rate
         if (self.respiratory_rate):
             if ((self.respiratory_rate >= 10 and self.respiratory_rate < 12) or
                 (self.respiratory_rate >= 25 and self.respiratory_rate < 35)):
@@ -296,11 +296,11 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.respiratory_rate >= 50 or self.respiratory_rate < 6):
                 total = total + 4
 
-        # FIO2 
+        # FIO2
         if (self.fio2):
             # If Fi02 is greater than 0.5, we measure the AaDO2 gradient
-            # Otherwise, we take into account the Pa02 value 
- 
+            # Otherwise, we take into account the Pa02 value
+
             if (self.fio2 >= 0.5):
                 if (self.aado2 >= 200 and self.aado2 < 350):
                     total = total + 2
@@ -310,19 +310,19 @@ class ApacheII(ModelSQL, ModelView):
 
                 elif (self.aado2 >= 500):
                     total = total + 4
-            
+
             else:
                 if (self.pao2 >= 61 and self.pao2 < 71):
                     total = total + 1
-                
+
                 elif (self.pao2 >= 55 and self.pao2 < 61):
                     total = total + 3
 
                 elif (self.pao2 < 55):
                     total = total + 4
-                
 
-        # Arterial pH 
+
+        # Arterial pH
         if (self.ph):
             if (self.ph >= 7.5 and self.ph < 7.6):
                     total = total + 1
@@ -334,7 +334,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.ph >= 7.7 or self.ph < 7.15):
                 total = total + 4
 
-        # Serum Sodium 
+        # Serum Sodium
         if (self.serum_sodium):
             if (self.serum_sodium >= 150 and self.serum_sodium < 155):
                     total = total + 1
@@ -347,7 +347,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.serum_sodium >= 180 or self.serum_sodium < 111):
                 total = total + 4
 
-        # Serum Potassium 
+        # Serum Potassium
         if (self.serum_potassium):
             if ((self.serum_potassium >= 3 and self.serum_potassium < 3.5) or
                 (self.serum_potassium >= 5.5 and self.serum_potassium < 6)):
@@ -359,7 +359,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.serum_potassium >= 7 or self.serum_potassium < 2.5):
                 total = total + 4
 
-        # Serum Creatinine 
+        # Serum Creatinine
         if (self.serum_creatinine):
             arf_factor=1
             if (self.arf):
@@ -373,7 +373,7 @@ class ApacheII(ModelSQL, ModelView):
             elif (self.serum_creatinine >= 3.5):
                 total = total + 4*arf_factor
 
-        # Hematocrit 
+        # Hematocrit
         if (self.hematocrit):
             if (self.hematocrit >= 46 and self.hematocrit < 50):
                 total = total + 1
@@ -399,7 +399,7 @@ class ApacheII(ModelSQL, ModelView):
                 total = total + 5
             else:
                 total = total + 2
-                
+
         return total
 
 
@@ -413,7 +413,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
         now = datetime.now()
         mv_init = now
         mv_finnish = now
-        
+
         if self.mv_start:
             mv_init = datetime.strptime(str(self.mv_start), '%Y-%m-%d %H:%M:%S')
 
@@ -422,8 +422,8 @@ class MechanicalVentilation(ModelSQL, ModelView):
             delta = relativedelta(mv_finnish, mv_init)
         else:
             delta = relativedelta(now, mv_init)
-        
-        
+
+
         years_months_days = str(delta.years) + 'y ' \
                 + str(delta.months) + 'm ' \
                 + str(delta.days) + 'd'
@@ -437,13 +437,13 @@ class MechanicalVentilation(ModelSQL, ModelView):
         ('nppv', 'Non-Invasive Positive Pressure'),
         ('ett', 'ETT'),
         ('tracheostomy', 'Tracheostomy')],
-        'Type', help="NPPV = Non-Invasive Positive " 
+        'Type', help="NPPV = Non-Invasive Positive "
             "Pressure Ventilation, BiPAP-CPAP \n"
             "ETT - Endotracheal Tube", sort=False)
 
     ett_size = fields.Integer ('ETT Size', states={
             'invisible': Not(Equal(Eval('ventilation'), 'ett'))})
-    
+
 
     tracheostomy_size = fields.Integer ('Tracheostomy size', states={
             'invisible': Not(Equal(Eval('ventilation'), 'tracheostomy'))})
@@ -518,7 +518,7 @@ class ChestDrainageAssessment(ModelSQL, ModelView):
 class ECG(ModelSQL, ModelView):
     'ECG'
     __name__ = 'gnuhealth.icu.ecg'
-    
+
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
 
@@ -544,7 +544,7 @@ class ECG(ModelSQL, ModelView):
         ('right','Right deviation'),
         ('extreme_right','Extreme right deviation')],
         'Axis', sort=False, required=True)
-        
+
     rate = fields.Integer ('Rate', required=True)
 
     rhythm = fields.Selection([
@@ -569,7 +569,7 @@ class ECG(ModelSQL, ModelView):
         'ST Segment', sort=False, required=True)
 
     twave_inversion = fields.Boolean ('T wave inversion')
-    
+
     interpretation = fields.Char ('Interpretation', required=True)
     ecg_strip = fields.Binary ('ECG Strip')
 
@@ -577,12 +577,12 @@ class ECG(ModelSQL, ModelView):
     @staticmethod
     def default_ecg_date():
         return datetime.now()
-    
+
 
     # Return the ECG Interpretation with main components
     def get_rec_name(self, name):
         if self.name:
-            res = str(self.interpretation) + ' // Rate ' + str(self.rate) 
+            res = str(self.interpretation) + ' // Rate ' + str(self.rate)
         return res
 
 
@@ -596,21 +596,22 @@ class PatientRounding(ModelSQL, ModelView):
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
     'an Intensive Care Unit rounding.')
     # Neurological assesment
-    gcs = fields.Many2One ('gnuhealth.icu.glasgow','GCS',domain = [('name', '=', Eval('name'))])
+    gcs = fields.Many2One('gnuhealth.icu.glasgow', 'GCS',
+        domain=[('name', '=', Eval('name'))], depends=['name'],)
 
     pupil_dilation = fields.Selection([
         ('normal', 'Normal'),
         ('miosis', 'Miosis'),
         ('mydriasis', 'Mydriasis')],
         'Pupil Dilation', sort=False)
-    
+
     left_pupil = fields.Integer ('L', help="size in mm of left pupil")
     right_pupil = fields.Integer ('R', help="size in mm of right pupil")
-    
+
     anisocoria = fields.Boolean ('Anisocoria',
-        on_change_with=['left_pupil', 'right_pupil'],) 
- 
-     
+        on_change_with=['left_pupil', 'right_pupil'],)
+
+
     pupillary_reactivity = fields.Selection([
         ('brisk', 'Brisk'),
         ('sluggish', 'Sluggish'),
@@ -618,11 +619,11 @@ class PatientRounding(ModelSQL, ModelView):
         'Pupillary Reactivity', sort=False)
 
     pupil_consensual_resp = fields.Boolean ('Consensual Response',
-        help = "Pupillary Consensual Response") 
+        help = "Pupillary Consensual Response")
 
     # Respiratory assesment
     # Mechanical ventilation information is on the patient ICU general info
-    
+
     respiration_type = fields.Selection([
         ('regular', 'Regular'),
         ('deep', 'Deep'),
@@ -635,13 +636,13 @@ class PatientRounding(ModelSQL, ModelView):
     fio2 = fields.Integer ('FiO2')
 
     peep = fields.Boolean ('PEEP')
-    
+
     peep_pressure = fields.Integer ('cm H2O', help="Pressure", states={
             'invisible': Not(Bool(Eval('peep'))),
             'required': Bool(Eval('peep')),
             },
         depends=['peep'])
-    
+
     sce = fields.Boolean ('SCE', help="Subcutaneous Emphysema")
     lips_lesion = fields.Boolean ('Lips lesion')
     oral_mucosa_lesion = fields.Boolean ('Oral mucosa lesion')
@@ -669,15 +670,16 @@ class PatientRounding(ModelSQL, ModelView):
     xray = fields.Binary('Xray')
 
     # Cardiovascular assessment
-    
-    ecg = fields.Many2One ('gnuhealth.icu.ecg','ECG',domain = [('name', '=', Eval('name'))])
-    
+
+    ecg = fields.Many2One('gnuhealth.icu.ecg', 'ECG',
+        domain=[('name', '=', Eval('name'))], depends=['name'],)
+
     venous_access =  fields.Selection([
         ('none', 'None'),
         ('central', 'Central catheter'),
         ('peripheral', 'Peripheral')],
         'Venous Access', sort=False)
-    
+
     swan_ganz = fields.Boolean('Swan Ganz', help="Pulmonary Artery Catheterization - PAC -")
 
     arterial_access = fields.Boolean('Arterial Access')
@@ -689,16 +691,16 @@ class PatientRounding(ModelSQL, ModelView):
         ('peripheral', 'Peripheral'),
         ('anasarca', 'Anasarca')],
         'Edema', sort=False)
-    
+
     # Blood & Skin
     bacteremia = fields.Boolean('Bacteremia')
     ssi = fields.Boolean('Surgery Site Infection')
     wound_dehiscence = fields.Boolean('Wound Dehiscence')
     cellulitis = fields.Boolean('Cellulitis')
     necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis')
-    
+
     # Abdomen & Digestive
-    
+
     vomiting = fields.Selection([
         ('none', 'None'),
         ('vomiting', 'Vomiting'),
@@ -720,7 +722,7 @@ class PatientRounding(ModelSQL, ModelView):
         'Stools', sort=False)
 
     peritonitis = fields.Boolean('Peritonitis signs')
-    
+
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False
