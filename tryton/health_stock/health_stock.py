@@ -295,7 +295,7 @@ class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['product'],
         domain=[('product', '=', Eval('product'))])
 
     @staticmethod
@@ -322,7 +322,7 @@ class PatientAmbulatoryCareMedicalSupply(ModelSQL, ModelView):
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['product'],
         domain=[
             ('product', '=', Eval('product')),
             ])
@@ -345,7 +345,7 @@ class PatientAmbulatoryCareVaccine(ModelSQL, ModelView):
     next_dose_date = fields.DateTime('Next Dose')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['vaccine'],
         domain=[
             ('product', '=', Eval('vaccine')),
             ])
@@ -533,7 +533,7 @@ class PatientRoundingMedicament(ModelSQL, ModelView):
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['product'],
         domain=[('product', '=', Eval('product'))])
 
     @staticmethod
@@ -559,7 +559,7 @@ class PatientRoundingMedicalSupply(ModelSQL, ModelView):
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['product'],
         domain=[
             ('product', '=', Eval('product')),
             ])
@@ -581,7 +581,7 @@ class PatientRoundingVaccine(ModelSQL, ModelView):
     next_dose_date = fields.DateTime('Next Dose')
     short_comment = fields.Char('Comment',
         help='Short comment on the specific drug')
-    lot = fields.Many2One('stock.lot', 'Lot',
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['vaccine'],
         domain=[
             ('product', '=', Eval('vaccine')),
             ])
