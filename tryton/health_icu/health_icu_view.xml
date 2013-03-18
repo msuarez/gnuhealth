@@ -576,7 +576,7 @@
 							</group>
                             <field name="chest_drainages" colspan="4"/>
                             <newline/>
-							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiologic and Circulatory System">
+							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiovascular">
                                 <group id="icu_cardio_ecg" colspan="4" col="4">
                                     <label name="ecg"/>
                                     <field name="ecg" colspan="3"/>
@@ -608,6 +608,17 @@
                                 <field name="cellulitis"/>
                                 <label name="necrotizing_fasciitis"/>
                                 <field name="necrotizing_fasciitis"/>
+                            </group>
+
+                            <group id="digestive" string="Digestive and Abdomen" colspan="4" col="10">
+                                <label name="vomiting"/>
+                                <field name="vomiting"/>
+                                <label name="bowel_sounds"/>
+                                <label name="bowel_sounds"/>
+                                <label name="stools"/>
+                                <field name="stools"/>
+                                <label name="peritonitis"/>
+                                <field name="peritonitis"/>
                             </group>
  
                         </page>

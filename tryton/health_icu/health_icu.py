@@ -668,7 +668,7 @@ class PatientRounding(ModelSQL, ModelView):
     # Chest X-Ray
     xray = fields.Binary('Xray')
 
-    # Cardiologic and Circulatory assessment
+    # Cardiovascular assessment
     
     ecg = fields.Many2One ('gnuhealth.icu.ecg','ECG',domain = [('name', '=', Eval('name'))])
     
@@ -697,7 +697,30 @@ class PatientRounding(ModelSQL, ModelView):
     cellulitis = fields.Boolean('Cellulitis')
     necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis')
     
+    # Abdomen & Digestive
+    
+    vomiting = fields.Selection([
+        ('none', 'None'),
+        ('vomiting', 'Vomiting'),
+        ('hematemesis', 'Hematemesis')],
+        'Vomiting', sort=False)
 
+    bowel_sounds =  fields.Selection([
+        ('normal', 'normal'),
+        ('increased', 'Increased'),
+        ('decreased', 'Decreased'),
+        ('absent', 'Absent')],
+        'Bowel Sounds', sort=False)
+
+    stools =  fields.Selection([
+        ('normal', 'Normal'),
+        ('constipation', 'Constipation'),
+        ('diarrhea', 'Diarrhea'),
+        ('melena', 'Melena')],
+        'Stools', sort=False)
+
+    peritonitis = fields.Boolean('Peritonitis signs')
+    
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False
