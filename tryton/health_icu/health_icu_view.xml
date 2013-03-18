@@ -576,20 +576,38 @@
 							</group>
                             <field name="chest_drainages" colspan="4"/>
                             <newline/>
-							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiologic and Circulatory">
+							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiologic and Circulatory System">
                                 <group id="icu_cardio_ecg" colspan="4" col="4">
                                     <label name="ecg"/>
                                     <field name="ecg" colspan="3"/>
                                 </group>
                                 <newline/>
-                                <group id="icu_vessel_access" colspan="4" col="6">
+                                <group id="icu_vessel_access" colspan="4" col="10">
                                     <label name="venous_access"/>
                                     <field name="venous_access"/>
                                     <label name="swan_ganz"/>
                                     <field name="swan_ganz"/>
                                     <label name="arterial_access"/>
                                     <field name="arterial_access"/>
+                                    <label name="dialysis"/>
+                                    <field name="dialysis"/>
+                                    <label name="edema"/>
+                                    <field name="edema"/>
                                 </group>
+
+                            </group>
+
+                            <group id="icu_skin" string="Blood and Skin" colspan="4" col="10">
+                                <label name="bacteremia"/>
+                                <field name="bacteremia"/>
+                                <label name="ssi"/>
+                                <field name="ssi"/>
+                                <label name="wound_dehiscence"/>
+                                <field name="wound_dehiscence"/>
+                                <label name="cellulitis"/>
+                                <field name="cellulitis"/>
+                                <label name="necrotizing_fasciitis"/>
+                                <field name="necrotizing_fasciitis"/>
                             </group>
  
                         </page>

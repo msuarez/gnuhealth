@@ -682,7 +682,22 @@ class PatientRounding(ModelSQL, ModelView):
 
     arterial_access = fields.Boolean('Arterial Access')
 
+    dialysis = fields.Boolean('Dialysis')
+
+    edema =  fields.Selection([
+        ('none', 'None'),
+        ('peripheral', 'Peripheral'),
+        ('anasarca', 'Anasarca')],
+        'Edema', sort=False)
     
+    # Blood & Skin
+    bacteremia = fields.Boolean('Bacteremia')
+    ssi = fields.Boolean('Surgery Site Infection')
+    wound_dehiscence = fields.Boolean('Wound Dehiscence')
+    cellulitis = fields.Boolean('Cellulitis')
+    necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis')
+    
+
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False
