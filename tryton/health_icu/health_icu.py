@@ -706,7 +706,7 @@ class PatientRounding(ModelSQL, ModelView):
         'Vomiting', sort=False)
 
     bowel_sounds =  fields.Selection([
-        ('normal', 'normal'),
+        ('normal', 'Normal'),
         ('increased', 'Increased'),
         ('decreased', 'Decreased'),
         ('absent', 'Absent')],
