@@ -1,3 +1,571 @@
+changeset:   717:202ab38bcc31
+tag:         tip
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 23:32:37 2013 -0300
+summary:     health_icu : Update documentation
+
+changeset:   716:d58822caafa7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 17 23:10:19 2013 -0300
+summary:     health_icu : Add missing depends
+
+changeset:   715:ed29843dcfe3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 17 22:52:50 2013 -0300
+summary:     health_stock : Add missing depends
+
+changeset:   714:af1044a68484
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 22:38:57 2013 -0300
+summary:     health_icu : Fix label on digestive assessment
+
+changeset:   713:5d4586a9be78
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 22:35:36 2013 -0300
+summary:     health_icu : Add digestive and abdominal assessment
+
+changeset:   712:4353837821b9
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 17 22:17:01 2013 -0300
+summary:     health_icu : Change module name in setup.py
+
+changeset:   711:d76d4643698d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 21:36:44 2013 -0300
+summary:     health_icu : Add cardiologic, circulatory, blood and skin assessment
+
+changeset:   710:62e91e8b899d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 17 19:59:16 2013 -0300
+summary:     health_stock : Add info to index.rst
+
+changeset:   709:fe4044398a9f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Mar 17 19:47:47 2013 -0300
+summary:     health_stock : Fix fields and model names. Location required if there are moves.
+
+changeset:   708:db084b776de4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 18:52:34 2013 -0300
+summary:     health_icu : Add venous and arterial access lines
+
+changeset:   707:a58cb9731e2b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 13:47:36 2013 -0300
+summary:     health_icu : Improve ECG view
+
+changeset:   706:e9d46ecacd7e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 12:11:01 2013 -0300
+summary:     health_icu : Add axis in ECG
+
+changeset:   705:b6291d4d519b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 17 11:50:28 2013 -0300
+summary:     health_icu : Fix gsc -> gcs ; Include ECG in menu
+
+changeset:   704:5564dcaf4268
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 22:21:25 2013 -0300
+summary:     health_icu : Include date in ECG
+
+changeset:   703:2fef0869987f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 21:39:23 2013 -0300
+summary:     health_icu : Fix PR segment variable in ECG and view
+
+changeset:   702:1a6a12dfd78b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 20:22:20 2013 -0300
+summary:     health_icu : Add ECG assessment
+
+changeset:   701:027a62bd866e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 19:03:34 2013 -0300
+summary:     health_icu : Add chest xray to patient ICU rounding assessment
+
+changeset:   700:1b631116a446
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 17:21:17 2013 -0300
+summary:     health_inpatient : Fix colors in patient hosptialization status
+
+changeset:   699:c1b973422ed3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 16:48:57 2013 -0300
+summary:     health_inpatient : Make the bed number readonly after the initial assignment. The change must be done via wizard
+
+changeset:   698:b8b1bd31750f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 15:52:07 2013 -0300
+summary:     health_inpatient: Add wizard directory and its contents
+
+changeset:   697:d9b91f706610
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Mar 16 15:31:15 2013 -0300
+summary:     health_stock : Add states and depends, state in trees (Ambulatory and Roundings)
+
+changeset:   696:4f5ad1f47283
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Mar 16 15:04:08 2013 -0300
+summary:     health_stock : Add expiration date and quantity to Lots
+
+changeset:   695:4fa7e2ffab5d
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Mar 16 13:32:08 2013 -0300
+summary:     health_stock : Add stock moves on Roundings
+
+changeset:   694:12ab7cebf762
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 16 12:54:53 2013 -0300
+summary:     health_inpatient : Generate the hospitalization bed transfer process
+
+changeset:   693:2704943c0036
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Mar 15 03:07:24 2013 -0300
+summary:     health_stock : Add stock moves on Ambulatory Care
+
+changeset:   692:ef28fdec696e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Mar 15 01:11:27 2013 -0300
+summary:     health : Add field is_medical_supply
+
+changeset:   691:e07abb4d25ba
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Mar 15 00:16:12 2013 -0300
+summary:     health_stock : Add create prescription shipment wizard
+
+changeset:   690:e3fa94148ade
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Mar 14 23:35:29 2013 -0300
+summary:     health : Add copy to prescriptions (put correct id and date duplicating record)
+
+changeset:   689:99eff4bc6665
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Mar 14 19:49:09 2013 -0300
+summary:     health_stock: Initial model
+
+changeset:   688:0e8292219bf8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Mar 13 21:39:12 2013 -0300
+summary:     health_inpatient : Initial bed transfer verification method
+
+changeset:   687:64883fbe8d5c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Mar 13 20:49:19 2013 -0300
+summary:     health_inpatient : Add patient bed/ward transfer history
+
+changeset:   686:659d54928874
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Wed Mar 13 18:29:19 2013 -0300
+summary:     health_nursing: Add diuresis and urinary catheter assessment in roundings
+
+changeset:   685:dc9d7af05d19
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Mar 12 02:03:08 2013 -0300
+summary:     health : Add Appointments Report
+
+changeset:   684:9f06fed9411f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 20:12:55 2013 -0300
+summary:     health_icu : Reset admission flag upon patient discharge from ICU
+
+changeset:   683:c2eee729e8cd
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 19:23:19 2013 -0300
+summary:     health_icu : Check for patient admission at ICU
+
+changeset:   682:3e814605b492
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 18:42:24 2013 -0300
+summary:     health_icu : Remove unused variable
+
+changeset:   681:cdbdaddec866
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 18:41:39 2013 -0300
+summary:     health_icu : Add subcutaneous emphysema
+
+changeset:   680:930a0c8a1568
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 18:07:34 2013 -0300
+summary:     health_icu : Add tracheal alignment
+
+changeset:   679:ba47b1ce7f11
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 10 16:13:24 2013 -0300
+summary:     health_icu : Add chest tube / drainage information
+
+changeset:   678:22d7a408967e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 09 22:35:16 2013 -0300
+summary:     health_icu : Add chest expansion asessment
+
+changeset:   677:ce53b04218c6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 09 22:00:57 2013 -0300
+summary:     health_icu : Add PEEP assesment in ICU roundings
+
+changeset:   676:dd0b7905142b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Mar 09 19:14:30 2013 -0300
+summary:     health_lab : Add wizard to request several lab tests for a patient
+
+changeset:   675:a3810f0876a8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Mar 09 19:10:53 2013 -0300
+summary:     health_lab : Add request field to group test requests. Add urgent field.
+
+changeset:   674:9ebe4c5b5739
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 09 14:35:34 2013 -0300
+summary:     health_icu: require end period if non-current mechanical vent
+
+changeset:   673:45904cca73c5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 09 14:19:43 2013 -0300
+summary:     health_icu: require end period if non-current mechanical ventilation
+
+changeset:   672:84d8cfd3e6f4
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 22:11:01 2013 -0300
+summary:     health_icu : Add remarks for each mechanical ventilation period
+
+changeset:   671:691cdd8e476d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 21:41:55 2013 -0300
+summary:     health_icu : Add remarks for each mechanical ventilation period
+
+changeset:   670:a160d610e432
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 20:21:50 2013 -0300
+summary:     health_icu : Include Mechanical Ventilation history on patient ICU information
+
+changeset:   669:5a1887e7d666
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 18:07:17 2013 -0300
+summary:     health_icu : Fix typos
+
+changeset:   668:49fe6871e9c1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 17:53:18 2013 -0300
+summary:     health_icu : Add tracheostomy and ETT sizes
+
+changeset:   667:d6f52dea8f3c
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 16:55:03 2013 -0300
+summary:     health_icu : Add Oxygen mask and FiO2
+
+changeset:   666:cc31be74cdba
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 16:16:37 2013 -0300
+summary:     health_icu : Fix typo in tracheostomy
+
+changeset:   665:d91d8fce5028
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 16:03:18 2013 -0300
+summary:     health_icu : Automatic detection of anisocoria based on pupils size
+
+changeset:   664:e9c509286456
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 15:47:08 2013 -0300
+summary:     health_icu : Add pupillary reactivity and consensual response
+
+changeset:   663:8221a645ecc8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Mar 03 12:46:37 2013 -0300
+summary:     health_icu : Initial Respiratory assesment .- Ventilation and respiration types
+
+changeset:   662:ad249f9c00ad
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 21:53:38 2013 -0300
+summary:     health_icu : Include initial pupil examination in neurological assesment
+
+changeset:   661:b016d9db9c7e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 18:25:30 2013 -0300
+summary:     health_icu : Include GSC in ICU nursing round
+
+changeset:   660:668c98637269
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 17:21:31 2013 -0300
+summary:     health_icu : Initial Inheritance of nursing rounding to be enhanced with Intensive Care Unit information
+
+changeset:   659:95d3c9237c45
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 14:03:51 2013 -0300
+summary:     health_icu : Include health nursing dependency
+
+changeset:   658:7e23ff5ee064
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 11:20:11 2013 -0300
+summary:     health_icu : Expand fields on tree for Glasgow Coma Scale
+
+changeset:   657:3f677194a4ed
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 11:13:31 2013 -0300
+summary:     health_icu : Improve view
+
+changeset:   656:c14a3a93ce29
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 11:02:10 2013 -0300
+summary:     health_icu : Fix field on glasgow view
+
+changeset:   655:b893dba308d3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 10:37:06 2013 -0300
+summary:     health_icu : Add Glasgow evaluation main view
+
+changeset:   654:f60e787081a7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Mar 02 10:25:18 2013 -0300
+summary:     health_icu : Include Glasgow model
+
+changeset:   653:0d70f0c92d11
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 22:06:24 2013 -0300
+summary:     health_icu : Improve view for APACHE score
+
+changeset:   652:b745cb581530
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 21:31:14 2013 -0300
+summary:     health_icu : Organ Failure and/or Immunocompromised variables for APACHE II score automatic calculation
+
+changeset:   651:5424309e9654
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 21:00:40 2013 -0300
+summary:     health_icu : Include Acute Renal Failure variable for APACHE II score automatic calculation
+
+changeset:   650:321b0ee6377e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 18:22:21 2013 -0300
+summary:     health_icu : Include WBC variable for APACHE II score automatic calculation
+
+changeset:   649:62914e0630cf
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 18:07:42 2013 -0300
+summary:     health_icu : Include hematocrit variable for APACHE II score automatic calculation
+
+changeset:   648:6fb287102bb6
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 17:57:08 2013 -0300
+summary:     health_icu : Include serum creatinine variable for APACHE II score automatic calculation
+
+changeset:   647:b3137764733d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 17:43:15 2013 -0300
+summary:     health_icu : Include serum potassium variable for APACHE II score automatic calculation
+
+changeset:   646:a1136a6551a5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 17:27:42 2013 -0300
+summary:     health_icu : Include serum sodium variable for APACHE II score automatic calculation
+
+changeset:   645:01133fc0e22a
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 17:20:08 2013 -0300
+summary:     health_icu : Include arterial pH variable for APACHE II score automatic calculation
+
+changeset:   644:9e4439325a7d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 16:55:10 2013 -0300
+summary:     health_icu : Include FiO2, A-ADO2, PaCO2 and PaO2 variables for APACHE II score automatic calculation
+
+changeset:   643:9964794dd5f7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 15:36:21 2013 -0300
+summary:     health_icu : Include Respiratory rate variable for APACHE II score automatic calculation
+
+changeset:   642:e3d948bbd1c8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 15:28:51 2013 -0300
+summary:     health_icu : Include Heart rate variable for APACHE II score automatic calculation
+
+changeset:   641:2a787860a71e
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 15:13:07 2013 -0300
+summary:     health_icu : Include Mean Arterial Pressure (MAP) variable for APACHE II score automatic calculation
+
+changeset:   640:7a7c5ae2b0a3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 14:49:21 2013 -0300
+summary:     health_icu : Include temperature variable for APACHE II score automatic calculation
+
+changeset:   639:2b09337c2951
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 14:22:25 2013 -0300
+summary:     health_icu : Include age variable for APACHE II score automatic calculation
+
+changeset:   638:53107db61984
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sun Feb 24 13:32:58 2013 -0300
+summary:     health_icu : Create views and shortcuts for APACHE II scoring
+
+changeset:   637:9d8646f70d18
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 23 20:35:25 2013 -0300
+summary:     health_icu : Initial APACHE II model
+
+changeset:   636:179b6740ef39
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 23 19:12:44 2013 -0300
+summary:     health_icu : Compute length of patient stay at ICU
+
+changeset:   635:9817ee52dba9
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 23 18:41:26 2013 -0300
+summary:     health_icu : Include Patient ICU period
+
+changeset:   634:65095ebaad0f
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 23 17:45:13 2013 -0300
+summary:     health_inpatient : Include patient name in the Hospitalization code
+
+changeset:   633:203346bceeb5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 23 16:27:39 2013 -0300
+summary:     health_icu: Initial model
+
+changeset:   632:a72187d934a7
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Thu Feb 21 20:47:39 2013 -0300
+summary:     health: add concubinage to marital status
+
+changeset:   631:879158504c1d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 14:13:19 2013 -0300
+summary:     remove test package from setup.py in history, icd10, icd10pcs, profile and mdg6 modules
+
+changeset:   630:f979a7c71ca5
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:51:21 2013 -0300
+summary:     health_surgery : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   629:e0227bd76011
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:49:56 2013 -0300
+summary:     health_socioeconomics : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   628:828252e2ff71
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:47:53 2013 -0300
+summary:     health_services : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   627:793c84bc8bb8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:45:36 2013 -0300
+summary:     health_reporting : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   626:47c21b92299d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:41:25 2013 -0300
+summary:     health_profile : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   625:db475432f0ed
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:39:40 2013 -0300
+summary:     health_pediatrics : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   624:102a4127cda1
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:34:21 2013 -0300
+summary:     health_mdg6 : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   623:b045644739d9
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:30:29 2013 -0300
+summary:     health_lifestyle : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   622:7b197bb91acb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:24:39 2013 -0300
+summary:     health_lab : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   621:776036217153
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:19:53 2013 -0300
+summary:     health_inpatient_calendar : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   620:7cab17db23ac
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:17:34 2013 -0300
+summary:     health_icd10 : Update description
+
+changeset:   619:920ac0a2fafa
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:15:33 2013 -0300
+summary:     health_gyneco : Update description
+
+changeset:   618:ec6c9f9f6e96
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:13:44 2013 -0300
+summary:     health_history : Update description
+
+changeset:   617:14ae05825c71
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:12:28 2013 -0300
+summary:     health_icd10pcs : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   616:3cdc0caf14de
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:10:16 2013 -0300
+summary:     health_icd10 : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   615:942830318894
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:08:57 2013 -0300
+summary:     health_hisotry : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   614:0b4d34ebd4f8
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:06:44 2013 -0300
+summary:     health_gyneco : Add document (doc) directory and its contents to setup.py data
+
+changeset:   613:55b6188a45aa
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 13:03:07 2013 -0300
+summary:     health_nursing : Add document directory to setup.py data
+
+changeset:   612:d5ac518ea85d
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 12:58:37 2013 -0300
+summary:     Add document directory to setup.py data
+
+changeset:   611:e4c467f1e4b2
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 12:36:13 2013 -0300
+summary:     health_calendar : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   610:92aa23ce99c3
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 12:26:12 2013 -0300
+summary:     health_inpatient : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   609:bdc2237e01fb
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 12:20:59 2013 -0300
+summary:     health_nursing : Update setup.py to be compatible with Tryton 2.6
+
+changeset:   608:7c871dafc54b
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 12:01:33 2013 -0300
+summary:     Health : Fix setup.py to work with version 1.8 and Tryton 2.6
+
+changeset:   607:f543f197c0ac
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 09:53:28 2013 -0300
+summary:     health: update setup.py to use pip
+
+changeset:   606:f90cef287a64
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Tue Feb 12 09:51:27 2013 -0300
+summary:     Added tag 1.8.0 for changeset b8124c0b7854
+
+changeset:   605:b8124c0b7854
+tag:         1.8.0
+user:        Luis Falcon <lfalcon@gnusolidario.org>
+date:        Sat Feb 09 18:45:48 2013 -0300
+summary:     Update Changelog
+
+
 changeset:   604:88767f9cc16c
 user:        Luis Falcon <lfalcon@gnusolidario.org>
 date:        Sat Feb 09 18:42:35 2013 -0300
