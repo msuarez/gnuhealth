@@ -56,6 +56,7 @@ setup(name='trytond_health_inpatient',
     packages=[
         'trytond.modules.health_inpatient',
         'trytond.modules.health_inpatient.tests',
+        'trytond.modules.health_inpatient.wizard',
         ],
     package_data={
         'trytond.modules.health_inpatient': info.get('xml', []) \
