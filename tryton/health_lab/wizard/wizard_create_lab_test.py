@@ -62,7 +62,8 @@ class CreateLabTestOrder(Wizard):
 
             test_report_data['test'] = lab_test_order.name.id
             test_report_data['patient'] = lab_test_order.patient_id.id
-            test_report_data['requestor'] = lab_test_order.doctor_id.id
+            if lab_test_order.doctor_id:
+                test_report_data['requestor'] = lab_test_order.doctor_id.id
             test_report_data['date_requested'] = lab_test_order.date
 
             for critearea in lab_test_order.name.critearea:
@@ -152,7 +153,8 @@ class RequestPatientLabTest(Wizard):
             lab_test['request'] = request_number
             lab_test['name'] = test.id
             lab_test['patient_id'] = self.start.patient.id
-            lab_test['doctor_id'] = self.start.doctor.id
+            if self.start.doctor:
+                lab_test['doctor_id'] = self.start.doctor.id
             lab_test['date'] = self.start.date
             lab_test['urgent'] = self.start.urgent
             PatientLabTest.create(lab_test)
