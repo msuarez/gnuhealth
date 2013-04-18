@@ -1891,7 +1891,7 @@ class HospitalWard(ModelSQL, ModelView):
     guest_sofa = fields.Boolean('Guest sofa-bed')
     tv = fields.Boolean('Television')
     internet = fields.Boolean('Internet Access')
-    refrigerator = fields.Boolean('Refrigetator')
+    refrigerator = fields.Boolean('Refrigerator')
     microwave = fields.Boolean('Microwave')
     gender = fields.Selection((
         ('men', 'Men Ward'),
