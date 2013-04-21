@@ -266,12 +266,13 @@ class MedicamentCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(MedicamentCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
-        cls._constraints += [
-            ('check_recursion', 'recursive_categories'),
-        ]
-        cls._error_messages.update({
-            'recursive_categories': 'You can not create recursive categories!',
-        })
+
+
+    @classmethod
+    def validate(cls, categories):
+        super(MedicamentCategory, cls).validate(categories)
+        cls.check_recursion(categories, rec_name='name')
+
 
     def get_rec_name(self, name):
         if self.parent:
@@ -364,12 +365,12 @@ class PathologyCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(PathologyCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
-        cls._constraints += [
-            ('check_recursion', 'recursive_categories'),
-        ]
-        cls._error_messages.update({
-            'recursive_categories': 'You can not create recursive categories!',
-        })
+
+    @classmethod
+    def validate(cls, categories):
+        super(PathologyCategory, cls).validate(categories)
+        cls.check_recursion(categories, rec_name='name')
+
 
     def get_rec_name(self, name):
         if self.parent:
