@@ -1209,7 +1209,9 @@ class MedicationTemplate(ModelSQL, ModelView):
 class PatientMedication(ModelSQL, ModelView):
     'Patient Medication'
     __name__ = 'gnuhealth.patient.medication'
-    _inherits = {'gnuhealth.medication.template': 'template'}
+
+# Remove inherits to be compatible with Tryton 2.8
+#    _inherits = {'gnuhealth.medication.template': 'template'}
 
     template = fields.Many2One('gnuhealth.medication.template',
         'Medication Template')
@@ -1471,7 +1473,9 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 class PrescriptionLine(ModelSQL, ModelView):
     'Prescription Line'
     __name__ = 'gnuhealth.prescription.line'
-    _inherits = {'gnuhealth.medication.template': 'template'}
+
+# Remove inherits to be compatible with Tryton 2.8
+#    _inherits = {'gnuhealth.medication.template': 'template'}
 
     template = fields.Many2One('gnuhealth.medication.template',
         'Medication Template')
