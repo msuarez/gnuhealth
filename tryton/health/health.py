@@ -542,6 +542,7 @@ class PartyPatient (ModelSQL, ModelView):
             }
         )
     insurance_company_type = fields.Selection([
+        ('', ''),
         ('state', 'State'),
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
@@ -734,6 +735,7 @@ class PatientData(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Sex', required=True)
     marital_status = fields.Selection([
+        ('', ''),
         ('s', 'Single'),
         ('m', 'Married'),
         ('c', 'Concubinage'),
@@ -742,12 +744,14 @@ class PatientData(ModelSQL, ModelView):
         ('x', 'Separated'),
         ], 'Marital Status', sort=False)
     blood_type = fields.Selection([
+        ('', ''),
         ('A', 'A'),
         ('B', 'B'),
         ('AB', 'AB'),
         ('O', 'O'),
         ], 'Blood Type',sort=False)
     rh = fields.Selection([
+        ('', ''),
         ('+', '+'),
         ('-', '-'),
         ], 'Rh')
@@ -835,17 +839,18 @@ class PatientData(ModelSQL, ModelView):
         return [(cls._rec_name,) + clause[1:]]
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('identification_code'):
-            config = Config(1)
-            values['identification_code'] = Sequence.get_id(
-            config.patient_sequence.id)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('identification_code'):
+                config = Config(1)
+                values['identification_code'] = Sequence.get_id(
+                config.patient_sequence.id)
 
-        return super(PatientData, cls).create(values)
+        return super(PatientData, cls).create(vlist)
 
     def get_rec_name(self, name):
         if self.name.lastname:
@@ -1215,6 +1220,14 @@ class PatientMedication(ModelSQL, ModelView):
 
     template = fields.Many2One('gnuhealth.medication.template',
         'Medication Template')
+    medicament = fields.Function(fields.Many2One('gnuhealth.medicament',
+        'Medicament', required=True, help='Prescribed Medicament'),
+        'get_medicament', setter='set_medicament')
+    indication = fields.Function(fields.Many2One('gnuhealth.pathology',
+        'Indication',
+        help='Choose a disease for this medicament from the disease list. It'
+        ' can be an existing disease of the patient or a prophylactic.'),
+        'get_indication', setter='set_indication')
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Physician',
         help='Physician who prescribed the medicament')
@@ -1236,6 +1249,13 @@ class PatientMedication(ModelSQL, ModelView):
         help='Side effects or adverse reactions that the patient experienced')
     notes = fields.Text('Extra Info')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    start_treatment = fields.Function(fields.DateTime('Start'),
+        'get_start_treatment', setter='set_start_treatment')
+    end_treatment = fields.Function(fields.DateTime('End'),
+        'get_end_treatment', setter='set_end_treatment')
+    form = fields.Function(fields.Many2One('gnuhealth.drug.form', 'Form',
+        help='Drug form, such as tablet or gel'),
+        'get_form')
 
     @classmethod
     def __setup__(cls):
@@ -1283,6 +1303,71 @@ class PatientMedication(ModelSQL, ModelView):
             if (self.end_treatment < self.start_treatment):
                 res = False
         return res
+
+    def get_medicament(self, name):
+        return self.template.medicament.id
+
+    @classmethod
+    def set_medicament(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+        print "value", value
+        print "medications", [m.template for m in medications]
+        MedicationTemplate.write([m.template for m in medications], {
+                'medicament': value,
+                })
+
+    def get_indication(self, name):
+        return self.template.indication.id
+
+    @classmethod
+    def set_indication(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        if value:
+            MedicationTemplate.write([m.template for m in medications], {
+                'indication': value,
+                })
+
+    def get_start_treatment(self, name):
+        return self.template.start_treatment
+
+    @classmethod
+    def set_start_treatment(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        if value:
+            MedicationTemplate.write([m.template for m in medications], {
+                'start_treatment': value,
+                })
+
+    def get_end_treatment(self, name):
+        return self.template.end_treatment
+
+    @classmethod
+    def set_end_treatment(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        if value:
+            MedicationTemplate.write([m.template for m in medications], {
+                'end_treatment': value,
+                })
+
+    def get_form(self, name):
+        return self.template.form
+
+    # TO DO
+    #@classmethod
+    #def set_form(self, medications, name, value):
+        #pool = Pool()
+        #MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        #MedicationTemplate.write([m.template for m in medications], {
+                #'form': value,
+                #})
 
 
 # PATIENT VACCINATION INFORMATION

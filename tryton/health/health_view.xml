@@ -1501,24 +1501,22 @@
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="/form/notebook/page[@id=&quot;general&quot;]"
+                        expr="/form/field[@name=&quot;active&quot;]"
                         position="after">
-                        <page string="Health" id="product_gnuhealth">
-                            <group col="10" colspan="4" id="product_specs">
-                                <label name="is_medicament"/>
-                                <field name="is_medicament"/>
-                                <label name="is_medical_supply"/>
-                                <field name="is_medical_supply"/>
-                                <label name="is_vaccine"/>
-                                <field name="is_vaccine"/>
-                                <label name="is_bed"/>
-                                <field name="is_bed"/>
-                                <label name="is_insurance_plan"/>
-                                <field name="is_insurance_plan"/>
-
-                            </group>
-                        </page>
-                    </xpath>
+                        <separator string="Health" id="health" colspan="6"/>
+                        <group col="10" colspan="4" id="product_specs">
+                            <label name="is_medicament"/>
+                            <field name="is_medicament"/>
+                            <label name="is_medical_supply"/>
+                            <field name="is_medical_supply"/>
+                            <label name="is_vaccine"/>
+                            <field name="is_vaccine"/>
+                            <label name="is_bed"/>
+                            <field name="is_bed"/>
+                            <label name="is_insurance_plan"/>
+                            <field name="is_insurance_plan"/>
+                        </group>
+                </xpath>
                 </data>
                 ]]>
             </field>
@@ -1589,8 +1587,8 @@
 
                         <page string="General Info" id="medication_general_info">
                             <group id="medication_header" string="Medication">
-                                <label name="medicament"/>
-                                <field name="medicament"/>
+                                <label name="template"/>
+                                <field name="template"/>
                                 <label name="indication"/>
                                 <field name="indication"/>
                             </group>
@@ -1694,7 +1692,7 @@
                 <![CDATA[
                 <tree string="Patient Medication"
                     colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="medicament" expand="1"/>
+                    <field name="template" expand="1"/>
                     <field name="start_treatment" expand="1"/>
                     <field name="end_treatment" expand="1"/>
                     <field name="course_completed"/>
