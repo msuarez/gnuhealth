@@ -62,7 +62,7 @@
             <field name="group" ref="group_health_admin"/>
         </record>
         <record model="ir.ui.menu-res.group" id="menu_product_form_group_admin">
-            <field name="menu" ref="product.menu_product_product"/>
+            <field name="menu" ref="product.menu_main_product"/>
             <field name="group" ref="group_health_admin"/>
         </record>
 
@@ -1097,7 +1097,7 @@
             <field name="group" ref="group_health_back_office"/>
         </record>
         <record model="ir.ui.menu-res.group" id="menu_product_form_group_back_office">
-            <field name="menu" ref="product.menu_product_product"/>
+            <field name="menu" ref="product.menu_main_product"/>
             <field name="group" ref="group_health_back_office"/>
         </record>
 
