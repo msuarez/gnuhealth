@@ -1900,6 +1900,8 @@
                         <group colspan="4" col="6" id="group_vaccine_dates">
                             <label name="vaccine"/>
                             <field name="vaccine"/>
+                            <label name="admin_route"/>
+                            <field name="admin_route"/>
                             <label name="dose"/>
                             <field name="dose"/>
                             <label name="next_dose_date"/>

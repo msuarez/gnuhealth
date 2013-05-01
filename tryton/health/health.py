@@ -1389,6 +1389,13 @@ class PatientVaccination(ModelSQL, ModelView):
         ' supplier code, tracking number, etc.. This  information must always'
         ' be present. If available, please copy / scan the vaccine leaflet'
         ' and attach it to this record')
+    admin_route = fields.Selection([
+        ('im', 'Intramuscular'),
+        ('sc', 'Subcutaneous'),
+        ('id', 'Intradermal'),
+        ('nas', 'Intranasal'),
+        ('po', 'Oral'),
+        ], 'Route', sort=False)
     vaccine_expiration_date = fields.Date('Expiration date')
     vaccine_lot = fields.Char('Lot Number',
         help='Please check on the vaccine (product) production lot numberand'
