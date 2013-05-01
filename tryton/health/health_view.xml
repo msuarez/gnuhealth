@@ -2654,8 +2654,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prescription Line">
-                    <label name="medicament"/>
-                    <field name="medicament"/>
+                    <label name="template"/>
+                    <field name="template"/>
                     <label name="indication"/>
                     <field name="indication"/>
                     <label name="allow_substitution"/>
@@ -2727,7 +2727,7 @@
                 <![CDATA[
                 <tree string="Prescription lines">
                     <field name="prnt" expand="1"/>
-                    <field name="medicament" expand="1"/>
+                    <field name="template" expand="1"/>
                     <field name="indication" expand="1"/>
                     <field name="dose"/>
                     <field name="dose_unit"/>
