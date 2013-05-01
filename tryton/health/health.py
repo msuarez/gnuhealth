@@ -305,6 +305,7 @@ class Medicament(ModelSQL, ModelView):
         help='Warnings for Pregnant Women')
 
     pregnancy_category = fields.Selection([
+        ('', ''),
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
@@ -496,6 +497,7 @@ class Insurance(ModelSQL, ModelView):
     category = fields.Char('Category',
         help='Insurance company plan / category')
     insurance_type = fields.Selection([
+        ('', ''),
         ('state', 'State'),
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
@@ -868,6 +870,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     pathology = fields.Many2One('gnuhealth.pathology', 'Disease',
         required=True, help='Disease')
     disease_severity = fields.Selection([
+        ('', ''),
         ('1_mi', 'Mild'),
         ('2_mo', 'Moderate'),
         ('3_sv', 'Severe'),
@@ -889,6 +892,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     weeks_of_pregnancy = fields.Integer('Contracted in pregnancy week #')
     is_allergy = fields.Boolean('Allergic Disease')
     allergy_type = fields.Selection([
+        ('', ''),
         ('da', 'Drug Allergy'),
         ('fa', 'Food Allergy'),
         ('ma', 'Misc Allergy'),
@@ -900,6 +904,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     date_start_treatment = fields.Date('Start', help='Start of treatment date')
     date_stop_treatment = fields.Date('End', help='End of treatment date')
     status = fields.Selection([
+        ('', ''),
         ('a', 'acute'),
         ('c', 'chronic'),
         ('u', 'unchanged'),
@@ -1180,6 +1185,7 @@ class MedicationTemplate(ModelSQL, ModelView):
         help='Time in between doses the patient must wait (ie, for 1 pill'
         ' each 8 hours, put here 8 and select \"hours\" in the unit field')
     frequency_unit = fields.Selection([
+        ('', ''),
         ('seconds', 'seconds'),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
@@ -1196,6 +1202,7 @@ class MedicationTemplate(ModelSQL, ModelView):
         help='Period that the patient must take the medication. in minutes,'
         ' hours, days, months, years or indefinately')
     duration_period = fields.Selection([
+        ('', ''),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
         ('days', 'days'),
@@ -1208,6 +1215,9 @@ class MedicationTemplate(ModelSQL, ModelView):
     start_treatment = fields.DateTime('Start',
         help='Date of start of Treatment')
     end_treatment = fields.DateTime('End', help='Date of start of Treatment')
+
+    def get_rec_name(self, name):
+        return self.medicament.name.name
 
 
 # PATIENT MEDICATION TREATMENT
@@ -1255,7 +1265,60 @@ class PatientMedication(ModelSQL, ModelView):
         'get_end_treatment', setter='set_end_treatment')
     form = fields.Function(fields.Many2One('gnuhealth.drug.form', 'Form',
         help='Drug form, such as tablet or gel'),
-        'get_form')
+        'get_form', setter='set_form')
+    route = fields.Function(fields.Many2One('gnuhealth.drug.route',
+        'Administration Route', help='Drug administration route code.'),
+        'get_route', setter='set_route')
+    dose = fields.Function(fields.Float('Dose',
+        help='Amount of medication (eg, 250 mg) per dose'),
+        'get_dose', setter='set_dose')
+    dose_unit = fields.Function(fields.Many2One('gnuhealth.dose.unit',
+        'dose unit', help='Unit of measure for the medication to be taken'),
+        'get_dose_unit', setter='set_dose_unit')
+    qty = fields.Function(fields.Integer('x',
+        help='Quantity of units (eg, 2 capsules) of the medicament'),
+        'get_qty', setter='set_qty')
+    duration = fields.Function(fields.Integer('Treatment duration',
+        help='Period that the patient must take the medication. in minutes,'
+        ' hours, days, months, years or indefinately'),
+        'get_duration', setter='set_duration')
+    duration_period = fields.Function(fields.Selection([
+        ('', ''),
+        ('minutes', 'minutes'),
+        ('hours', 'hours'),
+        ('days', 'days'),
+        ('months', 'months'),
+        ('years', 'years'),
+        ('indefinite', 'indefinite'),
+        ], 'Treatment period', sort=False,
+        help='Period that the patient must take the medication in minutes,'
+        ' hours, days, months, years or indefinately'),
+        'get_duration_period', setter='set_duration_period')
+    common_dosage = fields.Function(fields.Many2One(
+        'gnuhealth.medication.dosage', 'Frequency',
+        help='Common / standard dosage frequency for this medicament'),
+        'get_common_dosage', setter='set_common_dosage')
+    admin_times = fields.Function(fields.Char('Admin hours',
+        help='Suggested administration hours. For example, at 08:00, 13:00'
+        ' and 18:00 can be encoded like 08 13 18'),
+        'get_admin_times', setter='set_admin_times')
+    frequency = fields.Function(fields.Integer('Frequency',
+        help='Time in between doses the patient must wait (ie, for 1 pill'
+        ' each 8 hours, put here 8 and select \"hours\" in the unit field'),
+        'get_frequency', setter='set_frequency')
+    frequency_unit = fields.Function(fields.Selection([
+        ('', ''),
+        ('seconds', 'seconds'),
+        ('minutes', 'minutes'),
+        ('hours', 'hours'),
+        ('days', 'days'),
+        ('weeks', 'weeks'),
+        ('wr', 'when required'),
+        ], 'unit', select=True, sort=False),
+        'get_frequency_unit', setter='set_frequency_unit')
+    frequency_prn = fields.Function(fields.Boolean('PRN',
+        help='Use it as needed, pro re nata'),
+        'get_frequency_prn', setter='set_frequency_prn')
 
     @classmethod
     def __setup__(cls):
@@ -1318,7 +1381,8 @@ class PatientMedication(ModelSQL, ModelView):
                 })
 
     def get_indication(self, name):
-        return self.template.indication.id
+        if self.template.indication:
+            return self.template.indication.id
 
     @classmethod
     def set_indication(self, medications, name, value):
@@ -1357,17 +1421,151 @@ class PatientMedication(ModelSQL, ModelView):
                 })
 
     def get_form(self, name):
-        return self.template.form
+        return self.template.form.id
 
-    # TO DO
-    #@classmethod
-    #def set_form(self, medications, name, value):
-        #pool = Pool()
-        #MedicationTemplate = pool.get('gnuhealth.medication.template')
+    @classmethod
+    def set_form(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
 
-        #MedicationTemplate.write([m.template for m in medications], {
-                #'form': value,
-                #})
+        MedicationTemplate.write([m.template for m in medications], {
+                'form': value,
+                })
+
+    def get_route(self, name):
+        if self.template.route:
+            return self.template.route.id
+
+    @classmethod
+    def set_route(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'route': value,
+                })
+
+    def get_dose(self, name):
+        return self.template.dose
+
+    @classmethod
+    def set_dose(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'dose': value,
+                })
+
+    def get_dose_unit(self, name):
+        if self.template.dose_unit:
+            return self.template.dose_unit.id
+
+    @classmethod
+    def set_dose_unit(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'dose_unit': value,
+                })
+
+    def get_qty(self, name):
+        return self.template.qty
+
+    @classmethod
+    def set_qty(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'qty': value,
+                })
+
+    def get_duration(self, name):
+        return self.template.duration
+
+    @classmethod
+    def set_duration(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'duration': value,
+                })
+
+    def get_duration_period(self, name):
+        return self.template.duration_period
+
+    @classmethod
+    def set_duration_period(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'duration_period': value,
+                })
+
+    def get_common_dosage(self, name):
+        if self.template.common_dosage:
+            return self.template.common_dosage.id
+
+    @classmethod
+    def set_common_dosage(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'common_dosage': value,
+                })
+
+    def get_admin_times(self, name):
+        return self.template.admin_times
+
+    @classmethod
+    def set_admin_times(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'admin_times': value,
+                })
+
+    def get_frequency(self, name):
+        return self.template.frequency
+
+    @classmethod
+    def set_frequency(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'frequency': value,
+                })
+
+    def get_frequency_unit(self, name):
+        return self.template.frequency_unit
+
+    @classmethod
+    def set_frequency_unit(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'frequency_unit': value,
+                })
+
+    def get_frequency_prn(self, name):
+        return self.template.frequency_prn
+
+    @classmethod
+    def set_frequency_prn(self, medications, name, value):
+        pool = Pool()
+        MedicationTemplate = pool.get('gnuhealth.medication.template')
+
+        MedicationTemplate.write([m.template for m in medications], {
+                'frequency_prn': value,
+                })
 
 
 # PATIENT VACCINATION INFORMATION
@@ -1719,6 +1917,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Check this box if the patient is agressive or violent at the'
         ' moment')
     mood = fields.Selection([
+        ('', ''),
         ('n', 'Normal'),
         ('s', 'Sad'),
         ('f', 'Fear'),
@@ -1906,6 +2105,7 @@ class SignsAndSymptoms(ModelSQL, ModelView):
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
     sign_or_symptom = fields.Selection([
+        ('', ''),
         ('sign', 'Sign'),
         ('symptom', 'Symptom')],
         'Subjective / Objective', required=True)
@@ -1996,6 +2196,7 @@ class HospitalWard(ModelSQL, ModelView):
         ('unisex', 'Unisex'),
         ), 'Gender', required=True, sort=False)
     state = fields.Selection((
+        ('', ''),
         ('beds_available', 'Beds available'),
         ('full', 'Full'),
         ('na', 'Not available'),
