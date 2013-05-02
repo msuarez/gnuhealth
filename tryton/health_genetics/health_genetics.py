@@ -37,6 +37,7 @@ class DiseaseGene(ModelSQL, ModelView):
         help="Name of the affected chromosome", select=True)
     location = fields.Char('Location', help="Locus of the chromosome")
     dominance = fields.Selection([
+        (None, ''),
         ('d', 'dominant'),
         ('r', 'recessive'),
         ], 'Dominance', select=True)
@@ -62,6 +63,7 @@ class FamilyDiseases(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     name = fields.Many2One('gnuhealth.pathology', 'Disease', required=True)
     xory = fields.Selection([
+        (None, ''),
         ('m', 'Maternal'),
         ('f', 'Paternal'),
         ], 'Maternal or Paternal', select=True)
