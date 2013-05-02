@@ -305,7 +305,7 @@ class Medicament(ModelSQL, ModelView):
         help='Warnings for Pregnant Women')
 
     pregnancy_category = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('A', 'A'),
         ('B', 'B'),
         ('C', 'C'),
@@ -497,7 +497,7 @@ class Insurance(ModelSQL, ModelView):
     category = fields.Char('Category',
         help='Insurance company plan / category')
     insurance_type = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('state', 'State'),
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
@@ -544,7 +544,7 @@ class PartyPatient (ModelSQL, ModelView):
             }
         )
     insurance_company_type = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('state', 'State'),
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
@@ -737,7 +737,7 @@ class PatientData(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Sex', required=True)
     marital_status = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('s', 'Single'),
         ('m', 'Married'),
         ('c', 'Concubinage'),
@@ -746,14 +746,14 @@ class PatientData(ModelSQL, ModelView):
         ('x', 'Separated'),
         ], 'Marital Status', sort=False)
     blood_type = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('A', 'A'),
         ('B', 'B'),
         ('AB', 'AB'),
         ('O', 'O'),
         ], 'Blood Type',sort=False)
     rh = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('+', '+'),
         ('-', '-'),
         ], 'Rh')
@@ -870,7 +870,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     pathology = fields.Many2One('gnuhealth.pathology', 'Disease',
         required=True, help='Disease')
     disease_severity = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('1_mi', 'Mild'),
         ('2_mo', 'Moderate'),
         ('3_sv', 'Severe'),
@@ -892,7 +892,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     weeks_of_pregnancy = fields.Integer('Contracted in pregnancy week #')
     is_allergy = fields.Boolean('Allergic Disease')
     allergy_type = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('da', 'Drug Allergy'),
         ('fa', 'Food Allergy'),
         ('ma', 'Misc Allergy'),
@@ -904,7 +904,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     date_start_treatment = fields.Date('Start', help='Start of treatment date')
     date_stop_treatment = fields.Date('End', help='End of treatment date')
     status = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('a', 'acute'),
         ('c', 'chronic'),
         ('u', 'unchanged'),
@@ -1186,7 +1186,7 @@ class MedicationTemplate(ModelSQL, ModelView):
         help='Time in between doses the patient must wait (ie, for 1 pill'
         ' each 8 hours, put here 8 and select \"hours\" in the unit field')
     frequency_unit = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('seconds', 'seconds'),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
@@ -1203,7 +1203,7 @@ class MedicationTemplate(ModelSQL, ModelView):
         help='Period that the patient must take the medication. in minutes,'
         ' hours, days, months, years or indefinately')
     duration_period = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
         ('days', 'days'),
@@ -1284,7 +1284,7 @@ class PatientMedication(ModelSQL, ModelView):
         ' hours, days, months, years or indefinately'),
         'get_duration', setter='set_duration')
     duration_period = fields.Function(fields.Selection([
-        ('', ''),
+        (None, ''),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
         ('days', 'days'),
@@ -1308,7 +1308,7 @@ class PatientMedication(ModelSQL, ModelView):
         ' each 8 hours, put here 8 and select \"hours\" in the unit field'),
         'get_frequency', setter='set_frequency')
     frequency_unit = fields.Function(fields.Selection([
-        ('', ''),
+        (None, ''),
         ('seconds', 'seconds'),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
@@ -1818,7 +1818,7 @@ class PrescriptionLine(ModelSQL, ModelView):
         ' each 8 hours, put here 8 and select \"hours\" in the unit field'),
         'get_frequency', setter='set_frequency')
     frequency_unit = fields.Function(fields.Selection([
-        ('', ''),
+        (None, ''),
         ('seconds', 'seconds'),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
@@ -1835,7 +1835,7 @@ class PrescriptionLine(ModelSQL, ModelView):
         ' hours, days, months, years or indefinately'),
         'get_duration', setter='set_duration')
     duration_period = fields.Function(fields.Selection([
-        ('', ''),
+        (None, ''),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
         ('days', 'days'),
@@ -2183,7 +2183,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Check this box if the patient is agressive or violent at the'
         ' moment')
     mood = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('n', 'Normal'),
         ('s', 'Sad'),
         ('f', 'Fear'),
@@ -2371,7 +2371,7 @@ class SignsAndSymptoms(ModelSQL, ModelView):
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         readonly=True)
     sign_or_symptom = fields.Selection([
-        ('', ''),
+        (None, ''),
         ('sign', 'Sign'),
         ('symptom', 'Symptom')],
         'Subjective / Objective', required=True)
@@ -2462,7 +2462,7 @@ class HospitalWard(ModelSQL, ModelView):
         ('unisex', 'Unisex'),
         ), 'Gender', required=True, sort=False)
     state = fields.Selection((
-        ('', ''),
+        (None, ''),
         ('beds_available', 'Beds available'),
         ('full', 'Full'),
         ('na', 'Not available'),
