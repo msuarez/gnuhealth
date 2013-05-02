@@ -54,6 +54,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     fetuses = fields.Integer('Fetuses', required=True)
     monozygotic = fields.Boolean('Monozygotic')
     pregnancy_end_result = fields.Selection([
+        (None, ''),
         ('live_birth', 'Live birth'),
         ('abortion', 'Abortion'),
         ('stillbirth', 'Stillbirth'),
@@ -71,6 +72,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     pregnancy_end_age = fields.Function(fields.Char('Weeks', help='Weeks at'
         ' the end of pregnancy'), 'get_pregnancy_data')
     iugr = fields.Selection([
+        (None, ''),
         ('symmetric', 'Symmetric'),
         ('assymetric', 'Assymetric'),
         ], 'IUGR', sort=False)
@@ -137,6 +139,7 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     diabetes = fields.Boolean('Diabetes', help='Check this box if the mother'
         ' has glucose intolerance or diabetes')
     invasive_placentation = fields.Selection([
+        (None, ''),
         ('normal', 'Normal decidua'),
         ('accreta', 'Accreta'),
         ('increta', 'Increta'),
@@ -183,16 +186,19 @@ class PuerperiumMonitor(ModelSQL, ModelView):
     frequency = fields.Integer('Heart Frequency')
     temperature = fields.Float('Temperature')
     lochia_amount = fields.Selection([
+        (None, ''),
         ('n', 'normal'),
         ('e', 'abundant'),
         ('h', 'hemorrhage'),
         ], 'Lochia amount', sort=False)
     lochia_color = fields.Selection([
+        (None, ''),
         ('r', 'rubra'),
         ('s', 'serosa'),
         ('a', 'alba'),
         ], 'Lochia color', sort=False)
     lochia_odor = fields.Selection([
+        (None, ''),
         ('n', 'normal'),
         ('o', 'offensive'),
         ], 'Lochia odor', sort=False)
@@ -221,6 +227,7 @@ class Perinatal(ModelSQL, ModelView):
     prenatal_evaluations = fields.Integer('Prenatal evaluations',
         help="Number of visits to the doctor during pregnancy")
     start_labor_mode = fields.Selection([
+        (None, ''),
         ('v', 'Vaginal - Spontaneous'),
         ('ve', 'Vaginal - Vacuum Extraction'),
         ('vf', 'Vaginal - Forceps Extraction'),
@@ -230,6 +237,7 @@ class Perinatal(ModelSQL, ModelView):
         'get_perinatal_information')
     gestational_days = fields.Integer('Days')
     fetus_presentation = fields.Selection([
+        (None, ''),
         ('cephalic', 'Cephalic'),
         ('breech', 'Breech'),
         ('shoulder', 'Shoulder'),
@@ -248,6 +256,7 @@ class Perinatal(ModelSQL, ModelView):
     monitoring = fields.One2Many('gnuhealth.perinatal.monitor', 'name',
         'Monitors')
     laceration = fields.Selection([
+        (None, ''),
         ('perineal', 'Perineal'),
         ('vaginal', 'Vaginal'),
         ('cervical', 'Cervical'),
@@ -258,6 +267,7 @@ class Perinatal(ModelSQL, ModelView):
         ('urethral', 'Urethral'),
         ], 'Lacerations', sort=False)
     hematoma = fields.Selection([
+        (None, ''),
         ('vaginal', 'Vaginal'),
         ('vulvar', 'Vulvar'),
         ('retroperitoneal', 'Retroperitoneal'),
@@ -274,6 +284,7 @@ class Perinatal(ModelSQL, ModelView):
     # Deprecated in 1.6.4 . Use the death information in the patient model
     # Date and cause of death
     place_of_death = fields.Selection([
+        (None, ''),
         ('ho', 'Hospital'),
         ('dr', 'At the delivery room'),
         ('hh', 'in transit to the hospital'),
@@ -309,6 +320,7 @@ class PerinatalMonitor(ModelSQL, ModelView):
     bleeding = fields.Boolean('Bleeding')
     fundal_height = fields.Integer('Fundal Height')
     fetus_position = fields.Selection([
+        (None, ''),
         ('o', 'Occiput / Cephalic Posterior'),
         ('fb', 'Frank Breech'),
         ('cb', 'Complete Breech'),
@@ -435,6 +447,7 @@ class PatientMammographyHistory(ModelSQL, ModelView):
     last_mammography = fields.Date('Date', help="Last Mammography",
         required=True)
     result = fields.Selection([
+        (None, ''),
         ('normal', 'normal'),
         ('abnormal', 'abnormal'),
         ], 'result', help="Please check the lab test results if the module is \
@@ -461,6 +474,7 @@ class PatientPAPHistory(ModelSQL, ModelView):
     evaluation_date = fields.Date('Date', help=" Date")
     last_pap = fields.Date('Date', help="Last Papanicolau", required=True)
     result = fields.Selection([
+        (None, ''),
         ('negative', 'Negative'),
         ('c1', 'ASC-US'),
         ('c2', 'ASC-H'),
@@ -493,6 +507,7 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
     last_colposcopy = fields.Date('Date', help="Last colposcopy",
         required=True)
     result = fields.Selection([
+        (None, ''),
         ('normal', 'normal'),
         ('abnormal', 'abnormal'),
         ], 'result', help="Please check the lab test results if the module is \
