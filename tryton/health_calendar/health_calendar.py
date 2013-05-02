@@ -47,24 +47,27 @@ class Appointment(ModelSQL, ModelView):
         return 30
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Event = Pool().get('calendar.event')
         Patient = Pool().get('gnuhealth.patient')
         Physician = Pool().get('gnuhealth.physician')
 
-        if values['doctor']:
-            doctor = Physician(values['doctor'])
-            if doctor.calendar:
-                patient = Patient(values['patient'])
-                values['event'] = Event.create({
-                    'dtstart': values['appointment_date'],
-                    'dtend': values['appointment_date'] +
-                        timedelta(minutes=values['appointment_time']),
-                    'calendar': doctor.calendar.id,
-                    'summary': patient.name.lastname + ', ' +
-                        patient.name.name,
-                    })
-        return super(Appointment, cls).create(values)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if values['doctor']:
+                doctor = Physician(values['doctor'])
+                if doctor.calendar:
+                    patient = Patient(values['patient'])
+                    events = Event.create([{
+                        'dtstart': values['appointment_date'],
+                        'dtend': values['appointment_date'] +
+                            timedelta(minutes=values['appointment_time']),
+                        'calendar': doctor.calendar.id,
+                        'summary': patient.name.lastname + ', ' +
+                            patient.name.name,
+                        }])
+                    values['event'] = events[0].id
+        return super(Appointment, cls).create(vlist)
 
     @classmethod
     def write(cls, appointments, values):
