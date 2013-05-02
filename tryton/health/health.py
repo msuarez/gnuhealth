@@ -987,17 +987,18 @@ class Appointment(ModelSQL, ModelView):
         cls._order.insert(0, ('name', 'DESC'))
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('name'):
-            config = Config(1)
-            values['name'] = Sequence.get_id(
-            config.appointment_sequence.id)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                config.appointment_sequence.id)
 
-        return super(Appointment, cls).create(values)
+        return super(Appointment, cls).create(vlist)
 
     @staticmethod
     def default_doctor():
