@@ -26,7 +26,7 @@ from trytond.pyson import Eval, Not, Bool, And, Equal
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
-    'InpatientRegistration','BedTransfer', 'Appointment', 'PatientData',
+    'InpatientRegistration', 'BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet']
 
@@ -107,8 +107,7 @@ class InpatientRegistration(ModelSQL, ModelView):
             'required': Not(Bool(Eval('name'))),
             'readonly': Bool(Eval('name')),
             },
-        depends=['name'],
-)
+        depends=['name'])
     nursing_plan = fields.Text('Nursing Plan')
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
         'Medications')
@@ -134,8 +133,6 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('confirmed', 'confirmed'),
         ('hospitalized', 'hospitalized'),
         ), 'Status', select=True)
-
-    
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
         'Transfer History', readonly=True)
 
@@ -164,7 +161,6 @@ class InpatientRegistration(ModelSQL, ModelView):
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
                 })
-
 
     ## Method to check for availability and make the hospital bed reservation
 
@@ -226,26 +222,25 @@ class InpatientRegistration(ModelSQL, ModelView):
             cls.write(registrations, {'state': 'hospitalized'})
             Bed.write([registration_id.bed], {'state': 'occupied'})
 
- 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('name'):
-            config = Config(1)
-            values['name'] = Sequence.get_id(
-                config.inpatient_registration_sequence.id)
-        return super(InpatientRegistration, cls).create(values)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                    config.inpatient_registration_sequence.id)
+        return super(InpatientRegistration, cls).create(vlist)
 
     @staticmethod
     def default_state():
         return 'free'
 
-    
     # Allow searching by the hospitalization code or patient name
-    
+
     def get_rec_name(self, name):
         if self.patient:
             return self.name + ': ' + self.patient.name.name + ' ' + \
@@ -253,7 +248,6 @@ class InpatientRegistration(ModelSQL, ModelView):
         else:
             return self.name
 
-    
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
@@ -278,6 +272,7 @@ class BedTransfer(ModelSQL, ModelView):
     bed_to = fields.Many2One('gnuhealth.hospital.bed', 'To',
         )
     reason = fields.Char('Reason')
+
 
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'
@@ -353,6 +348,7 @@ class InpatientMedication (ModelSQL, ModelView):
         help='Time in between doses the patient must wait (ie, for 1 pill'
         ' each 8 hours, put here 8 and select \"hours\" in the unit field')
     frequency_unit = fields.Selection([
+        (None, ''),
         ('seconds', 'seconds'),
         ('minutes', 'minutes'),
         ('hours', 'hours'),
