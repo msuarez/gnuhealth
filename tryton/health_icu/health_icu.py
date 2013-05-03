@@ -546,7 +546,6 @@ class ECG(ModelSQL, ModelView):
         'Lead', sort=False)
 
     axis = fields.Selection([
-        (None, ''),
         ('normal', 'Normal Axis'),
         ('left', 'Left deviation'),
         ('right', 'Right deviation'),
@@ -556,13 +555,11 @@ class ECG(ModelSQL, ModelView):
     rate = fields.Integer('Rate', required=True)
 
     rhythm = fields.Selection([
-        (None, ''),
         ('regular', 'Regular'),
         ('irregular', 'Irregular')],
         'Rhythm', sort=False, required=True)
 
     pacemaker = fields.Selection([
-        (None, ''),
         ('sa', 'Sinus Node'),
         ('av', 'Atrioventricular'),
         ('pk', 'Purkinje')
@@ -574,7 +571,6 @@ class ECG(ModelSQL, ModelView):
         help="Duration of QRS interval in milliseconds")
     qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
     st_segment = fields.Selection([
-        (None, ''),
         ('normal', 'Normal'),
         ('depressed', 'Depressed'),
         ('elevated', 'Elevated')],
