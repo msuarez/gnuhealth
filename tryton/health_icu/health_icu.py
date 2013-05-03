@@ -217,6 +217,7 @@ class ApacheII(ModelSQL, ModelView):
     chronic_condition = fields.Boolean('Chronic condition',
         help='Organ Failure or immunocompromised patient')
     hospital_admission_type = fields.Selection([
+        (None, ''),
         ('me', 'Medical or emergency postoperative'),
         ('el', 'elective postoperative')],
         'Hospital Admission Type', states={
@@ -435,6 +436,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
         required=True)
 
     ventilation = fields.Selection([
+        (None, ''),
         ('none', 'None - Maintains Own'),
         ('nppv', 'Non-Invasive Positive Pressure'),
         ('ett', 'ETT'),
@@ -495,11 +497,13 @@ class ChestDrainageAssessment(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient.rounding', 'Rounding',
         required=True)
     location = fields.Selection([
+        (None, ''),
         ('rl', 'Right Pleura'),
         ('ll', 'Left Pleura'),
         ('mediastinum', 'Mediastinum')],
         'Location', sort=False)
     fluid_aspect = fields.Selection([
+        (None, ''),
         ('serous', 'Serous'),
         ('bloody', 'Bloody'),
         ('chylous', 'Chylous'),
@@ -526,6 +530,7 @@ class ECG(ModelSQL, ModelView):
 
     ecg_date = fields.DateTime('Date', required=True)
     lead = fields.Selection([
+        (None, ''),
         ('i', 'I'),
         ('ii', 'II'),
         ('iii', 'III'),
@@ -541,6 +546,7 @@ class ECG(ModelSQL, ModelView):
         'Lead', sort=False)
 
     axis = fields.Selection([
+        (None, ''),
         ('normal', 'Normal Axis'),
         ('left', 'Left deviation'),
         ('right', 'Right deviation'),
@@ -550,11 +556,13 @@ class ECG(ModelSQL, ModelView):
     rate = fields.Integer('Rate', required=True)
 
     rhythm = fields.Selection([
+        (None, ''),
         ('regular', 'Regular'),
         ('irregular', 'Irregular')],
         'Rhythm', sort=False, required=True)
 
     pacemaker = fields.Selection([
+        (None, ''),
         ('sa', 'Sinus Node'),
         ('av', 'Atrioventricular'),
         ('pk', 'Purkinje')
@@ -566,6 +574,7 @@ class ECG(ModelSQL, ModelView):
         help="Duration of QRS interval in milliseconds")
     qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
     st_segment = fields.Selection([
+        (None, ''),
         ('normal', 'Normal'),
         ('depressed', 'Depressed'),
         ('elevated', 'Elevated')],
@@ -614,6 +623,7 @@ class PatientRounding(ModelSQL, ModelView):
         on_change_with=['left_pupil', 'right_pupil'],)
 
     pupillary_reactivity = fields.Selection([
+        (None, ''),
         ('brisk', 'Brisk'),
         ('sluggish', 'Sluggish'),
         ('nonreactive', 'Nonreactive')],
@@ -626,6 +636,7 @@ class PatientRounding(ModelSQL, ModelView):
     # Mechanical ventilation information is on the patient ICU general info
 
     respiration_type = fields.Selection([
+        (None, ''),
         ('regular', 'Regular'),
         ('deep', 'Deep'),
         ('shallow', 'Shallow'),
@@ -650,6 +661,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     # Chest expansion characteristics
     chest_expansion = fields.Selection([
+        (None, ''),
         ('symmetric', 'Symmetrical'),
         ('asymmetric', 'Asymmetrical')],
         'Expansion', sort=False)
@@ -659,6 +671,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     # Trachea position
     trachea_alignment = fields.Selection([
+        (None, ''),
         ('midline', 'Midline'),
         ('right', 'Deviated right'),
         ('left', 'Deviated left')],
@@ -677,6 +690,7 @@ class PatientRounding(ModelSQL, ModelView):
         domain=[('name', '=', Eval('name'))], depends=['name'],)
 
     venous_access = fields.Selection([
+        (None, ''),
         ('none', 'None'),
         ('central', 'Central catheter'),
         ('peripheral', 'Peripheral')],
@@ -690,6 +704,7 @@ class PatientRounding(ModelSQL, ModelView):
     dialysis = fields.Boolean('Dialysis')
 
     edema = fields.Selection([
+        (None, ''),
         ('none', 'None'),
         ('peripheral', 'Peripheral'),
         ('anasarca', 'Anasarca')],
@@ -705,12 +720,14 @@ class PatientRounding(ModelSQL, ModelView):
     # Abdomen & Digestive
 
     vomiting = fields.Selection([
+        (None, ''),
         ('none', 'None'),
         ('vomiting', 'Vomiting'),
         ('hematemesis', 'Hematemesis')],
         'Vomiting', sort=False)
 
     bowel_sounds = fields.Selection([
+        (None, ''),
         ('normal', 'Normal'),
         ('increased', 'Increased'),
         ('decreased', 'Decreased'),
@@ -718,6 +735,7 @@ class PatientRounding(ModelSQL, ModelView):
         'Bowel Sounds', sort=False)
 
     stools = fields.Selection([
+        (None, ''),
         ('normal', 'Normal'),
         ('constipation', 'Constipation'),
         ('diarrhea', 'Diarrhea'),
