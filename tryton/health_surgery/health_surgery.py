@@ -72,6 +72,14 @@ class Surgery(ModelSQL, ModelView):
         help="Prophylactic antibiotic treatment within the last 60 minutes")
     preop_sterility = fields.Boolean('Sterility confirmed',
         help="Nursing team has confirmed sterility of the devices and room")
+    preop_asa = fields.Selection([
+        ('ps1', 'PS 1 : Normal healthy patient'),
+        ('ps2', 'PS 2 : Patients with mild systemic disease'),
+        ('ps3', 'PS 3 : Patients with severe systemic disease'),
+        ('ps4', 'PS 4 : Patients with severe systemic disease that is a constant threat to life '),
+        ('ps5', 'PS 5 : Moribund patients who are not expected to survive without the operation'),
+        ('ps6', 'PS 6 : A declared brain-dead patient who organs are being removed for donor purposes'),
+        ], 'ASA Preoperative Physical Status', sort=False)
     extra_info = fields.Text('Extra Info')
 
 
