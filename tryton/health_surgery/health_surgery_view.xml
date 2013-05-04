@@ -41,7 +41,9 @@
                     
                     <newline/>
 
-                    <group string="Surgical Safety Checklist" id="group_surgery_mallampati" colspan="4" col="10">
+                    <group string="Preoperative assessment" id="group_surgery_mallampati" colspan="4" col="10">
+                        <label name="preop_bleeding_risk"/>
+                        <field name="preop_bleeding_risk"/>
                         <label name="preop_bleeding_risk"/>
                         <field name="preop_bleeding_risk"/>
                         <label name="preop_oximeter"/>
