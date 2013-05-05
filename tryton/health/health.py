@@ -1230,7 +1230,7 @@ class PatientMedication(ModelSQL, ModelView):
 #    _inherits = {'gnuhealth.medication.template': 'template'}
 
     template = fields.Many2One('gnuhealth.medication.template',
-        'Medication Template')
+        'Medication')
     medicament = fields.Function(fields.Many2One('gnuhealth.medicament',
         'Medicament', required=True, help='Prescribed Medicament'),
         'get_medicament', setter='set_medicament')
