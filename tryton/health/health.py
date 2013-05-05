@@ -556,7 +556,6 @@ class PartyPatient (ModelSQL, ModelView):
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
         cls._sql_constraints += [
-            ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')
         ]
@@ -597,6 +596,20 @@ class PartyPatient (ModelSQL, ModelView):
         if parties:
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
+
+    @classmethod
+    def __register__(cls, module_name):
+        # Upgrade from GNU Health 1.8.1 to 2.0
+        super(PartyPatient, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+
+        # Drop SQL constraint
+        #('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
+
+        table.drop_constraint('ref_uniq')
+
 
 
 class PartyAddress(ModelSQL, ModelView):
