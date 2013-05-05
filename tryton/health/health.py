@@ -1420,7 +1420,8 @@ class PatientMedication(ModelSQL, ModelView):
                 })
 
     def get_form(self, name):
-        return self.template.form.id
+        if self.template.form:
+            return self.template.form.id
 
     @classmethod
     def set_form(self, medications, name, value):
@@ -1919,7 +1920,8 @@ class PrescriptionLine(ModelSQL, ModelView):
                 })
 
     def get_form(self, name):
-        return self.template.form.id
+        if self.template.form:
+            return self.template.form.id
 
     @classmethod
     def set_form(self, medications, name, value):
