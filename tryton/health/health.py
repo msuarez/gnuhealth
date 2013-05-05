@@ -518,7 +518,11 @@ class PartyPatient (ModelSQL, ModelView):
         help='Date of activation of the party')
     alias = fields.Char('Alias', help='Common name that the Party is reffered')
     ref = fields.Char('SSN',
-        help='Patient Social Security Number or equivalent')
+        help='Patient Social Security Number or equivalent',
+                states={
+            'invisible': Not(Bool(Eval('is_person'))),
+            })
+
     is_person = fields.Boolean('Person',
         help='Check if the party is a person.')
     is_patient = fields.Boolean('Patient',
@@ -556,29 +560,11 @@ class PartyPatient (ModelSQL, ModelView):
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
         cls._sql_constraints += [
-            ('internal_user_uniq', 'UNIQUE(internal_user)',
+        ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
+        ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')
         ]
 
-    @classmethod
-    def write(cls, parties, values):
-        # We use this method overwrite to make the fields that have a unique
-        # constraint get the NULL value at PostgreSQL level, and not the value
-        # '' coming from the client
-        if 'ref' in values and not values['ref']:
-            values = values.copy()
-            values['ref'] = None
-        return super(PartyPatient, cls).write(parties, values)
-
-    @classmethod
-    def create(cls, values):
-        # We use this method overwrite to make the fields that have a unique
-        # constraint get the NULL value at PostgreSQL level, and not the value
-        # '' coming from the client
-        if 'ref' in values and not values['ref']:
-            values = values.copy()
-            values['ref'] = None
-        return super(PartyPatient, cls).create(values)
 
     def get_rec_name(self, name):
         if self.lastname:
@@ -596,20 +582,6 @@ class PartyPatient (ModelSQL, ModelView):
         if parties:
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
-
-    @classmethod
-    def __register__(cls, module_name):
-        # Upgrade from GNU Health 1.8.1 to 2.0
-        super(PartyPatient, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        table = TableHandler(cursor, cls, module_name)
-
-        # Drop SQL constraint
-        #('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
-
-        table.drop_constraint('ref_uniq')
-
 
 
 class PartyAddress(ModelSQL, ModelView):
