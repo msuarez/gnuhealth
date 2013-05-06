@@ -537,6 +537,8 @@ class PartyPatient (ModelSQL, ModelView):
         help='Check if the party is a Pharmacy')
 
     lastname = fields.Char('Last Name', help='Last Name')
+    citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
+
     insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurance')
     internal_user = fields.Many2One('res.user', 'Internal User',
         help='In GNU Health is the user (doctor, nurse) that logins.When the'

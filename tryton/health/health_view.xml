@@ -1370,6 +1370,11 @@
                             </group>
                             <newline/>
 
+                            <group col="4" colspan="2" id="patient_citizenship">
+                                <label name="citizenship"/>
+                                <field name="citizenship"/>
+                            </group>
+
                             <group col="4" colspan="2" id="party_specs">
                                 <label name="activation_date"/>
                                 <field name="activation_date"/>
