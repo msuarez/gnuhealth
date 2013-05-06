@@ -557,10 +557,31 @@ class PartyPatient (ModelSQL, ModelView):
         'Insurance Plans')
 
     @classmethod
+    def write(cls, parties, values):
+        # We use this method overwrite to make the fields that have a unique
+        # constraint get the NULL value at PostgreSQL level, and not the value
+        # '' coming from the client
+        if 'ref' in values and not values['ref']:
+            values = values.copy()
+            print "HOLA !"
+            values['ref'] = None
+        return super(PartyPatient, cls).write(parties, values)
+
+    @classmethod
+    def create(cls, values):
+        # We use this method overwrite to make the fields that have a unique
+        # constraint get the NULL value at PostgreSQL level, and not the value
+        # '' coming from the client
+        if 'ref' in values and not values['ref']:
+            values = values.copy()
+            values['ref'] = None
+        return super(PartyPatient, cls).create(values)
+
+    @classmethod
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
         cls._sql_constraints += [
-        ('ref_uniq', 'UNIQUE(ref)', 'The Patient SSN must be unique'),
+        ('ref_uniq', 'UNIQUE(ref)', 'The SSN must be unique'),
         ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')
         ]
