@@ -563,7 +563,6 @@ class PartyPatient (ModelSQL, ModelView):
         # '' coming from the client
         if 'ref' in values and not values['ref']:
             values = values.copy()
-            print "HOLA !"
             values['ref'] = None
         return super(PartyPatient, cls).write(parties, values)
 
