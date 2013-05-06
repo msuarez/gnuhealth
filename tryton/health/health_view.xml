@@ -1339,6 +1339,39 @@
             parent="gnuhealth_conf_insurances" sequence="2"/>
 
 
+<!-- PERSON ALTERNATIVE IDs -->
+
+        <record model="ir.ui.view" id="gnuhealth_alternative_identification_form">
+            <field name="model">gnuhealth.person_alternative_identification</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Person alternative IDs">
+                    <label name="code"/>
+                    <field name="code"/>
+                    <label name="alternative_id_type"/>
+                    <field name="alternative_id_type"/>
+                    <label name="comments"/>
+                    <field name="comments"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_alternative_identification_tree">
+            <field name="model">gnuhealth.person_alternative_identification</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree editable="top" string="Alternative ID">
+                    <field name="code" expand="1"/>
+                    <field name="alternative_id_type" expand="1"/>
+                    <field name="comments" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
 <!-- PARTY -->
 
         <record model="ir.ui.view" id="view_party_form">
@@ -1370,16 +1403,23 @@
                             </group>
                             <newline/>
 
-                            <group col="8" colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+                            <group col="10" colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
                                 <label name="ref"/>
                                 <field name="ref"/>
+                                <label name="alternative_identification"/>
+                                <field name="alternative_identification"/>
                                 <label name="unidentified"/>
                                 <field name="unidentified"/>
+                                <newline/>
                                 <label name="citizenship"/>
                                 <field name="citizenship"/>
                                 <label name="residence"/>
                                 <field name="residence"/>
                             </group>
+
+                            <newline/>
+
+                            <field name="alternative_ids"/>
 
                             <newline/>
 

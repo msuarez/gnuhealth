@@ -46,6 +46,7 @@ def register():
         ProcedureCode,
         InsurancePlan,
         Insurance,
+        AlternativePersonID,
         PartyPatient,
         PartyAddress,
         Product,

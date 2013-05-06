@@ -33,7 +33,7 @@ __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
     'OperationalArea', 'OperationalSector', 'Family', 'FamilyMember',
     'MedicamentCategory', 'Medicament', 'PathologyCategory', 'PathologyGroup',
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 'InsurancePlan',
-    'Insurance', 'PartyPatient', 'PartyAddress', 'Product',
+    'Insurance', 'AlternativePersonID', 'PartyPatient', 'PartyAddress', 'Product',
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo', 'Appointment',
     'AppointmentReport', 'OpenAppointmentReportStart', 'OpenAppointmentReport',
     'MedicationTemplate', 'PatientMedication', 'PatientVaccination',
@@ -509,6 +509,20 @@ class Insurance(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return (self.company.name + ' : ' + self.number)
 
+class AlternativePersonID (ModelSQL, ModelView):
+    'Alternative person ID'
+    __name__ = 'gnuhealth.person_alternative_identification'
+
+    name = fields.Many2One ('party.party', 'Party', readonly=True)
+    code = fields.Char ('Code', required=True)
+    alternative_id_type = fields.Selection([
+        ('country_id', 'Country of origin SSN'),
+        ('passport', 'Passport'),
+        ('other', 'Other'),
+        ], 'ID type', required=True, sort=False, 
+          )
+    comments = fields.Char ('Comments')
+
 
 class PartyPatient (ModelSQL, ModelView):
     'Party'
@@ -544,7 +558,14 @@ class PartyPatient (ModelSQL, ModelView):
     lastname = fields.Char('Last Name', help='Last Name')
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
-
+    alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
+        'identification, not the official SSN from this country health'
+        ' center. Examples : Passport, foreign ID,..')
+    alternative_ids = fields.One2Many('gnuhealth.person_alternative_identification',
+     'name', 'Alternative IDs', states={
+            'invisible': Not(Bool(Eval('alternative_identification'))),
+            }
+        )
     insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurance')
     internal_user = fields.Many2One('res.user', 'Internal User',
         help='In GNU Health is the user (doctor, nurse) that logins.When the'
