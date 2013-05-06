@@ -538,6 +538,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     lastname = fields.Char('Last Name', help='Last Name')
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
+    residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
 
     insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurance')
     internal_user = fields.Many2One('res.user', 'Internal User',

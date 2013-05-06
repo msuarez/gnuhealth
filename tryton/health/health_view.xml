@@ -1355,14 +1355,14 @@
                         <page string="Health" id="party_gnuhealth">
 
                             <group col="12" colspan="4" id="party_specs">
+                                <label name="is_person"/>
+                                <field name="is_person"/>
                                 <label name="is_patient"/>
                                 <field name="is_patient"/>
                                 <label name="is_doctor"/>
                                 <field name="is_doctor"/>
                                 <label name="is_institution"/>
                                 <field name="is_institution"/>
-                                <label name="is_person"/>
-                                <field name="is_person"/>
                                 <label name="is_insurance_company"/>
                                 <field name="is_insurance_company"/>
                                 <label name="is_pharmacy"/>
@@ -1373,6 +1373,8 @@
                             <group col="4" colspan="2" id="patient_citizenship">
                                 <label name="citizenship"/>
                                 <field name="citizenship"/>
+                                <label name="residence"/>
+                                <field name="residence"/>
                             </group>
 
                             <group col="4" colspan="2" id="party_specs">
