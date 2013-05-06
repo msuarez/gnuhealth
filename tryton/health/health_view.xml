@@ -1370,24 +1370,22 @@
                             </group>
                             <newline/>
 
-                            <group col="4" colspan="2" id="patient_citizenship">
+                            <group col="8" colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+                                <label name="ref"/>
+                                <field name="ref"/>
+                                <label name="unidentified"/>
+                                <field name="unidentified"/>
                                 <label name="citizenship"/>
                                 <field name="citizenship"/>
                                 <label name="residence"/>
                                 <field name="residence"/>
                             </group>
 
-                            <group col="6" colspan="2" id="party_specs">
+                            <newline/>
+
+                            <group col="6" colspan="2" id="other_party_specs">
                                 <label name="activation_date"/>
                                 <field name="activation_date"/>
-                                <label name="ref"/>
-                                <field name="ref"/>
-                                <label name="unidentified"/>
-                                <field name="unidentified"/>
-
-                            </group>
-
-                            <group colspan="1" col="2" id="party_internal_user">
                                 <label name="internal_user"/>
                                 <field name="internal_user"/>
                             </group>
