@@ -522,6 +522,11 @@ class PartyPatient (ModelSQL, ModelView):
                 states={
             'invisible': Not(Bool(Eval('is_person'))),
             })
+    unidentified = fields.Boolean('Unidentified',
+        help='Patient is currently unidentified',
+                states={
+            'invisible': Not(Bool(Eval('is_person'))),
+            })
 
     is_person = fields.Boolean('Person',
         help='Check if the party is a person.')
