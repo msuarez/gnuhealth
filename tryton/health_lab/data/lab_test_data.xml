@@ -6,7 +6,7 @@
             <field name="name">Lab Services</field>
         </record>
 
-        <record id="product_product_semenanalysischarges0" model="product.product">
+        <record id="product_template_semenanalysischarges0" model="product.template">
             <field name="name">Semen Analysis Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -15,7 +15,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_bloodcounttestcharges0" model="product.product">
+        <record id="product_template_bloodcounttestcharges0" model="product.template">
             <field name="name">Blood count test charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -24,7 +24,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_liverfunctiontestcharges0" model="product.product">
+        <record id="product_template_liverfunctiontestcharges0" model="product.template">
             <field name="name">Liver Function test charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -33,7 +33,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_stoolexaminationcharges0" model="product.product">
+        <record id="product_template_stoolexaminationcharges0" model="product.template">
             <field name="name">Stool Examination Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -42,7 +42,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_renalfunctiontestcharges0" model="product.product">
+        <record id="product_template_renalfunctiontestcharges0" model="product.template">
             <field name="name">Renal Function test charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -51,7 +51,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_haematologycharges0" model="product.product">
+        <record id="product_template_haematologycharges0" model="product.template">
             <field name="name">Haematology Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -60,7 +60,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_peripheralsmearexaminationcharges0" model="product.product">
+        <record id="product_template_peripheralsmearexaminationcharges0" model="product.template">
             <field name="name">Peripheral Smear Examination Charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -69,7 +69,7 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_urineanalysischarges0" model="product.product">
+        <record id="product_template_urineanalysischarges0" model="product.template">
             <field name="name">Urine Analysis charges</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
@@ -78,13 +78,49 @@
             <field name="category" ref="product_category_labservices0"/>
         </record>
 
-        <record id="product_product_endocrinology0" model="product.product">
+        <record id="product_template_endocrinology0" model="product.template">
             <field name="name">Endocrinology</field>
             <field eval="1.0" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
             <field name="category" ref="product_category_labservices0"/>
+        </record>
+
+        <record id="product_product_semenanalysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_semenanalysischarges0"/>
+        </record>
+
+        <record id="product_product_bloodcounttestcharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_bloodcounttestcharges0"/>
+        </record>
+
+        <record id="product_product_liverfunctiontestcharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_liverfunctiontestcharges0"/>
+        </record>
+
+        <record id="product_product_stoolexaminationcharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_stoolexaminationcharges0"/>
+        </record>
+
+        <record id="product_product_renalfunctiontestcharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_renalfunctiontestcharges0"/>
+        </record>
+
+        <record id="product_product_haematologycharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_haematologycharges0"/>
+        </record>
+
+        <record id="product_product_peripheralsmearexaminationcharges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_peripheralsmearexaminationcharges0"/>
+        </record>
+
+        <record id="product_product_urineanalysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_urineanalysischarges0"/>
+        </record>
+
+        <record id="product_product_endocrinology0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_endocrinology0"/>
         </record>
 
         <record id="gnuhealth_test_semenanalysis0" model="gnuhealth.lab.test_type">
@@ -414,7 +450,7 @@ Post menopausal : 8.2-40.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_liverfunctiontest0"/>
             <field eval="&quot;&quot;&quot;1.5-3.5&quot;&quot;&quot;" name="normal_range"/>
             <field eval="1.5" name="lower_limit"/>
-            <field eval="3.5" name="upper_limit"/>            
+            <field eval="3.5" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_gmdl0"/>
         </record>
 
@@ -624,7 +660,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;11.5-14.5&quot;&quot;&quot;" name="normal_range"/>
             <field eval="11.5" name="lower_limit"/>
-            <field eval="14.5" name="upper_limit"/>            
+            <field eval="14.5" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_0"/>
         </record>
 
@@ -641,7 +677,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_liverfunctiontest0"/>
             <field eval="&quot;&quot;&quot;&lt;270&quot;&quot;&quot;" name="normal_range"/>
             <field eval="0" name="lower_limit"/>
-            <field eval="270" name="upper_limit"/>            
+            <field eval="270" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul2"/>
         </record>
 
@@ -695,7 +731,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_stoolexamination0"/>
             <field eval="&quot;&quot;&quot;0-1&quot;&quot;&quot;" name="normal_range"/>
             <field eval="0" name="lower_limit"/>
-            <field eval="1" name="upper_limit"/>            
+            <field eval="1" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_hpf0"/>
         </record>
 
@@ -745,7 +781,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_liverfunctiontest0"/>
             <field eval="&quot;&quot;&quot;&lt;55&quot;&quot;&quot;" name="normal_range"/>
             <field eval="0" name="lower_limit"/>
-            <field eval="55" name="upper_limit"/>          
+            <field eval="55" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul2"/>
         </record>
 
@@ -774,7 +810,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="test_type_id" ref="gnuhealth_test_liverfunctiontest0"/>
             <field eval="&quot;&quot;&quot;1.5:1-2.5:1&quot;&quot;&quot;" name="normal_range"/>
             <field eval="1.5" name="lower_limit"/>
-            <field eval="2.5" name="upper_limit"/>            
+            <field eval="2.5" name="upper_limit"/>
         </record>
 
         <record id="gnuhealth_test_critearea_neu0" model="gnuhealth.lab.test.critearea">
