@@ -26,6 +26,7 @@ class MedicalPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     ses = fields.Selection([
+        (None, ''),
         ('0', 'Lower'),
         ('1', 'Lower-middle'),
         ('2', 'Middle'),
@@ -34,6 +35,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
 
     education = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Incomplete Primary School'),
         ('2', 'Primary School'),
@@ -43,6 +45,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ], 'Education Level', help="Education Level", sort=False)
 
     housing = fields.Selection([
+        (None, ''),
         ('0', 'Shanty, deficient sanitary conditions'),
         ('1', 'Small, crowded but with good sanitary conditions'),
         ('2', 'Comfortable and good sanitary conditions'),
@@ -77,6 +80,7 @@ class MedicalPatient(ModelSQL, ModelView):
     ses_notes = fields.Text('Extra info')
 
     fam_apgar_help = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Moderately'),
         ('2', 'Very much'),
@@ -85,6 +89,7 @@ class MedicalPatient(ModelSQL, ModelView):
         "the family when there is a problem ?", sort=False)
 
     fam_apgar_discussion = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Moderately'),
         ('2', 'Very much'),
@@ -93,6 +98,7 @@ class MedicalPatient(ModelSQL, ModelView):
         "problems as family ?", sort=False)
 
     fam_apgar_decisions = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Moderately'),
         ('2', 'Very much'),
@@ -101,6 +107,7 @@ class MedicalPatient(ModelSQL, ModelView):
         "decisions as a group ?", sort=False)
 
     fam_apgar_timesharing = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Moderately'),
         ('2', 'Very much'),
@@ -109,6 +116,7 @@ class MedicalPatient(ModelSQL, ModelView):
         "spend together ?", sort=False)
 
     fam_apgar_affection = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Moderately'),
         ('2', 'Very much'),
@@ -125,6 +133,7 @@ class MedicalPatient(ModelSQL, ModelView):
         'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection'])
 
     income = fields.Selection([
+        (None, ''),
         ('h', 'High'),
         ('m', 'Medium / Average'),
         ('l', 'Low'),
