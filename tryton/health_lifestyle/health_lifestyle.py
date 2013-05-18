@@ -35,6 +35,7 @@ class DrugsRecreational(ModelSQL, ModelView):
         help="Common name of the drug in street jargon")
 
     toxicity = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Low'),
         ('2', 'High'),
@@ -42,6 +43,7 @@ class DrugsRecreational(ModelSQL, ModelView):
         ], 'Toxicity', sort=False)
 
     addiction_level = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Low'),
         ('2', 'High'),
@@ -49,11 +51,13 @@ class DrugsRecreational(ModelSQL, ModelView):
         ], 'Dependence', sort=False)
 
     legal_status = fields.Selection([
+        (None, ''),
         ('0', 'Legal'),
         ('1', 'Illegal'),
         ], 'Legal Status', sort=False)
 
     category = fields.Selection([
+        (None, ''),
         ('cannabinoid', 'Cannabinoids'),
         ('depressant', 'Depressants'),
         ('dissociative', 'Dissociative Anesthetics'),
@@ -289,6 +293,7 @@ class MedicalPatient(ModelSQL, ModelView):
     lifestyle_info = fields.Text('Extra Information')
 
     sexual_preferences = fields.Selection([
+        (None, ''),
         ('h', 'Heterosexual'),
         ('g', 'Homosexual'),
         ('b', 'Bisexual'),
@@ -296,11 +301,13 @@ class MedicalPatient(ModelSQL, ModelView):
         ], 'Sexual Preferences', sort=False)
 
     sexual_practices = fields.Selection([
+        (None, ''),
         ('s', 'Safe / Protected sex'),
         ('r', 'Risky / Unprotected sex'),
         ], 'Sexual Practices', sort=False)
 
     sexual_partners = fields.Selection([
+        (None, ''),
         ('m', 'Monogamous'),
         ('t', 'Polygamous'),
         ], 'Sexual Partners', sort=False)
@@ -310,6 +317,7 @@ class MedicalPatient(ModelSQL, ModelView):
     first_sexual_encounter = fields.Integer('Age first sexual encounter')
 
     anticonceptive = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Pill / Minipill'),
         ('2', 'Male condom'),
@@ -324,6 +332,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ], 'Anticonceptive Method', sort=False)
 
     sex_oral = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Active'),
         ('2', 'Passive'),
@@ -331,6 +340,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ], 'Oral Sex', sort=False)
 
     sex_anal = fields.Selection([
+        (None, ''),
         ('0', 'None'),
         ('1', 'Active'),
         ('2', 'Passive'),
