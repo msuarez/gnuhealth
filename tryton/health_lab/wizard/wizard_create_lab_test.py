@@ -50,12 +50,14 @@ class CreateLabTestOrder(Wizard):
         TestRequest = Pool().get('gnuhealth.patient.lab.test')
         Lab = Pool().get('gnuhealth.lab')
 
-        test_report_data = {}
+        tests_report_data = []
         test_cases = []
 
         tests = TestRequest.browse(Transaction().context.get('active_ids'))
 
         for lab_test_order in tests:
+
+            test_report_data = {}
 
             if lab_test_order.state == 'ordered':
                 raise Exception('The Lab test order is already created.')
@@ -67,17 +69,20 @@ class CreateLabTestOrder(Wizard):
             test_report_data['date_requested'] = lab_test_order.date
 
             for critearea in lab_test_order.name.critearea:
-                test_cases.append(('create', {
+                test_cases.append(('create', [{
                         'name': critearea.name,
                         'sequence': critearea.sequence,
                         'lower_limit': critearea.lower_limit,
                         'upper_limit': critearea.upper_limit,
                         'normal_range': critearea.normal_range,
                         'units': critearea.units and critearea.units.id,
-                    }))
+                    }]))
             test_report_data['critearea'] = test_cases
-            Lab.create(test_report_data)
-            TestRequest.write([lab_test_order], {'state': 'ordered'})
+
+            tests_report_data.append(test_report_data)
+
+        Lab.create(tests_report_data)
+        TestRequest.write(tests, {'state': 'ordered'})
 
         return 'end'
 
@@ -148,8 +153,9 @@ class RequestPatientLabTest(Wizard):
 
         config = Config(1)
         request_number = Sequence.get_id(config.lab_request_sequence.id)
-        lab_test = {}
+        lab_tests = []
         for test in self.start.tests:
+            lab_test = {}
             lab_test['request'] = request_number
             lab_test['name'] = test.id
             lab_test['patient_id'] = self.start.patient.id
@@ -157,6 +163,7 @@ class RequestPatientLabTest(Wizard):
                 lab_test['doctor_id'] = self.start.doctor.id
             lab_test['date'] = self.start.date
             lab_test['urgent'] = self.start.urgent
-            PatientLabTest.create(lab_test)
+            lab_tests.append(lab_test)
+        PatientLabTest.create(lab_tests)
 
         return 'end'

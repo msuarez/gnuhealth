@@ -108,17 +108,18 @@ class Lab(ModelSQL, ModelView):
         return datetime.now()
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('name'):
-            config = Config(1)
-            values['name'] = Sequence.get_id(
-                config.lab_sequence.id)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                    config.lab_sequence.id)
 
-        return super(Lab, cls).create(values)
+        return super(Lab, cls).create(vlist)
 
 
 class GnuHealthLabTestUnits(ModelSQL, ModelView):
@@ -233,14 +234,15 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
             return False
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('request'):
-            config = Config(1)
-            values['request'] = Sequence.get_id(
-                config.lab_request_sequence.id)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('request'):
+                config = Config(1)
+                values['request'] = Sequence.get_id(
+                    config.lab_request_sequence.id)
 
-        return super(GnuHealthPatientLabTest, cls).create(values)
+        return super(GnuHealthPatientLabTest, cls).create(vlist)
