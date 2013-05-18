@@ -193,210 +193,245 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
     psc_aches_pains = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Complains of aches and pains', sort=False)
 
     psc_spend_time_alone = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Spends more time alone', sort=False)
 
     psc_tires_easily = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Tires easily, has little energy', sort=False)
 
     psc_fidgety = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Fidgety, unable to sit still', sort=False)
 
     psc_trouble_with_teacher = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Has trouble with teacher', sort=False)
 
     psc_less_interest_in_school = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Less interested in school', sort=False)
 
     psc_acts_as_driven_by_motor = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Acts as if driven by a motor', sort=False)
 
     psc_daydreams_too_much = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Daydreams too much', sort=False)
 
     psc_distracted_easily = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Distracted easily', sort=False)
 
     psc_afraid_of_new_situations = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Is afraid of new situations', sort=False)
 
     psc_sad_unhappy = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Feels sad, unhappy', sort=False)
 
     psc_irritable_angry = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Is irritable, angry', sort=False)
 
     psc_feels_hopeless = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Feels hopeless', sort=False)
 
     psc_trouble_concentrating = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Has trouble concentrating', sort=False)
 
     psc_less_interested_in_friends = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Less interested in friends', sort=False)
 
     psc_fights_with_others = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Fights with other children', sort=False)
 
     psc_absent_from_school = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Absent from school', sort=False)
 
     psc_school_grades_dropping = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'School grades dropping', sort=False)
 
     psc_down_on_self = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Is down on him or herself', sort=False)
 
     psc_visit_doctor_finds_ok = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Visits the doctor with doctor finding nothing wrong', sort=False)
 
     psc_trouble_sleeping = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Has trouble sleeping', sort=False)
 
     psc_worries_a_lot = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Worries a lot', sort=False)
 
     psc_wants_to_be_with_parents = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Wants to be with you more than before', sort=False)
 
     psc_feels_is_bad_child = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Feels he or she is bad', sort=False)
 
     psc_takes_unnecesary_risks = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Takes unnecessary risks', sort=False)
 
     psc_gets_hurt_often = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Gets hurt frequently', sort=False)
 
     psc_having_less_fun = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Seems to be having less fun', sort=False)
 
     psc_act_as_younger = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Acts younger than children his or her age', sort=False)
 
     psc_does_not_listen_to_rules = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Does not listen to rules', sort=False)
 
     psc_does_not_show_feelings = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Does not show feelings', sort=False)
 
     psc_does_not_get_people_feelings = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Does not get people feelings', sort=False)
 
     psc_teases_others = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Teases others', sort=False)
 
     psc_blames_others = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Blames others for his or her troubles', sort=False)
 
     psc_takes_things_from_others = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
         ], 'Takes things that do not belong to him or her', sort=False)
 
     psc_refuses_to_share = fields.Selection([
+        (None, ''),
         ('0', 'Never'),
         ('1', 'Sometimes'),
         ('2', 'Often'),
