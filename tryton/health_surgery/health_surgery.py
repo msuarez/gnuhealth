@@ -19,10 +19,98 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
+from datetime import datetime
 
 
-__all__ = ['Surgery', 'MedicalOperation', 'MedicalPatient']
+__all__ = ['RCRI','Surgery', 'MedicalOperation', 'MedicalPatient']
 
+
+class RCRI(ModelSQL, ModelView):
+    'Revised Cardiac Risk Index'
+    __name__ = 'gnuhealth.rcri'
+    
+    patient = fields.Many2One('gnuhealth.patient', 'Patient ID', required=True)
+    rcri_date = fields.DateTime('Date', required=True)
+    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional',
+        help="Health professional / Cardiologist who signed the assesment RCRI")
+    rcri_high_risk_surgery = fields.Boolean ('High Risk surgery',help='suprainguinal vascular, intraperitoneal, or intrathoracic surgery')
+    rcri_ischemic_history = fields.Boolean ('History of ischemic heart disease')
+    rcri_congestive_history = fields.Boolean ('History of congestive heart disease')
+    rcri_diabetes_history = fields.Boolean ('Preoperative Diabetes')
+    rcri_cerebrovascular_history = fields.Boolean ('History of Cerebrovascular disease')
+    rcri_kidney_history = fields.Boolean ('Preoperative Kidney disease')
+    
+    rcri_total = fields.Integer('Score',
+        on_change_with=['rcri_high_risk_surgery', 'rcri_ischemic_history',
+        'rcri_congestive_history', 'rcri_diabetes_history', 'rcri_cerebrovascular_history', 'rcri_kidney_history'])
+
+    rcri_class = fields.Selection([
+        ('I', 'I'),
+        ('II', 'II'),
+        ('III', 'III'),
+        ('IV', 'IV'),
+        ], 'RCRI Class',sort=False,
+        on_change_with=['rcri_high_risk_surgery', 'rcri_ischemic_history',
+        'rcri_congestive_history', 'rcri_diabetes_history', 'rcri_cerebrovascular_history', 'rcri_kidney_history'])
+
+
+    def on_change_with_rcri_total(self):
+        
+        total = 0
+        if self.rcri_high_risk_surgery :
+            total=total + 1
+        if self.rcri_ischemic_history :
+            total=total + 1
+        if self.rcri_congestive_history :
+            total=total + 1
+        if self.rcri_diabetes_history :
+            total=total + 1
+        if self.rcri_kidney_history :
+            total=total + 1
+        if self.rcri_cerebrovascular_history :
+            total=total + 1
+            
+        return total
+        
+    def on_change_with_rcri_class (self):
+        rcri_class = ''
+ 
+        total = 0
+        if self.rcri_high_risk_surgery :
+            total=total + 1
+        if self.rcri_ischemic_history :
+            total=total + 1
+        if self.rcri_congestive_history :
+            total=total + 1
+        if self.rcri_diabetes_history :
+            total=total + 1
+        if self.rcri_kidney_history :
+            total=total + 1
+        if self.rcri_cerebrovascular_history :
+            total=total + 1
+        
+        if total == 0:
+            rcri_class = 'I'
+        if total == 1:
+            rcri_class = 'II'
+        if total == 2:
+            rcri_class = 'III'
+        if (total > 2):
+            rcri_class = 'IV'
+            
+        return rcri_class        
+
+    @staticmethod
+    def default_rcri_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_rcri_total():
+        return 0
+
+    @staticmethod
+    def default_rcri_class():
+        return 'I'
 
 class Surgery(ModelSQL, ModelView):
     'Surgery Functionality'

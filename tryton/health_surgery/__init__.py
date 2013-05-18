@@ -24,6 +24,7 @@ from .health_surgery import *
 
 def register():
     Pool.register(
+        RCRI,
         Surgery,
         MedicalOperation,
         MedicalPatient,
