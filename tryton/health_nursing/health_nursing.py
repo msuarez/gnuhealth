@@ -84,10 +84,10 @@ class PatientRounding(ModelSQL, ModelView):
         help='Temperature in celsius')
 
     # Diuresis
-    
+
     diuresis = fields.Integer('Diuresis',help="volume in ml")
     urinary_catheter = fields.Boolean('Urinary Catheter')
-    
+
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
 
@@ -219,16 +219,17 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         return self.health_professional
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('name'):
-            config = Config(1)
-            values['name'] = Sequence.get_id(
-                config.ambulatory_care_sequence.id)
-        return super(PatientAmbulatoryCare, cls).create(values)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                    config.ambulatory_care_sequence.id)
+        return super(PatientAmbulatoryCare, cls).create(vlist)
 
     @staticmethod
     def default_health_professional():
