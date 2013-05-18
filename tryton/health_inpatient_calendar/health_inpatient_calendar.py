@@ -48,13 +48,14 @@ class InpatientRegistration(ModelSQL, ModelView):
         for inpatient_registration in registrations:
             if inpatient_registration.bed.calendar:
                 if not inpatient_registration.event:
-                    event = Event.create({
+                    events = Event.create([{
                         'dtstart': inpatient_registration.hospitalization_date,
                         'dtend': inpatient_registration.discharge_date,
                         'calendar': inpatient_registration.bed.calendar.id,
                         'summary': inpatient_registration.patient.name.name
-                        })
-                    cls.write([inpatient_registration], {'event': event.id})
+                        }])
+                    cls.write([inpatient_registration],
+                        {'event': events[0].id})
 
     @classmethod
     def discharge(cls, registrations):
