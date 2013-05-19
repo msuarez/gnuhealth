@@ -113,7 +113,7 @@ class RCRI(ModelSQL, ModelView):
         return 'I'
 
 class Surgery(ModelSQL, ModelView):
-    'Surgery Functionality'
+    'Surgery'
     __name__ = 'gnuhealth.surgery'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID')
@@ -126,9 +126,11 @@ class Surgery(ModelSQL, ModelView):
     pathology = fields.Many2One('gnuhealth.pathology', 'Base condition',
         help="Base Condition / Reason")
     classification = fields.Selection([
+        (None, ''),
         ('o', 'Optional'),
         ('r', 'Required'),
         ('u', 'Urgent'),
+        ('e', 'Emergency'),
         ], 'Classification', sort=False)
     surgeon = fields.Many2One('gnuhealth.physician', 'Surgeon',
         help="Surgeon who did the procedure")
