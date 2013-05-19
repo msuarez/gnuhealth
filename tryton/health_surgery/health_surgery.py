@@ -168,6 +168,8 @@ class Surgery(ModelSQL, ModelView):
         ('ps5', 'PS 5 : Moribund patients who are not expected to survive without the operation'),
         ('ps6', 'PS 6 : A declared brain-dead patient who organs are being removed for donor purposes'),
         ], 'ASA Preoperative Physical Status', sort=False)
+    preop_rcri = fields.Many2One('gnuhealth.rcri', 'RCRI',
+        help="Patient Revised Cardiac Risk Index")
 
     extra_info = fields.Text('Extra Info')
 
