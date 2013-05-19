@@ -45,6 +45,7 @@ class RCRI(ModelSQL, ModelView):
         'rcri_congestive_history', 'rcri_diabetes_history', 'rcri_cerebrovascular_history', 'rcri_kidney_history'])
 
     rcri_class = fields.Selection([
+        (None, ''),
         ('I', 'I'),
         ('II', 'II'),
         ('III', 'III'),
@@ -141,6 +142,7 @@ class Surgery(ModelSQL, ModelView):
         help="Patient age at the moment of the surgery. Can be estimative")
     description = fields.Char('Description', required=True)
     preop_mallampati = fields.Selection([
+        (None, ''),
         ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft '
                     'palate'),
         ('Class 2', 'Class 2: Visibility of hard and soft palate, '
@@ -163,6 +165,7 @@ class Surgery(ModelSQL, ModelView):
     preop_sterility = fields.Boolean('Sterility confirmed',
         help="Nursing team has confirmed sterility of the devices and room")
     preop_asa = fields.Selection([
+        (None, ''),
         ('ps1', 'PS 1 : Normal healthy patient'),
         ('ps2', 'PS 2 : Patients with mild systemic disease'),
         ('ps3', 'PS 3 : Patients with severe systemic disease'),
