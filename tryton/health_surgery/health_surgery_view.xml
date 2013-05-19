@@ -107,6 +107,8 @@
                     <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="4">
                         <label name="preop_asa"/>
                         <field name="preop_asa"/>
+                        <label name="preop_rcri"/>
+                        <field name="preop_rcri"/>
                     </group>
                     <newline/>
                     
