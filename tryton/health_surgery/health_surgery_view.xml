@@ -115,8 +115,6 @@
                     <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="12">
                         <label name="preop_bleeding_risk"/>
                         <field name="preop_bleeding_risk"/>
-                        <label name="preop_bleeding_risk"/>
-                        <field name="preop_bleeding_risk"/>
                         <label name="preop_oximeter"/>
                         <field name="preop_oximeter"/>
                         <label name="preop_site_marking"/>
