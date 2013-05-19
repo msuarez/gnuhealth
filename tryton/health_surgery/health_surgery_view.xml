@@ -104,7 +104,13 @@
                     
                     <newline/>
 
-                    <group string="Preoperative assessment" id="group_surgery" colspan="4" col="10">
+                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="4">
+                        <label name="preop_asa"/>
+                        <field name="preop_asa"/>
+                    </group>
+                    <newline/>
+                    
+                    <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="10">
                         <label name="preop_bleeding_risk"/>
                         <field name="preop_bleeding_risk"/>
                         <label name="preop_bleeding_risk"/>
