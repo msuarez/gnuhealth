@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #    Copyright (C) 2008-2013  Luis Falcon
-#    Copyright (C) 2012-2012  Sebastián Marró
+#    Copyright (C) 2012-2013  Sebastián Marró
 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -14,32 +14,37 @@
 
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from datetime import datetime
+from optparse import OptionParser
+import sys
 
-import datetime as dt
-from datetime import timedelta, datetime
-import random
-import linecache
+from proteus import Model, Wizard
+from proteus import config as pconfig
 
-from proteus import config, Model, Wizard
 
-config = config.set_trytond('gnuhealth_demo', database_type='postgresql', 
-    user='admin', password='admin')
+def set_config(database, password):
+    return pconfig.set_trytond(database, password=password)
 
-def RandomDate(start, end):
-    """
-    This function will return a random datetime between two datetime 
-    objects.
-    """
-    delta = end - start
-    int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
-    random_second = random.randrange(int_delta)
-    return (start + timedelta(seconds=random_second))
 
-def InitDatabase():
+def install_modules(config, modules):
     Module = Model.get('ir.module.module')
-    health_profile, = Module.find([('name', '=', 'health_profile')])
-    Module.install([health_profile.id], config.context)
+    modules = Module.find([
+        ('name', 'in', modules),
+        ('state', '!=', 'installed'),
+    ])
+    Module.install([x.id for x in modules], config.context)
+    modules = [x.name for x in Module.find([('state', '=', 'to install')])]
     Wizard('ir.module.module.install_upgrade').execute('upgrade')
+
+    ConfigWizardItem = Model.get('ir.module.module.config_wizard.item')
+    for item in ConfigWizardItem.find([('state', '!=', 'done')]):
+        item.state = 'done'
+        item.save()
+
+    installed_modules = [m.name
+        for m in Module.find([('state', '=', 'installed')])]
+    return modules, installed_modules
+
 
 def LoadBetzFamilyInfo():
     Party = Model.get('party.party')
@@ -145,7 +150,8 @@ def LoadBetzFamilyInfo():
     medication_template.indication, = Pathology.find([
         ('name', '=', 'Insulin-dependent diabetes mellitus'),
     ])
-    medication_template.start_treatment = datetime.strptime('11/10/1993', '%m/%d/%Y')
+    medication_template.start_treatment = datetime.strptime('11/10/1993',
+        '%m/%d/%Y')
     medication_template.save()
 
     patient_medication = PatientMedication()
@@ -153,7 +159,8 @@ def LoadBetzFamilyInfo():
     patient_medication.name = patient
     patient_medication.doctor = physician
     patient_medication.is_active = True
-    patient_medication.diagnosed_date = datetime.strptime('11/10/1993', '%m/%d/%Y')
+    patient_medication.diagnosed_date = datetime.strptime('11/10/1993',
+        '%m/%d/%Y')
     patient_medication.save()
 
     family_diseases = FamilyDiseases()
@@ -174,7 +181,9 @@ def LoadBetzFamilyInfo():
 
     patient_genetic_risk = PatientGeneticRisk()
     patient_genetic_risk.patient = patient
-    patient_genetic_risk.disease_gene, = DiseaseGene.find([('name', '=', 'BRCA1')])
+    patient_genetic_risk.disease_gene, = DiseaseGene.find([
+        ('name', '=', 'BRCA1')
+        ])
     patient_genetic_risk.save()
 
     newborn = Newborn()
@@ -184,6 +193,30 @@ def LoadBetzFamilyInfo():
     newborn.sex = 'm'
     newborn.save()
 
+
+def main(database, modules, password, demo_password):
+    config = set_config(database, password)
+    to_install, installed = install_modules(config, modules)
+    if 'health' in to_install:
+        LoadBetzFamilyInfo()
+
+
 if __name__ == '__main__':
-    InitDatabase()
-    LoadBetzFamilyInfo()
+    parser = OptionParser(usage="Usage: %prog [options] <database name>")
+    parser.add_option('-p', '--password', dest='password',
+        default='admin', help='admin password [default: %default]')
+    parser.add_option('-m', '--module', dest='modules', action='append',
+        help='module to install', default=[
+            'health_profile',
+            'health_who_essential_medicines',
+            ])
+    parser.add_option('--demo_password', dest='demo_password',
+        default='demo', help='demo password [default: %default]')
+    options, args = parser.parse_args()
+    if len(args) > 1:
+        parser.error('Too much args!')
+    elif not args:
+        parser.error('Not enough args!')
+    sys.argv = []  # clean argv for trytond
+    database, = args
+    main(database, options.modules, options.password, options.demo_password)
