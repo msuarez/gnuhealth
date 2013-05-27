@@ -72,16 +72,17 @@ class HealthService(ModelSQL, ModelView):
         cls.write(services, {'state': 'draft'})
 
     @classmethod
-    def create(cls, values):
+    def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
 
-        values = values.copy()
-        if not values.get('name'):
-            config = Config(1)
-            values['name'] = Sequence.get_id(
-                config.health_service_sequence.id)
-        return super(HealthService, cls).create(values)
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                    config.health_service_sequence.id)
+        return super(HealthService, cls).create(vlist)
 
 
 class HealthServiceLine(ModelSQL, ModelView):

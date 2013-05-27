@@ -58,6 +58,7 @@ class CreateServiceInvoice(Wizard):
 
         services = HealthService.browse(Transaction().context.get(
             'active_ids'))
+        invoices = []
 
         #Invoice Header
         for service in services:
@@ -84,7 +85,7 @@ class CreateServiceInvoice(Wizard):
                 seq = seq + 1
                 account = line['product'].template.account_revenue_used.id
                 if line['to_invoice']:
-                    invoice_lines.append(('create', {
+                    invoice_lines.append(('create', [{
                             'product': line['product'].id,
                             'description': line['desc'],
                             'quantity': line['qty'],
@@ -92,13 +93,14 @@ class CreateServiceInvoice(Wizard):
                             'unit': line['product'].default_uom.id,
                             'unit_price': line['product'].list_price,
                             'sequence': seq
-                        }))
+                        }]))
                 invoice_data['lines'] = invoice_lines
+                invoices.append(invoice_data)
 
-            Invoice.create(invoice_data)
+        Invoice.create(invoices)
 
-            # Change to invoiced the status on the service document.
-            HealthService.write([service], {'state': 'invoiced'})
+        # Change to invoiced the status on the service document.
+        HealthService.write(services, {'state': 'invoiced'})
 
         return 'end'
 
