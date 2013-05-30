@@ -202,7 +202,9 @@ def main(database, modules, password, demo_password):
 
 
 if __name__ == '__main__':
-    parser = OptionParser(usage="Usage: %prog [options] <database name>")
+    parser = OptionParser(usage="Usage: %prog [options]")
+    parser.add_option('-d', '--database', dest='database',
+        default='gnuhealth_demo', help='database name [default: %default]')
     parser.add_option('-p', '--password', dest='password',
         default='admin', help='admin password [default: %default]')
     parser.add_option('-m', '--module', dest='modules', action='append',
@@ -213,10 +215,8 @@ if __name__ == '__main__':
     parser.add_option('--demo_password', dest='demo_password',
         default='demo', help='demo password [default: %default]')
     options, args = parser.parse_args()
-    if len(args) > 1:
+    if len(args) > 0:
         parser.error('Too much args!')
-    elif not args:
-        parser.error('Not enough args!')
     sys.argv = []  # clean argv for trytond
-    database, = args
-    main(database, options.modules, options.password, options.demo_password)
+    main(options.database, options.modules, options.password,
+        options.demo_password)
