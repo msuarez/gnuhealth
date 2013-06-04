@@ -252,7 +252,7 @@ class FamilyMember(ModelSQL, ModelView):
 
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
-    __name__ = 'gnuhealth.domiciliaryunit'
+    __name__ = 'gnuhealth.du'
 
     name = fields.Char('Code', required=True)
     desc = fields.Char('Description')
