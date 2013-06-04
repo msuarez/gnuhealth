@@ -31,17 +31,17 @@ from trytond.pool import Pool
 __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
     'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
     'OperationalArea', 'OperationalSector', 'Family', 'FamilyMember',
-    'MedicamentCategory', 'Medicament', 'PathologyCategory', 'PathologyGroup',
-    'Pathology', 'DiseaseMembers', 'ProcedureCode', 'InsurancePlan',
-    'Insurance', 'AlternativePersonID', 'PartyPatient', 'PartyAddress', 'Product',
-    'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo', 'Appointment',
+    'DomiciliaryUnit','MedicamentCategory', 'Medicament',
+    'PathologyCategory', 'PathologyGroup', 'Pathology', 'DiseaseMembers',
+    'ProcedureCode', 'InsurancePlan',    'Insurance', 'AlternativePersonID',
+    'PartyPatient', 'PartyAddress', 'Product', 'GnuHealthSequences',
+    'PatientData', 'PatientDiseaseInfo', 'Appointment',
     'AppointmentReport', 'OpenAppointmentReportStart', 'OpenAppointmentReport',
     'MedicationTemplate', 'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit', 'HospitalOR',
     'HospitalWard', 'HospitalBed']
-
 
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
@@ -249,6 +249,31 @@ class FamilyMember(ModelSQL, ModelView):
         domain=[('is_person', '=', True)],
         help='Family code')
     role = fields.Char('Role', help='Father, Mother, sibbling...')
+
+class DomiciliaryUnit(ModelSQL, ModelView):
+    'Domiciliary Unit'
+    __name__ = 'gnuhealth.domiciliaryunit'
+
+    name = fields.Char('Code', required=True)
+    desc = fields.Char('Description')
+    address_street = fields.Char('Street')
+    address_street_number = fields.Integer('Street number')
+    address_street_bis = fields.Char('Address bis')
+    address_zip = fields.Char('Zip Code')
+    address_country = fields.Many2One('country.country','Country', help='Country')
+    address_subdivision = fields.Many2One('country.subdivision','State')
+    address_city = fields.Char('State')
+    operational_sector = fields.Many2One('gnuhealth.operational_sector',
+        'Operational Sector')
+    latitude=fields.Numeric('Latidude',digits=(2,14))
+    longitude=fields.Numeric('Longitude',digits=(3,14))
+   
+    @classmethod
+    def __setup__(cls):
+        super(DomiciliaryUnit, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'The Domiciliary Unit must be unique !'),
+        ]
 
 
 # Use the template as in Product category.

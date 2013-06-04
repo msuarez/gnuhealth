@@ -37,6 +37,7 @@ def register():
         OperationalSector,
         Family,
         FamilyMember,
+        DomiciliaryUnit,
         MedicamentCategory,
         Medicament,
         PathologyCategory,
