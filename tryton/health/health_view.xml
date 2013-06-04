@@ -66,6 +66,8 @@
             parent="gnuhealth_menu" sequence="20" icon="gnuhealth-appointment"/>
         <menuitem name="Prescriptions" id="gnuhealth_prescription_menu"
             parent="gnuhealth_menu" sequence="30" icon="gnuhealth-prescription"/>
+        <menuitem name="Demographics" id="gnuhealth_demographics_menu"
+            parent="gnuhealth_menu" sequence="40" icon="gnuhealth-report"/>
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
             parent="gnuhealth_menu" sequence="998" icon="gnuhealth-report"/>
         <menuitem name="Configuration" id="gnuhealth_conf_menu"
@@ -632,6 +634,84 @@
         <menuitem action="gnuhealth_action_family_member"
             id="gnuhealth_edit_family_member" parent="gnuhealth_patients_menu"
             icon="gnuhealth-list" sequence="40"/>
+
+
+<!-- Domiciliary Unit -->
+
+        <record model="ir.ui.view" id="gnuhealth_du_view">
+            <field name="model">gnuhealth.du</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Domicilary Unit">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="desc"/>
+                    <field name="desc"/>
+                    <newline/>
+                    <label name="address_street"/>
+                    <field name="address_street"/>
+                    <label name="address_street_number"/>
+                    <field name="address_street_number"/>
+                    <label name="address_street_bis"/>
+                    <field name="address_street_bis"/>
+                    <label name="address_city"/>
+                    <field name="address_city"/>
+                    <label name="address_zip"/>
+                    <field name="address_zip"/>
+                    <label name="address_subdivision"/>
+                    <field name="address_subdivision"/>
+                    <label name="address_country"/>
+                    <field name="address_country"/>
+                    <newline/>
+                    <label name="latitude"/>
+                    <field name="latitude"/>
+                    <label name="longitude"/>
+                    <field name="longitude"/>
+                    <newline/>
+                    <label name="operational_sector"/>
+                    <field name="operational_sector"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_du_tree">
+            <field name="model">gnuhealth.du</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Domiciliary Unit">
+                    <field name="name" expand="1"/>
+                    <field name="desc" expand="1"/>
+                    <field name="name" expand="1"/>
+                    <field name="desc" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_du">
+            <field name="name">Domiciliary Unit</field>
+            <field name="res_model">gnuhealth.du</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_du_list_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_du_tree"/>
+            <field name="act_window" ref="gnuhealth_action_du"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_du_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_du_view"/>
+            <field name="act_window" ref="gnuhealth_action_du"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_du"
+            id="gnuhealth_edit_du" parent="gnuhealth_demographics_menu"
+            icon="gnuhealth-list" sequence="40"/>
+
+
 
 
 <!-- Operational Areas -->
