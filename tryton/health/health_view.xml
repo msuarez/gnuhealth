@@ -70,6 +70,7 @@
             parent="gnuhealth_menu" sequence="40" icon="gnuhealth-report"/>
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
             parent="gnuhealth_menu" sequence="998" icon="gnuhealth-report"/>
+
         <menuitem name="Configuration" id="gnuhealth_conf_menu"
             parent="gnuhealth_menu" sequence="999" icon="gnuhealth-preferences"/>
 
@@ -86,8 +87,6 @@
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
             parent="gnuhealth_conf_menu" sequence="60" icon="gnuhealth-open"/>
-        <menuitem name="Operational Areas" id="gnuhealth_conf_operational_areas"
-            parent="gnuhealth_conf_misc" sequence="10" icon="gnuhealth-open"/>
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
             parent="gnuhealth_conf_misc" sequence="20" icon="gnuhealth-open"/>
 
@@ -582,7 +581,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_family" id="gnuhealth_edit_family"
-            icon="gnuhealth-list" parent="gnuhealth_patients_menu" sequence="30"/>
+            icon="gnuhealth-list" parent="gnuhealth_demographics_menu" sequence="30"/>
 
 
 <!-- Family Members -->
@@ -681,18 +680,18 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <tree string="Domiciliary Unit">
+                <tree string="Domiciliary Units">
                     <field name="name" expand="1"/>
                     <field name="desc" expand="1"/>
-                    <field name="name" expand="1"/>
-                    <field name="desc" expand="1"/>
+                    <field name="address_city" expand="1"/>
+                    <field name="address_country" expand="1"/>
                 </tree>
                 ]]>
             </field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_du">
-            <field name="name">Domiciliary Unit</field>
+            <field name="name">Domiciliary Units</field>
             <field name="res_model">gnuhealth.du</field>
         </record>
 
@@ -761,9 +760,12 @@
             <field name="act_window" ref="gnuhealth_action_operational_area"/>
         </record>
 
+        <menuitem name="Operational Areas" id="gnuhealth_operational_areas"
+            parent="gnuhealth_demographics_menu" sequence="100" icon="gnuhealth-open"/>
+
         <menuitem action="gnuhealth_action_operational_area"
             id="gnuhealth_conf_edit_operational_area" icon="gnuhealth-list"
-            parent="gnuhealth_conf_operational_areas" sequence="1"/>
+            parent="gnuhealth_operational_areas" sequence="1"/>
 
 
 <!-- Operational Sector -->
@@ -822,7 +824,7 @@
 
         <menuitem action="gnuhealth_action_operational_sector"
             id="gnuhealth_conf_edit_operational_sector" icon="gnuhealth-list"
-            parent="gnuhealth_conf_operational_areas" sequence="2"/>
+            parent="gnuhealth_operational_areas" sequence="2"/>
 
 
 <!-- Medicaments -->
