@@ -278,7 +278,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('factory', 'Factory'),
         ('building', 'Building'),
         ('mobilehome', 'Mobile House'),
-        ], 'Type of dwelling')
+        ], 'Type of dwelling', sort=False)
 
     materials = fields.Selection([
         (None, ''),
@@ -286,7 +286,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('adobe', 'Adobe'),
         ('wood', 'wood'),
         ('stone', 'stone'),
-        ], 'Material')
+        ], 'Material', sort=False)
 
     total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
     bedrooms = fields.Integer ('Bedrooms')
