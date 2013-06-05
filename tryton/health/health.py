@@ -634,6 +634,8 @@ class PartyPatient (ModelSQL, ModelView):
     insurance_plan_ids = fields.One2Many('gnuhealth.insurance.plan', 'company',
         'Insurance Plans')
 
+    du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
+
     @classmethod
     def write(cls, parties, vals):
         # We use this method overwrite to make the fields that have a unique
