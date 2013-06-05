@@ -670,6 +670,20 @@
                     <newline/>
                     <label name="operational_sector"/>
                     <field name="operational_sector"/>
+                    <newline/>
+                    <separator id="infrastructure" string="Infrastructure"/>
+                    <newline/>
+                    <label name="dwelling"/>
+                    <field name="dwelling"/>
+                    <label name="materials"/>
+                    <field name="materials"/>
+                    <label name="total_surface"/>
+                    <field name="total_surface"/>
+                    <label name="bedrooms"/>
+                    <field name="bedrooms"/>
+                    <label name="bathrooms"/>
+                    <field name="bathrooms"/>
+                   
                 </form>
                 ]]>
             </field>

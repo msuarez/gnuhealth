@@ -268,6 +268,30 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     latitude=fields.Numeric('Latidude',digits=(2,14))
     longitude=fields.Numeric('Longitude',digits=(3,14))
    
+    # Infrastructure 
+
+    dwelling = fields.Selection([
+        (None, ''),
+        ('single_house', 'Single / Detached House'),
+        ('apartment', 'Apartment'),
+        ('townhouse', 'Townhouse'),
+        ('factory', 'Factory'),
+        ('building', 'Building'),
+        ('mobilehome', 'Mobile House'),
+        ], 'Type of dwelling')
+
+    materials = fields.Selection([
+        (None, ''),
+        ('concrete', 'Concrete'),
+        ('adobe', 'Adobe'),
+        ('wood', 'wood'),
+        ('stone', 'stone'),
+        ], 'Material')
+
+    total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
+    bedrooms = fields.Integer ('Bedrooms')
+    bathrooms = fields.Integer ('Bathrooms')
+    
     @classmethod
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
