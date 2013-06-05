@@ -262,7 +262,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
     address_subdivision = fields.Many2One('country.subdivision','State')
-    address_city = fields.Char('State')
+    address_city = fields.Char('City')
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'Operational Sector')
     latitude=fields.Numeric('Latidude',digits=(2,14))
