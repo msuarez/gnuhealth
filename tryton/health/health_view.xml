@@ -683,6 +683,23 @@
                     <field name="bedrooms"/>
                     <label name="bathrooms"/>
                     <field name="bathrooms"/>
+
+                    <label name="housing"/>
+                    <field name="housing"/>
+                    <label name="water"/>
+                    <field name="water"/>
+                    <label name="sewers"/>
+                    <field name="sewers"/>
+                    <label name="electricity"/>
+                    <field name="electricity"/>
+                    <label name="gas"/>
+                    <field name="gas"/>
+                    <label name="telephone"/>
+                    <field name="telephone"/>
+                    <label name="internet"/>
+                    <field name="internet"/>
+                    <label name="television"/>
+                    <field name="television"/>
                    
                 </form>
                 ]]>

@@ -292,6 +292,25 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     bedrooms = fields.Integer ('Bedrooms')
     bathrooms = fields.Integer ('Bathrooms')
     
+    
+    housing = fields.Selection([
+        (None, ''),
+        ('0', 'Shanty, deficient sanitary conditions'),
+        ('1', 'Small, crowded but with good sanitary conditions'),
+        ('2', 'Comfortable and good sanitary conditions'),
+        ('3', 'Roomy and excellent sanitary conditions'),
+        ('4', 'Luxury and excellent sanitary conditions'),
+        ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False)
+
+    sewers = fields.Boolean('Sanitary Sewers')
+    water = fields.Boolean('Running Water')
+    trash = fields.Boolean('Trash recollection')
+    electricity = fields.Boolean('Electrical supply')
+    gas = fields.Boolean('Gas supply')
+    telephone = fields.Boolean('Telephone')
+    television = fields.Boolean('Television')
+    internet = fields.Boolean('Internet')
+    
     @classmethod
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
