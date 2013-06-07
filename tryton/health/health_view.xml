@@ -45,6 +45,10 @@
             <field name="name">gnuhealth-report</field>
             <field name="path">icons/report.svg</field>
         </record>
+        <record model="ir.ui.icon" id="gnuhealth_demography_icon">
+            <field name="name">gnuhealth-demography</field>
+            <field name="path">icons/demography.svg</field>
+        </record>
         <record model="ir.ui.icon" id="gnuhealth_list_icon">
             <field name="name">gnuhealth-list</field>
             <field name="path">icons/tryton-list.svg</field>
@@ -67,7 +71,7 @@
         <menuitem name="Prescriptions" id="gnuhealth_prescription_menu"
             parent="gnuhealth_menu" sequence="30" icon="gnuhealth-prescription"/>
         <menuitem name="Demographics" id="gnuhealth_demographics_menu"
-            parent="gnuhealth_menu" sequence="40" icon="gnuhealth-report"/>
+            parent="gnuhealth_menu" sequence="40" icon="gnuhealth-demography"/>
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
             parent="gnuhealth_menu" sequence="998" icon="gnuhealth-report"/>
 
