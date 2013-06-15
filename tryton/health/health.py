@@ -624,6 +624,7 @@ class PartyPatient (ModelSQL, ModelView):
         help='Check if the party is a Pharmacy')
 
     lastname = fields.Char('Last Name', help='Last Name')
+    dob = fields.Date('DoB', help='Date of Birth')
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '

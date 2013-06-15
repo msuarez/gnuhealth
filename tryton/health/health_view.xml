@@ -1523,6 +1523,8 @@
                             <group col="10" colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
                                 <label name="ref"/>
                                 <field name="ref"/>
+                                <label name="dob"/>
+                                <field name="dob"/>
                                 <label name="alternative_identification"/>
                                 <field name="alternative_identification"/>
                                 <label name="unidentified"/>
