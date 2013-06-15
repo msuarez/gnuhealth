@@ -625,6 +625,14 @@ class PartyPatient (ModelSQL, ModelView):
 
     lastname = fields.Char('Last Name', help='Last Name')
     dob = fields.Date('DoB', help='Date of Birth')
+    sex = fields.Selection([
+        (None,''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex', states={
+        'required': Bool(Eval('is_person')),
+        })
+
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
