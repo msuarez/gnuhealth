@@ -1500,7 +1500,7 @@
                 <data>
                     <xpath
                         expr="/form/notebook/page[@id=&quot;general&quot;]"
-                        position="after">
+                        position="before">
 
                         <page string="Health" id="party_gnuhealth">
 
