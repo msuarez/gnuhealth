@@ -633,6 +633,7 @@ class PartyPatient (ModelSQL, ModelView):
         'required': Bool(Eval('is_person')),
         })
     photo = fields.Binary('Picture')
+    ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
@@ -892,7 +893,10 @@ class PatientData(ModelSQL, ModelView):
         ('+', '+'),
         ('-', '-'),
         ], 'Rh')
-    ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
+
+    # Removed in 2.0 . ETHNIC GROUP is on the party model now
+    
+    # ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
     vaccinations = fields.One2Many('gnuhealth.vaccination', 'name',
         'Vaccinations')
     medications = fields.One2Many('gnuhealth.patient.medication', 'name',
@@ -1042,6 +1046,15 @@ class PatientData(ModelSQL, ModelView):
 
             table.drop_column('photo')
 
+        # Move Patient Ethnic Group from patient to party
+
+        if table.column_exist('ethnic_group'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET ETHNIC_GROUP = GNUHEALTH_PATIENT.ETHNIC_GROUP '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+
+            table.drop_column('ethnic_group')
             
 
 # PATIENT DISESASES INFORMATION

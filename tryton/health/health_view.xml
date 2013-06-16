@@ -1534,6 +1534,8 @@
                                 <field name="citizenship"/>
                                 <label name="residence"/>
                                 <field name="residence"/>
+                                <label name="ethnic_group"/>
+                                <field name="ethnic_group"/>
                                 <label name="alternative_identification"/>
                                 <field name="alternative_identification"/>
                                 <label name="unidentified"/>
@@ -2487,8 +2489,6 @@
                                         <field name="blood_type"/>
                                         <label name="rh"/>
                                         <field name="rh"/>
-                                        <label name="ethnic_group"/>
-                                        <field name="ethnic_group"/>
                                         <newline/>
                                         <label name="family"/>
                                         <field name="family"/>
