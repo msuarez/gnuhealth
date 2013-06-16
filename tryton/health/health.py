@@ -977,6 +977,34 @@ class PatientData(ModelSQL, ModelView):
             return self.name.name
 
 
+    @classmethod
+    # Update to version 2.0 
+    def __register__(cls, module_name):
+        super(PatientData, cls).__register__(module_name)
+        
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Move Date of Birth from patient to party
+
+        if table.column_exist('dob'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET DOB = GNUHEALTH_PATIENT.DOB '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+            
+            table.drop_column('dob')
+            
+        # Move Patient Gender from patient to party
+
+        if table.column_exist('sex'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET SEX = GNUHEALTH_PATIENT.SEX '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+
+            table.drop_column('sex')
+            
+
 # PATIENT DISESASES INFORMATION
 class PatientDiseaseInfo(ModelSQL, ModelView):
     'Patient Disease History'
@@ -1183,12 +1211,12 @@ class AppointmentReport(ModelSQL, ModelView):
             where_clause += 'AND a.doctor = %s '
             args.append(Transaction().context['doctor'])
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'identification_code, ref, patient, sex, '
+                    'identification_code, ref, patient, '
                     'appointment_date, appointment_date_time, doctor '
                     'FROM ('
                         'SELECT a.id, a.create_uid, a.create_date, '
                         'a.write_uid, a.write_date, p.identification_code, '
-                        'r.ref, p.id as patient, p.sex, a.appointment_date, '
+                        'r.ref, p.id as patient, a.appointment_date, '
                         'a.appointment_date as appointment_date_time, '
                         'a.doctor '
                         'FROM gnuhealth_appointment a, '

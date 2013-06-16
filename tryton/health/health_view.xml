@@ -1525,8 +1525,6 @@
                                 <field name="ref"/>
                                 <label name="dob"/>
                                 <field name="dob"/>
-                                <label name="sex"/>
-                                <field name="sex"/>
                                 <label name="alternative_identification"/>
                                 <field name="alternative_identification"/>
                                 <label name="unidentified"/>
@@ -2040,13 +2038,13 @@
             icon="gnuhealth-list" parent="gnuhealth_appointment_menu"/>
 
 <!-- Shortcut to the Appointments from the Patient -->
+
         <record model="ir.action.act_window" id="act_appointment_form1">
             <field name="name">Appointments</field>
             <field name="res_model">gnuhealth.appointment</field>
             <field name="domain">[('patient', '=', Eval('active_id'))]</field>
         </record>
-        <record model="ir.action.keyword"
-                id="act_open_appointment_keyword1">
+        <record model="ir.action.keyword" id="act_open_appointment_keyword1">
             <field name="keyword">form_relate</field>
             <field name="model">gnuhealth.patient,-1</field>
             <field name="action" ref="act_appointment_form1"/>
@@ -2063,7 +2061,6 @@
                     <field name="ref"/>
                     <field name="patient"/>
                     <field name="age"/>
-                    <field name="sex"/>
                     <field name="address"/>
                     <field name="insurance"/>
                     <field name="diagnosis"/>
@@ -2446,13 +2443,9 @@
                             <field name="name"/>
                             <label name="identification_code"/>
                             <field name="identification_code"/>
-                            <label name="sex"/>
-                            <field name="sex"/>
                         </group>
                         <newline/>
                         <group col="6" id="patient_main_info2">
-                            <label name="dob"/>
-                            <field name="dob"/>
                             <label name="age"/>
                             <field name="age"/>
 <!--
