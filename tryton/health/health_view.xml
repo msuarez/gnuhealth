@@ -1520,25 +1520,35 @@
                             </group>
                             <newline/>
 
-                            <group col="10" colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+                            <group colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+                                <group id="person_demographics" string="Demographics">
                                 <label name="ref"/>
                                 <field name="ref"/>
                                 <label name="dob"/>
                                 <field name="dob"/>
                                 <label name="sex"/>
                                 <field name="sex"/>
-                                <label name="alternative_identification"/>
-                                <field name="alternative_identification"/>
-                                <label name="unidentified"/>
-                                <field name="unidentified"/>
-                                <newline/>
+                                <label name="du"/>
+                                <field name="du"/>
                                 <label name="citizenship"/>
                                 <field name="citizenship"/>
                                 <label name="residence"/>
                                 <field name="residence"/>
-                                <label name="du"/>
-                                <field name="du"/>
+                                <label name="alternative_identification"/>
+                                <field name="alternative_identification"/>
+                                <label name="unidentified"/>
+                                <field name="unidentified"/>
+
+                                </group>
+                                
+                                <group string="Picture" id="person_picture">
+                                    <field name="photo" img_width="200" img_height="200"
+                                height="200" width="200" widget="image"/>
+                                </group>
+                                <newline/>
+                                
                             </group>
+
 
                             <newline/>
 

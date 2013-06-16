@@ -632,7 +632,7 @@ class PartyPatient (ModelSQL, ModelView):
         ], 'Sex', states={
         'required': Bool(Eval('is_person')),
         })
-
+    photo = fields.Binary('Picture')
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
@@ -845,7 +845,7 @@ class PatientData(ModelSQL, ModelView):
         ' and addresses this patient has.')
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
         'Primary Care Doctor', help='Current primary care / family doctor')
-    photo = fields.Binary('Picture')
+    photo = fields.Function(fields.Binary('Picture'),'get_patient_photo')
 
     # Removed in 2.0 . It's now a functional field
     # Retrieves the information from the party.
@@ -942,6 +942,9 @@ class PatientData(ModelSQL, ModelView):
 
     def get_patient_sex(self, name):
         return self.name.sex
+
+    def get_patient_photo(self, name):
+        return self.name.photo
 
     def get_patient_ssn(self, name):
         return self.name.ref
