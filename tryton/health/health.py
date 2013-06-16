@@ -634,6 +634,17 @@ class PartyPatient (ModelSQL, ModelView):
         })
     photo = fields.Binary('Picture')
     ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
+
+    marital_status = fields.Selection([
+        (None, ''),
+        ('s', 'Single'),
+        ('m', 'Married'),
+        ('c', 'Concubinage'),
+        ('w', 'Widowed'),
+        ('d', 'Divorced'),
+        ('x', 'Separated'),
+        ], 'Marital Status', sort=False)
+
     citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
     residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
@@ -872,15 +883,9 @@ class PatientData(ModelSQL, ModelView):
 
     sex = fields.Function(fields.Char('Sex'), 'get_patient_sex')
 
-    marital_status = fields.Selection([
-        (None, ''),
-        ('s', 'Single'),
-        ('m', 'Married'),
-        ('c', 'Concubinage'),
-        ('w', 'Widowed'),
-        ('d', 'Divorced'),
-        ('x', 'Separated'),
-        ], 'Marital Status', sort=False)
+    # Removed in 2.0 . MARITAL STATUS It's now a functional field
+    # Retrieves the information from the party.
+
     blood_type = fields.Selection([
         (None, ''),
         ('A', 'A'),
@@ -1056,6 +1061,16 @@ class PatientData(ModelSQL, ModelView):
 
             table.drop_column('ethnic_group')
             
+
+        # Move Patient Marital Status from patient to party
+
+        if table.column_exist('marital_status'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET MARITAL_STATUS = GNUHEALTH_PATIENT.MARITAL_STATUS '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+
+            table.drop_column('marital_status')
 
 # PATIENT DISESASES INFORMATION
 class PatientDiseaseInfo(ModelSQL, ModelView):

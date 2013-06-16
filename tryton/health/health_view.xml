@@ -1528,6 +1528,8 @@
                                 <field name="dob"/>
                                 <label name="sex"/>
                                 <field name="sex"/>
+                                <label name="marital_status"/>
+                                <field name="marital_status"/>
                                 <label name="du"/>
                                 <field name="du"/>
                                 <label name="citizenship"/>
@@ -2494,8 +2496,6 @@
                                         <field name="family"/>
                                         <label name="current_address"/>
                                         <field name="current_address"/>
-                                        <label name="marital_status"/>
-                                        <field name="marital_status"/>
                                         <newline/>
                                         <label name="primary_care_doctor"/>
                                         <field name="primary_care_doctor"/>
