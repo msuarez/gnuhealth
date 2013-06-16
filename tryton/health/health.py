@@ -845,10 +845,15 @@ class PatientData(ModelSQL, ModelView):
         ' and addresses this patient has.')
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
         'Primary Care Doctor', help='Current primary care / family doctor')
+ 
+    # Removed in 2.0 . PHOTO It's now a functional field
+    # Retrieves the information from the party.
+ 
     photo = fields.Function(fields.Binary('Picture'),'get_patient_photo')
 
-    # Removed in 2.0 . It's now a functional field
+    # Removed in 2.0 . DOB It's now a functional field
     # Retrieves the information from the party.
+
 
     #    dob = fields.Date('DoB', help='Date of Birth')
 
@@ -856,7 +861,7 @@ class PatientData(ModelSQL, ModelView):
     
     age = fields.Function(fields.Char('Age'), 'patient_age')
 
-    # Removed in 2.0 . It's now a functional field
+    # Removed in 2.0 . SEX It's now a functional field
     # Retrieves the information from the party.
     
     # sex = fields.Selection([
@@ -1026,6 +1031,17 @@ class PatientData(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
 
             table.drop_column('sex')
+
+        # Move Patient Photo from patient to party
+
+        if table.column_exist('photo'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET PHOTO = GNUHEALTH_PATIENT.PHOTO '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+
+            table.drop_column('photo')
+
             
 
 # PATIENT DISESASES INFORMATION
