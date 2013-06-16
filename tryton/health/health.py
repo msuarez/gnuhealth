@@ -846,12 +846,26 @@ class PatientData(ModelSQL, ModelView):
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
         'Primary Care Doctor', help='Current primary care / family doctor')
     photo = fields.Binary('Picture')
-    dob = fields.Date('DoB', help='Date of Birth')
+
+    # Removed in 2.0 . It's now a functional field
+    # Retrieves the information from the party.
+
+    #    dob = fields.Date('DoB', help='Date of Birth')
+
+    dob = fields.Function(fields.Date('DoB'), 'get_patient_dob')
+    
     age = fields.Function(fields.Char('Age'), 'patient_age')
-    sex = fields.Selection([
-        ('m', 'Male'),
-        ('f', 'Female'),
-        ], 'Sex', required=True)
+
+    # Removed in 2.0 . It's now a functional field
+    # Retrieves the information from the party.
+    
+    # sex = fields.Selection([
+    #    ('m', 'Male'),
+    #    ('f', 'Female'),
+    #    ], 'Sex', required=True)
+
+    sex = fields.Function(fields.Char('Sex'), 'get_patient_sex')
+
     marital_status = fields.Selection([
         (None, ''),
         ('s', 'Single'),
@@ -922,6 +936,12 @@ class PatientData(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
         ]
+
+    def get_patient_dob(self, name):
+        return self.name.dob
+
+    def get_patient_sex(self, name):
+        return self.name.sex
 
     def get_patient_ssn(self, name):
         return self.name.ref

@@ -2445,16 +2445,12 @@
                             <field name="name"/>
                             <label name="identification_code"/>
                             <field name="identification_code"/>
+                            <label name="age"/>
+                            <field name="age"/>
+
                         </group>
                         <newline/>
                         <group col="6" id="patient_main_info2">
-                            <label name="age"/>
-                            <field name="age"/>
-<!--
-                            <label name="childbearing_age"/>
-                            <field name="childbearing_age"/>
--->
-                            <newline/>
                             <separator colspan="4"
                                 string="Patient Allergies and Critical Information"
                                 id="patient_critical_information"/>
