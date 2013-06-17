@@ -257,14 +257,16 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     name = fields.Char('Code', required=True)
     desc = fields.Char('Description')
     address_street = fields.Char('Street')
-    address_street_number = fields.Integer('Street number')
-    address_street_bis = fields.Char('Address bis')
+    address_street_number = fields.Integer('Number')
+    address_street_bis = fields.Char('Apartment')
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
     address_subdivision = fields.Many2One('country.subdivision','State')
     address_city = fields.Char('City')
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'Operational Sector')
+    picture = fields.Binary('Picture')
+
     latitude=fields.Numeric('Latidude',digits=(2,14))
     longitude=fields.Numeric('Longitude',digits=(3,14))
    
@@ -278,7 +280,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('factory', 'Factory'),
         ('building', 'Building'),
         ('mobilehome', 'Mobile House'),
-        ], 'Type of dwelling', sort=False)
+        ], 'Dwelling', sort=False)
 
     materials = fields.Selection([
         (None, ''),
@@ -300,7 +302,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('2', 'Comfortable and good sanitary conditions'),
         ('3', 'Roomy and excellent sanitary conditions'),
         ('4', 'Luxury and excellent sanitary conditions'),
-        ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False)
+        ], 'Conditions', help="Housing and sanitary living conditions", sort=False)
 
     sewers = fields.Boolean('Sanitary Sewers')
     water = fields.Boolean('Running Water')
