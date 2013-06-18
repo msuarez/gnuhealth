@@ -271,7 +271,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
     latitude=fields.Numeric('Latidude',digits=(2,14))
     longitude=fields.Numeric('Longitude',digits=(3,14))
-   
+    urladdr = fields.Char('OSM Map', help="Locates the DU on the Open Street Map by default")
     # Infrastructure 
 
     dwelling = fields.Selection([

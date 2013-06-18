@@ -683,8 +683,8 @@
                             <field name="latitude"/>
                             <label name="longitude"/>
                             <field name="longitude"/>
-                            <label name="operational_sector"/>
-                            <field name="operational_sector"/>
+                            <label name="urladdr"/>
+                            <field name="urladdr" widget="url"/>
                         </group>
                         
 
@@ -724,6 +724,10 @@
                             <field name="television"/>
 
                         </group>
+
+                            <label name="operational_sector"/>
+                            <field name="operational_sector"/>
+
                     </group>
                 </form>
                 ]]>
