@@ -648,11 +648,12 @@
                 <![CDATA[
                 <form string="Domicilary Unit">
                     <group id="du_header">
-                        <group id="du_address">
+                        <group col="6" id="du_address">
                             <label name="name"/>
                             <field name="name"/>
                             <label name="desc"/>
-                            <field name="desc"/>
+                            <field colspan="3" name="desc"/>
+                            <newline/>
                             <label name="address_street"/>
                             <field name="address_street"/>
                             <label name="address_street_number"/>
@@ -693,13 +694,13 @@
                             <field name="housing"/>
                             <label name="dwelling"/>
                             <field name="dwelling"/>
-                            <label name="materials"/>
-                            <field name="materials"/>
                         </group>
                         
                         <newline/>
                         
                         <group colspan="4" col="8" id="infrastructure" string="Infrastructure">
+                            <label name="materials"/>
+                            <field name="materials"/>
 
                             <label name="total_surface"/>
                             <field name="total_surface"/>
