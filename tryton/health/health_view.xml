@@ -659,6 +659,10 @@
                             <field name="address_street_number"/>
                             <label name="address_street_bis"/>
                             <field name="address_street_bis"/>
+                            <label name="address_village"/>
+                            <field name="address_village"/>
+                            <label name="address_town"/>
+                            <field name="address_town"/>
                             <label name="address_city"/>
                             <field name="address_city"/>
                             <label name="address_zip"/>

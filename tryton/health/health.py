@@ -259,10 +259,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_street = fields.Char('Street')
     address_street_number = fields.Integer('Number')
     address_street_bis = fields.Char('Apartment')
+    address_village = fields.Char('Village')
+    address_town = fields.Char('Town')
+    address_city = fields.Char('City')
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
     address_subdivision = fields.Many2One('country.subdivision','State')
-    address_city = fields.Char('City')
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'Operational Sector')
     picture = fields.Binary('Picture')
