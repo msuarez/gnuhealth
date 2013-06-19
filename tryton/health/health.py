@@ -337,7 +337,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
             street_number = str(self.address_street_number) or ''
             street =  str(self.address_street) or ''
             town = str(self.address_town) or ''
-            city = str(self.address_town) or ''
+            city = str(self.address_city) or ''
             if (self.address_subdivision):
                 state = str(self.address_subdivision.name) or ''
             postalcode = str(self.address_zip) or ''
