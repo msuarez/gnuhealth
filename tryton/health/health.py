@@ -259,19 +259,21 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_street = fields.Char('Street')
     address_street_number = fields.Integer('Number')
     address_street_bis = fields.Char('Apartment')
-    address_village = fields.Char('Village')
-    address_town = fields.Char('Town', help="Municipality, Township, county ..")
+    address_village = fields.Char('Village', help="Neighborhood")
+    address_town = fields.Char('Municipality', help="Municipality, Township, county ..")
     address_city = fields.Char('City')
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
-    address_subdivision = fields.Many2One('country.subdivision','State')
+    address_subdivision = fields.Many2One('country.subdivision','Province')
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'Operational Sector')
     picture = fields.Binary('Picture')
 
     latitude=fields.Numeric('Latidude',digits=(2,14))
     longitude=fields.Numeric('Longitude',digits=(3,14))
-    urladdr = fields.Char('OSM Map', help="Locates the DU on the Open Street Map by default")
+    urladdr = fields.Char('OSM Map',
+        on_change_with = ['latitude','longitude'], 
+        help="Locates the DU on the Open Street Map by default")
     # Infrastructure 
 
     dwelling = fields.Selection([
@@ -282,14 +284,14 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('factory', 'Factory'),
         ('building', 'Building'),
         ('mobilehome', 'Mobile House'),
-        ], 'Dwelling', sort=False)
+        ], 'Type', sort=False)
 
     materials = fields.Selection([
         (None, ''),
         ('concrete', 'Concrete'),
         ('adobe', 'Adobe'),
-        ('wood', 'wood'),
-        ('stone', 'stone'),
+        ('wood', 'Wood'),
+        ('stone', 'Stone'),
         ], 'Material', sort=False)
 
     total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
@@ -314,6 +316,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     telephone = fields.Boolean('Telephone')
     television = fields.Boolean('Television')
     internet = fields.Boolean('Internet')
+
+
+    def on_change_with_urladdr(self):
+        if (self.latitude and self.longitude):
+            ret_url = 'http://openstreetmap.org/?mlat=' + str(self.latitude) + '&mlon=' + str(self.longitude)
+        return ret_url
     
     @classmethod
     def __setup__(cls):
