@@ -272,7 +272,9 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     latitude=fields.Numeric('Latidude',digits=(2,14))
     longitude=fields.Numeric('Longitude',digits=(3,14))
     urladdr = fields.Char('OSM Map',
-        on_change_with = ['latitude','longitude'], 
+        on_change_with = ['latitude','longitude', 'address_street', \
+            'address_street_number', 'address_town', 'address_city', 'address_zip', \
+            'address_subdivision', 'address_subdivision', 'address_country'], 
         help="Locates the DU on the Open Street Map by default")
     # Infrastructure 
 
@@ -319,8 +321,36 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
 
     def on_change_with_urladdr(self):
+        # Generates the URL to be used in OpenStreetMap
+        # The address will be mapped to the URL in the following way
+        # If the latitud and longitude of the DU are given, then those
+        # parameters will be used.
+        # Otherwise, it will try to find the address by the
+        # Street, municipality, city, postalcode, state and country.
+        
         if (self.latitude and self.longitude):
             ret_url = 'http://openstreetmap.org/?mlat=' + str(self.latitude) + '&mlon=' + str(self.longitude)
+            
+        else:
+            state=''
+            country=''
+            street_number = str(self.address_street_number) or ''
+            street =  str(self.address_street) or ''
+            town = str(self.address_town) or ''
+            city = str(self.address_town) or ''
+            if (self.address_subdivision):
+                state = str(self.address_subdivision.name) or ''
+            postalcode = str(self.address_zip) or ''
+            
+            if (self.address_country):
+                country = str(self.address_country.code) or ''
+                
+            ret_url = 'http://nominatim.openstreetmap.org/search?' + \
+                'street=' + street_number +' '+ \
+                street + '&county=' + town \
+                + '&city=' + city + '&state=' + state \
+                + '&postalcode=' + postalcode + '&country=' + country
+        
         return ret_url
     
     @classmethod
