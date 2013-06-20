@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<tryton>
+    <data skiptest="1" noupdate="0">
+
+<!-- CHAGAS TEMPLATES DEFINITION-->
+
+        <record id="product_template_chagas_xenodiagnosis_analysischarges0" model="product.template">
+            <field name="name">Chagas Xenodiagnosis Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_chagas_xenodiagnosis_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_chagas_xenodiagnosis_analysischarges0"/>
+        </record>
+
+
+
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_chagas_xenodiagnosis_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;CXDX&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_chagas_xenodiagnosis_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;CHAGAS XENODIAGNOSIS&quot;&quot;&quot;" name="name"/>
+        </record>
+
+
+
+<!--  ANALYTES FOR CHAGAS XENODIAGNOSIS -->
+
+        <record id="gnuhealth_test_critearea_parasites" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;T. cruzi in triatomine excreta&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_chagas_xenodiagnosis_analysis0"/>
+        </record>
+
+
+
+    </data>
+</tryton>
