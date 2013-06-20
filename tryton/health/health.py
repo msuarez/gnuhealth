@@ -259,8 +259,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_street = fields.Char('Street')
     address_street_number = fields.Integer('Number')
     address_street_bis = fields.Char('Apartment')
-    address_village = fields.Char('Village', help="Neighborhood")
-    address_town = fields.Char('Municipality', help="Municipality, Township, county ..")
+    address_district = fields.Char('District', help="Neighborhood, Village, Barrio....")
+    address_municipality = fields.Char('Municipality', help="Municipality, Township, county ..")
     address_city = fields.Char('City')
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
@@ -273,8 +273,9 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     longitude=fields.Numeric('Longitude',digits=(3,14))
     urladdr = fields.Char('OSM Map',
         on_change_with = ['latitude','longitude', 'address_street', \
-            'address_street_number', 'address_town', 'address_city', 'address_zip', \
-            'address_subdivision', 'address_subdivision', 'address_country'], 
+            'address_street_number', 'address_district', 'address_municipality', 
+            'address_city', 'address_zip', \
+            'address_subdivision', 'address_country'], 
         help="Locates the DU on the Open Street Map by default")
     # Infrastructure 
 
@@ -336,7 +337,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
             country=''
             street_number = str(self.address_street_number) or ''
             street =  str(self.address_street) or ''
-            town = str(self.address_town) or ''
+            municipality = str(self.address_municipality) or ''
             city = str(self.address_city) or ''
             if (self.address_subdivision):
                 state = str(self.address_subdivision.name) or ''
@@ -347,7 +348,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
                 
             ret_url = 'http://nominatim.openstreetmap.org/search?' + \
                 'street=' + street_number +' '+ \
-                street + '&county=' + town \
+                street + '&county=' + municipality \
                 + '&city=' + city + '&state=' + state \
                 + '&postalcode=' + postalcode + '&country=' + country
         
