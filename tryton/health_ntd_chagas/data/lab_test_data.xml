@@ -35,6 +35,9 @@
         <record id="gnuhealth_test_critearea_parasites" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;T. cruzi in triatomine excreta&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
+            <field eval="&quot;&quot;&quot;Values > 0 are positive&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
+            <field eval="0" name="upper_limit"/>
             <field name="test_type_id" ref="gnuhealth_test_chagas_xenodiagnosis_analysis0"/>
         </record>
 
@@ -70,13 +73,57 @@
 
 <!--  ANALYTES -->
 
-        <record id="gnuhealth_test_critearea_strout_tripomastigotes" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;Presence of tripomastigotes&quot;&quot;&quot;" name="name"/>
+        <record id="gnuhealth_test_critearea_strout_trypomastigotes" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Trypomastigotes&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
+            <field eval="&quot;&quot;&quot;Values > 0 are positive&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
+            <field eval="0" name="upper_limit"/>
             <field name="test_type_id" ref="gnuhealth_test_chagas_strout_analysis0"/>
         </record>
 
 <!-- END OF STROUT TEST -->
+
+
+<!-- BEGIN OF BLOOD SMEAR TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_chagas_bsmear_analysischarges0" model="product.template">
+            <field name="name">Chagas Blood Smear Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_chagas_bsmear_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_chagas_bsmear_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_chagas_bsmear_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;CHAGAS-SMEAR&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_chagas_bsmear_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;CHAGAS BLOOD SMEAR&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_bsmear_trypomastigotes" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Trypomastigotes&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field eval="&quot;&quot;&quot;Values > 0 are positive&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
+            <field eval="0" name="upper_limit"/>
+            <field name="test_type_id" ref="gnuhealth_test_chagas_bsmear_analysis0"/>
+        </record>
+
+<!-- END OF bsmear TEST -->
 
 
     </data>
