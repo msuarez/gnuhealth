@@ -165,7 +165,49 @@
             <field name="test_type_id" ref="gnuhealth_test_chagas_elisa_analysis0"/>
         </record>
 
-<!-- END OF ELISA TEST -->
+<!-- END OF ifa TEST -->
+
+<!-- BEGIN OF ifa TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_chagas_ifa_analysischarges0" model="product.template">
+            <field name="name">Chagas ifa Ig Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_chagas_ifa_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_chagas_ifa_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_chagas_ifa_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;CHAGAS-IFA&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_chagas_ifa_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;CHAGAS INDIRECT IMMUNOFLUORESCENCE - IFA&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_ifa_igg" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Chagas IFA Ig-G&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_chagas_ifa_analysis0"/>
+        </record>
+        <record id="gnuhealth_test_critearea_ifa_igm" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Chagas IFA Ig-M&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_chagas_ifa_analysis0"/>
+        </record>
+
+<!-- END OF IFA  TEST -->
 
     </data>
 </tryton>
