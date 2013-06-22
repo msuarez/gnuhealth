@@ -893,11 +893,13 @@ class PatientData(ModelSQL, ModelView):
         depends=['name'],
         help='Insurance information. You may choose from the different'
         ' insurances belonging to the patient')
-    current_address = fields.Many2One('party.address', 'Address',
+    current_address = fields.Many2One('party.address', 'Temp. Addr',
         domain=[('party', '=', Eval('name'))],
         depends=['name'],
-        help='Contact information. You may choose from the different contacts'
-        ' and addresses this patient has.')
+        help="Use this address for temporary contact information. For example \
+        if the patient is on vacation, you can put the hotel address. \
+        In the case of a Domiciliary Unit, just link it to the name of the \
+        contact in the address form.")
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
         'Primary Care Doctor', help='Current primary care / family doctor')
  
