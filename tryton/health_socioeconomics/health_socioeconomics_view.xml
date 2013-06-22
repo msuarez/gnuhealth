@@ -2,6 +2,28 @@
 <tryton>
     <data>
 
+
+<!-- Include some socioeconomic indicators in the Party -->
+
+        <record model="ir.ui.view" id="view_party_form">
+            <field name="model">party.party</field>
+            <field name="inherit" ref="party.party_view_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="//field[@name=&quot;sex&quot;]"
+                        position="after">
+                        <label name="occupation"/>
+                        <field name="occupation"/>
+                    </xpath>
+
+                </data>
+                ]]>
+            </field>
+        </record>
+        
 <!-- Include the Socioeconomics page into the Patient History -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_view">

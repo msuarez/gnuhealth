@@ -24,5 +24,6 @@ from .health_socioeconomics import *
 
 def register():
     Pool.register(
-        MedicalPatient,
+        Party,
+        GnuHealthPatient,
         module='health_socioeconomics', type_='model')

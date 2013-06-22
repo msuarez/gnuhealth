@@ -19,11 +19,23 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
+from trytond.transaction import Transaction
+from trytond.backend import TableHandler
 
-__all__ = ['MedicalPatient']
+__all__ = ['Party','GnuHealthPatient']
 
-class MedicalPatient(ModelSQL, ModelView):
+
+class Party (ModelSQL, ModelView):
+    __name__ = 'party.party'
+
+    occupation = fields.Many2One('gnuhealth.occupation', 'Occupation')
+    
+    
+class GnuHealthPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
+
+    def get_patient_occupation(self, name):
+        return self.name.occupation.id
 
     ses = fields.Selection([
         (None, ''),
@@ -139,7 +151,12 @@ class MedicalPatient(ModelSQL, ModelView):
         ('l', 'Low'),
         ], 'Income', sort=False)
 
-    occupation = fields.Many2One('gnuhealth.occupation', 'Occupation')
+
+    # GnuHealth 2.0 . Occupation is now a functional field.
+    # Retrives the information from the party model.
+    occupation = fields.Function(fields.Many2One('gnuhealth.occupation','Occupation'), 'get_patient_occupation')
+
+    
     works_at_home = fields.Boolean('Works at home',
         help="Check if the patient works at his / her house")
     hours_outside = fields.Integer('Hours outside home',
@@ -184,3 +201,20 @@ class MedicalPatient(ModelSQL, ModelView):
             fam_apgar_affection)
 
         return total
+
+    @classmethod
+    # Update to version 2.0 
+    def __register__(cls, module_name):
+        super(GnuHealthPatient, cls).__register__(module_name)
+        
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Move occupation from patient to party
+
+        if table.column_exist('occupation'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET OCCUPATION = GNUHEALTH_PATIENT.OCCUPATION '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+            
+            table.drop_column('occupation')
