@@ -29,22 +29,6 @@ class Party (ModelSQL, ModelView):
     __name__ = 'party.party'
 
     occupation = fields.Many2One('gnuhealth.occupation', 'Occupation')
-    
-    
-class GnuHealthPatient(ModelSQL, ModelView):
-    __name__ = 'gnuhealth.patient'
-
-    def get_patient_occupation(self, name):
-        return self.name.occupation.id
-
-    ses = fields.Selection([
-        (None, ''),
-        ('0', 'Lower'),
-        ('1', 'Lower-middle'),
-        ('2', 'Middle'),
-        ('3', 'Middle-upper'),
-        ('4', 'Higher'),
-        ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
 
     education = fields.Selection([
         (None, ''),
@@ -55,6 +39,26 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('4', 'Secondary School'),
         ('5', 'University'),
         ], 'Education Level', help="Education Level", sort=False)
+    
+    
+class GnuHealthPatient(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient'
+
+    def get_patient_occupation(self, name):
+        return self.name.occupation.id
+
+    def get_patient_education(self, name):
+        return self.name.education
+
+    ses = fields.Selection([
+        (None, ''),
+        ('0', 'Lower'),
+        ('1', 'Lower-middle'),
+        ('2', 'Middle'),
+        ('3', 'Middle-upper'),
+        ('4', 'Higher'),
+        ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
+
 
     housing = fields.Selection([
         (None, ''),
@@ -152,10 +156,19 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ], 'Income', sort=False)
 
 
-    # GnuHealth 2.0 . Occupation is now a functional field.
+    # GnuHealth 2.0 . Occupation and Education are now functional fields.
     # Retrives the information from the party model.
     occupation = fields.Function(fields.Many2One('gnuhealth.occupation','Occupation'), 'get_patient_occupation')
 
+    education = fields.Function(fields.Selection([
+        (None, ''),
+        ('0', 'None'),
+        ('1', 'Incomplete Primary School'),
+        ('2', 'Primary School'),
+        ('3', 'Incomplete Secondary School'),
+        ('4', 'Secondary School'),
+        ('5', 'University'),
+        ], 'Education Level', help="Education Level", sort=False), 'get_patient_education')
     
     works_at_home = fields.Boolean('Works at home',
         help="Check if the patient works at his / her house")
@@ -218,3 +231,13 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
             
             table.drop_column('occupation')
+
+        # Move education from patient to party
+
+        if table.column_exist('education'):
+            cursor.execute ('UPDATE PARTY_PARTY '
+                'SET EDUCATION = GNUHEALTH_PATIENT.EDUCATION '
+                'FROM GNUHEALTH_PATIENT '
+                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
+            
+            table.drop_column('education')
