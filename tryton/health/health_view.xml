@@ -727,8 +727,11 @@
 
                             <label name="operational_sector"/>
                             <field name="operational_sector"/>
-
+                        
                     </group>
+                    <newline/>
+                    <field name="members"/>
+                   
                 </form>
                 ]]>
             </field>

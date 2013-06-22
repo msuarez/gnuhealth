@@ -320,6 +320,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     television = fields.Boolean('Television')
     internet = fields.Boolean('Internet')
 
+    members = fields.One2Many ('party.party','du','Members')
 
     def on_change_with_urladdr(self):
         # Generates the URL to be used in OpenStreetMap

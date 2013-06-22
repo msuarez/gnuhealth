@@ -45,7 +45,10 @@ class GnuHealthPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     def get_patient_occupation(self, name):
-        return self.name.occupation.id
+        if (self.name.occupation):
+            return self.name.occupation.id
+        
+            
 
     def get_patient_education(self, name):
         return self.name.education
