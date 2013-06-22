@@ -877,8 +877,10 @@ class PatientData(ModelSQL, ModelView):
         domain=[
             ('is_patient', '=', True),
             ('is_person', '=', True),
-            ],
-        help='Patient Name')
+            ], 
+        states={'readonly': Bool(Eval('name'))},
+        help = "Person associated to this patient")
+        
     lastname = fields.Function(fields.Char('Lastname'),
         'get_patient_lastname', searcher='search_patient_lastname')
     ssn = fields.Function(fields.Char('SSN'),
