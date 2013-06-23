@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- DU ENTOMOLOGICAL SURVEY -->
+
+        <record model="ir.ui.view" id="gnuhealth_chagas_du_survey_form">
+            <field name="model">gnuhealth.chagas_du_survey</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Chagas Domiciliary Unit Entomological Survey">
+                    <group colspan="4" id="chagas_du_survey_header">
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="du"/>
+                        <field name="du"/>
+                        <label name="survey_date"/>
+                        <field name="survey_date"/>
+                    </group>
+                    <newline/>
+                    <separator string="Notes" id="sepatator_chagas_du_survey_notes"/>
+                    <newline/>
+                    <field name="observations" colspan="4"/>
+                    <newline/>
+                    <label name="next_survey_date"/>
+                    <field name="next_survey_date"/>
+
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_chagas_du_survey_tree">
+            <field name="model">gnuhealth.chagas_du_survey</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Chagas Domiciliary Unit Entomological Surveys">
+                    <field name="name" expand="1"/>
+                    <field name="du" expand="1" />
+                    <field name="survey_date"/>
+                    <field name="observations"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+
+        <!-- Shortcut to the Chagas Entomological Domiciliary Survey from the DU -->
+
+        <record model="ir.action.act_window" id="act_chagas_du_survey_form">
+            <field name="name">Chagas DU Survey</field>
+            <field name="res_model">gnuhealth.chagas_du_survey</field>
+            <field name="domain">[('du', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_chagas_du_survey_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.du,-1</field>
+            <field name="action" ref="act_chagas_du_survey_form"/>
+        </record>
+
+    </data>
+</tryton>
