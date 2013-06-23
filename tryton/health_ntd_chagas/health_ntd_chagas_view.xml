@@ -10,13 +10,11 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Chagas Domiciliary Unit Entomological Survey">
-                    <group colspan="4" id="chagas_du_survey_header">
+                    <group col="6" colspan="4" id="chagas_du_survey_header">
                         <label name="name"/>
                         <field name="name"/>
                         <label name="du"/>
                         <field name="du"/>
-                        
-                        
                         <label name="survey_date"/>
                         <field name="survey_date"/>
                     </group>
@@ -24,6 +22,20 @@
                     <newline/>
 
                     <group colspan="4" id="chagas_du_status">
+
+                        <group col="10" string="Presence of triatomines" id="chagas_du_vectors">
+                            <label name="triatomines"/>
+                            <field name="triatomines"/>
+                            <label name="nymphs"/>
+                            <field name="nymphs"/>
+                            <label name="t_in_house"/>
+                            <field name="t_in_house"/>
+                            <label name="t_peri"/>
+                            <field name="t_peri"/>
+                            <label name="vector"/>
+                            <field name="vector"/>
+                            
+                        </group>
 
                         <group string="Areas to Improve" colspan="4" col="8" id="chagas_du_deficit_areas">
                             <label name="droof"/>

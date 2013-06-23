@@ -33,6 +33,21 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
     survey_date = fields.Date('Date')
     
+    triatomines =  fields.Boolean('Triatomines', help="Check this box if triatomines were found")
+    vector = fields.Selection([
+        (None, ''),
+        ('t_infestans', 'T. infestans'),
+        ('t_brasilensis', 'T. brasilensis'),
+        ('r_prolixus', 'R. prolixus'),
+        ('t_dimidiata', 'T. dimidiata'),
+        ('p_megistus', 'P. megistus'),
+        ], 'Vector', help="Vector", sort=False)
+
+    nymphs = fields.Boolean ('Nymphs', "Check this box if triatomine nymphs were found")
+    t_in_house = fields.Boolean('Domiciliary', help="Check this box if triatomines were found inside the house")
+    t_peri = fields.Boolean('Peri-Domiciliary', help="Check this box if triatomines were found in the peridomiciliary area")
+    
+    
     dfloor = fields.Boolean('Floor', help="Current floor can host triatomines")
     dwall = fields.Boolean('Walls', help="Wall materials or state can host triatomines")
     droof = fields.Boolean('Roof', help="Roof materials or state can host triatomines")
