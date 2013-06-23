@@ -294,9 +294,20 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('concrete', 'Concrete'),
         ('adobe', 'Adobe'),
         ('wood', 'Wood'),
+        ('mud', 'Mud / Straw'),
         ('stone', 'Stone'),
         ], 'Material', sort=False)
-
+    
+    roof_type = fields.Selection([
+        (None, ''),
+        ('concrete', 'Concrete'),
+        ('adobe', 'Adobe'),
+        ('wood', 'Wood'),
+        ('mud', 'Mud'),
+        ('thatch', 'Thatched'),
+        ('stone', 'Stone'),
+        ], 'Roof', sort=False)
+    
     total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
     bedrooms = fields.Integer ('Bedrooms')
     bathrooms = fields.Integer ('Bathrooms')

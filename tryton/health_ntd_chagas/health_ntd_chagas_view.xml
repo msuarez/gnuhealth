@@ -15,9 +15,29 @@
                         <field name="name"/>
                         <label name="du"/>
                         <field name="du"/>
+                        
+                        
                         <label name="survey_date"/>
                         <field name="survey_date"/>
                     </group>
+
+                    <newline/>
+
+                    <group colspan="4" id="chagas_du_status">
+
+                        <group string="Areas to Improve" colspan="4" col="8" id="chagas_du_deficit_areas">
+                            <label name="droof"/>
+                            <field name="droof"/>
+                            <label name="dwall"/>
+                            <field name="dwall"/>
+                            <label name="dfloor"/>
+                            <field name="dfloor"/>
+                            <label name="dperi"/>
+                            <field name="dperi"/>
+                        </group>
+
+                    </group>
+
                     <newline/>
                     <separator string="Notes" id="sepatator_chagas_du_survey_notes"/>
                     <newline/>

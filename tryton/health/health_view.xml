@@ -701,6 +701,8 @@
                         <group colspan="4" col="8" id="infrastructure" string="Infrastructure">
                             <label name="materials"/>
                             <field name="materials"/>
+                            <label name="roof_type"/>
+                            <field name="roof_type"/>
 
                             <label name="total_surface"/>
                             <field name="total_surface"/>

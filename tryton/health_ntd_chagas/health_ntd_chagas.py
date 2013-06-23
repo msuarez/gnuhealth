@@ -32,5 +32,12 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     name = fields.Char ('Survey Code', required=True)
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
     survey_date = fields.Date('Date')
-    next_survey_date = fields.Date('Next survey')
+    
+    dfloor = fields.Boolean('Floor', help="Current floor can host triatomines")
+    dwall = fields.Boolean('Walls', help="Wall materials or state can host triatomines")
+    droof = fields.Boolean('Roof', help="Roof materials or state can host triatomines")
+    dperi = fields.Boolean('Peri-domicilary', help="Peri domiciliary area can host triatomines")
+    
+    
     observations = fields.Text('Observations')
+    next_survey_date = fields.Date('Next survey')
