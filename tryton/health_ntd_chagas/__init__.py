@@ -19,4 +19,10 @@
 #
 ##############################################################################
 
+from trytond.pool import Pool
 from health_ntd_chagas import *
+
+def register():
+    Pool.register(
+        ChagasDUSurvey,
+        module='health_ntd_chagas', type_='model')
