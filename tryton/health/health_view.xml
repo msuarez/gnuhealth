@@ -539,8 +539,6 @@
                     <group id="family_header">
                         <label name="name"/>
                         <field name="name"/>
-                        <label name="operational_sector"/>
-                        <field name="operational_sector"/>
                     </group>
                     <newline/>
                     <separator string="Members" id="members"/>
@@ -562,7 +560,7 @@
                 <![CDATA[
                 <tree string="Families">
                     <field name="name" expand="1"/>
-                    <field name="operational_sector" expand="1"/>
+                    <field name="info" expand="1"/>
                 </tree>
                 ]]>
             </field>

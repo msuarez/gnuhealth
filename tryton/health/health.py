@@ -225,8 +225,7 @@ class Family(ModelSQL, ModelView):
 
     name = fields.Char('Family', required=True,
         help='Family code within an operational sector')
-    operational_sector = fields.Many2One('gnuhealth.operational_sector',
-        'Operational Sector')
+
     members = fields.One2Many('gnuhealth.family_member', 'name',
         'Family Members')
     info = fields.Text('Extra Information')
@@ -237,6 +236,21 @@ class Family(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Family Code must be unique !'),
         ]
+
+    @classmethod
+    # Update to version 2.0 
+    def __register__(cls, module_name):
+        super(Family, cls).__register__(module_name)
+        
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Remove Operational Sector from the family model
+        # The operational Sector is linked to the Domiciliary Unit
+        # Since GHealth 2.0 , the family model will contain their
+        # members and their role.
+
+        if table.column_exist('operational_sector'):
+            table.drop_column('operational_sector')
 
 
 class FamilyMember(ModelSQL, ModelView):
