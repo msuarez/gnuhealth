@@ -31,7 +31,7 @@ class ChagasDUSurvey(ModelSQL, ModelView):
 
     name = fields.Char ('Survey Code', required=True)
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
-    survey_date = fields.Date('Date')
+    survey_date = fields.Date('Date', required=True)
     
     triatomines =  fields.Boolean('Triatomines', help="Check this box if triatomines were found")
     vector = fields.Selection([
