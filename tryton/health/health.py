@@ -361,16 +361,16 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         else:
             state=''
             country=''
-            street_number = str(self.address_street_number) or ''
-            street =  str(self.address_street) or ''
-            municipality = str(self.address_municipality) or ''
-            city = str(self.address_city) or ''
+            street_number = (self.address_street_number).encode('utf-8') or ''
+            street =  (self.address_street).encode('utf-8') or ''
+            municipality = (self.address_municipality).encode('utf-8') or ''
+            city = (self.address_city).encode('utf-8') or ''
             if (self.address_subdivision):
-                state = str(self.address_subdivision.name) or ''
-            postalcode = str(self.address_zip) or ''
+                state = (self.address_subdivision.name).encode('utf-8') or ''
+            postalcode = (self.address_zip).encode('utf-8') or ''
             
             if (self.address_country):
-                country = str(self.address_country.code) or ''
+                country = (self.address_country.code).encode('utf-8') or ''
                 
             ret_url = 'http://nominatim.openstreetmap.org/search?' + \
                 'street=' + street_number +' '+ \
