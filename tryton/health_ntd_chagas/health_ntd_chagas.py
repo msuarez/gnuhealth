@@ -56,3 +56,8 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     
     observations = fields.Text('Observations')
     next_survey_date = fields.Date('Next survey')
+    
+    @staticmethod
+    def default_survey_date():
+        return datetime.now()
+

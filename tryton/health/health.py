@@ -361,7 +361,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         else:
             state=''
             country=''
-            street_number = (self.address_street_number).encode('utf-8') or ''
+            street_number = str(self.address_street_number).encode('utf-8') or ''
             street =  (self.address_street).encode('utf-8') or ''
             municipality = (self.address_municipality).encode('utf-8') or ''
             city = (self.address_city).encode('utf-8') or ''
