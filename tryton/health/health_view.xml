@@ -684,7 +684,7 @@
                             <label name="urladdr"/>
                             <field name="urladdr" widget="url"/>
                         </group>
-                        
+
 
                         <newline/>
                         <group colspan="4" col="6" id="du_living_conditions">
@@ -693,9 +693,9 @@
                             <label name="dwelling"/>
                             <field name="dwelling"/>
                         </group>
-                        
+
                         <newline/>
-                        
+
                         <group colspan="4" col="8" id="infrastructure" string="Infrastructure">
                             <label name="materials"/>
                             <field name="materials"/>
@@ -727,11 +727,11 @@
 
                             <label name="operational_sector"/>
                             <field name="operational_sector"/>
-                        
+
                     </group>
                     <newline/>
                     <field name="members"/>
-                   
+
                 </form>
                 ]]>
             </field>
@@ -1571,13 +1571,13 @@
                                 <field name="unidentified"/>
 
                                 </group>
-                                
+
                                 <group string="Picture" id="person_picture">
                                     <field name="photo" img_width="200" img_height="200"
                                 height="200" width="200" widget="image"/>
                                 </group>
                                 <newline/>
-                                
+
                             </group>
 
 
@@ -2104,6 +2104,7 @@
                     <field name="ref"/>
                     <field name="patient"/>
                     <field name="age"/>
+                    <field name="sex"/>
                     <field name="address"/>
                     <field name="insurance"/>
                     <field name="diagnosis"/>

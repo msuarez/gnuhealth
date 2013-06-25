@@ -238,10 +238,10 @@ class Family(ModelSQL, ModelView):
         ]
 
     @classmethod
-    # Update to version 2.0 
+    # Update to version 2.0
     def __register__(cls, module_name):
         super(Family, cls).__register__(module_name)
-        
+
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
         # Remove Operational Sector from the family model
@@ -287,11 +287,11 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     longitude=fields.Numeric('Longitude',digits=(3,14))
     urladdr = fields.Char('OSM Map',
         on_change_with = ['latitude','longitude', 'address_street', \
-            'address_street_number', 'address_district', 'address_municipality', 
+            'address_street_number', 'address_district', 'address_municipality',
             'address_city', 'address_zip', \
-            'address_subdivision', 'address_country'], 
+            'address_subdivision', 'address_country'],
         help="Locates the DU on the Open Street Map by default")
-    # Infrastructure 
+    # Infrastructure
 
     dwelling = fields.Selection([
         (None, ''),
@@ -311,7 +311,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('mud', 'Mud / Straw'),
         ('stone', 'Stone'),
         ], 'Material', sort=False)
-    
+
     roof_type = fields.Selection([
         (None, ''),
         ('concrete', 'Concrete'),
@@ -321,12 +321,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('thatch', 'Thatched'),
         ('stone', 'Stone'),
         ], 'Roof', sort=False)
-    
+
     total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
     bedrooms = fields.Integer ('Bedrooms')
     bathrooms = fields.Integer ('Bathrooms')
-    
-    
+
+
     housing = fields.Selection([
         (None, ''),
         ('0', 'Shanty, deficient sanitary conditions'),
@@ -354,10 +354,10 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         # parameters will be used.
         # Otherwise, it will try to find the address by the
         # Street, municipality, city, postalcode, state and country.
-        
+
         if (self.latitude and self.longitude):
             ret_url = 'http://openstreetmap.org/?mlat=' + str(self.latitude) + '&mlon=' + str(self.longitude)
-            
+
         else:
             state=''
             country=''
@@ -368,18 +368,18 @@ class DomiciliaryUnit(ModelSQL, ModelView):
             if (self.address_subdivision):
                 state = (self.address_subdivision.name).encode('utf-8') or ''
             postalcode = (self.address_zip).encode('utf-8') or ''
-            
+
             if (self.address_country):
                 country = (self.address_country.code).encode('utf-8') or ''
-                
+
             ret_url = 'http://nominatim.openstreetmap.org/search?' + \
                 'street=' + street_number +' '+ \
                 street + '&county=' + municipality \
                 + '&city=' + city + '&state=' + state \
                 + '&postalcode=' + postalcode + '&country=' + country
-        
+
         return ret_url
-    
+
     @classmethod
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
@@ -656,7 +656,7 @@ class AlternativePersonID (ModelSQL, ModelView):
         ('country_id', 'Country of origin SSN'),
         ('passport', 'Passport'),
         ('other', 'Other'),
-        ], 'ID type', required=True, sort=False, 
+        ], 'ID type', required=True, sort=False,
           )
     comments = fields.Char ('Comments')
 
@@ -760,7 +760,7 @@ class PartyPatient (ModelSQL, ModelView):
         # We use this method overwrite to make the fields that have a unique
         # constraint get the NULL value at PostgreSQL level, and not the value
         # '' coming from the client
-        
+
         vlist = [x.copy() for x in vlist]
         for values in vlist:
             if 'ref' in values and not values['ref']:
@@ -903,10 +903,10 @@ class PatientData(ModelSQL, ModelView):
         domain=[
             ('is_patient', '=', True),
             ('is_person', '=', True),
-            ], 
+            ],
         states={'readonly': Bool(Eval('name'))},
         help = "Person associated to this patient")
-        
+
     lastname = fields.Function(fields.Char('Lastname'),
         'get_patient_lastname', searcher='search_patient_lastname')
     ssn = fields.Function(fields.Char('SSN'),
@@ -930,10 +930,10 @@ class PatientData(ModelSQL, ModelView):
         contact in the address form.")
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
         'Primary Care Doctor', help='Current primary care / family doctor')
- 
+
     # Removed in 2.0 . PHOTO It's now a functional field
     # Retrieves the information from the party.
- 
+
     photo = fields.Function(fields.Binary('Picture'),'get_patient_photo')
 
     # Removed in 2.0 . DOB It's now a functional field
@@ -943,12 +943,12 @@ class PatientData(ModelSQL, ModelView):
     #    dob = fields.Date('DoB', help='Date of Birth')
 
     dob = fields.Function(fields.Date('DoB'), 'get_patient_dob')
-    
+
     age = fields.Function(fields.Char('Age'), 'patient_age')
 
     # Removed in 2.0 . SEX It's now a functional field
     # Retrieves the information from the party.
-    
+
     # sex = fields.Selection([
     #    ('m', 'Male'),
     #    ('f', 'Female'),
@@ -973,7 +973,7 @@ class PatientData(ModelSQL, ModelView):
         ], 'Rh')
 
     # Removed in 2.0 . ETHNIC GROUP is on the party model now
-    
+
     # ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
     vaccinations = fields.One2Many('gnuhealth.vaccination', 'name',
         'Vaccinations')
@@ -1088,10 +1088,10 @@ class PatientData(ModelSQL, ModelView):
 
 
     @classmethod
-    # Update to version 2.0 
+    # Update to version 2.0
     def __register__(cls, module_name):
         super(PatientData, cls).__register__(module_name)
-        
+
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
         # Move Date of Birth from patient to party
@@ -1101,9 +1101,9 @@ class PatientData(ModelSQL, ModelView):
                 'SET DOB = GNUHEALTH_PATIENT.DOB '
                 'FROM GNUHEALTH_PATIENT '
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-            
+
             table.drop_column('dob')
-            
+
         # Move Patient Gender from patient to party
 
         if table.column_exist('sex'):
@@ -1133,7 +1133,7 @@ class PatientData(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
 
             table.drop_column('ethnic_group')
-            
+
 
         # Move Patient Marital Status from patient to party
 
@@ -1356,7 +1356,7 @@ class AppointmentReport(ModelSQL, ModelView):
                     'FROM ('
                         'SELECT a.id, a.create_uid, a.create_date, '
                         'a.write_uid, a.write_date, p.identification_code, '
-                        'r.ref, p.id as patient, p.sex, a.appointment_date, '
+                        'r.ref, p.id as patient, r.sex, a.appointment_date, '
                         'a.appointment_date as appointment_date_time, '
                         'a.doctor '
                         'FROM gnuhealth_appointment a, '
