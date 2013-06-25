@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="1">
+
+        <!-- Sequences for Chagas -->
+        <record id="seq_type_gnuhealth_du_survey" model="ir.sequence.type">
+            <field name="name">Chagas DU Survey</field>
+            <field name="code">gnuhealth.chagas_du_survey</field>
+        </record>
+        <record id="seq_gnuhealth_du_survey" model="ir.sequence">
+            <field name="name">Chagas DU Survey</field>
+            <field name="code">gnuhealth.chagas_du_survey</field>
+            <field name="prefix">CHAGAS-ENTOMOLOGICAL-SURVEY ${year}/</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record model="ir.property" id="property_du_survey_sequence">
+            <field name="field"
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'chagas_du_survey_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_du_survey'))"/>
+        </record>
+    </data>
+</tryton>

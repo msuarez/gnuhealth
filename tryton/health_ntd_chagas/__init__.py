@@ -25,4 +25,5 @@ from health_ntd_chagas import *
 def register():
     Pool.register(
         ChagasDUSurvey,
+        GnuHealthSequences,
         module='health_ntd_chagas', type_='model')

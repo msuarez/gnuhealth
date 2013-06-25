@@ -23,13 +23,22 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.pool import Pool
 
 
-__all__ = ['ChagasDUSurvey']
+__all__ = ['GnuHealthSequences','ChagasDUSurvey']
+
+
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
+    __name__ = 'gnuhealth.sequences'
+
+    chagas_du_survey_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Chagas Survey Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.chagas_du_survey')]))
+
 
 class ChagasDUSurvey(ModelSQL, ModelView):
     'Chagas DU Entomological Survey'
     __name__ = 'gnuhealth.chagas_du_survey'
 
-    name = fields.Char ('Survey Code', required=True)
+    name = fields.Char ('Survey Code', readonly=True)
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
     survey_date = fields.Date('Date', required=True)
     
@@ -60,4 +69,19 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     @staticmethod
     def default_survey_date():
         return datetime.now()
+
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                config.chagas_du_survey_sequence.id)
+
+        return super(ChagasDUSurvey, cls).create(vlist)
 
