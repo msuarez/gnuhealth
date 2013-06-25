@@ -583,7 +583,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_family" id="gnuhealth_edit_family"
-            icon="gnuhealth-list" parent="gnuhealth_demographics_menu" sequence="30"/>
+            icon="gnuhealth-list" parent="gnuhealth_demographics_menu" sequence="20"/>
 
 
 <!-- Family Members -->
@@ -633,7 +633,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_family_member"
-            id="gnuhealth_edit_family_member" parent="gnuhealth_patients_menu"
+            id="gnuhealth_edit_family_member" parent="gnuhealth_demographics_menu"
             icon="gnuhealth-list" sequence="40"/>
 
 
@@ -770,7 +770,7 @@
 
         <menuitem action="gnuhealth_action_du"
             id="gnuhealth_edit_du" parent="gnuhealth_demographics_menu"
-            icon="gnuhealth-list" sequence="40"/>
+            icon="gnuhealth-list" sequence="10"/>
 
 
 
