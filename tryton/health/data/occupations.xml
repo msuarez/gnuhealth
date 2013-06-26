@@ -862,10 +862,6 @@
             <field name="name">Florist</field>
             <field name="code">215</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ216">
-            <field name="name">Fluffer</field>
-            <field name="code">216</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ217">
             <field name="name">Flutist</field>
             <field name="code">217</field>
@@ -1998,10 +1994,6 @@
             <field name="name">Retailer</field>
             <field name="code">499</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ500">
-            <field name="name">Rajan Brar</field>
-            <field name="code">500</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ501">
             <field name="name">Sailmaker</field>
             <field name="code">501</field>
@@ -2134,14 +2126,6 @@
             <field name="name">Singer</field>
             <field name="code">533</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ534">
-            <field name="name">Sider</field>
-            <field name="code">534</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ535">
-            <field name="name">Sleuth</field>
-            <field name="code">535</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ536">
             <field name="name">Social worker</field>
             <field name="code">536</field>
@@ -2193,10 +2177,6 @@
         <record model="gnuhealth.occupation" id="occ548">
             <field name="name">Speech therapist</field>
             <field name="code">548</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ549">
-            <field name="name">Sperm donor</field>
-            <field name="code">549</field>
         </record>
         <record model="gnuhealth.occupation" id="occ550">
             <field name="name">Sports therapist</field>
@@ -2250,10 +2230,6 @@
             <field name="name">Student</field>
             <field name="code">562</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ563">
-            <field name="name">Stuffer</field>
-            <field name="code">563</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ564">
             <field name="name">Stunt coordinator</field>
             <field name="code">564</field>
@@ -2265,10 +2241,6 @@
         <record model="gnuhealth.occupation" id="occ566">
             <field name="name">Stunt performer</field>
             <field name="code">566</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ567">
-            <field name="name">Superhero</field>
-            <field name="code">567</field>
         </record>
         <record model="gnuhealth.occupation" id="occ568">
             <field name="name">Surgeon</field>
@@ -2305,10 +2277,6 @@
         <record model="gnuhealth.occupation" id="occ576">
             <field name="name">Tailor</field>
             <field name="code">576</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ577">
-            <field name="name">Tanner</field>
-            <field name="code">577</field>
         </record>
         <record model="gnuhealth.occupation" id="occ578">
             <field name="name">Tapicer</field>
@@ -2389,10 +2357,6 @@
         <record model="gnuhealth.occupation" id="occ597">
             <field name="name">Therapist</field>
             <field name="code">597</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ598">
-            <field name="name">Thimbler</field>
-            <field name="code">598</field>
         </record>
         <record model="gnuhealth.occupation" id="occ599">
             <field name="name">Tiler</field>

@@ -41,6 +41,14 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     name = fields.Char ('Survey Code', readonly=True)
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
     survey_date = fields.Date('Date', required=True)
+
+    du_status = fields.Selection([
+        (None, ''),
+        ('initial', 'Initial'),
+        ('unchanged', 'Unchanged'),
+        ('better', 'Improved'),
+        ('worse', 'Worsen'),
+        ], 'Status', help="DU status compared to last visit", required=True, sort=False)
     
     triatomines =  fields.Boolean('Triatomines', help="Check this box if triatomines were found")
     vector = fields.Selection([
@@ -51,6 +59,7 @@ class ChagasDUSurvey(ModelSQL, ModelView):
         ('t_dimidiata', 'T. dimidiata'),
         ('p_megistus', 'P. megistus'),
         ], 'Vector', help="Vector", sort=False)
+
 
     nymphs = fields.Boolean ('Nymphs', "Check this box if triatomine nymphs were found")
     t_in_house = fields.Boolean('Domiciliary', help="Check this box if triatomines were found inside the house")

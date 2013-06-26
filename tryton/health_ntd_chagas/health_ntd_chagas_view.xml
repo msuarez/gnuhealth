@@ -10,13 +10,16 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Chagas Domiciliary Unit Entomological Survey">
-                    <group col="6" colspan="4" id="chagas_du_survey_header">
+                    <group col="8" colspan="4" id="chagas_du_survey_header">
                         <label name="name"/>
                         <field name="name"/>
                         <label name="du"/>
                         <field name="du"/>
                         <label name="survey_date"/>
                         <field name="survey_date"/>
+                        <label name="du_status"/>
+                        <field name="du_status"/>
+
                     </group>
 
                     <newline/>
@@ -72,7 +75,7 @@
                     <field name="name" expand="1"/>
                     <field name="du" expand="1" />
                     <field name="survey_date"/>
-                    <field name="observations"/>
+                    <field name="du_status"/>
                 </tree>
                 ]]>
             </field>

@@ -283,8 +283,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'Operational Sector')
     picture = fields.Binary('Picture')
 
-    latitude=fields.Numeric('Latidude',digits=(2,14))
-    longitude=fields.Numeric('Longitude',digits=(3,14))
+    latitude=fields.Numeric('Latidude',digits=(3,14))
+    longitude=fields.Numeric('Longitude',digits=(4,14))
     urladdr = fields.Char('OSM Map',
         on_change_with = ['latitude','longitude', 'address_street', \
             'address_street_number', 'address_district', 'address_municipality',
