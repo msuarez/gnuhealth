@@ -1872,6 +1872,7 @@ class PatientVaccination(ModelSQL, ModelView):
         ' be present. If available, please copy / scan the vaccine leaflet'
         ' and attach it to this record')
     admin_route = fields.Selection([
+        (None, ''),
         ('im', 'Intramuscular'),
         ('sc', 'Subcutaneous'),
         ('id', 'Intradermal'),
