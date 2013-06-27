@@ -3,6 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2013  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2013  Sebastian Marro <smarro@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -28,7 +29,6 @@ def register():
         Medicament,
         Party,
         Lot,
-        ShipmentOut,
         Move,
         PatientAmbulatoryCare,
         PatientAmbulatoryCareMedicament,
@@ -38,8 +38,9 @@ def register():
         PatientRoundingMedicament,
         PatientRoundingMedicalSupply,
         PatientRoundingVaccine,
-        CreatePrescriptionShipmentInit,
+        PatientPrescriptionOrder,
+        CreatePrescriptionStockMoveInit,
         module='health_stock', type_='model')
     Pool.register(
-        CreatePrescriptionShipment,
+        CreatePrescriptionStockMove,
         module='health_stock', type_='wizard')

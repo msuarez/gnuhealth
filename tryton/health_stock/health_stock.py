@@ -3,6 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2013  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2013  Sebastian Marro <smarro@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -26,12 +27,13 @@ from trytond.exceptions import UserError
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
 
-__all__ = ['Medicament', 'Party', 'Lot', 'ShipmentOut', 'Move',
+__all__ = ['Medicament', 'Party', 'Lot', 'Move',
     'PatientAmbulatoryCare', 'PatientAmbulatoryCareMedicament',
     'PatientAmbulatoryCareMedicalSupply', 'PatientAmbulatoryCareVaccine',
     'PatientRounding', 'PatientRoundingMedicament',
     'PatientRoundingMedicalSupply', 'PatientRoundingVaccine',
-    'CreatePrescriptionShipmentInit', 'CreatePrescriptionShipment']
+    'PatientPrescriptionOrder', 'CreatePrescriptionStockMoveInit',
+    'CreatePrescriptionStockMove']
 __metaclass__ = PoolMeta
 
 _STATES = {
@@ -104,18 +106,16 @@ class Lot:
         return quantity
 
 
-class ShipmentOut:
-    __name__ = 'stock.shipment.out'
-    prescription_order = fields.Many2One('gnuhealth.prescription.order',
-        'Source Prescription')
-
-
 class Move:
     __name__ = 'stock.move'
-    ambulatory_care = fields.Many2One('gnuhealth.patient.ambulatory_care',
-        'Source Ambulatory Care')
-    rounding = fields.Many2One('gnuhealth.patient.rounding',
-        'Source Rounding')
+
+    @classmethod
+    def _get_origin(cls):
+        return super(Move, cls)._get_origin() + [
+            'gnuhealth.prescription.order',
+            'gnuhealth.patient.ambulatory_care',
+            'gnuhealth.patient.rounding',
+            ]
 
 
 class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
@@ -123,6 +123,7 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.ambulatory_care'
 
     care_location = fields.Many2One('stock.location', 'Care Location',
+        domain=[('type', '=', 'storage')],
         states={
             'required': If(Or(Bool(Eval('medicaments')),
                 Bool(Eval('medical_supplies')),
@@ -138,7 +139,7 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
     vaccines = fields.One2Many(
         'gnuhealth.patient.ambulatory_care.vaccine', 'name', 'Vaccines',
         states=_STATES, depends=_DEPENDS)
-    moves = fields.One2Many('stock.move', 'ambulatory_care', 'Stock Moves',
+    moves = fields.One2Many('stock.move', 'origin', 'Stock Moves',
         readonly=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -161,6 +162,15 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
         return 'draft'
 
     @classmethod
+    def copy(cls, ambulatory_cares, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['moves'] = None
+        return super(PatientAmbulatoryCare, cls).copy(
+            ambulatory_cares, default=default)
+
+    @classmethod
     @ModelView.button
     @Workflow.transition('done')
     def done(cls, ambulatory_cares):
@@ -181,6 +191,7 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
             for medical_supply in ambulatory.medical_supplies:
                 supplies_to_ship.append(medical_supply)
 
+            vaccinations = []
             for vaccine in ambulatory.vaccines:
                 lot_number = ''
                 expiration_date = ''
@@ -198,10 +209,12 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
                     'date': datetime.now(),
                     'dose': vaccine.dose,
                     'next_dose_date': vaccine.next_dose_date,
-                    'vaccine_expiration_date': expiration_date
+                    'vaccine_expiration_date': expiration_date,
+                    'admin_route': vaccine.admin_route,
                     }
-                Vaccination.create(vaccination_data)
+                vaccinations.append(vaccination_data)
                 vaccines_to_ship.append(vaccine)
+            Vaccination.create(vaccinations)
 
         lines_to_ship['medicaments'] = medicaments_to_ship
         lines_to_ship['supplies'] = supplies_to_ship
@@ -214,71 +227,65 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
         pool = Pool()
         Move = pool.get('stock.move')
         Date = pool.get('ir.date')
+        moves = []
         for ambulatory in ambulatory_cares:
             for medicament in lines['medicaments']:
                 move_info = {}
+                move_info['origin'] = str(ambulatory)
                 move_info['product'] = medicament.medicament.name.id
                 move_info['uom'] = medicament.medicament.name.default_uom.id
                 move_info['quantity'] = medicament.quantity
                 move_info['from_location'] = ambulatory.care_location.id
                 move_info['to_location'] = \
                     ambulatory.patient.name.customer_location.id
-                move_info['unit_price'] = 1
-                move_info['ambulatory_care'] = ambulatory.id
+                move_info['unit_price'] = \
+                    medicament.medicament.name.list_price
                 if medicament.lot:
                     if  medicament.lot.expiration_date \
                     and medicament.lot.expiration_date < Date.today():
                         raise UserError('Expired medicaments')
                     move_info['lot'] = medicament.lot.id
-
-                new_move = Move.create(move_info)
-                Move.write([new_move], {
-                    'state': 'done',
-                    'effective_date': Date.today(),
-                })
+                moves.append(move_info)
 
             for medical_supply in lines['supplies']:
                 move_info = {}
+                move_info['origin'] = str(ambulatory)
                 move_info['product'] = medical_supply.product.id
                 move_info['uom'] = medical_supply.product.default_uom.id
                 move_info['quantity'] = medical_supply.quantity
                 move_info['from_location'] = ambulatory.care_location.id
                 move_info['to_location'] = \
                     ambulatory.patient.name.customer_location.id
-                move_info['unit_price'] = 1
-                move_info['ambulatory_care'] = ambulatory.id
+                move_info['unit_price'] = medical_supply.product.list_price
                 if medical_supply.lot:
                     if  medical_supply.lot.expiration_date \
                     and medical_supply.lot.expiration_date < Date.today():
                         raise UserError('Expired supplies')
                     move_info['lot'] = medical_supply.lot.id
-
-                new_move = Move.create(move_info)
-                Move.write([new_move], {
-                    'state': 'done',
-                    'effective_date': Date.today(),
-                })
+                moves.append(move_info)
 
             for vaccine in lines['vaccines']:
                 move_info = {}
+                move_info['origin'] = str(ambulatory)
                 move_info['product'] = vaccine.vaccine.id
                 move_info['uom'] = vaccine.vaccine.default_uom.id
                 move_info['quantity'] = vaccine.quantity
                 move_info['from_location'] = ambulatory.care_location.id
                 move_info['to_location'] = \
                     ambulatory.patient.name.customer_location.id
-                move_info['unit_price'] = 1
-                move_info['ambulatory_care'] = ambulatory.id
+                move_info['unit_price'] = vaccine.vaccine.list_price
                 if vaccine.lot:
                     if  vaccine.lot.expiration_date \
                     and vaccine.lot.expiration_date < Date.today():
                         raise UserError('Expired vaccines')
                     move_info['lot'] = vaccine.lot.id
-                new_move = Move.create(move_info)
-                Move.write([new_move], {
-                    'state': 'done',
-                    'effective_date': Date.today(),
-                })
+                moves.append(move_info)
+
+        new_moves = Move.create(moves)
+        Move.write(new_moves, {
+            'state': 'done',
+            'effective_date': Date.today(),
+        })
 
         return True
 
@@ -349,6 +356,14 @@ class PatientAmbulatoryCareVaccine(ModelSQL, ModelView):
         domain=[
             ('product', '=', Eval('vaccine')),
             ])
+    admin_route = fields.Selection([
+        (None, ''),
+        ('im', 'Intramuscular'),
+        ('sc', 'Subcutaneous'),
+        ('id', 'Intradermal'),
+        ('nas', 'Intranasal'),
+        ('po', 'Oral'),
+        ], 'Route', sort=False)
 
     @staticmethod
     def default_quantity():
@@ -360,7 +375,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.rounding'
 
     hospitalization_location = fields.Many2One('stock.location',
-        'Hospitalization Location',
+        'Hospitalization Location', domain=[('type', '=', 'storage')],
         states={
             'required': If(Or(Bool(Eval('medicaments')),
                 Bool(Eval('medical_supplies')),
@@ -376,7 +391,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     vaccines = fields.One2Many(
         'gnuhealth.patient.rounding.vaccine', 'name', 'Vaccines',
         states=_STATES, depends=_DEPENDS,)
-    moves = fields.One2Many('stock.move', 'rounding', 'Stock Moves',
+    moves = fields.One2Many('stock.move', 'origin', 'Stock Moves',
         readonly=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -397,6 +412,14 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+    @classmethod
+    def copy(cls, roundings, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['moves'] = None
+        return super(PatientRounding, cls).copy(roundings, default=default)
 
     @classmethod
     @ModelView.button
@@ -437,11 +460,11 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                     'date': datetime.now(),
                     'dose': vaccine.dose,
                     'next_dose_date': vaccine.next_dose_date,
-                    'vaccine_expiration_date': expiration_date
+                    'vaccine_expiration_date': expiration_date,
+                    'admin_route': vaccine.admin_route,
                     }
-                Vaccination.create(vaccination_data)
+                Vaccination.create([vaccination_data])
                 vaccines_to_ship.append(vaccine)
-
 
         lines_to_ship['medicaments'] = medicaments_to_ship
         lines_to_ship['supplies'] = supplies_to_ship
@@ -454,9 +477,11 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
         pool = Pool()
         Move = pool.get('stock.move')
         Date = pool.get('ir.date')
+        moves = []
         for rounding in roundings:
             for medicament in lines['medicaments']:
                 move_info = {}
+                move_info['origin'] = str(rounding)
                 move_info['product'] = medicament.medicament.name.id
                 move_info['uom'] = medicament.medicament.name.default_uom.id
                 move_info['quantity'] = medicament.quantity
@@ -464,41 +489,33 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                     rounding.hospitalization_location.id
                 move_info['to_location'] = \
                 rounding.name.patient.name.customer_location.id
-                move_info['unit_price'] = 1
-                move_info['rounding'] = rounding.id
+                move_info['unit_price'] = medicament.medicament.name.list_price
                 if medicament.lot:
                     if  medicament.lot.expiration_date \
                     and medicament.lot.expiration_date < Date.today():
                         raise UserError('Expired medicaments')
                     move_info['lot'] = medicament.lot.id
-                new_move = Move.create(move_info)
-                Move.write([new_move], {
-                    'state': 'done',
-                    'effective_date': Date.today(),
-                    })
+                moves.append(move_info)
             for medical_supply in lines['supplies']:
-                    move_info = {}
-                    move_info['product'] = medical_supply.product.id
-                    move_info['uom'] = medical_supply.product.default_uom.id
-                    move_info['quantity'] = medical_supply.quantity
-                    move_info['from_location'] = \
-                        rounding.hospitalization_location.id
-                    move_info['to_location'] = \
-                    rounding.name.patient.name.customer_location.id
-                    move_info['unit_price'] = 1
-                    move_info['rounding'] = rounding.id
-                    if medical_supply.lot:
-                        if  medical_supply.lot.expiration_date \
-                        and medical_supply.lot.expiration_date < Date.today():
-                            raise UserError('Expired supplies')
-                        move_info['lot'] = medical_supply.lot.id
-                    new_move = Move.create(move_info)
-                    Move.write([new_move], {
-                                    'state': 'done',
-                                    'effective_date': Date.today(),
-                                })
+                move_info = {}
+                move_info['origin'] = str(rounding)
+                move_info['product'] = medical_supply.product.id
+                move_info['uom'] = medical_supply.product.default_uom.id
+                move_info['quantity'] = medical_supply.quantity
+                move_info['from_location'] = \
+                    rounding.hospitalization_location.id
+                move_info['to_location'] = \
+                rounding.name.patient.name.customer_location.id
+                move_info['unit_price'] = medical_supply.product.list_price
+                if medical_supply.lot:
+                    if  medical_supply.lot.expiration_date \
+                    and medical_supply.lot.expiration_date < Date.today():
+                        raise UserError('Expired supplies')
+                    move_info['lot'] = medical_supply.lot.id
+                moves.append(move_info)
             for vaccine in lines['vaccines']:
                 move_info = {}
+                move_info['origin'] = str(rounding)
                 move_info['product'] = vaccine.vaccine.id
                 move_info['uom'] = vaccine.vaccine.default_uom.id
                 move_info['quantity'] = vaccine.quantity
@@ -506,18 +523,18 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
                     rounding.hospitalization_location.id
                 move_info['to_location'] = \
                 rounding.name.patient.name.customer_location.id
-                move_info['unit_price'] = 1
-                move_info['rounding'] = rounding.id
+                move_info['unit_price'] = vaccine.vaccine.list_price
                 if vaccine.lot:
                     if  vaccine.lot.expiration_date \
                     and vaccine.lot.expiration_date < Date.today():
                         raise UserError('Expired vaccines')
                     move_info['lot'] = vaccine.lot.id
-                new_move = Move.create(move_info)
-                Move.write([new_move], {
-                    'state': 'done',
-                    'effective_date': Date.today(),
-                })
+                moves.append(move_info)
+        new_moves = Move.create(moves)
+        Move.write(new_moves, {
+            'state': 'done',
+            'effective_date': Date.today(),
+            })
 
         return True
 
@@ -585,70 +602,86 @@ class PatientRoundingVaccine(ModelSQL, ModelView):
         domain=[
             ('product', '=', Eval('vaccine')),
             ])
+    admin_route = fields.Selection([
+        (None, ''),
+        ('im', 'Intramuscular'),
+        ('sc', 'Subcutaneous'),
+        ('id', 'Intradermal'),
+        ('nas', 'Intranasal'),
+        ('po', 'Oral'),
+        ], 'Route', sort=False)
 
     @staticmethod
     def default_quantity():
         return 1
 
 
-class CreatePrescriptionShipmentInit(ModelView):
-    'Create Prescription Shipment'
-    __name__ = 'gnuhealth.prescription.shipment.init'
+class PatientPrescriptionOrder:
+    __name__ = 'gnuhealth.prescription.order'
+    moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
+
+    @classmethod
+    def copy(cls, prescriptions, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['moves'] = None
+        return super(PatientPrescriptionOrder, cls).copy(
+            prescriptions, default=default)
 
 
-class CreatePrescriptionShipment(Wizard):
-    'Create Prescription Shipment'
-    __name__ = 'gnuhealth.prescription.shipment.create'
+class CreatePrescriptionStockMoveInit(ModelView):
+    'Create Prescription Stock Move Init'
+    __name__ = 'gnuhealth.prescription.stock.move.init'
 
-    start = StateView('gnuhealth.prescription.shipment.init',
-            'health_stock.view_create_prescription_shipment', [
+
+class CreatePrescriptionStockMove(Wizard):
+    'Create Prescription Stock Move'
+    __name__ = 'gnuhealth.prescription.stock.move.create'
+
+    start = StateView('gnuhealth.prescription.stock.move.init',
+            'health_stock.view_create_prescription_stock_move', [
             Button('Cancel', 'end', 'tryton-cancel'),
-            Button('Create Shipment', 'create_shipment',
+            Button('Create Stock Move', 'create_stock_move',
                 'tryton-ok', True),
             ])
-    create_shipment = StateTransition()
+    create_stock_move = StateTransition()
 
-    def transition_create_shipment(self):
+    def transition_create_stock_move(self):
         pool = Pool()
-        Shipment = pool.get('stock.shipment.out')
-        ShipmentLine = pool.get('stock.move')
-        StockLocation = Pool().get('stock.location')
+        StockMove = pool.get('stock.move')
         Prescription = pool.get('gnuhealth.prescription.order')
 
         prescriptions = Prescription.browse(Transaction().context.get(
             'active_ids'))
-        shipment_data = {}
         for prescription in prescriptions:
-            shipment_data['customer'] = prescription.patient.name.id
-            shipment_data['company'] = Transaction().context['company']
-            shipment_data['warehouse'] = prescription.pharmacy.warehouse
-            shipment_data['prescription_order'] = prescription.id
-            if prescription.patient.name.addresses:
-                shipment_data['delivery_address'] = \
-                    prescription.patient.name.addresses[0]
-            else:
-                raise Exception('You need to define an address in the party \
-                    form.')
 
-            shipment = Shipment.create(shipment_data)
+            if prescription.moves:
+                raise Exception('Stock moves already exists!.')
 
-            #Create Shipment Lines
-            warehouse = StockLocation(prescription.pharmacy.warehouse)
-            Shipment.wait([shipment])
+            if not prescription.pharmacy:
+                raise Exception('You need to enter a pharmacy.')
+
+            lines = []
             for line in prescription.prescription_line:
-                shipment_line_data = {}
-                shipment_line_data['shipment_out'] = shipment.id
-                shipment_line_data['from_location'] = \
-                    warehouse.storage_location.id
-                shipment_line_data['to_location'] = \
-                    warehouse.output_location.id
-                shipment_line_data['product'] = \
+                line_data = {}
+                line_data['origin'] = str(prescription)
+                line_data['from_location'] = \
+                    prescription.pharmacy.warehouse.storage_location.id
+                line_data['to_location'] = \
+                    prescription.patient.name.customer_location.id
+                line_data['product'] = \
                     line.template.medicament.name.id
-                shipment_line_data['quantity'] = line.quantity
-                shipment_line_data['uom'] = \
+                line_data['unit_price'] = \
+                    line.template.medicament.name.list_price
+                line_data['quantity'] = line.quantity
+                line_data['uom'] = \
                     line.template.medicament.name.default_uom.id
-                shipment_line_data['state'] = 'assigned'
-                ShipmentLine.create(shipment_line_data)
+                line_data['state'] = 'draft'
+                lines.append(line_data)
+            moves = StockMove.create(lines)
+            StockMove.assign(moves)
+            StockMove.do(moves)
 
         return 'end'
 
