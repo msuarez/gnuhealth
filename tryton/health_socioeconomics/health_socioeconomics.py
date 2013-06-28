@@ -53,6 +53,9 @@ class GnuHealthPatient(ModelSQL, ModelView):
     def get_patient_education(self, name):
         return self.name.education
 
+    def get_patient_housing(self, name):
+        return self.name.du.housing
+
     ses = fields.Selection([
         (None, ''),
         ('0', 'Lower'),
@@ -61,16 +64,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('3', 'Middle-upper'),
         ('4', 'Higher'),
         ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
-
-
-    housing = fields.Selection([
-        (None, ''),
-        ('0', 'Shanty, deficient sanitary conditions'),
-        ('1', 'Small, crowded but with good sanitary conditions'),
-        ('2', 'Comfortable and good sanitary conditions'),
-        ('3', 'Roomy and excellent sanitary conditions'),
-        ('4', 'Luxury and excellent sanitary conditions'),
-        ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False)
 
     hostile_area = fields.Boolean('Hostile Area',
         help="Check if patient lives in a zone of high hostility (eg, war)")
@@ -164,6 +157,16 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('4', 'Secondary School'),
         ('5', 'University'),
         ], 'Education Level', help="Education Level", sort=False), 'get_patient_education')
+    
+    
+    housing = fields.Function(fields.Selection([
+        (None, ''),
+        ('0', 'Shanty, deficient sanitary conditions'),
+        ('1', 'Small, crowded but with good sanitary conditions'),
+        ('2', 'Comfortable and good sanitary conditions'),
+        ('3', 'Roomy and excellent sanitary conditions'),
+        ('4', 'Luxury and excellent sanitary conditions'),
+        ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False), 'get_patient_housing')
     
     works_at_home = fields.Boolean('Works at home',
         help="Check if the patient works at his / her house")
@@ -259,3 +262,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
         if table.column_exist('internet'):
             table.drop_column ('internet')
+
+        if table.column_exist('housing'):
+            table.drop_column ('housing')
