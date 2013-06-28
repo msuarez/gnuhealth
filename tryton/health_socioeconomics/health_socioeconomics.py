@@ -75,14 +75,6 @@ class GnuHealthPatient(ModelSQL, ModelView):
     hostile_area = fields.Boolean('Hostile Area',
         help="Check if patient lives in a zone of high hostility (eg, war)")
 
-    sewers = fields.Boolean('Sanitary Sewers')
-    water = fields.Boolean('Running Water')
-    trash = fields.Boolean('Trash recollection')
-    electricity = fields.Boolean('Electrical supply')
-    gas = fields.Boolean('Gas supply')
-    telephone = fields.Boolean('Telephone')
-    television = fields.Boolean('Television')
-    internet = fields.Boolean('Internet')
     single_parent = fields.Boolean('Single parent family')
     domestic_violence = fields.Boolean('Domestic violence')
     working_children = fields.Boolean('Working children')
@@ -244,3 +236,26 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
             
             table.drop_column('education')
+
+        # The following indicators are now part of the Domiciliary Unit
+
+        if table.column_exist('sewers'):
+            table.drop_column ('sewers')
+
+        if table.column_exist('water'):
+            table.drop_column ('water')
+
+        if table.column_exist('trash'):
+            table.drop_column ('trash')
+
+        if table.column_exist('electricity'):
+            table.drop_column ('electricity')
+
+        if table.column_exist('gas'):
+            table.drop_column ('gas')
+
+        if table.column_exist('telephone'):
+            table.drop_column ('telephone')
+
+        if table.column_exist('internet'):
+            table.drop_column ('internet')

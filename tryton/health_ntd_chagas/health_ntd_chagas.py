@@ -20,6 +20,7 @@
 ##############################################################################
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.pool import Pool
 
 
@@ -50,6 +51,7 @@ class ChagasDUSurvey(ModelSQL, ModelView):
         ('worse', 'Worsen'),
         ], 'Status', help="DU status compared to last visit", required=True, sort=False)
     
+    # Findings of Triatomines in the DU
     triatomines =  fields.Boolean('Triatomines', help="Check this box if triatomines were found")
     vector = fields.Selection([
         (None, ''),
@@ -65,12 +67,23 @@ class ChagasDUSurvey(ModelSQL, ModelView):
     t_in_house = fields.Boolean('Domiciliary', help="Check this box if triatomines were found inside the house")
     t_peri = fields.Boolean('Peri-Domiciliary', help="Check this box if triatomines were found in the peridomiciliary area")
     
-    
+    # Infrastructure conditions
     dfloor = fields.Boolean('Floor', help="Current floor can host triatomines")
     dwall = fields.Boolean('Walls', help="Wall materials or state can host triatomines")
     droof = fields.Boolean('Roof', help="Roof materials or state can host triatomines")
     dperi = fields.Boolean('Peri-domicilary', help="Peri domiciliary area can host triatomines")
     
+    # Preventive measures
+    
+    bugtraps = fields.Boolean('Bug traps', help="The DU has traps to detect triatomines")
+    
+    # Chemical controls
+    
+    du_fumigation = fields.Boolean('Fumigation', help="The DU has been fumigated")
+    fumigation_date = fields.Date('Fumigation Date',help="Last Fumigation Date", states={'invisible': Not(Bool(Eval('du_fumigation')))})
+    
+    du_paint = fields.Boolean ('Insecticide Paint', help="The DU has been treated with insecticide-containing paint")
+    paint_date = fields.Date('Paint Date',help="Last Paint Date", states={'invisible': Not(Bool(Eval('du_paint')))})
     
     observations = fields.Text('Observations')
     next_survey_date = fields.Date('Next survey')

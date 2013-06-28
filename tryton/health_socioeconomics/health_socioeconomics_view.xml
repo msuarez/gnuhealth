@@ -73,31 +73,7 @@
                                     </group>
                                 </page>
 
-                                <page string="Infrastructure" id="page_infrastructure">
-
-                                    <group colspan="4" col="8" id="group_ses_infraestructure">
-                                        <label name="sewers"/>
-                                        <field name="sewers"/>
-                                        <label name="water"/>
-                                        <field name="water"/>
-
-                                        <label name="trash"/>
-                                        <field name="trash"/>
-                                        <label name="electricity"/>
-                                        <field name="electricity"/>
-                                        <label name="gas"/>
-                                        <field name="gas"/>
-
-                                        <label name="telephone"/>
-                                        <field name="telephone"/>
-                                        <label name="television"/>
-                                        <field name="television"/>
-                                        <label name="internet"/>
-                                        <field name="internet"/>
-
-                                    </group>
-                                </page>
-                                
+                               
                                 <page string="Family" id="page_family">
                                     <group colspan="4" col="6" string="Family APGAR" id="group_ses_family_apgar">
                                         <label name="fam_apgar_help" />
