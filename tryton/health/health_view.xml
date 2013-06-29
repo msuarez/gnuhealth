@@ -2512,31 +2512,33 @@
                             <notebook>
 
                                 <page string="Main" id="main_info_page">
-                                    <group colspan="4" col="6" string="Patient General Information"
-                                        id="general_info">
+                                    <group colspan="4" col="6" id="general_info">
                                         <label name="primary_care_doctor"/>
                                         <field name="primary_care_doctor"/>
                                         <label name="family"/>
                                         <field name="family"/>
                                     </group>
+
                                     <newline/>
-                                    <group id="blood_type">
+
+                                    <group colspan="4" col="6" id="patient_info_2">
                                         <label name="blood_type"/>
                                         <field name="blood_type"/>
                                         <label name="rh"/>
                                         <field name="rh"/>
+                                        <label name="current_insurance"/>
+                                        <field name="current_insurance"/>
+
                                     </group>
-                                    <label name="current_insurance"/>
-                                    <field name="current_insurance"/>
-                                    <newline/>
-                                    <group id="patient_info" colspan="4" col="4">
-                                    <separator colspan="4"
-                                        string="Patient Extra Information"
-                                        id="separator_misc"/>
+
                                     <newline/>
 
-                                    <field name="general_info" colspan="4"/>
-                                    </group>
+                                    <separator colspan="4" string="Notepad" id="separator_misc"/>
+
+                                    <newline/>
+                                    
+                                    <field colspan="4" name="general_info" />
+
 
                                 </page>
 
