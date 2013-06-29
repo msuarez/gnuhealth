@@ -1885,8 +1885,8 @@
 
                         <page string="General Info" id="medication_general_info">
                             <group id="medication_header" string="Medication">
-                                <label name="template"/>
-                                <field name="template"/>
+                                <label name="medicament"/>
+                                <field name="medicament"/>
                                 <label name="indication"/>
                                 <field name="indication"/>
                             </group>
@@ -1990,7 +1990,7 @@
                 <![CDATA[
                 <tree string="Patient Medication"
                     colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="template" expand="1"/>
+                    <field name="medicament" expand="1"/>
                     <field name="start_treatment" expand="1"/>
                     <field name="end_treatment" expand="1"/>
                     <field name="course_completed"/>
@@ -2856,8 +2856,8 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Prescription Line">
-                    <label name="template"/>
-                    <field name="template"/>
+                    <label name="medicament"/>
+                    <field name="medicament"/>
                     <label name="indication"/>
                     <field name="indication"/>
                     <label name="allow_substitution"/>
@@ -2929,7 +2929,7 @@
                 <![CDATA[
                 <tree string="Prescription lines">
                     <field name="prnt" expand="1"/>
-                    <field name="template" expand="1"/>
+                    <field name="medicament" expand="1"/>
                     <field name="indication" expand="1"/>
                     <field name="dose"/>
                     <field name="dose_unit"/>
