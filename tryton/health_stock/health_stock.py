@@ -671,12 +671,12 @@ class CreatePrescriptionStockMove(Wizard):
                 line_data['to_location'] = \
                     prescription.patient.name.customer_location.id
                 line_data['product'] = \
-                    line.template.medicament.name.id
+                    line.medicament.name.id
                 line_data['unit_price'] = \
-                    line.template.medicament.name.list_price
+                    line.medicament.name.list_price
                 line_data['quantity'] = line.quantity
                 line_data['uom'] = \
-                    line.template.medicament.name.default_uom.id
+                    line.medicament.name.default_uom.id
                 line_data['state'] = 'draft'
                 lines.append(line_data)
             moves = StockMove.create(lines)
