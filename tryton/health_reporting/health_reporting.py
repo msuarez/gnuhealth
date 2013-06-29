@@ -260,7 +260,7 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
     @staticmethod
     def table_query():
         clause = ' '
-        args = [True]
+        args = []
         if Transaction().context.get('start_date'):
             clause += 'AND evaluation_start >= %s '
             args.append(Transaction().context['start_date'])
@@ -274,7 +274,7 @@ class EvaluationsSpecialty(ModelSQL, ModelView):
                     'MAX(write_date) AS write_date, '
                     'specialty, COUNT(*) AS evaluations '
                 'FROM gnuhealth_patient_evaluation '
-                'WHERE %s '
+                'WHERE specialty is not null '
                 + clause +
                 'GROUP BY specialty', args)
 
@@ -344,6 +344,7 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
                         'EXTRACT(WEEK FROM evaluation_start) AS week, '
                         'specialty, COUNT(*) AS evaluations '
                         'FROM gnuhealth_patient_evaluation '
+                        'WHERE specialty is not null '
                         'GROUP BY year, week, specialty) AS ' + cls._table, [])
 
 
@@ -382,6 +383,7 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
                         'EXTRACT(MONTH FROM evaluation_start) AS month, '
                         'specialty, COUNT(*) AS evaluations '
                         'FROM gnuhealth_patient_evaluation '
+                        'WHERE specialty is not null '
                         'GROUP BY year, month, specialty) AS ' + cls._table,
                         [])
 
@@ -414,14 +416,12 @@ class EvaluationsSector(ModelSQL, ModelView):
                 'FROM party_party pp, '
                     'gnuhealth_patient_evaluation gpe, '
                     'gnuhealth_patient gp, '
-                    'gnuhealth_family_member gfm, '
-                    'gnuhealth_family gf, '
+                    'gnuhealth_du gdu, '
                     'gnuhealth_operational_sector gos '
                 'WHERE gpe.patient = gp.id '
                     'AND gp.name = pp.id '
-                    'AND gfm.party = pp.id '
-                    'AND gfm.name = gf.id '
-                    'AND gf.operational_sector = gos.id '
+                    'AND pp.du = gdu.id '
+                    'AND gdu.operational_sector = gos.id '
                     'AND %s '
                 + clause +
                 'GROUP BY gos.id', args)
@@ -494,14 +494,12 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
                         'FROM party_party pp, '
                             'gnuhealth_patient_evaluation gpe, '
                             'gnuhealth_patient gp, '
-                            'gnuhealth_family_member gfm, '
-                            'gnuhealth_family gf, '
+                            'gnuhealth_du gdu, '
                             'gnuhealth_operational_sector gos '
                         'WHERE gpe.patient = gp.id '
                             'AND gp.name = pp.id '
-                            'AND gfm.party = pp.id '
-                            'AND gfm.name = gf.id '
-                            'AND gf.operational_sector = gos.id '
+                            'AND pp.du = gdu.id '
+                            'AND gdu.operational_sector = gos.id '
                         'GROUP BY year, week, gos.id) AS ' + cls._table, [])
 
 
@@ -542,13 +540,11 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
                         'FROM party_party pp, '
                             'gnuhealth_patient_evaluation gpe, '
                             'gnuhealth_patient gp, '
-                            'gnuhealth_family_member gfm, '
-                            'gnuhealth_family gf, '
+                            'gnuhealth_du gdu, '
                             'gnuhealth_operational_sector gos '
                         'WHERE gpe.patient = gp.id '
                             'AND gp.name = pp.id '
-                            'AND gfm.party = pp.id '
-                            'AND gfm.name = gf.id '
-                            'AND gf.operational_sector = gos.id '
+                            'AND pp.du = gdu.id '
+                            'AND gdu.operational_sector = gos.id '
                         'GROUP BY year, month, gos.id) AS ' + cls._table, [])
 
