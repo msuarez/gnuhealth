@@ -2512,27 +2512,23 @@
                             <notebook>
 
                                 <page string="Main" id="main_info_page">
-                                    <group col="6" colspan="4"
-                                        string="Patient General Information"
+                                    <group colspan="4" col="6" string="Patient General Information"
                                         id="general_info">
+                                        <label name="primary_care_doctor"/>
+                                        <field name="primary_care_doctor"/>
+                                        <label name="family"/>
+                                        <field name="family"/>
+                                    </group>
+                                    <newline/>
+                                    <group id="blood_type">
                                         <label name="blood_type"/>
                                         <field name="blood_type"/>
                                         <label name="rh"/>
                                         <field name="rh"/>
-                                        <newline/>
-                                        <label name="family"/>
-                                        <field name="family"/>
-                                        <label name="current_address"/>
-                                        <field name="current_address"/>
-                                        <newline/>
-                                        <label name="primary_care_doctor"/>
-                                        <field name="primary_care_doctor"/>
-                                        <label name="current_insurance"/>
-                                        <field name="current_insurance"/>
                                     </group>
-                                </page>
-
-                                <page string="Misc" id="misc_info_page">
+                                    <label name="current_insurance"/>
+                                    <field name="current_insurance"/>
+                                    <newline/>
                                     <group id="patient_info" colspan="4" col="4">
                                     <separator colspan="4"
                                         string="Patient Extra Information"
@@ -2541,8 +2537,14 @@
 
                                     <field name="general_info" colspan="4"/>
                                     </group>
-                                    <newline/>
-                                    <group colspan="4" col="6" id="misc_info_group">
+
+                                </page>
+
+                                <page string="Misc" id="misc_info_page">
+                                    <group id="misc_info_group">
+                                        <label name="current_address"/>
+                                        <field name="current_address"/>
+                                        <newline/>
                                         <label name="deceased"/>
                                         <field name="deceased"/>
                                         <label name="dod"/>
