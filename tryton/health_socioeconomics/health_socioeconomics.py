@@ -39,22 +39,21 @@ class Party (ModelSQL, ModelView):
         ('4', 'Secondary School'),
         ('5', 'University'),
         ], 'Education Level', help="Education Level", sort=False)
-    
-    
+
+
 class GnuHealthPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     def get_patient_occupation(self, name):
         if (self.name.occupation):
             return self.name.occupation.id
-        
-            
 
     def get_patient_education(self, name):
         return self.name.education
 
     def get_patient_housing(self, name):
-        return self.name.du.housing
+        if (self.name.du):
+            return self.name.du.housing
 
     ses = fields.Selection([
         (None, ''),
@@ -157,8 +156,8 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('4', 'Secondary School'),
         ('5', 'University'),
         ], 'Education Level', help="Education Level", sort=False), 'get_patient_education')
-    
-    
+
+
     housing = fields.Function(fields.Selection([
         (None, ''),
         ('0', 'Shanty, deficient sanitary conditions'),
@@ -167,7 +166,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('3', 'Roomy and excellent sanitary conditions'),
         ('4', 'Luxury and excellent sanitary conditions'),
         ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False), 'get_patient_housing')
-    
+
     works_at_home = fields.Boolean('Works at home',
         help="Check if the patient works at his / her house")
     hours_outside = fields.Integer('Hours outside home',
@@ -214,10 +213,10 @@ class GnuHealthPatient(ModelSQL, ModelView):
         return total
 
     @classmethod
-    # Update to version 2.0 
+    # Update to version 2.0
     def __register__(cls, module_name):
         super(GnuHealthPatient, cls).__register__(module_name)
-        
+
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
         # Move occupation from patient to party
@@ -227,7 +226,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 'SET OCCUPATION = GNUHEALTH_PATIENT.OCCUPATION '
                 'FROM GNUHEALTH_PATIENT '
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-            
+
             table.drop_column('occupation')
 
         # Move education from patient to party
@@ -237,7 +236,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 'SET EDUCATION = GNUHEALTH_PATIENT.EDUCATION '
                 'FROM GNUHEALTH_PATIENT '
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-            
+
             table.drop_column('education')
 
         # The following indicators are now part of the Domiciliary Unit
