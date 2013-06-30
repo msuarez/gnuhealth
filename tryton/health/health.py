@@ -279,7 +279,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_zip = fields.Char('Zip Code')
     address_country = fields.Many2One('country.country','Country', help='Country')
     address_subdivision = fields.Many2One('country.subdivision', 'Province',
-        domain=[('country', '=', Eval('address_country'))])
+        domain=[('country', '=', Eval('address_country'))],
+        depends=['address_country'])
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'Operational Sector')
     picture = fields.Binary('Picture')
