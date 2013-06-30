@@ -666,10 +666,10 @@
                             <field name="address_city"/>
                             <label name="address_zip"/>
                             <field name="address_zip"/>
-                            <label name="address_subdivision"/>
-                            <field name="address_subdivision"/>
                             <label name="address_country"/>
                             <field name="address_country"/>
+                            <label name="address_subdivision"/>
+                            <field name="address_subdivision"/>
                         </group>
                         <group id="du_picture">
                             <field name="picture" img_width="200" img_height="200"
