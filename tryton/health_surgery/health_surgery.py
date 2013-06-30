@@ -18,9 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
-
+from trytond.transaction import Transaction
+from trytond.backend import TableHandler
 
 __all__ = ['RCRI','Surgery', 'MedicalOperation', 'MedicalPatient']
 
@@ -117,6 +119,26 @@ class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
+
+    def patient_age_at_surgery(self, name):
+
+        if (self.patient.name.dob):
+            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
+
+            if (self.surgery_date):
+                surgery_date = datetime.strptime(str(self.surgery_date), '%Y-%m-%d %H:%M:%S')
+                delta = relativedelta(self.surgery_date, dob)
+
+                years_months_days = str(delta.years) + 'y ' \
+                        + str(delta.months) + 'm ' \
+                        + str(delta.days) + 'd'
+            else:
+                years_months_days = 'No Surgery Date !'
+        else:
+            years_months_days = 'No DoB !'
+
+        return years_months_days
+        
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID')
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
@@ -137,9 +159,15 @@ class Surgery(ModelSQL, ModelView):
         help="Surgeon who did the procedure")
     anesthetist = fields.Many2One('gnuhealth.physician', 'Anesthetist',
         help="Anesthetist in charge")
-    date = fields.DateTime('Date')
-    age = fields.Char('Patient age',
-        help="Patient age at the moment of the surgery. Can be estimative")
+    surgery_date = fields.DateTime('Date')
+    
+    # age is deprecated in GNU Health 2.0
+    age = fields.Char('Estimative Age',
+        help="Use this field for historical purposes, when no date of surgery is given")
+
+    computed_age = fields.Function(fields.Char('Age',
+        help="Computed patient age at the moment of the surgery"),'patient_age_at_surgery')
+    
     description = fields.Char('Description', required=True)
     preop_mallampati = fields.Selection([
         (None, ''),
@@ -177,6 +205,20 @@ class Surgery(ModelSQL, ModelView):
         help="Patient Revised Cardiac Risk Index")
 
     extra_info = fields.Text('Extra Info')
+
+
+    @classmethod
+    # Update to version 2.0
+    def __register__(cls, module_name):
+        super(Surgery, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Rename the date column to surgery_surgery_date
+
+        if table.column_exist('date'):
+            table.column_rename('date','surgery_date')
+
 
 
 class MedicalOperation(ModelSQL, ModelView):

@@ -86,10 +86,10 @@
 
                         <newline/>
                         <group id="group_surgery_other_info" colspan="4">
-                            <label name="date"/>
-                            <field name="date"/>
-                            <label name="age"/>
-                            <field name="age"/>
+                            <label name="surgery_date"/>
+                            <field name="surgery_date"/>
+                            <label name="computed_age"/>
+                            <field name="computed_age"/>
                         </group>
                     </group>
                     <newline/>
@@ -150,7 +150,8 @@
                     <field name="description"/>
                     <field name="pathology"/>
                     <field name="classification"/>
-                    <field name="date"/>
+                    <field name="surgery_date"/>
+                    <field name="computed_age"/>
                 </tree>
                 ]]>
             </field>
@@ -193,11 +194,11 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <![CDATA[
-                <form string="Operation">
+                <form string="Procedure">
                     <label name="procedure"/>
                     <field name="procedure"/>
                     <newline/>
-                    <separator string="Operation Details / Incidents" colspan="4" id="separator_surgery_op_details"/>
+                    <separator string="Procedure Details / Incidents" colspan="4" id="separator_surgery_op_details"/>
                     <newline/>
                     <field name="notes" colspan="4"/>
                 </form>
