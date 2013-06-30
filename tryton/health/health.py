@@ -1224,7 +1224,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
     def validate_disease_period(self):
         res = True
-        if self.healed_date:
+        if (self.healed_date and self.diagnosed_date):
             if (self.healed_date < self.diagnosed_date):
                 res = False
         return res
