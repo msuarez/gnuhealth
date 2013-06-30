@@ -1230,11 +1230,13 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         return res
 
     def validate_treatment_dates(self):
-        if (self.date_stop_treatment < self.date_start_treatment):
-            return False
+        if (self.date_stop_treatment and self.date_start_treatment):
+            if (self.date_stop_treatment < self.date_start_treatment):
+                return False
+            else:
+                return True
         else:
             return True
-
 
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
