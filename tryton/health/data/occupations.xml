@@ -838,10 +838,6 @@
             <field name="name">Flavorist</field>
             <field name="code">209</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ210">
-            <field name="name">Fletcher</field>
-            <field name="code">210</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ211">
             <field name="name">Flight attendant</field>
             <field name="code">211</field>
@@ -1025,10 +1021,6 @@
         <record model="gnuhealth.occupation" id="occ257">
             <field name="name">Headmaster</field>
             <field name="code">257</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ258">
-            <field name="name">Herald</field>
-            <field name="code">258</field>
         </record>
         <record model="gnuhealth.occupation" id="occ259">
             <field name="name">Herbalist</field>
@@ -1478,10 +1470,6 @@
             <field name="name">Modeller</field>
             <field name="code">370</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ371">
-            <field name="name">Molecatcher</field>
-            <field name="code">371</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ372">
             <field name="name">Moldmaker</field>
             <field name="code">372</field>
@@ -1518,10 +1506,6 @@
             <field name="name">Mountaineer</field>
             <field name="code">380</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ381">
-            <field name="name">Muleskinner</field>
-            <field name="code">381</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ382">
             <field name="name">Muralist</field>
             <field name="code">382</field>
@@ -1553,10 +1537,6 @@
         <record model="gnuhealth.occupation" id="occ389">
             <field name="name">Negotiator</field>
             <field name="code">389</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ390">
-            <field name="name">Netmaker</field>
-            <field name="code">390</field>
         </record>
         <record model="gnuhealth.occupation" id="occ391">
             <field name="name">Neurosurgeon</field>
@@ -1917,10 +1897,6 @@
         <record model="gnuhealth.occupation" id="occ480">
             <field name="name">Publisher</field>
             <field name="code">480</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ481">
-            <field name="name">Quilter</field>
-            <field name="code">481</field>
         </record>
         <record model="gnuhealth.occupation" id="occ482">
             <field name="name">Radiologist</field>
@@ -2561,10 +2537,6 @@
         <record model="gnuhealth.occupation" id="occ649">
             <field name="name">X-ray technician</field>
             <field name="code">649</field>
-        </record>
-        <record model="gnuhealth.occupation" id="occ650">
-            <field name="name">Yodeler</field>
-            <field name="code">650</field>
         </record>
         <record model="gnuhealth.occupation" id="occ651">
             <field name="name">Youth worker</field>
