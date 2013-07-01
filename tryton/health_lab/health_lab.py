@@ -258,3 +258,13 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
                     config.lab_request_sequence.id)
 
         return super(GnuHealthPatientLabTest, cls).create(vlist)
+
+    @classmethod
+    def copy(cls, tests, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['request'] = None
+        default['date'] = cls.default_date()
+        return super(GnuHealthPatientLabTest, cls).copy(tests,
+            default=default)
