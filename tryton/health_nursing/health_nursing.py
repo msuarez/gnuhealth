@@ -214,6 +214,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             'health_professional_warning':
                     'No health professional associated to this user',
         })
+        cls._order.insert(0, ('session_start', 'DESC'))
 
     def check_health_professional(self):
         return self.health_professional
@@ -250,6 +251,17 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     @staticmethod
     def default_session_start():
         return datetime.now()
+
+    @classmethod
+    def copy(cls, ambulatorycares, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['name'] = None
+        default['session_start'] = cls.default_session_start()
+        default['session_end'] = cls.default_session_start()
+        return super(PatientAmbulatoryCare, cls).copy(ambulatorycares,
+            default=default)
 
 
 class AmbulatoryCareProcedure(ModelSQL, ModelView):
