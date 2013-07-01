@@ -70,6 +70,10 @@ class TestType(ModelSQL, ModelView):
             ('code_uniq', 'unique(name)', 'The Lab Test code must be unique'),
         ]
 
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
+
 
 class Lab(ModelSQL, ModelView):
     'Lab Test'
@@ -136,6 +140,10 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
             ('name_uniq', 'unique(name)', 'The Unit name must be unique'),
         ]
 
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
+
 
 class GnuHealthTestCritearea(ModelSQL, ModelView):
     'Lab Test Critearea'
@@ -180,6 +188,10 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
         if (self.result < self.lower_limit or self.result > self.upper_limit):
             return True
         return False
+
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
 
 
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
