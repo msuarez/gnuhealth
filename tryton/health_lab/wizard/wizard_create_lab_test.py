@@ -51,12 +51,12 @@ class CreateLabTestOrder(Wizard):
         Lab = Pool().get('gnuhealth.lab')
 
         tests_report_data = []
-        test_cases = []
 
         tests = TestRequest.browse(Transaction().context.get('active_ids'))
 
         for lab_test_order in tests:
 
+            test_cases = []
             test_report_data = {}
 
             if lab_test_order.state == 'ordered':
