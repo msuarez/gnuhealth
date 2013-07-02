@@ -57,7 +57,6 @@ def register():
         Appointment,
         AppointmentReport,
         OpenAppointmentReportStart,
-        MedicationTemplate,
         PatientMedication,
         PatientVaccination,
         PatientPrescriptionOrder,

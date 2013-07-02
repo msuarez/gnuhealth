@@ -31,17 +31,17 @@ from trytond.pool import Pool
 __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
     'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
     'OperationalArea', 'OperationalSector', 'Family', 'FamilyMember',
-    'DomiciliaryUnit','MedicamentCategory', 'Medicament',
+    'DomiciliaryUnit', 'MedicamentCategory', 'Medicament',
     'PathologyCategory', 'PathologyGroup', 'Pathology', 'DiseaseMembers',
-    'ProcedureCode', 'InsurancePlan',    'Insurance', 'AlternativePersonID',
+    'ProcedureCode', 'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'PartyPatient', 'PartyAddress', 'Product', 'GnuHealthSequences',
     'PatientData', 'PatientDiseaseInfo', 'Appointment',
     'AppointmentReport', 'OpenAppointmentReportStart', 'OpenAppointmentReport',
-    'MedicationTemplate', 'PatientMedication', 'PatientVaccination',
-    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
-    'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit', 'HospitalOR',
-    'HospitalWard', 'HospitalBed']
+    'PatientMedication', 'PatientVaccination', 'PatientPrescriptionOrder',
+    'PrescriptionLine', 'PatientEvaluation', 'Directions',
+    'SecondaryCondition', 'DiagnosticHypothesis', 'SignsAndSymptoms',
+    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
+    'HospitalBed']
 
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
@@ -1447,68 +1447,6 @@ class OpenAppointmentReport(Wizard):
         return 'end'
 
 
-# MEDICATION TEMPLATE
-# TEMPLATE USED IN MEDICATION AND PRESCRIPTION ORDERS
-class MedicationTemplate(ModelSQL, ModelView):
-    'Template for medication'
-    __name__ = 'gnuhealth.medication.template'
-
-    medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
-        required=True, help='Prescribed Medicament')
-    indication = fields.Many2One('gnuhealth.pathology', 'Indication',
-        help='Choose a disease for this medicament from the disease list. It'
-        ' can be an existing disease of the patient or a prophylactic.')
-    dose = fields.Float('Dose',
-        help='Amount of medication (eg, 250 mg) per dose')
-    dose_unit = fields.Many2One('gnuhealth.dose.unit', 'dose unit',
-        help='Unit of measure for the medication to be taken')
-    route = fields.Many2One('gnuhealth.drug.route', 'Administration Route',
-        help='Drug administration route code.')
-    form = fields.Many2One('gnuhealth.drug.form', 'Form',
-        help='Drug form, such as tablet or gel')
-    qty = fields.Integer('x',
-        help='Quantity of units (eg, 2 capsules) of the medicament')
-    common_dosage = fields.Many2One('gnuhealth.medication.dosage', 'Frequency',
-        help='Common / standard dosage frequency for this medicament')
-    frequency = fields.Integer('Frequency',
-        help='Time in between doses the patient must wait (ie, for 1 pill'
-        ' each 8 hours, put here 8 and select \"hours\" in the unit field')
-    frequency_unit = fields.Selection([
-        (None, ''),
-        ('seconds', 'seconds'),
-        ('minutes', 'minutes'),
-        ('hours', 'hours'),
-        ('days', 'days'),
-        ('weeks', 'weeks'),
-        ('wr', 'when required'),
-        ], 'unit', select=True, sort=False)
-    frequency_prn = fields.Boolean('PRN',
-        help='Use it as needed, pro re nata')
-    admin_times = fields.Char('Admin hours',
-        help='Suggested administration hours. For example, at 08:00, 13:00'
-        ' and 18:00 can be encoded like 08 13 18')
-    duration = fields.Integer('Treatment duration',
-        help='Period that the patient must take the medication. in minutes,'
-        ' hours, days, months, years or indefinately')
-    duration_period = fields.Selection([
-        (None, ''),
-        ('minutes', 'minutes'),
-        ('hours', 'hours'),
-        ('days', 'days'),
-        ('months', 'months'),
-        ('years', 'years'),
-        ('indefinite', 'indefinite'),
-        ], 'Treatment period', sort=False,
-        help='Period that the patient must take the medication in minutes,'
-        ' hours, days, months, years or indefinately')
-    start_treatment = fields.DateTime('Start',
-        help='Date of start of Treatment')
-    end_treatment = fields.DateTime('End', help='Date of start of Treatment')
-
-    def get_rec_name(self, name):
-        return self.medicament.name.name
-
-
 # PATIENT MEDICATION TREATMENT
 class PatientMedication(ModelSQL, ModelView):
     'Patient Medication'
@@ -1601,6 +1539,38 @@ class PatientMedication(ModelSQL, ModelView):
             'end_date_before_start': 'The Medication END DATE is BEFORE the'
                 ' start date!',
             })
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(PatientMedication, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+
+        # Update to version 2.0
+        # Move data from template to patient medication
+        if table.column_exist('template'):
+            cursor.execute('UPDATE gnuhealth_patient_medication '
+                'SET medicament = gmt.medicament, '
+                'indication = gmt.indication, '
+                'dose = gmt.dose, '
+                'dose_unit = gmt.dose_unit, '
+                'route = gmt.route, '
+                'form = gmt.form, '
+                'qty = gmt.qty, '
+                'common_dosage = gmt.common_dosage, '
+                'frequency = gmt.frequency, '
+                'frequency_unit = gmt.frequency_unit, '
+                'frequency_prn = gmt.frequency_prn, '
+                'admin_times = gmt.admin_times, '
+                'duration = gmt.duration, '
+                'duration_period = gmt.duration_period, '
+                'start_treatment = gmt.start_treatment, '
+                'end_treatment = gmt.end_treatment '
+                'FROM gnuhealth_medication_template gmt '
+                'WHERE gnuhealth_patient_medication.template = gmt.id')
+
+            table.drop_column('template')
 
     def on_change_with_is_active(self):
         return not (self.discontinued or self.course_completed)
@@ -1898,6 +1868,38 @@ class PrescriptionLine(ModelSQL, ModelView):
         ], 'Treatment period', sort=False,
         help='Period that the patient must take the medication in minutes,'
         ' hours, days, months, years or indefinately')
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(PrescriptionLine, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+
+        # Update to version 2.0
+        # Move data from template to prescription line
+        if table.column_exist('template'):
+            cursor.execute('UPDATE gnuhealth_prescription_line '
+                'SET medicament = gmt.medicament, '
+                'indication = gmt.indication, '
+                'dose = gmt.dose, '
+                'dose_unit = gmt.dose_unit, '
+                'route = gmt.route, '
+                'form = gmt.form, '
+                'qty = gmt.qty, '
+                'common_dosage = gmt.common_dosage, '
+                'frequency = gmt.frequency, '
+                'frequency_unit = gmt.frequency_unit, '
+                'frequency_prn = gmt.frequency_prn, '
+                'admin_times = gmt.admin_times, '
+                'duration = gmt.duration, '
+                'duration_period = gmt.duration_period, '
+                'start_treatment = gmt.start_treatment, '
+                'end_treatment = gmt.end_treatment '
+                'FROM gnuhealth_medication_template gmt '
+                'WHERE gnuhealth_prescription_line.template = gmt.id')
+
+            table.drop_column('template')
 
     @staticmethod
     def default_qty():

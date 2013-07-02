@@ -1787,92 +1787,6 @@
             parent="gnuhealth_conf_procedure"/>
 
 
-<!-- MEDICATION TEMPLATE -->
-
-        <record model="ir.ui.view" id="gnuhealth_medication_template_form">
-            <field name="model">gnuhealth.medication.template</field>
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Medication">
-                    <notebook>
-
-                        <page string="General Info" id="medication_general_info">
-                            <group id="medication_header" string="Medication">
-                                <label name="medicament"/>
-                                <field name="medicament"/>
-                                <label name="indication"/>
-                                <field name="indication"/>
-                            </group>
-                            <newline/>
-                            <newline/>
-                            <group colspan="2" id="treatment_period"
-                                string="Treatment period">
-                                <label name="start_treatment"/>
-                                <field name="start_treatment"/>
-                                <label name="end_treatment"/>
-                                <field name="end_treatment"/>
-                            </group>
-                            <newline/>
-                            <newline/>
-                        </page>
-
-                        <page id="medication_misc" string="Extra Info">
-                            <group id="medicament_dosage_main">
-                                <group id="medicament_form"
-                                    string="Admnistration">
-                                    <label name="form"/>
-                                    <field name="form"/>
-                                    <label name="route"/>
-                                    <field name="route"/>
-                                </group>
-                                <newline/>
-                                <group id="medicament_dosage" col="6"
-                                    string="Dosage">
-                                    <label name="dose"/>
-                                    <field name="dose"/>
-                                    <label name="dose_unit"/>
-                                    <field name="dose_unit"/>
-                                    <label name="qty"/>
-                                    <field name="qty"/>
-                                </group>
-                                <newline/>
-                                <group id="medicament_duration"
-                                    string="Treatment duration">
-                                    <label name="duration"/>
-                                    <field name="duration"/>
-                                    <label name="duration_period"/>
-                                    <field name="duration_period"/>
-                                </group>
-                                <newline/>
-                                <group string="Common Dosage"
-                                    id="group_common_dosage">
-                                    <label name="common_dosage"/>
-                                    <field name="common_dosage"/>
-                                    <label name="admin_times"/>
-                                    <field name="admin_times"/>
-                                </group>
-                                <newline/>
-                                <group col="6" colspan="4"
-                                    string="Specific Dosage"
-                                    id="group_specific_dosage">
-                                    <label name="frequency"/>
-                                    <field name="frequency"/>
-                                    <label name="frequency_unit"/>
-                                    <field name="frequency_unit"/>
-                                    <label name="frequency_prn"/>
-                                    <field name="frequency_prn"/>
-                                </group>
-                            </group>
-                        </page>
-
-                    </notebook>
-                </form>
-                ]]>
-            </field>
-        </record>
-
-
 <!-- PATIENT MEDICATION -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_medication_form">
@@ -2536,7 +2450,7 @@
                                     <separator colspan="4" string="Notepad" id="separator_misc"/>
 
                                     <newline/>
-                                    
+
                                     <field colspan="4" name="general_info" />
 
 
