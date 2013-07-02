@@ -232,15 +232,6 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
-        <record model="ir.model.access" id="access_health_medication_template_admin">
-            <field name="model" search="[('model', '=', 'gnuhealth.medication.template')]"/>
-            <field name="group" ref="group_health_admin"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_delete" eval="True"/>
-        </record>
-
         <record model="ir.model.access" id="access_health_occupation_admin">
             <field name="model" search="[('model', '=', 'gnuhealth.occupation')]"/>
             <field name="group" ref="group_health_admin"/>
@@ -532,14 +523,6 @@
 
         <record model="ir.model.access" id="access_health_medication_dosage">
             <field name="model" search="[('model', '=', 'gnuhealth.medication.dosage')]"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="False"/>
-            <field name="perm_create" eval="False"/>
-            <field name="perm_delete" eval="False"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_medication_template">
-            <field name="model" search="[('model', '=', 'gnuhealth.medication.template')]"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
@@ -920,15 +903,6 @@
 
         <record model="ir.model.access" id="access_health_patient_medication_doctor">
             <field name="model" search="[('model', '=', 'gnuhealth.patient.medication')]"/>
-            <field name="group" ref="group_health_doctor"/>
-            <field name="perm_read" eval="True"/>
-            <field name="perm_write" eval="True"/>
-            <field name="perm_create" eval="True"/>
-            <field name="perm_delete" eval="True"/>
-        </record>
-
-        <record model="ir.model.access" id="access_health_medication_template_doctor">
-            <field name="model" search="[('model', '=', 'gnuhealth.medication.template')]"/>
             <field name="group" ref="group_health_doctor"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
