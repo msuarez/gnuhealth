@@ -897,21 +897,22 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="medicaments">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="category"/>
+                    <field name="category"/>
+                    <newline/>
+<!--
+                    <label name="therapeutic_action"/>
+                    <field name="therapeutic_action"/>
+-->
+                    <label name="active_component"/>
+                    <field name="active_component"/>
+                    <newline/>
+
                     <notebook>
 
                         <page string="Main Info" id="medicament_main">
-                            <label name="name"/>
-                            <field name="name"/>
-                            <label name="category"/>
-                            <field name="category"/>
-                            <newline/>
-<!--
-                            <label name="therapeutic_action"/>
-                            <field name="therapeutic_action"/>
--->
-                            <label name="active_component"/>
-                            <field name="active_component"/>
-                            <newline/>
                             <separator string="Indications" colspan="4"
                                 id="separator_medication_indication"/>
                             <newline/>
