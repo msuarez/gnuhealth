@@ -1734,6 +1734,25 @@
                 ]]>
             </field>
         </record>
+        <record model="ir.ui.view" id="view_gnuhealth_product_tree">
+            <field name="model">product.product</field>
+            <field name="inherit" ref="product.product_view_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/tree/field[@name=&quot;rec_name&quot;]"
+                        position="after">
+                        <field name="is_medicament"/>
+                        <field name="is_medical_supply"/>
+                        <field name="is_vaccine"/>
+                        <field name="is_bed"/>
+                        <field name="is_insurance_plan"/>
+                </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
 
 
 <!-- MEDICAL PROCEDURES -->
