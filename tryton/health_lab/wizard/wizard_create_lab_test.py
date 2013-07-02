@@ -101,7 +101,7 @@ class RequestPatientLabTestStart(ModelView):
     'Request Patient Lab Test Start'
     __name__ = 'gnuhealth.patient.lab.test.request.start'
 
-    date = fields.DateTime('Fecha')
+    date = fields.DateTime('Date')
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor',
         help="Doctor who Request the lab tests.")
