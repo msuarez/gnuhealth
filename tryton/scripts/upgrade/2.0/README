@@ -1,0 +1,56 @@
+GNU Health migration to version 2.0
+===================================
+
+This document describes the steps to follow to migrate from a version
+1.8.1 of GNU Health to a version 2.0.0
+
+Warning: the migration scripts involved in this migration are only meant
+for a standard Tryton installation. It might not work or even break some
+data if you added or modified some code to the default Tryton
+distribution.
+
+
+Preliminary task
+----------------
+
+As you know, before to any migration task, you should:
+
+ - Stop Tryton server. In this case is the version 2.6.x, which is
+   related to GNU Health 1.8.1
+
+
+ - And backup your database.
+
+    For example: pg_dump gnuhealth181 > backup181.sql
+
+
+Migration
+---------
+
+ - Run the pre.py script (located in this directory).
+
+    You might need to pass it some optional arguments so that it can connect
+    to the database.
+
+    The connection parameters can be specified either as a 'libpq connection
+    string' [1] using the dsn parameter. For Example:
+
+        python pre.py --pg="dbname=gnuhealth181 user=gnuhealth password=secret"
+
+    The basic connection parameters are:
+
+        dbname – the database name (only in the dsn string)
+        user – user name used to authenticate
+        password – password used to authenticate
+        host – database host address (defaults to UNIX socket if not provided)
+        port – connection port number (defaults to 5432 if not provided)
+
+    [1] http://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING
+
+
+ - Run Tryton server 2.8.x with "-d gnuhealth181 -u all" in the parameters.
+
+    For example: ./trytond.py -d gnuhealth181 -u all
+
+
+ - You are ready to work with the new version.

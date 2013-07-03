@@ -34,14 +34,15 @@ __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
     'DomiciliaryUnit', 'MedicamentCategory', 'Medicament',
     'PathologyCategory', 'PathologyGroup', 'Pathology', 'DiseaseMembers',
     'ProcedureCode', 'InsurancePlan', 'Insurance', 'AlternativePersonID',
-    'PartyPatient', 'PartyAddress', 'Product', 'GnuHealthSequences',
-    'PatientData', 'PatientDiseaseInfo', 'Appointment',
-    'AppointmentReport', 'OpenAppointmentReportStart', 'OpenAppointmentReport',
-    'PatientMedication', 'PatientVaccination', 'PatientPrescriptionOrder',
-    'PrescriptionLine', 'PatientEvaluation', 'Directions',
-    'SecondaryCondition', 'DiagnosticHypothesis', 'SignsAndSymptoms',
-    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
-    'HospitalBed']
+    'PartyPatient', 'PartyAddress', 'ProductCategory', 'ProductTemplate',
+    'Product', 'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
+    'Appointment', 'AppointmentReport', 'OpenAppointmentReportStart',
+    'OpenAppointmentReport', 'PatientMedication', 'PatientVaccination',
+    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
+    'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
+    'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit', 'HospitalOR',
+    'HospitalWard', 'HospitalBed']
+
 
 class DrugDoseUnits(ModelSQL, ModelView):
     'Drug Dose Unit'
@@ -402,6 +403,18 @@ class MedicamentCategory(ModelSQL, ModelView):
         string='Children')
 
     @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        super(MedicamentCategory, cls).__register__(module_name)
+
+        # Upgrade from GNU Health 1.8.1: moved who essential medicines
+        cursor.execute("UPDATE ir_model_data "
+            "SET module = REPLACE(module, %s, %s) "
+            "WHERE (fs_id like 'em%%' OR fs_id = 'medicament') "
+            "  AND module = %s",
+            ('health', 'health_who_essential_medicines', module_name,))
+
+    @classmethod
     def __setup__(cls):
         super(MedicamentCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
@@ -482,6 +495,17 @@ class Medicament(ModelSQL, ModelView):
     adverse_reaction = fields.Text('Adverse Reactions')
     storage = fields.Text('Storage Conditions')
     notes = fields.Text('Extra Info')
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        super(Medicament, cls).__register__(module_name)
+
+        # Upgrade from GNU Health 1.8.1: moved who essential medicines
+        cursor.execute("UPDATE ir_model_data "
+            "SET module = REPLACE(module, %s, %s) "
+            "WHERE fs_id like 'meds_em%%' AND module = %s",
+            ('health', 'health_who_essential_medicines', module_name,))
 
     def get_rec_name(self, name):
         return self.name.name
@@ -815,6 +839,41 @@ class PartyAddress(ModelSQL, ModelView):
         address")
 
 
+class ProductCategory(ModelSQL, ModelView):
+    'Product Category'
+    __name__ = 'product.category'
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        super(ProductCategory, cls).__register__(module_name)
+
+        # Upgrade from GNU Health 1.8.1: moved who essential medicines
+        cursor.execute("UPDATE ir_model_data "
+            "SET module = REPLACE(module, %s, %s) "
+            "WHERE fs_id like 'prod_medicament%%' AND module = %s",
+            ('health', 'health_who_essential_medicines', module_name,))
+
+
+class ProductTemplate(ModelSQL, ModelView):
+    'Product Template'
+    __name__ = 'product.template'
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        super(ProductTemplate, cls).__register__(module_name)
+
+        # Upgrade from GNU Health 1.8.1: moved who essential medicines
+        cursor.execute("UPDATE ir_model_data "
+            "SET module = REPLACE(module, %s, %s), "
+            "    fs_id = REPLACE(fs_id, 'prod_em', 'templ_em') "
+            "WHERE fs_id like 'prod_em%%' AND module = %s "
+            "  AND model = %s",
+            ('health', 'health_who_essential_medicines', module_name,
+                'product.template',))
+
+
 class Product(ModelSQL, ModelView):
     'Product'
     __name__ = 'product.product'
@@ -829,6 +888,19 @@ class Product(ModelSQL, ModelView):
         help='Check if the product is a bed on the gnuhealth.center')
     is_insurance_plan = fields.Boolean('Insurance Plan',
         help='Check if the product is an insurance plan')
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        super(Product, cls).__register__(module_name)
+
+        # Upgrade from GNU Health 1.8.1: moved who essential medicines
+        cursor.execute("UPDATE ir_model_data "
+            "SET module = REPLACE(module, %s, %s) "
+            "WHERE fs_id like 'prod_em%%' AND module = %s "
+            "  AND model = %s",
+            ('health', 'health_who_essential_medicines', module_name,
+                'product.product',))
 
     @classmethod
     def check_xml_record(cls, records, values):

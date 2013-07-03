@@ -50,6 +50,8 @@ def register():
         AlternativePersonID,
         PartyPatient,
         PartyAddress,
+        ProductCategory,
+        ProductTemplate,
         Product,
         GnuHealthSequences,
         PatientData,
