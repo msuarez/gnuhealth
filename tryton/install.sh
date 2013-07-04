@@ -37,6 +37,7 @@ fi
 # TEMPORARY - STAGING AREA
 TMP_DIR="/tmp/gnuhealth_installer/"
 
+GHEALTH_INST_DIR=$PWD
 
 # THE GNUHEALTH VARIABLES
 GNUHEALTH_BASEDIR="$HOME"
@@ -66,7 +67,7 @@ PIP_PYWEBDAV="pywebdav"
 PIP_QRCODE="qrcode"
 PIP_PIL="PIL"
 
-PIP_INSTALL="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PYTZ $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL"
+PIP_INSTALL="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_PYTZ $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL"
 
 echo "Installing dependencies with PIP..."
 
@@ -138,7 +139,7 @@ echo "INFO : Downloading the Tryton Modules ..."
 
 for TMODULE in $MODULES
     do
-        echo "wget $TMODULE"
+        wget $TMODULE
     done
 
 # CREATE THE DESTINATION DIRECTORIES
@@ -168,9 +169,27 @@ for MODULE in `ls $TMP_DIR/trytond_*`
     do
         tar -xzf $MODULE
     done
+
+
+echo "INFO : ** LINKING THE TRYTON MODULES **"
     
 MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
 
-TRYTOND_MOD_DIR="${TRYTOND_DIR}/trytond-$TRYTOND_VERSION"
+TRYTOND_MOD_DIR="${TRYTOND_DIR}/trytond-$TRYTOND_VERSION/trytond/modules"
 
 cd $TRYTOND_MOD_DIR
+
+
+for LNMOD in $MODULES
+    do
+        ln -si $MODULES_DIR/trytond_${LNMOD}-* $LNMOD
+    done
+
+echo "INFO : ** COPYING GNU HEALTH MODULES TO THE TRYTON MODULES DIRECTORY **"
+
+cp -a ${GHEALTH_INST_DIR}/health* $MODULES_DIR
+
+ln -si $MODULES_DIR/health* .
+
+echo "DONE !"
+
