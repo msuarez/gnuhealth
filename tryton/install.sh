@@ -70,10 +70,10 @@ PIP_INSTALL="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PYTZ $PIP_LDAP $PIP_VOB
 
 echo "Installing dependencies with PIP..."
 
-# for DEP_PIP_INSTALL in $PIP_INSTALL
-#    do
-#    $PIP_CMD $PIP_ARGS $DEP_PIP_INSTALL
-#    done
+for DEP_PIP_INSTALL in $PIP_INSTALL
+    do
+        $PIP_CMD $PIP_ARGS $DEP_PIP_INSTALL
+    done
 
 
 
@@ -97,7 +97,7 @@ MOD_PREFIX="$TRYTON_BASE_URL/trytond_"
 
 TRYTOND_FILE="trytond-$TRYTOND_VERSION.tar.gz"
 
-# TRYTON MODULES NEEDED IN GNU HEALTH
+# DOWNLOAD TRYTON MODULES NEEDED IN GNU HEALTH
 
 ACCOUNT="${MOD_PREFIX}account-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$ACCOUNT_REV.tar.gz"
 ACCOUNT_INVOICE="${MOD_PREFIX}account_invoice-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$ACCOUNT_INVOICE_REV.tar.gz"
@@ -132,9 +132,45 @@ echo "INFO : Downloading the Tryton Server ..."
 
 wget "$TRYTON_BASE_URL/$TRYTOND_FILE"
 
+# DOWNLOAD THE TRYTON MODULES
+
 echo "INFO : Downloading the Tryton Modules ..."
 
 for TMODULE in $MODULES
     do
-        wget $TMODULE
+        echo "wget $TMODULE"
     done
+
+# CREATE THE DESTINATION DIRECTORIES
+
+TRYTOND_DIR="${HOME}/tryton/server"
+MODULES_DIR="${TRYTOND_DIR}/modules"
+
+mkdir -p "$MODULES_DIR"
+
+# Uncompress the Tryton Server
+
+echo "INFO: ** UNCOMPRESSING THE TRYTON SERVER **"
+cd $TRYTOND_DIR
+tar -xzf $TMP_DIR/$TRYTOND_FILE
+
+echo "INFO: ** UNCOMPRESSING THE TRYTON MODULES **"
+
+cd  $MODULES_DIR
+
+# EXTRACT TRYTON MODULES NEEDED IN GNU HEALTH
+
+echo "INFO: ** EXTRACT TRYTON MODULES NEEDED IN GNU HEALTH **"
+
+cd $MODULES_DIR
+
+for MODULE in `ls $TMP_DIR/trytond_*`
+    do
+        tar -xzf $MODULE
+    done
+    
+MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
+
+TRYTOND_MOD_DIR="${TRYTOND_DIR}/trytond-$TRYTOND_VERSION"
+
+cd $TRYTOND_MOD_DIR
