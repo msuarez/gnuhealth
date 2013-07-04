@@ -2218,13 +2218,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         return 'pa'
 
     def on_change_with_bmi(self):
-        height = self.height
-        weight = self.weight
-        if (height > 0):
-            bmi = weight / ((height / 100) ** 2)
-        else:
-            bmi = 0
-        return bmi
+        if self.height and self.weight:
+            if (self.height > 0):
+                return self.weight / ((self.height / 100) ** 2)
+            return 0
 
     def on_change_with_loc(self):
         return int(self.loc_motor) + int(self.loc_eyes) + int(self.loc_verbal)
