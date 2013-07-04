@@ -1513,6 +1513,8 @@ class OpenAppointmentReport(Wizard):
                 'date': self.start.date,
                 'doctor': self.start.doctor.id,
                 })
+        action['name'] += ' - %s, %s' % (self.start.doctor.name.lastname,
+            self.start.doctor.name.name)
         return action, {}
 
     def transition_open_(self):
