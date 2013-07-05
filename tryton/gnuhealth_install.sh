@@ -24,15 +24,18 @@
 
 # Main variables declaration
 
-# PIP command 
+# PIP command
 # If the OS is Arch Linux, use pip2
 # otherwise, use pip
 
 if [ -e /etc/arch-release ]; then
-    PIP_CMD="/usr/bin/pip2"
+    PIP_NAME="pip2"
+elif [ -e /etc/fedora-release ]; then
+    PIP_NAME="pip-python"
 else
-    PIP_CMD="/usr/bin/pip"
+    PIP_NAME="pip"
 fi
+PIP_CMD=$(which $PIP_NAME)
 
 # TEMPORARY - STAGING AREA
 TMP_DIR="/tmp/gnuhealth_installer/"
@@ -43,7 +46,7 @@ GHEALTH_INST_DIR=$PWD
 GNUHEALTH_BASEDIR="$HOME"
 GNUHEALTH_VERSION=`cat version`
 
-# THE TRYTON SERVER VARIABLES 
+# THE TRYTON SERVER VARIABLES
 TRYTOND_BASEDIR="$HOME"
 TRYTOND_MAJOR_NUMBER="2"
 TRYTOND_MINOR_NUMBER="8"
@@ -52,7 +55,6 @@ TRYTOND_REVISION_NUMBER="1"
 TRYTOND_VERSION="$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$TRYTOND_REVISION_NUMBER"
 
 # PIP arguments
-
 PIP_ARGS="install --user"
 
 # GNU Health / Tryton dependencies
@@ -77,7 +79,6 @@ for DEP_PIP_INSTALL in $PIP_INSTALL
     do
         $PIP_CMD $PIP_ARGS $DEP_PIP_INSTALL
     done
-
 
 
 # GET THE REVISION NUMBER FOR EACH MODULE
@@ -174,7 +175,7 @@ for MODULE in `ls $TMP_DIR/trytond_*`
 
 
 echo "INFO : ** LINKING THE TRYTON MODULES **"
-    
+
 MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
 
 TRYTOND_MOD_DIR="${TRYTOND_DIR}/trytond-$TRYTOND_VERSION/trytond/modules"
@@ -194,4 +195,3 @@ cp -a ${GHEALTH_INST_DIR}/health* $MODULES_DIR
 ln -si $MODULES_DIR/health* .
 
 echo "DONE !"
-
