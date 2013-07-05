@@ -1036,6 +1036,16 @@ class PatientData(ModelSQL, ModelView):
     # Removed in 2.0 . MARITAL STATUS It's now a functional field
     # Retrieves the information from the party.
 
+    marital_status = fields.Function(fields.Selection([
+        (None, ''),
+        ('s', 'Single'),
+        ('m', 'Married'),
+        ('c', 'Concubinage'),
+        ('w', 'Widowed'),
+        ('d', 'Divorced'),
+        ('x', 'Separated'),
+        ], 'Marital Status', sort=False),'get_patient_marital_status')
+
     blood_type = fields.Selection([
         (None, ''),
         ('A', 'A'),
@@ -1112,6 +1122,9 @@ class PatientData(ModelSQL, ModelView):
 
     def get_patient_ssn(self, name):
         return self.name.ref
+
+    def get_patient_marital_status(self, name):
+        return self.name.marital_status
 
     @classmethod
     def search_patient_ssn(cls, name, clause):

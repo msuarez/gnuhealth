@@ -287,7 +287,7 @@ class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
     __name__ = 'gnuhealth.patient'
 
-    patient_status = fields.Function(fields.Char('Hospitalization Status'),
+    patient_status = fields.Function(fields.Char('Hospitalization Status', help="Patient current Hospitalization Status"),
         'get_patient_status')
 
     def get_patient_status(self, name):

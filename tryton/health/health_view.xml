@@ -2415,9 +2415,8 @@
                 <![CDATA[
                 <form string="patient">
 <!-- Main Info -->
-                    <group string="Main Info" id="patient_main_info">
+                    <group string="Patient Main Info" id="patient_main_info">
                         <group col="8" id="patient_main_info1">
-                            <label name="name"/>
                             <field name="name"/>
                             <label name="identification_code"/>
                             <field name="identification_code"/>
@@ -2430,7 +2429,7 @@
                         <newline/>
                         <group col="6" id="patient_main_info2">
                             <separator colspan="4"
-                                string="Patient Allergies and Critical Information"
+                                string="Allergies and Critical Information"
                                 id="patient_critical_information"/>
                             <newline/>
                             <field colspan="4" name="critical_info"/>
@@ -2448,19 +2447,14 @@
                             <notebook>
 
                                 <page string="Main" id="main_info_page">
-                                    <group colspan="4" col="6" id="general_info">
+                                    <group colspan="4" col="7" id="general_info">
                                         <label name="primary_care_doctor"/>
                                         <field name="primary_care_doctor"/>
                                         <label name="family"/>
                                         <field name="family"/>
+                                        <field name="marital_status"/>
                                         <label name="current_insurance"/>
                                         <field name="current_insurance"/>
-                                    </group>
-
-                                    <newline/>
-
-                                    <group colspan="4" col="8" id="patient_info_2">
-                                    
                                     </group>
 
                                     <newline/>
@@ -2473,7 +2467,7 @@
                                     
                                     <newline/>
 
-                                    <group colspan="4" col="10" id="patient_info_2">
+                                    <group colspan="4" col="8" id="patient_info_2">
                                         <label name="dob"/>
                                         <field name="dob"/>
                                         <label name="ssn"/>
