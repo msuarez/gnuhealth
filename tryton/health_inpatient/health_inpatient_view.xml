@@ -202,12 +202,9 @@
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="//field[@name=&quot;primary_care_doctor&quot;]"
+                        expr="//field[@name=&quot;rh&quot;]"
                         position="after">
-
-                        <label name="patient_status"/>
                         <field name="patient_status"/>
-
                     </xpath>
                 </data>
                 ]]>

@@ -2416,11 +2416,13 @@
                 <form string="patient">
 <!-- Main Info -->
                     <group string="Main Info" id="patient_main_info">
-                        <group col="6" id="patient_main_info1">
+                        <group col="8" id="patient_main_info1">
                             <label name="name"/>
                             <field name="name"/>
                             <label name="identification_code"/>
                             <field name="identification_code"/>
+                            <label name="sex"/>
+                            <field name="sex"/>
                             <label name="age"/>
                             <field name="age"/>
 
@@ -2451,18 +2453,14 @@
                                         <field name="primary_care_doctor"/>
                                         <label name="family"/>
                                         <field name="family"/>
+                                        <label name="current_insurance"/>
+                                        <field name="current_insurance"/>
                                     </group>
 
                                     <newline/>
 
-                                    <group colspan="4" col="6" id="patient_info_2">
-                                        <label name="blood_type"/>
-                                        <field name="blood_type"/>
-                                        <label name="rh"/>
-                                        <field name="rh"/>
-                                        <label name="current_insurance"/>
-                                        <field name="current_insurance"/>
-
+                                    <group colspan="4" col="8" id="patient_info_2">
+                                    
                                     </group>
 
                                     <newline/>
@@ -2472,7 +2470,18 @@
                                     <newline/>
 
                                     <field colspan="4" name="general_info" />
+                                    
+                                    <newline/>
 
+                                    <group colspan="4" col="10" id="patient_info_2">
+                                        <label name="dob"/>
+                                        <field name="dob"/>
+                                        <label name="ssn"/>
+                                        <field name="ssn"/>
+                                        <label name="blood_type"/>
+                                        <field name="blood_type"/>
+                                        <field name="rh"/>
+                                    </group>
 
                                 </page>
 

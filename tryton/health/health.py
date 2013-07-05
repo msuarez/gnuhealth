@@ -959,7 +959,7 @@ class PatientData(ModelSQL, ModelView):
             if name == 'age':
                 return years_months_days
 
-            # Return if the patient is in the period of childbearing age (10 is
+            # Return if the patient is in the period of childbearing age >10 is
             # the caller is childbearing_potential
 
             if (name == 'childbearing_age' and patient_dob):
@@ -1003,7 +1003,7 @@ class PatientData(ModelSQL, ModelView):
         In the case of a Domiciliary Unit, just link it to the name of the \
         contact in the address form.")
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
-        'Primary Care Doctor', help='Current primary care / family doctor')
+        'GP', help='Current General Practitioner / family doctor')
 
     # Removed in 2.0 . PHOTO It's now a functional field
     # Retrieves the information from the party.
@@ -1028,7 +1028,10 @@ class PatientData(ModelSQL, ModelView):
     #    ('f', 'Female'),
     #    ], 'Sex', required=True)
 
-    sex = fields.Function(fields.Char('Sex'), 'get_patient_sex')
+    sex = fields.Function(fields.Selection([
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex'), 'get_patient_sex')
 
     # Removed in 2.0 . MARITAL STATUS It's now a functional field
     # Retrieves the information from the party.
