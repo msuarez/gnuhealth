@@ -6,6 +6,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2013  Luis Falcon <lfalcon@gnusolidario.org>
+#                             Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -22,176 +23,214 @@
 #
 ##############################################################################
 
-# Main variables declaration
+#
+# Main functions/variables declaration
+#
 
-# PIP command
-# If the OS is Arch Linux, use pip2
-# otherwise, use pip
+# Colors
+NONE="$(tput sgr0)"
+RED="$(tput setaf 1)"
+GREEN="$(tput setaf 2)"
+YELLOW="\n$(tput setaf 3)"
+BLUE="\n$(tput setaf 4)"
 
-if [ -e /etc/arch-release ]; then
-    PIP_NAME="pip2"
-elif [ -e /etc/fedora-release ]; then
-    PIP_NAME="pip-python"
-else
-    PIP_NAME="pip"
-fi
-PIP_CMD=$(which $PIP_NAME)
+message () {
+    # $1 : Message
+    # $2 : Color
+    # return : Message colorized
+    local NOW="[$(date +%H:%M:%S)]"
 
-# TEMPORARY - STAGING AREA
-TMP_DIR="/tmp/gnuhealth_installer/"
+    echo -e "${2}${NOW}${1}${NONE}"
+}
 
-GHEALTH_INST_DIR=$PWD
+install_python_dependencies() {
+    # PIP settings
+    if [ -e /etc/arch-release ]; then
+        local PIP_NAME="pip2"
+    elif [ -e /etc/fedora-release ]; then
+        local PIP_NAME="pip-python"
+    else
+        local PIP_NAME="pip"
+    fi
+    local PIP_CMD=$(which $PIP_NAME)
 
-# THE GNUHEALTH VARIABLES
-GNUHEALTH_BASEDIR="$HOME"
+    # TODO: Change for virtualenv support.
+    local PIP_ARGS="install --user"
+
+    # Python packages
+    local PIP_LXML="lxml"
+    local PIP_RELATORIO="relatorio"
+    local PIP_DATEUTIL="python-dateutil"
+    local PIP_PSYCOPG2="psycopg2"
+    local PIP_PYTZ="pytz"
+    local PIP_LDAP="python-ldap"
+    local PIP_VOBJECT="vobject"
+    local PIP_PYWEBDAV="pywebdav"
+    local PIP_QRCODE="qrcode"
+    local PIP_PIL="PIL"
+    local PIP_CALDAV="caldav"
+    local PIP_POLIB="polib"
+
+    local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_PYTZ $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
+
+    message "[INFO] Installing python dependencies with pip..." ${YELLOW}
+    for PKG in ${PIP_PKGS}; do
+        ${PIP_CMD} ${PIP_ARGS} ${PKG}
+    done
+}
+
+
+install_directories() {
+    #
+    # Temporary/staging area.
+    #
+    message "[INFO] Creating temporary directory..." ${YELLOW}
+
+    TMP_DIR="/tmp/gnuhealth_installer"
+
+    if [ -e ${TMP_DIR} ] ; then
+        message "[ERROR] Directory ${TMP_DIR} exists. You need to delete it." ${RED}
+        exit 1
+    else
+        mkdir ${TMP_DIR}
+    fi
+    message "[INFO] OK." ${GREEN}
+
+    #
+    # Create the destination directories.
+    #
+    message "[INFO] Creating destination directories..." ${YELLOW}
+
+    BASEDIR="$HOME/tryton"
+    TRYTOND_DIR="${BASEDIR}/server"
+    MODULES_DIR="${TRYTOND_DIR}/modules"
+
+    if [ -e ${BASEDIR} ] ; then
+        message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
+        exit 1
+    else
+        mkdir -p ${MODULES_DIR}
+    fi
+    message "[INFO] OK." ${GREEN}
+}
+
+
+#
+# (0) Start.
+#
+GNUHEALTH_INST_DIR=$PWD
 GNUHEALTH_VERSION=`cat version`
 
-# THE TRYTON SERVER VARIABLES
-TRYTOND_BASEDIR="$HOME"
-TRYTOND_MAJOR_NUMBER="2"
-TRYTOND_MINOR_NUMBER="8"
-TRYTOND_REVISION_NUMBER="1"
-
-TRYTOND_VERSION="$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$TRYTOND_REVISION_NUMBER"
-
-# PIP arguments
-PIP_ARGS="install --user"
-
-# GNU Health / Tryton dependencies
-PIP_LXML="lxml"
-PIP_RELATORIO="relatorio"
-PIP_DATEUTIL="python-dateutil"
-PIP_PSYCOPG2="psycopg2"
-PIP_PYTZ="pytz"
-PIP_LDAP="python-ldap"
-PIP_VOBJECT="vobject"
-PIP_PYWEBDAV="pywebdav"
-PIP_QRCODE="qrcode"
-PIP_PIL="PIL"
-PIP_CALDAV="caldav"
-PIP_POLIB="polib"
-
-PIP_INSTALL="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_PYTZ $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
-
-echo "Installing dependencies with PIP..."
-
-for DEP_PIP_INSTALL in $PIP_INSTALL
-    do
-        $PIP_CMD $PIP_ARGS $DEP_PIP_INSTALL
-    done
+message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${BLUE}
 
 
-# GET THE REVISION NUMBER FOR EACH MODULE
-ACCOUNT_REV="1"
-ACCOUNT_INVOICE_REV="1"
-ACCOUNT_PRODUCT_REV="0"
-CALENDAR_REV="0"
-COMPANY_REV="0"
-COUNTRY_REV="0"
-CURRENCY_REV="0"
-PARTY_REV="0"
-PRODUCT_REV="0"
-STOCK_REV="1"
-STOCK_LOT_REV="0"
+#
+# (1) Install directories.
+#
+install_directories
 
 
-TRYTON_BASE_URL="http://downloads.tryton.org/$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER"
+#
+# (2) Download settings.
+#
+TRYTON_VERSION="2.8"
+TRYTON_BASE_URL="http://downloads.tryton.org"
 
-MOD_PREFIX="$TRYTON_BASE_URL/trytond_"
+get_url() {
+    # $1 : Module name
+    # return : URL to download
 
-TRYTOND_FILE="trytond-$TRYTOND_VERSION.tar.gz"
+    echo ${TRYTON_BASE_URL}/${TRYTON_VERSION}/$(wget --quiet -O- ${TRYTON_BASE_URL}/${TRYTON_VERSION} | egrep -o "${1}-${TRYTON_VERSION}.[0-9\.]+.tar.gz" | sort -V | tail -1)
+}
 
-# DOWNLOAD TRYTON MODULES NEEDED IN GNU HEALTH
+#
+# Get the lastest revision number for each Tryton module.
+#
+message "[INFO] Getting list of lastest Tryton packages..." ${YELLOW}
 
-ACCOUNT="${MOD_PREFIX}account-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$ACCOUNT_REV.tar.gz"
-ACCOUNT_INVOICE="${MOD_PREFIX}account_invoice-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$ACCOUNT_INVOICE_REV.tar.gz"
-ACCOUNT_PRODUCT="${MOD_PREFIX}account_product-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$ACCOUNT_PRODUCT_REV.tar.gz"
-CALENDAR="${MOD_PREFIX}calendar-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$CALENDAR_REV.tar.gz"
-COMPANY="${MOD_PREFIX}company-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$COMPANY_REV.tar.gz"
-COUNTRY="${MOD_PREFIX}country-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$COUNTRY_REV.tar.gz"
-CURRENCY="${MOD_PREFIX}currency-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$CURRENCY_REV.tar.gz"
-PARTY="${MOD_PREFIX}party-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$PARTY_REV.tar.gz"
-PRODUCT="${MOD_PREFIX}product-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$PRODUCT_REV.tar.gz"
-STOCK="${MOD_PREFIX}stock-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$STOCK_REV.tar.gz"
-STOCK_LOT="${MOD_PREFIX}stock_lot-$TRYTOND_MAJOR_NUMBER.$TRYTOND_MINOR_NUMBER.$STOCK_LOT_REV.tar.gz"
+TRYTOND_URL=$(get_url trytond)
+TRYTOND_FILE=$(basename ${TRYTOND_URL})
 
-MODULES="$ACCOUNT $ACCOUNT_INVOICE $ACCOUNT_PRODUCT $CALENDAR $COMPANY $COUNTRY $CURRENCY $PARTY $PRODUCT $STOCK $STOCK_LOT"
+TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
 
-# CREATE TEMPORARY DIR
-echo "INFO : Creating temporary directory"
-if [ -e $TMP_DIR ] ; then
-    echo "ERROR : Directory $TMP_DIR exists. You need to delete it"
-    exit 1
-else
-    mkdir $TMP_DIR
-fi
+TRYTON_MODULES_FILE=""
+TRYTON_MODULES_URL=""
+for MODULE in ${TRYTON_MODULES}
+do
+    AUX=$(get_url trytond_${MODULE})
+    TRYTON_MODULES_URL="${TRYTON_MODULES_URL} ${AUX}"
+    TRYTON_MODULES_FILE="${TRYTON_MODULES_FILE} $(basename ${AUX})"
+done
 
-# CHANGE TO TEMPORARY DIRECTORY
-echo "INFO : Changing to temporary directory"
-cd $TMP_DIR
-
-# Download the Tryton Server
-
-echo "INFO : Downloading the Tryton Server ..."
-
-wget "$TRYTON_BASE_URL/$TRYTOND_FILE"
-
-# DOWNLOAD THE TRYTON MODULES
-
-echo "INFO : Downloading the Tryton Modules ..."
-
-for TMODULE in $MODULES
-    do
-        wget $TMODULE
-    done
-
-# CREATE THE DESTINATION DIRECTORIES
-
-TRYTOND_DIR="${HOME}/tryton/server"
-MODULES_DIR="${TRYTOND_DIR}/modules"
-
-mkdir -p "$MODULES_DIR"
-
-# Uncompress the Tryton Server
-
-echo "INFO: ** UNCOMPRESSING THE TRYTON SERVER **"
-cd $TRYTOND_DIR
-tar -xzf $TMP_DIR/$TRYTOND_FILE
-
-echo "INFO: ** UNCOMPRESSING THE TRYTON MODULES **"
-
-cd  $MODULES_DIR
-
-# EXTRACT TRYTON MODULES NEEDED IN GNU HEALTH
-
-echo "INFO: ** EXTRACT TRYTON MODULES NEEDED IN GNU HEALTH **"
-
-cd $MODULES_DIR
-
-for MODULE in `ls $TMP_DIR/trytond_*`
-    do
-        tar -xzf $MODULE
-    done
+message "[INFO] OK." ${GREEN}
 
 
-echo "INFO : ** LINKING THE TRYTON MODULES **"
-
-MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
-
-TRYTOND_MOD_DIR="${TRYTOND_DIR}/trytond-$TRYTOND_VERSION/trytond/modules"
-
-cd $TRYTOND_MOD_DIR
+#
+# (3) Install Python dependencies.
+#
+install_python_dependencies
 
 
-for LNMOD in $MODULES
-    do
-        ln -si $MODULES_DIR/trytond_${LNMOD}-* $LNMOD
-    done
+#
+# (4) Download Tryton packages.
+#
+message "[INFO] Changing to temporary directory." ${BLUE}
+cd ${TMP_DIR}
 
-echo "INFO : ** COPYING GNU HEALTH MODULES TO THE TRYTON MODULES DIRECTORY **"
+message "[INFO] Downloading the Tryton server..." ${YELLOW}
+wget ${TRYTOND_URL}
+message "[INFO] OK." ${GREEN}
 
-cp -a ${GHEALTH_INST_DIR}/health* $MODULES_DIR
+message "[INFO] Downloading Tryton modules..." ${YELLOW}
+for URL in ${TRYTON_MODULES_URL}; do
+    wget ${URL}
+done
+message "[INFO] OK." ${GREEN}
 
-ln -si $MODULES_DIR/health* .
 
-echo "DONE !"
+#
+# (5) Uncompress the Tryton packages.
+#
+message "[INFO] Uncompressing the Tryton server..." ${YELLOW}
+cd ${TRYTOND_DIR}
+tar -xzf ${TMP_DIR}/${TRYTOND_FILE}
+message "[INFO] OK." ${GREEN}
+
+message "[INFO] Uncompressing the Tryton modules..." ${YELLOW}
+cd ${MODULES_DIR}
+for MODULE in `ls ${TMP_DIR}/trytond_*`; do
+    tar -xzf ${MODULE}
+done
+message "[INFO] OK." ${GREEN}
+
+
+#
+# (6) Links to modules.
+#
+message "[INFO] Changing directory to <../trytond/modules>." ${BLUE}
+TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
+cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules"
+
+message "[INFO] Linking the Tryton modules..." ${YELLOW}
+for LNMOD in ${TRYTON_MODULES}; do
+    ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD}
+done
+message "[INFO] OK." ${GREEN}
+
+message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
+cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR}
+
+ln -si ${MODULES_DIR}/health* .
+message "[INFO] OK." ${GREEN}
+
+
+#
+# (7) Clean.
+#
+message "[INFO] Cleaning..." ${YELLOW}
+rm -rf ${TMP_DIR}
+
+message "[INFO] OK." ${GREEN}
+
+
+message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}
