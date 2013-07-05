@@ -63,7 +63,7 @@ class CreateBedTransfer(Wizard):
 
         registrations = inpatient_registrations.browse(Transaction().context.get(
             'active_ids'))
-        
+
         # Don't allow mass changes. Work on a single record
         if len(registrations) > 1 :
             self.raise_user_error('choose_one')
@@ -72,8 +72,8 @@ class CreateBedTransfer(Wizard):
         current_bed = registration.bed
         destination_bed = self.start.newbed
         reason = self.start.reason
-        
-        # Check that the new bed is free 
+
+        # Check that the new bed is free
         if (destination_bed.state == 'free'):
             # Free the current bed
             bed.write([current_bed], {'state': 'free'})
@@ -81,25 +81,25 @@ class CreateBedTransfer(Wizard):
             bed.write([destination_bed], {'state': 'occupied'})
             # Update the hospitalization record
             hospitalization_info = {}
-            
+
             hospitalization_info['bed'] = destination_bed
 
-            # Update the hospitalization data 
+            # Update the hospitalization data
             transfers = []
-            transfers.append(('create', {
+            transfers.append(('create', [{
                             'transfer_date' : datetime.now(),
                             'bed_from' : current_bed,
                             'bed_to' : destination_bed,
                             'reason': reason,
-                        }))
+                        }]))
             hospitalization_info['bed_transfers'] = transfers
-            
+
             inpatient_registrations.write([registration],hospitalization_info)
-            
-            
-            
+
+
+
         else:
             self.raise_user_error('bed_unavailable')
-            
+
         return 'end'
 
