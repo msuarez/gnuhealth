@@ -1003,7 +1003,7 @@ class PatientData(ModelSQL, ModelView):
         In the case of a Domiciliary Unit, just link it to the name of the \
         contact in the address form.")
     primary_care_doctor = fields.Many2One('gnuhealth.physician',
-        'GP', help='Current General Practitioner / family doctor')
+        'GP', help='Current General Practitioner / Family Doctor')
 
     # Removed in 2.0 . PHOTO It's now a functional field
     # Retrieves the information from the party.
