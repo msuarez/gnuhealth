@@ -1526,10 +1526,6 @@
             <field name="name">Navigator</field>
             <field name="code">386</field>
         </record>
-        <record model="gnuhealth.occupation" id="occ387">
-            <field name="name">Needler</field>
-            <field name="code">387</field>
-        </record>
         <record model="gnuhealth.occupation" id="occ388">
             <field name="name">Négociant</field>
             <field name="code">388</field>
