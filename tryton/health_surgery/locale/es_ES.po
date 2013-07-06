@@ -1,0 +1,455 @@
+# 
+# Translators:
+# cristina <cmelgosa@thymbra.com>, 2011, 2012
+# Iván <ioloo00@eresmas.com>, 2012
+# meanmicio <lfalcon@gnusolidario.org>, 2013
+# meanmicio <lfalcon@gnusolidario.org>, 2011
+# Sebastián Marró <smarro@thymbra.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2013-07-02 18:25-0300\n"
+"PO-Revision-Date: 2013-07-06 01:50+0000\n"
+"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:gnuhealth.operation,create_date:"
+msgid "Create Date"
+msgstr "Crear cita"
+
+msgctxt "field:gnuhealth.operation,create_uid:"
+msgid "Create User"
+msgstr "Crear usuario"
+
+msgctxt "field:gnuhealth.operation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.operation,name:"
+msgid "Surgery"
+msgstr "Cirugía"
+
+msgctxt "field:gnuhealth.operation,notes:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "field:gnuhealth.operation,procedure:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:gnuhealth.operation,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.operation,write_date:"
+msgid "Write Date"
+msgstr "Escribir fecha"
+
+msgctxt "field:gnuhealth.operation,write_uid:"
+msgid "Write User"
+msgstr "Escribir usuario"
+
+msgctxt "field:gnuhealth.patient,surgery:"
+msgid "Surgeries"
+msgstr "Cirugías"
+
+msgctxt "field:gnuhealth.rcri,create_date:"
+msgid "Create Date"
+msgstr "Crear fecha"
+
+msgctxt "field:gnuhealth.rcri,create_uid:"
+msgid "Create User"
+msgstr "Crear usuario"
+
+msgctxt "field:gnuhealth.rcri,health_professional:"
+msgid "Health Professional"
+msgstr "Profesional de la salud"
+
+msgctxt "field:gnuhealth.rcri,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.rcri,patient:"
+msgid "Patient ID"
+msgstr "ID del paciente"
+
+msgctxt "field:gnuhealth.rcri,rcri_cerebrovascular_history:"
+msgid "History of Cerebrovascular disease"
+msgstr "Antecedentes de enfermedad cerebrovascular"
+
+msgctxt "field:gnuhealth.rcri,rcri_class:"
+msgid "RCRI Class"
+msgstr "Clase IRCR"
+
+msgctxt "field:gnuhealth.rcri,rcri_congestive_history:"
+msgid "History of congestive heart disease"
+msgstr "Antecedentes de enfermedad cardiaca congestiva"
+
+msgctxt "field:gnuhealth.rcri,rcri_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Preoperative Diabetes"
+msgstr "Diabetes pre-quirúrgica"
+
+msgctxt "field:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid "High Risk surgery"
+msgstr "Cirugía de Alto Riesgo"
+
+msgctxt "field:gnuhealth.rcri,rcri_ischemic_history:"
+msgid "History of ischemic heart disease"
+msgstr "Historia de cardiopatía isquémica"
+
+msgctxt "field:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative Kidney disease"
+msgstr "Enfermedad Renal Pre-quirúrgica"
+
+msgctxt "field:gnuhealth.rcri,rcri_total:"
+msgid "Score"
+msgstr "Puntuación"
+
+msgctxt "field:gnuhealth.rcri,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.rcri,write_date:"
+msgid "Write Date"
+msgstr "Escriba la fecha"
+
+msgctxt "field:gnuhealth.rcri,write_uid:"
+msgid "Write User"
+msgstr "Escribir usuario"
+
+msgctxt "field:gnuhealth.surgery,admission:"
+msgid "Admission"
+msgstr "Admisión"
+
+msgctxt "field:gnuhealth.surgery,age:"
+msgid "Estimative Age"
+msgstr "Edad Estimada"
+
+msgctxt "field:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist"
+msgstr "Anestesista"
+
+msgctxt "field:gnuhealth.surgery,classification:"
+msgid "Classification"
+msgstr "Clasificación"
+
+msgctxt "field:gnuhealth.surgery,code:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:gnuhealth.surgery,computed_age:"
+msgid "Age"
+msgstr "Edad"
+
+msgctxt "field:gnuhealth.surgery,create_date:"
+msgid "Create Date"
+msgstr "Crear fecha"
+
+msgctxt "field:gnuhealth.surgery,create_uid:"
+msgid "Create User"
+msgstr "Crear usuario"
+
+msgctxt "field:gnuhealth.surgery,description:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "field:gnuhealth.surgery,extra_info:"
+msgid "Extra Info"
+msgstr "Información Adicional"
+
+msgctxt "field:gnuhealth.surgery,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.surgery,operating_room:"
+msgid "Operating Room"
+msgstr "Quirófano"
+
+msgctxt "field:gnuhealth.surgery,pathology:"
+msgid "Base condition"
+msgstr "Condición de base"
+
+msgctxt "field:gnuhealth.surgery,patient:"
+msgid "Patient ID"
+msgstr "ID del paciente"
+
+msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
+msgid "Antibiotic Prophylaxis"
+msgstr "Profilaxis antibiótica"
+
+msgctxt "field:gnuhealth.surgery,preop_asa:"
+msgid "ASA Preoperative Physical Status"
+msgstr "Status ASA pre-operativo"
+
+msgctxt "field:gnuhealth.surgery,preop_bleeding_risk:"
+msgid "Risk of Massive bleeding"
+msgstr "Riesgo de hemorragia masiva"
+
+msgctxt "field:gnuhealth.surgery,preop_mallampati:"
+msgid "Mallampati Score"
+msgstr "Score Mallampati"
+
+msgctxt "field:gnuhealth.surgery,preop_oximeter:"
+msgid "Pulse Oximeter in place"
+msgstr "Saturómetro digital colocado"
+
+msgctxt "field:gnuhealth.surgery,preop_rcri:"
+msgid "RCRI"
+msgstr "IRCR"
+
+msgctxt "field:gnuhealth.surgery,preop_site_marking:"
+msgid "Surgical Site Marking"
+msgstr "Marcado del área quirúrgica"
+
+msgctxt "field:gnuhealth.surgery,preop_sterility:"
+msgid "Sterility confirmed"
+msgstr "Esterilidad verificada"
+
+msgctxt "field:gnuhealth.surgery,procedures:"
+msgid "Procedures"
+msgstr "Procedimientos"
+
+msgctxt "field:gnuhealth.surgery,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.surgery,surgeon:"
+msgid "Surgeon"
+msgstr "Cirujano"
+
+msgctxt "field:gnuhealth.surgery,surgery_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.surgery,write_date:"
+msgid "Write Date"
+msgstr "Escribir fecha"
+
+msgctxt "field:gnuhealth.surgery,write_uid:"
+msgid "Write User"
+msgstr "Escribir usuario"
+
+msgctxt "help:gnuhealth.operation,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr "Código del procedimiento, por ejemplo los 7 caracteres del código ICD-10-PCS"
+
+msgctxt "help:gnuhealth.rcri,health_professional:"
+msgid "Health professional / Cardiologist who signed the assesment RCRI"
+msgstr "Profesional Médico / Cardiólogo que firmó el estudio IRCR"
+
+msgctxt "help:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid "suprainguinal vascular, intraperitoneal, or intrathoracic surgery"
+msgstr "Cirugía vascular supra-inguinal, intraperitoneal o intratorácica"
+
+msgctxt "help:gnuhealth.surgery,age:"
+msgid ""
+"Use this field for historical purposes, when no date of surgery is given"
+msgstr "Este campo está por motivos históricos, cuando no se proporcionaba la fecha de operación"
+
+msgctxt "help:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist in charge"
+msgstr "Anestesista a cargo"
+
+msgctxt "help:gnuhealth.surgery,code:"
+msgid "Health Center Unique code"
+msgstr "Código único del centro de salud"
+
+msgctxt "help:gnuhealth.surgery,computed_age:"
+msgid "Computed patient age at the moment of the surgery"
+msgstr "Edad del paciente en el momento de la cirugía"
+
+msgctxt "help:gnuhealth.surgery,pathology:"
+msgid "Base Condition / Reason"
+msgstr "Condición de base / Motivo"
+
+msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
+msgid "Prophylactic antibiotic treatment within the last 60 minutes"
+msgstr "Tratamiento antibiótico profiláctico en los últimos 60 minutos"
+
+msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
+msgid ""
+"Check this box if patient has a risk of loosing more than 500 ml in adults "
+"of over 7ml/kg in infants. If so, make sure that intravenous access and "
+"fluids are available"
+msgstr "Marque esta casilla si el paciente tiene riesgo de perder más de 500 ml en adultos y más de 7ml/kg en niños. Si es así, asegúrese que están disponibles las vías intravenosas y fluidos."
+
+msgctxt "help:gnuhealth.surgery,preop_oximeter:"
+msgid ""
+"Check this box when verified the pulse oximeter is in place and functioning"
+msgstr "Marque esta casilla cuando se haya verificado que el saturómetro está colocado y funcionando"
+
+msgctxt "help:gnuhealth.surgery,preop_rcri:"
+msgid "Patient Revised Cardiac Risk Index"
+msgstr "Índice de Riesgo Cardiaco Revisado"
+
+msgctxt "help:gnuhealth.surgery,preop_site_marking:"
+msgid "The surgeon has marked the surgical incision"
+msgstr "El cirujano ha marcado la incisión quirúrgica"
+
+msgctxt "help:gnuhealth.surgery,preop_sterility:"
+msgid "Nursing team has confirmed sterility of the devices and room"
+msgstr "Enfermería ha confirmado la esterilidad de los dispositivos y del quirófano"
+
+msgctxt "help:gnuhealth.surgery,procedures:"
+msgid ""
+"List of the procedures in the surgery. Please enter the first one as the "
+"main procedure"
+msgstr "Lista de procedimientos en la cirugía. Introduzca el primero como el procedimiento principal"
+
+msgctxt "help:gnuhealth.surgery,surgeon:"
+msgid "Surgeon who did the procedure"
+msgstr "Cirujano que realizó el procedimiento"
+
+msgctxt "model:gnuhealth.operation,name:"
+msgid "Operation - Surgical Procedures"
+msgstr "Operación - Procedimientos quirúrgicos"
+
+msgctxt "model:gnuhealth.rcri,name:"
+msgid "Revised Cardiac Risk Index"
+msgstr "Índice de Riesgo Cardiaco Revisado"
+
+msgctxt "model:gnuhealth.surgery,name:"
+msgid "Surgery"
+msgstr "Cirugía"
+
+msgctxt "model:ir.action,name:act_rcri_form1"
+msgid "RCRI"
+msgstr "IRCR"
+
+msgctxt "model:res.group,name:group_health_surgery_admin"
+msgid "Health Surgery Administration"
+msgstr "Administración de consultas de salud"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "I"
+msgstr "I"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "II"
+msgstr "II"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "III"
+msgstr "III"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "IV"
+msgstr "IV"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Emergency"
+msgstr "Emergencia"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Optional"
+msgstr "Opcional"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Required"
+msgstr "Necesario"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Urgent"
+msgstr "Urgente"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 1 : Normal healthy patient"
+msgstr "PS 1 : Paciente Normal / Saludable"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 2 : Patients with mild systemic disease"
+msgstr "PS 2 : Pacientes con enfermedad sistémica leve"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 3 : Patients with severe systemic disease"
+msgstr "PS 3 : Pacientes con enfermedad sistémica grave"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 4 : Patients with severe systemic disease that is a constant threat to "
+"life "
+msgstr "PS 4 : Pacientes con enfermedad sistémica grave que le supone un riesgo constante a su vida"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 5 : Moribund patients who are not expected to survive without the "
+"operation"
+msgstr "PS 5 : Pacientes moribundo que no se espera que sobrevivan la operación"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "PS 6 : Paciente declarado con muerte cerebral cuyos órganos se extraen para donación"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
+msgstr "Clase 1: Visibilidad total de amígdala, úvula y paladar blando"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "Clase 2: Visibilidad de paladar duro, blando, porción superior de las amígdalas y úvula"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "Clase 3:  paladar blando, duro y base de la úvula visibles"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "Clase 4: Visible únicamente el paladar duro"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Operation"
+msgstr "Operación"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure"
+msgstr "Procedimiento"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure Details / Incidents"
+msgstr "Detalles del procedimiento / Incidentes"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Surgeries"
+msgstr "Cirugías"
+
+msgctxt "view:gnuhealth.procedure:"
+msgid "Procedure"
+msgstr "Procedimiento"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI"
+msgstr "IRCR"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Details"
+msgstr "Detalles"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Mallampati Score"
+msgstr "Score Mallampati"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Patient Surgical Risk assessment"
+msgstr "Riesgo Quirúrgico del Paciente"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Preoperative checklist"
+msgstr "Verificación Pre-quirúrgica"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Surgery"
+msgstr "Cirugía"
