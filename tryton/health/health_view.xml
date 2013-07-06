@@ -672,7 +672,7 @@
                             <field name="address_subdivision"/>
                         </group>
                         <group id="du_picture">
-                            <field name="picture" img_width="200" img_height="200"
+                            <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200"
                         height="200" width="200" widget="image"/>
                         </group>
                         <newline/>
@@ -1574,7 +1574,7 @@
                                 </group>
 
                                 <group string="Picture" id="person_picture">
-                                    <field name="photo" img_width="200" img_height="200"
+                                    <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200"
                                 height="200" width="200" widget="image"/>
                                 </group>
                                 <newline/>
@@ -2415,31 +2415,31 @@
                 <![CDATA[
                 <form string="patient">
 <!-- Main Info -->
-                    <group string="Patient Main Info" id="patient_main_info">
-                        <group col="8" id="patient_main_info1">
-                            <field name="name"/>
-                            <label name="identification_code"/>
-                            <field name="identification_code"/>
-                            <label name="sex"/>
-                            <field name="sex"/>
-                            <label name="age"/>
-                            <field name="age"/>
-
-                        </group>
-                        <newline/>
-                        <group col="6" id="patient_main_info2">
-                            <separator colspan="4"
-                                string="Allergies and Critical Information"
-                                id="patient_critical_information"/>
+                    <group string="Main Info"  id="patient_main_info">
+                        <group colspan="3" id="patient_main_info_name">
+                            <group  colspan="3" col="9" id="patient_main_info_3">
+                                <field colspan="5" name="name"/>
+                                <field name="sex"/>
+                                <label name="age"/>
+                                <field name="age"/>
+                                <field name="identification_code"/>
+                            </group>
                             <newline/>
-                            <field colspan="4" name="critical_info"/>
-                        </group>
-                    </group>
 
-                    <group string="Picture" id="patient_picture">
-                        <field name="photo" img_width="200" img_height="200"
-                            height="200" width="200" widget="image"/>
+                            <group id="critical_info" string="Allergies and Critical Information">
+                                <field name="critical_info"/>
+                            </group>
+                        </group>
+
+                        <group id="patient__pic">
+                            <field xfill="0" xexpand="1" name="photo" img_width="160" img_height="160"
+                                height="160" width="160" widget="image"/>
+                        </group>
+
                     </group>
+                        
+
+
                     <newline/>
 
                     <notebook>
@@ -2447,7 +2447,7 @@
                             <notebook>
 
                                 <page string="Main" id="main_info_page">
-                                    <group colspan="4" col="7" id="general_info">
+                                    <group colspan="4" col="8" id="general_info">
                                         <label name="primary_care_doctor"/>
                                         <field name="primary_care_doctor"/>
                                         <label name="family"/>
@@ -2459,11 +2459,9 @@
 
                                     <newline/>
 
-                                    <separator colspan="4" string="Notepad" id="separator_misc"/>
-
-                                    <newline/>
-
-                                    <field colspan="4" name="general_info" />
+                                    <group string="Notepad" id="patient_notepad">
+                                        <field colspan="4" name="general_info" />
+                                    </group>
                                     
                                     <newline/>
 

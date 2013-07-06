@@ -10,27 +10,13 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <data>
-<!--               
                     <xpath
-                        expr="//separator[@id=&quot;separator_misc&quot;]"
-                        position="replace">
-                        <separator colspan="2"
-                            string="Notepad"
-                            id="separator_misc"/>
-                        <separator colspan="2"
-                            string="QR Code"
-                            id="separator_qr"/>
-
-                    </xpath>
--->
-                    <xpath
-                        expr="//field[@name=&quot;general_info&quot;]"
-                        position="replace">
-                        <newline/>
-                        <field name="general_info" />
+                        expr="//field[@name=&quot;current_address&quot;]"
+                        position="after">
                         <group id="patient_qr" colspan="2">
                             <field name="qr" widget="image"/>
                         </group>
+                        <newline/>
                     </xpath>
                 </data>
                 ]]>
