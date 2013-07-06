@@ -2419,21 +2419,21 @@
                         <group colspan="3" id="patient_main_info_name">
                             <group  colspan="3" col="9" id="patient_main_info_3">
                                 <field colspan="5" name="name"/>
-                                <field name="sex"/>
+                                <field name="sex" width="60"/>
                                 <label name="age"/>
-                                <field name="age"/>
-                                <field name="identification_code"/>
+                                <field name="age" width="80"/>
+                                <field name="identification_code" width="80"/>
                             </group>
                             <newline/>
 
                             <group id="critical_info" string="Allergies and Critical Information">
-                                <field name="critical_info"/>
+                                <field height="120" name="critical_info"/>
                             </group>
                         </group>
 
                         <group id="patient__pic">
-                            <field xfill="0" xexpand="1" name="photo" img_width="160" img_height="160"
-                                height="160" width="160" widget="image"/>
+                            <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200"
+                                height="200" width="200" widget="image"/>
                         </group>
 
                     </group>
@@ -2460,7 +2460,7 @@
                                     <newline/>
 
                                     <group string="Notepad" id="patient_notepad">
-                                        <field colspan="4" name="general_info" />
+                                        <field height="100" name="general_info" />
                                     </group>
                                     
                                     <newline/>
@@ -2471,8 +2471,8 @@
                                         <label name="ssn"/>
                                         <field name="ssn"/>
                                         <label name="blood_type"/>
-                                        <field name="blood_type"/>
-                                        <field name="rh"/>
+                                        <field name="blood_type" width="20"/>
+                                        <field name="rh" width="20"/>
                                     </group>
 
                                 </page>
