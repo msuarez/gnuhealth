@@ -2478,16 +2478,22 @@
                                 </page>
 
                                 <page string="Misc" id="misc_info_page">
-                                    <group id="misc_info_group">
+                                    <group colspan="4" id="misc_info_group">
                                         <label name="current_address"/>
                                         <field name="current_address"/>
-                                        <newline/>
+                                        
+                                    </group>
+                                    
+                                    <newline/>
+                                    
+                                    <group colspan="4" col="6" id="misc_info_deceased">
                                         <label name="deceased"/>
                                         <field name="deceased"/>
                                         <label name="dod"/>
                                         <field name="dod"/>
                                         <label name="cod"/>
                                         <field name="cod"/>
+
                                     </group>
                                 </page>
 

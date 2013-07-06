@@ -11,10 +11,10 @@
                 <![CDATA[
                 <data>
                     <xpath
-                        expr="//field[@name=&quot;current_address&quot;]"
-                        position="after">
-                        <group id="patient_qr" colspan="2">
-                            <field name="qr" widget="image"/>
+                        expr="//group[@id=&quot;misc_info_group&quot;]"
+                        position="before">
+                        <group id="patient_qr">
+                            <field xfill="0" xexpand="1" name="qr" widget="image"/>
                         </group>
                         <newline/>
                     </xpath>
