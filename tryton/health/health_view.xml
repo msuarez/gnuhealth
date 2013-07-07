@@ -609,12 +609,15 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string="Family Members">
+                    <field name="name" expand="1"/>
                     <field name="party" expand="1"/>
                     <field name="role" expand="1"/>
                 </tree>
                 ]]>
             </field>
         </record>
+
+<!-- Make the Family Member list read only, to enter a new one will be done from the family model -->
 
         <record model="ir.action.act_window" id="gnuhealth_action_family_member">
             <field name="name">Family Members</field>
@@ -626,11 +629,7 @@
             <field name="view" ref="gnuhealth_family_member_tree"/>
             <field name="act_window" ref="gnuhealth_action_family_member"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_family_member_form_view">
-            <field name="sequence" eval="20"/>
-            <field name="view" ref="gnuhealth_family_member_view"/>
-            <field name="act_window" ref="gnuhealth_action_family_member"/>
-        </record>
+
 
         <menuitem action="gnuhealth_action_family_member"
             id="gnuhealth_edit_family_member" parent="gnuhealth_demographics_menu"

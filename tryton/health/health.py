@@ -225,7 +225,7 @@ class Family(ModelSQL, ModelView):
     __name__ = 'gnuhealth.family'
 
     name = fields.Char('Family', required=True,
-        help='Family code within an operational sector')
+        help='Family code')
 
     members = fields.One2Many('gnuhealth.family_member', 'name',
         'Family Members')
@@ -259,10 +259,10 @@ class FamilyMember(ModelSQL, ModelView):
     __name__ = 'gnuhealth.family_member'
 
     name = fields.Many2One('gnuhealth.family', 'Family', required=True,
-        select=True, help='Family code')
+        readonly=True, help='Family code')
     party = fields.Many2One('party.party', 'Party', required=True,
         domain=[('is_person', '=', True)],
-        help='Family code')
+        help='Family Member')
     role = fields.Char('Role', help='Father, Mother, sibbling...')
 
 class DomiciliaryUnit(ModelSQL, ModelView):
