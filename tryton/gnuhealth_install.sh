@@ -92,9 +92,6 @@ check_requirements()
         exit 1
     fi
     message "[INFO] OK." ${GREEN}
-
-exit 2
-
 }
 
 
