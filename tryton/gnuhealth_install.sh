@@ -55,21 +55,21 @@ check_requirements() {
         exit 1
     fi
 
-    # PYTHON version [2.7.x < 3.x]
-    message "Looking for the Python Interpreter command...." ${BLUE}
+    # PYTHON version [2.6.x < 3.x]
+    message "Looking for the Python Interpreter command..." ${BLUE}
 
     if ! type python 2>/dev/null ; then
-        message "[ERROR] Python interpreter not found. Please install it or check your PATH variable" ${RED}
+        message "[ERROR] Python interpreter not found. Please install it or check your PATH variable." ${RED}
         exit 1
     fi
 
-    local PVERSION=`python -V 2>&1 | grep 2.[789].[0-9]`
+    local PVERSION=`python -V 2>&1 | grep 2.[6-9].[0-9]`
 
     if test "${PVERSION}" ; then
         message "[INFO] Found ${PVERSION}" ${BLUE}
     else
         python -V
-        message "[ERROR] Found an Incompatible Python version" ${RED}
+        message "[ERROR] Found an Incompatible Python version." ${RED}
         exit 1
     fi
 
