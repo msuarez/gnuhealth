@@ -75,20 +75,22 @@ check_requirements()
     fi    
     
     # PIP COMMAND
-	message "-> Looking for PIP command...." ${BLUE}
+    message "-> Looking for PIP command..." ${BLUE}
 
-    if [ -e /etc/arch-release ]; then
-        PIP_NAME="pip2"
-    elif [ -e /etc/fedora-release ]; then
-        PIP_NAME="pip-python"
-    else
-        PIP_NAME="pip"
+    # Alternative pip names on Debian/ArchLinux/RedHat based distros:
+    local PIP_NAMES="pip pip2 pip-python"
+    PIP_NAME=""
+    for NAME in ${PIP_NAMES}; do
+        if [[ `which ${NAME} 2>/dev/null` ]]; then
+            PIP_NAME=${NAME}
+            break
+        fi
+    done
+
+    if [[ ! ${PIP_NAME} ]]; then
+        message "[ERROR] PIP command not found. Please install it or check your PATH variable." ${RED}
+        exit 1
     fi
-
-	if ! type $PIP_NAME 2>/dev/null ; then
-		message "[ERROR] PIP command not found. Please install it or check your PATH variable" ${RED}
-		exit 1
-	fi
     message "[INFO] OK." ${GREEN}
 
 exit 2
