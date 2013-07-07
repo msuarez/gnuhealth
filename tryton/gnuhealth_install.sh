@@ -144,8 +144,9 @@ install_directories() {
     #
     message "[INFO] Creating destination directories..." ${YELLOW}
 
-    BASEDIR="$HOME/tryton"
-    TRYTOND_DIR="${BASEDIR}/server"
+    BASEDIR="$HOME/gnuhealth"
+    TRYTON_BASEDIR="${BASEDIR}/tryton"
+    TRYTOND_DIR="${TRYTON_BASEDIR}/server"
     MODULES_DIR="${TRYTOND_DIR}/modules"
 
     if [ -e ${BASEDIR} ] ; then
@@ -266,6 +267,11 @@ message "[INFO] OK." ${GREEN}
 
 message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
 cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR}
+
+EXTRA_FILES="COPYING README version"
+for FILE in ${EXTRA_FILES}; do
+    cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR}
+done
 
 ln -si ${MODULES_DIR}/health* .
 message "[INFO] OK." ${GREEN}
