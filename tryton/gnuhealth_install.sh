@@ -43,15 +43,34 @@ message () {
     echo -e "${2}${NOW}${1}${NONE}"
 }
 
-install_python_dependencies() {
-    # PIP settings
+check_requirements()
+{
+	# WGET command
+	message "[INFO] CHECKING REQUIREMENTS" ${BLUE}
+	if ! type wget 2>/dev/null ; then
+		message "[ERROR] wget command not found. Please install it or check your PATH variable" ${RED}
+		exit 1
+	fi
+
+    # PIP COMMAND
     if [ -e /etc/arch-release ]; then
-        local PIP_NAME="pip2"
+        PIP_NAME="pip2"
     elif [ -e /etc/fedora-release ]; then
-        local PIP_NAME="pip-python"
+        PIP_NAME="pip-python"
     else
-        local PIP_NAME="pip"
+        PIP_NAME="pip"
     fi
+
+	if ! type $PIP_NAME 2>/dev/null ; then
+		message "[ERROR] PIP command not found. Please install it or check your PATH variable" ${RED}
+		exit 1
+	fi
+    message "[INFO] OK." ${GREEN}
+
+}
+
+
+install_python_dependencies() {
     local PIP_CMD=$(which $PIP_NAME)
 
     # TODO: Change for virtualenv support.
@@ -123,6 +142,8 @@ GNUHEALTH_VERSION=`cat version`
 
 message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${BLUE}
 
+# 
+check_requirements
 
 #
 # (1) Install directories.
