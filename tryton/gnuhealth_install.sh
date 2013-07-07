@@ -27,12 +27,13 @@
 # Main functions/variables declaration
 #
 
-# Colors
+# Colors constants
 NONE="$(tput sgr0)"
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"
 YELLOW="\n$(tput setaf 3)"
 BLUE="\n$(tput setaf 4)"
+
 
 message () {
     # $1 : Message
@@ -43,37 +44,35 @@ message () {
     echo -e "${2}${NOW}${1}${NONE}"
 }
 
-check_requirements()
-{
-	# WGET command
-	message "[INFO] CHECKING REQUIREMENTS" ${BLUE}
-	message "Looking for wget...." ${BLUE}
 
-	if ! type wget 2>/dev/null ; then
-		message "[ERROR] wget command not found. Please install it or check your PATH variable" ${RED}
-		exit 1
-	fi
+check_requirements() {
+    # WGET command
+    message "[INFO] CHECKING REQUIREMENTS" ${BLUE}
+    message "Looking for wget...." ${BLUE}
+
+    if ! type wget 2>/dev/null ; then
+        message "[ERROR] wget command not found. Please install it or check your PATH variable" ${RED}
+        exit 1
+    fi
 
     # PYTHON version [2.7.x < 3.x]
+    message "Looking for the Python Interpreter command...." ${BLUE}
 
-	message "Looking for the Python Interpreter command...." ${BLUE}
-    
-	if ! type python 2>/dev/null ; then
-		message "[ERROR] Python interpreter not found. Please install it or check your PATH variable" ${RED}
-		exit 1
-	fi
-    
+    if ! type python 2>/dev/null ; then
+        message "[ERROR] Python interpreter not found. Please install it or check your PATH variable" ${RED}
+        exit 1
+    fi
+
     local PVERSION=`python -V 2>&1 | grep 2.[789].[0-9]`
-    
+
     if test "${PVERSION}" ; then
         message "[INFO] Found ${PVERSION}" ${BLUE}
     else
         python -V
         message "[ERROR] Found an Incompatible Python version" ${RED}
         exit 1
-    
-    fi    
-    
+    fi
+
     # PIP COMMAND
     message "-> Looking for PIP command..." ${BLUE}
 
@@ -167,17 +166,19 @@ GNUHEALTH_VERSION=`cat version`
 
 message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${BLUE}
 
-# 
+#
+# (1) Check requirements.
+#
 check_requirements
 
 #
-# (1) Install directories.
+# (2) Install directories.
 #
 install_directories
 
 
 #
-# (2) Download settings.
+# (3) Download settings.
 #
 TRYTON_VERSION="2.8"
 TRYTON_BASE_URL="http://downloads.tryton.org"
@@ -212,13 +213,13 @@ message "[INFO] OK." ${GREEN}
 
 
 #
-# (3) Install Python dependencies.
+# (4) Install Python dependencies.
 #
 install_python_dependencies
 
 
 #
-# (4) Download Tryton packages.
+# (5) Download Tryton packages.
 #
 message "[INFO] Changing to temporary directory." ${BLUE}
 cd ${TMP_DIR}
@@ -235,7 +236,7 @@ message "[INFO] OK." ${GREEN}
 
 
 #
-# (5) Uncompress the Tryton packages.
+# (6) Uncompress the Tryton packages.
 #
 message "[INFO] Uncompressing the Tryton server..." ${YELLOW}
 cd ${TRYTOND_DIR}
@@ -251,7 +252,7 @@ message "[INFO] OK." ${GREEN}
 
 
 #
-# (6) Links to modules.
+# (7) Links to modules.
 #
 message "[INFO] Changing directory to <../trytond/modules>." ${BLUE}
 TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
@@ -271,7 +272,7 @@ message "[INFO] OK." ${GREEN}
 
 
 #
-# (7) Clean.
+# (8) Clean.
 #
 message "[INFO] Cleaning..." ${YELLOW}
 rm -rf ${TMP_DIR}
