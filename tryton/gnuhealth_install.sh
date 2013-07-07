@@ -118,7 +118,7 @@ install_python_dependencies() {
 
     message "[INFO] Installing python dependencies with pip..." ${YELLOW}
     for PKG in ${PIP_PKGS}; do
-        ${PIP_CMD} ${PIP_ARGS} ${PKG}
+        ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
     done
 }
 
@@ -135,7 +135,7 @@ install_directories() {
         message "[ERROR] Directory ${TMP_DIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir ${TMP_DIR}
+        mkdir ${TMP_DIR} || exit 1
     fi
     message "[INFO] OK." ${GREEN}
 
@@ -153,7 +153,7 @@ install_directories() {
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR}
+        mkdir -p ${MODULES_DIR} ||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
@@ -223,15 +223,15 @@ install_python_dependencies
 # (5) Download Tryton packages.
 #
 message "[INFO] Changing to temporary directory." ${BLUE}
-cd ${TMP_DIR}
+cd ${TMP_DIR} || exit 1
 
 message "[INFO] Downloading the Tryton server..." ${YELLOW}
-wget ${TRYTOND_URL}
+wget ${TRYTOND_URL} || exit 1
 message "[INFO] OK." ${GREEN}
 
 message "[INFO] Downloading Tryton modules..." ${YELLOW}
 for URL in ${TRYTON_MODULES_URL}; do
-    wget ${URL}
+    wget ${URL} || exit 1
 done
 message "[INFO] OK." ${GREEN}
 
@@ -241,13 +241,13 @@ message "[INFO] OK." ${GREEN}
 #
 message "[INFO] Uncompressing the Tryton server..." ${YELLOW}
 cd ${TRYTOND_DIR}
-tar -xzf ${TMP_DIR}/${TRYTOND_FILE}
+tar -xzf ${TMP_DIR}/${TRYTOND_FILE} || exit 1
 message "[INFO] OK." ${GREEN}
 
 message "[INFO] Uncompressing the Tryton modules..." ${YELLOW}
-cd ${MODULES_DIR}
+cd ${MODULES_DIR} || exit 1
 for MODULE in `ls ${TMP_DIR}/trytond_*`; do
-    tar -xzf ${MODULE}
+    tar -xzf ${MODULE} || exit 1
 done
 message "[INFO] OK." ${GREEN}
 
@@ -257,20 +257,20 @@ message "[INFO] OK." ${GREEN}
 #
 message "[INFO] Changing directory to <../trytond/modules>." ${BLUE}
 TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
-cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules"
+cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || exit 1
 
 message "[INFO] Linking the Tryton modules..." ${YELLOW}
 for LNMOD in ${TRYTON_MODULES}; do
-    ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD}
+    ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD} || exit 1
 done
 message "[INFO] OK." ${GREEN}
 
 message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
-cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR}
+cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || exit 1
 
 EXTRA_FILES="COPYING README version"
 for FILE in ${EXTRA_FILES}; do
-    cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR}
+    cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || exit 1
 done
 
 ln -si ${MODULES_DIR}/health* .
@@ -280,8 +280,8 @@ message "[INFO] OK." ${GREEN}
 #
 # (8) Clean.
 #
-message "[INFO] Cleaning..." ${YELLOW}
-rm -rf ${TMP_DIR}
+message "[INFO] Cleaning Up..." ${YELLOW}
+rm -rf ${TMP_DIR} || exit 1
 
 message "[INFO] OK." ${GREEN}
 
