@@ -1,8 +1,973 @@
-changeset:   717:202ab38bcc31
+changeset:   910:a17a5056d896
 tag:         tip
-user:        Luis Falcon <lfalcon@gnusolidario.org>
-date:        Sun Mar 17 23:32:37 2013 -0300
-summary:     health_icu : Update documentation
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jul 07 21:10:40 2013 -0300
+sommario:    Update the README with the documentation portal
+
+changeset:   909:d11018ad2f48
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sun Jul 07 19:53:39 2013 -0300
+sommario:    health_who_essential_medicines : Update version number
+
+changeset:   908:49e537baf32c
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jul 07 19:31:27 2013 -0300
+sommario:    health : Fix family members in new model
+
+changeset:   907:2d5760d9c9bf
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jul 07 17:58:56 2013 -0300
+sommario:    GNU Health Installer : check status for main commands in the script
+
+changeset:   906:56e04fc27e32
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sun Jul 07 17:32:21 2013 -0300
+sommario:    Update setup.py to Tryton version 2.8
+
+changeset:   905:45c6602f3dff
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sun Jul 07 16:05:49 2013 -0300
+sommario:    GNU Health Installer : Restructuring of the installation directory tree.
+
+changeset:   904:6773a753b121
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sun Jul 07 12:11:48 2013 -0300
+sommario:    GNU Health Installer : Add missing compatibility with Python 2.6
+
+changeset:   903:5042fb525bbe
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sun Jul 07 11:56:22 2013 -0300
+sommario:    GNU Health Installer : Bash code style and comments fixed.
+
+changeset:   902:b038b07be99e
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sun Jul 07 11:41:52 2013 -0300
+sommario:    GNU Health Installer : Missing remove debug breakpoint.
+
+changeset:   901:b067c0d0201d
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sun Jul 07 04:19:46 2013 -0300
+sommario:    GNU Health Installer : Checks alternative pip names on Debian/ArchLinux/RedHat
+
+changeset:   900:aaad27475a77
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 23:08:41 2013 -0300
+sommario:    GNU Health Installer : Update requirement checks
+
+changeset:   899:8353da17c54a
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 22:08:05 2013 -0300
+sommario:    GNU Health Installer : Check requirements
+
+changeset:   898:e7eefa9bbff5
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 17:28:33 2013 -0300
+sommario:    health_lifestyle: Fix Spanish translation on recreational drugs
+
+changeset:   897:8fb5c649fefd
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 17:18:41 2013 -0300
+sommario:    Reorder patient misc view and qrcode
+
+changeset:   896:5bd95f1d4b5d
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 17:00:39 2013 -0300
+sommario:    Resize patient main view
+
+changeset:   895:209a76f8a0d2
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 16:11:42 2013 -0300
+sommario:    Reorganize patient main view
+
+changeset:   894:fc9cbfcc7704
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 00:36:18 2013 -0300
+sommario:    Include translation files for Spanish
+
+changeset:   893:4c1fd4dbb8ed
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jul 06 00:04:40 2013 -0300
+sommario:    update modules version numbers
+
+changeset:   892:c837b85a99dc
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 21:34:27 2013 -0300
+sommario:    Remove configure scripts . The source file installation will be done with the gnuhealth_install.sh script
+
+changeset:   891:2df1d38cc513
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 21:29:50 2013 -0300
+sommario:    Update GNU Health version
+
+changeset:   890:28aabfd7f29f
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Fri Jul 05 19:49:53 2013 -0300
+sommario:    GNU Health Installer : Improved for get lastest revisions of Tryton packages.
+
+changeset:   889:f2a9d4fbd377
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 19:20:21 2013 -0300
+sommario:    health: Update tooltip
+
+changeset:   888:59cc932c1d86
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 18:41:25 2013 -0300
+sommario:    health, health_inpatient : Update Patient main view
+
+changeset:   887:4484d75b6a4c
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 17:46:46 2013 -0300
+sommario:    health, health_inpatient : Reorganize Patient main view
+
+changeset:   886:e140dd22d02a
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jul 05 13:39:19 2013 -0300
+sommario:    health : remove obsolete occupations
+
+changeset:   885:2d1c444c8b4f
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Fri Jul 05 11:56:44 2013 -0300
+sommario:    GNU Health Installer : Add pip support for Fedora releases.
+
+changeset:   884:348570707fe4
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri Jul 05 11:31:46 2013 -0300
+sommario:    health_inpatient : Fix bug #39413. Fix error in bed transfer wizard.
+
+changeset:   883:75ff00351a88
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jul 04 21:30:30 2013 -0300
+sommario:    GNU Health Installer : Rename install.sh by gnuhealth_install.sh
+
+changeset:   882:a2bd8b8a1e33
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jul 04 13:17:30 2013 -0300
+sommario:    GNU Health Installer : include POLIB to the requirement
+
+changeset:   881:f5cab0f080a9
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jul 04 13:11:17 2013 -0300
+sommario:    GNU Health Installer : include caldav and pytz in the requirements
+
+changeset:   880:4c5782d1f755
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jul 04 12:57:18 2013 -0300
+sommario:    GNU Health Installer : complete main installation process
+
+changeset:   879:9bef186ed3d8
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Jul 04 02:59:31 2013 -0300
+sommario:    health : Add doctor lastname and name to Appointment Report form
+
+changeset:   878:61129500718c
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Jul 04 02:38:41 2013 -0300
+sommario:    health : Check for height and weight on bmi calc
+
+changeset:   877:e48ca498c320
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jul 04 00:43:57 2013 -0300
+sommario:    installation script : uncompress Tryton modules
+
+changeset:   876:170b98bebb80
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jul 03 15:41:39 2013 -0300
+sommario:    installation script : download the required dependencies, the Tryton server and the specific revision number for each Tryton module
+
+changeset:   875:baca8849e0ae
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Wed Jul 03 15:05:53 2013 -0300
+sommario:    health : Add scripts for prepare upgrade to version 2.0. Task #12696.
+
+changeset:   874:1129f65b2a8e
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jul 03 12:21:13 2013 -0300
+sommario:    Update reports fonts to Cantarell
+
+changeset:   873:093653841ccd
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Wed Jul 03 00:35:29 2013 -0300
+sommario:    health : Check if institution exists in appointment receipt report
+
+changeset:   872:4ee16de3ed78
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jul 02 23:48:46 2013 -0300
+sommario:    installation script : add new variables for the tryton and gnu health server
+
+changeset:   871:040972202b17
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jul 02 23:20:26 2013 -0300
+sommario:    initial installation script to download and install dependencies using the source file method
+
+changeset:   870:9a8407a5d70e
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Tue Jul 02 20:37:10 2013 -0300
+sommario:    health : Add product types to product variants tree view
+
+changeset:   869:54f82f62bad5
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jul 02 17:58:05 2013 -0300
+sommario:    health_qrcode : Change report fonts to Cantarell
+
+changeset:   868:3b5764b9f106
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Tue Jul 02 16:33:30 2013 -0300
+sommario:    health : Missing remove access rights for Medication Template.
+
+changeset:   867:8fc225e88e0c
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Tue Jul 02 11:46:25 2013 -0300
+sommario:    health : optimize medicaments view
+
+changeset:   866:d9ee83c4a25c
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Tue Jul 02 10:26:38 2013 -0300
+sommario:    health_lab : translate label
+
+changeset:   865:327e4a26907f
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Tue Jul 02 10:17:33 2013 -0300
+sommario:    health : remove Medication Template and move data.
+
+changeset:   864:8e2b12b62d91
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jul 01 19:10:17 2013 -0300
+sommario:    health : remove obsolete, rare occupations
+
+changeset:   863:872c6857cc2c
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon Jul 01 17:44:37 2013 -0300
+sommario:    health_nursing : Fix Ambulatory Care duplication and add descending order
+
+changeset:   862:86caac0671fe
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon Jul 01 17:23:00 2013 -0300
+sommario:    health_lab : Fix Lab request duplication
+
+changeset:   861:485da68f642f
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon Jul 01 17:17:13 2013 -0300
+sommario:    health_lab : Fix duplication of test cases on Create Lab Test
+
+changeset:   860:71e6f06020a9
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon Jul 01 16:43:49 2013 -0300
+sommario:    health_lab : Allow to change lab data
+
+changeset:   859:ebddcd6d8753
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jul 01 00:27:11 2013 -0300
+sommario:    update release to 2.0 Release Candidate 1
+
+changeset:   858:efddf14ced00
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 30 23:46:53 2013 -0300
+sommario:    health_lab : change font and font size for lab reports
+
+changeset:   857:2cc8108e61e4
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 30 23:01:15 2013 -0300
+sommario:    health_history : Update the odt report
+
+changeset:   856:650c35ee90ae
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 30 20:15:44 2013 -0300
+sommario:    health_surgery: Compute age of the patient at the moment of surgery
+
+changeset:   855:026ca0f52f4e
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 30 14:40:00 2013 -0300
+sommario:    health : Fix date validation when diagnosis date of the disease is null
+
+changeset:   854:84a98975a764
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 30 14:20:15 2013 -0300
+sommario:    health : Fix date validation error when end of treatment date was null
+
+changeset:   853:1e68d928970e
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sun Jun 30 01:22:35 2013 -0300
+sommario:    health : Add depends on address_subdivision
+
+changeset:   852:7ab9396b51b8
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 29 23:43:03 2013 -0300
+sommario:    health : place Country before province to make better use of the domain
+
+changeset:   851:1e8b7af49361
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 29 20:18:54 2013 -0300
+sommario:    health, health_qrcodes : Optimize views
+
+changeset:   850:dcfcc0f39922
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 16:37:53 2013 -0300
+sommario:    health_reporting : Change Operational Sector from Family to Domiciliary Unit
+
+changeset:   849:4b37ba3f691c
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Sat Jun 29 15:51:40 2013 -0300
+sommario:    demo : Moved into scripts folder.
+
+changeset:   848:de1184b88193
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 15:48:08 2013 -0300
+sommario:    health : Add domain on Domiciliary Unit Subdivision by Country
+
+changeset:   847:8d6ff4f688ef
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 15:00:55 2013 -0300
+sommario:    health_history : Ethnic Group and Marital Status are on the Party Model
+
+changeset:   846:26ce518a360e
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 14:03:52 2013 -0300
+sommario:    health_socioeconomics : Check for du before getting housing
+
+changeset:   845:37e0d47ef583
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 13:46:54 2013 -0300
+sommario:    health_stock : Prescription Line don't use medicament template
+
+changeset:   844:16815c5ebc9e
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Sat Jun 29 13:41:46 2013 -0300
+sommario:    health : Remove link to MedicationTemplate from PatientMedication and Prescrip.
+
+changeset:   843:f7b9aa5a8839
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 29 02:42:59 2013 -0300
+sommario:    health : reorder patient form view elements
+
+changeset:   842:e2996cde9ab2
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 28 22:33:33 2013 -0300
+sommario:    health_socieconomics : Place Socioeconomics tab after the patient general information
+
+changeset:   841:ce9666050672
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 28 18:02:36 2013 -0300
+sommario:    health_socioeconomics : Use the Housing condition from the Domiciliary Unit
+
+changeset:   840:891166c2c9b7
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 28 17:47:18 2013 -0300
+sommario:    health_socioeconomics : remove infrastructure from model and view since it is now on the Domiciliary unit
+
+changeset:   839:6d95de57b2b9
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Jun 27 03:47:00 2013 -0300
+sommario:    health_stock : Add relate to stock moves on prescriptions. Add origin to stock
+
+changeset:   838:f6d8117ae5f1
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Jun 27 03:32:17 2013 -0300
+sommario:    health: Add None option on Patient Vaccination admin_route field
+
+changeset:   837:23a61bcaf204
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 26 19:47:30 2013 -0300
+sommario:    health : Update occupation file
+
+changeset:   836:84e37b5a1bf7
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Tue Jun 25 14:59:31 2013 -0300
+sommario:    health : Add sex to Appointments Report view.
+
+changeset:   835:75bc3d403ce4
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 25 14:02:14 2013 -0300
+sommario:    health : add back the patient sex to the appointment report
+
+changeset:   834:96845abf79bc
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 25 13:33:19 2013 -0300
+sommario:    health: put family members under the demographics menu
+
+changeset:   833:1985a3e23268
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 24 23:19:58 2013 -0300
+sommario:    health_ntd_chagas: Create sequence for Chagas entomological survey
+
+changeset:   832:1f9c62fa5b01
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 24 21:14:20 2013 -0300
+sommario:    health_ntd_chagas : use current date as default for the survey
+
+changeset:   831:f3a2e3525ebd
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 24 20:37:23 2013 -0300
+sommario:    health_ntd_chagas : make required the date entry in the entomological survey
+
+changeset:   830:aa4f20e93ab6
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 24 20:27:47 2013 -0300
+sommario:    health : use encode in address to make the OpenStreetMap URL string
+
+changeset:   829:7faa4bce3501
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 24 20:00:04 2013 -0300
+sommario:    Remove Operational Sector from the Family model and place it on the Domiciliary Unit
+
+changeset:   828:860cf1560a10
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 23 01:12:19 2013 -0300
+sommario:    health_ntd_chagas : Include vector detection, and their species
+
+changeset:   827:514640a5948f
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 23:57:39 2013 -0300
+sommario:    health_ntd_chagas : Include deficitary areas in the DU that can host triatomines
+
+changeset:   826:0b601ef6f3d9
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 23:00:00 2013 -0300
+sommario:    health_ntd_chagas : Add view file
+
+changeset:   825:2cd6a62907e4
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 22:39:46 2013 -0300
+sommario:    health_ntd_chagas : Create the basic models and views for Domiciliary Unit Entomological Survey
+
+changeset:   824:cdc3969d2198
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 18:56:05 2013 -0300
+sommario:    health : add members to the Domiciliary Unit
+
+changeset:   823:2a151729cff4
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 18:08:10 2013 -0300
+sommario:    health: make readonly the patient field in the patient model when this one exists. Closes task #12714
+
+changeset:   822:42b4e2b05993
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 17:27:31 2013 -0300
+sommario:    health: rename patient address to Temporary address and update tooltip info
+
+changeset:   821:281268570a52
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 16:05:38 2013 -0300
+sommario:    health_socioeconomics : Move patient education to the party model. Use a function field to reference it from socioeconomics. Closes task # 12713
+
+changeset:   820:be28e182560e
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 15:27:59 2013 -0300
+sommario:    health_socioeconomics : Move profession to the party model. Use a function field to reference it from socioeconomics.
+
+changeset:   819:ca3002acb292
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 22 12:02:06 2013 -0300
+sommario:    health_ntd_chagas: Include the indeterminate form of Chagas disease
+
+changeset:   818:4893a42dc186
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 21 23:43:03 2013 -0300
+sommario:    health_ntd_chagas: Include Chagas PCR tests
+
+changeset:   817:f566f7c90f01
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 21 21:52:02 2013 -0300
+sommario:    health_ntd_chagas: Include Chagas Immunofluorescent Assay - IFA tests
+
+changeset:   816:9e6a562dd9a4
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 21 21:35:19 2013 -0300
+sommario:    health_ntd_chagas: Include Chagas ELISA igM and IgG tests
+
+changeset:   815:47a22bd94fa6
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 21 19:05:42 2013 -0300
+sommario:    health_ntd_chagas: Include Chagas Blood smear test
+
+changeset:   814:04aef948a27b
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 21 17:04:53 2013 -0300
+sommario:    health_ntd_chagas: Include Chagas Strout concentration lab test
+
+changeset:   813:b863717e1516
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jun 20 20:20:36 2013 -0300
+sommario:    health_ntd_chagas : Add data file
+
+changeset:   812:e0c60dacaf31
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jun 20 18:00:59 2013 -0300
+sommario:    health_ntd_chagas : Add xenodiagnosis test for chagas
+
+changeset:   811:6c20098839a1
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jun 20 14:05:35 2013 -0300
+sommario:    health_ntd_chagas : fix dependencies
+
+changeset:   810:638b1b3ccd4d
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jun 20 14:00:54 2013 -0300
+sommario:    health_ntd_chagas : Create the basic module structure
+
+changeset:   809:c0de6654c4df
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Thu Jun 20 13:15:15 2013 -0300
+sommario:    health_ntd : Include health_lab as a dependency
+
+changeset:   808:5866d2d3fa1b
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 19 17:21:44 2013 -0300
+sommario:    health : Fix duplicated town code in OSM URL
+
+changeset:   807:741b0f4b5436
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 19 16:25:32 2013 -0300
+sommario:    health : Search by DU address or by coordinates in OpenStreetMap
+
+changeset:   806:64e996c42c1c
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 19 00:18:37 2013 -0300
+sommario:    health : automate url for OpenStreetMap when providing latitude and longitude
+
+changeset:   805:456879ef7f67
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 18 17:22:33 2013 -0300
+sommario:    health : include OpenStreetMap field for DU
+
+changeset:   804:c1319eaa7328
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 18 15:17:44 2013 -0300
+sommario:    health : optimize DU view
+
+changeset:   803:8ca0c69c50c9
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 18 13:25:34 2013 -0300
+sommario:    health : add village and town to the DU
+
+changeset:   802:09887f21505a
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 17 14:42:51 2013 -0300
+sommario:    health : include DU picture
+
+changeset:   801:e67c7da09ecd
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 18:51:38 2013 -0300
+sommario:    health: Place the Health tab as the first one in the party model
+
+changeset:   800:91fae94ab409
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 18:33:46 2013 -0300
+sommario:    health: Move the marital status from patient to individual. Task #12703
+
+changeset:   799:1b79c1063ac7
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 18:00:12 2013 -0300
+sommario:    health: Move the ethnic group from patient to individual. Task #12702
+
+changeset:   798:c6b0334194d7
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 16:42:48 2013 -0300
+sommario:    health: drop the photo field from the patient model. Task 12700
+
+changeset:   797:f94131112267
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 16:32:46 2013 -0300
+sommario:    health: Place de the person picture at party level. Task 12700
+
+changeset:   796:587b0d2bee3a
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 15:42:49 2013 -0300
+sommario:    health: create functional fields sex and dob for patient
+
+changeset:   795:8d46c1a727db
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 13:47:13 2013 -0300
+sommario:    health: add sex field on party model
+
+changeset:   794:ce85efb7a7dc
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 16 13:38:36 2013 -0300
+sommario:    health: move patient dob and gender to party. Task #12700
+
+changeset:   793:8ff016d09ad5
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 15 18:36:00 2013 -0300
+sommario:    health: add gender to the party model . Related to task #12700
+
+changeset:   792:9d3664efc819
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat Jun 15 16:56:59 2013 -0300
+sommario:    health: add DoB to the party model . Related to task #12700
+
+changeset:   791:a0a09b61376d
+utente:      Bruno M. Villasanti <bvillasanti@thymbra.com>
+data:        Fri Jun 14 17:35:53 2013 -0300
+sommario:    health_ntd : Fix bug #39256. Wrong import module name.
+
+changeset:   790:497dcfb7e7b8
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Fri Jun 07 14:00:19 2013 -0300
+sommario:    health: Add demographics icon (Leonardo D'Acchille)
+
+changeset:   789:70c465e5cb66
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 21:35:02 2013 -0300
+sommario:    Add infrasctructure indicators to DU . Closes Task #12650
+
+changeset:   788:9504de6621f1
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 17:34:09 2013 -0300
+sommario:    health : Link the Domiciliary Unit with the party information
+
+changeset:   787:d3271b191dbe
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 17:13:36 2013 -0300
+sommario:    health : Avoid sorting the materials and dwelling fields
+
+changeset:   786:243adb82b940
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 17:04:37 2013 -0300
+sommario:    health : Fix City DU label
+
+changeset:   785:577942649b0c
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 17:03:09 2013 -0300
+sommario:    health : initial infrastructure for domiciliary unit
+
+changeset:   784:fee078a91524
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Wed Jun 05 14:36:07 2013 -0300
+sommario:    health: Create Demographics section . Completes task #12648
+
+changeset:   783:48ac560fab31
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 04 17:43:17 2013 -0300
+sommario:    health:include Domiciliary Unit fields in view
+
+changeset:   782:d2a9ceea5515
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Jun 04 16:00:01 2013 -0300
+sommario:    health: rename domiciliaryunit -> du
+
+changeset:   781:66ec3615d754
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Jun 03 22:18:22 2013 -0300
+sommario:    health:add initial model for Domiciliary Unit (DU)
+
+changeset:   780:edb908451b63
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Jun 02 17:44:42 2013 -0300
+sommario:    health_ntd : Initial upload
+
+changeset:   779:a877b1eee302
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 31 15:45:04 2013 -0300
+sommario:    health : Remove essential medicines categories datafile
+
+changeset:   778:2b9a9b2bb3df
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 30 17:40:38 2013 -0300
+sommario:    demo : Add default database name
+
+changeset:   777:5b032a984550
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon May 27 20:07:55 2013 -0300
+sommario:    demo : Fix bug #39053. Add options. Check installed modules.
+
+changeset:   776:c0da54dd454a
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon May 27 20:02:32 2013 -0300
+sommario:    health_services : Migrate create method and call
+
+changeset:   775:a8ce0fcca9a9
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 13:25:19 2013 -0300
+sommario:    health_surgery : Add None to selection fields : Mallampati, RCRI and ASA patient physical status
+
+changeset:   774:92914be55284
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 12:27:29 2013 -0300
+sommario:    health_surgery : Add Emergency and None to the surgery classification selection field
+
+changeset:   773:8e5e7463fefc
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 12:16:53 2013 -0300
+sommario:    health_surgery : Reduce the number of columns in preoperative checklist view
+
+changeset:   772:59574d15be3b
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 12:14:49 2013 -0300
+sommario:    health_surgery : Remove duplicate risk of massive bleeding in surgery form
+
+changeset:   771:513fecc46114
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 12:12:40 2013 -0300
+sommario:    health_surgery : Add patient revised cardiac risk index to the surgery view
+
+changeset:   770:adb99d935d61
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 12:00:10 2013 -0300
+sommario:    health_surgery : Add patient revised cardiac risk index field to the surgery model
+
+changeset:   769:773331be8019
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 11:51:32 2013 -0300
+sommario:    health_surgery : fit the preop checklist items view in one line
+
+changeset:   768:134c689626ea
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 19 11:47:29 2013 -0300
+sommario:    health_surgery : Add ASA physical status to surgery preop view
+
+changeset:   767:763f8be0ba39
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat May 18 19:34:28 2013 -0300
+sommario:    health_surgery : Creation of model for Revised Cardiac Risk Index
+
+changeset:   766:74cea2b3d535
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 22:15:51 2013 -0300
+sommario:    health_pediatrics: Add None option on non required selection fields
+
+changeset:   765:95fe11ebde20
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 22:09:30 2013 -0300
+sommario:    health_nursing : Migrate create method
+
+changeset:   764:b2567fac32ad
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 22:04:52 2013 -0300
+sommario:    health_mdg6 : Split products in templates and variants
+
+changeset:   763:eb085398df72
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 21:56:34 2013 -0300
+sommario:    health_socioeconomics: Add None option on non required selection fields
+
+changeset:   762:7bf84f967db2
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 21:55:46 2013 -0300
+sommario:    health_lifestyle : Add None option on non required selection fields
+
+changeset:   761:fe64d3f203b7
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 21:24:32 2013 -0300
+sommario:    health_lab : create() requires a list of dictionaries
+
+changeset:   760:b19670dffed8
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 21:09:21 2013 -0300
+sommario:    health_lab : Split products in templates and variants
+
+changeset:   759:4b2af415965b
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Fri May 17 21:08:25 2013 -0300
+sommario:    health_inpatient_calendar : create() requires a list of dictionaries
+
+changeset:   758:06fe6130c0e8
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue May 14 17:26:47 2013 -0300
+sommario:    health: fix bug #38900 . Enforce constraint for empty SSN
+
+changeset:   757:1abcba920aa1
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 19:30:40 2013 -0300
+sommario:    health : Extend functionality on person / patient identification . Implements task # 12605
+
+changeset:   756:f52dfbde7d75
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 17:51:22 2013 -0300
+sommario:    health : group person related information in party health tab . Make it invisible when party is not a physical person
+
+changeset:   755:7f830c721683
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 17:23:26 2013 -0300
+sommario:    health : Add unidentified patient flag
+
+changeset:   754:8841e8e318ac
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 17:03:23 2013 -0300
+sommario:    health: Add patient country of residence
+
+changeset:   753:cd491ab46d5b
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 16:39:46 2013 -0300
+sommario:    health: Add patient country of citizenship
+
+changeset:   752:c9120f624fe0
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon May 06 14:35:39 2013 -0300
+sommario:    health: remove dev checkpoint
+
+changeset:   751:914725345a6e
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 05 22:02:57 2013 -0300
+sommario:    health:add the UNIQUE constraint for SSN  - ref -
+
+changeset:   750:1b6bc75931f8
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 05 20:47:26 2013 -0300
+sommario:    health: fix bug #38902
+
+changeset:   749:255e69a66b0a
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 05 17:23:07 2013 -0300
+sommario:    health: drop sql constraint ref_uniq . Related to bug #38900
+
+changeset:   748:112218c46cfa
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 05 15:53:59 2013 -0300
+sommario:    health: fix bug #38897 in prescription line
+
+changeset:   747:3d93ad50b759
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun May 05 13:14:35 2013 -0300
+sommario:    health: Rename medicament template to medicament
+
+changeset:   746:1c7132c1a736
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat May 04 14:14:28 2013 -0300
+sommario:    health_surgery : remove duplicate group id
+
+changeset:   745:b22f01f02db8
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat May 04 14:13:24 2013 -0300
+sommario:    health_surgery : Add ASA field to preoperative assessment
+
+changeset:   744:1d19fae114b2
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sat May 04 14:02:41 2013 -0300
+sommario:    health_surgery : Add ASA physical status in the preoperative assessment
+
+changeset:   743:b975cf569ba5
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 23:19:24 2013 -0300
+sommario:    health_icu : Remove needless None options
+
+changeset:   742:676ca5942205
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 23:15:21 2013 -0300
+sommario:    health_icu : Add None option on non required selection fields
+
+changeset:   741:bcc189de8543
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 23:10:05 2013 -0300
+sommario:    health_icu : Pyflakes and PEP8
+
+changeset:   740:c8e7a2f6d70a
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 22:07:23 2013 -0300
+sommario:    health_inpatient : Migrate create method. Add None option on selection fields
+
+changeset:   739:ff24a46111a4
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 14:52:20 2013 -0300
+sommario:    health_gyneco : Add None option on non required selection fields
+
+changeset:   738:c010ba81b155
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 12:38:16 2013 -0300
+sommario:    health : Add None option on non required selection fields
+
+changeset:   737:2516440cbb37
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 12:35:25 2013 -0300
+sommario:    health_genetics : Add None option on non required selection fields
+
+changeset:   736:e92b539ef9d9
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 11:26:31 2013 -0300
+sommario:    health_calendar : Migrate create method
+
+changeset:   735:178d3c7289d7
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 11:25:19 2013 -0300
+sommario:    health : Migrate Appointments create method
+
+changeset:   734:49a2ac9e3f15
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu May 02 03:16:06 2013 -0300
+sommario:    health_who_essential_medicines : Split products in templates and variants
+
+changeset:   733:c620317f4741
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Wed May 01 20:03:45 2013 -0300
+sommario:    health : Update Prescription
+
+changeset:   732:1def34b93a85
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Wed May 01 18:59:51 2013 -0300
+sommario:    health : Update Patient Medicaments
+
+changeset:   731:93405b27c226
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Tue Apr 30 22:47:40 2013 -0300
+sommario:    health:add vaccine admin route (Andrew Gledhill)
+
+changeset:   730:0025c6a541c1
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Apr 25 03:00:08 2013 -0300
+sommario:    health : Update Patient Medicaments
+
+changeset:   729:72806f536b79
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Apr 25 00:57:04 2013 -0300
+sommario:    health : Update product menu id
+
+changeset:   728:59c1b0276bfb
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 22:54:02 2013 -0300
+sommario:    health_who_essential_medicines: Initial module creation
+
+changeset:   727:d3300a9f5989
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 18:00:53 2013 -0300
+sommario:    health:remove essential medicines datafiles
+
+changeset:   726:ef08d9f9a6dd
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 17:59:28 2013 -0300
+sommario:    health:remove datafiles from WHO essential medicines to be moved to health_WHO_essential_medicines module
+
+changeset:   725:6e9905d00cc2
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 17:10:28 2013 -0300
+sommario:    health: remove inherits from patient medication and prescription line to make it compatible with Tryton 2.8
+
+changeset:   724:46d4675f4be5
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 16:28:10 2013 -0300
+sommario:    health:change version to 1.9
+
+changeset:   723:6eed553571e5
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Apr 21 16:24:47 2013 -0300
+sommario:    health:migrate cls._constraints -> validate
+
+changeset:   722:812b62b0acb1
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Apr 18 19:08:33 2013 -0300
+sommario:    health : Fix bug #37526: Mispelt Word: refrigerator
+
+changeset:   721:b3cf97bcaf33
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Thu Apr 04 15:38:54 2013 -0300
+sommario:    health_lab : Fix bug #38654: Ordering a lab test fails if no doctor assigned
+
+changeset:   720:8c9e8bc46144
+utente:      Sebastian Marro <smarro@thymbra.com>
+data:        Mon Mar 18 01:52:22 2013 -0300
+sommario:    health_inpatient : Add wizard to setup.py
+
+changeset:   719:5aa1e506a62c
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Mar 18 00:24:35 2013 -0300
+sommario:    Update version to 1.8.1 in all modules
+
+changeset:   718:c35351eb0bed
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Mon Mar 18 00:01:27 2013 -0300
+sommario:    Update version to 1.8.1
+
+changeset:   717:202ab38bcc31
+utente:      Luis Falcon <lfalcon@gnusolidario.org>
+data:        Sun Mar 17 23:32:37 2013 -0300
+sommario:    health_icu : Update documentation
 
 changeset:   716:d58822caafa7
 user:        Sebastian Marro <smarro@thymbra.com>
