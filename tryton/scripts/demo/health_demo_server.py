@@ -58,7 +58,6 @@ def LoadBetzFamilyInfo():
     Pathology = Model.get('gnuhealth.pathology')
     PatientDiseaseInfo = Model.get('gnuhealth.patient.disease')
     PatientMedication = Model.get('gnuhealth.patient.medication')
-    MedicationTemplate = Model.get('gnuhealth.medication.template')
     Medicament = Model.get('gnuhealth.medicament')
     FamilyDiseases = Model.get('gnuhealth.patient.family.diseases')
     PatientGeneticRisk = Model.get('gnuhealth.patient.genetic.risk')
@@ -80,6 +79,7 @@ def LoadBetzFamilyInfo():
     party.lastname = 'Cordara'
     party.is_doctor = True
     party.is_person = True
+    party.sex = 'm'
     party.internal_user, = User.find([('login', '=', 'admin')])
     party.save()
 
@@ -95,6 +95,7 @@ def LoadBetzFamilyInfo():
     party.ref = '55576584'
     party.is_patient = True
     party.is_person = True
+    party.sex = 'm'
     party.save()
 
     party = Party()
@@ -103,6 +104,12 @@ def LoadBetzFamilyInfo():
     party.ref = '55567890'
     party.is_patient = True
     party.is_person = True
+    party.sex = 'f'
+    party.dob = datetime.strptime('10/4/1985', '%m/%d/%Y')
+    party.marital_status = 'm'
+    party.occupation, = Occupation.find([('name', '=', 'Teacher')])
+    party.education = '5'
+    party.housing = '2'
     party.save()
 
     family = Family()
@@ -119,14 +126,8 @@ def LoadBetzFamilyInfo():
 
     patient = Patient()
     patient.name = party
-    patient.sex = 'f'
-    patient.dob = datetime.strptime('10/4/1985', '%m/%d/%Y')
-    patient.marital_status = 'm'
     patient.primary_care_doctor = physician
-    patient.occupation, = Occupation.find([('name', '=', 'Teacher')])
     patient.ses = '2'
-    patient.housing = '2'
-    patient.education = '5'
     patient.critical_info = 'β-lactam hypersensitivity'
     patient.gpa = 'G1P1A0'
     patient.ex_smoker = True
@@ -143,21 +144,17 @@ def LoadBetzFamilyInfo():
     patient_disease.diagnosed_date = datetime.strptime('11/10/1993', '%m/%d/%Y')
     patient_disease.save()
 
-    medication_template = MedicationTemplate()
-    medication_template.medicament, = Medicament.find([
+    patient_medication = PatientMedication()
+    patient_medication.medicament, = Medicament.find([
         ('name.name', '=', 'insulin injection (soluble)'),
     ])
-    medication_template.indication, = Pathology.find([
-        ('name', '=', 'Insulin-dependent diabetes mellitus'),
-    ])
-    medication_template.start_treatment = datetime.strptime('11/10/1993',
-        '%m/%d/%Y')
-    medication_template.save()
-
-    patient_medication = PatientMedication()
-    patient_medication.template = medication_template
     patient_medication.name = patient
     patient_medication.doctor = physician
+    patient_medication.indication, = Pathology.find([
+        ('name', '=', 'Insulin-dependent diabetes mellitus'),
+    ])
+    patient_medication.start_treatment = datetime.strptime('11/10/1993',
+        '%m/%d/%Y')
     patient_medication.is_active = True
     patient_medication.diagnosed_date = datetime.strptime('11/10/1993',
         '%m/%d/%Y')
@@ -209,7 +206,16 @@ if __name__ == '__main__':
         default='admin', help='admin password [default: %default]')
     parser.add_option('-m', '--module', dest='modules', action='append',
         help='module to install', default=[
-            'health_profile',
+            'health',
+            'health_socioeconomics',
+            'health_lifestyle',
+            'health_genetics',
+            'health_icd10',
+            'health_gyneco',
+            'health_pediatrics',
+            'health_surgery',
+            'health_lab',
+            'health_inpatient',
             'health_who_essential_medicines',
             ])
     parser.add_option('--demo_password', dest='demo_password',
