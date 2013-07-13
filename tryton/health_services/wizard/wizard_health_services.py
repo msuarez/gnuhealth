@@ -49,7 +49,10 @@ class CreateServiceInvoice(Wizard):
     def __setup__(cls):
         super(CreateServiceInvoice, cls).__setup__()
         cls._error_messages.update({
-            'duplicate_invoice': 'Service already invoiced'})
+            'duplicate_invoice': 'Service already invoiced', \
+            'no_invoice_address': 'No invoice address associated', \
+            'no_payment_term': 'No Payment Term associated'
+            })
 
     def transition_create_service_invoice(self):
         HealthService = Pool().get('gnuhealth.health_service')
@@ -71,13 +74,15 @@ class CreateServiceInvoice(Wizard):
                 service.patient.name.account_receivable.id
             party_address = Party.address_get(service.patient.name,
                 type='invoice')
-            invoice_data['invoice_address'] = party_address.id
+            if not party_address:
+                self.raise_user_error('no_invoice_address')
+            invoice_data['invoice_address'] = party_address.id 
             invoice_data['reference'] = service.name
             invoice_data['payment_term'] = \
                     service.patient.name.customer_payment_term and \
                     service.patient.name.customer_payment_term.id or \
-                    False
-
+                    self.raise_user_error('no_payment_term')
+            
             #Invoice Lines
             seq = 0
             invoice_lines = []
