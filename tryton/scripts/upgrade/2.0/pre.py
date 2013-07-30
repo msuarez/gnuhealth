@@ -41,7 +41,7 @@ if __name__ == '__main__':
     try:
         print ">> Attempting to connect..."
         pg_conn = psycopg2.connect(opt.dsn)
-        print ">> Contected!"
+        print ">> Connected!"
         pg_cursor = pg_conn.cursor()
         main(pg_cursor)
         pg_conn.commit()
