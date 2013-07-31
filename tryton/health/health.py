@@ -1364,7 +1364,7 @@ class Appointment(ModelSQL, ModelView):
         domain=[('is_institution', '=', True)],
         help='Medical Center')
     speciality = fields.Many2One('gnuhealth.specialty', 'Specialty',
-        help='Medical Specialty / Sector')
+        on_change_with=['doctor'], help='Medical Specialty / Sector')
     urgency = fields.Selection([
         ('a', 'Normal'),
         ('b', 'Urgent'),
@@ -1426,6 +1426,15 @@ class Appointment(ModelSQL, ModelView):
     @staticmethod
     def default_appointment_type():
         return 'ambulatory'
+
+    def on_change_with_speciality(self):
+        # Return the Current / Main speciality of the Health Professional
+        # if this speciality has been specified in the HP record.
+        specialty = ''
+        if (self.doctor):
+            specialty = self.doctor.specialty.specialty.id
+        return specialty
+
 
     def get_rec_name(self, name):
         return self.name
