@@ -186,11 +186,10 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
     __name__ = 'gnuhealth.hp_specialty'
 
-    name = fields.Many2One('gnuhealth.physician', 'Health Professional',
-        readonly=True)
+    name = fields.Many2One('gnuhealth.physician', 'Health Professional')
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
-        required=True, help='Specialty Code')
+        help='Specialty Code')
     
     def get_rec_name(self, name):
         return self.specialty.name
@@ -202,6 +201,7 @@ class PhysicianSP(ModelSQL, ModelView):
     __name__ = 'gnuhealth.physician'
 
     specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
+        domain = [('name','=', Eval('name'))], depends=['name'],
         help='Specialty Code')
 
 class OperationalArea(ModelSQL, ModelView):
