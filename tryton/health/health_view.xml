@@ -484,6 +484,8 @@
                         <field name="code"/>
                     </group>
                     <newline/>
+                    <field name="specialties"/>
+                    <newline/>
                     <separator string="Extra Info" id="physician_extra_info"/>
                     <newline/>
                     <field name="info" colspan="4"/>
@@ -499,7 +501,6 @@
                 <![CDATA[
                 <tree string="Health Professionals">
                     <field name="name" expand="1"/>
-                    <field name="specialty" expand="1"/>
                     <field name="code" expand="1"/>
                     <field name="institution" expand="1"/>
                 </tree>
@@ -526,6 +527,52 @@
         <menuitem action="gnuhealth_action_physician"
             id="gnuhealth_edit_physician" parent="gnuhealth_conf_physicians"
             icon="gnuhealth-list" sequence="1"/>
+
+
+
+<!-- Health Professional Specialties -->
+
+        <record model="ir.ui.view" id="gnuhealth_hp_specialty_view">
+            <field name="model">gnuhealth.hp_specialty</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="Health Professional Specialties">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="specialty"/>
+                    <field name="specialty"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_hp_specialty_tree">
+            <field name="model">gnuhealth.hp_specialty</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Health Professional Specialties">
+                    <field name="specialty"/>
+                    <field name="name"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_hp_specialty">
+            <field name="name">Specialties by health professionals</field>
+            <field name="res_model">gnuhealth.hp_specialty</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_hp_specialty_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_hp_specialty_tree"/>
+            <field name="act_window" ref="gnuhealth_action_hp_specialty"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_hp_specialty" id="gnuhealth_edit_hp_specialty"
+            icon="gnuhealth-list" parent="gnuhealth_reporting_menu" sequence="20"/>
 
 
 <!-- Family -->

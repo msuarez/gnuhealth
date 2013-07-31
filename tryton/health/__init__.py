@@ -33,6 +33,8 @@ def register():
         Ethnicity,
         MedicalSpecialty,
         Physician,
+        HealthProfessionalSpecialties,        
+        PhysicianSP,
         OperationalArea,
         OperationalSector,
         Family,

@@ -29,11 +29,12 @@ from trytond.pool import Pool
 
 
 __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
-    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
-    'OperationalArea', 'OperationalSector', 'Family', 'FamilyMember',
-    'DomiciliaryUnit', 'MedicamentCategory', 'Medicament',
-    'PathologyCategory', 'PathologyGroup', 'Pathology', 'DiseaseMembers',
-    'ProcedureCode', 'InsurancePlan', 'Insurance', 'AlternativePersonID',
+    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician', 
+    'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea', 
+    'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit', 
+    'MedicamentCategory', 'Medicament', 'PathologyCategory',
+    'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
+    'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'PartyPatient', 'PartyAddress', 'ProductCategory', 'ProductTemplate',
     'Product', 'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
     'Appointment', 'AppointmentReport', 'OpenAppointmentReportStart',
@@ -154,7 +155,6 @@ class MedicalSpecialty(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
         ]
 
-
 class Physician(ModelSQL, ModelView):
     'Health Professional'
     __name__ = 'gnuhealth.physician'
@@ -168,11 +168,12 @@ class Physician(ModelSQL, ModelView):
     institution = fields.Many2One('party.party', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Instituion where she/he works')
-    code = fields.Char('ID', help='MD License ID')
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
-        required=True, help='Specialty Code')
-    info = fields.Text('Extra info')
+    code = fields.Char('ID', help='License ID')
 
+    specialties = fields.One2Many('gnuhealth.hp_specialty','name',
+        'Specialties')
+
+    info = fields.Text('Extra info')
     def get_rec_name(self, name):
         if self.name:
             res = self.name.name
@@ -180,6 +181,28 @@ class Physician(ModelSQL, ModelView):
                 res = self.name.lastname + ', ' + self.name.name
         return res
 
+
+class HealthProfessionalSpecialties(ModelSQL, ModelView):
+    'Health Professional Specialties'
+    __name__ = 'gnuhealth.hp_specialty'
+
+    name = fields.Many2One('gnuhealth.physician', 'Health Professional',
+        readonly=True)
+
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        required=True, help='Specialty Code')
+    
+    def get_rec_name(self, name):
+        return self.specialty.name
+
+
+class PhysicianSP(ModelSQL, ModelView):
+    # Add Specialty field after from the Health Professional Speciality
+    'Health Professional'
+    __name__ = 'gnuhealth.physician'
+
+    specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
+        help='Specialty Code')
 
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
