@@ -1434,6 +1434,34 @@ class Appointment(ModelSQL, ModelView):
             specialty = self.doctor.specialty.specialty.id
             return specialty
 
+    @staticmethod
+    def default_speciality():
+        # This method will assign the Main specialty to the appointment
+        # if there is a health professional associated to the login user
+        # as a default value. 
+        # It will be overwritten if the health professional is modified in
+        # this view, the on_change_with will take effect.
+
+        cursor = Transaction().cursor
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+            cursor = Transaction().cursor
+            cursor.execute('SELECT specialty FROM gnuhealth_hp_specialty WHERE \
+                name = %s LIMIT 1', (doctor_id[0],))
+            specialty_id = cursor.fetchone()
+
+            if (specialty_id):
+                return int(specialty_id[0])
+
 
     def get_rec_name(self, name):
         return self.name
