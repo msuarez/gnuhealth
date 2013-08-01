@@ -1413,7 +1413,8 @@ class Appointment(ModelSQL, ModelView):
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
-            return int(doctor_id[0])
+            if (doctor_id):
+                return int(doctor_id[0])
 
     @staticmethod
     def default_urgency():
@@ -1430,10 +1431,9 @@ class Appointment(ModelSQL, ModelView):
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
-        specialty = ''
-        if (self.doctor):
+        if (self.doctor and self.doctor.specialty):
             specialty = self.doctor.specialty.specialty.id
-        return specialty
+            return specialty
 
 
     def get_rec_name(self, name):
