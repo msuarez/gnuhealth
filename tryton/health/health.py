@@ -201,8 +201,7 @@ class PhysicianSP(ModelSQL, ModelView):
     __name__ = 'gnuhealth.physician'
 
     specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
-        domain = [('name','=', Eval('name'))], depends=['name'],
-        help='Specialty Code')
+        domain = [('name','=', Eval('active_id'))], help='Specialty Code')
 
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
