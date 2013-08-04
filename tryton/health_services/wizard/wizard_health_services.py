@@ -51,7 +51,7 @@ class CreateServiceInvoice(Wizard):
         cls._error_messages.update({
             'duplicate_invoice': 'Service already invoiced', \
             'no_invoice_address': 'No invoice address associated', \
-            'no_payment_term': 'No Payment Term associated'
+            'no_payment_term': 'No Payment Term associated to the Patient'
             })
 
     def transition_create_service_invoice(self):
@@ -78,10 +78,12 @@ class CreateServiceInvoice(Wizard):
                 self.raise_user_error('no_invoice_address')
             invoice_data['invoice_address'] = party_address.id 
             invoice_data['reference'] = service.name
+
+            if not service.patient.name.customer_payment_term:
+                self.raise_user_error('no_payment_term')
+
             invoice_data['payment_term'] = \
-                    service.patient.name.customer_payment_term and \
-                    service.patient.name.customer_payment_term.id or \
-                    self.raise_user_error('no_payment_term')
+                    service.patient.name.customer_payment_term.id
             
             #Invoice Lines
             seq = 0
