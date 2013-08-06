@@ -1,0 +1,44 @@
+Some scripts to startup GNU Health on different Operating Systems.
+
+Edit them to fit your environment.
+
+*** gnuhealth.service ***: Used in Operating Systems that have systemd as the service Manager (Arch Linux, Parabola GNU/Linux-libre, ..)
+
+(From the GNU Health wikibook entry http://en.wikibooks.org/wiki/GNU_Health/Operating_System-Specific_Notes )
+
+
+Copy the file gnuhealth.service to /usr/lib/systemd/system/gnuhealth.service
+
+To execute GNU Health as a daemon
+
+#systemctl start gnuhealth.service
+
+If you want to enable the service so it will startup enter
+
+#systemctl enable gnuhealth.service
+
+To check the status of the service
+
+#systemctl status gnuhealth.service
+
+You should see something like this
+
+gnuhealth.service - Tryton Server Daemon for GNU Health
+  Loaded: loaded (/usr/lib/systemd/system/gnuhealth.service; enabled)
+  Active: active (running) since Sun 2013-08-04 17:12:07 ART; 56min ago
+Main PID: 192 (python)
+  CGroup: name=systemd:/system/gnuhealth.service
+          └─192 python /home/gnuhealth/gnuhealth/tryton/server/trytond-2.8.2/bin/trytond
+
+
+To stop the service, try
+
+#systemctl stop gnuhealth.service
+
+Verify that the server has actually stopped.
+
+Aug 04 18:10:32 veganworld systemd[1]: Stopping Tryton Server Daemon for GNU Health...
+Aug 04 18:10:33 veganworld gnuhealth[192]: [Sun Aug 04 21:10:33 2013] INFO:server:stopped
+Aug 04 18:10:33 veganworld systemd[1]: Stopped Tryton Server Daemon for GNU Health.
+
+**************************************************************************************
