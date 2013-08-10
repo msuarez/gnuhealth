@@ -478,8 +478,8 @@
                         <field name="name"/>
                         <label name="institution"/>
                         <field name="institution"/>
-                        <label name="specialty"/>
-                        <field name="specialty"/>
+                        <label name="main_specialty"/>
+                        <field name="main_specialty"/>
                         <label name="code"/>
                         <field name="code"/>
                     </group>
