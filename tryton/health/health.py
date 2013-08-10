@@ -196,12 +196,13 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
 
 
 class PhysicianSP(ModelSQL, ModelView):
-    # Add Specialty field after from the Health Professional Speciality
+    # Add Main Specialty field after from the Health Professional Speciality
     'Health Professional'
     __name__ = 'gnuhealth.physician'
 
-    specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
+    main_specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
         domain = [('name','=', Eval('active_id'))], help='Specialty Code')
+
 
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
