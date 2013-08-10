@@ -203,7 +203,26 @@ class PhysicianSP(ModelSQL, ModelView):
     main_specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
         domain = [('name','=', Eval('active_id'))], help='Specialty Code')
 
+    @classmethod
+    # Update to version 2.2
+    def __register__(cls, module_name):
+        super(PhysicianSP, cls).__register__(module_name)
 
+        cursor = Transaction().cursor
+        table = TableHandler(cursor, cls, module_name)
+        # Insert the current "specialty" associated to the HP in the table that keeps
+        # the specialties associated to different health professionals,
+        # gnuhealth.hp_specialty
+        
+        if table.column_exist('specialty'):
+            # Update the list of specialties of that health professional
+            # with the current specialty
+            cursor.execute("INSERT INTO gnuhealth_hp_specialty (name, specialty) \
+              SELECT id, specialty from gnuhealth_physician;")
+            # Drop old specialty column, replaced by main_specialty
+            table.drop_column('specialty')
+
+            
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
     __name__ = 'gnuhealth.operational_area'
