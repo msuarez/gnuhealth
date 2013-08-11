@@ -985,7 +985,7 @@ class PatientData(ModelSQL, ModelView):
                 dob = datetime.strptime(str(patient_dob), '%Y-%m-%d')
 
                 if patient_deceased:
-                    dod = datetime.strptime(patient_dod, '%Y-%m-%d %H:%M:%S')
+                    dod = datetime.strptime(str(patient_dod), '%Y-%m-%d %H:%M:%S')
                     delta = relativedelta(dod, dob)
                     deceased = ' (deceased)'
                 else:
