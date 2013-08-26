@@ -29,20 +29,21 @@ from trytond.pool import Pool
 
 
 __all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
-    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician', 
-    'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea', 
-    'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit', 
-    'MedicamentCategory', 'Medicament', 'PathologyCategory',
-    'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
-    'InsurancePlan', 'Insurance', 'AlternativePersonID',
-    'PartyPatient', 'PartyAddress', 'ProductCategory', 'ProductTemplate',
-    'Product', 'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
-    'Appointment', 'AppointmentReport', 'OpenAppointmentReportStart',
-    'OpenAppointmentReport', 'PatientMedication', 'PatientVaccination',
-    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
-    'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit', 'HospitalOR',
-    'HospitalWard', 'HospitalBed']
+           'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
+           'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea',
+           'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit',
+           'MedicamentCategory', 'Medicament', 'PathologyCategory',
+           'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
+           'InsurancePlan', 'Insurance', 'AlternativePersonID',
+           'PartyPatient', 'PartyAddress', 'ProductCategory',
+           'ProductTemplate', 'Product', 'GnuHealthSequences', 'PatientData',
+           'PatientDiseaseInfo', 'Appointment', 'AppointmentReport',
+           'OpenAppointmentReportStart', 'OpenAppointmentReport',
+           'PatientMedication', 'PatientVaccination',
+           'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
+           'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
+           'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit',
+           'HospitalOR', 'HospitalWard', 'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
