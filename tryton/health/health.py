@@ -161,25 +161,31 @@ class MedicalSpecialty(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
         ]
 
+
 class Physician(ModelSQL, ModelView):
     'Health Professional'
     __name__ = 'gnuhealth.physician'
 
-    name = fields.Many2One('party.party', 'Health Professional', required=True,
+    name = fields.Many2One(
+        'party.party', 'Health Professional', required=True,
         domain=[
             ('is_doctor', '=', True),
             ('is_person', '=', True),
             ],
         help='Health Professional\'s Name, from the partner list')
-    institution = fields.Many2One('party.party', 'Institution',
+
+    institution = fields.Many2One(
+        'party.party', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Instituion where she/he works')
+
     code = fields.Char('ID', help='License ID')
 
-    specialties = fields.One2Many('gnuhealth.hp_specialty','name',
-        'Specialties')
+    specialties = fields.One2Many(
+        'gnuhealth.hp_specialty', 'name', 'Specialties')
 
     info = fields.Text('Extra info')
+
     def get_rec_name(self, name):
         if self.name:
             res = self.name.name
@@ -194,9 +200,9 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.physician', 'Health Professional')
 
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
-        help='Specialty Code')
-    
+    specialty = fields.Many2One(
+        'gnuhealth.specialty', 'Specialty', help='Specialty Code')
+
     def get_rec_name(self, name):
         return self.specialty.name
 
@@ -206,8 +212,9 @@ class PhysicianSP(ModelSQL, ModelView):
     'Health Professional'
     __name__ = 'gnuhealth.physician'
 
-    main_specialty = fields.Many2One('gnuhealth.hp_specialty', 'Main Specialty',
-        domain = [('name','=', Eval('active_id'))], help='Specialty Code')
+    main_specialty = fields.Many2One(
+        'gnuhealth.hp_specialty', 'Main Specialty',
+        domain=[('name', '=', Eval('active_id'))], help='Specialty Code')
 
     @classmethod
     # Update to version 2.2
@@ -216,27 +223,31 @@ class PhysicianSP(ModelSQL, ModelView):
 
         cursor = Transaction().cursor
         table = TableHandler(cursor, cls, module_name)
-        # Insert the current "specialty" associated to the HP in the table that keeps
-        # the specialties associated to different health professionals,
-        # gnuhealth.hp_specialty
-        
+        # Insert the current "specialty" associated to the HP in the
+        # table that keeps the specialties associated to different health
+        # professionals, gnuhealth.hp_specialty
+
         if table.column_exist('specialty'):
             # Update the list of specialties of that health professional
             # with the current specialty
-            cursor.execute("INSERT INTO gnuhealth_hp_specialty (name, specialty) \
-              SELECT id, specialty from gnuhealth_physician;")
+            cursor.execute(
+                "INSERT INTO gnuhealth_hp_specialty (name, specialty) \
+                SELECT id, specialty from gnuhealth_physician;")
             # Drop old specialty column, replaced by main_specialty
             table.drop_column('specialty')
 
-            
+
 class OperationalArea(ModelSQL, ModelView):
     'Operational Area'
     __name__ = 'gnuhealth.operational_area'
 
-    name = fields.Char('Name', required=True,
-        help='Operational Area of the city or region')
-    operational_sector = fields.One2Many('gnuhealth.operational_sector',
-        'operational_area', 'Operational Sector', readonly=True)
+    name = fields.Char(
+        'Name', required=True, help='Operational Area of the city or region')
+
+    operational_sector = fields.One2Many(
+        'gnuhealth.operational_sector', 'operational_area',
+        'Operational Sector', readonly=True)
+
     info = fields.Text('Extra Information')
 
     @classmethod
@@ -244,7 +255,7 @@ class OperationalArea(ModelSQL, ModelView):
         super(OperationalArea, cls).__setup__()
         cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name)',
-                    'The operational area must be unique !'),
+                'The operational area must be unique !'),
         ]
 
 
@@ -252,10 +263,13 @@ class OperationalSector(ModelSQL, ModelView):
     'Operational Sector'
     __name__ = 'gnuhealth.operational_sector'
 
-    name = fields.Char('Op. Sector', required=True,
+    name = fields.Char(
+        'Op. Sector', required=True,
         help='Region included in an operational area')
-    operational_area = fields.Many2One('gnuhealth.operational_area',
-        'Operational Area')
+
+    operational_area = fields.Many2One(
+        'gnuhealth.operational_area', 'Operational Area')
+
     info = fields.Text('Extra Information')
 
     @classmethod
@@ -263,8 +277,8 @@ class OperationalSector(ModelSQL, ModelView):
         super(OperationalSector, cls).__setup__()
         cls._sql_constraints += [
             ('name_uniq', 'UNIQUE(name, operational_area)',
-                    'The operational sector must be unique in each'
-                    ' operational area!'),
+                'The operational sector must be unique in each'
+                ' operational area!'),
         ]
 
 
@@ -272,11 +286,11 @@ class Family(ModelSQL, ModelView):
     'Family'
     __name__ = 'gnuhealth.family'
 
-    name = fields.Char('Family', required=True,
-        help='Family code')
+    name = fields.Char('Family', required=True, help='Family code')
 
-    members = fields.One2Many('gnuhealth.family_member', 'name',
-        'Family Members')
+    members = fields.One2Many(
+        'gnuhealth.family_member', 'name', 'Family Members')
+
     info = fields.Text('Extra Information')
 
     @classmethod
@@ -306,12 +320,17 @@ class FamilyMember(ModelSQL, ModelView):
     'Family Member'
     __name__ = 'gnuhealth.family_member'
 
-    name = fields.Many2One('gnuhealth.family', 'Family', required=True,
-        readonly=True, help='Family code')
-    party = fields.Many2One('party.party', 'Party', required=True,
+    name = fields.Many2One(
+        'gnuhealth.family', 'Family', required=True, readonly=True,
+        help='Family code')
+
+    party = fields.Many2One(
+        'party.party', 'Party', required=True,
         domain=[('is_person', '=', True)],
         help='Family Member')
+
     role = fields.Char('Role', help='Father, Mother, sibbling...')
+
 
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
@@ -322,26 +341,37 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     address_street = fields.Char('Street')
     address_street_number = fields.Integer('Number')
     address_street_bis = fields.Char('Apartment')
-    address_district = fields.Char('District', help="Neighborhood, Village, Barrio....")
-    address_municipality = fields.Char('Municipality', help="Municipality, Township, county ..")
+
+    address_district = fields.Char(
+        'District', help="Neighborhood, Village, Barrio....")
+
+    address_municipality = fields.Char(
+        'Municipality', help="Municipality, Township, county ..")
     address_city = fields.Char('City')
     address_zip = fields.Char('Zip Code')
-    address_country = fields.Many2One('country.country','Country', help='Country')
-    address_subdivision = fields.Many2One('country.subdivision', 'Province',
+    address_country = fields.Many2One(
+        'country.country', 'Country', help='Country')
+
+    address_subdivision = fields.Many2One(
+        'country.subdivision', 'Province',
         domain=[('country', '=', Eval('address_country'))],
         depends=['address_country'])
-    operational_sector = fields.Many2One('gnuhealth.operational_sector',
-        'Operational Sector')
+
+    operational_sector = fields.Many2One(
+        'gnuhealth.operational_sector', 'Operational Sector')
+
     picture = fields.Binary('Picture')
 
-    latitude=fields.Numeric('Latidude',digits=(3,14))
-    longitude=fields.Numeric('Longitude',digits=(4,14))
-    urladdr = fields.Char('OSM Map',
-        on_change_with = ['latitude','longitude', 'address_street', \
-            'address_street_number', 'address_district', 'address_municipality',
-            'address_city', 'address_zip', \
-            'address_subdivision', 'address_country'],
+    latitude = fields.Numeric('Latidude', digits=(3, 14))
+    longitude = fields.Numeric('Longitude', digits=(4, 14))
+
+    urladdr = fields.Char(
+        'OSM Map', on_change_with=[
+            'latitude', 'longitude', 'address_street', 'address_street_number',
+            'address_district', 'address_municipality', 'address_city',
+            'address_zip', 'address_subdivision', 'address_country'],
         help="Locates the DU on the Open Street Map by default")
+
     # Infrastructure
 
     dwelling = fields.Selection([
@@ -373,10 +403,9 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('stone', 'Stone'),
         ], 'Roof', sort=False)
 
-    total_surface = fields.Integer ('Surface', help="Surface in sq. meters")
-    bedrooms = fields.Integer ('Bedrooms')
-    bathrooms = fields.Integer ('Bathrooms')
-
+    total_surface = fields.Integer('Surface', help="Surface in sq. meters")
+    bedrooms = fields.Integer('Bedrooms')
+    bathrooms = fields.Integer('Bathrooms')
 
     housing = fields.Selection([
         (None, ''),
@@ -385,7 +414,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         ('2', 'Comfortable and good sanitary conditions'),
         ('3', 'Roomy and excellent sanitary conditions'),
         ('4', 'Luxury and excellent sanitary conditions'),
-        ], 'Conditions', help="Housing and sanitary living conditions", sort=False)
+        ], 'Conditions',
+        help="Housing and sanitary living conditions", sort=False)
 
     sewers = fields.Boolean('Sanitary Sewers')
     water = fields.Boolean('Running Water')
@@ -396,7 +426,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     television = fields.Boolean('Television')
     internet = fields.Boolean('Internet')
 
-    members = fields.One2Many ('party.party','du','Members', readonly=True)
+    members = fields.One2Many('party.party', 'du', 'Members', readonly=True)
 
     def on_change_with_urladdr(self):
         # Generates the URL to be used in OpenStreetMap
@@ -407,13 +437,15 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         # Street, municipality, city, postalcode, state and country.
 
         if (self.latitude and self.longitude):
-            ret_url = 'http://openstreetmap.org/?mlat=' + str(self.latitude) + '&mlon=' + str(self.longitude)
+            ret_url = 'http://openstreetmap.org/?mlat=' + \
+                str(self.latitude) + '&mlon=' + str(self.longitude)
 
         else:
-            state=''
-            country=''
-            street_number = str(self.address_street_number).encode('utf-8') or ''
-            street =  (self.address_street).encode('utf-8') or ''
+            state = ''
+            country = ''
+            street_number = str(self.address_street_number).encode('utf-8') \
+                or ''
+            street = (self.address_street).encode('utf-8') or ''
             municipality = (self.address_municipality).encode('utf-8') or ''
             city = (self.address_city).encode('utf-8') or ''
             if (self.address_subdivision):
@@ -424,7 +456,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
                 country = (self.address_country.code).encode('utf-8') or ''
 
             ret_url = 'http://nominatim.openstreetmap.org/search?' + \
-                'street=' + street_number +' '+ \
+                'street=' + street_number + ' ' + \
                 street + '&county=' + municipality \
                 + '&city=' + city + '&state=' + state \
                 + '&postalcode=' + postalcode + '&country=' + country
@@ -435,7 +467,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Domiciliary Unit must be unique !'),
+            ('name_uniq', 'UNIQUE(name)',
+                'The Domiciliary Unit must be unique !'),
         ]
 
 
@@ -445,10 +478,12 @@ class MedicamentCategory(ModelSQL, ModelView):
     __name__ = 'gnuhealth.medicament.category'
 
     name = fields.Char('Name', required=True, translate=True)
-    parent = fields.Many2One('gnuhealth.medicament.category', 'Parent',
-        select=True)
-    childs = fields.One2Many('gnuhealth.medicament.category', 'parent',
-        string='Children')
+
+    parent = fields.Many2One(
+        'gnuhealth.medicament.category', 'Parent', select=True)
+
+    childs = fields.One2Many(
+        'gnuhealth.medicament.category', 'parent', string='Children')
 
     @classmethod
     def __register__(cls, module_name):
@@ -456,7 +491,8 @@ class MedicamentCategory(ModelSQL, ModelView):
         super(MedicamentCategory, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute("UPDATE ir_model_data "
+        cursor.execute(
+            "UPDATE ir_model_data "
             "SET module = REPLACE(module, %s, %s) "
             "WHERE (fs_id like 'em%%' OR fs_id = 'medicament') "
             "  AND module = %s",
@@ -467,12 +503,10 @@ class MedicamentCategory(ModelSQL, ModelView):
         super(MedicamentCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
 
-
     @classmethod
     def validate(cls, categories):
         super(MedicamentCategory, cls).validate(categories)
         cls.check_recursion(categories, rec_name='name')
-
 
     def get_rec_name(self, name):
         if self.parent:
@@ -486,23 +520,31 @@ class Medicament(ModelSQL, ModelView):
     __name__ = 'gnuhealth.medicament'
     _rec_name = 'active_component'
 
-    name = fields.Many2One('product.product', 'Product', required=True,
+    name = fields.Many2One(
+        'product.product', 'Product', required=True,
         domain=[('is_medicament', '=', True)],
         help='Product Name')
-    active_component = fields.Char('Active component', translate=True,
+
+    active_component = fields.Char(
+        'Active component', translate=True,
         help='Active Component')
-    category = fields.Many2One('gnuhealth.medicament.category', 'Category',
-        select=True)
-    therapeutic_action = fields.Char('Therapeutic effect',
-        help='Therapeutic action')
+
+    category = fields.Many2One(
+        'gnuhealth.medicament.category', 'Category', select=True)
+
+    therapeutic_action = fields.Char(
+        'Therapeutic effect', help='Therapeutic action')
+
     composition = fields.Text('Composition', help='Components')
     indications = fields.Text('Indication', help='Indications')
     dosage = fields.Text('Dosage Instructions', help='Dosage / Indications')
     overdosage = fields.Text('Overdosage', help='Overdosage')
-    pregnancy_warning = fields.Boolean('Pregnancy Warning',
+    pregnancy_warning = fields.Boolean(
+        'Pregnancy Warning',
         help='The drug represents risk to pregnancy or lactancy')
-    pregnancy = fields.Text('Pregnancy and Lactancy',
-        help='Warnings for Pregnant Women')
+
+    pregnancy = fields.Text(
+        'Pregnancy and Lactancy', help='Warnings for Pregnant Women')
 
     pregnancy_category = fields.Selection([
         (None, ''),
@@ -550,7 +592,8 @@ class Medicament(ModelSQL, ModelView):
         super(Medicament, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute("UPDATE ir_model_data "
+        cursor.execute(
+            "UPDATE ir_model_data "
             "SET module = REPLACE(module, %s, %s) "
             "WHERE fs_id like 'meds_em%%' AND module = %s",
             ('health', 'health_who_essential_medicines', module_name,))
@@ -568,10 +611,11 @@ class PathologyCategory(ModelSQL, ModelView):
     __name__ = 'gnuhealth.pathology.category'
 
     name = fields.Char('Category Name', required=True, translate=True)
-    parent = fields.Many2One('gnuhealth.pathology.category', 'Parent Category',
-        select=True)
-    childs = fields.One2Many('gnuhealth.pathology.category', 'parent',
-        'Children Category')
+    parent = fields.Many2One(
+        'gnuhealth.pathology.category', 'Parent Category', select=True)
+
+    childs = fields.One2Many(
+        'gnuhealth.pathology.category', 'parent', 'Children Category')
 
     @classmethod
     def __setup__(cls):
@@ -582,7 +626,6 @@ class PathologyCategory(ModelSQL, ModelView):
     def validate(cls, categories):
         super(PathologyCategory, cls).validate(categories)
         cls.check_recursion(categories, rec_name='name')
-
 
     def get_rec_name(self, name):
         if self.parent:
@@ -595,11 +638,14 @@ class PathologyGroup(ModelSQL, ModelView):
     'Pathology Groups'
     __name__ = 'gnuhealth.pathology.group'
 
-    name = fields.Char('Name', required=True, translate=True,
-        help='Group name')
-    code = fields.Char('Code', required=True,
+    name = fields.Char(
+        'Name', required=True, translate=True, help='Group name')
+
+    code = fields.Char(
+        'Code', required=True,
         help='for example MDG6 code will contain the Millennium Development'
         ' Goals # 6 diseases : Tuberculosis, Malaria and HIV/AIDS')
+
     desc = fields.Char('Short Description', required=True)
     info = fields.Text('Detailed information')
 
@@ -627,20 +673,25 @@ class Pathology(ModelSQL, ModelView):
     'Diseases'
     __name__ = 'gnuhealth.pathology'
 
-    name = fields.Char('Name', required=True, translate=True,
-        help='Disease name')
-    code = fields.Char('Code', required=True,
+    name = fields.Char(
+        'Name', required=True, translate=True, help='Disease name')
+    code = fields.Char(
+        'Code', required=True,
         help='Specific Code for the Disease (eg, ICD-10)')
-    category = fields.Many2One('gnuhealth.pathology.category', 'Main Category',
+    category = fields.Many2One(
+        'gnuhealth.pathology.category', 'Main Category',
         help='Select the main category for this disease This is usually'
         ' associated to the standard. For instance, the chapter on the ICD-10'
         ' will be the main category for de disease')
-    groups = fields.One2Many('gnuhealth.disease_group.members', 'name',
+
+    groups = fields.One2Many(
+        'gnuhealth.disease_group.members', 'name',
         'Groups', help='Specify the groups this pathology belongs. Some'
         ' automated processes act upon the code of the group')
+
     chromosome = fields.Char('Affected Chromosome', help='chromosome number')
-    protein = fields.Char('Protein involved',
-        help='Name of the protein(s) affected')
+    protein = fields.Char(
+        'Protein involved', help='Name of the protein(s) affected')
     gene = fields.Char('Gene', help='Name of the gene(s) affected')
     info = fields.Text('Extra Info')
 
@@ -658,8 +709,8 @@ class DiseaseMembers(ModelSQL, ModelView):
     __name__ = 'gnuhealth.disease_group.members'
 
     name = fields.Many2One('gnuhealth.pathology', 'Disease', readonly=True)
-    disease_group = fields.Many2One('gnuhealth.pathology.group', 'Group',
-        required=True)
+    disease_group = fields.Many2One(
+        'gnuhealth.pathology.group', 'Group', required=True)
 
 
 class ProcedureCode(ModelSQL, ModelView):
@@ -675,15 +726,17 @@ class InsurancePlan(ModelSQL, ModelView):
     __name__ = 'gnuhealth.insurance.plan'
     _rec_name = 'company'
 
-    name = fields.Many2One('product.product', 'Plan', required=True,
+    name = fields.Many2One(
+        'product.product', 'Plan', required=True,
         domain=[('type', '=', 'service'), ('is_insurance_plan', '=', True)],
         help='Insurance company plan')
 
-    company = fields.Many2One('party.party', 'Insurance Company',
-        required=True,
+    company = fields.Many2One(
+        'party.party', 'Insurance Company', required=True,
         domain=[('is_insurance_company', '=', True)])
 
-    is_default = fields.Boolean('Default plan',
+    is_default = fields.Boolean(
+        'Default plan',
         help='Check if this is the default plan when assigning this insurance'
         ' company to a patient')
 
@@ -700,9 +753,12 @@ class Insurance(ModelSQL, ModelView):
 
     name = fields.Many2One('party.party', 'Owner')
     number = fields.Char('Number', required=True)
-    company = fields.Many2One('party.party', 'Insurance Company',
+
+    company = fields.Many2One(
+        'party.party', 'Insurance Company',
         required=True, select=True,
         domain=[('is_insurance_company', '=', True)])
+
     member_since = fields.Date('Member since')
     member_exp = fields.Date('Expiration date')
     category = fields.Char('Category',
@@ -713,19 +769,22 @@ class Insurance(ModelSQL, ModelView):
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
         ], 'Insurance Type', select=True)
-    plan_id = fields.Many2One('gnuhealth.insurance.plan', 'Plan',
+    plan_id = fields.Many2One(
+        'gnuhealth.insurance.plan', 'Plan',
         help='Insurance company plan')
+
     notes = fields.Text('Extra Info')
 
     def get_rec_name(self, name):
         return (self.company.name + ' : ' + self.number)
 
+
 class AlternativePersonID (ModelSQL, ModelView):
     'Alternative person ID'
     __name__ = 'gnuhealth.person_alternative_identification'
 
-    name = fields.Many2One ('party.party', 'Party', readonly=True)
-    code = fields.Char ('Code', required=True)
+    name = fields.Many2One('party.party', 'Party', readonly=True)
+    code = fields.Char('Code', required=True)
     alternative_id_type = fields.Selection([
         ('country_id', 'Country of origin SSN'),
         ('passport', 'Passport'),
@@ -742,39 +801,38 @@ class PartyPatient (ModelSQL, ModelView):
     activation_date = fields.Date('Activation date',
         help='Date of activation of the party')
     alias = fields.Char('Alias', help='Common name that the Party is reffered')
-    ref = fields.Char('SSN',
+    ref = fields.Char(
+        'SSN',
         help='Patient Social Security Number or equivalent',
-                states={
-            'invisible': Not(Bool(Eval('is_person'))),
-            })
-    unidentified = fields.Boolean('Unidentified',
+        states={'invisible': Not(Bool(Eval('is_person'))),})
+        
+    unidentified = fields.Boolean(
+        'Unidentified',
         help='Patient is currently unidentified',
-                states={
-            'invisible': Not(Bool(Eval('is_person'))),
-            })
+        states={'invisible': Not(Bool(Eval('is_person'))),})
 
-    is_person = fields.Boolean('Person',
-        help='Check if the party is a person.')
-    is_patient = fields.Boolean('Patient',
-        help='Check if the party is a patient')
-    is_doctor = fields.Boolean('Health Prof',
-        help='Check if the party is a health professional')
-    is_institution = fields.Boolean('Institution',
-        help='Check if the party is a Medical Center')
-    is_insurance_company = fields.Boolean('Insurance Company',
-        help='Check if the party is an Insurance Company')
-    is_pharmacy = fields.Boolean('Pharmacy',
-        help='Check if the party is a Pharmacy')
+    is_person = fields.Boolean(
+        'Person', help='Check if the party is a person.')
+    is_patient = fields.Boolean(
+        'Patient', help='Check if the party is a patient')
+    is_doctor = fields.Boolean(
+        'Health Prof', help='Check if the party is a health professional')
+    is_institution = fields.Boolean(
+        'Institution', help='Check if the party is a Medical Center')
+    is_insurance_company = fields.Boolean(
+        'Insurance Company', help='Check if the party is an Insurance Company')
+    is_pharmacy = fields.Boolean(
+        'Pharmacy', help='Check if the party is a Pharmacy')
 
     lastname = fields.Char('Last Name', help='Last Name')
     dob = fields.Date('DoB', help='Date of Birth')
+
     sex = fields.Selection([
         (None,''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', states={
-        'required': Bool(Eval('is_person')),
-        })
+        ], 'Sex', states={'required': Bool(Eval('is_person')),})
+
     photo = fields.Binary('Picture')
     ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
 
