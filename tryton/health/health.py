@@ -28,22 +28,23 @@ from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.pool import Pool
 
 
-__all__ = ['DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
-           'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
-           'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea',
-           'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit',
-           'MedicamentCategory', 'Medicament', 'PathologyCategory',
-           'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
-           'InsurancePlan', 'Insurance', 'AlternativePersonID',
-           'PartyPatient', 'PartyAddress', 'ProductCategory',
-           'ProductTemplate', 'Product', 'GnuHealthSequences', 'PatientData',
-           'PatientDiseaseInfo', 'Appointment', 'AppointmentReport',
-           'OpenAppointmentReportStart', 'OpenAppointmentReport',
-           'PatientMedication', 'PatientVaccination',
-           'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
-           'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-           'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit',
-           'HospitalOR', 'HospitalWard', 'HospitalBed']
+__all__ = [
+    'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
+    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
+    'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea',
+    'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit',
+    'MedicamentCategory', 'Medicament', 'PathologyCategory',
+    'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
+    'InsurancePlan', 'Insurance', 'AlternativePersonID',
+    'PartyPatient', 'PartyAddress', 'ProductCategory',
+    'ProductTemplate', 'Product', 'GnuHealthSequences', 'PatientData',
+    'PatientDiseaseInfo', 'Appointment', 'AppointmentReport',
+    'OpenAppointmentReportStart', 'OpenAppointmentReport',
+    'PatientMedication', 'PatientVaccination',
+    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
+    'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
+    'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit',
+    'HospitalOR', 'HospitalWard', 'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -65,11 +66,14 @@ class MedicationFrequency(ModelSQL, ModelView):
     'Medication Common Frequencies'
     __name__ = 'gnuhealth.medication.dosage'
 
-    name = fields.Char('Frequency', required=True, select=True, translate=True,
+    name = fields.Char(
+        'Frequency', required=True, select=True, translate=True,
         help='Common frequency name')
-    code = fields.Char('Code',
+    code = fields.Char(
+        'Code',
         help='Dosage Code,for example: SNOMED 229798009 = 3 times per day')
-    abbreviation = fields.Char('Abbreviation',
+    abbreviation = fields.Char(
+        'Abbreviation',
         help='Dosage abbreviation, such as tid in the US or tds in the UK')
 
     @classmethod
@@ -145,7 +149,8 @@ class MedicalSpecialty(ModelSQL, ModelView):
     'Medical Specialty'
     __name__ = 'gnuhealth.specialty'
 
-    name = fields.Char('Specialty', required=True, translate=True,
+    name = fields.Char(
+        'Specialty', required=True, translate=True,
         help='ie, Addiction Psychiatry')
     code = fields.Char('Code', help='ie, ADP')
 
