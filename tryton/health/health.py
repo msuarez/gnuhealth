@@ -761,8 +761,9 @@ class Insurance(ModelSQL, ModelView):
 
     member_since = fields.Date('Member since')
     member_exp = fields.Date('Expiration date')
-    category = fields.Char('Category',
-        help='Insurance company plan / category')
+    category = fields.Char(
+        'Category', help='Insurance company plan / category')
+
     insurance_type = fields.Selection([
         (None, ''),
         ('state', 'State'),
@@ -785,31 +786,33 @@ class AlternativePersonID (ModelSQL, ModelView):
 
     name = fields.Many2One('party.party', 'Party', readonly=True)
     code = fields.Char('Code', required=True)
-    alternative_id_type = fields.Selection([
-        ('country_id', 'Country of origin SSN'),
-        ('passport', 'Passport'),
-        ('other', 'Other'),
-        ], 'ID type', required=True, sort=False,
-          )
-    comments = fields.Char ('Comments')
+    alternative_id_type = fields.Selection(
+        [
+            ('country_id', 'Country of origin SSN'),
+            ('passport', 'Passport'),
+            ('other', 'Other'),
+        ], 'ID type', required=True, sort=False,)
+
+    comments = fields.Char('Comments')
 
 
 class PartyPatient (ModelSQL, ModelView):
     'Party'
     __name__ = 'party.party'
 
-    activation_date = fields.Date('Activation date',
-        help='Date of activation of the party')
+    activation_date = fields.Date(
+        'Activation date', help='Date of activation of the party')
+
     alias = fields.Char('Alias', help='Common name that the Party is reffered')
     ref = fields.Char(
         'SSN',
         help='Patient Social Security Number or equivalent',
-        states={'invisible': Not(Bool(Eval('is_person'))),})
-        
+        states={'invisible': Not(Bool(Eval('is_person')))})
+
     unidentified = fields.Boolean(
         'Unidentified',
         help='Patient is currently unidentified',
-        states={'invisible': Not(Bool(Eval('is_person'))),})
+        states={'invisible': Not(Bool(Eval('is_person')))})
 
     is_person = fields.Boolean(
         'Person', help='Check if the party is a person.')
@@ -828,10 +831,10 @@ class PartyPatient (ModelSQL, ModelView):
     dob = fields.Date('DoB', help='Date of Birth')
 
     sex = fields.Selection([
-        (None,''),
+        (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', states={'required': Bool(Eval('is_person')),})
+        ], 'Sex', states={'required': Bool(Eval('is_person'))})
 
     photo = fields.Binary('Picture')
     ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
@@ -846,34 +849,40 @@ class PartyPatient (ModelSQL, ModelView):
         ('x', 'Separated'),
         ], 'Marital Status', sort=False)
 
-    citizenship = fields.Many2One('country.country','Citizenship', help='Country of Citizenship')
-    residence = fields.Many2One('country.country','Country of Residence', help='Country of Residence')
-    alternative_identification = fields.Boolean ('Alternative ID', help='Other type of '
+    citizenship = fields.Many2One(
+        'country.country', 'Citizenship', help='Country of Citizenship')
+    residence = fields.Many2One(
+        'country.country', 'Country of Residence', help='Country of Residence')
+    alternative_identification = fields.Boolean(
+        'Alternative ID', help='Other type of '
         'identification, not the official SSN from this country health'
         ' center. Examples : Passport, foreign ID,..')
-    alternative_ids = fields.One2Many('gnuhealth.person_alternative_identification',
-     'name', 'Alternative IDs', states={
-            'invisible': Not(Bool(Eval('alternative_identification'))),
-            }
-        )
+
+    alternative_ids = fields.One2Many(
+        'gnuhealth.person_alternative_identification',
+        'name', 'Alternative IDs',
+        states={'invisible': Not(Bool(Eval('alternative_identification')))})
+
     insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurance')
-    internal_user = fields.Many2One('res.user', 'Internal User',
+
+    internal_user = fields.Many2One(
+        'res.user', 'Internal User',
         help='In GNU Health is the user (doctor, nurse) that logins.When the'
         ' party is a doctor or a health professional, it will be the user'
         ' that maps the doctor\'s party name. It must be present.',
         states={
             'invisible': Not(Bool(Eval('is_doctor'))),
             'required': Bool(Eval('is_doctor')),
-            }
-        )
+            })
+
     insurance_company_type = fields.Selection([
         (None, ''),
         ('state', 'State'),
         ('labour_union', 'Labour Union / Syndical'),
         ('private', 'Private'),
         ], 'Insurance Type', select=True)
-    insurance_plan_ids = fields.One2Many('gnuhealth.insurance.plan', 'company',
-        'Insurance Plans')
+    insurance_plan_ids = fields.One2Many(
+        'gnuhealth.insurance.plan', 'company', 'Insurance Plans')
 
     du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
 
@@ -904,11 +913,9 @@ class PartyPatient (ModelSQL, ModelView):
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
         cls._sql_constraints += [
-        ('ref_uniq', 'UNIQUE(ref)', 'The SSN must be unique'),
-        ('internal_user_uniq', 'UNIQUE(internal_user)',
-                'This health professional is already assigned to a party')
-        ]
-
+            ('ref_uniq', 'UNIQUE(ref)', 'The SSN must be unique'),
+            ('internal_user_uniq', 'UNIQUE(internal_user)',
+                'This health professional is already assigned to a party')]
 
     def get_rec_name(self, name):
         if self.lastname:
@@ -932,17 +939,18 @@ class PartyAddress(ModelSQL, ModelView):
     'Party Address'
     __name__ = 'party.address'
 
-    relationship = fields.Char('Relationship',
+    relationship = fields.Char(
+        'Relationship',
         help='Include the relationship with the patient - friend, co-worker,'
         ' brother,...')
-    relative_id = fields.Many2One('party.party', 'Contact',
-        domain=[('is_person', '=', True)],
+    relative_id = fields.Many2One(
+        'party.party', 'Contact', domain=[('is_person', '=', True)],
         help='If the relative is also a patient, please include it here')
 
-    is_school = fields.Boolean("School", help="Check this box to mark the \
-        school address")
-    is_work = fields.Boolean("Work", help="Check this box to mark the work \
-        address")
+    is_school = fields.Boolean(
+        "School", help="Check this box to mark the school address")
+    is_work = fields.Boolean(
+        "Work", help="Check this box to mark the work address")
 
 
 class ProductCategory(ModelSQL, ModelView):
@@ -955,7 +963,8 @@ class ProductCategory(ModelSQL, ModelView):
         super(ProductCategory, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute("UPDATE ir_model_data "
+        cursor.execute(
+            "UPDATE ir_model_data "
             "SET module = REPLACE(module, %s, %s) "
             "WHERE fs_id like 'prod_medicament%%' AND module = %s",
             ('health', 'health_who_essential_medicines', module_name,))
@@ -971,7 +980,8 @@ class ProductTemplate(ModelSQL, ModelView):
         super(ProductTemplate, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute("UPDATE ir_model_data "
+        cursor.execute(
+            "UPDATE ir_model_data "
             "SET module = REPLACE(module, %s, %s), "
             "    fs_id = REPLACE(fs_id, 'prod_em', 'templ_em') "
             "WHERE fs_id like 'prod_em%%' AND module = %s "
@@ -984,16 +994,16 @@ class Product(ModelSQL, ModelView):
     'Product'
     __name__ = 'product.product'
 
-    is_medicament = fields.Boolean('Medicament',
-        help='Check if the product is a medicament')
-    is_medical_supply = fields.Boolean('Medical Supply',
-        help='Check if the product is a medical supply')
-    is_vaccine = fields.Boolean('Vaccine',
-        help='Check if the product is a vaccine')
-    is_bed = fields.Boolean('Bed',
-        help='Check if the product is a bed on the gnuhealth.center')
-    is_insurance_plan = fields.Boolean('Insurance Plan',
-        help='Check if the product is an insurance plan')
+    is_medicament = fields.Boolean(
+        'Medicament', help='Check if the product is a medicament')
+    is_medical_supply = fields.Boolean(
+        'Medical Supply', help='Check if the product is a medical supply')
+    is_vaccine = fields.Boolean(
+        'Vaccine', help='Check if the product is a vaccine')
+    is_bed = fields.Boolean(
+        'Bed', help='Check if the product is a bed on the gnuhealth.center')
+    is_insurance_plan = fields.Boolean(
+        'Insurance Plan', help='Check if the product is an insurance plan')
 
     @classmethod
     def __register__(cls, module_name):
@@ -1001,7 +1011,8 @@ class Product(ModelSQL, ModelView):
         super(Product, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute("UPDATE ir_model_data "
+        cursor.execute(
+            "UPDATE ir_model_data "
             "SET module = REPLACE(module, %s, %s) "
             "WHERE fs_id like 'prod_em%%' AND module = %s "
             "  AND model = %s",
