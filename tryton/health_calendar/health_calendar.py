@@ -37,9 +37,11 @@ class Appointment(ModelSQL, ModelView):
     'Add Calendar to the Appointment'
     __name__ = 'gnuhealth.appointment'
 
-    event = fields.Many2One('calendar.event', 'Calendar Event', readonly=True,
+    event = fields.Many2One(
+        'calendar.event', 'Calendar Event', readonly=True,
         help="Calendar Event")
-    appointment_time = fields.Integer('Appointment Time',
+    appointment_time = fields.Integer(
+        'Appointment Time',
         help='Appointment Time (Minutes)')
 
     @staticmethod
@@ -61,10 +63,10 @@ class Appointment(ModelSQL, ModelView):
                     events = Event.create([{
                         'dtstart': values['appointment_date'],
                         'dtend': values['appointment_date'] +
-                            timedelta(minutes=values['appointment_time']),
+                        timedelta(minutes=values['appointment_time']),
                         'calendar': doctor.calendar.id,
                         'summary': patient.name.lastname + ', ' +
-                            patient.name.name,
+                        patient.name.name,
                         }])
                     values['event'] = events[0].id
         return super(Appointment, cls).create(vlist)
@@ -81,12 +83,12 @@ class Appointment(ModelSQL, ModelView):
                     Event.write([appointment.event], {
                         'dtstart': values['appointment_date'],
                         'dtend': values['appointment_date'] +
-                            timedelta(minutes=appointment.appointment_time),
+                        timedelta(minutes=appointment.appointment_time),
                         })
                 if 'appointment_time' in values:
                     Event.write([appointment.event], {
                         'dtend': appointment.appointment_date +
-                            timedelta(minutes=values['appointment_time']),
+                        timedelta(minutes=values['appointment_time']),
                         })
                 if 'doctor' in values:
                     doctor = Physician(values['doctor'])
