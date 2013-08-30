@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<tryton>
+    <data skiptest="1" noupdate="0">
+
+
+
+<!-- BEGIN OF ELISA MAC IgM TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_dengue_elisa_igm_analysischarges0" model="product.template">
+            <field name="name">Dengue ELISA MAC Ig-M Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_dengue_elisa_igm_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_dengue_elisa_igm_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_dengue_elisa_igm_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;DENGUE-ELISA&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_dengue_elisa_igm_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;DENGUE ELISA&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_elisa_elisa_igg" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Dengue ELISA Ig-M&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_dengue_elisa_igm_analysis0"/>
+        </record>
+
+<!-- END OF ELISA IgM TEST -->
+
+
+<!-- BEGIN OF IgG TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_dengue_elisa_igg_analysischarges0" model="product.template">
+            <field name="name">Dengue IgG Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_dengue_elisa_igg_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_dengue_elisa_igg_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_dengue_elisa_igg_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;DENGUE-IGG&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_dengue_elisa_igg_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;DENGUE IgG&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_elisa_igg" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Dengue Ig-G&quot;&quot;&quot;" name="name"/>
+            <field eval="1" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_dengue_elisa_igg_analysis0"/>
+        </record>
+        <record id="gnuhealth_test_critearea_elisa_igg" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Dengue Ig-G&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_dengue_elisa_igg_analysis0"/>
+        </record>
+
+<!-- END OF IGG  TEST -->
+
+<!-- BEGIN OF DENGUE PCR TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_dengue_pcr_analysischarges0" model="product.template">
+            <field name="name">Dengue PCR Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_dengue_pcr_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_dengue_pcr_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_dengue_pcr_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;DENGUE PCR&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_dengue_pcr_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;DENGUE PCR&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_qualitative_pcr" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Dengue PCR&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_dengue_pcr_analysis0"/>
+        </record>
+
+<!-- END OF PCR  TEST -->
+
+<!-- BEGIN OF DENGUE PRNT TEST -->
+
+<!-- TEMPLATES DEFINITION -->
+
+        <record id="product_template_dengue_prnt_analysischarges0" model="product.template">
+            <field name="name">Dengue PRNT Charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
+<!-- PRODUCTS DEFINITION-->
+
+        <record id="product_product_dengue_prnt_analysischarges0" model="product.product">
+            <field name="template" model="product.template" ref="product_template_dengue_prnt_analysischarges0"/>
+        </record>
+
+<!-- TEST TYPES DEFINITIONS -->
+
+        <record id="gnuhealth_test_dengue_prnt_analysis0" model="gnuhealth.lab.test_type">
+            <field eval="&quot;&quot;&quot;DENGUE PRNT&quot;&quot;&quot;" name="code"/>
+            <field name="product_id" ref="product_product_dengue_prnt_analysischarges0"/>
+            <field eval="&quot;&quot;&quot;DENGUE PRNT&quot;&quot;&quot;" name="name"/>
+        </record>
+
+<!--  ANALYTES -->
+
+        <record id="gnuhealth_test_critearea_qualitative_prnt" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;Dengue PRNT&quot;&quot;&quot;" name="name"/>
+            <field eval="2" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_dengue_prnt_analysis0"/>
+        </record>
+
+<!-- END OF PRNT  TEST -->
+
+    </data>
+</tryton>

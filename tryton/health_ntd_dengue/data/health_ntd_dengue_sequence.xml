@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="0">
+
+        <!-- Sequences for Dengue -->
+        <record id="seq_type_gnuhealth_du_survey" model="ir.sequence.type">
+            <field name="name">Dengue DU Survey</field>
+            <field name="code">gnuhealth.dengue_du_survey</field>
+        </record>
+        <record id="seq_gnuhealth_du_survey" model="ir.sequence">
+            <field name="name">Dengue DU Survey</field>
+            <field name="code">gnuhealth.dengue_du_survey</field>
+            <field name="prefix">DENGUE-DU-${year}/</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record model="ir.property" id="property_du_survey_sequence">
+            <field name="field"
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'dengue_du_survey_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_du_survey'))"/>
+        </record>
+    </data>
+</tryton>
