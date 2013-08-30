@@ -76,11 +76,6 @@
             <field eval="1" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_dengue_elisa_igg_analysis0"/>
         </record>
-        <record id="gnuhealth_test_critearea_elisa_igg" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;Dengue Ig-G&quot;&quot;&quot;" name="name"/>
-            <field eval="2" name="sequence"/>
-            <field name="test_type_id" ref="gnuhealth_test_dengue_elisa_igg_analysis0"/>
-        </record>
 
 <!-- END OF IGG  TEST -->
 
