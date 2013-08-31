@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.icon" id="imaging_icon">
+            <field name="name">gnuhealth.imaging</field>
+            <field name="path">icons/imaging_icon.svg</field>
+        </record>
+
+        <menuitem name="Imaging" parent="health.gnuhealth_conf_menu"
+            id="menu_imaging_test_parent" icon="gnuhealth.imaging"/>
+
+        <record model="ir.ui.view" id="view_imaging_test_type_form">
+            <field name="model">gnuhealth.imaging.test.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Imaging Test Type">
+                        <label name="code"/>
+                        <field name="code"/>
+                        <label name="name"/>
+                        <field name="name"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_imaging_test_type_tree">
+            <field name="model">gnuhealth.imaging.test.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree string="Imaging Test Type">
+                        <field name="code"/>
+                        <field name="name"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_imaging_test_type_view">
+            <field name="name">Imaging Test Type</field>
+            <field name="res_model">gnuhealth.imaging.test.type</field>
+        </record>
+
+        <menuitem parent="menu_imaging_test_parent"
+            action="act_imaging_test_type_view" id="menu_imaging_test_type"
+            icon="gnuhealth-list"/>
+
+        <record model="ir.ui.view" id="view_imaging_test_form">
+            <field name="model">gnuhealth.imaging.test</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Imaging Test">
+                        <label name="code"/>
+                        <field name="code"/>
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="test_type"/>
+                        <field name="test_type"/>
+                        <label name="product"/>
+                        <field name="product"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_imaging_test_tree">
+            <field name="model">gnuhealth.imaging.test</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree string="Imaging Test">
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="test_type"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_imaging_test_view">
+            <field name="name">Imaging Test</field>
+            <field name="res_model">gnuhealth.imaging.test</field>
+        </record>
+
+        <menuitem parent="menu_imaging_test_parent"
+            action="act_imaging_test_view"
+            id="menu_imaging_test_view" icon="gnuhealth-list"/>
+
+       <record model="ir.action.wizard" id="wizard_generate_result">
+           <field name="name">Generate Result</field>
+           <field name="wiz_name">wizard.generate.result</field>
+           <field name="model">gnuhealth.imaging.test.request</field>
+       </record>
+       <record model="ir.action.keyword" id="wizard_generate_result_keyword">
+           <field name="keyword">form_action</field>
+           <field name="model">gnuhealth.imaging.test.request,-1</field>
+           <field name="action" ref="wizard_generate_result"/>
+       </record>
+
+       <record model="ir.ui.view" id="view_imaging_test_request_form">
+           <field name="model">gnuhealth.imaging.test.request</field>
+           <field name="type">form</field>
+           <field name="arch" type="xml">
+               <![CDATA[
+                   <form string="Imaging Test Request">
+                       <label name="patient"/>
+                       <field name="patient"/>
+                       <label name="date"/>
+                       <field name="date"/>
+                       <label name="requested_test"/>
+                       <field name="requested_test"/>
+                       <label name="doctor"/>
+                       <field name="doctor"/>
+                       <group col="5" colspan="4" id="imaging_request_buttons">
+                           <label name="state"/>
+                           <field name="state"/>
+                           <button name="requested" string="Request"
+                               icon="tryton-go-next"/>
+                            <button name="generate_results" colspan="2"
+                                string="Generate Results"
+                                icon="tryton-go-next"/>
+                        </group>
+                        <label name="comment"/>
+                        <newline/>
+                        <field name="comment" colspan="4"/>
+                   </form>
+               ]]>
+           </field>
+        </record>
+        <record model="ir.ui.view" id="view_imaging_test_request_tree">
+           <field name="model">gnuhealth.imaging.test.request</field>
+           <field name="type">tree</field>
+           <field name="arch" type="xml">
+               <![CDATA[
+                   <tree string="Imaging Test Request">
+                       <field name="patient" expand="1"/>
+                       <field name="date"/>
+                       <field name="requested_test" expand="1"/>
+                       <field name="doctor"/>
+                       <field name="state"/>
+                   </tree>
+                ]]>
+           </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_imaging_test_request_view">
+            <field name="name">Imaging Test Request</field>
+            <field name="res_model">gnuhealth.imaging.test.request</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_imaging_test_request_view_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_imaging_test_request_tree"/>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_imaging_test_request_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_imaging_test_request_form"/>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_requested">
+            <field name="name">Requested</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'requested')]</field>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_done">
+            <field name="name">Done</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'done')]</field>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="act_imaging_test_request_view"/>
+        </record>
+        <menuitem name="Imaging" parent="health.gnuhealth_menu"
+            id="menu_imaging_test_parent_op" icon="gnuhealth.imaging"/>
+
+        <menuitem parent="menu_imaging_test_parent_op"
+        action="act_imaging_test_request_view"
+            id="menu_imaging_test_request_view" icon="gnuhealth-list"/>
+
+        <record model="ir.ui.view" id="view_imaging_test_result_form">
+            <field name="model">gnuhealth.imaging.test.result</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Imaging Test Result">
+                        <label name="patient"/>
+                        <field name="patient"/>
+                        <label name="number"/>
+                        <field name="number"/>
+                        <label name="date"/>
+                        <field name="date"/>
+                        <label name="result_file"/>
+                        <field name="result_file"/>
+                        <label name="requested_test"/>
+                        <field name="requested_test"/>
+                        <label name="request_date"/>
+                        <field name="request_date"/>
+                        <label name="doctor"/>
+                        <field name="doctor"/>
+                        <label name="request"/>
+                        <field name="request"/>
+                        <notebook>
+                            <page string="Images" id="images_page">
+                                <field name="images" colspan="4"/>
+                            </page>
+                            <page string="Comment" id="comment_page">
+                                <field name="comment" colspan="4"/>
+                            </page>
+                        </notebook>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_imaging_test_result_tree">
+            <field name="model">gnuhealth.imaging.test.result</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree string="Imaging Test Result">
+                        <field name="patient"/>
+                        <field name="number"/>
+                        <field name="date"/>
+                        <field name="requested_test"/>
+                        <field name="request_date"/>
+                        <field name="doctor"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_imaging_test_result_view">
+            <field name="name">Imaging Test Result</field>
+            <field name="res_model">gnuhealth.imaging.test.result</field>
+        </record>
+
+        <menuitem parent="menu_imaging_test_parent_op"
+            action="act_imaging_test_result_view"
+            id="menu_imaging_test_result_view" icon="gnuhealth-list"/>
+
+        <record model="ir.action.act_window" id="act_imaging_test_request_view2">
+            <field name="name">Imaging Test Request</field>
+            <field name="res_model">gnuhealth.imaging.test.request</field>
+            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_patient_image_request_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_imaging_test_request_view2"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_imaging_test_result_view2">
+            <field name="name">Imaging Test Results</field>
+            <field name="res_model">gnuhealth.imaging.test.result</field>
+            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_patient_image_result_keyword2">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_imaging_test_result_view2"/>
+        </record>
+
+        <!-- Sequences for imaging result -->
+        <record id="seq_type_gnuhealth_imaging_test" model="ir.sequence.type">
+            <field name="name">Imaging Test</field>
+            <field name="code">gnuhealth.imaging.test.result</field>
+        </record>
+        <record id="seq_gnuhealth_imaging_test" model="ir.sequence">
+            <field name="name">Imaging Test</field>
+            <field name="code">gnuhealth.imaging.test.result</field>
+            <field name="prefix">TEST</field>
+            <field name="padding">3</field>
+        </record>
+
+        <record model="ir.property" id="property_imaging_sequence">
+            <field name="field"
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'imaging_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_imaging_test'))"/>
+        </record>
+
+    </data>
+</tryton>
