@@ -24,27 +24,43 @@ from datetime import datetime
 from trytond.transaction import Transaction
 from trytond.backend import TableHandler
 
-__all__ = ['RCRI','Surgery', 'MedicalOperation', 'MedicalPatient']
+__all__ = ['RCRI', 'Surgery', 'MedicalOperation', 'MedicalPatient']
 
 
 class RCRI(ModelSQL, ModelView):
     'Revised Cardiac Risk Index'
     __name__ = 'gnuhealth.rcri'
-    
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID', required=True)
     rcri_date = fields.DateTime('Date', required=True)
-    health_professional = fields.Many2One('gnuhealth.physician', 'Health Professional',
-        help="Health professional / Cardiologist who signed the assesment RCRI")
-    rcri_high_risk_surgery = fields.Boolean ('High Risk surgery',help='suprainguinal vascular, intraperitoneal, or intrathoracic surgery')
-    rcri_ischemic_history = fields.Boolean ('History of ischemic heart disease')
-    rcri_congestive_history = fields.Boolean ('History of congestive heart disease')
-    rcri_diabetes_history = fields.Boolean ('Preoperative Diabetes')
-    rcri_cerebrovascular_history = fields.Boolean ('History of Cerebrovascular disease')
-    rcri_kidney_history = fields.Boolean ('Preoperative Kidney disease')
-    
-    rcri_total = fields.Integer('Score',
-        on_change_with=['rcri_high_risk_surgery', 'rcri_ischemic_history',
-        'rcri_congestive_history', 'rcri_diabetes_history', 'rcri_cerebrovascular_history', 'rcri_kidney_history'])
+    health_professional = fields.Many2One(
+        'gnuhealth.physician', 'Health Professional',
+        help="Health professional /"
+        "Cardiologist who signed the assesment RCRI")
+
+    rcri_high_risk_surgery = fields.Boolean(
+        'High Risk surgery',
+        help='suprainguinal vascular, intraperitoneal,'
+        ' or intrathoracic surgery')
+
+    rcri_ischemic_history = fields.Boolean('History of ischemic heart disease')
+
+    rcri_congestive_history = fields.Boolean(
+        'History of congestive heart disease')
+
+    rcri_diabetes_history = fields.Boolean('Preoperative Diabetes')
+
+    rcri_cerebrovascular_history = fields.Boolean(
+        'History of Cerebrovascular disease')
+
+    rcri_kidney_history = fields.Boolean('Preoperative Kidney disease')
+
+    rcri_total = fields.Integer(
+        'Score',
+        on_change_with=[
+            'rcri_high_risk_surgery', 'rcri_ischemic_history',
+            'rcri_congestive_history', 'rcri_diabetes_history',
+            'rcri_cerebrovascular_history', 'rcri_kidney_history'])
 
     rcri_class = fields.Selection([
         (None, ''),
@@ -52,46 +68,47 @@ class RCRI(ModelSQL, ModelView):
         ('II', 'II'),
         ('III', 'III'),
         ('IV', 'IV'),
-        ], 'RCRI Class',sort=False,
-        on_change_with=['rcri_high_risk_surgery', 'rcri_ischemic_history',
-        'rcri_congestive_history', 'rcri_diabetes_history', 'rcri_cerebrovascular_history', 'rcri_kidney_history'])
-
+        ], 'RCRI Class', sort=False,
+        on_change_with=[
+            'rcri_high_risk_surgery', 'rcri_ischemic_history',
+            'rcri_congestive_history', 'rcri_diabetes_history',
+            'rcri_cerebrovascular_history', 'rcri_kidney_history'])
 
     def on_change_with_rcri_total(self):
-        
+
         total = 0
-        if self.rcri_high_risk_surgery :
-            total=total + 1
-        if self.rcri_ischemic_history :
-            total=total + 1
-        if self.rcri_congestive_history :
-            total=total + 1
-        if self.rcri_diabetes_history :
-            total=total + 1
-        if self.rcri_kidney_history :
-            total=total + 1
-        if self.rcri_cerebrovascular_history :
-            total=total + 1
-            
+        if self.rcri_high_risk_surgery:
+            total = total + 1
+        if self.rcri_ischemic_history:
+            total = total + 1
+        if self.rcri_congestive_history:
+            total = total + 1
+        if self.rcri_diabetes_history:
+            total = total + 1
+        if self.rcri_kidney_history:
+            total = total + 1
+        if self.rcri_cerebrovascular_history:
+            total = total + 1
+
         return total
-        
-    def on_change_with_rcri_class (self):
+
+    def on_change_with_rcri_class(self):
         rcri_class = ''
- 
+
         total = 0
-        if self.rcri_high_risk_surgery :
-            total=total + 1
-        if self.rcri_ischemic_history :
-            total=total + 1
-        if self.rcri_congestive_history :
-            total=total + 1
-        if self.rcri_diabetes_history :
-            total=total + 1
-        if self.rcri_kidney_history :
-            total=total + 1
-        if self.rcri_cerebrovascular_history :
-            total=total + 1
-        
+        if self.rcri_high_risk_surgery:
+            total = total + 1
+        if self.rcri_ischemic_history:
+            total = total + 1
+        if self.rcri_congestive_history:
+            total = total + 1
+        if self.rcri_diabetes_history:
+            total = total + 1
+        if self.rcri_kidney_history:
+            total = total + 1
+        if self.rcri_cerebrovascular_history:
+            total = total + 1
+
         if total == 0:
             rcri_class = 'I'
         if total == 1:
@@ -100,8 +117,8 @@ class RCRI(ModelSQL, ModelView):
             rcri_class = 'III'
         if (total > 2):
             rcri_class = 'IV'
-            
-        return rcri_class        
+
+        return rcri_class
 
     @staticmethod
     def default_rcri_date():
@@ -115,10 +132,10 @@ class RCRI(ModelSQL, ModelView):
     def default_rcri_class():
         return 'I'
 
+
 class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
-
 
     def patient_age_at_surgery(self, name):
 
@@ -126,28 +143,35 @@ class Surgery(ModelSQL, ModelView):
             dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
 
             if (self.surgery_date):
-                surgery_date = datetime.strptime(str(self.surgery_date), '%Y-%m-%d %H:%M:%S')
+                surgery_date = datetime.strptime(
+                    str(self.surgery_date), '%Y-%m-%d %H:%M:%S')
                 delta = relativedelta(self.surgery_date, dob)
 
-                years_months_days = str(delta.years) + 'y ' \
-                        + str(delta.months) + 'm ' \
-                        + str(delta.days) + 'd'
+                years_months_days = str(
+                    delta.years) + 'y ' \
+                    + str(delta.months) + 'm ' \
+                    + str(delta.days) + 'd'
             else:
                 years_months_days = 'No Surgery Date !'
         else:
             years_months_days = 'No DoB !'
 
         return years_months_days
-        
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID')
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
     code = fields.Char('Code', required=True, help="Health Center Unique code")
-    procedures = fields.One2Many('gnuhealth.operation', 'name', 'Procedures',
+
+    procedures = fields.One2Many(
+        'gnuhealth.operation', 'name', 'Procedures',
         help="List of the procedures in the surgery. Please enter the first "
         "one as the main procedure")
-    pathology = fields.Many2One('gnuhealth.pathology', 'Base condition',
+
+    pathology = fields.Many2One(
+        'gnuhealth.pathology', 'Base condition',
         help="Base Condition / Reason")
+
     classification = fields.Selection([
         (None, ''),
         ('o', 'Optional'),
@@ -155,19 +179,28 @@ class Surgery(ModelSQL, ModelView):
         ('u', 'Urgent'),
         ('e', 'Emergency'),
         ], 'Classification', sort=False)
-    surgeon = fields.Many2One('gnuhealth.physician', 'Surgeon',
+    surgeon = fields.Many2One(
+        'gnuhealth.physician', 'Surgeon',
         help="Surgeon who did the procedure")
-    anesthetist = fields.Many2One('gnuhealth.physician', 'Anesthetist',
-        help="Anesthetist in charge")
-    surgery_date = fields.DateTime('Date')
-    
-    # age is deprecated in GNU Health 2.0
-    age = fields.Char('Estimative Age',
-        help="Use this field for historical purposes, when no date of surgery is given")
 
-    computed_age = fields.Function(fields.Char('Age',
-        help="Computed patient age at the moment of the surgery"),'patient_age_at_surgery')
-    
+    anesthetist = fields.Many2One(
+        'gnuhealth.physician', 'Anesthetist',
+        help="Anesthetist in charge")
+
+    surgery_date = fields.DateTime('Date')
+
+    # age is deprecated in GNU Health 2.0
+    age = fields.Char(
+        'Estimative Age',
+        help="Use this field for historical purposes, \
+        when no date of surgery is given")
+
+    computed_age = fields.Function(
+        fields.Char(
+            'Age',
+            help="Computed patient age at the moment of the surgery"),
+        'patient_age_at_surgery')
+
     description = fields.Char('Description', required=True)
     preop_mallampati = fields.Selection([
         (None, ''),
@@ -179,33 +212,47 @@ class Surgery(ModelSQL, ModelView):
                     'visible'),
         ('Class 4', 'Class 4: Only Hard Palate visible'),
         ], 'Mallampati Score', sort=False)
-    preop_bleeding_risk = fields.Boolean('Risk of Massive bleeding',
+    preop_bleeding_risk = fields.Boolean(
+        'Risk of Massive bleeding',
         help="Check this box if patient has a risk of loosing more than 500 "
         "ml in adults of over 7ml/kg in infants. If so, make sure that "
         "intravenous access and fluids are available")
-    preop_oximeter = fields.Boolean('Pulse Oximeter in place',
+
+    preop_oximeter = fields.Boolean(
+        'Pulse Oximeter in place',
         help="Check this box when verified the pulse oximeter is in place "
         "and functioning")
-    preop_site_marking = fields.Boolean('Surgical Site Marking',
+
+    preop_site_marking = fields.Boolean(
+        'Surgical Site Marking',
         help="The surgeon has marked the surgical incision")
-    preop_antibiotics = fields.Boolean('Antibiotic Prophylaxis',
+
+    preop_antibiotics = fields.Boolean(
+        'Antibiotic Prophylaxis',
         help="Prophylactic antibiotic treatment within the last 60 minutes")
-    preop_sterility = fields.Boolean('Sterility confirmed',
+
+    preop_sterility = fields.Boolean(
+        'Sterility confirmed',
         help="Nursing team has confirmed sterility of the devices and room")
+
     preop_asa = fields.Selection([
         (None, ''),
         ('ps1', 'PS 1 : Normal healthy patient'),
         ('ps2', 'PS 2 : Patients with mild systemic disease'),
         ('ps3', 'PS 3 : Patients with severe systemic disease'),
-        ('ps4', 'PS 4 : Patients with severe systemic disease that is a constant threat to life '),
-        ('ps5', 'PS 5 : Moribund patients who are not expected to survive without the operation'),
-        ('ps6', 'PS 6 : A declared brain-dead patient who organs are being removed for donor purposes'),
+        ('ps4', 'PS 4 : Patients with severe systemic disease that is \
+            a constant threat to life '),
+        ('ps5', 'PS 5 : Moribund patients who are not expected to\
+            survive without the operation'),
+        ('ps6', 'PS 6 : A declared brain-dead patient who organs are \
+            being removed for donor purposes'),
         ], 'ASA Preoperative Physical Status', sort=False)
-    preop_rcri = fields.Many2One('gnuhealth.rcri', 'RCRI',
+
+    preop_rcri = fields.Many2One(
+        'gnuhealth.rcri', 'RCRI',
         help="Patient Revised Cardiac Risk Index")
 
     extra_info = fields.Text('Extra Info')
-
 
     @classmethod
     # Update to version 2.0
@@ -217,8 +264,7 @@ class Surgery(ModelSQL, ModelView):
         # Rename the date column to surgery_surgery_date
 
         if table.column_exist('date'):
-            table.column_rename('date','surgery_date')
-
+            table.column_rename('date', 'surgery_date')
 
 
 class MedicalOperation(ModelSQL, ModelView):
@@ -226,8 +272,8 @@ class MedicalOperation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.operation'
 
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
-    procedure = fields.Many2One('gnuhealth.procedure', 'Code', required=True,
-        select=True,
+    procedure = fields.Many2One(
+        'gnuhealth.procedure', 'Code', required=True, select=True,
         help="Procedure Code, for example ICD-10-PCS Code 7-character string")
     notes = fields.Text('Notes')
 
