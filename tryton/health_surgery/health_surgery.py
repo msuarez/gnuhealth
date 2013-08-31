@@ -233,8 +233,6 @@ class MedicalOperation(ModelSQL, ModelView):
 
 
 class MedicalPatient(ModelSQL, ModelView):
-    'Add to the Medical patient_data class (medical.patient) the surgery ' \
-    'field.'
     __name__ = 'gnuhealth.patient'
 
     surgery = fields.One2Many(
