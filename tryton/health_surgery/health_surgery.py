@@ -237,4 +237,5 @@ class MedicalPatient(ModelSQL, ModelView):
     'field.'
     __name__ = 'gnuhealth.patient'
 
-    surgery = fields.One2Many('gnuhealth.surgery', 'patient', 'Surgeries')
+    surgery = fields.One2Many(
+        'gnuhealth.surgery', 'patient', 'Surgeries', readonly=True)
