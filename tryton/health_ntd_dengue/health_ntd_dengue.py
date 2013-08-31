@@ -24,13 +24,14 @@ from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences','DengueDUSurvey']
+__all__ = ['GnuHealthSequences', 'DengueDUSurvey']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     __name__ = 'gnuhealth.sequences'
 
-    dengue_du_survey_sequence = fields.Property(fields.Many2One('ir.sequence',
+    dengue_du_survey_sequence = fields.Property(fields.Many2One(
+        'ir.sequence',
         'Dengue Survey Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.dengue_du_survey')]))
 
@@ -39,7 +40,7 @@ class DengueDUSurvey(ModelSQL, ModelView):
     'Dengue DU Survey'
     __name__ = 'gnuhealth.dengue_du_survey'
 
-    name = fields.Char ('Survey Code', readonly=True)
+    name = fields.Char('Survey Code', readonly=True)
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
     survey_date = fields.Date('Date', required=True)
 
@@ -49,25 +50,26 @@ class DengueDUSurvey(ModelSQL, ModelView):
         ('unchanged', 'Unchanged'),
         ('better', 'Improved'),
         ('worse', 'Worsen'),
-        ], 'Status', help="DU status compared to last visit", required=True, sort=False)
-    
+        ], 'Status',
+        help="DU status compared to last visit", required=True, sort=False)
 
     # Surveillance traps (ovitraps)
-    
     ovitraps = fields.Boolean(
         'Ovitraps',
         help="Check if ovitraps are in place")
 
     # Current issues
-    
-    aedes_larva = fields.Boolean (
+    aedes_larva = fields.Boolean(
         'Larvae', "Check this box if Aedes aegypti larvae were found")
     larva_in_house = fields.Boolean(
-        'Domiciliary', help="Check this box if larvae were found inside the house")
-    larva_peri = fields.Boolean('Peri-Domiciliary', help="Check this box if larva were found in the peridomiciliary area")
-    
+        'Domiciliary',
+        help="Check this box if larvae were found inside the house")
+    larva_peri = fields.Boolean(
+        'Peri-Domiciliary',
+        help="Check this box if larva were found in the peridomiciliary area")
+
     old_tyres = fields.Boolean('Tyres', help="Old vehicle tyres found")
-    
+
     animal_water_container = fields.Boolean(
         'Animal Water containers',
         help="Animal water containers not scrubbed or clean")
@@ -75,7 +77,7 @@ class DengueDUSurvey(ModelSQL, ModelView):
     flower_vase = fields.Boolean(
         'Flower vase',
         help="Flower vases without scrubbing or cleaning")
-    
+
     potted_plant = fields.Boolean(
         'Potted Plants',
         help="Potted Plants with saucers")
@@ -83,25 +85,25 @@ class DengueDUSurvey(ModelSQL, ModelView):
     tree_holes = fields.Boolean(
         'Tree holes',
         help="unfilled tree holes")
-    
+
     rock_holes = fields.Boolean(
         'Rock holes',
         help="unfilled rock holes")
 
-    
     # Chemical controls for adult mosquitoes
-    
-    du_fumigation = fields.Boolean('Fumigation', help="The DU has been fumigated")
-    fumigation_date = fields.Date('Fumigation Date',help="Last Fumigation Date", states={'invisible': Not(Bool(Eval('du_fumigation')))})
-    
-    
+
+    du_fumigation = fields.Boolean(
+        'Fumigation', help="The DU has been fumigated")
+    fumigation_date = fields.Date(
+        'Fumigation Date', help="Last Fumigation Date",
+        states={'invisible': Not(Bool(Eval('du_fumigation')))})
+
     observations = fields.Text('Observations')
     next_survey_date = fields.Date('Next survey')
-    
+
     @staticmethod
     def default_survey_date():
         return datetime.now()
-
 
     @classmethod
     def create(cls, vlist):
@@ -113,7 +115,6 @@ class DengueDUSurvey(ModelSQL, ModelView):
             if not values.get('name'):
                 config = Config(1)
                 values['name'] = Sequence.get_id(
-                config.dengue_du_survey_sequence.id)
+                    config.dengue_du_survey_sequence.id)
 
         return super(DengueDUSurvey, cls).create(vlist)
-
