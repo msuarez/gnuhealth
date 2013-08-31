@@ -40,20 +40,31 @@ class RCRI(ModelSQL, ModelView):
 
     rcri_high_risk_surgery = fields.Boolean(
         'High Risk surgery',
-        help='suprainguinal vascular, intraperitoneal,'
-        ' or intrathoracic surgery')
+        help='Includes andy suprainguinal vascular, intraperitoneal,'
+        ' or intrathoracic procedures')
 
-    rcri_ischemic_history = fields.Boolean('History of ischemic heart disease')
+    rcri_ischemic_history = fields.Boolean(
+        'History of ischemic heart disease'
+        help="history of MI or a positive exercise test, current \
+        complaint of chest pain considered to be secondary to myocardial \
+        ischemia, use of nitrate therapy, or ECG with pathological \
+        Q waves; do not count prior coronary revascularization procedure \
+        unless one of the other criteria for ischemic heart disease is \
+        present")
 
     rcri_congestive_history = fields.Boolean(
         'History of congestive heart disease')
 
-    rcri_diabetes_history = fields.Boolean('Preoperative Diabetes')
+    rcri_diabetes_history = fields.Boolean(
+        'Preoperative Diabetes',
+        help="Diabetes Mellitus requiring treatment with Insulin")
 
     rcri_cerebrovascular_history = fields.Boolean(
         'History of Cerebrovascular disease')
 
-    rcri_kidney_history = fields.Boolean('Preoperative Kidney disease')
+    rcri_kidney_history = fields.Boolean(
+        'Preoperative Kidney disease',
+        help="Preoperative serum creatinine >2.0 mg/dL (177 mol/L)")
 
     rcri_total = fields.Integer(
         'Score',
