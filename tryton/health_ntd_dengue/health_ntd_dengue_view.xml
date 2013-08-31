@@ -27,8 +27,8 @@
                     <group colspan="4" id="dengue_du_status">
 
                         <group col="10" string="Presence of larvae" id="dengue_du_vectors">
-                            <label name="larva"/>
-                            <field name="larva"/>
+                            <label name="aedes_larva"/>
+                            <field name="aedes_larva"/>
                             <label name="larva_in_house"/>
                             <field name="larva_in_house"/>
                             <label name="larva_peri"/>
