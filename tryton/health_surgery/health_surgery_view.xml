@@ -156,6 +156,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Surgery'>
+                    <field name="patient"/>
                     <field name="description"/>
                     <field name="pathology"/>
                     <field name="classification"/>
