@@ -147,22 +147,26 @@ class RCRI(ModelSQL, ModelView):
     def default_rcri_class():
         return 'I'
 
+    def get_rec_name(self, name):
+        res = 'Points: ' + str(self.rcri_total) + ' (Class ' + \
+            str(self.rcri_class) + ')'
+        return res
+
 
 class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
     def surgery_duration(self, name):
-        
-        duration =''
-        if (self.surgery_end_date and self.surgery_date ):
+
+        duration = ''
+        if (self.surgery_end_date and self.surgery_date):
                 delta = relativedelta(self.surgery_end_date, self.surgery_date)
 
                 duration = str(
                     delta.days*24 + delta.hours) + 'h ' \
                     + str(delta.minutes) + 'm '
         return duration
-
 
     def patient_age_at_surgery(self, name):
 
@@ -315,7 +319,6 @@ class Surgery(ModelSQL, ModelView):
         super(Surgery, cls).__setup__()
         cls._constraints += [
             ('validate_surgery_period', 'end_date_before_start')]
-            
 
         cls._error_messages.update({
             'end_date_before_start': 'End time BEFORE surgery date'})
