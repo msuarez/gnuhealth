@@ -308,6 +308,23 @@ class Surgery(ModelSQL, ModelView):
         if table.column_exist('date'):
             table.column_rename('date', 'surgery_date')
 
+    @classmethod
+    def __setup__(cls):
+        super(Surgery, cls).__setup__()
+        cls._constraints += [
+            ('validate_surgery_period', 'end_date_before_start')]
+            
+
+        cls._error_messages.update({
+            'end_date_before_start': 'End time BEFORE surgery date'})
+
+    def validate_surgery_period(self):
+        res = True
+        if (self.surgery_end_date and self.surgery_date):
+            if (self.surgery_end_date < self.surgery_date):
+                res = False
+        return res
+
 
 class MedicalOperation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
