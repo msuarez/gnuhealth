@@ -88,33 +88,29 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Surgery">
-                    <group colspan="4" col="6" id="group_surgery_header">
+
+                    <group colspan="4" col="8" id="group_surgery_header">
                         <label name="patient"/>
                         <field name="patient"/>
+                        <label name="surgery_date"/>
+                        <field name="surgery_date"/>
+                        <label name="computed_age"/>
+                        <field name="computed_age"/>
                         <label name="code"/>
                         <field name="code"/>
+
+                    <newline/>
+
                         <label name="description"/>
                         <field name="description"/>
-                        <newline/>
                         <label name="pathology"/>
                         <field name="pathology"/>
                         <label name="classification"/>
                         <field name="classification"/>
                         <label name="operating_room"/>
                         <field name="operating_room"/>
-
-                        <newline/>
-                        <group id="group_surgery_other_info" colspan="4" col="8">
-                            <label name="surgery_date"/>
-                            <field name="surgery_date"/>
-                            <label name="computed_age"/>
-                            <field name="computed_age"/>
-                            <label name="surgery_end_date"/>
-                            <field name="surgery_end_date"/>
-                            <label name="surgery_length"/>
-                            <field name="surgery_length"/>
-                        </group>
                     </group>
+
                     <newline/>
 
                     <group colspan="4" id="group_surgery_1">
@@ -125,11 +121,11 @@
                     </group>
                     <newline/>
 
-                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" col="6">
+                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="6">
                         <label name="preop_asa"/>
                         <field name="preop_asa" width="150"/>
                         <label name="preop_rcri"/>
-                        <field name="preop_rcri" width="30"/>
+                        <field name="preop_rcri"/>
                         <label name="preop_mallampati"/>
                         <field name="preop_mallampati" width="150"/>
                     </group>
@@ -154,6 +150,12 @@
                     <newline/>
                     <separator string="Details" id="separator_surgery_details" colspan="4"/>                    
                     <field name="extra_info" colspan='4'/>
+                    <newline/>
+
+                    <label name="surgery_end_date"/>
+                    <field name="surgery_end_date"/>
+                    <label name="surgery_length"/>
+                    <field name="surgery_length"/>
 
                 </form>
                 ]]>
