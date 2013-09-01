@@ -148,6 +148,18 @@ class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
+    def surgery_duration(self, name):
+        
+        duration =''
+        if (self.surgery_end_date and self.surgery_date ):
+                delta = relativedelta(self.surgery_end_date, self.surgery_date)
+
+                duration = str(
+                    delta.hours) + 'h ' \
+                    + str(delta.minutes) + 'm '
+        return duration
+
+
     def patient_age_at_surgery(self, name):
 
         if (self.patient.name.dob):
@@ -198,7 +210,17 @@ class Surgery(ModelSQL, ModelView):
         'gnuhealth.physician', 'Anesthetist',
         help="Anesthetist in charge")
 
-    surgery_date = fields.DateTime('Date')
+    surgery_date = fields.DateTime(
+        'Date', help="Start of the Surgery")
+
+    surgery_end_date = fields.DateTime(
+        'End', help="End of the Surgery")
+
+    surgery_length = fields.Function(
+        fields.Char(
+            'Duration',
+            help="Length of the surgery"),
+        'surgery_duration')
 
     # age is deprecated in GNU Health 2.0
     age = fields.Char(
