@@ -265,7 +265,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <tree string='Operation'>
-                    <field name="procedure"/>
+                    <field name="procedure" expand="1"/>
                     <field name="notes"/>
                 </tree>
                 ]]>
