@@ -44,7 +44,7 @@ class RCRI(ModelSQL, ModelView):
         ' or intrathoracic procedures')
 
     rcri_ischemic_history = fields.Boolean(
-        'History of ischemic heart disease'
+        'History of ischemic heart disease',
         help="history of MI or a positive exercise test, current \
         complaint of chest pain considered to be secondary to myocardial \
         ischemia, use of nitrate therapy, or ECG with pathological \
@@ -251,12 +251,12 @@ class Surgery(ModelSQL, ModelView):
         ('ps1', 'PS 1 : Normal healthy patient'),
         ('ps2', 'PS 2 : Patients with mild systemic disease'),
         ('ps3', 'PS 3 : Patients with severe systemic disease'),
-        ('ps4', 'PS 4 : Patients with severe systemic disease that is \
-            a constant threat to life '),
-        ('ps5', 'PS 5 : Moribund patients who are not expected to\
-            survive without the operation'),
-        ('ps6', 'PS 6 : A declared brain-dead patient who organs are \
-            being removed for donor purposes'),
+        ('ps4', 'PS 4 : Patients with severe systemic disease that is'
+            ' a constant threat to life '),
+        ('ps5', 'PS 5 : Moribund patients who are not expected to'
+            ' survive without the operation'),
+        ('ps6', 'PS 6 : A declared brain-dead patient who organs are'
+            ' being removed for donor purposes'),
         ], 'ASA Preoperative Physical Status', sort=False)
 
     preop_rcri = fields.Many2One(
