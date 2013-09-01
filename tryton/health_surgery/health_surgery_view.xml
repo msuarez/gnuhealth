@@ -104,7 +104,7 @@
                         <field name="operating_room"/>
 
                         <newline/>
-                        <group id="group_surgery_other_info" colspan="4">
+                        <group id="group_surgery_other_info" colspan="4" col="8">
                             <label name="surgery_date"/>
                             <field name="surgery_date"/>
                             <label name="computed_age"/>
@@ -117,7 +117,7 @@
                     </group>
                     <newline/>
 
-                    <group colspan="4" col="6" id="group_surgery_1">
+                    <group colspan="4" id="group_surgery_1">
                         <label name="surgeon"/>
                         <field name="surgeon"/>
                         <label name="anesthetist"/>

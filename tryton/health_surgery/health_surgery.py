@@ -155,7 +155,7 @@ class Surgery(ModelSQL, ModelView):
                 delta = relativedelta(self.surgery_end_date, self.surgery_date)
 
                 duration = str(
-                    delta.hours) + 'h ' \
+                    delta.days*24 + delta.hours) + 'h ' \
                     + str(delta.minutes) + 'm '
         return duration
 
