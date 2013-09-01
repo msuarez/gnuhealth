@@ -296,6 +296,8 @@ class Surgery(ModelSQL, ModelView):
 
     extra_info = fields.Text('Extra Info')
 
+    anesthesia_report = fields.Text('Anesthesia Report')
+
     @classmethod
     # Update to version 2.0
     def __register__(cls, module_name):
