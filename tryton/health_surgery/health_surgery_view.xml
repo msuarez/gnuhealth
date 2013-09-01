@@ -88,7 +88,7 @@
             <field name="arch" type="xml">
                 <![CDATA[
                 <form string="Surgery">
-                    <group colspan="4" id="group_surgery_header">
+                    <group colspan="4" col="6" id="group_surgery_header">
                         <label name="patient"/>
                         <field name="patient"/>
                         <label name="code"/>
@@ -100,6 +100,8 @@
                         <field name="pathology"/>
                         <label name="classification"/>
                         <field name="classification"/>
+                        <label name="operating_room"/>
+                        <field name="operating_room"/>
 
                         <newline/>
                         <group id="group_surgery_other_info" colspan="4">
@@ -110,25 +112,25 @@
                         </group>
                     </group>
                     <newline/>
+
                     <group colspan="4" col="6" id="group_surgery_1">
                         <label name="surgeon"/>
                         <field name="surgeon"/>
                         <label name="anesthetist"/>
                         <field name="anesthetist"/>
-                        <label name="operating_room"/>
-                        <field name="operating_room"/>
                     </group>
-                    
                     <newline/>
 
-                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="4">
+                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" col="6">
                         <label name="preop_asa"/>
-                        <field name="preop_asa"/>
+                        <field name="preop_asa" width="150"/>
                         <label name="preop_rcri"/>
-                        <field name="preop_rcri"/>
+                        <field name="preop_rcri" width="30"/>
+                        <label name="preop_mallampati"/>
+                        <field name="preop_mallampati" width="150"/>
                     </group>
                     <newline/>
-                    
+                
                     <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="10">
                         <label name="preop_bleeding_risk"/>
                         <field name="preop_bleeding_risk"/>
@@ -140,10 +142,6 @@
                         <field name="preop_antibiotics"/>
                         <label name="preop_sterility"/>
                         <field name="preop_sterility"/>
-                    </group>
-                    <newline/>
-                    <group string="Mallampati Score" colspan="4" id="group_surgery_mallampati">
-                        <field name="preop_mallampati"/>
                     </group>
                     <newline/>
 
