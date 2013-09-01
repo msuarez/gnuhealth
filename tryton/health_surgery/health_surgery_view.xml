@@ -89,6 +89,8 @@
                 <![CDATA[
                 <form string="Surgery">
                     <group colspan="4" id="group_surgery_header">
+                        <label name="patient"/>
+                        <field name="patient"/>
                         <label name="code"/>
                         <field name="code"/>
                         <label name="description"/>

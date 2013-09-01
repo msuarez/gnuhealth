@@ -169,7 +169,7 @@ class Surgery(ModelSQL, ModelView):
 
         return years_months_days
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient ID')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
     code = fields.Char('Code', required=True, help="Health Center Unique code")
