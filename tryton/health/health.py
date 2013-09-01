@@ -719,6 +719,19 @@ class ProcedureCode(ModelSQL, ModelView):
 
     name = fields.Char('Code', required=True)
     description = fields.Char('Long Text', translate=True)
+    
+    # Search by the Procedure code or the description
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        field = None
+        for field in ('name', 'description'):
+            procedures = cls.search([(field,) + clause[1:]], limit=1)
+            if procedures:
+                break
+        if procedures:
+            return [(field,) + clause[1:]]
+        return [(cls._rec_name,) + clause[1:]]
+
 
 
 class InsurancePlan(ModelSQL, ModelView):
