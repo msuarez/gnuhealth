@@ -71,7 +71,11 @@ class RCRI(ModelSQL, ModelView):
         on_change_with=[
             'rcri_high_risk_surgery', 'rcri_ischemic_history',
             'rcri_congestive_history', 'rcri_diabetes_history',
-            'rcri_cerebrovascular_history', 'rcri_kidney_history'])
+            'rcri_cerebrovascular_history', 'rcri_kidney_history'],
+        help='Points 0: Class I Very Low (0.4% complications)\n'
+        'Points 1: Class II Low (0.9% complications)\n'
+        'Points 2: Class III Moderate (6.6% complications)\n'
+        'Points 3 or more : Class IV High (>11% complications)')
 
     rcri_class = fields.Selection([
         (None, ''),
@@ -284,7 +288,11 @@ class Surgery(ModelSQL, ModelView):
 
     preop_rcri = fields.Many2One(
         'gnuhealth.rcri', 'RCRI',
-        help="Patient Revised Cardiac Risk Index")
+        help='Patient Revised Cardiac Risk Index\n'
+        'Points 0: Class I Very Low (0.4% complications)\n'
+        'Points 1: Class II Low (0.9% complications)\n'
+        'Points 2: Class III Moderate (6.6% complications)\n'
+        'Points 3 or more : Class IV High (>11% complications)')
 
     extra_info = fields.Text('Extra Info')
 
