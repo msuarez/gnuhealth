@@ -732,6 +732,9 @@ class ProcedureCode(ModelSQL, ModelView):
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
 
+    # Include code + description in result
+    def get_rec_name(self, name):
+        return (self.name + ' : ' + self.description)
 
 
 class InsurancePlan(ModelSQL, ModelView):
