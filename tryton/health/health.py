@@ -1539,6 +1539,15 @@ class Appointment(ModelSQL, ModelView):
         ('inpatient', 'Inpatient'),
         ], 'Type', sort=False)
 
+    visit_type = fields.Selection([
+        ('new', 'New health condition'),
+        ('followup', 'Followup'),
+        ('chronic', 'Chronic condition routine'),
+        ('well_child', 'Well Child visit'),
+        ('well_woman', 'Well Woman visit'),
+        ('well_man', 'Well Man visit'),
+        ], 'Visit', sort=False)
+
     consultations = fields.Many2One(
         'product.product', 'Consultation Services',
         domain=[('type', '=', 'service')],

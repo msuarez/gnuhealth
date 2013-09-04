@@ -2000,6 +2000,8 @@
                         <field name="patient"/>
                         <label name="appointment_date"/>
                         <field name="appointment_date"/>
+                        <label name="visit_type"/>
+                        <field name="visit_type"/>
                         <label name="urgency"/>
                         <field name="urgency"/>
                         <label name="appointment_type"/>
