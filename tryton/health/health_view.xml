@@ -2080,7 +2080,9 @@
             <field name="name">Evaluation</field>
             <field name="res_model">gnuhealth.patient.evaluation</field>
             <field name="domain">[('evaluation_date', '=', Eval('active_id')),
-                ('patient', '=', Eval('patient'))]</field>
+                ('patient', '=', Eval('patient')),
+                ('specialty', '=', Eval('speciality'))
+                ]</field>
         </record>
         <record model="ir.action.keyword" id="act_open_evaluation_keyword">
             <field name="keyword">form_relate</field>
