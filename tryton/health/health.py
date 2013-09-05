@@ -1542,7 +1542,7 @@ class Appointment(ModelSQL, ModelView):
     visit_type = fields.Selection([
         ('new', 'New health condition'),
         ('followup', 'Followup'),
-        ('chronic', 'Chronic condition routine'),
+        ('chronic', 'Chronic condition checkup'),
         ('well_child', 'Well Child visit'),
         ('well_woman', 'Well Woman visit'),
         ('well_man', 'Well Man visit'),
@@ -2371,6 +2371,15 @@ class PatientEvaluation(ModelSQL, ModelView):
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+
+    visit_type = fields.Selection([
+        ('new', 'New health condition'),
+        ('followup', 'Followup'),
+        ('chronic', 'Chronic condition checkup'),
+        ('well_child', 'Well Child visit'),
+        ('well_woman', 'Well Woman visit'),
+        ('well_man', 'Well Man visit'),
+        ], 'Visit', sort=False)
 
     information_source = fields.Char(
         'Source', help="Source of"

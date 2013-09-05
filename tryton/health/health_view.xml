@@ -2083,7 +2083,8 @@
             <field name="res_model">gnuhealth.patient.evaluation</field>
             <field name="domain">[('evaluation_date', '=', Eval('active_id')),
                 ('patient', '=', Eval('patient')),
-                ('specialty', '=', Eval('speciality'))
+                ('specialty', '=', Eval('speciality')),
+                ('visit_type', '=', Eval('visit_type'))                
                 ]</field>
         </record>
         <record model="ir.action.keyword" id="act_open_evaluation_keyword">
@@ -2641,6 +2642,8 @@
                                 <field name="patient"/>
                                 <label name="evaluation_type"/>
                                 <field name="evaluation_type"/>
+                                <label name="visit_type"/>
+                                <field name="visit_type"/>
                                 <label name="specialty"/>
                                 <field name="specialty"/>
                                 <newline/>
