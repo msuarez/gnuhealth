@@ -2,8 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2013  Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2013  Sebastián Marro <smarro@thymbra.com>
+#    Copyright (C) 2008-2013  Luis Falcon <falcon@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,22 +19,4 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
-from .health_imaging import *
-from wizard import *
-
-
-def register():
-    Pool.register(
-        GnuHealthSequences,
-        ImagingTestType,
-        ImagingTest,
-        ImagingTestRequest,
-        ImagingTestResult,
-        RequestImagingTest,
-        RequestPatientImagingTestStart,
-        module='health_imaging', type_='model')
-    Pool.register(
-        WizardGenerateResult,
-        RequestPatientImagingTest,
-        module='health_imaging', type_='wizard')
+from wizard_health_imaging import *
