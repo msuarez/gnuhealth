@@ -195,8 +195,11 @@
             <field name="domain"></field>
             <field name="act_window" ref="act_imaging_test_request_view"/>
         </record>
+        
+        <!-- Place it under Lab menu if the module is loaded -->
+
         <menuitem name="Imaging" parent="health.gnuhealth_menu"
-            id="menu_imaging" icon="gnuhealth.imaging"/>
+            id="menu_imaging" sequence="41" icon="gnuhealth.imaging"/>
 
         <menuitem parent="menu_imaging"
             action="act_imaging_test_request_view"
