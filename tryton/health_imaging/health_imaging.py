@@ -21,15 +21,13 @@
 ##############################################################################
 from datetime import datetime
 from trytond.model import Workflow, ModelView, ModelSingleton, ModelSQL, fields
-from trytond.wizard import Wizard, StateAction, StateTransition, StateView, \
-    Button
-from trytond.pyson import PYSONEncoder, Eval
+from trytond.pyson import Eval
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences', 'ImagingTestType', 
-    'ImagingTestRequest', 'ImagingTestResult', 'RequestPatientImagingTest']
+__all__ = ['GnuHealthSequences', 'ImagingTestType', 'ImagingTest',
+    'ImagingTestRequest', 'ImagingTestResult']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
