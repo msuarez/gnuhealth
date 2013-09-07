@@ -5,7 +5,7 @@ __all__ = ['WizardGenerateResult', 'RequestImagingTest',
     'RequestPatientImagingTestStart', 'RequestPatientImagingTest' ]
 
 class WizardGenerateResult(Wizard):
-    'Open Suppliers'
+    'Generate Results'
     __name__ = 'wizard.generate.result'
     start_state = 'open_'
     open_ = StateAction('health_imaging.act_imaging_test_result_view')
