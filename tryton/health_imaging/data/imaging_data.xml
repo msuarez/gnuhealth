@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<tryton>
+    <data noupdate="1">
+
+        <record id="product_category_imagingservices" model="product.category">
+            <field name="name">Imaging Services</field>
+        </record>
+
+        <record id="product_template_ultrasoundcharges" model="product.template">
+            <field name="name">Ultrasound charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
+        <record id="product_template_mricharges" model="product.template">
+            <field name="name">MRI charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
+        <record id="product_template_xraycharges" model="product.template">
+            <field name="name">X-ray charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
+        <record id="product_template_ctscancharges" model="product.template">
+            <field name="name">CT Scan charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
+        <record id="product_template_petscancharges" model="product.template">
+            <field name="name">PET Scan charges</field>
+            <field eval="1.0" name="list_price"/>
+            <field eval="0.0" name="cost_price"/>
+            <field name="default_uom" ref="product.uom_unit"/>
+            <field name="type">service</field>
+            <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
+        <record id="product_product_ultrasoundcharges" model="product.product">
+            <field name="template" model="product.template" ref="product_template_ultrasoundcharges"/>
+        </record>
+
+        <record id="product_product_mricharges" model="product.product">
+            <field name="template" model="product.template" ref="product_template_mricharges"/>
+        </record>
+
+        <record id="product_product_xraycharges" model="product.product">
+            <field name="template" model="product.template" ref="product_template_xraycharges"/>
+        </record>
+
+        <record id="product_product_ctscancharges" model="product.product">
+            <field name="template" model="product.template" ref="product_template_ctscancharges"/>
+        </record>
+
+        <record id="product_product_petscancharges" model="product.product">
+            <field name="template" model="product.template" ref="product_template_petscancharges"/>
+        </record>
+
+        <record id="gnuhealth_test_type_ultrasound" model="gnuhealth.imaging.test.type">
+            <field name="code">US</field>
+            <field name="name">Ultrasound</field>
+        </record>
+
+        <record id="gnuhealth_test_type_mri" model="gnuhealth.imaging.test.type">
+            <field name="code">MRI</field>
+            <field name="name">MRI</field>
+        </record>
+
+        <record id="gnuhealth_test_type_xray" model="gnuhealth.imaging.test.type">
+            <field name="code">XR</field>
+            <field name="name">X-ray</field>
+        </record>
+
+        <record id="gnuhealth_test_type_ctscan" model="gnuhealth.imaging.test.type">
+            <field name="code">CT</field>
+            <field name="name">CT Scan</field>
+        </record>
+
+        <record id="gnuhealth_test_type_petscan" model="gnuhealth.imaging.test.type">
+            <field name="code">PET</field>
+            <field name="name">PET Scan</field>
+        </record>
+
+    </data>
+</tryton>
