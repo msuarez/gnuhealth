@@ -31,7 +31,10 @@ def register():
         ImagingTest,
         ImagingTestRequest,
         ImagingTestResult,
+        RequestImagingTest,
+        RequestPatientImagingTestStart,
         module='health_imaging', type_='model')
     Pool.register(
         WizardGenerateResult,
+        RequestPatientImagingTest,
         module='health_imaging', type_='wizard')
