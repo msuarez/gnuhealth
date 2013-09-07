@@ -26,7 +26,8 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences', 'ImagingTestType', 'ImagingTest',
+__all__ = [
+    'GnuHealthSequences', 'ImagingTestType', 'ImagingTest',
     'ImagingTestRequest', 'ImagingTestResult']
 
 
@@ -34,14 +35,19 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
     __name__ = "gnuhealth.sequences"
 
-    imaging_request_sequence = fields.Property(fields.Many2One('ir.sequence',
-        'Imaging Request Sequence',
-        domain=[('code', '=', 'gnuhealth.imaging.test.request')],
-        required=True))
-    imaging_sequence = fields.Property(fields.Many2One('ir.sequence',
-        'Imaging Sequence',
-        domain=[('code', '=', 'gnuhealth.imaging.test.result')],
-        required=True))
+    imaging_request_sequence = fields.Property(
+        fields.Many2One(
+            'ir.sequence',
+            'Imaging Request Sequence',
+            domain=[('code', '=', 'gnuhealth.imaging.test.request')],
+            required=True))
+
+    imaging_sequence = fields.Property(
+        fields.Many2One(
+            'ir.sequence',
+            'Imaging Sequence',
+            domain=[('code', '=', 'gnuhealth.imaging.test.result')],
+            required=True))
 
 
 class ImagingTestType(ModelSQL, ModelView):
@@ -58,7 +64,8 @@ class ImagingTest(ModelSQL, ModelView):
 
     code = fields.Char('Code', required=True)
     name = fields.Char('Name', required=True)
-    test_type = fields.Many2One('gnuhealth.imaging.test.type', 'Type',
+    test_type = fields.Many2One(
+        'gnuhealth.imaging.test.type', 'Type',
         required=True)
     product = fields.Many2One('product.product', 'Service', required=True)
 
@@ -69,7 +76,8 @@ class ImagingTestRequest(Workflow, ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     date = fields.DateTime('Date', required=True)
-    requested_test = fields.Many2One('gnuhealth.imaging.test', 'Test',
+    requested_test = fields.Many2One(
+        'gnuhealth.imaging.test', 'Test',
         required=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', required=True)
     state = fields.Selection([
@@ -92,10 +100,10 @@ class ImagingTestRequest(Workflow, ModelSQL, ModelView):
             'requested': {
                 'invisible': ~Eval('state').in_(['draft']),
                 },
-             'generate_results': {
-                 'invisible': ~Eval('state').in_(['requested'])
-                 }
-                 })
+            'generate_results': {
+                'invisible': ~Eval('state').in_(['requested'])
+                }
+            })
         cls._order.insert(0, ('date', 'DESC'))
         cls._order.insert(1, ('request', 'DESC'))
 
@@ -171,9 +179,11 @@ class ImagingTestResult(ModelSQL, ModelView):
     number = fields.Char('Number', readonly=True)
     date = fields.DateTime('Date', required=True)
     request_date = fields.DateTime('Requested Date', readonly=True)
-    requested_test = fields.Many2One('gnuhealth.imaging.test', 'Test',
+    requested_test = fields.Many2One(
+        'gnuhealth.imaging.test', 'Test',
         required=True)
-    request = fields.Many2One('gnuhealth.imaging.test.request', 'Request',
+    request = fields.Many2One(
+        'gnuhealth.imaging.test.request', 'Request',
         readonly=True)
     doctor = fields.Many2One('gnuhealth.physician', 'Doctor', required=True)
     comment = fields.Text('Comment')
