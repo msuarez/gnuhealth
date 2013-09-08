@@ -1530,7 +1530,7 @@ class Appointment(ModelSQL, ModelView):
         ('a', 'Normal'),
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
-        ], 'Urgency Level', sort=False)
+        ], 'Urgency', sort=False)
     comments = fields.Text('Comments')
 
     appointment_type = fields.Selection([
@@ -2385,7 +2385,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('a', 'Normal'),
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
-        ], 'Urgency Level', sort=False)
+        ], 'Urgency', sort=False)
 
     information_source = fields.Char(
         'Source', help="Source of"
