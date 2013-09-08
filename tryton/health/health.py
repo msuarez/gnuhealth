@@ -719,7 +719,7 @@ class ProcedureCode(ModelSQL, ModelView):
 
     name = fields.Char('Code', required=True)
     description = fields.Char('Long Text', translate=True)
-    
+
     # Search by the Procedure code or the description
     @classmethod
     def search_rec_name(cls, name, clause):
