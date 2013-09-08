@@ -2697,6 +2697,10 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_evaluation_type():
         return 'pa'
 
+    @staticmethod
+    def default_state():
+        return 'in_progress'
+
     def on_change_with_bmi(self):
         if self.height and self.weight:
             if (self.height > 0):
