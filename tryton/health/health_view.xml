@@ -2075,6 +2075,7 @@
                 ('patient', '=', Eval('patient')),
                 ('specialty', '=', Eval('speciality')),
                 ('urgency', '=', Eval('urgency')),
+                ('evaluation_type', '=', Eval('appointment_type')),
                 ('visit_type', '=', Eval('visit_type'))                
                 ]</field>
         </record>

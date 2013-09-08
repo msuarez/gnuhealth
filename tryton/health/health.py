@@ -2442,13 +2442,9 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     evaluation_type = fields.Selection([
         (None, ''),
-        ('a', 'Ambulatory'),
-        ('e', 'Emergency'),
-        ('i', 'Inpatient'),
-        ('pa', 'Pre-arranged appointment'),
-        ('pc', 'Periodic control'),
-        ('p', 'Phone call'),
-        ('t', 'Telemedicine'),
+        ('ambulatory', 'Ambulatory'),
+        ('outpatient', 'Outpatient'),
+        ('inpatient', 'Inpatient'),
         ], 'Type', sort=False)
 
     chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
@@ -2738,7 +2734,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @staticmethod
     def default_evaluation_type():
-        return 'pa'
+        return 'ambulatory'
 
     @staticmethod
     def default_state():
