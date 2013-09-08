@@ -2361,6 +2361,18 @@ class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     __name__ = 'gnuhealth.patient.evaluation'
 
+    def evaluation_duration(self, name):
+
+        duration = ''
+        if (self.evaluation_endtime and self.evaluation_start):
+                delta = relativedelta(
+                    self.evaluation_endtime, self.evaluation_start)
+
+                duration = str(
+                    delta.days*24 + delta.hours*60 + delta.minutes)
+
+        return duration
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
 
     evaluation_date = fields.Many2One(
@@ -2371,6 +2383,12 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_endtime = fields.DateTime('End', required=True)
+
+    evaluation_length = fields.Function(
+        fields.Char(
+            'Length',
+            help="Duration of the evaluation, in minutes"),
+        'evaluation_duration')
 
     state = fields.Selection([
         ('in_progress', 'In progress'),
