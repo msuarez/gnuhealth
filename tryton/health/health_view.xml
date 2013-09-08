@@ -2084,6 +2084,7 @@
             <field name="domain">[('evaluation_date', '=', Eval('active_id')),
                 ('patient', '=', Eval('patient')),
                 ('specialty', '=', Eval('speciality')),
+                ('urgency', '=', Eval('urgency')),
                 ('visit_type', '=', Eval('visit_type'))                
                 ]</field>
         </record>
@@ -2644,6 +2645,8 @@
                                 <field name="evaluation_type"/>
                                 <label name="visit_type"/>
                                 <field name="visit_type"/>
+                                <label name="urgency"/>
+                                <field name="urgency"/>
                                 <label name="specialty"/>
                                 <field name="specialty"/>
                                 <newline/>
@@ -2830,6 +2833,7 @@
                     <field name="patient" expand="1"/>
                     <field name="evaluation_date" expand="1"/>
                     <field name="doctor" expand="1"/>
+                    <field name="urgency" expand="1"/>
                     <field name="chief_complaint" expand="1"/>
                     <field name="bmi"/>
                     <field name="systolic"/>

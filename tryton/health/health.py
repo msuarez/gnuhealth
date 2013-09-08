@@ -2381,6 +2381,12 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('well_man', 'Well Man visit'),
         ], 'Visit', sort=False)
 
+    urgency = fields.Selection([
+        ('a', 'Normal'),
+        ('b', 'Urgent'),
+        ('c', 'Medical Emergency'),
+        ], 'Urgency Level', sort=False)
+
     information_source = fields.Char(
         'Source', help="Source of"
         "Information, eg : Self, relative, friend ...")
