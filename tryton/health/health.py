@@ -2650,6 +2650,15 @@ class PatientEvaluation(ModelSQL, ModelView):
             },
         })
 
+    @classmethod
+    def write(cls, evaluations, vals):
+        # Don't allow to write the record if the evaluation has been done
+        if evaluations[0].state == 'done':
+            cls.raise_user_error(
+                "This evaluation is at state Done\n"
+                "You can no longer modify it.")
+        return super(PatientEvaluation, cls).write(evaluations, vals)
+
     # End the evaluation and discharge the patient
     @classmethod
     @ModelView.button

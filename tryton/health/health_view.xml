@@ -2640,9 +2640,8 @@
                 <![CDATA[
                 <form string="Patient Evaluation">
                     <notebook>
-
                         <page string="Main Info" id="page_patient_evaluation_main">
-                            <group colspan="4" col="6" id="evaluation_header">
+                            <group colspan="4" col="6" id="evaluation_header"> 
                                 <label name="patient"/>
                                 <field name="patient"/>
                                 <label name="evaluation_type"/>
