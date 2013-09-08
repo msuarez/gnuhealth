@@ -2656,10 +2656,13 @@ class PatientEvaluation(ModelSQL, ModelView):
         super(PatientEvaluation, cls).__setup__()
         cls._constraints += [
             ('check_health_professional', 'health_professional_warning'),
+            ('validate_evaluation_period', 'end_date_before_start'),
         ]
+
         cls._error_messages.update({
             'health_professional_warning':
             'No health professional associated to this user',
+            'end_date_before_start': 'End time BEFORE evaluation start'
         })
 
         cls._buttons.update({
@@ -2667,6 +2670,13 @@ class PatientEvaluation(ModelSQL, ModelView):
                 'invisible': Equal(Eval('state'), 'done'),
             },
         })
+
+    def validate_evaluation_period(self):
+        res = True
+        if (self.evaluation_endtime and self.evaluation_start):
+            if (self.evaluation_endtime < self.evaluation_start):
+                res = False
+        return res
 
     @classmethod
     def write(cls, evaluations, vals):
