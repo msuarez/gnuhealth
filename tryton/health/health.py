@@ -1526,6 +1526,15 @@ class Appointment(ModelSQL, ModelView):
         'gnuhealth.specialty', 'Specialty',
         on_change_with=['doctor'], help='Medical Specialty / Sector')
 
+    state = fields.Selection([
+        (None, ''),
+        ('waiting', 'Waiting'),
+        ('done', 'Done'),
+        ('user_cancelled', 'Cancelled by patient'),
+        ('center_cancelled', 'Cancelled by Health Center'),
+        ('no_show', 'No show')
+        ], 'State', sort=False)
+
     urgency = fields.Selection([
         ('a', 'Normal'),
         ('b', 'Urgent'),
@@ -1540,6 +1549,7 @@ class Appointment(ModelSQL, ModelView):
         ], 'Type', sort=False)
 
     visit_type = fields.Selection([
+        (None, ''),
         ('new', 'New health condition'),
         ('followup', 'Followup'),
         ('chronic', 'Chronic condition checkup'),

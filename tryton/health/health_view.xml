@@ -1995,7 +1995,6 @@
                         <field name="name"/>
                         <label name="institution"/>
                         <field name="institution"/>
-
                         <label name="patient"/>
                         <field name="patient"/>
                         <label name="appointment_date"/>
@@ -2006,6 +2005,9 @@
                         <field name="urgency"/>
                         <label name="appointment_type"/>
                         <field name="appointment_type"/>
+                        <label name="state"/>
+                        <field name="state"/>
+
                     </group>
                     <newline/>
                     <group colspan="4" id="doc_appointment_header">
@@ -2037,6 +2039,7 @@
                     <field name="speciality"/>
                     <field name="doctor"/>
                     <field name="institution" expand="1"/>
+                    <field name="state"/>
                 </tree>
                 ]]>
             </field>
