@@ -1536,6 +1536,7 @@ class Appointment(ModelSQL, ModelView):
         ], 'State', sort=False)
 
     urgency = fields.Selection([
+        (None, ''),
         ('a', 'Normal'),
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
@@ -1543,6 +1544,7 @@ class Appointment(ModelSQL, ModelView):
     comments = fields.Text('Comments')
 
     appointment_type = fields.Selection([
+        (None, ''),
         ('ambulatory', 'Ambulatory'),
         ('outpatient', 'Outpatient'),
         ('inpatient', 'Inpatient'),
@@ -2406,6 +2408,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
 
     visit_type = fields.Selection([
+        (None, ''),
         ('new', 'New health condition'),
         ('followup', 'Followup'),
         ('chronic', 'Chronic condition checkup'),
@@ -2415,6 +2418,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ], 'Visit', sort=False)
 
     urgency = fields.Selection([
+        (None, ''),
         ('a', 'Normal'),
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
@@ -2437,6 +2441,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Physician to whom escalate / derive the case')
 
     evaluation_type = fields.Selection([
+        (None, ''),
         ('a', 'Ambulatory'),
         ('e', 'Emergency'),
         ('i', 'Inpatient'),
@@ -2445,6 +2450,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('p', 'Phone call'),
         ('t', 'Telemedicine'),
         ], 'Type', sort=False)
+
     chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
     notes_complaint = fields.Text('Complaint details')
     present_illness = fields.Text('Present Illness')
