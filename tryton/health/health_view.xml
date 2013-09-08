@@ -1031,11 +1031,6 @@
                     <field name="category"/>
                     <field name="pregnancy_warning" expand="1"/>
                     <field name="pregnancy_category" expand="1"/>
-
-<!-- TODO : Work on the FIELDS.RELATED conversion to Tryton
-                    <field name="price"/>
-                    <field name="qty_available" domain="[('qty_available',’>’,0)]"/>
--->
                     <field name="adverse_reaction" expand="1"/>
                 </tree>
                 ]]>
@@ -1647,15 +1642,6 @@
                             <field name="insurance" colspan="4"/>
 
                         </page>
-
-<!-- TODO attrs
-                        <page string="Insurance Plans" id="insurance_plans"
-                            attrs="{'invisible': [('is_insurance_company', '=', False)]}">
-                            <field name="insurance_company_type"/>
-                            <newline/>
-                            <field name="insurance_plan_ids" colspan="4"/>
-                        </page>
--->
 
                     </xpath>
 
