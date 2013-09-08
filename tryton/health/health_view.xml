@@ -62,11 +62,6 @@
             <field name="path">icons/tryton-preferences.svg</field>
         </record>
         
-        <record model="ir.ui.icon" id="gnuhealth_home_icon">
-            <field name="name">icon-discharge</field>
-            <field name="path">icons/discharge.svg</field>
-        </record>
-
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
@@ -2695,7 +2690,7 @@
                                 <label name="reliable_info"/>
                                 <field name="reliable_info"/>
                                 <button name="discharge" help="Discharge Patient" 
-                                    string="Discharge" icon="icon-discharge" 
+                                    string="Discharge" icon="tryton-log-out" 
                                     confirm="End the evaluation and discharge the patient"/>
                                     
 
