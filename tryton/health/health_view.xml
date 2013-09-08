@@ -61,6 +61,12 @@
             <field name="name">gnuhealth-preferences</field>
             <field name="path">icons/tryton-preferences.svg</field>
         </record>
+        
+        <record model="ir.ui.icon" id="gnuhealth_home_icon">
+            <field name="name">icon-discharge</field>
+            <field name="path">icons/discharge.svg</field>
+        </record>
+
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
@@ -2655,6 +2661,8 @@
                                 <newline/>
                                 <label name="doctor"/>
                                 <field name="doctor"/>
+                                <label name="state"/>
+                                <field name="state"/>
                                 <label name="evaluation_start"/>
                                 <field name="evaluation_start"/>
                                 <label name="evaluation_endtime"/>
@@ -2677,7 +2685,7 @@
                             <newline/>
                             <field name="evaluation_summary" colspan="4"/>
                             <newline/>
-                            <group colspan="4" col="8" id="group_eval_misc">
+                            <group colspan="4" col="10" id="group_eval_misc">
                                 <label name="evaluation_date"/>
                                 <field name="evaluation_date"/>
                                 <label name="derived_from"/>
@@ -2686,6 +2694,11 @@
                                 <field name="information_source"/>
                                 <label name="reliable_info"/>
                                 <field name="reliable_info"/>
+                                <button name="discharge" help="Discharge Patient" 
+                                    string="Discharge" icon="icon-discharge" 
+                                    confirm="End the evaluation and discharge the patient"/>
+                                    
+
                             </group>
                         </page>
 
@@ -2836,6 +2849,7 @@
                     <field name="patient" expand="1"/>
                     <field name="evaluation_date" expand="1"/>
                     <field name="doctor" expand="1"/>
+                    <field name="state" expand="1"/>
                     <field name="urgency" expand="1"/>
                     <field name="chief_complaint" expand="1"/>
                     <field name="bmi"/>

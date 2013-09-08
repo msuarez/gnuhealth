@@ -24,7 +24,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond.backend import TableHandler
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.pool import Pool
 
 
@@ -2372,6 +2372,11 @@ class PatientEvaluation(ModelSQL, ModelView):
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_endtime = fields.DateTime('End', required=True)
 
+    state = fields.Selection([
+        ('in_progress', 'In progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True, sort=False)
+
     next_evaluation = fields.Many2One(
         'gnuhealth.appointment',
         'Next Appointment', domain=[('patient', '=', Eval('patient'))],
@@ -2638,6 +2643,19 @@ class PatientEvaluation(ModelSQL, ModelView):
             'health_professional_warning':
             'No health professional associated to this user',
         })
+
+        cls._buttons.update({
+            'discharge': {
+                'invisible': Equal(Eval('state'), 'done'),
+            },
+        })
+
+    # End the evaluation and discharge the patient
+    @classmethod
+    @ModelView.button
+    def discharge(cls, evaluations):
+        evaluation_id = evaluations[0]
+        cls.write(evaluations, {'state': 'done'})
 
     def check_health_professional(self):
         return self.doctor
