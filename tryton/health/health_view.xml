@@ -2640,10 +2640,6 @@
                                 <label name="specialty"/>
                                 <field name="specialty"/>
                                 <newline/>
-                                <label name="doctor"/>
-                                <field name="doctor"/>
-                                <label name="state"/>
-                                <field name="state"/>
                                 <label name="evaluation_start"/>
                                 <field name="evaluation_start"/>
                                 <label name="evaluation_endtime"/>
@@ -2666,7 +2662,7 @@
                             <newline/>
                             <field name="evaluation_summary" colspan="4"/>
                             <newline/>
-                            <group colspan="4" col="10" id="group_eval_misc">
+                            <group colspan="4" col="8" id="group_eval_misc">
                                 <label name="evaluation_date"/>
                                 <field name="evaluation_date"/>
                                 <label name="derived_from"/>
@@ -2675,11 +2671,16 @@
                                 <field name="information_source"/>
                                 <label name="reliable_info"/>
                                 <field name="reliable_info"/>
+								<newline/>
+                                <label name="doctor"/>
+                                <field name="doctor"/>
+                                <label name="state"/>
+                                <field name="state"/>
                                 <button name="discharge" help="Sign and close the evaluation" 
                                     string="Sign" icon="tryton-go-next" 
                                     confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
-                                    
-
+                                <label name="signed_by"/>
+                                <field name="signed_by"/>
                             </group>
                         </page>
 
@@ -2841,6 +2842,7 @@
                     <field name="systolic"/>
                     <field name="diastolic"/>
                     <field name="diagnosis"/>
+                    <field name="signed_by"/>
                 </tree>
                 ]]>
             </field>

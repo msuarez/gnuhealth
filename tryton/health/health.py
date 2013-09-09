@@ -168,8 +168,8 @@ class HealthProfessional(ModelSQL, ModelView):
 
     @classmethod
     def get_health_professional(cls):
-		# Get the professional associated to the internal user id
-		# that logs into GNU Health
+        # Get the professional associated to the internal user id
+        # that logs into GNU Health
         cursor = Transaction().cursor
         User = Pool().get('res.user')
         user = User(Transaction().user)
@@ -2427,7 +2427,12 @@ class PatientEvaluation(ModelSQL, ModelView):
         depends=['patient'])
 
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', readonly=True)
+    doctor = fields.Many2One(
+        'gnuhealth.physician', 'Initiated by', readonly=True)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.physician', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')})
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
 
@@ -2714,19 +2719,27 @@ class PatientEvaluation(ModelSQL, ModelView):
         return super(PatientEvaluation, cls).write(evaluations, vals)
 
     # End the evaluation and discharge the patient
+
     @classmethod
     @ModelView.button
     def discharge(cls, evaluations):
         evaluation_id = evaluations[0]
-        cls.write(evaluations, {'state': 'done'})
+
+        # Change the state of the evaluation to "Done"
+        # and write the name of the signing doctor
+
+        signing_hp = HealthProfessional().get_health_professional()
+        cls.write(evaluations, {
+            'state': 'done',
+            'signed_by': signing_hp})
 
     def check_health_professional(self):
         return self.doctor
 
     @staticmethod
     def default_doctor():
-		return HealthProfessional().get_health_professional()
-		
+        return HealthProfessional().get_health_professional()
+
     @staticmethod
     def default_loc_eyes():
         return '4'
