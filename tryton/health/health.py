@@ -1528,7 +1528,7 @@ class Appointment(ModelSQL, ModelView):
 
     state = fields.Selection([
         (None, ''),
-        ('waiting', 'Waiting'),
+        ('confirmed', 'Confirmed'),
         ('done', 'Done'),
         ('user_cancelled', 'Cancelled by patient'),
         ('center_cancelled', 'Cancelled by Health Center'),
@@ -1541,6 +1541,7 @@ class Appointment(ModelSQL, ModelView):
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
         ], 'Urgency', sort=False)
+
     comments = fields.Text('Comments')
 
     appointment_type = fields.Selection([
@@ -1612,6 +1613,10 @@ class Appointment(ModelSQL, ModelView):
     @staticmethod
     def default_appointment_type():
         return 'ambulatory'
+
+    @staticmethod
+    def default_state():
+        return 'confirmed'
 
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional

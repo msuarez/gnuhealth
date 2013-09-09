@@ -2828,17 +2828,19 @@
                 <![CDATA[
                 <tree string="Evaluations">
                     <field name="patient" expand="1"/>
-                    <field name="evaluation_date" expand="1"/>
+                    <field name="visit_type"/>
+                    <field name="evaluation_type"/>
+                    <field name="urgency"/>
+                    <field name="evaluation_start"/>
+                    <field name="evaluation_length"/>
+                    <field name="specialty"/>
                     <field name="doctor" expand="1"/>
-                    <field name="state" expand="1"/>
-                    <field name="evaluation_length" expand="1"/>
-                    <field name="urgency" expand="1"/>
-                    <field name="chief_complaint" expand="1"/>
+                    <field name="state"/>
+                    <field name="urgency"/>
                     <field name="bmi"/>
                     <field name="systolic"/>
                     <field name="diastolic"/>
-                    <field name="diagnosis" expand="1"/>
-                    <field name="next_evaluation" expand="1"/>
+                    <field name="diagnosis"/>
                 </tree>
                 ]]>
             </field>
