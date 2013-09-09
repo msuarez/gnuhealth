@@ -2675,9 +2675,9 @@
                                 <field name="information_source"/>
                                 <label name="reliable_info"/>
                                 <field name="reliable_info"/>
-                                <button name="discharge" help="Discharge Patient" 
-                                    string="Discharge" icon="tryton-log-out" 
-                                    confirm="End the evaluation and discharge the patient"/>
+                                <button name="discharge" help="Sign and close the evaluation" 
+                                    string="Sign" icon="tryton-go-next" 
+                                    confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
                                     
 
                             </group>
