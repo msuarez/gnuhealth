@@ -30,7 +30,7 @@ from trytond.pool import Pool
 
 __all__ = [
     'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
-    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'Physician',
+    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'HealthProfessional',
     'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea',
     'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit',
     'MedicamentCategory', 'Medicament', 'PathologyCategory',
@@ -162,9 +162,28 @@ class MedicalSpecialty(ModelSQL, ModelView):
         ]
 
 
-class Physician(ModelSQL, ModelView):
+class HealthProfessional(ModelSQL, ModelView):
     'Health Professional'
     __name__ = 'gnuhealth.physician'
+
+    @classmethod
+    def get_health_professional(cls):
+		# Get the professional associated to the internal user id
+		# that logs into GNU Health
+        cursor = Transaction().cursor
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        login_user_id = int(user.id)
+        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+            internal_user = %s LIMIT 1', (login_user_id,))
+        partner_id = cursor.fetchone()
+        if partner_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+                name = %s LIMIT 1', (partner_id[0],))
+            doctor_id = cursor.fetchone()
+            if (doctor_id):
+                return int(doctor_id[0])
 
     name = fields.Many2One(
         'party.party', 'Health Professional', required=True,
@@ -2706,21 +2725,8 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @staticmethod
     def default_doctor():
-        cursor = Transaction().cursor
-        User = Pool().get('res.user')
-        user = User(Transaction().user)
-        login_user_id = int(user.id)
-        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
-            internal_user = %s LIMIT 1', (login_user_id,))
-        partner_id = cursor.fetchone()
-        if partner_id:
-            cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
-                name = %s LIMIT 1', (partner_id[0],))
-            doctor_id = cursor.fetchone()
-
-            return int(doctor_id[0])
-
+		return HealthProfessional().get_health_professional()
+		
     @staticmethod
     def default_loc_eyes():
         return '4'
