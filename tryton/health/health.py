@@ -1637,6 +1637,10 @@ class Appointment(ModelSQL, ModelView):
     def default_state():
         return 'confirmed'
 
+    @staticmethod
+    def default_institution():
+        return Transaction().context.get('company')
+
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
