@@ -2628,29 +2628,26 @@
                 <form string="Patient Evaluation">
                     <notebook>
                         <page string="Main Info" id="page_patient_evaluation_main">
-                            <group colspan="4" col="6" id="evaluation_header"> 
+                            <group colspan="4" col="8" id="evaluation_header"> 
                                 <label name="patient"/>
                                 <field name="patient"/>
-                                <label name="evaluation_type"/>
-                                <field name="evaluation_type"/>
                                 <label name="visit_type"/>
                                 <field name="visit_type"/>
-                                <label name="urgency"/>
-                                <field name="urgency"/>
-                                <label name="specialty"/>
-                                <field name="specialty"/>
-                                <newline/>
+                                <label name="doctor"/>
+                                <field name="doctor"/>
                                 <label name="evaluation_start"/>
                                 <field name="evaluation_start"/>
-                                <label name="evaluation_endtime"/>
-                                <field name="evaluation_endtime"/>
                             </group>
                             <newline/>
                             <separator colspan="4"
                                 id="separator_chief_complaint"/>
                             <newline/>
-                            <group string="Chief Complaint" id="eval_chief_complaint">
-                                <field name="chief_complaint"/>
+                            <group col="9" string="Chief Complaint" id="eval_chief_complaint">
+                                <field name="chief_complaint" colspan="5"/>
+                                <label name="information_source"/>
+                                <field name="information_source"/>
+                                <label name="reliable_info"/>
+                                <field name="reliable_info"/>
                             </group>
                             <newline/>
                             <separator string="Present Illness" colspan="4"
@@ -2662,24 +2659,19 @@
                             <newline/>
                             <field name="evaluation_summary" colspan="4"/>
                             <newline/>
-                            <group colspan="4" col="8" id="group_eval_misc">
-                                <label name="evaluation_date"/>
-                                <field name="evaluation_date"/>
-                                <label name="derived_from"/>
-                                <field name="derived_from"/>
-                                <label name="information_source"/>
-                                <field name="information_source"/>
-                                <label name="reliable_info"/>
-                                <field name="reliable_info"/>
-								<newline/>
-                                <label name="doctor"/>
-                                <field name="doctor"/>
-                                <label name="state"/>
+                            <group colspan="4" col="12" id="group_eval_misc">
+                                <label name="evaluation_type"/>
+                                <field name="evaluation_type"/>
+                                <label name="specialty"/>
+                                <field name="specialty"/>
+                                <label name="urgency"/>
+                                <field name="urgency"/>
+                                <label name="evaluation_endtime"/>
+                                <field name="evaluation_endtime"/>
                                 <field name="state"/>
                                 <button name="discharge" help="Sign and close the evaluation" 
                                     string="Sign" icon="tryton-go-next" 
                                     confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
-                                <label name="signed_by"/>
                                 <field name="signed_by"/>
                             </group>
                         </page>
@@ -2810,6 +2802,10 @@
                             <field name="diagnostic_hypothesis" colspan="2" />
                             <field name="actions" colspan="2"/>
                             <newline/>
+                            <label name="evaluation_date"/>
+                            <field name="evaluation_date"/>
+                            <label name="derived_from"/>
+                            <field name="derived_from"/>
                             <label name="next_evaluation"/>
                             <field name="next_evaluation"/>
                             <label name="derived_to"/>

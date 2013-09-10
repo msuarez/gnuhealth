@@ -2428,11 +2428,17 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     doctor = fields.Many2One(
-        'gnuhealth.physician', 'Initiated by', readonly=True)
+        'gnuhealth.physician', 'Health Prof',
+        help="Health professional that initiates the evaluation."
+        "This health professional might or might not be the same that"
+        " signs and finishes the evaluation."
+        "The evaluation remains in progress state until it is signed"
+        ", when it becomes read-only", readonly=True)
 
     signed_by = fields.Many2One(
         'gnuhealth.physician', 'Signed by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'in_progress')})
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that signed the patient evaluation document")
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
 
