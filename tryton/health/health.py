@@ -2701,6 +2701,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         # and write the name of the signing doctor
 
         signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
         cls.write(evaluations, {
             'state': 'done',
             'signed_by': signing_hp})
