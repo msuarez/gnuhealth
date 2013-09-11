@@ -1607,7 +1607,7 @@ class Appointment(ModelSQL, ModelView):
     @staticmethod
     def default_doctor():
         return HealthProfessional().get_health_professional()
-        
+
     @staticmethod
     def default_urgency():
         return 'a'
@@ -1764,6 +1764,7 @@ class OpenAppointmentReportStart(ModelView):
     @staticmethod
     def default_doctor():
         return HealthProfessional().get_health_professional()
+
 
 class OpenAppointmentReport(Wizard):
     'Open Appointment Report'
@@ -2132,7 +2133,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     @staticmethod
     def default_doctor():
         return HealthProfessional().get_health_professional()
-        
+
     def check_prescription_warning(self):
         return self.prescription_warning_ack
 
