@@ -758,12 +758,13 @@ class ProcedureCode(ModelSQL, ModelView):
 
 class InsurancePlan(ModelSQL, ModelView):
     'Insurance Plan'
+
     __name__ = 'gnuhealth.insurance.plan'
     _rec_name = 'company'
 
     name = fields.Many2One(
         'product.product', 'Plan', required=True,
-        domain=[('type', '=', 'service'), ('is_insurance_plan', '=', True)],
+        domain=[('is_insurance_plan', '=', True)],        
         help='Insurance company plan')
 
     company = fields.Many2One(
@@ -786,6 +787,8 @@ class Insurance(ModelSQL, ModelView):
     __name__ = 'gnuhealth.insurance'
     _rec_name = 'number'
 
+    # Insurance associated to an individual
+
     name = fields.Many2One('party.party', 'Owner')
     number = fields.Char('Number', required=True)
 
@@ -807,7 +810,8 @@ class Insurance(ModelSQL, ModelView):
         ], 'Insurance Type', select=True)
     plan_id = fields.Many2One(
         'gnuhealth.insurance.plan', 'Plan',
-        help='Insurance company plan')
+        help='Insurance company plan',
+        domain=[('company', '=', Eval('company'))])
 
     notes = fields.Text('Extra Info')
 
