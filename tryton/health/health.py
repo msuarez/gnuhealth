@@ -764,7 +764,7 @@ class InsurancePlan(ModelSQL, ModelView):
 
     name = fields.Many2One(
         'product.product', 'Plan', required=True,
-        domain=[('is_insurance_plan', '=', True)],        
+        domain=[('is_insurance_plan', '=', True)],
         help='Insurance company plan')
 
     company = fields.Many2One(
@@ -854,11 +854,20 @@ class PartyPatient (ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('is_person')))})
 
     is_person = fields.Boolean(
-        'Person', help='Check if the party is a person.')
+        'Person',
+        on_change_with=['is_person', 'is_patient', 'is_doctor'],
+        help='Check if the party is a person.')
+
     is_patient = fields.Boolean(
-        'Patient', help='Check if the party is a patient')
+        'Patient',
+        states={'invisible': Not(Bool(Eval('is_person')))},
+        help='Check if the party is a patient')
+
     is_doctor = fields.Boolean(
-        'Health Prof', help='Check if the party is a health professional')
+        'Health Prof',
+        states={'invisible': Not(Bool(Eval('is_person')))},
+        help='Check if the party is a health professional')
+
     is_institution = fields.Boolean(
         'Institution', help='Check if the party is a Medical Center')
     is_insurance_company = fields.Boolean(
@@ -972,6 +981,27 @@ class PartyPatient (ModelSQL, ModelView):
         if parties:
             return [(field,) + clause[1:]]
         return [(cls._rec_name,) + clause[1:]]
+
+    def on_change_with_is_person(self):
+        # Set is_person if the party is a health professional or a patient
+        if (self.is_doctor or self.is_patient or self.is_person):
+            return True
+
+    @classmethod
+    def validate(cls, parties):
+        super(PartyPatient, cls).validate(parties)
+        for party in parties:
+            party.check_person()
+
+    def check_person(self):
+    # Verify that health professional and patient
+    # are unchecked when is_person is False
+    
+        if not self.is_person and (self.is_patient or self.is_doctor):
+            self.raise_user_error (
+            "The Person field must be set if the party is a health"
+            " professional or a patient")
+            
 
 
 class PartyAddress(ModelSQL, ModelView):
