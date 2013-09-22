@@ -1,0 +1,1183 @@
+# 
+# Translators:
+# Eric Vernichon <eric@vernichon.fr>, 2012-2013
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2013-06-28 18:56-0300\n"
+"PO-Revision-Date: 2013-09-22 15:12+0000\n"
+"Last-Translator: Eric Vernichon <eric@vernichon.fr>\n"
+"Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "error:gnuhealth.newborn:"
+msgid "The Newborn ID must be unique !"
+msgstr "L'ID du nouveau-né doit être unique!"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_activity:"
+msgid "Activity"
+msgstr "Activité"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_appearance:"
+msgid "Appearance"
+msgstr "Apparence"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_grimace:"
+msgid "Grimace"
+msgstr "Grimace"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_minute:"
+msgid "Minute"
+msgstr "Minute"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_pulse:"
+msgid "Pulse"
+msgstr "Pulsation"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_respiration:"
+msgid "Respiration"
+msgstr "La respiration"
+
+msgctxt "field:gnuhealth.neonatal.apgar,apgar_score:"
+msgid "APGAR Score"
+msgstr "Score d'Apgar"
+
+msgctxt "field:gnuhealth.neonatal.apgar,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:gnuhealth.neonatal.apgar,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:gnuhealth.neonatal.apgar,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.neonatal.apgar,name:"
+msgid "Newborn ID"
+msgstr "ID du nouveau-né"
+
+msgctxt "field:gnuhealth.neonatal.apgar,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:gnuhealth.neonatal.apgar,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+msgctxt "field:gnuhealth.neonatal.apgar,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "field:gnuhealth.newborn,apgar1:"
+msgid "APGAR 1st minute"
+msgstr "APGAR 1ère minute"
+
+msgctxt "field:gnuhealth.newborn,apgar5:"
+msgid "APGAR 5th minute"
+msgstr "APGAR 5e minute"
+
+msgctxt "field:gnuhealth.newborn,apgar_scores:"
+msgid "APGAR scores"
+msgstr "Scores d'Apgar"
+
+msgctxt "field:gnuhealth.newborn,bd:"
+msgid "Stillbirth"
+msgstr "Mortinaissance"
+
+msgctxt "field:gnuhealth.newborn,birth_date:"
+msgid "Date of Birth"
+msgstr "Date de naissance"
+
+msgctxt "field:gnuhealth.newborn,cephalic_perimeter:"
+msgid "Cephalic Perimeter"
+msgstr "Périmètre céphalique"
+
+msgctxt "field:gnuhealth.newborn,cod:"
+msgid "Cause of death"
+msgstr "Cause du décés"
+
+msgctxt "field:gnuhealth.newborn,congenital_diseases:"
+msgid "Congenital diseases"
+msgstr "Maladies congénitales"
+
+msgctxt "field:gnuhealth.newborn,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:gnuhealth.newborn,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:gnuhealth.newborn,died_at_delivery:"
+msgid "Died at delivery room"
+msgstr "Décédé à la salle d'accouchement"
+
+msgctxt "field:gnuhealth.newborn,died_at_the_hospital:"
+msgid "Died at the hospital"
+msgstr "Décédé à l'hôpital"
+
+msgctxt "field:gnuhealth.newborn,died_being_transferred:"
+msgid "Died being transferred"
+msgstr "Décédé en cours de transfert"
+
+msgctxt "field:gnuhealth.newborn,dismissed:"
+msgid "Discharged"
+msgstr "Sortie"
+
+msgctxt "field:gnuhealth.newborn,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.newborn,length:"
+msgid "Length"
+msgstr "Longueur"
+
+msgctxt "field:gnuhealth.newborn,meconium:"
+msgid "Meconium"
+msgstr "Le méconium"
+
+msgctxt "field:gnuhealth.newborn,medication:"
+msgid "Medication"
+msgstr "Médicaments"
+
+msgctxt "field:gnuhealth.newborn,mother:"
+msgid "Mother"
+msgstr "Mère"
+
+msgctxt "field:gnuhealth.newborn,name:"
+msgid "Newborn ID"
+msgstr "ID du nouveau-né"
+
+msgctxt "field:gnuhealth.newborn,neonatal_ambiguous_genitalia:"
+msgid "Ambiguous Genitalia"
+msgstr "Ambiguïté génitale"
+
+msgctxt "field:gnuhealth.newborn,neonatal_babinski_reflex:"
+msgid "Babinski Reflex"
+msgstr "Signe de Babinski"
+
+msgctxt "field:gnuhealth.newborn,neonatal_barlow:"
+msgid "Positive Barlow"
+msgstr "Barlow positif"
+
+msgctxt "field:gnuhealth.newborn,neonatal_blink_reflex:"
+msgid "Blink Reflex"
+msgstr "Réflexe de clignement"
+
+msgctxt "field:gnuhealth.newborn,neonatal_erbs_palsy:"
+msgid "Erbs Palsy"
+msgstr "Paralysie Erbs"
+
+msgctxt "field:gnuhealth.newborn,neonatal_grasp_reflex:"
+msgid "Grasp Reflex"
+msgstr "Réflexe d'agrippement ou de grasping"
+
+msgctxt "field:gnuhealth.newborn,neonatal_hematoma:"
+msgid "Hematomas"
+msgstr "Hématomes"
+
+msgctxt "field:gnuhealth.newborn,neonatal_hernia:"
+msgid "Hernia"
+msgstr "Hernie"
+
+msgctxt "field:gnuhealth.newborn,neonatal_moro_reflex:"
+msgid "Moro Reflex"
+msgstr "Réflexe de Moro ou de défense"
+
+msgctxt "field:gnuhealth.newborn,neonatal_ortolani:"
+msgid "Positive Ortolani"
+msgstr "positif Ortolani"
+
+msgctxt "field:gnuhealth.newborn,neonatal_palmar_crease:"
+msgid "Transversal Palmar Crease"
+msgstr "Pli palmaire transverse"
+
+msgctxt "field:gnuhealth.newborn,neonatal_polydactyly:"
+msgid "Polydactyly"
+msgstr "Polydactylie"
+
+msgctxt "field:gnuhealth.newborn,neonatal_rooting_reflex:"
+msgid "Rooting Reflex"
+msgstr "Réflexe des points cardinaux ou de recherche"
+
+msgctxt "field:gnuhealth.newborn,neonatal_stepping_reflex:"
+msgid "Stepping Reflex"
+msgstr "Réflexes de redressement et de la marche automatique"
+
+msgctxt "field:gnuhealth.newborn,neonatal_sucking_reflex:"
+msgid "Sucking Reflex"
+msgstr "Réflexe de succion"
+
+msgctxt "field:gnuhealth.newborn,neonatal_swimming_reflex:"
+msgid "Swimming Reflex"
+msgstr "Réflexe de nage"
+
+msgctxt "field:gnuhealth.newborn,neonatal_syndactyly:"
+msgid "Syndactyly"
+msgstr "Syndactylie"
+
+msgctxt "field:gnuhealth.newborn,neonatal_talipes_equinovarus:"
+msgid "Talipes Equinovarus"
+msgstr "Pied-bot"
+
+msgctxt "field:gnuhealth.newborn,neonatal_tonic_neck_reflex:"
+msgid "Tonic Neck Reflex"
+msgstr "Réflexe tonique asymétrique du cou"
+
+msgctxt "field:gnuhealth.newborn,newborn_name:"
+msgid "Baby's name"
+msgstr "Nom du bébé"
+
+msgctxt "field:gnuhealth.newborn,notes:"
+msgid "Notes"
+msgstr "Notes"
+
+msgctxt "field:gnuhealth.newborn,photo:"
+msgid "Picture"
+msgstr "Photo"
+
+msgctxt "field:gnuhealth.newborn,reanimation_aspiration:"
+msgid "Aspiration"
+msgstr "Aspiration"
+
+msgctxt "field:gnuhealth.newborn,reanimation_intubation:"
+msgid "Intubation"
+msgstr "Intubation"
+
+msgctxt "field:gnuhealth.newborn,reanimation_mask:"
+msgid "Mask"
+msgstr "Masque"
+
+msgctxt "field:gnuhealth.newborn,reanimation_oxygen:"
+msgid "Oxygen"
+msgstr "Oxygène"
+
+msgctxt "field:gnuhealth.newborn,reanimation_stimulation:"
+msgid "Stimulation"
+msgstr "Stimulation"
+
+msgctxt "field:gnuhealth.newborn,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:gnuhealth.newborn,responsible:"
+msgid "Doctor in charge"
+msgstr "Médecin responsable"
+
+msgctxt "field:gnuhealth.newborn,sex:"
+msgid "Sex"
+msgstr "Sex"
+
+msgctxt "field:gnuhealth.newborn,test_audition:"
+msgid "Audition"
+msgstr "Audition"
+
+msgctxt "field:gnuhealth.newborn,test_billirubin:"
+msgid "Billirubin"
+msgstr "Bilirubine"
+
+msgctxt "field:gnuhealth.newborn,test_chagas:"
+msgid "Chagas"
+msgstr "Chagas"
+
+msgctxt "field:gnuhealth.newborn,test_metabolic:"
+msgid "Metabolic (\"heel stick screening\")"
+msgstr "Métaboliques (\"de dépistage au talon\")"
+
+msgctxt "field:gnuhealth.newborn,test_toxo:"
+msgid "Toxoplasmosis"
+msgstr "Toxoplasmose"
+
+msgctxt "field:gnuhealth.newborn,test_vdrl:"
+msgid "VDRL"
+msgstr "VDRL"
+
+msgctxt "field:gnuhealth.newborn,tod:"
+msgid "Time of Death"
+msgstr "Heure du décés"
+
+msgctxt "field:gnuhealth.newborn,weight:"
+msgid "Weight"
+msgstr "Poids"
+
+msgctxt "field:gnuhealth.newborn,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+msgctxt "field:gnuhealth.newborn,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "field:gnuhealth.patient.disease,newborn_id:"
+msgid "Newborn ID"
+msgstr "ID du nouveau-né"
+
+msgctxt "field:gnuhealth.patient.medication,newborn_id:"
+msgid "Newborn ID"
+msgstr "ID du nouveau-né"
+
+msgctxt "field:gnuhealth.patient.psc,create_date:"
+msgid "Create Date"
+msgstr "Date de création"
+
+msgctxt "field:gnuhealth.patient.psc,create_uid:"
+msgid "Create User"
+msgstr "Créé par"
+
+msgctxt "field:gnuhealth.patient.psc,evaluation_date:"
+msgid "Appointment"
+msgstr "Consultation"
+
+msgctxt "field:gnuhealth.patient.psc,evaluation_start:"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "field:gnuhealth.patient.psc,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.psc,notes:"
+msgid "Notes"
+msgstr "Notes"
+
+msgctxt "field:gnuhealth.patient.psc,patient:"
+msgid "Patient"
+msgstr "Patient"
+
+msgctxt "field:gnuhealth.patient.psc,psc_absent_from_school:"
+msgid "Absent from school"
+msgstr "Absent de l'école"
+
+msgctxt "field:gnuhealth.patient.psc,psc_aches_pains:"
+msgid "Complains of aches and pains"
+msgstr "Se plaint de maux et douleurs"
+
+msgctxt "field:gnuhealth.patient.psc,psc_act_as_younger:"
+msgid "Acts younger than children his or her age"
+msgstr "Agit plus jeune que les enfants de son âge"
+
+msgctxt "field:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
+msgid "Acts as if driven by a motor"
+msgstr "Agit comme si entraînée par un moteur"
+
+msgctxt "field:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
+msgid "Is afraid of new situations"
+msgstr "A peur des nouvelles situations"
+
+msgctxt "field:gnuhealth.patient.psc,psc_blames_others:"
+msgid "Blames others for his or her troubles"
+msgstr "Blâme les autres pour les troubles qu'il(elle) a"
+
+msgctxt "field:gnuhealth.patient.psc,psc_daydreams_too_much:"
+msgid "Daydreams too much"
+msgstr "Rêves trop pendant la journée"
+
+msgctxt "field:gnuhealth.patient.psc,psc_distracted_easily:"
+msgid "Distracted easily"
+msgstr "Facilement distrait"
+
+msgctxt "field:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
+msgid "Does not get people feelings"
+msgstr "Ne ressent pas les sentiments des gens"
+
+msgctxt "field:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
+msgid "Does not listen to rules"
+msgstr "N'écoute pas les règles"
+
+msgctxt "field:gnuhealth.patient.psc,psc_does_not_show_feelings:"
+msgid "Does not show feelings"
+msgstr "Ne montre pas ses sentiments"
+
+msgctxt "field:gnuhealth.patient.psc,psc_down_on_self:"
+msgid "Is down on him or herself"
+msgstr "Replié sur lui même"
+
+msgctxt "field:gnuhealth.patient.psc,psc_feels_hopeless:"
+msgid "Feels hopeless"
+msgstr "Se sent désespéré"
+
+msgctxt "field:gnuhealth.patient.psc,psc_feels_is_bad_child:"
+msgid "Feels he or she is bad"
+msgstr "Sent qu'il est mauvais"
+
+msgctxt "field:gnuhealth.patient.psc,psc_fidgety:"
+msgid "Fidgety, unable to sit still"
+msgstr "Agité, incapable de rester assis"
+
+msgctxt "field:gnuhealth.patient.psc,psc_fights_with_others:"
+msgid "Fights with other children"
+msgstr "Se bagarres avec les autres enfants"
+
+msgctxt "field:gnuhealth.patient.psc,psc_gets_hurt_often:"
+msgid "Gets hurt frequently"
+msgstr "Se blesse fréquemment"
+
+msgctxt "field:gnuhealth.patient.psc,psc_having_less_fun:"
+msgid "Seems to be having less fun"
+msgstr "Semble avoir moins de plaisir"
+
+msgctxt "field:gnuhealth.patient.psc,psc_irritable_angry:"
+msgid "Is irritable, angry"
+msgstr "Est irritable, colérique"
+
+msgctxt "field:gnuhealth.patient.psc,psc_less_interest_in_school:"
+msgid "Less interested in school"
+msgstr "Moins intéressé à l'école"
+
+msgctxt "field:gnuhealth.patient.psc,psc_less_interested_in_friends:"
+msgid "Less interested in friends"
+msgstr "Moins intéressés à des amis"
+
+msgctxt "field:gnuhealth.patient.psc,psc_refuses_to_share:"
+msgid "Refuses to share"
+msgstr "Refuse de partager"
+
+msgctxt "field:gnuhealth.patient.psc,psc_sad_unhappy:"
+msgid "Feels sad, unhappy"
+msgstr "Se sent triste, malheureux"
+
+msgctxt "field:gnuhealth.patient.psc,psc_school_grades_dropping:"
+msgid "School grades dropping"
+msgstr "Niveau scolaire bas"
+
+msgctxt "field:gnuhealth.patient.psc,psc_spend_time_alone:"
+msgid "Spends more time alone"
+msgstr "Passe beaucoup de temps seul"
+
+msgctxt "field:gnuhealth.patient.psc,psc_takes_things_from_others:"
+msgid "Takes things that do not belong to him or her"
+msgstr "Prend des choses qui lui n'appartiennent pas"
+
+msgctxt "field:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
+msgid "Takes unnecessary risks"
+msgstr "Prend des risques inutiles"
+
+msgctxt "field:gnuhealth.patient.psc,psc_teases_others:"
+msgid "Teases others"
+msgstr "Taquine les autres"
+
+msgctxt "field:gnuhealth.patient.psc,psc_tires_easily:"
+msgid "Tires easily, has little energy"
+msgstr "Se fatigue facilement, a peu d'énergie"
+
+msgctxt "field:gnuhealth.patient.psc,psc_total:"
+msgid "PSC Total"
+msgstr "Total LSP"
+
+msgctxt "field:gnuhealth.patient.psc,psc_trouble_concentrating:"
+msgid "Has trouble concentrating"
+msgstr "A du mal à se concentrer"
+
+msgctxt "field:gnuhealth.patient.psc,psc_trouble_sleeping:"
+msgid "Has trouble sleeping"
+msgstr "A du mal à dormir"
+
+msgctxt "field:gnuhealth.patient.psc,psc_trouble_with_teacher:"
+msgid "Has trouble with teacher"
+msgstr "A du mal avec l'enseignant"
+
+msgctxt "field:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
+msgid "Visits the doctor with doctor finding nothing wrong"
+msgstr "Visites du médecin mais aucune anomalie trouvée"
+
+msgctxt "field:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
+msgid "Wants to be with you more than before"
+msgstr "Veut être avec vous plus qu'avant"
+
+msgctxt "field:gnuhealth.patient.psc,psc_worries_a_lot:"
+msgid "Worries a lot"
+msgstr "S'inquiète beaucoup"
+
+msgctxt "field:gnuhealth.patient.psc,rec_name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:gnuhealth.patient.psc,user_id:"
+msgid "Healh Professional"
+msgstr "Professionnel de santé"
+
+msgctxt "field:gnuhealth.patient.psc,write_date:"
+msgid "Write Date"
+msgstr "Date de modification"
+
+msgctxt "field:gnuhealth.patient.psc,write_uid:"
+msgid "Write User"
+msgstr "Modifié par"
+
+msgctxt "help:gnuhealth.newborn,cephalic_perimeter:"
+msgid "Perimeter in centimeters (cm)"
+msgstr "Périmètre en centimètres (cm)"
+
+msgctxt "help:gnuhealth.newborn,died_being_transferred:"
+msgid "The baby died being transferred to another health institution"
+msgstr "Le bébé est mort en cours de transfert vers un autre établissement de santé"
+
+msgctxt "help:gnuhealth.newborn,length:"
+msgid "Perimeter in centimeters (cm)"
+msgstr "Périmètre en centimètres (cm)"
+
+msgctxt "help:gnuhealth.newborn,responsible:"
+msgid "Signed by the health professional"
+msgstr "Signé par le professionnel de la santé"
+
+msgctxt "help:gnuhealth.newborn,test_metabolic:"
+msgid ""
+"Test for Fenilketonuria, Congenital Hypothyroidism, Quistic Fibrosis, "
+"Galactosemia"
+msgstr "Test de la phénylcétonurie, l'hypothyroïdie congénitale, la fibrose kystique, Galactosémie"
+
+msgctxt "help:gnuhealth.newborn,weight:"
+msgid "Weight in grams (g)"
+msgstr "Poids en grammes (g)"
+
+msgctxt "help:gnuhealth.patient.psc,evaluation_date:"
+msgid ""
+"Enter or select the date / ID of the appointment related to this evaluation"
+msgstr "Entrez ou sélectionnez la date / l'ID du rendez-vous lié à cette évaluation"
+
+msgctxt "model:gnuhealth.neonatal.apgar,name:"
+msgid "Neonatal APGAR Score"
+msgstr "Score d'Apgar"
+
+msgctxt "model:gnuhealth.newborn,name:"
+msgid "Newborn Information"
+msgstr "Informations sur le nouveau-né"
+
+msgctxt "model:gnuhealth.patient.psc,name:"
+msgid "Pediatric Symptoms Checklist"
+msgstr "Liste des symptômes pédiatriques"
+
+msgctxt "model:ir.action,name:act_psc_form1"
+msgid "PSC"
+msgstr "LSP"
+
+msgctxt "model:ir.action,name:gnuhealth_action_newborn"
+msgid "Newborn"
+msgstr "Nouveau-né"
+
+msgctxt "model:ir.action,name:gnuhealth_action_psc"
+msgid "Pediatric Symptom Checklist"
+msgstr "Liste des symptômes pédiatriques"
+
+msgctxt "model:ir.action,name:report_newborn_card"
+msgid "Newborn ID"
+msgstr "ID du nouveau-né"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_newborn"
+msgid "Newborn"
+msgstr "Nouveau-né"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_psc"
+msgid "Pediatric Symptom Checklist"
+msgstr "Liste des symptômes pédiatriques"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_pediatrics"
+msgid "Pediatrics"
+msgstr "Pédiatrie"
+
+msgctxt "model:res.group,name:group_health_pediatrics_admin"
+msgid "Health Pediatrics Administration"
+msgstr "Administration Pédiatrie"
+
+msgctxt "odt:newborn.card:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:newborn.card:"
+msgid ":"
+msgstr ":"
+
+msgctxt "odt:newborn.card:"
+msgid "DoB"
+msgstr "Date de naissance"
+
+msgctxt "odt:newborn.card:"
+msgid "Female"
+msgstr "Féminin"
+
+msgctxt "odt:newborn.card:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "odt:newborn.card:"
+msgid "Male"
+msgstr "Masculin"
+
+msgctxt "odt:newborn.card:"
+msgid "Mother"
+msgstr "Mère"
+
+msgctxt "odt:newborn.card:"
+msgid "Mother's ID"
+msgstr "Identifiant de la mère"
+
+msgctxt "odt:newborn.card:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "odt:newborn.card:"
+msgid "and"
+msgstr "et"
+
+msgctxt "odt:newborn.card:"
+msgid "cm"
+msgstr "cm"
+
+msgctxt "odt:newborn.card:"
+msgid "gr"
+msgstr "gr"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
+msgid "None"
+msgstr "Aucun"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
+msgid "Some flexion"
+msgstr "certaine flexion"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
+msgid "flexed arms and legs"
+msgstr "bras et jambes fléchis"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
+msgid "acrocyanosis"
+msgstr "acrocyanose"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
+msgid "central cyanosis"
+msgstr "cyanose centrale"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
+msgid "no cyanosis"
+msgstr "pas de cyanose"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
+msgid "No response to stimulation"
+msgstr "Aucune réponse à une stimulation"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
+msgid "cry or pull away when stimulated"
+msgstr "pleure ou se débat lorsqu'ils est stimulé"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
+msgid "grimace when stimulated"
+msgstr "grimace lorsqu'il est stimulé"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
+msgid "< 100"
+msgstr "< 100"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
+msgid "> 100"
+msgstr "> 100"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
+msgid "Absent"
+msgstr "Absent"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
+msgid "Absent"
+msgstr "Absent"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
+msgid "Weak / Irregular"
+msgstr "Faiblesse / irrégulière"
+
+msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
+msgid "strong"
+msgstr "fort"
+
+msgctxt "selection:gnuhealth.newborn,sex:"
+msgid "Ambiguous genitalia"
+msgstr "Ambiguïté génitale"
+
+msgctxt "selection:gnuhealth.newborn,sex:"
+msgid "Female"
+msgstr "Féminin"
+
+msgctxt "selection:gnuhealth.newborn,sex:"
+msgid "Male"
+msgstr "Masculin"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
+msgid "Never"
+msgstr "Jamais"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
+msgid "Often"
+msgstr "Souvent"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
+msgid "Sometimes"
+msgstr "Parfois"
+
+msgctxt "view:gnuhealth.neonatal.apgar:"
+msgid "APGAR"
+msgstr "APGAR"
+
+msgctxt "view:gnuhealth.neonatal.apgar:"
+msgid "APGAR Score"
+msgstr "Score d'Apgar"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Deceased"
+msgstr "Décédé"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Findings and Tests"
+msgstr "Constatations et Tests"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Main"
+msgstr "Général"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Neonatal Reflex Check"
+msgstr "Vérification néonatale des reflexes"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Neonatal Signs and Symptoms"
+msgstr "Signes et symptômes néonatals"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Newborn Info"
+msgstr "Informations sur le nouveau-né"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Newborn Information"
+msgstr "Informations sur le nouveau-né"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Notes"
+msgstr "Notes"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Other"
+msgstr "Autre"
+
+msgctxt "view:gnuhealth.newborn:"
+msgid "Tests"
+msgstr "Tests"
+
+msgctxt "view:gnuhealth.patient.psc:"
+msgid "PSC - Pediatric Symptoms Checklist History"
+msgstr "Historique Liste des Symptômes Pediatrique - LSP"
+
+msgctxt "view:gnuhealth.patient.psc:"
+msgid "Pediatric Symptoms Checklist - PSC"
+msgstr "Liste des Symptômes Pediatrique - LSP"
