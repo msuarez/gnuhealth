@@ -996,12 +996,11 @@ class PartyPatient (ModelSQL, ModelView):
     def check_person(self):
     # Verify that health professional and patient
     # are unchecked when is_person is False
-    
+
         if not self.is_person and (self.is_patient or self.is_doctor):
-            self.raise_user_error (
-            "The Person field must be set if the party is a health"
-            " professional or a patient")
-            
+            self.raise_user_error(
+                "The Person field must be set if the party is a health"
+                " professional or a patient")
 
 
 class PartyAddress(ModelSQL, ModelView):
@@ -1010,11 +1009,11 @@ class PartyAddress(ModelSQL, ModelView):
 
     relationship = fields.Char(
         'Relationship',
-        help='Include the relationship with the patient - friend, co-worker,'
+        help='Include the relationship with the person - friend, co-worker,'
         ' brother,...')
     relative_id = fields.Many2One(
         'party.party', 'Contact', domain=[('is_person', '=', True)],
-        help='If the relative is also a patient, please include it here')
+        help='Include link to the relative')
 
     is_school = fields.Boolean(
         "School", help="Check this box to mark the school address")
