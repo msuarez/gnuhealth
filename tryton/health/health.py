@@ -1676,29 +1676,19 @@ class Appointment(ModelSQL, ModelView):
         # It will be overwritten if the health professional is modified in
         # this view, the on_change_with will take effect.
 
-        cursor = Transaction().cursor
-        User = Pool().get('res.user')
-        user = User(Transaction().user)
-        login_user_id = int(user.id)
-        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
-            internal_user = %s LIMIT 1', (login_user_id,))
-        partner_id = cursor.fetchone()
-        if partner_id:
-            cursor = Transaction().cursor
+        # Get Party ID associated to the Health Professional
+        hp_party_id = HealthProfessional().get_health_professional()
 
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
-                name = %s LIMIT 1', (partner_id[0],))
+        if hp_party_id:
+            # Retrieve the health professional Main specialty, if assigned
 
-            doctor_id = cursor.fetchone()
-            cursor = Transaction().cursor
+            health_professional_obj = Pool().get('gnuhealth.physician')
+            health_professional = health_professional_obj.search(
+                [('id', '=', hp_party_id)], limit=1)[0]
+            hp_main_specialty = health_professional.main_specialty
 
-            cursor.execute('SELECT specialty FROM gnuhealth_hp_specialty \
-                WHERE name = %s LIMIT 1', (doctor_id[0],))
-
-            specialty_id = cursor.fetchone()
-
-            if (specialty_id):
-                return int(specialty_id[0])
+            if hp_main_specialty:
+                return hp_main_specialty.specialty.id
 
     def get_rec_name(self, name):
         return self.name
