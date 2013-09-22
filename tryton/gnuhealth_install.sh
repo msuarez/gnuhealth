@@ -105,7 +105,7 @@ install_python_dependencies() {
     local PIP_RELATORIO="relatorio"
     local PIP_DATEUTIL="python-dateutil"
     local PIP_PSYCOPG2="psycopg2"
-    local PIP_PYTZ="pytz"
+    local PIP_PYTZ="pytz>=2013b"
     local PIP_LDAP="python-ldap"
     local PIP_VOBJECT="vobject"
     local PIP_PYWEBDAV="pywebdav"
