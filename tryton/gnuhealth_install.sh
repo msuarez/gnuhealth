@@ -105,7 +105,7 @@ install_python_dependencies() {
     local PIP_RELATORIO="relatorio"
     local PIP_DATEUTIL="python-dateutil"
     local PIP_PSYCOPG2="psycopg2"
-    local PIP_PYTZ="pytz>=2013b"
+    local PIP_PYTZ="pytz"
     local PIP_LDAP="python-ldap"
     local PIP_VOBJECT="vobject"
     local PIP_PYWEBDAV="pywebdav"
@@ -114,8 +114,12 @@ install_python_dependencies() {
     local PIP_CALDAV="caldav"
     local PIP_POLIB="polib"
 
-    local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_PYTZ $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
+    local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
 
+    message "[INFO] Special Installation of Python Timezone Library PYTZ ..." ${YELLOW}
+    local PIP_PYTZ_ARGS="install --user --pre"
+    ${PIP_CMD} ${PIP_PYTZ_ARGS} ${PIP_PYTZ} || exit 1
+    
     message "[INFO] Installing python dependencies with pip..." ${YELLOW}
     for PKG in ${PIP_PKGS}; do
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
