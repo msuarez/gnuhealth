@@ -102,7 +102,8 @@ class CreateServiceInvoice(Wizard):
                             'sequence': seq
                         }]))
                 invoice_data['lines'] = invoice_lines
-                invoices.append(invoice_data)
+        
+            invoices.append(invoice_data)
 
         Invoice.create(invoices)
 
