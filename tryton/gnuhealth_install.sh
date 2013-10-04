@@ -96,6 +96,7 @@ check_requirements() {
 
 install_python_dependencies() {
     local PIP_CMD=$(which $PIP_NAME)
+    local PIP_VERSION="$(${PIP_CMD} --version | awk '{print $2}')"
 
     # TODO: Change for virtualenv support.
     local PIP_ARGS="install --user"
@@ -116,13 +117,22 @@ install_python_dependencies() {
 
     local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
 
-    message "[INFO] Special Installation of Python Timezone Library PYTZ ..." ${YELLOW}
-    local PIP_PYTZ_ARGS="install --user --pre"
-    ${PIP_CMD} ${PIP_PYTZ_ARGS} ${PIP_PYTZ} || exit 1
-    
-    message "[INFO] Installing python dependencies with pip..." ${YELLOW}
+    message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
+
+    # Handling of BACKWARD INCOMPATIBLE arguments for pip command:
+    if [[ "${PIP_VERSION}" > "1.4" ]]; then
+        message " >> ${PIP_PYTZ} (including pre-release and development versions)" ${BLUE}
+        ${PIP_CMD} ${PIP_ARGS} --pre ${PIP_PYTZ} || exit 1
+    else
+        message " >> ${PIP_PYTZ}" ${BLUE}
+        ${PIP_CMD} ${PIP_ARGS} ${PIP_PYTZ} || exit 1
+    fi
+    message " >> OK" ${GREEN}
+
     for PKG in ${PIP_PKGS}; do
+        message " >> ${PKG}" ${BLUE}
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
+        message " >> OK" ${GREEN}
     done
 }
 
