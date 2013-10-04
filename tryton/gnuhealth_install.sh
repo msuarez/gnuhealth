@@ -96,6 +96,7 @@ check_requirements() {
 
 install_python_dependencies() {
     local PIP_CMD=$(which $PIP_NAME)
+    local PIP_VERSION="$(${PIP_CMD} --version | awk '{print $2}')"
 
     # TODO: Change for virtualenv support.
     local PIP_ARGS="install --user"
@@ -110,19 +111,30 @@ install_python_dependencies() {
     local PIP_VOBJECT="vobject"
     local PIP_PYWEBDAV="pywebdav"
     local PIP_QRCODE="qrcode"
+    local PIP_SIX="six"
     local PIP_PIL="PIL"
     local PIP_CALDAV="caldav"
     local PIP_POLIB="polib"
 
-    local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PIL $PIP_CALDAV $PIP_POLIB"
+    local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PIL $PIP_CALDAV $PIP_POLIB"
 
-    message "[INFO] Special Installation of Python Timezone Library PYTZ ..." ${YELLOW}
-    local PIP_PYTZ_ARGS="install --user --pre"
-    ${PIP_CMD} ${PIP_PYTZ_ARGS} ${PIP_PYTZ} || exit 1
-    
-    message "[INFO] Installing python dependencies with pip..." ${YELLOW}
+    message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
+
+    # PYTZ seems to have fixed the naming conventions issues and now is compatible with PyPI (We'll keep the code commented for a while just in case )
+    #    # Handling of BACKWARD INCOMPATIBLE arguments for pip command:
+    #    if [[ "${PIP_VERSION}" > "1.4" ]]; then
+    #        message " >> ${PIP_PYTZ} (including pre-release and development versions)" ${BLUE}
+    #        ${PIP_CMD} ${PIP_ARGS} --pre ${PIP_PYTZ} || exit 1
+    #    else
+    #        message " >> ${PIP_PYTZ}" ${BLUE}
+    #        ${PIP_CMD} ${PIP_ARGS} ${PIP_PYTZ} || exit 1
+    #    fi
+    #    message " >> OK" ${GREEN}
+
     for PKG in ${PIP_PKGS}; do
+        message " >> ${PKG}" ${BLUE}
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
+        message " >> OK" ${GREEN}
     done
 }
 
