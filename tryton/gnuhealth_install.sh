@@ -116,19 +116,20 @@ install_python_dependencies() {
     local PIP_CALDAV="caldav"
     local PIP_POLIB="polib"
 
-    local PIP_PKGS="$PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PIL $PIP_CALDAV $PIP_POLIB"
+    local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PIL $PIP_CALDAV $PIP_POLIB"
 
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
-    # Handling of BACKWARD INCOMPATIBLE arguments for pip command:
-    if [[ "${PIP_VERSION}" > "1.4" ]]; then
-        message " >> ${PIP_PYTZ} (including pre-release and development versions)" ${BLUE}
-        ${PIP_CMD} ${PIP_ARGS} --pre ${PIP_PYTZ} || exit 1
-    else
-        message " >> ${PIP_PYTZ}" ${BLUE}
-        ${PIP_CMD} ${PIP_ARGS} ${PIP_PYTZ} || exit 1
-    fi
-    message " >> OK" ${GREEN}
+    # PYTZ seems to have fixed the naming conventions issues and now is compatible with PyPI (We'll keep the code commented for a while just in case )
+    #    # Handling of BACKWARD INCOMPATIBLE arguments for pip command:
+    #    if [[ "${PIP_VERSION}" > "1.4" ]]; then
+    #        message " >> ${PIP_PYTZ} (including pre-release and development versions)" ${BLUE}
+    #        ${PIP_CMD} ${PIP_ARGS} --pre ${PIP_PYTZ} || exit 1
+    #    else
+    #        message " >> ${PIP_PYTZ}" ${BLUE}
+    #        ${PIP_CMD} ${PIP_ARGS} ${PIP_PYTZ} || exit 1
+    #    fi
+    #    message " >> OK" ${GREEN}
 
     for PKG in ${PIP_PKGS}; do
         message " >> ${PKG}" ${BLUE}
