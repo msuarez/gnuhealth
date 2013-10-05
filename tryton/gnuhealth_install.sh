@@ -34,6 +34,7 @@ GREEN="$(tput setaf 2)"
 YELLOW="\n$(tput setaf 3)"
 BLUE="\n$(tput setaf 4)"
 
+INSTDIR="$PWD"
 
 message () {
     # $1 : Message
@@ -178,6 +179,31 @@ install_directories() {
 }
 
 
+bash_profile () {
+
+    message "[INFO] Creating or Updating the BASH profile for GNU Health" ${BLUE}
+
+    cd $INSTDIR
+    
+    PROFILE="$HOME/.gnuhealthrc"
+
+    if [ -e ${PROFILE} ] ; then
+        # Make a backup copy of the GNU Health BASH profile if it exists
+        message "[INFO] GNU Health BASH Profile exists. Making backup to ${PROFILE}.bak ." ${YELLOW}
+        cp ${PROFILE} ${PROFILE}.bak || exit 1
+    fi
+
+    cp gnuhealthrc ${PROFILE} ||  exit 1
+
+    # Load .gnuhealthrc from .bash_profile . If .bash_profile does not exist, create it.
+    if [ -e $HOME/.bash_profile ] ; then
+        grep --silent "source ${PROFILE}" $HOME/.bash_profile || echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bash_profile
+    else
+        echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bash_profile
+    fi
+   
+}
+
 #
 # (0) Start.
 #
@@ -297,7 +323,13 @@ message "[INFO] OK." ${GREEN}
 
 
 #
-# (8) Clean.
+# (8) BASH Profile
+#
+bash_profile
+
+
+#
+# Clean.
 #
 message "[INFO] Cleaning Up..." ${YELLOW}
 rm -rf ${TMP_DIR} || exit 1
