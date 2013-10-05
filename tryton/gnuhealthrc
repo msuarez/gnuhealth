@@ -1,0 +1,27 @@
+# GNU Health BASH environment
+# 2013 Luis Falcon <falcon@gnu.org>
+
+# File Editor 
+
+export EDITOR=vi
+
+if ! type $EDITOR >/dev/null ; then
+    echo "$EDITOR not found" 
+fi
+
+
+# Aliases
+alias cdlogs='cd $HOME/gnuhealth/logs'
+alias cdexe='cd $HOME/gnuhealth/tryton/server/trytond-*/bin'
+alias cdconf='cd $HOME/gnuhealth/tryton/server/trytond-*/etc'
+alias editconf='${EDITOR} $HOME/gnuhealth/tryton/server/trytond-*/etc/trytond.conf'
+
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+
+alias ls='ls --color=auto'
+
+#Prompt
+
+PS1="\[\e[32;2m\]\u@\h:\[\e[30;0m\]\w $ \[\e[0m\]"
