@@ -164,12 +164,15 @@ install_directories() {
     TRYTON_BASEDIR="${BASEDIR}/tryton"
     TRYTOND_DIR="${TRYTON_BASEDIR}/server"
     MODULES_DIR="${TRYTOND_DIR}/modules"
-
+    LOG_DIR="${BASEDIR}/logs"
+    ATTACH_DIR="${HOME}/attach"
+    PATCH_DIR="${BASEDIR}/patches"
+    
     if [ -e ${BASEDIR} ] ; then
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${PATCH_DIR} ||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
