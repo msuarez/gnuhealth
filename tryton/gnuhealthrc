@@ -14,6 +14,7 @@ fi
 alias cdlogs='cd $HOME/gnuhealth/logs'
 alias cdexe='cd $HOME/gnuhealth/tryton/server/trytond-*/bin'
 alias cdconf='cd $HOME/gnuhealth/tryton/server/trytond-*/etc'
+alias cdmods='cd $HOME/gnuhealth/tryton/server/modules'
 alias editconf='${EDITOR} $HOME/gnuhealth/tryton/server/trytond-*/etc/trytond.conf'
 
 alias rm='rm -i'
