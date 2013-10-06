@@ -1,3 +1,183 @@
+changeset:   1052:718103728ae9
+tag:         tip
+parent:      1050:2d0772696d15
+parent:      1051:37943239cff5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 23:53:41 2013 -0300
+summary:     Merge in Stable
+
+changeset:   1051:37943239cff5
+branch:      stable
+parent:      1049:3fd84679c263
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 23:49:11 2013 -0300
+summary:     Update version number to 2.2.1
+
+changeset:   1050:2d0772696d15
+parent:      1045:5a578372e046
+parent:      1049:3fd84679c263
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 23:30:17 2013 -0300
+summary:     Merge from stable
+
+changeset:   1049:3fd84679c263
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 23:26:11 2013 -0300
+summary:     GNU Health profile : Add alias to change to modules directory
+
+changeset:   1048:fc12681f3b23
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 18:04:38 2013 -0300
+summary:     Removed tag 2.2.3
+
+changeset:   1047:5a556e79c400
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 18:04:36 2013 -0300
+summary:     Removed tag 2.2.2
+
+changeset:   1046:7f5d2ceae726
+branch:      stable
+parent:      1044:6429730ad604
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 18:04:34 2013 -0300
+summary:     Removed tag 2.2.1
+
+changeset:   1045:5a578372e046
+parent:      1042:d1b9cbf5f4c9
+parent:      1044:6429730ad604
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 17:40:29 2013 -0300
+summary:     Merge stable
+
+changeset:   1044:6429730ad604
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 17:38:31 2013 -0300
+summary:     Add gnuhealthrc profile
+
+changeset:   1043:dbc36574dd3f
+branch:      stable
+parent:      1041:ab3851ddc266
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 17:37:24 2013 -0300
+summary:     GNU Health Installer : Include BASH profile
+
+changeset:   1042:d1b9cbf5f4c9
+parent:      1040:0ed3de6f787e
+parent:      1041:ab3851ddc266
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 12:47:13 2013 -0300
+summary:     Merge from stable
+
+changeset:   1041:ab3851ddc266
+branch:      stable
+parent:      1039:8491da879fc7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 12:41:16 2013 -0300
+summary:     GNU Health installer : Create logs, attachments and patches directories
+
+changeset:   1040:0ed3de6f787e
+parent:      1035:e0a5fecdb905
+parent:      1039:8491da879fc7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 11:49:40 2013 -0300
+summary:     Merge from stable
+
+changeset:   1039:8491da879fc7
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 11:29:39 2013 -0300
+summary:     GNU Health Installer : Add specific version to dependencies
+
+changeset:   1038:3888c353c4af
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 00:24:28 2013 -0300
+summary:     Added tag 2.2.3 for changeset f47cbb225d19
+
+changeset:   1037:2b8afd8de9ea
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 05 00:22:05 2013 -0300
+summary:     Added tag 2.2.2 for changeset 09caf1abecc9
+
+changeset:   1036:5ae13e0da5ab
+branch:      stable
+parent:      1034:f47cbb225d19
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 04 23:56:39 2013 -0300
+summary:     Added tag 2.2.1 for changeset d0f282199918
+
+changeset:   1035:e0a5fecdb905
+parent:      1033:cfe7cc8ea722
+parent:      1034:f47cbb225d19
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 04 17:05:17 2013 -0300
+summary:     Merge changes to installer from stable
+
+changeset:   1034:f47cbb225d19
+branch:      stable
+parent:      1030:addeee7c8e86
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 04 16:57:26 2013 -0300
+summary:     GNU Health Installer : Update installer with pytz and six libraries
+
+changeset:   1033:cfe7cc8ea722
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 04 16:53:04 2013 -0300
+summary:     GNU Health Installer : Revert to regular installation for pytz and add SIX library
+
+changeset:   1032:ec7d201bef88
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Oct 04 01:44:47 2013 -0300
+summary:     GNU Health Installer : Fix bug #40171: Unmet dependency error of package "six"
+
+changeset:   1031:cba1aa443bbc
+parent:      1029:09caf1abecc9
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Oct 04 00:29:11 2013 -0300
+summary:     GNU Health Installer : Fix bug #40169: Backward incompatibility using --pre
+
+changeset:   1030:addeee7c8e86
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 03 23:29:54 2013 -0300
+summary:     create stable named branch
+
+changeset:   1029:09caf1abecc9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 02 20:57:00 2013 -0300
+summary:     Fix bug #40165: Generate draft invoices per line of service
+
+changeset:   1028:d11576832c9d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 29 12:36:05 2013 -0300
+summary:     GNU Health Installer : Fix bug #40140: Python PYTZ library and pip command
+
+changeset:   1027:d0f282199918
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 29 11:45:59 2013 -0300
+summary:     health: Fix bug bug #40128: on appointment.speciality = null report appointment reciept send error 500
+
+changeset:   1026:7f3ca03f4659
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 27 16:34:26 2013 -0300
+summary:     Added tag 2.2.0 for changeset 2fa37cd1d840
+
+changeset:   1025:2fa37cd1d840
+tag:         2.2.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 22 20:11:01 2013 -0300
+summary:     GNU Health Installer : Fix pytz version bug on pip
+
+changeset:   1024:4896a1b975b5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 22 19:00:32 2013 -0300
+summary:     Update Changelog
+
 changeset:   1023:d37ac02cf331
 tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
