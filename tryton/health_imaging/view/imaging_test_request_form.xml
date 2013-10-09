@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<form string="Imaging Test Request">
+    <label name="request"/>
+    <field name="request"/>
+    <label name="urgent"/>
+    <field name="urgent"/>
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="date"/>
+    <field name="date"/>
+    <label name="requested_test"/>
+    <field name="requested_test"/>
+    <label name="doctor"/>
+    <field name="doctor"/>
+    <group col="5" colspan="4" id="imaging_request_buttons">
+        <label name="state"/>
+        <field name="state"/>
+        <button name="requested" string="Request" icon="tryton-go-next"/>
+        <button name="generate_results" colspan="2" string="Generate Results" icon="tryton-go-next"/>
+    </group>
+    <label name="comment"/>
+    <newline/>
+    <field name="comment" colspan="4"/>
+</form>

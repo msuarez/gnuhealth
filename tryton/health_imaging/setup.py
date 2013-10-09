@@ -60,7 +60,8 @@ setup(name='trytond_health_imaging',
     package_data={
         'trytond.modules.health_imaging': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
+               'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<form string="Patient Mechanical Ventilation">
+    <group id="group_icu_ventilation" colspan="4" col="8" string="Mechanical Ventilation">
+        <label name="current_mv"/>
+        <field name="current_mv"/>
+        <label name="mv_start"/>
+        <field name="mv_start"/>
+        <label name="mv_end"/>
+        <field name="mv_end"/>
+        <label name="mv_period"/>
+        <field name="mv_period"/>
+        <label name="ventilation"/>
+        <field name="ventilation"/>
+        <label name="ett_size"/>
+        <field name="ett_size"/>
+        <label name="tracheostomy_size"/>
+        <field name="tracheostomy_size"/>
+    </group>
+    <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

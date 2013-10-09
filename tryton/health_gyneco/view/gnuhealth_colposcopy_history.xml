@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Patient colposcopy History">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="evaluation"/>
+    <field name="evaluation"/>
+    <label name="evaluation_date"/>
+    <field name="evaluation_date"/>
+    <label name="last_colposcopy"/>
+    <field name="last_colposcopy"/>
+    <label name="result"/>
+    <field name="result"/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

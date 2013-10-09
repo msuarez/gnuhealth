@@ -8,20 +8,7 @@
             <field name="model">gnuhealth.hospital.bed</field>
             <field name="type">form</field>
             <field name="inherit" ref="health.gnuhealth_hospital_bed_view"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/newline"
-                        position="replace">
-
-                        <label name="calendar"/>
-                        <field name="calendar"/>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_calendar_hospital_bed</field>
         </record>
             
     <!-- Patient hospitalization and bed registration (in-patient registration) -->
@@ -30,21 +17,7 @@
             <field name="model">gnuhealth.inpatient.registration</field>
             <field name="type">form</field>
             <field name="inherit" ref="health_inpatient.gnuhealth_inpatient_registration_view"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;page_admin_data&quot;]/group[@id=&quot;group_admin_data_holder1&quot;]/group[@id=&quot;group_admin_data_holder2&quot;]/field[@name=&quot;discharge_date&quot;]"
-                        position="after">
-
-                        <label name="event"/>
-                        <field name="event"/>
-                        <newline/>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_calendar_inpatient_registration</field>
         </record>
 
     </data>

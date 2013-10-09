@@ -25,92 +25,27 @@
         <record model="ir.ui.view" id="gnuhealth_health_service_view">
             <field name="model">gnuhealth.health_service</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="service ">
-                    <group colspan="4" col="8" id="group_service_header">
-                        <label name="name"/>
-                        <field name="name"/>
-                        <label name="service_date"/>
-                        <field name="service_date"/>
-                        <label name="desc"/>
-                        <field name="desc"/>
-                        <label name="patient"/>
-                        <field name="patient"/>
-                    </group>
-
-                    <newline/>
-                    <field colspan="4" name="service_line"/>
-                    <newline/>
-                    <label name="state"/>
-                    <field name="state"/>
-                    <button name="button_set_to_draft" string="Set to Draft"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_health_service</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_health_service_tree">
             <field name="model">gnuhealth.health_service</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Health service ">
-                    <field name="name" expand="1"/>
-                    <field name="service_date" expand="1"/>
-                    <field name="patient" expand="1"/>
-                    <field name="desc" expand="1"/>
-                    <field name="state" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_health_service_tree</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_health_service_line_view">
             <field name="model">gnuhealth.health_service.line</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Service Line">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="desc"/>
-                    <field name="desc"/>
-                    <label name="to_invoice"/>
-                    <field name="to_invoice"/>
-                    <label name="product"/>
-                    <field name="product"/>
-                    <label name="qty"/>
-                    <field name="qty"/>
-                    <label name="from_date"/>
-                    <field name="from_date"/>
-                    <label name="to_date"/>
-                    <field name="to_date"/>
-                    <label name="appointment"/>
-                    <field name="appointment"/>
-
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_health_service_line</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_health_service_line_tree">
             <field name="model">gnuhealth.health_service.line</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string="Health Service Line">
-                    <field name="to_invoice" expand="1"/>
-                    <field name="desc" expand="1"/>
-                    <field name="product" expand="1"/>
-                    <field name="qty" expand="1"/>
-                    <field name="from_date" expand="1"/>
-                    <field name="to_date" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_health_service_line_tree</field>
         </record>
 
 

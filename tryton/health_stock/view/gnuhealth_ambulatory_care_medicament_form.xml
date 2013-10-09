@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Medicament">
+    <label name="medicament"/>
+    <field name="medicament"/>
+    <label name="quantity"/>
+    <field name="quantity"/>
+    <label name="lot"/>
+    <field name="lot"/>
+    <label name="short_comment"/>
+    <field name="short_comment"/>
+    <label name="product"/>
+    <field name="product"/>
+</form>

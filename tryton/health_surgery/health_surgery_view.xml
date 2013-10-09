@@ -16,55 +16,13 @@
         <record model="ir.ui.view" id="gnuhealth_rcri_form">
             <field name="model">gnuhealth.rcri</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="RCRI : Revised Cardiac Risk Index">
-                    <group id="rcri_header" col="6">
-                        <label name="patient"/>
-                        <field name="patient"/>
-                        <label name="health_professional"/>
-                        <field name="health_professional"/>
-                        <label name="rcri_date"/>
-                        <field name="rcri_date"/>
-                    </group>
-                    <newline/>
-                    <group id="rcri_score" col="6">
-                        <label name="rcri_high_risk_surgery"/>
-                        <field name="rcri_high_risk_surgery"/>
-                        <label name="rcri_ischemic_history"/>
-                        <field name="rcri_ischemic_history"/>
-                        <label name="rcri_congestive_history"/>
-                        <field name="rcri_congestive_history"/>
-                        <label name="rcri_diabetes_history"/>
-                        <field name="rcri_diabetes_history"/>
-                        <label name="rcri_cerebrovascular_history"/>
-                        <field name="rcri_cerebrovascular_history"/>
-                        <label name="rcri_kidney_history"/>
-                        <field name="rcri_kidney_history"/>
-                        <newline/>
-                        <separator id="separator_score" colspan="6"/>
-                        <newline/>
-                        <label name="rcri_total"/>
-                        <field name="rcri_total"/>
-                        <label name="rcri_class"/>
-                        <field name="rcri_class"/>
-                    </group>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rcri_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_rcri_tree">
             <field name="model">gnuhealth.rcri</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='RCRI'>
-                    <field name="rcri_total"/>
-                    <field name="rcri_class"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rcri_tree</field>
         </record>
 
     <!-- Shortcut to the RCRI from the Patient -->
@@ -85,103 +43,13 @@
         <record model="ir.ui.view" id="gnuhealth_surgery_view">
             <field name="model">gnuhealth.surgery</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Surgery">
-
-                    <group colspan="4" col="8" id="group_surgery_header">
-                        <label name="patient"/>
-                        <field name="patient"/>
-                        <label name="surgery_date"/>
-                        <field name="surgery_date"/>
-                        <label name="computed_age"/>
-                        <field name="computed_age"/>
-                        <label name="code"/>
-                        <field name="code"/>
-
-                    <newline/>
-
-                        <label name="description"/>
-                        <field name="description"/>
-                        <label name="pathology"/>
-                        <field name="pathology"/>
-                        <label name="classification"/>
-                        <field name="classification"/>
-                        <label name="operating_room"/>
-                        <field name="operating_room"/>
-                    </group>
-
-                    <newline/>
-
-                    <group colspan="4" id="group_surgery_1">
-                        <label name="surgeon"/>
-                        <field name="surgeon"/>
-                        <label name="anesthetist"/>
-                        <field name="anesthetist"/>
-                    </group>
-                    <newline/>
-
-                    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="6">
-                        <label name="preop_asa"/>
-                        <field name="preop_asa" width="150"/>
-                        <label name="preop_rcri"/>
-                        <field name="preop_rcri"/>
-                        <label name="preop_mallampati"/>
-                        <field name="preop_mallampati" width="150"/>
-                    </group>
-                    <newline/>
-                
-                    <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="10">
-                        <label name="preop_bleeding_risk"/>
-                        <field name="preop_bleeding_risk"/>
-                        <label name="preop_oximeter"/>
-                        <field name="preop_oximeter"/>
-                        <label name="preop_site_marking"/>
-                        <field name="preop_site_marking"/>
-                        <label name="preop_antibiotics"/>
-                        <field name="preop_antibiotics"/>
-                        <label name="preop_sterility"/>
-                        <field name="preop_sterility"/>
-                    </group>
-                    <newline/>
-
-                    <separator id="surgery_separator_1" colspan="4"/>
-                    <field name="procedures" colspan="4"/>
-                    <newline/>
-                    <separator string="Details / Incidents" id="separator_surgery_details" colspan="2"/>
-                    <separator string="Anesthesia" id="separator_anesthesia_details" colspan="2"/>
-                    <newline/>
-                    <field name="extra_info" colspan="2"/>
-                    <field name="anesthesia_report" colspan="2"/>
-                    <newline/>
-
-                    <label name="surgery_end_date"/>
-                    <field name="surgery_end_date"/>
-                    <label name="surgery_length"/>
-                    <field name="surgery_length"/>
-
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_surgery</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_surgery_tree">
             <field name="model">gnuhealth.surgery</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Surgery'>
-                    <field name="patient"/>
-                    <field name="description"/>
-                    <field name="pathology"/>
-                    <field name="classification"/>
-                    <field name="surgery_date"/>
-                    <field name="surgery_length"/>
-                    <field name="operating_room"/>
-                    <field name="computed_age"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_surgery_tree</field>
         </record>
 
 <!-- Surgery Menu -->
@@ -226,29 +94,13 @@
         <record model="ir.ui.view" id="gnuhealth_procedure_view">
             <field name="model">gnuhealth.procedure</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Procedure">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="description"/>
-                    <field name="description"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_procedure</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_procedure_tree">
             <field name="model">gnuhealth.procedure</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Procedure'>
-                    <field name="name"/>
-                    <field name="description"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_procedure_tree</field>
         </record>
 
 <!-- Operation -->
@@ -256,31 +108,13 @@
         <record model="ir.ui.view" id="gnuhealth_operation_view">
             <field name="model">gnuhealth.operation</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Procedure">
-                    <label name="procedure"/>
-                    <field name="procedure"/>
-                    <newline/>
-                    <separator string="Procedure Details / Incidents" colspan="4" id="separator_surgery_op_details"/>
-                    <newline/>
-                    <field name="notes" colspan="4"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_operation</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_operation_tree">
             <field name="model">gnuhealth.operation</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Operation'>
-                    <field name="procedure" expand="1"/>
-                    <field name="notes"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_operation_tree</field>
         </record>
 
 <!-- Include the Surgery page into the Patient History -->
@@ -289,21 +123,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form"/>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]"
-                        position="after">
-
-                        <page string="Surgeries" id="page_surgery">
-                            <field name="surgery" colspan="4"/>
-                        </page>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient</field>
         </record>
 
     </data>

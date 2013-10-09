@@ -23,100 +23,7 @@
         <record model="ir.ui.view" id="gnuhealth_pediatric_symptoms_checklist_view">
             <field name="model">gnuhealth.patient.psc</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Pediatric Symptoms Checklist - PSC">
-                    <group colspan="4" id="group_psc1">
-                        <group colspan="4" col="10" id="group_psc_header">
-                            <label name="patient"/>
-                            <field name="patient"/>
-                            <label name="evaluation_start"/>
-                            <field name="evaluation_start"/>
-<!--
-                            <label name="evaluation_end"/>
-                            <field name="evaluation_end"/>
--->
-                            <label name="evaluation_date"/>
-                            <field name="evaluation_date"/>
-
-                            <label name="psc_total"/>
-                            <field name="psc_total"/>
-                        </group>
-                        <newline/>
-                        <separator colspan="4" id="separator_psc1"/>
-                        <newline/>
-                        <label name="psc_aches_pains"/>
-                        <field name="psc_aches_pains"/>
-                        <label name="psc_spend_time_alone"/>
-                        <field name="psc_spend_time_alone"/>
-                        <label name="psc_tires_easily"/>
-                        <field name="psc_tires_easily"/>
-                        <label name="psc_fidgety"/>
-                        <field name="psc_fidgety"/>
-                        <label name="psc_trouble_with_teacher"/>
-                        <field name="psc_trouble_with_teacher"/>
-                        <label name="psc_less_interest_in_school"/>
-                        <field name="psc_less_interest_in_school"/>
-                        <label name="psc_acts_as_driven_by_motor"/>
-                        <field name="psc_acts_as_driven_by_motor"/>
-                        <label name="psc_daydreams_too_much"/>
-                        <field name="psc_daydreams_too_much"/>
-                        <label name="psc_distracted_easily"/>
-                        <field name="psc_distracted_easily"/>
-                        <label name="psc_afraid_of_new_situations"/>
-                        <field name="psc_afraid_of_new_situations"/>
-                        <label name="psc_sad_unhappy"/>
-                        <field name="psc_sad_unhappy"/>
-                        <label name="psc_irritable_angry"/>
-                        <field name="psc_irritable_angry"/>
-                        <label name="psc_feels_hopeless"/>
-                        <field name="psc_feels_hopeless"/>
-                        <label name="psc_trouble_concentrating"/>
-                        <field name="psc_trouble_concentrating"/>
-                        <label name="psc_less_interested_in_friends"/>
-                        <field name="psc_less_interested_in_friends"/>
-                        <label name="psc_fights_with_others"/>
-                        <field name="psc_fights_with_others"/>
-                        <label name="psc_absent_from_school"/>
-                        <field name="psc_absent_from_school"/>
-                        <label name="psc_school_grades_dropping"/>
-                        <field name="psc_school_grades_dropping"/>
-                        <label name="psc_down_on_self"/>
-                        <field name="psc_down_on_self"/>
-                        <label name="psc_visit_doctor_finds_ok"/>
-                        <field name="psc_visit_doctor_finds_ok"/>
-                        <label name="psc_trouble_sleeping"/>
-                        <field name="psc_trouble_sleeping"/>
-                        <label name="psc_worries_a_lot"/>
-                        <field name="psc_worries_a_lot"/>
-                        <label name="psc_wants_to_be_with_parents"/>
-                        <field name="psc_wants_to_be_with_parents"/>
-                        <label name="psc_feels_is_bad_child"/>
-                        <field name="psc_feels_is_bad_child"/>
-                        <label name="psc_takes_unnecesary_risks"/>
-                        <field name="psc_takes_unnecesary_risks"/>
-                        <label name="psc_gets_hurt_often"/>
-                        <field name="psc_gets_hurt_often"/>
-                        <label name="psc_having_less_fun"/>
-                        <field name="psc_having_less_fun"/>
-                        <label name="psc_act_as_younger"/>
-                        <field name="psc_act_as_younger"/>
-                        <label name="psc_does_not_listen_to_rules"/>
-                        <field name="psc_does_not_listen_to_rules"/>
-                        <label name="psc_does_not_show_feelings"/>
-                        <field name="psc_does_not_show_feelings"/>
-                        <label name="psc_does_not_get_people_feelings"/>
-                        <field name="psc_does_not_get_people_feelings"/>
-                        <label name="psc_teases_others"/>
-                        <field name="psc_teases_others"/>
-                        <label name="psc_takes_things_from_others"/>
-                        <field name="psc_takes_things_from_others"/>
-                        <label name="psc_refuses_to_share"/>
-                        <field name="psc_refuses_to_share"/>
-                    </group>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_pediatric_symptoms_checklist</field>
         </record>
 
 <!-- Tree view for PSC -->
@@ -124,15 +31,7 @@
         <record model="ir.ui.view" id="gnuhealth_pediatric_symptoms_checklist_tree">
             <field name="model">gnuhealth.patient.psc</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="PSC - Pediatric Symptoms Checklist History" colors = "If(Greater(Eval('psc_total',0), 27),'red','blue')">
-                    <field name="patient"/>
-                    <field name="evaluation_start"/>
-                    <field name="psc_total"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_pediatric_symptoms_checklist_tree</field>
         </record>
 
 <!-- Add the Pediatric Symptoms Checklist to the Patient form -->
@@ -202,47 +101,13 @@
         <record model="ir.ui.view" id="gnuhealth_neonatal_apgar_view">
             <field name="model">gnuhealth.neonatal.apgar</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="APGAR Score">
-                    <group colspan="4" string="APGAR" id="group_newborn_apgar">
-                        <label name="apgar_minute"/>
-                        <field name="apgar_minute"/>
-                        <label name="apgar_score"/>
-                        <field name="apgar_score"/>
-                        <newline/>
-                        <label name="apgar_appearance"/>
-                        <field name="apgar_appearance"/>
-                        <label name="apgar_pulse"/>
-                        <field name="apgar_pulse"/>
-                        <label name="apgar_grimace"/>
-                        <field name="apgar_grimace"/>
-                        <label name="apgar_activity"/>
-                        <field name="apgar_activity"/>
-                        <label name="apgar_respiration"/>
-                        <field name="apgar_respiration"/>
-                    </group>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_neonatal_apgar</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_neonatal_apgar_tree">
             <field name="model">gnuhealth.neonatal.apgar</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree>
-                    <field name="apgar_minute"/>
-                    <field name="apgar_score"/>
-                    <field name="apgar_appearance"/>
-                    <field name="apgar_pulse"/>
-                    <field name="apgar_grimace"/>
-                    <field name="apgar_activity"/>
-                    <field name="apgar_respiration"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_neonatal_apgar_tree</field>
         </record>
 
 <!-- Newborn -->
@@ -250,169 +115,13 @@
         <record model="ir.ui.view" id="gnuhealth_newborn_view">
             <field name="model">gnuhealth.newborn</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Newborn Info">
-                    <notebook>
-
-                        <page string="Main" id="page_newborn_main">
-                            <group string="Main" id="group_newborn_main">
-                                <group id="group_newborn_1">
-                                    <label name="name"/>
-                                    <field name="name"/>
-                                    <label name="newborn_name"/>
-                                    <field name="newborn_name"/>
-                                    <label name="mother"/>
-                                    <field name="mother"/>
-                                    <label name="sex"/>
-                                    <field name="sex"/>
-                                    <label name="birth_date"/>
-                                    <field name="birth_date"/>
-                                    <label name="dismissed"/>
-                                    <field name="dismissed"/>
-                                    <label name="length"/>
-                                    <field name="length"/>
-                                    <label name="weight"/>
-                                    <field name="weight"/>
-                                    <label name="cephalic_perimeter"/>
-                                    <field name="cephalic_perimeter"/>
-                                    <label name="responsible"/>
-                                    <field name="responsible"/>
-                                </group>
-                                <group id="group_newborn_photo">
-                                    <field name="photo" widget="image"/>
-                                </group>
-                            </group>
-                            <newline/>
-                            <field name="apgar_scores"/>
-                            <newline/>
-                            <group id="group_newborn_reanimation_holder">
-                                <group colspan="3" col="10" id="group_newborn_reanimation">
-                                    <label name="reanimation_stimulation"/>
-                                    <field name="reanimation_stimulation"/>
-                                    <label name="reanimation_aspiration"/>
-                                    <field name="reanimation_aspiration"/>
-                                    <label name="reanimation_intubation"/>
-                                    <field name="reanimation_intubation"/>
-                                    <label name="reanimation_mask"/>
-                                    <field name="reanimation_mask"/>
-                                    <label name="reanimation_oxygen"/>
-                                    <field name="reanimation_oxygen"/>
-
-                                </group>
-                                <group string="Notes" colspan="3" id="group_newborn_notes">
-                                    <field colspan="3" name="notes"/>
-                                </group>
-                            </group>
-                            <newline/>
-                        </page>
-
-                        <page string="Findings and Tests" id="page_newborn_findings">
-                            <group string="Neonatal Signs and Symptoms" colspan="4" col="8" id="group_neonatal_signs">
-                                <label name="meconium"/>
-                                <field name="meconium"/>
-                                <label name="neonatal_ortolani"/>
-                                <field name="neonatal_ortolani"/>
-                                <label name="neonatal_barlow"/>
-                                <field name="neonatal_barlow"/>
-                                <label name="neonatal_hernia"/>
-                                <field name="neonatal_hernia"/>
-                                <label name="neonatal_ambiguous_genitalia"/>
-                                <field name="neonatal_ambiguous_genitalia"/>
-                                <label name="neonatal_erbs_palsy"/>
-                                <field name="neonatal_erbs_palsy"/>
-                                <label name="neonatal_hematoma"/>
-                                <field name="neonatal_hematoma"/>
-                                <label name="neonatal_talipes_equinovarus"/>
-                                <field name="neonatal_talipes_equinovarus"/>
-                                <label name="neonatal_palmar_crease"/>
-                                <field name="neonatal_palmar_crease"/>
-                                <label name="neonatal_polydactyly"/>
-                                <field name="neonatal_polydactyly"/>
-                                <label name="neonatal_syndactyly"/>
-                                <field name="neonatal_syndactyly"/>
-                            </group>
-                            <newline/>
-                            <group string="Neonatal Reflex Check" colspan="4" col="8" id="group_neonatal_reflexes">
-                                <label name="neonatal_moro_reflex"/>
-                                <field name="neonatal_moro_reflex"/>
-                                <label name="neonatal_grasp_reflex"/>
-                                <field name="neonatal_grasp_reflex"/>
-                                <label name="neonatal_stepping_reflex"/>
-                                <field name="neonatal_stepping_reflex"/>
-                                <label name="neonatal_babinski_reflex"/>
-                                <field name="neonatal_babinski_reflex"/>
-                                <label name="neonatal_blink_reflex"/>
-                                <field name="neonatal_blink_reflex"/>
-                                <label name="neonatal_sucking_reflex"/>
-                                <field name="neonatal_sucking_reflex"/>
-                                <label name="neonatal_swimming_reflex"/>
-                                <field name="neonatal_swimming_reflex"/>
-                                <label name="neonatal_tonic_neck_reflex"/>
-                                <field name="neonatal_tonic_neck_reflex"/>
-                            </group>
-                            <newline/>
-                            <field name="congenital_diseases"/>
-                            <field name="medication"/>
-                            <newline/>
-                            <group colspan="4" col="6" string="Tests" id="group_newborn_tests">
-                                <label name="test_vdrl"/>
-                                <field name="test_vdrl"/>
-                                <label name="test_toxo"/>
-                                <field name="test_toxo"/>
-                                <label name="test_chagas"/>
-                                <field name="test_chagas"/>
-                                <label name="test_billirubin"/>
-                                <field name="test_billirubin"/>
-                                <label name="test_audition"/>
-                                <field name="test_audition"/>
-                                <label name="test_metabolic"/>
-                                <field name="test_metabolic"/>
-                            </group>
-
-                        </page>
-
-                        <page string="Other" id="page_newborn_other">
-                            <group string="Deceased" id="group_newborn_deceased">
-                                <group id="group_newborn_deceased_1">
-                                    <label name="bd"/>
-                                    <field name="bd"/>
-                                    <label name="died_at_delivery"/>
-                                    <field name="died_at_delivery"/>
-                                    <label name="died_at_the_hospital"/>
-                                    <field name="died_at_the_hospital"/>
-                                    <label name="died_being_transferred"/>
-                                    <field name="died_being_transferred"/>
-                                    <label name="tod"/>
-                                    <field name="tod"/>
-                                    <label name="cod"/>
-                                    <field name="cod"/>
-                                </group>
-                            </group>
-                        </page>
-
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_newborn</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_newborn_tree">
             <field name="model">gnuhealth.newborn</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Newborn Information">
-                    <field name="name"/>
-                    <field name="newborn_name"/>
-                    <field name="mother"/>
-                    <field name="birth_date"/>
-                    <field name="sex"/>
-                    <field name="length"/>
-                    <field name="weight"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_newborn_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_newborn">

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//group[@id=&quot;misc_info_group&quot;]" position="before">
+        <group id="patient_qr">
+            <field xfill="0" xexpand="1" name="qr" widget="image"/>
+        </group>
+        <newline/>
+    </xpath>
+</data>

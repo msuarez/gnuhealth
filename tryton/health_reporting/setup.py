@@ -60,7 +60,8 @@ setup(name='trytond_health_reporting',
     package_data={
         'trytond.modules.health_reporting': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
+               'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree editable="top" string="Bed Transfer History">
+    <field name="transfer_date" expand="1"/>
+    <field name="bed_from" expand="1"/>
+    <field name="bed_to" expand="1"/>
+    <field name="reason" expand="1"/>
+</tree>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Family">
+    <group id="family_header">
+        <label name="name"/>
+        <field name="name"/>
+    </group>
+    <newline/>
+    <separator string="Members" id="members"/>
+    <newline/>
+    <field name="members"/>
+    <newline/>
+    <separator string="Extra Info" id="extra_info"/>
+    <newline/>
+    <field name="info"/>
+</form>

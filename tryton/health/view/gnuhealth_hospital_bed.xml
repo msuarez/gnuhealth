@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Bed">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="ward"/>
+    <field name="ward"/>
+    <label name="bed_type"/>
+    <field name="bed_type"/>
+    <label name="telephone_number"/>
+    <field name="telephone_number"/>
+    <label name="state"/>
+    <field name="state"/>
+    <newline/>
+    <group colspan="4" id="group_bed_extra_info">
+        <label name="extra_info"/>
+        <field name="extra_info"/>
+    </group>
+</form>

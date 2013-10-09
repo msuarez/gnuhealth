@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_other_information&quot;]" position="after">
+        <page string="Medication" id="medication">
+            <label name="care_location"/>
+            <field name="care_location"/>
+            <field name="medicaments" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_medicament_tree"/>
+            <field name="medical_supplies" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_medical_supplies_tree"/>
+            <field name="vaccines" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
+        </page>
+        <page string="Stock Moves" id="Stock Moves">
+            <field name="moves" colspan="4"/>
+        </page>
+    </xpath>
+    <xpath expr="/form/notebook" position="after">
+        <group col="5" colspan="4" id="buttons">
+            <label name="state"/>
+            <field name="state"/>
+            <button name="done" string="Done" icon="tryton-go-next"/>
+        </group>
+    </xpath>
+    <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_main&quot;]/field[@name=&quot;session_notes&quot;]" position="replace_attributes">
+        <field name="session_notes" height="50"/>
+    </xpath>
+</data>

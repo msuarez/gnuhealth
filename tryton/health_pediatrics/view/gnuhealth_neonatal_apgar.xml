@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<form string="APGAR Score">
+    <group colspan="4" string="APGAR" id="group_newborn_apgar">
+        <label name="apgar_minute"/>
+        <field name="apgar_minute"/>
+        <label name="apgar_score"/>
+        <field name="apgar_score"/>
+        <newline/>
+        <label name="apgar_appearance"/>
+        <field name="apgar_appearance"/>
+        <label name="apgar_pulse"/>
+        <field name="apgar_pulse"/>
+        <label name="apgar_grimace"/>
+        <field name="apgar_grimace"/>
+        <label name="apgar_activity"/>
+        <field name="apgar_activity"/>
+        <label name="apgar_respiration"/>
+        <field name="apgar_respiration"/>
+    </group>
+</form>

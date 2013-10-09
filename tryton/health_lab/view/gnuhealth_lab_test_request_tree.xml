@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Test Requests" colors="If(Equal(Eval('state'), 'draft'), 'blue', If(In(Eval('state'), ['cancel','open']), 'gray', 'black'))">
+    <field name="request" expand="1"/>
+    <field name="name" expand="1"/>
+    <field name="date" expand="1"/>
+    <field name="patient_id" expand="1"/>
+    <field name="doctor_id" expand="1"/>
+    <field name="state" readonly="1" expand="1"/>
+    <field name="urgent"/>
+</tree>

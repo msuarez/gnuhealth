@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form string="Patient Genetic Family Diseases">
+    <label name="name"/>
+    <field colspan="4" name="name"/>
+    <newline/>
+    <label name="xory"/>
+    <field name="xory"/>
+    <label name="relative"/>
+    <field name="relative"/>
+</form>

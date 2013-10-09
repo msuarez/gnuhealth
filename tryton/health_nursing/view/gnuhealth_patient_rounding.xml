@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<form string="Patient Rounding View">
+    <notebook>
+        <page string="Main" id="rounding_main">
+            <group colspan="2" id="group_admin_data">
+                <label name="name"/>
+                <field name="name"/>
+                <label name="health_professional"/>
+                <field name="health_professional"/>
+                <label name="evaluation_start"/>
+                <field name="evaluation_start"/>
+                <label name="evaluation_end"/>
+                <field name="evaluation_end"/>
+                <label name="environmental_assessment"/>
+                <field name="environmental_assessment"/>
+                <label name="warning"/>
+                <field name="warning"/>
+            </group>
+            <newline/>
+            <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
+                <label name="pain"/>
+                <field name="pain"/>
+                <label name="potty"/>
+                <field name="potty"/>
+                <label name="position"/>
+                <field name="position"/>
+                <label name="proximity"/>
+                <field name="proximity"/>
+                <label name="pump"/>
+                <field name="pump"/>
+                <label name="personal_needs"/>
+                <field name="personal_needs"/>
+            </group>
+            <newline/>
+            <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">
+                <label name="temperature"/>
+                <field name="temperature"/>
+                <label name="systolic"/>
+                <field name="systolic"/>
+                <label name="diastolic"/>
+                <field name="diastolic"/>
+                <label name="bpm"/>
+                <field name="bpm"/>
+                <label name="respiratory_rate"/>
+                <field name="respiratory_rate"/>
+                <label name="osat"/>
+                <field name="osat"/>
+            </group>
+            <newline/>
+            <group colspan="4" col="10" id="group_patient_rounding_others" string="Other">
+                <label name="diuresis"/>
+                <field name="diuresis"/>
+                <label name="urinary_catheter"/>
+                <field name="urinary_catheter"/>
+                <label name="glycemia"/>
+                <field name="glycemia"/>
+                <label name="depression"/>
+                <field name="depression"/>
+                <label name="evolution"/>
+                <field name="evolution"/>
+            </group>
+            <newline/>
+            <separator string="Round summary" id="separator_round_summary"/>
+            <newline/>
+            <field name="round_summary"/>
+        </page>
+        <page string="Procedures" id="rounding_procedures">
+            <field name="procedures"/>
+        </page>
+    </notebook>
+</form>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Pathology Groups">
+    <group id="pathology_group_header">
+        <label name="name"/>
+        <field name="name"/>
+        <newline/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="desc"/>
+        <field name="desc"/>
+        <newline/>
+    </group>
+    <separator string="Extra Information" colspan="4" id="pathology_groups_info"/>
+    <group id="pathology_groups">
+        <newline/>
+        <field name="info" colspan="4"/>
+    </group>
+</form>

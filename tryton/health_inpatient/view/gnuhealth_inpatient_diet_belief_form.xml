@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Diet related to beliefs">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <newline/>
+    <separator id="separator_diet_belief_description" colspan="4" string="Diet Description"/>
+    <newline/>
+    <field colspan="4" name="description"/>
+</form>

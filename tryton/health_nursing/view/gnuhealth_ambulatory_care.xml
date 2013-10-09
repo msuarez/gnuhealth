@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Procedures">
+    <label name="procedure"/>
+    <field name="procedure"/>
+    <newline/>
+    <separator string="Procedure Details / Incidents" colspan="4" id="separator_procedure_details"/>
+    <newline/>
+    <field name="comments" colspan="4"/>
+</form>

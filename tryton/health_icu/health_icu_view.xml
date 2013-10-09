@@ -18,46 +18,14 @@
         <record model="ir.ui.view" id="gnuhealth_icu_glasgow_form">
             <field name="model">gnuhealth.icu.glasgow</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Glasgow Scores">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="evaluation_date"/>
-                    <field name="evaluation_date"/>
-				
-                    <newline/>
-                    <group id="group_glasgow_header" colspan='4'>
-						<label name="glasgow_eyes"/>
-						<field name="glasgow_eyes"/>
-						<label name="glasgow_verbal"/>
-						<field name="glasgow_verbal"/>
-						<label name="glasgow_motor"/>
-						<field name="glasgow_motor"/>
-						<label name="glasgow"/>
-						<field name="glasgow"/>
-					</group>
-               </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_glasgow_form</field>
         </record>
 
 
       <record model="ir.ui.view" id="gnuhealth_icu_glasgow_tree">
             <field name="model">gnuhealth.icu.glasgow</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Glasgow Scores'>
-                    <field name="name" expand="1"/>
-                    <field name="evaluation_date" expand="1"/>
-					<field name="glasgow_eyes" expand="1"/>
-					<field name="glasgow_verbal" expand="1"/>
-					<field name="glasgow_motor" expand="1"/>
-                    <field name="glasgow" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_glasgow_tree</field>
         </record>
                 
 
@@ -103,78 +71,14 @@
         <record model="ir.ui.view" id="gnuhealth_icu_apache2_form">
             <field name="model">gnuhealth.icu.apache2</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="APACHE II Score">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="score_date"/>
-                    <field name="score_date"/>
-					
-                    <label name="age"/>
-                    <field name="age"/>
-                    <newline/>
-                    <group id="group_apache_physisological" string='Physiological' colspan='4'>
-						<label name="temperature"/>
-						<field name="temperature"/>
-						<label name="mean_ap"/>
-						<field name="mean_ap"/>
-						<label name="heart_rate"/>
-						<field name="heart_rate"/>
-						<label name="respiratory_rate"/>
-						<field name="respiratory_rate"/>
-						<label name="fio2"/>
-						<field name="fio2"/>
-						<label name="pao2"/>
-						<field name="pao2"/>
-						<label name="paco2"/>
-						<field name="paco2"/>
-						<label name="aado2"/>
-						<field name="aado2"/>
-						<label name="ph"/>
-						<field name="ph"/>
-						<label name="serum_sodium"/>
-						<field name="serum_sodium"/>
-						<label name="serum_potassium"/>
-						<field name="serum_potassium"/>
-						<label name="serum_creatinine"/>
-						<field name="serum_creatinine"/>
-						<label name="hematocrit"/>
-						<field name="hematocrit"/>
-						<label name="wbc"/>
-						<field name="wbc"/>
-						<label name="arf"/>
-						<field name="arf"/>
-					</group>
-                    <newline/>
-                    <group id="group_apache_chronic" string='Chronic' colspan='4'>
-						<label name="chronic_condition"/>
-						<field name="chronic_condition"/>
-						<label name="hospital_admission_type"/>
-						<field name="hospital_admission_type"/>
-                    </group>
-                    <newline/>
-                    <label name="apache_score"/>
-                    <field name="apache_score"/>
-
-               </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_apache2_form</field>
         </record>
 
 
       <record model="ir.ui.view" id="gnuhealth_icu_apache2_tree">
             <field name="model">gnuhealth.icu.apache2</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Apache II Scores'>
-                    <field name="name"/>
-                    <field name="score_date"/>
-                    <field name="apache_score"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_apache2_tree</field>
         </record>
                 
 
@@ -219,48 +123,14 @@
         <record model="ir.ui.view" id="gnuhealth_inpatient_icu_form">
             <field name="model">gnuhealth.inpatient.icu</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Intensive Care Unit">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="admitted"/>
-                    <field name="admitted"/>
-
-                    <newline/>
-                    <group id="icu_group_dates" string="Period" col="8" colspan="4">
-						<label name="icu_admission_date"/>
-						<field name="icu_admission_date"/>
-						<label name="icu_stay"/>
-						<field name="icu_stay"/>
-						<label name="discharged_from_icu"/>
-						<field name="discharged_from_icu"/>
-						<label name="icu_discharge_date"/>
-						<field name="icu_discharge_date"/>
-                    </group>
-					<newline/>
-					<field name="mv_history" colspan="4"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_icu_form</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_inpatient_icu_tree">
             <field name="model">gnuhealth.inpatient.icu</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Intensive Care Unit'>
-                    <field name="name"/>
-                    <field name="admitted" expand="1"/>
-                    <field name="icu_admission_date"/>
-                    <field name="discharged_from_icu"/>
-                    <field name="icu_discharge_date"/>
-					<field name="icu_stay"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_icu_tree</field>
         </record>
 
 
@@ -270,50 +140,14 @@
         <record model="ir.ui.view" id="gnuhealth_icu_ventilation_form">
             <field name="model">gnuhealth.icu.ventilation</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Mechanical Ventilation">
-					<group id="group_icu_ventilation" colspan="4" col="8" string="Mechanical Ventilation">
-						<label name="current_mv"/>
-						<field name="current_mv"/>
-						<label name="mv_start"/>
-						<field name="mv_start"/>
-						<label name="mv_end"/>
-						<field name="mv_end"/>
-						<label name="mv_period"/>
-						<field name="mv_period"/>
-						<label name="ventilation"/>
-						<field name="ventilation"/>
-						<label name="ett_size"/>
-						<field name="ett_size"/>
-						<label name="tracheostomy_size"/>
-						<field name="tracheostomy_size"/>
-					</group>
-					<newline/>
-					<label name="remarks"/>
-					<field name="remarks"/>
-					
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_ventilation_form</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_icu_ventilation_tree">
             <field name="model">gnuhealth.icu.ventilation</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Patient Mechanical Ventilation'>
-					<field name="current_mv"/>
-                    <field name="ventilation"/>
-                    <field name="mv_start"/>
-                    <field name="mv_end"/>
-					<field name="mv_period"/>
-					<field name="remarks" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_ventilation_tree</field>
         </record>
 
 
@@ -324,48 +158,14 @@
         <record model="ir.ui.view" id="gnuhealth_icu_chest_drainage_form">
             <field name="model">gnuhealth.icu.chest_drainage</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Chest Drainage Assesment">
-                    <label name="location"/>
-                    <field name="location"/>
-                    <label name="suction"/>
-                    <field name="suction"/>
-                    <label name="suction_pressure"/>
-                    <field name="suction_pressure"/>
-                    <label name="fluid_volume"/>
-                    <field name="fluid_volume"/>
-                    <label name="fluid_aspect"/>
-                    <field name="fluid_aspect"/>
-                    <label name="oscillation"/>
-                    <field name="oscillation"/>
-                    <label name="air_leak"/>
-                    <field name="air_leak"/>
-                    <label name="remarks"/>
-                    <field name="remarks"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_chest_drainage_form</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_icu_chest_drainage_tree">
             <field name="model">gnuhealth.icu.chest_drainage</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string="Patient Chest Drainage Assesment">
-                    <field name="location" expand="1"/>
-                    <field name="suction"/>
-                    <field name="suction_pressure"/>
-                    <field name="fluid_volume"/>
-                    <field name="fluid_aspect"/>
-                    <field name="oscillation"/>
-                    <field name="air_leak"/>
-                    <field name="remarks" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_chest_drainage_tree</field>
         </record>
                 
 
@@ -374,70 +174,14 @@
         <record model="ir.ui.view" id="gnuhealth_icu_ecg_form">
             <field name="model">gnuhealth.icu.ecg</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient ECG Assesment">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="lead"/>
-                    <field name="lead"/>
-                    <label name="axis"/>
-                    <field name="axis"/>
-                    <label name="rate"/>
-                    <field name="rate"/>
-                    <label name="pacemaker"/>
-                    <field name="pacemaker"/>
-                    <label name="rhythm"/>
-                    <field name="rhythm"/>
-                    <newline/>
-                    <group id="ecg_intervals" colspan="4" col="6">
-                        <label name="pr"/>
-                        <field name="pr"/>
-                        <label name="qrs"/>
-                        <field name="qrs"/>
-                        <label name="qt"/>
-                        <field name="qt"/>
-                    </group>
-                    <newline/>
-                    <label name="st_segment"/>
-                    <field name="st_segment"/>
-                    <label name="twave_inversion"/>
-                    <field name="twave_inversion"/>
-                    <newline/>
-                    <label name="interpretation"/>
-                    <field name="interpretation" colspan="3"/>
-                    <newline/>
-                    
-                    <field colspan="4" name="ecg_strip" widget="image"/>
-
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_ecg_form</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_icu_ecg_tree">
             <field name="model">gnuhealth.icu.ecg</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string="Patient ECG Assesment">
-                    <field name="ecg_date"/>
-                    <field name="name"/>
-                    <field name="lead"/>
-                    <field name="axis"/>
-                    <field name="rhythm"/>
-                    <field name="pacemaker"/>
-                    <field name="rate"/>
-                    <field name="pr"/>
-                    <field name="qrs"/>
-                    <field name="qt"/>
-                    <field name="st_segment"/>
-                    <field name="twave_inversion"/>
-                    <field name="interpretation" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_icu_ecg_tree</field>
         </record>
                 
 
@@ -484,149 +228,7 @@
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_view" />
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-
-                    <xpath
-                        expr="/form/notebook/page/group/label[@name='warning']"
-                        position="replace">
-                    </xpath>
-
-                    <xpath
-                        expr="/form/notebook/page/group/field[@name='warning']"
-                        position="replace">
-                    </xpath>
-
-                    <xpath
-                        expr="/form/notebook/page/group/field[@name='environmental_assessment']"
-                        position="after">
-                        <group colspan="1" col="4" id="group_rounding_icu_warning">
-							<label name="icu_patient"/>
-							<field name="icu_patient"/>
-							<label name="warning"/>
-							<field name="warning"/>
-						</group>
-                    </xpath>
-
-                    <xpath
-                        expr="/form/notebook/page[@id='rounding_main']"
-                        position="after">
-
-                        <page id='rounding_icu' string='ICU'>
-							<group id="group_rounding_icu_neurologic" colspan="4" col="8" string="Neurologic">
-								<label name="gcs"/>
-								<field name="gcs"/>
-								<newline/>
-								<label name="pupil_dilation"/>
-								<field name="pupil_dilation"/>
-								<label name="right_pupil"/>
-								<field name="right_pupil"/>
-								<label name="left_pupil"/>
-								<field name="left_pupil"/>
-								<label name="anisocoria"/>
-								<field name="anisocoria"/>
-
-								<newline/>
-								<label name="pupillary_reactivity"/>
-								<field name="pupillary_reactivity"/>
-								<label name="pupil_consensual_resp"/>
-								<field name="pupil_consensual_resp"/>
-
-							</group>
-
-                            <newline/>    
-
-							<group colspan="4" id="group_rounding_icu_respiratory" string="Respiratory">
-                                <group id="chest_icu_main">
-                                    <label name="oxygen_mask"/>
-                                    <field name="oxygen_mask"/>
-                                    <label name="fio2"/>
-                                    <field name="fio2"/>
-                                    <label name="respiration_type"/>
-                                    <field name="respiration_type"/>
-                                    <label name="trachea_alignment"/>
-                                    <field name="trachea_alignment"/>
-                                    <newline/>
-                                    <label name="peep"/>
-                                    <field name="peep"/>
-                                    <label name="peep_pressure"/>
-                                    <field name="peep_pressure"/>
-                                    <label name="sce"/>
-                                    <field name="sce"/>
-                                    <label name="oral_mucosa_lesion"/>
-                                    <field name="oral_mucosa_lesion"/>
-                                    <label name="lips_lesion"/>
-                                    <field name="lips_lesion"/>
-                                    <newline/>
-                                    <group id="chest_expansion" string="Chest Expansion" colspan="4" col="6">
-                                        <label name="chest_expansion"/>
-                                        <field name="chest_expansion"/>
-                                        <label name="paradoxical_expansion"/>
-                                        <field name="paradoxical_expansion"/>
-                                        <label name="tracheal_tug"/>
-                                        <field name="tracheal_tug"/>
-                                    </group>
-                                </group>
-                                <group string="Xray" id="patient_xray">
-                                    <field name="xray" img_width="200" img_height="200"
-                                        height="200" width="200" widget="image"/>
-                                </group>
-                                <newline/>    
-							</group>
-                            <field name="chest_drainages" colspan="4"/>
-                            <newline/>
-							<group colspan="4" id="group_rounding_icu_cardio" string="Cardiovascular">
-                                <group id="icu_cardio_ecg" colspan="4" col="4">
-                                    <label name="ecg"/>
-                                    <field name="ecg" colspan="3"/>
-                                </group>
-                                <newline/>
-                                <group id="icu_vessel_access" colspan="4" col="10">
-                                    <label name="venous_access"/>
-                                    <field name="venous_access"/>
-                                    <label name="swan_ganz"/>
-                                    <field name="swan_ganz"/>
-                                    <label name="arterial_access"/>
-                                    <field name="arterial_access"/>
-                                    <label name="dialysis"/>
-                                    <field name="dialysis"/>
-                                    <label name="edema"/>
-                                    <field name="edema"/>
-                                </group>
-
-                            </group>
-
-                            <group id="icu_skin" string="Blood and Skin" colspan="4" col="10">
-                                <label name="bacteremia"/>
-                                <field name="bacteremia"/>
-                                <label name="ssi"/>
-                                <field name="ssi"/>
-                                <label name="wound_dehiscence"/>
-                                <field name="wound_dehiscence"/>
-                                <label name="cellulitis"/>
-                                <field name="cellulitis"/>
-                                <label name="necrotizing_fasciitis"/>
-                                <field name="necrotizing_fasciitis"/>
-                            </group>
-
-                            <group id="digestive" string="Digestive and Abdomen" colspan="4" col="10">
-                                <label name="vomiting"/>
-                                <field name="vomiting"/>
-                                <label name="bowel_sounds"/>
-                                <field name="bowel_sounds"/>
-                                <label name="stools"/>
-                                <field name="stools"/>
-                                <label name="peritonitis"/>
-                                <field name="peritonitis"/>
-                            </group>
- 
-                        </page>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_icu_rounding</field>
         </record>
 
 

@@ -62,7 +62,8 @@ setup(name='trytond_health_lab',
     package_data={
         'trytond.modules.health_lab': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
+               'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[

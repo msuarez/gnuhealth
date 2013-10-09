@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<form string="Insurances">
+    <group col="6" colspan="4" id="insurance_header">
+        <label name="number"/>
+        <field name="number"/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="insurance_type"/>
+        <field name="insurance_type" widget="selection"/>
+    </group>
+    <newline/>
+    <group col="6" colspan="4" id="insurance_plan">
+        <label name="company"/>
+        <field name="company"/>
+        <label name="plan_id"/>
+        <field name="plan_id"/>
+        <label name="category"/>
+        <field name="category"/>
+    </group>
+    <newline/>
+    <label name="member_since"/>
+    <field name="member_since"/>
+    <label name="member_exp"/>
+    <field name="member_exp"/>
+    <newline/>
+    <field name="notes" colspan="4"/>
+</form>

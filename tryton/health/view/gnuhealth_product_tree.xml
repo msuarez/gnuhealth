@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/tree/field[@name=&quot;rec_name&quot;]" position="after">
+        <field name="is_medicament"/>
+        <field name="is_medical_supply"/>
+        <field name="is_vaccine"/>
+        <field name="is_bed"/>
+        <field name="is_insurance_plan"/>
+    </xpath>
+</data>

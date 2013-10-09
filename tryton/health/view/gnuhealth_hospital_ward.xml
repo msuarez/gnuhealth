@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<form string="Health Center Ward">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="institution"/>
+    <field name="institution"/>
+    <label name="building"/>
+    <field name="building"/>
+    <label name="floor"/>
+    <field name="floor"/>
+    <label name="private"/>
+    <field name="private"/>
+    <label name="unit"/>
+    <field name="unit"/>
+    <label name="bio_hazard"/>
+    <field name="bio_hazard"/>
+    <newline/>
+    <group colspan="4" id="group_ward1">
+        <label name="number_of_beds"/>
+        <field name="number_of_beds"/>
+        <label name="gender"/>
+        <field name="gender"/>
+        <label name="telephone"/>
+        <field name="telephone"/>
+        <label name="ac"/>
+        <field name="ac"/>
+        <label name="private_bathroom"/>
+        <field name="private_bathroom"/>
+        <label name="guest_sofa"/>
+        <field name="guest_sofa"/>
+        <label name="tv"/>
+        <field name="tv"/>
+        <label name="internet"/>
+        <field name="internet"/>
+        <label name="refrigerator"/>
+        <field name="refrigerator"/>
+        <label name="microwave"/>
+        <field name="microwave"/>
+        <label name="state"/>
+        <field name="state"/>
+    </group>
+    <newline/>
+    <label name="extra_info"/>
+    <field name="extra_info" colspan="4"/>
+</form>

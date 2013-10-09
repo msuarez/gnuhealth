@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<form string="Laboratory Test">
+    <notebook>
+        <page string="Main Info" id="lab_main_info">
+            <label name="name"/>
+            <field name="name"/>
+            <label name="test"/>
+            <field name="test"/>
+            <label name="date_analysis"/>
+            <field name="date_analysis"/>
+            <newline/>
+            <label name="patient"/>
+            <field name="patient"/>
+            <label name="pathologist"/>
+            <field name="pathologist"/>
+            <newline/>
+            <label name="date_requested"/>
+            <field name="date_requested"/>
+            <label name="requestor"/>
+            <field name="requestor"/>
+            <field name="critearea" colspan="4" view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
+        </page>
+        <page string="Extra Info" id="lab_extra_info">
+            <label name="results"/>
+            <field name="results"/>
+            <newline/>
+            <label name="diagnosis"/>
+            <field name="diagnosis"/>
+        </page>
+    </notebook>
+</form>

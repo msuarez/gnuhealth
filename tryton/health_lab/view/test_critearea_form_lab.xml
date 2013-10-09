@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<form string="Test Cases">
+    <label name="warning"/>
+    <field name="warning"/>
+    <label name="excluded"/>
+    <field name="excluded"/>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="result"/>
+    <field name="result"/>
+    <label name="units"/>
+    <field name="units"/>
+    <label name="result_text"/>
+    <field name="result_text"/>
+    <label name="lower_limit"/>
+    <field name="lower_limit"/>
+    <label name="upper_limit"/>
+    <field name="upper_limit"/>
+    <label name="normal_range"/>
+    <field name="normal_range"/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

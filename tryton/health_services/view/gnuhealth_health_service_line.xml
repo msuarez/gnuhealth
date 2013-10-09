@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form string="Service Line">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="desc"/>
+    <field name="desc"/>
+    <label name="to_invoice"/>
+    <field name="to_invoice"/>
+    <label name="product"/>
+    <field name="product"/>
+    <label name="qty"/>
+    <field name="qty"/>
+    <label name="from_date"/>
+    <field name="from_date"/>
+    <label name="to_date"/>
+    <field name="to_date"/>
+    <label name="appointment"/>
+    <field name="appointment"/>
+</form>

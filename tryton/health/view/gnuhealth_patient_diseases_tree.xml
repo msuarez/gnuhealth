@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<tree string="Patient diseases" colors="If(Bool(Eval('is_infectious')),'orange','black')">
+    <field name="pathology" expand="1"/>
+    <field name="status" expand="1"/>
+    <field name="is_active"/>
+    <field name="is_infectious"/>
+    <field name="disease_severity"/>
+    <field name="is_allergy"/>
+    <field name="pregnancy_warning"/>
+    <field name="diagnosed_date"/>
+    <field name="healed_date"/>
+    <field name="short_comment" expand="1"/>
+</tree>

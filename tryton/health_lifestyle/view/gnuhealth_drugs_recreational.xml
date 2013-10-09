@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<form string="Recreational Drugs">
+    <group string="General Information" id="group_general_info">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="street_name"/>
+        <field name="street_name"/>
+        <newline/>
+        <label name="toxicity"/>
+        <field name="toxicity"/>
+        <label name="addiction_level"/>
+        <field name="addiction_level"/>
+        <label name="legal_status"/>
+        <field name="legal_status"/>
+        <label name="category"/>
+        <field name="category"/>
+    </group>
+    <newline/>
+    <separator colspan="4" string="DEA Schedule Level" id="separator_DEA"/>
+    <newline/>
+    <group col="10" id="group_dea">
+        <label name="dea_schedule_i"/>
+        <field name="dea_schedule_i"/>
+        <label name="dea_schedule_ii"/>
+        <field name="dea_schedule_ii"/>
+        <label name="dea_schedule_iii"/>
+        <field name="dea_schedule_iii"/>
+        <label name="dea_schedule_iv"/>
+        <field name="dea_schedule_iv"/>
+        <label name="dea_schedule_v"/>
+        <field name="dea_schedule_v"/>
+    </group>
+    <newline/>
+    <separator colspan="4" string="Henningfield Rating" id="separator_henningfield"/>
+    <newline/>
+    <group col="10" id="group_henningfield">
+        <label name="withdrawal_level"/>
+        <field name="withdrawal_level"/>
+        <label name="reinforcement_level"/>
+        <field name="reinforcement_level"/>
+        <label name="tolerance_level"/>
+        <field name="tolerance_level"/>
+        <label name="dependence_level"/>
+        <field name="dependence_level"/>
+        <label name="intoxication_level"/>
+        <field name="intoxication_level"/>
+    </group>
+    <separator colspan="4" string="Administration Routes" id="separator_admin_route"/>
+    <group colspan="4" id="group_admin_route">
+        <label name="route_oral"/>
+        <field name="route_oral"/>
+        <label name="route_inhaling"/>
+        <field name="route_inhaling"/>
+        <label name="route_popping"/>
+        <field name="route_popping"/>
+        <label name="route_sniffing"/>
+        <field name="route_sniffing"/>
+        <label name="route_injection"/>
+        <field name="route_injection"/>
+    </group>
+    <newline/>
+    <separator colspan="4" string="Additional Info and Effects" id="separator_additional_info"/>
+    <field name="info" colspan="4"/>
+</form>

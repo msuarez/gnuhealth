@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tree editable="top" string="Test Cases" colors="If(Bool(Eval('warning')), 'red', 'black')">
+    <field name="warning" expand="1"/>
+    <field name="excluded" expand="1"/>
+    <field name="name" expand="1"/>
+    <field name="result" expand="1"/>
+    <field name="result_text" expand="1"/>
+    <field name="lower_limit" expand="1"/>
+    <field name="upper_limit" expand="1"/>
+    <field name="units" expand="1"/>
+    <field name="remarks" expand="1"/>
+</tree>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form string="Diagnostic Hypothesis">
+    <label name="pathology"/>
+    <field name="pathology"/>
+    <newline/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

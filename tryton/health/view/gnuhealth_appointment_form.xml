@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<form string="Appointment">
+    <group colspan="4" col="6" id="appointment_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="appointment_date"/>
+        <field name="appointment_date"/>
+        <label name="visit_type"/>
+        <field name="visit_type"/>
+        <label name="urgency"/>
+        <field name="urgency"/>
+        <label name="appointment_type"/>
+        <field name="appointment_type"/>
+        <label name="state"/>
+        <field name="state"/>
+    </group>
+    <newline/>
+    <group colspan="4" id="doc_appointment_header">
+        <label name="doctor"/>
+        <field name="doctor"/>
+        <label name="speciality"/>
+        <field name="speciality"/>
+    </group>
+    <separator string="Information" id="sepatator_appointment_notes"/>
+    <newline/>
+    <field name="comments" colspan="4"/>
+</form>

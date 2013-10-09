@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<form string="Dengue Domiciliary Unit Entomological Survey">
+    <group col="8" colspan="4" id="dengue_du_survey_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="du"/>
+        <field name="du"/>
+        <label name="survey_date"/>
+        <field name="survey_date"/>
+        <label name="du_status"/>
+        <field name="du_status"/>
+    </group>
+    <newline/>
+    <group colspan="4" id="dengue_du_status">
+        <group col="10" string="Presence of larvae" id="dengue_du_vectors">
+            <label name="aedes_larva"/>
+            <field name="aedes_larva"/>
+            <label name="larva_in_house"/>
+            <field name="larva_in_house"/>
+            <label name="larva_peri"/>
+            <field name="larva_peri"/>
+        </group>
+        <group string="Areas to Improve" colspan="4" col="8" id="dengue_du_deficit_areas">
+            <label name="old_tyres"/>
+            <field name="old_tyres"/>
+            <label name="animal_water_container"/>
+            <field name="animal_water_container"/>
+            <label name="flower_vase"/>
+            <field name="flower_vase"/>
+            <label name="potted_plant"/>
+            <field name="potted_plant"/>
+            <label name="tree_holes"/>
+            <field name="tree_holes"/>
+            <label name="rock_holes"/>
+            <field name="rock_holes"/>
+        </group>
+        <group string="Preventive Measures" colspan="4" col="8" id="dengue_du_preventive_measures">
+            <label name="ovitraps"/>
+            <field name="ovitraps"/>
+            <newline/>
+            <label name="du_fumigation"/>
+            <field name="du_fumigation"/>
+            <label name="fumigation_date"/>
+            <field name="fumigation_date"/>
+        </group>
+    </group>
+    <newline/>
+    <separator string="Notes" id="sepatator_dengue_du_survey_notes"/>
+    <newline/>
+    <field name="observations" colspan="4"/>
+    <newline/>
+    <label name="next_survey_date"/>
+    <field name="next_survey_date"/>
+</form>

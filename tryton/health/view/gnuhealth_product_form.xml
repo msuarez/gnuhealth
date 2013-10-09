@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/field[@name=&quot;active&quot;]" position="after">
+        <separator string="Health" id="health" colspan="6"/>
+        <group col="10" colspan="4" id="product_specs">
+            <label name="is_medicament"/>
+            <field name="is_medicament"/>
+            <label name="is_medical_supply"/>
+            <field name="is_medical_supply"/>
+            <label name="is_vaccine"/>
+            <field name="is_vaccine"/>
+            <label name="is_bed"/>
+            <field name="is_bed"/>
+            <label name="is_insurance_plan"/>
+            <field name="is_insurance_plan"/>
+        </group>
+    </xpath>
+</data>

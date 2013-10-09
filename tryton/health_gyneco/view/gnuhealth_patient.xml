@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
+        <page string="Gyneco / Obs" id="page_gyneco_obs" states="{'invisible': Equal(Eval('sex'), 'm')}">
+            <notebook>
+                <page string="Gyneco" id="page_gyneco">
+                    <group colspan="4" col="10" string="General" id="group_gyneco_general">
+                        <label name="fertile"/>
+                        <field name="fertile"/>
+                        <label name="currently_pregnant"/>
+                        <field name="currently_pregnant"/>
+                        <label name="menarche"/>
+                        <field name="menarche"/>
+                        <label name="menopausal"/>
+                        <field name="menopausal"/>
+                        <label name="menopause"/>
+                        <field name="menopause"/>
+                    </group>
+                    <newline/>
+                    <field name="menstrual_history"/>
+                </page>
+                <page string="Screening" id="page_gyneco">
+                    <group colspan="4" col="8" id="group_prevention">
+                        <label name="breast_self_examination"/>
+                        <field name="breast_self_examination"/>
+                        <label name="mammography"/>
+                        <field name="mammography"/>
+                        <label name="pap_test"/>
+                        <field name="pap_test"/>
+                        <label name="colposcopy"/>
+                        <field name="colposcopy"/>
+                    </group>
+                    <newline/>
+                    <field colspan="4" name="mammography_history"/>
+                </page>
+                <page string="Pap / Colpo" id="page_pap_colpo">
+                    <field name="pap_history"/>
+                    <field name="colposcopy_history"/>
+                </page>
+                <page string="Obstetrics" id="page_obs">
+                    <group colspan="4" col="12" id="group_obstetrics">
+                        <label name="gravida"/>
+                        <field name="gravida"/>
+                        <label name="premature"/>
+                        <field name="premature"/>
+                        <label name="stillbirths"/>
+                        <field name="stillbirths"/>
+                        <label name="abortions"/>
+                        <field name="abortions"/>
+                    </group>
+                    <field name="pregnancy_history"/>
+                </page>
+            </notebook>
+        </page>
+    </xpath>
+</data>

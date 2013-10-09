@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
+        <page string="Socioeconomics" id="page_socioeconomics">
+            <notebook>
+                <page string="Main" id="page_ses_main">
+                    <group colspan="4" col="4" id="group_ses_holder2">
+                        <label name="ses"/>
+                        <field name="ses"/>
+                        <label name="housing"/>
+                        <field name="housing"/>
+                        <label name="education"/>
+                        <field name="education"/>
+                        <label name="occupation"/>
+                        <field name="occupation"/>
+                    </group>
+                    <newline/>
+                    <group col="6" id="group_socioecomics_work">
+                        <newline/>
+                        <label name="works_at_home"/>
+                        <field name="works_at_home"/>
+                        <label name="hours_outside"/>
+                        <field name="hours_outside"/>
+                        <label name="hostile_area"/>
+                        <field name="hostile_area"/>
+                    </group>
+                    <newline/>
+                    <newline/>
+                    <group string="Notes" id="group_ses_notes">
+                        <field colspan="4" name="ses_notes"/>
+                    </group>
+                </page>
+                <page string="Family" id="page_family">
+                    <group colspan="4" col="6" string="Family APGAR" id="group_ses_family_apgar">
+                        <label name="fam_apgar_help"/>
+                        <field name="fam_apgar_help"/>
+                        <label name="fam_apgar_discussion"/>
+                        <field name="fam_apgar_discussion"/>
+                        <label name="fam_apgar_decisions"/>
+                        <field name="fam_apgar_decisions"/>
+                        <label name="fam_apgar_timesharing"/>
+                        <field name="fam_apgar_timesharing"/>
+                        <label name="fam_apgar_affection"/>
+                        <field name="fam_apgar_affection"/>
+                        <label name="fam_apgar_score"/>
+                        <field name="fam_apgar_score"/>
+                    </group>
+                    <newline/>
+                    <group colspan="4" col="8" string="Other Family Issues" id="group_ses_other_family_issues">
+                        <label name="single_parent"/>
+                        <field name="single_parent"/>
+                        <label name="domestic_violence"/>
+                        <field name="domestic_violence"/>
+                        <label name="working_children"/>
+                        <field name="working_children"/>
+                        <label name="teenage_pregnancy"/>
+                        <field name="teenage_pregnancy"/>
+                        <label name="sexual_abuse"/>
+                        <field name="sexual_abuse"/>
+                        <label name="drug_addiction"/>
+                        <field name="drug_addiction"/>
+                        <label name="school_withdrawal"/>
+                        <field name="school_withdrawal"/>
+                        <label name="prison_past"/>
+                        <field name="prison_past"/>
+                        <label name="prison_current"/>
+                        <field name="prison_current"/>
+                        <label name="relative_in_prison"/>
+                        <field name="relative_in_prison"/>
+                    </group>
+                </page>
+            </notebook>
+        </page>
+    </xpath>
+</data>

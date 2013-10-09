@@ -24,42 +24,13 @@
         <record model="ir.ui.view" id="gnuhealth_disease_gene_view">
             <field name="model">gnuhealth.disease.gene</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Medical Genetic Risks">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="long_name"/>
-                    <field name="long_name"/>
-                    <newline/>
-                    <label name="chromosome"/>
-                    <field name="chromosome"/>
-                    <label name="dominance"/>
-                    <field name="dominance"/>
-                    <label name="location"/>
-                    <field name="location"/>
-                    <label name="gene_id"/>
-                    <field name="gene_id"/>
-                    <newline/>
-                    <field colspan="4" name="info"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_disease_gene</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_disease_gene_tree">
             <field name="model">gnuhealth.disease.gene</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Disease Genes">
-                    <field name="name"/>
-                    <field name="long_name"/>
-                    <field name="chromosome"/>
-                    <field name="dominance"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_disease_gene_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_disease_gene">
@@ -87,29 +58,13 @@
         <record model="ir.ui.view" id="gnuhealth_genetic_risk_view">
             <field name="model">gnuhealth.patient.genetic.risk</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Genetic Risks">
-                    <label name="patient"/>
-                    <field name="patient"/>
-                    <label name="disease_gene"/>
-                    <field name="disease_gene"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_genetic_risk</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_genetic_risk_tree">
             <field name="model">gnuhealth.patient.genetic.risk</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Patient Genetic Risks">
-                    <field name="patient"/>
-                    <field name="disease_gene" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_genetic_risk_tree</field>
         </record>
 
 <!-- Family Diseases -->
@@ -117,33 +72,13 @@
         <record model="ir.ui.view" id="gnuhealth_family_diseases_view">
             <field name="model">gnuhealth.patient.family.diseases</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Genetic Family Diseases">
-                    <label name="name"/>
-                    <field colspan="4" name="name"/>
-                    <newline/>
-                    <label name="xory"/>
-                    <field name="xory"/>
-                    <label name="relative"/>
-                    <field name="relative"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_family_diseases</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_family_diseases_tree">
             <field name="model">gnuhealth.patient.family.diseases</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Genetic Family Diseases">
-                    <field name="name"/>
-                    <field name="xory"/>
-                    <field name="relative" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_family_diseases_tree</field>
         </record>
 
 <!-- Include Family History and Genetic Risks on the patient chart -->
@@ -152,22 +87,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form" />
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]"
-                        position="after">
-
-                        <page string="Genetics" id="patient_genetics">
-                            <field name="genetic_risks"/>
-                            <field name="family_history"/>
-                        </page>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient</field>
         </record>
 
     </data>

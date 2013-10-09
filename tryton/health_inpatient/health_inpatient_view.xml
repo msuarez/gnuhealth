@@ -39,112 +39,13 @@
         <record model="ir.ui.view" id="gnuhealth_inpatient_registration_view">
             <field name="model">gnuhealth.inpatient.registration</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Inpatient Registration Information">
-                    <notebook>
-                        <page string="Administrative data" id="page_admin_data">
-                            <group colspan="4" id="group_admin_data_holder1">
-                                <group colspan="2" id="group_admin_data">
-                                    <label name="name"/>
-                                    <field name="name"/>
-                                    <label name="patient"/>
-                                    <field name="patient"/>
-                                </group>
-                                <group colspan="2" id="group_admin_bed">
-                                    <label name="bed"/>
-                                    <field name="bed"/>
-                                </group>
-                                <newline/>
-
-                                <group colspan="4" id="group_admin_data_holder2">
-                                    <label name="hospitalization_date"/>
-                                    <field name="hospitalization_date"/>
-                                    <label name="discharge_date"/>
-                                    <field name="discharge_date"/>
-                                    <label name="attending_physician"/>
-                                    <field name="attending_physician"/>
-                                    <label name="operating_physician"/>
-                                    <field name="operating_physician"/>
-                                </group>
-                                <group colspan="4" id="group_admin_data_holder3">
-                                    <label name="admission_type"/>
-                                    <field name="admission_type"/>
-                                    <label name="admission_reason"/>
-                                    <field name="admission_reason"/>
-                                    <newline/>
-                                    <label name="info" colspan="4"/>
-                                    <field name="info" colspan="4"/>
-                                </group>
-                            </group>
-                            <newline/>
-                            <field name="bed_transfers"/>
-                            <newline/>
-                            <group colspan="4" id="group_registration_holder1">
-                                <group colspan="2" id="group_registration_holder2">
-                                    <field name="state" readonly="1"/>
-                                    <button name="confirmed" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
-
-                                </group>
-
-                                <group colspan="2" id="group_registration_holder3">
-                                    <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
-                                    <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
-                                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
-
-                                </group>
-
-                            </group>
-
-                        </page>
-                        <page string="Nutrition" id="page_inpatient_nutrition">
-                            <label name="diet_belief"/>
-                            <field name="diet_belief"/>
-                            <label name="diet_vegetarian"/>
-                            <field name="diet_vegetarian"/>
-                            <newline/>
-                            <field colspan="4" name="therapeutic_diets"/>
-                            <newline/>
-                            <separator colspan="4" id="separator_nutrition_notes" string="Other nutrition notes / directions"/>
-                            <newline/>
-                            <field colspan="4" name="nutrition_notes"/>
-
-                        </page>
-
-                        <page string="Medication" id="page_inpatient_medication">
-                            <field name="medications"/>
-                        </page>
-
-                        <page string="Care Plan" id="page_care_plan">
-                            <label name="nursing_plan"/>
-                            <field name="nursing_plan"/>
-                            <newline/>
-                            <label name="discharge_plan"/>
-                            <field name="discharge_plan"/>
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_registration</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_inpatient_registration_tree">
             <field name="model">gnuhealth.inpatient.registration</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Inpatient Registration Info"
-                 colors="If(And(Equal(Eval('state'), 'hospitalized'), Equal(Eval('admission_type'), 'elective' )), 'blue',If(Equal(Eval('admission_type'), 'emergency'), 'red', If(Equal(Eval('admission_type'), 'maternity'), 'blue','black')))">
-                    <field name="name" expand="1"/>
-                    <field name="patient" expand="1"/>
-                    <field name="hospitalization_date" expand="1"/>
-                    <field name="discharge_date" expand="1"/>
-                    <field name="bed" expand="1"/>
-                    <field name="admission_type" expand="1"/>
-                    <field name="state" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_registration_tree</field>
         </record>
 
 <!-- Create the Action -->
@@ -177,20 +78,7 @@
             <field name="model">gnuhealth.appointment</field>
             <field name="inherit" ref="health.gnuhealth_appointment_form" />
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/group/field[@name=&quot;institution&quot;]"
-                        position="after">
-
-                        <label name="inpatient_registration_code"/>
-                        <field name="inpatient_registration_code"/>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">partner_form</field>
         </record>
 
 <!-- Add the patient Hospitalization Status to the partner form -->
@@ -198,17 +86,7 @@
         <record id="view_patient_form" model="ir.ui.view">
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="//field[@name=&quot;rh&quot;]"
-                        position="after">
-                        <field name="patient_status"/>
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">patient_form</field>
         </record>
 
 <!-- Add the patient Hospitalization Status to the tree -->
@@ -216,19 +94,7 @@
         <record id="gnuhealth_patient_extd_tree" model="ir.ui.view">
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_tree"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/tree/field[@name=&quot;identification_code&quot;]"
-                        position="after">
-
-                        <field name="patient_status"/>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_extd_tree</field>
         </record>
 
 <!-- Inpatient Medication -->
@@ -237,99 +103,14 @@
         <record model="ir.ui.view" id="gnuhealth_inpatient_medication_form">
             <field name="model">gnuhealth.inpatient.medication</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Inpatient Medication">
-                    <notebook>
-
-                        <page string="General Info" id="inpatient_medication_general_info">
-                            <group id="inpatient_medication_header" string="Medication">
-                                <label name="medicament"/>
-                                <field name="medicament"/>
-                                <label name="indication"/>
-                                <field name="indication"/>
-                            </group>
-                            <newline/>
-                            <newline/>
-                            <group id="inpatient_treatment_period"
-                                string="Treatment period">
-                                <label name="start_treatment"/>
-                                <field name="start_treatment"/>
-                                <label name="end_treatment"/>
-                                <field name="end_treatment"/>
-                            </group>
-                            <newline/>
-                            <group id="inpatient_medicament_form"
-                                string="Admnistration">
-                                <label name="form"/>
-                                <field name="form"/>
-                                <label name="route"/>
-                                <field name="route"/>
-                            </group>
-                            <newline/>
-                            <group id="inpatient_medicament_dosage" colspan="4" col="8"
-                                string="Dosage">
-                                <label name="dose"/>
-                                <field name="dose"/>
-                                <label name="dose_unit"/>
-                                <field name="dose_unit"/>
-                                <label name="qty"/>
-                                <field name="qty"/>
-                                <label name="common_dosage"/>
-                                <field name="common_dosage"/>
-                            </group>
-                            <newline/>
-                            <field colspan="4" name="admin_times"/>
-
-                            <newline/>
-                        </page>
-
-                        <page id="inpatient_medication_misc" string="Extra Info">
-
-                            <group id="inpatient_treatment_status" string="Status">
-                                <label name="is_active"/>
-                                <field name="is_active"/>
-                                <label name="course_completed"/>
-                                <field name="course_completed"/>
-                                <label name="discontinued"/>
-                                <field name="discontinued"/>
-                                <label name="discontinued_reason"/>
-                                <field name="discontinued_reason"/>
-                            </group>
-                            <newline/>
-                            <group id="inpatient_medication_adeverse_effects"
-                                string="Adverse Reactions and Notes">
-                                <field name="adverse_reaction"/>
-                            </group>
-                            <newline/>
-                            <field name="log_history"/>
-
-                        </page>
-
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_medication_form</field>
         </record>
 
 
         <record model="ir.ui.view" id="gnuhealth_inpatient_medication_tree">
             <field name="model">gnuhealth.inpatient.medication</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Inpatient Medication"
-                    colors="If(Bool(Eval('is_active')),'blue','grey')">
-                    <field name="medicament" expand="1"/>
-                    <field name="start_treatment" expand="1"/>
-                    <field name="end_treatment" expand="1"/>
-                    <field name="admin_times"/>
-                    <field name="course_completed"/>
-                    <field name="discontinued"/>
-                    <field name="is_active" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_medication_tree</field>
         </record>
 
 
@@ -339,35 +120,13 @@
         <record id="gnuhealth_inpatient_med_admin_time_form" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.medication.admin_time</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Inpatient Medication Admin Times">
-                        <label name="admin_time"/>
-                        <field name="admin_time"/>
-                        <label name="dose"/>
-                        <field name="dose"/>
-                        <label name="dose_unit"/>
-                        <field name="dose_unit"/>
-                        <label name="remarks"/>
-                        <field name="remarks"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_med_admin_time_form</field>
         </record>
 
         <record id="gnuhealth_inpatient_med_admin_time_tree" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.medication.admin_time</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Inpatient Medication Admin Times">
-                        <field name="admin_time"/>
-                        <field name="dose"/>
-                        <field name="dose_unit"/>
-                        <field name="remarks" expand="1"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_med_admin_time_tree</field>
         </record>
 
 
@@ -376,38 +135,13 @@
         <record id="gnuhealth_inpatient_med_log_form" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.medication.log</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Inpatient Medication Log">
-                        <label name="admin_time"/>
-                        <field name="admin_time"/>
-                        <label name="health_professional"/>
-                        <field name="health_professional"/>
-                        <label name="dose"/>
-                        <field name="dose"/>
-                        <label name="dose_unit"/>
-                        <field name="dose_unit"/>
-                        <label name="remarks"/>
-                        <field name="remarks"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_med_log_form</field>
         </record>
 
         <record id="gnuhealth_inpatient_med_log_tree" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.medication.log</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Inpatient Medication Log">
-                        <field name="admin_time" expand="1"/>
-                        <field name="health_professional" expand="1"/>
-                        <field name="dose"/>
-                        <field name="dose_unit"/>
-                        <field name="remarks" expand="1"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_med_log_tree</field>
         </record>
 
 <!-- Form view for diets related to beliefs / religions -->
@@ -415,20 +149,7 @@
         <record id="gnuhealth_inpatient_diet_belief_form" model="ir.ui.view">
             <field name="model">gnuhealth.diet.belief</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Diet related to beliefs">
-                        <label name="name"/>
-                        <field name="name"/>
-                        <label name="code"/>
-                        <field name="code"/>
-                        <newline/>
-                        <separator id="separator_diet_belief_description" colspan="4" string="Diet Description"/>
-                        <newline/>
-                        <field colspan="4" name="description"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_belief_form</field>
         </record>
 
 <!-- Tree view for the Beliefs and religon related diets -->
@@ -436,15 +157,7 @@
         <record id="gnuhealth_inpatient_diet_belief_tree" model="ir.ui.view">
             <field name="model">gnuhealth.diet.belief</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Therapeutic Diet">
-                        <field name="name" expand="1"/>
-                        <field name="code" expand="1"/>
-                        <field name="description"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_belief_tree</field>
         </record>
 
 <!-- Form view for the Therapeutic diet -->
@@ -452,20 +165,7 @@
         <record id="gnuhealth_inpatient_diet_therapeutic_form" model="ir.ui.view">
             <field name="model">gnuhealth.diet.therapeutic</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Therapeutic Diet">
-                        <label name="name"/>
-                        <field name="name"/>
-                        <label name="code"/>
-                        <field name="code"/>
-                        <newline/>
-                        <separator id="separator_diet_description" colspan="4" string="Diet Description and Indications"/>
-                        <newline/>
-                        <field colspan="4" name="description"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_therapeutic_form</field>
         </record>
 
 <!-- Tree view for the Therapeutic diets -->
@@ -473,15 +173,7 @@
         <record id="gnuhealth_inpatient_diet_therapeutic_tree" model="ir.ui.view">
             <field name="model">gnuhealth.diet.therapeutic</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Therapeutic Diet">
-                        <field name="name" expand="1"/>
-                        <field name="code" expand="1"/>
-                        <field name="description"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_belief_tree</field>
         </record>
 
 <!-- Form view for the Inpatient diet -->
@@ -489,18 +181,7 @@
         <record id="gnuhealth_inpatient_diet_form" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.diet</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Inpatient Diet">
-                        <label name="diet"/>
-                        <field name="diet"/>
-                        <newline/>
-                        <label name="remarks"/>
-                        <field colspan="4" name="remarks"/>
-
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_form</field>
         </record>
 
 
@@ -509,14 +190,7 @@
         <record id="gnuhealth_inpatient_diet_tree" model="ir.ui.view">
             <field name="model">gnuhealth.inpatient.diet</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Inpatient Diet">
-                        <field name="diet" expand="1"/>
-                        <field name="remarks" expand="1"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_inpatient_diet_tree</field>
         </record>
 
 
@@ -525,35 +199,13 @@
         <record id="gnuhealth_bed_transfer_form" model="ir.ui.view">
             <field name="model">gnuhealth.bed.transfer</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Bed Transfer History">
-                        <label name="transfer_date"/>
-                        <field name="transfer_date"/>
-                        <label name="bed_from"/>
-                        <field name="bed_from"/>
-                        <label name="bed_to"/>
-                        <field name="bed_to"/>
-                        <label name="reason"/>
-                        <field name="reason"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_bed_transfer_form</field>
         </record>
 
         <record id="gnuhealth_bed_transfer_tree" model="ir.ui.view">
             <field name="model">gnuhealth.bed.transfer</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree editable="top" string="Bed Transfer History">
-                        <field name="transfer_date" expand="1"/>
-                        <field name="bed_from" expand="1"/>
-                        <field name="bed_to" expand="1"/>
-                        <field name="reason" expand="1"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_bed_transfer_tree</field>
         </record>
 
 

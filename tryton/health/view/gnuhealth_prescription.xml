@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<form string="Prescription">
+    <group string="Patient and Doctor Information" id="prescription_patient_info">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="prescription_id"/>
+        <field name="prescription_id"/>
+        <label name="prescription_date"/>
+        <field name="prescription_date"/>
+        <label name="doctor"/>
+        <field name="doctor"/>
+        <label name="pharmacy"/>
+        <field name="pharmacy"/>
+        <group colspan="2" id="prescription_warning">
+            <label name="pregnancy_warning"/>
+            <field name="pregnancy_warning"/>
+            <label name="prescription_warning_ack"/>
+            <field name="prescription_warning_ack"/>
+        </group>
+    </group>
+    <newline/>
+    <field name="prescription_line" colspan="4"/>
+    <newline/>
+    <group string="Notes" id="group_prescription_notes">
+        <field name="notes" colspan="4"/>
+    </group>
+</form>

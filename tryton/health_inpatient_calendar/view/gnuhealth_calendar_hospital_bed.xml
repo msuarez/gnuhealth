@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/newline" position="replace">
+        <label name="calendar"/>
+        <field name="calendar"/>
+    </xpath>
+</data>

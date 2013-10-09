@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="ethnicity">
+    <group id="ethnicity_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="notes"/>
+        <field name="notes"/>
+    </group>
+</form>

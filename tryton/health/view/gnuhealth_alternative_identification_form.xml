@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Person alternative IDs">
+    <label name="code"/>
+    <field name="code"/>
+    <label name="alternative_id_type"/>
+    <field name="alternative_id_type"/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

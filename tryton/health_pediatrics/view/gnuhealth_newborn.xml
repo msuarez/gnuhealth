@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<form string="Newborn Info">
+    <notebook>
+        <page string="Main" id="page_newborn_main">
+            <group string="Main" id="group_newborn_main">
+                <group id="group_newborn_1">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="newborn_name"/>
+                    <field name="newborn_name"/>
+                    <label name="mother"/>
+                    <field name="mother"/>
+                    <label name="sex"/>
+                    <field name="sex"/>
+                    <label name="birth_date"/>
+                    <field name="birth_date"/>
+                    <label name="dismissed"/>
+                    <field name="dismissed"/>
+                    <label name="length"/>
+                    <field name="length"/>
+                    <label name="weight"/>
+                    <field name="weight"/>
+                    <label name="cephalic_perimeter"/>
+                    <field name="cephalic_perimeter"/>
+                    <label name="responsible"/>
+                    <field name="responsible"/>
+                </group>
+                <group id="group_newborn_photo">
+                    <field name="photo" widget="image"/>
+                </group>
+            </group>
+            <newline/>
+            <field name="apgar_scores"/>
+            <newline/>
+            <group id="group_newborn_reanimation_holder">
+                <group colspan="3" col="10" id="group_newborn_reanimation">
+                    <label name="reanimation_stimulation"/>
+                    <field name="reanimation_stimulation"/>
+                    <label name="reanimation_aspiration"/>
+                    <field name="reanimation_aspiration"/>
+                    <label name="reanimation_intubation"/>
+                    <field name="reanimation_intubation"/>
+                    <label name="reanimation_mask"/>
+                    <field name="reanimation_mask"/>
+                    <label name="reanimation_oxygen"/>
+                    <field name="reanimation_oxygen"/>
+                </group>
+                <group string="Notes" colspan="3" id="group_newborn_notes">
+                    <field colspan="3" name="notes"/>
+                </group>
+            </group>
+            <newline/>
+        </page>
+        <page string="Findings and Tests" id="page_newborn_findings">
+            <group string="Neonatal Signs and Symptoms" colspan="4" col="8" id="group_neonatal_signs">
+                <label name="meconium"/>
+                <field name="meconium"/>
+                <label name="neonatal_ortolani"/>
+                <field name="neonatal_ortolani"/>
+                <label name="neonatal_barlow"/>
+                <field name="neonatal_barlow"/>
+                <label name="neonatal_hernia"/>
+                <field name="neonatal_hernia"/>
+                <label name="neonatal_ambiguous_genitalia"/>
+                <field name="neonatal_ambiguous_genitalia"/>
+                <label name="neonatal_erbs_palsy"/>
+                <field name="neonatal_erbs_palsy"/>
+                <label name="neonatal_hematoma"/>
+                <field name="neonatal_hematoma"/>
+                <label name="neonatal_talipes_equinovarus"/>
+                <field name="neonatal_talipes_equinovarus"/>
+                <label name="neonatal_palmar_crease"/>
+                <field name="neonatal_palmar_crease"/>
+                <label name="neonatal_polydactyly"/>
+                <field name="neonatal_polydactyly"/>
+                <label name="neonatal_syndactyly"/>
+                <field name="neonatal_syndactyly"/>
+            </group>
+            <newline/>
+            <group string="Neonatal Reflex Check" colspan="4" col="8" id="group_neonatal_reflexes">
+                <label name="neonatal_moro_reflex"/>
+                <field name="neonatal_moro_reflex"/>
+                <label name="neonatal_grasp_reflex"/>
+                <field name="neonatal_grasp_reflex"/>
+                <label name="neonatal_stepping_reflex"/>
+                <field name="neonatal_stepping_reflex"/>
+                <label name="neonatal_babinski_reflex"/>
+                <field name="neonatal_babinski_reflex"/>
+                <label name="neonatal_blink_reflex"/>
+                <field name="neonatal_blink_reflex"/>
+                <label name="neonatal_sucking_reflex"/>
+                <field name="neonatal_sucking_reflex"/>
+                <label name="neonatal_swimming_reflex"/>
+                <field name="neonatal_swimming_reflex"/>
+                <label name="neonatal_tonic_neck_reflex"/>
+                <field name="neonatal_tonic_neck_reflex"/>
+            </group>
+            <newline/>
+            <field name="congenital_diseases"/>
+            <field name="medication"/>
+            <newline/>
+            <group colspan="4" col="6" string="Tests" id="group_newborn_tests">
+                <label name="test_vdrl"/>
+                <field name="test_vdrl"/>
+                <label name="test_toxo"/>
+                <field name="test_toxo"/>
+                <label name="test_chagas"/>
+                <field name="test_chagas"/>
+                <label name="test_billirubin"/>
+                <field name="test_billirubin"/>
+                <label name="test_audition"/>
+                <field name="test_audition"/>
+                <label name="test_metabolic"/>
+                <field name="test_metabolic"/>
+            </group>
+        </page>
+        <page string="Other" id="page_newborn_other">
+            <group string="Deceased" id="group_newborn_deceased">
+                <group id="group_newborn_deceased_1">
+                    <label name="bd"/>
+                    <field name="bd"/>
+                    <label name="died_at_delivery"/>
+                    <field name="died_at_delivery"/>
+                    <label name="died_at_the_hospital"/>
+                    <field name="died_at_the_hospital"/>
+                    <label name="died_being_transferred"/>
+                    <field name="died_being_transferred"/>
+                    <label name="tod"/>
+                    <field name="tod"/>
+                    <label name="cod"/>
+                    <field name="cod"/>
+                </group>
+            </group>
+        </page>
+    </notebook>
+</form>

@@ -8,69 +8,13 @@
         <record model="ir.ui.view" id="gnuhealth_patient_pregnancy_view">
             <field name="model">gnuhealth.patient.pregnancy</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Pregnancies">
-                    <group id="group_pregnancy_header" colspan="4" col="8">
-                        <label name="gravida"/>
-                        <field name="gravida"/>
-                        <label name="lmp"/>
-                        <field name="lmp"/>
-                        <label name="pdd"/>
-                        <field name="pdd"/>
-                        <label name="current_pregnancy"/>
-                        <field name="current_pregnancy"/>
-                    </group>
-
-                    <newline/>
-                    <field colspan="4" name="prenatal_evaluations"/>
-
-                    <newline/>
-                    <field name="perinatal"/>
-                    <field name="puerperium_monitor"/>
-                    <newline/>
-
-                    <group id="group_pregnancy_footer1" colspan="4" col="8">                    
-                        <label name="fetuses"/>
-                        <field name="fetuses"/>
-                        <label name="monozygotic"/>
-                        <field name="monozygotic"/>
-                        <label name="iugr"/>
-                        <field name="iugr"/>
-                        <label name="warning"/>
-                        <field name="warning"/>
-                    </group>
-                    <newline/>
-                    <group id="group_pregnancy_footer2" colspan="4" col="4">                                            
-                        <label name="pregnancy_end_date"/>
-                        <field name="pregnancy_end_date"/>
-                        <label name="pregnancy_end_result"/>
-                        <field name="pregnancy_end_result"/>
-                    </group>    
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_pregnancy</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_pregnancy_tree">
             <field name="model">gnuhealth.patient.pregnancy</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Pregnancies' colors="If(Bool(Eval('warning')),'orange','black')">
-                    <field name="gravida"/>
-                    <field name="lmp" expand="1"/>
-                    <field name="pdd" expand="1"/>
-                    <field name="current_pregnancy" expand="1"/>
-                    <field name="pregnancy_end_date" expand="1"/>
-                    <field name="pregnancy_end_age" expand="1"/>
-                    <field name="pregnancy_end_result" expand="1"/>
-                    <field name="iugr" expand="1"/>
-                    <field name="fetuses" expand="1"/>
-                    <field name="warning" expand="1"/>                    
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_pregnancy_tree</field>
         </record>
 
 
@@ -79,91 +23,13 @@
         <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_view">
             <field name="model">gnuhealth.patient.prenatal.evaluation</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Prenatal Evaluation">
-                    <group id="prenatal_evaluation_group_header" colspan="4" col="4">
-                        <label name="evaluation_date"/>
-                        <field name="evaluation_date"/>
-                        <label name="gestational_weeks"/>
-                        <field name="gestational_weeks"/>                                               
-                    </group>
-                    <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="8">
-                    
-                        <label name="hypertension"/>
-                        <field name="hypertension"/>
-                        <label name="preeclampsia"/>
-                        <field name="preeclampsia"/>
-                        <label name="overweight"/>
-                        <field name="overweight"/>
-                        <label name="diabetes"/>
-                        <field name="diabetes"/>
-
-                    </group>
-
-                    <group string="Placenta" id="prenatal_evaluation_group_placenta" colspan="4" col="6">
-                        <label name="placenta_previa"/>
-                        <field name="placenta_previa"/>
-                        <label name="invasive_placentation"/>
-                        <field name="invasive_placentation"/>
-                        <label name="vasa_previa"/>
-                        <field name="vasa_previa"/>
-                    </group>
-
-                    <newline/>
-                    
-                    <group string="Fetus Information" id="prenatal_evaluation_group_fetus" colspan="4" col="8">
-                        <label name="fundal_height"/>
-                        <field name="fundal_height"/>                                               
-                        <label name="fetus_heart_rate"/>
-                        <field name="fetus_heart_rate"/>                                               
-                        <label name="efw"/>
-                        <field name="efw"/>                                               
-
-                        <newline/>
-                        <separator colspan="4" string="Fetal Biometry" id="separator_fetal_biometry"/>
-                        <newline/>
-
-                        <label name="fetal_bpd"/>
-                        <field name="fetal_bpd"/>                                               
-                        <label name="fetal_hc"/>
-                        <field name="fetal_hc"/>                                               
-                        <label name="fetal_ac"/>
-                        <field name="fetal_ac"/>                                               
-                        <label name="fetal_fl"/>
-                        <field name="fetal_fl"/>                                               
-
-                    </group>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_prenatal_evaluation</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_prenatal_evaluation_tree">
             <field name="model">gnuhealth.patient.prenatal.evaluation</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Prenatal Evaluations'>
-                    <field name="evaluation_date" expand="1"/>
-                    <field name="gestational_weeks" expand="1"/>                                               
-                    <field name="fundal_height" expand="1"/>                                               
-                    <field name="fetus_heart_rate" expand="1"/>
-                    <field name="efw" expand="1"/>
-                    <field name="iugr" expand="1"/>                    
-                    <field name="hypertension" expand="1"/>                                                                   
-                    <field name="preeclampsia" expand="1"/>                                                                   
-                    <field name="overweight" expand="1"/>                                               
-                    <field name="diabetes" expand="1"/>                                               
-                    <field name="invasive_placentation" expand="1"/>                                               
-                    <field name="placenta_previa" expand="1"/>                                               
-                    <field name="vasa_previa" expand="1"/>                                               
-                    <field name="oligohydramnios" expand="1"/>                                               
-                    <field name="polihydramnios" expand="1"/>                                               
-
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_prenatal_evaluation_tree</field>
         </record>
 
 
@@ -174,84 +40,13 @@
         <record model="ir.ui.view" id="gnuhealth_perinatal_view">
             <field name="model">gnuhealth.perinatal</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Perinatal and Intrapartum Information">
-                    <notebook>
-                        <page string="Main" id="page_main_perinatal">
-
-                            <group id="group_perinatal_holder" colspan="4" col="6">
-                                <label name="gestational_weeks"/>
-                                <field name="gestational_weeks"/>
-                                <label name="admission_date"/>
-                                <field name="admission_date"/>
-                                <label name="admission_code"/>
-                                <field name="admission_code"/>
-                            </group>
-
-                            <newline/>
-
-                            <group id="group_labor">
-                                <label name="start_labor_mode"/>
-                                <field name="start_labor_mode"/>
-                                <label name="fetus_presentation"/>
-                                <field name="fetus_presentation"/>
-                            </group>
-                            <newline/>
-                            <field colspan="4" name="monitoring"/>
-                            <newline/>
-
-                            <separator colspan="4" string="Notes" id="perinatal_notes_separator"/>
-                            <field name="notes"/>
-                        </page>
-
-
-                        <page id="perinatal_misc" string="Additional Info">
-
-                            <group colspan="4" col="8" id="group_misc">
-                                <label name="dystocia"/>
-                                <field name="dystocia"/>
-                                <label name="episiotomy"/>
-                                <field name="episiotomy"/>
-                                <label name="laceration"/>
-                                <field name="laceration"/>                                
-                                <label name="hematoma"/>
-                                <field name="hematoma"/>                                
-
-                            </group>
-
-                            <newline/>
-                            <separator colspan="4" id="separator_placenta" string="Placenta anomalies"/>
-                            <newline/>
-                            
-                            <group colspan="4" col="10" id="group_placenta">
-                                <label name="placenta_incomplete"/>
-                                <field name="placenta_incomplete"/>
-                                <label name="placenta_retained"/>
-                                <field name="placenta_retained"/>
-                                <label name="abruptio_placentae"/>
-                                <field name="abruptio_placentae"/>
-                            </group>
-                                                       
-                        </page>
-
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_perinatal</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_perinatal_tree">
             <field name="model">gnuhealth.perinatal</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Perinatal and Intrapartum Information'>
-                    <field name="admission_date" expand="1"/>
-                    <field name="gestational_weeks" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_perinatal_tree</field>
         </record>
 
 <!-- Puerperium -->
@@ -259,44 +54,13 @@
         <record model="ir.ui.view" id="gnuhealth_puerperium_monitor_view">
             <field name="model">gnuhealth.puerperium.monitor</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Puerperium Monitor">
-                    <group colspan="4" string="Main" id="group_puerperium_monitor">
-                        <label name="date"/>
-                        <field name="date"/>
-                        <label name="uterus_involution"/>
-                        <field name="uterus_involution"/>
-                    </group>
-                    <newline/>
-                    <group colspan="4" string="Lochia" id="group_lochia">
-                        <label name="lochia_amount"/>
-                        <field name="lochia_amount"/>
-                        <label name="lochia_color"/>
-                        <field name="lochia_color"/>
-                        <label name="lochia_odor"/>
-                        <field name="lochia_odor"/>
-                        <newline/>
-                    </group>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_puerperium_monitor</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_puerperium_monitor_tree">
             <field name="model">gnuhealth.puerperium.monitor</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Puerperium Monitor'>
-                    <field name="date" expand="1"/>
-                    <field name="uterus_involution" expand="1"/>
-                    <field name="lochia_amount" expand="1"/>
-                    <field name="lochia_color" expand="1"/>
-                    <field name="lochia_odor" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_puerperium_monitor_tree</field>
         </record>
 
 <!-- Perinatal Monitoring -->
@@ -304,68 +68,13 @@
         <record model="ir.ui.view" id="gnuhealth_perinatal_monitor_view">
             <field name="model">gnuhealth.perinatal.monitor</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Perinatal Monitor">
-                    <group colspan="4" string="Mother" id="group_perinatal_mother_monitor">
-                        <label name="date"/>
-                        <field name="date"/>
-                        <newline/>
-                        <label name="systolic"/>
-                        <field name="systolic"/>
-                        <label name="diastolic"/>
-                        <field name="diastolic"/>
-                        <label name="frequency"/>
-                        <field name="frequency"/>
-                        <newline/>
-                        <label name="contractions"/>
-                        <field name="contractions"/>
-                        <label name="dilation"/>
-                        <field name="dilation"/>
-                        <label name="fundal_height"/>
-                        <field name="fundal_height"/>
-                        <newline/>
-                    </group>
-                    <newline/>
-                    <group colspan="4" string="Fetus" id="group_perinatal_fetus_monitor">
-
-                        <label name="fetus_position"/>
-                        <field name="fetus_position"/>
-                        <label name="f_frequency"/>
-                        <field name="f_frequency"/>
-                        <newline/>
-                    </group>
-                    <newline/>
-                    <group colspan="4" string="Complications" id="group_perinatal_complications">
-                        <label name="bleeding"/>
-                        <field name="bleeding"/>
-                        <label name="meconium"/>
-                        <field name="meconium"/>
-                    </group>
-                    <newline/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_perinatal_monitor</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_perinatal_monitor_tree">
             <field name="model">gnuhealth.perinatal.monitor</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Perinatal Monitor'>
-                    <field name="date" expand="1"/>
-                    <field name="dilation" expand="1"/>
-                    <field name="systolic" expand="1"/>
-                    <field name="diastolic" expand="1"/>
-                    <field name="frequency" expand="1"/>
-                    <field name="fetus_position" expand="1"/>
-                    <field name="f_frequency" expand="1"/>
-                    <field name="bleeding" expand="1"/>
-                    <field name="meconium" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_perinatal_monitor_tree</field>
         </record>
 
 
@@ -374,48 +83,13 @@
         <record model="ir.ui.view" id="gnuhealth_menstrual_history_view">
             <field name="model">gnuhealth.patient.menstrual_history</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Menstrual History">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="evaluation"/>
-                    <field name="evaluation"/>
-                    <label name="evaluation_date"/>
-                    <field name="evaluation_date"/>
-                    <label name="lmp"/>
-                    <field name="lmp"/>
-                    <label name="lmp_length"/>
-                    <field name="lmp_length"/>
-                    <label name="frequency"/>
-                    <field name="frequency"/>
-                    <label name="volume"/>
-                    <field name="volume"/>
-                    <label name="is_regular"/>
-                    <field name="is_regular"/>
-                    <label name="dysmenorrhea"/>
-                    <field name="dysmenorrhea"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_menstrual_history</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_menstrual_history_tree">
             <field name="model">gnuhealth.patient.menstrual_history</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string='Menstrual History'>
-                    <field name="evaluation_date" expand="1"/>
-                    <field name="lmp" expand="1"/>
-                    <field name="lmp_length" expand="1"/>
-                    <field name="frequency" expand="1"/>
-                    <field name="volume" expand="1"/>
-                    <field name="is_regular" expand="1"/>
-                    <field name="dysmenorrhea" expand="1"/>                    
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_menstrual_history_tree</field>
         </record>
 
 <!-- PAP history information -->
@@ -423,38 +97,13 @@
         <record model="ir.ui.view" id="gnuhealth_pap_history_view">
             <field name="model">gnuhealth.patient.pap_history</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient pap History">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="evaluation"/>
-                    <field name="evaluation"/>
-                    <label name="evaluation_date"/>
-                    <field name="evaluation_date"/>
-                    <label name="last_pap"/>
-                    <field name="last_pap"/>
-                    <label name="result"/>
-                    <field name="result"/>
-                    <label name="comments"/>
-                    <field name="comments"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_pap_history</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_pap_history_tree">
             <field name="model">gnuhealth.patient.pap_history</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string='PAP Tests'>
-                    <field name="last_pap" expand="1"/>
-                    <field name="result" expand="1"/>                    
-                    <field name="comments" expand="1"/>                    
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_pap_history_tree</field>
         </record>
 
 
@@ -463,39 +112,13 @@
         <record model="ir.ui.view" id="gnuhealth_mammography_history_view">
             <field name="model">gnuhealth.patient.mammography_history</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient mammography History">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="evaluation"/>
-                    <field name="evaluation"/>
-                    <label name="evaluation_date"/>
-                    <field name="evaluation_date"/>
-                    <label name="last_mammography"/>
-                    <field name="last_mammography"/>
-                    <label name="result"/>
-                    <field name="result"/>
-                    <label name="comments"/>
-                    <field name="comments"/>
-
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_mammography_history</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_mammography_history_tree">
             <field name="model">gnuhealth.patient.mammography_history</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string='Mammography Tests'>
-                    <field name="last_mammography" expand="1"/>
-                    <field name="result" expand="1"/>                    
-                    <field name="comments" expand="1"/>                    
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_mammography_history_tree</field>
         </record>
 
 <!-- Colposcopy history information -->
@@ -503,38 +126,13 @@
         <record model="ir.ui.view" id="gnuhealth_colposcopy_history_view">
             <field name="model">gnuhealth.patient.colposcopy_history</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient colposcopy History">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="evaluation"/>
-                    <field name="evaluation"/>
-                    <label name="evaluation_date"/>
-                    <field name="evaluation_date"/>
-                    <label name="last_colposcopy"/>
-                    <field name="last_colposcopy"/>
-                    <label name="result"/>
-                    <field name="result"/>
-                    <label name="comments"/>
-                    <field name="comments"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_colposcopy_history</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_colposcopy_history_tree">
             <field name="model">gnuhealth.patient.colposcopy_history</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string='Colposcopy Tests'>
-                    <field name="last_colposcopy" expand="1"/>
-                    <field name="result" expand="1"/>                    
-                    <field name="comments" expand="1"/>                    
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_colposcopy_history_tree</field>
         </record>
 
 
@@ -544,78 +142,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form" />
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]"
-                        position="after">
-
-                        <page
-                            string="Gyneco / Obs" id="page_gyneco_obs"
-                            states="{'invisible': Equal(Eval('sex'), 'm')}">
-                            <notebook>
-
-                                <page string="Gyneco" id="page_gyneco">
-                                    <group colspan="4" col="10" string="General" id="group_gyneco_general">
-                                        <label name="fertile"/>
-                                        <field name="fertile"/>
-                                        <label name="currently_pregnant"/>
-                                        <field name="currently_pregnant"/>
-                                        <label name="menarche"/>
-                                        <field name="menarche"/>
-                                        <label name="menopausal"/>
-                                        <field name="menopausal"/>
-                                        <label name="menopause"/>
-                                        <field name="menopause"/>
-                                    </group>
-                                    <newline/>
-                                    <field name="menstrual_history"/>
-
-                                </page>
-
-                                <page string="Screening" id="page_gyneco">
-                                    <group colspan="4" col="8" id="group_prevention">
-                                        <label name="breast_self_examination"/>
-                                        <field name="breast_self_examination"/>
-                                        <label name="mammography"/>
-                                        <field name="mammography"/>
-                                        <label name="pap_test"/>
-                                        <field name="pap_test"/>
-                                        <label name="colposcopy"/>
-                                        <field name="colposcopy"/>
-                                    </group>
-                                    <newline/>
-                                    <field colspan="4" name="mammography_history"/>
-                                    
-                                </page>
-
-                                <page string="Pap / Colpo" id="page_pap_colpo">
-                                    <field name="pap_history"/>
-                                    <field name="colposcopy_history"/>                                    
-                                </page>
-
-                                <page string="Obstetrics" id="page_obs">
-                                    <group colspan="4" col="12" id="group_obstetrics">
-                                        <label name="gravida"/>
-                                        <field name="gravida"/>
-                                        <label name="premature"/>
-                                        <field name="premature"/>
-                                        <label name="stillbirths"/>
-                                        <field name="stillbirths"/>
-                                        <label name="abortions"/>
-                                        <field name="abortions"/>
-                                    </group>
-                                        <field name="pregnancy_history"/>
-                                </page>
-
-                            </notebook>
-                        </page>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient</field>
         </record>
 
 

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<form string="RCRI : Revised Cardiac Risk Index">
+    <group id="rcri_header" col="6">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="health_professional"/>
+        <field name="health_professional"/>
+        <label name="rcri_date"/>
+        <field name="rcri_date"/>
+    </group>
+    <newline/>
+    <group id="rcri_score" col="6">
+        <label name="rcri_high_risk_surgery"/>
+        <field name="rcri_high_risk_surgery"/>
+        <label name="rcri_ischemic_history"/>
+        <field name="rcri_ischemic_history"/>
+        <label name="rcri_congestive_history"/>
+        <field name="rcri_congestive_history"/>
+        <label name="rcri_diabetes_history"/>
+        <field name="rcri_diabetes_history"/>
+        <label name="rcri_cerebrovascular_history"/>
+        <field name="rcri_cerebrovascular_history"/>
+        <label name="rcri_kidney_history"/>
+        <field name="rcri_kidney_history"/>
+        <newline/>
+        <separator id="separator_score" colspan="6"/>
+        <newline/>
+        <label name="rcri_total"/>
+        <field name="rcri_total"/>
+        <label name="rcri_class"/>
+        <field name="rcri_class"/>
+    </group>
+</form>

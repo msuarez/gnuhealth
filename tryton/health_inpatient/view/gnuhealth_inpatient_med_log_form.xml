@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Inpatient Medication Log">
+    <label name="admin_time"/>
+    <field name="admin_time"/>
+    <label name="health_professional"/>
+    <field name="health_professional"/>
+    <label name="dose"/>
+    <field name="dose"/>
+    <label name="dose_unit"/>
+    <field name="dose_unit"/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

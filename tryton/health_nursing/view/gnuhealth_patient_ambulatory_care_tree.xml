@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="Ambulatory Sessions" colors="If(Bool(Eval('warning')),'red','black')">
+    <field name="warning"/>
+    <field name="name" expand="1"/>
+    <field name="patient" expand="1"/>
+    <field name="session_start" expand="1"/>
+    <field name="health_professional" expand="1"/>
+    <field name="evolution" expand="1"/>
+</tree>

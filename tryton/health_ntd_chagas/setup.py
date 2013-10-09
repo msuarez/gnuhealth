@@ -59,7 +59,8 @@ setup(name='trytond_health_ntd_chagas',
     package_data={
         'trytond.modules.health_ntd_chagas': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
+               'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<form string="APACHE II Score">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="score_date"/>
+    <field name="score_date"/>
+    <label name="age"/>
+    <field name="age"/>
+    <newline/>
+    <group id="group_apache_physisological" string="Physiological" colspan="4">
+        <label name="temperature"/>
+        <field name="temperature"/>
+        <label name="mean_ap"/>
+        <field name="mean_ap"/>
+        <label name="heart_rate"/>
+        <field name="heart_rate"/>
+        <label name="respiratory_rate"/>
+        <field name="respiratory_rate"/>
+        <label name="fio2"/>
+        <field name="fio2"/>
+        <label name="pao2"/>
+        <field name="pao2"/>
+        <label name="paco2"/>
+        <field name="paco2"/>
+        <label name="aado2"/>
+        <field name="aado2"/>
+        <label name="ph"/>
+        <field name="ph"/>
+        <label name="serum_sodium"/>
+        <field name="serum_sodium"/>
+        <label name="serum_potassium"/>
+        <field name="serum_potassium"/>
+        <label name="serum_creatinine"/>
+        <field name="serum_creatinine"/>
+        <label name="hematocrit"/>
+        <field name="hematocrit"/>
+        <label name="wbc"/>
+        <field name="wbc"/>
+        <label name="arf"/>
+        <field name="arf"/>
+    </group>
+    <newline/>
+    <group id="group_apache_chronic" string="Chronic" colspan="4">
+        <label name="chronic_condition"/>
+        <field name="chronic_condition"/>
+        <label name="hospital_admission_type"/>
+        <field name="hospital_admission_type"/>
+    </group>
+    <newline/>
+    <label name="apache_score"/>
+    <field name="apache_score"/>
+</form>

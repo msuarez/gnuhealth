@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form string="Inpatient Diet">
+    <label name="diet"/>
+    <field name="diet"/>
+    <newline/>
+    <label name="remarks"/>
+    <field colspan="4" name="remarks"/>
+</form>

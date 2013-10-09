@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<form string="Patient Evaluation">
+    <notebook>
+        <page string="Main Info" id="page_patient_evaluation_main">
+            <group colspan="4" col="8" id="evaluation_header">
+                <label name="patient"/>
+                <field name="patient"/>
+                <label name="visit_type"/>
+                <field name="visit_type"/>
+                <label name="doctor"/>
+                <field name="doctor"/>
+                <label name="evaluation_start"/>
+                <field name="evaluation_start"/>
+            </group>
+            <newline/>
+            <separator colspan="4" id="separator_chief_complaint"/>
+            <newline/>
+            <group col="9" string="Chief Complaint" id="eval_chief_complaint">
+                <field name="chief_complaint" colspan="5"/>
+                <label name="information_source"/>
+                <field name="information_source"/>
+                <label name="reliable_info"/>
+                <field name="reliable_info"/>
+            </group>
+            <newline/>
+            <separator string="Present Illness" colspan="4" id="separator_present_illness"/>
+            <field name="present_illness" colspan="4"/>
+            <newline/>
+            <separator string="Evaluation Summary" colspan="4" id="separator_evaluation_summary"/>
+            <newline/>
+            <field name="evaluation_summary" colspan="4"/>
+            <newline/>
+            <group colspan="4" col="12" id="group_eval_misc">
+                <label name="evaluation_type"/>
+                <field name="evaluation_type"/>
+                <label name="specialty"/>
+                <field name="specialty"/>
+                <label name="urgency"/>
+                <field name="urgency"/>
+                <label name="evaluation_endtime"/>
+                <field name="evaluation_endtime"/>
+                <field name="state"/>
+                <button name="discharge" help="Sign and close the evaluation" string="Sign" icon="tryton-go-next" confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
+                <field name="signed_by"/>
+            </group>
+        </page>
+        <page string="Clinical" id="page_patient_evaluation_signs">
+            <group colspan="4" col="6" string="Vital Signs" id="group_patient_evaluation_vital_signs">
+                <label name="temperature"/>
+                <field name="temperature"/>
+                <label name="systolic"/>
+                <field name="systolic"/>
+                <label name="diastolic"/>
+                <field name="diastolic"/>
+                <label name="bpm"/>
+                <field name="bpm"/>
+                <label name="respiratory_rate"/>
+                <field name="respiratory_rate"/>
+                <label name="osat"/>
+                <field name="osat"/>
+            </group>
+            <newline/>
+            <group colspan="4" col="6" string="Anthropometry" id="group_patient_evaluation_anthropometry">
+                <label name="weight"/>
+                <field name="weight"/>
+                <label name="height"/>
+                <field name="height"/>
+                <label name="whr"/>
+                <field name="whr"/>
+                <label name="abdominal_circ"/>
+                <field name="abdominal_circ"/>
+                <label name="hip"/>
+                <field name="hip"/>
+                <label name="bmi"/>
+                <field name="bmi"/>
+                <label name="head_circumference"/>
+                <field name="head_circumference"/>
+            </group>
+            <newline/>
+            <group colspan="4" string="Nutrition" id="group_patient_evaluation_nutrition">
+                <label name="malnutrition"/>
+                <field name="malnutrition"/>
+                <label name="dehydration"/>
+                <field name="dehydration"/>
+            </group>
+            <newline/>
+            <field name="signs_and_symptoms"/>
+            <newline/>
+            <group colspan="4" col="6" string="Glucose and Lipids Profile" id="group_patient_evaluation_glucose_lipid">
+                <label name="glycemia"/>
+                <field name="glycemia"/>
+                <label name="hba1c"/>
+                <field name="hba1c"/>
+                <label name="cholesterol_total"/>
+                <field name="cholesterol_total"/>
+                <label name="hdl"/>
+                <field name="hdl"/>
+                <label name="ldl"/>
+                <field name="ldl"/>
+                <label name="tag"/>
+                <field name="tag"/>
+            </group>
+        </page>
+        <page string="Mental Status" id="page_patient_evaluation_mental">
+            <group string="Glasgow Coma Scale" colspan="4" id="group_patient_evaluation_glasgow">
+                <label name="loc"/>
+                <field name="loc"/>
+                <label name="loc_eyes"/>
+                <field name="loc_eyes"/>
+                <label name="loc_verbal"/>
+                <field name="loc_verbal"/>
+                <label name="loc_motor"/>
+                <field name="loc_motor"/>
+            </group>
+            <newline/>
+            <group string="Mental Assessment and Impairments" id="group_patient_evaluation_mental">
+                <label name="violent"/>
+                <field name="violent"/>
+                <label name="mood"/>
+                <field name="mood"/>
+                <newline/>
+                <label name="orientation"/>
+                <field name="orientation"/>
+                <label name="memory"/>
+                <field name="memory"/>
+                <label name="knowledge_current_events"/>
+                <field name="knowledge_current_events"/>
+                <label name="judgment"/>
+                <field name="judgment"/>
+                <label name="abstraction"/>
+                <field name="abstraction"/>
+                <label name="vocabulary"/>
+                <field name="vocabulary"/>
+                <label name="calculation_ability"/>
+                <field name="calculation_ability"/>
+                <label name="object_recognition"/>
+                <field name="object_recognition"/>
+                <label name="praxis"/>
+                <field name="praxis"/>
+            </group>
+        </page>
+        <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
+            <label name="diagnosis"/>
+            <field name="diagnosis" colspan="3"/>
+            <newline/>
+            <field name="secondary_conditions" colspan="4"/>
+            <newline/>
+            <separator string="Information on Diagnosis" colspan="2" id="separator_evaluation_diagnosis_1"/>
+            <separator string="Treatment Plan" colspan="2" id="separator_evaluation_diagnosis_2"/>
+            <newline/>
+            <field name="info_diagnosis" colspan="2"/>
+            <field name="directions" colspan="2"/>
+            <newline/>
+            <field name="diagnostic_hypothesis" colspan="2"/>
+            <field name="actions" colspan="2"/>
+            <newline/>
+            <label name="evaluation_date"/>
+            <field name="evaluation_date"/>
+            <label name="derived_from"/>
+            <field name="derived_from"/>
+            <label name="next_evaluation"/>
+            <field name="next_evaluation"/>
+            <label name="derived_to"/>
+            <field name="derived_to"/>
+        </page>
+    </notebook>
+</form>

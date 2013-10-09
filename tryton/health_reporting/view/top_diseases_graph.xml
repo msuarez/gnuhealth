@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<graph string="Top Diseases">
+    <x>
+        <field name="disease"/>
+    </x>
+    <y>
+        <field name="cases"/>
+    </y>
+</graph>

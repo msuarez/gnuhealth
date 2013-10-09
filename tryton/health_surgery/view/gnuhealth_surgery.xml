@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<form string="Surgery">
+    <group colspan="4" col="8" id="group_surgery_header">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="surgery_date"/>
+        <field name="surgery_date"/>
+        <label name="computed_age"/>
+        <field name="computed_age"/>
+        <label name="code"/>
+        <field name="code"/>
+        <newline/>
+        <label name="description"/>
+        <field name="description"/>
+        <label name="pathology"/>
+        <field name="pathology"/>
+        <label name="classification"/>
+        <field name="classification"/>
+        <label name="operating_room"/>
+        <field name="operating_room"/>
+    </group>
+    <newline/>
+    <group colspan="4" id="group_surgery_1">
+        <label name="surgeon"/>
+        <field name="surgeon"/>
+        <label name="anesthetist"/>
+        <field name="anesthetist"/>
+    </group>
+    <newline/>
+    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="6">
+        <label name="preop_asa"/>
+        <field name="preop_asa" width="150"/>
+        <label name="preop_rcri"/>
+        <field name="preop_rcri"/>
+        <label name="preop_mallampati"/>
+        <field name="preop_mallampati" width="150"/>
+    </group>
+    <newline/>
+    <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="10">
+        <label name="preop_bleeding_risk"/>
+        <field name="preop_bleeding_risk"/>
+        <label name="preop_oximeter"/>
+        <field name="preop_oximeter"/>
+        <label name="preop_site_marking"/>
+        <field name="preop_site_marking"/>
+        <label name="preop_antibiotics"/>
+        <field name="preop_antibiotics"/>
+        <label name="preop_sterility"/>
+        <field name="preop_sterility"/>
+    </group>
+    <newline/>
+    <separator id="surgery_separator_1" colspan="4"/>
+    <field name="procedures" colspan="4"/>
+    <newline/>
+    <separator string="Details / Incidents" id="separator_surgery_details" colspan="2"/>
+    <separator string="Anesthesia" id="separator_anesthesia_details" colspan="2"/>
+    <newline/>
+    <field name="extra_info" colspan="2"/>
+    <field name="anesthesia_report" colspan="2"/>
+    <newline/>
+    <label name="surgery_end_date"/>
+    <field name="surgery_end_date"/>
+    <label name="surgery_length"/>
+    <field name="surgery_length"/>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="dose">
+    <group id="dose_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="desc"/>
+        <field name="desc"/>
+    </group>
+</form>

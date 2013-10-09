@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="Intensive Care Unit">
+    <field name="name"/>
+    <field name="admitted" expand="1"/>
+    <field name="icu_admission_date"/>
+    <field name="discharged_from_icu"/>
+    <field name="icu_discharge_date"/>
+    <field name="icu_stay"/>
+</tree>

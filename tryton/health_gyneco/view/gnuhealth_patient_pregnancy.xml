@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<form string="Pregnancies">
+    <group id="group_pregnancy_header" colspan="4" col="8">
+        <label name="gravida"/>
+        <field name="gravida"/>
+        <label name="lmp"/>
+        <field name="lmp"/>
+        <label name="pdd"/>
+        <field name="pdd"/>
+        <label name="current_pregnancy"/>
+        <field name="current_pregnancy"/>
+    </group>
+    <newline/>
+    <field colspan="4" name="prenatal_evaluations"/>
+    <newline/>
+    <field name="perinatal"/>
+    <field name="puerperium_monitor"/>
+    <newline/>
+    <group id="group_pregnancy_footer1" colspan="4" col="8">
+        <label name="fetuses"/>
+        <field name="fetuses"/>
+        <label name="monozygotic"/>
+        <field name="monozygotic"/>
+        <label name="iugr"/>
+        <field name="iugr"/>
+        <label name="warning"/>
+        <field name="warning"/>
+    </group>
+    <newline/>
+    <group id="group_pregnancy_footer2" colspan="4" col="4">
+        <label name="pregnancy_end_date"/>
+        <field name="pregnancy_end_date"/>
+        <label name="pregnancy_end_result"/>
+        <field name="pregnancy_end_result"/>
+    </group>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Drug Form">
+    <group id="drug_route_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+    </group>
+</form>

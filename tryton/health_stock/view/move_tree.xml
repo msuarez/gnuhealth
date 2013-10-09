@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/tree/field[@name='from_location']" position="before">
+        <field name="origin"/>
+    </xpath>
+</data>

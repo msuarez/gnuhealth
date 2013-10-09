@@ -5,361 +5,107 @@
         <record model="ir.ui.view" id="gnuhealth_medicament_tree_stock">
             <field name="model">gnuhealth.medicament</field>
             <field name="inherit" ref="health.gnuhealth_medicament_tree"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath
-                            expr="/tree/field[@name=&quot;category&quot;]"
-                            position="after">
-                            <field name="quantity"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_medicament_tree_stock</field>
         </record>
 
         <record model="ir.ui.view" id="view_party_form">
             <field name="model">party.party</field>
             <field name="inherit" ref="party.party_view_form"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath
-                            expr="/form/notebook/page[@id=&quot;stock&quot;]/field[@name=&quot;supplier_location&quot;]"
-                            position="after">
-                            <label name="warehouse"/>
-                            <field name="warehouse"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">party_form</field>
         </record>
 
         <record model="ir.ui.view" id="lot_view_form">
             <field name="model">stock.lot</field>
             <field name="inherit" ref="stock_lot.lot_view_form"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath expr="/form/field[@name=&quot;product&quot;]" position="after">
-                                <label name="expiration_date"/>
-                                <field name="expiration_date"/>
-                                <label name="quantity"/>
-                                <field name="quantity"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">lot_form</field>
         </record>
         <record model="ir.ui.view" id="lot_view_tree">
            <field name="model">stock.lot</field>
            <field name="inherit" ref="stock_lot.lot_view_tree"/>
-           <field name="arch" type="xml">
-               <![CDATA[
-                   <data>
-                       <xpath expr="/tree/field[@name=&quot;product&quot;]" position="after">
-                           <field name="expiration_date"/>
-                           <field name="quantity"/>
-                       </xpath>
-                   </data>
-                ]]>
-            </field>
+           <field name="name">lot_tree</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medicament_tree">
            <field name="model">gnuhealth.patient.ambulatory_care.medicament</field>
            <field name="type">tree</field>
-           <field name="arch" type="xml">
-               <![CDATA[
-                   <tree string="Medicament">
-                       <field name="medicament"/>
-                       <field name="quantity"/>
-                       <field name="lot"/>
-                       <field name="short_comment" expand="1"/>
-                   </tree>
-                ]]>
-            </field>
+           <field name="name">gnuhealth_ambulatory_care_medicament_tree</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medicament_form">
            <field name="model">gnuhealth.patient.ambulatory_care.medicament</field>
            <field name="type">form</field>
-           <field name="arch" type="xml">
-               <![CDATA[
-                   <form string="Medicament">
-                       <label name="medicament"/>
-                       <field name="medicament"/>
-                       <label name="quantity"/>
-                       <field name="quantity"/>
-                       <label name="lot"/>
-                       <field name="lot"/>
-                       <label name="short_comment"/>
-                       <field name="short_comment"/>
-                       <label name="product"/>
-                       <field name="product"/>
-                   </form>
-               ]]>
-           </field>
+           <field name="name">gnuhealth_ambulatory_care_medicament_form</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_medical_supplies_tree">
             <field name="model">gnuhealth.patient.ambulatory_care.medical_supply</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree string="Medical Supplies">
-                        <field name="product"/>
-                        <field name="quantity"/>
-                        <field name="lot"/>
-                    </tree>
-                    ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care_medical_supplies_tree</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_tree">
             <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree string="Vaccines">
-                        <field name="vaccine"/>
-                        <field name="quantity"/>
-                        <field name="lot"/>
-                        <field name="dose"/>
-                        <field name="next_dose_date"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care_vaccine_tree</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_form">
             <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Vaccines">
-                        <label name="vaccine"/>
-                        <field name="vaccine"/>
-                        <label name="quantity"/>
-                        <field name="quantity"/>
-                        <label name="lot"/>
-                        <field name="lot"/>
-                        <label name="dose"/>
-                        <field name="dose"/>
-                        <label name="next_dose_date"/>
-                        <field name="next_dose_date"/>
-                        <label name="admin_route"/>
-                        <field name="admin_route"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_tree">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_tree"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath expr="/tree/field[@name=&quot;evolution&quot;]"
-                            position="after">
-                            <field name="state"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_ambulatory_care_tree</field>
         </record>
         <record model="ir.ui.view" id="ambulatory_care_view_form">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_view"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_other_information&quot;]" position="after">
-                            <page string="Medication" id="medication">
-                                <label name="care_location"/>
-                                <field name="care_location"/>
-                                <field name="medicaments" colspan="4"
-                                    view_ids="health_stock.gnuhealth_ambulatory_care_medicament_tree"/>
-                                <field name="medical_supplies" colspan="4"
-                                    view_ids="health_stock.gnuhealth_ambulatory_care_medical_supplies_tree"/>
-                                <field name="vaccines" colspan="4"
-                                    view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
-                            </page>
-                            <page string="Stock Moves" id="Stock Moves">
-                                <field name="moves" colspan="4" />
-                            </page>
-                        </xpath>
-                         <xpath expr="/form/notebook"
-                             position="after">
-                             <group col="5" colspan="4" id="buttons">
-                                <label name="state"/>
-                                <field name="state"/>
-                                <button name="done" string="Done" icon="tryton-go-next"/>
-                             </group>
-                         </xpath>
-                         <xpath expr="/form/notebook/page[@id=&quot;ambulatory_care_main&quot;]/field[@name=&quot;session_notes&quot;]"
-                             position="replace_attributes">
-                             <field name="session_notes" height="50"/>
-                         </xpath>
-                    </data>
-                 ]]>
-            </field>
+            <field name="name">ambulatory_care_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_rounding_medicament_tree">
             <field name="model">gnuhealth.patient.rounding.medicament</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree string="Medicament">
-                        <field name="medicament"/>
-                        <field name="quantity"/>
-                        <field name="lot"/>
-                        <field name="short_comment" expand="1"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rounding_medicament_tree</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_rounding_medicament_form">
             <field name="model">gnuhealth.patient.rounding.medicament</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Medicament">
-                        <label name="medicament"/>
-                        <field name="medicament"/>
-                        <label name="quantity"/>
-                        <field name="quantity"/>
-                        <label name="lot"/>
-                        <field name="lot"/>
-                        <label name="short_comment"/>
-                        <field name="short_comment"/>
-                        <label name="product"/>
-                        <field name="product"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rounding_medicament_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_rounding_medical_supply_tree">
             <field name="model">gnuhealth.patient.rounding.medical_supply</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree string="Medical Supplies">
-                        <field name="product"/>
-                        <field name="quantity"/>
-                        <field name="lot"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rounding_medical_supply_tree</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_tree">
             <field name="model">gnuhealth.patient.rounding.vaccine</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <tree string="Vaccines">
-                        <field name="vaccine"/>
-                        <field name="quantity"/>
-                        <field name="lot"/>
-                        <field name="dose"/>
-                        <field name="next_dose_date"/>
-                    </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care_vaccine_tree</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_form">
             <field name="model">gnuhealth.patient.rounding.vaccine</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Vaccines">
-                        <label name="vaccine"/>
-                        <field name="vaccine"/>
-                        <label name="quantity"/>
-                        <field name="quantity"/>
-                        <label name="lot"/>
-                        <field name="lot"/>
-                        <label name="dose"/>
-                        <field name="dose"/>
-                        <label name="next_dose_date"/>
-                        <field name="next_dose_date"/>
-                        <label name="admin_route"/>
-                        <field name="admin_route"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_tree">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_tree"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath expr="/tree/field[@name=&quot;evolution&quot;]"
-                            position="after">
-                            <field name="state"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_ambulatory_care_tree</field>
         </record>
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_view">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_view"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath expr="/form/notebook/page[@id=&quot;rounding_procedures&quot;]"
-                            position="after">
-                            <page string="Medication" id="medication">
-                                <label name="hospitalization_location"/>
-                                <field name="hospitalization_location"/>
-                                <field name="medicaments" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_medicament_tree" />
-                                <field name="medical_supplies" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_medical_supply_tree" />
-                                <field name="vaccines" colspan="4"
-                                    view_ids="health_stock.gnuhealth_rounding_vaccine_tree" />
-                            </page>
-                            <page string="Stock Moves" id="Stock Moves">
-                                <field name="moves" colspan="4" />
-                            </page>
-                        </xpath>
-                        <xpath expr="/form/notebook"
-                            position="after">
-                            <group col="5" colspan="4" id="buttons">
-                                <label name="state"/>
-                                <field name="state"/>
-                                <button name="done" string="Done"
-                                    icon="tryton-go-next"/>
-                            </group>
-                        </xpath>
-                        <xpath expr="/form/notebook/page[@id=&quot;rounding_main&quot;]/field[@name=&quot;round_summary&quot;]"
-                            position="replace_attributes">
-                            <field name="round_summary" height="50"/>
-                        </xpath>
-                        <xpath expr="/form/notebook/page[@id=&quot;rounding_main&quot;]/group[@id=&quot;the_six_p_wiew&quot;]"
-                            position="replace_attributes">
-                            <group colspan="4" col="12" id="the_six_p_wiew" string="Six P's"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_rounding</field>
         </record>
 
         <record model="ir.ui.view" id="view_create_prescription_stock_move">
             <field name="model">gnuhealth.prescription.stock.move.init</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <form string="Create Prescription Stock Move">
-                        <separator string="Create Stock Move?" colspan="4"
-                            id="stock_move_ask"/>
-                    </form>
-                ]]>
-            </field>
+            <field name="name">create_prescription_stock_move</field>
         </record>
 
         <record model="ir.action.wizard" id="act_create_prescription_stock_move">
@@ -376,34 +122,12 @@
         <record model="ir.ui.view" id="move_view_tree">
             <field name="model">stock.move</field>
             <field name="inherit" ref="stock.move_view_tree"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath
-                            expr="/tree/field[@name='from_location']"
-                            position="before">
-                            <field name="origin"/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">move_tree</field>
         </record>
         <record model="ir.ui.view" id="move_view_form">
             <field name="model">stock.move</field>
             <field name="inherit" ref="stock.move_view_form"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                    <data>
-                        <xpath
-                            expr="/form/label[@name='from_location']"
-                            position="before">
-                            <label name="origin"/>
-                            <field name="origin"/>
-                            <newline/>
-                        </xpath>
-                    </data>
-                ]]>
-            </field>
+            <field name="name">move_form</field>
         </record>
 
         <record model="ir.action.act_window" id="act_prescription_move_form1">

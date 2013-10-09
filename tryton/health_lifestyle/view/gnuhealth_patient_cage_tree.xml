@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree editable="top" string="Patient CAGE SCORE" colors="If(Greater(Eval('cage_score',0), 1),'red','blue')">
+    <field name="evaluation_date"/>
+    <field name="cage_c"/>
+    <field name="cage_a"/>
+    <field name="cage_g"/>
+    <field name="cage_e"/>
+    <field name="cage_score"/>
+</tree>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<form string="medicaments">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="category"/>
+    <field name="category"/>
+    <newline/>
+    <!--
+    <label name="therapeutic_action"/>
+    <field name="therapeutic_action"/>
+    -->
+    <label name="active_component"/>
+    <field name="active_component"/>
+    <newline/>
+    <notebook>
+        <page string="Main Info" id="medicament_main">
+            <separator string="Indications" colspan="4" id="separator_medication_indication"/>
+            <newline/>
+            <field name="indications" colspan="4"/>
+        </page>
+        <page string="Presentation" id="medicament_presentation">
+            <label name="presentation"/>
+            <field name="presentation"/>
+        </page>
+        <page string="Composition" id="medicament_composition">
+            <label name="composition"/>
+            <field name="composition"/>
+        </page>
+        <page string="Dosage" id="medicament_dosage">
+            <label name="dosage"/>
+            <field name="dosage"/>
+            <newline/>
+            <label name="overdosage"/>
+            <field name="overdosage"/>
+        </page>
+        <page string="Pregnancy" id="medicament_pregnancy">
+            <label name="pregnancy_warning"/>
+            <field name="pregnancy_warning"/>
+            <label name="pregnancy_category"/>
+            <field name="pregnancy_category"/>
+            <newline/>
+            <separator string="Notes" id="pregnancy_notes" colspan="4"/>
+            <newline/>
+            <field colspan="4" name="pregnancy"/>
+        </page>
+        <page string="Adverse Reactions" id="medicament_adverse_reactions">
+            <label name="adverse_reaction"/>
+            <field name="adverse_reaction"/>
+        </page>
+        <page string="Storage" id="medicament_storage">
+            <label name="storage"/>
+            <field name="storage"/>
+        </page>
+        <page string="Extra Info" id="medicament_extra_info">
+            <label name="notes"/>
+            <field name="notes"/>
+        </page>
+    </notebook>
+</form>

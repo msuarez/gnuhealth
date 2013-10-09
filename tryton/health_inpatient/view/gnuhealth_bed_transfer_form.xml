@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Bed Transfer History">
+    <label name="transfer_date"/>
+    <field name="transfer_date"/>
+    <label name="bed_from"/>
+    <field name="bed_from"/>
+    <label name="bed_to"/>
+    <field name="bed_to"/>
+    <label name="reason"/>
+    <field name="reason"/>
+</form>

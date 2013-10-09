@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//group[@id=&quot;group_newborn_notes&quot;]" position="after">
+        <group id="group_qr">
+            <field name="qr" widget="image"/>
+        </group>
+    </xpath>
+</data>

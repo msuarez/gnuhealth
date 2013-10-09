@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<tree string="Evaluations">
+    <field name="patient" expand="1"/>
+    <field name="visit_type"/>
+    <field name="evaluation_type"/>
+    <field name="urgency"/>
+    <field name="evaluation_start"/>
+    <field name="evaluation_length"/>
+    <field name="specialty"/>
+    <field name="doctor" expand="1"/>
+    <field name="state"/>
+    <field name="urgency"/>
+    <field name="bmi"/>
+    <field name="systolic"/>
+    <field name="diastolic"/>
+    <field name="diagnosis"/>
+    <field name="signed_by"/>
+</tree>

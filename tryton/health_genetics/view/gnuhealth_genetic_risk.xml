@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="Patient Genetic Risks">
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="disease_gene"/>
+    <field name="disease_gene"/>
+</form>

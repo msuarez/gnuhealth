@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Inpatient Registration Info" colors="If(And(Equal(Eval('state'), 'hospitalized'), Equal(Eval('admission_type'), 'elective' )), 'blue',If(Equal(Eval('admission_type'), 'emergency'), 'red', If(Equal(Eval('admission_type'), 'maternity'), 'blue','black')))">
+    <field name="name" expand="1"/>
+    <field name="patient" expand="1"/>
+    <field name="hospitalization_date" expand="1"/>
+    <field name="discharge_date" expand="1"/>
+    <field name="bed" expand="1"/>
+    <field name="admission_type" expand="1"/>
+    <field name="state" expand="1"/>
+</tree>

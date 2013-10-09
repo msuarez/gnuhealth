@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Test Requests">
+    <label name="request"/>
+    <field name="request"/>
+    <newline/>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="date"/>
+    <field name="date"/>
+    <label name="patient_id"/>
+    <field name="patient_id"/>
+    <label name="doctor_id"/>
+    <field name="doctor_id"/>
+    <label name="urgent"/>
+    <field name="urgent"/>
+    <label name="state"/>
+    <field name="state" readonly="1"/>
+</form>

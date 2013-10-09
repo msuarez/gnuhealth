@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<form string="Patient Diseases">
+    <group string="Main" id="group_diseases_main">
+        <label name="pathology"/>
+        <field name="pathology"/>
+        <label name="disease_severity"/>
+        <field name="disease_severity"/>
+        <label name="status"/>
+        <field name="status"/>
+        <label name="is_infectious"/>
+        <field name="is_infectious"/>
+        <label name="is_active"/>
+        <field name="is_active"/>
+        <label name="short_comment"/>
+        <field name="short_comment"/>
+        <newline/>
+        <label name="diagnosed_date"/>
+        <field name="diagnosed_date"/>
+        <label name="healed_date"/>
+        <field name="healed_date"/>
+        <label name="age"/>
+        <field name="age"/>
+        <label name="doctor"/>
+        <field name="doctor"/>
+    </group>
+    <newline/>
+    <group string="Allergies" id="group_patient_allergies">
+        <label name="is_allergy"/>
+        <field name="is_allergy"/>
+        <label name="allergy_type"/>
+        <field name="allergy_type"/>
+    </group>
+    <newline/>
+    <group string="Pregnancy" id="group_disease_in_pregnancy">
+        <label name="pregnancy_warning"/>
+        <field name="pregnancy_warning"/>
+        <label name="weeks_of_pregnancy"/>
+        <field name="weeks_of_pregnancy"/>
+    </group>
+    <newline/>
+    <group string="Therapy" id="group_disease_therapy">
+        <label name="is_on_treatment"/>
+        <field name="is_on_treatment"/>
+        <label name="treatment_description"/>
+        <field name="treatment_description"/>
+        <label name="date_start_treatment"/>
+        <field name="date_start_treatment"/>
+        <label name="date_stop_treatment"/>
+        <field name="date_stop_treatment"/>
+        <newline/>
+        <label name="pcs_code"/>
+        <field name="pcs_code"/>
+    </group>
+    <newline/>
+    <group string="Extra Info" id="group_disease_extra_info">
+        <field name="extra_info" colspan="4"/>
+    </group>
+</form>

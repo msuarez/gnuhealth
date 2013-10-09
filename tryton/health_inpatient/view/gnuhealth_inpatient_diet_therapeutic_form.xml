@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Therapeutic Diet">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <newline/>
+    <separator id="separator_diet_description" colspan="4" string="Diet Description and Indications"/>
+    <newline/>
+    <field colspan="4" name="description"/>
+</form>

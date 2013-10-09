@@ -18,31 +18,13 @@
         <record model="ir.ui.view" id="gnuhealth_rounding_view">
             <field name="model">gnuhealth.rounding_procedure</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Rounding Procedure">
-                    <label name="procedure"/>
-                    <field name="procedure"/>
-                    <newline/>
-                    <separator string="Procedure Details / Incidents" colspan="4" id="separator_procedure_details"/>
-                    <newline/>
-                    <field name="notes" colspan="4"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_rounding</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_procedure_tree">
             <field name="model">gnuhealth.rounding_procedure</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Rounding Procedure'>
-                    <field name="procedure"/>
-                    <field name="notes"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_procedure_tree</field>
         </record>
         
 <!-- Rounding view -->
@@ -50,104 +32,13 @@
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_view">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Rounding View">
-                    <notebook>
-                        <page string="Main" id="rounding_main">
-                            <group colspan="2" id="group_admin_data">
-                                <label name="name"/>
-                                <field name="name"/>
-                                <label name="health_professional"/>
-                                <field name="health_professional"/>
-                                <label name="evaluation_start"/>
-                                <field name="evaluation_start"/>
-                                <label name="evaluation_end"/>
-                                <field name="evaluation_end"/>
-                                <label name="environmental_assessment"/>
-                                <field name="environmental_assessment"/>
-                                <label name="warning"/>
-                                <field name="warning"/>
-                            </group>
-
-                            <newline/>
-
-                            <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
-                                <label name="pain"/>
-                                <field name="pain"/>
-                                <label name="potty"/>
-                                <field name="potty"/>
-                                <label name="position"/>
-                                <field name="position"/>
-                                <label name="proximity"/>
-                                <field name="proximity"/>
-                                <label name="pump"/>
-                                <field name="pump"/>
-                                <label name="personal_needs"/>
-                                <field name="personal_needs"/>
-                            </group>
-
-                            <newline/>
-
-                            <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">
-                                <label name="temperature"/>
-                                <field name="temperature"/>
-                                <label name="systolic"/>
-                                <field name="systolic"/>
-                                <label name="diastolic"/>
-                                <field name="diastolic"/>
-                                <label name="bpm"/>
-                                <field name="bpm"/>
-                                <label name="respiratory_rate"/>
-                                <field name="respiratory_rate"/>
-                                <label name="osat"/>
-                                <field name="osat"/>
-                            </group>
-
-                            <newline/>
-
-                            <group colspan="4" col="10" id="group_patient_rounding_others" string="Other">
-                                <label name="diuresis"/>
-                                <field name="diuresis"/>
-                                <label name="urinary_catheter"/>
-                                <field name="urinary_catheter"/>
-                                <label name="glycemia"/>
-                                <field name="glycemia"/>
-                                <label name="depression"/>
-                                <field name="depression"/>
-                                <label name="evolution"/>
-                                <field name="evolution"/>
-                            </group>
-                            <newline/>
-                            <separator string="Round summary" id="separator_round_summary"/>
-                            <newline/>
-                            
-                            <field name="round_summary"/>
-                        </page>
-                        <page string="Procedures" id="rounding_procedures">
-                            <field name="procedures"/>
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-
-            </field>
+            <field name="name">gnuhealth_patient_rounding</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_tree">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Roundings" colors="If(Bool(Eval('warning')),'red','black')">
-                    <field name="warning"/>
-                    <field name="name" expand="1"/>
-                    <field name="evaluation_start" expand="1"/>
-                    <field name="health_professional" expand="1"/>
-                    <field name="evolution" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_rounding_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_patient_rounding_view">
@@ -177,31 +68,13 @@
         <record model="ir.ui.view" id="gnuhealth_ambulatory_care_view">
             <field name="model">gnuhealth.ambulatory_care_procedure</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Procedures">
-                    <label name="procedure"/>
-                    <field name="procedure"/>
-                    <newline/>
-                    <separator string="Procedure Details / Incidents" colspan="4" id="separator_procedure_details"/>
-                    <newline/>
-                    <field name="comments" colspan="4"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_care</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_ambulatory_procedure_tree">
             <field name="model">gnuhealth.ambulatory_care_procedure</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Ambulatory Procedure'>
-                    <field name="procedure"/>
-                    <field name="comments"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_ambulatory_procedure_tree</field>
         </record>
         
 <!-- Outpatient Care view -->
@@ -209,101 +82,13 @@
         <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_view">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Ambulatory Care">
-                    <notebook>
-                        <page string="Main" id="ambulatory_care_main">
-                            <group colspan="4" id="ambulatory_care_main_data">
-                                <label name="name"/>
-                                <field name="name"/>
-                                <label name="health_professional"/>
-                                <field name="health_professional"/>
-                                <label name="ordering_professional"/>
-                                <field name="ordering_professional"/>
-                                <label name="patient"/>
-                                <field name="patient"/>
-                                <label name="base_condition"/>
-                                <field name="base_condition"/>
-                                <label name="evaluation"/>
-                                <field name="evaluation"/>
-                                <label name="session_number"/>
-                                <field name="session_number"/>
-                                <label name="session_start"/>
-                                <field name="session_start"/>
-                            </group>
-
-                            <newline/>
-
-                            <field colspan="4" name="procedures"/>
-
-                            <newline/>
-                            <separator colspan="4" string="Summary" id="separator_round_summary"/>
-                            <newline/>
-                            
-                            <field colspan="4" name="session_notes"/>
-                            <newline/>
-
-                            <group colspan="4" col="6" id="ambulatory_care_finish">
-
-                            <label name="warning"/>
-                            <field name="warning"/>
-                            
-                            <label name="session_end"/>
-                            <field name="session_end"/>
-
-                            <label name="next_session"/>
-                            <field name="next_session"/>
-                            </group>
-                            
-                        </page>
-                        <page string="Other" id="ambulatory_care_other_information">
-                            <group colspan="4" col="6" string="Vital Signs" id="group_ambulatory_care_vital_signs">
-                                <label name="temperature"/>
-                                <field name="temperature"/>
-                                <label name="systolic"/>
-                                <field name="systolic"/>
-                                <label name="diastolic"/>
-                                <field name="diastolic"/>
-                                <label name="bpm"/>
-                                <field name="bpm"/>
-                                <label name="respiratory_rate"/>
-                                <field name="respiratory_rate"/>
-                                <label name="osat"/>
-                                <field name="osat"/>
-                            </group>
-                            <newline/>
-
-                            <group colspan="4" col="6" id="group_patient_care_others" string="Other">
-                                <label name="glycemia"/>
-                                <field name="glycemia"/>
-                                <label name="evolution"/>
-                                <field name="evolution"/>
-                            </group>
-
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-
-            </field>
+            <field name="name">gnuhealth_patient_ambulatory_care</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_tree">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Ambulatory Sessions" colors="If(Bool(Eval('warning')),'red','black')">
-                    <field name="warning"/>
-                    <field name="name" expand="1"/>
-                    <field name="patient" expand="1"/>                    
-                    <field name="session_start" expand="1"/>
-                    <field name="health_professional" expand="1"/>
-                    <field name="evolution" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_ambulatory_care_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_patient_ambulatory_care_view">

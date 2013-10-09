@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<form string="Operating Room">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="institution"/>
+    <field name="institution"/>
+    <label name="building"/>
+    <field name="building"/>
+    <label name="unit"/>
+    <field name="unit"/>
+    <newline/>
+    <label name="extra_info"/>
+    <field name="extra_info" colspan="4"/>
+</form>

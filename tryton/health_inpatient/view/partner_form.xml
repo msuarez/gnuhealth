@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/group/field[@name=&quot;institution&quot;]" position="after">
+        <label name="inpatient_registration_code"/>
+        <field name="inpatient_registration_code"/>
+    </xpath>
+</data>

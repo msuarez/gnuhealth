@@ -7,20 +7,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form"/>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="//group[@id=&quot;misc_info_group&quot;]"
-                        position="before">
-                        <group id="patient_qr">
-                            <field xfill="0" xexpand="1" name="qr" widget="image"/>
-                        </group>
-                        <newline/>
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_patient_form</field>
         </record>
 
 <!-- NEWBORN -->
@@ -28,19 +15,7 @@
             <field name="model">gnuhealth.newborn</field>
             <field name="inherit" ref="health_pediatrics.gnuhealth_newborn_view"/>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="//group[@id=&quot;group_newborn_notes&quot;]"
-                        position="after">
-                        <group id="group_qr">
-                            <field name="qr" widget="image"/>
-                        </group>
-                    </xpath>
-                </data>
-                ]]>
-            </field>
+            <field name="name">newborn_form</field>
         </record>
 
     </data>

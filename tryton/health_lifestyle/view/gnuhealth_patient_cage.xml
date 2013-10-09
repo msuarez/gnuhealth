@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Patient CAGE Questionnaire">
+    <field name="evaluation_date"/>
+    <field name="evaluation_date"/>
+    <label name="cage_c"/>
+    <field name="cage_c"/>
+    <label name="cage_a"/>
+    <field name="cage_a"/>
+    <label name="cage_g"/>
+    <field name="cage_g"/>
+    <label name="cage_e"/>
+    <field name="cage_e"/>
+    <label name="cage_score"/>
+    <field name="cage_score"/>
+</form>

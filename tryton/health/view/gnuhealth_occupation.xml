@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="occupation">
+    <group id="occupation_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+    </group>
+</form>

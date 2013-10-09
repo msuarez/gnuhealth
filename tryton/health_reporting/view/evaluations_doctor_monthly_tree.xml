@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree string="Evaluations per Doctor per Month">
+    <field name="year"/>
+    <field name="month"/>
+    <field name="doctor" expand="1"/>
+    <field name="evaluations"/>
+</tree>

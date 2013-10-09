@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Imaging Test">
+    <label name="code"/>
+    <field name="code"/>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="test_type"/>
+    <field name="test_type"/>
+    <label name="product"/>
+    <field name="product"/>
+</form>

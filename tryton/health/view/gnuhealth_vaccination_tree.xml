@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree string="Patient vaccination">
+    <field name="vaccine" expand="1"/>
+    <field name="dose" expand="1"/>
+    <field name="date"/>
+    <field name="next_dose_date"/>
+    <field name="observations"/>
+</tree>

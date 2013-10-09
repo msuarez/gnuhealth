@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<form string="Imaging Test Result">
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="number"/>
+    <field name="number"/>
+    <label name="date"/>
+    <field name="date"/>
+    <label name="result_file"/>
+    <field name="result_file"/>
+    <label name="requested_test"/>
+    <field name="requested_test"/>
+    <label name="request_date"/>
+    <field name="request_date"/>
+    <label name="doctor"/>
+    <field name="doctor"/>
+    <label name="request"/>
+    <field name="request"/>
+    <notebook>
+        <page string="Images" id="images_page">
+            <field name="images" colspan="4"/>
+        </page>
+        <page string="Comment" id="comment_page">
+            <field name="comment" colspan="4"/>
+        </page>
+    </notebook>
+</form>

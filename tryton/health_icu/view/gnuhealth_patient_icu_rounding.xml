@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook/page/group/label[@name='warning']" position="replace"/>
+    <xpath expr="/form/notebook/page/group/field[@name='warning']" position="replace"/>
+    <xpath expr="/form/notebook/page/group/field[@name='environmental_assessment']" position="after">
+        <group colspan="1" col="4" id="group_rounding_icu_warning">
+            <label name="icu_patient"/>
+            <field name="icu_patient"/>
+            <label name="warning"/>
+            <field name="warning"/>
+        </group>
+    </xpath>
+    <xpath expr="/form/notebook/page[@id='rounding_main']" position="after">
+        <page id="rounding_icu" string="ICU">
+            <group id="group_rounding_icu_neurologic" colspan="4" col="8" string="Neurologic">
+                <label name="gcs"/>
+                <field name="gcs"/>
+                <newline/>
+                <label name="pupil_dilation"/>
+                <field name="pupil_dilation"/>
+                <label name="right_pupil"/>
+                <field name="right_pupil"/>
+                <label name="left_pupil"/>
+                <field name="left_pupil"/>
+                <label name="anisocoria"/>
+                <field name="anisocoria"/>
+                <newline/>
+                <label name="pupillary_reactivity"/>
+                <field name="pupillary_reactivity"/>
+                <label name="pupil_consensual_resp"/>
+                <field name="pupil_consensual_resp"/>
+            </group>
+            <newline/>
+            <group colspan="4" id="group_rounding_icu_respiratory" string="Respiratory">
+                <group id="chest_icu_main">
+                    <label name="oxygen_mask"/>
+                    <field name="oxygen_mask"/>
+                    <label name="fio2"/>
+                    <field name="fio2"/>
+                    <label name="respiration_type"/>
+                    <field name="respiration_type"/>
+                    <label name="trachea_alignment"/>
+                    <field name="trachea_alignment"/>
+                    <newline/>
+                    <label name="peep"/>
+                    <field name="peep"/>
+                    <label name="peep_pressure"/>
+                    <field name="peep_pressure"/>
+                    <label name="sce"/>
+                    <field name="sce"/>
+                    <label name="oral_mucosa_lesion"/>
+                    <field name="oral_mucosa_lesion"/>
+                    <label name="lips_lesion"/>
+                    <field name="lips_lesion"/>
+                    <newline/>
+                    <group id="chest_expansion" string="Chest Expansion" colspan="4" col="6">
+                        <label name="chest_expansion"/>
+                        <field name="chest_expansion"/>
+                        <label name="paradoxical_expansion"/>
+                        <field name="paradoxical_expansion"/>
+                        <label name="tracheal_tug"/>
+                        <field name="tracheal_tug"/>
+                    </group>
+                </group>
+                <group string="Xray" id="patient_xray">
+                    <field name="xray" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+                </group>
+                <newline/>
+            </group>
+            <field name="chest_drainages" colspan="4"/>
+            <newline/>
+            <group colspan="4" id="group_rounding_icu_cardio" string="Cardiovascular">
+                <group id="icu_cardio_ecg" colspan="4" col="4">
+                    <label name="ecg"/>
+                    <field name="ecg" colspan="3"/>
+                </group>
+                <newline/>
+                <group id="icu_vessel_access" colspan="4" col="10">
+                    <label name="venous_access"/>
+                    <field name="venous_access"/>
+                    <label name="swan_ganz"/>
+                    <field name="swan_ganz"/>
+                    <label name="arterial_access"/>
+                    <field name="arterial_access"/>
+                    <label name="dialysis"/>
+                    <field name="dialysis"/>
+                    <label name="edema"/>
+                    <field name="edema"/>
+                </group>
+            </group>
+            <group id="icu_skin" string="Blood and Skin" colspan="4" col="10">
+                <label name="bacteremia"/>
+                <field name="bacteremia"/>
+                <label name="ssi"/>
+                <field name="ssi"/>
+                <label name="wound_dehiscence"/>
+                <field name="wound_dehiscence"/>
+                <label name="cellulitis"/>
+                <field name="cellulitis"/>
+                <label name="necrotizing_fasciitis"/>
+                <field name="necrotizing_fasciitis"/>
+            </group>
+            <group id="digestive" string="Digestive and Abdomen" colspan="4" col="10">
+                <label name="vomiting"/>
+                <field name="vomiting"/>
+                <label name="bowel_sounds"/>
+                <field name="bowel_sounds"/>
+                <label name="stools"/>
+                <field name="stools"/>
+                <label name="peritonitis"/>
+                <field name="peritonitis"/>
+            </group>
+        </page>
+    </xpath>
+</data>

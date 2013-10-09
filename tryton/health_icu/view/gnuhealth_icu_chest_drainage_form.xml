@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<form string="Patient Chest Drainage Assesment">
+    <label name="location"/>
+    <field name="location"/>
+    <label name="suction"/>
+    <field name="suction"/>
+    <label name="suction_pressure"/>
+    <field name="suction_pressure"/>
+    <label name="fluid_volume"/>
+    <field name="fluid_volume"/>
+    <label name="fluid_aspect"/>
+    <field name="fluid_aspect"/>
+    <label name="oscillation"/>
+    <field name="oscillation"/>
+    <label name="air_leak"/>
+    <field name="air_leak"/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

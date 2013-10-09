@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<form string="Inpatient Medication">
+    <notebook>
+        <page string="General Info" id="inpatient_medication_general_info">
+            <group id="inpatient_medication_header" string="Medication">
+                <label name="medicament"/>
+                <field name="medicament"/>
+                <label name="indication"/>
+                <field name="indication"/>
+            </group>
+            <newline/>
+            <newline/>
+            <group id="inpatient_treatment_period" string="Treatment period">
+                <label name="start_treatment"/>
+                <field name="start_treatment"/>
+                <label name="end_treatment"/>
+                <field name="end_treatment"/>
+            </group>
+            <newline/>
+            <group id="inpatient_medicament_form" string="Admnistration">
+                <label name="form"/>
+                <field name="form"/>
+                <label name="route"/>
+                <field name="route"/>
+            </group>
+            <newline/>
+            <group id="inpatient_medicament_dosage" colspan="4" col="8" string="Dosage">
+                <label name="dose"/>
+                <field name="dose"/>
+                <label name="dose_unit"/>
+                <field name="dose_unit"/>
+                <label name="qty"/>
+                <field name="qty"/>
+                <label name="common_dosage"/>
+                <field name="common_dosage"/>
+            </group>
+            <newline/>
+            <field colspan="4" name="admin_times"/>
+            <newline/>
+        </page>
+        <page id="inpatient_medication_misc" string="Extra Info">
+            <group id="inpatient_treatment_status" string="Status">
+                <label name="is_active"/>
+                <field name="is_active"/>
+                <label name="course_completed"/>
+                <field name="course_completed"/>
+                <label name="discontinued"/>
+                <field name="discontinued"/>
+                <label name="discontinued_reason"/>
+                <field name="discontinued_reason"/>
+            </group>
+            <newline/>
+            <group id="inpatient_medication_adeverse_effects" string="Adverse Reactions and Notes">
+                <field name="adverse_reaction"/>
+            </group>
+            <newline/>
+            <field name="log_history"/>
+        </page>
+    </notebook>
+</form>

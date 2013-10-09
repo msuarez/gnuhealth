@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form string="Insurance Plans">
+    <label name="name"/>
+    <field name="name"/>
+    <newline/>
+    <label name="company"/>
+    <field name="company"/>
+    <label name="is_default"/>
+    <field name="is_default"/>
+    <newline/>
+    <field name="notes" colspan="4"/>
+</form>

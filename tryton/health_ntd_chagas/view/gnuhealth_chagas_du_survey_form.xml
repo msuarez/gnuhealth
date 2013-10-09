@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<form string="Chagas Domiciliary Unit Entomological Survey">
+    <group col="8" colspan="4" id="chagas_du_survey_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="du"/>
+        <field name="du"/>
+        <label name="survey_date"/>
+        <field name="survey_date"/>
+        <label name="du_status"/>
+        <field name="du_status"/>
+    </group>
+    <newline/>
+    <group colspan="4" id="chagas_du_status">
+        <group col="10" string="Presence of triatomines" id="chagas_du_vectors">
+            <label name="triatomines"/>
+            <field name="triatomines"/>
+            <label name="nymphs"/>
+            <field name="nymphs"/>
+            <label name="t_in_house"/>
+            <field name="t_in_house"/>
+            <label name="t_peri"/>
+            <field name="t_peri"/>
+            <label name="vector"/>
+            <field name="vector"/>
+        </group>
+        <group string="Areas to Improve" colspan="4" col="8" id="chagas_du_deficit_areas">
+            <label name="droof"/>
+            <field name="droof"/>
+            <label name="dwall"/>
+            <field name="dwall"/>
+            <label name="dfloor"/>
+            <field name="dfloor"/>
+            <label name="dperi"/>
+            <field name="dperi"/>
+        </group>
+        <group string="Preventive Measures" colspan="4" col="8" id="chagas_du_preventive_measures">
+            <label name="bugtraps"/>
+            <field name="bugtraps"/>
+            <newline/>
+            <label name="du_fumigation"/>
+            <field name="du_fumigation"/>
+            <label name="fumigation_date"/>
+            <field name="fumigation_date"/>
+            <label name="du_paint"/>
+            <field name="du_paint"/>
+            <label name="paint_date"/>
+            <field name="paint_date"/>
+        </group>
+    </group>
+    <newline/>
+    <separator string="Notes" id="sepatator_chagas_du_survey_notes"/>
+    <newline/>
+    <field name="observations" colspan="4"/>
+    <newline/>
+    <label name="next_survey_date"/>
+    <field name="next_survey_date"/>
+</form>

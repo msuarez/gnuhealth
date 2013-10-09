@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tree string="Patient appointment">
+    <field name="name" expand="1"/>
+    <field name="patient" expand="1"/>
+    <field name="appointment_type" expand="1"/>
+    <field name="urgency" expand="1"/>
+    <field name="appointment_date"/>
+    <field name="speciality"/>
+    <field name="doctor"/>
+    <field name="institution" expand="1"/>
+    <field name="state"/>
+</tree>

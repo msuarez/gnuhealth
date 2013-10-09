@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<form string="Perinatal Monitor">
+    <group colspan="4" string="Mother" id="group_perinatal_mother_monitor">
+        <label name="date"/>
+        <field name="date"/>
+        <newline/>
+        <label name="systolic"/>
+        <field name="systolic"/>
+        <label name="diastolic"/>
+        <field name="diastolic"/>
+        <label name="frequency"/>
+        <field name="frequency"/>
+        <newline/>
+        <label name="contractions"/>
+        <field name="contractions"/>
+        <label name="dilation"/>
+        <field name="dilation"/>
+        <label name="fundal_height"/>
+        <field name="fundal_height"/>
+        <newline/>
+    </group>
+    <newline/>
+    <group colspan="4" string="Fetus" id="group_perinatal_fetus_monitor">
+        <label name="fetus_position"/>
+        <field name="fetus_position"/>
+        <label name="f_frequency"/>
+        <field name="f_frequency"/>
+        <newline/>
+    </group>
+    <newline/>
+    <group colspan="4" string="Complications" id="group_perinatal_complications">
+        <label name="bleeding"/>
+        <field name="bleeding"/>
+        <label name="meconium"/>
+        <field name="meconium"/>
+    </group>
+    <newline/>
+</form>

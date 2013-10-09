@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Request Imaging Test">
+    <label name="date"/>
+    <field name="date"/>
+    <label name="urgent"/>
+    <field name="urgent"/>
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="doctor"/>
+    <field name="doctor" widget="selection"/>
+    <newline/>
+    <field name="tests" colspan="4"/>
+</form>

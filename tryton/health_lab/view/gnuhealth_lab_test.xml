@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Lab Test Type">
+    <notebook>
+        <page string="Main Info" id="test_type_main_info">
+            <label name="name"/>
+            <field name="name"/>
+            <label name="code"/>
+            <field name="code"/>
+            <field name="critearea" colspan="4" view_ids="health_lab.test_critearea_view_tree_test_type,health_lab.test_critearea_view_form_test_type"/>
+            <label name="product_id"/>
+            <field name="product_id"/>
+        </page>
+        <page string="Extra Info" id="test_type_extra_info">
+            <label name="info"/>
+            <field name="info"/>
+        </page>
+    </notebook>
+</form>

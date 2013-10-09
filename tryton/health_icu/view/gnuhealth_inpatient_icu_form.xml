@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<form string="Intensive Care Unit">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="admitted"/>
+    <field name="admitted"/>
+    <newline/>
+    <group id="icu_group_dates" string="Period" col="8" colspan="4">
+        <label name="icu_admission_date"/>
+        <field name="icu_admission_date"/>
+        <label name="icu_stay"/>
+        <field name="icu_stay"/>
+        <label name="discharged_from_icu"/>
+        <field name="discharged_from_icu"/>
+        <label name="icu_discharge_date"/>
+        <field name="icu_discharge_date"/>
+    </group>
+    <newline/>
+    <field name="mv_history" colspan="4"/>
+</form>

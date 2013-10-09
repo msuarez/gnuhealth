@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Dosage">
+    <group id="dosage_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="abbreviation"/>
+        <field name="abbreviation"/>
+    </group>
+</form>

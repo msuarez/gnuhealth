@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="Patient Mechanical Ventilation">
+    <field name="current_mv"/>
+    <field name="ventilation"/>
+    <field name="mv_start"/>
+    <field name="mv_end"/>
+    <field name="mv_period"/>
+    <field name="remarks" expand="1"/>
+</tree>

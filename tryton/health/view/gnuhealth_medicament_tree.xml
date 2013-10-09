@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="medicament" colors="If(Equal(Eval('pregnancy_category'), 'X'), 'red', If(Equal(Eval('pregnancy_category'), 'D'), 'brown', If(Equal(Eval('pregnancy_category'), 'C'), 'orange', If(Equal(Eval('pregnancy_category'), 'N'), 'black', 'blue'))))">
+    <field name="name" expand="1"/>
+    <field name="active_component" expand="1"/>
+    <field name="category"/>
+    <field name="pregnancy_warning" expand="1"/>
+    <field name="pregnancy_category" expand="1"/>
+    <field name="adverse_reaction" expand="1"/>
+</tree>

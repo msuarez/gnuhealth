@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<form string="Prescription Line">
+    <label name="medicament"/>
+    <field name="medicament"/>
+    <label name="indication"/>
+    <field name="indication"/>
+    <label name="allow_substitution"/>
+    <field name="allow_substitution"/>
+    <label name="prnt"/>
+    <field name="prnt"/>
+    <newline/>
+    <label name="form"/>
+    <field name="form"/>
+    <label name="route"/>
+    <field name="route"/>
+    <label name="start_treatment"/>
+    <field name="start_treatment"/>
+    <label name="end_treatment"/>
+    <field name="end_treatment"/>
+    <newline/>
+    <group colspan="4" string="Dosage" id="group_dosage">
+        <group colspan="2" id="group_dose">
+            <label name="dose"/>
+            <field name="dose"/>
+            <label name="dose_unit"/>
+            <field name="dose_unit"/>
+        </group>
+        <label name="qty"/>
+        <field name="qty"/>
+        <newline/>
+        <separator colspan="4" string="Common Dosage" id="separator_common_dosage"/>
+        <newline/>
+        <label name="common_dosage"/>
+        <field name="common_dosage"/>
+        <label name="admin_times"/>
+        <field name="admin_times"/>
+        <newline/>
+        <separator colspan="4" string="Specific Dosage" id="separator_specific_dosage"/>
+        <newline/>
+        <group col="6" colspan="4" id="specific_dose">
+            <label name="frequency"/>
+            <field name="frequency"/>
+            <label name="frequency_unit"/>
+            <field name="frequency_unit"/>
+            <label name="frequency_prn"/>
+            <field name="frequency_prn"/>
+        </group>
+    </group>
+    <newline/>
+    <label name="duration"/>
+    <field name="duration"/>
+    <label name="duration_period"/>
+    <field name="duration_period"/>
+    <label name="review"/>
+    <field name="review"/>
+    <label name="quantity"/>
+    <field name="quantity"/>
+    <label name="refills"/>
+    <field name="refills"/>
+    <label name="short_comment"/>
+    <field name="short_comment"/>
+</form>

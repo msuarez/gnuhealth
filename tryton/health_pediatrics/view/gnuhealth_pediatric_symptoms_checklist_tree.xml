@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tree string="PSC - Pediatric Symptoms Checklist History" colors="If(Greater(Eval('psc_total',0), 27),'red','blue')">
+    <field name="patient"/>
+    <field name="evaluation_start"/>
+    <field name="psc_total"/>
+</tree>

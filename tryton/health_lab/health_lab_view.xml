@@ -32,29 +32,13 @@
         <record model="ir.ui.view" id="gnuhealth_lab_unit_form">
             <field name="model">gnuhealth.lab.test.units</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Test Unit">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="code"/>
-                    <field name="code"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_unit_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_lab_unit_tree">
             <field name="model">gnuhealth.lab.test.units</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Test Unit">
-                    <field name="name" expand="1"/>
-                    <field name="code" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_unit_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_lab_unit">
@@ -80,46 +64,13 @@
         <record model="ir.ui.view" id="gnuhealth_lab_test_request_form">
             <field name="model">gnuhealth.patient.lab.test</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Test Requests">
-                    <label name="request"/>
-                    <field name="request"/>
-                    <newline/>
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="date"/>
-                    <field name="date"/>
-                    <label name="patient_id"/>
-                    <field name="patient_id"/>
-                    <label name="doctor_id"/>
-                    <field name="doctor_id"/>
-                    <label name="urgent"/>
-                    <field name="urgent"/>
-                    <label name="state"/>
-                    <field name="state" readonly="1"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_test_request_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_lab_test_request_tree">
             <field name="model">gnuhealth.patient.lab.test</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Test Requests"
-                    colors="If(Equal(Eval('state'), 'draft'), 'blue', If(In(Eval('state'), ['cancel','open']), 'gray', 'black'))">
-                    <field name="request" expand="1"/>
-                    <field name="name" expand="1"/>
-                    <field name="date" expand="1"/>
-                    <field name="patient_id" expand="1"/>
-                    <field name="doctor_id" expand="1"/>
-                    <field name="state" readonly="1" expand="1"/>
-                    <field name="urgent"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_test_request_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_lab_test_request">
@@ -145,85 +96,25 @@
         <record model="ir.ui.view" id="gnuhealth_lab_test_view">
             <field name="model">gnuhealth.lab.test_type</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Lab Test Type">
-                    <notebook>
-                        <page string="Main Info" id="test_type_main_info">
-                            <label name="name"/>
-                            <field name="name"/>
-                            <label name="code"/>
-                            <field name="code"/>
-                            <field name="critearea" colspan="4"
-                                view_ids="health_lab.test_critearea_view_tree_test_type,health_lab.test_critearea_view_form_test_type"/>
-                            <label name="product_id"/>
-                            <field name="product_id"/>
-                        </page>
-                        <page string="Extra Info" id="test_type_extra_info">
-                            <label name="info"/>
-                            <field name="info"/>
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_test</field>
         </record>
         <record model="ir.ui.view" id="test_critearea_view_tree_test_type">
             <field name="model">gnuhealth.lab.test.critearea</field>
             <field name="type">tree</field>
             <field name="priority" eval="10"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Analyte">
-                    <field name="sequence" expand="1"/>
-                    <field name="name" expand="1"/>
-                    <field name="lower_limit" expand="1"/>
-                    <field name="upper_limit" expand="1"/>
-                    <field name="normal_range" expand="1"/>
-                    <field name="units" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">test_critearea_tree_test_type</field>
         </record>
         <record model="ir.ui.view" id="test_critearea_view_form_test_type">
             <field name="model">gnuhealth.lab.test.critearea</field>
             <field name="type">form</field>
             <field name="priority" eval="20"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Analyte">
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="units"/>
-                    <field name="units"/>
-                    <label name="sequence"/>
-                    <field name="sequence"/>
-                    <newline/>
-                    <label name="lower_limit"/>
-                    <field name="lower_limit"/>
-                    <label name="upper_limit"/>
-                    <field name="upper_limit"/>
-                    <newline/>
-                    <separator colspan="4" id="analyte_reference"
-                        string="Reference Value / Range"/>
-                    <newline/>
-                    <field colspan="4" name="normal_range"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">test_critearea_form_test_type</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_lab_test_tree">
             <field name="model">gnuhealth.lab.test_type</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string='Lab test type'>
-                    <field name="name" expand="1"/>
-                    <field name="code" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_test_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_list_test">
@@ -250,108 +141,25 @@
         <record model="ir.ui.view" id="gnuhealth_lab_view">
             <field name="model">gnuhealth.lab</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Laboratory Test">
-                    <notebook>
-                        <page string="Main Info" id="lab_main_info">
-                            <label name="name"/>
-                            <field name="name"/>
-                            <label name="test"/>
-                            <field name="test"/>
-                            <label name="date_analysis"/>
-                            <field name="date_analysis"/>
-                            <newline/>
-                            <label name="patient"/>
-                            <field name="patient"/>
-                            <label name="pathologist"/>
-                            <field name="pathologist"/>
-                            <newline/>
-                            <label name="date_requested"/>
-                            <field name="date_requested"/>
-                            <label name="requestor"/>
-                            <field name="requestor"/>
-                            <field name="critearea" colspan="4"
-                                view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
-                        </page>
-                        <page string="Extra Info" id="lab_extra_info">
-                            <label name="results"/>
-                            <field name="results"/>
-                            <newline/>
-                            <label name="diagnosis"/>
-                            <field name="diagnosis"/>
-                        </page>
-                    </notebook>
-                </form>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab</field>
         </record>
         <record model="ir.ui.view" id="test_critearea_view_tree_lab">
             <field name="model">gnuhealth.lab.test.critearea</field>
             <field name="type">tree</field>
             <field name="priority" eval="10"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree editable="top" string="Test Cases"
-                    colors="If(Bool(Eval('warning')), 'red', 'black')">
-                    <field name="warning" expand="1"/>
-                    <field name="excluded" expand="1"/>
-                    <field name="name" expand="1"/>
-                    <field name="result" expand="1"/>
-                    <field name="result_text" expand="1"/>
-                    <field name="lower_limit" expand="1"/>
-                    <field name="upper_limit" expand="1"/>
-                    <field name="units" expand="1"/>
-                    <field name="remarks" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">test_critearea_tree_lab</field>
         </record>
         <record model="ir.ui.view" id="test_critearea_view_form_lab">
             <field name="model">gnuhealth.lab.test.critearea</field>
             <field name="type">form</field>
             <field name="priority" eval="20"/>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Test Cases">
-                    <label name="warning"/>
-                    <field name="warning"/>
-                    <label name="excluded"/>
-                    <field name="excluded"/>
-                    <label name="name"/>
-                    <field name="name"/>
-                    <label name="result"/>
-                    <field name="result"/>
-                    <label name="units"/>
-                    <field name="units"/>
-                    <label name="result_text"/>
-                    <field name="result_text"/>
-                    <label name="lower_limit"/>
-                    <field name="lower_limit"/>
-                    <label name="upper_limit"/>
-                    <field name="upper_limit"/>
-                    <label name="normal_range"/>
-                    <field name="normal_range"/>
-                    <label name="remarks"/>
-                    <field name="remarks"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">test_critearea_form_lab</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_lab_tree">
             <field name="model">gnuhealth.lab</field>
             <field name="type">tree</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <tree string="Lab test type">
-                    <field name="name" expand="1"/>
-                    <field name="test" expand="1"/>
-                    <field name="patient" expand="1"/>
-                    <field name="date_analysis" expand="1"/>
-                </tree>
-                ]]>
-            </field>
+            <field name="name">gnuhealth_lab_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_tree_lab">

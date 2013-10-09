@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<form string="Pediatric Symptoms Checklist - PSC">
+    <group colspan="4" id="group_psc1">
+        <group colspan="4" col="10" id="group_psc_header">
+            <label name="patient"/>
+            <field name="patient"/>
+            <label name="evaluation_start"/>
+            <field name="evaluation_start"/>
+            <!--
+            <label name="evaluation_end"/>
+            <field name="evaluation_end"/>
+            -->
+            <label name="evaluation_date"/>
+            <field name="evaluation_date"/>
+            <label name="psc_total"/>
+            <field name="psc_total"/>
+        </group>
+        <newline/>
+        <separator colspan="4" id="separator_psc1"/>
+        <newline/>
+        <label name="psc_aches_pains"/>
+        <field name="psc_aches_pains"/>
+        <label name="psc_spend_time_alone"/>
+        <field name="psc_spend_time_alone"/>
+        <label name="psc_tires_easily"/>
+        <field name="psc_tires_easily"/>
+        <label name="psc_fidgety"/>
+        <field name="psc_fidgety"/>
+        <label name="psc_trouble_with_teacher"/>
+        <field name="psc_trouble_with_teacher"/>
+        <label name="psc_less_interest_in_school"/>
+        <field name="psc_less_interest_in_school"/>
+        <label name="psc_acts_as_driven_by_motor"/>
+        <field name="psc_acts_as_driven_by_motor"/>
+        <label name="psc_daydreams_too_much"/>
+        <field name="psc_daydreams_too_much"/>
+        <label name="psc_distracted_easily"/>
+        <field name="psc_distracted_easily"/>
+        <label name="psc_afraid_of_new_situations"/>
+        <field name="psc_afraid_of_new_situations"/>
+        <label name="psc_sad_unhappy"/>
+        <field name="psc_sad_unhappy"/>
+        <label name="psc_irritable_angry"/>
+        <field name="psc_irritable_angry"/>
+        <label name="psc_feels_hopeless"/>
+        <field name="psc_feels_hopeless"/>
+        <label name="psc_trouble_concentrating"/>
+        <field name="psc_trouble_concentrating"/>
+        <label name="psc_less_interested_in_friends"/>
+        <field name="psc_less_interested_in_friends"/>
+        <label name="psc_fights_with_others"/>
+        <field name="psc_fights_with_others"/>
+        <label name="psc_absent_from_school"/>
+        <field name="psc_absent_from_school"/>
+        <label name="psc_school_grades_dropping"/>
+        <field name="psc_school_grades_dropping"/>
+        <label name="psc_down_on_self"/>
+        <field name="psc_down_on_self"/>
+        <label name="psc_visit_doctor_finds_ok"/>
+        <field name="psc_visit_doctor_finds_ok"/>
+        <label name="psc_trouble_sleeping"/>
+        <field name="psc_trouble_sleeping"/>
+        <label name="psc_worries_a_lot"/>
+        <field name="psc_worries_a_lot"/>
+        <label name="psc_wants_to_be_with_parents"/>
+        <field name="psc_wants_to_be_with_parents"/>
+        <label name="psc_feels_is_bad_child"/>
+        <field name="psc_feels_is_bad_child"/>
+        <label name="psc_takes_unnecesary_risks"/>
+        <field name="psc_takes_unnecesary_risks"/>
+        <label name="psc_gets_hurt_often"/>
+        <field name="psc_gets_hurt_often"/>
+        <label name="psc_having_less_fun"/>
+        <field name="psc_having_less_fun"/>
+        <label name="psc_act_as_younger"/>
+        <field name="psc_act_as_younger"/>
+        <label name="psc_does_not_listen_to_rules"/>
+        <field name="psc_does_not_listen_to_rules"/>
+        <label name="psc_does_not_show_feelings"/>
+        <field name="psc_does_not_show_feelings"/>
+        <label name="psc_does_not_get_people_feelings"/>
+        <field name="psc_does_not_get_people_feelings"/>
+        <label name="psc_teases_others"/>
+        <field name="psc_teases_others"/>
+        <label name="psc_takes_things_from_others"/>
+        <field name="psc_takes_things_from_others"/>
+        <label name="psc_refuses_to_share"/>
+        <field name="psc_refuses_to_share"/>
+    </group>
+</form>

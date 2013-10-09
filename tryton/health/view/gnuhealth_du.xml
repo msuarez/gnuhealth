@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<form string="Domicilary Unit">
+    <group id="du_header">
+        <group col="6" id="du_address">
+            <label name="name"/>
+            <field name="name"/>
+            <label name="desc"/>
+            <field colspan="3" name="desc"/>
+            <newline/>
+            <label name="address_street"/>
+            <field name="address_street"/>
+            <label name="address_street_number"/>
+            <field name="address_street_number"/>
+            <label name="address_street_bis"/>
+            <field name="address_street_bis"/>
+            <label name="address_district"/>
+            <field name="address_district"/>
+            <label name="address_municipality"/>
+            <field name="address_municipality"/>
+            <label name="address_city"/>
+            <field name="address_city"/>
+            <label name="address_zip"/>
+            <field name="address_zip"/>
+            <label name="address_country"/>
+            <field name="address_country"/>
+            <label name="address_subdivision"/>
+            <field name="address_subdivision"/>
+        </group>
+        <group id="du_picture">
+            <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+        </group>
+        <newline/>
+        <group col="6" colspan="4" id="du_georef">
+            <label name="latitude"/>
+            <field name="latitude"/>
+            <label name="longitude"/>
+            <field name="longitude"/>
+            <label name="urladdr"/>
+            <field name="urladdr" widget="url"/>
+        </group>
+        <newline/>
+        <group colspan="4" col="6" id="du_living_conditions">
+            <label name="housing"/>
+            <field name="housing"/>
+            <label name="dwelling"/>
+            <field name="dwelling"/>
+        </group>
+        <newline/>
+        <group colspan="4" col="8" id="infrastructure" string="Infrastructure">
+            <label name="materials"/>
+            <field name="materials"/>
+            <label name="roof_type"/>
+            <field name="roof_type"/>
+            <label name="total_surface"/>
+            <field name="total_surface"/>
+            <label name="bedrooms"/>
+            <field name="bedrooms"/>
+            <label name="bathrooms"/>
+            <field name="bathrooms"/>
+            <label name="water"/>
+            <field name="water"/>
+            <label name="sewers"/>
+            <field name="sewers"/>
+            <label name="electricity"/>
+            <field name="electricity"/>
+            <label name="gas"/>
+            <field name="gas"/>
+            <label name="telephone"/>
+            <field name="telephone"/>
+            <label name="internet"/>
+            <field name="internet"/>
+            <label name="television"/>
+            <field name="television"/>
+        </group>
+        <label name="operational_sector"/>
+        <field name="operational_sector"/>
+    </group>
+    <newline/>
+    <field name="members"/>
+</form>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<graph string="Evaluations per Specialty">
+    <x>
+        <field name="specialty"/>
+    </x>
+    <y>
+        <field name="evaluations"/>
+    </y>
+</graph>

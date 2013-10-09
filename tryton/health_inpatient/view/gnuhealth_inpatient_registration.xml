@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<form string="Inpatient Registration Information">
+    <notebook>
+        <page string="Administrative data" id="page_admin_data">
+            <group colspan="4" id="group_admin_data_holder1">
+                <group colspan="2" id="group_admin_data">
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="patient"/>
+                    <field name="patient"/>
+                </group>
+                <group colspan="2" id="group_admin_bed">
+                    <label name="bed"/>
+                    <field name="bed"/>
+                </group>
+                <newline/>
+                <group colspan="4" id="group_admin_data_holder2">
+                    <label name="hospitalization_date"/>
+                    <field name="hospitalization_date"/>
+                    <label name="discharge_date"/>
+                    <field name="discharge_date"/>
+                    <label name="attending_physician"/>
+                    <field name="attending_physician"/>
+                    <label name="operating_physician"/>
+                    <field name="operating_physician"/>
+                </group>
+                <group colspan="4" id="group_admin_data_holder3">
+                    <label name="admission_type"/>
+                    <field name="admission_type"/>
+                    <label name="admission_reason"/>
+                    <field name="admission_reason"/>
+                    <newline/>
+                    <label name="info" colspan="4"/>
+                    <field name="info" colspan="4"/>
+                </group>
+            </group>
+            <newline/>
+            <field name="bed_transfers"/>
+            <newline/>
+            <group colspan="4" id="group_registration_holder1">
+                <group colspan="2" id="group_registration_holder2">
+                    <field name="state" readonly="1"/>
+                    <button name="confirmed" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
+                </group>
+                <group colspan="2" id="group_registration_holder3">
+                    <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
+                    <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
+                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
+                </group>
+            </group>
+        </page>
+        <page string="Nutrition" id="page_inpatient_nutrition">
+            <label name="diet_belief"/>
+            <field name="diet_belief"/>
+            <label name="diet_vegetarian"/>
+            <field name="diet_vegetarian"/>
+            <newline/>
+            <field colspan="4" name="therapeutic_diets"/>
+            <newline/>
+            <separator colspan="4" id="separator_nutrition_notes" string="Other nutrition notes / directions"/>
+            <newline/>
+            <field colspan="4" name="nutrition_notes"/>
+        </page>
+        <page string="Medication" id="page_inpatient_medication">
+            <field name="medications"/>
+        </page>
+        <page string="Care Plan" id="page_care_plan">
+            <label name="nursing_plan"/>
+            <field name="nursing_plan"/>
+            <newline/>
+            <label name="discharge_plan"/>
+            <field name="discharge_plan"/>
+        </page>
+    </notebook>
+</form>

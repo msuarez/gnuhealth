@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Vaccines">
+    <label name="vaccine"/>
+    <field name="vaccine"/>
+    <label name="quantity"/>
+    <field name="quantity"/>
+    <label name="lot"/>
+    <field name="lot"/>
+    <label name="dose"/>
+    <field name="dose"/>
+    <label name="next_dose_date"/>
+    <field name="next_dose_date"/>
+    <label name="admin_route"/>
+    <field name="admin_route"/>
+</form>

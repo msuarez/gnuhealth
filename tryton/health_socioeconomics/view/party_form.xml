@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//field[@name=&quot;sex&quot;]" position="after">
+        <label name="occupation"/>
+        <field name="occupation"/>
+        <label name="education"/>
+        <field name="education"/>
+    </xpath>
+</data>

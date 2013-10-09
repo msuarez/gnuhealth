@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/tree/field[@name=&quot;identification_code&quot;]" position="after">
+        <field name="patient_status"/>
+    </xpath>
+</data>

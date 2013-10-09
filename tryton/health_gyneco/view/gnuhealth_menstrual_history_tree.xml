@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree editable="top" string="Menstrual History">
+    <field name="evaluation_date" expand="1"/>
+    <field name="lmp" expand="1"/>
+    <field name="lmp_length" expand="1"/>
+    <field name="frequency" expand="1"/>
+    <field name="volume" expand="1"/>
+    <field name="is_regular" expand="1"/>
+    <field name="dysmenorrhea" expand="1"/>
+</tree>

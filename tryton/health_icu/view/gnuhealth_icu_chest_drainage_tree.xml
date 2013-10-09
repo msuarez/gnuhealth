@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tree editable="top" string="Patient Chest Drainage Assesment">
+    <field name="location" expand="1"/>
+    <field name="suction"/>
+    <field name="suction_pressure"/>
+    <field name="fluid_volume"/>
+    <field name="fluid_aspect"/>
+    <field name="oscillation"/>
+    <field name="air_leak"/>
+    <field name="remarks" expand="1"/>
+</tree>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tree string="Perinatal Monitor">
+    <field name="date" expand="1"/>
+    <field name="dilation" expand="1"/>
+    <field name="systolic" expand="1"/>
+    <field name="diastolic" expand="1"/>
+    <field name="frequency" expand="1"/>
+    <field name="fetus_position" expand="1"/>
+    <field name="f_frequency" expand="1"/>
+    <field name="bleeding" expand="1"/>
+    <field name="meconium" expand="1"/>
+</tree>

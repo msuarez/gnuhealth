@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Imaging Test Request">
+    <field name="request"/>
+    <field name="patient" expand="1"/>
+    <field name="date"/>
+    <field name="requested_test" expand="1"/>
+    <field name="doctor"/>
+    <field name="state"/>
+    <field name="urgent"/>
+</tree>

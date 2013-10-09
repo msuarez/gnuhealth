@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree string="Evaluations per Sector per Week">
+    <field name="year"/>
+    <field name="week"/>
+    <field name="sector" expand="1"/>
+    <field name="evaluations"/>
+</tree>

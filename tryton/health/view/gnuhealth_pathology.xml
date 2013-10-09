@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<form string="Pathology Info">
+    <notebook>
+        <page string="Main" id="disease_main">
+            <group colspan="4" col="6" id="pathology_header">
+                <label name="name"/>
+                <field name="name"/>
+                <label name="code"/>
+                <field name="code"/>
+                <label name="category"/>
+                <field name="category"/>
+            </group>
+            <newline/>
+            <field name="groups"/>
+        </page>
+        <page string="Genetics" id="disease_genetics">
+            <label name="chromosome"/>
+            <field name="chromosome"/>
+            <label name="protein"/>
+            <field name="protein"/>
+            <label name="gene"/>
+            <field name="gene"/>
+        </page>
+        <page string="Extra Info" id="disease_extra_info">
+            <field name="info"/>
+        </page>
+    </notebook>
+</form>

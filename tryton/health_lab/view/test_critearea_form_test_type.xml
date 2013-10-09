@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Analyte">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="units"/>
+    <field name="units"/>
+    <label name="sequence"/>
+    <field name="sequence"/>
+    <newline/>
+    <label name="lower_limit"/>
+    <field name="lower_limit"/>
+    <label name="upper_limit"/>
+    <field name="upper_limit"/>
+    <newline/>
+    <separator colspan="4" id="analyte_reference" string="Reference Value / Range"/>
+    <newline/>
+    <field colspan="4" name="normal_range"/>
+</form>

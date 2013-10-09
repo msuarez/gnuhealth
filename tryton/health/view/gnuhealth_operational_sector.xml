@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form string="Region Operational Sector">
+    <label name="name"/>
+    <field name="name"/>
+    <newline/>
+    <label name="operational_area"/>
+    <field name="operational_area"/>
+    <newline/>
+    <label name="info"/>
+    <field name="info" colspan="4"/>
+</form>

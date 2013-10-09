@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree string="Analyte">
+    <field name="sequence" expand="1"/>
+    <field name="name" expand="1"/>
+    <field name="lower_limit" expand="1"/>
+    <field name="upper_limit" expand="1"/>
+    <field name="normal_range" expand="1"/>
+    <field name="units" expand="1"/>
+</tree>

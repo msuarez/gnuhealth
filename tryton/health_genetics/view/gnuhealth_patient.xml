@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
+        <page string="Genetics" id="patient_genetics">
+            <field name="genetic_risks"/>
+            <field name="family_history"/>
+        </page>
+    </xpath>
+</data>

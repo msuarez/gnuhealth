@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Clinical Findinds - Signs and Symptoms">
+    <group colspan="4" string="Sign or Symptom" id="group_sign_symptom">
+        <field name="clinical"/>
+    </group>
+    <newline/>
+    <label name="sign_or_symptom"/>
+    <field name="sign_or_symptom"/>
+    <newline/>
+    <separator string="Comments" id="separator_signs_symptoms" colspan="4"/>
+    <newline/>
+    <field name="comments" colspan="4"/>
+</form>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<form string="Patient Glasgow Scores">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="evaluation_date"/>
+    <field name="evaluation_date"/>
+    <newline/>
+    <group id="group_glasgow_header" colspan="4">
+        <label name="glasgow_eyes"/>
+        <field name="glasgow_eyes"/>
+        <label name="glasgow_verbal"/>
+        <field name="glasgow_verbal"/>
+        <label name="glasgow_motor"/>
+        <field name="glasgow_motor"/>
+        <label name="glasgow"/>
+        <field name="glasgow"/>
+    </group>
+</form>
