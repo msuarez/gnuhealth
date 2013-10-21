@@ -5,17 +5,7 @@
         <record model="ir.ui.view" id="view_health_service_invoice">
             <field name="model">gnuhealth.service.invoice.init</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Health Services Invoices">
-                    <separator string="Do you want to generate the Invoice(s) ?"
-                        colspan="4" id="test_ask"/>
-                    <newline/>
-                    <separator string="Create Invoices" colspan="6"
-                        id="service_invoice_ask_create"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">health_service_invoice</field>
         </record>
 
         <record model="ir.action.wizard" id="act_create_health_service_invoice">

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form string="Health Services Invoices">
+    <separator string="Do you want to generate the Invoice(s) ?"
+        colspan="4" id="test_ask"/>
+    <newline/>
+    <separator string="Create Invoices" colspan="6"
+        id="service_invoice_ask_create"/>
+</form>

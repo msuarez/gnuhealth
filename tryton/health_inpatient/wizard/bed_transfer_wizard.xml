@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
     <data>
+
         <record model="ir.ui.view" id="view_patient_bed_transfer">
             <field name="model">gnuhealth.bed.transfer.init</field>
             <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <form string="Patient Bed Transfer">
-                    <label name="newbed"/>
-                    <field name="newbed"/>
-                    <label name="reason"/>
-                    <field name="reason"/>
-                </form>
-                ]]>
-            </field>
+            <field name="name">patient_bed_transfer</field>
         </record>
 
         <record model="ir.action.wizard" id="act_create_patient_bed_transfer">
