@@ -26,6 +26,7 @@ from trytond.transaction import Transaction
 from trytond.backend import TableHandler
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.pool import Pool
+from trytond.tools import datetime_strftime
 
 
 __all__ = [
@@ -1520,36 +1521,54 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         cls._order.insert(1, ('disease_severity', 'DESC'))
         cls._order.insert(2, ('is_infectious', 'DESC'))
         cls._order.insert(3, ('diagnosed_date', 'DESC'))
-        cls._constraints += [
-            ('validate_disease_period', 'end_date_before_start'),
-            ('validate_treatment_dates', 'end_treatment_date_before_start')]
-
         cls._error_messages.update({
-            'end_date_before_start': 'The HEALED date is BEFORE DIAGNOSED'
-            ' DATE !',
-            'end_treatment_date_before_start': 'The Treatment END DATE is'
-            ' BEFORE the start date!',
+            'end_date_before_start': 'The HEALED date "%(healed_date)s" is'
+            ' BEFORE DIAGNOSED DATE "%(diagnosed_date)s"!',
+            'end_treatment_date_before_start': 'The Treatment END DATE'
+            ' "%(date_stop_treatment)s" is BEFORE the start date'
+            ' "%(date_start_treatment)s"!',
             })
 
     @staticmethod
     def default_is_active():
         return True
 
+    @classmethod
+    def validate(cls, diseases):
+        super(PatientDiseaseInfo, cls).validate(diseases)
+        for disease in diseases:
+            disease.validate_disease_period()
+            disease.validate_treatment_dates()
+
     def validate_disease_period(self):
-        res = True
+        Lang = Pool().get('ir.lang')
+
+        languages = Lang.search([
+            ('code', '=', Transaction().language),
+            ])
         if (self.healed_date and self.diagnosed_date):
             if (self.healed_date < self.diagnosed_date):
-                res = False
-        return res
+                self.raise_user_error('end_date_before_start', {
+                        'healed_date': datetime_strftime(self.healed_date,
+                            str(languages[0].date)),
+                        'diagnosed_date': datetime_strftime(self.diagnosed_date,
+                            str(languages[0].date)),
+                        })
 
     def validate_treatment_dates(self):
+        Lang = Pool().get('ir.lang')
+
+        languages = Lang.search([
+            ('code', '=', Transaction().language),
+            ])
         if (self.date_stop_treatment and self.date_start_treatment):
             if (self.date_stop_treatment < self.date_start_treatment):
-                return False
-            else:
-                return True
-        else:
-            return True
+                self.raise_user_error('end_treatment_date_before_start', {
+                        'date_stop_treatment': datetime_strftime(
+                            self.date_stop_treatment, str(languages[0].date)),
+                        'date_start_treatment': datetime_strftime(
+                            self.date_start_treatment, str(languages[0].date)),
+                        })
 
 
 # PATIENT APPOINTMENT
@@ -1941,12 +1960,10 @@ class PatientMedication(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientMedication, cls).__setup__()
-        cls._constraints += [
-            ('validate_medication_dates', 'end_date_before_start'),
-            ]
         cls._error_messages.update({
-            'end_date_before_start': 'The Medication END DATE is BEFORE the'
-            ' start date!',
+            'end_date_before_start': 'The Medication END DATE'
+            ' "%(end_treatment)s" is BEFORE the start date'
+            ' "%(start_treatment)s"!',
             })
 
     @classmethod
@@ -2007,24 +2024,32 @@ class PatientMedication(ModelSQL, ModelView):
     def default_qty():
         return 1
 
+    @classmethod
+    def validate(cls, medications):
+        super(PatientMedication, cls).validate(medications)
+        for medication in medications:
+            medication.validate_medication_dates()
+
     def validate_medication_dates(self):
-        res = True
+        Lang = Pool().get('ir.lang')
+
+        languages = Lang.search([
+            ('code', '=', Transaction().language),
+            ])
         if self.end_treatment:
             if (self.end_treatment < self.start_treatment):
-                res = False
-        return res
+                self.raise_user_error('end_date_before_start', {
+                    'start_treatment': datetime_strftime(self.start_treatment,
+                        str(languages[0].date)),
+                    'end_treatment': datetime_strftime(self.end_treatment,
+                        str(languages[0].date)),
+                    })
 
 
 # PATIENT VACCINATION INFORMATION
 class PatientVaccination(ModelSQL, ModelView):
     'Patient Vaccination information'
     __name__ = 'gnuhealth.vaccination'
-
-    def check_vaccine_expiration_date(self):
-        if self.vaccine_expiration_date:
-            if self.vaccine_expiration_date < datetime.date(self.date):
-                return False
-        return True
 
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
 
@@ -2070,16 +2095,11 @@ class PatientVaccination(ModelSQL, ModelView):
             ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
                 'This vaccine dose has been given already to the patient'),
         ]
-        cls._constraints += [
-            ('check_vaccine_expiration_date', 'expired_vaccine'),
-            ('validate_next_dose_date', 'next_dose_before_first'),
-
-        ]
         cls._error_messages.update({
             'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '
-            'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
+                'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
             'next_dose_before_first': 'The Vaccine next dose is BEFORE the '
-            'first one !'
+                'first one !'
         })
 
     @staticmethod
@@ -2090,15 +2110,22 @@ class PatientVaccination(ModelSQL, ModelView):
     def default_dose():
         return 1
 
+    @classmethod
+    def validate(cls, vaccines):
+        super(PatientVaccination, cls).validate(vaccines)
+        for vaccine in vaccines:
+            vaccine.check_vaccine_expiration_date()
+            vaccine.validate_next_dose_date()
+
+    def check_vaccine_expiration_date(self):
+        if self.vaccine_expiration_date:
+            if self.vaccine_expiration_date < datetime.date(self.date):
+                self.raise_user_error('expired_vaccine')
+
     def validate_next_dose_date(self):
         if (self.next_dose_date):
             if (self.next_dose_date < self.date):
-                return False
-            else:
-                return True
-        # If the next dose is not available, then keep going.
-        else:
-            return True
+                self.raise_user_error('next_dose_before_first')
 
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
@@ -2134,10 +2161,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()
-        cls._constraints += [
-            ('check_prescription_warning', 'drug_pregnancy_warning'),
-            ('check_health_professional', 'health_professional_warning'),
-        ]
         cls._error_messages.update({
             'drug_pregnancy_warning':
             '== DRUG AND PREGNANCY VERIFICATION ==\n\n'
@@ -2150,15 +2173,24 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'No health professional associated to this user',
         })
 
+    @classmethod
+    def validate(cls, prescriptions):
+        super(PatientPrescriptionOrder, cls).validate(prescriptions)
+        for prescription in prescriptions:
+            prescription.check_health_professional()
+            prescription.check_prescription_warning()
+
     def check_health_professional(self):
-        return self.doctor
+        if not self.doctor:
+            self.raise_user_error('health_professional_warning')
+
+    def check_prescription_warning(self):
+        if not self.prescription_warning_ack:
+            self.raise_user_error('drug_pregnancy_warning')
 
     @staticmethod
     def default_doctor():
         return HealthProfessional().get_health_professional()
-
-    def check_prescription_warning(self):
-        return self.prescription_warning_ack
 
     # Method that makes the doctor to acknowledge if there is any
     # warning in the prescription
@@ -2680,15 +2712,11 @@ class PatientEvaluation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientEvaluation, cls).__setup__()
-        cls._constraints += [
-            ('check_health_professional', 'health_professional_warning'),
-            ('validate_evaluation_period', 'end_date_before_start'),
-        ]
-
         cls._error_messages.update({
             'health_professional_warning':
-            'No health professional associated to this user',
-            'end_date_before_start': 'End time BEFORE evaluation start'
+                'No health professional associated to this user',
+            'end_date_before_start': 'End time "%(evaluation_endtime)s" BEFORE'
+                ' evaluation start "%(evaluation_start)s"'
         })
 
         cls._buttons.update({
@@ -2697,12 +2725,31 @@ class PatientEvaluation(ModelSQL, ModelView):
             },
         })
 
+    @classmethod
+    def validate(cls, evaluations):
+        super(PatientEvaluation, cls).validate(evaluations)
+        for evaluation in evaluations:
+            evaluation.validate_evaluation_period()
+            evaluation.check_health_professional()
+
     def validate_evaluation_period(self):
-        res = True
+        Lang = Pool().get('ir.lang')
+
+        languages = Lang.search([
+            ('code', '=', Transaction().language),
+            ])
         if (self.evaluation_endtime and self.evaluation_start):
             if (self.evaluation_endtime < self.evaluation_start):
-                res = False
-        return res
+                self.raise_user_error('end_date_before_start', {
+                        'evaluation_start': datetime_strftime(
+                            self.evaluation_start, str(languages[0].date)),
+                        'evaluation_endtime': datetime_strftime(
+                            self.evaluation_endtime, str(languages[0].date)),
+                        })
+
+    def check_health_professional(self):
+        if not self.doctor:
+            self.raise_user_error('health_professional_warning')
 
     @classmethod
     def write(cls, evaluations, vals):
@@ -2731,9 +2778,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         cls.write(evaluations, {
             'state': 'done',
             'signed_by': signing_hp})
-
-    def check_health_professional(self):
-        return self.doctor
 
     @staticmethod
     def default_doctor():
