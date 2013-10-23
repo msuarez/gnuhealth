@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # GNU Health installer
+# Version for 2.4 series
 
 ##############################################################################
 #
@@ -116,22 +117,13 @@ install_python_dependencies() {
     local PIP_PIL="PIL==1.1.7"
     local PIP_CALDAV="caldav==0.1.12"
     local PIP_POLIB="polib==1.0.3"
-
-    local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PIL $PIP_CALDAV $PIP_POLIB"
+    local PIP_SQL="python-sql==0.2"
+    
+    local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PIL $PIP_CALDAV $PIP_POLIB $PIP_SQL"
 
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
-    # PYTZ seems to have fixed the naming conventions issues and now is compatible with PyPI (We'll keep the code commented for a while just in case )
-    #    # Handling of BACKWARD INCOMPATIBLE arguments for pip command:
-    #    if [[ "${PIP_VERSION}" > "1.4" ]]; then
-    #        message " >> ${PIP_PYTZ} (including pre-release and development versions)" ${BLUE}
-    #        ${PIP_CMD} ${PIP_ARGS} --pre ${PIP_PYTZ} || exit 1
-    #    else
-    #        message " >> ${PIP_PYTZ}" ${BLUE}
-    #        ${PIP_CMD} ${PIP_ARGS} ${PIP_PYTZ} || exit 1
-    #    fi
-    #    message " >> OK" ${GREEN}
-
+    
     for PKG in ${PIP_PKGS}; do
         message " >> ${PKG}" ${BLUE}
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
@@ -225,7 +217,7 @@ install_directories
 #
 # (3) Download settings.
 #
-TRYTON_VERSION="2.8"
+TRYTON_VERSION="3.0"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 get_url() {
