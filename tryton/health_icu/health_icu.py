@@ -82,13 +82,15 @@ class InpatientIcu(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(InpatientIcu, cls).__setup__()
-        cls._constraints += [
-            ('check_patient_admitted_at_icu', 'patient_already_at_icu'),
-        ]
-
         cls._error_messages.update({
             'patient_already_at_icu': 'Our records indicate that the patient'
                 ' is already admitted at ICU'})
+
+    @classmethod
+    def validate(cls, inpatients):
+        super(InpatientIcu, cls).validate(inpatients)
+        for inpatient in inpatients:
+            inpatient.check_patient_admitted_at_icu()
 
     def check_patient_admitted_at_icu(self):
         # Verify that the patient is not at ICU already
@@ -98,8 +100,7 @@ class InpatientIcu(ModelSQL, ModelView):
             WHERE (name = %s AND admitted)",
             (str(self.name.id),))
         if cursor.fetchone()[0] > 1:
-            return False
-        return True
+            self.raise_user_error('patient_already_at_icu')
 
     @staticmethod
     def default_admitted():
@@ -466,13 +467,15 @@ class MechanicalVentilation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(MechanicalVentilation, cls).__setup__()
-        cls._constraints += [
-            ('check_patient_current_mv', 'patient_already_on_mv'),
-        ]
-
         cls._error_messages.update({
             'patient_already_on_mv': 'Our records indicate that the patient'
                 ' is already on Mechanical Ventilation !'})
+
+    @classmethod
+    def validate(cls, inpatients):
+        super(MechanicalVentilation, cls).validate(inpatients)
+        for inpatient in inpatients:
+            inpatient.check_patient_current_mv()
 
     def check_patient_current_mv(self):
         # Check for only one current mechanical ventilation on patient
@@ -482,8 +485,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
             WHERE (name = %s AND current_mv)",
             (str(self.name.id),))
         if cursor.fetchone()[0] > 1:
-            return False
-        return True
+            self.raise_user_error('patient_already_on_mv')
 
     @staticmethod
     def default_current_mv():
