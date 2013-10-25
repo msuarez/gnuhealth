@@ -23,6 +23,8 @@ from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 from trytond.transaction import Transaction
 from trytond.backend import TableHandler
+from trytond.pool import Pool
+from trytond.tools import datetime_strftime
 
 __all__ = ['RCRI', 'Surgery', 'MedicalOperation', 'MedicalPatient']
 
@@ -317,18 +319,30 @@ class Surgery(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Surgery, cls).__setup__()
-        cls._constraints += [
-            ('validate_surgery_period', 'end_date_before_start')]
-
         cls._error_messages.update({
-            'end_date_before_start': 'End time BEFORE surgery date'})
+            'end_date_before_start': 'End time "%(end_date)s" BEFORE '
+                'surgery date "%(surgery_date)s"'})
+
+    @classmethod
+    def validate(cls, surgeries):
+        super(Surgery, cls).validate(surgeries)
+        for surgery in surgeries:
+            surgery.validate_surgery_period()
 
     def validate_surgery_period(self):
-        res = True
+        Lang = Pool().get('ir.lang')
+
+        languages = Lang.search([
+            ('code', '=', Transaction().language),
+            ])
         if (self.surgery_end_date and self.surgery_date):
             if (self.surgery_end_date < self.surgery_date):
-                res = False
-        return res
+                self.raise_user_error('end_date_before_start', {
+                        'surgery_date': datetime_strftime(self.surgery_date,
+                            str(languages[0].date)),
+                        'end_date': datetime_strftime(self.surgery_end_date,
+                            str(languages[0].date)),
+                        })
 
 
 class MedicalOperation(ModelSQL, ModelView):
