@@ -424,16 +424,20 @@ class InpatientMedicationLog (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(InpatientMedicationLog, cls).__setup__()
-        cls._constraints += [
-            ('check_health_professional', 'health_professional_warning'),
-        ]
         cls._error_messages.update({
             'health_professional_warning':
                     'No health professional associated to this user',
         })
 
+    @classmethod
+    def validate(cls, records):
+        super(InpatientMedicationLog, cls).validate(records)
+        for record in records:
+            record.check_health_professional()
+
     def check_health_professional(self):
-        return self.health_professional
+        if not self.health_professional:
+            self.raise_user_error('health_professional_warning')
 
     @staticmethod
     def default_health_professional():
