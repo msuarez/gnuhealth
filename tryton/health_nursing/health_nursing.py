@@ -110,16 +110,20 @@ class PatientRounding(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientRounding, cls).__setup__()
-        cls._constraints += [
-            ('check_health_professional', 'health_professional_warning'),
-        ]
         cls._error_messages.update({
             'health_professional_warning':
                     'No health professional associated to this user',
         })
 
+    @classmethod
+    def validate(cls, roundings):
+        super(PatientRounding, cls).validate(roundings)
+        for rounding in roundings:
+            rounding.check_health_professional()
+
     def check_health_professional(self):
-        return self.health_professional
+        if not self.health_professional:
+            self.raise_user_error('health_professional_warning')
 
     @staticmethod
     def default_health_professional():
@@ -207,17 +211,21 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientAmbulatoryCare, cls).__setup__()
-        cls._constraints += [
-            ('check_health_professional', 'health_professional_warning'),
-        ]
         cls._error_messages.update({
             'health_professional_warning':
                     'No health professional associated to this user',
         })
         cls._order.insert(0, ('session_start', 'DESC'))
 
+    @classmethod
+    def validate(cls, records):
+        super(PatientAmbulatoryCare, cls).validate(records)
+        for record in records:
+            record.check_health_professional()
+
     def check_health_professional(self):
-        return self.health_professional
+        if not self.health_professional:
+            self.raise_user_error('health_professional_warning')
 
     @classmethod
     def create(cls, vlist):
