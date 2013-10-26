@@ -20,7 +20,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
-from trytond.backend import TableHandler
+from trytond import backend
 
 __all__ = ['Party','GnuHealthPatient']
 
@@ -218,6 +218,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
         super(GnuHealthPatient, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Move occupation from patient to party
 
