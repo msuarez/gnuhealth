@@ -23,7 +23,7 @@ from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
-from trytond.backend import TableHandler
+from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
@@ -242,6 +242,7 @@ class PhysicianSP(ModelSQL, ModelView):
         super(PhysicianSP, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Insert the current "specialty" associated to the HP in the
         # table that keeps the specialties associated to different health
@@ -326,6 +327,7 @@ class Family(ModelSQL, ModelView):
         super(Family, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Remove Operational Sector from the family model
         # The operational Sector is linked to the Domiciliary Unit
@@ -675,6 +677,7 @@ class PathologyGroup(ModelSQL, ModelView):
         super(PathologyGroup, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
 
         # Drop old foreign key and change to char name
@@ -1391,6 +1394,7 @@ class PatientData(ModelSQL, ModelView):
         super(PatientData, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Move Date of Birth from patient to party
 
@@ -1971,6 +1975,7 @@ class PatientMedication(ModelSQL, ModelView):
         super(PatientMedication, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
 
         # Update to version 2.0
@@ -2355,6 +2360,7 @@ class PrescriptionLine(ModelSQL, ModelView):
         super(PrescriptionLine, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
 
         # Update to version 2.0
