@@ -22,7 +22,7 @@ from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 from trytond.transaction import Transaction
-from trytond.backend import TableHandler
+from trytond import backend
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 
@@ -310,6 +310,7 @@ class Surgery(ModelSQL, ModelView):
         super(Surgery, cls).__register__(module_name)
 
         cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Rename the date column to surgery_surgery_date
 
