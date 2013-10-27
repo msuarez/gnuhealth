@@ -19,7 +19,6 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, StateAction, Button
-from trytond.backend import FIELDS
 from trytond.pyson import PYSONEncoder
 from trytond.transaction import Transaction
 
@@ -193,9 +192,8 @@ class EvaluationsDoctorWeekly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'CAST(year AS varchar) AS year, week, '
                     'doctor, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(WEEK FROM evaluation_start) + '
@@ -230,9 +228,8 @@ class EvaluationsDoctorMonthly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'CAST(year AS varchar) AS year, month, '
                     'doctor, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(MONTH FROM evaluation_start) + '
@@ -328,9 +325,8 @@ class EvaluationsSpecialtyWeekly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'CAST(year AS varchar) AS year, week, '
                     'specialty, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(WEEK FROM evaluation_start) + '
@@ -367,9 +363,8 @@ class EvaluationsSpecialtyMonthly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'CAST(year AS varchar) AS year, month, '
                     'specialty, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(MONTH FROM evaluation_start) + '
@@ -476,9 +471,8 @@ class EvaluationsSectorWeekly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, week, '
+                    'CAST(year AS varchar) AS year, week, '
                     'sector, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(WEEK FROM gpe.evaluation_start) + '
@@ -522,9 +516,8 @@ class EvaluationsSectorMonthly(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        type_name = FIELDS[cls.year._type].sql_type(cls.year)[0]
         return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                    'CAST(year AS ' + type_name + ') AS year, month, '
+                    'CAST(year AS varchar) AS year, month, '
                     'sector, evaluations '
                     'FROM ('
                         'SELECT EXTRACT(MONTH FROM gpe.evaluation_start) + '
