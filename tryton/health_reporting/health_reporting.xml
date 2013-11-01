@@ -33,7 +33,7 @@
             <field name="view" ref="top_diseases_view_tree"/>
             <field name="act_window" ref="act_top_diseases_form"/>
         </record>
-        
+
         <record model="ir.action.act_window.view"
             id="act_top_diseases_form_view2">
             <field name="sequence" eval="20"/>
@@ -54,44 +54,5 @@
             action="act_top_diseases_open" icon="gnuhealth-list"
             id="menu_top_diseases_open" sequence="10" />
 
-        <record model="ir.ui.view" id="evaluations_view_tree">
-            <field name="model">gnuhealth.evaluations</field>
-            <field name="type">tree</field>
-            <field name="name">evaluations_tree</field>
-        </record>
-        <record model="ir.ui.view" id="evaluations_view_graph">
-            <field name="model">gnuhealth.evaluations</field>
-            <field name="type">graph</field>
-            <field name="name">evaluations_graph</field>
-        </record>
-        <record model="ir.action.act_window" id="act_evaluations_form">
-            <field name="name">Evaluations</field>
-            <field name="res_model">gnuhealth.evaluations</field>
-        </record>
-        <record model="ir.action.act_window.view"
-            id="act_evaluations_form_view1">
-            <field name="sequence" eval="10"/>
-            <field name="view" ref="evaluations_view_tree"/>
-            <field name="act_window" ref="act_evaluations_form"/>
-        </record>
-        <record model="ir.action.act_window.view"
-            id="act_evaluations_form_view2">
-            <field name="sequence" eval="20"/>
-            <field name="view" ref="evaluations_view_graph"/>
-            <field name="act_window" ref="act_evaluations_form"/>
-        </record>
-
-        <record model="ir.ui.view" id="evaluations_open_start_view_form">
-            <field name="model">gnuhealth.evaluations.open.start</field>
-            <field name="type">form</field>
-            <field name="name">evaluations_open_start_form</field>
-        </record>
-        <record model="ir.action.wizard" id="act_evaluations_open">
-            <field name="name">Evaluations</field>
-            <field name="wiz_name">gnuhealth.evaluations.open</field>
-        </record>
-        <menuitem parent="health.gnuhealth_reporting_menu"
-            action="act_evaluations_open" icon="gnuhealth-list"
-            id="menu_evaluations_open" sequence="20"/>
     </data>
 </tryton>

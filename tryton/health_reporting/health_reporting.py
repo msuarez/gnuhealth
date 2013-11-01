@@ -1,8 +1,8 @@
 ##############################################################################
 #
 #    GNU Health: Reporting Module
-#    
-#    
+#
+#
 #    Copyright (C) 2012-2013  Sebastian Marro <smarro@gnusolidario.org>
 #    Copyright (C) 2013  Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2013  GNU Solidario <health@gnusolidario.org>
@@ -25,17 +25,16 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, StateAction, Button
 from trytond.pyson import PYSONEncoder
-from trytond.pool import Pool
+from trytond.pool import Pool, PoolMeta
 from sql import *
 from sql.functions import Now
 from sql.aggregate import *
 from sql.conditionals import *
 
-from trytond.transaction import Transaction
-
 
 __all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
-    'Evaluations', 'OpenEvaluations', 'OpenEvaluationsStart']
+    'PatientEvaluation', 'Report']
+__metaclass__ = PoolMeta
 
 
 class TopDiseases(ModelSQL, ModelView):
@@ -56,7 +55,7 @@ class TopDiseases(ModelSQL, ModelView):
         pool = Pool()
         Evaluation = pool.get('gnuhealth.patient.evaluation')
         evaluation = Evaluation.__table__()
-        
+
         select = evaluation.select (
             evaluation.diagnosis.as_('id'),
             Literal(0).as_('create_uid'),
@@ -66,10 +65,10 @@ class TopDiseases(ModelSQL, ModelView):
             Count(evaluation.diagnosis).as_('cases'),
             group_by = [evaluation.diagnosis]
         )
-        
+
         return (select)
 
-        
+
 class OpenTopDiseasesStart(ModelView):
     'Open Top Diseases'
     __name__ = 'gnuhealth.top_diseases.open.start'
@@ -104,44 +103,29 @@ class OpenTopDiseases(Wizard):
         return 'end'
 
 
-class OpenEvaluationsStart(ModelView):
-    'Open Evaluations'
-    __name__ = 'gnuhealth.evaluations.open.start'
-
-    start_date = fields.Date('Start Date')
-    end_date = fields.Date('End Date')
-
-
-class OpenEvaluations(Wizard):
-    'Open Evaluations'
-    __name__ = 'gnuhealth.evaluations.open'
-
-    start = StateView('gnuhealth.evaluations.open.start',
-        'health_reporting.evaluations_open_start_view_form', [
-            Button('Cancel', 'end', 'tryton-cancel'),
-            Button('Open', 'open_', 'tryton-ok', default=True),
-            ])
-    open_ = StateAction('health_reporting.act_evaluations_form')
-
-    def do_open_(self, action):
-        action['pyson_context'] = PYSONEncoder().encode({
-                'start_date': self.start.start_date,
-                'end_date': self.start.end_date,
-                })
-        return action, {}
-
-    def transition_open_(self):
-        return 'end'
-
-
-class Evaluations(ModelSQL, ModelView):
-    'Evaluations'
-    __name__ = 'gnuhealth.evaluations'
-
-    doctor = fields.Many2One('gnuhealth.physician',
-     'Health Professional', select=True)
-    evaluations = fields.Integer('Evaluations')
+class PatientEvaluation:
+    __name__ = 'gnuhealth.patient.evaluation'
 
     @classmethod
-    def table_query(cls):
-        return True
+    def __register__(cls, module_name):
+        Model = Pool().get('ir.model')
+
+        # Set the model babi enabled
+        models = Model.search([
+                ('model', '=', 'gnuhealth.patient.evaluation')
+                ])
+        if models:
+            Model.write(models, {
+                    'babi_enabled': True,
+                    })
+
+        super(PatientEvaluation, cls).__register__(module_name)
+
+
+class Report:
+    __name__ = 'babi.report'
+
+    # Remove required to load xml data
+    dimensions = fields.One2Many('babi.dimension', 'report', 'Dimensions')
+    measures = fields.One2Many('babi.measure', 'report', 'Measures')
+
