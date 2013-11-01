@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<tryton>
+    <data noupdate="1">
+
+<!--
+        Evaluations per Doctor Report
+-->
+        <record id="exp_evaluation_doctor" model="babi.expression">
+            <field name="name">Evaluation Doctor</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="expression">o.doctor.name.lastname + ', ' + o.doctor.name.name</field>
+            <field name="ttype">char</field>
+        </record>
+        <record id="exp_evaluation_year" model="babi.expression">
+            <field name="name">Evaluation Year</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="expression">y(o.evaluation_start)</field>
+            <field name="ttype">char</field>
+        </record>
+        <record id="exp_evaluation_month" model="babi.expression">
+            <field name="name">Evaluation Month</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="expression">ym(o.evaluation_start)</field>
+            <field name="ttype">char</field>
+        </record>
+        <record id="exp_evaluation_count" model="babi.expression">
+            <field name="name">Evaluation Count</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="expression">o.id</field>
+            <field name="ttype">int</field>
+        </record>
+
+        <record id="report_evaluation_doctor" model="babi.report">
+            <field name="name">Evaluations per Doctor</field>
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.evaluation')]"/>
+            <field name="parent_menu" ref="health.gnuhealth_reporting_menu"/>
+            <field name="timeout" eval="60"/>
+        </record>
+
+        <record id="dim_evaluation_doctor" model="babi.dimension">
+            <field name="name">Evaluation Doctor</field>
+            <field name="report" ref="report_evaluation_doctor"/>
+            <field name="expression" ref="exp_evaluation_doctor"/>
+            <field name="group_by" eval="True"/>
+        </record>
+        <record id="dim_evaluation_year" model="babi.dimension">
+            <field name="name">Evaluation Year</field>
+            <field name="report" ref="report_evaluation_doctor"/>
+            <field name="expression" ref="exp_evaluation_year"/>
+            <field name="group_by" eval="True"/>
+        </record>
+        <record id="dim_evaluation_month" model="babi.dimension">
+            <field name="name">Evaluation Month</field>
+            <field name="report" ref="report_evaluation_doctor"/>
+            <field name="expression" ref="exp_evaluation_month"/>
+            <field name="group_by" eval="True"/>
+        </record>
+
+        <record id="meas_evaluation_count" model="babi.measure">
+            <field name="name">Evaluation Count</field>
+            <field name="report" ref="report_evaluation_doctor"/>
+            <field name="expression" ref="exp_evaluation_count"/>
+            <field name="aggregate">count</field>
+        </record>
+
+    </data>
+</tryton>
