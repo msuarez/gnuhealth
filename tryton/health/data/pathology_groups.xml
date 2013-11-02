@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <record model="gnuhealth.pathology.group" id="INFECTIOUS">
+            <field name="name">INFECTIOUS</field>
+            <field name="code">INFECTIOUS</field>
+            <field name="desc">Infectious disesases</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="RESP">
+            <field name="name">RESPIRATORY</field>
+            <field name="code">RESP</field>
+            <field name="desc">Respiratory - Pulmonary Diseases</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="HEART">
+            <field name="name">HEART</field>
+            <field name="code">HEART</field>
+            <field name="desc">Diseases of the Heart. CAD, CHF, valvulopathies, arrhythmias.. </field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="VASCULAR">
+            <field name="name">VASCULAR</field>
+            <field name="code">VASCULAR</field>
+            <field name="desc">Disorders of the Circulatory System</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="GASTRO">
+            <field name="name">GASTROINTESTINAL</field>
+            <field name="code">GASTRO</field>
+            <field name="desc">Diseases related to the Digestive track and accesory organs</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="ALLERGIC">
+            <field name="name">ALLERGIC</field>
+            <field name="code">ALLERGIC</field>
+            <field name="desc">Hypersensitivity reactions to environmental - external antigens</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="AUTOIMMUNE">
+            <field name="name">AUTOIMMUNE</field>
+            <field name="code">AUTOIMMUNE</field>
+            <field name="desc">Reactions to self antigens</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="CONNECTIVE">
+            <field name="name">CONNECTIVE TISSUE and MUSCULOSKELETAL</field>
+            <field name="code">CONNECTIVE</field>
+            <field name="desc">Disorders of the connective tissue and MSDs</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="GENITOURINARY">
+            <field name="name">GENITOURINARY</field>
+            <field name="code">GENITOURINARY</field>
+            <field name="desc">Renal, Urologic and Male reproductive disorders</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="NEOPLASIC">
+            <field name="name">NEOPLASIC</field>
+            <field name="code">NEOPLASIC</field>
+            <field name="desc">Neoplasic disorders, both benign and malignant</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="METABOLIC">
+            <field name="name">METABOLIC</field>
+            <field name="code">METABOLIC</field>
+            <field name="desc">Metabolic and endocrine disorders</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="PSYCHIATRIC">
+            <field name="name">PSYCHIATRIC</field>
+            <field name="code">PSYCHIATRIC</field>
+            <field name="desc">Psychiatric disorders</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="NEUROLOGIC">
+            <field name="name">NEUROLOGIC</field>
+            <field name="code">NEUROLOGIC</field>
+            <field name="desc">Neurological disorders</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="PEDIATRIC">
+            <field name="name">PEDIATRIC</field>
+            <field name="code">PEDIATRIC</field>
+            <field name="desc">Disorders related to pediatric population</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="NUTRITION">
+            <field name="name">NUTRITION</field>
+            <field name="code">NUTRITION</field>
+            <field name="desc">Nutritional disorders</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="SOCIAL">
+            <field name="name">SOCIAL AND FAMILY</field>
+            <field name="code">SOCIAL</field>
+            <field name="desc">Diseases related to socio-economic and family environments</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="VIOLENCE">
+            <field name="name">VIOLENCE</field>
+            <field name="code">VIOLENCE</field>
+            <field name="desc">Assault, sex crimes, bullying and other psychological or physical violence</field>
+        </record>
+        <record model="gnuhealth.pathology.group" id="OBSGYN">
+            <field name="name">GYNECOLOGY and OBSTETRICS</field>
+            <field name="code">GYNOBS</field>
+            <field name="desc">Women and pregnancies related disorders</field>
+        </record>
+         <record model="gnuhealth.pathology.group" id="NOTIFIABLE">
+            <field name="name">NOTIFIABLE</field>
+            <field name="code">NOTIFIABLE</field>
+            <field name="desc">The disease is subject to mandatory notification to the health authorities</field>
+        </record>
+
+    </data>
+</tryton>
