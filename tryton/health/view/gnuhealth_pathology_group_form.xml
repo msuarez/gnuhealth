@@ -14,8 +14,6 @@
     <group id="pathology_groups">
         <newline/>
         <field name="info" colspan="4"/>
-        <newline/>
-        <field name="members" colspan="4"/>
-        
     </group>
+    <field name="members" colspan="4"/>
 </form>
