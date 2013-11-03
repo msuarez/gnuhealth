@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tryton>
+<data skiptest="1" noupdate="1">
+
+<!-- ALLERGIC DISEASES GROUP FROM ICD10 -->
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J301">
+	<field name="name" ref="J301"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+</data>
+</tryton>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tryton>
+<data skiptest="1" noupdate="1">
+
+<!-- ALLERGIC DISEASES GROUP FROM ICD10 -->
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J30">
+	<field name="name" ref="J30"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J301">
+	<field name="name" ref="J301"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J302">
+	<field name="name" ref="J302"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J303">
+	<field name="name" ref="J303"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J304">
+	<field name="name" ref="J304"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-J450">
+	<field name="name" ref="J450"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-K522">
+	<field name="name" ref="K522"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L23">
+	<field name="name" ref="L23"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L230">
+	<field name="name" ref="L230"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L231">
+	<field name="name" ref="L231"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L232">
+	<field name="name" ref="L232"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L233">
+	<field name="name" ref="L233"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L234">
+	<field name="name" ref="L234"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L235">
+	<field name="name" ref="L235"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L236">
+	<field name="name" ref="L236"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L237">
+	<field name="name" ref="L237"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L238">
+	<field name="name" ref="L238"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L239">
+	<field name="name" ref="L239"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L500">
+	<field name="name" ref="L500"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-L561">
+	<field name="name" ref="L561"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-T784">
+	<field name="name" ref="T784"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z88">
+	<field name="name" ref="Z88"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z880">
+	<field name="name" ref="Z880"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z881">
+	<field name="name" ref="Z881"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z882">
+	<field name="name" ref="Z882"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z883">
+	<field name="name" ref="Z883"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z884">
+	<field name="name" ref="Z884"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z885">
+	<field name="name" ref="Z885"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z886">
+	<field name="name" ref="Z886"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z887">
+	<field name="name" ref="Z887"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z888">
+	<field name="name" ref="Z888"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z889">
+	<field name="name" ref="Z889"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="ALLERGIC-Z910">
+	<field name="name" ref="Z910"></field>
+    <field name="disease_group" ref="health.ALLERGIC"></field>
+</record>
+
+</data>
+</tryton>
