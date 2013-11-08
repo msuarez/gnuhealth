@@ -1664,8 +1664,8 @@ class Appointment(ModelSQL, ModelView):
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
-        if (self.doctor and self.doctor.specialty):
-            specialty = self.doctor.specialty.specialty.id
+        if (self.doctor and self.doctor.main_specialty):
+            specialty = self.doctor.main_specialty.specialty.id
             return specialty
 
     @staticmethod
