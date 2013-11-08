@@ -212,6 +212,13 @@ class HealthProfessional(ModelSQL, ModelView):
                 res = self.name.lastname + ', ' + self.name.name
         return res
 
+    @classmethod
+    def __setup__(cls):
+        super(HealthProfessional, cls).__setup__()
+        cls._sql_constraints = [
+            ('hp_uniq', 'UNIQUE(name)',
+                'The health professional must be unique'),
+        ]
 
 class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
