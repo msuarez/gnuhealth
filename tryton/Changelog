@@ -1,3 +1,43 @@
+changeset:   1081:d8387f2d1480
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 08 15:05:15 2013 -0300
+summary:     health : constraint for unique health professional
+
+changeset:   1080:92896dc88f2c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 08 14:34:56 2013 -0300
+summary:     health: fix bug of no attribute specialty when creating an appointment
+
+changeset:   1079:00c8a6850b07
+branch:      stable
+parent:      1058:e2c7121d3284
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Nov 06 12:02:49 2013 -0300
+summary:     health_imaging : Add missing wizard package in setup.py
+
+changeset:   1058:e2c7121d3284
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 14:11:16 2013 -0300
+summary:     Revert to rev 1057, due to changes in the wrong branch
+
+changeset:   1057:1612b586950d
+branch:      stable
+parent:      1053:c197a941ac23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 13:47:13 2013 -0300
+summary:     Added tag 2.2.1 for changeset 37943239cff5
+
+changeset:   1053:c197a941ac23
+branch:      stable
+parent:      1051:37943239cff5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 06 00:09:57 2013 -0300
+summary:     Installer : remove unused patches directory
+
 changeset:   1052:718103728ae9
 tag:         tip
 parent:      1050:2d0772696d15
