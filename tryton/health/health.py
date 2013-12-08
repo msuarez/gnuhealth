@@ -1127,7 +1127,13 @@ class PatientData(ModelSQL, ModelView):
 	# Patient Critical Information Summary
 	
     def patient_critical_summary(self, name):
-		return 'Collected Information will go here'
+		'''Retrieve patient allergies'''
+		allergies=""
+		for disease in self.diseases:
+			for member in disease.pathology.groups:
+				if (member.disease_group.name == "ALLERGIC"):
+					allergies=allergies + str(member.name.name) + "\n"
+		return allergies
 		
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
     # It will calculate the age of the patient while the patient is alive.
@@ -1287,7 +1293,8 @@ class PatientData(ModelSQL, ModelView):
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
     critical_summary = fields.Function(fields.Text(
         'Important disease about patient allergies or procedures',
-        help='Automatic summary of patient most critical information'),
+        help='Automated summary of patient allergies and '
+		'other critical information'),
         'patient_critical_summary')
 
     critical_info = fields.Text(
