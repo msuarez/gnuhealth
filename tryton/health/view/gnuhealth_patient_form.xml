@@ -11,7 +11,8 @@
                 <field name="identification_code" width="80"/>
             </group>
             <newline/>
-            <group id="critical_info" string="Allergies and Critical Information">
+            <group id="critical_info" string="Critical Information">
+                <field height="120" name="critical_summary"/>
                 <field height="120" name="critical_info"/>
             </group>
         </group>

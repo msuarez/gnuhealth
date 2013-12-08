@@ -1124,6 +1124,11 @@ class PatientData(ModelSQL, ModelView):
     'Patient related information'
     __name__ = 'gnuhealth.patient'
 
+	# Patient Critical Information Summary
+	
+    def patient_critical_summary(self, name):
+		return 'Collected Information will go here'
+		
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
     # It will calculate the age of the patient while the patient is alive.
     # When the patient dies, it will show the age at time of death.
@@ -1280,11 +1285,16 @@ class PatientData(ModelSQL, ModelView):
 #        'Prescriptions')
 
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
+    critical_summary = fields.Function(fields.Text(
+        'Important disease about patient allergies or procedures',
+        help='Automatic summary of patient most critical information'),
+        'patient_critical_summary')
+
     critical_info = fields.Text(
-        'Important disease, allergy or procedures'
-        ' information',
+        'Free text information not included in the automatic summary',
         help='Write any important information on the patient\'s disease,'
         ' surgeries, allergies, ...')
+
 
 # Removed it in 1.6
 # Not used anymore . Now we relate with a shortcut. Clearer
