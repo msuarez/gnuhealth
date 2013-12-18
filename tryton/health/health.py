@@ -1124,16 +1124,29 @@ class PatientData(ModelSQL, ModelView):
     'Patient related information'
     __name__ = 'gnuhealth.patient'
 
-	# Patient Critical Information Summary
-	
     def patient_critical_summary(self, name):
-		'''Retrieve patient allergies'''
+		# Patient Critical Information Summary
+		# The information will be shown in the front page
+
+		critical_info = ""
 		allergies=""
+		chronic_conditions=""
+		conditions=[]
 		for disease in self.diseases:
 			for member in disease.pathology.groups:
+				'''Retrieve patient allergies'''
 				if (member.disease_group.name == "ALLERGIC"):
-					allergies=allergies + str(member.name.name) + "\n"
-		return allergies
+					if disease.pathology.name not in conditions:
+						allergies=allergies + str(disease.pathology.name) + "\n"
+						conditions.append (disease.pathology.name)
+
+			'''Retrieve patient chronic conditions or active'''		
+			if (disease.status == "c" or disease.is_active):
+				if disease.pathology.name not in conditions:
+							chronic_conditions= chronic_conditions + \
+							 str(disease.pathology.name) + "\n"
+							
+		return allergies + chronic_conditions
 		
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
     # It will calculate the age of the patient while the patient is alive.
