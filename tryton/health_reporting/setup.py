@@ -20,6 +20,7 @@ import re
 import os
 import ConfigParser
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
@@ -58,8 +59,8 @@ setup(name='trytond_health_reporting',
         'trytond.modules.health_reporting.tests',
         ],
     package_data={
-        'trytond.modules.health_reporting': info.get('xml', []) \
-            + info.get('translation', []) \
+        'trytond.modules.health_reporting': info.get('xml', [])
+            + info.get('translation', [])
             + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
                'report/*.odt', 'icons/*.svg'],
         },

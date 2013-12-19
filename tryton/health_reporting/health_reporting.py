@@ -22,18 +22,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from sql import Literal, Join
+from sql.aggregate import Max, Count
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, StateAction, Button
 from trytond.pyson import PYSONEncoder
 from trytond.pool import Pool, PoolMeta
-from sql import *
-from sql.functions import Now
-from sql.aggregate import *
-from sql.conditionals import *
+from trytond.transaction import Transaction
 
 
 __all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
-    'PatientEvaluation', 'Report']
+    'PatientEvaluation']
 __metaclass__ = PoolMeta
 
 
@@ -43,7 +42,6 @@ class TopDiseases(ModelSQL, ModelView):
 
     disease = fields.Many2One('gnuhealth.pathology', 'Disease', select=True)
     cases = fields.Integer('Cases')
-
 
     @classmethod
     def __setup__(cls):
@@ -55,18 +53,34 @@ class TopDiseases(ModelSQL, ModelView):
         pool = Pool()
         Evaluation = pool.get('gnuhealth.patient.evaluation')
         evaluation = Evaluation.__table__()
+        source = evaluation
+        where = Literal(True)
+        if Transaction().context.get('start_date'):
+            where &= evaluation.evaluation_start >= \
+                Transaction().context['start_date']
+        if Transaction().context.get('end_date'):
+            where &= evaluation.evaluation_start <= \
+                Transaction().context['end_date']
+        if Transaction().context.get('group'):
+            DiseaseGroupMembers = pool.get('gnuhealth.disease_group.members')
+            diseasegroupmembers = DiseaseGroupMembers.__table__()
+            join = Join(evaluation, diseasegroupmembers)
+            join.condition = join.right.name == evaluation.diagnosis
+            where &= join.right.disease_group == Transaction().context['group']
+            source = join
 
-        select = evaluation.select (
+        select = source.select(
             evaluation.diagnosis.as_('id'),
-            Literal(0).as_('create_uid'),
-            Now().as_('create_date'),
-            Literal(None).as_('write_uid'),
-            Literal(None).as_('write_date'),
+            Max(evaluation.create_uid).as_('create_uid'),
+            Max(evaluation.create_date).as_('create_date'),
+            Max(evaluation.write_uid).as_('write_uid'),
+            Max(evaluation.write_date).as_('write_date'),
+            evaluation.diagnosis.as_('disease'),
             Count(evaluation.diagnosis).as_('cases'),
-            group_by = [evaluation.diagnosis]
-        )
-
-        return (select)
+            where=where,
+            group_by=evaluation.diagnosis)
+        select.limit = Transaction().context['number_records']
+        return select
 
 
 class OpenTopDiseasesStart(ModelView):
@@ -76,7 +90,11 @@ class OpenTopDiseasesStart(ModelView):
     start_date = fields.Date('Start Date')
     end_date = fields.Date('End Date')
     group = fields.Many2One('gnuhealth.pathology.group', 'Disease Group')
-    number_records = fields.Char('Number of Records')
+    number_records = fields.Integer('Number of Records', required=True)
+
+    @staticmethod
+    def default_number_records():
+        return 10
 
 
 class OpenTopDiseases(Wizard):
@@ -120,12 +138,4 @@ class PatientEvaluation:
                     })
 
         super(PatientEvaluation, cls).__register__(module_name)
-
-
-class Report:
-    __name__ = 'babi.report'
-
-    # Remove required to load xml data
-    dimensions = fields.One2Many('babi.dimension', 'report', 'Dimensions')
-    measures = fields.One2Many('babi.measure', 'report', 'Measures')
 

@@ -28,7 +28,6 @@ def register():
         TopDiseases,
         OpenTopDiseasesStart,
         PatientEvaluation,
-        Report,
         module='health_reporting', type_='model')
     Pool.register(
         OpenTopDiseases,
