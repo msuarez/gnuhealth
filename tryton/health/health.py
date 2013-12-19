@@ -1130,7 +1130,7 @@ class PatientData(ModelSQL, ModelView):
 
 		critical_info = ""
 		allergies=""
-		chronic_conditions=""
+		other_conditions=""
 		conditions=[]
 		for disease in self.diseases:
 			for member in disease.pathology.groups:
@@ -1140,13 +1140,14 @@ class PatientData(ModelSQL, ModelView):
 						allergies=allergies + str(disease.pathology.name) + "\n"
 						conditions.append (disease.pathology.name)
 
-			'''Retrieve patient chronic conditions or active'''		
+			'''Retrieve patient other relevant conditions '''
+			'''Chronic and active'''		
 			if (disease.status == "c" or disease.is_active):
 				if disease.pathology.name not in conditions:
-							chronic_conditions= chronic_conditions + \
+							other_conditions=other_conditions + \
 							 str(disease.pathology.name) + "\n"
 							
-		return allergies + chronic_conditions
+		return allergies + other_conditions
 		
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
     # It will calculate the age of the patient while the patient is alive.
