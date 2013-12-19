@@ -32,7 +32,7 @@ from trytond.transaction import Transaction
 
 
 __all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
-    'PatientEvaluation']
+    'EvaluationsDoctor']
 __metaclass__ = PoolMeta
 
 
@@ -79,7 +79,10 @@ class TopDiseases(ModelSQL, ModelView):
             Count(evaluation.diagnosis).as_('cases'),
             where=where,
             group_by=evaluation.diagnosis)
-        select.limit = Transaction().context['number_records']
+
+        if Transaction().context.get('number_records'):
+            select.limit = Transaction().context['number_records']
+
         return select
 
 
@@ -121,21 +124,34 @@ class OpenTopDiseases(Wizard):
         return 'end'
 
 
-class PatientEvaluation:
-    __name__ = 'gnuhealth.patient.evaluation'
+class EvaluationsDoctor(ModelSQL, ModelView):
+    'Evaluations per Doctor'
+    __name__ = 'gnuhealth.evaluations_doctor'
 
-    @classmethod
-    def __register__(cls, module_name):
-        Model = Pool().get('ir.model')
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
+    evaluations = fields.Integer('Evaluations')
 
-        # Set the model babi enabled
-        models = Model.search([
-                ('model', '=', 'gnuhealth.patient.evaluation')
-                ])
-        if models:
-            Model.write(models, {
-                    'babi_enabled': True,
-                    })
+    @staticmethod
+    def table_query():
+        pool = Pool()
+        Evaluation = pool.get('gnuhealth.patient.evaluation')
+        evaluation = Evaluation.__table__()
+        where = Literal(True)
+        if Transaction().context.get('start_date'):
+            where &= evaluation.evaluation_start >= \
+                Transaction().context['start_date']
+        if Transaction().context.get('end_date'):
+            where &= evaluation.evaluation_start <= \
+                Transaction().context['end_date']
 
-        super(PatientEvaluation, cls).__register__(module_name)
+        return evaluation.select(
+            evaluation.doctor.as_('id'),
+            Max(evaluation.create_uid).as_('create_uid'),
+            Max(evaluation.create_date).as_('create_date'),
+            Max(evaluation.write_uid).as_('write_uid'),
+            Max(evaluation.write_date).as_('write_date'),
+            evaluation.doctor,
+            Count(evaluation.diagnosis).as_('evaluations'),
+            where=where,
+            group_by=evaluation.doctor)
 
