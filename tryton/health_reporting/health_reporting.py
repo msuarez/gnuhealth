@@ -27,13 +27,12 @@ from sql.aggregate import Max, Count
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.wizard import Wizard, StateView, StateAction, Button
 from trytond.pyson import PYSONEncoder
-from trytond.pool import Pool, PoolMeta
+from trytond.pool import Pool
 from trytond.transaction import Transaction
 
 
 __all__ = ['TopDiseases', 'OpenTopDiseasesStart', 'OpenTopDiseases',
-    'EvaluationsDoctor']
-__metaclass__ = PoolMeta
+    'OpenEvaluationsStart', 'OpenEvaluations', 'EvaluationsDoctor']
 
 
 class TopDiseases(ModelSQL, ModelView):
@@ -124,11 +123,41 @@ class OpenTopDiseases(Wizard):
         return 'end'
 
 
+class OpenEvaluationsStart(ModelView):
+    'Open Evaluations'
+    __name__ = 'gnuhealth.evaluations.open.start'
+
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
+
+
+class OpenEvaluations(Wizard):
+    'Open Evaluations'
+    __name__ = 'gnuhealth.evaluations.open'
+
+    start = StateView('gnuhealth.evaluations.open.start',
+        'health_reporting.evaluations_open_start_view_form', [
+            Button('Cancel', 'end', 'tryton-cancel'),
+            Button('Open', 'open_', 'tryton-ok', default=True),
+            ])
+    open_ = StateAction('health_reporting.act_evaluations_form')
+
+    def do_open_(self, action):
+        action['pyson_context'] = PYSONEncoder().encode({
+                'start_date': self.start.start_date,
+                'end_date': self.start.end_date,
+                })
+        return action, {}
+
+    def transition_open_(self):
+        return 'end'
+
+
 class EvaluationsDoctor(ModelSQL, ModelView):
     'Evaluations per Doctor'
     __name__ = 'gnuhealth.evaluations_doctor'
 
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', select=True)
+    doctor = fields.Many2One('gnuhealth.physician', 'Doctor')
     evaluations = fields.Integer('Evaluations')
 
     @staticmethod
