@@ -61,7 +61,7 @@
             <field name="name">gnuhealth-preferences</field>
             <field name="path">icons/tryton-preferences.svg</field>
         </record>
-        
+
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
@@ -1065,7 +1065,7 @@
                 ('specialty', '=', Eval('speciality')),
                 ('urgency', '=', Eval('urgency')),
                 ('evaluation_type', '=', Eval('appointment_type')),
-                ('visit_type', '=', Eval('visit_type'))                
+                ('visit_type', '=', Eval('visit_type'))
                 ]</field>
         </record>
         <record model="ir.action.keyword" id="act_open_evaluation_keyword">
@@ -1110,7 +1110,7 @@
             <field name="name">Patient</field>
             <field name="res_model">gnuhealth.patient</field>
             <field name="context">{'appointments': [Eval('active_id')]}</field>
-            <field name="domain">[('appointments', 'in', [Eval('active_id')], 'parent')]</field>
+            <field name="domain">[('appointments', 'in', [Eval('active_id')])]</field>
         </record>
         <record model="ir.action.keyword" id="act_appointment_report_patient_keyword1">
             <field name="keyword">tree_open</field>
