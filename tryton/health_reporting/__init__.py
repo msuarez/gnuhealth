@@ -27,8 +27,10 @@ def register():
     Pool.register(
         TopDiseases,
         OpenTopDiseasesStart,
-        EvaluationsDoctor,
         OpenEvaluationsStart,
+        EvaluationsDoctor,
+        EvaluationsSpecialty,
+        EvaluationsSector,
         module='health_reporting', type_='model')
     Pool.register(
         OpenTopDiseases,

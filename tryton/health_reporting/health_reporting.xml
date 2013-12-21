@@ -9,7 +9,11 @@
             <field name="path">../health/icons/tryton-list.svg</field>
         </record>
 
+
         <!-- Reports -->
+
+
+        <!-- Top Diseases -->
 
         <record model="ir.ui.view" id="top_diseases_view_tree">
             <field name="model">gnuhealth.top_diseases</field>
@@ -53,6 +57,112 @@
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_top_diseases_open" icon="gnuhealth-list"
             id="menu_top_diseases_open" sequence="10" />
+
+
+        <!-- Evaluations Wizard -->
+
+        <record model="ir.ui.view" id="evaluations_open_start_view_form">
+            <field name="model">gnuhealth.evaluations.open.start</field>
+            <field name="type">form</field>
+            <field name="name">evaluations_open_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="act_evaluations_open">
+            <field name="name">Evaluations Report</field>
+            <field name="wiz_name">gnuhealth.evaluations.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_open" icon="gnuhealth-list"
+            id="menu_evaluations_open" sequence="20"/>
+
+
+        <!-- Evaluations per Doctor -->
+
+        <record model="ir.ui.view" id="evaluations_doctor_view_tree">
+            <field name="model">gnuhealth.evaluations_doctor</field>
+            <field name="type">tree</field>
+            <field name="name">evaluations_doctor_tree</field>
+        </record>
+        <record model="ir.ui.view" id="evaluations_doctor_view_graph">
+            <field name="model">gnuhealth.evaluations_doctor</field>
+            <field name="type">graph</field>
+            <field name="name">evaluations_doctor_graph</field>
+        </record>
+        <record model="ir.action.act_window" id="act_evaluations_doctor">
+            <field name="name">Evaluations per Doctor</field>
+            <field name="res_model">gnuhealth.evaluations_doctor</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_doctor_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_doctor_view_tree"/>
+            <field name="act_window" ref="act_evaluations_doctor"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_doctor_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="evaluations_doctor_view_graph"/>
+            <field name="act_window" ref="act_evaluations_doctor"/>
+        </record>
+
+
+        <!-- Evaluations per Specialty -->
+
+        <record model="ir.ui.view" id="evaluations_specialty_view_tree">
+            <field name="model">gnuhealth.evaluations_specialty</field>
+            <field name="type">tree</field>
+            <field name="name">evaluations_specialty_tree</field>
+        </record>
+        <record model="ir.ui.view" id="evaluations_specialty_view_graph">
+            <field name="model">gnuhealth.evaluations_specialty</field>
+            <field name="type">graph</field>
+            <field name="name">evaluations_specialty_graph</field>
+        </record>
+        <record model="ir.action.act_window" id="act_evaluations_specialty">
+            <field name="name">Evaluations per Specialty</field>
+            <field name="res_model">gnuhealth.evaluations_specialty</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_specialty_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_specialty_view_tree"/>
+            <field name="act_window" ref="act_evaluations_specialty"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_specialty_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="evaluations_specialty_view_graph"/>
+            <field name="act_window" ref="act_evaluations_specialty"/>
+        </record>
+
+
+        <!-- Evaluations per Sector -->
+
+        <record model="ir.ui.view" id="evaluations_sector_view_tree">
+            <field name="model">gnuhealth.evaluations_sector</field>
+            <field name="type">tree</field>
+            <field name="name">evaluations_sector_tree</field>
+        </record>
+        <record model="ir.ui.view" id="evaluations_sector_view_graph">
+            <field name="model">gnuhealth.evaluations_sector</field>
+            <field name="type">graph</field>
+            <field name="name">evaluations_sector_graph</field>
+        </record>
+        <record model="ir.action.act_window" id="act_evaluations_sector">
+            <field name="name">Evaluations per Sector</field>
+            <field name="res_model">gnuhealth.evaluations_sector</field>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="evaluations_sector_view_tree"/>
+            <field name="act_window" ref="act_evaluations_sector"/>
+        </record>
+        <record model="ir.action.act_window.view"
+            id="act_evaluations_sector_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="evaluations_sector_view_graph"/>
+            <field name="act_window" ref="act_evaluations_sector"/>
+        </record>
 
     </data>
 </tryton>

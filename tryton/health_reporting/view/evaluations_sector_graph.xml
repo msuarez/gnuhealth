@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<graph string="Evaluations per Sector">
+    <x>
+        <field name="sector"/>
+    </x>
+    <y>
+        <field name="evaluations"/>
+    </y>
+</graph>
