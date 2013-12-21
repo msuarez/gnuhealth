@@ -21,7 +21,8 @@
 #
 ##############################################################################
 from dateutil.relativedelta import relativedelta
-from datetime import datetime
+from datetime import datetime, timedelta
+from sql import Literal, Join
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
@@ -675,7 +676,7 @@ class PathologyGroup(ModelSQL, ModelView):
 
     members = fields.One2Many ('gnuhealth.disease_group.members',
         'disease_group','Members', readonly=True)
-        
+
     @classmethod
     def __register__(cls, module_name):
         # Upgrade from GNU Health 1.4.5
@@ -1779,30 +1780,37 @@ class AppointmentReport(ModelSQL, ModelView):
 
     @classmethod
     def table_query(cls):
-        where_clause = ' '
-        args = []
+        pool = Pool()
+        appointment = pool.get('gnuhealth.appointment').__table__()
+        party = pool.get('party.party').__table__()
+        patient = pool.get('gnuhealth.patient').__table__()
+        join1 = Join(appointment, patient)
+        join1.condition = join1.right.id == appointment.patient
+        join2 = Join(join1, party)
+        join2.condition = join2.right.id == join1.right.name
+        where = Literal(True)
         if Transaction().context.get('date'):
-            where_clause += "AND a.appointment_date >= %s AND " \
-                "a.appointment_date < %s + integer '1' "
-            args.append(Transaction().context['date'])
-            args.append(Transaction().context['date'])
+            where &= (appointment.appointment_date >=
+                    Transaction().context['date']) \
+                & (appointment.appointment_date <
+                    Transaction().context['date'] + timedelta(days=1))
         if Transaction().context.get('doctor'):
-            where_clause += 'AND a.doctor = %s '
-            args.append(Transaction().context['doctor'])
-        return ('SELECT id, create_uid, create_date, write_uid, write_date, '
-                'identification_code, ref, patient, sex, '
-                'appointment_date, appointment_date_time, doctor '
-                'FROM ('
-                'SELECT a.id, a.create_uid, a.create_date, '
-                'a.write_uid, a.write_date, p.identification_code, '
-                'r.ref, p.id as patient, r.sex, a.appointment_date, '
-                'a.appointment_date as appointment_date_time, '
-                'a.doctor '
-                'FROM gnuhealth_appointment a, '
-                'gnuhealth_patient p, party_party r '
-                'WHERE a.patient = p.id '
-                + where_clause +
-                'AND p.name = r.id) AS ' + cls._table, args)
+            where &= appointment.doctor == Transaction().context['doctor']
+
+        return join2.select(
+            appointment.id,
+            appointment.create_uid,
+            appointment.create_date,
+            appointment.write_uid,
+            appointment.write_date,
+            join1.right.identification_code,
+            join2.right.ref,
+            join1.right.id.as_('patient'),
+            join2.right.sex,
+            appointment.appointment_date,
+            appointment.appointment_date.as_('appointment_date_time'),
+            appointment.doctor,
+            where=where)
 
     def get_address(self, name):
         res = ''
