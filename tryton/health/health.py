@@ -1697,6 +1697,16 @@ class Appointment(ModelSQL, ModelView):
 
         return super(Appointment, cls).create(vlist)
 
+    @classmethod
+    def copy(cls, appointments, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['name'] = None
+        default['appointment_date'] = cls.default_appointment_date()
+        default['state'] = cls.default_state()
+        return super(Appointment, cls).copy(appointments, default=default)
+
     @staticmethod
     def default_doctor():
         return HealthProfessional().get_health_professional()
