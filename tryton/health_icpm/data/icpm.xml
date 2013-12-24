@@ -1,0 +1,3209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tryton>
+<data noupdate="1">
+<record model="gnuhealth.procedure" id="icpm_1-190">
+	<field name="name">1-190</field>
+	<field name="description">APGAR SCORING OF NEWBORN, WITHOUT OTHER INITIAL MEDICAL EVALUATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-191">
+	<field name="name">1-191</field>
+	<field name="description">INITIAL MEDICAL EVALUATION OF NEWBORD WITHOUT APGAR SCORING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-192">
+	<field name="name">1-192</field>
+	<field name="description">APGAR SCORING WITH OTHER MEDICAL EVALUATION OF NEWBORN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-193">
+	<field name="name">1-193</field>
+	<field name="description">RECORDING OF BIRTHWEIGHT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-194">
+	<field name="name">1-194</field>
+	<field name="description">RECORDING OF CROWN-HEEL  LENGTH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-195">
+	<field name="name">1-195</field>
+	<field name="description">RECORDING OF OTHER NEWBORD MEASUREMENTS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-198">
+	<field name="name">1-198</field>
+	<field name="description">SUBSEQUENT CARE OF HEALTHY NEWBORD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-199">
+	<field name="name">1-199</field>
+	<field name="description">NOT OTHERWISE SPECIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-200">
+	<field name="name">1-200</field>
+	<field name="description">SENSORY MAPPING AND TESTING (EXCLUDES AUDITORY(1-23), VISUAL (1-21)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-201">
+	<field name="name">1-201</field>
+	<field name="description">CLINICAL REFLEX TESTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-202">
+	<field name="name">1-202</field>
+	<field name="description">TENDON REFLEX TIME RECORDING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-203">
+	<field name="name">1-203</field>
+	<field name="description">NERVE CONDUCTION TESTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-204">
+	<field name="name">1-204</field>
+	<field name="description">DETERMINATION OF PAIN THRESHOLD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-205">
+	<field name="name">1-205</field>
+	<field name="description">MUSCLE POWER TESTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-206">
+	<field name="name">1-206</field>
+	<field name="description">EXAMINATION OF CEREBROSPINAL FLUID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-210">
+	<field name="name">1-210</field>
+	<field name="description">PERIMETRY, COLOR FIELDS AND VISUAL FIELDS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-211">
+	<field name="name">1-211</field>
+	<field name="description">VISUAL ACUITY , READING TEST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-212">
+	<field name="name">1-212</field>
+	<field name="description">VISUAL ACUITY OF INFANTS AND ILLITERATES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-213">
+	<field name="name">1-213</field>
+	<field name="description">EIKONOMETRIC EXAMINATION, PRESECRIPTION OF ANISEIKONIC LENSES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-214">
+	<field name="name">1-214</field>
+	<field name="description">DARK ADAPTATION VISUAL ACUITY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-215">
+	<field name="name">1-215</field>
+	<field name="description">COLOR VISION TESTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-216">
+	<field name="name">1-216</field>
+	<field name="description">OCULAR MUSCLE BALANCE TESSTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-220">
+	<field name="name">1-220</field>
+	<field name="description">OPTHALMOLOGY, FUNDUSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-221">
+	<field name="name">1-221</field>
+	<field name="description">SLIT LAMP EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-224">
+	<field name="name">1-224</field>
+	<field name="description">MEASUREMENT OF CURVATURE OF EYE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-232">
+	<field name="name">1-232</field>
+	<field name="description">CLINICAL TESTS OF HEARING, TUNING FORK TESTS, WHISPERED SPEECH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-240">
+	<field name="name">1-240</field>
+	<field name="description">ROUTINE OTOSCOPY, AUROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-241">
+	<field name="name">1-241</field>
+	<field name="description">MAGNIFYING OTOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-242">
+	<field name="name">1-242</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF EAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-243">
+	<field name="name">1-243</field>
+	<field name="description">RHINOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-244">
+	<field name="name">1-244</field>
+	<field name="description">TRANSILLUMINATION OF ANTRUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-245">
+	<field name="name">1-245</field>
+	<field name="description">OTHER EXAMINATIN OF NOSE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-246">
+	<field name="name">1-246</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF THROAT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-249">
+	<field name="name">1-249</field>
+	<field name="description">INSTRUMENTAL OTORRHINOLARYNGOLOGICAL EXAMINATION, NOT OTHERWISE SPECIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-270">
+	<field name="name">1-270</field>
+	<field name="description">JUGULAR VEIN CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-271">
+	<field name="name">1-271</field>
+	<field name="description">INFERIOR VENA CAVA CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-272">
+	<field name="name">1-272</field>
+	<field name="description">CENTRAL VENOUS PRESSURE (CVP) MEASUREMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-273">
+	<field name="name">1-273</field>
+	<field name="description">INTRAVENOUS CATHERIZATION OF HEART, CARDIAC CATHERIZATION, UNQUALIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-274">
+	<field name="name">1-274</field>
+	<field name="description">TRANSEPTAL CARDIAC CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-275">
+	<field name="name">1-275</field>
+	<field name="description">RETROGRADE CATHERIZATION OF LEFT HEART</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-276">
+	<field name="name">1-276</field>
+	<field name="description">MYOCARDIAL OXYGEN CONSUMPTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-278">
+	<field name="name">1-278</field>
+	<field name="description">OTHER CATHERIZATION OF HEART</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-279">
+	<field name="name">1-279</field>
+	<field name="description">OTHER DIAGNOSTIC CATHERIZATION OF VESSELS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-300">
+	<field name="name">1-300</field>
+	<field name="description">DENTAL EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-301">
+	<field name="name">1-301</field>
+	<field name="description">DMF (DISEASED, MISSING, FILLED) CHARTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-302">
+	<field name="name">1-302</field>
+	<field name="description">DIAGNOSTIC OCCLUSAL MULDS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-304">
+	<field name="name">1-304</field>
+	<field name="description">BUCCAL EXAMINATION WITH FINGER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-309">
+	<field name="name">1-309</field>
+	<field name="description">OTHER EXAMINATION OF ORAL CAVITY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-310">
+	<field name="name">1-310</field>
+	<field name="description">PHARYNGEAL EXAMINATION WITH FINGER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-312">
+	<field name="name">1-312</field>
+	<field name="description">RETRIEVAL OF VOMIT FOR ANALYSIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-313">
+	<field name="name">1-313</field>
+	<field name="description">ESOPHAGEAL MANOMETRY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-319">
+	<field name="name">1-319</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF UPPER DIGESTIVE TRACT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-320">
+	<field name="name">1-320</field>
+	<field name="description">DIGITAL EXAMINATION OF RECTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-321">
+	<field name="name">1-321</field>
+	<field name="description">ELECTROGASTROGRAM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-322">
+	<field name="name">1-322</field>
+	<field name="description">STOMAL CALIBRATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-329">
+	<field name="name">1-329</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF GASTROINTESTINAL TRACT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-330">
+	<field name="name">1-330</field>
+	<field name="description">EVALUATION OF BLADDER SENSATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-331">
+	<field name="name">1-331</field>
+	<field name="description">RESIDUAL URINARY VOLUME</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-332">
+	<field name="name">1-332</field>
+	<field name="description">DIAGNOSTIC CATHERIZATION OF BLADDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-333">
+	<field name="name">1-333</field>
+	<field name="description">CONTINUOUS FLOW CYSTOMETRY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-334">
+	<field name="name">1-334</field>
+	<field name="description">OTHER CYSTOMETRY, AIR CYSTOMETRY AND CYSTOMETROGRAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-335">
+	<field name="name">1-335</field>
+	<field name="description">URETHRAL PRESSURE MEASUREMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-336">
+	<field name="name">1-336</field>
+	<field name="description">MEATAL CALIBRATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-339">
+	<field name="name">1-339</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF THE URINARY TRACT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-340">
+	<field name="name">1-340</field>
+	<field name="description">IN-DEPTH CLINICAL EXAMINATION OF MALE GENITAL ORGAN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-341">
+	<field name="name">1-341</field>
+	<field name="description">COLLECTION OF SEMEN SPECIMEN FOR EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-349">
+	<field name="name">1-349</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION OF MALE GENITAL ORGAN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-350">
+	<field name="name">1-350</field>
+	<field name="description">INTERNAL CLINICAL GYNECOLOGICAL EXAMINATION </field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-351">
+	<field name="name">1-351</field>
+	<field name="description">ENDOCRINE ASSESSMENT, VAGINAL CYTOLOGY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-352">
+	<field name="name">1-352</field>
+	<field name="description">ENDOCRINE ASSESSMENT, ENDOMETRIAL CYTOLOGY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-353">
+	<field name="name">1-353</field>
+	<field name="description">POSTCOITAL PLUG EXAMINATION FOR INFERTILITY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-354">
+	<field name="name">1-354</field>
+	<field name="description">INTRAUTERINE PRESSURE MEASUREMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-355">
+	<field name="name">1-355</field>
+	<field name="description">PLACENTAL LOCALIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-358">
+	<field name="name">1-358</field>
+	<field name="description">OTHER INSTRUMENTAL GYNAECOLOGICAL EXAMINATION (EXCLUDES CULDOSCOPY (1-696), INSUFFLATION OF FALLOPIAN TUBES (5-667))</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-359">
+	<field name="name">1-359</field>
+	<field name="description">OTHER INSTRUMENTAL OBSTETRICAL EXAMINATION (EXCLUDES AMNIOCENTESIS (5-753))</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-360">
+	<field name="name">1-360</field>
+	<field name="description">IN-DEPTH CLINICAL EXAMINATION OF MUSCLOSKETAL SYSTEM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-361">
+	<field name="name">1-361</field>
+	<field name="description">MEASUREMENT OF LIMB LENGTHS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-362">
+	<field name="name">1-362</field>
+	<field name="description">MEASUREMENT OF RANGE OF MOVEMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-363">
+	<field name="name">1-363</field>
+	<field name="description">ELECTROMYOGRAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-369">
+	<field name="name">1-369</field>
+	<field name="description">OTHER INSTRUMETNAL MUSCULOSKETAL EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-370">
+	<field name="name">1-370</field>
+	<field name="description">SKIN TEMPERATURES MEASUREMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-379">
+	<field name="name">1-379</field>
+	<field name="description">OTHER INSTRUMENTAL EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-400">
+	<field name="name">1-400</field>
+	<field name="description">ADRENAL, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-401">
+	<field name="name">1-401</field>
+	<field name="description">BRAIN AND MENINGES PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-402">
+	<field name="name">1-402</field>
+	<field name="description">NERVE, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-409">
+	<field name="name">1-409</field>
+	<field name="description">OTHER NERVOUS OR ENDOCRINE STRUCTURE, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-410">
+	<field name="name">1-410</field>
+	<field name="description">EXTERNAL EAR, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-411">
+	<field name="name">1-411</field>
+	<field name="description">BIOPSY OF EAR BY OTOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-412">
+	<field name="name">1-412</field>
+	<field name="description">SKIN OF EYELID OR EYEBROW, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-413">
+	<field name="name">1-413</field>
+	<field name="description">CONJUNCTIVA, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-414">
+	<field name="name">1-414</field>
+	<field name="description">SKIN OF NOSE BY RHINOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-415">
+	<field name="name">1-415</field>
+	<field name="description">BIOPSY OF NOSE BY RHINOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-420">
+	<field name="name">1-420</field>
+	<field name="description">BIOPSY TO LARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-421">
+	<field name="name">1-421</field>
+	<field name="description">ORAL CAVITY, BIOPSY. TONNGUE AND PALATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-422">
+	<field name="name">1-422</field>
+	<field name="description">TONSILS, FAUCES AND ADENOIDS, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-423">
+	<field name="name">1-423</field>
+	<field name="description">BIOPSY OF PHARYNX, GUM AND UVULA BY PHARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-425">
+	<field name="name">1-425</field>
+	<field name="description">BONE MARROW BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-426">
+	<field name="name">1-426</field>
+	<field name="description">LYMPHATIC BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-430">
+	<field name="name">1-430</field>
+	<field name="description">BIOPSY OF TRACHEA BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-431">
+	<field name="name">1-431</field>
+	<field name="description">LUNG, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-432">
+	<field name="name">1-432</field>
+	<field name="description">BIOPSY OF BRONCHUS BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-434">
+	<field name="name">1-434</field>
+	<field name="description">BIOPSY OF CHEST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-440">
+	<field name="name">1-440</field>
+	<field name="description">BIOPSY OF ESOPHAGUS BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-441">
+	<field name="name">1-441</field>
+	<field name="description">BIOPSY OF STOMACH BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-442">
+	<field name="name">1-442</field>
+	<field name="description">DUODENAL CAPSULE BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-450">
+	<field name="name">1-450</field>
+	<field name="description">BIOPSY OF COLON BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-451">
+	<field name="name">1-451</field>
+	<field name="description">BIOPSY OF SIGMOID COLON BY ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-453">
+	<field name="name">1-453</field>
+	<field name="description">BIOPSY OF ANUS AND PERINANAL REGION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-454">
+	<field name="name">1-454</field>
+	<field name="description">LIVER, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-460">
+	<field name="name">1-460</field>
+	<field name="description">KIDNEY, PERCUTANEOUS BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-461">
+	<field name="name">1-461</field>
+	<field name="description">BIOPSY OF URETER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-462">
+	<field name="name">1-462</field>
+	<field name="description">BIOPSY OF BLADDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-463">
+	<field name="name">1-463</field>
+	<field name="description">BIOPSY OF THE PROSTATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-464">
+	<field name="name">1-464</field>
+	<field name="description">BIOPSY OF URETHRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-465">
+	<field name="name">1-465</field>
+	<field name="description">BIOPSY OF TESTIS, EPIDIDYMIS AND SPERMATIC CORD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-466">
+	<field name="name">1-466</field>
+	<field name="description">BIOPSY OF PENIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-470">
+	<field name="name">1-470</field>
+	<field name="description">OVARY, ASPIRATION BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-471">
+	<field name="name">1-471</field>
+	<field name="description">ENDOMETRIAL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-472">
+	<field name="name">1-472</field>
+	<field name="description">CERVICAL SMEAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-473">
+	<field name="name">1-473</field>
+	<field name="description">ENDOCERVICAL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-474">
+	<field name="name">1-474</field>
+	<field name="description">RING BIOPSY OF CERVIX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-475">
+	<field name="name">1-475</field>
+	<field name="description">OTHER AND UNSPECIFIED CERVICAL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-476">
+	<field name="name">1-476</field>
+	<field name="description">VAGINAL BIOPSY OR SMEAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-477">
+	<field name="name">1-477</field>
+	<field name="description">BIOPSY OF INTROITUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-480">
+	<field name="name">1-480</field>
+	<field name="description">LIPS, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-481">
+	<field name="name">1-481</field>
+	<field name="description">ABDOMINAL WALL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-482">
+	<field name="name">1-482</field>
+	<field name="description">BREAST BIOPSY (NON SURGICAL)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-483">
+	<field name="name">1-483</field>
+	<field name="description">BIOPSY OF SKIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-484">
+	<field name="name">1-484</field>
+	<field name="description">BONE OR JOINT BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-499">
+	<field name="name">1-499</field>
+	<field name="description">BIOPSY UNQUALIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-500">
+	<field name="name">1-500</field>
+	<field name="description">SKIN AND SUBCAUTANEOUS TISSUE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-501">
+	<field name="name">1-501</field>
+	<field name="description">BREAST  </field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-502">
+	<field name="name">1-502</field>
+	<field name="description">SURGICAL BIOPSY OF MUSCLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-503">
+	<field name="name">1-503</field>
+	<field name="description">BONE BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-504">
+	<field name="name">1-504</field>
+	<field name="description">BIOPSY OF JOINT (ARTHROTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-510">
+	<field name="name">1-510</field>
+	<field name="description">BIOPSY INTRACRANIAL TISSUE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-511">
+	<field name="name">1-511</field>
+	<field name="description">INTRASPINAL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-519">
+	<field name="name">1-519</field>
+	<field name="description">SURGICAL BIOPSY OF THE NERVE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-520">
+	<field name="name">1-520</field>
+	<field name="description">EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-521">
+	<field name="name">1-521</field>
+	<field name="description">CONJUNCTIVA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-522">
+	<field name="name">1-522</field>
+	<field name="description">LACRIMINAL GLAND AND SAC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-523">
+	<field name="name">1-523</field>
+	<field name="description">CORNEA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-529">
+	<field name="name">1-529</field>
+	<field name="description">OTHER EYE BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-530">
+	<field name="name">1-530</field>
+	<field name="description">EXTERNAL EAR, BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-531">
+	<field name="name">1-531</field>
+	<field name="description">EXTERNAL AUDITORY CANAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-532">
+	<field name="name">1-532</field>
+	<field name="description">EAR, OTHER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-537">
+	<field name="name">1-537</field>
+	<field name="description">BIOPSY OF NOSE, INTERNAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-538">
+	<field name="name">1-538</field>
+	<field name="description">SURGICAL BIOPSY OF NOSE, OTHER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-540">
+	<field name="name">1-540</field>
+	<field name="description">LIP </field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-541">
+	<field name="name">1-541</field>
+	<field name="description">TONGUE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-542">
+	<field name="name">1-542</field>
+	<field name="description">SALIVARY GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-543">
+	<field name="name">1-543</field>
+	<field name="description">VESTIBULE OF MOUTH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-544">
+	<field name="name">1-544</field>
+	<field name="description">SURGICAL BIOPSY FOR PALATE, UVU</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-545">
+	<field name="name">1-545</field>
+	<field name="description">MOUTH, OTHER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-546">
+	<field name="name">1-546</field>
+	<field name="description">OROPHARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-547">
+	<field name="name">1-547</field>
+	<field name="description">HYPOPHARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-548">
+	<field name="name">1-548</field>
+	<field name="description">NASOPHARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-550">
+	<field name="name">1-550</field>
+	<field name="description">DIAPHRAGM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-551">
+	<field name="name">1-551</field>
+	<field name="description">BIOPSY OF LIVER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-552">
+	<field name="name">1-552</field>
+	<field name="description">EXTRAHEPATIC BILIARY SYSTEM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-553">
+	<field name="name">1-553</field>
+	<field name="description">PANCREAS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-554">
+	<field name="name">1-554</field>
+	<field name="description">SURGICAL BIOPSY OF STOMACH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-555">
+	<field name="name">1-555</field>
+	<field name="description">SURGICAL BIOPSY OF SMALL INTESTINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-556">
+	<field name="name">1-556</field>
+	<field name="description">SURGICAL BIOPSY OF COLON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-557">
+	<field name="name">1-557</field>
+	<field name="description">SURGICAL BIOPSY OF THE RECTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-558">
+	<field name="name">1-558</field>
+	<field name="description">ANUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-560">
+	<field name="name">1-560</field>
+	<field name="description">SURGICAL BIOPSY OF KIDNEY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-561">
+	<field name="name">1-561</field>
+	<field name="description">SURGICAL BIOPSY OF URETHRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-562">
+	<field name="name">1-562</field>
+	<field name="description">BIOPSY URINARY ORGANS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-563">
+	<field name="name">1-563</field>
+	<field name="description">PROSTATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-564">
+	<field name="name">1-564</field>
+	<field name="description">PENIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-565">
+	<field name="name">1-565</field>
+	<field name="description">TESTIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-566">
+	<field name="name">1-566</field>
+	<field name="description">SURGICABIOPSY OF THE PERINEU</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-569">
+	<field name="name">1-569</field>
+	<field name="description">SURGICAL BIOPSY OF OTHER MALE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-571">
+	<field name="name">1-571</field>
+	<field name="description">BIOPSY OF CERVIX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-572">
+	<field name="name">1-572</field>
+	<field name="description">BIOPSY OF VAGINA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-573">
+	<field name="name">1-573</field>
+	<field name="description">BIOPSY OF VULVA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-574">
+	<field name="name">1-574</field>
+	<field name="description">BIOPSY OF PERINEUM, FEMALE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-580">
+	<field name="name">1-580</field>
+	<field name="description">SURGICAL BIOPSY OF THE PERICARARDIUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-581">
+	<field name="name">1-581</field>
+	<field name="description">BIOPSY OF OTHER MEDIACTINAL OR INTRATHORACIC ORGAN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-582">
+	<field name="name">1-582</field>
+	<field name="description">THYROID AND PARATHROID GLANDS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-583">
+	<field name="name">1-583</field>
+	<field name="description">OTHER NECK ORGANS , NEC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-585">
+	<field name="name">1-585</field>
+	<field name="description">OTHER INTRA-ABDOMINAL ORGAN, NEC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-586">
+	<field name="name">1-586</field>
+	<field name="description">LYMPH NODE BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-599">
+	<field name="name">1-599</field>
+	<field name="description">SURGICAL BIOPSY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-610">
+	<field name="name">1-610</field>
+	<field name="description">LARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-611">
+	<field name="name">1-611</field>
+	<field name="description">INDIRECT LARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-612">
+	<field name="name">1-612</field>
+	<field name="description">DIRECT LARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-613">
+	<field name="name">1-613</field>
+	<field name="description">MICROLARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-615">
+	<field name="name">1-615</field>
+	<field name="description">PHARYNGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-620">
+	<field name="name">1-620</field>
+	<field name="description">BRONCHOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-621">
+	<field name="name">1-621</field>
+	<field name="description">TRACHEOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-630">
+	<field name="name">1-630</field>
+	<field name="description">ESOPHAGOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-632">
+	<field name="name">1-632</field>
+	<field name="description">ESOPHAGOGASTROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-633">
+	<field name="name">1-633</field>
+	<field name="description">GASTROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-636">
+	<field name="name">1-636</field>
+	<field name="description">DUODENOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-641">
+	<field name="name">1-641</field>
+	<field name="description">COLONOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-642">
+	<field name="name">1-642</field>
+	<field name="description">SIGMOIDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-650">
+	<field name="name">1-650</field>
+	<field name="description">URETOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-652">
+	<field name="name">1-652</field>
+	<field name="description">CYSTOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-653">
+	<field name="name">1-653</field>
+	<field name="description">PANENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-655">
+	<field name="name">1-655</field>
+	<field name="description">URETHROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-660">
+	<field name="name">1-660</field>
+	<field name="description">HYSTEROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-663">
+	<field name="name">1-663</field>
+	<field name="description">COLPOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-679">
+	<field name="name">1-679</field>
+	<field name="description">OTHER SPECIFIED ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-689">
+	<field name="name">1-689</field>
+	<field name="description">ENDOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-691">
+	<field name="name">1-691</field>
+	<field name="description">THORASCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-692">
+	<field name="name">1-692</field>
+	<field name="description">GASTROESOPHAGEAL ENDOSCOPY BY MEANS OF GASTRONOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-694">
+	<field name="name">1-694</field>
+	<field name="description">LAPAROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-695">
+	<field name="name">1-695</field>
+	<field name="description">ENTEROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-697">
+	<field name="name">1-697</field>
+	<field name="description">ARTHROSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-830">
+	<field name="name">1-830</field>
+	<field name="description">PROBING OF LACRIMAL SYSTEM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-844">
+	<field name="name">1-844</field>
+	<field name="description">PUNCTURE OF PLEURAL CAVITY, DX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-850">
+	<field name="name">1-850</field>
+	<field name="description">ASPIRATION OF CYST DIAGNOSTIC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-901">
+	<field name="name">1-901</field>
+	<field name="description">EXAMINATION UNDER ANESTHESIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_1-916">
+	<field name="name">1-916</field>
+	<field name="description">OTHER GENITAL SPECIMEN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_2-282">
+	<field name="name">2-282</field>
+	<field name="description">PLEURAL FLUID EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_2-283">
+	<field name="name">2-283</field>
+	<field name="description">PERITONEAL FLUID EXAMINATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_2-906">
+	<field name="name">2-906</field>
+	<field name="description">ELECTRON MICROSCOPY OF TISSUES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-193">
+	<field name="name">3-193</field>
+	<field name="description">RADIOGRAPHY OF MAMMARY GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-253">
+	<field name="name">3-253</field>
+	<field name="description">RETROGRADE PYELOGRAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-260">
+	<field name="name">3-260</field>
+	<field name="description">PANCREATOGRAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-262">
+	<field name="name">3-262</field>
+	<field name="description">OPERATIVE AND POSTOPERATIVE CHOLECYT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-305">
+	<field name="name">3-305</field>
+	<field name="description">COMMON CAROTID ARTERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-309">
+	<field name="name">3-309</field>
+	<field name="description">ANGIOGRAPHY (NEC)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-312">
+	<field name="name">3-312</field>
+	<field name="description">CORONARY ARTERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-338">
+	<field name="name">3-338</field>
+	<field name="description">OTHER ANGIOGRAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-441">
+	<field name="name">3-441</field>
+	<field name="description">CT SCAN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-445">
+	<field name="name">3-445</field>
+	<field name="description">CT ABDOMEN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-500">
+	<field name="name">3-500</field>
+	<field name="description">THYROID IODINE INTAKE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-523">
+	<field name="name">3-523</field>
+	<field name="description">LUNG SCAN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_3-613">
+	<field name="name">3-613</field>
+	<field name="description">ULTRASOUND OF ABDOMEN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_4-251">
+	<field name="name">4-251</field>
+	<field name="description">PAP SMEAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_4-653">
+	<field name="name">4-653</field>
+	<field name="description">INSERTION OF INTRAUTERINE DEVICE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-010">
+	<field name="name">5-010</field>
+	<field name="description">PLEURAL TAP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-011">
+	<field name="name">5-011</field>
+	<field name="description">CRANIOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-012">
+	<field name="name">5-012</field>
+	<field name="description">INCISION &amp; DRAIN BRAIN ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-013">
+	<field name="name">5-013</field>
+	<field name="description">EXCISION OF MENINGIOMA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-014">
+	<field name="name">5-014</field>
+	<field name="description">OTHER EXCISION OR DESTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-015">
+	<field name="name">5-015</field>
+	<field name="description">EXCISION OF CRANIAL LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-020">
+	<field name="name">5-020</field>
+	<field name="description">ELEVATION OF SKULL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-021">
+	<field name="name">5-021</field>
+	<field name="description">REPAIR OF CEREBRAL MENINGES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-022">
+	<field name="name">5-022</field>
+	<field name="description">VENTRICULOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-023">
+	<field name="name">5-023</field>
+	<field name="description">VENTRICULOPLEURAL SHUNT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-024">
+	<field name="name">5-024</field>
+	<field name="description">REMOVAL OF VENTRICULAR SHUNT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-029">
+	<field name="name">5-029</field>
+	<field name="description">TRANSSPHENOID RESECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-030">
+	<field name="name">5-030</field>
+	<field name="description">LAMINECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-033">
+	<field name="name">5-033</field>
+	<field name="description">EXCISION OR DESTRUCTION OF SPINAL CORD AND MENINGES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-034">
+	<field name="name">5-034</field>
+	<field name="description">PLASTIC OPERATIONS ON SPINAL CORD AND MENINGES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-037">
+	<field name="name">5-037</field>
+	<field name="description">INJECTION OF DESTRUCTIVE AGENT INTO SPINAL CORD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-040">
+	<field name="name">5-040</field>
+	<field name="description">NEUROLYSIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-041">
+	<field name="name">5-041</field>
+	<field name="description">EXCISION OF NEUROMA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-042">
+	<field name="name">5-042</field>
+	<field name="description">REPAIR OF NERVE INJURY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-043">
+	<field name="name">5-043</field>
+	<field name="description">CARPAL TUNNEL NERVE RELEASE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-045">
+	<field name="name">5-045</field>
+	<field name="description">TRANSPOSITION OF NERVE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-046">
+	<field name="name">5-046</field>
+	<field name="description">REPAIR OF NERVE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-060">
+	<field name="name">5-060</field>
+	<field name="description">INCISION OF THROID FIELD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-061">
+	<field name="name">5-061</field>
+	<field name="description">HEMITHYROIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-062">
+	<field name="name">5-062</field>
+	<field name="description">EXCISION OF THYROID CYST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-063">
+	<field name="name">5-063</field>
+	<field name="description">THYROIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-066">
+	<field name="name">5-066</field>
+	<field name="description">EXCISION OF THYROGLOSSAL GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-067">
+	<field name="name">5-067</field>
+	<field name="description">PARTIAL PARATHYROIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-071">
+	<field name="name">5-071</field>
+	<field name="description">PARTIAL ADRENALECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-074">
+	<field name="name">5-074</field>
+	<field name="description">OPERATIONS ON PINEAL GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-075">
+	<field name="name">5-075</field>
+	<field name="description">EXCISION OF PITUTARY GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-077">
+	<field name="name">5-077</field>
+	<field name="description">THYMECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-084">
+	<field name="name">5-084</field>
+	<field name="description">INCISION OF LACRIMAL SAC AND PASSAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-085">
+	<field name="name">5-085</field>
+	<field name="description">DACRYCYSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-086">
+	<field name="name">5-086</field>
+	<field name="description">REPAIR OF CANALICULUS AND PUNCTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-087">
+	<field name="name">5-087</field>
+	<field name="description">DACRYOCYSTORHINOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-091">
+	<field name="name">5-091</field>
+	<field name="description">EXCISION OF CYST EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-093">
+	<field name="name">5-093</field>
+	<field name="description">ENTROPIAN REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-094">
+	<field name="name">5-094</field>
+	<field name="description">SLING OPERATION OF EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-095">
+	<field name="name">5-095</field>
+	<field name="description">SUTURE EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-096">
+	<field name="name">5-096</field>
+	<field name="description">REPAIR OF EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-101">
+	<field name="name">5-101</field>
+	<field name="description">EXCISION OF OCULAR MUSCLE WITH OR  TENDON WITH RECESSION OR ADVANCEMENT OF SAME MUSCLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-109">
+	<field name="name">5-109</field>
+	<field name="description">OTHER OPERATIONS ON OCULAR MUSCLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-113">
+	<field name="name">5-113</field>
+	<field name="description">CONJUNCTIVAL FLAP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-114">
+	<field name="name">5-114</field>
+	<field name="description">REMOVAL SYMBLEPHARON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-122">
+	<field name="name">5-122</field>
+	<field name="description">EXCISION OF PTERYGIUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-124">
+	<field name="name">5-124</field>
+	<field name="description">REPAIR OF CORNEA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-125">
+	<field name="name">5-125</field>
+	<field name="description">KERATOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-126">
+	<field name="name">5-126</field>
+	<field name="description">REPAIR OF CORNEA (OTHER PASTY)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-129">
+	<field name="name">5-129</field>
+	<field name="description">ANTERIOR SEGMENT RECONSTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-130">
+	<field name="name">5-130</field>
+	<field name="description">REMOVAL OF FOREIGN BODY FROM ANTERIOR EYE BY INCISION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-133">
+	<field name="name">5-133</field>
+	<field name="description">TRABECULECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-135">
+	<field name="name">5-135</field>
+	<field name="description">IRRIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-137">
+	<field name="name">5-137</field>
+	<field name="description">REPAIR OF SCLERAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-139">
+	<field name="name">5-139</field>
+	<field name="description">EXPLORATION OF SCLERA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-141">
+	<field name="name">5-141</field>
+	<field name="description">LENS EXTRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-143">
+	<field name="name">5-143</field>
+	<field name="description">DISCISSION OF LENS AND CAPSULO</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-144">
+	<field name="name">5-144</field>
+	<field name="description">LENS EXTRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-145">
+	<field name="name">5-145</field>
+	<field name="description">EXTRA CAPSULAR EXTRACT OF LENS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-146">
+	<field name="name">5-146</field>
+	<field name="description">LENSECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-147">
+	<field name="name">5-147</field>
+	<field name="description">LENS IMPLANTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-149">
+	<field name="name">5-149</field>
+	<field name="description">MEMBRANECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-152">
+	<field name="name">5-152</field>
+	<field name="description">SCLERAL BUCKING WITH IMPLANT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-153">
+	<field name="name">5-153</field>
+	<field name="description">OTHER SCLERAL BUCKLING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-154">
+	<field name="name">5-154</field>
+	<field name="description">REPAIR OF RETINA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-155">
+	<field name="name">5-155</field>
+	<field name="description">DESTRUCTION OF LESION OF RETIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-156">
+	<field name="name">5-156</field>
+	<field name="description">OTHER OPERATIONS FOR REPAIR OF</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-157">
+	<field name="name">5-157</field>
+	<field name="description">VITRECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-160">
+	<field name="name">5-160</field>
+	<field name="description">INCISION &amp; DRAINAGE ABSCESS OF ORBIT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-161">
+	<field name="name">5-161</field>
+	<field name="description">EXTRACTION OF FORIEGN BODY FROM EYE OR ORBIT (NEC)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-162">
+	<field name="name">5-162</field>
+	<field name="description">EVICERATION OF EYEBALL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-164">
+	<field name="name">5-164</field>
+	<field name="description">EVACUATION OF ORBIT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-165">
+	<field name="name">5-165</field>
+	<field name="description">INSERTION OF ORBITAL IMPLANT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-167">
+	<field name="name">5-167</field>
+	<field name="description">GRAFTING OF ORBIT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-169">
+	<field name="name">5-169</field>
+	<field name="description">OTHER OPERATIONS ON ORBI &amp; EYE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-180">
+	<field name="name">5-180</field>
+	<field name="description">INCISION OF AURICLE ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-181">
+	<field name="name">5-181</field>
+	<field name="description">PREAURICULAR FISTULA EXCISION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-183">
+	<field name="name">5-183</field>
+	<field name="description">SUTURE OF EAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-185">
+	<field name="name">5-185</field>
+	<field name="description">MEATOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-189">
+	<field name="name">5-189</field>
+	<field name="description">OTHER OPERATIONS ON EXTERNAL EAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-194">
+	<field name="name">5-194</field>
+	<field name="description">MYRINGOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-200">
+	<field name="name">5-200</field>
+	<field name="description">PARACENTHESIS OF TYMPANUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-202">
+	<field name="name">5-202</field>
+	<field name="description">INCISION &amp; DRAINAGE MASTOID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-203">
+	<field name="name">5-203</field>
+	<field name="description">MASTOIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-204">
+	<field name="name">5-204</field>
+	<field name="description">POLYPECTOMY 0F MIDDLE EAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-207">
+	<field name="name">5-207</field>
+	<field name="description">EXPLORATION OF EAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-209">
+	<field name="name">5-209</field>
+	<field name="description">OTHER OPERATION ON MIDDLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-210">
+	<field name="name">5-210</field>
+	<field name="description">CONTROL OF EPISTAXIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-211">
+	<field name="name">5-211</field>
+	<field name="description">RHINOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-212">
+	<field name="name">5-212</field>
+	<field name="description">NASAL POLYPECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-213">
+	<field name="name">5-213</field>
+	<field name="description">RESECTION OF NOSE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-215">
+	<field name="name">5-215</field>
+	<field name="description">TURBINECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-216">
+	<field name="name">5-216</field>
+	<field name="description">OPEN REDUCTION OF NASAL BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-217">
+	<field name="name">5-217</field>
+	<field name="description">RHINOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-219">
+	<field name="name">5-219</field>
+	<field name="description">FREEING NASAL ADHESIONS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-220">
+	<field name="name">5-220</field>
+	<field name="description">ANTRUM WASHOUT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-222">
+	<field name="name">5-222</field>
+	<field name="description">CALDWELL-LUC OPERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-224">
+	<field name="name">5-224</field>
+	<field name="description">OTHER NASAL SINUSOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-225">
+	<field name="name">5-225</field>
+	<field name="description">ETMOIDAL EXCISION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-226">
+	<field name="name">5-226</field>
+	<field name="description">CLOSURE OF ORO-NASAL FISTULA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-229">
+	<field name="name">5-229</field>
+	<field name="description">OTHER OPERATIONS ON NASAL SINU</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-230">
+	<field name="name">5-230</field>
+	<field name="description">REMOVAL OF TOOTH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-231">
+	<field name="name">5-231</field>
+	<field name="description">SURGICAL EXTRACTION OF TOOTH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-234">
+	<field name="name">5-234</field>
+	<field name="description">OTHER DENTAL RESTORATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-240">
+	<field name="name">5-240</field>
+	<field name="description">INCISION &amp; DRAINAGE OF DENTAL ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-242">
+	<field name="name">5-242</field>
+	<field name="description">OTHER OPERATIONS ON GUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-243">
+	<field name="name">5-243</field>
+	<field name="description">EXCISION OF DENTAL CYST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-246">
+	<field name="name">5-246</field>
+	<field name="description">APPLICATION OF ORTRHODONTIC APPLIANCE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-250">
+	<field name="name">5-250</field>
+	<field name="description">EXCISION OF TONGUE LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-254">
+	<field name="name">5-254</field>
+	<field name="description">SUTURE TONGUE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-258">
+	<field name="name">5-258</field>
+	<field name="description">FREEING OF TONGUE TIE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-260">
+	<field name="name">5-260</field>
+	<field name="description">INCISION &amp; DRAINAGE OF PAROTID GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-261">
+	<field name="name">5-261</field>
+	<field name="description">EXCISION OF LESION OF SALIVARY GLAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-262">
+	<field name="name">5-262</field>
+	<field name="description">PAROTIDECTOMY SUPERFICIAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-270">
+	<field name="name">5-270</field>
+	<field name="description">I &amp; D OF ABSCESS OF JAW</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-272">
+	<field name="name">5-272</field>
+	<field name="description">EXCISION OF PALATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-273">
+	<field name="name">5-273</field>
+	<field name="description">EXCISION OF RANULA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-274">
+	<field name="name">5-274</field>
+	<field name="description">PLASTIC REPAIR OF MOUTH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-275">
+	<field name="name">5-275</field>
+	<field name="description">RECONSTRUCTION OF PALATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-279">
+	<field name="name">5-279</field>
+	<field name="description">OPERATION ON PALATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-280">
+	<field name="name">5-280</field>
+	<field name="description">DRAINAGE OF PERITONSILLAR ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-281">
+	<field name="name">5-281</field>
+	<field name="description">TONSILLECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-282">
+	<field name="name">5-282</field>
+	<field name="description">TONSILLECTOMY WITH ADENOIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-285">
+	<field name="name">5-285</field>
+	<field name="description">ADENOIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-290">
+	<field name="name">5-290</field>
+	<field name="description">EXCISION OF CALCULUS OF PHARNY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-291">
+	<field name="name">5-291</field>
+	<field name="description">EXCISION OF BRANCHIAL CYST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-292">
+	<field name="name">5-292</field>
+	<field name="description">EXCISION OR DISTRIBUTION OF LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-300">
+	<field name="name">5-300</field>
+	<field name="description">EXCISION OF LESION OF LARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-302">
+	<field name="name">5-302</field>
+	<field name="description">LARYNGECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-303">
+	<field name="name">5-303</field>
+	<field name="description">TOTAL LARYNGECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-304">
+	<field name="name">5-304</field>
+	<field name="description">RADICAL LARYNGECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-311">
+	<field name="name">5-311</field>
+	<field name="description">TEMPORARY TRACHEOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-313">
+	<field name="name">5-313</field>
+	<field name="description">EXPLORATION OF LARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-315">
+	<field name="name">5-315</field>
+	<field name="description">REPAIR OF LARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-316">
+	<field name="name">5-316</field>
+	<field name="description">TRACHEOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-319">
+	<field name="name">5-319</field>
+	<field name="description">DILATION OF LARYNX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-323">
+	<field name="name">5-323</field>
+	<field name="description">LINGUALECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-324">
+	<field name="name">5-324</field>
+	<field name="description">LOBECTOMY OF LUNG</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-340">
+	<field name="name">5-340</field>
+	<field name="description">CHEST TUBE INSERTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-341">
+	<field name="name">5-341</field>
+	<field name="description">INCISION OF MEDIASTINUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-343">
+	<field name="name">5-343</field>
+	<field name="description">EXCISION OR DESTRUCTION OF CHEST WALL LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-345">
+	<field name="name">5-345</field>
+	<field name="description">SCARIFIACTION OF PLEURA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-346">
+	<field name="name">5-346</field>
+	<field name="description">REPAIR OF CHEST WALL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-347">
+	<field name="name">5-347</field>
+	<field name="description">REPAIR OF DIAPHRAM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-352">
+	<field name="name">5-352</field>
+	<field name="description">REPLACEMENT OF HEART VALVE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-357">
+	<field name="name">5-357</field>
+	<field name="description">REPAIR OF HEART SEPTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-370">
+	<field name="name">5-370</field>
+	<field name="description">PERICARDIAL DRAIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-371">
+	<field name="name">5-371</field>
+	<field name="description">PERICARDIAL WINDOW</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-373">
+	<field name="name">5-373</field>
+	<field name="description">EXCISION OF LESION OF HEART</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-374">
+	<field name="name">5-374</field>
+	<field name="description">CARDIORRHAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-377">
+	<field name="name">5-377</field>
+	<field name="description">IMPLANT OF CARDIAC PACE MAKER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-378">
+	<field name="name">5-378</field>
+	<field name="description">REMOVAL OR REPLACEMENT OF IMPL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-380">
+	<field name="name">5-380</field>
+	<field name="description">EMBOLECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-384">
+	<field name="name">5-384</field>
+	<field name="description">STRIPPING OF VARICOSE VEINS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-385">
+	<field name="name">5-385</field>
+	<field name="description">ANEURYSMORRHAPHY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-387">
+	<field name="name">5-387</field>
+	<field name="description">LIGATION OF VEINS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-392">
+	<field name="name">5-392</field>
+	<field name="description">FEMORAL ARTERY BYPASS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-393">
+	<field name="name">5-393</field>
+	<field name="description">SUTURING OF BLOOD VESSELS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-395">
+	<field name="name">5-395</field>
+	<field name="description">REPAIR OF ARTERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-399">
+	<field name="name">5-399</field>
+	<field name="description">OTHER OPERATIONS ON VESSEL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-400">
+	<field name="name">5-400</field>
+	<field name="description">LYMPHADENOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-401">
+	<field name="name">5-401</field>
+	<field name="description">EXCISION OF CYSTIC HYGROMA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-402">
+	<field name="name">5-402</field>
+	<field name="description">EXCISION OF REGIONAL LYMPH NOD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-410">
+	<field name="name">5-410</field>
+	<field name="description">BONE MARROW TRANSPLANT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-413">
+	<field name="name">5-413</field>
+	<field name="description">SPLENECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-419">
+	<field name="name">5-419</field>
+	<field name="description">REPAIR OF SPLEEN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-421">
+	<field name="name">5-421</field>
+	<field name="description">ESOPHAGOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-422">
+	<field name="name">5-422</field>
+	<field name="description">LOCAL EXCISION OR DESTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-423">
+	<field name="name">5-423</field>
+	<field name="description">ESOPHAGECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-424">
+	<field name="name">5-424</field>
+	<field name="description">ANASTOMOSIS OF ESOPHAGUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-426">
+	<field name="name">5-426</field>
+	<field name="description">HELLER'S CARDIOMYOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-427">
+	<field name="name">5-427</field>
+	<field name="description">REPAIR ESOPHAGUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-428">
+	<field name="name">5-428</field>
+	<field name="description">DILATION OF ESOPHAGUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-430">
+	<field name="name">5-430</field>
+	<field name="description">GASTROTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-431">
+	<field name="name">5-431</field>
+	<field name="description">GASTROSTOMY TUBE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-432">
+	<field name="name">5-432</field>
+	<field name="description">STAMM-KADER OPERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-434">
+	<field name="name">5-434</field>
+	<field name="description">EXCISION OF STOMACH TUMOUR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-436">
+	<field name="name">5-436</field>
+	<field name="description">ANTRECTOMY GASTRIC WITH VAGOTO</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-437">
+	<field name="name">5-437</field>
+	<field name="description">GASTRECTOMY WITH GASTROJEJUNOS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-438">
+	<field name="name">5-438</field>
+	<field name="description">GASTRECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-439">
+	<field name="name">5-439</field>
+	<field name="description">COMPLETE GASTRECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-440">
+	<field name="name">5-440</field>
+	<field name="description">VAGOTOMY TRUNCAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-441">
+	<field name="name">5-441</field>
+	<field name="description">PYLOROPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-442">
+	<field name="name">5-442</field>
+	<field name="description">JEGUNOGASTRASTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-443">
+	<field name="name">5-443</field>
+	<field name="description">CLOSURE OF GASTRO AND DUODENAL ULCER SITE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-444">
+	<field name="name">5-444</field>
+	<field name="description">GASTROJEJUNOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-445">
+	<field name="name">5-445</field>
+	<field name="description">REPAIR OF STOMACH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-450">
+	<field name="name">5-450</field>
+	<field name="description">EXPLORATION OF INTESTINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-452">
+	<field name="name">5-452</field>
+	<field name="description">EXCISION OF DESTRUCTIONOF LESION OF SMALL INTESTINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-454">
+	<field name="name">5-454</field>
+	<field name="description">SMALL BOWEL RESECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-455">
+	<field name="name">5-455</field>
+	<field name="description">HEMICOLECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-456">
+	<field name="name">5-456</field>
+	<field name="description">HARTMANS PROCEDURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-457">
+	<field name="name">5-457</field>
+	<field name="description">ANASTOMOSIS, SMALL TO SMALL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-458">
+	<field name="name">5-458</field>
+	<field name="description">ANASTOMOSIS OF SMALL INTESTINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-459">
+	<field name="name">5-459</field>
+	<field name="description">COLOSIGMOIDOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-460">
+	<field name="name">5-460</field>
+	<field name="description">LOOP COLOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-461">
+	<field name="name">5-461</field>
+	<field name="description">COLOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-462">
+	<field name="name">5-462</field>
+	<field name="description">LLEOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-463">
+	<field name="name">5-463</field>
+	<field name="description">JEJUNOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-464">
+	<field name="name">5-464</field>
+	<field name="description">REPAIR OF INTESTINAL STOMACH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-465">
+	<field name="name">5-465</field>
+	<field name="description">REMOVAL OF COLON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-467">
+	<field name="name">5-467</field>
+	<field name="description">REPAIR OF INTESTINAL TRAUMA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-468">
+	<field name="name">5-468</field>
+	<field name="description">REDUCTION OF INTUSSUSCEPTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-470">
+	<field name="name">5-470</field>
+	<field name="description">APPENDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-471">
+	<field name="name">5-471</field>
+	<field name="description">DRAINAGE OF APPENDIX ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-481">
+	<field name="name">5-481</field>
+	<field name="description">PROCTOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-482">
+	<field name="name">5-482</field>
+	<field name="description">EXCISION OF RECTAL LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-484">
+	<field name="name">5-484</field>
+	<field name="description">ABDOMINOPERIANAL RESECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-485">
+	<field name="name">5-485</field>
+	<field name="description">HARTMANS PROCEDURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-486">
+	<field name="name">5-486</field>
+	<field name="description">WIRING OF RECTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-489">
+	<field name="name">5-489</field>
+	<field name="description">OTHER OPERATIONS ON RECTUM AND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-490">
+	<field name="name">5-490</field>
+	<field name="description">INCISION DRAINAGE PERIANAL ABS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-491">
+	<field name="name">5-491</field>
+	<field name="description">ANAL FISTULECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-492">
+	<field name="name">5-492</field>
+	<field name="description">ANAL POLYPECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-493">
+	<field name="name">5-493</field>
+	<field name="description">HAEMORRHOIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-494">
+	<field name="name">5-494</field>
+	<field name="description">SPHINCTERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-499">
+	<field name="name">5-499</field>
+	<field name="description">EXTRACTION OF FOREIGNBODY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-500">
+	<field name="name">5-500</field>
+	<field name="description">DRAINAGE OF HEPATIC ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-505">
+	<field name="name">5-505</field>
+	<field name="description">REPAIR OF LIVER LACERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-510">
+	<field name="name">5-510</field>
+	<field name="description">CHOLECYSTOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-511">
+	<field name="name">5-511</field>
+	<field name="description">CHOLECYSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-512">
+	<field name="name">5-512</field>
+	<field name="description">CHOLEDOCHODUODENOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-513">
+	<field name="name">5-513</field>
+	<field name="description">INCISION OF BILE DUCTS , FOR RELIEF OF OBSTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-514">
+	<field name="name">5-514</field>
+	<field name="description">OTHER INCISIO OF BILE DUCTS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-515">
+	<field name="name">5-515</field>
+	<field name="description">MICRODOCHECTOMT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-524">
+	<field name="name">5-524</field>
+	<field name="description">DISTAL PANCREATECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-526">
+	<field name="name">5-526</field>
+	<field name="description">WHIPPLE'S OPERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-530">
+	<field name="name">5-530</field>
+	<field name="description">HERNIA REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-531">
+	<field name="name">5-531</field>
+	<field name="description">REPAIR OF HERNIA WITH GRAFT/PR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-532">
+	<field name="name">5-532</field>
+	<field name="description">REPAIR INGINO FEMORAL HERNIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-533">
+	<field name="name">5-533</field>
+	<field name="description">BILATERAL REPAIR INGUINOFEMORAL HERNIA WITH GRAFT OR PROTHESIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-534">
+	<field name="name">5-534</field>
+	<field name="description">REPAIR OF HERNIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-535">
+	<field name="name">5-535</field>
+	<field name="description">REPAIR OF HERNIA ABDOMINAL WALL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-536">
+	<field name="name">5-536</field>
+	<field name="description">REPAIR OF OTHER HERNIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-537">
+	<field name="name">5-537</field>
+	<field name="description">HEMIDIAPHRAM REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-538">
+	<field name="name">5-538</field>
+	<field name="description">REPAIR OF DIAPHRAGMATIC HERNIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-539">
+	<field name="name">5-539</field>
+	<field name="description">OTHER HERNIA REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-540">
+	<field name="name">5-540</field>
+	<field name="description">GROIN EXPLORATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-541">
+	<field name="name">5-541</field>
+	<field name="description">LAPAROTOMY EXPLORATOIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-542">
+	<field name="name">5-542</field>
+	<field name="description">EXCISION OF DESTRUCTION OF ABD</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-543">
+	<field name="name">5-543</field>
+	<field name="description">OMENTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-544">
+	<field name="name">5-544</field>
+	<field name="description">FREEING INTESTINAL ADHESIONS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-546">
+	<field name="name">5-546</field>
+	<field name="description">OMENTUM REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-549">
+	<field name="name">5-549</field>
+	<field name="description">REPAIR MULTIPLE ABDOMINAL ORGA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-550">
+	<field name="name">5-550</field>
+	<field name="description">NEPHROLITHOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-551">
+	<field name="name">5-551</field>
+	<field name="description">PYELOLITHOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-553">
+	<field name="name">5-553</field>
+	<field name="description">PARTIAL NEPHRECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-554">
+	<field name="name">5-554</field>
+	<field name="description">NEPHRECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-555">
+	<field name="name">5-555</field>
+	<field name="description">KIDNEY TRANSPLANT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-557">
+	<field name="name">5-557</field>
+	<field name="description">PYELOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-560">
+	<field name="name">5-560</field>
+	<field name="description">TRANSURETHRAL OF URETER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-561">
+	<field name="name">5-561</field>
+	<field name="description">URETERAL MEATOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-562">
+	<field name="name">5-562</field>
+	<field name="description">URETEROLITHOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-563">
+	<field name="name">5-563</field>
+	<field name="description">URETERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-566">
+	<field name="name">5-566</field>
+	<field name="description">URETEROCECOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-567">
+	<field name="name">5-567</field>
+	<field name="description">OTHER ANASTOMOSISS OR BYPASS OF URETER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-568">
+	<field name="name">5-568</field>
+	<field name="description">URETHROPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-569">
+	<field name="name">5-569</field>
+	<field name="description">OPERATION TO THE URETER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-570">
+	<field name="name">5-570</field>
+	<field name="description">TRANSURETHRAL CLEARANCE FROM BLADDER OR ASPIRATION OF BLOOD CLOT OR CRUSHING AND REMOVAL OF CALCULUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-571">
+	<field name="name">5-571</field>
+	<field name="description">SUPRAPUBIC CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-572">
+	<field name="name">5-572</field>
+	<field name="description">SUPRAPUBIC CYSTOSTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-573">
+	<field name="name">5-573</field>
+	<field name="description">DIVERTICULECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-574">
+	<field name="name">5-574</field>
+	<field name="description">OTHER EXCISION OR DESTRUCTION OF BLADDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-575">
+	<field name="name">5-575</field>
+	<field name="description">CYSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-576">
+	<field name="name">5-576</field>
+	<field name="description">COMPLETE CYSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-577">
+	<field name="name">5-577</field>
+	<field name="description">BLADDER AUGMENTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-578">
+	<field name="name">5-578</field>
+	<field name="description">BLADDER REPAIR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-580">
+	<field name="name">5-580</field>
+	<field name="description">URETHROLITHOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-581">
+	<field name="name">5-581</field>
+	<field name="description">URETHRAL MEATOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-583">
+	<field name="name">5-583</field>
+	<field name="description">URETHROPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-584">
+	<field name="name">5-584</field>
+	<field name="description">INTERNAL URETHROTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-585">
+	<field name="name">5-585</field>
+	<field name="description">DILATION OF URETHRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-589">
+	<field name="name">5-589</field>
+	<field name="description">OPERATIONS ON URETHRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-591">
+	<field name="name">5-591</field>
+	<field name="description">URINARY DRAINAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-595">
+	<field name="name">5-595</field>
+	<field name="description">RETROPUBIC URETHRAL SUS[PENSION, MARSHALL-MARCHETTI-KRANK OPERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-598">
+	<field name="name">5-598</field>
+	<field name="description">URETERAL CATHERERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-599">
+	<field name="name">5-599</field>
+	<field name="description">SURGICAL OPERATION TO URETHRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-601">
+	<field name="name">5-601</field>
+	<field name="description">TRANSURETRAL PROSTATECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-602">
+	<field name="name">5-602</field>
+	<field name="description">TRANSVESICAL PROSTATECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-603">
+	<field name="name">5-603</field>
+	<field name="description">RETROPUBIC PROSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-604">
+	<field name="name">5-604</field>
+	<field name="description">RADICAL PROSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-605">
+	<field name="name">5-605</field>
+	<field name="description">PROSTATECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-610">
+	<field name="name">5-610</field>
+	<field name="description">INCISION &amp; DRAIN SCROTAL ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-611">
+	<field name="name">5-611</field>
+	<field name="description">EXCISION OF HYDROCELE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-612">
+	<field name="name">5-612</field>
+	<field name="description">RESECTION OF SCROTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-622">
+	<field name="name">5-622</field>
+	<field name="description">ORCHIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-623">
+	<field name="name">5-623</field>
+	<field name="description">BILATERAL ORCHIDECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-624">
+	<field name="name">5-624</field>
+	<field name="description">ORCHIDOPEXY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-630">
+	<field name="name">5-630</field>
+	<field name="description">VARICOCELECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-631">
+	<field name="name">5-631</field>
+	<field name="description">EXCISION OF SPERMATOCELE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-632">
+	<field name="name">5-632</field>
+	<field name="description">EXCISION OF OTHER LESION OF SP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-633">
+	<field name="name">5-633</field>
+	<field name="description">OTHER EPIDIDYMECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-634">
+	<field name="name">5-634</field>
+	<field name="description">REDUCTION OF TESTES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-639">
+	<field name="name">5-639</field>
+	<field name="description">EXPLORATION OF TESTES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-640">
+	<field name="name">5-640</field>
+	<field name="description">CIRCUMCISION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-641">
+	<field name="name">5-641</field>
+	<field name="description">LOCAL EXCISION OR DESTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-642">
+	<field name="name">5-642</field>
+	<field name="description">AMPUTATION OF PENIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-643">
+	<field name="name">5-643</field>
+	<field name="description">REPAIR OF PENIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-649">
+	<field name="name">5-649</field>
+	<field name="description">OPERATION ON PENIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-650">
+	<field name="name">5-650</field>
+	<field name="description">OOPHOROTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-651">
+	<field name="name">5-651</field>
+	<field name="description">OVARIAN CYSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-652">
+	<field name="name">5-652</field>
+	<field name="description">OOPHERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-653">
+	<field name="name">5-653</field>
+	<field name="description">SALPINGO OOPHORECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-654">
+	<field name="name">5-654</field>
+	<field name="description">BILATERAL OOPHORECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-655">
+	<field name="name">5-655</field>
+	<field name="description">SALPINGOOOPHERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-656">
+	<field name="name">5-656</field>
+	<field name="description">REPAIR OF OVARY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-657">
+	<field name="name">5-657</field>
+	<field name="description">FREEING OF ADHESIONS OF OVARY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-661">
+	<field name="name">5-661</field>
+	<field name="description">TOT. SALPINGECTOMY (UNILATERAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-662">
+	<field name="name">5-662</field>
+	<field name="description">SALPINGECTOMY BILATERAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-664">
+	<field name="name">5-664</field>
+	<field name="description">BILATERAL T/L</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-665">
+	<field name="name">5-665</field>
+	<field name="description">SALPINGECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-666">
+	<field name="name">5-666</field>
+	<field name="description">REPAIR OF FALLOPIAN TUBE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-667">
+	<field name="name">5-667</field>
+	<field name="description">INSUFFLATION OF FALLOPIAN TUBES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-672">
+	<field name="name">5-672</field>
+	<field name="description">OTHER EXCISION OR DESTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-674">
+	<field name="name">5-674</field>
+	<field name="description">REPAIR OF INTERNAL CERVICAL OS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-681">
+	<field name="name">5-681</field>
+	<field name="description">MYOMECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-682">
+	<field name="name">5-682</field>
+	<field name="description">SUB-TOTAL ABDOMINAL HYSTERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-683">
+	<field name="name">5-683</field>
+	<field name="description">HYSTERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-684">
+	<field name="name">5-684</field>
+	<field name="description">VAGINAL HYSTERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-685">
+	<field name="name">5-685</field>
+	<field name="description">RADICALS ABDOMINAL HYSTERECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-690">
+	<field name="name">5-690</field>
+	<field name="description">DILATION AND CURETTAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-692">
+	<field name="name">5-692</field>
+	<field name="description">ENUCLEATION OF CYST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-699">
+	<field name="name">5-699</field>
+	<field name="description">OPERATION ON UTERUS, CERVIX</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-701">
+	<field name="name">5-701</field>
+	<field name="description">I &amp; D OF PELVIC ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-704">
+	<field name="name">5-704</field>
+	<field name="description">REPAIR OF CYSTOCELE AND RECTOC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-706">
+	<field name="name">5-706</field>
+	<field name="description">EXCISION OF FISTULA/VAG &amp; SUTU</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-710">
+	<field name="name">5-710</field>
+	<field name="description">INCISION OF VULVA &amp; PERINEUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-711">
+	<field name="name">5-711</field>
+	<field name="description">INCISION AND DRAINAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-712">
+	<field name="name">5-712</field>
+	<field name="description">EXCISION OF NASOLABIAL CYST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-714">
+	<field name="name">5-714</field>
+	<field name="description">RADICAL VULVECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-716">
+	<field name="name">5-716</field>
+	<field name="description">UVULOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-727">
+	<field name="name">5-727</field>
+	<field name="description">BREECH DELIVERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-730">
+	<field name="name">5-730</field>
+	<field name="description">ARTIFICIAL RUPTURE OF MEMBRANE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-738">
+	<field name="name">5-738</field>
+	<field name="description">EPISIOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-740">
+	<field name="name">5-740</field>
+	<field name="description">CLASSICAL CESAREAN SECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-741">
+	<field name="name">5-741</field>
+	<field name="description">LOWER SEGMENTAL CESAREAN SECT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-749">
+	<field name="name">5-749</field>
+	<field name="description">REPEAT LOWER SEGMENT C/SECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-752">
+	<field name="name">5-752</field>
+	<field name="description">TERMINATION OF PREGNANCY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-753">
+	<field name="name">5-753</field>
+	<field name="description">AMNIOCENTESIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-756">
+	<field name="name">5-756</field>
+	<field name="description">EVACUATION OF RETAINED PLACENTA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-757">
+	<field name="name">5-757</field>
+	<field name="description">REPAIR OF OBSTERIC LACERATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-758">
+	<field name="name">5-758</field>
+	<field name="description">LACERATION SUTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-760">
+	<field name="name">5-760</field>
+	<field name="description">CLOSED REDUCTION OF ZYGOMATIC FRACTURES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-761">
+	<field name="name">5-761</field>
+	<field name="description">OPEN REDUCTION OF ZYGOMATIC FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-762">
+	<field name="name">5-762</field>
+	<field name="description">WIRE FIXATION OF MANDIBLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-763">
+	<field name="name">5-763</field>
+	<field name="description">REDUCTION OF MANDIBLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-765">
+	<field name="name">5-765</field>
+	<field name="description">OPEN REDUCTION OF ORBITAL FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-766">
+	<field name="name">5-766</field>
+	<field name="description">OTHER CLOSED REDUCTION OF FACIAL FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-767">
+	<field name="name">5-767</field>
+	<field name="description">OTHER OPEN REDUCTION OF FACIAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-770">
+	<field name="name">5-770</field>
+	<field name="description">SEQUESTRECTOMY OF JAW</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-771">
+	<field name="name">5-771</field>
+	<field name="description">ENUCLEATION OF LESION OF JAW</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-772">
+	<field name="name">5-772</field>
+	<field name="description">MAXILLECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-773">
+	<field name="name">5-773</field>
+	<field name="description">RESECTION OF JAW BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-774">
+	<field name="name">5-774</field>
+	<field name="description">TEMPOROMANDIBULAR ARTHROPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-775">
+	<field name="name">5-775</field>
+	<field name="description">RECONSTRUCT/MAXILLA &amp; BONE GRA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-779">
+	<field name="name">5-779</field>
+	<field name="description">OTHER OPERATIONS ON FACIAL BON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-780">
+	<field name="name">5-780</field>
+	<field name="description">REMOVAL OF FB FROM BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-781">
+	<field name="name">5-781</field>
+	<field name="description">OSTEOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-782">
+	<field name="name">5-782</field>
+	<field name="description">OSTECTOMY OF HALLUX VALGUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-783">
+	<field name="name">5-783</field>
+	<field name="description">EXCISION OF BONE LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-784">
+	<field name="name">5-784</field>
+	<field name="description">OSTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-786">
+	<field name="name">5-786</field>
+	<field name="description">BONE GRAFTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-787">
+	<field name="name">5-787</field>
+	<field name="description">INSERTION OF FIXATION APPLIANC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-788">
+	<field name="name">5-788</field>
+	<field name="description">REMOVAL OF PLATING OF FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-789">
+	<field name="name">5-789</field>
+	<field name="description">RECONSTRUCTION OF BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-790">
+	<field name="name">5-790</field>
+	<field name="description">CLOSED REDUCTION OF FRACTURE WITH INTERNAL FIXATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-791">
+	<field name="name">5-791</field>
+	<field name="description">ELEVATION OF FRAGMENTS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-792">
+	<field name="name">5-792</field>
+	<field name="description">OPEN REDUCTION AND INTERNAL FIXATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-793">
+	<field name="name">5-793</field>
+	<field name="description">CLOSED REDUCTION OF SEPARATE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-795">
+	<field name="name">5-795</field>
+	<field name="description">TOILET OF OPEN FRACTURE SITE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-796">
+	<field name="name">5-796</field>
+	<field name="description">OPEN REDUCTION OFDISLOCATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-800">
+	<field name="name">5-800</field>
+	<field name="description">ARTHROTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-801">
+	<field name="name">5-801</field>
+	<field name="description">DIVISION OF JOINT CAPSULE ,LIG</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-803">
+	<field name="name">5-803</field>
+	<field name="description">EXCISION OF INTERVERTEBRAL DISC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-804">
+	<field name="name">5-804</field>
+	<field name="description">EXCISION OF SEMILUNAR CARTILAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-805">
+	<field name="name">5-805</field>
+	<field name="description">SYNOVECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-809">
+	<field name="name">5-809</field>
+	<field name="description">OTHER EXCISION OF JOINT STRUCTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-810">
+	<field name="name">5-810</field>
+	<field name="description">FUSION OF SPINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-811">
+	<field name="name">5-811</field>
+	<field name="description">ARTHRODESIS  OF ANKLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-812">
+	<field name="name">5-812</field>
+	<field name="description">FUSION OF INTERPHARYNGEAL FING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-813">
+	<field name="name">5-813</field>
+	<field name="description">REPAIR OF LIGAMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-814">
+	<field name="name">5-814</field>
+	<field name="description">RECONSTRUCTION CRUCIATE LIGAME</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-815">
+	<field name="name">5-815</field>
+	<field name="description">TOTAL HIP REPLACEMENT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-816">
+	<field name="name">5-816</field>
+	<field name="description">AUSTIN MOORE PROSTHESIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-818">
+	<field name="name">5-818</field>
+	<field name="description">ANTHROPLASTY OF SHOULDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-819">
+	<field name="name">5-819</field>
+	<field name="description">OTHER REPAIR OF JOINT STRUCTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-820">
+	<field name="name">5-820</field>
+	<field name="description">FASCIOTOMY OF HAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-821">
+	<field name="name">5-821</field>
+	<field name="description">RELEASE OF TENDOND OR MUSCLE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-822">
+	<field name="name">5-822</field>
+	<field name="description">EXCISION OF LESION OF MUSCLE TENDON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-823">
+	<field name="name">5-823</field>
+	<field name="description">EXCISION OF MUSCLE TENDON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-824">
+	<field name="name">5-824</field>
+	<field name="description">SUTURE REPAIR OF TENDON HAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-826">
+	<field name="name">5-826</field>
+	<field name="description">RECONSTRUCTION OF THUMB</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-828">
+	<field name="name">5-828</field>
+	<field name="description">REPAIR OF TENDON OF HAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-830">
+	<field name="name">5-830</field>
+	<field name="description">FASCIOTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-831">
+	<field name="name">5-831</field>
+	<field name="description">RELEASE OF CONTRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-833">
+	<field name="name">5-833</field>
+	<field name="description">OTHER EXCISION OF MUSCLE, TENDON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-835">
+	<field name="name">5-835</field>
+	<field name="description">SUTURE REPAIR OF TENDON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-836">
+	<field name="name">5-836</field>
+	<field name="description">TEND0N TRANSPLANT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-837">
+	<field name="name">5-837</field>
+	<field name="description">REPAIR OF ROTATOR CUFF TEAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-840">
+	<field name="name">5-840</field>
+	<field name="description">AMPUTATION OF FINGER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-841">
+	<field name="name">5-841</field>
+	<field name="description">AMPUTATION OF THUMB</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-842">
+	<field name="name">5-842</field>
+	<field name="description">AMPUTATION OF FOREARM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-843">
+	<field name="name">5-843</field>
+	<field name="description">ABOVE ELBOW AMPUTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-844">
+	<field name="name">5-844</field>
+	<field name="description">DISARTICULATION OF SHOULDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-845">
+	<field name="name">5-845</field>
+	<field name="description">AMPUTATION OF TOE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-846">
+	<field name="name">5-846</field>
+	<field name="description">DISARTICULATION OF METATARSAL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-847">
+	<field name="name">5-847</field>
+	<field name="description">BELOW KNEE AMPUTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-848">
+	<field name="name">5-848</field>
+	<field name="description">ABOVE KNEE AMPUTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-849">
+	<field name="name">5-849</field>
+	<field name="description">DISARTICULATION OF HIP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-850">
+	<field name="name">5-850</field>
+	<field name="description">REVISION OF AMPUTATION STUMP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-851">
+	<field name="name">5-851</field>
+	<field name="description">REATTACHMENT OF FINGERS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-855">
+	<field name="name">5-855</field>
+	<field name="description">IPLANT OF PROSTHETIC LIMB DEVICE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-859">
+	<field name="name">5-859</field>
+	<field name="description">REIMPLANTATION OF SEVERED LIMB</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-860">
+	<field name="name">5-860</field>
+	<field name="description">EXCISION OF FISTULA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-861">
+	<field name="name">5-861</field>
+	<field name="description">SIMPLE MASTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-862">
+	<field name="name">5-862</field>
+	<field name="description">RADICAL MODIFIED  MASTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-863">
+	<field name="name">5-863</field>
+	<field name="description">RADICAL MASTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-864">
+	<field name="name">5-864</field>
+	<field name="description">RADICAL MASTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-869">
+	<field name="name">5-869</field>
+	<field name="description">MASTECTOMY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-870">
+	<field name="name">5-870</field>
+	<field name="description">ASPIRATION OF BREAST</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-871">
+	<field name="name">5-871</field>
+	<field name="description">INCISION DRAINAGE BREAST ABSCE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-873">
+	<field name="name">5-873</field>
+	<field name="description">AUGMENTATION MAMMOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-874">
+	<field name="name">5-874</field>
+	<field name="description">REDUCTION MAMMOPLASTY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-875">
+	<field name="name">5-875</field>
+	<field name="description">OTHER REPAIR AND PLASTIC OPERA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-881">
+	<field name="name">5-881</field>
+	<field name="description">EXPLORATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-882">
+	<field name="name">5-882</field>
+	<field name="description">INCISION AND DRAINAGE OF SKIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-883">
+	<field name="name">5-883</field>
+	<field name="description">DEBRIDEMENT OF WOUND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-884">
+	<field name="name">5-884</field>
+	<field name="description">EXCISION OF SEBACEOUS LESION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-885">
+	<field name="name">5-885</field>
+	<field name="description">RADICAL EXCISION OF SKIN LESIO</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-887">
+	<field name="name">5-887</field>
+	<field name="description">EXCISION OF PILONIDAL (SINUS)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-888">
+	<field name="name">5-888</field>
+	<field name="description">EXCISION OF SKIN FOR GRAFT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-890">
+	<field name="name">5-890</field>
+	<field name="description">SUTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-892">
+	<field name="name">5-892</field>
+	<field name="description">SKIN GRAFT TO HAND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-893">
+	<field name="name">5-893</field>
+	<field name="description">SKIN GRAFTING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-894">
+	<field name="name">5-894</field>
+	<field name="description">CUTTING &amp; PREPARATION OF FLAP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-895">
+	<field name="name">5-895</field>
+	<field name="description">ATTACHMENT TO HAND OF FLAP OR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-898">
+	<field name="name">5-898</field>
+	<field name="description">RECONSTRUCTION OF LIP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-899">
+	<field name="name">5-899</field>
+	<field name="description">OTHER REPAIR AND RECONSTRUCTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-909">
+	<field name="name">5-909</field>
+	<field name="description">REIMPLANTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-910">
+	<field name="name">5-910</field>
+	<field name="description">CORNEAL CAUTHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-911">
+	<field name="name">5-911</field>
+	<field name="description">NASAL CAUTHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-913">
+	<field name="name">5-913</field>
+	<field name="description">SKIN CAUTHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-949">
+	<field name="name">5-949</field>
+	<field name="description">CRYOSURGERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-969">
+	<field name="name">5-969</field>
+	<field name="description">CYTOTOXIC DRUG THERAPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-980">
+	<field name="name">5-980</field>
+	<field name="description">SURGICAL OPERATIONS TO PROCEDURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-982">
+	<field name="name">5-982</field>
+	<field name="description">OTHER SURGICAL OPERATIONS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-994">
+	<field name="name">5-994</field>
+	<field name="description">OPERATION NOT COMPLETED (ABANDONED)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_5-995">
+	<field name="name">5-995</field>
+	<field name="description">OPERATION NOT COMPLETED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-101">
+	<field name="name">8-101</field>
+	<field name="description">REMOVAL OF FOREGN BODY CORNEA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-102">
+	<field name="name">8-102</field>
+	<field name="description">REMOVAL OF OBJECT FROM EYELID</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-103">
+	<field name="name">8-103</field>
+	<field name="description">REMOVAL OF FOREIGNBODY FROMEAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-104">
+	<field name="name">8-104</field>
+	<field name="description">REMOVAL OF OBJECT BY RHINOSCOP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-105">
+	<field name="name">8-105</field>
+	<field name="description">REMOVAL OF BODY BY LARYNGOSCOP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-107">
+	<field name="name">8-107</field>
+	<field name="description">BRONCHSCOPY FORIEGN BODY REMOV</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-108">
+	<field name="name">8-108</field>
+	<field name="description">REMOVAL OF FB THOROCOSCOPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-111">
+	<field name="name">8-111</field>
+	<field name="description">REMOVAL OF FOREIGN BODY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-112">
+	<field name="name">8-112</field>
+	<field name="description">REMOVAL OF FOREIGNBODY STOMACH</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-114">
+	<field name="name">8-114</field>
+	<field name="description">REMOVAL OF OBJECT BY CYSTOSCOP</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-116">
+	<field name="name">8-116</field>
+	<field name="description">REMOVAL OF OBJECT FROM SPEC. D</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-117">
+	<field name="name">8-117</field>
+	<field name="description">REMOVAL OF PARASITE FROM TISSUE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-119">
+	<field name="name">8-119</field>
+	<field name="description">REMOVAL OF FORIEGN BODY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-123">
+	<field name="name">8-123</field>
+	<field name="description">GASTRIC LAVAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-125">
+	<field name="name">8-125</field>
+	<field name="description">DECOMPRESSION OF INTESTINE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-126">
+	<field name="name">8-126</field>
+	<field name="description">GASTRIC  LAVAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-130">
+	<field name="name">8-130</field>
+	<field name="description">CATHERTERIZATION OF BLADDER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-132">
+	<field name="name">8-132</field>
+	<field name="description">BLADDER IRRIGATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-135">
+	<field name="name">8-135</field>
+	<field name="description">REPLACEMENT OF URETHRAL CATHET</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-140">
+	<field name="name">8-140</field>
+	<field name="description">CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-149">
+	<field name="name">8-149</field>
+	<field name="description">PERCUTANEOUS CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-150">
+	<field name="name">8-150</field>
+	<field name="description">ASPIRATION OF ABSCESS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-152">
+	<field name="name">8-152</field>
+	<field name="description">IRRIGATION OF ANTERIOR CHAMBER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-154">
+	<field name="name">8-154</field>
+	<field name="description">BONE MARROW ASPIRATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-155">
+	<field name="name">8-155</field>
+	<field name="description">ASPIRATION OF PLEURAL CAVITY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-156">
+	<field name="name">8-156</field>
+	<field name="description">DRAINAGE OF FLUID FROM LUNG</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-157">
+	<field name="name">8-157</field>
+	<field name="description">PERITONEAL LAVAGE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-158">
+	<field name="name">8-158</field>
+	<field name="description">ASPIRATION OF LIVER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-160">
+	<field name="name">8-160</field>
+	<field name="description">ASPIRATION OF KIDNEY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-163">
+	<field name="name">8-163</field>
+	<field name="description">ENCYSTED HYDROCELE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-166">
+	<field name="name">8-166</field>
+	<field name="description">ASPIRATION OF JOINT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-169">
+	<field name="name">8-169</field>
+	<field name="description">ASPIRATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-170">
+	<field name="name">8-170</field>
+	<field name="description">SYRINGING OF LACRIMAL SAC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-179">
+	<field name="name">8-179</field>
+	<field name="description">IRRIGATION OF WOUND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-185">
+	<field name="name">8-185</field>
+	<field name="description">EXCISION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-186">
+	<field name="name">8-186</field>
+	<field name="description">REMOVAL OF TOE NAIL</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-191">
+	<field name="name">8-191</field>
+	<field name="description">WOUND TOILET</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-192">
+	<field name="name">8-192</field>
+	<field name="description">DRESSING OF WOUND</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-193">
+	<field name="name">8-193</field>
+	<field name="description">DRESSING OF ULCER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-194">
+	<field name="name">8-194</field>
+	<field name="description">DRESSING OF BURN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-200">
+	<field name="name">8-200</field>
+	<field name="description">REDUCTION OF NASAL BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-202">
+	<field name="name">8-202</field>
+	<field name="description">CLOSED REDUCTION OF HUMERUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-203">
+	<field name="name">8-203</field>
+	<field name="description">REDUCTION OF WRIST FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-204">
+	<field name="name">8-204</field>
+	<field name="description">REDUCTION OF FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-205">
+	<field name="name">8-205</field>
+	<field name="description">CLOSED REDUCTION OF FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-208">
+	<field name="name">8-208</field>
+	<field name="description">CLOSED REDUCTION OF OTHER FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-209">
+	<field name="name">8-209</field>
+	<field name="description">REDUCTION OF DISLOCATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-211">
+	<field name="name">8-211</field>
+	<field name="description">MANIPULATION OF TEMPOROMANDIBULAR JOINT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-214">
+	<field name="name">8-214</field>
+	<field name="description">LIPSIS OF ADHESIONS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-215">
+	<field name="name">8-215</field>
+	<field name="description">STRETCHING OF MUSCLE OR TENDON</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-217">
+	<field name="name">8-217</field>
+	<field name="description">MANIPULATION UNDER ANESTHESIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-219">
+	<field name="name">8-219</field>
+	<field name="description">STRETCHING OF SKIN</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-225">
+	<field name="name">8-225</field>
+	<field name="description">DILATION OF BOWEL OF ARTIFICIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-230">
+	<field name="name">8-230</field>
+	<field name="description">WEDGING OF PLASTER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-241">
+	<field name="name">8-241</field>
+	<field name="description">REDUCTION OF HERNIA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-242">
+	<field name="name">8-242</field>
+	<field name="description">REDUCTION OF PROLAPSE RECTUM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-243">
+	<field name="name">8-243</field>
+	<field name="description">REDUCTION OF HAEMORRHOIDS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-250">
+	<field name="name">8-250</field>
+	<field name="description">ANTENATAL MANIPULATION, UNQUALIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-251">
+	<field name="name">8-251</field>
+	<field name="description">CORRECTION OF BREECH PRESENTATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-252">
+	<field name="name">8-252</field>
+	<field name="description">CORRECTION OF RETROVERTED GRAVIDA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-253">
+	<field name="name">8-253</field>
+	<field name="description">REPOSITION OF FETUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-255">
+	<field name="name">8-255</field>
+	<field name="description">MANUALLY ASSISTED VAGINAL DELIVERY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-301">
+	<field name="name">8-301</field>
+	<field name="description">APPLICATION OF SLING</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-310">
+	<field name="name">8-310</field>
+	<field name="description">PLASTER OF PARIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-321">
+	<field name="name">8-321</field>
+	<field name="description">SPLINTING OF FINGER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-324">
+	<field name="name">8-324</field>
+	<field name="description">SPLINTING OF FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-330">
+	<field name="name">8-330</field>
+	<field name="description">EXTERNAL FIXATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-331">
+	<field name="name">8-331</field>
+	<field name="description">EXTERNAL FIXTATION OF BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-334">
+	<field name="name">8-334</field>
+	<field name="description">WIRING OF JAW</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-340">
+	<field name="name">8-340</field>
+	<field name="description">COMPRESSION UNION OF FRACTURE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-350">
+	<field name="name">8-350</field>
+	<field name="description">ORTHODONTIC ARCH  BANDS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-359">
+	<field name="name">8-359</field>
+	<field name="description">CERVICAL COLLAR</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-362">
+	<field name="name">8-362</field>
+	<field name="description">NAILING OF FRACTURE CLOSE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-380">
+	<field name="name">8-380</field>
+	<field name="description">REMOVAL OF CST, MOLD OR SUPPORT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-381">
+	<field name="name">8-381</field>
+	<field name="description">REMOVAL OF SPLINT</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-382">
+	<field name="name">8-382</field>
+	<field name="description">REMOVAL OF SUPPORT OR BRACE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-389">
+	<field name="name">8-389</field>
+	<field name="description">REMOVAL OF NAIL FIXATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-400">
+	<field name="name">8-400</field>
+	<field name="description">INFIXED BONE PIN (TRACTION)</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-403">
+	<field name="name">8-403</field>
+	<field name="description">SKELETAL TRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-411">
+	<field name="name">8-411</field>
+	<field name="description">SKULL TRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-412">
+	<field name="name">8-412</field>
+	<field name="description">CERVICAL TRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-420">
+	<field name="name">8-420</field>
+	<field name="description">SKIN TRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-450">
+	<field name="name">8-450</field>
+	<field name="description">CERVICAL COLLAR FOR TRACTION O</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-460">
+	<field name="name">8-460</field>
+	<field name="description">REMOVAL OF INFIXED PIN IN BONE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-471">
+	<field name="name">8-471</field>
+	<field name="description">SKELETAL TRACTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-479">
+	<field name="name">8-479</field>
+	<field name="description">TRACTION, OTHER &amp; UNQUALIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-480">
+	<field name="name">8-480</field>
+	<field name="description">APPLICATION OF ORTHOPEDIC APPLICATIO</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-500">
+	<field name="name">8-500</field>
+	<field name="description">HAEMOSTASIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-566">
+	<field name="name">8-566</field>
+	<field name="description">REPAIR,READJUSTMENT OF PROSTHE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-584">
+	<field name="name">8-584</field>
+	<field name="description">INFILTRATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-620">
+	<field name="name">8-620</field>
+	<field name="description">PHOTOTHERAOY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-621">
+	<field name="name">8-621</field>
+	<field name="description">RADIATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-622">
+	<field name="name">8-622</field>
+	<field name="description">PHOTOCOAGULATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-649">
+	<field name="name">8-649</field>
+	<field name="description">OTHER CONVERSION OF CRADIAC RHYTHM</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-651">
+	<field name="name">8-651</field>
+	<field name="description">EMERGENCY PACEMAKER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-652">
+	<field name="name">8-652</field>
+	<field name="description">PERMANENT PACEMAKER</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-801">
+	<field name="name">8-801</field>
+	<field name="description">BLOOD TRANSFUSION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-803">
+	<field name="name">8-803</field>
+	<field name="description">REPLACENMENT TRANSFUSION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-805">
+	<field name="name">8-805</field>
+	<field name="description">TRANSFUSION OF PACKED BLOOD CE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-806">
+	<field name="name">8-806</field>
+	<field name="description">PLATELET TRANSFUSION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-809">
+	<field name="name">8-809</field>
+	<field name="description">TRANSFUSION , UNQUALIFIED</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-810">
+	<field name="name">8-810</field>
+	<field name="description">TRANSFUSION OF PLASMA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-814">
+	<field name="name">8-814</field>
+	<field name="description">TRANFUSION OF ANTIHEMOPHILIC</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-830">
+	<field name="name">8-830</field>
+	<field name="description">ARTERIAL CATHETERIZATION OR CA</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-834">
+	<field name="name">8-834</field>
+	<field name="description">VEIN CATHETERISATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-852">
+	<field name="name">8-852</field>
+	<field name="description">ARTERIOVENOUS CANNULATION BLOO</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-853">
+	<field name="name">8-853</field>
+	<field name="description">HEMODIALYSIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-860">
+	<field name="name">8-860</field>
+	<field name="description">PERITONEAL DIALYSIS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-881">
+	<field name="name">8-881</field>
+	<field name="description">REPLACEMENT OF SUBCUTANEOUS</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_8-882">
+	<field name="name">8-882</field>
+	<field name="description">REPLACEMENT OR REMOVAL OF INTRAVENOUS ENDOCARDIAL ELECTRODE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-129">
+	<field name="name">9-129</field>
+	<field name="description">CHEMOTHERAPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-190">
+	<field name="name">9-190</field>
+	<field name="description">OTHER AND ILL-DEFINED THERAPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-251">
+	<field name="name">9-251</field>
+	<field name="description">INDUCTION BY INTRAVENOUS INJECTION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-259">
+	<field name="name">9-259</field>
+	<field name="description">URETRAL CATHERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-360">
+	<field name="name">9-360</field>
+	<field name="description">CATHETERIZATION</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-442">
+	<field name="name">9-442</field>
+	<field name="description">FITTING OR ADJUSTMEMNT OF CRUTCHES</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-472">
+	<field name="name">9-472</field>
+	<field name="description">DEEP BREATHING EXERCISE</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-489">
+	<field name="name">9-489</field>
+	<field name="description">PHYSIOTHERAPY</field>
+</record>
+<record model="gnuhealth.procedure" id="icpm_9-779">
+	<field name="name">9-779</field>
+	<field name="description">SPECIALIZED TREATMENT</field>
+</record>
+</data>
+</tryton>

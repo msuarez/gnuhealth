@@ -1147,7 +1147,7 @@ class PatientData(ModelSQL, ModelView):
 				if disease.pathology.name not in conditions:
 							other_conditions=other_conditions + \
 							 str(disease.pathology.name) + "\n"
-							
+
 		return allergies + other_conditions
 		
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
