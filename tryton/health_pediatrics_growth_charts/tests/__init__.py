@@ -1,0 +1,1 @@
+from test_health_pediatrics_growth_charts import suite
