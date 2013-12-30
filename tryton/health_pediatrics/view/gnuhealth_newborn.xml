@@ -6,6 +6,8 @@
                 <group id="group_newborn_1">
                     <label name="name"/>
                     <field name="name"/>
+                    <label name="patient"/>
+                    <field name="patient"/>
                     <label name="newborn_name"/>
                     <field name="newborn_name"/>
                     <label name="mother"/>

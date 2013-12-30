@@ -34,6 +34,15 @@ class Newborn(ModelSQL, ModelView):
     __name__ = 'gnuhealth.newborn'
 
     name = fields.Char('Newborn ID')
+    patient = fields.Many2One(
+        'gnuhealth.patient', 'Patient', required=True,
+        domain=[
+            ('is_patient', '=', True),
+            ('is_person', '=', True),
+            ],
+        states={'readonly': Bool(Eval('name'))},
+        help="Patient associated to this newborn baby")
+
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
     newborn_name = fields.Char('Baby\'s name')
     birth_date = fields.DateTime('Date of Birth', required=True)
