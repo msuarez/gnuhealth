@@ -8,8 +8,10 @@
                     <field name="name"/>
                     <label name="patient"/>
                     <field name="patient"/>
+<!-- Deprecated in 2.4 Use now patient relation for the newborn name                     
                     <label name="newborn_name"/>
                     <field name="newborn_name"/>
+-->
                     <label name="mother"/>
                     <field name="mother"/>
                     <label name="sex"/>

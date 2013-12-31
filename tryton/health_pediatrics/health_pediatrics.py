@@ -35,11 +35,7 @@ class Newborn(ModelSQL, ModelView):
 
     name = fields.Char('Newborn ID')
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Patient', required=True,
-        domain=[
-            ('is_patient', '=', True),
-            ('is_person', '=', True),
-            ],
+        'gnuhealth.patient', 'Baby\'s name', required=True,
         help="Patient associated to this newborn baby")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
@@ -49,7 +45,6 @@ class Newborn(ModelSQL, ModelView):
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
-        ('a', 'Ambiguous genitalia'),
         ], 'Sex', sort=False, required=True)
     cephalic_perimeter = fields.Integer('Cephalic Perimeter',
         help="Perimeter in centimeters (cm)")
