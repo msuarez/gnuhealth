@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.action.report" id="report_pediatrics_growth_charts_who_wfa">
+            <field name="name">Pediatrics Growth Charts WHO - Weight for age</field>
+            <field name="report_name">gnuhealth.pediatrics.growth.charts.who.wfa.report</field>
+            <field name="report">health_pediatrics_growth_charts_who/report/weight_for_age.odt</field>
+        </record>
+        <record model="ir.action.report" id="report_pediatrics_growth_charts_who_lhfa">
+            <field name="name">Pediatrics Growth Charts WHO - Length/Height for age</field>
+            <field name="report_name">gnuhealth.pediatrics.growth.charts.who.lhfa.report</field>
+            <field name="report">health_pediatrics_growth_charts_who/report/length-height_for_age.odt</field>
+        </record>
+        <record model="ir.action.report" id="report_pediatrics_growth_charts_who_bmifa">
+            <field name="name">Pediatrics Growth Charts WHO - BMI for age</field>
+            <field name="report_name">gnuhealth.pediatrics.growth.charts.who.bmifa.report</field>
+            <field name="report">health_pediatrics_growth_charts_who/report/bmi_for_age.odt</field>
+        </record>
+
+    </data>
+</tryton>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <!-- Add relevant icons -->
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
+
+        <record model="ir.ui.view" id="gnuhealth_growth_charts_who_form">
+            <field name="model">gnuhealth.pediatrics.growth.charts.who</field>
+            <field name="type">form</field>
+            <field name="name">pediatrics_growth_charts_who_form</field>
+        </record>
+        <record model="ir.ui.view" id="gnuhealth_growth_charts_who_tree">
+            <field name="model">gnuhealth.pediatrics.growth.charts.who</field>
+            <field name="type">tree</field>
+            <field name="name">pediatrics_growth_charts_who_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_growth_charts_who">
+            <field name="name">Pediatrics Growth Charts WHO</field>
+            <field name="res_model">gnuhealth.pediatrics.growth.charts.who</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_growth_charts_who_tree_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_growth_charts_who_tree"/>
+            <field name="act_window" ref="gnuhealth_action_growth_charts_who"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_growth_charts_who_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_growth_charts_who_form"/>
+            <field name="act_window" ref="gnuhealth_action_growth_charts_who"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_growth_charts_who" icon="gnuhealth-list"
+            id="gnuhealth_conf_growth_charts_who" parent="health.gnuhealth_conf_misc"/>
+
+    </data>
+</tryton>

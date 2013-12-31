@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Pediatrics Growth Charts WHO">
+    <label name="indicator"/>
+    <field name="indicator"/>
+    <label name="measure"/>
+    <field name="measure"/>
+    <label name="sex"/>
+    <field name="sex"/>
+    <label name="month"/>
+    <field name="month"/>
+    <label name="type"/>
+    <field name="type"/>
+    <label name="value"/>
+    <field name="value"/>
+</form>

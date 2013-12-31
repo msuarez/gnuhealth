@@ -1,0 +1,2797 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_0_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="0"/>
+            <field name="type">-3</field>
+            <field name="value" eval="1.8931"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_0_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="0"/>
+            <field name="type">-2</field>
+            <field name="value" eval="44.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_0_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="0"/>
+            <field name="type">0</field>
+            <field name="value" eval="48.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_0_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="0"/>
+            <field name="type">2</field>
+            <field name="value" eval="51.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_0_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="0"/>
+            <field name="type">3</field>
+            <field name="value" eval="53.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_1_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="1"/>
+            <field name="type">-3</field>
+            <field name="value" eval="1.9465"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_1_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="1"/>
+            <field name="type">-2</field>
+            <field name="value" eval="48.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_1_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="1"/>
+            <field name="type">0</field>
+            <field name="value" eval="52.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_1_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="1"/>
+            <field name="type">2</field>
+            <field name="value" eval="56.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_1_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="1"/>
+            <field name="type">3</field>
+            <field name="value" eval="58.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_2_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="2"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.0005"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_2_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="2"/>
+            <field name="type">-2</field>
+            <field name="value" eval="52.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_2_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="2"/>
+            <field name="type">0</field>
+            <field name="value" eval="56.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_2_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="2"/>
+            <field name="type">2</field>
+            <field name="value" eval="60.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_2_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="2"/>
+            <field name="type">3</field>
+            <field name="value" eval="62.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_3_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="3"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.0444"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_3_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="3"/>
+            <field name="type">-2</field>
+            <field name="value" eval="55.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_3_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="3"/>
+            <field name="type">0</field>
+            <field name="value" eval="59.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_3_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="3"/>
+            <field name="type">2</field>
+            <field name="value" eval="63.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_3_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="3"/>
+            <field name="type">3</field>
+            <field name="value" eval="65.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_4_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="4"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.0808"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_4_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="4"/>
+            <field name="type">-2</field>
+            <field name="value" eval="57.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_4_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="4"/>
+            <field name="type">0</field>
+            <field name="value" eval="61.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_4_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="4"/>
+            <field name="type">2</field>
+            <field name="value" eval="66.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_4_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="4"/>
+            <field name="type">3</field>
+            <field name="value" eval="68.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_5_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="5"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.1115"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_5_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="5"/>
+            <field name="type">-2</field>
+            <field name="value" eval="59.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_5_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="5"/>
+            <field name="type">0</field>
+            <field name="value" eval="63.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_5_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="5"/>
+            <field name="type">2</field>
+            <field name="value" eval="68.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_5_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="5"/>
+            <field name="type">3</field>
+            <field name="value" eval="70.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_6_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="6"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.1403"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_6_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="6"/>
+            <field name="type">-2</field>
+            <field name="value" eval="61.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_6_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="6"/>
+            <field name="type">0</field>
+            <field name="value" eval="65.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_6_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="6"/>
+            <field name="type">2</field>
+            <field name="value" eval="69.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_6_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="6"/>
+            <field name="type">3</field>
+            <field name="value" eval="71.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_7_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="7"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.1711"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_7_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="7"/>
+            <field name="type">-2</field>
+            <field name="value" eval="62.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_7_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="7"/>
+            <field name="type">0</field>
+            <field name="value" eval="67.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_7_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="7"/>
+            <field name="type">2</field>
+            <field name="value" eval="71.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_7_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="7"/>
+            <field name="type">3</field>
+            <field name="value" eval="73.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_8_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="8"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.2055"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_8_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="8"/>
+            <field name="type">-2</field>
+            <field name="value" eval="64.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_8_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="8"/>
+            <field name="type">0</field>
+            <field name="value" eval="68.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_8_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="8"/>
+            <field name="type">2</field>
+            <field name="value" eval="72.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_8_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="8"/>
+            <field name="type">3</field>
+            <field name="value" eval="75.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_9_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="9"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.2433"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_9_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="9"/>
+            <field name="type">-2</field>
+            <field name="value" eval="65.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_9_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="9"/>
+            <field name="type">0</field>
+            <field name="value" eval="69.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_9_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="9"/>
+            <field name="type">2</field>
+            <field name="value" eval="74.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_9_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="9"/>
+            <field name="type">3</field>
+            <field name="value" eval="76.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_10_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="10"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.2849"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_10_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="10"/>
+            <field name="type">-2</field>
+            <field name="value" eval="66.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_10_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="10"/>
+            <field name="type">0</field>
+            <field name="value" eval="71.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_10_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="10"/>
+            <field name="type">2</field>
+            <field name="value" eval="75.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_10_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="10"/>
+            <field name="type">3</field>
+            <field name="value" eval="77.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_11_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="11"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.3293"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_11_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="11"/>
+            <field name="type">-2</field>
+            <field name="value" eval="67.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_11_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="11"/>
+            <field name="type">0</field>
+            <field name="value" eval="72.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_11_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="11"/>
+            <field name="type">2</field>
+            <field name="value" eval="76.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_11_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="11"/>
+            <field name="type">3</field>
+            <field name="value" eval="79.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_12_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="12"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.3762"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_12_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="12"/>
+            <field name="type">-2</field>
+            <field name="value" eval="68.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_12_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="12"/>
+            <field name="type">0</field>
+            <field name="value" eval="73.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_12_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="12"/>
+            <field name="type">2</field>
+            <field name="value" eval="78.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_12_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="12"/>
+            <field name="type">3</field>
+            <field name="value" eval="80.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_13_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="13"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.4260"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_13_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="13"/>
+            <field name="type">-2</field>
+            <field name="value" eval="69.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_13_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="13"/>
+            <field name="type">0</field>
+            <field name="value" eval="74.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_13_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="13"/>
+            <field name="type">2</field>
+            <field name="value" eval="79.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_13_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="13"/>
+            <field name="type">3</field>
+            <field name="value" eval="81.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_14_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="14"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.4773"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_14_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="14"/>
+            <field name="type">-2</field>
+            <field name="value" eval="70.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_14_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="14"/>
+            <field name="type">0</field>
+            <field name="value" eval="75.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_14_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="14"/>
+            <field name="type">2</field>
+            <field name="value" eval="80.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_14_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="14"/>
+            <field name="type">3</field>
+            <field name="value" eval="83.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_15_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="15"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.5303"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_15_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="15"/>
+            <field name="type">-2</field>
+            <field name="value" eval="71.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_15_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="15"/>
+            <field name="type">0</field>
+            <field name="value" eval="76.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_15_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="15"/>
+            <field name="type">2</field>
+            <field name="value" eval="81.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_15_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="15"/>
+            <field name="type">3</field>
+            <field name="value" eval="84.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_16_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="16"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.5844"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_16_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="16"/>
+            <field name="type">-2</field>
+            <field name="value" eval="72.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_16_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="16"/>
+            <field name="type">0</field>
+            <field name="value" eval="77.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_16_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="16"/>
+            <field name="type">2</field>
+            <field name="value" eval="82.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_16_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="16"/>
+            <field name="type">3</field>
+            <field name="value" eval="85.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_17_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="17"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.6406"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_17_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="17"/>
+            <field name="type">-2</field>
+            <field name="value" eval="73.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_17_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="17"/>
+            <field name="type">0</field>
+            <field name="value" eval="78.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_17_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="17"/>
+            <field name="type">2</field>
+            <field name="value" eval="83.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_17_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="17"/>
+            <field name="type">3</field>
+            <field name="value" eval="86.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_18_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="18"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.6973"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_18_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="18"/>
+            <field name="type">-2</field>
+            <field name="value" eval="74.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_18_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="18"/>
+            <field name="type">0</field>
+            <field name="value" eval="79.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_18_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="18"/>
+            <field name="type">2</field>
+            <field name="value" eval="85.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_18_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="18"/>
+            <field name="type">3</field>
+            <field name="value" eval="87.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_19_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="19"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.7553"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_19_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="19"/>
+            <field name="type">-2</field>
+            <field name="value" eval="75.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_19_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="19"/>
+            <field name="type">0</field>
+            <field name="value" eval="80.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_19_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="19"/>
+            <field name="type">2</field>
+            <field name="value" eval="86.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_19_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="19"/>
+            <field name="type">3</field>
+            <field name="value" eval="88.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_20_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="20"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.8140"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_20_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="20"/>
+            <field name="type">-2</field>
+            <field name="value" eval="75.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_20_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="20"/>
+            <field name="type">0</field>
+            <field name="value" eval="81.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_20_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="20"/>
+            <field name="type">2</field>
+            <field name="value" eval="87.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_20_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="20"/>
+            <field name="type">3</field>
+            <field name="value" eval="89.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_21_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="21"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.8742"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_21_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="21"/>
+            <field name="type">-2</field>
+            <field name="value" eval="76.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_21_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="21"/>
+            <field name="type">0</field>
+            <field name="value" eval="82.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_21_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="21"/>
+            <field name="type">2</field>
+            <field name="value" eval="88.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_21_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="21"/>
+            <field name="type">3</field>
+            <field name="value" eval="90.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_22_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="22"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.9342"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_22_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="22"/>
+            <field name="type">-2</field>
+            <field name="value" eval="77.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_22_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="22"/>
+            <field name="type">0</field>
+            <field name="value" eval="83.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_22_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="22"/>
+            <field name="type">2</field>
+            <field name="value" eval="89.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_22_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="22"/>
+            <field name="type">3</field>
+            <field name="value" eval="91.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_23_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="23"/>
+            <field name="type">-3</field>
+            <field name="value" eval="2.9951"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_23_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="23"/>
+            <field name="type">-2</field>
+            <field name="value" eval="78.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_23_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="23"/>
+            <field name="type">0</field>
+            <field name="value" eval="83.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_23_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="23"/>
+            <field name="type">2</field>
+            <field name="value" eval="89.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_23_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="23"/>
+            <field name="type">3</field>
+            <field name="value" eval="92.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_24_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.0551"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_24_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">-2</field>
+            <field name="value" eval="78.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_24_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">0</field>
+            <field name="value" eval="84.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_24_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">2</field>
+            <field name="value" eval="90.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="lhfa_boys_z_24_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">3</field>
+            <field name="value" eval="93.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_24_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.0551"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_24_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">-2</field>
+            <field name="value" eval="78.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_24_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">0</field>
+            <field name="value" eval="84.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_24_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">2</field>
+            <field name="value" eval="90.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_24_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="24"/>
+            <field name="type">3</field>
+            <field name="value" eval="93.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_25_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="25"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.1160"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_25_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="25"/>
+            <field name="type">-2</field>
+            <field name="value" eval="78.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_25_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="25"/>
+            <field name="type">0</field>
+            <field name="value" eval="84.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_25_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="25"/>
+            <field name="type">2</field>
+            <field name="value" eval="91.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_25_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="25"/>
+            <field name="type">3</field>
+            <field name="value" eval="94.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_26_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="26"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.1757"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_26_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="26"/>
+            <field name="type">-2</field>
+            <field name="value" eval="79.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_26_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="26"/>
+            <field name="type">0</field>
+            <field name="value" eval="85.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_26_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="26"/>
+            <field name="type">2</field>
+            <field name="value" eval="92.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_26_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="26"/>
+            <field name="type">3</field>
+            <field name="value" eval="95.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_27_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="27"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.2353"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_27_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="27"/>
+            <field name="type">-2</field>
+            <field name="value" eval="79.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_27_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="27"/>
+            <field name="type">0</field>
+            <field name="value" eval="86.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_27_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="27"/>
+            <field name="type">2</field>
+            <field name="value" eval="92.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_27_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="27"/>
+            <field name="type">3</field>
+            <field name="value" eval="96.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_28_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="28"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.2928"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_28_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="28"/>
+            <field name="type">-2</field>
+            <field name="value" eval="80.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_28_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="28"/>
+            <field name="type">0</field>
+            <field name="value" eval="87.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_28_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="28"/>
+            <field name="type">2</field>
+            <field name="value" eval="93.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_28_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="28"/>
+            <field name="type">3</field>
+            <field name="value" eval="97.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_29_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="29"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.3501"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_29_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="29"/>
+            <field name="type">-2</field>
+            <field name="value" eval="81.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_29_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="29"/>
+            <field name="type">0</field>
+            <field name="value" eval="87.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_29_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="29"/>
+            <field name="type">2</field>
+            <field name="value" eval="94.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_29_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="29"/>
+            <field name="type">3</field>
+            <field name="value" eval="97.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_30_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="30"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.4052"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_30_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="30"/>
+            <field name="type">-2</field>
+            <field name="value" eval="81.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_30_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="30"/>
+            <field name="type">0</field>
+            <field name="value" eval="88.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_30_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="30"/>
+            <field name="type">2</field>
+            <field name="value" eval="95.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_30_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="30"/>
+            <field name="type">3</field>
+            <field name="value" eval="98.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_31_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="31"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.4591"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_31_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="31"/>
+            <field name="type">-2</field>
+            <field name="value" eval="82.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_31_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="31"/>
+            <field name="type">0</field>
+            <field name="value" eval="89.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_31_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="31"/>
+            <field name="type">2</field>
+            <field name="value" eval="96.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_31_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="31"/>
+            <field name="type">3</field>
+            <field name="value" eval="99.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_32_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="32"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.5118"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_32_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="32"/>
+            <field name="type">-2</field>
+            <field name="value" eval="82.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_32_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="32"/>
+            <field name="type">0</field>
+            <field name="value" eval="89.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_32_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="32"/>
+            <field name="type">2</field>
+            <field name="value" eval="96.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_32_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="32"/>
+            <field name="type">3</field>
+            <field name="value" eval="100.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_33_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="33"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.5625"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_33_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="33"/>
+            <field name="type">-2</field>
+            <field name="value" eval="83.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_33_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="33"/>
+            <field name="type">0</field>
+            <field name="value" eval="90.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_33_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="33"/>
+            <field name="type">2</field>
+            <field name="value" eval="97.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_33_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="33"/>
+            <field name="type">3</field>
+            <field name="value" eval="101.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_34_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="34"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.6120"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_34_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="34"/>
+            <field name="type">-2</field>
+            <field name="value" eval="83.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_34_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="34"/>
+            <field name="type">0</field>
+            <field name="value" eval="91.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_34_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="34"/>
+            <field name="type">2</field>
+            <field name="value" eval="98.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_34_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="34"/>
+            <field name="type">3</field>
+            <field name="value" eval="102.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_35_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="35"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.6604"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_35_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="35"/>
+            <field name="type">-2</field>
+            <field name="value" eval="84.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_35_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="35"/>
+            <field name="type">0</field>
+            <field name="value" eval="91.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_35_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="35"/>
+            <field name="type">2</field>
+            <field name="value" eval="99.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_35_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="35"/>
+            <field name="type">3</field>
+            <field name="value" eval="102.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_36_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="36"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.7069"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_36_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="36"/>
+            <field name="type">-2</field>
+            <field name="value" eval="85.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_36_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="36"/>
+            <field name="type">0</field>
+            <field name="value" eval="92.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_36_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="36"/>
+            <field name="type">2</field>
+            <field name="value" eval="99.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_36_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="36"/>
+            <field name="type">3</field>
+            <field name="value" eval="103.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_37_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="37"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.7523"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_37_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="37"/>
+            <field name="type">-2</field>
+            <field name="value" eval="85.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_37_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="37"/>
+            <field name="type">0</field>
+            <field name="value" eval="93.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_37_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="37"/>
+            <field name="type">2</field>
+            <field name="value" eval="100.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_37_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="37"/>
+            <field name="type">3</field>
+            <field name="value" eval="104.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_38_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="38"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.7976"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_38_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="38"/>
+            <field name="type">-2</field>
+            <field name="value" eval="86.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_38_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="38"/>
+            <field name="type">0</field>
+            <field name="value" eval="93.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_38_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="38"/>
+            <field name="type">2</field>
+            <field name="value" eval="101.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_38_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="38"/>
+            <field name="type">3</field>
+            <field name="value" eval="105.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_39_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="39"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.8409"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_39_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="39"/>
+            <field name="type">-2</field>
+            <field name="value" eval="86.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_39_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="39"/>
+            <field name="type">0</field>
+            <field name="value" eval="94.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_39_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="39"/>
+            <field name="type">2</field>
+            <field name="value" eval="101.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_39_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="39"/>
+            <field name="type">3</field>
+            <field name="value" eval="105.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_40_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="40"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.8831"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_40_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="40"/>
+            <field name="type">-2</field>
+            <field name="value" eval="87.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_40_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="40"/>
+            <field name="type">0</field>
+            <field name="value" eval="94.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_40_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="40"/>
+            <field name="type">2</field>
+            <field name="value" eval="102.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_40_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="40"/>
+            <field name="type">3</field>
+            <field name="value" eval="106.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_41_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="41"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.9242"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_41_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="41"/>
+            <field name="type">-2</field>
+            <field name="value" eval="87.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_41_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="41"/>
+            <field name="type">0</field>
+            <field name="value" eval="95.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_41_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="41"/>
+            <field name="type">2</field>
+            <field name="value" eval="103.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_41_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="41"/>
+            <field name="type">3</field>
+            <field name="value" eval="107.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_42_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="42"/>
+            <field name="type">-3</field>
+            <field name="value" eval="3.9651"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_42_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="42"/>
+            <field name="type">-2</field>
+            <field name="value" eval="88.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_42_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="42"/>
+            <field name="type">0</field>
+            <field name="value" eval="95.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_42_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="42"/>
+            <field name="type">2</field>
+            <field name="value" eval="103.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_42_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="42"/>
+            <field name="type">3</field>
+            <field name="value" eval="107.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_43_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="43"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.0039"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_43_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="43"/>
+            <field name="type">-2</field>
+            <field name="value" eval="88.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_43_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="43"/>
+            <field name="type">0</field>
+            <field name="value" eval="96.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_43_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="43"/>
+            <field name="type">2</field>
+            <field name="value" eval="104.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_43_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="43"/>
+            <field name="type">3</field>
+            <field name="value" eval="108.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_44_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="44"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.0435"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_44_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="44"/>
+            <field name="type">-2</field>
+            <field name="value" eval="88.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_44_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="44"/>
+            <field name="type">0</field>
+            <field name="value" eval="97.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_44_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="44"/>
+            <field name="type">2</field>
+            <field name="value" eval="105.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_44_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="44"/>
+            <field name="type">3</field>
+            <field name="value" eval="109.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_45_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="45"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.0810"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_45_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="45"/>
+            <field name="type">-2</field>
+            <field name="value" eval="89.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_45_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="45"/>
+            <field name="type">0</field>
+            <field name="value" eval="97.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_45_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="45"/>
+            <field name="type">2</field>
+            <field name="value" eval="105.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_45_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="45"/>
+            <field name="type">3</field>
+            <field name="value" eval="109.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_46_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="46"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.1194"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_46_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="46"/>
+            <field name="type">-2</field>
+            <field name="value" eval="89.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_46_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="46"/>
+            <field name="type">0</field>
+            <field name="value" eval="98.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_46_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="46"/>
+            <field name="type">2</field>
+            <field name="value" eval="106.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_46_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="46"/>
+            <field name="type">3</field>
+            <field name="value" eval="110.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_47_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="47"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.1567"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_47_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="47"/>
+            <field name="type">-2</field>
+            <field name="value" eval="90.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_47_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="47"/>
+            <field name="type">0</field>
+            <field name="value" eval="98.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_47_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="47"/>
+            <field name="type">2</field>
+            <field name="value" eval="106.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_47_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="47"/>
+            <field name="type">3</field>
+            <field name="value" eval="111.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_48_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="48"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.1941"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_48_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="48"/>
+            <field name="type">-2</field>
+            <field name="value" eval="90.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_48_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="48"/>
+            <field name="type">0</field>
+            <field name="value" eval="99.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_48_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="48"/>
+            <field name="type">2</field>
+            <field name="value" eval="107.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_48_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="48"/>
+            <field name="type">3</field>
+            <field name="value" eval="111.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_49_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="49"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.2314"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_49_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="49"/>
+            <field name="type">-2</field>
+            <field name="value" eval="91.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_49_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="49"/>
+            <field name="type">0</field>
+            <field name="value" eval="99.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_49_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="49"/>
+            <field name="type">2</field>
+            <field name="value" eval="108.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_49_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="49"/>
+            <field name="type">3</field>
+            <field name="value" eval="112.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_50_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="50"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.2677"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_50_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="50"/>
+            <field name="type">-2</field>
+            <field name="value" eval="91.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_50_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="50"/>
+            <field name="type">0</field>
+            <field name="value" eval="100.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_50_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="50"/>
+            <field name="type">2</field>
+            <field name="value" eval="108.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_50_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="50"/>
+            <field name="type">3</field>
+            <field name="value" eval="113.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_51_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="51"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.3052"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_51_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="51"/>
+            <field name="type">-2</field>
+            <field name="value" eval="92.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_51_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="51"/>
+            <field name="type">0</field>
+            <field name="value" eval="100.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_51_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="51"/>
+            <field name="type">2</field>
+            <field name="value" eval="109.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_51_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="51"/>
+            <field name="type">3</field>
+            <field name="value" eval="113.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_52_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="52"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.3417"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_52_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="52"/>
+            <field name="type">-2</field>
+            <field name="value" eval="92.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_52_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="52"/>
+            <field name="type">0</field>
+            <field name="value" eval="101.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_52_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="52"/>
+            <field name="type">2</field>
+            <field name="value" eval="109.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_52_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="52"/>
+            <field name="type">3</field>
+            <field name="value" eval="114.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_53_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="53"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.3783"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_53_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="53"/>
+            <field name="type">-2</field>
+            <field name="value" eval="93.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_53_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="53"/>
+            <field name="type">0</field>
+            <field name="value" eval="101.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_53_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="53"/>
+            <field name="type">2</field>
+            <field name="value" eval="110.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_53_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="53"/>
+            <field name="type">3</field>
+            <field name="value" eval="114.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_54_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="54"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.4149"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_54_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="54"/>
+            <field name="type">-2</field>
+            <field name="value" eval="93.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_54_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="54"/>
+            <field name="type">0</field>
+            <field name="value" eval="102.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_54_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="54"/>
+            <field name="type">2</field>
+            <field name="value" eval="111.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_54_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="54"/>
+            <field name="type">3</field>
+            <field name="value" eval="115.5"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_55_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="55"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.4517"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_55_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="55"/>
+            <field name="type">-2</field>
+            <field name="value" eval="93.9"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_55_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="55"/>
+            <field name="type">0</field>
+            <field name="value" eval="102.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_55_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="55"/>
+            <field name="type">2</field>
+            <field name="value" eval="111.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_55_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="55"/>
+            <field name="type">3</field>
+            <field name="value" eval="116.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_56_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="56"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.4886"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_56_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="56"/>
+            <field name="type">-2</field>
+            <field name="value" eval="94.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_56_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="56"/>
+            <field name="type">0</field>
+            <field name="value" eval="103.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_56_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="56"/>
+            <field name="type">2</field>
+            <field name="value" eval="112.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_56_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="56"/>
+            <field name="type">3</field>
+            <field name="value" eval="116.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_57_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="57"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.5245"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_57_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="57"/>
+            <field name="type">-2</field>
+            <field name="value" eval="94.7"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_57_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="57"/>
+            <field name="type">0</field>
+            <field name="value" eval="103.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_57_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="57"/>
+            <field name="type">2</field>
+            <field name="value" eval="112.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_57_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="57"/>
+            <field name="type">3</field>
+            <field name="value" eval="117.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_58_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="58"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.5616"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_58_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="58"/>
+            <field name="type">-2</field>
+            <field name="value" eval="95.2"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_58_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="58"/>
+            <field name="type">0</field>
+            <field name="value" eval="104.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_58_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="58"/>
+            <field name="type">2</field>
+            <field name="value" eval="113.4"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_58_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="58"/>
+            <field name="type">3</field>
+            <field name="value" eval="118.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_59_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="59"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.5977"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_59_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="59"/>
+            <field name="type">-2</field>
+            <field name="value" eval="95.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_59_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="59"/>
+            <field name="type">0</field>
+            <field name="value" eval="104.8"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_59_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="59"/>
+            <field name="type">2</field>
+            <field name="value" eval="114.0"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_59_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="59"/>
+            <field name="type">3</field>
+            <field name="value" eval="118.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_60_-3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="60"/>
+            <field name="type">-3</field>
+            <field name="value" eval="4.6339"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_60_-2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="60"/>
+            <field name="type">-2</field>
+            <field name="value" eval="96.1"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_60_0">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="60"/>
+            <field name="type">0</field>
+            <field name="value" eval="105.3"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_60_2">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="60"/>
+            <field name="type">2</field>
+            <field name="value" eval="114.6"/>
+        </record>
+
+        <record model="gnuhealth.pediatrics.growth.charts.who" id="wfa_boys_z2_60_3">
+            <field name="indicator">l/h-f-a</field>
+            <field name="measure">z</field>
+            <field name="sex">m</field>
+            <field name="month" eval="60"/>
+            <field name="type">3</field>
+            <field name="value" eval="119.2"/>
+        </record>
+
+
+    </data>
+</tryton>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="growth_charts_who_open_start_view_form">
+            <field name="model">gnuhealth.pediatrics.growth.charts.who.report.open.start</field>
+            <field name="type">form</field>
+            <field name="name">growth_charts_who_open_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_pediatrics_growth_charts_who">
+            <field name="name">Pediatrics Growth Charts WHO</field>
+            <field name="wiz_name">gnuhealth.pediatrics.growth.charts.who.report.open</field>
+        </record>
+        <record model="ir.action.keyword" id="keyword_pediatrics_growth_charts_who">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="wizard_pediatrics_growth_charts_who"/>
+        </record>
+
+    </data>
+</tryton>
