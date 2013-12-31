@@ -2,12 +2,10 @@
 <tree string="Newborn Information">
     <field name="name"/>
     <field name="patient"/>
-<!--
     <field name="newborn_name"/>
--->
     <field name="mother"/>
     <field name="birth_date"/>
-    <field name="sex"/>
+    <field name="newborn_sex"/>
     <field name="length"/>
     <field name="weight"/>
 </tree>

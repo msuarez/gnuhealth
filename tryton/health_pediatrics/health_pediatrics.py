@@ -39,13 +39,20 @@ class Newborn(ModelSQL, ModelView):
         help="Patient associated to this newborn baby")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
-    newborn_name = fields.Char('Baby\'s name')
+    newborn_name = fields.Char('name', readonly=True)
     birth_date = fields.DateTime('Date of Birth', required=True)
     photo = fields.Binary('Picture')
+    newborn_sex = fields.Function(fields.Selection([
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex'), 'get_newborn_sex')
+
+    # Sex field Deprecated in 2.4 . The neonatal sex is taken from the patient
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', sort=False, required=True)
+        ], 'Gender at Birth', sort=False, required=True)
+
     cephalic_perimeter = fields.Integer('Cephalic Perimeter',
         help="Perimeter in centimeters (cm)")
     length = fields.Integer('Length', help="Perimeter in centimeters (cm)")
@@ -111,6 +118,11 @@ class Newborn(ModelSQL, ModelView):
             ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
         ]
 
+    def get_newborn_sex(self, name):
+        return self.patient.sex
+
+    def default_sex(self, name):
+        return self.patient.sex
 
 class NeonatalApgar(ModelSQL, ModelView):
     'Neonatal APGAR Score'

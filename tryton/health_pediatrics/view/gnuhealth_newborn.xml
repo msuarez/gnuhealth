@@ -8,14 +8,10 @@
                     <field name="name"/>
                     <label name="patient"/>
                     <field name="patient"/>
-<!-- Deprecated in 2.4 Use now patient relation for the newborn name                     
-                    <label name="newborn_name"/>
-                    <field name="newborn_name"/>
--->
                     <label name="mother"/>
                     <field name="mother"/>
-                    <label name="sex"/>
-                    <field name="sex"/>
+                    <label name="newborn_sex"/>
+                    <field name="newborn_sex"/>
                     <label name="birth_date"/>
                     <field name="birth_date"/>
                     <label name="dismissed"/>
@@ -49,11 +45,17 @@
                     <label name="reanimation_oxygen"/>
                     <field name="reanimation_oxygen"/>
                 </group>
-                <group string="Notes" colspan="3" id="group_newborn_notes">
-                    <field colspan="3" name="notes"/>
+                <newline/>
+                <group string="Notes" id="group_newborn_notes">
+                    <field colspan="4" name="notes"/>
                 </group>
+                <newline/>
+                <label name="newborn_name"/>
+                <field name="newborn_name"/>
+                <label name="sex"/>
+                <field name="sex"/>
+
             </group>
-            <newline/>
         </page>
         <page string="Findings and Tests" id="page_newborn_findings">
             <group string="Neonatal Signs and Symptoms" colspan="4" col="8" id="group_neonatal_signs">
