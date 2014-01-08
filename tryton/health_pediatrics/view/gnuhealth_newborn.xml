@@ -33,7 +33,7 @@
             <field name="apgar_scores"/>
             <newline/>
             <group id="group_newborn_reanimation_holder">
-                <group colspan="3" col="10" id="group_newborn_reanimation">
+                <group  col="10" id="group_newborn_reanimation">
                     <label name="reanimation_stimulation"/>
                     <field name="reanimation_stimulation"/>
                     <label name="reanimation_aspiration"/>
@@ -46,14 +46,16 @@
                     <field name="reanimation_oxygen"/>
                 </group>
                 <newline/>
-                <group string="Notes" id="group_newborn_notes">
-                    <field colspan="4" name="notes"/>
+                <group colspan="3" string="Notes" id="group_newborn_notes">
+                    <field colspan="3" name="notes"/>
                 </group>
                 <newline/>
-                <label name="newborn_name"/>
-                <field name="newborn_name"/>
-                <label name="sex"/>
-                <field name="sex"/>
+                <group colspan="4" id="group_newborn_identity">
+					<label name="newborn_name"/>
+					<field name="newborn_name"/>
+					<label name="sex"/>
+					<field name="sex"/>
+                </group>
 
             </group>
         </page>

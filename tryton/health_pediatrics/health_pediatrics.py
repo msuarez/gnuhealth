@@ -39,7 +39,7 @@ class Newborn(ModelSQL, ModelView):
         help="Patient associated to this newborn baby")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
-    newborn_name = fields.Char('name', readonly=True)
+    newborn_name = fields.Char('Name at Birth', readonly=True)
     birth_date = fields.DateTime('Date of Birth', required=True)
     photo = fields.Binary('Picture')
     newborn_sex = fields.Function(fields.Selection([
@@ -121,8 +121,6 @@ class Newborn(ModelSQL, ModelView):
     def get_newborn_sex(self, name):
         return self.patient.sex
 
-    def default_sex(self, name):
-        return self.patient.sex
 
 class NeonatalApgar(ModelSQL, ModelView):
     'Neonatal APGAR Score'
