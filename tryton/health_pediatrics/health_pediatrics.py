@@ -39,7 +39,7 @@ class Newborn(ModelSQL, ModelView):
         help="Patient associated to this newborn baby")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
-    newborn_name = fields.Char('Name at Birth', readonly=True)
+    newborn_name = fields.Char('Name at Birth')
     birth_date = fields.DateTime('Date of Birth', required=True)
     photo = fields.Binary('Picture')
     newborn_sex = fields.Function(fields.Selection([
@@ -47,7 +47,8 @@ class Newborn(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Sex'), 'get_newborn_sex')
 
-    # Sex field Deprecated in 2.4 . The neonatal sex is taken from the patient
+    # Sex / Gender at birth.
+    
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
