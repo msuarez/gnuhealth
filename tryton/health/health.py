@@ -1016,8 +1016,7 @@ class PartyPatient (ModelSQL, ModelView):
     # Update to version 2.4
     
     def __register__(cls, module_name):
-        super(PartyPatient, cls).__register__(module_name)
-
+        
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -1026,6 +1025,7 @@ class PartyPatient (ModelSQL, ModelView):
         if table.column_exist('is_doctor'):
             table.column_rename('is_doctor', 'is_healthprof')
 
+        super(PartyPatient, cls).__register__(module_name)
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
