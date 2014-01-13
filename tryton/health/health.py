@@ -178,7 +178,7 @@ class HealthProfessional(ModelSQL, ModelView):
         User = Pool().get('res.user')
         user = User(Transaction().user)
         login_user_id = int(user.id)
-        cursor.execute('SELECT id FROM party_party WHERE is_doctor=True AND \
+        cursor.execute('SELECT id FROM party_party WHERE is_healthprof=True AND \
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if partner_id:
@@ -192,7 +192,7 @@ class HealthProfessional(ModelSQL, ModelView):
     name = fields.Many2One(
         'party.party', 'Health Professional', required=True,
         domain=[
-            ('is_doctor', '=', True),
+            ('is_healthprof', '=', True),
             ('is_person', '=', True),
             ],
         help='Health Professional\'s Name, from the partner list')
@@ -865,7 +865,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     is_person = fields.Boolean(
         'Person',
-        on_change_with=['is_person', 'is_patient', 'is_doctor'],
+        on_change_with=['is_person', 'is_patient', 'is_healthprof'],
         help='Check if the party is a person.')
 
     is_patient = fields.Boolean(
@@ -873,7 +873,7 @@ class PartyPatient (ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('is_person')))},
         help='Check if the party is a patient')
 
-    is_doctor = fields.Boolean(
+    is_healthprof = fields.Boolean(
         'Health Prof',
         states={'invisible': Not(Bool(Eval('is_person')))},
         help='Check if the party is a health professional')
@@ -929,8 +929,8 @@ class PartyPatient (ModelSQL, ModelView):
         ' party is a doctor or a health professional, it will be the user'
         ' that maps the doctor\'s party name. It must be present.',
         states={
-            'invisible': Not(Bool(Eval('is_doctor'))),
-            'required': Bool(Eval('is_doctor')),
+            'invisible': Not(Bool(Eval('is_healthprof'))),
+            'required': Bool(Eval('is_healthprof')),
             })
 
     insurance_company_type = fields.Selection([
@@ -994,7 +994,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     def on_change_with_is_person(self):
         # Set is_person if the party is a health professional or a patient
-        if (self.is_doctor or self.is_patient or self.is_person):
+        if (self.is_healthprof or self.is_patient or self.is_person):
             return True
 
     @classmethod
@@ -1007,10 +1007,24 @@ class PartyPatient (ModelSQL, ModelView):
     # Verify that health professional and patient
     # are unchecked when is_person is False
 
-        if not self.is_person and (self.is_patient or self.is_doctor):
+        if not self.is_person and (self.is_patient or self.is_healthprof):
             self.raise_user_error(
                 "The Person field must be set if the party is a health"
                 " professional or a patient")
+
+    @classmethod
+    # Update to version 2.4
+    
+    def __register__(cls, module_name):
+        super(PartyPatient, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename is_doctor to a more general term is_healthprof
+
+        if table.column_exist('is_doctor'):
+            table.column_rename('is_doctor', 'is_healthprof')
 
 
 class PartyAddress(ModelSQL, ModelView):
