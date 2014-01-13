@@ -77,7 +77,7 @@ def LoadBetzFamilyInfo():
     party = Party()
     party.name = 'Cameron'
     party.lastname = 'Cordara'
-    party.is_doctor = True
+    party.is_healthprof = True
     party.is_person = True
     party.sex = 'm'
     party.internal_user, = User.find([('login', '=', 'admin')])
