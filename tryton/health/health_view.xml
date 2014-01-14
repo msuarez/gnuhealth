@@ -1021,6 +1021,12 @@
             <field name="name">gnuhealth_appointment_tree</field>
         </record>
 
+        <record model="ir.ui.view" id="gnuhealth_appointment_calendar">
+            <field name="model">gnuhealth.appointment</field>
+            <field name="type">calendar</field>
+            <field name="name">gnuhealth_appointment_calendar</field>
+        </record>
+
         <record model="ir.action.act_window" id="action_gnuhealth_appointment_view">
             <field name="name">Appointments</field>
             <field name="res_model">gnuhealth.appointment</field>
@@ -1040,6 +1046,26 @@
         <menuitem action="action_gnuhealth_appointment_view"
             id="menu_gnuhealth_appointment_list"
             icon="gnuhealth-list" parent="gnuhealth_appointment_menu"/>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_appointment_calendar">
+            <field name="name">Appointments</field>
+            <field name="res_model">gnuhealth.appointment</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_appointment_view_calendar">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_appointment_calendar"/>
+            <field name="act_window" ref="action_gnuhealth_appointment_calendar"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_appointment_form_calendar">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_appointment_form"/>
+            <field name="act_window" ref="action_gnuhealth_appointment_calendar"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_appointment_calendar"
+            id="menu_gnuhealth_appointment_calendar"
+            parent="menu_gnuhealth_appointment_list"/>
 
 <!-- Shortcut to the Appointments from the Patient -->
 
