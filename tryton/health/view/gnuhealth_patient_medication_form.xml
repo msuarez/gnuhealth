@@ -79,9 +79,8 @@
                 </group>
             </group>
             <newline/>
-            <group id="medication_notes" string="Prescribing doctor">
-                <label name="doctor"/>
-                <field name="doctor"/>
+            <group id="medication_notes" string="Prescribing Health Professional">
+                <field name="healthprof"/>
             </group>
         </page>
     </notebook>

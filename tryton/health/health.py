@@ -1941,9 +1941,9 @@ class PatientMedication(ModelSQL, ModelView):
     name = fields.Many2One(
         'gnuhealth.patient', 'Patient', readonly=True)
 
-    doctor = fields.Many2One(
-        'gnuhealth.physician', 'Physician',
-        help='Physician who prescribed the medicament')
+    healthprof = fields.Many2One(
+        'gnuhealth.physician', 'Prescribed by',
+        help='Health Professional who prescribed the medicament')
 
     is_active = fields.Boolean(
         'Active',
@@ -2054,6 +2054,17 @@ class PatientMedication(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
+
+        # Rename doctor to healthprof
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+
         super(PatientMedication, cls).__register__(module_name)
 
         cursor = Transaction().cursor
@@ -2131,7 +2142,6 @@ class PatientMedication(ModelSQL, ModelView):
                     'end_treatment': datetime_strftime(self.end_treatment,
                         str(languages[0].date)),
                     })
-
 
 # PATIENT VACCINATION INFORMATION
 class PatientVaccination(ModelSQL, ModelView):
