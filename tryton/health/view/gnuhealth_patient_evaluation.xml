@@ -7,8 +7,8 @@
                 <field name="patient"/>
                 <label name="visit_type"/>
                 <field name="visit_type"/>
-                <label name="doctor"/>
-                <field name="doctor"/>
+                <label name="healthprof"/>
+                <field name="healthprof"/>
                 <label name="evaluation_start"/>
                 <field name="evaluation_start"/>
             </group>

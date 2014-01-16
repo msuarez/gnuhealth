@@ -2562,7 +2562,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         depends=['patient'])
 
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
-    doctor = fields.Many2One(
+    healthprof = fields.Many2One(
         'gnuhealth.physician', 'Health Prof',
         help="Health professional that initiates the evaluation."
         "This health professional might or might not be the same that"
@@ -2604,11 +2604,11 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     derived_from = fields.Many2One(
         'gnuhealth.physician', 'Derived from',
-        help='Physician who derived the case')
+        help='Health Professional who derived the case')
 
     derived_to = fields.Many2One(
         'gnuhealth.physician', 'Derived to',
-        help='Physician to whom escalate / derive the case')
+        help='Health Professional to derive the case')
 
     evaluation_type = fields.Selection([
         (None, ''),
@@ -2862,7 +2862,7 @@ class PatientEvaluation(ModelSQL, ModelView):
                         })
 
     def check_health_professional(self):
-        if not self.doctor:
+        if not self.healthprof:
             self.raise_user_error('health_professional_warning')
 
     @classmethod
@@ -2882,7 +2882,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         evaluation_id = evaluations[0]
 
         # Change the state of the evaluation to "Done"
-        # and write the name of the signing doctor
+        # and write the name of the signing health professional
 
         signing_hp = HealthProfessional().get_health_professional()
         if not signing_hp:
@@ -2894,7 +2894,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'signed_by': signing_hp})
 
     @staticmethod
-    def default_doctor():
+    def default_healthprof():
         return HealthProfessional().get_health_professional()
 
     @staticmethod
@@ -2954,6 +2954,21 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def get_rec_name(self, name):
         return str(self.evaluation_start)
+
+    @classmethod
+    # Update to version 2.4
+    
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename doctor to a healthprof
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+        super(PatientEvaluation, cls).__register__(module_name)
 
 
 # PATIENT EVALUATION DIRECTIONS
