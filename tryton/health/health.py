@@ -1813,7 +1813,7 @@ class AppointmentReport(ModelSQL, ModelView):
     identification_code = fields.Char('Identification Code')
     ref = fields.Char('SSN')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor')
+    healthprof = fields.Many2One('gnuhealth.physician', 'Health Prof')
     age = fields.Function(fields.Char('Age'), 'get_patient_age')
     sex = fields.Selection([('m', 'Male'), ('f', 'Female')], 'Sex')
     address = fields.Function(fields.Char('Address'), 'get_address')
@@ -1861,7 +1861,7 @@ class AppointmentReport(ModelSQL, ModelView):
             join2.right.sex,
             appointment.appointment_date,
             appointment.appointment_date.as_('appointment_date_time'),
-            appointment.doctor,
+            appointment.healthprof,
             where=where)
 
     def get_address(self, name):
@@ -1897,14 +1897,14 @@ class OpenAppointmentReportStart(ModelView):
     'Open Appointment Report'
     __name__ = 'gnuhealth.appointment.report.open.start'
     date = fields.Date('Date', required=True)
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor', required=True)
+    healthprof = fields.Many2One('gnuhealth.physician', 'Health Prof', required=True)
 
     @staticmethod
     def default_date():
         return datetime.now()
 
     @staticmethod
-    def default_doctor():
+    def default_healthprof():
         return HealthProfessional().get_health_professional()
 
 
@@ -1923,10 +1923,10 @@ class OpenAppointmentReport(Wizard):
     def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
             'date': self.start.date,
-            'doctor': self.start.doctor.id,
+            'healthprof': self.start.doctor.id,
             })
-        action['name'] += ' - %s, %s' % (self.start.doctor.name.lastname,
-                                         self.start.doctor.name.name)
+        action['name'] += ' - %s, %s' % (self.start.healthprof.name.lastname,
+                                         self.start.healthprof.name.name)
         return action, {}
 
     def transition_open_(self):

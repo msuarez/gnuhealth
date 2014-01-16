@@ -2,6 +2,6 @@
 <form string="Appointment Report">
     <label name="date"/>
     <field name="date"/>
-    <label name="doctor"/>
-    <field name="doctor" widget="selection"/>
+    <label name="healthprof"/>
+    <field name="healthprof" widget="selection"/>
 </form>
