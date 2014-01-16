@@ -1846,8 +1846,8 @@ class AppointmentReport(ModelSQL, ModelView):
                     Transaction().context['date']) \
                 & (appointment.appointment_date <
                     Transaction().context['date'] + timedelta(days=1))
-        if Transaction().context.get('doctor'):
-            where &= appointment.doctor == Transaction().context['doctor']
+        if Transaction().context.get('healthprof'):
+            where &= appointment.doctor == Transaction().context['healthprof']
 
         return join2.select(
             appointment.id,
@@ -1923,7 +1923,7 @@ class OpenAppointmentReport(Wizard):
     def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
             'date': self.start.date,
-            'healthprof': self.start.doctor.id,
+            'healthprof': self.start.healthprof.id,
             })
         action['name'] += ' - %s, %s' % (self.start.healthprof.name.lastname,
                                          self.start.healthprof.name.name)
