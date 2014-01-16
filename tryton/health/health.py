@@ -926,8 +926,8 @@ class PartyPatient (ModelSQL, ModelView):
     internal_user = fields.Many2One(
         'res.user', 'Internal User',
         help='In GNU Health is the user (doctor, nurse) that logins.When the'
-        ' party is a doctor or a health professional, it will be the user'
-        ' that maps the doctor\'s party name. It must be present.',
+        ' party is a health professional, it will be the user'
+        ' that maps the health professional party. It must be present.',
         states={
             'invisible': Not(Bool(Eval('is_healthprof'))),
             'required': Bool(Eval('is_healthprof')),
