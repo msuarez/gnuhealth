@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <form string="Prescription">
-    <group string="Patient and Doctor Information" id="prescription_patient_info">
+    <group string="Patient and Health Professional Information" id="prescription_patient_info">
         <label name="patient"/>
         <field name="patient"/>
         <label name="prescription_id"/>
         <field name="prescription_id"/>
         <label name="prescription_date"/>
         <field name="prescription_date"/>
-        <label name="doctor"/>
-        <field name="doctor"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
         <label name="pharmacy"/>
         <field name="pharmacy"/>
         <group colspan="2" id="prescription_warning">

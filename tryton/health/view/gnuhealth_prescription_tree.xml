@@ -2,6 +2,6 @@
 <tree string="Prescription">
     <field name="prescription_id" expand="1"/>
     <field name="patient" expand="1"/>
-    <field name="doctor"/>
+    <field name="healthprof"/>
     <field name="prescription_date" expand="1"/>
 </tree>

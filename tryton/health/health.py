@@ -2252,8 +2252,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     pregnancy_warning = fields.Boolean('Pregancy Warning', readonly=True)
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
-    doctor = fields.Many2One(
-        'gnuhealth.physician', 'Prescribing Doctor', readonly=True)
+    healthprof = fields.Many2One(
+        'gnuhealth.physician', 'Prescribed by', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -2278,7 +2278,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             prescription.check_prescription_warning()
 
     def check_health_professional(self):
-        if not self.doctor:
+        if not self.healthprof:
             self.raise_user_error('health_professional_warning')
 
     def check_prescription_warning(self):
@@ -2286,7 +2286,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             self.raise_user_error('drug_pregnancy_warning')
 
     @staticmethod
-    def default_doctor():
+    def default_healthprof():
         return HealthProfessional().get_health_professional()
 
     # Method that makes the doctor to acknowledge if there is any
@@ -2338,6 +2338,22 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         default['prescription_date'] = cls.default_prescription_date()
         return super(PatientPrescriptionOrder, cls).copy(
             prescriptions, default=default)
+
+ 
+    @classmethod
+    # Update to version 2.4
+    
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename doctor to a healthprof
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+        super(PatientPrescriptionOrder, cls).__register__(module_name)
 
 
 # PRESCRIPTION LINE
