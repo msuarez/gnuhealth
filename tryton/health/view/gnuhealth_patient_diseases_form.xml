@@ -20,8 +20,8 @@
         <field name="healed_date"/>
         <label name="age"/>
         <field name="age"/>
-        <label name="doctor"/>
-        <field name="doctor"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
     </group>
     <newline/>
     <group string="Allergies" id="group_patient_allergies">

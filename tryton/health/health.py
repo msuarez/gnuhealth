@@ -925,7 +925,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     internal_user = fields.Many2One(
         'res.user', 'Internal User',
-        help='In GNU Health is the user (doctor, nurse) that logins.When the'
+        help='In GNU Health is the user (doctor, nurse, ...) that logins.When the'
         ' party is a health professional, it will be the user'
         ' that maps the health professional party. It must be present.',
         states={
@@ -1530,9 +1530,9 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         help='Brief, one-line remark of the disease. Longer description will'
         ' go on the Extra info field')
 
-    doctor = fields.Many2One(
+    healthprof = fields.Many2One(
         'gnuhealth.physician',
-        'Physician', help='Physician who treated or diagnosed the patient')
+        'Health Prof', help='Health Professional who treated or diagnosed the patient')
 
     diagnosed_date = fields.Date('Date of Diagnosis')
     healed_date = fields.Date('Healed')
@@ -1626,6 +1626,20 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
                         })
 
 
+    # Update to version 2.4
+    @classmethod
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename doctor to healthprof
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+        super(PatientDiseaseInfo, cls).__register__(module_name)
+
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
     'Patient Appointments'
@@ -1650,7 +1664,7 @@ class Appointment(ModelSQL, ModelView):
 
     speciality = fields.Many2One(
         'gnuhealth.specialty', 'Specialty',
-        on_change_with=['doctor'], help='Medical Specialty / Sector')
+        on_change_with=['healthprof'], help='Medical Specialty / Sector')
 
     state = fields.Selection([
         (None, ''),
@@ -1722,7 +1736,7 @@ class Appointment(ModelSQL, ModelView):
         return super(Appointment, cls).copy(appointments, default=default)
 
     @staticmethod
-    def default_doctor():
+    def default_healthprof():
         return HealthProfessional().get_health_professional()
 
     @staticmethod
@@ -1748,8 +1762,8 @@ class Appointment(ModelSQL, ModelView):
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
-        if (self.doctor and self.doctor.specialty):
-            specialty = self.doctor.specialty.specialty.id
+        if (self.healthprof and self.healthprof.specialty):
+            specialty = self.healthprof.specialty.specialty.id
             return specialty
 
     @staticmethod
