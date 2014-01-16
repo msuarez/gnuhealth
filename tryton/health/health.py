@@ -1847,7 +1847,7 @@ class AppointmentReport(ModelSQL, ModelView):
                 & (appointment.appointment_date <
                     Transaction().context['date'] + timedelta(days=1))
         if Transaction().context.get('healthprof'):
-            where &= appointment.doctor == Transaction().context['healthprof']
+            where &= appointment.healthprof == Transaction().context['healthprof']
 
         return join2.select(
             appointment.id,
