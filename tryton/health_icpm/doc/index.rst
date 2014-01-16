@@ -10,3 +10,6 @@ the World Health Organization is undertaking for the first time."
 The ICPM is currently being used in countries around the world, but it will be replaced by the ICHI, the International Classification of Health Intervention [1], currently being revised.
 
 http://www.who.int/classifications/ichi/en/
+
+Credits :
+Many thanks to Yvonne Webber-Bryan and the Jamaica Ministry of Health for their contribution to this ICPM module.
