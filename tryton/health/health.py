@@ -185,9 +185,9 @@ class HealthProfessional(ModelSQL, ModelView):
             cursor = Transaction().cursor
             cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
-            doctor_id = cursor.fetchone()
+            healthprof_id = cursor.fetchone()
             if (doctor_id):
-                return int(doctor_id[0])
+                return int(healthprof_id[0])
 
     name = fields.Many2One(
         'party.party', 'Health Professional', required=True,
