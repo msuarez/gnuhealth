@@ -20,8 +20,8 @@
     </group>
     <newline/>
     <group colspan="4" id="doc_appointment_header">
-        <label name="doctor"/>
-        <field name="doctor"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
         <label name="speciality"/>
         <field name="speciality"/>
     </group>

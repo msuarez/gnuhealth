@@ -1633,9 +1633,9 @@ class Appointment(ModelSQL, ModelView):
 
     name = fields.Char('Appointment ID', readonly=True)
 
-    doctor = fields.Many2One(
-        'gnuhealth.physician', 'Physician',
-        select=True, help='Physician\'s Name')
+    healthprof = fields.Many2One(
+        'gnuhealth.physician', 'Health Prof',
+        select=True, help='Health Professional')
 
     patient = fields.Many2One(
         'gnuhealth.patient', 'Patient', required=True,
@@ -1777,6 +1777,20 @@ class Appointment(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return self.name
 
+
+    # Update to version 2.4
+    @classmethod
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename doctor to healthprof
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+        super(Appointment, cls).__register__(module_name)
 
 class AppointmentReport(ModelSQL, ModelView):
     'Appointment Report'
