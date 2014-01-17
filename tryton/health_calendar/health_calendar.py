@@ -52,19 +52,19 @@ class Appointment(ModelSQL, ModelView):
     def create(cls, vlist):
         Event = Pool().get('calendar.event')
         Patient = Pool().get('gnuhealth.patient')
-        Physician = Pool().get('gnuhealth.healthprofessional')
+        Healthprof = Pool().get('gnuhealth.healthprofessional')
 
         vlist = [x.copy() for x in vlist]
         for values in vlist:
-            if values['doctor']:
-                doctor = Physician(values['doctor'])
-                if doctor.calendar:
+            if values['healthprof']:
+                healthprof = Healthprof(values['healthprof'])
+                if healthprof.calendar:
                     patient = Patient(values['patient'])
                     events = Event.create([{
                         'dtstart': values['appointment_date'],
                         'dtend': values['appointment_date'] +
                         timedelta(minutes=values['appointment_time']),
-                        'calendar': doctor.calendar.id,
+                        'calendar': healthprof.calendar.id,
                         'summary': patient.name.lastname + ', ' +
                         patient.name.name,
                         }])
@@ -75,7 +75,7 @@ class Appointment(ModelSQL, ModelView):
     def write(cls, appointments, values):
         Event = Pool().get('calendar.event')
         Patient = Pool().get('gnuhealth.patient')
-        Physician = Pool().get('gnuhealth.healthprofessional')
+        Healtprof = Pool().get('gnuhealth.healthprofessional')
 
         for appointment in appointments:
             if appointment.event:
@@ -90,10 +90,10 @@ class Appointment(ModelSQL, ModelView):
                         'dtend': appointment.appointment_date +
                         timedelta(minutes=values['appointment_time']),
                         })
-                if 'doctor' in values:
-                    doctor = Physician(values['doctor'])
+                if 'healthprof' in values:
+                    healthprof = Healtprof(values['healthprof'])
                     Event.write([appointment.event], {
-                        'calendar': doctor.calendar.id,
+                        'calendar': healthprof.calendar.id,
                         })
                 if 'patient' in values:
                     patient = Patient(values['patient'])
