@@ -168,7 +168,7 @@ class MedicalSpecialty(ModelSQL, ModelView):
 
 class HealthProfessional(ModelSQL, ModelView):
     'Health Professional'
-    __name__ = 'gnuhealth.physician'
+    __name__ = 'gnuhealth.healthprofessional'
 
     @classmethod
     def get_health_professional(cls):
@@ -183,7 +183,7 @@ class HealthProfessional(ModelSQL, ModelView):
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             healthprof_id = cursor.fetchone()
             if (healthprof_id):
@@ -216,12 +216,25 @@ class HealthProfessional(ModelSQL, ModelView):
                 res = self.name.lastname + ', ' + self.name.name
         return res
 
+    @classmethod
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        # Upgrade to 2.4
+        # Rename gnuhealth_physician to gnuhealth_healthprofessional
+
+        if TableHandler.table_exist(cursor,'gnuhealth_physician'):
+            TableHandler.table_rename(cursor,'gnuhealth_physician', 'gnuhealth_healthprofessional')
+
+        super(HealthProfessional, cls).__register__(module_name)
+
 
 class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
     __name__ = 'gnuhealth.hp_specialty'
 
-    name = fields.Many2One('gnuhealth.physician', 'Health Professional')
+    name = fields.Many2One('gnuhealth.healthprofessional', 'Health Professional')
 
     specialty = fields.Many2One(
         'gnuhealth.specialty', 'Specialty', help='Specialty Code')
@@ -233,7 +246,7 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
 class PhysicianSP(ModelSQL, ModelView):
     # Add Main Specialty field after from the Health Professional Speciality
     'Health Professional'
-    __name__ = 'gnuhealth.physician'
+    __name__ = 'gnuhealth.healthprofessional'
 
     main_specialty = fields.Many2One(
         'gnuhealth.hp_specialty', 'Main Specialty',
@@ -256,7 +269,7 @@ class PhysicianSP(ModelSQL, ModelView):
             # with the current specialty
             cursor.execute(
                 "INSERT INTO gnuhealth_hp_specialty (name, specialty) \
-                SELECT id, specialty from gnuhealth_physician;")
+                SELECT id, specialty from gnuhealth_healthprofessional;")
             # Drop old specialty column, replaced by main_specialty
             table.drop_column('specialty')
 
@@ -1250,7 +1263,7 @@ class PatientData(ModelSQL, ModelView):
         In the case of a Domiciliary Unit, just link it to the name of the \
         contact in the address form.")
     primary_care_doctor = fields.Many2One(
-        'gnuhealth.physician',
+        'gnuhealth.healthprofessional',
         'GP', help='Current General Practitioner / Family Doctor')
 
     # Removed in 2.0 . PHOTO It's now a functional field
@@ -1531,7 +1544,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         ' go on the Extra info field')
 
     healthprof = fields.Many2One(
-        'gnuhealth.physician',
+        'gnuhealth.healthprofessional',
         'Health Prof', help='Health Professional who treated or diagnosed the patient')
 
     diagnosed_date = fields.Date('Date of Diagnosis')
@@ -1648,7 +1661,7 @@ class Appointment(ModelSQL, ModelView):
     name = fields.Char('Appointment ID', readonly=True)
 
     healthprof = fields.Many2One(
-        'gnuhealth.physician', 'Health Prof',
+        'gnuhealth.healthprofessional', 'Health Prof',
         select=True, help='Health Professional')
 
     patient = fields.Many2One(
@@ -1780,7 +1793,7 @@ class Appointment(ModelSQL, ModelView):
         if hp_party_id:
             # Retrieve the health professional Main specialty, if assigned
 
-            health_professional_obj = Pool().get('gnuhealth.physician')
+            health_professional_obj = Pool().get('gnuhealth.healthprofessional')
             health_professional = health_professional_obj.search(
                 [('id', '=', hp_party_id)], limit=1)[0]
             hp_main_specialty = health_professional.main_specialty
@@ -1813,7 +1826,7 @@ class AppointmentReport(ModelSQL, ModelView):
     identification_code = fields.Char('Identification Code')
     ref = fields.Char('SSN')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
-    healthprof = fields.Many2One('gnuhealth.physician', 'Health Prof')
+    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
     age = fields.Function(fields.Char('Age'), 'get_patient_age')
     sex = fields.Selection([('m', 'Male'), ('f', 'Female')], 'Sex')
     address = fields.Function(fields.Char('Address'), 'get_address')
@@ -1892,12 +1905,26 @@ class AppointmentReport(ModelSQL, ModelView):
     def get_patient_age(self, name):
         return self.patient.age
 
+    # Update to version 2.4
+    @classmethod
+    def __register__(cls, module_name):
+        
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Rename doctor to healthprof
+
+        if table.column_exist('doctor'):
+            table.column_rename('doctor', 'healthprof')
+
+        super(AppointmentReport, cls).__register__(module_name)
+
 
 class OpenAppointmentReportStart(ModelView):
     'Open Appointment Report'
     __name__ = 'gnuhealth.appointment.report.open.start'
     date = fields.Date('Date', required=True)
-    healthprof = fields.Many2One('gnuhealth.physician', 'Health Prof', required=True)
+    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof', required=True)
 
     @staticmethod
     def default_date():
@@ -1956,7 +1983,7 @@ class PatientMedication(ModelSQL, ModelView):
         'gnuhealth.patient', 'Patient', readonly=True)
 
     healthprof = fields.Many2One(
-        'gnuhealth.physician', 'Prescribed by',
+        'gnuhealth.healthprofessional', 'Prescribed by',
         help='Health Professional who prescribed the medicament')
 
     is_active = fields.Boolean(
@@ -2267,7 +2294,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
     healthprof = fields.Many2One(
-        'gnuhealth.physician', 'Prescribed by', readonly=True)
+        'gnuhealth.healthprofessional', 'Prescribed by', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -2577,7 +2604,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     healthprof = fields.Many2One(
-        'gnuhealth.physician', 'Health Prof',
+        'gnuhealth.healthprofessional', 'Health Prof',
         help="Health professional that initiates the evaluation."
         "This health professional might or might not be the same that"
         " signs and finishes the evaluation."
@@ -2585,7 +2612,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ", when it becomes read-only", readonly=True)
 
     signed_by = fields.Many2One(
-        'gnuhealth.physician', 'Signed by', readonly=True,
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
         states={'invisible': Equal(Eval('state'), 'in_progress')},
         help="Health Professional that signed the patient evaluation document")
 
@@ -2617,11 +2644,11 @@ class PatientEvaluation(ModelSQL, ModelView):
         "if the information provided by the source seems not reliable")
 
     derived_from = fields.Many2One(
-        'gnuhealth.physician', 'Derived from',
+        'gnuhealth.healthprofessional', 'Derived from',
         help='Health Professional who derived the case')
 
     derived_to = fields.Many2One(
-        'gnuhealth.physician', 'Derived to',
+        'gnuhealth.healthprofessional', 'Derived to',
         help='Health Professional to derive the case')
 
     evaluation_type = fields.Selection([
