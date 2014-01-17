@@ -98,9 +98,9 @@ class InpatientRegistration(ModelSQL, ModelView):
         required=True, select=True)
     discharge_date = fields.DateTime('Expected Discharge Date', required=True,
         select=True)
-    attending_physician = fields.Many2One('gnuhealth.physician',
+    attending_physician = fields.Many2One('gnuhealth.healthprofessional',
         'Attending Physician', select=True)
-    operating_physician = fields.Many2One('gnuhealth.physician',
+    operating_physician = fields.Many2One('gnuhealth.healthprofessional',
         'Operating Physician')
     admission_reason = fields.Many2One('gnuhealth.pathology',
         'Reason for Admission', help="Reason for Admission", select=True)
@@ -414,7 +414,7 @@ class InpatientMedicationLog (ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.inpatient.medication', 'Medication')
     admin_time = fields.DateTime("Date", readonly=True)
-    health_professional = fields.Many2One('gnuhealth.physician',
+    health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     dose = fields.Float('Dose',
         help='Amount of medication (eg, 250 mg) per dose')
@@ -452,7 +452,7 @@ class InpatientMedicationLog (ModelSQL, ModelView):
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])

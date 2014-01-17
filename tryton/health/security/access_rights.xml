@@ -314,7 +314,7 @@
         </record>
 
         <record model="ir.model.access" id="access_health_physician_admin">
-            <field name="model" search="[('model', '=', 'gnuhealth.physician')]"/>
+            <field name="model" search="[('model', '=', 'gnuhealth.healthprofessional')]"/>
             <field name="group" ref="group_health_admin"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
@@ -602,7 +602,7 @@
         </record>
 
         <record model="ir.model.access" id="access_health_physician">
-            <field name="model" search="[('model', '=', 'gnuhealth.physician')]"/>
+            <field name="model" search="[('model', '=', 'gnuhealth.healthprofessional')]"/>
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>

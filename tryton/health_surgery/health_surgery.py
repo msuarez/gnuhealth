@@ -38,7 +38,7 @@ class RCRI(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient ID', required=True)
     rcri_date = fields.DateTime('Date', required=True)
     health_professional = fields.Many2One(
-        'gnuhealth.physician', 'Health Professional',
+        'gnuhealth.healthprofessional', 'Health Professional',
         help="Health professional /"
         "Cardiologist who signed the assesment RCRI")
 
@@ -215,11 +215,11 @@ class Surgery(ModelSQL, ModelView):
         ('e', 'Emergency'),
         ], 'Classification', sort=False)
     surgeon = fields.Many2One(
-        'gnuhealth.physician', 'Surgeon',
+        'gnuhealth.healthprofessional', 'Surgeon',
         help="Surgeon who did the procedure")
 
     anesthetist = fields.Many2One(
-        'gnuhealth.physician', 'Anesthetist',
+        'gnuhealth.healthprofessional', 'Anesthetist',
         help="Anesthetist in charge")
 
     surgery_date = fields.DateTime(

@@ -51,7 +51,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
-    health_professional = fields.Many2One('gnuhealth.physician',
+    health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     evaluation_start = fields.DateTime('Start', required=True)
     evaluation_end = fields.DateTime('End', required=True)
@@ -138,7 +138,7 @@ class PatientRounding(ModelSQL, ModelView):
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])
@@ -169,9 +169,9 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     evaluation = fields.Many2One('gnuhealth.patient.evaluation',
         'Related Evaluation', domain=[('patient', '=', Eval('patient'))],
         depends=['patient'])
-    ordering_professional = fields.Many2One('gnuhealth.physician',
+    ordering_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Ordering Physician')
-    health_professional = fields.Many2One('gnuhealth.physician',
+    health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name',
         'Procedures',
@@ -253,7 +253,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])

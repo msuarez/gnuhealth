@@ -29,8 +29,8 @@
             <field name="name">gnuhealth-health-center</field>
             <field name="path">icons/health-center.svg</field>
         </record>
-        <record model="ir.ui.icon" id="gnuhealth_physician_icon">
-            <field name="name">gnuhealth-physician</field>
+        <record model="ir.ui.icon" id="gnuhealth_healthprofessional_icon">
+            <field name="name">gnuhealth-healthprofessional</field>
             <field name="path">icons/doctor.svg</field>
         </record>
         <record model="ir.ui.icon" id="gnuhealth_patient_icon">
@@ -86,8 +86,8 @@
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
         <menuitem name="Health Centers" id="gnuhealth_conf_hospital"
             parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-health-center"/>
-        <menuitem name="Health Professionals" id="gnuhealth_conf_physicians"
-            parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-physician"/>
+        <menuitem name="Health Professionals" id="gnuhealth_conf_healthprofessionals"
+            parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-healthprofessional"/>
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
@@ -334,38 +334,38 @@
             id="gnuhealth_conf_specialty" parent="gnuhealth_conf_misc"/>
 
 
-<!-- Physician -->
+<!-- Health Professional -->
 
-        <record model="ir.ui.view" id="gnuhealth_physician_view">
-            <field name="model">gnuhealth.physician</field>
+        <record model="ir.ui.view" id="gnuhealth_healthprofessional_view">
+            <field name="model">gnuhealth.healthprofessional</field>
             <field name="type">form</field>
-            <field name="name">gnuhealth_physician</field>
+            <field name="name">gnuhealth_healthprofessional</field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_physician_tree">
-            <field name="model">gnuhealth.physician</field>
+        <record model="ir.ui.view" id="gnuhealth_healthprofessional_tree">
+            <field name="model">gnuhealth.healthprofessional</field>
             <field name="type">tree</field>
-            <field name="name">gnuhealth_physician_tree</field>
+            <field name="name">gnuhealth_healthprofessional_tree</field>
         </record>
 
-        <record model="ir.action.act_window" id="gnuhealth_action_physician">
+        <record model="ir.action.act_window" id="gnuhealth_action_healthprofessional">
             <field name="name">Health Professionals</field>
-            <field name="res_model">gnuhealth.physician</field>
+            <field name="res_model">gnuhealth.healthprofessional</field>
         </record>
 
-        <record model="ir.action.act_window.view" id="act_physician_list_view">
+        <record model="ir.action.act_window.view" id="act_healthprofessional_list_view">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="gnuhealth_physician_tree"/>
-            <field name="act_window" ref="gnuhealth_action_physician"/>
+            <field name="view" ref="gnuhealth_healthprofessional_tree"/>
+            <field name="act_window" ref="gnuhealth_action_healthprofessional"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_physician_form_view">
+        <record model="ir.action.act_window.view" id="act_healthprofessional_form_view">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="gnuhealth_physician_view"/>
-            <field name="act_window" ref="gnuhealth_action_physician"/>
+            <field name="view" ref="gnuhealth_healthprofessional_view"/>
+            <field name="act_window" ref="gnuhealth_action_healthprofessional"/>
         </record>
 
-        <menuitem action="gnuhealth_action_physician"
-            id="gnuhealth_edit_physician" parent="gnuhealth_conf_physicians"
+        <menuitem action="gnuhealth_action_healthprofessional"
+            id="gnuhealth_edit_healthprofessional" parent="gnuhealth_conf_healthprofessionals"
             icon="gnuhealth-list" sequence="1"/>
 
 

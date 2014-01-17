@@ -28,7 +28,7 @@ __all__ = ['Physician', 'Appointment']
 
 class Physician(ModelSQL, ModelView):
     "Add Calendar to Physician"
-    __name__ = "gnuhealth.physician"
+    __name__ = "gnuhealth.healthprofessional"
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar')
 
@@ -52,7 +52,7 @@ class Appointment(ModelSQL, ModelView):
     def create(cls, vlist):
         Event = Pool().get('calendar.event')
         Patient = Pool().get('gnuhealth.patient')
-        Physician = Pool().get('gnuhealth.physician')
+        Physician = Pool().get('gnuhealth.healthprofessional')
 
         vlist = [x.copy() for x in vlist]
         for values in vlist:
@@ -75,7 +75,7 @@ class Appointment(ModelSQL, ModelView):
     def write(cls, appointments, values):
         Event = Pool().get('calendar.event')
         Patient = Pool().get('gnuhealth.patient')
-        Physician = Pool().get('gnuhealth.physician')
+        Physician = Pool().get('gnuhealth.healthprofessional')
 
         for appointment in appointments:
             if appointment.event:

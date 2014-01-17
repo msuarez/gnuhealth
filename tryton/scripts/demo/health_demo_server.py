@@ -52,7 +52,7 @@ def LoadBetzFamilyInfo():
     Family = Model.get('gnuhealth.family')
     FamilyMember = Model.get('gnuhealth.family_member')
     Patient = Model.get('gnuhealth.patient')
-    Physician = Model.get('gnuhealth.physician')
+    Physician = Model.get('gnuhealth.healthprofessional')
     MedicalSpecialty = Model.get('gnuhealth.specialty')
     Occupation = Model.get('gnuhealth.occupation')
     Pathology = Model.get('gnuhealth.pathology')

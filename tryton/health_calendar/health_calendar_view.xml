@@ -2,13 +2,13 @@
 <tryton>
     <data>
 
-    <!-- Physician -->
+    <!-- healthprofessional -->
 
-        <record model="ir.ui.view" id="gnuhealth_calendar_physician_view">
-            <field name="model">gnuhealth.physician</field>
+        <record model="ir.ui.view" id="gnuhealth_calendar_healthprofessional_view">
+            <field name="model">gnuhealth.healthprofessional</field>
             <field name="type">form</field>
-            <field name="inherit" ref="health.gnuhealth_physician_view"/>
-            <field name="name">gnuhealth_calendar_physician</field>
+            <field name="inherit" ref="health.gnuhealth_healthprofessional_view"/>
+            <field name="name">gnuhealth_calendar_healthprofessional</field>
         </record>
             
     <!-- Appointment details -->

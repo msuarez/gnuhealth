@@ -105,7 +105,7 @@ class RequestPatientLabTestStart(ModelView):
 
     date = fields.DateTime('Date')
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor',
+    doctor = fields.Many2One('gnuhealth.healthprofessional', 'Doctor',
         help="Doctor who Request the lab tests.")
     tests = fields.Many2Many('gnuhealth.request-test', 'request', 'test',
         'Tests', required=True)
@@ -131,7 +131,7 @@ class RequestPatientLabTestStart(ModelView):
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_physician WHERE \
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])

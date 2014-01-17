@@ -190,7 +190,7 @@ class EvaluationsDoctor(ModelSQL, ModelView):
     'Evaluations per Doctor'
     __name__ = 'gnuhealth.evaluations_doctor'
 
-    doctor = fields.Many2One('gnuhealth.physician', 'Doctor')
+    doctor = fields.Many2One('gnuhealth.healthprofessional', 'Doctor')
     evaluations = fields.Integer('Evaluations')
 
     @staticmethod

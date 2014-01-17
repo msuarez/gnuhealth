@@ -99,7 +99,7 @@ class Newborn(ModelSQL, ModelView):
     neonatal_palmar_crease = fields.Boolean('Transversal Palmar Crease')
     medication = fields.One2Many('gnuhealth.patient.medication',
         'newborn_id', 'Medication')
-    responsible = fields.Many2One('gnuhealth.physician', 'Doctor in charge',
+    responsible = fields.Many2One('gnuhealth.healthprofessional', 'Doctor in charge',
         help="Signed by the health professional")
     dismissed = fields.DateTime('Discharged')
     bd = fields.Boolean('Stillbirth')
