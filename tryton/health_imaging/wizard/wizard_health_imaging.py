@@ -27,8 +27,9 @@ from trytond.transaction import Transaction
 from trytond.pyson import PYSONEncoder
 from trytond.pool import Pool
 
-__all__ = ['WizardGenerateResult', 'RequestImagingTest', 
-    'RequestPatientImagingTestStart', 'RequestPatientImagingTest' ]
+__all__ = ['WizardGenerateResult', 'RequestImagingTest',
+    'RequestPatientImagingTestStart', 'RequestPatientImagingTest']
+
 
 class WizardGenerateResult(Wizard):
     'Generate Results'
@@ -40,8 +41,6 @@ class WizardGenerateResult(Wizard):
         pool = Pool()
         Request = pool.get('gnuhealth.imaging.test.request')
         Result = pool.get('gnuhealth.imaging.test.result')
-        ModelData = pool.get('ir.model.data')
-        ActionActWindow = pool.get('ir.action.act_window')
 
         request_data = []
         requests = Request.browse(Transaction().context.get('active_ids'))
@@ -58,16 +57,10 @@ class WizardGenerateResult(Wizard):
         action['pyson_domain'] = PYSONEncoder().encode(
             [('id', 'in', [r.id for r in results])])
 
-        model_data, = ModelData.search([
-            ('fs_id', '=', 'act_imaging_test_result_view'),
-            ('module', '=', 'health_imaging'),
-            ], limit=1)
-        action_window = ActionActWindow(model_data.db_id)
-
-        action['name'] = action_window.name
         Request.requested(requests)
         Request.done(requests)
         return action, {}
+
 
 class RequestImagingTest(ModelView):
     'Request - Test'
@@ -85,8 +78,8 @@ class RequestPatientImagingTestStart(ModelView):
 
     date = fields.DateTime('Date')
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    doctor = fields.Many2One('gnuhealth.healthprofessional', 'Doctor', required=True,
-        help="Doctor who Request the lab tests.")
+    doctor = fields.Many2One('gnuhealth.healthprofessional', 'Doctor',
+        required=True, help="Doctor who Request the lab tests.")
     tests = fields.Many2Many('gnuhealth.request-imaging-test', 'request',
         'test', 'Tests', required=True)
     urgent = fields.Boolean('Urgent')
@@ -106,13 +99,13 @@ class RequestPatientImagingTestStart(ModelView):
         User = Pool().get('res.user')
         user = User(Transaction().user)
         login_user_id = int(user.id)
-        cursor.execute('SELECT id FROM party_party WHERE is_healthprof=True AND \
-            internal_user = %s LIMIT 1', (login_user_id,))
+        cursor.execute('SELECT id FROM party_party WHERE is_healthprof=True AND'
+            ' internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if partner_id:
             cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
-                name = %s LIMIT 1', (partner_id[0],))
+            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE '
+                'name = %s LIMIT 1', (partner_id[0],))
             doctor_id = cursor.fetchone()
             return int(doctor_id[0])
 
