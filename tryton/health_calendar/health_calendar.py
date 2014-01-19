@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
+#    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,88 +18,98 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from datetime import timedelta
-from trytond.model import ModelView, ModelSQL, fields
-from trytond.pool import Pool
+from trytond.model import fields
+from trytond.pool import Pool, PoolMeta
 
 
-__all__ = ['Physician', 'Appointment']
+__all__ = ['HealthProfessional', 'Appointment']
+__metaclass__ = PoolMeta
 
 
-class Physician(ModelSQL, ModelView):
-    "Add Calendar to Physician"
+class HealthProfessional:
     __name__ = "gnuhealth.healthprofessional"
 
     calendar = fields.Many2One('calendar.calendar', 'Calendar')
 
 
-class Appointment(ModelSQL, ModelView):
-    'Add Calendar to the Appointment'
+class Appointment:
     __name__ = 'gnuhealth.appointment'
 
     event = fields.Many2One(
         'calendar.event', 'Calendar Event', readonly=True,
         help="Calendar Event")
-    appointment_time = fields.Integer(
-        'Appointment Time',
-        help='Appointment Time (Minutes)')
-
-    @staticmethod
-    def default_appointment_time():
-        return 30
+    appointment_date_end = fields.DateTime('End Date and Time')
 
     @classmethod
     def create(cls, vlist):
-        Event = Pool().get('calendar.event')
-        Patient = Pool().get('gnuhealth.patient')
-        Healthprof = Pool().get('gnuhealth.healthprofessional')
+        pool = Pool()
+        Event = pool.get('calendar.event')
+        Patient = pool.get('gnuhealth.patient')
+        Healthprof = pool.get('gnuhealth.healthprofessional')
 
         vlist = [x.copy() for x in vlist]
         for values in vlist:
-            if values['healthprof']:
-                healthprof = Healthprof(values['healthprof'])
-                if healthprof.calendar:
-                    patient = Patient(values['patient'])
-                    events = Event.create([{
-                        'dtstart': values['appointment_date'],
-                        'dtend': values['appointment_date'] +
-                        timedelta(minutes=values['appointment_time']),
-                        'calendar': healthprof.calendar.id,
-                        'summary': patient.name.lastname + ', ' +
-                        patient.name.name,
-                        }])
-                    values['event'] = events[0].id
+            if values['state'] == 'confirmed':
+                if values['healthprof']:
+                    healthprof = Healthprof(values['healthprof'])
+                    if healthprof.calendar:
+                        patient = Patient(values['patient'])
+                        appointment_date_end = None
+                        if values.get('appointment_date_end'):
+                            appointment_date_end = \
+                                values['appointment_date_end']
+                        events = Event.create([{
+                            'dtstart': values['appointment_date'],
+                            'dtend': appointment_date_end,
+                            'calendar': healthprof.calendar.id,
+                            'summary': patient.name.lastname + ', ' +
+                            patient.name.name,
+                            }])
+                        values['event'] = events[0].id
         return super(Appointment, cls).create(vlist)
 
     @classmethod
     def write(cls, appointments, values):
-        Event = Pool().get('calendar.event')
-        Patient = Pool().get('gnuhealth.patient')
-        Healtprof = Pool().get('gnuhealth.healthprofessional')
+        pool = Pool()
+        Event = pool.get('calendar.event')
+        Patient = pool.get('gnuhealth.patient')
+        Healtprof = pool.get('gnuhealth.healthprofessional')
 
         for appointment in appointments:
-            if appointment.event:
-                if 'appointment_date' in values:
-                    Event.write([appointment.event], {
-                        'dtstart': values['appointment_date'],
-                        'dtend': values['appointment_date'] +
-                        timedelta(minutes=appointment.appointment_time),
-                        })
-                if 'appointment_time' in values:
-                    Event.write([appointment.event], {
-                        'dtend': appointment.appointment_date +
-                        timedelta(minutes=values['appointment_time']),
-                        })
-                if 'healthprof' in values:
-                    healthprof = Healtprof(values['healthprof'])
-                    Event.write([appointment.event], {
-                        'calendar': healthprof.calendar.id,
-                        })
-                if 'patient' in values:
-                    patient = Patient(values['patient'])
-                    Event.write([appointment.event], {
-                        'summary': patient.name.name,
-                        })
+            if values.get('patient'):
+                if appointment.event:
+                    if 'appointment_date' in values:
+                        Event.write([appointment.event], {
+                            'dtstart': values['appointment_date'],
+                            })
+                    if 'appointment_date_end' in values:
+                        Event.write([appointment.event], {
+                            'dtend': values['appointment_date_end'],
+                            })
+                    if 'healthprof' in values:
+                        healthprof = Healtprof(values['healthprof'])
+                        Event.write([appointment.event], {
+                            'calendar': healthprof.calendar.id,
+                            })
+                    if 'patient' in values:
+                        patient = Patient(values['patient'])
+                        Event.write([appointment.event], {
+                            'summary': patient.name.name,
+                            })
+                else:
+                    if appointment.healthprof:
+                        if appointment.healthprof.calendar:
+                            patient = Patient(values['patient'])
+                            events = Event.create([{
+                                'dtstart': appointment.appointment_date,
+                                'dtend': appointment.appointment_date_end,
+                                'calendar':
+                                    appointment.healthprof.calendar.id,
+                                'summary':
+                                    patient.name.lastname + ', '
+                                    + patient.name.name,
+                                }])
+                            values['event'] = events[0].id
         return super(Appointment, cls).write(appointments, values)
 
     @classmethod

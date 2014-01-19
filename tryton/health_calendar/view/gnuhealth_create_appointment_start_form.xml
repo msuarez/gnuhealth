@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<form string="New Work Schedule">
+    <label name="institution"/>
+    <field name="institution"/>
+    <newline/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="specialty"/>
+    <field name="specialty"/>
+    <group id="date" col="8" colspan="4">
+        <label name="date_start"/>
+        <field name="date_start"/>
+        <label name="date_end"/>
+        <field name="date_end"/>
+        <label name="time_start"/>
+        <field name="time_start"/>
+        <label name="time_end"/>
+        <field name="time_end"/>
+        <label name="monday"/>
+        <field name="monday"/>
+        <label name="tuesday"/>
+        <field name="tuesday"/>
+        <label name="wednesday"/>
+        <field name="wednesday"/>
+        <label name="thursday"/>
+        <field name="thursday"/>
+        <label name="friday"/>
+        <field name="friday"/>
+        <label name="saturday"/>
+        <field name="saturday"/>
+        <label name="sunday"/>
+        <field name="sunday"/>
+    </group>
+    <label name="appointment_minutes"/>
+    <field name="appointment_minutes"/>
+</form>

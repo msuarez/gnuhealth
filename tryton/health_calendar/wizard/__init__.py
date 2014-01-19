@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
+#    Copyright (C) 2014 Sebastián Marro <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -18,18 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-from trytond.pool import Pool
-from .health_calendar import *
-from .wizard import *
-
-
-def register():
-    Pool.register(
-        HealthProfessional,
-        Appointment,
-        CreateAppointmentStart,
-        module='health_calendar', type_='model')
-    Pool.register(
-        CreateAppointment,
-        module='health_calendar', type_='wizard')
+from .wizard_health_calendar import *

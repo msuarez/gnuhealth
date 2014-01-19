@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="create_appointment_start_view_form">
+            <field name="model">gnuhealth.calendar.create.appointment.start</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_create_appointment_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_create_appointments">
+            <field name="name">New Work Schedule</field>
+            <field name="wiz_name">gnuhealth.calendar.create.appointment</field>
+        </record>
+        <menuitem parent="health.gnuhealth_appointment_menu"
+            action="wizard_create_appointments"
+            id="menu_create_appointments" sequence="50"
+            icon="gnuhealth-execute"/>
+
+    </data>
+</tryton>

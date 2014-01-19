@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<calendar string="Patient appointments" dtstart="appointment_date"
+    dtend="appointment_date_end">
+    <field name="name"/>
+    <field name="patient"/>
+</calendar>

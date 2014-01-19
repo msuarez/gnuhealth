@@ -56,6 +56,7 @@ setup(name='trytond_health_calendar',
     packages=[
         'trytond.modules.health_calendar',
         'trytond.modules.health_calendar.tests',
+        'trytond.modules.health_calendar.wizard',
         ],
     package_data={
         'trytond.modules.health_calendar': info.get('xml', []) \
