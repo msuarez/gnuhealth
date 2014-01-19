@@ -27,6 +27,7 @@ from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.modules.health import HealthProfessional
 
 __all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
@@ -227,13 +228,23 @@ class Surgery(ModelSQL, ModelView):
         'Date', help="Start of the Surgery")
 
     surgery_end_date = fields.DateTime(
-        'End', help="End of the Surgery")
+        'End', required=True, help="End of the Surgery")
 
     surgery_length = fields.Function(
         fields.Char(
             'Duration',
             help="Length of the surgery"),
         'surgery_duration')
+
+    state = fields.Selection([
+        ('in_progress', 'In progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True, sort=False)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that signed this surgery document")
 
     # age is deprecated in GNU Health 2.0
     age = fields.Char(
@@ -308,22 +319,28 @@ class Surgery(ModelSQL, ModelView):
     anesthesia_report = fields.Text('Anesthesia Report')
 
     @staticmethod
+    def default_surgery_date():
+        return datetime.now()
+
+    @staticmethod
     def default_surgeon():
         return HealthProfessional.get_health_professional()
 
+    @staticmethod
+    def default_state():
+        return 'in_progress'
 
     @classmethod
     # Update to version 2.0
     def __register__(cls, module_name):
-        super(Surgery, cls).__register__(module_name)
-
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
         # Rename the date column to surgery_surgery_date
-
         if table.column_exist('date'):
             table.column_rename('date', 'surgery_date')
+
+        super(Surgery, cls).__register__(module_name)
 
     @classmethod
     def __setup__(cls):
@@ -332,6 +349,12 @@ class Surgery(ModelSQL, ModelView):
             'end_date_before_start': 'End time "%(end_date)s" BEFORE '
                 'surgery date "%(surgery_date)s"'})
 
+        cls._buttons.update({
+            'signsurgery': {
+                'invisible': Equal(Eval('state'), 'done'),
+            },
+        })
+        
     @classmethod
     def validate(cls, surgeries):
         super(Surgery, cls).validate(surgeries)
@@ -352,6 +375,35 @@ class Surgery(ModelSQL, ModelView):
                         'end_date': datetime_strftime(self.surgery_end_date,
                             str(languages[0].date)),
                         })
+
+
+    @classmethod
+    def write(cls, surgeries, vals):
+        # Don't allow to write the record if the surgery has been signed
+        if surgeries[0].state == 'done':
+            cls.raise_user_error(
+                "This surgery is at state Done and has been signed\n"
+                "You can no longer modify it.")
+        return super(Surgery, cls).write(surgeries, vals)
+
+ # Finish and sign the surgery document, and the surgical act.
+
+    @classmethod
+    @ModelView.button
+    def signsurgery(cls, surgeries):
+        surgery_id = surgeries[0]
+
+        # Sign, change the state of the Surgery to "Done"
+        # and write the name of the signing health professional
+
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(surgeries, {
+            'state': 'done',
+            'signed_by': signing_hp})
 
 
 class Operation(ModelSQL, ModelView):
