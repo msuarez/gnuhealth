@@ -28,6 +28,6 @@ def register():
     Pool.register(
         RCRI,
         Surgery,
-        MedicalOperation,
-        MedicalPatient,
+        Operation,
+        PatientData,
         module='health_surgery', type_='model')

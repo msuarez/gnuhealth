@@ -28,7 +28,7 @@ from trytond import backend
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 
-__all__ = ['RCRI', 'Surgery', 'MedicalOperation', 'MedicalPatient']
+__all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
 
 
 class RCRI(ModelSQL, ModelView):
@@ -348,7 +348,7 @@ class Surgery(ModelSQL, ModelView):
                         })
 
 
-class MedicalOperation(ModelSQL, ModelView):
+class Operation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
     __name__ = 'gnuhealth.operation'
 
@@ -359,7 +359,7 @@ class MedicalOperation(ModelSQL, ModelView):
     notes = fields.Text('Notes')
 
 
-class MedicalPatient(ModelSQL, ModelView):
+class PatientData(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     surgery = fields.One2Many(
