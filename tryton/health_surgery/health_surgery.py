@@ -213,7 +213,7 @@ class Surgery(ModelSQL, ModelView):
         ('r', 'Required'),
         ('u', 'Urgent'),
         ('e', 'Emergency'),
-        ], 'Classification', sort=False)
+        ], 'Urgency', sort=False)
     surgeon = fields.Many2One(
         'gnuhealth.healthprofessional', 'Surgeon',
         help="Surgeon who did the procedure")
