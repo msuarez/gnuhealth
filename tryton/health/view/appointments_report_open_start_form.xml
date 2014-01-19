@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <form string="Appointment Report">
-    <label name="date"/>
-    <field name="date"/>
+    <label name="date_start"/>
+    <field name="date_start"/>
+    <label name="date_end"/>
+    <field name="date_end"/>
     <label name="healthprof"/>
     <field name="healthprof" widget="selection"/>
 </form>

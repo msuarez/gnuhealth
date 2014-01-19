@@ -218,7 +218,7 @@ class HealthProfessional(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         # Upgrade to 2.4
@@ -1027,9 +1027,9 @@ class PartyPatient (ModelSQL, ModelView):
 
     @classmethod
     # Update to version 2.4
-    
+
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -1642,7 +1642,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     # Update to version 2.4
     @classmethod
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -1665,8 +1665,9 @@ class Appointment(ModelSQL, ModelView):
         select=True, help='Health Professional')
 
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Patient', required=True,
-        select=True, help='Patient Name')
+        'gnuhealth.patient', 'Patient',
+        select=True, help='Patient Name', on_change=['patient'],
+        states={'required': (Eval('state') != 'free')})
 
     appointment_date = fields.DateTime('Date and Time')
 
@@ -1681,6 +1682,7 @@ class Appointment(ModelSQL, ModelView):
 
     state = fields.Selection([
         (None, ''),
+        ('free', 'Free'),
         ('confirmed', 'Confirmed'),
         ('done', 'Done'),
         ('user_cancelled', 'Cancelled by patient'),
@@ -1731,12 +1733,25 @@ class Appointment(ModelSQL, ModelView):
 
         vlist = [x.copy() for x in vlist]
         for values in vlist:
-            if not values.get('name'):
+            if values['state'] == 'confirmed' and not values.get('name'):
                 config = Config(1)
                 values['name'] = Sequence.get_id(
                     config.appointment_sequence.id)
 
         return super(Appointment, cls).create(vlist)
+
+    @classmethod
+    def write(cls, appointments, values):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        for appointment in appointments:
+            if values.get('state') == 'confirmed' and not values.get('name'):
+                config = Config(1)
+                values['name'] = Sequence.get_id(
+                    config.appointment_sequence.id)
+
+        return super(Appointment, cls).write(appointments, values)
 
     @classmethod
     def copy(cls, appointments, default=None):
@@ -1772,11 +1787,17 @@ class Appointment(ModelSQL, ModelView):
     def default_institution():
         return Transaction().context.get('company')
 
+    def on_change_patient(self):
+        res = {'state': 'free'}
+        if self.patient:
+            res = {'state': 'confirmed'}
+        return res
+
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
-        if (self.healthprof and self.healthprof.specialty):
-            specialty = self.healthprof.specialty.specialty.id
+        if (self.healthprof and self.healthprof.main_specialty):
+            specialty = self.healthprof.main_specialty.specialty.id
             return specialty
 
     @staticmethod
@@ -1808,7 +1829,7 @@ class Appointment(ModelSQL, ModelView):
     # Update to version 2.4
     @classmethod
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -1854,13 +1875,15 @@ class AppointmentReport(ModelSQL, ModelView):
         join2 = Join(join1, party)
         join2.condition = join2.right.id == join1.right.name
         where = Literal(True)
-        if Transaction().context.get('date'):
+        if Transaction().context.get('date_start'):
             where &= (appointment.appointment_date >=
-                    Transaction().context['date']) \
-                & (appointment.appointment_date <
-                    Transaction().context['date'] + timedelta(days=1))
+                    Transaction().context['date_start'])
+        if Transaction().context.get('date_end'):
+            where &= (appointment.appointment_date <
+                    Transaction().context['date_end'] + timedelta(days=1))
         if Transaction().context.get('healthprof'):
-            where &= appointment.healthprof == Transaction().context['healthprof']
+            where &= \
+                appointment.healthprof == Transaction().context['healthprof']
 
         return join2.select(
             appointment.id,
@@ -1908,7 +1931,7 @@ class AppointmentReport(ModelSQL, ModelView):
     # Update to version 2.4
     @classmethod
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -1923,11 +1946,17 @@ class AppointmentReport(ModelSQL, ModelView):
 class OpenAppointmentReportStart(ModelView):
     'Open Appointment Report'
     __name__ = 'gnuhealth.appointment.report.open.start'
-    date = fields.Date('Date', required=True)
-    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof', required=True)
+    date_start = fields.Date('Date Start', required=True)
+    date_end = fields.Date('Date End', required=True)
+    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof',
+        required=True)
 
     @staticmethod
-    def default_date():
+    def default_date_start():
+        return datetime.now()
+
+    @staticmethod
+    def default_date_end():
         return datetime.now()
 
     @staticmethod
@@ -1949,7 +1978,8 @@ class OpenAppointmentReport(Wizard):
 
     def do_open_(self, action):
         action['pyson_context'] = PYSONEncoder().encode({
-            'date': self.start.date,
+            'date_start': self.start.date_start,
+            'date_end': self.start.date_end,
             'healthprof': self.start.healthprof.id,
             })
         action['name'] += ' - %s, %s' % (self.start.healthprof.name.lastname,
@@ -2380,12 +2410,12 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         return super(PatientPrescriptionOrder, cls).copy(
             prescriptions, default=default)
 
- 
+
     @classmethod
     # Update to version 2.4
-    
+
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
@@ -2998,9 +3028,9 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @classmethod
     # Update to version 2.4
-    
+
     def __register__(cls, module_name):
-        
+
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)

@@ -1037,6 +1037,25 @@
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
 
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_free">
+            <field name="name">Free</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'free')]</field>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_confirmed">
+            <field name="name">Confirmed</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain">[('state', '=', 'confirmed')]</field>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+
         <menuitem action="action_gnuhealth_appointment_view"
             id="menu_gnuhealth_appointment_list"
             icon="gnuhealth-list" parent="gnuhealth_appointment_menu"/>
