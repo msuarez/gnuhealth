@@ -27,6 +27,7 @@ from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
+from trytond.modules.health import HealthProfessional
 
 __all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
 
@@ -305,6 +306,11 @@ class Surgery(ModelSQL, ModelView):
     extra_info = fields.Text('Extra Info')
 
     anesthesia_report = fields.Text('Anesthesia Report')
+
+    @staticmethod
+    def default_surgeon():
+        return HealthProfessional.get_health_professional()
+
 
     @classmethod
     # Update to version 2.0
