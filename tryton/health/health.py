@@ -767,12 +767,12 @@ class ProcedureCode(ModelSQL, ModelView):
     def search_rec_name(cls, name, clause):
         field = None
         for field in ('name', 'description'):
-            procedures = cls.search([(field,) + clause[1:]], limit=1)
+            procedures = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if procedures:
                 break
         if procedures:
-            return [(field,) + clause[1:]]
-        return [(cls._rec_name,) + clause[1:]]
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
 
     # Include code + description in result
     def get_rec_name(self, name):
@@ -998,12 +998,12 @@ class PartyPatient (ModelSQL, ModelView):
     def search_rec_name(cls, name, clause):
         field = None
         for field in ('name', 'lastname'):
-            parties = cls.search([(field,) + clause[1:]], limit=1)
+            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if parties:
                 break
         if parties:
-            return [(field,) + clause[1:]]
-        return [(cls._rec_name,) + clause[1:]]
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
 
     def on_change_with_is_person(self):
         # Set is_person if the party is a health professional or a patient
@@ -1425,12 +1425,12 @@ class PatientData(ModelSQL, ModelView):
     def search_rec_name(cls, name, clause):
         field = None
         for field in ('name', 'lastname', 'ssn'):
-            patients = cls.search([(field,) + clause[1:]], limit=1)
+            patients = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if patients:
                 break
         if patients:
-            return [(field,) + clause[1:]]
-        return [(cls._rec_name,) + clause[1:]]
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
 
     @classmethod
     def create(cls, vlist):
@@ -3275,4 +3275,4 @@ class HospitalBed(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        return [('name',) + clause[1:]]
+        return [('name',) + tuple(clause[1:])]
