@@ -269,13 +269,14 @@ class InpatientRegistration(ModelSQL, ModelView):
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
+        # Search by Registration Code ID or Patient
         for field in ('name', 'patient'):
-            registrations = cls.search([(field,) + clause[1:]], limit=1)
+            registrations = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if registrations:
                 break
         if registrations:
-            return [(field,) + clause[1:]]
-        return [(cls._rec_name,) + clause[1:]]
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
 
 
 class BedTransfer(ModelSQL, ModelView):
