@@ -62,7 +62,7 @@
             <newline/>
             <field colspan="4" name="nutrition_notes"/>
         </page>
-        <page string="Medication" id="page_inpatient_medication">
+        <page string="Medication Plan" id="page_inpatient_medication">
             <field name="medications"/>
         </page>
         <page string="Care Plan" id="page_care_plan">
