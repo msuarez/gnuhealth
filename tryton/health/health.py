@@ -1724,7 +1724,7 @@ class Appointment(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Appointment, cls).__setup__()
-        cls._order.insert(0, ('name', 'DESC'))
+        cls._order.insert(0, ('appointment_date', 'ASC'))
 
     @classmethod
     def create(cls, vlist):
