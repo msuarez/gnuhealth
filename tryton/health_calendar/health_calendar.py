@@ -19,25 +19,32 @@
 #
 ##############################################################################
 from trytond.model import fields
+from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool, PoolMeta
 
 
-__all__ = ['HealthProfessional', 'Appointment']
+__all__ = ['User', 'Appointment']
 __metaclass__ = PoolMeta
 
 
-class HealthProfessional:
-    __name__ = "gnuhealth.healthprofessional"
+class User:
+    __name__ = "res.user"
 
-    calendar = fields.Many2One('calendar.calendar', 'Calendar')
+    use_caldav = fields.Boolean('Use CalDAV ?')
+    calendar = fields.Many2One('calendar.calendar', 'Calendar',
+        states={
+            'invisible': Not(Bool(Eval('use_caldav'))),
+            'required': Bool(Eval('use_caldav')),
+            })
 
 
 class Appointment:
     __name__ = 'gnuhealth.appointment'
 
     event = fields.Many2One(
-        'calendar.event', 'Calendar Event', readonly=True,
-        help="Calendar Event")
+        'calendar.event', 'CalDAV Event', readonly=True,
+        help="Calendar Event",
+        states={'invisible': Not(Bool(Eval('event')))})
     appointment_date_end = fields.DateTime('End Date and Time')
 
     @classmethod
@@ -52,7 +59,7 @@ class Appointment:
             if values['state'] == 'confirmed':
                 if values['healthprof']:
                     healthprof = Healthprof(values['healthprof'])
-                    if healthprof.calendar:
+                    if healthprof.name.internal_user.calendar:
                         patient = Patient(values['patient'])
                         appointment_date_end = None
                         if values.get('appointment_date_end'):
@@ -61,7 +68,8 @@ class Appointment:
                         events = Event.create([{
                             'dtstart': values['appointment_date'],
                             'dtend': appointment_date_end,
-                            'calendar': healthprof.calendar.id,
+                            'calendar':
+                                healthprof.name.internal_user.calendar.id,
                             'summary': patient.name.lastname + ', ' +
                             patient.name.name,
                             }])
@@ -98,13 +106,13 @@ class Appointment:
                             })
                 else:
                     if appointment.healthprof:
-                        if appointment.healthprof.calendar:
+                        if appointment.healthprof.name.internal_user.calendar:
                             patient = Patient(values['patient'])
                             events = Event.create([{
                                 'dtstart': appointment.appointment_date,
                                 'dtend': appointment.appointment_date_end,
                                 'calendar':
-                                    appointment.healthprof.calendar.id,
+                                    appointment.healthprof.name.internal_user.calendar.id,
                                 'summary':
                                     patient.name.lastname + ', '
                                     + patient.name.name,

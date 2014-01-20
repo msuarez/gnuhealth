@@ -26,7 +26,7 @@ from .wizard import *
 
 def register():
     Pool.register(
-        HealthProfessional,
+        User,
         Appointment,
         CreateAppointmentStart,
         module='health_calendar', type_='model')

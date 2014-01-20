@@ -41,20 +41,18 @@
             parent="health.gnuhealth_appointment_menu"
             icon="gnuhealth-calendar"/>
 
-    <!-- healthprofessional -->
+    <!-- User -->
 
-        <record model="ir.ui.view" id="gnuhealth_calendar_healthprofessional_view">
-            <field name="model">gnuhealth.healthprofessional</field>
-            <field name="type">form</field>
-            <field name="inherit" ref="health.gnuhealth_healthprofessional_view"/>
-            <field name="name">gnuhealth_calendar_healthprofessional</field>
+        <record model="ir.ui.view" id="gnuhealth_calendar_user_view">
+            <field name="model">res.user</field>
+            <field name="inherit" ref="res.user_view_form"/>
+            <field name="name">gnuhealth_calendar_user</field>
         </record>
 
     <!-- Appointment details -->
 
         <record model="ir.ui.view" id="gnuhealth_calendar_appointment_view">
             <field name="model">gnuhealth.appointment</field>
-            <field name="type">form</field>
             <field name="inherit" ref="health.gnuhealth_appointment_form"/>
             <field name="name">gnuhealth_calendar_appointment</field>
         </record>
