@@ -415,7 +415,7 @@ class Operation(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
     procedure = fields.Many2One(
         'gnuhealth.procedure', 'Code', required=True, select=True,
-        help="Procedure Code, for example ICD-10-PCS Code 7-character string")
+        help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
 
