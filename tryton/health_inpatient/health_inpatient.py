@@ -114,7 +114,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
         'Medications')
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
-        'Therapeutic Diets')
+        'Meals / Diet Program')
     diet_belief = fields.Many2One('gnuhealth.diet.belief',
         'Belief', help="Enter the patient belief or religion to choose the \
             proper diet")
