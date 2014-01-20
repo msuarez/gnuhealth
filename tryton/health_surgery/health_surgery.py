@@ -28,7 +28,6 @@ from trytond import backend
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
-from trytond.modules.health import HealthProfessional
 
 __all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
 
@@ -324,7 +323,10 @@ class Surgery(ModelSQL, ModelView):
 
     @staticmethod
     def default_surgeon():
-        return HealthProfessional.get_health_professional()
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        surgeon = HealthProf.get_health_professional()
+        return surgeon
 
     @staticmethod
     def default_state():
