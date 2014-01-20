@@ -1173,7 +1173,7 @@ class PatientData(ModelSQL, ModelView):
 			if (disease.status == "c" or disease.is_active):
 				if disease.pathology.name not in conditions:
 							other_conditions=other_conditions + \
-							 str(disease.pathology.name) + "\n"
+							 disease.pathology.name + "\n"
 
 		return allergies + other_conditions
 		
