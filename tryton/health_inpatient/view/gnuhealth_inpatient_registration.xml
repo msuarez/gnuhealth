@@ -45,7 +45,8 @@
                 <group colspan="2" id="group_registration_holder3">
                     <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
                     <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
-                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to discharge the patient from the health institution."/>
+                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to SIGN the discharge the patient from the health institution. This record will become READ ONLY "/>
+                    <field name="discharged_by"/>
                 </group>
             </group>
         </page>

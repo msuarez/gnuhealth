@@ -134,9 +134,16 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('cancelled', 'cancelled'),
         ('confirmed', 'confirmed'),
         ('hospitalized', 'hospitalized'),
+        ('done','Done'),
         ), 'Status', select=True)
+        
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
         'Transfer History', readonly=True)
+
+    discharged_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Discharged by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that discharged the patient")
 
     @classmethod
     def __setup__(cls):
@@ -199,7 +206,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        cls.write(registrations, {'state': 'free'})
+        cls.write(registrations, {'state': 'done'})
         Bed.write([registration_id.bed], {'state': 'free'})
 
     @classmethod
@@ -236,6 +243,15 @@ class InpatientRegistration(ModelSQL, ModelView):
                 values['name'] = Sequence.get_id(
                     config.inpatient_registration_sequence.id)
         return super(InpatientRegistration, cls).create(vlist)
+
+    @classmethod
+    def write(cls, registrations, vals):
+        # Don't allow to write the record if the evaluation has been done
+        if registrations[0].state == 'done':
+            cls.raise_user_error(
+                "This hospitalization is at state Done\n"
+                "You can no longer modify it.")
+        return super(InpatientRegistration, cls).write(registrations, vals)
 
     @staticmethod
     def default_state():
