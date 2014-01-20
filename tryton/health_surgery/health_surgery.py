@@ -398,7 +398,7 @@ class Surgery(ModelSQL, ModelView):
         # Sign, change the state of the Surgery to "Done"
         # and write the name of the signing health professional
 
-        signing_hp = HealthProfessional().get_health_professional()
+        signing_hp = Pool().get('gnuhealth.healthprofessional').get_health_professional()
         if not signing_hp:
             cls.raise_user_error(
                 "No health professional associated to this user !")
