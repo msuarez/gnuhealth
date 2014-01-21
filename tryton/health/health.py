@@ -1840,6 +1840,7 @@ class Appointment(ModelSQL, ModelView):
 
         super(Appointment, cls).__register__(module_name)
 
+
 class AppointmentReport(ModelSQL, ModelView):
     'Appointment Report'
     __name__ = 'gnuhealth.appointment.report'
@@ -1927,20 +1928,6 @@ class AppointmentReport(ModelSQL, ModelView):
 
     def get_patient_age(self, name):
         return self.patient.age
-
-    # Update to version 2.4
-    @classmethod
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename doctor to healthprof
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-
-        super(AppointmentReport, cls).__register__(module_name)
 
 
 class OpenAppointmentReportStart(ModelView):
