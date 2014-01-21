@@ -55,7 +55,7 @@ class TopDiseases(ModelSQL, ModelView):
         Evaluation = pool.get('gnuhealth.patient.evaluation')
         evaluation = Evaluation.__table__()
         source = evaluation
-        where = Literal(True)
+        where = evaluation.diagnosis != None
         if Transaction().context.get('start_date'):
             where &= evaluation.evaluation_start >= \
                 Transaction().context['start_date']
