@@ -48,7 +48,7 @@ class Newborn(ModelSQL, ModelView):
         ], 'Sex'), 'get_newborn_sex')
 
     # Sex / Gender at birth.
-    
+
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
@@ -120,7 +120,8 @@ class Newborn(ModelSQL, ModelView):
         ]
 
     def get_newborn_sex(self, name):
-        return self.patient.sex
+        if self.patient:
+            return self.patient.sex
 
 
 class NeonatalApgar(ModelSQL, ModelView):
