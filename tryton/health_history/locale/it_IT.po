@@ -1,0 +1,533 @@
+# 
+# Translators:
+# docmimmo <docmimmo@gmail.com>, 2013
+# Selene <scordara@thymbra.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:33+0000\n"
+"Last-Translator: docmimmo <docmimmo@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "model:ir.action,name:report_patient_evaluation"
+msgid "Patient Evaluation and History"
+msgstr "Valutazione del Paziente e Storia Clinica"
+
+msgctxt "odt:patient.evaluation:"
+msgid "*"
+msgstr "*"
+
+msgctxt "odt:patient.evaluation:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:patient.evaluation:"
+msgid ", monogamous"
+msgstr "Monogamico"
+
+msgctxt "odt:patient.evaluation:"
+msgid ", poligamous"
+msgstr ",poiigamico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "."
+msgstr "."
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 15"
+msgstr "/ 15"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 4"
+msgstr "/ 4"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 5"
+msgstr "/ 5"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 6"
+msgstr "/ 6"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ Reliability :"
+msgstr "/ Affidabilità"
+
+msgctxt "odt:patient.evaluation:"
+msgid ":"
+msgstr ":"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Female"
+msgstr ":Femmina"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Male"
+msgstr ": Maschio"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Married"
+msgstr ": Sposato"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Separated"
+msgstr ": Separato"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Single"
+msgstr ": Singolo"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Widow"
+msgstr ": Vedova/o"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Active"
+msgstr "Attivo"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Age"
+msgstr "Età"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Allergies and other Critical Information"
+msgstr "Allergie e altre informazioni intolleranze"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Anthropometry"
+msgstr "Antropometria"
+
+msgctxt "odt:patient.evaluation:"
+msgid "BMI"
+msgstr "BMI= Indice di Massa Corporea"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Blood Pressure"
+msgstr "Pressione arteriosa"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Care Plan"
+msgstr "Programma di assistenza"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Chief Complaint"
+msgstr "Motivo consulenza"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Clinical finding"
+msgstr "Dato clinico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Comfortable and good sanitary conditions"
+msgstr "Condizioni sanitarie buone e comode"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Comments"
+msgstr "Commenti"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Date"
+msgstr "Data"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diagnosed"
+msgstr "Diagnosticato"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diagnostic"
+msgstr "Diagnostica"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diastolic"
+msgstr "Diastolica"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Disease"
+msgstr "Malattia"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diseases"
+msgstr "Malattie"
+
+msgctxt "odt:patient.evaluation:"
+msgid "DoB:"
+msgstr "Data di nascita:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Dose"
+msgstr "Dose"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Educational Level"
+msgstr "Livello scolastico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "End"
+msgstr "Fine"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Ethnicity:"
+msgstr "Razza"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Evaluation date:"
+msgstr "Data Valutazione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Eyes"
+msgstr "Occhi"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Family History and Genetic Information"
+msgstr "Storia familiare e informazioni genetiche"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Family Information"
+msgstr "Informazioni familiari"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Heart rate"
+msgstr "Frequenza cardiaca"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Height"
+msgstr "Altezza"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Hip"
+msgstr "Anca"
+
+msgctxt "odt:patient.evaluation:"
+msgid "History of Present Illness"
+msgstr "Storia di Malattia attuale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Housing conditions"
+msgstr "Condizioni abitative"
+
+msgctxt "odt:patient.evaluation:"
+msgid "ID"
+msgstr "Identificazione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Immunizations"
+msgstr "Vaccini"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Incomplete Primary School"
+msgstr "Scuola Primaria Incompleta"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Incomplete Secondary School"
+msgstr "Scuola Superiore Incompleta"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Indication"
+msgstr "Indicazione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Infectious"
+msgstr "Contagioso"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Information Source:"
+msgstr "Fonte di Informazione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Information about the Diagnosis"
+msgstr "Informazioni sulla diagnosi"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Level of Conciousness / Glasgow Scale"
+msgstr "Livello di coscienza - il Glasgow Coma Scale: 1 = coma - 15 = normale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Lifestyle"
+msgstr "Stile di vita"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Luxury and excellent sanitary conditions"
+msgstr "Condizioni sanitarie ottime e di lusso"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Marital Status"
+msgstr "Stato civile"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Maternal"
+msgstr "Materno"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Medicament"
+msgstr "Farmaco"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Medication History"
+msgstr "Cartella clinica"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Motor"
+msgstr "Motore"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Next Dose"
+msgstr "Prossima Dose"
+
+msgctxt "odt:patient.evaluation:"
+msgid "None"
+msgstr "Nessuno"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Observations"
+msgstr "Osservazioni"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Occupation :"
+msgstr "Occupazione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Other Hypotheses / DDx"
+msgstr "Altri Ipotesi / DDx"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Oxygen Saturation"
+msgstr "Saturazione di ossigeno"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Paternal"
+msgstr "Paterno"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Patient Genetic Abnormalities / “Disease Genes”"
+msgstr "Malattie Genetiche Familiari del paziente"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Patient Name:"
+msgstr "Nome del paziente"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Personal History"
+msgstr "Storia personale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Physical Examination"
+msgstr "Esame fisico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Practices"
+msgstr "Pratiche "
+
+msgctxt "odt:patient.evaluation:"
+msgid "Practices safe sex ."
+msgstr "Pratiche sessuali protette"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Presumptive Diagnosis"
+msgstr "Dagnosi presuntiva"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Primary School"
+msgstr "Scuola elementare"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Print Date :"
+msgstr "Data di Stampa"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Remarks"
+msgstr "Osservazioni"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Respiratory Rate"
+msgstr "Frequenza Respiratoria"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Roomy and excellent sanitary conditions"
+msgstr "Condizioni sanitarie ottime e spaziose"
+
+msgctxt "odt:patient.evaluation:"
+msgid "SSN #"
+msgstr "SSN:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Secondary School"
+msgstr "Scuola Superiore"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Section"
+msgstr "Sezione"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Severity"
+msgstr "Gravità"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Sex"
+msgstr "Sesso"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Sexuality"
+msgstr "Sessualità"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Shanty, deficient sanitary conditions"
+msgstr "Baracca, condizioni sanitarie carenti"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Signs and Symptoms"
+msgstr "Segnali e sintomi"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Small, crowded but with good sanitary conditions"
+msgstr "Piccola, affollata ma con buone condizioni sanitarie"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Socioeconomic Status"
+msgstr "Status Socioeconomico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Socioeconomics"
+msgstr "Socioeconomia"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Start"
+msgstr "Inizio"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Status"
+msgstr "Stato"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Surgeries"
+msgstr "Chirurgie"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Systolic"
+msgstr "Sistolica"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Total Glasgow"
+msgstr "Glasgow complessivo"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "odt:patient.evaluation:"
+msgid "University"
+msgstr "Università"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Vaccine"
+msgstr "Vaccino"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Verbal"
+msgstr "Verbale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Vital Signs"
+msgstr "Segni Vitali"
+
+msgctxt "odt:patient.evaluation:"
+msgid "WHR"
+msgstr "WHR"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Waist"
+msgstr "Vita"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Weight"
+msgstr "Peso"
+
+msgctxt "odt:patient.evaluation:"
+msgid "bisexual"
+msgstr "Bisessuale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "chronic"
+msgstr "cronico"
+
+msgctxt "odt:patient.evaluation:"
+msgid "healed"
+msgstr "guarito"
+
+msgctxt "odt:patient.evaluation:"
+msgid "heterosexual"
+msgstr "Eterosessuale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "homosexual"
+msgstr "Omosessuale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "improving"
+msgstr "migliorando"
+
+msgctxt "odt:patient.evaluation:"
+msgid "lower"
+msgstr "Inferiore"
+
+msgctxt "odt:patient.evaluation:"
+msgid "lower-middle"
+msgstr "Medio-bassa"
+
+msgctxt "odt:patient.evaluation:"
+msgid "middle"
+msgstr "Medio"
+
+msgctxt "odt:patient.evaluation:"
+msgid "middle-upper"
+msgstr "Medio-alta"
+
+msgctxt "odt:patient.evaluation:"
+msgid "mild"
+msgstr "leggero"
+
+msgctxt "odt:patient.evaluation:"
+msgid "moderate"
+msgstr "moderato"
+
+msgctxt "odt:patient.evaluation:"
+msgid "risky"
+msgstr "a rischio "
+
+msgctxt "odt:patient.evaluation:"
+msgid "s"
+msgstr "s"
+
+msgctxt "odt:patient.evaluation:"
+msgid "severe"
+msgstr "grave"
+
+msgctxt "odt:patient.evaluation:"
+msgid "sex ."
+msgstr "Sesso:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "transexual"
+msgstr "Transessuale"
+
+msgctxt "odt:patient.evaluation:"
+msgid "unchanged"
+msgstr "senza cambi"
+
+msgctxt "odt:patient.evaluation:"
+msgid "upper"
+msgstr "Alto"
+
+msgctxt "odt:patient.evaluation:"
+msgid "worsening"
+msgstr "peggiorando"
