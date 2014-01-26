@@ -1,3 +1,574 @@
+changeset:   1162:6f84034152df
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 26 13:15:41 2014 +0000
+summary:     all : Update official languages from transifex
+
+changeset:   1161:ba848e1a7ffe
+parent:      1160:c99a469aac2a
+parent:      1159:42dea81c788e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 25 21:13:36 2014 +0000
+summary:     Merge
+
+changeset:   1160:c99a469aac2a
+parent:      1158:e7cad8ac798a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 25 21:11:06 2014 +0000
+summary:     all : Add Italian as an official language
+
+changeset:   1159:42dea81c788e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jan 23 10:42:28 2014 -0300
+summary:     health_pediatrics_growth_charts_who : Add icon to patient serie
+
+changeset:   1158:e7cad8ac798a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 23 13:25:09 2014 +0000
+summary:     health : Fix appointment report
+
+changeset:   1157:66a3925d1be9
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jan 23 01:43:56 2014 -0300
+summary:     health : Fix dates format in Patient Evaluation report
+
+changeset:   1156:a80c571044d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 22 12:34:44 2014 +0000
+summary:     health : Fix bug #41299: Application Error when trying to print a prescription
+
+changeset:   1155:6513bc49c026
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jan 21 18:09:58 2014 -0300
+summary:     health_reporting : Only fetch evaluations with diagnosis on Top Diseases report
+
+changeset:   1154:6f615108e639
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jan 21 18:08:00 2014 -0300
+summary:     health : Fix Print Date in reports
+
+changeset:   1153:64d32d700eb6
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jan 21 18:06:34 2014 -0300
+summary:     health : Remove unnecessary __register__ method because it's table_query source
+
+changeset:   1152:e50dc02caaf8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 21 12:53:09 2014 +0000
+summary:     all : change to version 2.4 Release Candidate 1
+
+changeset:   1151:cc34b007c843
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 21 12:19:40 2014 +0000
+summary:     all : update GPL headers
+
+changeset:   1150:ec590bc56d16
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jan 21 08:50:03 2014 -0300
+summary:     health_pediatrics : Check for patient on get_newborn_sex method
+
+changeset:   1149:e7a2c407f788
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jan 20 18:28:23 2014 -0300
+summary:     health_calendar : Link CalDAV calendars with users
+
+changeset:   1148:23c6589028bb
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jan 20 17:52:23 2014 -0300
+summary:     health : Order Appointments by appointment_date
+
+changeset:   1147:cac80eab566c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 19:37:44 2014 +0000
+summary:     health_inpatient : Update page string on medication plan
+
+changeset:   1146:b75e06dff2b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 19:30:22 2014 +0000
+summary:     health_inpatient : Improve name for inpatient meals - diet
+
+changeset:   1145:64a789dcd172
+parent:      1144:a8f34175a98c
+parent:      1143:abb148090916
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 19:23:08 2014 +0000
+summary:     merge
+
+changeset:   1144:a8f34175a98c
+parent:      1142:7a27260cfb25
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 19:18:58 2014 +0000
+summary:     health_inpatient : update / improve the retrieval of default health professional for medication log
+
+changeset:   1143:abb148090916
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jan 20 12:45:46 2014 -0300
+summary:     health : Fix UnicodeEncodeError in patient_critical_summary method
+
+changeset:   1142:7a27260cfb25
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 13:23:45 2014 +0000
+summary:     health_inpatient : Upgrade to Tryton 3.0 the search functionality on inpatient registration
+
+changeset:   1141:437007dae88e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 13:14:06 2014 +0000
+summary:     health_inpatient : Initial functionality for signing the hospitalized patient discharge
+
+changeset:   1140:f3ee0d54c6f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 10:21:43 2014 +0000
+summary:     health_surgery : update procedure tooltip
+
+changeset:   1139:eebf2c5daa89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 10:20:50 2014 +0000
+summary:     health_surgery : use the pool get method for the signing surgeon
+
+changeset:   1138:f9d26acf20d6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 20 10:02:31 2014 +0000
+summary:     health_surgery : Change retrieval of the Health professional to the Tryton Pool way
+
+changeset:   1137:5da1bd2e75eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 19:13:36 2014 +0000
+summary:     health_surgery : close task #13044: Surgery - make end time required field & sign
+
+changeset:   1136:a57bee68351f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 17:32:20 2014 +0000
+summary:     health_surgery : Assign log on user default health professional to surgeon
+
+changeset:   1135:457a6bb81ed6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 14:45:42 2014 +0000
+summary:     health : update search record name to Tryton 3.0
+
+changeset:   1134:b174a103a0e1
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Jan 19 10:35:18 2014 -0300
+summary:     health_calendar : Add new work schedule wizard. Add calendar view.
+
+changeset:   1133:a7df497f84d3
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Jan 19 10:27:18 2014 -0300
+summary:     health : Add free state to appointments. Add start-end date to app report.
+
+changeset:   1132:2ced7734bd51
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 12:37:04 2014 +0000
+summary:     health_surgery : Add tooltip to urgency level field
+
+changeset:   1131:201f13e644ad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 12:36:04 2014 +0000
+summary:     health_surgery : change Classification by Urgency
+
+changeset:   1130:32ce3b6c5abf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 19 12:35:07 2014 +0000
+summary:     health_surgery : rename classes
+
+changeset:   1129:3873606e7d9f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 18 20:00:25 2014 -0300
+summary:     health_imaging : Remove unnecessary action search
+
+changeset:   1128:8a0eed7c1904
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Jan 18 18:11:12 2014 -0300
+summary:     health : Remove calendar view from Appointment
+
+changeset:   1127:5a22f42845d4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 17 14:25:34 2014 +0000
+summary:     health_calendar : update module to meet new health proffesional naming convention
+
+changeset:   1126:e494d030bea5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 17 12:25:37 2014 +0000
+summary:     all : migration to health professional naming convention
+
+changeset:   1125:20021ed2b70a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 17 11:38:55 2014 +0000
+summary:     health : migrate table name from physician to healthprofessional
+
+changeset:   1124:7ec56963fc06
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:38:57 2014 +0000
+summary:     health : Fix appointment report for health professional
+
+changeset:   1123:a607d931cf19
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:33:05 2014 +0000
+summary:     health : Migrate appointment queries to new health professional naming
+
+changeset:   1122:ee4640133ac4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:30:46 2014 +0000
+summary:     health : Migrate appointment reports to health professional new naming convention
+
+changeset:   1121:e0a2f8d43897
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:22:46 2014 +0000
+summary:     health : Update health professional specialty assignment in new naming
+
+changeset:   1120:0e29740352d3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:09:23 2014 +0000
+summary:     health : Improve description on internal user tooltip
+
+changeset:   1119:aef13b66726f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:08:08 2014 +0000
+summary:     health : fix missing healthprof_id in get_health_professional
+
+changeset:   1118:f270a2b87c2c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 21:06:50 2014 +0000
+summary:     health : doctor -> healthprof in get_health_professional
+
+changeset:   1117:d5df8ff304af
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 19:57:42 2014 +0000
+summary:     health : Update doctor to health professional in patient evaluations
+
+changeset:   1116:dd88218492b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 19:18:05 2014 +0000
+summary:     health : Update doctor to health professional in prescription orders
+
+changeset:   1115:07ebfd997ed1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 18:17:21 2014 +0000
+summary:     health : Update doctor to health professional in patient medication
+
+changeset:   1114:35a3f042e596
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 13:35:49 2014 +0000
+summary:     health : replace doctor term by the health professional in appointments.
+
+changeset:   1113:53c6a57ce92e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 16 11:21:21 2014 +0000
+summary:     health_icpm : updated ICPM data file
+
+changeset:   1112:9d85d080b70b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Jan 14 17:00:28 2014 -0300
+summary:     health : Add calendar view to Appointments
+
+changeset:   1111:9846e8319cbd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:57:22 2014 +0000
+summary:     health_nursing : Update the new health professional field
+
+changeset:   1110:22ee540976b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:56:14 2014 +0000
+summary:     Demo : Update the new health professional field
+
+changeset:   1109:69639abc1692
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:54:35 2014 +0000
+summary:     health_inpatient : Update the new health professional field
+
+changeset:   1108:93940b9467fa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:50:39 2014 +0000
+summary:     health_imaging : Update the new health professional field
+
+changeset:   1107:7e0180238339
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:46:38 2014 +0000
+summary:     health_lab : Rename health professional
+
+changeset:   1106:6853f79d24d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 19:36:21 2014 +0000
+summary:     health : Cedric Krier. fix the rename of the health professional field
+
+changeset:   1105:1bfaa820a7b3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 17:57:56 2014 +0000
+summary:     health: update health_professional in views
+
+changeset:   1104:c7a08afcd441
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 13 17:45:28 2014 +0000
+summary:     health : rename is_doctor by is_healthprof
+
+changeset:   1103:6942719d7f74
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 10 11:38:24 2014 +0000
+summary:     pediatrics : remove readonly from Baby name at birth
+
+changeset:   1102:49c423780936
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 08 13:16:47 2014 +0000
+summary:     pediatrics : Improve newborn view
+
+changeset:   1101:1eab1f028b15
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Dec 31 18:26:32 2013 -0300
+summary:     health_pediatrics_growth_charts_who : Initial upload
+
+changeset:   1100:f583f831c402
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 31 14:23:55 2013 +0000
+summary:     pediatrics : add newborn and current gender and name
+
+changeset:   1099:6aab29d0f9df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 31 11:15:10 2013 +0000
+summary:     pediatrics : Remove ambiguous genitalia from newborn sex. It is set at the Findings tab
+
+changeset:   1098:cd533354eff8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 30 11:30:30 2013 +0000
+summary:     health_pediatrics: Fix domain on shortcut from patient to newborn
+
+changeset:   1097:360e1bbd2740
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 30 10:27:25 2013 +0000
+summary:     health_pediatrics : initial link of newborn to patient
+
+changeset:   1096:464ea526f824
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Dec 30 03:49:48 2013 -0300
+summary:     health_pediatrics_growth_charts : Initial upload
+
+changeset:   1095:010753535cd6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 24 13:15:04 2013 +0000
+summary:     Health ICPM : Initial upload
+
+changeset:   1094:0b9cd3951b93
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 21 19:55:35 2013 -0300
+summary:     health : Add copy method to appointments
+
+changeset:   1093:7e327f542939
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 21 19:50:11 2013 -0300
+summary:     health : Fix appointments report tree_open keyword
+
+changeset:   1092:1c03cb2c5c8b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 21 19:36:54 2013 -0300
+summary:     health : Migrate appointments report to python-sql
+
+changeset:   1091:58c3f4bc5d47
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sat Dec 21 10:58:46 2013 -0300
+summary:     health_reporting : Migration of evaluations report to python-sql.
+
+changeset:   1090:bc38b0efb9a8
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Dec 20 10:30:29 2013 -0300
+summary:     health_reporting : Initial migration of evaluations report to python-sql
+
+changeset:   1089:70438bb39a27
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 19 23:07:39 2013 +0000
+summary:     health : use other_conditions to group in the main patient view
+
+changeset:   1088:493e372f9580
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Dec 19 16:32:26 2013 -0300
+summary:     health_reporting : Fix Top Diseases error with number_records context
+
+changeset:   1087:f29446bfa778
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Dec 19 13:52:10 2013 -0300
+summary:     health_reporting : Migrate Top Diseases report to python-sql. Remove babi report
+
+changeset:   1086:a23b888c9bb1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 18 20:35:59 2013 +0000
+summary:     health : include chronic and active diseases in the patient critical information
+
+changeset:   1085:eecdcb803b3a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 08 19:22:30 2013 -0300
+summary:     Automatic inclusion of patient allergies in the critical info box
+
+changeset:   1084:00ce72064ba1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 08 17:01:12 2013 -0300
+summary:     health : add new automatic collection of patient critical information
+
+changeset:   1083:93d33c718553
+parent:      1078:3bcc0ad73005
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 08 16:10:25 2013 -0300
+summary:     Update development branch version to 2.3
+
+changeset:   1082:40f7d8e45ec1
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 13 19:48:27 2013 -0300
+summary:     all : update version to 2.2.2 and Changelog
+
+changeset:   1081:d8387f2d1480
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 08 15:05:15 2013 -0300
+summary:     health : constraint for unique health professional
+
+changeset:   1080:92896dc88f2c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 08 14:34:56 2013 -0300
+summary:     health: fix bug of no attribute specialty when creating an appointment
+
+changeset:   1079:00c8a6850b07
+branch:      stable
+parent:      1058:e2c7121d3284
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Nov 06 12:02:49 2013 -0300
+summary:     health_imaging : Add missing wizard package in setup.py
+
+changeset:   1078:3bcc0ad73005
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 03 19:17:03 2013 -0300
+summary:     health : improve view for larger disease group members area
+
+changeset:   1077:091fc28ec280
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 03 19:08:57 2013 -0300
+summary:     health_icd10 : Add Allergic disease group members
+
+changeset:   1076:926f86bab522
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 03 17:19:41 2013 -0300
+summary:     health : add members to disease groups
+
+changeset:   1075:736193639a3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 02 16:12:46 2013 -0300
+summary:     health : include pathology groups - tags list
+
+changeset:   1074:a1b092c93146
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Nov 01 20:29:07 2013 -0300
+summary:     health_reporting : Add missing file
+
+changeset:   1073:f41a727ad5e6
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Nov 01 20:26:11 2013 -0300
+summary:     health_reporting : Rewrite Evaluations per Doctor report using babi
+
+changeset:   1072:95f2e9657e4a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 31 19:30:02 2013 -0300
+summary:     all : Add GNU SOLIDARIO to the header
+
+changeset:   1071:4d952ea28bb6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 31 17:49:33 2013 -0300
+summary:     health_reporting : Initial migration to python-sql
+
+changeset:   1070:6d8911fed343
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 26 21:10:36 2013 -0300
+summary:     health_reporting: Initial migration to Tryton 3.0
+
+changeset:   1069:bfacbcea9b09
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 26 18:58:57 2013 -0300
+summary:     surgery : Migrate TableHandler to Tryton 3.0
+
+changeset:   1068:8cc787190017
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 26 17:31:55 2013 -0300
+summary:     socioeconomics : Migrate TableHandler to Tryton 3.0
+
+changeset:   1067:590971fd5a5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 26 16:23:51 2013 -0300
+summary:     health: migrate TableHandler
+
+changeset:   1066:93aa28a43eea
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Oct 24 23:16:18 2013 -0300
+summary:     health_surgery : Replace _constraints with validate and improve user messages
+
+changeset:   1065:8dee90b0bc69
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Oct 24 23:07:58 2013 -0300
+summary:     health_nursing : Replace _constraints with validate
+
+changeset:   1064:e01f51348bdd
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Oct 24 23:02:29 2013 -0300
+summary:     health_inpatient : Replace _constraints with validate
+
+changeset:   1063:159e2479b85e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Oct 24 22:49:28 2013 -0300
+summary:     health_icu : Replace _constraints with validate
+
+changeset:   1062:ba4741da1d28
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Oct 24 22:38:36 2013 -0300
+summary:     health_gyneco : Replace _constraints with validate and improve user messages
+
+changeset:   1061:158c54678e8b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Oct 23 16:58:59 2013 -0300
+summary:     health : Replace _constraints with validate and improve user messages
+
+changeset:   1060:767e0c2b1a32
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 14:55:31 2013 -0300
+summary:     health: update version to 2.3
+
+changeset:   1059:79a7ada6db7f
+parent:      1056:16428348eb7b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 14:33:31 2013 -0300
+summary:     GNU Health installer : Update to download Tryton 3.0 and python-sql lib
+
+changeset:   1058:e2c7121d3284
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 14:11:16 2013 -0300
+summary:     Revert to rev 1057, due to changes in the wrong branch
+
+changeset:   1057:1612b586950d
+branch:      stable
+parent:      1053:c197a941ac23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 23 13:47:13 2013 -0300
+summary:     Added tag 2.2.1 for changeset 37943239cff5
+
+changeset:   1056:16428348eb7b
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Oct 21 18:44:34 2013 -0300
+summary:     Missing update views to separate XML files for wizards.
+
+changeset:   1055:33d4ad53c049
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Oct 09 02:46:02 2013 -0300
+summary:     Completes task #12688: Update views to Tryton 2.8
+
+changeset:   1054:dec1124af471
+parent:      1052:718103728ae9
+parent:      1053:c197a941ac23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 06 00:11:24 2013 -0300
+summary:     Merge Changelog and Installer from Stable
+
+changeset:   1053:c197a941ac23
+branch:      stable
+parent:      1051:37943239cff5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 06 00:09:57 2013 -0300
+summary:     Installer : remove unused patches directory
+
 changeset:   1052:718103728ae9
 tag:         tip
 parent:      1050:2d0772696d15
