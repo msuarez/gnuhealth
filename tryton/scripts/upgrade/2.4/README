@@ -1,0 +1,10 @@
+file : remove_test_module.sql
+
+GNU HEALTH Version affected : 2.4
+
+Only for upgrades. 
+This SQL script removes the 'test' module from the module list, due to a change in Tryton 3.0 
+  
+With your DB owner user of the Operating SYstem (probably "gnuhealth") open a shell terminal and execute
+
+psql your_db_name < remove_test_module.sql
