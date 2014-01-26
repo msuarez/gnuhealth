@@ -209,6 +209,14 @@ class HealthProfessional(ModelSQL, ModelView):
 
     info = fields.Text('Extra info')
 
+    @classmethod
+    def __setup__(cls):
+        super(HealthProfessional, cls).__setup__()
+        cls._sql_constraints = [
+            ('hp_uniq', 'UNIQUE(name)',
+                'The health professional must be unique'),
+        ]
+
     def get_rec_name(self, name):
         if self.name:
             res = self.name.name
