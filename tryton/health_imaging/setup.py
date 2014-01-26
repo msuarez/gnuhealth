@@ -56,6 +56,7 @@ setup(name='trytond_health_imaging',
     packages=[
         'trytond.modules.health_imaging',
         'trytond.modules.health_imaging.tests',
+        'trytond.modules.health_imaging.wizard',
         ],
     package_data={
         'trytond.modules.health_imaging': info.get('xml', []) \
