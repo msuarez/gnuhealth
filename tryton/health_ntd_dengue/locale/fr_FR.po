@@ -1,27 +1,28 @@
 # 
 # Translators:
+# Emmanuel Sd <emanwebdev@gmail.com>, 2014
+# Mathieu Anquetin <mathieu@anquetin.eu>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-09-22 15:13+0000\n"
-"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:34+0000\n"
+"Last-Translator: Mathieu Anquetin <mathieu@anquetin.eu>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.7\n"
 
 msgctxt "field:gnuhealth.dengue_du_survey,aedes_larva:"
 msgid "Larvae"
-msgstr ""
+msgstr "Larves"
 
 msgctxt "field:gnuhealth.dengue_du_survey,animal_water_container:"
 msgid "Animal Water containers"
-msgstr ""
+msgstr "Abreuvoirs pour animaux"
 
 msgctxt "field:gnuhealth.dengue_du_survey,create_date:"
 msgid "Create Date"
@@ -37,7 +38,7 @@ msgstr "LH"
 
 msgctxt "field:gnuhealth.dengue_du_survey,du_fumigation:"
 msgid "Fumigation"
-msgstr ""
+msgstr "Fumigation"
 
 msgctxt "field:gnuhealth.dengue_du_survey,du_status:"
 msgid "Status"
@@ -45,11 +46,11 @@ msgstr "Statut"
 
 msgctxt "field:gnuhealth.dengue_du_survey,flower_vase:"
 msgid "Flower vase"
-msgstr ""
+msgstr "Vase floral"
 
 msgctxt "field:gnuhealth.dengue_du_survey,fumigation_date:"
 msgid "Fumigation Date"
-msgstr ""
+msgstr "Date Fumigation"
 
 msgctxt "field:gnuhealth.dengue_du_survey,id:"
 msgid "ID"
@@ -77,15 +78,15 @@ msgstr "Observations"
 
 msgctxt "field:gnuhealth.dengue_du_survey,old_tyres:"
 msgid "Tyres"
-msgstr ""
+msgstr "Pneus"
 
 msgctxt "field:gnuhealth.dengue_du_survey,ovitraps:"
 msgid "Ovitraps"
-msgstr ""
+msgstr "Piège à oeufs"
 
 msgctxt "field:gnuhealth.dengue_du_survey,potted_plant:"
 msgid "Potted Plants"
-msgstr ""
+msgstr "Plantes en pot"
 
 msgctxt "field:gnuhealth.dengue_du_survey,rec_name:"
 msgid "Name"
@@ -93,7 +94,7 @@ msgstr "Nom"
 
 msgctxt "field:gnuhealth.dengue_du_survey,rock_holes:"
 msgid "Rock holes"
-msgstr ""
+msgstr "Cavités dans la roche"
 
 msgctxt "field:gnuhealth.dengue_du_survey,survey_date:"
 msgid "Date"
@@ -101,7 +102,7 @@ msgstr "Date"
 
 msgctxt "field:gnuhealth.dengue_du_survey,tree_holes:"
 msgid "Tree holes"
-msgstr ""
+msgstr "Trous d'arbres"
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_date:"
 msgid "Write Date"
@@ -109,27 +110,27 @@ msgstr "Date d'écriture"
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_uid:"
 msgid "Write User"
-msgstr "Utilisateur qui a modifié"
+msgstr "Modifié par"
 
 msgctxt "field:gnuhealth.sequences,dengue_du_survey_sequence:"
 msgid "Dengue Survey Sequence"
-msgstr ""
+msgstr "Séquence de surveillance de la dengue"
 
 msgctxt "help:gnuhealth.dengue_du_survey,aedes_larva:"
 msgid "Check this box if Aedes aegypti larvae were found"
-msgstr ""
+msgstr "Cochez cette case si des larves d'Aedes aegypti ont été trouvées"
 
 msgctxt "help:gnuhealth.dengue_du_survey,animal_water_container:"
 msgid "Animal water containers not scrubbed or clean"
-msgstr ""
+msgstr "Abreuvoirs pour animaux non récurés ou nettoyés"
 
 msgctxt "help:gnuhealth.dengue_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr "Lieu d'Habitation"
+msgstr "Unité domiciliaire"
 
 msgctxt "help:gnuhealth.dengue_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
-msgstr ""
+msgstr "Le bâtiment a été désinfecté par fumigation"
 
 msgctxt "help:gnuhealth.dengue_du_survey,du_status:"
 msgid "DU status compared to last visit"
@@ -137,39 +138,39 @@ msgstr "Etat du LH comparé à la dernière visite"
 
 msgctxt "help:gnuhealth.dengue_du_survey,flower_vase:"
 msgid "Flower vases without scrubbing or cleaning"
-msgstr ""
+msgstr "Vases floraux non récurés ou nettoyés"
 
 msgctxt "help:gnuhealth.dengue_du_survey,fumigation_date:"
 msgid "Last Fumigation Date"
-msgstr ""
+msgstr "Date de la dernière fumigation"
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_in_house:"
 msgid "Check this box if larvae were found inside the house"
-msgstr ""
+msgstr "Cochez cette case si des larves ont été trouvées dans la maison"
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_peri:"
 msgid "Check this box if larva were found in the peridomiciliary area"
-msgstr ""
+msgstr "Cochez cette case si des larves ont été trouvées dans la zone péri-domiciliaire"
 
 msgctxt "help:gnuhealth.dengue_du_survey,old_tyres:"
 msgid "Old vehicle tyres found"
-msgstr ""
+msgstr "Vieux pneus trouvés"
 
 msgctxt "help:gnuhealth.dengue_du_survey,ovitraps:"
 msgid "Check if ovitraps are in place"
-msgstr ""
+msgstr "Vérifier si les pièges à oeufs sont installés"
 
 msgctxt "help:gnuhealth.dengue_du_survey,potted_plant:"
 msgid "Potted Plants with saucers"
-msgstr ""
+msgstr "Plantes en pot avec soucoupes"
 
 msgctxt "help:gnuhealth.dengue_du_survey,rock_holes:"
 msgid "unfilled rock holes"
-msgstr ""
+msgstr "Trous de roches non remplis"
 
 msgctxt "help:gnuhealth.dengue_du_survey,tree_holes:"
 msgid "unfilled tree holes"
-msgstr ""
+msgstr "Trous d'arbres non remplis"
 
 msgctxt "model:gnuhealth.dengue_du_survey,name:"
 msgid "Dengue DU Survey"
@@ -209,7 +210,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Improved"
-msgstr ""
+msgstr "Amélioré"
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Initial"
@@ -217,8 +218,32 @@ msgstr "Initial"
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Unchanged"
-msgstr ""
+msgstr "Inchangé"
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Worsen"
+msgstr "Aggravé"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Areas to Improve"
+msgstr "Zones à améliorer"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Dengue Domiciliary Unit Entomological Survey"
 msgstr ""
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Dengue Domiciliary Unit Entomological Surveys"
+msgstr ""
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Notes"
+msgstr "Notes"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Presence of larvae"
+msgstr "Présence de larves"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Preventive Measures"
+msgstr "Mesures Préventives"

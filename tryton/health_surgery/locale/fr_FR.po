@@ -1,7 +1,8 @@
 # 
 # Translators:
+# Emmanuel Sd <emanwebdev@gmail.com>, 2014
 # Eric_InvisibleLink <eric.fouquet@invisible-link.com>, 2011
-# Eric Vernichon <eric@vernichon.fr>, 2011, 2012
+# Eric Vernichon <eric@vernichon.fr>, 2011-2013
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
 # Mathieu Anquetin <mathieu@anquetin.eu>, 2013
 # rootio <david@vmail.me>, 2013
@@ -9,15 +10,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-07-02 18:25-0300\n"
-"PO-Revision-Date: 2013-09-22 15:11+0000\n"
-"Last-Translator: rootio <david@vmail.me>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:33+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "error:gnuhealth.surgery:"
+msgid "End time \"%(end_date)s\" BEFORE surgery date \"%(surgery_date)s\""
+msgstr ""
 
 msgctxt "field:gnuhealth.operation,create_date:"
 msgid "Create Date"
@@ -85,7 +90,7 @@ msgstr "Antécédents de maladies vasculaires cérébrales"
 
 msgctxt "field:gnuhealth.rcri,rcri_class:"
 msgid "RCRI Class"
-msgstr ""
+msgstr "IRCR Classe"
 
 msgctxt "field:gnuhealth.rcri,rcri_congestive_history:"
 msgid "History of congestive heart disease"
@@ -135,13 +140,17 @@ msgctxt "field:gnuhealth.surgery,age:"
 msgid "Estimative Age"
 msgstr "Âge estimé"
 
+msgctxt "field:gnuhealth.surgery,anesthesia_report:"
+msgid "Anesthesia Report"
+msgstr "Rapport d'Anesthésie"
+
 msgctxt "field:gnuhealth.surgery,anesthetist:"
 msgid "Anesthetist"
 msgstr "Anesthésiste"
 
 msgctxt "field:gnuhealth.surgery,classification:"
-msgid "Classification"
-msgstr "Classification"
+msgid "Urgency"
+msgstr "Urgence"
 
 msgctxt "field:gnuhealth.surgery,code:"
 msgid "Code"
@@ -180,16 +189,16 @@ msgid "Base condition"
 msgstr "condition de base"
 
 msgctxt "field:gnuhealth.surgery,patient:"
-msgid "Patient ID"
-msgstr "ID Patient"
+msgid "Patient"
+msgstr "Patient"
 
 msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
 msgid "Antibiotic Prophylaxis"
 msgstr "Prophylaxie antibiotique"
 
 msgctxt "field:gnuhealth.surgery,preop_asa:"
-msgid "ASA Preoperative Physical Status"
-msgstr "ASA Statut Physique Préopératoire"
+msgid "ASA PS"
+msgstr "ASA PS"
 
 msgctxt "field:gnuhealth.surgery,preop_bleeding_risk:"
 msgid "Risk of Massive bleeding"
@@ -205,7 +214,7 @@ msgstr "Oxymètre de pouls en place"
 
 msgctxt "field:gnuhealth.surgery,preop_rcri:"
 msgid "RCRI"
-msgstr "RCRI"
+msgstr "IRCR"
 
 msgctxt "field:gnuhealth.surgery,preop_site_marking:"
 msgid "Surgical Site Marking"
@@ -223,6 +232,14 @@ msgctxt "field:gnuhealth.surgery,rec_name:"
 msgid "Name"
 msgstr "Nom"
 
+msgctxt "field:gnuhealth.surgery,signed_by:"
+msgid "Signed by"
+msgstr "Signé par"
+
+msgctxt "field:gnuhealth.surgery,state:"
+msgid "State"
+msgstr "Etat"
+
 msgctxt "field:gnuhealth.surgery,surgeon:"
 msgid "Surgeon"
 msgstr "Chirurgien"
@@ -230,6 +247,14 @@ msgstr "Chirurgien"
 msgctxt "field:gnuhealth.surgery,surgery_date:"
 msgid "Date"
 msgstr "Date"
+
+msgctxt "field:gnuhealth.surgery,surgery_end_date:"
+msgid "End"
+msgstr "Fin"
+
+msgctxt "field:gnuhealth.surgery,surgery_length:"
+msgid "Duration"
+msgstr "Durée"
 
 msgctxt "field:gnuhealth.surgery,write_date:"
 msgid "Write Date"
@@ -240,25 +265,57 @@ msgid "Write User"
 msgstr "Modifié par"
 
 msgctxt "help:gnuhealth.operation,procedure:"
-msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
-msgstr "Code de procédure, par exemple la CIM-10-PCS Code 7-chaîne de caractères"
+msgid "Procedure Code, for example ICD-10-PCS or ICPM"
+msgstr ""
 
 msgctxt "help:gnuhealth.rcri,health_professional:"
-msgid "Health professional / Cardiologist who signed the assesment RCRI"
-msgstr "Professionnel de santé / Cardiologue qui a signé l'évaluation RCRI"
+msgid "Health professional /Cardiologist who signed the assesment RCRI"
+msgstr "Professionnel de santé / Cardiologue qui a signé l'évaluation IRCR"
+
+msgctxt "help:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Diabetes Mellitus requiring treatment with Insulin"
+msgstr "Diabète sucré nécessitant un traitement par insuline"
 
 msgctxt "help:gnuhealth.rcri,rcri_high_risk_surgery:"
-msgid "suprainguinal vascular, intraperitoneal, or intrathoracic surgery"
+msgid ""
+"Includes andy suprainguinal vascular, intraperitoneal, or intrathoracic "
+"procedures"
+msgstr "Comprend tout vasculaire suprainguinal, intrapéritonéale ou procédures intrathoraciques"
+
+msgctxt "help:gnuhealth.rcri,rcri_ischemic_history:"
+msgid ""
+"history of MI or a positive exercise test, current         complaint of "
+"chest pain considered to be secondary to myocardial         ischemia, use of"
+" nitrate therapy, or ECG with pathological         Q waves; do not count "
+"prior coronary revascularization procedure         unless one of the other "
+"criteria for ischemic heart disease is         present"
+msgstr ""
+
+msgctxt "help:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
+msgstr ""
+
+msgctxt "help:gnuhealth.rcri,rcri_total:"
+msgid ""
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
 msgstr ""
 
 msgctxt "help:gnuhealth.surgery,age:"
 msgid ""
-"Use this field for historical purposes, when no date of surgery is given"
-msgstr "Utilisez ce champ pour des l'historique en l'absence de date d'opération"
+"Use this field for historical purposes,         when no date of surgery is "
+"given"
+msgstr "Utilisez ce champ à des fins historiques, lorsque aucune date d'opération n'est donnée"
 
 msgctxt "help:gnuhealth.surgery,anesthetist:"
 msgid "Anesthetist in charge"
 msgstr "Anesthésiste en charge"
+
+msgctxt "help:gnuhealth.surgery,classification:"
+msgid "Urgency level for this surgery"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,code:"
 msgid "Health Center Unique code"
@@ -276,6 +333,10 @@ msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
 msgid "Prophylactic antibiotic treatment within the last 60 minutes"
 msgstr "Traitement antibiotique prophylactique au cours des 60 dernières minutes"
 
+msgctxt "help:gnuhealth.surgery,preop_asa:"
+msgid "ASA pre-operative Physical Status"
+msgstr "ASA Statut Physique Préopératoire"
+
 msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
 msgid ""
 "Check this box if patient has a risk of loosing more than 500 ml in adults "
@@ -289,8 +350,13 @@ msgid ""
 msgstr "Cochez cette case lors de la vérification de l'oxymètre de pouls est en place et fonctionnel"
 
 msgctxt "help:gnuhealth.surgery,preop_rcri:"
-msgid "Patient Revised Cardiac Risk Index"
-msgstr "Indice Patient de Risque Cardiaque Révisée"
+msgid ""
+"Patient Revised Cardiac Risk Index\n"
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_site_marking:"
 msgid "The surgeon has marked the surgical incision"
@@ -306,9 +372,25 @@ msgid ""
 "main procedure"
 msgstr "Liste des procédures dans la chirurgie. S'il vous plaît entrez la première comme procédure principale"
 
+msgctxt "help:gnuhealth.surgery,signed_by:"
+msgid "Health Professional that signed this surgery document"
+msgstr ""
+
 msgctxt "help:gnuhealth.surgery,surgeon:"
 msgid "Surgeon who did the procedure"
 msgstr "Chirurgien qui a fait la procédure"
+
+msgctxt "help:gnuhealth.surgery,surgery_date:"
+msgid "Start of the Surgery"
+msgstr "Début de la Chirurgie"
+
+msgctxt "help:gnuhealth.surgery,surgery_end_date:"
+msgid "End of the Surgery"
+msgstr "Fin de la chirurgie"
+
+msgctxt "help:gnuhealth.surgery,surgery_length:"
+msgid "Length of the surgery"
+msgstr "Durée de la chirurgie"
 
 msgctxt "model:gnuhealth.operation,name:"
 msgid "Operation - Surgical Procedures"
@@ -324,11 +406,269 @@ msgstr "Chirurgie"
 
 msgctxt "model:ir.action,name:act_rcri_form1"
 msgid "RCRI"
-msgstr "RCRI"
+msgstr "IRCR"
+
+msgctxt "model:ir.action,name:act_surgery_form"
+msgid "Surgeries"
+msgstr "Chirurgies"
+
+msgctxt "model:ir.action,name:action_gnuhealth_surgery_view"
+msgid "Surgeries"
+msgstr "Chirurgies"
+
+msgctxt "model:ir.action,name:report_surgery_report"
+msgid "Surgery Report"
+msgstr "Rapport de Chirurgie"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_surgery_menu"
+msgid "Surgeries"
+msgstr "Chirurgies"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_surgery_list"
+msgid "Surgeries"
+msgstr "Chirurgies"
 
 msgctxt "model:res.group,name:group_health_surgery_admin"
 msgid "Health Surgery Administration"
 msgstr "Administration Chirurgie"
+
+msgctxt "odt:surgery:"
+msgid "( Class"
+msgstr "( Classe"
+
+msgctxt "odt:surgery:"
+msgid "(ID"
+msgstr "(ID"
+
+msgctxt "odt:surgery:"
+msgid ")"
+msgstr ")"
+
+msgctxt "odt:surgery:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:surgery:"
+msgid "1 : Normal healthy patient"
+msgstr "1 : Santé du patient normale"
+
+msgctxt "odt:surgery:"
+msgid "2 : Patients with mild systemic disease"
+msgstr "2 : Patients présentant une maladie systémique légère"
+
+msgctxt "odt:surgery:"
+msgid "3 : Patients with severe systemic disease"
+msgstr "3 : Patients présentant une maladie systémique sévère"
+
+msgctxt "odt:surgery:"
+msgid ""
+"4 : Patients with severe systemic disease that is a constant threat to life"
+msgstr "4 : Patients présentant une maladie systémique sévère mettant sa vie en danger"
+
+msgctxt "odt:surgery:"
+msgid ""
+"5 : Moribund patients who are not expected to survive without the operation"
+msgstr "5 : Patients mourant ayant peu de chance de vivre sans l'opération"
+
+msgctxt "odt:surgery:"
+msgid ""
+"6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "6 : Un patient présentant une mort cérébrale a qui les organes sont prélevés pour en faire don"
+
+msgctxt "odt:surgery:"
+msgid ":"
+msgstr ":"
+
+msgctxt "odt:surgery:"
+msgid "ASA"
+msgstr "ASA"
+
+msgctxt "odt:surgery:"
+msgid "Age"
+msgstr "Age"
+
+msgctxt "odt:surgery:"
+msgid "Anesthesia Report"
+msgstr "Rapport d'anesthésie"
+
+msgctxt "odt:surgery:"
+msgid "Anesthetist"
+msgstr "Anesthésiste"
+
+msgctxt "odt:surgery:"
+msgid "Antibiotic Prophylaxis :"
+msgstr "Prophylaxie antibiotique :"
+
+msgctxt "odt:surgery:"
+msgid "Base Condition"
+msgstr "Condition de base"
+
+msgctxt "odt:surgery:"
+msgid "Class 1:"
+msgstr "Classe 1:"
+
+msgctxt "odt:surgery:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "classe 2 : la luette est partiellement visible"
+
+msgctxt "odt:surgery:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "classe 3 : le palais membraneux est visible"
+
+msgctxt "odt:surgery:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "classe 4 : seul le palais osseux est visible"
+
+msgctxt "odt:surgery:"
+msgid "Classification"
+msgstr "Classification"
+
+msgctxt "odt:surgery:"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "odt:surgery:"
+msgid "Description"
+msgstr "Description"
+
+msgctxt "odt:surgery:"
+msgid "Emergency"
+msgstr "Urgence"
+
+msgctxt "odt:surgery:"
+msgid "Female"
+msgstr "Féminin"
+
+msgctxt "odt:surgery:"
+msgid "Full visibility of tonsils, uvula and soft palate"
+msgstr "Une visibilité complète sur les amygdales, la luette et le palais mou"
+
+msgctxt "odt:surgery:"
+msgid "Information"
+msgstr "Information"
+
+msgctxt "odt:surgery:"
+msgid "Institution"
+msgstr "Institution"
+
+msgctxt "odt:surgery:"
+msgid "Main Surgeon"
+msgstr "Chirurgien principal"
+
+msgctxt "odt:surgery:"
+msgid "Male"
+msgstr "Masculin"
+
+msgctxt "odt:surgery:"
+msgid "Mallampati Score"
+msgstr "Score de Mallampati"
+
+msgctxt "odt:surgery:"
+msgid "Notes"
+msgstr "Notes"
+
+msgctxt "odt:surgery:"
+msgid "Operating Room"
+msgstr "Bloc op."
+
+msgctxt "odt:surgery:"
+msgid "Optional"
+msgstr "Optionnel"
+
+msgctxt "odt:surgery:"
+msgid "Patient"
+msgstr "Patient"
+
+msgctxt "odt:surgery:"
+msgid "Physical Status"
+msgstr "Statut physique"
+
+msgctxt "odt:surgery:"
+msgid "Pre-"
+msgstr "Pré-"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Checklist"
+msgstr "Pré-opération Checklist"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operative"
+msgstr "Pré-opératoire"
+
+msgctxt "odt:surgery:"
+msgid "Print Date"
+msgstr "Date d'impression"
+
+msgctxt "odt:surgery:"
+msgid "Procedure Code"
+msgstr "Code de procédure"
+
+msgctxt "odt:surgery:"
+msgid "Pulse Oximeter in place :"
+msgstr "Oxymètre de pouls en place :"
+
+msgctxt "odt:surgery:"
+msgid "Required"
+msgstr "Requis"
+
+msgctxt "odt:surgery:"
+msgid "Revised Cardiac Risk Index (RCRI)"
+msgstr "Index de Risque Cardiaque Révisé (IRCR)"
+
+msgctxt "odt:surgery:"
+msgid "Risk of Massive bleeding,"
+msgstr "Risque d'hémorragie massive,"
+
+msgctxt "odt:surgery:"
+msgid "Sex"
+msgstr "Sex"
+
+msgctxt "odt:surgery:"
+msgid "Sterility confirmed :"
+msgstr "Stérilité confirmée :"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Details / Incidents"
+msgstr "Chirurgie Détails / Incidents"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Report :"
+msgstr "Rapport de Chirurgie :"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Time"
+msgstr "Temps de Chirurgie"
+
+msgctxt "odt:surgery:"
+msgid "Surgical Site Marking :"
+msgstr "Marquage du site chirurgical :"
+
+msgctxt "odt:surgery:"
+msgid "Urgent"
+msgstr "Urgence"
+
+msgctxt "odt:surgery:"
+msgid "at surgery"
+msgstr "à la chirurgie"
+
+msgctxt "odt:surgery:"
+msgid "e :"
+msgstr "e :"
+
+msgctxt "odt:surgery:"
+msgid "i"
+msgstr "i"
+
+msgctxt "odt:surgery:"
+msgid "ntravenous access and fluids availabl"
+msgstr "Accès intraveineuse et fluides disponibles "
+
+msgctxt "odt:surgery:"
+msgid "operation"
+msgstr "opération"
 
 msgctxt "selection:gnuhealth.rcri,rcri_class:"
 msgid "I"
@@ -410,6 +750,14 @@ msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
 msgid "Class 4: Only Hard Palate visible"
 msgstr "classe 4 : seul le palais osseux est visible"
 
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Done"
+msgstr "Fait"
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "In progress"
+msgstr "En cours"
+
 msgctxt "view:gnuhealth.operation:"
 msgid "Operation"
 msgstr "Opération"
@@ -432,15 +780,23 @@ msgstr "Procédure"
 
 msgctxt "view:gnuhealth.rcri:"
 msgid "RCRI"
-msgstr "RCRI"
+msgstr "IRCR"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI : Revised Cardiac Risk Index"
+msgstr "IRCR : Index de Risque Cardiaque Révisé"
 
 msgctxt "view:gnuhealth.surgery:"
-msgid "Details"
-msgstr "Détails"
+msgid "Anesthesia"
+msgstr "Anesthésie"
 
 msgctxt "view:gnuhealth.surgery:"
-msgid "Mallampati Score"
-msgstr "Score de Mallampati"
+msgid "Details / Incidents"
+msgstr "Détails / Incidents"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finish and sign this surgery ? Itwill become read-only !"
+msgstr ""
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Patient Surgical Risk assessment"
@@ -449,6 +805,14 @@ msgstr "Évaluation des risques chirurgicaux des patients"
 msgctxt "view:gnuhealth.surgery:"
 msgid "Preoperative checklist"
 msgstr "Checklist préopératoire"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign"
+msgstr "Signe"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign this surgery"
+msgstr ""
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Surgery"

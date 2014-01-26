@@ -2,12 +2,13 @@
 # Translators:
 # eriam <eriam@mediavirtuel.com>, 2012
 # Eric Vernichon <eric@vernichon.fr>, 2013
+# rootio <david@vmail.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-27 22:11-0300\n"
-"PO-Revision-Date: 2013-09-22 15:12+0000\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:33+0000\n"
 "Last-Translator: Eric Vernichon <eric@vernichon.fr>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +20,14 @@ msgstr ""
 msgctxt "error:gnuhealth.health_service:"
 msgid "The Service ID must be unique"
 msgstr "L'ID de service doit être unique"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No Payment Term associated to the Patient"
+msgstr "Pas de conditions de paiement associé au parent"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No invoice address associated"
+msgstr "Aucune adresse de facturation associée"
 
 msgctxt "error:gnuhealth.service.invoice.create:"
 msgid "Service already invoiced"

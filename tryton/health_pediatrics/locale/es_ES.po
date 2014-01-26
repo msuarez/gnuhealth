@@ -2,13 +2,14 @@
 # Translators:
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
 # hyances <hyances@gmail.com>, 2012
+# Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-28 18:56-0300\n"
-"PO-Revision-Date: 2013-07-06 00:01+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 15:00+0000\n"
+"Last-Translator: Sebastián Marró <smarro@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -233,12 +234,20 @@ msgid "Tonic Neck Reflex"
 msgstr "Reflejo del cuello tónico"
 
 msgctxt "field:gnuhealth.newborn,newborn_name:"
-msgid "Baby's name"
-msgstr "Nombre del Bebé"
+msgid "Name at Birth"
+msgstr "Nombre en el Nacimiento"
+
+msgctxt "field:gnuhealth.newborn,newborn_sex:"
+msgid "Sex"
+msgstr "Sexo"
 
 msgctxt "field:gnuhealth.newborn,notes:"
 msgid "Notes"
 msgstr "Notas"
+
+msgctxt "field:gnuhealth.newborn,patient:"
+msgid "Baby's name"
+msgstr "Nombre del Bebé"
 
 msgctxt "field:gnuhealth.newborn,photo:"
 msgid "Picture"
@@ -273,8 +282,8 @@ msgid "Doctor in charge"
 msgstr "Doctor a cargo"
 
 msgctxt "field:gnuhealth.newborn,sex:"
-msgid "Sex"
-msgstr "Sexo"
+msgid "Gender at Birth"
+msgstr "Sexo en el Nacimiento"
 
 msgctxt "field:gnuhealth.newborn,test_audition:"
 msgid "Audition"
@@ -524,6 +533,10 @@ msgctxt "help:gnuhealth.newborn,length:"
 msgid "Perimeter in centimeters (cm)"
 msgstr "Perímetro en centímetros (cm)"
 
+msgctxt "help:gnuhealth.newborn,patient:"
+msgid "Patient associated to this newborn baby"
+msgstr "Paciente asociado a este bebé recién nacido"
+
 msgctxt "help:gnuhealth.newborn,responsible:"
 msgid "Signed by the health professional"
 msgstr "Firmado por el profesional de salud"
@@ -554,6 +567,10 @@ msgstr "Información del Neonato"
 msgctxt "model:gnuhealth.patient.psc,name:"
 msgid "Pediatric Symptoms Checklist"
 msgstr "Lista de chequeo para Síntomas Pediátricos"
+
+msgctxt "model:ir.action,name:act_newborn_form1"
+msgid "Newborn"
+msgstr "Recién nacido"
 
 msgctxt "model:ir.action,name:act_psc_form1"
 msgid "PSC"
@@ -695,9 +712,13 @@ msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "strong"
 msgstr "fuerte"
 
-msgctxt "selection:gnuhealth.newborn,sex:"
-msgid "Ambiguous genitalia"
-msgstr "Genitales ambiguos"
+msgctxt "selection:gnuhealth.newborn,newborn_sex:"
+msgid "Female"
+msgstr "Femenino"
+
+msgctxt "selection:gnuhealth.newborn,newborn_sex:"
+msgid "Male"
+msgstr "Male"
 
 msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Female"

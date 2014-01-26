@@ -1,20 +1,36 @@
 # 
 # Translators:
 # cristina <cmelgosa@thymbra.com>, 2013
-# Sebastián Marró <smarro@thymbra.com>, 2012
+# Sebastián Marró <smarro@thymbra.com>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-27 22:11-0300\n"
-"PO-Revision-Date: 2013-06-28 09:05+0000\n"
-"Last-Translator: cristina <cmelgosa@thymbra.com>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 15:10+0000\n"
+"Last-Translator: Sebastián Marró <smarro@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:gnuhealth.evaluations.open.start,end_date:"
+msgid "End Date"
+msgstr "Fecha final"
+
+msgctxt "field:gnuhealth.evaluations.open.start,group_by:"
+msgid "Group By"
+msgstr "Agrupar por"
+
+msgctxt "field:gnuhealth.evaluations.open.start,id:"
+msgid "ID"
+msgstr "Id"
+
+msgctxt "field:gnuhealth.evaluations.open.start,start_date:"
+msgid "Start Date"
+msgstr "Fecha inicial"
 
 msgctxt "field:gnuhealth.evaluations_doctor,create_date:"
 msgid "Create Date"
@@ -48,98 +64,6 @@ msgctxt "field:gnuhealth.evaluations_doctor,write_uid:"
 msgid "Write User"
 msgstr "Escribir usuario"
 
-msgctxt "field:gnuhealth.evaluations_doctor.open.start,end_date:"
-msgid "End Date"
-msgstr "Fecha Fin"
-
-msgctxt "field:gnuhealth.evaluations_doctor.open.start,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_doctor.open.start,start_date:"
-msgid "Start Date"
-msgstr "Fecha Inicio"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,doctor:"
-msgid "Doctor"
-msgstr "Doctor"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,month:"
-msgid "Month"
-msgstr "Mes"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_doctor_monthly,year:"
-msgid "Year"
-msgstr "Año"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,doctor:"
-msgid "Doctor"
-msgstr "Doctor"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,week:"
-msgid "Week"
-msgstr "Semana"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_doctor_weekly,year:"
-msgid "Year"
-msgstr "Año"
-
 msgctxt "field:gnuhealth.evaluations_sector,create_date:"
 msgid "Create Date"
 msgstr "Crear fecha"
@@ -172,98 +96,6 @@ msgctxt "field:gnuhealth.evaluations_sector,write_uid:"
 msgid "Write User"
 msgstr "Escribir usuario"
 
-msgctxt "field:gnuhealth.evaluations_sector.open.start,end_date:"
-msgid "End Date"
-msgstr "Fecha Fin"
-
-msgctxt "field:gnuhealth.evaluations_sector.open.start,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_sector.open.start,start_date:"
-msgid "Start Date"
-msgstr "Fecha Inicio"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,month:"
-msgid "Month"
-msgstr "Mes"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,sector:"
-msgid "Sector"
-msgstr "Sector"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_sector_monthly,year:"
-msgid "Year"
-msgstr "Año"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,sector:"
-msgid "Sector"
-msgstr "Sector"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,week:"
-msgid "Week"
-msgstr "Semana"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_sector_weekly,year:"
-msgid "Year"
-msgstr "Año"
-
 msgctxt "field:gnuhealth.evaluations_specialty,create_date:"
 msgid "Create Date"
 msgstr "Crear fecha"
@@ -295,98 +127,6 @@ msgstr "Escriba la fecha"
 msgctxt "field:gnuhealth.evaluations_specialty,write_uid:"
 msgid "Write User"
 msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_specialty.open.start,end_date:"
-msgid "End Date"
-msgstr "Fecha Fin"
-
-msgctxt "field:gnuhealth.evaluations_specialty.open.start,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_specialty.open.start,start_date:"
-msgid "Start Date"
-msgstr "Fecha Inicio"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,month:"
-msgid "Month"
-msgstr "Mes"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,specialty:"
-msgid "Specialty"
-msgstr "Especialidad"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_specialty_monthly,year:"
-msgid "Year"
-msgstr "Año"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,create_date:"
-msgid "Create Date"
-msgstr "Crear fecha"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,create_uid:"
-msgid "Create User"
-msgstr "Crear usuario"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,evaluations:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,rec_name:"
-msgid "Name"
-msgstr "Nombre"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,specialty:"
-msgid "Specialty"
-msgstr "Especialidad"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,week:"
-msgid "Week"
-msgstr "Semana"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,write_date:"
-msgid "Write Date"
-msgstr "Escriba la fecha"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,write_uid:"
-msgid "Write User"
-msgstr "Escribir usuario"
-
-msgctxt "field:gnuhealth.evaluations_specialty_weekly,year:"
-msgid "Year"
-msgstr "Año"
 
 msgctxt "field:gnuhealth.top_diseases,cases:"
 msgid "Cases"
@@ -440,53 +180,21 @@ msgctxt "field:gnuhealth.top_diseases.open.start,start_date:"
 msgid "Start Date"
 msgstr "Fecha Inicio"
 
+msgctxt "model:gnuhealth.evaluations.open.start,name:"
+msgid "Open Evaluations"
+msgstr "Abrir Evaluaciones"
+
 msgctxt "model:gnuhealth.evaluations_doctor,name:"
 msgid "Evaluations per Doctor"
 msgstr "Evaluaciones por Doctor"
-
-msgctxt "model:gnuhealth.evaluations_doctor.open.start,name:"
-msgid "Open Evaluations per Doctor"
-msgstr "Abrir evaluaciones por Doctor"
-
-msgctxt "model:gnuhealth.evaluations_doctor_monthly,name:"
-msgid "Evaluations per Doctor per Month"
-msgstr "Evaluaciones por Doctor por Mes"
-
-msgctxt "model:gnuhealth.evaluations_doctor_weekly,name:"
-msgid "Evaluations per Doctor per Week"
-msgstr "Evaluaciones por Doctor por Semana"
 
 msgctxt "model:gnuhealth.evaluations_sector,name:"
 msgid "Evaluations per Sector"
 msgstr "Evaluaciones por Sector"
 
-msgctxt "model:gnuhealth.evaluations_sector.open.start,name:"
-msgid "Open Evaluations per Sector"
-msgstr "Abrir evaluaciones por Sector"
-
-msgctxt "model:gnuhealth.evaluations_sector_monthly,name:"
-msgid "Evaluations per Sector per Month"
-msgstr "Evaluaciones por Sector por Mes"
-
-msgctxt "model:gnuhealth.evaluations_sector_weekly,name:"
-msgid "Evaluations per Sector per Week"
-msgstr "Evaluaciones por Sector por Semana"
-
 msgctxt "model:gnuhealth.evaluations_specialty,name:"
 msgid "Evaluations per Specialty"
 msgstr "Evaluaciones por Especialidad"
-
-msgctxt "model:gnuhealth.evaluations_specialty.open.start,name:"
-msgid "Open Evaluations per Specialty"
-msgstr "Abrir evaluaciones por Especialidad"
-
-msgctxt "model:gnuhealth.evaluations_specialty_monthly,name:"
-msgid "Evaluations per Specialty per Month"
-msgstr "Evaluaciones por Especialidad por Mes"
-
-msgctxt "model:gnuhealth.evaluations_specialty_weekly,name:"
-msgid "Evaluations per Specialty per Week"
-msgstr "Evaluaciones por Especialidad por Semana"
 
 msgctxt "model:gnuhealth.top_diseases,name:"
 msgid "Top Diseases"
@@ -496,53 +204,21 @@ msgctxt "model:gnuhealth.top_diseases.open.start,name:"
 msgid "Open Top Diseases"
 msgstr "Abrir enfermedades principales"
 
-msgctxt "model:ir.action,name:act_evaluations_doctor_form"
+msgctxt "model:ir.action,name:act_evaluations_doctor"
 msgid "Evaluations per Doctor"
 msgstr "Evaluaciones por Doctor"
 
-msgctxt "model:ir.action,name:act_evaluations_doctor_monthly_form"
-msgid "Evaluations per Doctor per Month"
-msgstr "Evaluaciones por Doctor por Mes"
+msgctxt "model:ir.action,name:act_evaluations_open"
+msgid "Evaluations Report"
+msgstr "Reporte de Evaluaciones"
 
-msgctxt "model:ir.action,name:act_evaluations_doctor_open"
-msgid "Evaluations per Doctor"
-msgstr "Evaluaciones por Doctor"
-
-msgctxt "model:ir.action,name:act_evaluations_doctor_weekly_form"
-msgid "Evaluations per Doctor per Week"
-msgstr "Evaluaciones por Doctor por Semana"
-
-msgctxt "model:ir.action,name:act_evaluations_sector_form"
+msgctxt "model:ir.action,name:act_evaluations_sector"
 msgid "Evaluations per Sector"
 msgstr "Evaluaciones por Sector"
 
-msgctxt "model:ir.action,name:act_evaluations_sector_monthly_form"
-msgid "Evaluations per Sector per Month"
-msgstr "Evaluaciones por Sector por Mes"
-
-msgctxt "model:ir.action,name:act_evaluations_sector_open"
-msgid "Evaluations per Sector"
-msgstr "Evaluaciones por Sector"
-
-msgctxt "model:ir.action,name:act_evaluations_sector_weekly_form"
-msgid "Evaluations per Sector per Week"
-msgstr "Evaluaciones por Sector por Semana"
-
-msgctxt "model:ir.action,name:act_evaluations_specialty_form"
+msgctxt "model:ir.action,name:act_evaluations_specialty"
 msgid "Evaluations per Specialty"
 msgstr "Evaluaciones por Especialidad"
-
-msgctxt "model:ir.action,name:act_evaluations_specialty_monthly_form"
-msgid "Evaluations per Specialty per Month"
-msgstr "Evaluaciones por Especialidad por Mes"
-
-msgctxt "model:ir.action,name:act_evaluations_specialty_open"
-msgid "Evaluations per Specialty"
-msgstr "Evaluaciones por Especialidad"
-
-msgctxt "model:ir.action,name:act_evaluations_specialty_weekly_form"
-msgid "Evaluations per Specialty per Week"
-msgstr "Evaluaciones por Especialidad por Semana"
 
 msgctxt "model:ir.action,name:act_top_diseases_form"
 msgid "Top Diseases"
@@ -552,47 +228,27 @@ msgctxt "model:ir.action,name:act_top_diseases_open"
 msgid "Top Diseases"
 msgstr "Enfermedades Principales"
 
-msgctxt "model:ir.ui.menu,name:menu_evaluations_doctor_open"
-msgid "Evaluations per Doctor"
-msgstr "Evaluaciones por Doctor"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_doctor_open_monthly"
-msgid "Evaluations per Doctor per Month"
-msgstr "Evaluaciones por Doctor por Mes"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_doctor_open_weekly"
-msgid "Evaluations per Doctor per Week"
-msgstr "Evaluaciones por Doctor por Semana"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_sector_open"
-msgid "Evaluations per Sector"
-msgstr "Evaluaciones por Sector"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_sector_open_monthly"
-msgid "Evaluations per Sector per Month"
-msgstr "Evaluaciones por Sector por Mes"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_sector_open_weekly"
-msgid "Evaluations per Sector per Week"
-msgstr "Evaluaciones por Sector por Semana"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_specialty_open"
-msgid "Evaluations per Specialty"
-msgstr "Evaluaciones por Especialidad"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_specialty_open_monthly"
-msgid "Evaluations per Specialty per Month"
-msgstr "Evaluaciones por Especialidad por Mes"
-
-msgctxt "model:ir.ui.menu,name:menu_evaluations_specialty_open_weekly"
-msgid "Evaluations per Specialty per Week"
-msgstr "Evaluaciones por Especialidad por Semana"
+msgctxt "model:ir.ui.menu,name:menu_evaluations_open"
+msgid "Evaluations Report"
+msgstr "Reporte de Evaluaciones"
 
 msgctxt "model:ir.ui.menu,name:menu_top_diseases_open"
 msgid "Top Diseases"
 msgstr "Enfermedades Principales"
 
-msgctxt "view:gnuhealth.evaluations_doctor.open.start:"
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Doctor"
+msgstr "Doctor"
+
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Sector"
+msgstr "Sector"
+
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Specialty"
+msgstr "Especialidad"
+
+msgctxt "view:gnuhealth.evaluations.open.start:"
 msgid "Evaluations per Doctor"
 msgstr "Evaluaciones por Doctor"
 
@@ -604,38 +260,14 @@ msgctxt "view:gnuhealth.evaluations_doctor:"
 msgid "Evaluations per Doctor"
 msgstr "Evaluaciones por Doctor"
 
-msgctxt "view:gnuhealth.evaluations_doctor_monthly:"
-msgid "Evaluations per Doctor per Month"
-msgstr "Evaluaciones por Doctor por Mes"
+msgctxt "view:gnuhealth.evaluations_sector:"
+msgid "Evaluations"
+msgstr "Evaluaciones"
 
-msgctxt "view:gnuhealth.evaluations_doctor_weekly:"
-msgid "Evaluations per Doctor per Week"
-msgstr "Evaluaciones por Doctor por Semana"
-
-msgctxt "view:gnuhealth.evaluations_sector.open.start:"
+msgctxt "view:gnuhealth.evaluations_sector:"
 msgid "Evaluations per Sector"
 msgstr "Evaluaciones por Sector"
 
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations"
-msgstr "Evaluaciones"
-
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations per Operational Sector"
-msgstr "Evaluaciones por Sector Operacional"
-
-msgctxt "view:gnuhealth.evaluations_sector_monthly:"
-msgid "Evaluations per Sector per Month"
-msgstr "Evaluaciones por Sector por Mes"
-
-msgctxt "view:gnuhealth.evaluations_sector_weekly:"
-msgid "Evaluations per Sector per Week"
-msgstr "Evaluaciones por Sector por Semana"
-
-msgctxt "view:gnuhealth.evaluations_specialty.open.start:"
-msgid "Evaluations per Specialty"
-msgstr "Evaluaciones por Especialidad"
-
 msgctxt "view:gnuhealth.evaluations_specialty:"
 msgid "Evaluations"
 msgstr "Evaluaciones"
@@ -643,14 +275,6 @@ msgstr "Evaluaciones"
 msgctxt "view:gnuhealth.evaluations_specialty:"
 msgid "Evaluations per Specialty"
 msgstr "Evaluaciones por Especialidad"
-
-msgctxt "view:gnuhealth.evaluations_specialty_monthly:"
-msgid "Evaluations per Specialty per Month"
-msgstr "Evaluaciones por Especialidad por Mes"
-
-msgctxt "view:gnuhealth.evaluations_specialty_weekly:"
-msgid "Evaluations per Specialty per Week"
-msgstr "Evaluaciones por Especialidad por Semana"
 
 msgctxt "view:gnuhealth.top_diseases.open.start:"
 msgid "Top Diseases"
@@ -664,29 +288,13 @@ msgctxt "view:gnuhealth.top_diseases:"
 msgid "Top Diseases"
 msgstr "Enfermedades Principales"
 
-msgctxt "wizard_button:gnuhealth.evaluations_doctor.open,start,end:"
+msgctxt "wizard_button:gnuhealth.evaluations.open,start,end:"
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancelado"
 
-msgctxt "wizard_button:gnuhealth.evaluations_doctor.open,start,open_:"
+msgctxt "wizard_button:gnuhealth.evaluations.open,start,select:"
 msgid "Open"
-msgstr "Abrir"
-
-msgctxt "wizard_button:gnuhealth.evaluations_sector.open,start,end:"
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgctxt "wizard_button:gnuhealth.evaluations_sector.open,start,open_:"
-msgid "Open"
-msgstr "Abrir"
-
-msgctxt "wizard_button:gnuhealth.evaluations_specialty.open,start,end:"
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgctxt "wizard_button:gnuhealth.evaluations_specialty.open,start,open_:"
-msgid "Open"
-msgstr "Abrir"
+msgstr "Abierto"
 
 msgctxt "wizard_button:gnuhealth.top_diseases.open,start,end:"
 msgid "Cancel"

@@ -1,14 +1,15 @@
 # 
 # Translators:
-# meanmicio <falcon@gnu.org>, 2013
-# meanmicio <falcon@gnu.org>, 2012
+# meanmicio <lfalcon@gnusolidario.org>, 2013
+# meanmicio <lfalcon@gnusolidario.org>, 2012
+# Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-27 22:11-0300\n"
-"PO-Revision-Date: 2013-07-02 23:10+0000\n"
-"Last-Translator: meanmicio <falcon@gnu.org>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 15:00+0000\n"
+"Last-Translator: Sebastián Marró <smarro@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +20,14 @@ msgstr ""
 msgctxt "error:gnuhealth.health_service:"
 msgid "The Service ID must be unique"
 msgstr "El ID del servicio debe ser único"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No Payment Term associated to the Patient"
+msgstr "No hay Término de Pago asociado al Paciente"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No invoice address associated"
+msgstr "No hay dirección de facturación asociada"
 
 msgctxt "error:gnuhealth.service.invoice.create:"
 msgid "Service already invoiced"

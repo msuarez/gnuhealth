@@ -1,17 +1,19 @@
 # 
 # Translators:
+# Debatik mundura!, 2014
 # Carlos <carloschebair@gmail.com>, 2013
 # cristina <cmelgosa@thymbra.com>, 2012
 # Iván <ioloo00@eresmas.com>, 2012
-# meanmicio <falcon@gnu.org>, 2013
-# meanmicio <falcon@gnu.org>, 2011
+# meanmicio <lfalcon@gnusolidario.org>, 2013
+# meanmicio <lfalcon@gnusolidario.org>, 2011
+# Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-28 18:56-0300\n"
-"PO-Revision-Date: 2013-07-06 01:20+0000\n"
-"Last-Translator: meanmicio <falcon@gnu.org>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 14:50+0000\n"
+"Last-Translator: Sebastián Marró <smarro@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -463,6 +465,10 @@ msgctxt "field:gnuhealth.inpatient.registration,discharge_plan:"
 msgid "Discharge Plan"
 msgstr "Plan de alta médica"
 
+msgctxt "field:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Discharged by"
+msgstr "Dado de baja por"
+
 msgctxt "field:gnuhealth.inpatient.registration,hospitalization_date:"
 msgid "Hospitalization date"
 msgstr "Fecha de hospitalización"
@@ -508,8 +514,8 @@ msgid "Status"
 msgstr "Estado"
 
 msgctxt "field:gnuhealth.inpatient.registration,therapeutic_diets:"
-msgid "Therapeutic Diets"
-msgstr "Dietas terapéuticas"
+msgid "Meals / Diet Program"
+msgstr "Programa de Comidas / Dieta"
 
 msgctxt "field:gnuhealth.inpatient.registration,write_date:"
 msgid "Write Date"
@@ -631,6 +637,14 @@ msgctxt "help:gnuhealth.inpatient.registration,diet_belief:"
 msgid ""
 "Enter the patient belief or religion to choose the             proper diet"
 msgstr "Introduzca las creencias o religión del paciente para seleccionar la dieta adecuada"
+
+msgctxt "help:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Health Professional that discharged the patient"
+msgstr "Profesional de la Salud que dio de baja al paciente"
+
+msgctxt "help:gnuhealth.patient,patient_status:"
+msgid "Patient current Hospitalization Status"
+msgstr "Estado del paciente hospitalizado "
 
 msgctxt "model:gnuhealth.bed.transfer,name:"
 msgid "Bed transfers"
@@ -1140,6 +1154,10 @@ msgid "Vegetarian"
 msgstr "Vegetariano"
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "Done"
+msgstr "Realizada"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "cancelled"
 msgstr "cancelado"
 
@@ -1284,8 +1302,8 @@ msgid "Inpatient Registration Information"
 msgstr "Información del Registro de Internación"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Medication"
-msgstr "Medicación"
+msgid "Medication Plan"
+msgstr "Plan de Medicación"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Nutrition"
@@ -1300,8 +1318,10 @@ msgid "Patient Admission"
 msgstr "Admisión del Paciente"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "You are about to discharge the patient from the health institution."
-msgstr "Está por dar el alta al paciente del centro de salud"
+msgid ""
+"You are about to SIGN the discharge the patient from the health institution."
+" This record will become READ ONLY "
+msgstr "Usted está a punto de FIRMAR el alta del paciente de la institución de salud. Este registro se convertirá en SOLO LECTURA"
 
 msgctxt ""
 "wizard_button:gnuhealth.bed.transfer.create,start,create_bed_transfer:"

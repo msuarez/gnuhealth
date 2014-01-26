@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Emmanuel Sd <emanwebdev@gmail.com>, 2014
 # eriam <eriam@mediavirtuel.com>, 2012
 # Eric Vernichon <eric@vernichon.fr>, 2011
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
@@ -9,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2013-06-28 18:56-0300\n"
-"PO-Revision-Date: 2013-09-22 15:11+0000\n"
-"Last-Translator: rootio <david@vmail.me>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:32+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -463,6 +464,10 @@ msgctxt "field:gnuhealth.inpatient.registration,discharge_plan:"
 msgid "Discharge Plan"
 msgstr "Plan de sortie"
 
+msgctxt "field:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Discharged by"
+msgstr ""
+
 msgctxt "field:gnuhealth.inpatient.registration,hospitalization_date:"
 msgid "Hospitalization date"
 msgstr "Date d'hospitalisation"
@@ -508,8 +513,8 @@ msgid "Status"
 msgstr "Statut"
 
 msgctxt "field:gnuhealth.inpatient.registration,therapeutic_diets:"
-msgid "Therapeutic Diets"
-msgstr "Régimes thérapeutiques"
+msgid "Meals / Diet Program"
+msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.registration,write_date:"
 msgid "Write Date"
@@ -632,6 +637,14 @@ msgid ""
 "Enter the patient belief or religion to choose the             proper diet"
 msgstr "Entrer la croyance ou la religion du patient pour choisir le régime approprié"
 
+msgctxt "help:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Health Professional that discharged the patient"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,patient_status:"
+msgid "Patient current Hospitalization Status"
+msgstr "Statut Actuel Hospitalisation Patient"
+
 msgctxt "model:gnuhealth.bed.transfer,name:"
 msgid "Bed transfers"
 msgstr "Transferts de lit"
@@ -726,18 +739,18 @@ msgctxt "model:gnuhealth.diet.therapeutic,description:2GS"
 msgid ""
 "Used in the treatment of conditions characterized by edema, including the following: cirrhosis of the\n"
 "liver with ascites, Congested Heart Failure - CHF, essential hypertension and renal disease."
-msgstr ""
+msgstr "Utilisé dans le traitement des affections caractérisées par œdème, y compris ce qui suit: cirrhose du \nfoie avec ascite, Insuffisance Cardiaque Congestive - ICC, hypertension artérielle essentielle et les maladies rénales."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:BLAND"
 msgid ""
 "The diet eliminates seasoned foods and condiments that may stimulate gastric"
 " discomfort and GERD"
-msgstr ""
+msgstr "Le régime elimine les aliments et condiments assaisonnés qui peuvent stimuler un inconfort gastrique et RGO"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CARDIAC"
 msgid ""
 "Provides controlled amounts of sodium, cholesterol, saturated and total fat"
-msgstr ""
+msgstr "Fournit des quantités contrôlées de sodium, cholestérol, graisses saturées et totale"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CCH"
 msgid ""
@@ -745,21 +758,21 @@ msgid ""
 " on caloric level to allow for optimal blood glucose control. The diet "
 "provides a Bedtime snack for all calorie levels. (45% CHO, 25% protein, 30% "
 "fat)"
-msgstr ""
+msgstr "1200-3000 cal/jour. Le régime fournit des quantités constantes de glucides en fonction du niveau calorique pour permettre le contrôle de la glycémie optimale. La dièt offre une collation au coucher pour tous les niveaux de calories. (45% glucides, 25% protéines, 30% matière grasse)"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CDD"
 msgid ""
 "1800-3000 cal/day .The diet provides consistent amount of carbohydrate based"
 " on caloric level to allow for optimal blood glucose control. Snacks "
 "provided between meals to provide approximately 35-40% of Kcal from CHO."
-msgstr ""
+msgstr "1800-3000 cal/jour. Le régime fournit des quantités constantes de glucides en fonction du niveau calorique pour permettre le contrôle de la glycémie optimale. Des collations entre les repas pour fournir environ 35-40% de Kcal de glucides."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CLIQUID"
 msgid ""
 "The diet is indicated for short-term use whenever an acute illness or "
 "surgery causes intolerance to food; or to temporarily restrict undigested "
 "material in the GI tract. The diet is not nutritionally adequate."
-msgstr ""
+msgstr "Le régime est indiqué pour une utilisation à court terme quand une maladie aiguë ou une intervention chirurgicale provoque une intolérance à la nourriture; ou pour restreindre temporairement le matériau non digérés dans le tractus gastro-intestinal. Le régime n'est pas nutritionnellement adéquate."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CLIQUIDNCS"
 msgid ""
@@ -842,11 +855,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:LOWFAT"
 msgid "Provides less than 30% energy from fat."
-msgstr ""
+msgstr "Fournit moins de 30% d'énergie provenant des lipides."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:MS"
 msgid "For patients who have difficulty in chewing or swallowing"
-msgstr ""
+msgstr "Pour les patients qui ont des difficultés à mâcher ou à avaler"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:NAS"
 msgid ""
@@ -858,7 +871,7 @@ msgctxt "model:gnuhealth.diet.therapeutic,description:NEUTROPENIC"
 msgid ""
 "The diet eliminates certain foods to provide a lower level of bacteria than "
 "is present in a typical hospital diet."
-msgstr ""
+msgstr "Le régime élimine certains aliments afin de fournir un niveau inférieur de bactéries que ce qui est présent dans un régime typique d'hôpital."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:NPO"
 msgid "Nil per Os. Withhold oral food and fluids from the patient"
@@ -878,7 +891,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:REG"
 msgid "No dietary modifications required"
-msgstr ""
+msgstr "Aucune modification du régime alimentaire nécessaire"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:RENAL"
 msgid ""
@@ -888,7 +901,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:SFM"
 msgid "The diet provides 6 small meals daily"
-msgstr ""
+msgstr "Le régime se compose de 6 petits repas par jour"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:SLL"
 msgid "Soft bland foods that have low fiber content. Lactose is limited."
@@ -896,11 +909,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:"
 msgid "Diet Therapy"
-msgstr ""
+msgstr "Thérapie Diététique"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:2GS"
 msgid "2 gram Sodium"
-msgstr ""
+msgstr "2 gr Sodium"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:BLAND"
 msgid "Bland"
@@ -908,7 +921,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:CARDIAC"
 msgid "Cardiac"
-msgstr ""
+msgstr "Cardiaque"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:CCH"
 msgid "Consistent Carbohydrate"
@@ -920,55 +933,55 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:CLIQUID"
 msgid "Clear Liquid"
-msgstr ""
+msgstr "Liquide Clair"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:CLIQUIDNCS"
 msgid "Clear Liquid / NCS"
-msgstr ""
+msgstr "Liquide Clair / Pas de sucre concentrés"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:DYSA"
 msgid "Dysphagia Altered"
-msgstr ""
+msgstr "Dysphagie Altérée"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:DYSAD"
 msgid "Dysphagia Advanced"
-msgstr ""
+msgstr "Dysphagie Avancée"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:DYSP"
 msgid "Dysphagia Puree"
-msgstr ""
+msgstr "Dysphagie Purée"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:EMESIS"
 msgid "Hyperemesis"
-msgstr ""
+msgstr "Hyperemesis"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:FINGERFOOD"
 msgid "Finger Food"
-msgstr ""
+msgstr "Nourriture à la main"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:FLLF"
 msgid "Full Liquid Lactose Free"
-msgstr ""
+msgstr "Seulement du liquide sans lactose"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:FULLLIQUID"
 msgid "Full Liquid"
-msgstr ""
+msgstr "Seulement du liquide"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GB1"
 msgid "Gastric Bypass Stage 1"
-msgstr ""
+msgstr "Bypass Gastrique Étape 1"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GB2"
 msgid "Gastric Bypass Stage 2"
-msgstr ""
+msgstr "Bypass Gastrique Étape 2"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GB3"
 msgid "Gastric Bypass Stage 3"
-msgstr ""
+msgstr "Bypass Gastrique Étape 3"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GB4"
 msgid "Gastric Bypass Stage 4"
-msgstr ""
+msgstr "Bypass Gastrique Étape 4"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GISOFT"
 msgid "GI Soft - Low Residue"
@@ -976,35 +989,35 @@ msgstr ""
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:GLUTENFREE"
 msgid "Gluten Free"
-msgstr ""
+msgstr "Sans Gluten"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:LOWFAT"
 msgid "Low-Fat"
-msgstr ""
+msgstr "Pauvre en matières grasses"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:MS"
 msgid "Mechanical Soft / Dental Soft"
-msgstr ""
+msgstr "Moux à macher"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:NAS"
 msgid "Not Added Salt - NAS"
-msgstr ""
+msgstr "Sans sucre ajouté - SSA"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:NEUTROPENIC"
 msgid "Neutropenic"
-msgstr ""
+msgstr "Neutropénique"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:NPO"
 msgid "Nothing by Mouth / NPO "
-msgstr ""
+msgstr "Rien par voie orale / RPVO"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:PGMY"
 msgid "Post-Gastrectomy"
-msgstr ""
+msgstr "Post-Gastrectomie"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:PRERENAL"
 msgid "PRERENAL"
-msgstr ""
+msgstr "PRERENALE"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:REG"
 msgid "Regular"
@@ -1012,23 +1025,23 @@ msgstr "Normal"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:RENAL"
 msgid "RENAL"
-msgstr ""
+msgstr "RENAL"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:SFM"
 msgid "Small Frequent Meals"
-msgstr ""
+msgstr "Petits Repas Fréquents"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:SLL"
 msgid "Surgical Low Lactose"
-msgstr ""
+msgstr "Chirurgicale faible teneur en lactose"
 
 msgctxt "model:gnuhealth.inpatient.diet,name:"
 msgid "Inpatient Diet"
-msgstr ""
+msgstr "Diét Patient Hospitalisé"
 
 msgctxt "model:gnuhealth.inpatient.medication,name:"
 msgid "Inpatient Medication"
-msgstr ""
+msgstr "Médication Patient Hospitalisé"
 
 msgctxt "model:gnuhealth.inpatient.medication.admin_time,name:"
 msgid "Inpatient Medication Admin Times"
@@ -1036,7 +1049,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.inpatient.medication.log,name:"
 msgid "Inpatient Medication Log History"
-msgstr ""
+msgstr "Historique Médication Patient Hospitalisé"
 
 msgctxt "model:gnuhealth.inpatient.registration,name:"
 msgid "Patient admission History"
@@ -1044,7 +1057,7 @@ msgstr "Historique d'admission du patient"
 
 msgctxt "model:ir.action,name:act_create_patient_bed_transfer"
 msgid "Bed Transfer"
-msgstr ""
+msgstr "Transfer Lit"
 
 msgctxt "model:ir.action,name:gnuhealth_action_inpatient_registration"
 msgid "Hospitalizations"
@@ -1117,11 +1130,11 @@ msgstr "Urgence"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "Lacto vegetarian"
-msgstr ""
+msgstr "Lacto végétarien"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "Lacto-ovo vegetarian"
-msgstr ""
+msgstr "Lacto-ovo végétarien"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "None"
@@ -1129,15 +1142,19 @@ msgstr "Aucun"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "Pescetarian"
-msgstr ""
+msgstr "Pescétarien"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "Vegan"
-msgstr ""
+msgstr "Végétalien"
 
 msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
 msgid "Vegetarian"
 msgstr "Végétarien"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "Done"
+msgstr "Fait"
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "cancelled"
@@ -1157,35 +1174,35 @@ msgstr "hospitalisé"
 
 msgctxt "view:gnuhealth.bed.transfer.init:"
 msgid "Patient Bed Transfer"
-msgstr ""
+msgstr "Patient Transfert Lit"
 
 msgctxt "view:gnuhealth.bed.transfer:"
 msgid "Bed Transfer History"
-msgstr ""
+msgstr "Historique Transfert Lit"
 
 msgctxt "view:gnuhealth.diet.belief:"
 msgid "Diet Description"
-msgstr ""
+msgstr "Diét Description"
 
 msgctxt "view:gnuhealth.diet.belief:"
 msgid "Diet related to beliefs"
-msgstr ""
+msgstr "Régime lié à des croyances"
 
 msgctxt "view:gnuhealth.diet.belief:"
 msgid "Therapeutic Diet"
-msgstr ""
+msgstr "Thérapeutique Diét"
 
 msgctxt "view:gnuhealth.diet.therapeutic:"
 msgid "Diet Description and Indications"
-msgstr ""
+msgstr "Diét Description et Indications"
 
 msgctxt "view:gnuhealth.diet.therapeutic:"
 msgid "Therapeutic Diet"
-msgstr ""
+msgstr "Thérapeutique Diét"
 
 msgctxt "view:gnuhealth.inpatient.diet:"
 msgid "Inpatient Diet"
-msgstr ""
+msgstr "Diét Patient Hospitalisé"
 
 msgctxt "view:gnuhealth.inpatient.medication.admin_time:"
 msgid "Inpatient Medication Admin Times"
@@ -1193,7 +1210,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.inpatient.medication.log:"
 msgid "Inpatient Medication Log"
-msgstr ""
+msgstr "Historique Médication Patient Hospitalisé"
 
 msgctxt "view:gnuhealth.inpatient.medication:"
 msgid "Admnistration"
@@ -1217,7 +1234,7 @@ msgstr "Informations Générales"
 
 msgctxt "view:gnuhealth.inpatient.medication:"
 msgid "Inpatient Medication"
-msgstr ""
+msgstr "Médication Patient Hospitalisé"
 
 msgctxt "view:gnuhealth.inpatient.medication:"
 msgid "Medication"
@@ -1284,8 +1301,8 @@ msgid "Inpatient Registration Information"
 msgstr "Info enregistrement du patient"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Medication"
-msgstr "Médicaments"
+msgid "Medication Plan"
+msgstr ""
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Nutrition"
@@ -1293,20 +1310,22 @@ msgstr "Nutrition"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Other nutrition notes / directions"
-msgstr ""
+msgstr "Autres notes nutritionnelle / directions"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Patient Admission"
 msgstr "Admission patient"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "You are about to discharge the patient from the health institution."
-msgstr "Vous allez faire sortir le patient de l'institution."
+msgid ""
+"You are about to SIGN the discharge the patient from the health institution."
+" This record will become READ ONLY "
+msgstr ""
 
 msgctxt ""
 "wizard_button:gnuhealth.bed.transfer.create,start,create_bed_transfer:"
 msgid "Transfer Patient"
-msgstr ""
+msgstr "Transfert Patient"
 
 msgctxt "wizard_button:gnuhealth.bed.transfer.create,start,end:"
 msgid "Cancel"

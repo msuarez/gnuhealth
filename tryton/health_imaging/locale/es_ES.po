@@ -1,20 +1,20 @@
 # 
 # Translators:
+# Debatik mundura!, 2014
 # meanmicio <lfalcon@gnusolidario.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-09-22 15:20+0000\n"
-"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"POT-Creation-Date: 2014-01-21 00:08+0000\n"
+"PO-Revision-Date: 2014-01-21 06:34+0000\n"
+"Last-Translator: Debatik mundura!\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
 
 msgctxt "field:gnuhealth.imaging.test,code:"
 msgid "Code"
@@ -407,6 +407,42 @@ msgstr "Borrador"
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Requested"
 msgstr "Solicitado"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Generate Results"
+msgstr "Generar Resultados"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Imaging Test Request"
+msgstr "Solicitud Estudio por Imagen"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Request"
+msgstr "Solicitud"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Images"
+msgstr "Imágenes"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Imaging Test Result"
+msgstr "Resultado de Dx por Imagen"
+
+msgctxt "view:gnuhealth.imaging.test.type:"
+msgid "Imaging Test Type"
+msgstr "Tipo de Dx por Imagen"
+
+msgctxt "view:gnuhealth.imaging.test:"
+msgid "Imaging Test"
+msgstr "Prueba Dx por Imágenes"
+
+msgctxt "view:gnuhealth.patient.imaging.test.request.start:"
+msgid "Request Imaging Test"
+msgstr "Solicitud Dx por Imágenes"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
 msgid "Cancel"
