@@ -1,5 +1,15 @@
-changeset:   1162:6f84034152df
+changeset:   1168:b5d8012b564d
 tag:         tip
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Jan 26 15:06:03 2014 -0300
+summary:     health : constraint for unique health professional
+
+changeset:   1167:9612f772d65a
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Jan 26 15:02:26 2014 -0300
+summary:     health_imaging : Add missing wizard package in setup.py
+
+changeset:   1162:6f84034152df
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jan 26 13:15:41 2014 +0000
 summary:     all : Update official languages from transifex
