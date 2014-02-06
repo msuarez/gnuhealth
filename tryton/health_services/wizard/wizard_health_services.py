@@ -60,6 +60,7 @@ class CreateServiceInvoice(Wizard):
         HealthService = Pool().get('gnuhealth.health_service')
         Invoice = Pool().get('account.invoice')
         Party = Pool().get('party.party')
+        Journal = Pool().get('account.journal')
 
         services = HealthService.browse(Transaction().context.get(
             'active_ids'))
@@ -72,14 +73,28 @@ class CreateServiceInvoice(Wizard):
             invoice_data = {}
             invoice_data['description'] = service.desc
             invoice_data['party'] = service.patient.name.id
+            invoice_data['type'] = 'out_invoice'
             invoice_data['account'] = \
                 service.patient.name.account_receivable.id
+            
+            journals = Journal.search([
+                ('type', '=', 'revenue'),
+                ], limit=1)
+
+            if journals:
+                journal, = journals
+            else:
+                journal = None
+
+            invoice_data['journal'] = journal.id
+
             party_address = Party.address_get(service.patient.name,
                 type='invoice')
             if not party_address:
                 self.raise_user_error('no_invoice_address')
             invoice_data['invoice_address'] = party_address.id 
             invoice_data['reference'] = service.name
+
 
             if not service.patient.name.customer_payment_term:
                 self.raise_user_error('no_payment_term')
