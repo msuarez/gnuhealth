@@ -142,7 +142,7 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     discharged_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Discharged by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        states={'invisible': Not(Equal(Eval('state'), 'done'))},
         help="Health Professional that discharged the patient")
 
     @classmethod
@@ -206,7 +206,14 @@ class InpatientRegistration(ModelSQL, ModelView):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        cls.write(registrations, {'state': 'done'})
+        signing_hp = Pool().get('gnuhealth.healthprofessional').get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(registrations, {'state': 'done',
+            'discharged_by': signing_hp})
+
         Bed.write([registration_id.bed], {'state': 'free'})
 
     @classmethod
