@@ -1,5 +1,69 @@
-changeset:   1171:c53a5d589516
+changeset:   1182:6b452268a2a5
+branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Feb 14 10:21:29 2014 +0000
+summary:     health_inpatient : fix health professional display on the patient discharge
+
+changeset:   1181:c79e25a56e6c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 10 04:02:54 2014 +0000
+summary:     Added tag 2.4.1 for changeset bcaa9fe707d2
+
+changeset:   1180:bcaa9fe707d2
+branch:      stable
+tag:         2.4.1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 10 04:01:07 2014 +0000
+summary:     create 2.4.1 version
+
+changeset:   1179:92408378aa66
+branch:      stable
+parent:      1082:40f7d8e45ec1
+parent:      1178:83f26d207cb0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 09 08:08:05 2014 +0000
+summary:     Merge stable from default to set 2.4
+
+changeset:   1178:83f26d207cb0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 06 15:38:49 2014 +0000
+summary:     Update health services wizard to be Tryton 3.0 compatible on the invoice generation
+
+changeset:   1177:33e45da63c55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 05 07:06:56 2014 +0000
+summary:     health_surgery: Fix surgery report traceback due to date format
+
+changeset:   1176:0cf81a1a60fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 05 06:46:16 2014 +0000
+summary:     Added tag 2.4.0 for changeset dc2ed96f002f
+
+changeset:   1175:25948f16ffab
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 31 11:22:45 2014 -0300
+summary:     Update missing module health_stock setup.py to Tryton version 3.0
+
+changeset:   1174:3eaa6b06807f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jan 27 10:09:40 2014 -0300
+summary:     Update setup.py to Tryton version 3.0
+
+changeset:   1173:dc2ed96f002f
+tag:         2.4.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 27 00:23:11 2014 +0000
+summary:     Installer : Migrate from PIL to PILLOW library. Update qrcode
+
+changeset:   1172:6dd4baeef672
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 26 22:54:38 2014 +0000
+summary:     health, health_history : Update report and fix bug on date
+
+
+changeset:   1171:c53a5d589516
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jan 26 21:28:04 2014 +0000
 summary:     installer : update header
