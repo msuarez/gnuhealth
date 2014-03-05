@@ -1248,7 +1248,7 @@ class PatientData(ModelSQL, ModelView):
         'get_patient_ssn', searcher='search_patient_ssn')
 
     identification_code = fields.Char(
-        'ID', readonly=True,
+        'Code', readonly=True,
         help='Patient Identifier provided by the Health Center.Is not the'
         ' Social Security Number')
 
@@ -1432,7 +1432,7 @@ class PatientData(ModelSQL, ModelView):
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
-        for field in ('name', 'lastname', 'ssn'):
+        for field in ('name', 'lastname', 'ssn', 'identification_code'):
             patients = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if patients:
                 break
