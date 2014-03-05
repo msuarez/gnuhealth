@@ -157,6 +157,7 @@ install_directories() {
     TRYTON_BASEDIR="${BASEDIR}/tryton"
     TRYTOND_DIR="${TRYTON_BASEDIR}/server"
     MODULES_DIR="${TRYTOND_DIR}/modules"
+    CUSTOM_MODS_DIR="${MODULES_DIR}/custom"
     LOG_DIR="${BASEDIR}/logs"
     ATTACH_DIR="${HOME}/attach"
     
@@ -164,7 +165,7 @@ install_directories() {
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${CUSTOM_MODS_DIR}||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
