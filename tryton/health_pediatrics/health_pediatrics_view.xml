@@ -146,7 +146,7 @@
 <!-- Shortcut to the Newborn from the Patient -->
 
         <record model="ir.action.act_window" id="act_newborn_form1">
-            <field name="name">Newborn</field>
+            <field name="name">Neonatal Info</field>
             <field name="res_model">gnuhealth.newborn</field>
             <field name="domain">[('patient', '=', Eval('active_id'))]</field>
         </record>
