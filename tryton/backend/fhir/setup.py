@@ -24,9 +24,9 @@ def read(fname):
 
 setup(name='fhir',
     version='0.0.1',
-    description='HL7 FHIR Reference',
+    description='HL7 FHIR Library',
     author='Luis Falcon',
-    author_email='health@gnusolidario.org',
+    author_email='lfalcon@gnusolidario.org',
     url='http://health.gnu.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'fhir': '.'},

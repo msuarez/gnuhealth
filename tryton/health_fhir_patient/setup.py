@@ -48,7 +48,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health_fhir_patient',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Pediatrics Module'),
+    description=info.get('description', 'GNU Health FHIR Patient resource Module'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
