@@ -1,0 +1,94 @@
+#    Copyright (C) 2014  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2014  GNU Solidario <health@gnusolidario.org>
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+About the FHIR Python Package
+------------------------------
+
+The FHIR goal is to implement the HL7 FHIR[1] Reference in Python
+
+The project was born to provide the backend to the GNU Health[2] FHIR modules, but it should work in other EMRs and clients.
+
+You can get the latest development version at the Mercurial server in Savannah[3]
+
+1.- http://www.hl7.org/fhir
+2.- http://health.gnu.org
+3.- http://hg.savannah.gnu.org/hgweb/health/
+
+Sample use :
+
+>>> from fhir import *
+
+>>> query = RestfulFHIR().search('http://fhir.healthintersections.com.au/open','Patient','name=Jimmy')
+
+>>> print query
+<Response [200]>
+
+>>> print query.text
+
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Search results for resource type Patient</title>
+  <id>urn:uuid:dee712bf-9214-408a-b2b4-99d3afecfd</id>
+  <link href="http://fhir.healthintersections.com.au/open/" rel="fhir-base" />
+  <link href="http://fhir.healthintersections.com.au/open/Patient/_search?search-id=088dfce4-cbee-4c8d-af0b-89a3410a05&amp;name=Jimmy&amp;search-sort=_id" rel="self" />
+  <updated>2014-03-09T00:42:08Z</updated>
+  <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
+  <entry xmlns="http://www.w3.org/2005/Atom">
+    <title>Patient "233" Version "1"</title>
+    <id>http://fhir.healthintersections.com.au/open/Patient/233</id>
+    <link href="http://fhir.healthintersections.com.au/open/Patient/233/_history/1" rel="self" />
+    <updated>2014-02-13T00:45:57Z</updated>
+    <author>
+      <name>service</name>
+    </author>
+    <published>2014-03-09T00:42:08Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Manning, Jimmy. MRN:&#x0A;            577552</div>
+        </text>
+        <identifier>
+          <label value="SSN"/>
+          <system value="https://github.com/projectcypress/cypress/patient"/>
+          <value value="577552"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Manning"/>
+          <given value="Jimmy"/>
+        </name>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="M"/>
+            <display value="Male"/>
+          </coding>
+        </gender>
+        <birthDate value="1975-06-07"/>
+        <managingOrganization>
+          <reference value="Organization/1"/>
+        </managingOrganization>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Manning, Jimmy. MRN:&#x0A;            577552</div>
+    </summary>
+  </entry>
+</feed>
+>>> 
