@@ -6,19 +6,14 @@
                 <group id="group_newborn_1">
                     <label name="patient"/>
                     <field name="patient"/>
-                    <label name="mother"/>
-                    <field name="mother"/>
-<!--
-                    <label name="newborn_sex"/>
-                    <field name="newborn_sex"/>
--->
                     <label name="birth_date"/>
                     <field name="birth_date"/>
-                    <label name="responsible"/>
-                    <field name="responsible"/>
-
+					<label name="sex"/>
+					<field name="sex"/>
+                    <label name="mother"/>
+                    <field name="mother"/>
                     <newline/>
-                    <group id="newborn_anthropometrics" colspan="4" col="6">
+                    <group id="newborn_anthropometrics" colspan="2" col="6">
                         <label name="length"/>
                         <field name="length"/>
                         <label name="weight"/>
@@ -56,12 +51,12 @@
                 <group col="8" id="group_newborn_identity">
 					<label name="newborn_name"/>
 					<field name="newborn_name"/>
-					<label name="sex"/>
-					<field name="sex"/>
                     <label name="name"/>
                     <field name="name"/>
                     <label name="dismissed"/>
                     <field name="dismissed"/>
+                    <label name="responsible"/>
+                    <field name="responsible"/>
                 </group>
 
             </group>
