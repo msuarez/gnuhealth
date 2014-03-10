@@ -56,7 +56,7 @@ class Newborn(ModelSQL, ModelView):
 
     cephalic_perimeter = fields.Integer('Cephalic Perimeter',
         help="Perimeter in centimeters (cm)")
-    length = fields.Integer('Length', help="Perimeter in centimeters (cm)")
+    length = fields.Integer('Length', help="Length in centimeters (cm)")
     weight = fields.Integer('Weight', help="Weight in grams (g)")
     apgar1 = fields.Integer('APGAR 1st minute')
     apgar5 = fields.Integer('APGAR 5th minute')
