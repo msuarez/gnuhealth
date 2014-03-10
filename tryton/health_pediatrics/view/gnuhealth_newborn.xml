@@ -4,8 +4,6 @@
         <page string="Main" id="page_newborn_main">
             <group string="Main" id="group_newborn_main">
                 <group id="group_newborn_1">
-                    <label name="name"/>
-                    <field name="name"/>
                     <label name="patient"/>
                     <field name="patient"/>
                     <label name="mother"/>
@@ -14,14 +12,16 @@
                     <field name="newborn_sex"/>
                     <label name="birth_date"/>
                     <field name="birth_date"/>
-                    <label name="dismissed"/>
-                    <field name="dismissed"/>
-                    <label name="length"/>
-                    <field name="length"/>
-                    <label name="weight"/>
-                    <field name="weight"/>
-                    <label name="cephalic_perimeter"/>
-                    <field name="cephalic_perimeter"/>
+                    <newline/>
+                    <group id="newborn_anthropometrics" colspan="4" col="6">
+                        <label name="length"/>
+                        <field name="length"/>
+                        <label name="weight"/>
+                        <field name="weight"/>
+                        <label name="cephalic_perimeter"/>
+                        <field name="cephalic_perimeter"/>
+                    </group> 
+                    <newline/>
                     <label name="responsible"/>
                     <field name="responsible"/>
                 </group>
@@ -50,11 +50,15 @@
                     <field colspan="3" name="notes"/>
                 </group>
                 <newline/>
-                <group colspan="4" id="group_newborn_identity">
+                <group col="8" id="group_newborn_identity">
 					<label name="newborn_name"/>
 					<field name="newborn_name"/>
 					<label name="sex"/>
 					<field name="sex"/>
+                    <label name="name"/>
+                    <field name="name"/>
+                    <label name="dismissed"/>
+                    <field name="dismissed"/>
                 </group>
 
             </group>
