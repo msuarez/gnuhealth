@@ -8,10 +8,15 @@
                     <field name="patient"/>
                     <label name="mother"/>
                     <field name="mother"/>
+<!--
                     <label name="newborn_sex"/>
                     <field name="newborn_sex"/>
+-->
                     <label name="birth_date"/>
                     <field name="birth_date"/>
+                    <label name="responsible"/>
+                    <field name="responsible"/>
+
                     <newline/>
                     <group id="newborn_anthropometrics" colspan="4" col="6">
                         <label name="length"/>
@@ -22,8 +27,6 @@
                         <field name="cephalic_perimeter"/>
                     </group> 
                     <newline/>
-                    <label name="responsible"/>
-                    <field name="responsible"/>
                 </group>
                 <group id="group_newborn_photo">
                     <field name="photo" widget="image"/>
