@@ -35,12 +35,13 @@ class Newborn(ModelSQL, ModelView):
 
     name = fields.Char('Newborn ID')
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Baby\'s name', required=True,
+        'gnuhealth.patient', 'Baby', required=True,
         help="Patient associated to this newborn baby")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
     newborn_name = fields.Char('Name at Birth')
-    birth_date = fields.DateTime('Date of Birth', required=True)
+    birth_date = fields.DateTime('DoB', required=True,
+        help="Date and Time of birth")
     photo = fields.Binary('Picture')
     newborn_sex = fields.Function(fields.Selection([
         ('m', 'Male'),
@@ -52,10 +53,12 @@ class Newborn(ModelSQL, ModelView):
     sex = fields.Selection([
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Gender at Birth', sort=False, required=True)
+        ], 'Sex',sort=False, required=True,
+            help="Gender at birth. It might differ from the current patient" \
+            " sex")
 
-    cephalic_perimeter = fields.Integer('Cephalic Perimeter',
-        help="Perimeter in centimeters (cm)")
+    cephalic_perimeter = fields.Integer('CP',
+        help="Cephalic Perimeter in centimeters (cm)")
     length = fields.Integer('Length', help="Length in centimeters (cm)")
     weight = fields.Integer('Weight', help="Weight in grams (g)")
     apgar1 = fields.Integer('APGAR 1st minute')
