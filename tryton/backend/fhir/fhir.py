@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
@@ -25,16 +26,20 @@ import requests
 
 __all__ = ["RestfulFHIR"]
 
+
 class RestfulFHIR:
-    
+    """General Set of REST Interactions for resources"""
+
     def search(self, base, resource, params):
         """Search FHIR Resources with specific criteria
-            Base : Service Root URL
-            Resource : resource type
-            Parames : extra search criteria
+            PARAMETERS:
+                base : Service Root URL
+                besource : resource type
+                params : extra search criteria
+            RETURNS:
+                response
         """
-        fhir_query = str(base) +'/'+ str(resource) +'?'+ str(params)
-        response = requests.get (fhir_query)
+
+        fhir_query = str(base) + '/' + str(resource) + '?' + str(params)
+        response = requests.get(fhir_query)
         return response
-                
-    
