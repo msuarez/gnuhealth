@@ -36,7 +36,7 @@ class Newborn(ModelSQL, ModelView):
     name = fields.Char('Newborn ID')
     patient = fields.Many2One(
         'gnuhealth.patient', 'Baby', required=True,
-        help="Patient associated to this newborn baby")
+        help="Patient associated to this newborn")
 
     mother = fields.Many2One('gnuhealth.patient', 'Mother')
     newborn_name = fields.Char('Name at Birth')
@@ -54,7 +54,7 @@ class Newborn(ModelSQL, ModelView):
         ('m', 'Male'),
         ('f', 'Female'),
         ], 'Sex',sort=False, required=True,
-            help="Gender at birth. It might differ from the current patient" \
+            help="Sex at birth. It might differ from the current patient" \
             " sex")
 
     cephalic_perimeter = fields.Integer('CP',

@@ -2,18 +2,21 @@
 <form string="Newborn Info">
     <notebook>
         <page string="Main" id="page_newborn_main">
-            <group string="Main" id="group_newborn_main">
+            <group colspan="4" string="Main" id="group_newborn_main">
                 <group id="group_newborn_1">
-                    <label name="patient"/>
-                    <field name="patient"/>
-                    <label name="birth_date"/>
-                    <field name="birth_date"/>
-					<label name="sex"/>
-					<field name="sex"/>
-                    <label name="mother"/>
-                    <field name="mother"/>
-                    <newline/>
-                    <group id="newborn_anthropometrics" colspan="2" col="6">
+                    <group id="newborn_header" colspan="3" col="6">
+                        <label name="patient"/>
+                        <field name="patient"/>
+                        <label name="birth_date"/>
+                        <field name="birth_date"/>
+                        <label name="sex"/>
+                        <field name="sex"/>
+
+                    </group> 
+
+                    <group id="newborn_anthropometrics" colspan="3" col="8">
+                        <label name="mother"/>
+                        <field name="mother"/>
                         <label name="length"/>
                         <field name="length"/>
                         <label name="weight"/>

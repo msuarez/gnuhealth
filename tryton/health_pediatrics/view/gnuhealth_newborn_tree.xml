@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <tree string="Newborn Information">
-    <field name="name"/>
     <field name="patient"/>
-    <field name="newborn_name"/>
     <field name="mother"/>
     <field name="birth_date"/>
-    <field name="newborn_sex"/>
+    <field name="sex"/>
     <field name="length"/>
     <field name="weight"/>
+    <field name="cephalic_perimeter"/>
 </tree>
