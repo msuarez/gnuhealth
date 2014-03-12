@@ -30,6 +30,7 @@ You can get the latest development version at the Mercurial server in Savannah[3
 
 Sample use :
 
+# Search interactions
 >>> from fhir import *
 
 >>> query = RestfulFHIR().search('http://fhir.healthintersections.com.au/open','Patient','name=Jimmy')
@@ -92,3 +93,73 @@ Sample use :
   </entry>
 </feed>
 >>> 
+
+######################################################################
+
+# Read interaction #
+
+>>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',2)
+>>> print query.text
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Everyman, Adam. SSN:&#x0A;            444333333</div>
+  </text>
+  <identifier>
+    <label value="SSN"/>
+    <system value="http://hl7.org/fhir/sid/us-ssn"/>
+    <value value="444333333"/>
+  </identifier>
+  <name>
+    <use value="official"/>
+    <family value="Everyman"/>
+    <given value="Adam"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="555-555-2004"/>
+    <use value="work"/>
+  </telecom>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="M"/>
+    </coding>
+  </gender>
+  <address>
+    <use value="home"/>
+    <line value="2222 Home Street"/>
+  </address>
+  <managingOrganization>
+    <reference value="Organization/hl7"/>
+  </managingOrganization>
+  <active value="true"/>
+</Patient>
+
+If the resource ID does not exist, a 404 Response will be generated
+
+Say we try to access the non-existant ID 210834
+
+query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',210834)
+
+>>> print query
+<Response [404]>
+
+>>> print query.text
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Resource Id "Patient/210834" does not exist</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="Resource Id &quot;Patient/210834&quot; does not exist"/>
+  </issue>
+</OperationOutcome>
+
+

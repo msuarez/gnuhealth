@@ -43,3 +43,21 @@ class RestfulFHIR:
         fhir_query = str(base) + '/' + str(resource) + '?' + str(params)
         response = requests.get(fhir_query)
         return response
+
+    def read(self, base, resource, resid):
+        """Read current status of the resource
+            PARAMETERS:
+                base : Service Root URL
+                besource : resource type
+                resid : unique resource identifier
+            RETURNS:
+                response
+                    200 : Found
+                    404 : Does not exist
+                    410 : Deleted resource
+                    
+        """
+
+        fhir_query = str(base) + '/' + str(resource) + '/' + str(resid)
+        response = requests.get(fhir_query)
+        return response
