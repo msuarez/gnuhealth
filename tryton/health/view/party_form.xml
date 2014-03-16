@@ -48,13 +48,11 @@
                 <newline/>
             </group>
             <group col="6" colspan="2" id="other_party_specs">
-                <label name="internal_user"/>
-                <field name="internal_user"/>
             </group>
             <newline/>
             <field name="insurance" colspan="4"/>
             <newline/>
-            <group id="party_footer" colspan="4" col="8">
+            <group id="party_footer" colspan="4" col="10">
                 <label name="unidentified"/>
                 <field name="unidentified"/>
                 <label name="alias"/>
@@ -63,6 +61,8 @@
                 <field name="code"/>
                 <label name="activation_date"/>
                 <field name="activation_date"/>
+                <label name="internal_user"/>
+                <field name="internal_user"/>
             </group>
         </page>
     </xpath>
