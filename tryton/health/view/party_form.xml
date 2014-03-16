@@ -18,7 +18,7 @@
             </group>
             <newline/>
             <group colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
-                <group id="person_demographics" string="Demographics">
+                <group yfill="1" id="person_demographics" string="Demographics">
                     <label name="ref"/>
                     <field name="ref"/>
                     <label name="dob"/>
@@ -40,28 +40,35 @@
                     <label name="unidentified"/>
                     <field name="unidentified"/>
                 </group>
-                <group string="Picture" id="person_picture">
+
+                <group id="person_picture">
                     <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
                 </group>
+
                 <newline/>
             </group>
             <newline/>
             <field name="alternative_ids"/>
             <newline/>
             <group col="6" colspan="2" id="other_party_specs">
-                <label name="activation_date"/>
-                <field name="activation_date"/>
                 <label name="internal_user"/>
                 <field name="internal_user"/>
             </group>
             <newline/>
             <field name="insurance" colspan="4"/>
+            <newline/>
+            <group id="party_footer" colspan="4" col="6">
+                <label name="alias"/>
+                <field name="alias"/>
+                <label name="code"/>
+                <field name="code"/>
+                <label name="activation_date"/>
+                <field name="activation_date"/>
+            </group>
         </page>
     </xpath>
     <xpath expr="/form/field[@name=&quot;name&quot;]" position="after">
         <label name="lastname"/>
         <field name="lastname"/>
-        <label name="alias"/>
-        <field name="alias"/>
     </xpath>
 </data>

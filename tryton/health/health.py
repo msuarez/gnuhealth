@@ -906,7 +906,8 @@ class PartyPatient (ModelSQL, ModelView):
     is_pharmacy = fields.Boolean(
         'Pharmacy', help='Check if the party is a Pharmacy')
 
-    lastname = fields.Char('Last Name', help='Last Name')
+    lastname = fields.Char('Last Name', help='Last Name',
+		states={'invisible': Not(Bool(Eval('is_person')))})
     dob = fields.Date('DoB', help='Date of Birth')
 
     sex = fields.Selection([
@@ -942,7 +943,8 @@ class PartyPatient (ModelSQL, ModelView):
         'name', 'Alternative IDs',
         states={'invisible': Not(Bool(Eval('alternative_identification')))})
 
-    insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurance')
+    insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurances',
+		help="Insurance Plans associated to this party")
 
     internal_user = fields.Many2One(
         'res.user', 'Internal User',
