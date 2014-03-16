@@ -19,8 +19,6 @@
             <newline/>
             <group colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
                 <group yfill="1" id="person_demographics" string="Demographics">
-                    <label name="ref"/>
-                    <field name="ref"/>
                     <label name="dob"/>
                     <field name="dob"/>
                     <label name="sex"/>
@@ -41,7 +39,7 @@
                     <field name="unidentified"/>
                 </group>
 
-                <group id="person_picture">
+                <group string="Picture" id="person_picture">
                     <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
                 </group>
 
@@ -70,5 +68,13 @@
     <xpath expr="/form/field[@name=&quot;name&quot;]" position="after">
         <label name="lastname"/>
         <field name="lastname"/>
+    </xpath>
+    
+    <!-- Use the SSN field in the place of the party code -->
+    <xpath expr="/form/label[@name=&quot;code&quot;]" position="replace">
+        <label name="ref"/>
+    </xpath>
+    <xpath expr="/form/field[@name=&quot;code&quot;]" position="replace">
+        <field name="ref"/>
     </xpath>
 </data>
