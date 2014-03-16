@@ -35,8 +35,10 @@
                     <field name="ethnic_group"/>
                     <label name="alternative_identification"/>
                     <field name="alternative_identification"/>
-                    <label name="unidentified"/>
-                    <field name="unidentified"/>
+                    <newline/>
+                    <field colspan="4" name="alternative_ids"/>
+                    <newline/>
+
                 </group>
 
                 <group string="Picture" id="person_picture">
@@ -45,9 +47,6 @@
 
                 <newline/>
             </group>
-            <newline/>
-            <field name="alternative_ids"/>
-            <newline/>
             <group col="6" colspan="2" id="other_party_specs">
                 <label name="internal_user"/>
                 <field name="internal_user"/>
@@ -55,7 +54,9 @@
             <newline/>
             <field name="insurance" colspan="4"/>
             <newline/>
-            <group id="party_footer" colspan="4" col="6">
+            <group id="party_footer" colspan="4" col="8">
+                <label name="unidentified"/>
+                <field name="unidentified"/>
                 <label name="alias"/>
                 <field name="alias"/>
                 <label name="code"/>
