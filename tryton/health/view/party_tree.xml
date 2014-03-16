@@ -1,13 +1,18 @@
 <?xml version="1.0"?>
 <data>
+
+    <xpath expr="/tree/field[@name=&quot;code&quot;]" position="replace">
+        <field name="ref"/>
+    </xpath>
+
     <xpath expr="/tree/field[@name=&quot;name&quot;]" position="after">
         <field name="lastname" expand="1"/>
-        <field name="ref" expand="1"/>
         <field name="is_person"/>
         <field name="is_patient"/>
         <field name="is_healthprof"/>
         <field name="is_institution"/>
         <field name="is_pharmacy"/>
         <field name="is_insurance_company"/>
+        <field name="code" tree_invisible="1"/>
     </xpath>
 </data>
