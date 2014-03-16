@@ -934,7 +934,7 @@ class PartyPatient (ModelSQL, ModelView):
     residence = fields.Many2One(
         'country.country', 'Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean(
-        'Alternative ID', help='Other type of '
+        'Alternative IDs', help='Other types of '
         'identification, not the official SSN from this country health'
         ' center. Examples : Passport, foreign ID,..')
 

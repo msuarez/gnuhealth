@@ -37,11 +37,9 @@
                     <field name="alternative_identification"/>
                     <newline/>
                     <field colspan="4" name="alternative_ids"/>
-                    <newline/>
-
                 </group>
 
-                <group string="Picture" id="person_picture">
+                <group yfill="1" string="Picture" id="person_picture">
                     <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
                 </group>
 
