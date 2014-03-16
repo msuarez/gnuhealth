@@ -1007,7 +1007,7 @@ class PartyPatient (ModelSQL, ModelView):
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
-        for field in ('name', 'lastname'):
+        for field in ('name', 'lastname', 'ref'):
             parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if parties:
                 break
