@@ -11,8 +11,17 @@
         <field name="is_patient"/>
         <field name="is_healthprof"/>
         <field name="is_institution"/>
-        <field name="is_pharmacy"/>
-        <field name="is_insurance_company"/>
+        <field name="is_pharmacy" tree_invisible="1"/>
+        <field name="is_insurance_company" tree_invisible="1"/>
         <field name="code" tree_invisible="1"/>
     </xpath>
+
+    <xpath expr="/tree/field[@name=&quot;vat_code&quot;]" position="replace_attributes">
+        <field name="vat_code" tree_invisible="1"/>
+    </xpath>
+
+    <xpath expr="/tree/field[@name=&quot;lang&quot;]" position="replace_attributes">
+        <field name="lang" tree_invisible="1"/>
+    </xpath>
+
 </data>
