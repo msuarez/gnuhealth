@@ -967,6 +967,10 @@ class PartyPatient (ModelSQL, ModelView):
 
     du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
 
+    @staticmethod
+    def default_activation_date():
+        return datetime.today()
+
     @classmethod
     def write(cls, parties, vals):
         # We use this method overwrite to make the fields that have a unique
