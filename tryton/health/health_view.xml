@@ -915,6 +915,18 @@
             <field name="type">form</field>
             <field name="name">party_form</field>
         </record>
+        
+        <!-- Add "People" menu at party level -->
+    
+        <record model="ir.action.act_window" id="act_people_form">
+            <field name="name">People</field>
+            <field name="res_model">party.party</field>
+            <field name="domain">[('is_person', '=', True)]</field>
+        </record>
+
+        <menuitem parent="party.menu_party_form" sequence="1"
+            icon="gnuhealth-demography" 
+            action="act_people_form" id="menu_people"/>
 
 
 <!-- Add the Lastname and SSN (ref) field to the tree view of the party -->
