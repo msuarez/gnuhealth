@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<form string="Patient PAPER Clinical History">
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="identification_code"/>
+    <field name="identification_code"/>
+    <label name="legacy"/>
+    <field name="legacy"/>
+    <newline/>
+    <label name="location"/>
+    <field name="location"/>
+    <label name="hc_status"/>
+    <field name="hc_status"/>
+    <label name="current_location"/>
+    <field name="current_location"/>
+    <label name="requested_by"/>
+    <field name="requested_by"/>
+    <label name="request_date"/>
+    <field name="request_date"/>
+    <label name="return_date"/>
+    <field name="return_date"/>
+    <newline/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

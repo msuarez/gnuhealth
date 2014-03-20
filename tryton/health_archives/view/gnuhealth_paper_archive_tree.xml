@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Patient PAPER Clinical History">
+    <field name="patient"/>
+    <field name="identification_code"/>
+    <field name="legacy"/>
+    <field name="hc_status"/>
+    <field name="location"/>
+    <field name="current_location"/>
+    <field name="comments"/>
+</tree>

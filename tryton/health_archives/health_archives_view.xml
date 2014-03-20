@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- Add Archives icon -->
+
+        <record model="ir.ui.icon" id="archives_icon">
+            <field name="name">gnuhealth-archives</field>
+            <field name="path">icons/archives.svg</field>
+        </record>
+
+<!-- Create Archiving menu -->
+
+        <menuitem parent="health.gnuhealth_menu" 
+            sequence="600" 
+            name="Archives" id="gnuhealth_archives" icon="gnuhealth-archives"/>
+
+<!-- Patient PAPER Clinical HIstory -->
+
+        <record model="ir.ui.view" id="gnuhealth_paper_archive_view_form">
+            <field name="model">gnuhealth.paper_archive</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_paper_archive_form</field>
+        </record>
+
+<!-- Tree view for PAPER Clinical History -->
+
+        <record model="ir.ui.view" id="gnuhealth_paper_archive_tree">
+            <field name="model">gnuhealth.paper_archive</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_paper_archive_tree</field>
+        </record>
+
+<!-- Actions for PAPER Clinical History -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_paper_archive">
+            <field name="name">Medical Archives</field>
+            <field name="res_model">gnuhealth.paper_archive</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_paper_archive_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_paper_archive_tree"/>
+            <field name="act_window" ref="gnuhealth_action_paper_archive"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_paper_archive_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_paper_archive_view_form"/>
+            <field name="act_window" ref="gnuhealth_action_paper_archive"/>
+        </record>
+
+        <menuitem parent="gnuhealth_archives" icon="gnuhealth-list"
+            action="gnuhealth_action_paper_archive" id="gnuhealth_menu_paper_archive"/>
+
+    </data>
+</tryton>
