@@ -72,6 +72,7 @@ def register():
         SecondaryCondition,
         DiagnosticHypothesis,
         SignsAndSymptoms,
+        HealthInstitution,
         HospitalBuilding,
         HospitalUnit,
         HospitalOR,

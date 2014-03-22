@@ -47,8 +47,8 @@ __all__ = [
     'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'HospitalBuilding', 'HospitalUnit',
-    'HospitalOR', 'HospitalWard', 'HospitalBed']
+    'SignsAndSymptoms', 'HealthInstitution','HospitalBuilding',
+    'HospitalUnit', 'HospitalOR', 'HospitalWard', 'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -3105,6 +3105,16 @@ class SignsAndSymptoms(ModelSQL, ModelView):
 
     comments = fields.Char('Comments')
 
+
+# HEALTH INSTITUTION
+class HealthInstitution(ModelSQL, ModelView):
+    'Health Institution'
+    __name__ = 'gnuhealth.institution'
+
+    name = fields.Many2One(
+        'party.party', 'Institution',
+        domain=[('is_institution', '=', True)],
+        help='Party Associated to this Health Institution')
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):

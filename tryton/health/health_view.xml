@@ -84,7 +84,7 @@
             parent="gnuhealth_conf_menu" sequence="10" icon="gnuhealth-disease"/>
         <menuitem name="Procedures" id="gnuhealth_conf_procedure"
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
-        <menuitem name="Health Centers" id="gnuhealth_conf_hospital"
+        <menuitem name="Health Centers" id="gnuhealth_conf_institution"
             parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-health-center"/>
         <menuitem name="Health Professionals" id="gnuhealth_conf_healthprofessionals"
             parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-healthprofessional"/>
@@ -1384,28 +1384,39 @@
             parent="gnuhealth_prescription_menu" sequence="10"/>
 
 
-<!-- HEALTH CENTERS -->
+<!-- Health Institutions -->
 
-        <record model="ir.action.act_window" id="action_gnuhealth_hospital">
-            <field name="name">Centers</field>
-            <field name="res_model">party.party</field>
-            <field name="domain">[('is_institution', '=', True)]</field>
+        <record model="ir.ui.view" id="gnuhealth_institution_form">
+            <field name="model">gnuhealth.institution</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_institution_form</field>
         </record>
 
-        <record model="ir.action.act_window.view" id="act_gnuhealth_hospital_view_list">
+        <record model="ir.ui.view" id="gnuhealth_institution_tree">
+            <field name="model">gnuhealth.institution</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_institution_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_institution">
+            <field name="name">Institutions</field>
+            <field name="res_model">gnuhealth.institution</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_tree">
             <field name="sequence" eval="10"/>
-            <field name="view" ref="party.party_view_tree"/>
-            <field name="act_window" ref="action_gnuhealth_hospital"/>
+            <field name="view" ref="gnuhealth_institution_tree"/>
+            <field name="act_window" ref="action_gnuhealth_institution"/>
         </record>
-        <record model="ir.action.act_window.view" id="act_gnuhealth_hospital_form">
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_form">
             <field name="sequence" eval="20"/>
-            <field name="view" ref="party.party_view_form"/>
-            <field name="act_window" ref="action_gnuhealth_hospital"/>
+            <field name="view" ref="gnuhealth_institution_form"/>
+            <field name="act_window" ref="action_gnuhealth_institution"/>
         </record>
 
-        <menuitem action="action_gnuhealth_hospital"
-            id="gnuhealth_conf_hospital_center" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="1"/>
+        <menuitem action="action_gnuhealth_institution"
+            id="gnuhealth_menu_institution" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="1"/>
 
 
 <!-- Hospital Building -->
@@ -1439,8 +1450,8 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_building_view"
-            id="gnuhealth_conf_hospital_building_add" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="2"/>
+            id="gnuhealth_conf_institution_building_add" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="2"/>
 
 
 <!-- Hospital Unit -->
@@ -1474,8 +1485,8 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_unit_view"
-            id="gnuhealth_conf_hospital_unit_add" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="3"/>
+            id="gnuhealth_conf_institution_unit_add" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="3"/>
 
 
 <!-- Hospital Ward -->
@@ -1509,8 +1520,8 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_ward_view"
-            id="gnuhealth_conf_hospital_ward_add" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="3"/>
+            id="gnuhealth_conf_institution_ward_add" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="3"/>
 
 
 <!-- Health center Bed -->
@@ -1544,8 +1555,8 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_bed_view"
-            id="gnuhealth_conf_hospital_bed_add" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="4"/>
+            id="gnuhealth_conf_institution_bed_add" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="4"/>
 
 
 <!-- Hospital Operating Room - OR -  -->
@@ -1579,8 +1590,8 @@
         </record>
 
         <menuitem action="action_gnuhealth_hospital_or_view"
-            id="gnuhealth_conf_hospital_or_add" icon="gnuhealth-list"
-            parent="gnuhealth_conf_hospital" sequence="5"/>
+            id="gnuhealth_conf_institution_or_add" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="5"/>
 
     </data>
 </tryton>
