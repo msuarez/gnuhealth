@@ -3115,6 +3115,18 @@ class HealthInstitution(ModelSQL, ModelView):
         'party.party', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Party Associated to this Health Institution')
+	
+	picture = fields.Binary('Picture')
+
+	service_type = fields.Selection((
+        ('primary_care', 'Primary Care Center'),
+        ('clinic', 'Clinic'),
+        ('hospital', 'Hospital'),
+        ('nursing_home', 'Nursing Home'),
+        ('hospice', 'Hospice'),
+        ('rural', 'Rural facility'),
+        ), 'Type', required=True, sort=False)
+
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):
