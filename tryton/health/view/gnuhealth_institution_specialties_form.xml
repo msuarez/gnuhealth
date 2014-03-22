@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form string="Specialties x Health Institution">
+	<label name="name"/>
+	<field name="name"/>
+	<newline/>
+	<label name="specialty"/>        
+	<field name="specialty"/> 
+</form>

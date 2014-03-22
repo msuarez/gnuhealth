@@ -47,8 +47,9 @@ __all__ = [
     'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'HealthInstitution','HospitalBuilding',
-    'HospitalUnit', 'HospitalOR', 'HospitalWard', 'HospitalBed']
+    'SignsAndSymptoms', 'HealthInstitution', 'HealthInstitutionSpecialties',
+    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
+    'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -907,7 +908,7 @@ class PartyPatient (ModelSQL, ModelView):
         'Pharmacy', help='Check if the party is a Pharmacy')
 
     lastname = fields.Char('Last Name', help='Last Name',
-		states={'invisible': Not(Bool(Eval('is_person')))})
+        states={'invisible': Not(Bool(Eval('is_person')))})
     dob = fields.Date('DoB', help='Date of Birth')
 
     sex = fields.Selection([
@@ -944,7 +945,7 @@ class PartyPatient (ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('alternative_identification')))})
 
     insurance = fields.One2Many('gnuhealth.insurance', 'name', 'Insurances',
-		help="Insurance Plans associated to this party")
+        help="Insurance Plans associated to this party")
 
     internal_user = fields.Many2One(
         'res.user', 'Internal User',
@@ -1167,30 +1168,30 @@ class PatientData(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     def patient_critical_summary(self, name):
-		# Patient Critical Information Summary
-		# The information will be shown in the front page
+        # Patient Critical Information Summary
+        # The information will be shown in the front page
 
-		critical_info = ""
-		allergies=""
-		other_conditions=""
-		conditions=[]
-		for disease in self.diseases:
-			for member in disease.pathology.groups:
-				'''Retrieve patient allergies'''
-				if (member.disease_group.name == "ALLERGIC"):
-					if disease.pathology.name not in conditions:
-						allergies=allergies + str(disease.pathology.name) + "\n"
-						conditions.append (disease.pathology.name)
+        critical_info = ""
+        allergies=""
+        other_conditions=""
+        conditions=[]
+        for disease in self.diseases:
+            for member in disease.pathology.groups:
+                '''Retrieve patient allergies'''
+                if (member.disease_group.name == "ALLERGIC"):
+                    if disease.pathology.name not in conditions:
+                        allergies=allergies + str(disease.pathology.name) + "\n"
+                        conditions.append (disease.pathology.name)
 
-			'''Retrieve patient other relevant conditions '''
-			'''Chronic and active'''		
-			if (disease.status == "c" or disease.is_active):
-				if disease.pathology.name not in conditions:
-							other_conditions=other_conditions + \
-							 disease.pathology.name + "\n"
+            '''Retrieve patient other relevant conditions '''
+            '''Chronic and active'''        
+            if (disease.status == "c" or disease.is_active):
+                if disease.pathology.name not in conditions:
+                            other_conditions=other_conditions + \
+                             disease.pathology.name + "\n"
 
-		return allergies + other_conditions
-		
+        return allergies + other_conditions
+        
     # Get the patient age in the following format : 'YEARS MONTHS DAYS'
     # It will calculate the age of the patient while the patient is alive.
     # When the patient dies, it will show the age at time of death.
@@ -1350,7 +1351,7 @@ class PatientData(ModelSQL, ModelView):
     critical_summary = fields.Function(fields.Text(
         'Important disease about patient allergies or procedures',
         help='Automated summary of patient allergies and '
-		'other critical information'),
+        'other critical information'),
         'patient_critical_summary')
 
     critical_info = fields.Text(
@@ -3115,10 +3116,11 @@ class HealthInstitution(ModelSQL, ModelView):
         'party.party', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Party Associated to this Health Institution')
-	
-	picture = fields.Binary('Picture')
+    
+    picture = fields.Binary('Picture')
 
-	service_type = fields.Selection((
+    institution_type = fields.Selection((
+        ('doctor_office', 'Doctor office'),
         ('primary_care', 'Primary Care Center'),
         ('clinic', 'Clinic'),
         ('hospital', 'Hospital'),
@@ -3127,6 +3129,32 @@ class HealthInstitution(ModelSQL, ModelView):
         ('rural', 'Rural facility'),
         ), 'Type', required=True, sort=False)
 
+    specialties = fields.One2Many('gnuhealth.institution.specialties',
+        'name','Specialties',
+        help="Specialties Provided in this Health Institution")
+    
+    beds = fields.Integer("Beds")
+    
+    public_level = fields.Selection((
+        ('private', 'Private'),
+        ('public', 'Public'),
+        ('mixed', 'Private - State'),
+        ), 'Public Level', required=True, sort=False)
+
+    extra_info = fields.Text ("Extra Info")
+
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
+
+
+class HealthInstitutionSpecialties(ModelSQL, ModelView):
+    'Health Institution Specialties'
+    __name__ = 'gnuhealth.institution.specialties'
+
+    name = fields.Many2One('gnuhealth.institution', 'Institution')
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+    
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):

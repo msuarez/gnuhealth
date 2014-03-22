@@ -1419,6 +1419,41 @@
             parent="gnuhealth_conf_institution" sequence="1"/>
 
 
+<!-- Health Institution Specialties / Services -->
+
+        <record model="ir.ui.view" id="gnuhealth_institution_specialties_form">
+            <field name="model">gnuhealth.institution.specialties</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_institution_specialties_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_institution_specialties_tree">
+            <field name="model">gnuhealth.institution.specialties</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_institution_specialties_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_institution_specialties">
+            <field name="name">Specialties by institution</field>
+            <field name="res_model">gnuhealth.institution.specialties</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_specialties_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_institution_specialties_tree"/>
+            <field name="act_window" ref="action_gnuhealth_institution_specialties"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_specialties_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_institution_specialties_form"/>
+            <field name="act_window" ref="action_gnuhealth_institution_specialties"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_institution_specialties"
+            id="gnuhealth_institution_specialties" icon="gnuhealth-list"
+            parent="gnuhealth_conf_institution" sequence="1"/>
+
+
 <!-- Hospital Building -->
 
         <record model="ir.ui.view" id="gnuhealth_hospital_building_view">

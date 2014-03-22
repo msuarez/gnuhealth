@@ -73,6 +73,7 @@ def register():
         DiagnosticHypothesis,
         SignsAndSymptoms,
         HealthInstitution,
+        HealthInstitutionSpecialties,
         HospitalBuilding,
         HospitalUnit,
         HospitalOR,
