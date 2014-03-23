@@ -3131,8 +3131,7 @@ class HealthInstitution(ModelSQL, ModelView):
 
     specialties = fields.One2Many('gnuhealth.institution.specialties',
         'name','Specialties',
-        help="Specialties Provided in this Health Institution",
-        readonly=True)
+        help="Specialties Provided in this Health Institution")
     
     beds = fields.Integer("Beds")
     

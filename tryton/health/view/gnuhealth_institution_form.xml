@@ -1,25 +1,24 @@
 <?xml version="1.0"?>
 <form string="Health Institution">
-    <group id="institution_header" colspan="4">
+    <group id="institution_header">
         <group id="institution_main_info" colspan="3">
             <label name="name"/>
-            <field name="name"/>
+            <field name="name" colspan="3"/>
             <newline/>
-            <label name="institution_type"/>        
-            <field name="institution_type"/> 
-            <label name="public_level"/>        
-            <field name="public_level"/>                 
-            <newline/>
-            <label name="specialties"/>        
-            <field name="specialties"/>                 
-            <label name="beds"/>        
-            <field name="beds"/>                 
+            <label name="institution_type"/>
+            <field name="institution_type"/>
+            <label name="public_level"/>
+            <field name="public_level"/>
+            <label name="beds"/>
+            <field name="beds"/>
         </group>
-        <group id="institution_picture">
-            <field xfill="0" xexpand="1" name="picture" img_width="300" img_height="300" height="300" width="300" widget="image"/>
+        <group string="Institution Picture" id="institution_picture">
+            <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200" height="200" width="200" widget="image"/>
         </group>
     </group>
-    <newline/>   
-    <field name="extra_info"/>        
-    
+    <newline/>
+    <field name="specialties"/>
+    <newline/>
+    <field name="extra_info"/>
+
 </form>
