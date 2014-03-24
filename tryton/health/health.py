@@ -3123,7 +3123,8 @@ class HealthInstitution(ModelSQL, ModelView):
         ('doctor_office', 'Doctor office'),
         ('primary_care', 'Primary Care Center'),
         ('clinic', 'Clinic'),
-        ('hospital', 'Hospital'),
+        ('hospital', 'General Hospital'),
+        ('specialized', 'Specialized Hospital'),
         ('nursing_home', 'Nursing Home'),
         ('hospice', 'Hospice'),
         ('rural', 'Rural facility'),
@@ -3142,6 +3143,7 @@ class HealthInstitution(ModelSQL, ModelView):
         ), 'Public Level', required=True, sort=False)
 
     teaching = fields.Boolean("Teaching Institution")
+    
     extra_info = fields.Text("Extra Info")
 
     def get_rec_name(self, name):
