@@ -7,6 +7,8 @@
             <newline/>
             <label name="institution_type"/>
             <field name="institution_type"/>
+            <label name="main_specialty"/>
+            <field name="main_specialty"/>
             <label name="public_level"/>
             <field name="public_level"/>
             <label name="beds"/>

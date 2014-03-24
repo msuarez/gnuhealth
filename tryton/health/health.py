@@ -27,7 +27,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 
@@ -3115,7 +3115,9 @@ class HealthInstitution(ModelSQL, ModelView):
     name = fields.Many2One(
         'party.party', 'Institution',
         domain=[('is_institution', '=', True)],
-        help='Party Associated to this Health Institution')
+        help='Party Associated to this Health Institution',
+        required=True,
+        states={'readonly': Bool(Eval('name'))})
     
     picture = fields.Binary('Picture')
 
@@ -3133,6 +3135,15 @@ class HealthInstitution(ModelSQL, ModelView):
     specialties = fields.One2Many('gnuhealth.institution.specialties',
         'name','Specialties',
         help="Specialties Provided in this Health Institution")
+
+    main_specialty = fields.Many2One('gnuhealth.institution.specialties',
+        'Specialty',
+        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
+        help="Choose the speciality in the case of Specialized Hospitals" \
+            " or where this center excels", 
+        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
+            'readonly': Not(Bool(Eval('name')))})
+
     
     beds = fields.Integer("Beds")
     
@@ -3158,6 +3169,9 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.institution', 'Institution')
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
     
+    def get_rec_name(self, name):
+        if self.name:
+            return self.specialty.name
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):
