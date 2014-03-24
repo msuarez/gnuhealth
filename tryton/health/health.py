@@ -3141,7 +3141,8 @@ class HealthInstitution(ModelSQL, ModelView):
         ('mixed', 'Private - State'),
         ), 'Public Level', required=True, sort=False)
 
-    extra_info = fields.Text ("Extra Info")
+    teaching = fields.Boolean("Teaching Institution")
+    extra_info = fields.Text("Extra Info")
 
     def get_rec_name(self, name):
         if self.name:

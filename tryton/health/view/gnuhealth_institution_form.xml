@@ -11,6 +11,8 @@
             <field name="public_level"/>
             <label name="beds"/>
             <field name="beds"/>
+            <label name="teaching"/>
+            <field name="teaching"/>
         </group>
         <group string="Institution Picture" id="institution_picture">
             <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200" height="200" width="200" widget="image"/>
