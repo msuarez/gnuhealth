@@ -74,6 +74,7 @@ def register():
         SignsAndSymptoms,
         HealthInstitution,
         HealthInstitutionSpecialties,
+        HealthInstitutionSP,
         HospitalBuilding,
         HospitalUnit,
         HospitalOR,

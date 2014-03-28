@@ -48,8 +48,8 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'HealthInstitution', 'HealthInstitutionSpecialties',
-    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
-    'HospitalBed']
+    'HealthInstitutionSP', 'HospitalBuilding', 'HospitalUnit',
+    'HospitalOR', 'HospitalWard', 'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -3131,20 +3131,7 @@ class HealthInstitution(ModelSQL, ModelView):
         ('hospice', 'Hospice'),
         ('rural', 'Rural facility'),
         ), 'Type', required=True, sort=False)
-
-    specialties = fields.One2Many('gnuhealth.institution.specialties',
-        'name','Specialties',
-        help="Specialties Provided in this Health Institution")
-
-    main_specialty = fields.Many2One('gnuhealth.institution.specialties',
-        'Specialty',
-        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
-        help="Choose the speciality in the case of Specialized Hospitals" \
-            " or where this center excels", 
-        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
-            'readonly': Not(Bool(Eval('name')))})
-
-    
+   
     beds = fields.Integer("Beds")
     
     public_level = fields.Selection((
@@ -3168,10 +3155,29 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.institution', 'Institution')
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+
     
     def get_rec_name(self, name):
         if self.name:
             return self.specialty.name
+
+
+class HealthInstitutionSP(ModelSQL, ModelView):
+    'Health Institution'
+    __name__ = 'gnuhealth.institution'
+
+    # Add Specialties to the Health Institution
+    specialties = fields.One2Many('gnuhealth.institution.specialties',
+        'name','Specialties',
+        help="Specialties Provided in this Health Institution")
+
+    main_specialty = fields.Many2One('gnuhealth.institution.specialties',
+        'Specialty',
+        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
+        help="Choose the speciality in the case of Specialized Hospitals" \
+            " or where this center excels", 
+        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
+            'readonly': Not(Bool(Eval('name')))})
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):
