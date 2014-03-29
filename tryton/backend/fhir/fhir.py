@@ -112,10 +112,11 @@ class RestfulFHIR:
                 400 : Bad request
                 404 : Not supported
                 422 : Rejected
+                500 : Incorrect Document
         """
 
         fhir_query = '/'.join([str(base), str(resource)])
-        response = requests.post(url, data=body)
+        response = requests.post(fhir_query, data=body)
         return response
 
     def transaction(self, bundle, base):
