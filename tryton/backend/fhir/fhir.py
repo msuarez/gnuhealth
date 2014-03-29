@@ -101,7 +101,7 @@ class RestfulFHIR:
         response = requests.delete(fhir_query)
         return response
 
-    def create(self, body, base, resource):
+    def create(self, base, resource, body, headers):
         """Create new resource
             PARAMATERS:
                 body : resource
@@ -116,7 +116,7 @@ class RestfulFHIR:
         """
 
         fhir_query = '/'.join([str(base), str(resource)])
-        response = requests.post(fhir_query, data=body)
+        response = requests.post(fhir_query, data=body, headers=headers)
         return response
 
     def transaction(self, bundle, base):
