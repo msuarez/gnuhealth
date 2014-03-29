@@ -34,7 +34,7 @@ class RestfulFHIR:
         """Search FHIR Resources with specific criteria
             PARAMETERS:
                 base : Service Root URL
-                besource : resource type
+                resource : resource type
                 params : extra search criteria
             RETURNS:
                 response
@@ -55,9 +55,98 @@ class RestfulFHIR:
                     200 : Found
                     404 : Does not exist
                     410 : Deleted resource
-                    
         """
 
         fhir_query = str(base) + '/' + str(resource) + '/' + str(resid)
+        response = requests.get(fhir_query)
+        return response
+
+    def update(self, body, base, resource, resid):
+        """Update or create FHIR resource
+            PARAMETERS:
+                body : resource
+                base : service root url
+                resource : resource type
+                resid : unique resource identifier
+            RETURNS:
+                response
+                    200 : Resource updated
+                    201 : Resource created
+                    400 : Bad request
+                    404 : Type not supported
+                    405 : Not allowed
+                    409 : Version conflict
+                    412 : Version precondition failure
+                    422 : Rejected
+        """
+
+        fhir_query = '/'.join([str(base), str(resource), str(resid)])
+        response = requests.put(fhir_query, data=body)
+        return response
+
+    def delete(self, base, resource, resid):
+        """Delete existing resource
+            PARAMETERS:
+                base : service root url
+                resource : resource type
+                resid : unique resource identifier
+            RETURNS:
+                response
+                    204 : Delete successful
+                    404 : Does not exist
+                    405 : Not allowed
+        """
+
+        fhir_query = '/'.join([str(base), str(resource), str(resid)])
+        response = requests.delete(fhir_query)
+        return response
+
+    def create(self, body, base, resource):
+        """Create new resource
+            PARAMATERS:
+                body : resource
+                base : service root url
+                resource : resource type
+            RETURNS:
+                201 : Resource created
+                400 : Bad request
+                404 : Not supported
+                422 : Rejected
+        """
+
+        fhir_query = '/'.join([str(base), str(resource)])
+        response = requests.post(url, data=body)
+        return response
+
+    def transaction(self, bundle, base):
+        """Create, delete, or update multiple resources
+            PARAMETERS:
+                bundle : resource bundle
+                base : service root url
+            RETURNS:
+                200 : Success
+                400 : Bad request
+                404 : Not supported
+                405 : Not allowed
+                409 : Version conflict
+                412 : Version precondition conflict
+                422 : Rejected
+        """
+
+        fhir_query = str(base)
+        response = requests.post(fhir_query, data=bundle)
+        return response
+
+    def conformance(self, base):
+        """Retrieves conformance statement
+            PARAMETERS:
+                base : service root url
+            RETURNS:
+                200 : Found
+                404 : FHIR not supported
+        """
+        #TODO Should support OPTIONS verb, too
+
+        fhir_query = '/'.join([str(base), 'metadata'])
         response = requests.get(fhir_query)
         return response
