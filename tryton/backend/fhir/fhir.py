@@ -61,7 +61,26 @@ class RestfulFHIR:
         response = requests.get(fhir_query)
         return response
 
-    def update(self, body, base, resource, resid):
+    def vread(self, base, resource, resid, vid):
+        """Read given version of the resource
+            PARAMETERS:
+                base : service root url
+                resource : resource type
+                resid : unique resource identifier
+                vid : unique version identifier
+            RETURNS:
+                200 : Found
+                404 : Does not exist
+                405 : Prohibit previous versions
+                410 : Deleted resource
+        """
+
+        fhir_query = '/'.join([str(x) for x in \
+                    [base, resource, resid, '_history', vid]])
+        response = requests.get(fhir_query)
+        return response
+    
+    def update(self, base, resource, resid, body):
         """Update or create FHIR resource
             PARAMETERS:
                 body : resource
@@ -150,4 +169,39 @@ class RestfulFHIR:
 
         fhir_query = '/'.join([str(base), 'metadata'])
         response = requests.get(fhir_query)
+        return response
+
+    def history(self, base, resource=None, resid=None, params=None):
+        """Retrieve history of: specific resource, given type, or all resources
+            PARAMETERS:
+                base : service root url
+                resource : resource type
+                resid :  unique resource identifier
+                params : extra history criteria
+            RETURNS:
+                200 : Found
+        """
+        fhir_base = '/'.join([str(x) for x in \
+                        [base, resource, resid, '_history'] if x])
+        if params: fhir_query = '?'.join([fhir_base, str(params)])
+        else: fhir_query = fhir_base
+        response = requests.get(fhir_query)
+        return response
+
+    def validate(self, base, resource, resid=None, body):
+        """Check whether content is a valid resource and update
+            PARAMETERS:
+                body : resource
+                base : service root url
+                resource : resource type
+                resid : unique resource identifier
+            RETURNS:
+                200 : Valid resource/Valid update
+                400 : Bad request/Invalid
+                422 : Valid resource, but invalid update
+        """
+
+        fhir_query = '/'.join([str(x) for x in \
+                        [base, resource, '_validate', resid] if x])
+        response = requests.post(fhir_query, data=body)
         return response
