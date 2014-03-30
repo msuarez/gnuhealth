@@ -23,7 +23,7 @@ def read(fname):
 
 
 setup(name='fhir',
-    version='0.0.1',
+    version='0.0.3',
     description='HL7 FHIR Library',
     author='Luis Falcon',
     author_email='lfalcon@gnusolidario.org',
