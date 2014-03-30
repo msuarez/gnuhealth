@@ -122,7 +122,7 @@ class RestfulFHIR:
 
     def create(self, base, resource, body, headers):
         """Create new resource
-            PARAMATERS:
+            PARAMETERS:
                 body : resource
                 base : service root url
                 resource : resource type
