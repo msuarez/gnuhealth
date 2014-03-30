@@ -28,113 +28,101 @@ You can get the latest development version at the Mercurial server in Savannah[3
 2.- http://health.gnu.org
 3.- http://hg.savannah.gnu.org/hgweb/health/
 
-Sample use :
+Sample uses :
 
-# Search interactions
+1) Search Interaction
+2) Read Interaction
+3) Create Interaction
+
+
+1) #### Search interactions ####
+
 >>> from fhir import *
 
->>> query = RestfulFHIR().search('http://fhir.healthintersections.com.au/open','Patient','name=Jimmy')
-
+>>> query = RestfulFHIR().search('http://fhir.healthintersections.com.au/open','Patient','identifier=55567890')
 >>> print query
 <Response [200]>
-
 >>> print query.text
-
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Search results for resource type Patient</title>
-  <id>urn:uuid:dee712bf-9214-408a-b2b4-99d3afecfd</id>
+  <id>urn:uuid:8b018fb9-7df4-4e1b-9f4b-8a34955d86</id>
   <link href="http://fhir.healthintersections.com.au/open/" rel="fhir-base" />
-  <link href="http://fhir.healthintersections.com.au/open/Patient/_search?search-id=088dfce4-cbee-4c8d-af0b-89a3410a05&amp;name=Jimmy&amp;search-sort=_id" rel="self" />
-  <updated>2014-03-09T00:42:08Z</updated>
+  <link href="http://fhir.healthintersections.com.au/open/Patient/_search?search-id=49f23df4-3b9a-4117-9726-41d2aa3256&amp;identifier=55567890&amp;search-sort=_id" rel="self" />
+  <updated>2014-03-30T03:51:25Z</updated>
   <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
   <entry xmlns="http://www.w3.org/2005/Atom">
-    <title>Patient "233" Version "1"</title>
-    <id>http://fhir.healthintersections.com.au/open/Patient/233</id>
-    <link href="http://fhir.healthintersections.com.au/open/Patient/233/_history/1" rel="self" />
-    <updated>2014-02-13T00:45:57Z</updated>
+    <title>Patient "1046" Version "1"</title>
+    <id>http://fhir.healthintersections.com.au/open/Patient/1046</id>
+    <link href="http://fhir.healthintersections.com.au/open/Patient/1046/_history/1" rel="self" />
+    <updated>2014-03-30T03:47:37Z</updated>
     <author>
-      <name>service</name>
+      <name>190.195.19.13</name>
     </author>
-    <published>2014-03-09T00:42:08Z</published>
+    <published>2014-03-30T03:51:25Z</published>
     <content type="text/xml">
       <Patient xmlns="http://hl7.org/fhir">
-        <text>
-          <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml">Manning, Jimmy. MRN:&#x0A;            577552</div>
-        </text>
         <identifier>
+          <use value="usual"/>
           <label value="SSN"/>
-          <system value="https://github.com/projectcypress/cypress/patient"/>
-          <value value="577552"/>
+          <value value="55567890"/>
         </identifier>
         <name>
           <use value="official"/>
-          <family value="Manning"/>
-          <given value="Jimmy"/>
+          <family value="Ana"/>
+          <given value="Betz"/>
         </name>
         <gender>
           <coding>
             <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-            <code value="M"/>
-            <display value="Male"/>
+            <code value="F"/>
+            <display value="Female"/>
           </coding>
         </gender>
-        <birthDate value="1975-06-07"/>
-        <managingOrganization>
-          <reference value="Organization/1"/>
-        </managingOrganization>
+        <birthDate value="1985-10-04"/>
+        <deceasedBoolean value="false"/>
         <active value="true"/>
       </Patient>
     </content>
     <summary type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">Manning, Jimmy. MRN:&#x0A;            577552</div>
+      <div xmlns="http://www.w3.org/1999/xhtml">--No Summary for this resource--</div>
     </summary>
   </entry>
 </feed>
->>> 
 
 ######################################################################
 
-# Read interaction #
+2) ###### Read interaction ##############
 
->>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',2)
+
+>>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',1046)
 >>> print query.text
 
+>>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',1046)
+>>> print query
+<Response [200]>
+>>> print query.text
 <?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Everyman, Adam. SSN:&#x0A;            444333333</div>
-  </text>
   <identifier>
+    <use value="usual"/>
     <label value="SSN"/>
-    <system value="http://hl7.org/fhir/sid/us-ssn"/>
-    <value value="444333333"/>
+    <value value="55567890"/>
   </identifier>
   <name>
     <use value="official"/>
-    <family value="Everyman"/>
-    <given value="Adam"/>
+    <family value="Ana"/>
+    <given value="Betz"/>
   </name>
-  <telecom>
-    <system value="phone"/>
-    <value value="555-555-2004"/>
-    <use value="work"/>
-  </telecom>
   <gender>
     <coding>
       <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
-      <code value="M"/>
+      <code value="F"/>
+      <display value="Female"/>
     </coding>
   </gender>
-  <address>
-    <use value="home"/>
-    <line value="2222 Home Street"/>
-  </address>
-  <managingOrganization>
-    <reference value="Organization/hl7"/>
-  </managingOrganization>
+  <birthDate value="1985-10-04"/>
+  <deceasedBoolean value="false"/>
   <active value="true"/>
 </Patient>
 
@@ -163,3 +151,40 @@ query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patien
 </OperationOutcome>
 
 
+#### CREATE INTERACTION on the Patient Profile #######
+
+from fhir import *
+import json
+
+# JSON format and data elements for the Patient resource
+headers = {'content-type': 'application/json'}
+    
+body = json.dumps({"resourceType":"Patient",
+    "name":[{"use":"official", "family":["Doe"], "given":["John"]}]})
+
+# XML format Patient data elements (body)
+#Header for XML
+#headers = {'content-type': 'application/xml'}
+
+#body = "<Patient xmlns=\"http://hl7.org/fhir\">" \
+#    "<name><family>John</family></name></Patient>"
+
+query = RestfulFHIR().create('http://fhir.healthintersections.com.au/open'
+    ,'Patient', body, headers)
+
+print query
+print query.text
+
+## Result on create interaction
+
+<Response [201]>
+{
+  "resourceType" : "OperationOutcome",
+  "text" : {
+    "status" : "generated",
+    "div" : "\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">The operation was succesful</div>"
+  }
+}
+
+
+########################################################################
