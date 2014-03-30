@@ -188,7 +188,7 @@ class RestfulFHIR:
         response = requests.get(fhir_query)
         return response
 
-    def validate(self, base, resource, resid=None, body):
+    def validate(self, base, resource, resid=None, body=None):
         """Check whether content is a valid resource and update
             PARAMETERS:
                 body : resource
