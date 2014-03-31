@@ -3141,6 +3141,7 @@ class HealthInstitution(ModelSQL, ModelView):
         ), 'Public Level', required=True, sort=False)
 
     teaching = fields.Boolean("Teaching Institution")
+    heliport = fields.Boolean("Heliport")
     
     extra_info = fields.Text("Extra Info")
 
