@@ -17,6 +17,11 @@
             <field name="teaching"/>
             <label name="heliport"/>
             <field name="heliport"/>
+            <newline/>
+            <label name="trauma_center"/>
+            <field name="trauma_center"/>
+            <label name="trauma_level"/>
+            <field name="trauma_level"/>
         </group>
         <group string="Institution Picture" id="institution_picture">
             <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200" height="200" width="200" widget="image"/>

@@ -2,5 +2,6 @@
 <tree string="Health Institution">
     <field name="name" expand="1"/>
     <field name="institution_type" expand="1"/>
+    <field name="trauma_center" expand="1"/>
     <field name="heliport" expand="1"/>
 </tree>

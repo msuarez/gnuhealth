@@ -3142,6 +3142,15 @@ class HealthInstitution(ModelSQL, ModelView):
 
     teaching = fields.Boolean("Teaching Institution")
     heliport = fields.Boolean("Heliport")
+    trauma_center = fields.Boolean("Trauma Center")
+    trauma_level = fields.Selection((
+        ('one', 'Level I'),
+        ('two', 'Level II'),
+        ('three', 'Level III'),
+        ('four', 'Level IV'),
+        ('five', 'Level V'),
+        ), 'Trauma Level', sort=False,
+        states={'invisible': Not(Bool(Eval('trauma_center')))})
     
     extra_info = fields.Text("Extra Info")
 
