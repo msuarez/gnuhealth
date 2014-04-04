@@ -39,7 +39,8 @@ Sample uses :
 
 >>> from fhir import *
 
->>> query = RestfulFHIR().search('http://fhir.healthintersections.com.au/open','Patient','identifier=55567890')
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> query = rest.search('Patient', 'identifier=55567890')
 >>> print query
 <Response [200]>
 >>> print query.text
@@ -94,11 +95,10 @@ Sample uses :
 
 2) ###### Read interaction ##############
 
+>>> from fhir import *
 
->>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',1046)
->>> print query.text
-
->>> query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',1046)
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> query = rest.read('Patient', 1046)
 >>> print query
 <Response [200]>
 >>> print query.text
@@ -130,11 +130,10 @@ If the resource ID does not exist, a 404 Response will be generated
 
 Say we try to access the non-existant ID 210834
 
-query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patient',210834)
-
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> query = rest.read('Patient', 210834)
 >>> print query
 <Response [404]>
-
 >>> print query.text
 <?xml version="1.0" encoding="UTF-8"?>
 <OperationOutcome xmlns="http://hl7.org/fhir">
@@ -153,31 +152,23 @@ query = RestfulFHIR().read('http://fhir.healthintersections.com.au/open','Patien
 
 #### CREATE INTERACTION on the Patient Profile #######
 
-from fhir import *
-import json
+>>> from fhir import *
+>>> import json
 
-# JSON format and data elements for the Patient resource
-headers = {'content-type': 'application/json'}
-    
-body = json.dumps({"resourceType":"Patient",
-    "name":[{"use":"official", "family":["Doe"], "given":["John"]}]})
-
-# XML format Patient data elements (body)
-#Header for XML
-#headers = {'content-type': 'application/xml'}
-
-#body = "<Patient xmlns=\"http://hl7.org/fhir\">" \
+# XML data elements for the Patient resource
+#>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+#>>> body = "<Patient xmlns=\"http://hl7.org/fhir\">" \
 #    "<name><family>John</family></name></Patient>"
 
-query = RestfulFHIR().create('http://fhir.healthintersections.com.au/open'
-    ,'Patient', body, headers)
+# JSON data elements for the Patient resource
+>>> body = json.dumps({"resourceType":"Patient",
+    "name":[{"use":"official", "family":["Doe"], "given":["John"]}]})
 
-print query
-print query.text
-
-## Result on create interaction
-
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open')
+>>> query = rest.create('Patient', body)
+>>> print query
 <Response [201]>
+>>> print query.text
 {
   "resourceType" : "OperationOutcome",
   "text" : {

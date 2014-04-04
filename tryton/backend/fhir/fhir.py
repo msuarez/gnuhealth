@@ -30,25 +30,36 @@ __all__ = ["RestfulFHIR"]
 class RestfulFHIR:
     """General Set of REST Interactions for resources"""
 
-    def search(self, base, resource, params):
+    def __init__(self, base, content_type='json'):
+        self.mimes={'xml': {'resource': 'application/xml+fhir; charset=utf-8',
+                            'bundle': 'application/atom+xml; charset=utf-8',
+                            'taglist': 'application/xml+fhir; charset=utf-8'},
+                    'json': {'resource': 'application/json+fhir; charset=utf-8',
+                            'bundle': 'application/json+fhir; charset=utf-8',
+                            'taglist': 'application/json+fhir; charset=utf-8'}}
+        self.content_headers=self.mimes[content_type]
+        self.base = base
+
+    def search(self, resource, params):
         """Search FHIR Resources with specific criteria
             PARAMETERS:
-                base : Service Root URL
                 resource : resource type
                 params : extra search criteria
             RETURNS:
                 response
+                    200 : Found
+                    403 : Failed
         """
 
-        fhir_query = str(base) + '/' + str(resource) + '?' + str(params)
-        response = requests.get(fhir_query)
+        fhir_query = str(self.base) + '/' + str(resource) + '?' + str(params)
+        headers={'accept': self.content_headers['resource']}
+        response = requests.get(fhir_query, headers=headers)
         return response
 
-    def read(self, base, resource, resid):
+    def read(self, resource, resid):
         """Read current status of the resource
             PARAMETERS:
-                base : Service Root URL
-                besource : resource type
+                resource : resource type
                 resid : unique resource identifier
             RETURNS:
                 response
@@ -57,36 +68,37 @@ class RestfulFHIR:
                     410 : Deleted resource
         """
 
-        fhir_query = str(base) + '/' + str(resource) + '/' + str(resid)
-        response = requests.get(fhir_query)
+        fhir_query = str(self.base) + '/' + str(resource) + '/' + str(resid)
+        headers={'accept': self.content_headers['resource']}
+        response = requests.get(fhir_query, headers=headers)
         return response
 
-    def vread(self, base, resource, resid, vid):
+    def vread(self, resource, resid, vid):
         """Read given version of the resource
             PARAMETERS:
-                base : service root url
                 resource : resource type
                 resid : unique resource identifier
                 vid : unique version identifier
             RETURNS:
-                200 : Found
-                404 : Does not exist
-                405 : Prohibit previous versions
-                410 : Deleted resource
+                response
+                    200 : Found
+                    404 : Does not exist
+                    405 : Prohibit previous versions
+                    410 : Deleted resource
         """
 
         fhir_query = '/'.join([str(x) for x in \
-                    [base, resource, resid, '_history', vid]])
-        response = requests.get(fhir_query)
+                    [self.base, resource, resid, '_history', vid]])
+        headers={'accept': self.content_headers['resource']}
+        response = requests.get(fhir_query, headers=headers)
         return response
-    
-    def update(self, base, resource, resid, body):
+
+    def update(self, resource, resid, body):
         """Update or create FHIR resource
             PARAMETERS:
-                body : resource
-                base : service root url
                 resource : resource type
                 resid : unique resource identifier
+                body : resource
             RETURNS:
                 response
                     200 : Resource updated
@@ -99,14 +111,14 @@ class RestfulFHIR:
                     422 : Rejected
         """
 
-        fhir_query = '/'.join([str(base), str(resource), str(resid)])
-        response = requests.put(fhir_query, data=body)
+        fhir_query = '/'.join([str(self.base), str(resource), str(resid)])
+        headers={'content-type': self.content_headers['resource']}
+        response = requests.put(fhir_query, data=body, headers=headers)
         return response
 
-    def delete(self, base, resource, resid):
+    def delete(self, resource, resid):
         """Delete existing resource
             PARAMETERS:
-                base : service root url
                 resource : resource type
                 resid : unique resource identifier
             RETURNS:
@@ -116,92 +128,101 @@ class RestfulFHIR:
                     405 : Not allowed
         """
 
-        fhir_query = '/'.join([str(base), str(resource), str(resid)])
+        fhir_query = '/'.join([str(self.base), str(resource), str(resid)])
         response = requests.delete(fhir_query)
         return response
 
-    def create(self, base, resource, body, headers):
+    def create(self, resource, body):
         """Create new resource
             PARAMETERS:
-                body : resource
-                base : service root url
                 resource : resource type
+                body : resource
             RETURNS:
-                201 : Resource created
-                400 : Bad request
-                404 : Not supported
-                422 : Rejected
-                500 : Incorrect Document
+                response
+                    201 : Resource created
+                    400 : Bad request
+                    404 : Not supported
+                    422 : Rejected
+                    500 : Incorrect Document
         """
 
-        fhir_query = '/'.join([str(base), str(resource)])
+        fhir_query = '/'.join([str(self.base), str(resource)])
+        headers = {'content-type': self.content_headers['resource']}
         response = requests.post(fhir_query, data=body, headers=headers)
         return response
 
-    def transaction(self, bundle, base):
+    def transaction(self, bundle):
         """Create, delete, or update multiple resources
             PARAMETERS:
                 bundle : resource bundle
-                base : service root url
             RETURNS:
-                200 : Success
-                400 : Bad request
-                404 : Not supported
-                405 : Not allowed
-                409 : Version conflict
-                412 : Version precondition conflict
-                422 : Rejected
+                response
+                    200 : Success
+                    400 : Bad request
+                    404 : Not supported
+                    405 : Not allowed
+                    409 : Version conflict
+                    412 : Version precondition conflict
+                    422 : Rejected
         """
 
-        fhir_query = str(base)
-        response = requests.post(fhir_query, data=bundle)
+        fhir_query = str(self.base)
+        headers = {'content-type': self.content_headers['bundle']}
+        response = requests.post(fhir_query, data=bundle, headers=headers)
         return response
 
-    def conformance(self, base):
+    def conformance(self, _options=False):
         """Retrieves conformance statement
             PARAMETERS:
-                base : service root url
+                _options : use OPTIONS verb
             RETURNS:
-                200 : Found
-                404 : FHIR not supported
+                response
+                    200 : Found
+                    404 : FHIR not supported
         """
-        #TODO Should support OPTIONS verb, too
 
-        fhir_query = '/'.join([str(base), 'metadata'])
-        response = requests.get(fhir_query)
+        headers={'accept': self.content_headers['resource']}
+        if _options:
+            response = requests.options(str(self.base), headers=headers)
+        else:
+            fhir_query = '/'.join([str(self.base), 'metadata'])
+            response = requests.get(fhir_query, headers=headers)
         return response
 
-    def history(self, base, resource=None, resid=None, params=None):
+    def history(self, resource=None, resid=None, params=None):
         """Retrieve history of: specific resource, given type, or all resources
             PARAMETERS:
-                base : service root url
                 resource : resource type
                 resid :  unique resource identifier
                 params : extra history criteria
             RETURNS:
-                200 : Found
+                response
+                    200 : Found
         """
         fhir_base = '/'.join([str(x) for x in \
-                        [base, resource, resid, '_history'] if x])
+                        [self.base, resource, resid, '_history'] if x])
         if params: fhir_query = '?'.join([fhir_base, str(params)])
         else: fhir_query = fhir_base
-        response = requests.get(fhir_query)
+        headers={'accept': self.content_headers['resource']}
+        response = requests.get(fhir_query, headers=headers)
         return response
 
-    def validate(self, base, resource, resid=None, body=None):
+    def validate(self, resource, resid=None, body=None):
         """Check whether content is a valid resource and update
             PARAMETERS:
-                body : resource
-                base : service root url
                 resource : resource type
+                body : resource
                 resid : unique resource identifier
             RETURNS:
-                200 : Valid resource/Valid update
-                400 : Bad request/Invalid
-                422 : Valid resource, but invalid update
+                response
+                    200 : Valid resource/Valid update
+                    400 : Bad request/Invalid
+                    422 : Valid resource, but invalid update
         """
 
+        if not body: raise TypeError('Need something to validate! Attach body.')
         fhir_query = '/'.join([str(x) for x in \
-                        [base, resource, '_validate', resid] if x])
-        response = requests.post(fhir_query, data=body)
+                        [self.base, resource, '_validate', resid] if x])
+        headers = {'content-type': self.content_headers['resource']} 
+        response = requests.post(fhir_query, data=body, headers=headers)
         return response
