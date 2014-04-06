@@ -3158,6 +3158,13 @@ class HealthInstitution(ModelSQL, ModelView):
         if self.name:
             return self.name.name
 
+    @classmethod
+    def __setup__(cls):
+        super(HealthInstitution, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'This Insitution already exists !'),
+        ]
+
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
