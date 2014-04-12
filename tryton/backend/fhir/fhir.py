@@ -22,6 +22,8 @@
 ##############################################################################
 
 import requests
+import json
+import lxml.etree
 
 
 __all__ = ["RestfulFHIR"]
@@ -37,7 +39,10 @@ class RestfulFHIR:
                     'json': {'resource': 'application/json+fhir; charset=utf-8',
                             'bundle': 'application/json+fhir; charset=utf-8',
                             'taglist': 'application/json+fhir; charset=utf-8'}}
+        self.validators={'json': json.loads,
+                            'xml': lxml.etree.fromstring} 
         self.content_headers=self.mimes[content_type]
+        self.validator=self.validators[content_type]
         self.base = base
 
     def search(self, resource, params):
@@ -111,6 +116,10 @@ class RestfulFHIR:
                     422 : Rejected
         """
 
+        try:
+            self.validator(body)
+        except:
+            raise TypeError("Body does not have a valid structure")
         fhir_query = '/'.join([str(self.base), str(resource), str(resid)])
         headers={'content-type': self.content_headers['resource']}
         response = requests.put(fhir_query, data=body, headers=headers)
@@ -146,6 +155,10 @@ class RestfulFHIR:
                     500 : Incorrect Document
         """
 
+        try:
+            self.validator(body)
+        except:
+            raise TypeError("Body does not have a valid structure")
         fhir_query = '/'.join([str(self.base), str(resource)])
         headers = {'content-type': self.content_headers['resource']}
         response = requests.post(fhir_query, data=body, headers=headers)
@@ -166,6 +179,10 @@ class RestfulFHIR:
                     422 : Rejected
         """
 
+        try:
+            self.validator(bundle)
+        except:
+            raise TypeError("Bundle does not have a valid structure")
         fhir_query = str(self.base)
         headers = {'content-type': self.content_headers['bundle']}
         response = requests.post(fhir_query, data=bundle, headers=headers)
@@ -221,6 +238,10 @@ class RestfulFHIR:
         """
 
         if not body: raise TypeError('Need something to validate! Attach body.')
+        try:
+            self.validator(body)
+        except:
+            raise TypeError("Body does not have a valid structure")
         fhir_query = '/'.join([str(x) for x in \
                         [self.base, resource, '_validate', resid] if x])
         headers = {'content-type': self.content_headers['resource']} 
