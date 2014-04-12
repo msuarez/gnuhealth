@@ -40,7 +40,8 @@ Sample uses :
 >>> from fhir import *
 
 >>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
->>> query = rest.search('Patient', 'identifier=55567890')
+>>> params = {'identifier': 55567890}
+>>> query = rest.search('Patient', params)
 >>> print query
 <Response [200]>
 >>> print query.text
