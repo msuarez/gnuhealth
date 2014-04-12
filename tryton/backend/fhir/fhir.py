@@ -56,9 +56,9 @@ class RestfulFHIR:
                     403 : Failed
         """
 
-        fhir_query = str(self.base) + '/' + str(resource) + '?' + str(params)
+        fhir_query = '/'.join([str(self.base), str(resource)])
         headers={'accept': self.content_headers['resource']}
-        response = requests.get(fhir_query, headers=headers)
+        response = requests.get(fhir_query, headers=headers, params=params)
         return response
 
     def read(self, resource, resid):
@@ -216,12 +216,10 @@ class RestfulFHIR:
                 response
                     200 : Found
         """
-        fhir_base = '/'.join([str(x) for x in \
+        fhir_query = '/'.join([str(x) for x in \
                         [self.base, resource, resid, '_history'] if x])
-        if params: fhir_query = '?'.join([fhir_base, str(params)])
-        else: fhir_query = fhir_base
         headers={'accept': self.content_headers['resource']}
-        response = requests.get(fhir_query, headers=headers)
+        response = requests.get(fhir_query, headers=headers, params=params)
         return response
 
     def validate(self, resource, resid=None, body=None):
