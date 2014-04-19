@@ -660,7 +660,7 @@
         <record model="ir.action.act_window" id="action_gnuhealth_medicament_category_tree">
             <field name="name">Medicament categories</field>
             <field name="res_model">gnuhealth.medicament.category</field>
-            <field name="domain">[('parent', '=', False)]</field>
+            <field name="domain">[('parent', '=', None)]</field>
         </record>
 
         <record model="ir.action.act_window.view" id="act_medicament_category_tree_view1">
