@@ -23,7 +23,7 @@ def read(fname):
 
 
 setup(name='fhir',
-    version='0.0.3',
+    version='0.0.4',
     description='HL7 FHIR Library',
     author='Luis Falcon',
     author_email='lfalcon@gnusolidario.org',
@@ -32,7 +32,7 @@ setup(name='fhir',
     package_dir={'fhir': '.'},
     packages=['fhir'],
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Environment :: Plugins',
         'Intended Audience :: Developers',
         'Intended Audience :: Healthcare Industry',
