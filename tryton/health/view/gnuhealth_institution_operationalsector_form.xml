@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form string="Operational Sectors x Health Institution">
+	<label name="name"/>
+	<field name="name"/>
+	<newline/>
+	<label name="operational_sector"/>        
+	<field name="operational_sector"/> 
+</form>

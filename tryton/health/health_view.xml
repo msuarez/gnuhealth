@@ -1452,6 +1452,40 @@
             parent="gnuhealth_menu_institution" sequence="1"/>
 
 
+<!-- Health Centers by OPerational Sectors -->
+
+        <record model="ir.ui.view" id="gnuhealth_institution_operationalsector_form">
+            <field name="model">gnuhealth.institution.operationalsector</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_institution_operationalsector_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_institution_operationalsector_tree">
+            <field name="model">gnuhealth.institution.operationalsector</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_institution_operationalsector_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_institution_operationalsector">
+            <field name="name">operational sectors by institution</field>
+            <field name="res_model">gnuhealth.institution.operationalsector</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_operationalsector_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_institution_operationalsector_tree"/>
+            <field name="act_window" ref="action_gnuhealth_institution_operationalsector"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_institution_operationalsector_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_institution_operationalsector_form"/>
+            <field name="act_window" ref="action_gnuhealth_institution_operationalsector"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_institution_operationalsector"
+            id="gnuhealth_institution_operationalsector" icon="gnuhealth-list"
+            parent="gnuhealth_menu_institution" sequence="1"/>
+
 <!-- Hospital Building -->
 
         <record model="ir.ui.view" id="gnuhealth_hospital_building_view">

@@ -48,8 +48,9 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'HealthInstitution', 'HealthInstitutionSpecialties',
-    'HealthInstitutionSP', 'HospitalBuilding', 'HospitalUnit',
-    'HospitalOR', 'HospitalWard', 'HospitalBed']
+    'HealthInstitutionOperationalSector','HealthInstitutionO2M', 
+    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
+    'HospitalBed']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -3179,7 +3180,14 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
             return self.specialty.name
 
 
-class HealthInstitutionSP(ModelSQL, ModelView):
+class HealthInstitutionOperationalSector(ModelSQL, ModelView):
+    ''
+    __name__ = 'gnuhealth.institution.operationalsector'
+
+    name = fields.Many2One('gnuhealth.institution', 'Institution')
+    operational_sector = fields.Many2One('gnuhealth.operational_sector', 'Operational Sector')
+
+class HealthInstitutionO2M(ModelSQL, ModelView):
     'Health Institution'
     __name__ = 'gnuhealth.institution'
 
@@ -3195,6 +3203,12 @@ class HealthInstitutionSP(ModelSQL, ModelView):
             " or where this center excels", 
         states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
             'readonly': Not(Bool(Eval('name')))})
+
+    # Add Specialties to the Health Institution
+    operational_sectors = fields.One2Many('gnuhealth.institution.operationalsector',
+        'name','Operational Sector',
+        help="Operational Sectors covered by this institution")
+
 
 # HEALTH CENTER / HOSPITAL INFRASTRUCTURE
 class HospitalBuilding(ModelSQL, ModelView):
