@@ -82,7 +82,7 @@
             parent="gnuhealth_conf_menu" sequence="10" icon="gnuhealth-disease"/>
         <menuitem name="Procedures" id="gnuhealth_conf_procedure"
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
-        <menuitem name="Health Centers" id="gnuhealth_conf_institution"
+        <menuitem name="Institutions" id="gnuhealth_conf_institution"
             parent="gnuhealth_conf_menu" sequence="30" icon="gnuhealth-health-center"/>
         <menuitem name="Health Professionals" id="gnuhealth_conf_healthprofessionals"
             parent="gnuhealth_conf_menu" sequence="40" icon="gnuhealth-healthprofessional"/>
