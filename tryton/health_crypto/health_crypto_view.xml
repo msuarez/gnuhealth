@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <tryton>
     <data>
+    <!-- Add Tab with the Serialized information about the prescription -->
+
+        <record model="ir.ui.view" id="view_prescription_form">
+            <field name="model">gnuhealth.prescription.order</field>
+            <field name="inherit" ref="health.gnuhealth_prescription_view"/>
+            <field name="type">form</field>
+            <field name="name">prescription_form</field>
+        </record>
     </data>
 </tryton>

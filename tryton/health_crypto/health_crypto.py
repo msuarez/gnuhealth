@@ -23,7 +23,46 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+import hashlib
 
 
-__all__ = []
+__all__ = ['HealthCrypto','PrescriptionOrder']
 
+
+class HealthCrypto:
+    """ GNU Health Cryptographic functions
+    """
+
+    def serialize(self,fields_to_serialize):
+        return str(fields_to_serialize)
+
+    def gen_hash(self, serialized_doc):
+        
+        return hashlib.sha512(serialized_doc).hexdigest()
+
+
+
+class PrescriptionOrder(ModelSQL, ModelView):
+    """ Add the serialized and hash fields to the
+    prescription order document"""
+    
+    __name__ = 'gnuhealth.prescription.order'
+    
+    serialized = fields.Function(
+        fields.Text('Document'), 'serialize_doc')
+
+    document_hash = fields.Function(
+        fields.Char('Hash'), 'gen_doc_hash')
+
+    def serialize_doc(self, name):
+        fields_to_serialize = [ 
+            self.patient.lastname, self.prescription_id,
+            self.prescription_date, self.prescription_line ]
+            
+        s = HealthCrypto()
+        return s.serialize(fields_to_serialize)
+    
+    def gen_doc_hash(self, name):
+        h = HealthCrypto()
+        
+        return h.gen_hash(self.serialized)
