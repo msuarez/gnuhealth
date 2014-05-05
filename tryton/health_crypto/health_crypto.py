@@ -24,6 +24,8 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 import hashlib
+import json
+
 
 
 __all__ = ['HealthCrypto','PrescriptionOrder']
@@ -33,8 +35,10 @@ class HealthCrypto:
     """ GNU Health Cryptographic functions
     """
 
-    def serialize(self,fields_to_serialize):
-        return str(fields_to_serialize)
+    def serialize(self,data_to_serialize):
+        """ Format to JSON """
+        json_output = json.dumps(data_to_serialize)
+        return json_output
 
     def gen_hash(self, serialized_doc):
         
@@ -54,13 +58,33 @@ class PrescriptionOrder(ModelSQL, ModelView):
     document_hash = fields.Function(
         fields.Char('Hash'), 'gen_doc_hash')
 
+         
     def serialize_doc(self, name):
-        fields_to_serialize = [ 
-            self.patient.lastname, self.prescription_id,
-            self.prescription_date, self.prescription_line ]
+        
+        presc_line=[]
+        
+        for line in self.prescription_line:
+            line_elements=[line.medicament.name.name,
+                line.dose, line.dose_unit.name,
+                line.route.name,
+                line.form.name,
+                line.indication.name,
+                line.short_comment]
+                
+            presc_line.append(line_elements)
+
+        data_to_serialize = { 
+            'Prescription': self.prescription_id,
+            'Date': str(self.prescription_date),
+            'HP': ','.join([self.healthprof.name.lastname,
+                self.healthprof.name.name]),
+            'Patient':','.join([self.patient.lastname, self.patient.name.name]),
+            'Patient_ID': self.patient.name.ref,
+            'Prescription_line': str(presc_line),
+             }
             
         s = HealthCrypto()
-        return s.serialize(fields_to_serialize)
+        return s.serialize(data_to_serialize)
     
     def gen_doc_hash(self, name):
         h = HealthCrypto()
