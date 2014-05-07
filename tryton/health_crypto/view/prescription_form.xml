@@ -3,11 +3,15 @@
     <xpath expr="/form/group[@id=&quot;group_prescription_notes&quot;]" position="after">
         <newline/>
         <group colspan="4" id="prescription_hash">
-            <label name="serialized"/>
-            <field name="serialized"/>
+
+            <label name="serializer"/>
+            <field name="serializer"/>
+
             <newline/>
-            <label name="document_hash"/>
-            <field name="document_hash"/>
+            <label name="document_digest"/>
+            <field name="document_digest"/>
+                <field name="state"/>
+                <button name="generate_prescription" help="Sign the prescription" string="Sign" icon="tryton-go-next" confirm="Sign this prescription ? The document will become read-only !"/>
         </group>
     </xpath>
 </data>

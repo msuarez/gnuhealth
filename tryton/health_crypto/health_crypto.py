@@ -23,12 +23,12 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from trytond.wizard import Wizard, StateAction, StateView, Button
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
 import hashlib
 import json
 
-
-
-__all__ = ['HealthCrypto','PrescriptionOrder']
+__all__ = ['HealthCrypto','PatientPrescriptionOrder']
 
 
 class HealthCrypto:
@@ -41,52 +41,80 @@ class HealthCrypto:
         return json_output
 
     def gen_hash(self, serialized_doc):
-        
         return hashlib.sha512(serialized_doc).hexdigest()
 
 
-
-class PrescriptionOrder(ModelSQL, ModelView):
+class PatientPrescriptionOrder(ModelSQL, ModelView):
     """ Add the serialized and hash fields to the
     prescription order document"""
     
     __name__ = 'gnuhealth.prescription.order'
     
-    serialized = fields.Function(
-        fields.Text('Document'), 'serialize_doc')
+    serializer = fields.Text('Serialized Doc', readonly=True)
 
-    document_hash = fields.Function(
-        fields.Char('Hash'), 'gen_doc_hash')
+    document_digest = fields.Char('Digest', readonly=True,
+        help="Original Document Digest")
+    
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('done', 'Done'),
+        ], 'State', readonly=True, sort=False)
 
-         
-    def serialize_doc(self, name):
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+    @classmethod
+    def __setup__(cls):
+        cls._buttons.update({
+            'generate_prescription': {
+                'invisible': Equal(Eval('state'), 'done'),
+            },
+        })
+
+    @classmethod
+    @ModelView.button
+    def generate_prescription(cls, prescriptions):
+        prescription = prescriptions[0]
+
+        # Change the state of the evaluation to "Done"
+        # and write the name of the signing health professional
+
+        serial_doc=cls.get_serial(prescription)
         
+
+        cls.write(prescriptions, {
+            'serializer': serial_doc,
+            'document_digest': HealthCrypto().gen_hash(serial_doc),
+            'state': 'done',})
+
+
+    @classmethod
+    def get_serial(cls,prescription):
+
         presc_line=[]
         
-        for line in self.prescription_line:
-            line_elements=[line.medicament.name.name,
-                line.dose, line.dose_unit.name,
-                line.route.name,
-                line.form.name,
-                line.indication.name,
-                line.short_comment]
+        for line in prescription.prescription_line:
+            line_elements=[line.medicament and line.medicament.name.name or '',
+                line.dose or '', 
+                line.route and line.route.name or '',
+                line.form and line.form.name or '',
+                line.indication.name or '',
+                line.short_comment or '']
                 
             presc_line.append(line_elements)
 
         data_to_serialize = { 
-            'Prescription': self.prescription_id,
-            'Date': str(self.prescription_date),
-            'HP': ','.join([self.healthprof.name.lastname,
-                self.healthprof.name.name]),
-            'Patient':','.join([self.patient.lastname, self.patient.name.name]),
-            'Patient_ID': self.patient.name.ref,
+            'Prescription': prescription.prescription_id or '',
+            'Date': str(prescription.prescription_date) or '',
+            'HP': ','.join([prescription.healthprof.name.lastname,
+                prescription.healthprof.name.name]),
+            'Patient':','.join([prescription.patient.lastname, prescription.patient.name.name]),
+            'Patient_ID': prescription.patient.name.ref or '',
             'Prescription_line': str(presc_line),
              }
-            
-        s = HealthCrypto()
-        return s.serialize(data_to_serialize)
-    
-    def gen_doc_hash(self, name):
-        h = HealthCrypto()
+
+        serialized_doc = HealthCrypto().serialize(data_to_serialize)
         
-        return h.gen_hash(self.serialized)
+        return serialized_doc
+        
