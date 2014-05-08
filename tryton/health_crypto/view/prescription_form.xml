@@ -2,16 +2,19 @@
 <data>
     <xpath expr="/form/group[@id=&quot;group_prescription_notes&quot;]" position="after">
         <newline/>
-        <group colspan="4" id="prescription_hash">
-
-            <label name="serializer"/>
-            <field name="serializer"/>
-
-            <newline/>
+        <separator colspan="4" string="Document validation"/>
+        <newline/>
+        <field name="serializer"/>
+        <newline/>
+        <group colspan="4" id="prescription_digest">
             <label name="document_digest"/>
-            <field name="document_digest"/>
-                <field name="state"/>
-                <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
+            <field colspan="3" name="document_digest"/>
         </group>
+        <newline/>
+        <group colspan="4" id="prescription_generate">
+            <field name="state"/>
+            <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
+        </group>
+
     </xpath>
 </data>
