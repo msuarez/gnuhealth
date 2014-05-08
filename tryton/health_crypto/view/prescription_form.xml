@@ -11,7 +11,7 @@
             <label name="document_digest"/>
             <field name="document_digest"/>
                 <field name="state"/>
-                <button name="generate_prescription" help="Sign the prescription" string="Sign" icon="tryton-go-next" confirm="Sign this prescription ? The document will become read-only !"/>
+                <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
         </group>
     </xpath>
 </data>
