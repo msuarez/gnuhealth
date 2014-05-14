@@ -6,15 +6,20 @@
         <newline/>
         <field name="serializer"/>
         <newline/>
+        <label name="document_digest"/>
+        <field colspan="3" name="document_digest"/>
+        
         <group colspan="4" id="prescription_digest">
-            <label name="document_digest"/>
-            <field colspan="3" name="document_digest"/>
+            <label name="digest_current"/>
+            <field name="digest_current"/>
+            <label name="digest_status"/>
+            <field name="digest_status"/>
+            
         </group>
         <newline/>
         <group colspan="4" id="prescription_generate">
             <field name="state"/>
             <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
         </group>
-
     </xpath>
 </data>

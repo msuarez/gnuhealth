@@ -60,6 +60,14 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         ('done', 'Done'),
         ], 'State', readonly=True, sort=False)
 
+
+    digest_status = fields.Function(fields.Boolean('Altered'),
+        'check_digest')
+    serializer_current = fields.Function(fields.Char('Current Doc'),
+        'check_digest')
+    digest_current = fields.Function(fields.Char('Current Hash'),
+        'check_digest')
+        
     @staticmethod
     def default_state():
         return 'draft'
@@ -117,4 +125,18 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         serialized_doc = HealthCrypto().serialize(data_to_serialize)
         
         return serialized_doc
+        
+
+    def check_digest (self,name):
+        serial_doc=self.get_serial(self)
+        if (name == 'digest_status' and self.document_digest):
+            if (HealthCrypto().gen_hash(serial_doc) == self.document_digest):
+                result = False
+            else:
+                ''' Return true if the document has been altered'''
+                result = True
+        if (name=='digest_current'):
+            result = HealthCrypto().gen_hash(serial_doc)
+            
+        return result
         
