@@ -4,22 +4,26 @@
         <newline/>
         <separator colspan="4" string="Document validation"/>
         <newline/>
-        <field name="serializer"/>
-        <newline/>
-        <label name="document_digest"/>
-        <field colspan="3" name="document_digest"/>
-        
         <group colspan="4" id="prescription_digest">
+            <label name="document_digest"/>
+            <field colspan="3" name="document_digest"/>
+            <newline/>
+            <label name="serializer"/>
+            <field name="serializer"/>
+            <label name="serializer_current"/>
+            <field name="serializer_current"/>
+            <newline/>
             <label name="digest_current"/>
-            <field name="digest_current"/>
-            <label name="digest_status"/>
-            <field name="digest_status"/>
+            <field colspan="3" name="digest_current"/>
             
         </group>
         <newline/>
-        <group colspan="4" id="prescription_generate">
+        <group colspan="4" col="6" id="prescription_generate">
+            <label name="state"/>
             <field name="state"/>
             <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
+            <label name="digest_status"/>
+            <field name="digest_status"/>
         </group>
     </xpath>
 </data>

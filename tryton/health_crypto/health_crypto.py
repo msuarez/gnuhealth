@@ -50,7 +50,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     
     __name__ = 'gnuhealth.prescription.order'
     
-    serializer = fields.Text('Serialized Doc', readonly=True)
+    serializer = fields.Text('Doc String', readonly=True)
 
     document_digest = fields.Char('Digest', readonly=True,
         help="Original Document Digest")
@@ -61,12 +61,29 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         ], 'State', readonly=True, sort=False)
 
 
-    digest_status = fields.Function(fields.Boolean('Altered'),
+    digest_status = fields.Function(fields.Boolean('Altered',
+        states={
+        'invisible': Not(Equal(Eval('state'),'done')),
+        },
+        help="This field will be set whenever parts of" \
+        " the main original document has been changed." \
+        " Please note that the verification is done only on selected" \
+        " fields." ),
         'check_digest')
-    serializer_current = fields.Function(fields.Char('Current Doc'),
+
+    serializer_current = fields.Function(fields.Text('Current Doc',
+            states={
+            'invisible': Not(Bool(Eval('digest_status'))),
+            }),
         'check_digest')
-    digest_current = fields.Function(fields.Char('Current Hash'),
+
+        
+    digest_current = fields.Function(fields.Char('Current Hash',
+            states={
+            'invisible': Not(Bool(Eval('digest_status'))),
+            }),
         'check_digest')
+
         
     @staticmethod
     def default_state():
@@ -128,6 +145,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         
 
     def check_digest (self,name):
+        result=''
         serial_doc=self.get_serial(self)
         if (name == 'digest_status' and self.document_digest):
             if (HealthCrypto().gen_hash(serial_doc) == self.document_digest):
@@ -137,6 +155,9 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
                 result = True
         if (name=='digest_current'):
             result = HealthCrypto().gen_hash(serial_doc)
+
+        if (name=='serializer_current'):
+            result = serial_doc
             
         return result
         
