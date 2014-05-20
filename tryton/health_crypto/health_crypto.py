@@ -124,7 +124,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
                 line.dose or '', 
                 line.route and line.route.name or '',
                 line.form and line.form.name or '',
-                line.indication.name or '',
+                line.indication and line.indication.name or '',
                 line.short_comment or '']
                 
             presc_line.append(line_elements)
@@ -137,6 +137,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'Patient':','.join([prescription.patient.lastname, prescription.patient.name.name]),
             'Patient_ID': prescription.patient.name.ref or '',
             'Prescription_line': str(presc_line),
+            'Notes': str(prescription.notes),
              }
 
         serialized_doc = HealthCrypto().serialize(data_to_serialize)
