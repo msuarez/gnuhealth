@@ -22,7 +22,7 @@
 ##############################################################################
 
 import tryton.rpc as rpc
-from subprocess import *
+from tryton.common import RPCExecute, warning
 import gettext
 import gnupg
 
@@ -42,8 +42,24 @@ def sign_document(data):
 
     digest = record_vals[0]['document_digest']
     
+    """ Don't allow signing more than one document at a time"""
+    """ To avoid signing unwanted / unread documents """
+
+    if (len(data['ids']) > 1):
+        warning(
+            _('For security reasons, Please sign one document at a time'),
+            _('Multiple records selected !'),
+        )
+        return
+        
     gpg_signature = gpg.sign(digest,clearsign=True)
     
+       
+    """
+    Set the clearsigned digest
+    """
+    RPCExecute('model', document_model, 'set_signature', data, str(gpg_signature))                            
+                            
 def get_plugins(model):
     return [
         (_('Sign Document'), sign_document),

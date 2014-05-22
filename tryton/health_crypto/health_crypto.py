@@ -22,6 +22,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
+from trytond.rpc import RPC
 from trytond.pool import Pool
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
@@ -84,6 +85,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             }),
         'check_digest')
 
+    digital_signature = fields.Text('Digital Signature', readonly=True)
+
         
     @staticmethod
     def default_state():
@@ -95,7 +98,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'generate_prescription': {
                 'invisible': Equal(Eval('state'), 'done'),
             },
-        })
+            })
+        ''' Allow calling the set_signature method via RPC '''
+        cls.__rpc__.update({
+                'set_signature': RPC(readonly=False),
+                })
 
     @classmethod
     @ModelView.button
@@ -143,7 +150,21 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         serialized_doc = HealthCrypto().serialize(data_to_serialize)
         
         return serialized_doc
+    
+    @classmethod
+    def set_signature(cls, data, signature):
+        """
+        Set the clearsigned signature
+        """
         
+            
+        doc_id = data['id']
+        
+        cls.write([cls(doc_id)], {
+            'digital_signature': signature,
+            })
+
+
 
     def check_digest (self,name):
         result=''

@@ -15,6 +15,9 @@
             <newline/>
             <label name="digest_current"/>
             <field colspan="3" name="digest_current"/>
+            <newline/>
+            <label name="digital_signature"/>
+            <field name="digital_signature"/>
             
         </group>
         <newline/>
