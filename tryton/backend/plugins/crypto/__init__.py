@@ -22,7 +22,8 @@
 ##############################################################################
 
 import tryton.rpc as rpc
-from tryton.common import RPCExecute, warning
+from tryton.common import RPCExecute, warning, message
+from tryton.gui.window.view_form.screen import Screen
 import gettext
 import gnupg
 
@@ -75,11 +76,7 @@ def sign_document(data):
         )
         return
         
-
-    
-   
     """ Verify that the document handles digital signatures """
-    
         
     gpg_signature = gpg.sign(digest,clearsign=True)
     
@@ -87,7 +84,19 @@ def sign_document(data):
     """
     Set the clearsigned digest
     """
-    RPCExecute('model', document_model, 'set_signature', data, str(gpg_signature))                            
+    try:
+        RPCExecute('model', document_model, 'set_signature', data, str(gpg_signature))                            
+
+    except:
+        warning(
+            _('Error when signing the document'),
+            _('Please check your encryption settings'),
+        )
+
+    finally:
+        message(
+            _('You have digitally signed the document.'),
+        )
                             
 def get_plugins(model):
     return [
