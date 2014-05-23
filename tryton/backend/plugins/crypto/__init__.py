@@ -76,11 +76,15 @@ def sign_document(data):
         )
         return
         
-    """ Verify that the document handles digital signatures """
-        
-    gpg_signature = gpg.sign(digest,clearsign=True)
+    try:
+        gpg_signature = gpg.sign(digest,clearsign=True)
     
-       
+    except:
+        warning(
+            _('Error when signing the document'),
+            _('Please check your encryption settings'),
+        )
+      
     """
     Set the clearsigned digest
     """
@@ -89,13 +93,13 @@ def sign_document(data):
 
     except:
         warning(
-            _('Error when signing the document'),
-            _('Please check your encryption settings'),
+            _('Error when saving the digital signature'),
+            _('The signature was generated but NOT saved !'),
         )
 
-    finally:
+    else:
         message(
-            _('You have digitally signed the document.'),
+            _('Document digitally signed'),
         )
                             
 def get_plugins(model):
