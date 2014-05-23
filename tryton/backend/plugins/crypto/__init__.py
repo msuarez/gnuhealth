@@ -51,10 +51,18 @@ def sign_document(data):
         )
         return
         
+
     digest = record_vals[0]['document_digest']
     
+    """ Check that the document hasn't been signed already """
 
-    """ Verify that the document handles digital signatures """
+    if record_vals[0]['digital_signature']:
+        warning(
+            _('Document already signed'),
+            _('This record has been already signed'),
+        )
+        return
+        
 
     
     """ Don't allow signing more than one document at a time
