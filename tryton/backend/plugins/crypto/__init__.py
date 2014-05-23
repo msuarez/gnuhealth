@@ -38,6 +38,18 @@ def sign_document(data):
     document_model = data['model']
     
 
+    """ Don't allow signing more than one document at a time
+        To avoid signing unwanted / unread documents 
+    """
+    
+    if (len(data['ids']) > 1):
+        warning(
+            _('For security reasons, Please sign one document at a time'),
+            _('Multiple records selected !'),
+        )
+        return
+
+
     """ Verify that the document handles digital signatures """
     
     try:
@@ -65,17 +77,7 @@ def sign_document(data):
         
 
     
-    """ Don't allow signing more than one document at a time
-        To avoid signing unwanted / unread documents 
-    """
-    
-    if (len(data['ids']) > 1):
-        warning(
-            _('For security reasons, Please sign one document at a time'),
-            _('Multiple records selected !'),
-        )
-        return
-    
+   
     """ Verify that the document handles digital signatures """
     
         
