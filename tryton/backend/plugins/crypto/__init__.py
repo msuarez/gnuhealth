@@ -36,21 +36,40 @@ def sign_document(data):
     gpg = gnupg.GPG()
     
     document_model = data['model']
+    
 
-    record_vals = rpc.execute('model', document_model, 'read', data['ids'],
-        ['document_digest'],  rpc.CONTEXT)
+    """ Verify that the document handles digital signatures """
+    
+    try:
+        record_vals = rpc.execute('model', document_model, 'read', data['ids'],
+            ['document_digest', 'digital_signature'],  rpc.CONTEXT)
 
+    except:
+        warning(
+            _('Please enable the model for digital signature'),
+            _('No Digest or Digital Signature fields found !'),
+        )
+        return
+        
     digest = record_vals[0]['document_digest']
     
-    """ Don't allow signing more than one document at a time"""
-    """ To avoid signing unwanted / unread documents """
 
+    """ Verify that the document handles digital signatures """
+
+    
+    """ Don't allow signing more than one document at a time
+        To avoid signing unwanted / unread documents 
+    """
+    
     if (len(data['ids']) > 1):
         warning(
             _('For security reasons, Please sign one document at a time'),
             _('Multiple records selected !'),
         )
         return
+    
+    """ Verify that the document handles digital signatures """
+    
         
     gpg_signature = gpg.sign(digest,clearsign=True)
     
