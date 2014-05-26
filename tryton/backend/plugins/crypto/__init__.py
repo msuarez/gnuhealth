@@ -110,7 +110,64 @@ def sign_document(data):
         # a.message_info(_('Document digitally signed'), color='blue')
 
 
+def verify_document(data):
+    """ Verify the digital signature of the document """
+
+    gpg = gnupg.GPG()
+
+    document_model = data['model']
+
+    """ Verify that the document handles digital signatures """
+
+    try:
+        record_vals = rpc.execute(
+            'model', document_model, 'read',
+            data['ids'],
+            ['document_digest', 'digital_signature'], rpc.CONTEXT)
+
+    except:
+        warning(
+            _('Please enable the model for digital signature'),
+            _('No Digest or Digital Signature fields found !'),
+        )
+        return
+
+
+    """ Verify signature """
+    digital_signature = record_vals[0]['digital_signature']
+
+    """ Check that the document has been signed """
+    if not digital_signature:
+        warning(
+            _('Unsigned document'),
+            _('This document has not been signed yet'),
+            )
+        return
+    
+    try:
+        verify_signature = gpg.verify(digital_signature)
+
+    except:
+        warning(
+            _('Error when verifying Digital Signature'),
+            _('Please check your GNU Privacy Guard Settings'),
+        )
+
+    else:
+        """ Show message of warning boxes depending on the verification """
+        if (verify_signature.valid):
+            message(_("Valid Signature !\n\n" + verify_signature.stderr))
+        else:
+            warning(
+                _(str(verify_signature.stderr)),
+                _(str("Error !")),
+            )
+            
+
+
 def get_plugins(model):
     return [
-        (_('Sign Document'), sign_document),
+        (_('Digitally Sign Document'), sign_document),
+        (_('Verify Digital Signature'), verify_document),
+
     ]
