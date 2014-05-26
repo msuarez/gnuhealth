@@ -23,26 +23,26 @@
 
 import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message
-from tryton.gui.window.view_form.screen import Screen
+from tryton.gui.window.form import Form
 import gettext
 import gnupg
 
 _ = gettext.gettext
 
+
 def sign_document(data):
-    """ Retrieve the hash value of the serialized document and 
-        generates a clearsign signature using the user's private key 
+    """ Retrieve the hash value of the serialized document and
+        generates a clearsign signature using the user's private key
         on the client side via GNU Privacy Guard - GPG -"""
-        
+
     gpg = gnupg.GPG()
-    
+
     document_model = data['model']
-    
 
     """ Don't allow signing more than one document at a time
-        To avoid signing unwanted / unread documents 
+        To avoid signing unwanted / unread documents
     """
-    
+
     if (len(data['ids']) > 1):
         warning(
             _('For security reasons, Please sign one document at a time'),
@@ -50,12 +50,13 @@ def sign_document(data):
         )
         return
 
-
     """ Verify that the document handles digital signatures """
-    
+
     try:
-        record_vals = rpc.execute('model', document_model, 'read', data['ids'],
-            ['document_digest', 'digital_signature'],  rpc.CONTEXT)
+        record_vals = rpc.execute(
+            'model', document_model, 'read',
+            data['ids'],
+            ['document_digest', 'digital_signature'], rpc.CONTEXT)
 
     except:
         warning(
@@ -63,10 +64,9 @@ def sign_document(data):
             _('No Digest or Digital Signature fields found !'),
         )
         return
-        
 
     digest = record_vals[0]['document_digest']
-    
+
     """ Check that the document hasn't been signed already """
 
     if record_vals[0]['digital_signature']:
@@ -75,21 +75,23 @@ def sign_document(data):
             _('This record has been already signed'),
         )
         return
-        
+
     try:
-        gpg_signature = gpg.sign(digest,clearsign=True)
-    
+        gpg_signature = gpg.sign(digest, clearsign=True)
+
     except:
         warning(
             _('Error when signing the document'),
             _('Please check your encryption settings'),
         )
-      
+
     """
     Set the clearsigned digest
     """
     try:
-        RPCExecute('model', document_model, 'set_signature', data, str(gpg_signature))                            
+        RPCExecute(
+            'model', document_model, 'set_signature',
+            data, str(gpg_signature))
 
     except:
         warning(
@@ -98,10 +100,16 @@ def sign_document(data):
         )
 
     else:
-        message(
-            _('Document digitally signed'),
-        )
-                            
+        message(_('Document digitally signed'))
+
+        # TODO
+        # Reload the record view after storing the digital signature
+        # sig_reload or other method to check.
+        # a = Form(document_model, data['ids'])
+        # a.sig_reload()
+        # a.message_info(_('Document digitally signed'), color='blue')
+
+
 def get_plugins(model):
     return [
         (_('Sign Document'), sign_document),
