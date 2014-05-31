@@ -2117,6 +2117,16 @@ class PatientMedication(ModelSQL, ModelView):
     frequency_prn = fields.Boolean(
         'PRN', help='Use it as needed, pro re nata')
 
+    infusion = fields.Boolean(
+        'Infusion', 
+        help='Mark if the medication is in the form of infusion',
+        ' Intravenous, Gastrostomy tube, nasogastric, etc...' )
+    infusion_rate = fields.Float('Rate')
+    infusion_rate_units = fields.Many2One(
+        'gnuhealth.dose.unit', 'dose unit',
+        help='Unit of measure for the medication to be taken')
+
+    
     @classmethod
     def __setup__(cls):
         super(PatientMedication, cls).__setup__()
