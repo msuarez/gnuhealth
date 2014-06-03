@@ -3346,6 +3346,10 @@ class HospitalBed(ModelSQL, ModelView):
         domain=[('is_bed', '=', True)],
         help='Bed Number')
 
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Institution')
+
     ward = fields.Many2One(
         'gnuhealth.hospital.ward', 'Ward',
         help='Ward or room')

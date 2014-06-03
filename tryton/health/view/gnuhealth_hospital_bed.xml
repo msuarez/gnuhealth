@@ -2,6 +2,8 @@
 <form string="Bed">
     <label name="name"/>
     <field name="name"/>
+    <label name="institution"/>
+    <field name="institution"/>
     <label name="ward"/>
     <field name="ward"/>
     <label name="bed_type"/>
