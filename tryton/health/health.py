@@ -2119,7 +2119,7 @@ class PatientMedication(ModelSQL, ModelView):
 
     infusion = fields.Boolean(
         'Infusion', 
-        help='Mark if the medication is in the form of infusion',
+        help='Mark if the medication is in the form of infusion' \
         ' Intravenous, Gastrostomy tube, nasogastric, etc...' )
     infusion_rate = fields.Float('Rate')
     infusion_rate_units = fields.Many2One(
