@@ -1688,8 +1688,7 @@ class Appointment(ModelSQL, ModelView):
     appointment_date = fields.DateTime('Date and Time')
 
     institution = fields.Many2One(
-        'party.party', 'Health Center',
-        domain=[('is_institution', '=', True)],
+        'gnuhealth.institution', 'Institution',
         help='Medical Center')
 
     speciality = fields.Many2One(
