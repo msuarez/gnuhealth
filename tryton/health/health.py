@@ -3231,8 +3231,7 @@ class HospitalBuilding(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        domain=[('is_institution', '=', True)],
-        help='Medical Center')
+        help='Health Instituion of this building')
 
     code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
@@ -3248,7 +3247,6 @@ class HospitalUnit(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        domain=[('is_institution', '=', True)],
         help='Health Institution')
 
     code = fields.Char('Code')
@@ -3264,8 +3262,7 @@ class HospitalOR(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        domain=[('is_institution', '=', True)],
-        help='Medical Center')
+        help='Health Institution')
 
     building = fields.Many2One(
         'gnuhealth.hospital.building', 'Building', select=True)
@@ -3291,8 +3288,7 @@ class HospitalWard(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        domain=[('is_institution', '=', True)],
-        help='Medical Center')
+        help='Health Institution')
 
     building = fields.Many2One('gnuhealth.hospital.building', 'Building')
     floor = fields.Integer('Floor Number')
