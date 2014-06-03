@@ -1416,6 +1416,18 @@
             id="gnuhealth_menu_institution" icon="gnuhealth-health-center"
             parent="gnuhealth_menu" sequence="15"/>
 
+<!-- Shortcut to the Health center Buildings from the Institution -->
+
+        <record model="ir.action.act_window" id="act_building_view">
+            <field name="name">Buildings</field>
+            <field name="res_model">gnuhealth.hospital.building</field>
+            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_building_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.institution,-1</field>
+            <field name="action" ref="act_building_view"/>
+        </record>
 
 <!-- Health Institution Specialties / Services -->
 
