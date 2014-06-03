@@ -3230,7 +3230,7 @@ class HospitalBuilding(ModelSQL, ModelView):
         help='Name of the building within the institution')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
+        'gnuhealth.institution', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Medical Center')
 
@@ -3247,9 +3247,9 @@ class HospitalUnit(ModelSQL, ModelView):
         help='Name of the unit, eg Neonatal, Intensive Care, ...')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
+        'gnuhealth.institution', 'Institution',
         domain=[('is_institution', '=', True)],
-        help='Medical Center')
+        help='Health Institution')
 
     code = fields.Char('Code')
     extra_info = fields.Text('Extra Info')
@@ -3263,7 +3263,7 @@ class HospitalOR(ModelSQL, ModelView):
         'Name', required=True, help='Name of the Operating Room')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
+        'gnuhealth.institution', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Medical Center')
 
@@ -3290,7 +3290,7 @@ class HospitalWard(ModelSQL, ModelView):
     name = fields.Char('Name', required=True, help='Ward / Room code')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
+        'gnuhealth.institution', 'Institution',
         domain=[('is_institution', '=', True)],
         help='Medical Center')
 
