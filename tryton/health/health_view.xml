@@ -1429,6 +1429,20 @@
             <field name="action" ref="act_building_view"/>
         </record>
 
+<!-- Shortcut to the Health center units from the Institution -->
+
+        <record model="ir.action.act_window" id="act_unit_view">
+            <field name="name">units</field>
+            <field name="res_model">gnuhealth.hospital.unit</field>
+            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_unit_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.institution,-1</field>
+            <field name="action" ref="act_unit_view"/>
+        </record>
+
+
 <!-- Health Institution Specialties / Services -->
 
         <record model="ir.ui.view" id="gnuhealth_institution_specialties_form">
