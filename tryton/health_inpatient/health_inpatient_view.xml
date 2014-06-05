@@ -7,9 +7,6 @@
             <field name="path">icons/hospital.svg</field>
         </record>
 
-        <menuitem name="Hospitalizations" parent="health.gnuhealth_menu"
-            id="gnuhealth_inpatient_menu" sequence="50"
-            icon="icon-hospital-patient"/>
 
 <!-- Add other relevant icons -->
 
@@ -67,10 +64,10 @@
             <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
         </record>
 
-        <menuitem parent="gnuhealth_inpatient_menu"
-            action="gnuhealth_action_inpatient_registration"
-            id="gnuhealth_conf_inpatient_add" sequence="1"
-            icon="gnuhealth-list"/>
+        <menuitem name="Hospitalizations" action="gnuhealth_action_inpatient_registration"
+            parent="health.gnuhealth_menu"
+            id="gnuhealth_inpatient_menu" sequence="50"
+            icon="icon-hospital-patient"/>
 
 <!-- Add the patient hospitalization registration code to the appointment view -->
 
