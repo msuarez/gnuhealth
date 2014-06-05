@@ -1010,10 +1010,12 @@ class PartyPatient (ModelSQL, ModelView):
         else:
             return self.name
 
+
     @classmethod
     def search_rec_name(cls, name, clause):
+        """ Search for the name, lastname, SSN and any alternative IDs"""
         field = None
-        for field in ('name', 'lastname', 'ref'):
+        for field in ('name', 'lastname', 'ref', 'alternative_ids.code'):
             parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if parties:
                 break
