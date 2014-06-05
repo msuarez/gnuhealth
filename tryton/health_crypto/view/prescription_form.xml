@@ -2,7 +2,7 @@
 <data>
     <xpath expr="/form/group[@id=&quot;group_prescription_notes&quot;]" position="after">
         <newline/>
-        <separator colspan="4" string="Document validation"/>
+        <separator colspan="4" string="Document validation" id="separator_docvalidation"/>
         <newline/>
         <group colspan="4" id="prescription_digest">
             <label name="document_digest"/>
