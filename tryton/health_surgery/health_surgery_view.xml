@@ -7,9 +7,6 @@
             <field name="path">icons/surgery.svg</field>
         </record>
 
-        <menuitem name="Surgeries" parent="health.gnuhealth_menu"
-            id="gnuhealth_surgery_menu" sequence="50"
-            icon="icon-surgery"/>
 
 <!-- RCRI - Revised Cardiac Risk Index -->
 
@@ -70,9 +67,10 @@
             <field name="act_window" ref="action_gnuhealth_surgery_view"/>
         </record>
 
-        <menuitem action="action_gnuhealth_surgery_view"
-            id="menu_gnuhealth_surgery_list"
-            icon="gnuhealth-list" parent="gnuhealth_surgery_menu"/>
+        <menuitem name="Surgeries" parent="health.gnuhealth_menu"
+            id="gnuhealth_surgery_menu" sequence="50"
+            action="action_gnuhealth_surgery_view"
+            icon="icon-surgery"/>
 
 <!-- End of Surgery Menu -->
 
