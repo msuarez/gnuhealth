@@ -2260,8 +2260,7 @@ class PatientVaccination(ModelSQL, ModelView):
         ' tracking number when available !')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
-        domain=[('is_institution', '=', True)],
+        'gnuhealth.institution', 'Institution',
         help='Medical Center where the patient is being or was vaccinated')
 
     date = fields.DateTime('Date')
