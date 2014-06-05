@@ -65,8 +65,6 @@
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
-        <menuitem name="Appointments" id="gnuhealth_appointment_menu"
-            parent="gnuhealth_menu" sequence="20" icon="gnuhealth-appointment"/>
         <menuitem name="Demographics" id="gnuhealth_demographics_menu"
             parent="gnuhealth_menu" sequence="40" icon="gnuhealth-demography"/>
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
@@ -1064,9 +1062,9 @@
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
 
-        <menuitem action="action_gnuhealth_appointment_view"
-            id="menu_gnuhealth_appointment_list"
-            icon="gnuhealth-list" parent="gnuhealth_appointment_menu"/>
+        <menuitem name="Appointments" action="action_gnuhealth_appointment_view" 
+            id="gnuhealth_appointment_menu"
+            parent="gnuhealth_menu" sequence="20" icon="gnuhealth-appointment"/>
 
 <!-- Shortcut to the Appointments from the Patient -->
 
