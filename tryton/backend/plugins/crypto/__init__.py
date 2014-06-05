@@ -25,10 +25,18 @@ import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message
 from tryton.gui.window.form import Form
 import gettext
-import gnupg
 
+try: 
+    import gnupg
+except:
+    warning(
+        ('Document Encryption / Signing disabled'
+         '\nPlease install the gnupg library '),
+        ('No GNU Privacy Guard library found !'),
+    )
+    
+    
 _ = gettext.gettext
-
 
 def sign_document(data):
     """ Retrieve the hash value of the serialized document and
@@ -162,12 +170,10 @@ def verify_document(data):
                 _(str(verify_signature.stderr)),
                 _(str("Error !")),
             )
-            
 
 
 def get_plugins(model):
     return [
         (_('Digitally Sign Document'), sign_document),
         (_('Verify Digital Signature'), verify_document),
-
     ]
