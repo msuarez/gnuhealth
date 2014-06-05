@@ -31,7 +31,7 @@
     <field name="specialties"/>
     <newline/>
     <field name="operational_sectors"/>
-
-    <field name="extra_info"/>
+    <newline/>
+    <field colspan="4" name="extra_info"/>
 
 </form>
