@@ -200,8 +200,7 @@ class HealthProfessional(ModelSQL, ModelView):
         help='Health Professional\'s Name, from the partner list')
 
     institution = fields.Many2One(
-        'party.party', 'Institution',
-        domain=[('is_institution', '=', True)],
+        'gnuhealth.institution', 'Institution',
         help='Instituion where she/he works')
 
     code = fields.Char('ID', help='License ID')
