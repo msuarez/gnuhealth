@@ -10,11 +10,6 @@
             <field name="path">icons/archives.svg</field>
         </record>
 
-<!-- Create Archiving menu -->
-
-        <menuitem parent="health.gnuhealth_menu" 
-            sequence="600" 
-            name="Archives" id="gnuhealth_archives" icon="gnuhealth-archives"/>
 
 <!-- Patient PAPER Clinical HIstory -->
 
@@ -50,8 +45,9 @@
             <field name="act_window" ref="gnuhealth_action_paper_archive"/>
         </record>
 
-        <menuitem parent="gnuhealth_archives" icon="gnuhealth-list"
-            action="gnuhealth_action_paper_archive" id="gnuhealth_menu_paper_archive"/>
+        <menuitem parent="health.gnuhealth_menu" 
+            sequence="600" action="gnuhealth_action_paper_archive" 
+            name="Archives" id="gnuhealth_archives" icon="gnuhealth-archives"/>
 
     </data>
 </tryton>
