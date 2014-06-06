@@ -1254,7 +1254,7 @@ class PatientData(ModelSQL, ModelView):
         searcher='search_patient_lastname')
 
     puid = fields.Function(
-        fields.Char('PUID'),
+        fields.Char('PUID', help="Person Unique Identifier"),
         'get_patient_puid', searcher='search_patient_puid')
 
     # 2.6 Removed from the patient model and code moved to

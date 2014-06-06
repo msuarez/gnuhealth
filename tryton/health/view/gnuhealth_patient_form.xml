@@ -4,11 +4,10 @@
     <group string="Main Info" id="patient_main_info">
         <group colspan="3" id="patient_main_info_name">
             <group colspan="3" col="9" id="patient_main_info_3">
-                <field colspan="5" name="name"/>
+                <field colspan="4" name="name"/>
                 <field name="sex" width="60"/>
                 <label name="age"/>
                 <field name="age" width="80"/>
-                <field name="puid" width="80"/>
             </group>
             <newline/>
             <group id="critical_info" string="Critical Information">
@@ -55,6 +54,9 @@ code with the unique patient ID.
                         <label name="identification_code"/>
                         <label name="identification_code"/>
 -->
+                        <label name="puid"/>
+                        <field name="puid"/>
+
                         <label name="blood_type"/>
                         <field name="blood_type" width="20"/>
                         <field name="rh" width="20"/>
