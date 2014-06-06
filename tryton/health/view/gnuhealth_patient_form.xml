@@ -8,7 +8,7 @@
                 <field name="sex" width="60"/>
                 <label name="age"/>
                 <field name="age" width="80"/>
-                <field name="ssn" width="80"/>
+                <field name="puid" width="80"/>
             </group>
             <newline/>
             <group id="critical_info" string="Critical Information">
@@ -43,7 +43,7 @@
                         <label name="dob"/>
                         <field name="dob"/>
 <!--
-From 2.6 we use the "SSN" (ref) field as the main code.
+From 2.6 we use the "PUID" (ref) field as the main code.
 We go towards the Unique Person Identifier
 If your patient has different clinical history codes (from different centers)
 you can put them in the Clinical History Number in the alternative IDs of the

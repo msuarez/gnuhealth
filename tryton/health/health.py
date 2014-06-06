@@ -859,7 +859,7 @@ class AlternativePersonID (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     alternative_id_type = fields.Selection(
         [
-            ('country_id', 'Country of origin SSN'),
+            ('country_id', 'Country of origin ID'),
             ('passport', 'Passport'),
             ('medical_record', 'Medical Record'),
             ('other', 'Other'),
@@ -877,8 +877,8 @@ class PartyPatient (ModelSQL, ModelView):
 
     alias = fields.Char('Alias', help='Common name that the Party is reffered')
     ref = fields.Char(
-        'SSN',
-        help='Patient Social Security Number or equivalent',
+        'PUID',
+        help='Person Unique Identifier',
         states={'invisible': Not(Bool(Eval('is_person')))})
 
     unidentified = fields.Boolean(
@@ -937,8 +937,8 @@ class PartyPatient (ModelSQL, ModelView):
         'country.country', 'Country of Residence', help='Country of Residence')
     alternative_identification = fields.Boolean(
         'Alternative IDs', help='Other types of '
-        'identification, not the official SSN from this country health'
-        ' center. Examples : Passport, foreign ID,..')
+        'identification, not the official PUID . '
+        'Examples : Passport, foreign ID,..')
 
     alternative_ids = fields.One2Many(
         'gnuhealth.person_alternative_identification',
@@ -1000,7 +1000,7 @@ class PartyPatient (ModelSQL, ModelView):
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
         cls._sql_constraints += [
-            ('ref_uniq', 'UNIQUE(ref)', 'The SSN must be unique'),
+            ('ref_uniq', 'UNIQUE(ref)', 'The PUID must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')]
 
@@ -1013,7 +1013,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        """ Search for the name, lastname, SSN and any alternative IDs"""
+        """ Search for the name, lastname, PUID and any alternative IDs"""
         field = None
         for field in ('name', 'lastname', 'ref', 'alternative_ids.code'):
             parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
@@ -1253,9 +1253,9 @@ class PatientData(ModelSQL, ModelView):
         fields.Char('Lastname'), 'get_patient_lastname',
         searcher='search_patient_lastname')
 
-    ssn = fields.Function(
-        fields.Char('SSN'),
-        'get_patient_ssn', searcher='search_patient_ssn')
+    puid = fields.Function(
+        fields.Char('PUID'),
+        'get_patient_puid', searcher='search_patient_puid')
 
     # 2.6 Removed from the patient model and code moved to
     # the patient alternative id as "medical_record"
@@ -1416,14 +1416,14 @@ class PatientData(ModelSQL, ModelView):
     def get_patient_photo(self, name):
         return self.name.photo
 
-    def get_patient_ssn(self, name):
+    def get_patient_puid(self, name):
         return self.name.ref
 
     def get_patient_marital_status(self, name):
         return self.name.marital_status
 
     @classmethod
-    def search_patient_ssn(cls, name, clause):
+    def search_patient_puid(cls, name, clause):
         res = []
         value = clause[2]
         res.append(('name.ref', clause[1], value))
@@ -1439,12 +1439,12 @@ class PatientData(ModelSQL, ModelView):
         res.append(('name.lastname', clause[1], value))
         return res
 
-    # Search by the patient name, lastname or SSN
+    # Search by the patient name, lastname or PUID
 
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
-        for field in ('name', 'lastname', 'ssn'):
+        for field in ('name', 'lastname', 'puid'):
             patients = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if patients:
                 break
@@ -1865,7 +1865,7 @@ class AppointmentReport(ModelSQL, ModelView):
     # 2.6 Remove the legacy internal identification code for the institution
     # It's now as part of the party alternative ID (medical_record)
     # identification_code = fields.Char('Identification Code')
-    ref = fields.Char('SSN')
+    ref = fields.Char('PUID')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
     age = fields.Function(fields.Char('Age'), 'get_patient_age')
