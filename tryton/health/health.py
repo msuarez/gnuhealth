@@ -861,6 +861,7 @@ class AlternativePersonID (ModelSQL, ModelView):
         [
             ('country_id', 'Country of origin SSN'),
             ('passport', 'Passport'),
+            ('medical_record', 'Medical Record'),
             ('other', 'Other'),
         ], 'ID type', required=True, sort=False,)
 
@@ -1256,10 +1257,12 @@ class PatientData(ModelSQL, ModelView):
         fields.Char('SSN'),
         'get_patient_ssn', searcher='search_patient_ssn')
 
-    identification_code = fields.Char(
-        'Code', readonly=True,
-        help='Patient Identifier provided by the Health Center.Is not the'
-        ' Social Security Number')
+    # 2.6 Removed from the patient model and code moved to
+    # the patient alternative id as "medical_record"
+    # identification_code = fields.Char(
+    #    'Code', readonly=True,
+    #    help='Patient Identifier provided by the Health Center.Is not the'
+    #    ' Social Security Number')
 
     family = fields.Many2One(
         'gnuhealth.family', 'Family', help='Family Code')
@@ -1441,27 +1444,13 @@ class PatientData(ModelSQL, ModelView):
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
-        for field in ('name', 'lastname', 'ssn', 'identification_code'):
+        for field in ('name', 'lastname', 'ssn'):
             patients = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if patients:
                 break
         if patients:
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
-
-    @classmethod
-    def create(cls, vlist):
-        Sequence = Pool().get('ir.sequence')
-        Config = Pool().get('gnuhealth.sequences')
-
-        vlist = [x.copy() for x in vlist]
-        for values in vlist:
-            if not values.get('identification_code'):
-                config = Config(1)
-                values['identification_code'] = Sequence.get_id(
-                    config.patient_sequence.id)
-
-        return super(PatientData, cls).create(vlist)
 
     def get_rec_name(self, name):
         if self.name.lastname:
@@ -1531,6 +1520,18 @@ class PatientData(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
 
             table.drop_column('marital_status')
+
+        # 2.6 Move Identification Code from patient to party
+
+
+        if table.column_exist('identification_code'):
+            cursor.execute(
+                "INSERT INTO GNUHEALTH_PERSON_ALTERNATIVE_IDENTIFICATION \
+                (NAME, ALTERNATIVE_ID_TYPE, CODE) \
+                SELECT name, 'medical_record', IDENTIFICATION_CODE \
+                FROM GNUHEALTH_PATIENT;")
+
+            table.drop_column('identification_code')
 
 
 # PATIENT DISESASES INFORMATION
@@ -1861,7 +1862,9 @@ class AppointmentReport(ModelSQL, ModelView):
     'Appointment Report'
     __name__ = 'gnuhealth.appointment.report'
 
-    identification_code = fields.Char('Identification Code')
+    # 2.6 Remove the legacy internal identification code for the institution
+    # It's now as part of the party alternative ID (medical_record)
+    # identification_code = fields.Char('Identification Code')
     ref = fields.Char('SSN')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
@@ -1908,7 +1911,6 @@ class AppointmentReport(ModelSQL, ModelView):
             appointment.create_date,
             appointment.write_uid,
             appointment.write_date,
-            join1.right.identification_code,
             join2.right.ref,
             join1.right.id.as_('patient'),
             join2.right.sex,
