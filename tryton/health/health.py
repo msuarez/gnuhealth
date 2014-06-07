@@ -3130,7 +3130,9 @@ class HealthInstitution(ModelSQL, ModelView):
         help='Party Associated to this Health Institution',
         required=True,
         states={'readonly': Bool(Eval('name'))})
-    
+        
+    code = fields.Char('Code',help="Institution code")
+
     picture = fields.Binary('Picture')
 
     institution_type = fields.Selection((
@@ -3145,6 +3147,13 @@ class HealthInstitution(ModelSQL, ModelView):
         ), 'Type', required=True, sort=False)
    
     beds = fields.Integer("Beds")
+
+    operating_room = fields.Boolean("Operating Room", 
+        help="Check this box if the institution" \
+        " has operating rooms",
+        )
+    or_number = fields.Integer("ORs",
+        states={'invisible': Not(Bool(Eval('operating_room')))})
     
     public_level = fields.Selection((
         ('private', 'Private'),
