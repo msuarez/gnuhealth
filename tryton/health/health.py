@@ -3259,6 +3259,22 @@ class HealthInstitution(ModelSQL, ModelView):
                 'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
                 GNUHEALTH_INSTITUTION.NAME')
 
+            # Drop old foreign key from institution OR
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
+                CONSTRAINT gnuhealth_hospital_or_institution_fkey;")
+
+            # Link Operating Room with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_OR '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
     __name__ = 'gnuhealth.institution.specialties'
