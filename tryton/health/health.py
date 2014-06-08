@@ -3194,7 +3194,8 @@ class HealthInstitution(ModelSQL, ModelView):
 
         cursor = Transaction().cursor
         # Upgrade to GNU Health 2.6
-        # Insert to the gnuhealth.institution model the existing institutions in party 
+        # Insert to the gnuhealth.institution model the existing
+        # institutions in party 
 
         # Users need to specify the new type and plublic level attributes of 
         # the institution after the upgrade.
@@ -3208,6 +3209,18 @@ class HealthInstitution(ModelSQL, ModelView):
                 (name, institution_type, public_level) \
                 SELECT id,\'set_me\',\'set_me\' \
                 from party_party where is_institution='true';")
+
+            # Drop old foreign key from institution building
+            
+            cursor = Transaction().cursor
+            cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
