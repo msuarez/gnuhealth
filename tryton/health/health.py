@@ -3213,7 +3213,10 @@ class HealthInstitution(ModelSQL, ModelView):
             # Drop old foreign key from institution building
             
             cursor = Transaction().cursor
-            cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
+                CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
+            
             cursor.execute(
                 'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
                 'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
