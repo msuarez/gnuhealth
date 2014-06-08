@@ -3155,13 +3155,14 @@ class HealthInstitution(ModelSQL, ModelView):
     or_number = fields.Integer("ORs",
         states={'invisible': Not(Bool(Eval('operating_room')))})
     
-    public_level = fields.Selection((
+    public_level = fields.Selection((  
         ('private', 'Private'),
         ('public', 'Public'),
         ('mixed', 'Private - State'),
         ), 'Public Level', required=True, sort=False)
 
-    teaching = fields.Boolean("Teaching Institution")
+    teaching = fields.Boolean("Teaching", help="Mark if this is a" \
+        " teaching institution")
     heliport = fields.Boolean("Heliport")
     trauma_center = fields.Boolean("Trauma Center")
     trauma_level = fields.Selection((
@@ -3186,6 +3187,27 @@ class HealthInstitution(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'This Insitution already exists !'),
         ]
 
+    @classmethod
+    def __register__(cls, module_name):
+
+        super(HealthInstitution, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        # Upgrade to GNU Health 2.6
+        # Insert to the gnuhealth.institution model the existing institutions in party 
+
+        # Users need to specify the new type and plublic level attributes of 
+        # the institution after the upgrade.
+         
+        cursor = Transaction().cursor
+        cursor.execute("select name from gnuhealth_institution limit 1;")
+        records = cursor.fetchone()
+        if not records:
+            cursor.execute(
+                "INSERT INTO gnuhealth_institution \
+                (name, institution_type, public_level) \
+                SELECT id,\'set_me\',\'set_me\' \
+                from party_party where is_institution='true';")
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
