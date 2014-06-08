@@ -1442,7 +1442,7 @@
 <!-- Shortcut to the Health center wards from the Institution -->
 
         <record model="ir.action.act_window" id="act_ward_view">
-            <field name="name">wards</field>
+            <field name="name">Wards</field>
             <field name="res_model">gnuhealth.hospital.ward</field>
             <field name="domain">[('institution', '=', Eval('active_id'))]</field>
         </record>
@@ -1455,7 +1455,7 @@
 <!-- Shortcut to the Health center beds from the Institution -->
 
         <record model="ir.action.act_window" id="act_bed_view">
-            <field name="name">beds</field>
+            <field name="name">Beds</field>
             <field name="res_model">gnuhealth.hospital.bed</field>
             <field name="domain">[('institution', '=', Eval('active_id'))]</field>
         </record>

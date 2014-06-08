@@ -39,11 +39,18 @@
         </page>
         <page id="medication_misc" string="Extra Info">
             <group id="medicament_dosage_main">
-                <group id="medicament_form" string="Admnistration">
+                <group id="medicament_form" col="6" string="Admnistration">
                     <label name="form"/>
                     <field name="form"/>
                     <label name="route"/>
                     <field name="route"/>
+                    <newline/>
+                    <label name="infusion"/>
+                    <field name="infusion"/>                    
+                    <label name="infusion_rate"/>
+                    <field name="infusion_rate"/>                    
+                    <label name="infusion_rate_units"/>
+                    <field name="infusion_rate_units"/>
                 </group>
                 <newline/>
                 <group id="medicament_dosage" col="6" string="Dosage">

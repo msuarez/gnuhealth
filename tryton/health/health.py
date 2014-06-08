@@ -2123,10 +2123,16 @@ class PatientMedication(ModelSQL, ModelView):
         'Infusion', 
         help='Mark if the medication is in the form of infusion' \
         ' Intravenous, Gastrostomy tube, nasogastric, etc...' )
-    infusion_rate = fields.Float('Rate')
-    infusion_rate_units = fields.Many2One(
-        'gnuhealth.dose.unit', 'dose unit',
-        help='Unit of measure for the medication to be taken')
+    infusion_rate = fields.Float('Rate',
+            states={'invisible': Not(Bool(Eval('infusion')))})
+
+    infusion_rate_units = fields.Selection([
+        (None, ''),
+        ('mlhr', 'mL/hour'),
+        ], 'Unit Rate',
+        states={'invisible': Not(Bool(Eval('infusion')))},
+        select=True, sort=False)
+
 
     
     @classmethod
