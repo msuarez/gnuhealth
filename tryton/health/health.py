@@ -3363,9 +3363,12 @@ class HospitalOR(ModelSQL, ModelView):
         help='Health Institution')
 
     building = fields.Many2One(
-        'gnuhealth.hospital.building', 'Building', select=True)
+        'gnuhealth.hospital.building', 'Building',
+        domain=[('institution', '=', Eval('institution'))],
+        select=True)
 
-    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit')
+    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
+        domain=[('institution', '=', Eval('institution'))])
     extra_info = fields.Text('Extra Info')
 
     @classmethod
@@ -3388,9 +3391,11 @@ class HospitalWard(ModelSQL, ModelView):
         'gnuhealth.institution', 'Institution',
         help='Health Institution')
 
-    building = fields.Many2One('gnuhealth.hospital.building', 'Building')
+    building = fields.Many2One('gnuhealth.hospital.building', 'Building',
+        domain=[('institution', '=', Eval('institution'))])
     floor = fields.Integer('Floor Number')
-    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit')
+    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
+        domain=[('institution', '=', Eval('institution'))])
 
     private = fields.Boolean(
         'Private', help='Check this option for private room')
@@ -3450,6 +3455,7 @@ class HospitalBed(ModelSQL, ModelView):
 
     ward = fields.Many2One(
         'gnuhealth.hospital.ward', 'Ward',
+        domain=[('institution', '=', Eval('institution'))],
         help='Ward or room')
 
     bed_type = fields.Selection((
