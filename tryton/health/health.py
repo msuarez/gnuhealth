@@ -3234,13 +3234,29 @@ class HealthInstitution(ModelSQL, ModelView):
             cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
                 CONSTRAINT gnuhealth_hospital_unit_institution_fkey;")
 
-            # Link building with new institution model
+            # Link unit with new institution model
             
             cursor.execute(
                 'UPDATE GNUHEALTH_HOSPITAL_UNIT '
                 'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
                 'FROM GNUHEALTH_INSTITUTION '
                 'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+            # Drop old foreign key from institution WARD
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
+                CONSTRAINT gnuhealth_hospital_ward_institution_fkey;")
+
+            # Link ward with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_WARD '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
                 GNUHEALTH_INSTITUTION.NAME')
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
