@@ -81,8 +81,8 @@ class PaperArchive(ModelSQL, ModelView):
         '''Retrieve the Patient Identification Code'''
         res = []
         value = clause[2]
-        res.append(('patient.identification_code', clause[1], value))
+        res.append(('patient.puid', clause[1], value))
         return res
 
     def get_patient_history(self, name):
-        return self.patient.identification_code
+        return self.patient.puid
