@@ -47,7 +47,7 @@ class Patient(ModelSQL, ModelView):
 
         patient_dob = self.dob or ''
 
-        patient_id = self.identification_code or ''
+        patient_id = self.puid or ''
 
         if self.lastname:
             patient_lastname = self.lastname + ', '
@@ -94,7 +94,7 @@ class Newborn(ModelSQL, ModelView):
 
             newborn_mother_name = self.mother.name.name or ''
 
-            newborn_mother_id = self.mother.identification_code or ''
+            newborn_mother_id = self.mother.puid or ''
 
         else:
             newborn_mother_lastname = ''
@@ -107,10 +107,10 @@ class Newborn(ModelSQL, ModelView):
 
         newborn_birth_date = self.birth_date or ''
 
-        qr_string = 'ID: ' + newborn_name \
+        qr_string = 'PUID: ' + newborn_name \
             + '\nMother: ' + newborn_mother_lastname \
                     + newborn_mother_name \
-            + '\nMother\'s ID: ' + newborn_mother_id \
+            + '\nMother\'s PUID: ' + newborn_mother_id \
             + '\nSex: ' + newborn_sex \
             + '\nDoB: ' + str(newborn_birth_date)
 
