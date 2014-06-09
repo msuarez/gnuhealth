@@ -2913,6 +2913,13 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Procedures / Actions to take')
 
     notes = fields.Text('Notes')
+    
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
 
     @classmethod
     def __setup__(cls):
@@ -3300,6 +3307,23 @@ class HealthInstitution(ModelSQL, ModelView):
                 'FROM GNUHEALTH_INSTITUTION '
                 'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
                 GNUHEALTH_INSTITUTION.NAME')
+
+            # Drop old foreign key from Appointment
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
+                CONSTRAINT gnuhealth_appointment_institution_fkey;")
+
+            # Link Appointment with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_APPOINTMENT '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
