@@ -902,7 +902,7 @@ class PartyPatient (ModelSQL, ModelView):
         help='Check if the party is a health professional')
 
     is_institution = fields.Boolean(
-        'Institution', help='Check if the party is a Medical Center')
+        'Institution', help='Check if the party is a Health Care Institution')
     is_insurance_company = fields.Boolean(
         'Insurance Company', help='Check if the party is an Insurance Company')
     is_pharmacy = fields.Boolean(
@@ -1691,7 +1691,7 @@ class Appointment(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        help='Medical Center')
+        help='Health Care Institution')
 
     speciality = fields.Many2One(
         'gnuhealth.specialty', 'Specialty',
@@ -1802,7 +1802,7 @@ class Appointment(ModelSQL, ModelView):
 
     @staticmethod
     def default_institution():
-        return Transaction().context.get('company')
+        return HealthInstitution().get_institution()
 
     def on_change_patient(self):
         res = {'state': 'free'}
@@ -3129,6 +3129,26 @@ class SignsAndSymptoms(ModelSQL, ModelView):
 class HealthInstitution(ModelSQL, ModelView):
     'Health Institution'
     __name__ = 'gnuhealth.institution'
+
+    @classmethod
+    def get_institution(cls):
+        # Retrieve the institution associated to this GNU Health instance
+        # That is associated to the Company.
+        
+        company = Transaction().context.get('company')
+        
+        cursor = Transaction().cursor
+        cursor.execute('SELECT party FROM company_company WHERE id=%s \
+            LIMIT 1', (company,))
+        party_id = cursor.fetchone()
+        if party_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_institution WHERE \
+                name = %s LIMIT 1', (party_id[0],))
+            institution_id = cursor.fetchone()
+            if (institution_id):
+                return int(institution_id[0])
+        
 
     name = fields.Many2One(
         'party.party', 'Institution',
