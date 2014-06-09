@@ -317,6 +317,14 @@ class Surgery(ModelSQL, ModelView):
 
     anesthesia_report = fields.Text('Anesthesia Report')
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
     @staticmethod
     def default_surgery_date():
         return datetime.now()

@@ -145,6 +145,14 @@ class InpatientRegistration(ModelSQL, ModelView):
         states={'invisible': Not(Equal(Eval('state'), 'done'))},
         help="Health Professional that discharged the patient")
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
     @classmethod
     def __setup__(cls):
         super(InpatientRegistration, cls).__setup__()
