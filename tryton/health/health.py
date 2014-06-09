@@ -34,11 +34,15 @@ from trytond.tools import datetime_strftime
 
 __all__ = [
     'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
-    'Occupation', 'Ethnicity', 'MedicalSpecialty', 'HealthProfessional',
-    'HealthProfessionalSpecialties', 'PhysicianSP', 'OperationalArea',
-    'OperationalSector', 'Family', 'FamilyMember', 'DomiciliaryUnit',
-    'MedicamentCategory', 'Medicament', 'PathologyCategory',
-    'PathologyGroup', 'Pathology', 'DiseaseMembers', 'ProcedureCode',
+    'Occupation', 'Ethnicity', 'OperationalArea',
+    'OperationalSector', 'HealthInstitution', 'HealthInstitutionSpecialties',
+    'HealthInstitutionOperationalSector','HealthInstitutionO2M', 
+    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
+    'HospitalBed', 'MedicalSpecialty', 'HealthProfessional',
+    'HealthProfessionalSpecialties', 'PhysicianSP', 'Family',
+    'FamilyMember', 'DomiciliaryUnit', 'MedicamentCategory',
+    'Medicament', 'PathologyCategory', 'PathologyGroup',
+    'Pathology', 'DiseaseMembers', 'ProcedureCode',
     'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'PartyPatient', 'PartyAddress', 'ProductCategory',
     'ProductTemplate', 'Product', 'GnuHealthSequences', 'PatientData',
@@ -47,10 +51,7 @@ __all__ = [
     'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'HealthInstitution', 'HealthInstitutionSpecialties',
-    'HealthInstitutionOperationalSector','HealthInstitutionO2M', 
-    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
-    'HospitalBed']
+    'SignsAndSymptoms']
 
 
 class DrugDoseUnits(ModelSQL, ModelView):
@@ -149,6 +150,466 @@ class Ethnicity(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
         ]
+
+class OperationalArea(ModelSQL, ModelView):
+    'Operational Area'
+    __name__ = 'gnuhealth.operational_area'
+
+    name = fields.Char(
+        'Name', required=True, help='Operational Area of the city or region')
+
+    operational_sector = fields.One2Many(
+        'gnuhealth.operational_sector', 'operational_area',
+        'Operational Sector', readonly=True)
+
+    info = fields.Text('Extra Information')
+
+    @classmethod
+    def __setup__(cls):
+        super(OperationalArea, cls).__setup__()
+        cls._sql_constraints += [
+            ('name_uniq', 'UNIQUE(name)',
+                'The operational area must be unique !'),
+        ]
+
+
+class OperationalSector(ModelSQL, ModelView):
+    'Operational Sector'
+    __name__ = 'gnuhealth.operational_sector'
+
+    name = fields.Char(
+        'Op. Sector', required=True,
+        help='Region included in an operational area')
+
+    operational_area = fields.Many2One(
+        'gnuhealth.operational_area', 'Operational Area')
+
+    info = fields.Text('Extra Information')
+
+    @classmethod
+    def __setup__(cls):
+        super(OperationalSector, cls).__setup__()
+        cls._sql_constraints += [
+            ('name_uniq', 'UNIQUE(name, operational_area)',
+                'The operational sector must be unique in each'
+                ' operational area!'),
+        ]
+
+
+
+# HEALTH INSTITUTION
+class HealthInstitution(ModelSQL, ModelView):
+    'Health Institution'
+    __name__ = 'gnuhealth.institution'
+
+    @classmethod
+    def get_institution(cls):
+        # Retrieve the institution associated to this GNU Health instance
+        # That is associated to the Company.
+        
+        company = Transaction().context.get('company')
+        
+        cursor = Transaction().cursor
+        cursor.execute('SELECT party FROM company_company WHERE id=%s \
+            LIMIT 1', (company,))
+        party_id = cursor.fetchone()
+        if party_id:
+            cursor = Transaction().cursor
+            cursor.execute('SELECT id FROM gnuhealth_institution WHERE \
+                name = %s LIMIT 1', (party_id[0],))
+            institution_id = cursor.fetchone()
+            if (institution_id):
+                return int(institution_id[0])
+        
+
+    name = fields.Many2One(
+        'party.party', 'Institution',
+        domain=[('is_institution', '=', True)],
+        help='Party Associated to this Health Institution',
+        required=True,
+        states={'readonly': Bool(Eval('name'))})
+        
+    code = fields.Char('Code',help="Institution code")
+
+    picture = fields.Binary('Picture')
+
+    institution_type = fields.Selection((
+        ('doctor_office', 'Doctor office'),
+        ('primary_care', 'Primary Care Center'),
+        ('clinic', 'Clinic'),
+        ('hospital', 'General Hospital'),
+        ('specialized', 'Specialized Hospital'),
+        ('nursing_home', 'Nursing Home'),
+        ('hospice', 'Hospice'),
+        ('rural', 'Rural facility'),
+        ), 'Type', required=True, sort=False)
+   
+    beds = fields.Integer("Beds")
+
+    operating_room = fields.Boolean("Operating Room", 
+        help="Check this box if the institution" \
+        " has operating rooms",
+        )
+    or_number = fields.Integer("ORs",
+        states={'invisible': Not(Bool(Eval('operating_room')))})
+    
+    public_level = fields.Selection((  
+        ('private', 'Private'),
+        ('public', 'Public'),
+        ('mixed', 'Private - State'),
+        ), 'Public Level', required=True, sort=False)
+
+    teaching = fields.Boolean("Teaching", help="Mark if this is a" \
+        " teaching institution")
+    heliport = fields.Boolean("Heliport")
+    trauma_center = fields.Boolean("Trauma Center")
+    trauma_level = fields.Selection((
+        ('one', 'Level I'),
+        ('two', 'Level II'),
+        ('three', 'Level III'),
+        ('four', 'Level IV'),
+        ('five', 'Level V'),
+        ), 'Trauma Level', sort=False,
+        states={'invisible': Not(Bool(Eval('trauma_center')))})
+    
+    extra_info = fields.Text("Extra Info")
+
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
+
+    @classmethod
+    def __setup__(cls):
+        super(HealthInstitution, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'This Insitution already exists !'),
+        ]
+
+    @classmethod
+    def __register__(cls, module_name):
+
+        super(HealthInstitution, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        # Upgrade to GNU Health 2.6
+        # Insert to the gnuhealth.institution model the existing
+        # institutions in party 
+
+        # Users need to specify the new type and plublic level attributes of 
+        # the institution after the upgrade.
+         
+        cursor = Transaction().cursor
+        cursor.execute("select name from gnuhealth_institution limit 1;")
+        records = cursor.fetchone()
+        if not records:
+            cursor.execute(
+                "INSERT INTO gnuhealth_institution \
+                (name, institution_type, public_level) \
+                SELECT id,\'set_me\',\'set_me\' \
+                from party_party where is_institution='true';")
+
+            # Drop old foreign key from institution building
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
+                CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
+
+            # Link building with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+
+            # Drop old foreign key from institution UNIT
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
+                CONSTRAINT gnuhealth_hospital_unit_institution_fkey;")
+
+            # Link unit with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_UNIT '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+            # Drop old foreign key from institution WARD
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
+                CONSTRAINT gnuhealth_hospital_ward_institution_fkey;")
+
+            # Link ward with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_WARD '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+            # Drop old foreign key from institution OR
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
+                CONSTRAINT gnuhealth_hospital_or_institution_fkey;")
+
+            # Link Operating Room with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_HOSPITAL_OR '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+            # Drop old foreign key from Appointment
+            
+            cursor = Transaction().cursor
+            
+            cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
+                CONSTRAINT gnuhealth_appointment_institution_fkey;")
+
+            # Link Appointment with new institution model
+            
+            cursor.execute(
+                'UPDATE GNUHEALTH_APPOINTMENT '
+                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                'FROM GNUHEALTH_INSTITUTION '
+                'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
+                GNUHEALTH_INSTITUTION.NAME')
+
+
+class HealthInstitutionSpecialties(ModelSQL, ModelView):
+    'Health Institution Specialties'
+    __name__ = 'gnuhealth.institution.specialties'
+
+    name = fields.Many2One('gnuhealth.institution', 'Institution')
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+
+    
+    def get_rec_name(self, name):
+        if self.name:
+            return self.specialty.name
+
+
+class HealthInstitutionOperationalSector(ModelSQL, ModelView):
+    ''
+    __name__ = 'gnuhealth.institution.operationalsector'
+
+    name = fields.Many2One('gnuhealth.institution', 'Institution')
+    operational_sector = fields.Many2One('gnuhealth.operational_sector', 'Operational Sector')
+
+class HealthInstitutionO2M(ModelSQL, ModelView):
+    'Health Institution'
+    __name__ = 'gnuhealth.institution'
+
+    # Add Specialties to the Health Institution
+    specialties = fields.One2Many('gnuhealth.institution.specialties',
+        'name','Specialties',
+        help="Specialties Provided in this Health Institution")
+
+    main_specialty = fields.Many2One('gnuhealth.institution.specialties',
+        'Specialty',
+        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
+        help="Choose the speciality in the case of Specialized Hospitals" \
+            " or where this center excels", 
+        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
+            'readonly': Not(Bool(Eval('name')))})
+
+    # Add Specialties to the Health Institution
+    operational_sectors = fields.One2Many('gnuhealth.institution.operationalsector',
+        'name','Operational Sector',
+        help="Operational Sectors covered by this institution")
+
+
+# HEALTH CENTER / HOSPITAL INFRASTRUCTURE
+class HospitalBuilding(ModelSQL, ModelView):
+    'Hospital Building'
+    __name__ = 'gnuhealth.hospital.building'
+
+    name = fields.Char(
+        'Name', required=True,
+        help='Name of the building within the institution')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Instituion of this building')
+
+    code = fields.Char('Code')
+    extra_info = fields.Text('Extra Info')
+
+
+class HospitalUnit(ModelSQL, ModelView):
+    'Hospital Unit'
+    __name__ = 'gnuhealth.hospital.unit'
+
+    name = fields.Char(
+        'Name', required=True,
+        help='Name of the unit, eg Neonatal, Intensive Care, ...')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Institution')
+
+    code = fields.Char('Code')
+    extra_info = fields.Text('Extra Info')
+
+
+class HospitalOR(ModelSQL, ModelView):
+    'Operating Room'
+    __name__ = 'gnuhealth.hospital.or'
+
+    name = fields.Char(
+        'Name', required=True, help='Name of the Operating Room')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Institution')
+
+    building = fields.Many2One(
+        'gnuhealth.hospital.building', 'Building',
+        domain=[('institution', '=', Eval('institution'))],
+        select=True)
+
+    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
+        domain=[('institution', '=', Eval('institution'))])
+    extra_info = fields.Text('Extra Info')
+
+    @classmethod
+    def __setup__(cls):
+        super(HospitalOR, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name, institution)',
+                'The Operating Room code must be unique per Health'
+                ' Center'),
+        ]
+
+
+class HospitalWard(ModelSQL, ModelView):
+    'Hospital Ward'
+    __name__ = 'gnuhealth.hospital.ward'
+
+    name = fields.Char('Name', required=True, help='Ward / Room code')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Institution')
+
+    building = fields.Many2One('gnuhealth.hospital.building', 'Building',
+        domain=[('institution', '=', Eval('institution'))])
+    floor = fields.Integer('Floor Number')
+    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
+        domain=[('institution', '=', Eval('institution'))])
+
+    private = fields.Boolean(
+        'Private', help='Check this option for private room')
+
+    bio_hazard = fields.Boolean(
+        'Bio Hazard', help='Check this option if there is biological hazard')
+
+    number_of_beds = fields.Integer(
+        'Number of beds', help='Number of patients per ward')
+
+    telephone = fields.Boolean('Telephone access')
+    ac = fields.Boolean('Air Conditioning')
+    private_bathroom = fields.Boolean('Private Bathroom')
+    guest_sofa = fields.Boolean('Guest sofa-bed')
+    tv = fields.Boolean('Television')
+    internet = fields.Boolean('Internet Access')
+    refrigerator = fields.Boolean('Refrigerator')
+    microwave = fields.Boolean('Microwave')
+
+    gender = fields.Selection((
+        ('men', 'Men Ward'),
+        ('women', 'Women Ward'),
+        ('unisex', 'Unisex'),
+        ), 'Gender', required=True, sort=False)
+
+    state = fields.Selection((
+        (None, ''),
+        ('beds_available', 'Beds available'),
+        ('full', 'Full'),
+        ('na', 'Not available'),
+        ), 'Status', sort=False)
+
+    extra_info = fields.Text('Extra Info')
+
+    @staticmethod
+    def default_gender():
+        return 'unisex'
+
+    @staticmethod
+    def default_number_of_beds():
+        return 1
+
+
+class HospitalBed(ModelSQL, ModelView):
+    'Hospital Bed'
+    __name__ = 'gnuhealth.hospital.bed'
+    _rec_name = 'telephone_number'
+
+    name = fields.Many2One(
+        'product.product', 'Bed', required=True,
+        domain=[('is_bed', '=', True)],
+        help='Bed Number')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution',
+        help='Health Institution')
+
+    ward = fields.Many2One(
+        'gnuhealth.hospital.ward', 'Ward',
+        domain=[('institution', '=', Eval('institution'))],
+        help='Ward or room')
+
+    bed_type = fields.Selection((
+        ('gatch', 'Gatch Bed'),
+        ('electric', 'Electric'),
+        ('stretcher', 'Stretcher'),
+        ('low', 'Low Bed'),
+        ('low_air_loss', 'Low Air Loss'),
+        ('circo_electric', 'Circo Electric'),
+        ('clinitron', 'Clinitron'),
+        ), 'Bed Type', required=True, sort=False)
+
+    telephone_number = fields.Char(
+        'Telephone Number', help='Telephone number / Extension')
+
+    extra_info = fields.Text('Extra Info')
+
+    state = fields.Selection((
+        ('free', 'Free'),
+        ('reserved', 'Reserved'),
+        ('occupied', 'Occupied'),
+        ('na', 'Not available'),
+        ), 'Status', readonly=True, sort=False)
+
+    @staticmethod
+    def default_bed_type():
+        return 'gatch'
+
+    @staticmethod
+    def default_state():
+        return 'free'
+
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        return [('name',) + tuple(clause[1:])]
 
 
 class MedicalSpecialty(ModelSQL, ModelView):
@@ -283,49 +744,6 @@ class PhysicianSP(ModelSQL, ModelView):
             table.drop_column('specialty')
 
 
-class OperationalArea(ModelSQL, ModelView):
-    'Operational Area'
-    __name__ = 'gnuhealth.operational_area'
-
-    name = fields.Char(
-        'Name', required=True, help='Operational Area of the city or region')
-
-    operational_sector = fields.One2Many(
-        'gnuhealth.operational_sector', 'operational_area',
-        'Operational Sector', readonly=True)
-
-    info = fields.Text('Extra Information')
-
-    @classmethod
-    def __setup__(cls):
-        super(OperationalArea, cls).__setup__()
-        cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name)',
-                'The operational area must be unique !'),
-        ]
-
-
-class OperationalSector(ModelSQL, ModelView):
-    'Operational Sector'
-    __name__ = 'gnuhealth.operational_sector'
-
-    name = fields.Char(
-        'Op. Sector', required=True,
-        help='Region included in an operational area')
-
-    operational_area = fields.Many2One(
-        'gnuhealth.operational_area', 'Operational Area')
-
-    info = fields.Text('Extra Information')
-
-    @classmethod
-    def __setup__(cls):
-        super(OperationalSector, cls).__setup__()
-        cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name, operational_area)',
-                'The operational sector must be unique in each'
-                ' operational area!'),
-        ]
 
 
 class Family(ModelSQL, ModelView):
@@ -3130,418 +3548,3 @@ class SignsAndSymptoms(ModelSQL, ModelView):
         domain=[('code', 'like', 'R%')], required=True)
 
     comments = fields.Char('Comments')
-
-
-# HEALTH INSTITUTION
-class HealthInstitution(ModelSQL, ModelView):
-    'Health Institution'
-    __name__ = 'gnuhealth.institution'
-
-    @classmethod
-    def get_institution(cls):
-        # Retrieve the institution associated to this GNU Health instance
-        # That is associated to the Company.
-        
-        company = Transaction().context.get('company')
-        
-        cursor = Transaction().cursor
-        cursor.execute('SELECT party FROM company_company WHERE id=%s \
-            LIMIT 1', (company,))
-        party_id = cursor.fetchone()
-        if party_id:
-            cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_institution WHERE \
-                name = %s LIMIT 1', (party_id[0],))
-            institution_id = cursor.fetchone()
-            if (institution_id):
-                return int(institution_id[0])
-        
-
-    name = fields.Many2One(
-        'party.party', 'Institution',
-        domain=[('is_institution', '=', True)],
-        help='Party Associated to this Health Institution',
-        required=True,
-        states={'readonly': Bool(Eval('name'))})
-        
-    code = fields.Char('Code',help="Institution code")
-
-    picture = fields.Binary('Picture')
-
-    institution_type = fields.Selection((
-        ('doctor_office', 'Doctor office'),
-        ('primary_care', 'Primary Care Center'),
-        ('clinic', 'Clinic'),
-        ('hospital', 'General Hospital'),
-        ('specialized', 'Specialized Hospital'),
-        ('nursing_home', 'Nursing Home'),
-        ('hospice', 'Hospice'),
-        ('rural', 'Rural facility'),
-        ), 'Type', required=True, sort=False)
-   
-    beds = fields.Integer("Beds")
-
-    operating_room = fields.Boolean("Operating Room", 
-        help="Check this box if the institution" \
-        " has operating rooms",
-        )
-    or_number = fields.Integer("ORs",
-        states={'invisible': Not(Bool(Eval('operating_room')))})
-    
-    public_level = fields.Selection((  
-        ('private', 'Private'),
-        ('public', 'Public'),
-        ('mixed', 'Private - State'),
-        ), 'Public Level', required=True, sort=False)
-
-    teaching = fields.Boolean("Teaching", help="Mark if this is a" \
-        " teaching institution")
-    heliport = fields.Boolean("Heliport")
-    trauma_center = fields.Boolean("Trauma Center")
-    trauma_level = fields.Selection((
-        ('one', 'Level I'),
-        ('two', 'Level II'),
-        ('three', 'Level III'),
-        ('four', 'Level IV'),
-        ('five', 'Level V'),
-        ), 'Trauma Level', sort=False,
-        states={'invisible': Not(Bool(Eval('trauma_center')))})
-    
-    extra_info = fields.Text("Extra Info")
-
-    def get_rec_name(self, name):
-        if self.name:
-            return self.name.name
-
-    @classmethod
-    def __setup__(cls):
-        super(HealthInstitution, cls).__setup__()
-        cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'This Insitution already exists !'),
-        ]
-
-    @classmethod
-    def __register__(cls, module_name):
-
-        super(HealthInstitution, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        # Upgrade to GNU Health 2.6
-        # Insert to the gnuhealth.institution model the existing
-        # institutions in party 
-
-        # Users need to specify the new type and plublic level attributes of 
-        # the institution after the upgrade.
-         
-        cursor = Transaction().cursor
-        cursor.execute("select name from gnuhealth_institution limit 1;")
-        records = cursor.fetchone()
-        if not records:
-            cursor.execute(
-                "INSERT INTO gnuhealth_institution \
-                (name, institution_type, public_level) \
-                SELECT id,\'set_me\',\'set_me\' \
-                from party_party where is_institution='true';")
-
-            # Drop old foreign key from institution building
-            
-            cursor = Transaction().cursor
-            
-            cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
-                CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
-
-            # Link building with new institution model
-            
-            cursor.execute(
-                'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
-                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                'FROM GNUHEALTH_INSTITUTION '
-                'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
-                GNUHEALTH_INSTITUTION.NAME')
-
-
-            # Drop old foreign key from institution UNIT
-            
-            cursor = Transaction().cursor
-            
-            cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
-                CONSTRAINT gnuhealth_hospital_unit_institution_fkey;")
-
-            # Link unit with new institution model
-            
-            cursor.execute(
-                'UPDATE GNUHEALTH_HOSPITAL_UNIT '
-                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                'FROM GNUHEALTH_INSTITUTION '
-                'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
-                GNUHEALTH_INSTITUTION.NAME')
-
-            # Drop old foreign key from institution WARD
-            
-            cursor = Transaction().cursor
-            
-            cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
-                CONSTRAINT gnuhealth_hospital_ward_institution_fkey;")
-
-            # Link ward with new institution model
-            
-            cursor.execute(
-                'UPDATE GNUHEALTH_HOSPITAL_WARD '
-                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                'FROM GNUHEALTH_INSTITUTION '
-                'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
-                GNUHEALTH_INSTITUTION.NAME')
-
-            # Drop old foreign key from institution OR
-            
-            cursor = Transaction().cursor
-            
-            cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
-                CONSTRAINT gnuhealth_hospital_or_institution_fkey;")
-
-            # Link Operating Room with new institution model
-            
-            cursor.execute(
-                'UPDATE GNUHEALTH_HOSPITAL_OR '
-                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                'FROM GNUHEALTH_INSTITUTION '
-                'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
-                GNUHEALTH_INSTITUTION.NAME')
-
-            # Drop old foreign key from Appointment
-            
-            cursor = Transaction().cursor
-            
-            cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
-                CONSTRAINT gnuhealth_appointment_institution_fkey;")
-
-            # Link Appointment with new institution model
-            
-            cursor.execute(
-                'UPDATE GNUHEALTH_APPOINTMENT '
-                'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                'FROM GNUHEALTH_INSTITUTION '
-                'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
-                GNUHEALTH_INSTITUTION.NAME')
-
-
-class HealthInstitutionSpecialties(ModelSQL, ModelView):
-    'Health Institution Specialties'
-    __name__ = 'gnuhealth.institution.specialties'
-
-    name = fields.Many2One('gnuhealth.institution', 'Institution')
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
-
-    
-    def get_rec_name(self, name):
-        if self.name:
-            return self.specialty.name
-
-
-class HealthInstitutionOperationalSector(ModelSQL, ModelView):
-    ''
-    __name__ = 'gnuhealth.institution.operationalsector'
-
-    name = fields.Many2One('gnuhealth.institution', 'Institution')
-    operational_sector = fields.Many2One('gnuhealth.operational_sector', 'Operational Sector')
-
-class HealthInstitutionO2M(ModelSQL, ModelView):
-    'Health Institution'
-    __name__ = 'gnuhealth.institution'
-
-    # Add Specialties to the Health Institution
-    specialties = fields.One2Many('gnuhealth.institution.specialties',
-        'name','Specialties',
-        help="Specialties Provided in this Health Institution")
-
-    main_specialty = fields.Many2One('gnuhealth.institution.specialties',
-        'Specialty',
-        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
-        help="Choose the speciality in the case of Specialized Hospitals" \
-            " or where this center excels", 
-        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
-            'readonly': Not(Bool(Eval('name')))})
-
-    # Add Specialties to the Health Institution
-    operational_sectors = fields.One2Many('gnuhealth.institution.operationalsector',
-        'name','Operational Sector',
-        help="Operational Sectors covered by this institution")
-
-
-# HEALTH CENTER / HOSPITAL INFRASTRUCTURE
-class HospitalBuilding(ModelSQL, ModelView):
-    'Hospital Building'
-    __name__ = 'gnuhealth.hospital.building'
-
-    name = fields.Char(
-        'Name', required=True,
-        help='Name of the building within the institution')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
-        help='Health Instituion of this building')
-
-    code = fields.Char('Code')
-    extra_info = fields.Text('Extra Info')
-
-
-class HospitalUnit(ModelSQL, ModelView):
-    'Hospital Unit'
-    __name__ = 'gnuhealth.hospital.unit'
-
-    name = fields.Char(
-        'Name', required=True,
-        help='Name of the unit, eg Neonatal, Intensive Care, ...')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
-        help='Health Institution')
-
-    code = fields.Char('Code')
-    extra_info = fields.Text('Extra Info')
-
-
-class HospitalOR(ModelSQL, ModelView):
-    'Operating Room'
-    __name__ = 'gnuhealth.hospital.or'
-
-    name = fields.Char(
-        'Name', required=True, help='Name of the Operating Room')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
-        help='Health Institution')
-
-    building = fields.Many2One(
-        'gnuhealth.hospital.building', 'Building',
-        domain=[('institution', '=', Eval('institution'))],
-        select=True)
-
-    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
-        domain=[('institution', '=', Eval('institution'))])
-    extra_info = fields.Text('Extra Info')
-
-    @classmethod
-    def __setup__(cls):
-        super(HospitalOR, cls).__setup__()
-        cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
-                'The Operating Room code must be unique per Health'
-                ' Center'),
-        ]
-
-
-class HospitalWard(ModelSQL, ModelView):
-    'Hospital Ward'
-    __name__ = 'gnuhealth.hospital.ward'
-
-    name = fields.Char('Name', required=True, help='Ward / Room code')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
-        help='Health Institution')
-
-    building = fields.Many2One('gnuhealth.hospital.building', 'Building',
-        domain=[('institution', '=', Eval('institution'))])
-    floor = fields.Integer('Floor Number')
-    unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
-        domain=[('institution', '=', Eval('institution'))])
-
-    private = fields.Boolean(
-        'Private', help='Check this option for private room')
-
-    bio_hazard = fields.Boolean(
-        'Bio Hazard', help='Check this option if there is biological hazard')
-
-    number_of_beds = fields.Integer(
-        'Number of beds', help='Number of patients per ward')
-
-    telephone = fields.Boolean('Telephone access')
-    ac = fields.Boolean('Air Conditioning')
-    private_bathroom = fields.Boolean('Private Bathroom')
-    guest_sofa = fields.Boolean('Guest sofa-bed')
-    tv = fields.Boolean('Television')
-    internet = fields.Boolean('Internet Access')
-    refrigerator = fields.Boolean('Refrigerator')
-    microwave = fields.Boolean('Microwave')
-
-    gender = fields.Selection((
-        ('men', 'Men Ward'),
-        ('women', 'Women Ward'),
-        ('unisex', 'Unisex'),
-        ), 'Gender', required=True, sort=False)
-
-    state = fields.Selection((
-        (None, ''),
-        ('beds_available', 'Beds available'),
-        ('full', 'Full'),
-        ('na', 'Not available'),
-        ), 'Status', sort=False)
-
-    extra_info = fields.Text('Extra Info')
-
-    @staticmethod
-    def default_gender():
-        return 'unisex'
-
-    @staticmethod
-    def default_number_of_beds():
-        return 1
-
-
-class HospitalBed(ModelSQL, ModelView):
-    'Hospital Bed'
-    __name__ = 'gnuhealth.hospital.bed'
-    _rec_name = 'telephone_number'
-
-    name = fields.Many2One(
-        'product.product', 'Bed', required=True,
-        domain=[('is_bed', '=', True)],
-        help='Bed Number')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
-        help='Health Institution')
-
-    ward = fields.Many2One(
-        'gnuhealth.hospital.ward', 'Ward',
-        domain=[('institution', '=', Eval('institution'))],
-        help='Ward or room')
-
-    bed_type = fields.Selection((
-        ('gatch', 'Gatch Bed'),
-        ('electric', 'Electric'),
-        ('stretcher', 'Stretcher'),
-        ('low', 'Low Bed'),
-        ('low_air_loss', 'Low Air Loss'),
-        ('circo_electric', 'Circo Electric'),
-        ('clinitron', 'Clinitron'),
-        ), 'Bed Type', required=True, sort=False)
-
-    telephone_number = fields.Char(
-        'Telephone Number', help='Telephone number / Extension')
-
-    extra_info = fields.Text('Extra Info')
-
-    state = fields.Selection((
-        ('free', 'Free'),
-        ('reserved', 'Reserved'),
-        ('occupied', 'Occupied'),
-        ('na', 'Not available'),
-        ), 'Status', readonly=True, sort=False)
-
-    @staticmethod
-    def default_bed_type():
-        return 'gatch'
-
-    @staticmethod
-    def default_state():
-        return 'free'
-
-    def get_rec_name(self, name):
-        if self.name:
-            return self.name.name
-
-    @classmethod
-    def search_rec_name(cls, name, clause):
-        return [('name',) + tuple(clause[1:])]
