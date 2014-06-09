@@ -37,7 +37,7 @@ class Patient(ModelSQL, ModelView):
     def make_qrcode(self, name):
 # Create the QR code
 
-        patient_ssn = self.ssn or ''
+        patient_puid = self.puid or ''
 
         patient_blood_type = self.blood_type or ''
 
@@ -57,7 +57,7 @@ class Patient(ModelSQL, ModelView):
         qr_string = 'ID: ' + patient_id \
             + '\nName: ' + patient_lastname + ',' \
                 + self.name.name \
-            + '\nSSN: ' + patient_ssn \
+            + '\nPUID: ' + patient_puid \
             + '\nSex: ' + patient_sex \
             + '\nDoB: ' + str(patient_dob) \
             + '\nBlood Type: ' + patient_blood_type \
