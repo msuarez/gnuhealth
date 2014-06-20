@@ -127,23 +127,5 @@
                 <field name="test_metabolic"/>
             </group>
         </page>
-        <page string="Other" id="page_newborn_other">
-            <group string="Deceased" id="group_newborn_deceased">
-                <group id="group_newborn_deceased_1">
-                    <label name="bd"/>
-                    <field name="bd"/>
-                    <label name="died_at_delivery"/>
-                    <field name="died_at_delivery"/>
-                    <label name="died_at_the_hospital"/>
-                    <field name="died_at_the_hospital"/>
-                    <label name="died_being_transferred"/>
-                    <field name="died_being_transferred"/>
-                    <label name="tod"/>
-                    <field name="tod"/>
-                    <label name="cod"/>
-                    <field name="cod"/>
-                </group>
-            </group>
-        </page>
     </notebook>
 </form>

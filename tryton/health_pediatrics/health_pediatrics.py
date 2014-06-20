@@ -106,6 +106,14 @@ class Newborn(ModelSQL, ModelView):
     responsible = fields.Many2One('gnuhealth.healthprofessional', 'Doctor in charge',
         help="Signed by the health professional")
     dismissed = fields.DateTime('Discharged')
+    notes = fields.Text('Notes')
+
+    # Deprecated. the following fields will be removed in 2.8
+    # Decease information on fetus / newborn are linked now in 
+    # the obstetrics evaluation (prenatal) or patient if result of pregnancy
+    # was a live birth.
+    # The information is no longer shown at the view.
+    
     bd = fields.Boolean('Stillbirth')
     died_at_delivery = fields.Boolean('Died at delivery room')
     died_at_the_hospital = fields.Boolean('Died at the hospital')
@@ -113,7 +121,6 @@ class Newborn(ModelSQL, ModelView):
         help="The baby died being transferred to another health institution")
     tod = fields.DateTime('Time of Death')
     cod = fields.Many2One('gnuhealth.pathology', 'Cause of death')
-    notes = fields.Text('Notes')
    
     @classmethod
     def __setup__(cls):
