@@ -121,6 +121,8 @@ class Newborn(ModelSQL, ModelView):
 
         cls._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
+            ('patient_uniq', 'unique(patient)',
+                'There is already a newborn record for this patient'),
         ]
 
     # Update the birth date on the party model upon writing it on the 
@@ -141,6 +143,10 @@ class Newborn(ModelSQL, ModelView):
                     
         return super(Newborn, cls).write(newborns, values)
 
+
+    # Update the birth date on the party model upon CREATING the 
+    # newborn record
+
     @classmethod
     def create(cls, vlist):
         vlist = [x.copy() for x in vlist]
@@ -154,8 +160,7 @@ class Newborn(ModelSQL, ModelView):
             where=(patient_table.id == newborn_patient_id)))
 
         newborn_party_id = cursor.fetchone()
-        
-     
+           
         if values['birth_date']:
             born_date = datetime.date(values['birth_date'])
             party = Table('party_party')
