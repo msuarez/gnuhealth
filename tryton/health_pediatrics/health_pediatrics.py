@@ -23,7 +23,8 @@
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
-
+from datetime import datetime
+from sql import *
 
 __all__ = ['Newborn', 'NeonatalApgar', 'NeonatalMedication',
     'NeonatalCongenitalDiseases', 'PediatricSymptomsChecklist']
@@ -121,6 +122,25 @@ class Newborn(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
         ]
+
+    # Update the birth date on the party model upon writing it on the 
+    # newborn model
+    
+    @classmethod
+    def write(cls, newborns, values):
+        cursor = Transaction().cursor
+        for newborn in newborns:
+            newborn_party_id = newborn.patient.name.id
+            if values.get('birth_date'):
+                born_date = datetime.date(values.get('birth_date'))
+                party = Table('party_party')
+                cursor.execute(*party.update(columns=[party.dob],
+                    values=[born_date], 
+                    where=(party.id == newborn_party_id)))
+                    
+                    
+        return super(Newborn, cls).write(newborns, values)
+
 
     def get_newborn_sex(self, name):
         if self.patient:
