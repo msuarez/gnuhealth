@@ -114,7 +114,7 @@ class Newborn(ModelSQL, ModelView):
     tod = fields.DateTime('Time of Death')
     cod = fields.Many2One('gnuhealth.pathology', 'Cause of death')
     notes = fields.Text('Notes')
-
+   
     @classmethod
     def __setup__(cls):
         super(Newborn, cls).__setup__()
@@ -140,6 +140,30 @@ class Newborn(ModelSQL, ModelView):
                     
                     
         return super(Newborn, cls).write(newborns, values)
+
+    @classmethod
+    def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
+        patient_table = Table('gnuhealth_patient')
+        cursor = Transaction().cursor
+        
+        for values in vlist:
+            newborn_patient_id = values['patient']
+
+        cursor.execute (*patient_table.select(patient_table.name,
+            where=(patient_table.id == newborn_patient_id)))
+
+        newborn_party_id = cursor.fetchone()
+        
+     
+        if values['birth_date']:
+            born_date = datetime.date(values['birth_date'])
+            party = Table('party_party')
+            cursor.execute(*party.update(columns=[party.dob],
+                values=[born_date], 
+                where=(party.id == newborn_party_id[0])))
+                   
+        return super(Newborn, cls).create(vlist)
 
 
     def get_newborn_sex(self, name):
