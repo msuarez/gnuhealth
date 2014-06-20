@@ -113,6 +113,8 @@ class Newborn(ModelSQL, ModelView):
     # the obstetrics evaluation (prenatal) or patient if result of pregnancy
     # was a live birth.
     # The information is no longer shown at the view.
+    # Fields to be removed : bd, died_at_delivery, died_at_the_hospital
+    # died_being_transferred, tod, cod
     
     bd = fields.Boolean('Stillbirth')
     died_at_delivery = fields.Boolean('Died at delivery room')
