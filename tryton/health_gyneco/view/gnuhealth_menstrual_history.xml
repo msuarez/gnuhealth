@@ -1,21 +1,28 @@
 <?xml version="1.0"?>
 <form string="Patient Menstrual History">
-    <label name="name"/>
-    <field name="name"/>
     <label name="evaluation"/>
     <field name="evaluation"/>
     <label name="evaluation_date"/>
     <field name="evaluation_date"/>
+    <newline/>
     <label name="lmp"/>
     <field name="lmp"/>
     <label name="lmp_length"/>
     <field name="lmp_length"/>
+    <newline/>
     <label name="frequency"/>
     <field name="frequency"/>
     <label name="volume"/>
     <field name="volume"/>
+    <newline/>
     <label name="is_regular"/>
     <field name="is_regular"/>
     <label name="dysmenorrhea"/>
     <field name="dysmenorrhea"/>
+    <newline/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="institution"/>
+    <field name="institution"/>
+
 </form>

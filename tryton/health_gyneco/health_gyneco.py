@@ -426,6 +426,33 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
         ('menorrhagia', 'menorrhagia'),
         ], 'volume', sort=False)
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Reviewed', readonly=True,
+        help="Health Professional who last reviewed the test")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
+
+
+    @staticmethod
+    def default_evaluation_date():
+        return Pool().get('ir.date').today()
+
+    @staticmethod
+    def default_last_colposcopy():
+        return Pool().get('ir.date').today()
+
     @staticmethod
     def default_evaluation_date():
         return Pool().get('ir.date').today()
@@ -447,7 +474,7 @@ class PatientMammographyHistory(ModelSQL, ModelView):
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         domain=[('patient', '=', Eval('name'))])
-    evaluation_date = fields.Date('Date', help=" Date")
+    evaluation_date = fields.Date('Date', help="Date")
     last_mammography = fields.Date('Previous', help="Last Mammography",
         required=True)
     result = fields.Selection([
@@ -494,7 +521,7 @@ class PatientPAPHistory(ModelSQL, ModelView):
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         domain=[('patient', '=', Eval('name'))])
-    evaluation_date = fields.Date('Date', help=" Date")
+    evaluation_date = fields.Date('Date', help="Date")
     last_pap = fields.Date('Previous', help="Last Papanicolau", required=True)
     result = fields.Selection([
         (None, ''),
