@@ -556,6 +556,25 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
             installed", sort=False)
     comments = fields.Char('Remarks')
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Reviewed', readonly=True,
+        help="Health Professional who last reviewed the test")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
+
+
     @staticmethod
     def default_evaluation_date():
         return Pool().get('ir.date').today()
