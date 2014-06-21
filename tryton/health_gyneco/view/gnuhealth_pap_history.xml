@@ -1,15 +1,20 @@
 <?xml version="1.0"?>
 <form string="Patient pap History">
-    <label name="name"/>
-    <field name="name"/>
     <label name="evaluation"/>
     <field name="evaluation"/>
     <label name="evaluation_date"/>
     <field name="evaluation_date"/>
+    <newline/>
     <label name="last_pap"/>
     <field name="last_pap"/>
     <label name="result"/>
     <field name="result"/>
+    <newline/>
     <label name="comments"/>
-    <field name="comments"/>
+    <field colspan="3" name="comments"/>
+    <newline/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="institution"/>
+    <field name="institution"/>
 </form>
