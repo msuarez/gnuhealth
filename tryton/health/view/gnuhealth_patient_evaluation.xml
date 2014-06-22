@@ -2,9 +2,9 @@
 <form string="Patient Evaluation">
     <notebook>
         <page string="Main Info" id="page_patient_evaluation_main">
-            <group colspan="4" col="8" id="evaluation_header">
+            <group colspan="4" col="10" id="evaluation_header">
                 <label name="patient"/>
-                <field name="patient"/>
+                <field name="patient" colspan="3"/>
                 <label name="visit_type"/>
                 <field name="visit_type"/>
                 <label name="healthprof"/>
@@ -41,8 +41,11 @@
                 <field name="evaluation_endtime"/>
                 <field name="state"/>
                 <button name="discharge" help="Sign and close the evaluation" string="Sign" icon="tryton-go-next" confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
-                <field name="signed_by"/>
             </group>
+            <newline/>
+            <label name="signed_by"/>
+            <field name="signed_by" colspan="3"/>
+
         </page>
         <page string="Clinical" id="page_patient_evaluation_signs">
             <group colspan="4" col="6" string="Vital Signs" id="group_patient_evaluation_vital_signs">
@@ -154,6 +157,9 @@
             <field name="diagnostic_hypothesis" colspan="2"/>
             <field name="actions" colspan="2"/>
             <newline/>
+            <label name="institution"/>               
+            <field name="institution" colspan="3"/>               
+            <newline/>
             <label name="evaluation_date"/>
             <field name="evaluation_date"/>
             <label name="derived_from"/>
@@ -162,7 +168,7 @@
             <field name="next_evaluation"/>
             <label name="derived_to"/>
             <field name="derived_to"/>
-            <field name="institution"/>
+
         </page>
     </notebook>
 </form>
