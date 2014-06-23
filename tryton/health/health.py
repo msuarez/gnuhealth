@@ -660,7 +660,6 @@ class HealthInstitution(ModelSQL, ModelView):
             TableHandler = backend.get('TableHandler')
 
             if TableHandler.table_exist(cursor,'gnuhealth_hospital_building'):
-                print "Dice que existe !"
                 cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
                     CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
 
