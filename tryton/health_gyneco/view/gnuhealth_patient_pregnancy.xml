@@ -27,10 +27,14 @@
         <field name="warning"/>
     </group>
     <newline/>
-    <group id="group_pregnancy_footer2" colspan="4" col="4">
+    <group id="group_pregnancy_footer2" colspan="4" col="8">
         <label name="pregnancy_end_date"/>
         <field name="pregnancy_end_date"/>
         <label name="pregnancy_end_result"/>
         <field name="pregnancy_end_result"/>
+        <label name="home_birth"/>
+        <field name="home_birth"/>
+        <label name="bba"/>
+        <field name="bba"/>
     </group>
 </form>

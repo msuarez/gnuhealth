@@ -71,6 +71,17 @@ class PatientPregnancy(ModelSQL, ModelView):
             'invisible': Bool(Eval('current_pregnancy')),
             'required': Not(Bool(Eval('current_pregnancy'))),
             })
+    bba = fields.Boolean('BBA', help="Born Before Arrival",
+        states={
+            'invisible': Bool(Eval('current_pregnancy')),
+            'required': Not(Bool(Eval('current_pregnancy'))),
+            })
+    home_birth = fields.Boolean('Home Birth', help="Home Birth",
+        states={
+            'invisible': Bool(Eval('current_pregnancy')),
+            'required': Not(Bool(Eval('current_pregnancy'))),
+            })
+
     pregnancy_end_age = fields.Function(fields.Char('Weeks', help='Weeks at'
         ' the end of pregnancy'), 'get_pregnancy_data')
     iugr = fields.Selection([
