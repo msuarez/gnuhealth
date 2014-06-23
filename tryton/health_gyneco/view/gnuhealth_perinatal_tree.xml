@@ -2,4 +2,6 @@
 <tree string="Perinatal and Intrapartum Information">
     <field name="admission_date" expand="1"/>
     <field name="gestational_weeks" expand="1"/>
+    <field name="institution" expand="1"/>
+    <field name="healthprof" expand="1"/>
 </tree>

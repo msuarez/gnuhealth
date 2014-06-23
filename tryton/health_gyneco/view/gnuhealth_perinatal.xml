@@ -22,6 +22,14 @@
             <newline/>
             <separator colspan="4" string="Notes" id="perinatal_notes_separator"/>
             <field name="notes"/>
+            <newline/>
+            <group id="group_labor_institution" colspan="4">
+                <label name="institution"/>
+                <field name="institution"/>
+                <label name="healthprof"/>
+                <field name="healthprof"/>
+            </group>
+            
         </page>
         <page id="perinatal_misc" string="Additional Info">
             <group colspan="4" col="8" id="group_misc">

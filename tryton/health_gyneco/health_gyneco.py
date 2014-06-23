@@ -300,11 +300,34 @@ class Perinatal(ModelSQL, ModelView):
         help="Mother died in the process")
     notes = fields.Text('Notes')
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help="Health Professional in charge, or that who entered the \
+			information in the system")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
+
+
+
+
     def get_perinatal_information(self, name):
         if name == 'gestational_weeks':
             gestational_age = datetime.datetime.date(self.admission_date) - \
                 self.name.lmp
             return (gestational_age.days) / 7
+
 
 
 class PerinatalMonitor(ModelSQL, ModelView):
