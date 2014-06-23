@@ -25,6 +25,7 @@ from trytond.model import ModelView, ModelSQL, fields
 from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 from trytond.transaction import Transaction
+from sql import *
 
 
 __all__ = ['PatientPregnancy', 'PrenatalEvaluation', 'PuerperiumMonitor',
@@ -107,12 +108,17 @@ class PatientPregnancy(ModelSQL, ModelView):
 
     def check_patient_current_pregnancy(self):
         ''' Check for only one current pregnancy in the patient '''
+        pregnancy = Table('gnuhealth_patient_pregnancy')
         cursor = Transaction().cursor
-        cursor.execute("SELECT count(name) "
-            "FROM " + self._table + "  \
-            WHERE (name = %s AND current_pregnancy)",
-            (str(self.name.id),))
-        if cursor.fetchone()[0] > 1:
+        patient_id = int(self.name.id)
+        
+        cursor.execute (*pregnancy.select(pregnancy.name,
+            where=(pregnancy.current_pregnancy == 'true' and
+            pregnancy.name == patient_id))) 
+                                       
+        records = cursor.fetchone()
+        print "Records : ", records
+        if records:
             self.raise_user_error('patient_already_pregnant')
 
     @staticmethod
@@ -314,7 +320,7 @@ class Perinatal(ModelSQL, ModelView):
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
         help="Health Professional in charge, or that who entered the \
-			information in the system")
+            information in the system")
 
     @staticmethod
     def default_institution():

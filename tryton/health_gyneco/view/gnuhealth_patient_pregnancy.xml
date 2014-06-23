@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <form string="Pregnancies">
     <group id="group_pregnancy_header" colspan="4" col="8">
+        <label name="name"/>
+        <field name="name"/>
+        <newline/>
         <label name="gravida"/>
         <field name="gravida"/>
         <label name="lmp"/>
