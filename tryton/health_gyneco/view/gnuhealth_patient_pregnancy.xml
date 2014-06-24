@@ -3,6 +3,10 @@
     <group id="group_pregnancy_header" colspan="4" col="8">
         <label name="name"/>
         <field name="name"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+        <label name="institution"/>
+        <field name="institution"/>
         <newline/>
         <label name="gravida"/>
         <field name="gravida"/>

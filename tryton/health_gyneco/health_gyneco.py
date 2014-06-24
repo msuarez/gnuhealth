@@ -90,6 +90,13 @@ class PatientPregnancy(ModelSQL, ModelView):
         ('assymetric', 'Assymetric'),
         ], 'IUGR', sort=False)
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution',
+        help="Health center where this initial obstetric record was created")
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help="Health Professional who created this initial obstetric record")
+
     @classmethod
     def __setup__(cls):
         super(PatientPregnancy, cls).__setup__()
@@ -114,16 +121,29 @@ class PatientPregnancy(ModelSQL, ModelView):
         patient_id = int(self.name.id)
         
         cursor.execute (*pregnancy.select(Count(pregnancy.name),
-            where=(pregnancy.current_pregnancy == 'true' and
-            pregnancy.name == patient_id))) 
+            where=(pregnancy.current_pregnancy == 'true') &
+            (pregnancy.name == patient_id))) 
                                        
         records = cursor.fetchone()[0]
+        print "Current pregnancies", records, patient_id
         if records > 1:
             self.raise_user_error('patient_already_pregnant')
 
     @staticmethod
     def default_current_pregnancy():
         return True
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
 
     def get_pregnancy_data(self, name):
         if name == 'pdd':
