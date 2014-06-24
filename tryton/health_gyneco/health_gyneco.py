@@ -422,11 +422,17 @@ class GnuHealthPatient(ModelSQL, ModelView):
     menstrual_history = fields.One2Many('gnuhealth.patient.menstrual_history',
         'name', 'Menstrual History')
     mammography_history = fields.One2Many(
-        'gnuhealth.patient.mammography_history', 'name', 'Mammography History')
+        'gnuhealth.patient.mammography_history', 'name', 'Mammography History',
+         states={'invisible': Not(Bool(Eval('mammography')))},
+        )
     pap_history = fields.One2Many('gnuhealth.patient.pap_history', 'name',
-        'PAP smear History')
+        'PAP smear History',
+         states={'invisible': Not(Bool(Eval('pap_test')))},
+        )
     colposcopy_history = fields.One2Many(
-        'gnuhealth.patient.colposcopy_history', 'name', 'Colposcopy History')
+        'gnuhealth.patient.colposcopy_history', 'name', 'Colposcopy History',
+         states={'invisible': Not(Bool(Eval('colposcopy')))},
+        )
     pregnancy_history = fields.One2Many('gnuhealth.patient.pregnancy', 'name',
         'Pregnancies')
 

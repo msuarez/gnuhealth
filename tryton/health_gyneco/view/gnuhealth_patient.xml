@@ -46,8 +46,9 @@
                     <newline/>
                     <field colspan="4" name="mammography_history"/>
                     <newline/>
-                    <field name="pap_history"/>
-                    <field name="colposcopy_history"/>
+                    <field colspan="4" name="pap_history"/>
+                    <newline/>
+                    <field colspan="4" name="colposcopy_history"/>
                 </page>
             </notebook>
         </page>
