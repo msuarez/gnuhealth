@@ -518,9 +518,8 @@ class PatientMammographyHistory(ModelSQL, ModelView):
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         domain=[('patient', '=', Eval('name'))])
-    evaluation_date = fields.Date('Date', help="Date")
-    last_mammography = fields.Date('Previous', help="Last Mammography",
-        required=True)
+    evaluation_date = fields.Date('Date', help="Date", required=True)
+    last_mammography = fields.Date('Previous', help="Last Mammography")
     result = fields.Selection([
         (None, ''),
         ('normal', 'normal'),
@@ -565,8 +564,8 @@ class PatientPAPHistory(ModelSQL, ModelView):
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         domain=[('patient', '=', Eval('name'))])
-    evaluation_date = fields.Date('Date', help="Date")
-    last_pap = fields.Date('Previous', help="Last Papanicolau", required=True)
+    evaluation_date = fields.Date('Date', help="Date", required=True)
+    last_pap = fields.Date('Previous', help="Last Papanicolau")
     result = fields.Selection([
         (None, ''),
         ('negative', 'Negative'),
@@ -616,9 +615,8 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
         domain=[('patient', '=', Eval('name'))])
-    evaluation_date = fields.Date('Date', help="Date")
-    last_colposcopy = fields.Date('Previous', help="Last colposcopy",
-        required=True)
+    evaluation_date = fields.Date('Date', help="Date", required=True)
+    last_colposcopy = fields.Date('Previous', help="Last colposcopy")
     result = fields.Selection([
         (None, ''),
         ('normal', 'normal'),
