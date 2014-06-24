@@ -416,7 +416,11 @@ class GnuHealthPatient(ModelSQL, ModelView):
         help="Check if the patient has done a colposcopy exam")
     colposcopy_last = fields.Date('Last colposcopy',
         help="Enter the date of the last colposcopy")
-    gravida = fields.Integer('Pregnancies', help="Number of pregnancies")
+    #From version 2.6 Gravida, premature, abortions and stillbirths are now
+    # functional fields, computed from the obstetric information
+    gravida = fields.Function(fields.Integer('Pregnancies',
+        help="Number of pregnancies, computed from Obstetric history"),
+        'patient_obstetric_info')
     premature = fields.Integer('Premature', help="Premature Deliveries")
     abortions = fields.Integer('Abortions')
     stillbirths = fields.Integer('Stillbirths')
@@ -461,6 +465,22 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 if pregnancy_history.current_pregnancy:
                     return True
         return False
+
+    ''' Return the number of pregnancies, perterm, abortion and stillbirths '''
+    def patient_obstetric_info(self,name):
+        ''' Check for only one current pregnancy in the patient '''
+        pregnancy = Table('gnuhealth_patient_pregnancy')
+        cursor = Transaction().cursor
+        patient_id = self.id
+        
+        print "Patient ID ", patient_id
+        
+        if (name == "gravida"):
+            cursor.execute (*pregnancy.select(Count(pregnancy.name),
+                where=(pregnancy.name == patient_id)))
+                
+            pregnancies = cursor.fetchone()[0]
+            return pregnancies
 
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
