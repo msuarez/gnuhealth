@@ -125,7 +125,6 @@ class PatientPregnancy(ModelSQL, ModelView):
             (pregnancy.name == patient_id))) 
                                        
         records = cursor.fetchone()[0]
-        print "Current pregnancies", records, patient_id
         if records > 1:
             self.raise_user_error('patient_already_pregnant')
 
