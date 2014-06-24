@@ -26,6 +26,7 @@ from trytond.pyson import Eval, Not, Bool
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from sql import *
+from sql.aggregate import *
 
 
 __all__ = ['PatientPregnancy', 'PrenatalEvaluation', 'PuerperiumMonitor',
@@ -112,13 +113,12 @@ class PatientPregnancy(ModelSQL, ModelView):
         cursor = Transaction().cursor
         patient_id = int(self.name.id)
         
-        cursor.execute (*pregnancy.select(pregnancy.name,
+        cursor.execute (*pregnancy.select(Count(pregnancy.name),
             where=(pregnancy.current_pregnancy == 'true' and
             pregnancy.name == patient_id))) 
                                        
-        records = cursor.fetchone()
-        print "Records : ", records
-        if records:
+        records = cursor.fetchone()[0]
+        if records > 1:
             self.raise_user_error('patient_already_pregnant')
 
     @staticmethod
