@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <data>
     <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
-        <page string="Gyneco / Obs" id="page_gyneco_obs" states="{'invisible': Equal(Eval('sex'), 'm')}">
+        <page string="OB/GYN" id="page_gyneco_obs" states="{'invisible': Equal(Eval('sex'), 'm')}">
             <notebook>
-                <page string="Gyneco" id="page_gyneco">
-                    <group colspan="4" col="10" string="General" id="group_gyneco_general">
+                <page string="General" id="page_gyneco">
+
+                    <group colspan="4" col="10" id="group_gyneco_general">
                         <label name="fertile"/>
                         <field name="fertile"/>
                         <label name="currently_pregnant"/>
@@ -16,6 +17,18 @@
                         <label name="menopause"/>
                         <field name="menopause"/>
                     </group>
+
+                    <group string="OB summary" colspan="4" col="12" id="group_obstetrics">
+                        <label name="gravida"/>
+                        <field name="gravida"/>
+                        <label name="premature"/>
+                        <field name="premature"/>
+                        <label name="abortions"/>
+                        <field name="abortions"/>
+                        <label name="stillbirths"/>
+                        <field name="stillbirths"/>
+                    </group>
+
                     <newline/>
                     <field name="menstrual_history"/>
                 </page>
@@ -38,16 +51,6 @@
                     <field name="colposcopy_history"/>
                 </page>
                 <page string="Obstetrics" id="page_obs">
-                    <group colspan="4" col="12" id="group_obstetrics">
-                        <label name="gravida"/>
-                        <field name="gravida"/>
-                        <label name="premature"/>
-                        <field name="premature"/>
-                        <label name="stillbirths"/>
-                        <field name="stillbirths"/>
-                        <label name="abortions"/>
-                        <field name="abortions"/>
-                    </group>
                     <field name="pregnancy_history"/>
                 </page>
             </notebook>
