@@ -421,9 +421,14 @@ class GnuHealthPatient(ModelSQL, ModelView):
     gravida = fields.Function(fields.Integer('Pregnancies',
         help="Number of pregnancies, computed from Obstetric history"),
         'patient_obstetric_info')
-    premature = fields.Integer('Premature', help="Premature Deliveries")
-    abortions = fields.Integer('Abortions')
-    stillbirths = fields.Integer('Stillbirths')
+    premature = fields.Function(fields.Integer('Premature',
+     help="Preterm < 37 wks live births"),'patient_obstetric_info')
+     
+    abortions = fields.Function(fields.Integer('Abortions'),
+        'patient_obstetric_info')
+    stillbirths = fields.Function(fields.Integer('Stillbirths'),
+        'patient_obstetric_info')
+
     full_term = fields.Integer('Full Term', help="Full term pregnancies")
     # GPA Deprecated in 1.6.4. It will be used as a function or report from the
     # other fields
@@ -466,21 +471,47 @@ class GnuHealthPatient(ModelSQL, ModelView):
                     return True
         return False
 
-    ''' Return the number of pregnancies, perterm, abortion and stillbirths '''
     def patient_obstetric_info(self,name):
-        ''' Check for only one current pregnancy in the patient '''
-        pregnancy = Table('gnuhealth_patient_pregnancy')
-        cursor = Transaction().cursor
-        patient_id = self.id
-        
-        print "Patient ID ", patient_id
-        
+        ''' Return the number of pregnancies, perterm, 
+        abortion and stillbirths '''
+
+        counter=0
+        pregnancies = len(self.pregnancy_history)
+         
         if (name == "gravida"):
-            cursor.execute (*pregnancy.select(Count(pregnancy.name),
-                where=(pregnancy.name == patient_id)))
-                
-            pregnancies = cursor.fetchone()[0]
-            return pregnancies
+            return pregnancies 
+
+        if (name == "premature"):
+            prematures=0
+            while counter < pregnancies:
+                result = self.pregnancy_history[counter].pregnancy_end_result
+                preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
+                if (result == "live_birth" and
+                    preg_weeks < 37):
+                        prematures=prematures+1
+                counter=counter+1
+            return prematures
+
+        if (name == "abortions"):
+            abortions=0
+            while counter < pregnancies:
+                result = self.pregnancy_history[counter].pregnancy_end_result
+                preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
+                if (result == "abortion"):
+                    abortions=abortions+1
+                counter=counter+1
+
+            return abortions
+
+        if (name == "stillbirths"):
+            stillbirths=0
+            while counter < pregnancies:
+                result = self.pregnancy_history[counter].pregnancy_end_result
+                preg_weeks = self.pregnancy_history[counter].pregnancy_end_age
+                if (result == "stillbirth"):
+                    stillbirths=stillbirths+1
+                counter=counter+1
+            return stillbirths
 
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
