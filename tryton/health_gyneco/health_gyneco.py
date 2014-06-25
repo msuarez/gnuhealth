@@ -43,7 +43,24 @@ class PatientPregnancy(ModelSQL, ModelView):
     gravida = fields.Integer('Pregnancy #', required=True)
     warning = fields.Boolean('Warn', help='Check this box if this is pregancy'
         ' is or was NOT normal')
-    lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
+    reverse = fields.Boolean ('Reverse', help="Use this method *only* when the \
+        pregnancy information is referred by the patient, as a history taking \
+        procedure. Please keep in mind that the reverse pregnancy data is \
+        subjective",
+        states={
+            'invisible': Bool(Eval('current_pregnancy')),
+            }
+        )
+    reverse_weeks = fields.Integer ("Pr. Weeks",help="Number of weeks at \
+        the end of pregnancy. Used only with the reverse input method.",
+        states={
+        'invisible': Not(Bool(Eval('reverse'))),
+        'required': Bool(Eval('reverse')),
+            }
+        )
+    lmp = fields.Date('LMP', help="Last Menstrual Period", required=True,
+        on_change_with=['reverse_weeks','pregnancy_end_date'])
+
     pdd = fields.Function(fields.Date('Pregnancy Due Date'),
         'get_pregnancy_data')
     prenatal_evaluations = fields.One2Many(
@@ -144,9 +161,26 @@ class PatientPregnancy(ModelSQL, ModelView):
         HealthProf= pool.get('gnuhealth.healthprofessional')
         return HealthProf.get_health_professional()
 
+    def on_change_with_lmp(self):
+        # Calculate the estimate on Last Menstrual Period
+        # using the reverse input method, taking the
+        # end of pregnancy date and number of weeks
+
+        if (self.reverse_weeks and self.pregnancy_end_date):
+            estimated_lmp = datetime.datetime.date(self.pregnancy_end_date - 
+                datetime.timedelta(self.reverse_weeks*7))
+                        
+            return estimated_lmp 
+
     def get_pregnancy_data(self, name):
+        """ Calculate the Pregnancy Due Date and the Number of
+        weeks at the end of pregnancy when using the Last Menstrual
+        Period parameter. 
+        It's not calculated when using the reverse input method
+        """
         if name == 'pdd':
-            return self.lmp + datetime.timedelta(days=280)
+                return self.lmp + datetime.timedelta(days=280)
+                
         if name == 'pregnancy_end_age':
             if self.pregnancy_end_date:
                 gestational_age = datetime.datetime.date(
