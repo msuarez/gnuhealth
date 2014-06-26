@@ -66,7 +66,7 @@ class InpatientIcu(ModelSQL, ModelView):
         'Registration Code', required=True)
 
     admitted = fields.Boolean('Admitted', help="Will be set when the patient \
-        is currently admitted at ICU", on_change_with=['discharged_from_icu'])
+        is currently admitted at ICU")
 
     icu_admission_date = fields.DateTime('ICU Admission',
         help="ICU Admission Date", required=True)
@@ -108,6 +108,7 @@ class InpatientIcu(ModelSQL, ModelView):
     def default_admitted():
         return True
 
+    @fields.depends('discharged_from_icu')
     def on_change_with_admitted(self):
         # Reset the admission flag when the patient is discharged from ICU
         if self.discharged_from_icu:
@@ -128,7 +129,6 @@ class Glasgow(ModelSQL, ModelView):
         required=True)
 
     glasgow = fields.Integer('Glasgow',
-        on_change_with=['glasgow_verbal', 'glasgow_motor', 'glasgow_eyes'],
         help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
         ' 9-12 Moderate, > 13 minor')
     glasgow_eyes = fields.Selection([
@@ -175,6 +175,7 @@ class Glasgow(ModelSQL, ModelView):
     def default_evaluation_date():
         return datetime.now()
 
+    @fields.depends('glasgow_verbal', 'glasgow_motor', 'glasgow_eyes')
     def on_change_with_glasgow(self):
         return int(self.glasgow_motor) + int(self.glasgow_eyes) + \
             int(self.glasgow_verbal)
@@ -204,8 +205,7 @@ class ApacheII(ModelSQL, ModelView):
     fio2 = fields.Float('FiO2')
     pao2 = fields.Integer('PaO2')
     paco2 = fields.Integer('PaCO2')
-    aado2 = fields.Integer('A-a DO2', on_change_with=
-        ['fio2', 'pao2', 'paco2'])
+    aado2 = fields.Integer('A-a DO2')
 
     ph = fields.Float('pH')
     serum_sodium = fields.Integer('Sodium')
@@ -227,21 +227,22 @@ class ApacheII(ModelSQL, ModelView):
             'invisible': Not(Bool(Eval('chronic_condition'))),
             'required': Bool(Eval('chronic_condition'))}, sort=False)
 
-    apache_score = fields.Integer('Score', on_change_with=
-        ['age', 'temperature', 'mean_ap', 'heart_rate', 'respiratory_rate',
-        'fio2', 'pao2', 'aado2', 'ph', 'serum_sodium', 'serum_potassium',
-        'serum_creatinine', 'arf', 'wbc', 'hematocrit', 'gcs',
-        'chronic_condition', 'hospital_admission_type'])
+    apache_score = fields.Integer('Score')
 
     #Default FiO2 PaO2 and PaCO2 so we do the A-a gradient
     #calculation with non-null values
 
+    @fields.depends('fio2', 'pao2', 'paco2')
     def on_change_with_aado2(self):
     # Calculates the Alveolar-arterial difference
     # based on FiO2, PaCO2 and PaO2 values
         if (self.fio2 and self.paco2 and self.pao2):
             return (713 * self.fio2) - (self.paco2 / 0.8) - self.pao2
 
+    @fields.depends('age', 'temperature', 'mean_ap', 'heart_rate',
+        'respiratory_rate', 'fio2', 'pao2', 'aado2', 'ph', 'serum_sodium',
+        'serum_potassium', 'serum_creatinine', 'arf', 'wbc', 'hematocrit',
+        'gcs', 'chronic_condition', 'hospital_admission_type')
     def on_change_with_apache_score(self):
     # Calculate the APACHE SCORE from the variables in the
 
@@ -619,8 +620,7 @@ class PatientRounding(ModelSQL, ModelView):
     left_pupil = fields.Integer('L', help="size in mm of left pupil")
     right_pupil = fields.Integer('R', help="size in mm of right pupil")
 
-    anisocoria = fields.Boolean('Anisocoria',
-        on_change_with=['left_pupil', 'right_pupil'],)
+    anisocoria = fields.Boolean('Anisocoria')
 
     pupillary_reactivity = fields.Selection([
         (None, ''),
@@ -744,6 +744,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     peritonitis = fields.Boolean('Peritonitis signs')
 
+    @fields.depends('left_pupil', 'right_pupil')
     def on_change_with_anisocoria(self):
         if (self.left_pupil == self.right_pupil):
             return False
