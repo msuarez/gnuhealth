@@ -73,10 +73,6 @@ class RCRI(ModelSQL, ModelView):
 
     rcri_total = fields.Integer(
         'Score',
-        on_change_with=[
-            'rcri_high_risk_surgery', 'rcri_ischemic_history',
-            'rcri_congestive_history', 'rcri_diabetes_history',
-            'rcri_cerebrovascular_history', 'rcri_kidney_history'],
         help='Points 0: Class I Very Low (0.4% complications)\n'
         'Points 1: Class II Low (0.9% complications)\n'
         'Points 2: Class III Moderate (6.6% complications)\n'
@@ -88,12 +84,11 @@ class RCRI(ModelSQL, ModelView):
         ('II', 'II'),
         ('III', 'III'),
         ('IV', 'IV'),
-        ], 'RCRI Class', sort=False,
-        on_change_with=[
-            'rcri_high_risk_surgery', 'rcri_ischemic_history',
-            'rcri_congestive_history', 'rcri_diabetes_history',
-            'rcri_cerebrovascular_history', 'rcri_kidney_history'])
+        ], 'RCRI Class', sort=False)
 
+    @fields.depends('rcri_high_risk_surgery', 'rcri_ischemic_history',
+        'rcri_congestive_history', 'rcri_diabetes_history',
+        'rcri_cerebrovascular_history', 'rcri_kidney_history')
     def on_change_with_rcri_total(self):
 
         total = 0
@@ -112,6 +107,9 @@ class RCRI(ModelSQL, ModelView):
 
         return total
 
+    @fields.depends('rcri_high_risk_surgery', 'rcri_ischemic_history',
+        'rcri_congestive_history', 'rcri_diabetes_history',
+        'rcri_cerebrovascular_history', 'rcri_kidney_history')
     def on_change_with_rcri_class(self):
         rcri_class = ''
 
