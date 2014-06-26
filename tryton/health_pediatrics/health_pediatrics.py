@@ -223,10 +223,10 @@ class NeonatalApgar(ModelSQL, ModelView):
         ('2', 'strong'),
         ], 'Respiration', required=True, sort=False)
 
-    apgar_score = fields.Integer('APGAR Score',
-        on_change_with=['apgar_respiration', 'apgar_activity',
-        'apgar_grimace', 'apgar_pulse', 'apgar_appearance'])
+    apgar_score = fields.Integer('APGAR Score')
 
+    @fields.depends('apgar_respiration', 'apgar_activity', 'apgar_grimace',
+        'apgar_pulse', 'apgar_appearance')
     def on_change_with_apgar_score(self):
         apgar_appearance = self.apgar_appearance or '0'
         apgar_pulse = self.apgar_pulse or '0'
@@ -515,8 +515,19 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         ('2', 'Often'),
         ], 'Refuses to share', sort=False)
 
-    psc_total = fields.Integer('PSC Total',
-        on_change_with=['psc_aches_pains', 'psc_spend_time_alone',
+    psc_total = fields.Integer('PSC Total')
+
+    @staticmethod
+    def default_user_id():
+        User = Pool().get('res.user')
+        user = User(Transaction().user)
+        return int(user.id)
+
+    @staticmethod
+    def default_psc_total():
+        return 0
+
+    @fields.depends('psc_aches_pains', 'psc_spend_time_alone',
         'psc_tires_easily', 'psc_fidgety', 'psc_trouble_with_teacher',
         'psc_less_interest_in_school', 'psc_acts_as_driven_by_motor',
         'psc_daydreams_too_much', 'psc_distracted_easily',
@@ -533,18 +544,7 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
         'psc_does_not_show_feelings',
         'psc_does_not_get_people_feelings',
         'psc_teases_others', 'psc_takes_things_from_others',
-        'psc_refuses_to_share'])
-
-    @staticmethod
-    def default_user_id():
-        User = Pool().get('res.user')
-        user = User(Transaction().user)
-        return int(user.id)
-
-    @staticmethod
-    def default_psc_total():
-        return 0
-
+        'psc_refuses_to_share')
     def on_change_with_psc_total(self):
 
         psc_aches_pains = self.psc_aches_pains or '0'
