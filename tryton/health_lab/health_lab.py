@@ -164,8 +164,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     warning = fields.Boolean('Warn', help='Warns the patient about this '
         ' analyte result'
         ' It is useful to contextualize the result to each patient status '
-        ' like age, sex, comorbidities, ...',
-         on_change_with=['result', 'lower_limit', 'upper_limit'])
+        ' like age, sex, comorbidities, ...')
     units = fields.Many2One('gnuhealth.lab.test.units', 'Units')
     test_type_id = fields.Many2One('gnuhealth.lab.test_type', 'Test type',
      select=True)
@@ -186,6 +185,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     def default_excluded():
         return False
 
+    @fields.depends('result', 'lower_limit', 'upper_limit')
     def on_change_with_warning(self):
         if (self.result < self.lower_limit or self.result > self.upper_limit):
             return True
