@@ -89,10 +89,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     longitude = fields.Numeric('Longitude', digits=(4, 14))
 
     urladdr = fields.Char(
-        'OSM Map', on_change_with=[
-            'latitude', 'longitude', 'address_street', 'address_street_number',
-            'address_district', 'address_municipality', 'address_city',
-            'address_zip', 'address_subdivision', 'address_country'],
+        'OSM Map',
         help="Locates the DU on the Open Street Map by default")
 
     # Infrastructure
@@ -151,6 +148,10 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
     members = fields.One2Many('party.party', 'du', 'Members', readonly=True)
 
+    @fields.depends('latitude', 'longitude', 'address_street',
+        'address_street_number', 'address_district', 'address_municipality',
+        'address_city', 'address_zip', 'address_subdivision',
+        'address_country')
     def on_change_with_urladdr(self):
         # Generates the URL to be used in OpenStreetMap
         # The address will be mapped to the URL in the following way
@@ -214,7 +215,6 @@ class PartyPatient (ModelSQL, ModelView):
 
     is_person = fields.Boolean(
         'Person',
-        on_change_with=['is_person', 'is_patient', 'is_healthprof'],
         help='Check if the party is a person.')
 
     is_patient = fields.Boolean(
@@ -349,6 +349,7 @@ class PartyPatient (ModelSQL, ModelView):
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
+    @fields.depends('is_person', 'is_patient', 'is_healthprof')
     def on_change_with_is_person(self):
         # Set is_person if the party is a health professional or a patient
         if (self.is_healthprof or self.is_patient or self.is_person):
@@ -2104,7 +2105,7 @@ class Appointment(ModelSQL, ModelView):
 
     patient = fields.Many2One(
         'gnuhealth.patient', 'Patient',
-        select=True, help='Patient Name', on_change=['patient'],
+        select=True, help='Patient Name',
         states={'required': (Eval('state') != 'free')})
 
     appointment_date = fields.DateTime('Date and Time')
@@ -2115,7 +2116,7 @@ class Appointment(ModelSQL, ModelView):
 
     speciality = fields.Many2One(
         'gnuhealth.specialty', 'Specialty',
-        on_change_with=['healthprof'], help='Medical Specialty / Sector')
+        help='Medical Specialty / Sector')
 
     state = fields.Selection([
         (None, ''),
@@ -2224,12 +2225,14 @@ class Appointment(ModelSQL, ModelView):
     def default_institution():
         return HealthInstitution().get_institution()
 
+    @fields.depends('patient')
     def on_change_patient(self):
         res = {'state': 'free'}
         if self.patient:
             res = {'state': 'confirmed'}
         return res
 
+    @fields.depends('healthprof')
     def on_change_with_speciality(self):
         # Return the Current / Main speciality of the Health Professional
         # if this speciality has been specified in the HP record.
@@ -2443,16 +2446,13 @@ class PatientMedication(ModelSQL, ModelView):
 
     is_active = fields.Boolean(
         'Active',
-        on_change_with=['discontinued', 'course_completed'],
         help='Check if the patient is currently taking the medication')
 
     discontinued = fields.Boolean(
-        'Discontinued',
-        on_change_with=['is_active', 'course_completed'])
+        'Discontinued')
 
     course_completed = fields.Boolean(
-        'Course Completed',
-        on_change_with=['is_active', 'discontinued'])
+        'Course Completed')
 
     discontinued_reason = fields.Char(
         'Reason for discontinuation',
@@ -2609,12 +2609,15 @@ class PatientMedication(ModelSQL, ModelView):
 
             table.drop_column('template')
 
+    @fields.depends('discontinued', 'course_completed')
     def on_change_with_is_active(self):
         return not (self.discontinued or self.course_completed)
 
+    @fields.depends('is_active', 'course_completed')
     def on_change_with_discontinued(self):
         return not (self.is_active or self.course_completed)
 
+    @fields.depends('is_active', 'discontinued')
     def on_change_with_course_completed(self):
         return not (self.is_active or self.discontinued)
 
@@ -2742,7 +2745,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     _rec_name = 'prescription_id'
 
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Patient', required=True, on_change=['patient'])
+        'gnuhealth.patient', 'Patient', required=True)
 
     prescription_id = fields.Char(
         'Prescription ID',
@@ -2803,6 +2806,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     # Method that makes the doctor to acknowledge if there is any
     # warning in the prescription
 
+    @fields.depends('patient')
     def on_change_patient(self):
         preg_warning = False
         presc_warning_ack = True
@@ -3194,8 +3198,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     height = fields.Float('Height', help='Height in centimeters, eg 175')
 
     bmi = fields.Float(
-        'Body Mass Index',
-        on_change_with=['weight', 'height', 'bmi'])
+        'Body Mass Index')
 
     head_circumference = fields.Float(
         'Head Circumference',
@@ -3205,15 +3208,13 @@ class PatientEvaluation(ModelSQL, ModelView):
     hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100')
 
     whr = fields.Float(
-        'WHR', help='Waist to hip ratio',
-        on_change_with=['abdominal_circ', 'hip', 'whr'])
+        'WHR', help='Waist to hip ratio')
 
     # DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
     # NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
     # TO WORK WITH THE CLINICAL FINDINGS OF THE PATIENT
     loc = fields.Integer(
         'Glasgow',
-        on_change_with=['loc_verbal', 'loc_motor', 'loc_eyes'],
         help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
         ' 9-12 Moderate, > 13 minor')
     loc_eyes = fields.Selection([
@@ -3439,12 +3440,14 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_state():
         return 'in_progress'
 
+    @fields.depends('weight', 'height', 'bmi')
     def on_change_with_bmi(self):
         if self.height and self.weight:
             if (self.height > 0):
                 return self.weight / ((self.height / 100) ** 2)
             return 0
 
+    @fields.depends('loc_verbal', 'loc_motor', 'loc_eyes')
     def on_change_with_loc(self):
         return int(self.loc_motor) + int(self.loc_eyes) + int(self.loc_verbal)
 
@@ -3461,6 +3464,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         return datetime.now()
 
 # Calculate the WH ratio
+    @fields.depends('abdominal_circ', 'hip', 'whr')
     def on_change_with_whr(self):
         waist = self.abdominal_circ
         hip = self.hip
