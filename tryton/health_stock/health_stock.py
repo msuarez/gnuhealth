@@ -299,7 +299,7 @@ class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient.ambulatory_care',
         'Ambulatory ID')
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
-        required=True, on_change=['medicament', 'product'])
+        required=True)
     product = fields.Many2One('product.product', 'Product')
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
@@ -311,6 +311,7 @@ class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
+    @fields.depends('medicament', 'product')
     def on_change_medicament(self):
         res = {}
         if self.medicament:
@@ -547,7 +548,7 @@ class PatientRoundingMedicament(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.patient.rounding', 'Ambulatory ID')
     medicament = fields.Many2One('gnuhealth.medicament', 'Medicament',
-        required=True, on_change=['medicament', 'product'])
+        required=True)
     product = fields.Many2One('product.product', 'Product')
     quantity = fields.Integer('Quantity')
     short_comment = fields.Char('Comment',
@@ -559,6 +560,7 @@ class PatientRoundingMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
+    @fields.depends('medicament', 'product')
     def on_change_medicament(self):
         res = {}
         if self.medicament:
