@@ -393,12 +393,9 @@ class InpatientMedication (ModelSQL, ModelView):
     frequency_prn = fields.Boolean('PRN',
         help='Use it as needed, pro re nata')
     is_active = fields.Boolean('Active',
-        on_change_with=['discontinued', 'course_completed'],
         help='Check if the patient is currently taking the medication')
-    discontinued = fields.Boolean('Discontinued',
-        on_change_with=['is_active', 'course_completed'])
-    course_completed = fields.Boolean('Course Completed',
-        on_change_with=['is_active', 'discontinued'])
+    discontinued = fields.Boolean('Discontinued')
+    course_completed = fields.Boolean('Course Completed')
     discontinued_reason = fields.Char('Reason for discontinuation',
         states={
             'invisible': Not(Bool(Eval('discontinued'))),
@@ -409,15 +406,18 @@ class InpatientMedication (ModelSQL, ModelView):
     adverse_reaction = fields.Text('Adverse Reactions',
         help='Side effects or adverse reactions that the patient experienced')
 
+    @fields.depends('discontinued', 'course_completed')
     def on_change_with_is_active(self):
         is_active = True
         if (self.discontinued or self.course_completed):
             is_active = False
         return is_active
 
+    @fields.depends('is_active', 'course_completed')
     def on_change_with_discontinued(self):
         return not (self.is_active or self.course_completed)
 
+    @fields.depends('is_active', 'discontinued')
     def on_change_with_course_completed(self):
         return not (self.is_active or self.discontinued)
 
