@@ -197,9 +197,9 @@ class PatientCAGE(ModelSQL, ModelView):
         'needed a drink first thing in the morning (Eye-opener) to steady '
         'your nerves or to get rid of a hangover?')
 
-    cage_score = fields.Integer('CAGE Score',
-        on_change_with=['cage_c', 'cage_a', 'cage_g', 'cage_e'])
+    cage_score = fields.Integer('CAGE Score')
 
+    @fields.depends('cage_c', 'cage_a', 'cage_g', 'cage_e')
     def on_change_with_cage_score(self):
         total = 0
 
