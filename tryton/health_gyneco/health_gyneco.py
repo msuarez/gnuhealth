@@ -58,8 +58,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         'required': Bool(Eval('reverse')),
             }
         )
-    lmp = fields.Date('LMP', help="Last Menstrual Period", required=True,
-        on_change_with=['reverse_weeks','pregnancy_end_date'])
+    lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
 
     pdd = fields.Function(fields.Date('Pregnancy Due Date'),
         'get_pregnancy_data')
@@ -161,6 +160,7 @@ class PatientPregnancy(ModelSQL, ModelView):
         HealthProf= pool.get('gnuhealth.healthprofessional')
         return HealthProf.get_health_professional()
 
+    @fields.depends('reverse_weeks', 'pregnancy_end_date')
     def on_change_with_lmp(self):
         # Calculate the estimate on Last Menstrual Period
         # using the reverse input method, taking the
