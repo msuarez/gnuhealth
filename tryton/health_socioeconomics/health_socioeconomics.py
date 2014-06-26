@@ -133,9 +133,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
         help="Total Family APGAR \n" \
         "7 - 10 : Functional Family \n" \
         "4 - 6  : Some level of disfunction \n" \
-        "0 - 3  : Severe disfunctional family \n",
-        on_change_with=['fam_apgar_help', 'fam_apgar_timesharing',
-        'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection'])
+        "0 - 3  : Severe disfunctional family \n")
 
     income = fields.Selection([
         (None, ''),
@@ -202,6 +200,8 @@ class GnuHealthPatient(ModelSQL, ModelView):
     def default_television():
         return True
 
+    @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
+        'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection')
     def on_change_with_fam_apgar_score(self):
         fam_apgar_help = int(self.fam_apgar_help)
         fam_apgar_timesharing = int(self.fam_apgar_timesharing or '0')
