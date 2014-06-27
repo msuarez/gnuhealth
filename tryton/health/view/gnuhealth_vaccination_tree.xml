@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <tree string="Patient vaccination">
+    <field name="name" expand="1"/>
     <field name="vaccine" expand="1"/>
     <field name="dose" expand="1"/>
     <field name="date"/>
     <field name="next_dose_date"/>
     <field name="observations"/>
-    <field name="healthprof" expand="1"/>
-    <field name="institution" expand="1"/>
+    <field name="healthprof" tree_invisible="1"/>
+    <field name="institution" tree_invisible="1"/>
 </tree>

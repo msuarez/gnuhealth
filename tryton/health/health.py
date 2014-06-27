@@ -1765,7 +1765,7 @@ class PatientData(ModelSQL, ModelView):
 
     # ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
     vaccinations = fields.One2Many(
-        'gnuhealth.vaccination', 'name', 'Vaccinations')
+        'gnuhealth.vaccination', 'name', 'Vaccinations', readonly=True)
     medications = fields.One2Many(
         'gnuhealth.patient.medication', 'name', 'Medications')
 
@@ -2663,7 +2663,7 @@ class PatientVaccination(ModelSQL, ModelView):
     'Patient Vaccination information'
     __name__ = 'gnuhealth.vaccination'
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
+    name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     vaccine = fields.Many2One(
         'product.product', 'Vaccine', required=True,

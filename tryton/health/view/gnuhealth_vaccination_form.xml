@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <form string="Vaccination History">
     <group colspan="4" string="Institution" id="group_puerperium_institution">
+        <label name="name"/>
+        <field name="name"/>
         <label name="date"/>
         <field name="date"/>
         <label name="institution"/>
@@ -27,7 +29,7 @@
         <field name="vaccine_lot"/>
     </group>
     <newline/>
-    <separator string="Notes" id="separator_vaccination_notes"/>
+    <separator colspan="4" string="Notes" id="separator_vaccination_notes"/>
     <newline/>
     <field name="observations" colspan="4"/>
 </form>

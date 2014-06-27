@@ -1185,6 +1185,19 @@
         </record>
 
 
+<!-- Shortcut to the Patient vaccinations from the patient view -->
+        <record model="ir.action.act_window" id="act_vaccination_form1">
+            <field name="name">Vaccinations</field>
+            <field name="res_model">gnuhealth.vaccination</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_vaccination_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_vaccination_form1"/>
+        </record>
+
 <!-- PATIENT DIRECTIONS - PROCEDURES / ACTIONS TO TAKE -->
 
         <record model="ir.ui.view" id="gnuhealth_directions_form">
