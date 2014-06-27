@@ -1,29 +1,33 @@
 <?xml version="1.0"?>
-<form string="vaccination">
-    <group colspan="4" id="vaccination_header">
-        <group colspan="4" col="6" id="group_vaccine_dates">
-            <label name="vaccine"/>
-            <field name="vaccine"/>
-            <label name="admin_route"/>
-            <field name="admin_route"/>
-            <label name="dose"/>
-            <field name="dose"/>
-            <label name="next_dose_date"/>
-            <field name="next_dose_date"/>
-        </group>
-        <newline/>
+<form string="Vaccination History">
+    <group colspan="4" string="Institution" id="group_puerperium_institution">
         <label name="date"/>
         <field name="date"/>
         <label name="institution"/>
         <field name="institution"/>
-        <newline/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+    </group>
+    <newline/>
+    <group colspan="4" col="8" id="group_vaccine_dates">
+        <label name="vaccine"/>
+        <field name="vaccine"/>
+        <label name="admin_route"/>
+        <field name="admin_route"/>
+        <label name="dose"/>
+        <field name="dose"/>
+        <label name="next_dose_date"/>
+        <field name="next_dose_date"/>
+    </group>
+    <newline/>
+    <group colspan="4" col="8" id="group_vaccine_dates">
         <label name="vaccine_expiration_date"/>
         <field name="vaccine_expiration_date"/>
         <label name="vaccine_lot"/>
         <field name="vaccine_lot"/>
     </group>
     <newline/>
-    <separator string="Notes" id="sepatator_vaccination_notes"/>
+    <separator string="Notes" id="separator_vaccination_notes"/>
     <newline/>
     <field name="observations" colspan="4"/>
 </form>

@@ -617,7 +617,7 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
 
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Reviewed', readonly=True,
-        help="Health Professional who last reviewed the test")
+        help="Health Professional who reviewed the information")
 
     @staticmethod
     def default_institution():

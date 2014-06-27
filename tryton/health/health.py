@@ -2666,7 +2666,7 @@ class PatientVaccination(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True)
 
     vaccine = fields.Many2One(
-        'product.product', 'Name', required=True,
+        'product.product', 'Vaccine', required=True,
         domain=[('is_vaccine', '=', True)],
         help='Vaccine Name. Make sure that the vaccine (product) has all the'
         ' proper information at product level. Information such as provider,'
@@ -2698,6 +2698,24 @@ class PatientVaccination(ModelSQL, ModelView):
     dose = fields.Integer('Dose #')
     next_dose_date = fields.DateTime('Next Dose')
     observations = fields.Char('Observations')
+
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help="Health Professional who administered the vaccine")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
 
     @classmethod
     def __setup__(cls):
