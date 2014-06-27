@@ -57,7 +57,7 @@ check_requirements() {
         exit 1
     fi
 
-    # PYTHON version [2.6.x < 3.x]
+    # PYTHON version [2.7.x < 3.x]
     message "Looking for the Python Interpreter command..." ${BLUE}
 
     if ! type python 2>/dev/null ; then
@@ -65,7 +65,7 @@ check_requirements() {
         exit 1
     fi
 
-    local PVERSION=`python -V 2>&1 | grep 2.[6-9].[0-9]`
+    local PVERSION=`python -V 2>&1 | grep 2.[7-9].[0-9]`
 
     if test "${PVERSION}" ; then
         message "[INFO] Found ${PVERSION}" ${BLUE}
