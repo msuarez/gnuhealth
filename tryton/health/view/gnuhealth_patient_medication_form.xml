@@ -86,8 +86,12 @@
                 </group>
             </group>
             <newline/>
-            <group id="medication_notes" string="Prescribing Health Professional">
+            <group id="medication_health_prof" string="Prescribed or Reviewed by Health Professional">
+                <label name="healthprof"/>
                 <field name="healthprof"/>
+                <label name="institution"/>
+                <field name="institution"/>
+
             </group>
         </page>
     </notebook>

@@ -2441,8 +2441,11 @@ class PatientMedication(ModelSQL, ModelView):
         'gnuhealth.patient', 'Patient', readonly=True)
 
     healthprof = fields.Many2One(
-        'gnuhealth.healthprofessional', 'Prescribed by',
-        help='Health Professional who prescribed the medicament')
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help='Health Professional who prescribed or reviewed the medicament')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution')
 
     is_active = fields.Boolean(
         'Active',
@@ -2637,6 +2640,18 @@ class PatientMedication(ModelSQL, ModelView):
     def default_qty():
         return 1
 
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
+
     @classmethod
     def validate(cls, medications):
         super(PatientMedication, cls).validate(medications)
@@ -2703,7 +2718,8 @@ class PatientVaccination(ModelSQL, ModelView):
 
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
-        help="Health Professional who administered the vaccine")
+        help="Health Professional who administered or reviewed the vaccine \
+         information")
 
     @staticmethod
     def default_institution():
