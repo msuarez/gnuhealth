@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
 <form string="Prenatal Evaluation">
-    <group id="prenatal_evaluation_group_header" colspan="4" col="4">
+    <group id="prenatal_evaluation_group_header" colspan="4" col="8">
         <label name="evaluation_date"/>
         <field name="evaluation_date"/>
         <label name="gestational_weeks"/>
         <field name="gestational_weeks"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+
     </group>
     <group string="Mother Information" id="prenatal_evaluation_group_mother" colspan="4" col="8">
         <label name="hypertension"/>

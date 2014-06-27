@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <form string="Puerperium Monitor">
+
+    <group colspan="4" string="Institution" id="group_puerperium_institution">
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+    </group>
+    
     <group colspan="4" string="Main" id="group_puerperium_monitor">
         <label name="date"/>
         <field name="date"/>

@@ -233,6 +233,26 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     polihydramnios = fields.Boolean('Polihydramnios')
     iugr = fields.Boolean('IUGR', help="Intra Uterine Growth Restriction")
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help="Health Professional in charge, or that who entered the \
+            information in the system")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
+
+
     def get_patient_evaluation_data(self, name):
         if name == 'gestational_weeks':
             gestational_age = datetime.datetime.date(self.evaluation_date) - \
@@ -277,6 +297,25 @@ class PuerperiumMonitor(ModelSQL, ModelView):
     uterus_involution = fields.Integer('Fundal Height',
         help="Distance between the symphysis pubis and the uterine fundus "
         "(S-FD) in cm")
+
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help="Health Professional in charge, or that who entered the \
+            information in the system")
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        return HealthProf.get_health_professional()
 
 
 class Perinatal(ModelSQL, ModelView):
