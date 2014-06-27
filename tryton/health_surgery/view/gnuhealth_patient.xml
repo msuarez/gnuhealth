@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <data>
+    <!-- 2.6 We use the relate action from the patient
     <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
         <page string="Surgeries" id="page_surgery">
             <field name="surgery" colspan="4"/>
         </page>
     </xpath>
+    -->
 </data>
