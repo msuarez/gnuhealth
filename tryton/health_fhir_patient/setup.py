@@ -39,7 +39,7 @@ for dep in info.get('depends', []):
     if dep.startswith('health'):
         requires.append('trytond_%s == %s' %
             (dep, info.get('version')))
-    elif not re.match(r'(ir|res|workflow|webdav)(\W|$)', dep):
+    elif not re.match(r'(ir|res|webdav)(\W|$)', dep):
         requires.append('trytond_%s >= %s.%s, < %s.%s' %
             (dep, major_version, minor_version, major_version,
                 minor_version + 1))
