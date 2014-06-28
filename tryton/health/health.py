@@ -751,7 +751,7 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
 
 
 class HealthInstitutionOperationalSector(ModelSQL, ModelView):
-    ''
+    'Operational Sectors covered by Institution'
     __name__ = 'gnuhealth.institution.operationalsector'
 
     name = fields.Many2One('gnuhealth.institution', 'Institution')
