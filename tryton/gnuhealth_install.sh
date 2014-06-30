@@ -102,7 +102,7 @@ check_requirements() {
             message "Running on GNU/LINUX" ${GREEN}
             OS="GNULINUX"
             #Check for GNU/Linux Distros
-            GNU_LINUX_DISTRO = `lsb_release -i -s`
+            GNU_LINUX_DISTRO=`lsb_release -i -s`
             message "GNU / Linux distro : $GNU_LINUX_DISTRO" ${GREEN};;
         *) message "Running on Other OS: $OSTYPE" ${YELLOW} ;;
     esac
@@ -141,7 +141,7 @@ install_python_dependencies() {
     case "$GNU_LINUX_DISTRO" in
         Ubuntu)
             local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
-            message "[WARNING] Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" {$YELLOW};;
+            message "[WARNING] Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW};;
         *)  local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL";;
     esac
  
