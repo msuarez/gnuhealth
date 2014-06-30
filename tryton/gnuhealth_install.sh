@@ -196,6 +196,13 @@ bash_profile () {
     else
         echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bash_profile
     fi
+
+    # Include .gnuhealthrc in .bashrc for non-login shells
+    if [ -e $HOME/.bashrc ] ; then
+        grep --silent "source ${PROFILE}" $HOME/.bashrc || echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bashrc
+    else
+        echo "[[ -f ${PROFILE} ]] && source ${PROFILE}" >> $HOME/.bashrc
+    fi
    
 }
 
