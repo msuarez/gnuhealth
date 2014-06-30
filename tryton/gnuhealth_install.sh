@@ -136,8 +136,16 @@ install_python_dependencies() {
     local PIP_POLIB="polib==1.0.4"
     local PIP_SQL="python-sql==0.3"
     
-    local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
 
+    # Operating System specific package selection
+    case "$GNU_LINUX_DISTRO" in
+        Ubuntu)
+            local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
+            message "[WARNING] Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" {$YELLOW};;
+        *)  local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL";;
+    esac
+ 
+        
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
     
