@@ -92,6 +92,22 @@ check_requirements() {
         message "[ERROR] PIP command not found. Please install it or check your PATH variable." ${RED}
         exit 1
     fi
+    
+    #Check main operating system
+    case "$OSTYPE" in
+        freebsd*) 
+            message "[INFO] Running on FreeBSD" ${GREEN}
+            OS="FREEBSD";;
+        linux*)
+            message "Running on GNU/LINUX" ${GREEN}
+            OS="GNULINUX"
+            #Check for GNU/Linux Distros
+            GNU_LINUX_DISTRO = `lsb_release -i -s`
+            message "GNU / Linux distro : $GNU_LINUX_DISTRO" ${GREEN};;
+        *) message "Running on Other OS: $OSTYPE" ${YELLOW} ;;
+    esac
+    
+    
     message "[INFO] OK." ${GREEN}
 }
 
@@ -100,7 +116,6 @@ install_python_dependencies() {
     local PIP_CMD=$(which $PIP_NAME)
     local PIP_VERSION="$(${PIP_CMD} --version | awk '{print $2}')"
 
-    # TODO: Change for virtualenv support.
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
@@ -337,6 +352,5 @@ message "[INFO] Cleaning Up..." ${YELLOW}
 rm -rf ${TMP_DIR} || exit 1
 
 message "[INFO] OK." ${GREEN}
-
 
 message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}
