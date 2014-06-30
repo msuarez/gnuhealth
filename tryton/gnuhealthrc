@@ -27,6 +27,9 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
+#GNU HEALTH version
+export GNUHEALTH_VERSION=`cat $HOME/gnuhealth/version`
+
 # Commented to be compatible with FreeBSD
 # alias ls='ls --color=auto'
 
