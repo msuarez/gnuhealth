@@ -631,7 +631,7 @@ class HealthInstitution(ModelSQL, ModelView):
     def __setup__(cls):
         super(HealthInstitution, cls).__setup__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'This Insitution already exists !'),
+            ('name_uniq', 'UNIQUE(name)', 'This Institution already exists !'),
         ]
 
     @classmethod
