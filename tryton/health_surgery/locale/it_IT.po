@@ -1,6 +1,6 @@
 # 
 # Translators:
-# gabriele.meloncelli <gabriele.meloncelli@virgilio.it>, 2013
+# Gabriele Meloncelli <gabriele.meloncelli@virgilio.it>, 2013
 # meanmicio <lfalcon@gnusolidario.org>, 2011
 # Selene <scordara@thymbra.com>, 2014
 # Selene <scordara@thymbra.com>, 2011, 2012
@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-22 17:20+0000\n"
-"Last-Translator: Selene <scordara@thymbra.com>\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -178,6 +178,10 @@ msgstr "Informazioni extra"
 msgctxt "field:gnuhealth.surgery,id:"
 msgid "ID"
 msgstr "Identificazione"
+
+msgctxt "field:gnuhealth.surgery,institution:"
+msgid "Institution"
+msgstr "Istituzione"
 
 msgctxt "field:gnuhealth.surgery,operating_room:"
 msgid "Operating Room"
@@ -423,10 +427,6 @@ msgctxt "model:ir.ui.menu,name:gnuhealth_surgery_menu"
 msgid "Surgeries"
 msgstr "Chirurgie"
 
-msgctxt "model:ir.ui.menu,name:menu_gnuhealth_surgery_list"
-msgid "Surgeries"
-msgstr "Chirurgie"
-
 msgctxt "model:res.group,name:group_health_surgery_admin"
 msgid "Health Surgery Administration"
 msgstr "Amministrazione Chirugia Health"
@@ -546,10 +546,6 @@ msgid "Full visibility of tonsils, uvula and soft palate"
 msgstr "Visibilità completa di tonsille, ugola e palato molle"
 
 msgctxt "odt:surgery:"
-msgid "Information"
-msgstr "Informazioni"
-
-msgctxt "odt:surgery:"
 msgid "Institution"
 msgstr "Istituzione"
 
@@ -586,12 +582,12 @@ msgid "Physical Status"
 msgstr "Stato Fisico"
 
 msgctxt "odt:surgery:"
-msgid "Pre-"
-msgstr ""
-
-msgctxt "odt:surgery:"
 msgid "Pre-operation Checklist"
 msgstr "Lista di controllo Preoperatoria"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Information"
+msgstr ""
 
 msgctxt "odt:surgery:"
 msgid "Pre-operative"
@@ -664,10 +660,6 @@ msgstr "i"
 msgctxt "odt:surgery:"
 msgid "ntravenous access and fluids availabl"
 msgstr "accesso endovenoso e fluidi disponibili"
-
-msgctxt "odt:surgery:"
-msgid "operation"
-msgstr "Operazione"
 
 msgctxt "selection:gnuhealth.rcri,rcri_class:"
 msgid "I"

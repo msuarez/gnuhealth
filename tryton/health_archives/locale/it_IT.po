@@ -7,11 +7,11 @@ msgstr ""
 "POT-Creation-Date: 2014-06-27 19:22+0000\n"
 "PO-Revision-Date: 2014-06-16 18:40+0000\n"
 "Last-Translator: Luis Falcon <falcon@gnu.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "error:gnuhealth.paper_archive:"
@@ -24,15 +24,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
-msgstr "Comentarios"
+msgstr "Commenti"
 
 msgctxt "field:gnuhealth.paper_archive,create_date:"
 msgid "Create Date"
-msgstr "Fecha creación"
+msgstr "Creare Data"
 
 msgctxt "field:gnuhealth.paper_archive,create_uid:"
 msgid "Create User"
-msgstr "Usuario creación"
+msgstr "Creare utente"
 
 msgctxt "field:gnuhealth.paper_archive,current_location:"
 msgid "Current Location"
@@ -40,15 +40,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,hc_status:"
 msgid "Status"
-msgstr "Estado"
+msgstr "Stato"
 
 msgctxt "field:gnuhealth.paper_archive,id:"
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgctxt "field:gnuhealth.paper_archive,identification_code:"
 msgid "Code"
-msgstr "Código"
+msgstr "Codice"
 
 msgctxt "field:gnuhealth.paper_archive,legacy:"
 msgid "Legacy Code"
@@ -56,15 +56,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,location:"
 msgid "Unit"
-msgstr "Unidad"
+msgstr "Unità"
 
 msgctxt "field:gnuhealth.paper_archive,patient:"
 msgid "Patient"
-msgstr "Paciente"
+msgstr "Paziente"
 
 msgctxt "field:gnuhealth.paper_archive,rec_name:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nome"
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
@@ -80,11 +80,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,write_date:"
 msgid "Write Date"
-msgstr "Fecha modicación"
+msgstr "Scrivere Data"
 
 msgctxt "field:gnuhealth.paper_archive,write_uid:"
 msgid "Write User"
-msgstr "Usuario modificación"
+msgstr "Scrivere nome utente"
 
 msgctxt "help:gnuhealth.paper_archive,current_location:"
 msgid "Location / Unit where this clinical history document should reside."
@@ -102,7 +102,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.paper_archive,patient:"
 msgid "Patient associated to this newborn baby"
-msgstr "Paciente asociado a este bebé recién nacido"
+msgstr ""
 
 msgctxt "help:gnuhealth.paper_archive,requested_by:"
 msgid "Person who last requested the document"
@@ -130,7 +130,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Lost"
-msgstr "Perdida"
+msgstr ""
 
 msgctxt "view:gnuhealth.paper_archive:"
 msgid "Patient PAPER Clinical History"

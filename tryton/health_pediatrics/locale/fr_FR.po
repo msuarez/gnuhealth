@@ -1,12 +1,13 @@
 # 
 # Translators:
 # Eric Vernichon <eric@vernichon.fr>, 2012-2013
+# fnonga <nonga.fabien@orange.fr>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-21 06:33+0000\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 17:02+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +19,10 @@ msgstr ""
 msgctxt "error:gnuhealth.newborn:"
 msgid "The Newborn ID must be unique !"
 msgstr "L'ID du nouveau-né doit être unique!"
+
+msgctxt "error:gnuhealth.newborn:"
+msgid "There is already a newborn record for this patient"
+msgstr ""
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "Activity"
@@ -92,12 +97,12 @@ msgid "Stillbirth"
 msgstr "Mortinaissance"
 
 msgctxt "field:gnuhealth.newborn,birth_date:"
-msgid "Date of Birth"
+msgid "DoB"
 msgstr "Date de naissance"
 
 msgctxt "field:gnuhealth.newborn,cephalic_perimeter:"
-msgid "Cephalic Perimeter"
-msgstr "Périmètre céphalique"
+msgid "CP"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,cod:"
 msgid "Cause of death"
@@ -233,7 +238,7 @@ msgstr "Réflexe tonique asymétrique du cou"
 
 msgctxt "field:gnuhealth.newborn,newborn_name:"
 msgid "Name at Birth"
-msgstr ""
+msgstr "Nom de naissance"
 
 msgctxt "field:gnuhealth.newborn,newborn_sex:"
 msgid "Sex"
@@ -244,8 +249,8 @@ msgid "Notes"
 msgstr "Notes"
 
 msgctxt "field:gnuhealth.newborn,patient:"
-msgid "Baby's name"
-msgstr "Nom du bébé"
+msgid "Baby"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,photo:"
 msgid "Picture"
@@ -280,8 +285,8 @@ msgid "Doctor in charge"
 msgstr "Médecin responsable"
 
 msgctxt "field:gnuhealth.newborn,sex:"
-msgid "Gender at Birth"
-msgstr ""
+msgid "Sex"
+msgstr "Sexe"
 
 msgctxt "field:gnuhealth.newborn,test_audition:"
 msgid "Audition"
@@ -519,25 +524,33 @@ msgctxt "field:gnuhealth.patient.psc,write_uid:"
 msgid "Write User"
 msgstr "Modifié par"
 
+msgctxt "help:gnuhealth.newborn,birth_date:"
+msgid "Date and Time of birth"
+msgstr ""
+
 msgctxt "help:gnuhealth.newborn,cephalic_perimeter:"
-msgid "Perimeter in centimeters (cm)"
-msgstr "Périmètre en centimètres (cm)"
+msgid "Cephalic Perimeter in centimeters (cm)"
+msgstr ""
 
 msgctxt "help:gnuhealth.newborn,died_being_transferred:"
 msgid "The baby died being transferred to another health institution"
 msgstr "Le bébé est mort en cours de transfert vers un autre établissement de santé"
 
 msgctxt "help:gnuhealth.newborn,length:"
-msgid "Perimeter in centimeters (cm)"
-msgstr "Périmètre en centimètres (cm)"
+msgid "Length in centimeters (cm)"
+msgstr ""
 
 msgctxt "help:gnuhealth.newborn,patient:"
-msgid "Patient associated to this newborn baby"
+msgid "Patient associated to this newborn"
 msgstr ""
 
 msgctxt "help:gnuhealth.newborn,responsible:"
 msgid "Signed by the health professional"
 msgstr "Signé par le professionnel de la santé"
+
+msgctxt "help:gnuhealth.newborn,sex:"
+msgid "Sex at birth. It might differ from the current patient sex"
+msgstr ""
 
 msgctxt "help:gnuhealth.newborn,test_metabolic:"
 msgid ""
@@ -567,8 +580,8 @@ msgid "Pediatric Symptoms Checklist"
 msgstr "Liste des symptômes pédiatriques"
 
 msgctxt "model:ir.action,name:act_newborn_form1"
-msgid "Newborn"
-msgstr "Nouveau-né"
+msgid "Neonatal Info"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_psc_form1"
 msgid "PSC"
@@ -579,8 +592,8 @@ msgid "Newborn"
 msgstr "Nouveau-né"
 
 msgctxt "model:ir.action,name:gnuhealth_action_psc"
-msgid "Pediatric Symptom Checklist"
-msgstr "Liste des symptômes pédiatriques"
+msgid "PSC"
+msgstr "LSP"
 
 msgctxt "model:ir.action,name:report_newborn_card"
 msgid "Newborn ID"
@@ -591,8 +604,8 @@ msgid "Newborn"
 msgstr "Nouveau-né"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_psc"
-msgid "Pediatric Symptom Checklist"
-msgstr "Liste des symptômes pédiatriques"
+msgid "PSC"
+msgstr "LSP"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_pediatrics"
 msgid "Pediatrics"
@@ -1155,10 +1168,6 @@ msgid "APGAR Score"
 msgstr "Score d'Apgar"
 
 msgctxt "view:gnuhealth.newborn:"
-msgid "Deceased"
-msgstr "Décédé"
-
-msgctxt "view:gnuhealth.newborn:"
 msgid "Findings and Tests"
 msgstr "Constatations et Tests"
 
@@ -1185,10 +1194,6 @@ msgstr "Informations sur le nouveau-né"
 msgctxt "view:gnuhealth.newborn:"
 msgid "Notes"
 msgstr "Notes"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Other"
-msgstr "Autre"
 
 msgctxt "view:gnuhealth.newborn:"
 msgid "Tests"

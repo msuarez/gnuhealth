@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Dhafer Ben Amor <dh.benamor@gmail.com>, 2014
 # Eric Vernichon <eric@vernichon.fr>, 2012
 # Mathieu Anquetin <mathieu@anquetin.eu>, 2013
 # rootio <david@vmail.me>, 2013
@@ -7,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-21 06:33+0000\n"
-"Last-Translator: rootio <david@vmail.me>\n"
+"POT-Creation-Date: 2014-06-27 19:22+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"Last-Translator: Dhafer Ben Amor <dh.benamor@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,6 +21,10 @@ msgstr ""
 msgctxt "model:ir.action,name:report_patient_evaluation"
 msgid "Patient Evaluation and History"
 msgstr "Évaluation et historique du patient"
+
+msgctxt "odt:patient.evaluation:"
+msgid "& history"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "*"
@@ -67,11 +72,11 @@ msgstr ":"
 
 msgctxt "odt:patient.evaluation:"
 msgid ": Female"
-msgstr ": Féminin"
+msgstr "Femme"
 
 msgctxt "odt:patient.evaluation:"
 msgid ": Male"
-msgstr ": Masculin"
+msgstr "Homme"
 
 msgctxt "odt:patient.evaluation:"
 msgid ": Married"
@@ -98,12 +103,16 @@ msgid "Age"
 msgstr "Age"
 
 msgctxt "odt:patient.evaluation:"
-msgid "Allergies and other Critical Information"
-msgstr "Allergies et informations critiques"
+msgid "Annotations about the patient condition"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "Anthropometry"
 msgstr "Anthropométrie"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Automated"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "BMI"
@@ -142,8 +151,8 @@ msgid "Diagnosed"
 msgstr "Diagnostiqué"
 
 msgctxt "odt:patient.evaluation:"
-msgid "Diagnostic"
-msgstr "Diagnostic"
+msgid "Diagnostics Section"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "Diastolic"
@@ -362,10 +371,6 @@ msgid "Secondary School"
 msgstr "école secondaire"
 
 msgctxt "odt:patient.evaluation:"
-msgid "Section"
-msgstr "Section"
-
-msgctxt "odt:patient.evaluation:"
 msgid "Severity"
 msgstr "Gravité"
 
@@ -500,6 +505,10 @@ msgstr "légère"
 msgctxt "odt:patient.evaluation:"
 msgid "moderate"
 msgstr "modérée"
+
+msgctxt "odt:patient.evaluation:"
+msgid "report about patient important conditions"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "risky"

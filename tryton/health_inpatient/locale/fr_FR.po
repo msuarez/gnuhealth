@@ -1,17 +1,18 @@
 # 
 # Translators:
-# Emmanuel Sd <emanwebdev@gmail.com>, 2014
-# eriam <eriam@mediavirtuel.com>, 2012
+# Emmanuel Simond <emanediteur@gmail.com>, 2014
+# Eriam Schaffter <eriam@mediavirtuel.com>, 2012
 # Eric Vernichon <eric@vernichon.fr>, 2011
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
 # Mathieu Anquetin <mathieu@anquetin.eu>, 2013
+# fnonga <nonga.fabien@orange.fr>, 2014
 # rootio <david@vmail.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-21 06:32+0000\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 23:00+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -480,6 +481,10 @@ msgctxt "field:gnuhealth.inpatient.registration,info:"
 msgid "Extra Info"
 msgstr "Info extra."
 
+msgctxt "field:gnuhealth.inpatient.registration,institution:"
+msgid "Institution"
+msgstr "Institution"
+
 msgctxt "field:gnuhealth.inpatient.registration,medications:"
 msgid "Medications"
 msgstr "Medications"
@@ -778,7 +783,7 @@ msgctxt "model:gnuhealth.diet.therapeutic,description:CLIQUIDNCS"
 msgid ""
 "Clear liquid diet providing sugar-free products only (No Concentrated "
 "Sugar). This diet provides very limited amounts of carbohydrate."
-msgstr ""
+msgstr "Alimentation liquide à base de produits sans sucre ( sans sucre concentré). Ce"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:DYSA"
 msgid ""
@@ -881,7 +886,7 @@ msgctxt "model:gnuhealth.diet.therapeutic,description:PGMY"
 msgid ""
 "Low sugar, low fat, low lactose foods. No fluids with meals. Small frequent "
 "feedings"
-msgstr ""
+msgstr "Aliment à faible teneur en sucre, lipide, et lactose. Pas de liquides avec le repas. Snacks réguliers."
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:PRERENAL"
 msgid ""
@@ -917,7 +922,7 @@ msgstr "2 gr Sodium"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:BLAND"
 msgid "Bland"
-msgstr ""
+msgstr "fade"
 
 msgctxt "model:gnuhealth.diet.therapeutic,name:CARDIAC"
 msgid "Cardiac"
@@ -1071,10 +1076,6 @@ msgctxt ""
 "model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_registration"
 msgid "Inpatient Registration"
 msgstr "Enregistrement du patient"
-
-msgctxt "model:ir.ui.menu,name:gnuhealth_conf_inpatient_add"
-msgid "Hospitalizations"
-msgstr "Hospitalisations"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_menu"
 msgid "Hospitalizations"

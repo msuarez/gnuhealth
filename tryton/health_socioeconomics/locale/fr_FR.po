@@ -1,14 +1,15 @@
 # 
 # Translators:
+# Dhafer Ben Amor <dh.benamor@gmail.com>, 2014
 # Eric Vernichon <eric@vernichon.fr>, 2011, 2012
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-21 06:22+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-17 09:30+0000\n"
+"Last-Translator: Dhafer Ben Amor <dh.benamor@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgstr "Toxicomanie"
 
 msgctxt "field:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr "Niveau éducatif"
+msgstr "Niveau d'éducation"
 
 msgctxt "field:gnuhealth.patient,fam_apgar_affection:"
 msgid "Family affection"
@@ -34,7 +35,7 @@ msgstr "Affection familiale"
 
 msgctxt "field:gnuhealth.patient,fam_apgar_decisions:"
 msgid "Decision making"
-msgstr "Prise de décision"
+msgstr "Poids dans les décisions familiales"
 
 msgctxt "field:gnuhealth.patient,fam_apgar_discussion:"
 msgid "Problems discussion"

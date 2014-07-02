@@ -1,6 +1,6 @@
 # 
 # Translators:
-# gabriele.meloncelli <gabriele.meloncelli@virgilio.it>, 2013
+# Gabriele Meloncelli <gabriele.meloncelli@virgilio.it>, 2013
 # meanmicio <lfalcon@gnusolidario.org>, 2013
 # Selene <scordara@thymbra.com>, 2013
 # Selene <scordara@thymbra.com>, 2011, 2012
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-01-21 00:08+0000\n"
-"PO-Revision-Date: 2014-01-21 06:32+0000\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -478,6 +478,10 @@ msgstr "I"
 msgctxt "field:gnuhealth.inpatient.registration,info:"
 msgid "Extra Info"
 msgstr "Ulteriori informazioni"
+
+msgctxt "field:gnuhealth.inpatient.registration,institution:"
+msgid "Institution"
+msgstr "Istituzione"
 
 msgctxt "field:gnuhealth.inpatient.registration,medications:"
 msgid "Medications"
@@ -1070,10 +1074,6 @@ msgctxt ""
 "model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_registration"
 msgid "Inpatient Registration"
 msgstr "Ricovero"
-
-msgctxt "model:ir.ui.menu,name:gnuhealth_conf_inpatient_add"
-msgid "Hospitalizations"
-msgstr "Ricoveri"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_menu"
 msgid "Hospitalizations"
