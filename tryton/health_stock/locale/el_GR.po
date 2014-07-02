@@ -1,0 +1,566 @@
+# 
+# Translators:
+# kvisitor <kvisitor@gnugr.org>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-16 19:04+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:gnuhealth.medicament,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,care_location:"
+msgid "Care Location"
+msgstr "Τοποθεσία φροντίδας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "Ιατρικές προμήθειες"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medicaments:"
+msgid "Medicaments"
+msgstr "Φάρμακα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
+msgid "Stock Moves"
+msgstr "Μετακινήσεις υλικού"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
+msgid "State"
+msgstr "Περιοχή"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,vaccines:"
+msgid "Vaccines"
+msgstr "Εμβόλια"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "Κωδικός ID Ιατρείου"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "Ιατρική προμήθεια"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt ""
+"field:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,medicament:"
+msgid "Medicament"
+msgstr "Φάρμακο"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "Κωδικός ID Ιατρείου"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,product:"
+msgid "Product"
+msgstr "Προϊόν"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Route"
+msgstr "Οδός"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,dose:"
+msgid "Dose"
+msgstr "Δόση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,name:"
+msgid "Ambulatory ID"
+msgstr "Κωδικός ID Ιατρείου"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,next_dose_date:"
+msgid "Next Dose"
+msgstr "Επόμενη δόση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,vaccine:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding,hospitalization_location:"
+msgid "Hospitalization Location"
+msgstr "Τοποθεσία νοσοκομειακής νοσηλείας"
+
+msgctxt "field:gnuhealth.patient.rounding,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "Ιατρικές προμήθειες"
+
+msgctxt "field:gnuhealth.patient.rounding,medicaments:"
+msgid "Medicaments"
+msgstr "Φάρμακα"
+
+msgctxt "field:gnuhealth.patient.rounding,moves:"
+msgid "Stock Moves"
+msgstr "Μετακινήσεις υλικού"
+
+msgctxt "field:gnuhealth.patient.rounding,state:"
+msgid "State"
+msgstr "Περιοχή"
+
+msgctxt "field:gnuhealth.patient.rounding,vaccines:"
+msgid "Vaccines"
+msgstr "Εμβόλια"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "Κωδικός ID Ιατρείου"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "Ιατρική προμήθεια"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,medicament:"
+msgid "Medicament"
+msgstr "Φάρμακο"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "Κωδικός ID Ιατρείου"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,product:"
+msgid "Product"
+msgstr "Προϊόν"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Route"
+msgstr "Οδός"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,dose:"
+msgid "Dose"
+msgstr "Δόση"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,lot:"
+msgid "Lot"
+msgstr "Παρτίδα/ Lot"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,name:"
+msgid "Rounding ID"
+msgstr "Κωδικός ID επίσκεψης τμήματος"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,next_dose_date:"
+msgid "Next Dose"
+msgstr "Επόμενη δόση"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,quantity:"
+msgid "Quantity"
+msgstr "Ποσότητα"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,short_comment:"
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,vaccine:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.prescription.order,moves:"
+msgid "Moves"
+msgstr "Μετακινήσεις "
+
+msgctxt "field:gnuhealth.prescription.stock.move.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:party.party,warehouse:"
+msgid "Warehouse"
+msgstr "Αποθήκη"
+
+msgctxt "field:stock.lot,expiration_date:"
+msgid "Expiration Date"
+msgstr "Ημερομηνία λήξης"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.vaccine,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "help:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "help:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "help:gnuhealth.patient.rounding.vaccine,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φάρμακο"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Patient Ambulatory Care Medical Supply"
+msgstr "Ιατρικές προμήθειες φροντίδα περιπατητικών ασθενών"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Patient Ambulatory Care Medicament"
+msgstr "Φάρμακο ασθενούς σε Περιπατητική Φροντίδα"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.vaccine,name:"
+msgid "Patient Ambulatory Care Vaccine"
+msgstr "Εμβόλιο ασθενών σε περιπατητική φροντίδα Ε.Ι."
+
+msgctxt "model:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Patient Rounding Medical Supply"
+msgstr "Προμήθειες ιατρικού υλικού για Επίσκεψη τμήματος"
+
+msgctxt "model:gnuhealth.patient.rounding.medicament,name:"
+msgid "Patient Rounding Medicament"
+msgstr "Φάρμακο ασθενούς για Επίσκεψη τμήματος"
+
+msgctxt "model:gnuhealth.patient.rounding.vaccine,name:"
+msgid "Patient Ambulatory Care Vaccine"
+msgstr "Εμβόλιο ασθενών σε περιπατητική φροντίδα Ε.Ι."
+
+msgctxt "model:gnuhealth.prescription.stock.move.init,name:"
+msgid "Create Prescription Stock Move Init"
+msgstr "Δημιουργία Init μετακίνησης συνταγογραφικού υλικού αποθήκης"
+
+msgctxt "model:ir.action,name:act_create_prescription_stock_move"
+msgid "Create Prescription Stock Move"
+msgstr "Δημιουργία Μετακίνησης συνταγογραφικού υλικού αποθήκης"
+
+msgctxt "model:ir.action,name:act_prescription_move_form1"
+msgid "Stock Moves"
+msgstr "Μετακινήσεις υλικού"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Done"
+msgstr "Έγινε"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Draft"
+msgstr "Πρόχειρο/ προσχέδιο"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intradermal"
+msgstr "Ενδοδερμικό"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intramuscular"
+msgstr "Ενδομυικό"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intranasal"
+msgstr "Ενδορρινικό"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Oral"
+msgstr "Στοματικό"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Subcutaneous"
+msgstr "Υποδόρια"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Done"
+msgstr "Έγινε"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Draft"
+msgstr "Πρόχειρο/ προσχέδιο"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intradermal"
+msgstr "Ενδοδερμικό"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intramuscular"
+msgstr "Ενδομυικό"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intranasal"
+msgstr "Ενδορρινικό"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Oral"
+msgstr "Στοματικό"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Subcutaneous"
+msgstr "Υποδόρια"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.medical_supply:"
+msgid "Medical Supplies"
+msgstr "Ιατρικές προμήθειες"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.medicament:"
+msgid "Medicament"
+msgstr "Φάρμακο"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.vaccine:"
+msgid "Vaccines"
+msgstr "Εμβόλια"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Done"
+msgstr "Έγινε"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Medication"
+msgstr "Φάρμακα"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Stock Moves"
+msgstr "Μετακινήσεις υλικού"
+
+msgctxt "view:gnuhealth.patient.rounding.medical_supply:"
+msgid "Medical Supplies"
+msgstr "Ιατρικές προμήθειες"
+
+msgctxt "view:gnuhealth.patient.rounding.medicament:"
+msgid "Medicament"
+msgstr "Φάρμακο"
+
+msgctxt "view:gnuhealth.patient.rounding.vaccine:"
+msgid "Vaccines"
+msgstr "Εμβόλια"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Done"
+msgstr "Έγινε"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Medication"
+msgstr "Φάρμακα"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Six P's"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Stock Moves"
+msgstr "Μετακινήσεις υλικού"
+
+msgctxt "view:gnuhealth.prescription.stock.move.init:"
+msgid "Create Prescription Stock Move"
+msgstr "Δημιουργία Μετακίνησης συνταγογραφικού υλικού αποθήκης"
+
+msgctxt "view:gnuhealth.prescription.stock.move.init:"
+msgid "Create Stock Move?"
+msgstr "Να δημιουργηθεί Μετακίνηση υλικού;"
+
+msgctxt ""
+"wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "Δημιουργία μετακίνησης υλικού"
+
+msgctxt "wizard_button:gnuhealth.prescription.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "Διαγραφή"

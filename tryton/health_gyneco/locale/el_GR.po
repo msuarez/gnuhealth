@@ -1,0 +1,1533 @@
+# 
+# Translators:
+# kvisitor <kvisitor@gnugr.org>, 2013-2014
+# kvisitor <kvisitor@gnugr.org>, 2011, 2012
+# Stefanos <st.koukliotis@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:22+0000\n"
+"PO-Revision-Date: 2014-06-27 23:00+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "error:gnuhealth.patient.pregnancy:"
+msgid "Our records indicate that the patient is already pregnant !"
+msgstr "Τα στοιχεία μας δείχνουν ότι η ασθενής είναι ήδη έγγυος !"
+
+msgctxt "error:gnuhealth.patient.pregnancy:"
+msgid "The pregancy number must be unique for this patient !"
+msgstr "Ο αριθμός κύησης πρέπει να είναι μοναδικός για αυτή την ασθενή !"
+
+msgctxt "field:gnuhealth.patient,abortions:"
+msgid "Abortions"
+msgstr "Αμβλώσεις/ Αποβολές"
+
+msgctxt "field:gnuhealth.patient,breast_self_examination:"
+msgid "Breast self-examination"
+msgstr "Αυτοεξέταση στήθους"
+
+msgctxt "field:gnuhealth.patient,colposcopy:"
+msgid "Colposcopy"
+msgstr "Κολποσκόπηση"
+
+msgctxt "field:gnuhealth.patient,colposcopy_history:"
+msgid "Colposcopy History"
+msgstr "Ιστορικό κολποσκόπησης"
+
+msgctxt "field:gnuhealth.patient,colposcopy_last:"
+msgid "Last colposcopy"
+msgstr "Τελευταία κολποσκόπηση"
+
+msgctxt "field:gnuhealth.patient,currently_pregnant:"
+msgid "Pregnant"
+msgstr "Έγγυος"
+
+msgctxt "field:gnuhealth.patient,fertile:"
+msgid "Fertile"
+msgstr "Γόνιμη"
+
+msgctxt "field:gnuhealth.patient,full_term:"
+msgid "Full Term"
+msgstr "Τελειόμηνη"
+
+msgctxt "field:gnuhealth.patient,gravida:"
+msgid "Pregnancies"
+msgstr "Εγκυμοσύνες"
+
+msgctxt "field:gnuhealth.patient,mammography:"
+msgid "Mammography"
+msgstr "Μαστογραφία"
+
+msgctxt "field:gnuhealth.patient,mammography_history:"
+msgid "Mammography History"
+msgstr "Ιστορικό μαστογραφίας"
+
+msgctxt "field:gnuhealth.patient,mammography_last:"
+msgid "Last mammography"
+msgstr "Τελευταία μαστογραφία"
+
+msgctxt "field:gnuhealth.patient,menarche:"
+msgid "Menarche age"
+msgstr "Ηλικία Εμμηναρχής"
+
+msgctxt "field:gnuhealth.patient,menopausal:"
+msgid "Menopausal"
+msgstr "Εμμηνόπαυση"
+
+msgctxt "field:gnuhealth.patient,menopause:"
+msgid "Menopause age"
+msgstr "Ηλικία εμμηνόπαυσης"
+
+msgctxt "field:gnuhealth.patient,menstrual_history:"
+msgid "Menstrual History"
+msgstr "Ιστορικό εμμήνου ρήσεως"
+
+msgctxt "field:gnuhealth.patient,pap_history:"
+msgid "PAP smear History"
+msgstr "Ιστορικό ΠΑΠ τεστ"
+
+msgctxt "field:gnuhealth.patient,pap_test:"
+msgid "PAP test"
+msgstr "Τεστ Παπανικολάου"
+
+msgctxt "field:gnuhealth.patient,pap_test_last:"
+msgid "Last PAP test"
+msgstr "Τελευταίο ΠΑΠ τεστ"
+
+msgctxt "field:gnuhealth.patient,pregnancy_history:"
+msgid "Pregnancies"
+msgstr "Εγγυμοσύνες"
+
+msgctxt "field:gnuhealth.patient,premature:"
+msgid "Premature"
+msgstr "Πρόωρο"
+
+msgctxt "field:gnuhealth.patient,stillbirths:"
+msgid "Stillbirths"
+msgstr "Θνησιγενή"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,comments:"
+msgid "Remarks"
+msgstr "Παρατηρήσεις"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation:"
+msgid "Evaluation"
+msgstr "Εκτίμηση"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,healthprof:"
+msgid "Reviewed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,last_colposcopy:"
+msgid "Previous"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,name:"
+msgid "Patient"
+msgstr "Αθενής"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,result:"
+msgid "result"
+msgstr "Αποτέλεσμα"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε χρήστη"
+
+msgctxt "field:gnuhealth.patient.mammography_history,comments:"
+msgid "Remarks"
+msgstr "Παρατηρήσεις"
+
+msgctxt "field:gnuhealth.patient.mammography_history,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.mammography_history,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.mammography_history,evaluation:"
+msgid "Evaluation"
+msgstr "Εκτίμηση"
+
+msgctxt "field:gnuhealth.patient.mammography_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.mammography_history,healthprof:"
+msgid "Reviewed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.mammography_history,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.mammography_history,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.mammography_history,last_mammography:"
+msgid "Previous"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.mammography_history,name:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.patient.mammography_history,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.mammography_history,result:"
+msgid "result"
+msgstr "Αποτέλεσμα"
+
+msgctxt "field:gnuhealth.patient.mammography_history,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.mammography_history,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,dysmenorrhea:"
+msgid "Dysmenorrhea"
+msgstr "Δυσμηνόρροια"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,evaluation:"
+msgid "Evaluation"
+msgstr "Εκτίμηση"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,frequency:"
+msgid "frequency"
+msgstr "Συχνότητα"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,healthprof:"
+msgid "Reviewed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.menstrual_history,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,is_regular:"
+msgid "Regular"
+msgstr "Κανονική"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,lmp:"
+msgid "LMP"
+msgstr "Τελευταία έμμηνος ρύση"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,lmp_length:"
+msgid "Length"
+msgstr "Διάρκεια"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,name:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,volume:"
+msgid "volume"
+msgstr "όγκος"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.pap_history,comments:"
+msgid "Remarks"
+msgstr "Παρατηρήσεις"
+
+msgctxt "field:gnuhealth.patient.pap_history,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.pap_history,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.pap_history,evaluation:"
+msgid "Evaluation"
+msgstr "Εκτίμση"
+
+msgctxt "field:gnuhealth.patient.pap_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.pap_history,healthprof:"
+msgid "Reviewed"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pap_history,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.pap_history,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.pap_history,last_pap:"
+msgid "Previous"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pap_history,name:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.patient.pap_history,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.pap_history,result:"
+msgid "result"
+msgstr "Αποτέλεσμα"
+
+msgctxt "field:gnuhealth.patient.pap_history,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.pap_history,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.pregnancy,bba:"
+msgid "BBA"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pregnancy,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.pregnancy,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία Χρήστη"
+
+msgctxt "field:gnuhealth.patient.pregnancy,current_pregnancy:"
+msgid "Current Pregnancy"
+msgstr "Παρούσα κύηση"
+
+msgctxt "field:gnuhealth.patient.pregnancy,fetuses:"
+msgid "Fetuses"
+msgstr "Έμβρυα"
+
+msgctxt "field:gnuhealth.patient.pregnancy,gravida:"
+msgid "Pregnancy #"
+msgstr "Κύηση #"
+
+msgctxt "field:gnuhealth.patient.pregnancy,healthprof:"
+msgid "Health Prof"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.patient.pregnancy,home_birth:"
+msgid "Home Birth"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pregnancy,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.pregnancy,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.pregnancy,iugr:"
+msgid "IUGR"
+msgstr "IUGR"
+
+msgctxt "field:gnuhealth.patient.pregnancy,lmp:"
+msgid "LMP"
+msgstr "Τελευταία έμμηνος ρύση"
+
+msgctxt "field:gnuhealth.patient.pregnancy,monozygotic:"
+msgid "Monozygotic"
+msgstr "Μονοζυγωτική"
+
+msgctxt "field:gnuhealth.patient.pregnancy,name:"
+msgid "Patient ID"
+msgstr "ID Ασθενούς"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pdd:"
+msgid "Pregnancy Due Date"
+msgstr "Πιθανή Ημερομηνία Τοκετού"
+
+msgctxt "field:gnuhealth.patient.pregnancy,perinatal:"
+msgid "Perinatal Info"
+msgstr "Περιγεννητικές πληροφορίες"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_age:"
+msgid "Weeks"
+msgstr "Εβδομάδες"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_date:"
+msgid "End of Pregnancy"
+msgstr "Τέλος της κύησης"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Result"
+msgstr "Αποτέλεσμα"
+
+msgctxt "field:gnuhealth.patient.pregnancy,prenatal_evaluations:"
+msgid "Prenatal Evaluations"
+msgstr "Προγεννητικές εκτιμήσεις"
+
+msgctxt "field:gnuhealth.patient.pregnancy,puerperium_monitor:"
+msgid "Puerperium monitor"
+msgstr "Παρακολούθηση λοχείας"
+
+msgctxt "field:gnuhealth.patient.pregnancy,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.pregnancy,reverse:"
+msgid "Reverse"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pregnancy,reverse_weeks:"
+msgid "Pr. Weeks"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pregnancy,warning:"
+msgid "Warn"
+msgstr "Προειδοποίηση"
+
+msgctxt "field:gnuhealth.patient.pregnancy,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.pregnancy,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία Χρήστη"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,diabetes:"
+msgid "Diabetes"
+msgstr "Διαβήτης"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,efw:"
+msgid "EFW"
+msgstr "Εκτιμώμενο βάρος εμβρύου"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation:"
+msgid "Patient Evaluation"
+msgstr "Εκτίμηση Ασθενούς"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
+msgid "AC"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
+msgid "BPD"
+msgstr "Αμφιβρεγματική Διάμετρος"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
+msgid "FL"
+msgstr "Μήκος μηριαίου"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
+msgid "HC"
+msgstr "Περίμετρος Κεφαλής"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
+msgid "Fetus heart rate"
+msgstr "Εμβρυική καρδιακή συχνότητα"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fundal_height:"
+msgid "Fundal Height"
+msgstr "Ύψος του θόλου της μήτρας"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_days:"
+msgid "Gestational days"
+msgstr "Ημέρες Κυήσεως"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_weeks:"
+msgid "Gestational Weeks"
+msgstr "Εβδομάδες κύησης"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,healthprof:"
+msgid "Health Prof"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,hypertension:"
+msgid "Hypertension"
+msgstr "Υπέρταση"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Placentation"
+msgstr "Ανάπτυξη πλακούντος"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,iugr:"
+msgid "IUGR"
+msgstr "IUGR"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,name:"
+msgid "Patient Pregnancy"
+msgstr "Κύηση ασθενούς"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,oligohydramnios:"
+msgid "Oligohydramnios"
+msgstr "Ολιγοϋδράμνιο"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,overweight:"
+msgid "Overweight"
+msgstr "Υπέρβαρη"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,placenta_previa:"
+msgid "Placenta Previa"
+msgstr "Πρόδρομος πλακούντας"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,polihydramnios:"
+msgid "Polihydramnios"
+msgstr "Πολυϋδράμνιο"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
+msgid "Preeclampsia"
+msgstr "Προεκλαμψία"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,vasa_previa:"
+msgid "Vasa Previa"
+msgstr "Πρόδρομα αγγεία"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.perinatal,abortion:"
+msgid "Abortion"
+msgstr "Αποβολή/ Άμβλωση"
+
+msgctxt "field:gnuhealth.perinatal,abruptio_placentae:"
+msgid "Abruptio Placentae"
+msgstr "Αποκόλληση πλακούντος"
+
+msgctxt "field:gnuhealth.perinatal,admission_code:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.perinatal,admission_date:"
+msgid "Admission"
+msgstr "Εισαγωγή"
+
+msgctxt "field:gnuhealth.perinatal,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.perinatal,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.perinatal,dismissed:"
+msgid "Discharged"
+msgstr "Εξιτήριο"
+
+msgctxt "field:gnuhealth.perinatal,dystocia:"
+msgid "Dystocia"
+msgstr "Δυστοκία"
+
+msgctxt "field:gnuhealth.perinatal,episiotomy:"
+msgid "Episiotomy"
+msgstr "Επισιοτομή"
+
+msgctxt "field:gnuhealth.perinatal,fetus_presentation:"
+msgid "Fetus Presentation"
+msgstr "Θέση εμβρύου"
+
+msgctxt "field:gnuhealth.perinatal,forceps:"
+msgid "Forceps"
+msgstr "Εμβρυουλκοί"
+
+msgctxt "field:gnuhealth.perinatal,gestational_days:"
+msgid "Days"
+msgstr "Ημέρες"
+
+msgctxt "field:gnuhealth.perinatal,gestational_weeks:"
+msgid "Gestational wks"
+msgstr "Εβδομ. κύησης"
+
+msgctxt "field:gnuhealth.perinatal,gravida_number:"
+msgid "Gravida #"
+msgstr "Αριθμός κυήσεων #"
+
+msgctxt "field:gnuhealth.perinatal,healthprof:"
+msgid "Health Prof"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.perinatal,hematoma:"
+msgid "Hematoma"
+msgstr "Αιμάτωμα"
+
+msgctxt "field:gnuhealth.perinatal,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.perinatal,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.perinatal,laceration:"
+msgid "Lacerations"
+msgstr ""
+
+msgctxt "field:gnuhealth.perinatal,medication:"
+msgid "Medication and anesthesics"
+msgstr "Φάρμακα και αναισθητικά"
+
+msgctxt "field:gnuhealth.perinatal,monitoring:"
+msgid "Monitors"
+msgstr "Monitors παρακολούθησης"
+
+msgctxt "field:gnuhealth.perinatal,mother_deceased:"
+msgid "Maternal death"
+msgstr "Θάνατος της μητέρας"
+
+msgctxt "field:gnuhealth.perinatal,name:"
+msgid "Patient Pregnancy"
+msgstr "Κύηση ασθενούς"
+
+msgctxt "field:gnuhealth.perinatal,notes:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "field:gnuhealth.perinatal,place_of_death:"
+msgid "Place of Death"
+msgstr "Τόπος θανάτου"
+
+msgctxt "field:gnuhealth.perinatal,placenta_incomplete:"
+msgid "Incomplete"
+msgstr "Ατελής"
+
+msgctxt "field:gnuhealth.perinatal,placenta_retained:"
+msgid "Retained"
+msgstr "Κατακράτηση"
+
+msgctxt "field:gnuhealth.perinatal,prenatal_evaluations:"
+msgid "Prenatal evaluations"
+msgstr "Επισκέψεις προγεννητικής εκτίμησης"
+
+msgctxt "field:gnuhealth.perinatal,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.perinatal,start_labor_mode:"
+msgid "Delivery mode"
+msgstr "Τρόπος τοκετού"
+
+msgctxt "field:gnuhealth.perinatal,stillbirth:"
+msgid "Stillbirth"
+msgstr "Θνησιγενές"
+
+msgctxt "field:gnuhealth.perinatal,vaginal_tearing:"
+msgid "Vaginal tearing"
+msgstr "Ρήξη κόλπου"
+
+msgctxt "field:gnuhealth.perinatal,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.perinatal,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.perinatal.monitor,bleeding:"
+msgid "Bleeding"
+msgstr "Αιμορραγία"
+
+msgctxt "field:gnuhealth.perinatal.monitor,contractions:"
+msgid "Contractions"
+msgstr "Συσπάσεις"
+
+msgctxt "field:gnuhealth.perinatal.monitor,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.perinatal.monitor,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.perinatal.monitor,date:"
+msgid "Date and Time"
+msgstr "Ημερομηνία και Ώρα"
+
+msgctxt "field:gnuhealth.perinatal.monitor,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "Διαστολική πίεση"
+
+msgctxt "field:gnuhealth.perinatal.monitor,dilation:"
+msgid "Cervix dilation"
+msgstr "Διαστολή τραχήλου"
+
+msgctxt "field:gnuhealth.perinatal.monitor,f_frequency:"
+msgid "Fetus Heart Frequency"
+msgstr "Εμβρυϊκοί παλμοί"
+
+msgctxt "field:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Fetus Position"
+msgstr "Θέση του εμβρύου"
+
+msgctxt "field:gnuhealth.perinatal.monitor,frequency:"
+msgid "Mother's Heart Frequency"
+msgstr "Καρδιακή συχνότητα μητέρας"
+
+msgctxt "field:gnuhealth.perinatal.monitor,fundal_height:"
+msgid "Fundal Height"
+msgstr "Ύψος του θόλου της μήτρας"
+
+msgctxt "field:gnuhealth.perinatal.monitor,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.perinatal.monitor,meconium:"
+msgid "Meconium"
+msgstr "Μηκώνιο"
+
+msgctxt "field:gnuhealth.perinatal.monitor,name:"
+msgid "Patient Perinatal Evaluation"
+msgstr "Περιγεννητική εκτίμηση ασθενούς"
+
+msgctxt "field:gnuhealth.perinatal.monitor,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.perinatal.monitor,systolic:"
+msgid "Systolic Pressure"
+msgstr "Συστολική πίεση"
+
+msgctxt "field:gnuhealth.perinatal.monitor,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.perinatal.monitor,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.puerperium.monitor,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.puerperium.monitor,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.puerperium.monitor,date:"
+msgid "Date and Time"
+msgstr "Ημερομηνία και Ώρα"
+
+msgctxt "field:gnuhealth.puerperium.monitor,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "Διαστολική πίεση"
+
+msgctxt "field:gnuhealth.puerperium.monitor,frequency:"
+msgid "Heart Frequency"
+msgstr "Καρδιακοί παλμοί"
+
+msgctxt "field:gnuhealth.puerperium.monitor,healthprof:"
+msgid "Health Prof"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.puerperium.monitor,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.puerperium.monitor,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "Lochia amount"
+msgstr "Ποσότης Λοχείων"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "Lochia color"
+msgstr "Χρώμα Λοχείων"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "Lochia odor"
+msgstr "Οσμή Λοχείων"
+
+msgctxt "field:gnuhealth.puerperium.monitor,name:"
+msgid "Patient Pregnancy"
+msgstr "Κύηση ασθενούς"
+
+msgctxt "field:gnuhealth.puerperium.monitor,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.puerperium.monitor,systolic:"
+msgid "Systolic Pressure"
+msgstr "Συστολική πίεση"
+
+msgctxt "field:gnuhealth.puerperium.monitor,temperature:"
+msgid "Temperature"
+msgstr "Θερμοκρασία"
+
+msgctxt "field:gnuhealth.puerperium.monitor,uterus_involution:"
+msgid "Fundal Height"
+msgstr "Ύψος  του θόλου της μήτρας"
+
+msgctxt "field:gnuhealth.puerperium.monitor,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.puerperium.monitor,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "help:gnuhealth.patient,breast_self_examination:"
+msgid "Check if patient does and knows how to self examine her breasts"
+msgstr "Βεβαιωθείτε αν η ασθενής κάνει και αν γνωρίζει πως να κάνει την αυτοεξέταση του στήθους της"
+
+msgctxt "help:gnuhealth.patient,colposcopy:"
+msgid "Check if the patient has done a colposcopy exam"
+msgstr "Ελέγξτε αν η ασθενής έχει κάνει μία κολποσκοπική εξέταση"
+
+msgctxt "help:gnuhealth.patient,colposcopy_last:"
+msgid "Enter the date of the last colposcopy"
+msgstr "Εισάγετε την ημερομηνία της τελευταίας κολποσκόπησης"
+
+msgctxt "help:gnuhealth.patient,fertile:"
+msgid "Check if patient is in fertile age"
+msgstr "Ελέγξτε αν η ασθενής είναι σε γόνιμη ηλικία"
+
+msgctxt "help:gnuhealth.patient,full_term:"
+msgid "Full term pregnancies"
+msgstr "Τελειόμηνες κυήσεις"
+
+msgctxt "help:gnuhealth.patient,gravida:"
+msgid "Number of pregnancies, computed from Obstetric history"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,mammography:"
+msgid "Check if the patient does periodic mammographys"
+msgstr "Ελέγξτε αν η ασθενής κάνει περιοδικά μαστογραφίες"
+
+msgctxt "help:gnuhealth.patient,mammography_last:"
+msgid "Enter the date of the last mammography"
+msgstr "Εισάγετε την ημερομηνία της τελευταίας μαστογραφίας"
+
+msgctxt "help:gnuhealth.patient,pap_test:"
+msgid "Check if patient does periodic cytologic pelvic smear screening"
+msgstr "Ελέγξτε αν η ασθενής κάνει περιοδικά κυτταρολογικές εξετάσεις κολπικού επιχρίσματος"
+
+msgctxt "help:gnuhealth.patient,pap_test_last:"
+msgid "Enter the date of the last Papanicolau test"
+msgstr "Εισάγετε την τελευταία ημερομηνία του Παπ τεστ"
+
+msgctxt "help:gnuhealth.patient,premature:"
+msgid "Preterm < 37 wks live births"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,last_colposcopy:"
+msgid "Last colposcopy"
+msgstr "Τελευταία κολποσκόπηση"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,result:"
+msgid ""
+"Please check the lab test results if the module is             installed"
+msgstr "Παρακαλώ ελέγξτε τα αποτελέσματα των  εργαστηριακών, αν έχει εγκατασατθεί το άρθρωμα"
+
+msgctxt "help:gnuhealth.patient.mammography_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "help:gnuhealth.patient.mammography_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.mammography_history,last_mammography:"
+msgid "Last Mammography"
+msgstr "Τελευταία μαστογραφία"
+
+msgctxt "help:gnuhealth.patient.mammography_history,result:"
+msgid ""
+"Please check the lab test results if the module is             installed"
+msgstr "Παρακαλώ ελέγξτε τα αποτελέσματα των  εργαστηριακών, αν έχει εγκατασατθεί το άρθρωμα"
+
+msgctxt "help:gnuhealth.patient.menstrual_history,evaluation_date:"
+msgid "Evaluation Date"
+msgstr "Ημερομηνία εκτίμησης"
+
+msgctxt "help:gnuhealth.patient.menstrual_history,healthprof:"
+msgid "Health Professional who reviewed the information"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.menstrual_history,lmp:"
+msgid "Last Menstrual Period"
+msgstr "Τελευταία Έμμηνος Ρύση"
+
+msgctxt "help:gnuhealth.patient.pap_history,evaluation_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "help:gnuhealth.patient.pap_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pap_history,last_pap:"
+msgid "Last Papanicolau"
+msgstr "Τελευταίο Παπ τεστ"
+
+msgctxt "help:gnuhealth.patient.pap_history,result:"
+msgid "Please check the lab results if the module is             installed"
+msgstr "Παρακαλώ ελέγξτε τα αποτελέσματα των  εργαστηριακών, αν έχει εγκατασατθεί το άρθρωμα"
+
+msgctxt "help:gnuhealth.patient.pregnancy,bba:"
+msgid "Born Before Arrival"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,current_pregnancy:"
+msgid "This field marks the current pregnancy"
+msgstr "Αυτό το πεδίο επισημίνει την παρούσα κύηση"
+
+msgctxt "help:gnuhealth.patient.pregnancy,healthprof:"
+msgid "Health Professional who created this initial obstetric record"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,home_birth:"
+msgid "Home Birth"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,institution:"
+msgid "Health center where this initial obstetric record was created"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,lmp:"
+msgid "Last Menstrual Period"
+msgstr "Τελευταία Έμμηνος Ρύση"
+
+msgctxt "help:gnuhealth.patient.pregnancy,pregnancy_end_age:"
+msgid "Weeks at the end of pregnancy"
+msgstr "Εβδομάδες στο τέλος της κύησης"
+
+msgctxt "help:gnuhealth.patient.pregnancy,reverse:"
+msgid ""
+"Use this method *only* when the         pregnancy information is referred by"
+" the patient, as a history taking         procedure. Please keep in mind "
+"that the reverse pregnancy data is         subjective"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,reverse_weeks:"
+msgid ""
+"Number of weeks at         the end of pregnancy. Used only with the reverse "
+"input method."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.pregnancy,warning:"
+msgid "Check this box if this is pregancy is or was NOT normal"
+msgstr "Επιλέξτε αυτό το κουτί αν αυτή η κύηση ΔΕΝ είναι ή ΔΕΝ ήταν φυσιολογική"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,diabetes:"
+msgid "Check this box if the mother has glucose intolerance or diabetes"
+msgstr "Επιλέξτε αυτό το κουτί αν η μητέρα έχει δυσανεξία στη γλυκόζη ή διαβήτη"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,efw:"
+msgid "Estimated Fetal Weight"
+msgstr "Εκτιμώμενο βάρος εμβρύου"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
+msgid "Fetal Abdominal Circumference"
+msgstr "Περίμετρος κοιλίας εμβρύου"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
+msgid "Fetal Biparietal Diameter"
+msgstr "Αμφιβρεγματική διάμετρος εμβρύου"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
+msgid "Fetal Femur Length"
+msgstr "Μήκος μηριαίου του εμβρύου"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
+msgid "Fetal Head Circumference"
+msgstr "Περίμετρος κεφαλής του εμβρύου"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
+msgid "Fetus heart rate"
+msgstr "Εμβρυική καρδιακή συχνότητα"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fundal_height:"
+msgid ""
+"Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
+msgstr "Απόσταση ανάμεσα στην ηβική σύμφυση και τον πυθμένα της μήτρας (S-FD) σε εκατοστά"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,hypertension:"
+msgid "Check this box if the mother has hypertension"
+msgstr "Επιλέξτε αυτό το κουτί αν η μητέρα έχει υπέρταση"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,iugr:"
+msgid "Intra Uterine Growth Restriction"
+msgstr "Ενδομήτρια Υστέρηση Ανάπτυξης"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,overweight:"
+msgid "Check this box if the mother is overweight or obesity"
+msgstr "Επιλέξτε αυτό το κουτί αν η μητέρα είναι υπέρβαρη ή παχύσαρκη"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
+msgid "Check this box if the mother has pre-eclampsia"
+msgstr "Επιλέξτε αυτό το κουτί αν η μητέρα έχει προεκλαμψία"
+
+msgctxt "help:gnuhealth.perinatal,abruptio_placentae:"
+msgid "Abruptio Placentae"
+msgstr "Αποκόλληση πλακούντος"
+
+msgctxt "help:gnuhealth.perinatal,admission_date:"
+msgid "Date when she was admitted to give birth"
+msgstr "Ημερομηνία κατά την οποία είχε γίνει εισαγωγή της"
+
+msgctxt "help:gnuhealth.perinatal,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr ""
+
+msgctxt "help:gnuhealth.perinatal,mother_deceased:"
+msgid "Mother died in the process"
+msgstr "Η Μητέρα πέθανε κατά τη διαδικασία"
+
+msgctxt "help:gnuhealth.perinatal,place_of_death:"
+msgid "Place where the mother died"
+msgstr "Τοποθεσία όπου πέθανε η μητέρα"
+
+msgctxt "help:gnuhealth.perinatal,placenta_incomplete:"
+msgid "Incomplete Placenta"
+msgstr "Ατελής Πλακούντας"
+
+msgctxt "help:gnuhealth.perinatal,placenta_retained:"
+msgid "Retained Placenta"
+msgstr "Κατακράτηση πλακούντος"
+
+msgctxt "help:gnuhealth.perinatal,prenatal_evaluations:"
+msgid "Number of visits to the doctor during pregnancy"
+msgstr "Αριθμός επισκέψεων στο γιατρό κατά τη διάρκεια της κυήσεως"
+
+msgctxt "help:gnuhealth.puerperium.monitor,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr ""
+
+msgctxt "help:gnuhealth.puerperium.monitor,uterus_involution:"
+msgid ""
+"Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
+msgstr "Απόσταση ανάμεσα στην ηβική σύμφυση και τον πυθμένα της μήτρας (S-FD) σε εκατοστά"
+
+msgctxt "model:gnuhealth.patient.colposcopy_history,name:"
+msgid "Colposcopy History"
+msgstr "Ιστορικό Κολποσκόπησης"
+
+msgctxt "model:gnuhealth.patient.mammography_history,name:"
+msgid "Mammography History"
+msgstr "Ιστορικό εξετάσεων μαστογραφίας"
+
+msgctxt "model:gnuhealth.patient.menstrual_history,name:"
+msgid "Menstrual History"
+msgstr "Ιστορικό εμμήνων ρύσεων"
+
+msgctxt "model:gnuhealth.patient.pap_history,name:"
+msgid "PAP Test History"
+msgstr "Ιστορικό Παπ τεστ"
+
+msgctxt "model:gnuhealth.patient.pregnancy,name:"
+msgid "Patient Pregnancy"
+msgstr "Κύηση ασθενούς"
+
+msgctxt "model:gnuhealth.patient.prenatal.evaluation,name:"
+msgid "Prenatal and Antenatal Evaluations"
+msgstr "Προγεννητικές μετρήσεις και εκτιμήσεις"
+
+msgctxt "model:gnuhealth.perinatal,name:"
+msgid "Perinatal Information"
+msgstr "Περιγεννητικές πληροφορίες"
+
+msgctxt "model:gnuhealth.perinatal.monitor,name:"
+msgid "Perinatal Monitor"
+msgstr "Περιγεννητική παρακολούθηση"
+
+msgctxt "model:gnuhealth.puerperium.monitor,name:"
+msgid "Puerperium Monitor"
+msgstr "Παρακολούθηση λοχείας"
+
+msgctxt "model:ir.action,name:act_pregnancy_form1"
+msgid "Obstetric History"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_gyneco_admin"
+msgid "Health Gynecology and Obstetrics Administration"
+msgstr "Διαχείριση Γυναικολογικής και Μαιευτική υγείας"
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid "abnormal"
+msgstr "παθολογικό"
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid "normal"
+msgstr "κανονική"
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid "abnormal"
+msgstr "παθολογικό"
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid "normal"
+msgstr "κανονική"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "amenorrhea"
+msgstr "Αμηνόρροια"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "eumenorrhea"
+msgstr "Ευμηνόρροια"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "oligomenorrhea"
+msgstr "Ολιγομηνόρροια"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "polymenorrhea"
+msgstr "Πολυμηνόρροια"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "hypomenorrhea"
+msgstr "Υπομηνόρροια"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "menorrhagia"
+msgstr "Μηνορραγία"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "normal"
+msgstr "φυσιολογική"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "AIS"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASC-H"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASC-US"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASG"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "HSIL"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "LSIL"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "Negative"
+msgstr "Αρνητικό"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid "Assymetric"
+msgstr "Ασσύμετρη"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid "Symmetric"
+msgstr "Συμμετρική"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Abortion"
+msgstr "Αποβολή/ Άμβλωση"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Live birth"
+msgstr "Γέννηση ζώντος νεογνού"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Status unknown"
+msgstr "Άγνωστη κατάσταση"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Stillbirth"
+msgstr "Θνησιγενές"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Accreta"
+msgstr "Συμφυτικός πλακούντας"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Increta"
+msgstr "Διεισδυτικός πλακούντας"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Normal decidua"
+msgstr "Φυσιολογικός φθαρτός"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Percreta"
+msgstr "Διηθητικός πλακούντας"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Breech"
+msgstr "Ισχιακή"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Cephalic"
+msgstr "Κεφαλική"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Shoulder"
+msgstr "Ώμου"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Retroperitoneal"
+msgstr "Οπισθοπεριτοναϊκή"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Vaginal"
+msgstr "Κολπικά"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Vulvar"
+msgstr "Κολπικός"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Bladder"
+msgstr "Κύστη"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Broad Ligament"
+msgstr "Πλατύς σύνδεσμος"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Cervical"
+msgstr "Τραχηλικό"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Perineal"
+msgstr "Περινεϊκή"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Rectal"
+msgstr "Πρωκτικά"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Urethral"
+msgstr "Ουρηθρικό"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Vaginal"
+msgstr "Κολπικά"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Vulvar"
+msgstr "Κολπικός"
+
+msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+msgid "At the delivery room"
+msgstr "Στην Αίθουσα Τοκετών"
+
+msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+msgid "Being transferred to other hospital"
+msgstr "Γίνεται διακομιδή σε άλλο νοσοκομείο"
+
+msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+msgid "Hospital"
+msgstr "Νοσοκομείο"
+
+msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+msgid "in transit to the hospital"
+msgstr "καθ' οδόν προς εισαγωγή σε νοσοκομείο"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "C-section"
+msgstr "Καισαρ. τομή"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Forceps Extraction"
+msgstr "Κολπικός - με Εμβρυουλκία"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Spontaneous"
+msgstr "Κολπικός - Αυθόρμητος"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Vacuum Extraction"
+msgstr "Κολπικός - με Σικύα"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Complete Breech"
+msgstr "Ομαλή ισχιακή προβολή"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Footling Breech"
+msgstr "Ισχιακή προβολή επί άκρους πόδας"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Frank Breech"
+msgstr "Ισχιακή προβολή επί γλουτούς"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Occiput / Cephalic Posterior"
+msgstr "Ινίο / Οπισθία Κεφαλική"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "abundant"
+msgstr "άφθονη"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "hemorrhage"
+msgstr "Αιμορραγία"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "normal"
+msgstr "κανονική"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "alba"
+msgstr "λευκή"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "rubra"
+msgstr "ερυθρά"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "serosa"
+msgstr "ορογόνος"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "normal"
+msgstr "κανονική"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "offensive"
+msgstr "δύσοσμος"
+
+msgctxt "view:gnuhealth.patient.colposcopy_history:"
+msgid "Colposcopy Tests"
+msgstr "Κολποσκοπικές εξετάσεις"
+
+msgctxt "view:gnuhealth.patient.colposcopy_history:"
+msgid "Patient colposcopy History"
+msgstr "Ιστορικό κολποσκόπησης της ασθενούς"
+
+msgctxt "view:gnuhealth.patient.mammography_history:"
+msgid "Mammography Tests"
+msgstr "Εξετάσεις Μαστογραφίας"
+
+msgctxt "view:gnuhealth.patient.mammography_history:"
+msgid "Patient mammography History"
+msgstr "Ιστορικό εξετάσεων μαστογραφίας"
+
+msgctxt "view:gnuhealth.patient.menstrual_history:"
+msgid "Menstrual History"
+msgstr "Ιστορικό εμμήνων ρύσεων"
+
+msgctxt "view:gnuhealth.patient.menstrual_history:"
+msgid "Patient Menstrual History"
+msgstr "Ιστορικό εμμήνων ρύσεων ασθενούς"
+
+msgctxt "view:gnuhealth.patient.pap_history:"
+msgid "PAP Tests"
+msgstr "Τεστ Παπανικολάου"
+
+msgctxt "view:gnuhealth.patient.pap_history:"
+msgid "Patient pap History"
+msgstr "Ιστορικό των Τεστ Παπανικολάου"
+
+msgctxt "view:gnuhealth.patient.pregnancy:"
+msgid "Pregnancies"
+msgstr "Εγγυμοσύνες"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Fetal Biometry"
+msgstr "Εμβρυική βιομετρία"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Fetus Information"
+msgstr "Πληροφορίες για το έμβρυο"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Mother Information"
+msgstr "Πληροφορίες για τη μητέρα"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Placenta"
+msgstr "Πλακούντας"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Prenatal Evaluation"
+msgstr "Προγεννητική εκτίμηση"
+
+msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+msgid "Prenatal Evaluations"
+msgstr "Προγεννητικές εκτιμήσεις"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "General"
+msgstr "Γενικά"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "OB summary"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "OB/GYN"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Screening"
+msgstr "Screening"
+
+msgctxt "view:gnuhealth.perinatal.monitor:"
+msgid "Complications"
+msgstr "Επιπλοκές"
+
+msgctxt "view:gnuhealth.perinatal.monitor:"
+msgid "Fetus"
+msgstr "Έμβρυο"
+
+msgctxt "view:gnuhealth.perinatal.monitor:"
+msgid "Mother"
+msgstr "Μητέρα"
+
+msgctxt "view:gnuhealth.perinatal.monitor:"
+msgid "Perinatal Monitor"
+msgstr "Περιγεννητική παρακολούθηση"
+
+msgctxt "view:gnuhealth.perinatal:"
+msgid "Additional Info"
+msgstr "Πρόσθετες πληροφορίες"
+
+msgctxt "view:gnuhealth.perinatal:"
+msgid "Main"
+msgstr "Κύριος/α"
+
+msgctxt "view:gnuhealth.perinatal:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "view:gnuhealth.perinatal:"
+msgid "Perinatal and Intrapartum Information"
+msgstr "Πληροφορίες για την περιγεννητική περίοδο και τον τοκετό"
+
+msgctxt "view:gnuhealth.perinatal:"
+msgid "Placenta anomalies"
+msgstr "Ανωμαλίες του πλακούντος"
+
+msgctxt "view:gnuhealth.puerperium.monitor:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "view:gnuhealth.puerperium.monitor:"
+msgid "Lochia"
+msgstr "Λόχια"
+
+msgctxt "view:gnuhealth.puerperium.monitor:"
+msgid "Main"
+msgstr "Κύριος/α"
+
+msgctxt "view:gnuhealth.puerperium.monitor:"
+msgid "Puerperium Monitor"
+msgstr "Παρακολούθηση λοχείας"

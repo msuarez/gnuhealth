@@ -1,0 +1,807 @@
+# 
+# Translators:
+# kvisitor <kvisitor@gnugr.org>, 2013-2014
+# kvisitor <kvisitor@gnugr.org>, 2011, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "error:gnuhealth.surgery:"
+msgid "End time \"%(end_date)s\" BEFORE surgery date \"%(surgery_date)s\""
+msgstr "'Ωρα τέλους \"%(end_date)s\" ΠΡΙΝ την ημερομηνία χειρουργείου \"%(surgery_date)s\""
+
+msgctxt "field:gnuhealth.operation,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.operation,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.operation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.operation,name:"
+msgid "Surgery"
+msgstr "Χειρουργείο"
+
+msgctxt "field:gnuhealth.operation,notes:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "field:gnuhealth.operation,procedure:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.operation,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.operation,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.operation,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient,surgery:"
+msgid "Surgeries"
+msgstr "Χειρουργεία"
+
+msgctxt "field:gnuhealth.rcri,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.rcri,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.rcri,health_professional:"
+msgid "Health Professional"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.rcri,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.rcri,patient:"
+msgid "Patient ID"
+msgstr "ID Ασθενούς"
+
+msgctxt "field:gnuhealth.rcri,rcri_cerebrovascular_history:"
+msgid "History of Cerebrovascular disease"
+msgstr "Ιστορικό Αγγειακών εγκεφαλικών νόσων"
+
+msgctxt "field:gnuhealth.rcri,rcri_class:"
+msgid "RCRI Class"
+msgstr "Κλάση RCRI"
+
+msgctxt "field:gnuhealth.rcri,rcri_congestive_history:"
+msgid "History of congestive heart disease"
+msgstr "Ιστορικό συμφορητικής καρδιακής νόσου"
+
+msgctxt "field:gnuhealth.rcri,rcri_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Preoperative Diabetes"
+msgstr "Προεγχειρητικός Διαβήτης"
+
+msgctxt "field:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid "High Risk surgery"
+msgstr "Υψηλός χειρουργικός κίνδυνος"
+
+msgctxt "field:gnuhealth.rcri,rcri_ischemic_history:"
+msgid "History of ischemic heart disease"
+msgstr "Ιστορικό ισχαιμικής καρδιακής νόσου"
+
+msgctxt "field:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative Kidney disease"
+msgstr "Προεγχειρητική νεφρική νόσος"
+
+msgctxt "field:gnuhealth.rcri,rcri_total:"
+msgid "Score"
+msgstr "Βαθμολογία"
+
+msgctxt "field:gnuhealth.rcri,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.rcri,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.rcri,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.surgery,admission:"
+msgid "Admission"
+msgstr "Εισαγωγή"
+
+msgctxt "field:gnuhealth.surgery,age:"
+msgid "Estimative Age"
+msgstr "Ηλικία κατ' εκτίμηση"
+
+msgctxt "field:gnuhealth.surgery,anesthesia_report:"
+msgid "Anesthesia Report"
+msgstr "Αναισθησιολογική αναφορά"
+
+msgctxt "field:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist"
+msgstr "Αναισθησιολόγος"
+
+msgctxt "field:gnuhealth.surgery,classification:"
+msgid "Urgency"
+msgstr "Βαθμός επείγοντος"
+
+msgctxt "field:gnuhealth.surgery,code:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.surgery,computed_age:"
+msgid "Age"
+msgstr "Ηλικία"
+
+msgctxt "field:gnuhealth.surgery,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.surgery,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.surgery,description:"
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgctxt "field:gnuhealth.surgery,extra_info:"
+msgid "Extra Info"
+msgstr "Επιπλέον Πληροφορίες"
+
+msgctxt "field:gnuhealth.surgery,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.surgery,institution:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.surgery,operating_room:"
+msgid "Operating Room"
+msgstr "Αίθουσα Χειρουργείου"
+
+msgctxt "field:gnuhealth.surgery,pathology:"
+msgid "Base condition"
+msgstr "Βασική Κατάσταση "
+
+msgctxt "field:gnuhealth.surgery,patient:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
+msgid "Antibiotic Prophylaxis"
+msgstr "Αντιβίωση για προφύλαξη"
+
+msgctxt "field:gnuhealth.surgery,preop_asa:"
+msgid "ASA PS"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,preop_bleeding_risk:"
+msgid "Risk of Massive bleeding"
+msgstr "Κίνδυνος μαζικής αιμορραγίας"
+
+msgctxt "field:gnuhealth.surgery,preop_mallampati:"
+msgid "Mallampati Score"
+msgstr "Βαθμολογία Mallampati"
+
+msgctxt "field:gnuhealth.surgery,preop_oximeter:"
+msgid "Pulse Oximeter in place"
+msgstr "Παλμικό Οξύμετρο στη θέση του"
+
+msgctxt "field:gnuhealth.surgery,preop_rcri:"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "field:gnuhealth.surgery,preop_site_marking:"
+msgid "Surgical Site Marking"
+msgstr "Σήμανση Χειρουργ. πεδίου"
+
+msgctxt "field:gnuhealth.surgery,preop_sterility:"
+msgid "Sterility confirmed"
+msgstr "Επιβεβαίωση Αποστείρωσης"
+
+msgctxt "field:gnuhealth.surgery,procedures:"
+msgid "Procedures"
+msgstr "Procedures"
+
+msgctxt "field:gnuhealth.surgery,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.surgery,signed_by:"
+msgid "Signed by"
+msgstr "Υπεγράφη από τον/την"
+
+msgctxt "field:gnuhealth.surgery,state:"
+msgid "State"
+msgstr "Περιοχή"
+
+msgctxt "field:gnuhealth.surgery,surgeon:"
+msgid "Surgeon"
+msgstr "Χειρουργός"
+
+msgctxt "field:gnuhealth.surgery,surgery_date:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "field:gnuhealth.surgery,surgery_end_date:"
+msgid "End"
+msgstr "Τέλος"
+
+msgctxt "field:gnuhealth.surgery,surgery_length:"
+msgid "Duration"
+msgstr "Διάρκεια"
+
+msgctxt "field:gnuhealth.surgery,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.surgery,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "help:gnuhealth.operation,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS or ICPM"
+msgstr "Κωδικός διαδικασίας, για παράδειγμα ICD-10-PCS ή ICPM"
+
+msgctxt "help:gnuhealth.rcri,health_professional:"
+msgid "Health professional /Cardiologist who signed the assesment RCRI"
+msgstr "Επαγγελματίας υγείας/ Καρδιολόγος που υπέγραψε την αξιολόγηση RCRI"
+
+msgctxt "help:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Diabetes Mellitus requiring treatment with Insulin"
+msgstr "Σακχαρώδης Διαβήτης με ανάγκη αγωγής με ινσουλίνη"
+
+msgctxt "help:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid ""
+"Includes andy suprainguinal vascular, intraperitoneal, or intrathoracic "
+"procedures"
+msgstr "Περιλαμβάνει οποιεσδήποτε υπερβουβωνικές αγγειακές, ενδοπεριτοναίκές, η ενδοθωρακικές διαδικασίες."
+
+msgctxt "help:gnuhealth.rcri,rcri_ischemic_history:"
+msgid ""
+"history of MI or a positive exercise test, current         complaint of "
+"chest pain considered to be secondary to myocardial         ischemia, use of"
+" nitrate therapy, or ECG with pathological         Q waves; do not count "
+"prior coronary revascularization procedure         unless one of the other "
+"criteria for ischemic heart disease is         present"
+msgstr "ιστορικό Εμφράγματος Μυοκαρδίου ή μια θετική δοκιμασία κοπώσεως, με τρέχον σύμπτωμα ένα προκάρδιο άλγος που θεωρείται  δευτερογενές από την μυοκαρδιακή ισχαιμία, χρήση αγωγής με νιτρώδη, ή ΗΚΓ με παθολογικά Q. Να μη ληφθούν υπ' όψιν προηγούμενες παρεμβάσεις επαναγγείωσης των στεφανιαίων, εκτός και αν υπάρχει ένα ή περισσότερα κριτήρια ισχαιμικής στεφανιαίας νόσου"
+
+msgctxt "help:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
+msgstr "Προεγχειρητική Κρεατινίνη ορού "
+
+msgctxt "help:gnuhealth.rcri,rcri_total:"
+msgid ""
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr "0 Βαθμοί: Κλάση I Πολύ χαμηλή (0.4% επιπλοκές)\n1 Βαθμός: Κλάση II Χαμηλή (0.9% επιπλοκές)\n2 Βαθμοί: Κλάση III Μέτρια (6.6% επιπλοκές)\n3 ή παραπάνω Βαθμοί: Κλάση IV Υψηλή (>11% επιπλοκές)"
+
+msgctxt "help:gnuhealth.surgery,age:"
+msgid ""
+"Use this field for historical purposes,         when no date of surgery is "
+"given"
+msgstr "Χρησιμοποιήστε αυτό το πεδίο για λόγους ιστορικού, όταν δεν παρέχεται καμία ημερομηνία για τις χειρουργικές επεμβάσεις."
+
+msgctxt "help:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist in charge"
+msgstr "Υπεύθυνος Αναισθησιολόγος"
+
+msgctxt "help:gnuhealth.surgery,classification:"
+msgid "Urgency level for this surgery"
+msgstr "Βαθμός επείγοντος για το χειρουργείο αυτό"
+
+msgctxt "help:gnuhealth.surgery,code:"
+msgid "Health Center Unique code"
+msgstr "Μοναδικός κωδικός Κέντρου Υγείας "
+
+msgctxt "help:gnuhealth.surgery,computed_age:"
+msgid "Computed patient age at the moment of the surgery"
+msgstr "Ηλικία ασθενούς υπολογισμένη κατά τη στιγμή του χειρουργείου"
+
+msgctxt "help:gnuhealth.surgery,pathology:"
+msgid "Base Condition / Reason"
+msgstr "Βασική Κατάσταση  / Αιτία"
+
+msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
+msgid "Prophylactic antibiotic treatment within the last 60 minutes"
+msgstr "Προφυλακτική αντιβιοτ. θεραπεία στα τελευταία 60 λεπτά"
+
+msgctxt "help:gnuhealth.surgery,preop_asa:"
+msgid "ASA pre-operative Physical Status"
+msgstr "Προεγχειρητική φυσική κατάσταση κατά ASA"
+
+msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
+msgid ""
+"Check this box if patient has a risk of loosing more than 500 ml in adults "
+"of over 7ml/kg in infants. If so, make sure that intravenous access and "
+"fluids are available"
+msgstr "Επιλέξτε αυτό το κουτάκι, αν ο ασθενής έχει κινδυνεύει να χάσει πάνω από 500 ml -σε ενήλικες- ή άνω των 7ml/kg -σε βρέφη. Αν ναι, βεβαιωθείτε ότι έχετε ενδοφλέβια πρόσβαση και τα υγρά."
+
+msgctxt "help:gnuhealth.surgery,preop_oximeter:"
+msgid ""
+"Check this box when verified the pulse oximeter is in place and functioning"
+msgstr "Επιλέξτε αυτό το κουτάκι, όταν βεβαιωθείτε ότι το παλμικό οξύμετρο είναι έτοιμο και λειτουργεί."
+
+msgctxt "help:gnuhealth.surgery,preop_rcri:"
+msgid ""
+"Patient Revised Cardiac Risk Index\n"
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_site_marking:"
+msgid "The surgeon has marked the surgical incision"
+msgstr "Ο χειρουργός έχει μαρκάρει τη χειρουργική τομή"
+
+msgctxt "help:gnuhealth.surgery,preop_sterility:"
+msgid "Nursing team has confirmed sterility of the devices and room"
+msgstr "Η Νοσηλευτ. ομάδα επιβεβαίωσε την αποστείρωση των εργαλείων και της αίθουσας"
+
+msgctxt "help:gnuhealth.surgery,procedures:"
+msgid ""
+"List of the procedures in the surgery. Please enter the first one as the "
+"main procedure"
+msgstr "Κατάλογος διαδικασιών στο χειρουργείο. Παρακαλώ εισάγετε την πρώτη τοιαύτη ως κύρια διαδικασία"
+
+msgctxt "help:gnuhealth.surgery,signed_by:"
+msgid "Health Professional that signed this surgery document"
+msgstr "Επαγγελματίας υγείας που υπέγραψε αυτό το έγγραφο χειρουργείου"
+
+msgctxt "help:gnuhealth.surgery,surgeon:"
+msgid "Surgeon who did the procedure"
+msgstr "Χειρουργός που έκανε τη διαδικασία"
+
+msgctxt "help:gnuhealth.surgery,surgery_date:"
+msgid "Start of the Surgery"
+msgstr "Έναρξη Χειρουργικής επέμβασης"
+
+msgctxt "help:gnuhealth.surgery,surgery_end_date:"
+msgid "End of the Surgery"
+msgstr "Τέλος Χειρουργικής επέμβασης"
+
+msgctxt "help:gnuhealth.surgery,surgery_length:"
+msgid "Length of the surgery"
+msgstr "Διάρκεια Χειρουργικής επέμβασης"
+
+msgctxt "model:gnuhealth.operation,name:"
+msgid "Operation - Surgical Procedures"
+msgstr "Επέμβαση - Χειρουργ. Επεμβάσεις"
+
+msgctxt "model:gnuhealth.rcri,name:"
+msgid "Revised Cardiac Risk Index"
+msgstr "Αναθεωρημένος Δείκτης Καριδακού κιδύνου"
+
+msgctxt "model:gnuhealth.surgery,name:"
+msgid "Surgery"
+msgstr "Χειρουργείο"
+
+msgctxt "model:ir.action,name:act_rcri_form1"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "model:ir.action,name:act_surgery_form"
+msgid "Surgeries"
+msgstr "Χειρουργεία"
+
+msgctxt "model:ir.action,name:action_gnuhealth_surgery_view"
+msgid "Surgeries"
+msgstr "Χειρουργεία"
+
+msgctxt "model:ir.action,name:report_surgery_report"
+msgid "Surgery Report"
+msgstr "Αναφορά χειρουργείου"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_surgery_menu"
+msgid "Surgeries"
+msgstr "Χειρουργεία"
+
+msgctxt "model:res.group,name:group_health_surgery_admin"
+msgid "Health Surgery Administration"
+msgstr "Διαχείριση Χειρουργικής υγείας"
+
+msgctxt "odt:surgery:"
+msgid "( Class"
+msgstr "( Κλάση"
+
+msgctxt "odt:surgery:"
+msgid "(ID"
+msgstr ""
+
+msgctxt "odt:surgery:"
+msgid ")"
+msgstr ")"
+
+msgctxt "odt:surgery:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:surgery:"
+msgid "1 : Normal healthy patient"
+msgstr "1 : Συνηθισμένος υγιής ασθενής"
+
+msgctxt "odt:surgery:"
+msgid "2 : Patients with mild systemic disease"
+msgstr "2 : Ασθενείς με ήπια συστηματική νόσο"
+
+msgctxt "odt:surgery:"
+msgid "3 : Patients with severe systemic disease"
+msgstr "3 : Ασθενείς με σοβαρή συστηματική νόσο"
+
+msgctxt "odt:surgery:"
+msgid ""
+"4 : Patients with severe systemic disease that is a constant threat to life"
+msgstr "4 : Ασθενείς με σοβαρή συστηματική νόσο που απειλεί συνεχώς τη ζωή"
+
+msgctxt "odt:surgery:"
+msgid ""
+"5 : Moribund patients who are not expected to survive without the operation"
+msgstr "5 : Ετοιμοθάνατοι ασθενείς που δεν αναμένεται να επιβιώσουν χωρίς την επέμβαση"
+
+msgctxt "odt:surgery:"
+msgid ""
+"6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "6 : Ασθενής με πιστοποίηση εγκεφαλικού θανάτου, του οποίου τα όργανα αφαιρούνται με σκοπό τη δωρεά"
+
+msgctxt "odt:surgery:"
+msgid ":"
+msgstr ":"
+
+msgctxt "odt:surgery:"
+msgid "ASA"
+msgstr "ASA"
+
+msgctxt "odt:surgery:"
+msgid "Age"
+msgstr "Ηλικία"
+
+msgctxt "odt:surgery:"
+msgid "Anesthesia Report"
+msgstr "Αναφορά αναισθησίας"
+
+msgctxt "odt:surgery:"
+msgid "Anesthetist"
+msgstr "Αναισθησιολόγος"
+
+msgctxt "odt:surgery:"
+msgid "Antibiotic Prophylaxis :"
+msgstr "Προφύλαξη με αντιβίωση:"
+
+msgctxt "odt:surgery:"
+msgid "Base Condition"
+msgstr "Βασική κατάσταση"
+
+msgctxt "odt:surgery:"
+msgid "Class 1:"
+msgstr "Κλάση 1:"
+
+msgctxt "odt:surgery:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "Κατηγορία 2: Ορατότητα σκληράς και μαλθακής υπερώας, του άνω τμήματος των αμυγδαλών και της σταφυλής."
+
+msgctxt "odt:surgery:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "Κατηγορία 3: Η μαλθακή και σκληρά υπερώα, καθώς και η βάση της σταφυλής, είναι ορατές."
+
+msgctxt "odt:surgery:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "Κατηγορία 4: Μόνον η σκληρά υπερώα είναι ορατή"
+
+msgctxt "odt:surgery:"
+msgid "Classification"
+msgstr "Κατάταξη"
+
+msgctxt "odt:surgery:"
+msgid "Date"
+msgstr "Ημερομηνία"
+
+msgctxt "odt:surgery:"
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgctxt "odt:surgery:"
+msgid "Emergency"
+msgstr "Επείγουσα"
+
+msgctxt "odt:surgery:"
+msgid "Female"
+msgstr "Θήλυ"
+
+msgctxt "odt:surgery:"
+msgid "Full visibility of tonsils, uvula and soft palate"
+msgstr "Πλήρης ορατότης αμυγδαλών, σταφυλής και μαλθακής υπερώας"
+
+msgctxt "odt:surgery:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "odt:surgery:"
+msgid "Main Surgeon"
+msgstr "Κύριος χειρουργός"
+
+msgctxt "odt:surgery:"
+msgid "Male"
+msgstr "Άρρην"
+
+msgctxt "odt:surgery:"
+msgid "Mallampati Score"
+msgstr "Βαθμολογία Mallampati"
+
+msgctxt "odt:surgery:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "odt:surgery:"
+msgid "Operating Room"
+msgstr "Αίθουσα Χειρουργείου"
+
+msgctxt "odt:surgery:"
+msgid "Optional"
+msgstr "Προαιρετικός/ή"
+
+msgctxt "odt:surgery:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "odt:surgery:"
+msgid "Physical Status"
+msgstr "Φυσική κατάσταση"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Checklist"
+msgstr "Προεγχειρητική λίστα ελέγχου"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Information"
+msgstr ""
+
+msgctxt "odt:surgery:"
+msgid "Pre-operative"
+msgstr "Προεγχειρητικά"
+
+msgctxt "odt:surgery:"
+msgid "Print Date"
+msgstr "Ημερομηνία εκτύπωσης"
+
+msgctxt "odt:surgery:"
+msgid "Procedure Code"
+msgstr "Κωδικός διαδικασίας"
+
+msgctxt "odt:surgery:"
+msgid "Pulse Oximeter in place :"
+msgstr "Διαδερμικό οξύμετρο στη θέση του:"
+
+msgctxt "odt:surgery:"
+msgid "Required"
+msgstr "Απαιτούμενα"
+
+msgctxt "odt:surgery:"
+msgid "Revised Cardiac Risk Index (RCRI)"
+msgstr "Αναθεωρημένος δείκτης καρδιακού κινδύνου (RCRI)"
+
+msgctxt "odt:surgery:"
+msgid "Risk of Massive bleeding,"
+msgstr "Κίνδυνος μαζικής αιμορραγίας,"
+
+msgctxt "odt:surgery:"
+msgid "Sex"
+msgstr "Σεξ"
+
+msgctxt "odt:surgery:"
+msgid "Sterility confirmed :"
+msgstr "Επιβεβαιωμένη στειρότητα:"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Details / Incidents"
+msgstr "Λεπτομέρειες χειρουργείου / Συμβάματα"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Report :"
+msgstr "Αναφορά χειρουργείου:"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Time"
+msgstr "Χρόνος χειρουργείου:"
+
+msgctxt "odt:surgery:"
+msgid "Surgical Site Marking :"
+msgstr "Σήμανση χειρουργικού πεδίου:"
+
+msgctxt "odt:surgery:"
+msgid "Urgent"
+msgstr "Επειγόντως"
+
+msgctxt "odt:surgery:"
+msgid "at surgery"
+msgstr "κατά το χειρουργείο"
+
+msgctxt "odt:surgery:"
+msgid "e :"
+msgstr ""
+
+msgctxt "odt:surgery:"
+msgid "i"
+msgstr ""
+
+msgctxt "odt:surgery:"
+msgid "ntravenous access and fluids availabl"
+msgstr "ενδοφλέβια πρόσβαση και διαθέσιμα υγρά"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "I"
+msgstr "I"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "II"
+msgstr "II"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "III"
+msgstr "III"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "IV"
+msgstr "IV"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Emergency"
+msgstr "Επείγουσα"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Optional"
+msgstr "Προαιρετικός/ή"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Required"
+msgstr "Απαιτούμενα"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Urgent"
+msgstr "Επείγον"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 1 : Normal healthy patient"
+msgstr "PS 1 : Κανονικός υγιής αθενής"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 2 : Patients with mild systemic disease"
+msgstr "PS 2 : Ασθενείς με ήπια συστημική νόσο"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 3 : Patients with severe systemic disease"
+msgstr "PS 3 : Ασθενείς με σοβαρή συστημική νόσο"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 4 : Patients with severe systemic disease that is a constant threat to "
+"life "
+msgstr "PS 4 : Ασθενείς με σοβαρή συστημική νόσο που αποτελεί μόνιμη απειλή για τη ζωή"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 5 : Moribund patients who are not expected to survive without the "
+"operation"
+msgstr "PS 5 : Ετοιμοθάνατοι ασθενείς που δεν αναμένεται να επιζήσουν χωρίς τη χειρουργική επέμβαση"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "PS 6 : Ένας ασθενής επισήμως δηλωμένος εγκεφλικά νεκρός του οποίου τα όργανα αφαιρούνται με σκοπό τη δωρεά"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
+msgstr "Κατηγορία 1: Πλήρης ορατότητα αμυγδαλών, σταφυλής και μαλθακής υπερώας"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "Κατηγορία 2: Ορατότητα σκληράς και μαλθακής υπερώας, του άνω τμήματος των αμυγδαλών και της σταφυλής."
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "Κατηγορία 3: Η μαλθακή και σκληρά υπερώα, καθώς και η βάση της σταφυλής, είναι ορατές."
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "Κατηγορία 4: Μόνον η σκληρά υπερώα είναι ορατή"
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Done"
+msgstr "Έγινε"
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "In progress"
+msgstr "Σε εξέλιξη"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Operation"
+msgstr "Χειρουργ. επέμβαση"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure"
+msgstr "Ιατρική πράξη/ Διαδικασία"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure Details / Incidents"
+msgstr "Λεπτομέρειες/ Συμβάματα διαδικασίας"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Surgeries"
+msgstr "Χειρουργεία"
+
+msgctxt "view:gnuhealth.procedure:"
+msgid "Procedure"
+msgstr "Διαδικασία"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI : Revised Cardiac Risk Index"
+msgstr "RCRI : Revised Cardiac Risk Index (Αναθεωρημένος δείκτης καρδιακού κινδύνου)"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Anesthesia"
+msgstr "Αναισθησία"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Details / Incidents"
+msgstr "Λεπτομέρειες / Συμβάματα"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finish and sign this surgery ? Itwill become read-only !"
+msgstr "Να τελειώσετε και να υπογράψετε αυτό το χειρουργείο; Μετά θα γίνει μόνο για ανάγνωση !"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Patient Surgical Risk assessment"
+msgstr "Εκτίμηση Χειρουργικού κινδύνου ασθενούς"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Preoperative checklist"
+msgstr "Προεγχειρητικη λίστα ελέγχου"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign"
+msgstr "Σημείο"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign this surgery"
+msgstr "Υπογράψτε αυτό το χειρουργείο"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Surgery"
+msgstr "Χειρουργείο"

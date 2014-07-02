@@ -1,0 +1,616 @@
+# 
+# Translators:
+# kvisitor <kvisitor@gnugr.org>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-16 19:03+0000\n"
+"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "error:gnuhealth.patient.ambulatory_care:"
+msgid "No health professional associated to this user"
+msgstr "Δεν υπάρχει συσχετισμένος επαγγελματίας υγείας με αυτόν τον χρήστη"
+
+msgctxt "error:gnuhealth.patient.rounding:"
+msgid "No health professional associated to this user"
+msgstr "Δεν υπάρχει συσχετισμένος επαγγελματίας υγείας με αυτόν τον χρήστη"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,comments:"
+msgid "Comments"
+msgstr "Σχόλια"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Session"
+msgstr "Συνεδρία"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,base_condition:"
+msgid "Base Condition"
+msgstr "Βασική κατάσταση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart Rate"
+msgstr "Καρδ. Συχνότης"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "Διαστολική πίεση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evaluation:"
+msgid "Related Evaluation"
+msgstr " "
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Evolution"
+msgstr "Εξέλιξη"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Glycemia"
+msgstr "Γλυκαιμία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,health_professional:"
+msgid "Health Professional"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,name:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,next_session:"
+msgid "Next Session"
+msgstr "Επόμενη συνεδρία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,ordering_professional:"
+msgid "Ordering Physician"
+msgstr "Ιατρός που δίνει την εντολή"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation"
+msgstr "Κορεσμός Οξυγόνου"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,patient:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,procedures:"
+msgid "Procedures"
+msgstr "Procedures"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr "Αναπνευστ. συχνότης"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_end:"
+msgid "End"
+msgstr "Τέλος"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_notes:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_number:"
+msgid "Session #"
+msgstr "Αριθμός # συνεδρίας"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_start:"
+msgid "Start"
+msgstr "Αρχή"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,systolic:"
+msgid "Systolic Pressure"
+msgstr "Συστολική πίεση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature"
+msgstr "Θερμοκρασία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,warning:"
+msgid "Warning"
+msgstr "Προειδοποίηση"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding,bpm:"
+msgid "Heart Rate"
+msgstr "Καρδ. Συχνότης"
+
+msgctxt "field:gnuhealth.patient.rounding,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.patient.rounding,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.patient.rounding,depression:"
+msgid "Depression signs"
+msgstr "Σημεία κατάθλιψης"
+
+msgctxt "field:gnuhealth.patient.rounding,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "Διαστολική πίεση"
+
+msgctxt "field:gnuhealth.patient.rounding,diuresis:"
+msgid "Diuresis"
+msgstr "Διούρηση"
+
+msgctxt "field:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment"
+msgstr "Περιβάλλον"
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_end:"
+msgid "End"
+msgstr "Τέλος"
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_start:"
+msgid "Start"
+msgstr "Αρχή"
+
+msgctxt "field:gnuhealth.patient.rounding,evolution:"
+msgid "Evolution"
+msgstr "Εξέλιξη"
+
+msgctxt "field:gnuhealth.patient.rounding,glycemia:"
+msgid "Glycemia"
+msgstr "Γλυκαιμία"
+
+msgctxt "field:gnuhealth.patient.rounding,health_professional:"
+msgid "Health Professional"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.patient.rounding,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding,name:"
+msgid "Registration Code"
+msgstr "Κωδικός εγγραφής"
+
+msgctxt "field:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation"
+msgstr "Κορεσμός Οξυγόνου"
+
+msgctxt "field:gnuhealth.patient.rounding,pain:"
+msgid "Pain"
+msgstr "Πόνος"
+
+msgctxt "field:gnuhealth.patient.rounding,pain_level:"
+msgid "Pain"
+msgstr "Πόνος"
+
+msgctxt "field:gnuhealth.patient.rounding,personal_needs:"
+msgid "Personal needs"
+msgstr "Προσωπικές ανάγκες"
+
+msgctxt "field:gnuhealth.patient.rounding,position:"
+msgid "Position"
+msgstr "Θέση"
+
+msgctxt "field:gnuhealth.patient.rounding,potty:"
+msgid "Potty"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,procedures:"
+msgid "Procedures"
+msgstr "Procedures"
+
+msgctxt "field:gnuhealth.patient.rounding,proximity:"
+msgid "Proximity"
+msgstr "Εγγύτητα"
+
+msgctxt "field:gnuhealth.patient.rounding,pump:"
+msgid "Pumps"
+msgstr "Αντλίες"
+
+msgctxt "field:gnuhealth.patient.rounding,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr "Αναπνευστ. συχνότης"
+
+msgctxt "field:gnuhealth.patient.rounding,round_summary:"
+msgid "Round Summary"
+msgstr "Περίληψη ιατρικής επίσκεψης"
+
+msgctxt "field:gnuhealth.patient.rounding,systolic:"
+msgid "Systolic Pressure"
+msgstr "Συστολική πίεση"
+
+msgctxt "field:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature"
+msgstr "Θερμοκρασία"
+
+msgctxt "field:gnuhealth.patient.rounding,urinary_catheter:"
+msgid "Urinary Catheter"
+msgstr "Ουροκαθετήρας"
+
+msgctxt "field:gnuhealth.patient.rounding,warning:"
+msgid "Warning"
+msgstr "Προειδοποίηση"
+
+msgctxt "field:gnuhealth.patient.rounding,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.patient.rounding,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.rounding_procedure,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.rounding_procedure,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.rounding_procedure,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.rounding_procedure,name:"
+msgid "Rounding"
+msgstr "Επίσκεψη τμήματος"
+
+msgctxt "field:gnuhealth.rounding_procedure,notes:"
+msgid "Notes"
+msgstr "Σημειώσεις"
+
+msgctxt "field:gnuhealth.rounding_procedure,procedure:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.rounding_procedure,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.rounding_procedure,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την Ημερομηνία"
+
+msgctxt "field:gnuhealth.rounding_procedure,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "field:gnuhealth.sequences,ambulatory_care_sequence:"
+msgid "Health Ambulatory Care"
+msgstr "Περιπατητική φροντίδα υγείας, τύπου εξωτερικών ιαρείων"
+
+msgctxt "help:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr "Κωδικ. Διαδικασίας, πχ., ICD-10-PCS Code 7-character string"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr "Καρδιακή συχνότητα σε παλμούς ανά λεπτό"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr "Ελέγξτε την κρίση σας για την τρέχουσα κατάσταση του ασθενούς"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Blood Glucose level"
+msgstr "Επίπεδα γλύκόζης αίματος"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr "Κορεσμός οξυγόνου (αρτηριακός)"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,procedures:"
+msgid ""
+"List of the procedures in this session. Please enter the first one as the "
+"main procedure"
+msgstr "Λίστα διαδικασιών σε αυτή τη συνεδρία. Παρκαλώ εισάγετε την πρώτη ως κύρια διαδικσία"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr "Αναπνευστική συχνότητα σε Αναπνοές ανά λεπτό"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature in celsius"
+msgstr "Θερμοκρασί σε βαθμούς Κελσίου"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,warning:"
+msgid ""
+"Check this box to alert the supervisor about this session. It will be shown "
+"in red in the session list"
+msgstr "Τικάρετε αυτό το κουτί για να θέσετε σε εγρήγορση τον επόπτη για αυτή τη συνεδρία. Θα εμφανισθεί με κόκκινο στη λίστα συνεδριών"
+
+msgctxt "help:gnuhealth.patient.rounding,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr "Καρδιακή συχνότητα σε παλμούς ανά λεπτό"
+
+msgctxt "help:gnuhealth.patient.rounding,depression:"
+msgid "Check this if the patient shows signs of depression"
+msgstr "Ελέγξτε αυτό αν ο ασθενής δείχνει σημεία κατάθλιψης"
+
+msgctxt "help:gnuhealth.patient.rounding,diuresis:"
+msgid "volume in ml"
+msgstr "όγκος σε ml"
+
+msgctxt "help:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment assessment . State any disorder in the room."
+msgstr "Εκτίμηση περιβάλλοντος. Αναφέρετε οποιοδήποτε νόσημα στον θάλαμο."
+
+msgctxt "help:gnuhealth.patient.rounding,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr "Ελέγξτε την κρίση σας για την τρέχουσα κατάσταση του ασθενούς"
+
+msgctxt "help:gnuhealth.patient.rounding,glycemia:"
+msgid "Blood Glucose level"
+msgstr "Επίπεδα γλυκόζης αίματος"
+
+msgctxt "help:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr "Κορεσμός οξυγόνου (αρτηριακός)."
+
+msgctxt "help:gnuhealth.patient.rounding,pain:"
+msgid "Check if the patient is in pain"
+msgstr "Ελέγξτε αν ο ασθενής πονά"
+
+msgctxt "help:gnuhealth.patient.rounding,pain_level:"
+msgid "Enter the pain level, from 1 to 10"
+msgstr "Εισάγετε το επίπεδο πόνου, από το 1 ως το 10"
+
+msgctxt "help:gnuhealth.patient.rounding,personal_needs:"
+msgid "Check if the patient requests anything"
+msgstr "Ελε΄γξτε αν ο ασθενής ζητά οτιδήποτε"
+
+msgctxt "help:gnuhealth.patient.rounding,position:"
+msgid "Check if the patient needs to be repositioned or is unconfortable"
+msgstr "Ελέγξτε αν ο ασθενής χρειάζεται αλλαγή θέσης ή αν νοιώθει άβολα"
+
+msgctxt "help:gnuhealth.patient.rounding,potty:"
+msgid "Check if the patient needs to urinate / defecate"
+msgstr "Ελέγξτε αν ο ασθενής χρειάζεται να ουρήσει / κάνει τις ανάγκες του"
+
+msgctxt "help:gnuhealth.patient.rounding,procedures:"
+msgid ""
+"List of the procedures in this rounding. Please enter the first one as the "
+"main procedure"
+msgstr "Λίστα ενεργειών κατά την επίσκεψη τμήματος. Παρακαλώ εισάγετε την πρώτη από αυτές ως κύρια διαδικασία."
+
+msgctxt "help:gnuhealth.patient.rounding,proximity:"
+msgid "Check if personal items, water, alarm, ... are not in easy reach"
+msgstr "Ελέγξτε αν τα προσωπικά αντικείμενα, νερό, ξυπνητήρι, ... είναι εύκολα προσεγγίσιμα."
+
+msgctxt "help:gnuhealth.patient.rounding,pump:"
+msgid "Check if there is any issues with the pumps - IVs ... "
+msgstr "Ελέγξτε αν υπάρχουν οποιαδήποτε θέματα με τις αντλίες - ΕΦ ..."
+
+msgctxt "help:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr "Αναπνευστική συχνότητα σε Αναπνοές ανά λεπτό"
+
+msgctxt "help:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature in celsius"
+msgstr "Θερμοκρασί σε βαθμούς Κελσίου"
+
+msgctxt "help:gnuhealth.patient.rounding,warning:"
+msgid ""
+"Check this box to alert the supervisor about this patient rounding. It will "
+"be shown in red in the rounding list"
+msgstr "Τσεκάρετε αυτό κουτάκι για να ειδοποιηθεί ο Επόπτης για αυτή την επίσκεψη τμήματος. ΘΑ εμφανίζεται με κόκκινο χρώμα στη λίστα ενεργειών της επίσκεψης τμήματος."
+
+msgctxt "help:gnuhealth.rounding_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr "Κωδικ. Διαδικασίας, πχ., ICD-10-PCS Code 7-character string"
+
+msgctxt "model:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Ambulatory Care Procedure"
+msgstr "Διαδικασία Περιπατητικής φροντίδας"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care,name:"
+msgid "Patient Ambulatory Care"
+msgstr "Περιπατητική φροντίδα ασθενούς"
+
+msgctxt "model:gnuhealth.patient.rounding,name:"
+msgid "Patient Rounding"
+msgstr "Επίσκεψη ασθενών τμήματος"
+
+msgctxt "model:gnuhealth.rounding_procedure,name:"
+msgid "Rounding - Procedure"
+msgstr "Επίσκεψη τμήματος - Διαδικασία"
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_ambulatory_care_view"
+msgid "Ambulatory Care"
+msgstr "Περιπατητική φροντίδα"
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_rounding_view"
+msgid "Roundings"
+msgstr "Επσικέψεις τμήματος"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr "Περιπατητική φροντίδα"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr "Περιπατητική φροντίδα"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_nursing_menu"
+msgid "Nursing"
+msgstr "Νοσηλευτική"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_ambulatory_care_list"
+msgid "Ambulatory Care"
+msgstr "Περιπατητική φροντίδα"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_rounding_list"
+msgid "Roundings"
+msgstr "Επισκέψεις τμήματος"
+
+msgctxt "model:res.group,name:group_health_nursing"
+msgid "Health Nursing"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_nursing_admin"
+msgid "Health Nursing Administration"
+msgstr "Νοσηλευτική Διοίκηση Επισκεπτριών αδελφών υγείας"
+
+msgctxt "model:res.user,name:user_demo_nurse"
+msgid "Health Nurse"
+msgstr "Επισκέπτρια αδελφή υγείας"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Improving"
+msgstr "Υπό βελτίωση"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Initial"
+msgstr "Αρχικός/ή"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Status Quo"
+msgstr "Αμετάβλητη κατάσταση"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Worsening"
+msgstr "Σε επιδείνωση"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Improving"
+msgstr "Υπό βελτίωση"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Status Quo"
+msgstr "Αμετάβλητη κατάσταση"
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Worsening"
+msgstr "Σε επιδείνωση"
+
+msgctxt "view:gnuhealth.ambulatory_care_procedure:"
+msgid "Ambulatory Procedure"
+msgstr "Περιπατητική διαδικασία/πράξη"
+
+msgctxt "view:gnuhealth.ambulatory_care_procedure:"
+msgid "Procedure Details / Incidents"
+msgstr "Λεπτομέρειες/ Συμβάματα διαδικασίας"
+
+msgctxt "view:gnuhealth.ambulatory_care_procedure:"
+msgid "Procedures"
+msgstr "Procedures"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Ambulatory Sessions"
+msgstr "Περιπατητικές συνεδρίες"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Main"
+msgstr "Main"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Patient Ambulatory Care"
+msgstr "Περιπατητική φροντίδα ασθενούς"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Summary"
+msgstr "Περίληψη"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Vital Signs"
+msgstr "Ζωτικά Σημεία"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Main"
+msgstr "Κύριος/α"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Patient Rounding View"
+msgstr "Προβολή επισκέψεως τμήματος"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Procedures"
+msgstr "Procedures"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Round summary"
+msgstr "Σύνοψη επισκέψεως τμήματος"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Roundings"
+msgstr "Επισκέψεις τμήματος"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Six P's"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Vital Signs"
+msgstr "Ζωτικά Σημεία"
+
+msgctxt "view:gnuhealth.rounding_procedure:"
+msgid "Procedure Details / Incidents"
+msgstr "Λεπτομέρειες/ Συμβάματα διαδικασίας"
+
+msgctxt "view:gnuhealth.rounding_procedure:"
+msgid "Rounding Procedure"
+msgstr "Διαδικασία επίσκεψης τμήματος"

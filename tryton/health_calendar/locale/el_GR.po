@@ -1,0 +1,138 @@
+# 
+# Translators:
+# kvisitor <kvisitor@gnugr.org>, 2014
+# kvisitor <kvisitor@gnugr.org>, 2011, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:22+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "field:gnuhealth.appointment,appointment_date_end:"
+msgid "End Date and Time"
+msgstr "Τελική Ημερομηνία και Ώρα"
+
+msgctxt "field:gnuhealth.appointment,event:"
+msgid "CalDAV Event"
+msgstr "Συμβάν CalDAV"
+
+msgctxt ""
+"field:gnuhealth.calendar.create.appointment.start,appointment_minutes:"
+msgid "Appointment Minutes"
+msgstr "Πρακτικά Συνάντησης"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,date_end:"
+msgid "End Date"
+msgstr "Ημερομηνία τέλους"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,date_start:"
+msgid "Start Date"
+msgstr "Ημερομηνία έναρξης"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,friday:"
+msgid "Friday"
+msgstr "Παρασκευή"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,healthprof:"
+msgid "Health Prof"
+msgstr "Επαγγελματίας Υγείας"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,institution:"
+msgid "Health Center"
+msgstr "Κέντρο Υγείας"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,monday:"
+msgid "Monday"
+msgstr "Δευτέρα"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,saturday:"
+msgid "Saturday"
+msgstr "Σάββατο"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,specialty:"
+msgid "Specialty"
+msgstr "Ειδικότητα"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,sunday:"
+msgid "Sunday"
+msgstr "Κυριακή"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,thursday:"
+msgid "Thursday"
+msgstr "Πέμπτη"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,time_end:"
+msgid "End Time"
+msgstr "Ώρα τέλους"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,time_start:"
+msgid "Start Time"
+msgstr "Ώρα έναρξης"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,tuesday:"
+msgid "Tuesday"
+msgstr "Τρίτη"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,wednesday:"
+msgid "Wednesday"
+msgstr "Τετάρτη"
+
+msgctxt "field:res.user,calendar:"
+msgid "Calendar"
+msgstr "Ημερολόγιο"
+
+msgctxt "field:res.user,use_caldav:"
+msgid "Use CalDAV ?"
+msgstr "Να χρησιμοποιηθεί το CalDAV;"
+
+msgctxt "help:gnuhealth.appointment,event:"
+msgid "Calendar Event"
+msgstr "Ημερολόγιο συμβάντων"
+
+msgctxt "model:gnuhealth.calendar.create.appointment.start,name:"
+msgid "Create Appointments Start"
+msgstr "Δημιουργία έναρξης ραντεβού"
+
+msgctxt "model:ir.action,name:action_gnuhealth_appointment_calendar"
+msgid "Appointments Calendar"
+msgstr "Ημερολόγιο για Ραντεβού"
+
+msgctxt "model:ir.action,name:wizard_create_appointments"
+msgid "New Work Schedule"
+msgstr "Νέο πρόγραμμα εργασιών"
+
+msgctxt "model:ir.ui.menu,name:menu_create_appointments"
+msgid "New Work Schedule"
+msgstr "Νέο πρόγραμμα εργασιών"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_appointment_calendar"
+msgid "Appointments Calendar"
+msgstr "Ημερολόγιο για Ραντεβού"
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "Patient appointments"
+msgstr "Ραντεβού με ασθενείς"
+
+msgctxt "view:gnuhealth.calendar.create.appointment.start:"
+msgid "New Work Schedule"
+msgstr "Νέο πρόγραμμα εργασιών"
+
+msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,create_:"
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,end:"
+msgid "Cancel"
+msgstr "Διαγραφή"
