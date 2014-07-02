@@ -1,0 +1,748 @@
+# 
+# Translators:
+# Philip Li <Horatii.Lee@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-27 17:01+0000\n"
+"Last-Translator: Philip Li <Horatii.Lee@gmail.com>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.lab.test.units:"
+msgid "The Unit name must be unique"
+msgstr "单位名称必须唯一"
+
+msgctxt "error:gnuhealth.lab.test_type:"
+msgid "The Lab Test code must be unique"
+msgstr "实验检查编号必须唯一"
+
+msgctxt "error:gnuhealth.lab:"
+msgid "The test ID code must be unique"
+msgstr "检查编号必须唯一"
+
+msgctxt "field:gnuhealth.lab,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.lab,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.lab,critearea:"
+msgid "Lab Test Critearea"
+msgstr "检验室检查标准"
+
+msgctxt "field:gnuhealth.lab,date_analysis:"
+msgid "Date of the Analysis"
+msgstr "分析日期"
+
+msgctxt "field:gnuhealth.lab,date_requested:"
+msgid "Date requested"
+msgstr "请求日期"
+
+msgctxt "field:gnuhealth.lab,diagnosis:"
+msgid "Diagnosis"
+msgstr "诊断"
+
+msgctxt "field:gnuhealth.lab,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab,name:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab,pathologist:"
+msgid "Pathologist"
+msgstr "病理学家"
+
+msgctxt "field:gnuhealth.lab,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.lab,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.lab,requestor:"
+msgid "Physician"
+msgstr "医生"
+
+msgctxt "field:gnuhealth.lab,results:"
+msgid "Results"
+msgstr "结果"
+
+msgctxt "field:gnuhealth.lab,test:"
+msgid "Test type"
+msgstr "检查类型"
+
+msgctxt "field:gnuhealth.lab,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.lab,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.lab.test.create.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab.test.critearea,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.lab.test.critearea,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.lab.test.critearea,excluded:"
+msgid "Excluded"
+msgstr "排除"
+
+msgctxt "field:gnuhealth.lab.test.critearea,gnuhealth_lab_id:"
+msgid "Test Cases"
+msgstr "检查用例"
+
+msgctxt "field:gnuhealth.lab.test.critearea,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab.test.critearea,lower_limit:"
+msgid "Lower Limit"
+msgstr "下限"
+
+msgctxt "field:gnuhealth.lab.test.critearea,name:"
+msgid "Analyte"
+msgstr "分析物"
+
+msgctxt "field:gnuhealth.lab.test.critearea,normal_range:"
+msgid "Reference"
+msgstr "参考"
+
+msgctxt "field:gnuhealth.lab.test.critearea,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.lab.test.critearea,remarks:"
+msgid "Remarks"
+msgstr "备注"
+
+msgctxt "field:gnuhealth.lab.test.critearea,result:"
+msgid "Value"
+msgstr "值"
+
+msgctxt "field:gnuhealth.lab.test.critearea,result_text:"
+msgid "Result - Text"
+msgstr "文本结果"
+
+msgctxt "field:gnuhealth.lab.test.critearea,sequence:"
+msgid "Sequence"
+msgstr "序列"
+
+msgctxt "field:gnuhealth.lab.test.critearea,test_type_id:"
+msgid "Test type"
+msgstr "检查类型"
+
+msgctxt "field:gnuhealth.lab.test.critearea,units:"
+msgid "Units"
+msgstr "单位"
+
+msgctxt "field:gnuhealth.lab.test.critearea,upper_limit:"
+msgid "Upper Limit"
+msgstr "上限"
+
+msgctxt "field:gnuhealth.lab.test.critearea,warning:"
+msgid "Warn"
+msgstr "警告"
+
+msgctxt "field:gnuhealth.lab.test.critearea,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.lab.test.critearea,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.lab.test.units,code:"
+msgid "Code"
+msgstr "代码"
+
+msgctxt "field:gnuhealth.lab.test.units,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.lab.test.units,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.lab.test.units,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab.test.units,name:"
+msgid "Unit"
+msgstr "单位"
+
+msgctxt "field:gnuhealth.lab.test.units,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.lab.test.units,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.lab.test.units,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.lab.test_type,code:"
+msgid "Code"
+msgstr "代码"
+
+msgctxt "field:gnuhealth.lab.test_type,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.lab.test_type,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.lab.test_type,critearea:"
+msgid "Test Cases"
+msgstr "检查用例"
+
+msgctxt "field:gnuhealth.lab.test_type,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.lab.test_type,info:"
+msgid "Description"
+msgstr "描写"
+
+msgctxt "field:gnuhealth.lab.test_type,name:"
+msgid "Test"
+msgstr "检查"
+
+msgctxt "field:gnuhealth.lab.test_type,product_id:"
+msgid "Service"
+msgstr "服务"
+
+msgctxt "field:gnuhealth.lab.test_type,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.lab.test_type,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.lab.test_type,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient,lab_test_ids:"
+msgid "Lab Tests Required"
+msgstr "实验室检查要求"
+
+msgctxt "field:gnuhealth.patient.lab.test,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.lab.test,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.lab.test,date:"
+msgid "Date"
+msgstr "日期"
+
+msgctxt "field:gnuhealth.patient.lab.test,doctor_id:"
+msgid "Doctor"
+msgstr "医生"
+
+msgctxt "field:gnuhealth.patient.lab.test,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.lab.test,name:"
+msgid "Test Type"
+msgstr "检查类型"
+
+msgctxt "field:gnuhealth.patient.lab.test,patient_id:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.patient.lab.test,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.lab.test,request:"
+msgid "Request"
+msgstr "要求"
+
+msgctxt "field:gnuhealth.patient.lab.test,state:"
+msgid "State"
+msgstr "声明"
+
+msgctxt "field:gnuhealth.patient.lab.test,urgent:"
+msgid "Urgent"
+msgstr "紧急的"
+
+msgctxt "field:gnuhealth.patient.lab.test,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.lab.test,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,date:"
+msgid "Date"
+msgstr "日期"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,doctor:"
+msgid "Doctor"
+msgstr "医生"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,tests:"
+msgid "Tests"
+msgstr "测试"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,urgent:"
+msgid "Urgent"
+msgstr "紧急的"
+
+msgctxt "field:gnuhealth.request-test,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.request-test,request:"
+msgid "Request"
+msgstr "要求"
+
+msgctxt "field:gnuhealth.request-test,test:"
+msgid "Test"
+msgstr "检查"
+
+msgctxt "field:gnuhealth.sequences,lab_request_sequence:"
+msgid "Patient Lab Request Sequence"
+msgstr "病人检验室检查序列"
+
+msgctxt "field:gnuhealth.sequences,lab_sequence:"
+msgid "Lab Sequence"
+msgstr "实验序列"
+
+msgctxt "help:gnuhealth.lab,name:"
+msgid "Lab result ID"
+msgstr "实验结果编号"
+
+msgctxt "help:gnuhealth.lab,pathologist:"
+msgid "Pathologist"
+msgstr "病理学家"
+
+msgctxt "help:gnuhealth.lab,patient:"
+msgid "Patient ID"
+msgstr "患者代码"
+
+msgctxt "help:gnuhealth.lab,requestor:"
+msgid "Doctor who requested the test"
+msgstr "要求检查的医生"
+
+msgctxt "help:gnuhealth.lab,test:"
+msgid "Lab test type"
+msgstr "实验检查类型"
+
+msgctxt "help:gnuhealth.lab.test.critearea,excluded:"
+msgid "Select this option when this analyte is excluded from the test"
+msgstr "当分析物被排除在检查外时选择此选项"
+
+msgctxt "help:gnuhealth.lab.test.critearea,result_text:"
+msgid ""
+"Non-numeric results. For example qualitative values, morphological, colors "
+"..."
+msgstr "非数字的结果。例如定性值，形态，颜色..."
+
+msgctxt "help:gnuhealth.lab.test.critearea,warning:"
+msgid ""
+"Warns the patient about this  analyte result It is useful to contextualize "
+"the result to each patient status  like age, sex, comorbidities, ..."
+msgstr " 告知患者，每个病人的年龄、性别、并发症等背景资料对这个结果是有影响的"
+
+msgctxt "help:gnuhealth.lab.test_type,code:"
+msgid "Short name - code for the test"
+msgstr "简写 - 检查的编码"
+
+msgctxt "help:gnuhealth.lab.test_type,name:"
+msgid "Test type, eg X-Ray, hemogram,biopsy..."
+msgstr "检查类型，如 X光照射, 血常规,活体组织检查..."
+
+msgctxt "help:gnuhealth.patient.lab.test,doctor_id:"
+msgid "Doctor who Request the lab test."
+msgstr "要求实验室检查的医生"
+
+msgctxt "help:gnuhealth.patient.lab.test.request.start,doctor:"
+msgid "Doctor who Request the lab tests."
+msgstr "要求实验室检查的医生"
+
+msgctxt "model:gnuhealth.lab,name:"
+msgid "Lab Test"
+msgstr "实验室检查"
+
+msgctxt "model:gnuhealth.lab.test.create.init,name:"
+msgid "Create Test Report Init"
+msgstr "创建检查报告初始化"
+
+msgctxt "model:gnuhealth.lab.test.critearea,name:"
+msgid "Lab Test Critearea"
+msgstr "检验室检查标准"
+
+msgctxt "model:gnuhealth.lab.test.units,name:"
+msgid "Lab Test Units"
+msgstr "检验室检查单元"
+
+msgctxt "model:gnuhealth.lab.test_type,name:"
+msgid "Type of Lab test"
+msgstr "实验室检查种类"
+
+msgctxt "model:gnuhealth.patient.lab.test,name:"
+msgid "Patient Lab Test"
+msgstr "病人检验室检查"
+
+msgctxt "model:gnuhealth.patient.lab.test.request.start,name:"
+msgid "Request Patient Lab Test Start"
+msgstr "要求病人开始检验室检查"
+
+msgctxt "model:gnuhealth.request-test,name:"
+msgid "Request - Test"
+msgstr "要求检查"
+
+msgctxt "model:ir.action,name:act_create_lab_test"
+msgid "Create Lab Test"
+msgstr "创建检验室检查"
+
+msgctxt "model:ir.action,name:act_patient_lab_history_form1"
+msgid "Lab Reports"
+msgstr "检验室报告"
+
+msgctxt "model:ir.action,name:gnuhealth_action_lab_test_request"
+msgid "Lab Test Requests"
+msgstr "检验室检查请求"
+
+msgctxt "model:ir.action,name:gnuhealth_action_lab_unit"
+msgid "Lab Test Units"
+msgstr "检验室检查单元"
+
+msgctxt "model:ir.action,name:gnuhealth_action_list_test"
+msgid "Lab Test Types"
+msgstr "检验室检查类型"
+
+msgctxt "model:ir.action,name:gnuhealth_action_tree_lab"
+msgid "Lab Tests Results"
+msgstr "检验室检查结果"
+
+msgctxt "model:ir.action,name:patient_lab_test_request"
+msgid "Request Lab Test"
+msgstr "要求实验检查"
+
+msgctxt "model:ir.action,name:report_patient_labtest_report"
+msgid "Lab Report"
+msgstr "检验报告"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_lab_request"
+msgid "Lab Request"
+msgstr "检验室要求"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_lab_test"
+msgid "Lab Test"
+msgstr "实验检查"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_lab_request"
+msgid "Lab Request"
+msgstr "检验室要求"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_lab_test"
+msgid "Lab Test"
+msgstr "实验检查"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_action_lab_tree"
+msgid "Lab Tests Results"
+msgstr "检查结果"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_laboratory"
+msgid "Laboratory"
+msgstr "检验室"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_laboratory_menu"
+msgid "Laboratory"
+msgstr "检验室"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_labtest_request"
+msgid "Lab Test Requests"
+msgstr "实验室检查要求"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_labtest_unit"
+msgid "Lab Test Units"
+msgstr "实验室检查单位"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_action_list_test"
+msgid "Lab Test Types"
+msgstr "实验室检查类型"
+
+msgctxt "model:ir.ui.menu,name:menu_patient_lab_test_request"
+msgid "Request Lab Test"
+msgstr "要求检验室检验"
+
+msgctxt "model:product.category,name:product_category_labservices0"
+msgid "Lab Services"
+msgstr "实验室服务"
+
+msgctxt "model:product.template,name:product_template_bloodcounttestcharges0"
+msgid "Blood count test charges"
+msgstr "血球计数检查费"
+
+msgctxt "model:product.template,name:product_template_endocrinology0"
+msgid "Endocrinology"
+msgstr "内分泌"
+
+msgctxt "model:product.template,name:product_template_haematologycharges0"
+msgid "Haematology Charges"
+msgstr "血液收费"
+
+msgctxt ""
+"model:product.template,name:product_template_liverfunctiontestcharges0"
+msgid "Liver Function test charges"
+msgstr "肝功能检验费"
+
+msgctxt ""
+"model:product.template,name:product_template_peripheralsmearexaminationcharges0"
+msgid "Peripheral Smear Examination Charges"
+msgstr "外周血涂片检查费"
+
+msgctxt ""
+"model:product.template,name:product_template_renalfunctiontestcharges0"
+msgid "Renal Function test charges"
+msgstr "肾功能检查费"
+
+msgctxt "model:product.template,name:product_template_semenanalysischarges0"
+msgid "Semen Analysis Charges"
+msgstr "精液分析费"
+
+msgctxt ""
+"model:product.template,name:product_template_stoolexaminationcharges0"
+msgid "Stool Examination Charges"
+msgstr "粪便检查费"
+
+msgctxt "model:product.template,name:product_template_urineanalysischarges0"
+msgid "Urine Analysis charges"
+msgstr "尿液分析费"
+
+msgctxt "model:res.group,name:group_health_lab"
+msgid "Health Lab"
+msgstr "健康检查"
+
+msgctxt "model:res.group,name:group_health_lab_admin"
+msgid "Health lab Administration"
+msgstr "健康检验管理"
+
+msgctxt "model:res.user,name:user_demo_lab"
+msgid "Health Lab"
+msgstr "健康检查"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Age"
+msgstr "年龄"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Analyte"
+msgstr "分析物"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Date"
+msgstr "日期"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Doctor:"
+msgstr "医生"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "E-Mail:"
+msgstr "邮箱"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Female"
+msgstr "女"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "LABORATORY REPORT"
+msgstr "检验室报告"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Male"
+msgstr "男"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Pathologist"
+msgstr "病理学家"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Patient ID"
+msgstr "患者代码"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Phone:"
+msgstr "电话"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Reference"
+msgstr "参考"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Remarks"
+msgstr "备注"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Result"
+msgstr "结果"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Sex"
+msgstr "性别"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Signature"
+msgstr "用药说明"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Units"
+msgstr "单位"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "VAT Number:"
+msgstr "附加税"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "Value"
+msgstr "值"
+
+msgctxt "odt:patient.labtest.report:"
+msgid "____________________________"
+msgstr "____________________________"
+
+msgctxt "selection:gnuhealth.patient.lab.test,state:"
+msgid "Cancel"
+msgstr "取消"
+
+msgctxt "selection:gnuhealth.patient.lab.test,state:"
+msgid "Draft"
+msgstr "草稿"
+
+msgctxt "selection:gnuhealth.patient.lab.test,state:"
+msgid "Ordered"
+msgstr "要求的"
+
+msgctxt "selection:gnuhealth.patient.lab.test,state:"
+msgid "Tested"
+msgstr "已检查"
+
+msgctxt "view:gnuhealth.lab.test.create.init:"
+msgid "Create Lab Tests"
+msgstr "开始检验室检查"
+
+msgctxt "view:gnuhealth.lab.test.create.init:"
+msgid "Create Tests"
+msgstr "开始检查"
+
+msgctxt "view:gnuhealth.lab.test.create.init:"
+msgid "Do you want to generate the test(s) ?"
+msgstr "你要生成这个(这些)检查吗？"
+
+msgctxt "view:gnuhealth.lab.test.critearea:"
+msgid "Analyte"
+msgstr "分析物"
+
+msgctxt "view:gnuhealth.lab.test.critearea:"
+msgid "Reference Value / Range"
+msgstr "参考值/范围"
+
+msgctxt "view:gnuhealth.lab.test.critearea:"
+msgid "Test Cases"
+msgstr "检查实例"
+
+msgctxt "view:gnuhealth.lab.test.units:"
+msgid "Test Unit"
+msgstr "检查单元"
+
+msgctxt "view:gnuhealth.lab.test_type:"
+msgid "Extra Info"
+msgstr "额外信息"
+
+msgctxt "view:gnuhealth.lab.test_type:"
+msgid "Lab Test Type"
+msgstr "检验检查类型"
+
+msgctxt "view:gnuhealth.lab.test_type:"
+msgid "Lab test type"
+msgstr "检验室检查类型"
+
+msgctxt "view:gnuhealth.lab.test_type:"
+msgid "Main Info"
+msgstr "主要信息"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Extra Info"
+msgstr "额外信息"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Lab test type"
+msgstr "实验检查类型"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Laboratory Test"
+msgstr "实验室检查"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Main Info"
+msgstr "主要信息"
+
+msgctxt "view:gnuhealth.patient.lab.test.request.start:"
+msgid "Request Lab Test"
+msgstr "要求查看检验室结果"
+
+msgctxt "view:gnuhealth.patient.lab.test:"
+msgid "Test Requests"
+msgstr "检查要求"
+
+msgctxt "wizard_button:gnuhealth.lab.test.create,start,create_lab_test:"
+msgid "Create Test Order"
+msgstr "创建检查顺序"
+
+msgctxt "wizard_button:gnuhealth.lab.test.create,start,end:"
+msgid "Cancel"
+msgstr "取消"
+
+msgctxt "wizard_button:gnuhealth.patient.lab.test.request,start,end:"
+msgid "Cancel"
+msgstr "取消"
+
+msgctxt "wizard_button:gnuhealth.patient.lab.test.request,start,request:"
+msgid "Request"
+msgstr "要求"

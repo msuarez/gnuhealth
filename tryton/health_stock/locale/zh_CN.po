@@ -1,0 +1,566 @@
+# 
+# Translators:
+# Philip Li <Horatii.Lee@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-16 19:04+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.medicament,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,care_location:"
+msgid "Care Location"
+msgstr "保健的位置"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "药物供给"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medicaments:"
+msgid "Medicaments"
+msgstr "药物"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
+msgid "Stock Moves"
+msgstr "股价波动"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
+msgid "State"
+msgstr "声明"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,vaccines:"
+msgid "Vaccines"
+msgstr "疫苗"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "流水号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "医疗供给"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt ""
+"field:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,medicament:"
+msgid "Medicament"
+msgstr "药品"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "流水号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,product:"
+msgid "Product"
+msgstr "产品"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Route"
+msgstr "路径，轨道"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,dose:"
+msgid "Dose"
+msgstr "剂量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,name:"
+msgid "Ambulatory ID"
+msgstr "流水号"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,next_dose_date:"
+msgid "Next Dose"
+msgstr "下一个剂量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,vaccine:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.rounding,hospitalization_location:"
+msgid "Hospitalization Location"
+msgstr "住院部"
+
+msgctxt "field:gnuhealth.patient.rounding,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "药物供给"
+
+msgctxt "field:gnuhealth.patient.rounding,medicaments:"
+msgid "Medicaments"
+msgstr "药物"
+
+msgctxt "field:gnuhealth.patient.rounding,moves:"
+msgid "Stock Moves"
+msgstr "库存波动"
+
+msgctxt "field:gnuhealth.patient.rounding,state:"
+msgid "State"
+msgstr "声明"
+
+msgctxt "field:gnuhealth.patient.rounding,vaccines:"
+msgid "Vaccines"
+msgstr "疫苗"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "流水号"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "医疗供给"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,medicament:"
+msgid "Medicament"
+msgstr "药品"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "流水号"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,product:"
+msgid "Product"
+msgstr "产品"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Route"
+msgstr "路径，轨道"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,create_date:"
+msgid "Create Date"
+msgstr "创建日期"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,create_uid:"
+msgid "Create User"
+msgstr "创建用户"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,dose:"
+msgid "Dose"
+msgstr "剂量"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,lot:"
+msgid "Lot"
+msgstr "挂号"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,name:"
+msgid "Rounding ID"
+msgstr "舍入ID"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,next_dose_date:"
+msgid "Next Dose"
+msgstr "下一个剂量"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,quantity:"
+msgid "Quantity"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,rec_name:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,short_comment:"
+msgid "Comment"
+msgstr "评论"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,vaccine:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,write_date:"
+msgid "Write Date"
+msgstr "请您写日期"
+
+msgctxt "field:gnuhealth.patient.rounding.vaccine,write_uid:"
+msgid "Write User"
+msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.prescription.order,moves:"
+msgid "Moves"
+msgstr "波动"
+
+msgctxt "field:gnuhealth.prescription.stock.move.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:party.party,warehouse:"
+msgid "Warehouse"
+msgstr "仓库"
+
+msgctxt "field:stock.lot,expiration_date:"
+msgid "Expiration Date"
+msgstr "有效期"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.vaccine,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "help:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "help:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "help:gnuhealth.patient.rounding.vaccine,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "特定药品的简单说明"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Patient Ambulatory Care Medical Supply"
+msgstr "病人门诊医疗供应"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Patient Ambulatory Care Medicament"
+msgstr "病人门诊医药"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.vaccine,name:"
+msgid "Patient Ambulatory Care Vaccine"
+msgstr "病人门诊疫苗"
+
+msgctxt "model:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Patient Rounding Medical Supply"
+msgstr "病人舍入医疗供应"
+
+msgctxt "model:gnuhealth.patient.rounding.medicament,name:"
+msgid "Patient Rounding Medicament"
+msgstr "病人舍入药剂"
+
+msgctxt "model:gnuhealth.patient.rounding.vaccine,name:"
+msgid "Patient Ambulatory Care Vaccine"
+msgstr "病人门诊疫苗"
+
+msgctxt "model:gnuhealth.prescription.stock.move.init,name:"
+msgid "Create Prescription Stock Move Init"
+msgstr "创建处方库存波动初始化"
+
+msgctxt "model:ir.action,name:act_create_prescription_stock_move"
+msgid "Create Prescription Stock Move"
+msgstr "创建处方库存波动"
+
+msgctxt "model:ir.action,name:act_prescription_move_form1"
+msgid "Stock Moves"
+msgstr "库存波动"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Draft"
+msgstr "草稿"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intradermal"
+msgstr "皮层内的"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intramuscular"
+msgstr "肌肉注射"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Intranasal"
+msgstr "鼻内"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Oral"
+msgstr "口服"
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
+msgid "Subcutaneous"
+msgstr "皮下"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Draft"
+msgstr "草稿"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intradermal"
+msgstr "皮层内的"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intramuscular"
+msgstr "肌肉注射"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Intranasal"
+msgstr "鼻内"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Oral"
+msgstr "口服"
+
+msgctxt "selection:gnuhealth.patient.rounding.vaccine,admin_route:"
+msgid "Subcutaneous"
+msgstr "皮下"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.medical_supply:"
+msgid "Medical Supplies"
+msgstr "药物供给"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.medicament:"
+msgid "Medicament"
+msgstr "药品"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care.vaccine:"
+msgid "Vaccines"
+msgstr "疫苗"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Medication"
+msgstr "药物"
+
+msgctxt "view:gnuhealth.patient.ambulatory_care:"
+msgid "Stock Moves"
+msgstr "库存波动"
+
+msgctxt "view:gnuhealth.patient.rounding.medical_supply:"
+msgid "Medical Supplies"
+msgstr "药物供给"
+
+msgctxt "view:gnuhealth.patient.rounding.medicament:"
+msgid "Medicament"
+msgstr "药品"
+
+msgctxt "view:gnuhealth.patient.rounding.vaccine:"
+msgid "Vaccines"
+msgstr "疫苗"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Medication"
+msgstr "药物"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Six P's"
+msgstr "6个p"
+
+msgctxt "view:gnuhealth.patient.rounding:"
+msgid "Stock Moves"
+msgstr "库存波动"
+
+msgctxt "view:gnuhealth.prescription.stock.move.init:"
+msgid "Create Prescription Stock Move"
+msgstr "创建处方库存波动"
+
+msgctxt "view:gnuhealth.prescription.stock.move.init:"
+msgid "Create Stock Move?"
+msgstr "创建库存波动？"
+
+msgctxt ""
+"wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "创建库存波动"
+
+msgctxt "wizard_button:gnuhealth.prescription.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "取消"

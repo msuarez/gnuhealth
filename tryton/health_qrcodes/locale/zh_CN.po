@@ -1,0 +1,105 @@
+# 
+# Translators:
+# haiker <huzech@163.com>, 2012
+# Zenith Zhao <>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-16 19:03+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.newborn,qr:"
+msgid "QR Code"
+msgstr "QR码"
+
+msgctxt "field:gnuhealth.patient,qr:"
+msgid "QR Code"
+msgstr "QR码"
+
+msgctxt "model:ir.action,name:report_newborn_qrcard"
+msgid "Newborn ID - QR"
+msgstr "新生儿ID - QR"
+
+msgctxt "model:ir.action,name:report_patient_qrcard"
+msgid "ID Cards - QR"
+msgstr "ID卡 - QR"
+
+msgctxt "odt:newborn.qrcard:"
+msgid ","
+msgstr "。"
+
+msgctxt "odt:newborn.qrcard:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:newborn.qrcard:"
+msgid "DoB"
+msgstr "出生日期"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Female"
+msgstr "女"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Male"
+msgstr "男"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Mother"
+msgstr "母亲"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Mother's ID"
+msgstr "母亲身份"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Name"
+msgstr "名字"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "and"
+msgstr "与"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "cm"
+msgstr "厘米"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "gr"
+msgstr "gr"
+
+msgctxt "odt:patient.qrcard:"
+msgid ","
+msgstr "。"
+
+msgctxt "odt:patient.qrcard:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:patient.qrcard:"
+msgid "Blood Type"
+msgstr "血型"
+
+msgctxt "odt:patient.qrcard:"
+msgid "DoB"
+msgstr "出生日期"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Female"
+msgstr "女"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Male"
+msgstr "男"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Name"
+msgstr "名字"

@@ -1,0 +1,379 @@
+# 
+# Translators:
+# Jovana Savic <joa.uniq@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-04-04 02:00+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.patient,domestic_violence:"
+msgid "Domestic violence"
+msgstr "家庭暴力"
+
+msgctxt "field:gnuhealth.patient,drug_addiction:"
+msgid "Drug addiction"
+msgstr "吸毒"
+
+msgctxt "field:gnuhealth.patient,education:"
+msgid "Education Level"
+msgstr "教育程度"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_affection:"
+msgid "Family affection"
+msgstr "亲情"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_decisions:"
+msgid "Decision making"
+msgstr "决策"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_discussion:"
+msgid "Problems discussion"
+msgstr "问题的讨论"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_help:"
+msgid "Help from family"
+msgstr "来自家庭的帮助"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_score:"
+msgid "Score"
+msgstr "得分"
+
+msgctxt "field:gnuhealth.patient,fam_apgar_timesharing:"
+msgid "Time sharing"
+msgstr "分时"
+
+msgctxt "field:gnuhealth.patient,hostile_area:"
+msgid "Hostile Area"
+msgstr "敌对区"
+
+msgctxt "field:gnuhealth.patient,hours_outside:"
+msgid "Hours outside home"
+msgstr "在家外的时间"
+
+msgctxt "field:gnuhealth.patient,housing:"
+msgid "Housing conditions"
+msgstr "居住条件"
+
+msgctxt "field:gnuhealth.patient,income:"
+msgid "Income"
+msgstr "收入"
+
+msgctxt "field:gnuhealth.patient,occupation:"
+msgid "Occupation"
+msgstr "职业"
+
+msgctxt "field:gnuhealth.patient,prison_current:"
+msgid "Is currently in prison"
+msgstr "目前是否在监狱"
+
+msgctxt "field:gnuhealth.patient,prison_past:"
+msgid "Has been in prison"
+msgstr "曾经在监狱"
+
+msgctxt "field:gnuhealth.patient,relative_in_prison:"
+msgid "Relative in prison"
+msgstr "相关监狱"
+
+msgctxt "field:gnuhealth.patient,school_withdrawal:"
+msgid "School withdrawal"
+msgstr "退学"
+
+msgctxt "field:gnuhealth.patient,ses:"
+msgid "Socioeconomics"
+msgstr "社会经济"
+
+msgctxt "field:gnuhealth.patient,ses_notes:"
+msgid "Extra info"
+msgstr "额外的资讯"
+
+msgctxt "field:gnuhealth.patient,sexual_abuse:"
+msgid "Sexual abuse"
+msgstr "性虐待"
+
+msgctxt "field:gnuhealth.patient,single_parent:"
+msgid "Single parent family"
+msgstr "单亲家庭"
+
+msgctxt "field:gnuhealth.patient,teenage_pregnancy:"
+msgid "Teenage pregnancy"
+msgstr "少女怀孕"
+
+msgctxt "field:gnuhealth.patient,working_children:"
+msgid "Working children"
+msgstr "工作的儿童"
+
+msgctxt "field:gnuhealth.patient,works_at_home:"
+msgid "Works at home"
+msgstr "在家工作"
+
+msgctxt "field:party.party,education:"
+msgid "Education Level"
+msgstr "教育程度"
+
+msgctxt "field:party.party,occupation:"
+msgid "Occupation"
+msgstr "职业"
+
+msgctxt "help:gnuhealth.patient,education:"
+msgid "Education Level"
+msgstr "教育程度"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_affection:"
+msgid ""
+"Is the patient satisfied with the level of affection coming from the family "
+"?"
+msgstr "病人是否满意来自于家庭的关爱程度？"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_decisions:"
+msgid ""
+"Is the patient satisfied with the level of making important decisions as a "
+"group ?"
+msgstr "病人是否满意一组人作出重大的决定？"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_discussion:"
+msgid ""
+"Is the patient satisfied with the level talking over the problems as family "
+"?"
+msgstr "病人是否满意谈论过家庭问题的水平？"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_help:"
+msgid ""
+"Is the patient satisfied with the level of help coming from the family when "
+"there is a problem ?"
+msgstr "病人是否满足当遇到一个问题时来自于家庭的帮助？"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_score:"
+msgid ""
+"Total Family APGAR \n"
+"7 - 10 : Functional Family \n"
+"4 - 6  : Some level of disfunction \n"
+"0 - 3  : Severe disfunctional family \n"
+msgstr "共有家庭关怀度\n7 - 10:家庭功能 \n4 - 6:某些功能障碍\n0 - 3:严重不正常的家庭\n"
+
+msgctxt "help:gnuhealth.patient,fam_apgar_timesharing:"
+msgid ""
+"Is the patient satisfied with the level of time that they spend together ?"
+msgstr "病人是否满足他们在一起的时间水平？"
+
+msgctxt "help:gnuhealth.patient,hostile_area:"
+msgid "Check if patient lives in a zone of high hostility (eg, war)"
+msgstr "选中此项，如果病人住在高危险地区（例如，战争地区）"
+
+msgctxt "help:gnuhealth.patient,hours_outside:"
+msgid "Number of hours a day the patient spend outside the house"
+msgstr "一天病人花在屋外的时间"
+
+msgctxt "help:gnuhealth.patient,housing:"
+msgid "Housing and sanitary living conditions"
+msgstr "住房和卫生的生活条件"
+
+msgctxt "help:gnuhealth.patient,relative_in_prison:"
+msgid ""
+"Check if someone from the nuclear family - parents / sibblings  is or has "
+"been in prison"
+msgstr "选中此项，如果他来自危险家庭-父母/兄弟姊妹或已在狱中"
+
+msgctxt "help:gnuhealth.patient,ses:"
+msgid "SES - Socioeconomic Status"
+msgstr "SES - 社会经济地位"
+
+msgctxt "help:gnuhealth.patient,works_at_home:"
+msgid "Check if the patient works at his / her house"
+msgstr "选中此项，如果病人在家工作"
+
+msgctxt "help:party.party,education:"
+msgid "Education Level"
+msgstr "教育程度"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "Incomplete Primary School"
+msgstr "未完成小学学业"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "Incomplete Secondary School"
+msgstr "未完成中学学业"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "Primary School"
+msgstr "小学"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "Secondary School"
+msgstr "中学"
+
+msgctxt "selection:gnuhealth.patient,education:"
+msgid "University"
+msgstr "大学"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_affection:"
+msgid "Moderately"
+msgstr "适度"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_affection:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_affection:"
+msgid "Very much"
+msgstr "非常"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_decisions:"
+msgid "Moderately"
+msgstr "适度"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_decisions:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_decisions:"
+msgid "Very much"
+msgstr "非常"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_discussion:"
+msgid "Moderately"
+msgstr "适度"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_discussion:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_discussion:"
+msgid "Very much"
+msgstr "非常"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_help:"
+msgid "Moderately"
+msgstr "适度"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_help:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_help:"
+msgid "Very much"
+msgstr "非常"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_timesharing:"
+msgid "Moderately"
+msgstr "适度"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_timesharing:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:gnuhealth.patient,fam_apgar_timesharing:"
+msgid "Very much"
+msgstr "非常"
+
+msgctxt "selection:gnuhealth.patient,housing:"
+msgid "Comfortable and good sanitary conditions"
+msgstr "舒适和良好的卫生条件"
+
+msgctxt "selection:gnuhealth.patient,housing:"
+msgid "Luxury and excellent sanitary conditions"
+msgstr "豪华和极好的卫生条件"
+
+msgctxt "selection:gnuhealth.patient,housing:"
+msgid "Roomy and excellent sanitary conditions"
+msgstr "宽敞和优秀的卫生条件"
+
+msgctxt "selection:gnuhealth.patient,housing:"
+msgid "Shanty, deficient sanitary conditions"
+msgstr "棚户区，缺乏卫生条件"
+
+msgctxt "selection:gnuhealth.patient,housing:"
+msgid "Small, crowded but with good sanitary conditions"
+msgstr "小，拥挤，但具有良好的卫生条件"
+
+msgctxt "selection:gnuhealth.patient,income:"
+msgid "High"
+msgstr "高"
+
+msgctxt "selection:gnuhealth.patient,income:"
+msgid "Low"
+msgstr "低"
+
+msgctxt "selection:gnuhealth.patient,income:"
+msgid "Medium / Average"
+msgstr "中/平均"
+
+msgctxt "selection:gnuhealth.patient,ses:"
+msgid "Higher"
+msgstr "高"
+
+msgctxt "selection:gnuhealth.patient,ses:"
+msgid "Lower"
+msgstr "低"
+
+msgctxt "selection:gnuhealth.patient,ses:"
+msgid "Lower-middle"
+msgstr "中等偏下"
+
+msgctxt "selection:gnuhealth.patient,ses:"
+msgid "Middle"
+msgstr "中"
+
+msgctxt "selection:gnuhealth.patient,ses:"
+msgid "Middle-upper"
+msgstr "中上部"
+
+msgctxt "selection:party.party,education:"
+msgid "Incomplete Primary School"
+msgstr "未完成小学学业"
+
+msgctxt "selection:party.party,education:"
+msgid "Incomplete Secondary School"
+msgstr "未完成中学学业"
+
+msgctxt "selection:party.party,education:"
+msgid "None"
+msgstr "毫无"
+
+msgctxt "selection:party.party,education:"
+msgid "Primary School"
+msgstr "小学"
+
+msgctxt "selection:party.party,education:"
+msgid "Secondary School"
+msgstr "中学"
+
+msgctxt "selection:party.party,education:"
+msgid "University"
+msgstr "大学"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Family"
+msgstr "家庭"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Family APGAR"
+msgstr "家庭关怀"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Main"
+msgstr "主要"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Notes"
+msgstr "笔记"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Other Family Issues"
+msgstr "其他家庭问题"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Socioeconomics"
+msgstr "社会经济"
