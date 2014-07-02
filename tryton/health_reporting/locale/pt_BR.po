@@ -1,0 +1,305 @@
+# 
+# Translators:
+# carlo giusepe tadei valente sasaki <carlo.gt.valente@gmail.com>, 2014
+# Daniel Linhares <danielinhares@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:23+0000\n"
+"PO-Revision-Date: 2014-06-16 19:03+0000\n"
+"Last-Translator: carlo giusepe tadei valente sasaki <carlo.gt.valente@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "field:gnuhealth.evaluations.open.start,end_date:"
+msgid "End Date"
+msgstr "Data de extremidade"
+
+msgctxt "field:gnuhealth.evaluations.open.start,group_by:"
+msgid "Group By"
+msgstr "Agrupar por"
+
+msgctxt "field:gnuhealth.evaluations.open.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.evaluations.open.start,start_date:"
+msgid "Start Date"
+msgstr "Data de início"
+
+msgctxt "field:gnuhealth.evaluations_doctor,create_date:"
+msgid "Create Date"
+msgstr "Criar Data"
+
+msgctxt "field:gnuhealth.evaluations_doctor,create_uid:"
+msgid "Create User"
+msgstr "Criar Usuário"
+
+msgctxt "field:gnuhealth.evaluations_doctor,doctor:"
+msgid "Doctor"
+msgstr "Médico"
+
+msgctxt "field:gnuhealth.evaluations_doctor,evaluations:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "field:gnuhealth.evaluations_doctor,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.evaluations_doctor,rec_name:"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "field:gnuhealth.evaluations_doctor,write_date:"
+msgid "Write Date"
+msgstr "Inserir Data"
+
+msgctxt "field:gnuhealth.evaluations_doctor,write_uid:"
+msgid "Write User"
+msgstr "Inserir Usuário"
+
+msgctxt "field:gnuhealth.evaluations_sector,create_date:"
+msgid "Create Date"
+msgstr "Criar Data"
+
+msgctxt "field:gnuhealth.evaluations_sector,create_uid:"
+msgid "Create User"
+msgstr "Criar Usuário"
+
+msgctxt "field:gnuhealth.evaluations_sector,evaluations:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "field:gnuhealth.evaluations_sector,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.evaluations_sector,rec_name:"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "field:gnuhealth.evaluations_sector,sector:"
+msgid "Sector"
+msgstr "Setor"
+
+msgctxt "field:gnuhealth.evaluations_sector,write_date:"
+msgid "Write Date"
+msgstr "Inserir Data"
+
+msgctxt "field:gnuhealth.evaluations_sector,write_uid:"
+msgid "Write User"
+msgstr "Inserir Usuário"
+
+msgctxt "field:gnuhealth.evaluations_specialty,create_date:"
+msgid "Create Date"
+msgstr "Criar Data"
+
+msgctxt "field:gnuhealth.evaluations_specialty,create_uid:"
+msgid "Create User"
+msgstr "Criar Usuário"
+
+msgctxt "field:gnuhealth.evaluations_specialty,evaluations:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "field:gnuhealth.evaluations_specialty,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.evaluations_specialty,rec_name:"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "field:gnuhealth.evaluations_specialty,specialty:"
+msgid "Specialty"
+msgstr "Especialidade"
+
+msgctxt "field:gnuhealth.evaluations_specialty,write_date:"
+msgid "Write Date"
+msgstr "Inserir Data"
+
+msgctxt "field:gnuhealth.evaluations_specialty,write_uid:"
+msgid "Write User"
+msgstr "Inserir Usuário"
+
+msgctxt "field:gnuhealth.top_diseases,cases:"
+msgid "Cases"
+msgstr "Casos"
+
+msgctxt "field:gnuhealth.top_diseases,create_date:"
+msgid "Create Date"
+msgstr "Criar Data"
+
+msgctxt "field:gnuhealth.top_diseases,create_uid:"
+msgid "Create User"
+msgstr "Criar Usuário"
+
+msgctxt "field:gnuhealth.top_diseases,disease:"
+msgid "Disease"
+msgstr "Doença"
+
+msgctxt "field:gnuhealth.top_diseases,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.top_diseases,rec_name:"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "field:gnuhealth.top_diseases,write_date:"
+msgid "Write Date"
+msgstr "Inserir Data"
+
+msgctxt "field:gnuhealth.top_diseases,write_uid:"
+msgid "Write User"
+msgstr "Inserir Usuário"
+
+msgctxt "field:gnuhealth.top_diseases.open.start,end_date:"
+msgid "End Date"
+msgstr "Data de extremidade"
+
+msgctxt "field:gnuhealth.top_diseases.open.start,group:"
+msgid "Disease Group"
+msgstr "Grupo de Doenças"
+
+msgctxt "field:gnuhealth.top_diseases.open.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.top_diseases.open.start,number_records:"
+msgid "Number of Records"
+msgstr "Números de Cadastros"
+
+msgctxt "field:gnuhealth.top_diseases.open.start,start_date:"
+msgid "Start Date"
+msgstr "Data de início"
+
+msgctxt "model:gnuhealth.evaluations.open.start,name:"
+msgid "Open Evaluations"
+msgstr "Abrir avaliações"
+
+msgctxt "model:gnuhealth.evaluations_doctor,name:"
+msgid "Evaluations per Doctor"
+msgstr "Avaliação por Médico"
+
+msgctxt "model:gnuhealth.evaluations_sector,name:"
+msgid "Evaluations per Sector"
+msgstr "Avaliações por Setor"
+
+msgctxt "model:gnuhealth.evaluations_specialty,name:"
+msgid "Evaluations per Specialty"
+msgstr "Avaliações por Especialidades"
+
+msgctxt "model:gnuhealth.top_diseases,name:"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "model:gnuhealth.top_diseases.open.start,name:"
+msgid "Open Top Diseases"
+msgstr "Principais Doenças Abertas"
+
+msgctxt "model:ir.action,name:act_evaluations_doctor"
+msgid "Evaluations per Doctor"
+msgstr "Avaliações por Médicos"
+
+msgctxt "model:ir.action,name:act_evaluations_open"
+msgid "Evaluations Report"
+msgstr "Relatório de avaliações"
+
+msgctxt "model:ir.action,name:act_evaluations_sector"
+msgid "Evaluations per Sector"
+msgstr "Avaliações por Setor"
+
+msgctxt "model:ir.action,name:act_evaluations_specialty"
+msgid "Evaluations per Specialty"
+msgstr "Avaliações por Especialidades"
+
+msgctxt "model:ir.action,name:act_top_diseases_form"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "model:ir.action,name:act_top_diseases_open"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "model:ir.ui.menu,name:menu_evaluations_open"
+msgid "Evaluations Report"
+msgstr "Relatório de avaliações"
+
+msgctxt "model:ir.ui.menu,name:menu_top_diseases_open"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Doctor"
+msgstr "Médico"
+
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Sector"
+msgstr "Setor"
+
+msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
+msgid "Specialty"
+msgstr "Especialidade"
+
+msgctxt "view:gnuhealth.evaluations.open.start:"
+msgid "Evaluations per Doctor"
+msgstr "Avaliações por Médicos"
+
+msgctxt "view:gnuhealth.evaluations_doctor:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "view:gnuhealth.evaluations_doctor:"
+msgid "Evaluations per Doctor"
+msgstr "Avaliações por Médicos"
+
+msgctxt "view:gnuhealth.evaluations_sector:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "view:gnuhealth.evaluations_sector:"
+msgid "Evaluations per Sector"
+msgstr "Avaliações por Setor"
+
+msgctxt "view:gnuhealth.evaluations_specialty:"
+msgid "Evaluations"
+msgstr "Avaliações"
+
+msgctxt "view:gnuhealth.evaluations_specialty:"
+msgid "Evaluations per Specialty"
+msgstr "Avaliações por Especialidades"
+
+msgctxt "view:gnuhealth.top_diseases.open.start:"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "view:gnuhealth.top_diseases:"
+msgid "Cases"
+msgstr "Casos"
+
+msgctxt "view:gnuhealth.top_diseases:"
+msgid "Top Diseases"
+msgstr "Principais Doenças"
+
+msgctxt "wizard_button:gnuhealth.evaluations.open,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt "wizard_button:gnuhealth.evaluations.open,start,select:"
+msgid "Open"
+msgstr "Abrir"
+
+msgctxt "wizard_button:gnuhealth.top_diseases.open,start,end:"
+msgid "Cancel"
+msgstr "Cancel"
+
+msgctxt "wizard_button:gnuhealth.top_diseases.open,start,open_:"
+msgid "Open"
+msgstr "Abrir"

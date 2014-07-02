@@ -1,0 +1,137 @@
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:22+0000\n"
+"PO-Revision-Date: 2014-06-16 18:40+0000\n"
+"Last-Translator: Luis Falcon <falcon@gnu.org>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "error:gnuhealth.paper_archive:"
+msgid "The History already exists !"
+msgstr ""
+
+msgctxt "error:gnuhealth.paper_archive:"
+msgid "The Patient History already exists !"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,comments:"
+msgid "Comments"
+msgstr "Comentários"
+
+msgctxt "field:gnuhealth.paper_archive,create_date:"
+msgid "Create Date"
+msgstr "Data de criação"
+
+msgctxt "field:gnuhealth.paper_archive,create_uid:"
+msgid "Create User"
+msgstr "Criado pelo usuário"
+
+msgctxt "field:gnuhealth.paper_archive,current_location:"
+msgid "Current Location"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,hc_status:"
+msgid "Status"
+msgstr "Situação"
+
+msgctxt "field:gnuhealth.paper_archive,id:"
+msgid "ID"
+msgstr "Identificação"
+
+msgctxt "field:gnuhealth.paper_archive,identification_code:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:gnuhealth.paper_archive,legacy:"
+msgid "Legacy Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,location:"
+msgid "Unit"
+msgstr "Unidade"
+
+msgctxt "field:gnuhealth.paper_archive,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.paper_archive,rec_name:"
+msgid "Name"
+msgstr "Nome"
+
+msgctxt "field:gnuhealth.paper_archive,request_date:"
+msgid "Request Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,requested_by:"
+msgid "Resquested by"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,return_date:"
+msgid "Returned Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.paper_archive,write_date:"
+msgid "Write Date"
+msgstr "Inserir Data"
+
+msgctxt "field:gnuhealth.paper_archive,write_uid:"
+msgid "Write User"
+msgstr "Gravado pelo usuário"
+
+msgctxt "help:gnuhealth.paper_archive,current_location:"
+msgid "Location / Unit where this clinical history document should reside."
+msgstr ""
+
+msgctxt "help:gnuhealth.paper_archive,legacy:"
+msgid ""
+"If existing, please enter the old / legacy code associated to this Clinical "
+"History"
+msgstr ""
+
+msgctxt "help:gnuhealth.paper_archive,location:"
+msgid "Location / Unit where this clinical history document should reside."
+msgstr ""
+
+msgctxt "help:gnuhealth.paper_archive,patient:"
+msgid "Patient associated to this newborn baby"
+msgstr "Paciente associado a esse recém-nascido"
+
+msgctxt "help:gnuhealth.paper_archive,requested_by:"
+msgid "Person who last requested the document"
+msgstr ""
+
+msgctxt "model:gnuhealth.paper_archive,name:"
+msgid "Location of PAPER Patient Clinical History"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
+msgid "Medical Archives"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
+msgid "Archives"
+msgstr ""
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Archived"
+msgstr ""
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Borrowed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Lost"
+msgstr ""
+
+msgctxt "view:gnuhealth.paper_archive:"
+msgid "Patient PAPER Clinical History"
+msgstr ""

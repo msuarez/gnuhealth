@@ -1,0 +1,138 @@
+# 
+# Translators:
+# carlo giusepe tadei valente sasaki <carlo.gt.valente@gmail.com>, 2014
+# Daniel Linhares <danielinhares@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2014-06-27 19:22+0000\n"
+"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"Last-Translator: carlo giusepe tadei valente sasaki <carlo.gt.valente@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "field:gnuhealth.appointment,appointment_date_end:"
+msgid "End Date and Time"
+msgstr "Data e hora final"
+
+msgctxt "field:gnuhealth.appointment,event:"
+msgid "CalDAV Event"
+msgstr "Evento CalDAV"
+
+msgctxt ""
+"field:gnuhealth.calendar.create.appointment.start,appointment_minutes:"
+msgid "Appointment Minutes"
+msgstr "Minutos da consulta"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,date_end:"
+msgid "End Date"
+msgstr "Data de extremidade"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,date_start:"
+msgid "Start Date"
+msgstr "Data de início"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,friday:"
+msgid "Friday"
+msgstr "Sexta"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,healthprof:"
+msgid "Health Prof"
+msgstr "Prof. da Saúde"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,institution:"
+msgid "Health Center"
+msgstr "Posto de Saúde"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,monday:"
+msgid "Monday"
+msgstr "Segunda"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,saturday:"
+msgid "Saturday"
+msgstr "Sábado"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,specialty:"
+msgid "Specialty"
+msgstr "Especialidade"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,sunday:"
+msgid "Sunday"
+msgstr "Domingo"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,thursday:"
+msgid "Thursday"
+msgstr "Quinta"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,time_end:"
+msgid "End Time"
+msgstr "Hora final"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,time_start:"
+msgid "Start Time"
+msgstr "Hora inicial"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,tuesday:"
+msgid "Tuesday"
+msgstr "Terça"
+
+msgctxt "field:gnuhealth.calendar.create.appointment.start,wednesday:"
+msgid "Wednesday"
+msgstr "Quarta"
+
+msgctxt "field:res.user,calendar:"
+msgid "Calendar"
+msgstr "Calendário"
+
+msgctxt "field:res.user,use_caldav:"
+msgid "Use CalDAV ?"
+msgstr "Usar CalDAV ?"
+
+msgctxt "help:gnuhealth.appointment,event:"
+msgid "Calendar Event"
+msgstr "Calendário de Eventos"
+
+msgctxt "model:gnuhealth.calendar.create.appointment.start,name:"
+msgid "Create Appointments Start"
+msgstr "Criar início das consultas"
+
+msgctxt "model:ir.action,name:action_gnuhealth_appointment_calendar"
+msgid "Appointments Calendar"
+msgstr "Calendário de consultas"
+
+msgctxt "model:ir.action,name:wizard_create_appointments"
+msgid "New Work Schedule"
+msgstr "Novo horário de trabalho"
+
+msgctxt "model:ir.ui.menu,name:menu_create_appointments"
+msgid "New Work Schedule"
+msgstr "Novo horário de trabalho"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_appointment_calendar"
+msgid "Appointments Calendar"
+msgstr "Calendário de consultas"
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "Patient appointments"
+msgstr "Consultas do paciente"
+
+msgctxt "view:gnuhealth.calendar.create.appointment.start:"
+msgid "New Work Schedule"
+msgstr "Novo horário de trabalho"
+
+msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,create_:"
+msgid "Create"
+msgstr "Criar"
+
+msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
