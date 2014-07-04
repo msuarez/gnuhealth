@@ -196,7 +196,7 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
             vaccinations = []
             for vaccine in ambulatory.vaccines:
                 lot_number = ''
-                expiration_date = ''
+                expiration_date = None
                 if vaccine.lot:
                     if vaccine.lot.number:
                         lot_number = vaccine.lot.number
@@ -448,7 +448,7 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
 
             for vaccine in rounding.vaccines:
                 lot_number = ''
-                expiration_date = ''
+                expiration_date = None
                 if vaccine.lot:
                     if vaccine.lot.number:
                         lot_number = vaccine.lot.number
