@@ -119,36 +119,31 @@ install_python_dependencies() {
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
-
     local PIP_LXML="lxml==3.3.5"
-
     local PIP_RELATORIO="relatorio==0.6.0"
     local PIP_DATEUTIL="python-dateutil==2.2"
     local PIP_PSYCOPG2="psycopg2==2.5.3"
     local PIP_PYTZ="pytz==2014.4"
     local PIP_LDAP="python-ldap==2.4.15"
     local PIP_VOBJECT="vobject==0.6.6"
-    local PIP_PYWEBDAV="pywebdav==0.9.8"
-    local PIP_QRCODE="qrcode==4.0.4"
-    local PIP_SIX="six==1.6.1"
-    local PIP_PILLOW="PILLOW==2.4.0"
-    local PIP_CALDAV="caldav==0.2.1"
+    local PIP_PYWEBDAV="PyWebDAV==0.9.8"
+    local PIP_QRCODE="qrcode==5.0.1"
+    local PIP_SIX="six==1.7.3"
+    local PIP_PILLOW="Pillow==2.4.0"
+    local PIP_CALDAV="caldav==0.1.12"
     local PIP_POLIB="polib==1.0.4"
     local PIP_SQL="python-sql==0.3"
-    
 
     # Operating System specific package selection
     case "$GNU_LINUX_DISTRO" in
         Ubuntu)
-            local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
+            local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
             message "[WARNING] Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW};;
-        *)  local PIP_PKGS="$PIP_PYTZ $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_SIX $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL";;
+        *)  local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL";;
     esac
- 
-        
+
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
-    
     for PKG in ${PIP_PKGS}; do
         message " >> ${PKG}" ${BLUE}
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
