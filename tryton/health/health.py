@@ -990,6 +990,14 @@ class HospitalBed(ModelSQL, ModelView):
     def search_rec_name(cls, name, clause):
         return [('name',) + tuple(clause[1:])]
 
+    @classmethod
+    def __setup__(cls):
+        super(HospitalBed, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name, institution)',
+                'The Bed must be unique per Health Center'),
+        ]
+
 
 class MedicalSpecialty(ModelSQL, ModelView):
     'Medical Specialty'
