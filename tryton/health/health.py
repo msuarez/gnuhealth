@@ -861,7 +861,7 @@ class HospitalOR(ModelSQL, ModelView):
         super(HospitalOR, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name, institution)',
-                'The Operating Room code must be unique per Health'
+                'The Operating Room Name must be unique per Health'
                 ' Center'),
         ]
 
@@ -922,6 +922,15 @@ class HospitalWard(ModelSQL, ModelView):
     @staticmethod
     def default_number_of_beds():
         return 1
+
+    @classmethod
+    def __setup__(cls):
+        super(HospitalWard, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name, institution)',
+                'The Ward / Room Name must be unique per Health'
+                ' Center'),
+        ]
 
 
 class HospitalBed(ModelSQL, ModelView):
