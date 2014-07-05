@@ -55,8 +55,6 @@ setup(name='trytond_health_crypto',
     package_dir={'trytond.modules.health_crypto': '.'},
     packages=[
         'trytond.modules.health_crypto',
-        'trytond.modules.health_crypto.report',
-        'trytond.modules.health_crypto.tests',
         ],
     package_data={
         'trytond.modules.health_crypto': info.get('xml', []) \
