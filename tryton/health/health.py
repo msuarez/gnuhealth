@@ -944,7 +944,7 @@ class HospitalBed(ModelSQL, ModelView):
         help='Bed Number')
 
     institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
+        'gnuhealth.institution', 'Institution', required=True,
         help='Health Institution')
 
     ward = fields.Many2One(
