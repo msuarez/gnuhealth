@@ -886,7 +886,7 @@ class HospitalWard(ModelSQL, ModelView):
     name = fields.Char('Name', required=True, help='Ward / Room code')
 
     institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
+        'gnuhealth.institution', 'Institution',required=True,
         help='Health Institution')
 
     building = fields.Many2One('gnuhealth.hospital.building', 'Building',
