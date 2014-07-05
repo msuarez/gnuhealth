@@ -790,12 +790,23 @@ class HospitalBuilding(ModelSQL, ModelView):
         help='Name of the building within the institution')
 
     institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution',
+        'gnuhealth.institution', 'Institution', required=True,
         help='Health Instituion of this building')
 
-    code = fields.Char('Code')
+    code = fields.Char('Code', required=True)
     extra_info = fields.Text('Extra Info')
 
+    @classmethod
+    def __setup__(cls):
+        super(HospitalBuilding, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name, institution)',
+                'The Building name must be unique per Health'
+                ' Center'),
+            ('code_uniq', 'UNIQUE(code, institution)',
+                'The Building name must be unique per Health'
+                ' Center'),
+        ]
 
 class HospitalUnit(ModelSQL, ModelView):
     'Hospital Unit'
@@ -809,8 +820,20 @@ class HospitalUnit(ModelSQL, ModelView):
         'gnuhealth.institution', 'Institution',
         help='Health Institution')
 
-    code = fields.Char('Code')
+    code = fields.Char('Code', required=True)
     extra_info = fields.Text('Extra Info')
+
+    @classmethod
+    def __setup__(cls):
+        super(HospitalUnit, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name, institution)',
+                'The Building NAME must be unique per Health'
+                ' Center'),
+            ('code_uniq', 'UNIQUE(code, institution)',
+                'The Building CODE must be unique per Health'
+                ' Center'),
+        ]
 
 
 class HospitalOR(ModelSQL, ModelView):
