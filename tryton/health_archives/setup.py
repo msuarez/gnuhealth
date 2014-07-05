@@ -55,8 +55,6 @@ setup(name='trytond_health_archives',
     package_dir={'trytond.modules.health_archives': '.'},
     packages=[
         'trytond.modules.health_archives',
-        'trytond.modules.health_archives.report',
-        'trytond.modules.health_archives.tests',
         ],
     package_data={
         'trytond.modules.health_archives': info.get('xml', []) \
