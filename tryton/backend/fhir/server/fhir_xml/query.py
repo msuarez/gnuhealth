@@ -1,5 +1,5 @@
-from base_classes import *
-from support_functions import *
+from .base_classes import *
+from .support_functions import *
 
 class Query(Resource):
     """A description of a query with a set of parameters.If the element is

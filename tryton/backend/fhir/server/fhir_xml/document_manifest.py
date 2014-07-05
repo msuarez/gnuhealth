@@ -1,5 +1,5 @@
-from base_classes import *
-from support_functions import *
+from .base_classes import *
+from .support_functions import *
 
 
 class DocumentManifest(Resource):

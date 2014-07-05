@@ -1,6 +1,6 @@
-from base_classes import Element
-from config import *
-from support_functions import *
+from .base_classes import Element
+from .config import *
+from .support_functions import *
 
 
 class integer(Element):

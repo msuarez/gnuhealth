@@ -1,7 +1,7 @@
-from base_classes import Element, ResourceReference
-from config import *
-from primitive_types import *
-from support_functions import *
+from .base_classes import Element, ResourceReference
+from .config import *
+from .primitive_types import *
+from .support_functions import *
 
 
 class CodeableConcept(Element):
