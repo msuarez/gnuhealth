@@ -1,5 +1,5 @@
-from support_functions import *
-from config import *
+from .support_functions import *
+from .config import *
 import sys
 
 etree_ = None
@@ -57,7 +57,7 @@ def parsexml_(*args, **kwargs):
     doc = etree_.parse(*args, **kwargs)
     return doc
 
-from base_classes import *
+from .base_classes import *
 
 GDSClassesMapping = {
     'code': Coding,
