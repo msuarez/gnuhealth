@@ -1307,6 +1307,14 @@ class PathologyCategory(ModelSQL, ModelView):
         else:
             return self.name
 
+    @classmethod
+    def __setup__(cls):
+        super(PathologyCategory, cls).__setup__()
+        cls._sql_constraints += [
+            ('name_uniq', 'UNIQUE(name)',
+            'The category name must be unique'),
+        ]
+
 
 class PathologyGroup(ModelSQL, ModelView):
     'Pathology Groups'
