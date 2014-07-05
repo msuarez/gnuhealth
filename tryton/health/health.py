@@ -1327,6 +1327,14 @@ class PathologyGroup(ModelSQL, ModelView):
         'disease_group','Members', readonly=True)
 
     @classmethod
+    def __setup__(cls):
+        super(PathologyGroup, cls).__setup__()
+        cls._sql_constraints += [
+            ('code_uniq', 'UNIQUE(code)',
+            'The Pathology Group code must be unique'),
+        ]
+
+    @classmethod
     def __register__(cls, module_name):
         # Upgrade from GNU Health 1.4.5
         super(PathologyGroup, cls).__register__(module_name)
