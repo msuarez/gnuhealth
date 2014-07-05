@@ -796,6 +796,10 @@ class HospitalBuilding(ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     extra_info = fields.Text('Extra Info')
 
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
     @classmethod
     def __setup__(cls):
         super(HospitalBuilding, cls).__setup__()
@@ -807,6 +811,7 @@ class HospitalBuilding(ModelSQL, ModelView):
                 'The Building name must be unique per Health'
                 ' Center'),
         ]
+
 
 class HospitalUnit(ModelSQL, ModelView):
     'Hospital Unit'
@@ -822,6 +827,10 @@ class HospitalUnit(ModelSQL, ModelView):
 
     code = fields.Char('Code', required=True)
     extra_info = fields.Text('Extra Info')
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
 
     @classmethod
     def __setup__(cls):
@@ -855,6 +864,10 @@ class HospitalOR(ModelSQL, ModelView):
     unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
         domain=[('institution', '=', Eval('institution'))])
     extra_info = fields.Text('Extra Info')
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
 
     @classmethod
     def __setup__(cls):
@@ -923,6 +936,10 @@ class HospitalWard(ModelSQL, ModelView):
     def default_number_of_beds():
         return 1
 
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
     @classmethod
     def __setup__(cls):
         super(HospitalWard, cls).__setup__()
@@ -981,6 +998,10 @@ class HospitalBed(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'free'
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
 
     def get_rec_name(self, name):
         if self.name:
