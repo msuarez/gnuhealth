@@ -191,9 +191,9 @@ install_python_dependencies() {
 
     # Operating System specific package selection
     case "$GNU_LINUX_DISTRO" in
-        Ubuntu)
+        Debian|Ubuntu)
             local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
-            message "[WARNING] Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
+            message "[WARNING] Debian/Ubuntu detected : Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
             ;;
         *)
             local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_LDAP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
