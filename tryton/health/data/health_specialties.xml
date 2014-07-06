@@ -4,39 +4,39 @@
 
         <record model="gnuhealth.specialty" id="2">
             <field name="name">Anatomy</field>
-            <field name="code"></field>
+            <field name="code">ANATOMY</field>
         </record>
         <record model="gnuhealth.specialty" id="3">
             <field name="name">Andrology</field>
-            <field name="code"></field>
+            <field name="code">ANDROLOGY</field>
         </record>
         <record model="gnuhealth.specialty" id="4">
             <field name="name">Alternative Medicine</field>
-            <field name="code"></field>
+            <field name="code">ALTERNATIVE</field>
         </record>
         <record model="gnuhealth.specialty" id="5">
             <field name="name">Anesthesiology</field>
-            <field name="code">AN, PAN</field>
+            <field name="code">ANESTHESIO</field>
         </record>
         <record model="gnuhealth.specialty" id="6">
             <field name="name">Biochemistry</field>
-            <field name="code"></field>
+            <field name="code">BIOCHEM</field>
         </record>
         <record model="gnuhealth.specialty" id="7">
             <field name="name">Cardiology</field>
-            <field name="code"></field>
+            <field name="code">CARDIO</field>
         </record>
         <record model="gnuhealth.specialty" id="8">
             <field name="name">Cardiovascular surgery</field>
-            <field name="code"></field>
+            <field name="code">CARDIOSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="9">
             <field name="name">Clinical laboratory sciences</field>
-            <field name="code"></field>
+            <field name="code">LAB</field>
         </record>
         <record model="gnuhealth.specialty" id="10">
             <field name="name">Clinical Neurophysiology</field>
-            <field name="code"></field>
+            <field name="code">NEUROPHYSIO</field>
         </record>
         <record model="gnuhealth.specialty" id="11">
             <field name="name">Dermatology</field>
@@ -44,195 +44,195 @@
         </record>
         <record model="gnuhealth.specialty" id="12">
             <field name="name">Nutrition</field>
-            <field name="code">NUT</field>
+            <field name="code">NUTRITION</field>
         </record>
         <record model="gnuhealth.specialty" id="13">
             <field name="name">Embryology</field>
-            <field name="code"></field>
+            <field name="code">EMBRYO</field>
         </record>
         <record model="gnuhealth.specialty" id="14">
             <field name="name">Emergency medicine</field>
-            <field name="code">EM</field>
+            <field name="code">EMERGENCY</field>
         </record>
         <record model="gnuhealth.specialty" id="15">
             <field name="name">Endocrinology</field>
-            <field name="code"></field>
+            <field name="code">ENDOCRINO</field>
         </record>
         <record model="gnuhealth.specialty" id="16">
             <field name="name">Family Medicine</field>
-            <field name="code">FM</field>
+            <field name="code">FAMILY</field>
         </record>
         <record model="gnuhealth.specialty" id="17">
             <field name="name">Forensic Medicine</field>
-            <field name="code"></field>
+            <field name="code">FORENSIC</field>
         </record>
         <record model="gnuhealth.specialty" id="18">
             <field name="name">Gastroenterology</field>
-            <field name="code">GI</field>
+            <field name="code">GASTRO</field>
         </record>
         <record model="gnuhealth.specialty" id="19">
             <field name="name">General surgery</field>
-            <field name="code">GS</field>
+            <field name="code">GENERALSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="20">
             <field name="name">Genetics</field>
-            <field name="code"></field>
+            <field name="code">GENETICS</field>
         </record>
         <record model="gnuhealth.specialty" id="21">
             <field name="name">Geriatrics</field>
-            <field name="code">IMG</field>
+            <field name="code">GERIATRICS</field>
         </record>
         <record model="gnuhealth.specialty" id="22">
-            <field name="name">Gynaecology</field>
-            <field name="code"></field>
+            <field name="name">Gynecology</field>
+            <field name="code">GYN</field>
         </record>
         <record model="gnuhealth.specialty" id="23">
             <field name="name">Hematology</field>
-            <field name="code"></field>
+            <field name="code">HEMATO</field>
         </record>
         <record model="gnuhealth.specialty" id="24">
             <field name="name">Hepatology</field>
-            <field name="code"></field>
+            <field name="code">HEPATO</field>
         </record>
         <record model="gnuhealth.specialty" id="25">
             <field name="name">Histology</field>
-            <field name="code"></field>
+            <field name="code">HISTOLOGY</field>
         </record>
         <record model="gnuhealth.specialty" id="26">
             <field name="name">Immunology</field>
-            <field name="code"></field>
+            <field name="code">IMMUNO</field>
         </record>
         <record model="gnuhealth.specialty" id="27">
             <field name="name">Infectious disease</field>
-            <field name="code">ID</field>
+            <field name="code">INFECTIOUS</field>
         </record>
         <record model="gnuhealth.specialty" id="28">
             <field name="name">Intensive care medicine</field>
-            <field name="code"></field>
+            <field name="code">INTENSIVECARE</field>
         </record>
         <record model="gnuhealth.specialty" id="29">
             <field name="name">Maxillofacial surgery</field>
-            <field name="code">Maxfacs, OMFS</field>
+            <field name="code">MAXILLOFACIALSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="30">
             <field name="name">Nephrology</field>
-            <field name="code"></field>
+            <field name="code">NEPHRO</field>
         </record>
         <record model="gnuhealth.specialty" id="31">
             <field name="name">Neurology</field>
-            <field name="code">N</field>
+            <field name="code">NEURO</field>
         </record>
         <record model="gnuhealth.specialty" id="32">
             <field name="name">Neurosurgery</field>
-            <field name="code">NS</field>
+            <field name="code">NEUROSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="33">
             <field name="name">Nursing</field>
-            <field name="code"></field>
+            <field name="code">NURSING</field>
         </record>
         <record model="gnuhealth.specialty" id="34">
             <field name="name">Obstetrics and gynecology</field>
-            <field name="code">OB/GYN</field>
+            <field name="code">OBGYN</field>
         </record>
         <record model="gnuhealth.specialty" id="35">
             <field name="name">Oncology</field>
-            <field name="code">ON</field>
+            <field name="code">ONCO</field>
         </record>
         <record model="gnuhealth.specialty" id="36">
             <field name="name">Ophthalmology</field>
-            <field name="code">OPH</field>
+            <field name="code">OPHTALMO</field>
         </record>
         <record model="gnuhealth.specialty" id="37">
             <field name="name">Orthopedic surgery</field>
-            <field name="code">ORS</field>
+            <field name="code">ORTHOSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="38">
-            <field name="name">Otolaryngology, or ENT</field>
-            <field name="code">ORL, ENT</field>
+            <field name="name">Otolaryngology - ENT</field>
+            <field name="code">ENT</field>
         </record>
         <record model="gnuhealth.specialty" id="39">
             <field name="name">Palliative care</field>
-            <field name="code">PLM</field>
+            <field name="code">PALLIATIVE</field>
         </record>
         <record model="gnuhealth.specialty" id="40">
             <field name="name">Pathology</field>
-            <field name="code">PTH</field>
+            <field name="code">PATHOLOGY</field>
         </record>
         <record model="gnuhealth.specialty" id="41">
             <field name="name">Pediatrics</field>
-            <field name="code">PD</field>
+            <field name="code">PEDIATRICS</field>
         </record>
         <record model="gnuhealth.specialty" id="42">
             <field name="name">Pediatric surgery</field>
-            <field name="code"></field>
+            <field name="code">PEDIATRICSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="43">
             <field name="name">Pharmacology</field>
-            <field name="code"></field>
+            <field name="code">PHARMA</field>
         </record>
         <record model="gnuhealth.specialty" id="44">
             <field name="name">Physical medicine and rehabilitation</field>
-            <field name="code">PM&amp;R</field>
+            <field name="code">PHYSICALREHAB</field>
         </record>
         <record model="gnuhealth.specialty" id="45">
             <field name="name">Plastic surgery</field>
-            <field name="code">PS</field>
+            <field name="code">PLASTICSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="46">
             <field name="name">Proctology</field>
-            <field name="code">PRO</field>
+            <field name="code">PROCTO</field>
         </record>
         <record model="gnuhealth.specialty" id="47">
             <field name="name">Psychiatry</field>
-            <field name="code">P</field>
+            <field name="code">PSYCHIATRY</field>
         </record>
         <record model="gnuhealth.specialty" id="48">
             <field name="name">Pulmonology</field>
-            <field name="code"></field>
+            <field name="code">PULMO</field>
         </record>
         <record model="gnuhealth.specialty" id="49">
             <field name="name">Radiology</field>
-            <field name="code">R, DR</field>
+            <field name="code">RADIO</field>
         </record>
         <record model="gnuhealth.specialty" id="50">
             <field name="name">Rheumatology</field>
-            <field name="code">RHU</field>
+            <field name="code">RHEUMATO</field>
         </record>
         <record model="gnuhealth.specialty" id="51">
             <field name="name">Stomatology</field>
-            <field name="code"></field>
+            <field name="code">STOMATO</field>
         </record>
         <record model="gnuhealth.specialty" id="52">
             <field name="name">Surgical oncology</field>
-            <field name="code">SO</field>
+            <field name="code">SURGICALONCO</field>
         </record>
         <record model="gnuhealth.specialty" id="53">
             <field name="name">Thoracic surgery</field>
-            <field name="code">TS</field>
+            <field name="code">THORACICSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="54">
             <field name="name">Toxicology</field>
-            <field name="code"></field>
+            <field name="code">TOXICO</field>
         </record>
         <record model="gnuhealth.specialty" id="55">
             <field name="name">Transplant surgery</field>
-            <field name="code">TTS</field>
+            <field name="code">TRANSPLANTSURG</field>
         </record>
         <record model="gnuhealth.specialty" id="56">
             <field name="name">Trauma surgery</field>
-            <field name="code">TRS</field>
-        </record>
+            <field name="code">TRAUMASURG</field>
+        </record>        
         <record model="gnuhealth.specialty" id="57">
             <field name="name">Urgent Care Medicine</field>
-            <field name="code">UCM</field>
+            <field name="code">URGENTCARE</field>
         </record>
         <record model="gnuhealth.specialty" id="58">
             <field name="name">Urology</field>
-            <field name="code">U</field>
+            <field name="code">UROLOGY</field>
         </record>
         <record model="gnuhealth.specialty" id="59">
             <field name="name">Vascular surgery</field>
-            <field name="code">VS</field>
+            <field name="code">VASCULARSURG>/field>
         </record>
 
         <record model="gnuhealth.specialty" id="60">
@@ -242,12 +242,12 @@
 
         <record model="gnuhealth.specialty" id="61">
             <field name="name">Internal Medicine</field>
-            <field name="code">IM</field>
+            <field name="code">INTERNAL</field>
         </record>
 
         <record model="gnuhealth.specialty" id="62">
             <field name="name">Speech Therapy / Phonoaudiology</field>
-            <field name="code">ST</field>
+            <field name="code">PHONO</field>
         </record>
 
         <record model="gnuhealth.specialty" id="63">
@@ -262,12 +262,12 @@
 
         <record model="gnuhealth.specialty" id="65">
             <field name="name">Integrative Medicine</field>
-            <field name="code">INT</field>
+            <field name="code">INTEGRATIVE</field>
         </record>
 
         <record model="gnuhealth.specialty" id="66">
             <field name="name">Neonatology</field>
-            <field name="code">NEONATE</field>
+            <field name="code">NEONATO</field>
         </record>
 
         <record model="gnuhealth.specialty" id="67">
@@ -280,29 +280,29 @@
             <field name="code">OBS</field>
         </record>
 
-        <record model="gnuhealth.specialty" id="69">
-            <field name="name">Gynecology</field>
-            <field name="code">GYN</field>
-        </record>
-
         <record model="gnuhealth.specialty" id="70">
             <field name="name">Primary Care</field>
-            <field name="code">PHC</field>
+            <field name="code">PRIMARYCARE</field>
         </record>
 
         <record model="gnuhealth.specialty" id="71">
-            <field name="name">Family Planning</field>
-            <field name="code">FP</field>
+            <field name="name">Family Planning (Primary Care)</field>
+            <field name="code">PRIMARY-FAMILYPLANNING</field>
         </record>
 
         <record model="gnuhealth.specialty" id="72">
             <field name="name">Social Services</field>
-            <field name="code">SOS</field>
+            <field name="code">SOCIALSERVICE</field>
         </record>
 
         <record model="gnuhealth.specialty" id="73">
-            <field name="name">Oral Medicine</field>
-            <field name="code">ORAL</field>
+            <field name="name">Oral Medicine (Primary Care)</field>
+            <field name="code">PRIMARY-ORAL</field>
+        </record>
+
+        <record model="gnuhealth.specialty" id="74">
+            <field name="name">Child Health (Primary Care)</field>
+            <field name="code">PRIMARY-CHILD</field>
         </record>
 
     </data>
