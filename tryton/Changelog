@@ -1,3 +1,1291 @@
+changeset:   1425:44ae2ec79478
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 18:13:10 2014 +0100
+summary:     all : update version
+
+changeset:   1424:b8873f6ebf9e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 16:49:04 2014 +0100
+summary:     health : prioritize constraints in health professional and specialties
+
+changeset:   1423:dba135d3b154
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 16:10:32 2014 +0100
+summary:     health : Include default institution in health professional
+
+changeset:   1422:04269fd8865a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 15:38:12 2014 +0100
+summary:     health: fix invalid attribute in XML view
+
+changeset:   1421:44718bfde9d7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 15:26:13 2014 +0100
+summary:     health: include id as temporary code in migration to the new health institution model
+
+changeset:   1420:248262b50c8f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 13:30:22 2014 +0100
+summary:     health : Make required and unique the institution code
+
+changeset:   1419:17ff6c459309
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 13:18:45 2014 +0100
+summary:     health_genetics : Include sibblings in the family history / genetic information
+
+changeset:   1418:101218cf0ada
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 13:00:37 2014 +0100
+summary:     health_genetics : Improve view for genetic family history
+
+changeset:   1417:a1794ad7875d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 12:47:35 2014 +0100
+summary:     health_genetics : Include notes, comments on genetic risks
+
+changeset:   1416:551834c4b9b8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 12:32:29 2014 +0100
+summary:     health_genetics : Official Symbol of the Disease Gene is now required. Improved tree view
+
+changeset:   1415:f6946a2abeb5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 12:15:02 2014 +0100
+summary:     health_lifestyle : Add code to the recreational drugs database . Update datafile
+
+changeset:   1414:34686ddf25d6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 10:52:35 2014 +0100
+summary:     health : add unique constraint for health professional license ID
+
+changeset:   1413:7301382d6eea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 10:22:16 2014 +0100
+summary:     health : fix required the drug route form
+
+changeset:   1412:627504d0174c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 10:21:03 2014 +0100
+summary:     health : make unique and required the drug route form. Update tooltips
+
+changeset:   1411:4f8337954617
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 10:16:33 2014 +0100
+summary:     health : make unique and required the drug form and medication frequency codes
+
+changeset:   1410:e1f32f38e4fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 10:01:03 2014 +0100
+summary:     health : make unique and required the occupation code
+
+changeset:   1409:08b9aba7688b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 09:51:25 2014 +0100
+summary:     health : make unique and required the ethnic group code
+
+changeset:   1408:5ecb6f042de1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 09:33:55 2014 +0100
+summary:     health : update ethnic groups codes in datafiles
+
+changeset:   1407:b9482087d279
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 09:26:09 2014 +0100
+summary:     health : make required and unique the specialty code
+
+changeset:   1406:36271776d4e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 08:51:19 2014 +0100
+summary:     health: Update medical specialties and their codes
+
+changeset:   1405:cdc2aba9a1c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 20:57:50 2014 +0100
+summary:     health : make the institution field required on the ward model
+
+changeset:   1404:912ee97bdfe2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 20:45:21 2014 +0100
+summary:     health : Add default institution in buildings, units, wards, beds and OR
+
+changeset:   1403:663e32bd589b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 20:35:15 2014 +0100
+summary:     health: add unique constraint on bed per institution
+
+changeset:   1402:9b9e337b226c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 20:27:03 2014 +0100
+summary:     health : Make institution field on bed model required
+
+changeset:   1401:d2bafefd705d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 20:07:21 2014 +0100
+summary:     health: add unique constraints on ward per institution
+
+changeset:   1400:f29b9089d96f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 19:58:18 2014 +0100
+summary:     health: make the OR and Unit required
+
+changeset:   1399:6957763ca714
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 19:49:49 2014 +0100
+summary:     health: add unique constraints on name , code in institutions for Institutions buildings and units
+
+changeset:   1398:ec23d135cd64
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 19:10:10 2014 +0100
+summary:     health: Add unique constraint to disease categories
+
+changeset:   1397:e23a8a9835e7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jul 05 10:07:58 2014 -0700
+summary:     FHIR: a small start on flask
+
+changeset:   1396:92adeeb6bc66
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jul 05 09:58:17 2014 -0700
+summary:     FHIR: renamed main to __init__; fixed some imports
+
+changeset:   1395:88b55952a191
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jul 05 09:53:23 2014 -0700
+summary:     FHIR: import as xml code as module; fixed some imports
+
+changeset:   1394:2b05b52e9b41
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 17:13:57 2014 +0100
+summary:     health : unique constraint for pathology groups
+
+changeset:   1393:c38aced12dca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 15:39:36 2014 +0100
+summary:     health_crypt : remove unused directories in setup.py
+
+changeset:   1392:1944ace336e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 05 15:22:51 2014 +0100
+summary:     health_archives : remove unused directories in setup.py
+
+changeset:   1391:0558acf75e87
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Jul 05 07:29:48 2014 -0300
+summary:     installer : Same fixes on selection of python packages to Debian distro.
+
+changeset:   1390:70b581d83d00
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Jul 05 07:17:56 2014 -0300
+summary:     installer : Refactoring to use only functions from main() controller skeleton.
+
+changeset:   1389:25989c1caeb2
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Jul 05 03:57:52 2014 -0300
+summary:     installer : Update versions of packages python dependencies
+
+changeset:   1388:4e244bf2de70
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jul 04 19:41:34 2014 -0300
+summary:     health : Fix prescription printing error when no DoB was assigned to the patient.
+
+changeset:   1387:3026b117dbe9
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jul 04 16:03:29 2014 -0300
+summary:     health_stock : Fix vaccine default expiration_date
+
+changeset:   1386:318a10142c73
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 02 14:40:01 2014 -0300
+summary:     all : Add Chinese as an official language
+
+changeset:   1385:266c47b447fb
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 02 14:22:25 2014 -0300
+summary:     all : Add Portuguese (Brazil) as an official language
+
+changeset:   1384:3b2fc9d60b02
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 02 14:13:58 2014 -0300
+summary:     all : Add Greek as an official language
+
+changeset:   1383:05b117dbf85e
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 02 14:07:36 2014 -0300
+summary:     all : Update official languages from transifex
+
+changeset:   1382:3ddd9655b8b6
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 02 12:35:37 2014 -0300
+summary:     health : Fix typo
+
+changeset:   1381:fe8911f100dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 16:35:16 2014 +0100
+summary:     GNU HEALTH installer : fix typo
+
+changeset:   1380:f379b8c1b7a4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 16:22:53 2014 +0100
+summary:     GNU HEALTH installer : select python packages to install locally depending on the operating system
+
+changeset:   1379:774741fdf946
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 16:02:17 2014 +0100
+summary:     GNU HEALTH installer : check operating system and distros
+
+changeset:   1378:5bf96abd5cf1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 12:19:22 2014 +0100
+summary:     BASH profile : Include GNUHEALTH_VERSION environment variable
+
+changeset:   1377:c74761cc45bd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 12:08:50 2014 +0100
+summary:     BASH profile : source .gnuhealthrc from .bashrc
+
+changeset:   1376:1fb4de85d4ad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 11:41:17 2014 +0100
+summary:     BASH profile : add PYTHONPATH
+
+changeset:   1375:ec38b1962812
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 30 11:20:43 2014 +0100
+summary:     BASH profile : Check for the latest trytond installed to use in the aliases
+
+changeset:   1374:7e07410aa616
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 28 15:44:01 2014 +0100
+summary:     health: update description on gnuealth.institution.operationalsector
+
+changeset:   1373:c5d349c99029
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 27 17:59:44 2014 -0300
+summary:     Update setup.py to Tryton version 3.2
+
+changeset:   1372:f2134e26d6f3
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 27 17:51:17 2014 -0300
+summary:     Remove support of Python2.6​
+
+changeset:   1371:1f9f9f704660
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 21:22:17 2014 +0100
+summary:     health : Make read only the health professional on patient medication and add institution
+
+changeset:   1370:d86a7e0f8f7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 21:00:27 2014 +0100
+summary:     health : Add relate action to patient vaccination history
+
+changeset:   1369:3aa1d0dec4af
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 27 16:51:56 2014 -0300
+summary:     Remove unused reference to previous workflow engine​​
+
+changeset:   1368:a4994472e498
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jun 27 16:12:13 2014 -0300
+summary:     health_surgery : Replace identification_code with puid in surgery report
+
+changeset:   1367:c882c4beed21
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jun 27 16:11:31 2014 -0300
+summary:     health_history : Replace identification_code with puid in evaluation report
+
+changeset:   1366:949edba5d4b5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 20:09:09 2014 +0100
+summary:     health: Add vaccination institution and health professional info
+
+changeset:   1365:d88620ed8275
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 19:22:02 2014 +0100
+summary:     health_gyneco : Add the health professional and institution info to the tree view on menstrual history
+
+changeset:   1364:23740f4e55b7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 19:02:19 2014 +0100
+summary:     health_gyneco : Add health institution and professional to prenatal and puerperium evaluation
+
+changeset:   1363:247bea10b16f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 27 18:32:44 2014 +0100
+summary:     health_surgery : Remove page from the main patient view, and use a relate action
+
+changeset:   1362:b825d3d76776
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Jun 26 01:48:34 2014 -0300
+summary:     health : Use fields.depends decorator
+
+changeset:   1361:98519ef8a85c
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Jun 26 01:07:12 2014 -0300
+summary:     health_calendar : Use fields.depends decorator
+
+changeset:   1360:4861399472d6
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Jun 26 00:55:34 2014 -0300
+summary:     health_stock : Use fields.depends decorator
+
+changeset:   1359:3de7fd0ea1af
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Jun 26 00:20:49 2014 -0300
+summary:     health_icu : Use fields.depends decorator
+
+changeset:   1358:17526c6c545e
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 23:40:36 2014 -0300
+summary:     health_inpatient : Use fields.depends decorator
+
+changeset:   1357:63c90870fcb9
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 23:16:09 2014 -0300
+summary:     health_surgery : Use fields.depends decorator
+
+changeset:   1356:084bd74d0d85
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 22:35:28 2014 -0300
+summary:     health_pediatrics : Use fields.depends decorator
+
+changeset:   1355:ae65b7006ba5
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 22:33:58 2014 -0300
+summary:     health_socioeconomics : Use fields.depends decorator
+
+changeset:   1354:b0ee88d68279
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 22:30:35 2014 -0300
+summary:     health_lifestyle : Use fields.depends decorator
+
+changeset:   1353:d3efa7c04ceb
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 22:26:40 2014 -0300
+summary:     health_lab : Use fields.depends decorator
+
+changeset:   1352:bd0ec9515e88
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jun 25 22:20:41 2014 -0300
+summary:     health_gyneco : Use fields.depends decorator
+
+changeset:   1351:915d82461da4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 25 11:53:01 2014 +0100
+summary:     health_gyneco : Use alternative reverse method to input weeks of gestational age and end of pregnancy when referred by the patient
+
+changeset:   1350:f2c7905caf8b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 25 10:00:28 2014 +0100
+summary:     health_gyneco : Automatic computation of patient gravida, preterms, abortions and stillbirths
+
+changeset:   1349:aef9cb96e5fe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 22:18:26 2014 +0100
+summary:     health_gyneco: Automatic calculation of patient gravida
+
+changeset:   1348:3b7cc14d65ad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 21:02:21 2014 +0100
+summary:     health_gyneco : remove debugging info
+
+changeset:   1347:722bfcbd51bc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 21:01:10 2014 +0100
+summary:     health_gyneco : Add institution and health prof. to the new patient obstetric record. Fix current pregnancy validation method
+
+changeset:   1346:797283dc1cdd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 13:58:07 2014 +0100
+summary:     health_gyneco : Fix validation method for current pregnancy
+
+changeset:   1345:f19fe6f276e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 13:21:04 2014 +0100
+summary:     health_gyneco : Fix required field date from previous to current in PAP, Mammography and Colposcopy
+
+changeset:   1344:1aa6ccd2cbe6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 13:02:49 2014 +0100
+summary:     health_gyneco : Show the mammography, PAP and colposcopy if there is a history
+
+changeset:   1343:88cdc73e8a1e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 12:46:51 2014 +0100
+summary:     health_gyneco: Group PAP and Colposcopy in the Screening page
+
+changeset:   1342:b706d1fb9915
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 24 12:03:27 2014 +0100
+summary:     health_gyneco : Move the OB history to main tab on GYN
+
+changeset:   1341:9721cd346845
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 22:56:06 2014 +0100
+summary:     health_gyneco : Update view for patient obstetric history and use Python SQL
+
+changeset:   1340:c2cedb40216e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 20:51:32 2014 +0100
+summary:     health : remove debugging information
+
+changeset:   1339:a8d36273b5eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 20:12:17 2014 +0100
+summary:     health_gyneco : Use a relate action for patient obstetric information
+
+changeset:   1338:aa41b3d24f9d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 17:56:51 2014 +0100
+summary:     health_gyneco : remove required state from BBA and home birth fields
+
+changeset:   1337:a0e802dfaea2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 17:47:31 2014 +0100
+summary:     health_gyneco : Add BBA and Home-birth to the obstetric history
+
+changeset:   1336:a4bdfd58964a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 23 16:36:37 2014 +0100
+summary:     health_gyneco : Add Institution and health professional to the perinatal model
+
+changeset:   1335:ba703a6e7d60
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 22 09:48:30 2014 +0100
+summary:     health: improve and reorder view with the Institution and signing health professional
+
+changeset:   1334:488c8e64ef81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 21 23:25:54 2014 +0100
+summary:     health_gyneco : Add health professional and institution to patient menstrual period review
+
+changeset:   1333:3471d9a1b8c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 21 23:18:35 2014 +0100
+summary:     health_gyneco : Improve form view in mammography, colposcopy and and PAP
+
+changeset:   1332:522428a38db2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 21 22:34:44 2014 +0100
+summary:     health_gyneco : Add health professional and institution to the colposcopy model
+
+changeset:   1331:fbf8f3fe2273
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 20:01:46 2014 +0100
+summary:     health_gyneco : Add health professional and institution to patient PAP smear history
+
+changeset:   1330:2365711c4dfd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 19:49:25 2014 +0100
+summary:     health_gyneco : Add health professional and institution to patient  mammography history
+
+changeset:   1329:401f46295e71
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 15:02:31 2014 +0100
+summary:     health_pediatrics : Document fields to be removed in 2.8
+
+changeset:   1328:0135213637b6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 14:56:09 2014 +0100
+summary:     health_pediatrics : Remove page on neonatal death from view
+
+changeset:   1327:49d4263460c6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 13:39:52 2014 +0100
+summary:     health_pediatrics : Limit to one the neonatal information on the patient
+
+changeset:   1326:a5d1eb51790f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 12:20:59 2014 +0100
+summary:     health_pediatrics : Update party birth date with the newly created newborn record
+
+changeset:   1325:b5ec0d9cd832
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 20 01:38:19 2014 +0100
+summary:     health_pediatrics : Update person (party) date of birth upon writing newborn info
+
+changeset:   1324:808ba9a59891
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 19 18:53:41 2014 +0100
+summary:     GNU Health installer : rename custom modules dir variable
+
+changeset:   1323:c033b953fc1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 19 17:03:28 2014 +0100
+summary:     GNU Health RC file : unalias ls to be FreeBSD compatible
+
+changeset:   1322:9336dec90213
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 19 16:53:40 2014 +0100
+summary:     GNU Health installer : Add custom modules directory
+
+changeset:   1321:5563c4f48091
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jun 12 11:36:26 2014 -0500
+summary:     health_qrcodes : Replace ssn with puid in patient_card report
+
+changeset:   1320:f1bbb358c49d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Jun 11 21:48:44 2014 -0700
+summary:     FHIR: initial server xml handling code
+
+changeset:   1319:8d1cae531bac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 09 13:25:01 2014 -0500
+summary:     health : reorder Classes to fit the new institution model
+
+changeset:   1318:14826e86d240
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 09 08:31:07 2014 -0500
+summary:     health installer : add upgrade param to the pip installation
+
+changeset:   1317:5cea2cdc69fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 09 00:33:10 2014 -0500
+summary:     health_archives : update identification_code to PUID
+
+changeset:   1316:fd2ee4a30c39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 09 00:04:46 2014 -0500
+summary:     health_qrcodes : Update Identification to PUID
+
+changeset:   1315:995bce4ceefa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 23:55:56 2014 -0500
+summary:     health : Update patient reports to new PUID
+
+changeset:   1314:a96f15370761
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 23:30:50 2014 -0500
+summary:     health_qrcodes : update ssn to puid
+
+changeset:   1313:b1e5393e76d2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 23:15:08 2014 -0500
+summary:     health : move up the health institution classes
+
+changeset:   1312:23e60ca5b631
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 19:59:21 2014 -0500
+summary:     health : Add institution to the hospitalization registration and surgery models
+
+changeset:   1311:086205bc5e6d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 19:40:00 2014 -0500
+summary:     health : Add institution to the evaluation model and tree
+
+changeset:   1310:3b6bff8b8f89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 19:12:41 2014 -0500
+summary:     health : Add method to retrieve the GNU Health instance institution
+
+changeset:   1309:d4b1c1070649
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 17:21:56 2014 -0500
+summary:     health : Add infusion and infusion rates to the view
+
+changeset:   1308:dc0dfdaa3817
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 15:20:29 2014 -0500
+summary:     health_inpatient : Rename ssn by puid on tree view
+
+changeset:   1307:73ee54eb7095
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 13:26:55 2014 -0500
+summary:     health : update medical specialties
+
+changeset:   1306:9c0926705c80
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 12:45:59 2014 -0500
+summary:     health : enforce domains in wards, operating rooms and units
+
+changeset:   1305:a91aa481e97a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 12:27:51 2014 -0500
+summary:     health : link OR to the new institution model
+
+changeset:   1304:4892ac742a84
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 11:48:05 2014 -0500
+summary:     health : link wards to the new institution model
+
+changeset:   1303:64a532c57d72
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 11:08:57 2014 -0500
+summary:     health : link the health center units to the new institution model
+
+changeset:   1302:4173e338ba63
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 10:58:06 2014 -0500
+summary:     health : PEP8
+
+changeset:   1301:8cff0f1717ef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 10:26:54 2014 -0500
+summary:     health : link the buildings to the new health institution model
+
+changeset:   1300:0700f99e82f5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 09:26:12 2014 -0500
+summary:     health : include operating room on institution tree view
+
+changeset:   1299:b07a55310086
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 08 09:16:36 2014 -0500
+summary:     health : upgrade to 2.6 . Populate the health institution model from the party
+
+changeset:   1298:dfefcfa64d4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 07 17:06:33 2014 -0500
+summary:     health : add Instution code and Operating Room facilities
+
+changeset:   1297:f72301a0d24b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 06 16:30:44 2014 -0500
+summary:     health : change the patient form PUID field
+
+changeset:   1296:611a377ed9c2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 06 13:25:38 2014 -0500
+summary:     health: Rename SSN to Person Unique ID (PUID)
+
+changeset:   1295:e740105f99d5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 06 12:19:21 2014 -0500
+summary:     health : move the patient local institution identification code to the party alternative id as medical record, to use the unique person identification
+
+changeset:   1294:3b6c066f99f8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 06 10:43:50 2014 -0500
+summary:     health, inpatient : remove the extra, local patient identifier to favor the unique person ID
+
+changeset:   1293:089f3b4f18e0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 17:41:47 2014 -0500
+summary:     Calendar : Link the health center to the institution model
+
+changeset:   1292:8970b8d546be
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 17:26:32 2014 -0500
+summary:     health: link vaccinations to institution
+
+changeset:   1291:d97a4f1dedc2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 17:17:06 2014 -0500
+summary:     health: link health professional to institution
+
+changeset:   1290:ec19dfb62736
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 17:12:27 2014 -0500
+summary:     health: improve health institution form view
+
+changeset:   1289:892506be5ff7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 16:18:33 2014 -0500
+summary:     Archives : remove archives submenu and use the main menu
+
+changeset:   1288:e67991d95864
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 16:08:09 2014 -0500
+summary:     Inpatient : remove hospitalization submenu and use the main menu
+
+changeset:   1287:238759a0d1ab
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 15:49:30 2014 -0500
+summary:     Surgery : remove submenu
+
+changeset:   1286:02ee969e962a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 15:39:34 2014 -0500
+summary:     health : remove submenu on prescriptions
+
+changeset:   1285:d0789f6aef54
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 15:22:03 2014 -0500
+summary:     health : Remove submenu prescriptions, use the main menu
+
+changeset:   1284:7fb6bd9c8733
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 12:36:31 2014 -0500
+summary:     health : include alternative IDs in the party search
+
+changeset:   1283:21297a6c3bfb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 10:21:28 2014 -0500
+summary:     health_crypto : fix separator id on prescription view
+
+changeset:   1282:ec926a88f391
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 05 10:18:19 2014 -0500
+summary:     health_crypto : check for the GNUPG python library upon start
+
+changeset:   1281:a83ef1bc42ff
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 04 00:35:37 2014 +0100
+summary:     health: Update appointment model from party to health institution
+
+changeset:   1280:880b4cb25b8b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 14:22:36 2014 +0100
+summary:     health : Add shorcut to the bed from the institution, and institution attribute to the bed model
+
+changeset:   1279:f87bc2a5805c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 14:07:36 2014 +0100
+summary:     health : Shortcut to the Institution Wards from the center
+
+changeset:   1278:079561e5034a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 14:05:30 2014 +0100
+summary:     health : Shortcut to the Institution Units from the center
+
+changeset:   1277:60a354259152
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 13:54:04 2014 +0100
+summary:     health : Remove old domains from health institutions
+
+changeset:   1276:ef42df1ea725
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 13:49:35 2014 +0100
+summary:     health : Now link Wards, Operating Rooms, Units and Buildings to the institution model
+
+changeset:   1275:29f10ed88941
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 13:44:20 2014 +0100
+summary:     health : Shortcut from Institution to health center buildings
+
+changeset:   1274:97a507dfa709
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 03 13:32:25 2014 +0100
+summary:     health : fix infusion field in medication model
+
+changeset:   1273:acec599933f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 31 11:21:06 2014 +0100
+summary:     health : add fields related to infusion in medication
+
+changeset:   1272:2cf43335554b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 27 11:32:31 2014 +0100
+summary:     crytpo plugin : Initial documentation process
+
+changeset:   1271:d2ab7ef9836a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 26 19:41:16 2014 +0100
+summary:     crypto plugin : Verify document for a valid digital signature
+
+changeset:   1270:ab338004d260
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 26 17:17:03 2014 +0100
+summary:     crypto plugin : PEP8
+
+changeset:   1269:3d879fb67268
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 23 16:19:33 2014 +0100
+summary:     crypto plugin : Fix exception handling in signature generation
+
+changeset:   1268:62c6e71db513
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 23 15:32:47 2014 +0100
+summary:     crypto plugin : Clearsign document validation
+
+changeset:   1267:548c62d00c50
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 23 12:15:30 2014 +0100
+summary:     crypto plugin : Prioritize single record selection check
+
+changeset:   1266:712c260c22df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 23 12:13:39 2014 +0100
+summary:     crypto plugin : Check for document signature
+
+changeset:   1265:82a7cfe6ea5e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 23 10:47:42 2014 +0100
+summary:     crypto plugin : Check current model document to handle digital signatures
+
+changeset:   1264:db78468f2c49
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 22 13:34:53 2014 +0100
+summary:     crypto plugin, health_crypto : Include and save the generated digital signature on the document
+
+changeset:   1263:fe3398811873
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 21 11:23:31 2014 +0100
+summary:     crypto_plugin : Initial plugin commit for Tryton / GNU Health client
+
+changeset:   1262:faab8964318f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 21 00:54:31 2014 +0100
+summary:     health_crypto : Fix prescription line and add notes to the serial doc
+
+changeset:   1261:23f37874ecb9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 19 11:11:06 2014 +0100
+summary:     health_crypto : Verification and side-by-side comparison on Prescription Order
+
+changeset:   1260:be7cbff28959
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 14 13:24:17 2014 +0100
+summary:     health_crypto : Initial function for document digest verification
+
+changeset:   1259:27f134a91d7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 08 17:29:45 2014 +0100
+summary:     health_crypto : improve prescription generation view layout
+
+changeset:   1258:b10e9665891c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 08 16:57:21 2014 +0100
+summary:     health_crypto : change button to generate prescription
+
+changeset:   1257:4c5b6def7661
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 07 21:10:40 2014 +0100
+summary:     health_crypto : generate document serialization and  digest for prescription document in read-only field
+
+changeset:   1256:9c9033c9804d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 05 20:47:59 2014 +0100
+summary:     health_crypto : JSON data seralization
+
+changeset:   1255:57e66630d3c3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 03 13:58:33 2014 +0100
+summary:     health_crypto : Create main HealthCrypto class and add serialization and hash functions
+
+changeset:   1254:79b574313e35
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 02 16:48:22 2014 +0100
+summary:     health_crypto: Init module structure
+
+changeset:   1253:ab08e290f8fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 19 12:26:06 2014 +0200
+summary:     health : Add Operational Sectors to Health institutions
+
+changeset:   1252:76cc8dd79985
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 19 11:46:23 2014 +0200
+summary:     health : Unify menus Health Centers -> Institutions
+
+changeset:   1251:a3bf2ea71ce1
+parent:      1249:a2a9d32b8dac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 19 11:36:03 2014 +0200
+summary:     health: apply fix 1187 to development version
+
+changeset:   1250:c4a83c58a22b
+branch:      stable
+parent:      1187:b161a0485e7a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 19 11:09:16 2014 +0200
+summary:     health : Fix medicament category domain False -> None
+
+changeset:   1249:a2a9d32b8dac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 19 11:06:08 2014 +0200
+summary:     FHIR backend: update version and Development Status
+
+changeset:   1248:f8ebc4b4901f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 17 23:32:45 2014 +0200
+summary:     FHIR backend : add version file and update credits
+
+changeset:   1247:7858144c6d31
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 16 11:49:34 2014 +0200
+summary:     FHIR backend : Add version file
+
+changeset:   1246:ea895f38133a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 12 11:01:46 2014 +0200
+summary:     FHIR backend : Chris Zimmerman . update README to show params is dictionary
+
+changeset:   1245:4b5a0a615d6e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 12 10:59:50 2014 +0200
+summary:     FHIR backend : Chris Zimmerman . params is dictionary now --> use requests params argument
+
+changeset:   1244:637e9ddb860c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 12 10:58:48 2014 +0200
+summary:     FHIR backend : Chris Zimmerman . Add basic validation to XML and JSON body arguments
+
+changeset:   1243:f34b82303d6f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 06 16:26:42 2014 +0100
+summary:     health: Add constraint for uniqness in Health Institutions
+
+changeset:   1242:4c6b44a875cf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 04 22:36:08 2014 +0100
+summary:     FHIR commit : Update README file and commit patches from Chris Zimmerman
+
+changeset:   1241:3af14b724861
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 22:42:04 2014 -0300
+summary:     health : add trauma center attribute to the Health Institution model
+
+changeset:   1240:42dc857e76fa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 21:38:40 2014 -0300
+summary:     health : add institution type to Health Insitution tree view
+
+changeset:   1239:27b72e69478c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 21:34:03 2014 -0300
+summary:     health : Add heliport to health institution
+
+changeset:   1238:a137ac0223ab
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 01:15:52 2014 -0300
+summary:     FHIR backend : Add CREDITS file to MANIFEST.in
+
+changeset:   1237:87df3811df4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 01:12:36 2014 -0300
+summary:     FHIR backend : Fix typo in description
+
+changeset:   1236:b4a843ea427a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 01:11:16 2014 -0300
+summary:     FHIR backend : Update version to 0.0.3
+
+changeset:   1235:205e382df5f0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 30 01:05:19 2014 -0300
+summary:     FHIR backend : Update README file with same demo data as in GNU Health for Ana Betz
+
+changeset:   1234:4a061be56aeb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 22:50:03 2014 -0300
+summary:     FHIR backend : assign default value to body argument
+
+changeset:   1233:03b306c54214
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 20:03:37 2014 -0300
+summary:     FHIR backend : Chris Zimmerman adds validate, vread and history resources
+
+changeset:   1232:5bd3e2814cad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 19:51:51 2014 -0300
+summary:     FHIR backend : add headers in create method for XML or JSON formats
+
+changeset:   1231:7e6753be6da3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 17:23:09 2014 -0300
+summary:     FHIR backend : fix url by fhir_request on create method
+
+changeset:   1230:5d0a5d904c93
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 16:47:43 2014 -0300
+summary:     FHIR backend : Add CREDITS file
+
+changeset:   1229:02f8069ac4b7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 29 10:22:05 2014 -0300
+summary:     FHIR backend : Added create / update / delete conformance and transaction interactions. Thank you Chris at riseup !
+
+changeset:   1228:9e45e68c8afa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Mar 28 20:58:56 2014 -0300
+summary:     health : add Health Institution specialties - name, specialty - in a separate Class
+
+changeset:   1227:00e6ee14303c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 23 22:43:36 2014 -0300
+summary:     health : Include rules for main specialty and make read only the institution field once this is saved
+
+changeset:   1226:f7656fd1eaaf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 23 21:16:08 2014 -0300
+summary:     health : General hospital and Specialized institutions
+
+changeset:   1225:0ff9e9d1caaa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 23 21:13:21 2014 -0300
+summary:     health : Add teaching attribute to health institutions
+
+changeset:   1224:f7243bd018b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 23 20:10:44 2014 -0300
+summary:     health: make tree editable on Institution Specialties. Improve view
+
+changeset:   1223:e7cb6e900556
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 23 11:35:09 2014 -0300
+summary:     health : Make readonly the specialties associated to the view on the health facility
+
+changeset:   1222:4ee299e0bd9f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 22 18:41:38 2014 -0300
+summary:     health : Place Health instituions in main menu
+
+changeset:   1221:a605bb914caa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 22 17:26:00 2014 -0300
+summary:     health : Add Health departments / specialties by institution
+
+changeset:   1220:415366ae4c9a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Mar 21 22:20:54 2014 -0300
+summary:     health : add health institution type and picture to the model
+
+changeset:   1219:548f77688d0f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Mar 21 21:11:43 2014 -0300
+summary:     health : health institution model to permit specs / details of the health center
+
+changeset:   1218:b8cd08f9594f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 20 17:29:35 2014 -0300
+summary:     healt_archives: Initial module upload. Functionality for paper health record archives management
+
+changeset:   1217:c79d9ca9c338
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 17 18:51:43 2014 -0300
+summary:     health : Make default activation date for the party creation
+
+changeset:   1216:90033c4d52f1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 17 18:14:28 2014 -0300
+summary:     health : Add submenu People in the party section
+
+changeset:   1215:a99dde792b37
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 18:17:03 2014 -0300
+summary:     health : add SSN to the general search in the party model
+
+changeset:   1214:d60b8db4102b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 17:50:56 2014 -0300
+summary:     health: Optimize tree view for party
+
+changeset:   1213:3a602a4d58d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 17:36:29 2014 -0300
+summary:     health : use the SSN as the main code to search in the party. Code is still available in the filter
+
+changeset:   1212:acbdd7740b3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 17:15:29 2014 -0300
+summary:     health : resize picture group in the party form
+
+changeset:   1211:74efdd552265
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 16:12:50 2014 -0300
+summary:     health : Place internal user associated to the health professional at the party form footer
+
+changeset:   1210:2e2f8960359c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 16:05:05 2014 -0300
+summary:     health : place the alternative identification codes inside the demographics group
+
+changeset:   1209:c88dd05f5ab4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 15:49:20 2014 -0300
+summary:     health : use the SSN field in the place of the party code when the party is a person
+
+changeset:   1208:fbf27880bc83
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 16 12:27:24 2014 -0300
+summary:     health : improve party view
+
+changeset:   1207:008b7f790bec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 12 12:50:00 2014 +0000
+summary:     FHIR backend : Include basic REST read interaction functionality
+
+changeset:   1206:acf7ff26b045
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 12 12:11:45 2014 +0000
+summary:     FHIR backend : PEP8
+
+changeset:   1205:4e006c6ab4e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 12 10:40:14 2014 +0000
+summary:     pediatrics : Newborn improvement in form and tree
+
+changeset:   1204:ba0e5c65aaa1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 12 10:14:11 2014 +0000
+summary:     pediatrics : improve field descriptions
+
+changeset:   1203:83c339a1fd72
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 10 20:41:05 2014 +0000
+summary:     pediatrics : Improve newborn view
+
+changeset:   1202:072ed3c73ffc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 10 19:46:26 2014 +0000
+summary:     pediatrics : Newborn view. Show only newborn sex - gender at birth - current sex is a patient property
+
+changeset:   1201:11a3990bc71c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 10 19:24:08 2014 +0000
+summary:     pediatrics : Fix tooltip on the newborn length
+
+changeset:   1200:d09aaf0b27ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 10 19:22:30 2014 +0000
+summary:     pediatrics : improve main view layout
+
+changeset:   1199:6b3f6a58eff2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 09 18:15:03 2014 +0000
+summary:     FHIR modules . Correct setup.py
+
+changeset:   1198:085847c057fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 09 00:58:05 2014 +0000
+summary:     FHIR backend : remove extra pot file
+
+changeset:   1197:5abcd1c80947
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 09 00:57:07 2014 +0000
+summary:     fhir : initial POC of HL7 FHIR reference implementation for python and GNU Health backend
+
+changeset:   1196:cf6d9fcb100d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 08 13:48:59 2014 +0000
+summary:     FHIR : Initial structure for FHIR and the FHIR patient resource
+
+changeset:   1195:6149f66e2c90
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Mar 07 12:41:47 2014 +0000
+summary:     pediatrics : update menuitem sequence on newborn
+
+changeset:   1194:13a66db9d905
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Mar 07 12:00:46 2014 +0000
+summary:     pediatrics : rename shortcut from Newborn to Neonatal Info
+
+changeset:   1193:626212d43da6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 05 17:19:32 2014 +0000
+summary:     installer : fix space in script for custom / local modules
+
+changeset:   1192:2ed937ac77d5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 05 17:16:39 2014 +0000
+summary:     installer : add directory for custom modules
+
+changeset:   1191:c3e478ccf4a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Feb 14 10:21:29 2014 +0000
+summary:     health_inpatient : fix health professional display on the patient discharge
+
+changeset:   1190:d0ff73a85e3c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 19 11:55:06 2014 +0000
+summary:     Fix bug #41639: Traceback when opening the Disease Categories
+
+changeset:   1189:67811a8fca1c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 05 16:59:20 2014 +0000
+summary:     health : apply patch 1187:b161a0485e7a into dev
+
+changeset:   1188:1e2d49d5bfd7
+parent:      1178:83f26d207cb0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 05 16:38:48 2014 +0000
+summary:     health: update development version number to 2.5
+
+changeset:   1187:b161a0485e7a
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 24 13:52:29 2014 +0000
+summary:     health : include the patient code in the search criteria
+
+changeset:   1186:f198d935ae95
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 19 11:55:06 2014 +0000
+summary:     Fix bug #41639: Traceback when opening the Disease Categories
+
+changeset:   1185:05b61a6043da
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 19 10:06:57 2014 +0000
+summary:     Added tag 2.4.1 for changeset 762258ba657e
+
+changeset:   1184:762258ba657e
+branch:      stable
+tag:         2.4.1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 16 07:59:43 2014 +0000
+summary:     Update Changelog file
+
+changeset:   1183:095c3709dc8a
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 16 07:59:07 2014 +0000
+summary:     Removed tag 2.4.1
+
+changeset:   1182:6b452268a2a5
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Feb 14 10:21:29 2014 +0000
+summary:     health_inpatient : fix health professional display on the patient discharge
+
+changeset:   1181:c79e25a56e6c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 10 04:02:54 2014 +0000
+summary:     Added tag 2.4.1 for changeset bcaa9fe707d2
+
+changeset:   1180:bcaa9fe707d2
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 10 04:01:07 2014 +0000
+summary:     create 2.4.1 version
+
+changeset:   1179:92408378aa66
+branch:      stable
+parent:      1082:40f7d8e45ec1
+parent:      1178:83f26d207cb0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 09 08:08:05 2014 +0000
+summary:     Merge stable from default to set 2.4
+
+changeset:   1178:83f26d207cb0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 06 15:38:49 2014 +0000
+summary:     Update health services wizard to be Tryton 3.0 compatible on the invoice generation
+
+changeset:   1177:33e45da63c55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 05 07:06:56 2014 +0000
+summary:     health_surgery: Fix surgery report traceback due to date format
+
+changeset:   1176:0cf81a1a60fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 05 06:46:16 2014 +0000
+summary:     Added tag 2.4.0 for changeset dc2ed96f002f
+
+changeset:   1175:25948f16ffab
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Fri Jan 31 11:22:45 2014 -0300
+summary:     Update missing module health_stock setup.py to Tryton version 3.0
+
+changeset:   1174:3eaa6b06807f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jan 27 10:09:40 2014 -0300
+summary:     Update setup.py to Tryton version 3.0
+
+changeset:   1173:dc2ed96f002f
+tag:         2.4.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 27 00:23:11 2014 +0000
+summary:     Installer : Migrate from PIL to PILLOW library. Update qrcode
+
+changeset:   1172:6dd4baeef672
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 26 22:54:38 2014 +0000
+summary:     health, health_history : Update report and fix bug on date
+
 changeset:   1171:c53a5d589516
 tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
