@@ -1098,6 +1098,9 @@ class HealthProfessional(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('hp_uniq', 'UNIQUE(name)',
                 'The health professional must be unique'),
+            ('code_uniq', 'UNIQUE(code)',
+                'The LICENSE ID must be unique'),
+
         ]
 
     def get_rec_name(self, name):
