@@ -2,5 +2,6 @@
 <tree string="Health Professionals">
     <field name="name" expand="1"/>
     <field name="code" expand="1"/>
+    <field name="puid" expand="1"/>
     <field name="institution" expand="1"/>
 </tree>

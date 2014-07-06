@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
-    <data noupdate="1" skiptest="1">
+    <data noupdate="0" skiptest="1">
 
         <record model="gnuhealth.drugs_recreational" id="hashish">
             <field name="name">Hashish</field>
+            <field name="code">HASHISH</field>
             <field name="street_name">boom, chronic, gangster, hash, hash oil, hemp</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -29,6 +30,7 @@
 
         <record model="gnuhealth.drugs_recreational" id="marijuana">
             <field name="name">Marijuana</field>
+            <field name="code">MARIJUANA</field>
             <field name="street_name">blunt, dope, ganja, grass, herb, joints, Mary Jane, pot, reefer, sinsemilla, skunk, weed </field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -54,6 +56,7 @@
 
         <record model="gnuhealth.drugs_recreational" id="barbiturates">
             <field name="name">Barbiturates</field>
+            <field name="code">BARBITURATES</field>
             <field name="street_name">Amytal, Nembutal, Seconal, Phenobarbital: barbs, reds, red birds, phennies, tooies, yellows, yellow jackets</field>
             <field name="toxicity">3</field>
             <field name="addiction_level">2</field>
@@ -80,6 +83,7 @@ Sedation, drowsiness/depression, unusual excitement, fever, irritability, poor j
 
         <record model="gnuhealth.drugs_recreational" id="benzodiazepines">
             <field name="name">Benzodiazepines</field>
+            <field name="code">BENZODIAZEPINES</field>
             <field name="street_name">Ativan, Halcion, Librium, Valium, Xanax: candy, downers, sleeping pills, tranks</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">2</field>
@@ -107,6 +111,7 @@ Sedation, drowsiness/dizziness</field>
 
         <record model="gnuhealth.drugs_recreational" id="flunitrazepam">
             <field name="name">Flunitrazepam</field>
+            <field name="code">FLUNITRAZEPAM</field>
             <field name="street_name">Rohypnol: forget-me pill, Mexican Valium, R2, Roche, roofies, roofinol, rope, rophies </field>
             <field name="toxicity">3</field>
             <field name="addiction_level">2</field>
@@ -137,6 +142,7 @@ It has been associated with sexual assault.
 
         <record model="gnuhealth.drugs_recreational" id="ghb">
             <field name="name">GHB</field>
+            <field name="code">GHB</field>
             <field name="street_name">Gamma-hydroxybutyrate: G, Georgia home boy, grievous bodily harm, liquid ecstasy</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">2</field>
@@ -166,6 +172,7 @@ It has been associated with sexual assault.</field>
 
         <record model="gnuhealth.drugs_recreational" id="methaqualone">
             <field name="name">Methaqualone</field>
+            <field name="code">METHAQUALONE</field>
             <field name="street_name">Quaalude, Sopor, Parest: ludes, mandrex, quad, quay</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">2</field>
@@ -193,6 +200,7 @@ Euphoria/depression, poor reflexes, slurred speech, coma</field>
 
         <record model="gnuhealth.drugs_recreational" id="ketamine">
             <field name="name">Ketamine</field>
+            <field name="code">KETAMINE</field>
             <field name="street_name">Ketalar SV: cat Valiums, K, Special K, vitamin K</field>
             <field name="toxicity">3</field>
             <field name="addiction_level">1</field>
@@ -220,6 +228,7 @@ At high doses, delirium, depression, respiratory depression and arrest
 
         <record model="gnuhealth.drugs_recreational" id="pcp">
             <field name="name">PCP and analogs</field>
+            <field name="code">PCP</field>
             <field name="street_name">Phencyclidine; angel dust, boat, hog, love boat, peace pill</field>
             <field name="toxicity">3</field>
             <field name="addiction_level">1</field>
@@ -247,6 +256,7 @@ At high doses, delirium, depression, respiratory depression and arrest
 
         <record model="gnuhealth.drugs_recreational" id="lsd">
             <field name="name">LSD</field>
+            <field name="code">LSD</field>
             <field name="street_name">Lysergic acid diethylamide: acid, blotter, boomers, cubes, microdot, yellow sunshines</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -277,6 +287,7 @@ Persistent mental disorders
 
         <record model="gnuhealth.drugs_recreational" id="mescaline">
             <field name="name">Mescaline</field>
+            <field name="code">MESCALINE</field>
             <field name="street_name">Buttons, cactus, mesc, peyote </field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -306,6 +317,7 @@ Increased body temperature, heart rate, blood pressure; loss of appetite, sleepl
 
         <record model="gnuhealth.drugs_recreational" id="psilocybin">
             <field name="name">Psilocybin</field>
+            <field name="code">PSILOCYBIN</field>
             <field name="street_name">Magic mushroom, purple passion, shrooms</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -334,6 +346,7 @@ Nervousness, paranoia
 
         <record model="gnuhealth.drugs_recreational" id="codeine">
             <field name="name">Codeine</field>
+            <field name="code">CODEINE</field>
             <field name="street_name">Empirin with Codeine, Fiorinal with Codeine, Robitussin A-C, Tylenol with Codeine: Captain Cody, schoolboy; (with glutethimide) doors and fours, loads, pancakes and syrup </field>
             <field name="toxicity">2</field>
             <field name="addiction_level">3</field>
@@ -363,6 +376,7 @@ Less analgesia, sedation, and respiratory depression than morphine
 
         <record model="gnuhealth.drugs_recreational" id="fentanyl">
             <field name="name">Fentanyl</field>
+            <field name="code">FENTANYL</field>
             <field name="street_name">Actiq, Duragesic, Sublimaze: Apache, China girl, China white, dance fever, friend, goodfella, jackpot, murder 8, TNT, Tango and Cash </field>
             <field name="toxicity">2</field>
             <field name="addiction_level">3</field>
@@ -390,6 +404,7 @@ Less analgesia, sedation, and respiratory depression than morphine
 
         <record model="gnuhealth.drugs_recreational" id="heroin">
             <field name="name">Heroin</field>
+            <field name="code">HEROIN</field>
             <field name="street_name">diacetyl-morphine: brown sugar, dope, H, horse, junk, skag, skunk, smack, white horse </field>
             <field name="toxicity">3</field>
             <field name="addiction_level">3</field>
@@ -419,6 +434,7 @@ Staggering gait
 
         <record model="gnuhealth.drugs_recreational" id="morphine">
             <field name="name">Morphine</field>
+            <field name="code">MORPHINE</field>
             <field name="street_name">Roxanol, Duramorph: M, Miss Emma, monkey, white stuff</field>
             <field name="toxicity">3</field>
             <field name="addiction_level">3</field>
@@ -445,6 +461,7 @@ Staggering gait
 
         <record model="gnuhealth.drugs_recreational" id="oxycodone_hcl">
             <field name="name">oxycodone HCL</field>
+            <field name="code">OXYCODONEHCL</field>
             <field name="street_name">Oxycontin: Oxy, O.C., killer</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">3</field>
@@ -471,6 +488,7 @@ Staggering gait
 
         <record model="gnuhealth.drugs_recreational" id="hydrocodone_bitartrate">
             <field name="name">Hydrocodone bitartrate</field>
+            <field name="code">HYDROCODONEBITARTRATE</field>
             <field name="street_name">Vicodin: vike, Watson-387</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">2</field>
@@ -497,6 +515,7 @@ Staggering gait
 
         <record model="gnuhealth.drugs_recreational" id="amphetamine">
             <field name="name">Amphetamine</field>
+            <field name="code">AMPHETAMINE</field>
             <field name="street_name">Biphetamine, Dexedrine: bennies, black beauties, crosses, hearts, LA turnaround, speed, truck drivers, uppers</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">1</field>
@@ -525,6 +544,7 @@ Rapid breathing/tremor, loss of coordination; irritability, anxiousness, restles
 
         <record model="gnuhealth.drugs_recreational" id="cocaine">
             <field name="name">Cocaine</field>
+            <field name="code">COCAINE</field>
             <field name="street_name">Cocaine hydrochloride: blow, bump, C, candy, Charlie, coke, crack, flake, rock, snow, toot</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">2</field>
@@ -553,6 +573,7 @@ Increased temperature/chest pain, respiratory failure, nausea, abdominal pain, s
 
         <record model="gnuhealth.drugs_recreational" id="mdma">
             <field name="name">MDMA methylenedioxy-methamphetamine</field>
+            <field name="code">MDMA</field>
             <field name="street_name">Adam, clarity, ecstasy, Eve, lover's speed, peace, STP, X, XTC</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">1</field>
@@ -581,6 +602,7 @@ Mild hallucinogenic effects, increased tactile sensitivity, empathic feelings/im
 
         <record model="gnuhealth.drugs_recreational" id="methamphetamine">
             <field name="name">Methamphetamine</field>
+            <field name="code">METHAMPHETAMINE</field>
             <field name="street_name">Desoxyn: chalk, crank, crystal, fire, glass, go fast, ice, meth, speed</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">1</field>
@@ -609,6 +631,7 @@ Aggression, violence, psychotic behavior/memory loss, cardiac and neurological d
 
         <record model="gnuhealth.drugs_recreational" id="methylphenidate">
             <field name="name">Methylphenidate</field>
+            <field name="code">METHYLPHENIDATE</field>
             <field name="street_name">Ritalin: JIF, MPH, R-ball, Skippy, the smart drug, vitamin R</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">1</field>
@@ -636,6 +659,7 @@ Aggression, violence, psychotic behavior/memory loss, cardiac and neurological d
 
         <record model="gnuhealth.drugs_recreational" id="nicotine">
             <field name="name">Nicotine</field>
+            <field name="code">NICOTINE</field>
             <field name="street_name">cigarettes, cigars, smokeless tobacco, snuff, spit tobacco, bidis, chew</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">3</field>
@@ -665,6 +689,7 @@ Additional effects attributable to tobacco exposure; adverse pregnancy outcomes;
 
         <record model="gnuhealth.drugs_recreational" id="anabolic_steroids">
             <field name="name">Anabolic steroids</field>
+            <field name="code">ANABOLICSTEROIDS</field>
             <field name="street_name">Anadrol, Oxandrin, Durabolin, Depo-Testosterone, Equipoise: roids, juice</field>
             <field name="toxicity">1</field>
             <field name="addiction_level">0</field>
@@ -692,6 +717,7 @@ Additional effects attributable to tobacco exposure; adverse pregnancy outcomes;
 
         <record model="gnuhealth.drugs_recreational" id="dmx">
             <field name="name">Dextromethorphan - DMX</field>
+            <field name="code">DMX</field>
             <field name="street_name">Found in some cough and cold medications; Robotripping, Robo, Triple C</field>
             <field name="toxicity">2</field>
             <field name="addiction_level">1</field>
@@ -719,6 +745,7 @@ Additional effects attributable to tobacco exposure; adverse pregnancy outcomes;
 
         <record model="gnuhealth.drugs_recreational" id="inhalants">
             <field name="name">Inhalants</field>
+            <field name="code">INHALANTS</field>
             <field name="street_name">Solvents (paint thinners, gasoline, glues), gases (butane, propane, aerosol propellants, nitrous oxide), nitrites (isoamyl, isobutyl, cyclohexyl): laughing gas, poppers, snappers, whippets</field>
             <field name="toxicity">3</field>
             <field name="addiction_level">2</field>

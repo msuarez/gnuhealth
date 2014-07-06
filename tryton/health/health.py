@@ -1083,14 +1083,29 @@ class HealthProfessional(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        help='Instituion where she/he works')
+        help='Main instituion where she/he works')
 
-    code = fields.Char('ID', help='License ID')
+    code = fields.Char('LICENSE ID', help='License ID')
 
     specialties = fields.One2Many(
         'gnuhealth.hp_specialty', 'name', 'Specialties')
 
     info = fields.Text('Extra info')
+
+    puid = fields.Function(
+        fields.Char('PUID', help="Person Unique Identifier"),
+        'get_hp_puid', searcher='search_hp_puid')
+
+
+    def get_hp_puid(self, name):
+        return self.name.ref
+
+    @classmethod
+    def search_hp_puid(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('name.ref', clause[1], value))
+        return res
 
     @classmethod
     def __setup__(cls):

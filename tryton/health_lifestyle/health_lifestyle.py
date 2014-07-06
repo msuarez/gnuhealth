@@ -32,7 +32,10 @@ class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
     __name__ = 'gnuhealth.drugs_recreational'
 
-    name = fields.Char('Name', translate=True, help="Name of the drug")
+    name = fields.Char('Name', translate=True, required=True,
+        help="Name of the drug")
+    code = fields.Char('Code', required=True,
+        help="Please use CAPITAL LETTERS and no spaces")
     street_name = fields.Char('Street names',
         help="Common name of the drug in street jargon")
 
@@ -166,6 +169,17 @@ class DrugsRecreational(ModelSQL, ModelView):
         "Some Schedule V drugs are available over the counter")
 
     info = fields.Text('Extra Info')
+
+    @classmethod
+    def __setup__(cls):
+        super(DrugsRecreational, cls).__setup__()
+        cls._sql_constraints = [
+            ('NAME_uniq', 'UNIQUE(name)',
+                'The Recreational Drug NAME must be unique'),
+            ('code_uniq', 'UNIQUE(code)',
+                'The Recreational Drug CODE must be unique'),
+
+        ]
 
 
 class PatientRecreationalDrugs(ModelSQL, ModelView):

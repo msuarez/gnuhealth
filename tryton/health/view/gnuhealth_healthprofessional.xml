@@ -1,19 +1,24 @@
 <?xml version="1.0"?>
 <form string="physician">
-    <group col="8" colspan="4" id="general_info">
+    <group colspan="4" id="hp_header">
         <label name="name"/>
-        <field name="name"/>
-        <label name="institution"/>
-        <field name="institution"/>
-        <label name="main_specialty"/>
-        <field name="main_specialty"/>
+        <field name="name" col="4"/>
         <label name="code"/>
         <field name="code"/>
     </group>
     <newline/>
-    <field name="specialties"/>
+    <field colspan="4" name="specialties"/>
     <newline/>
-    <separator string="Extra Info" id="physician_extra_info"/>
+    <separator colspan="4" string="Extra Info" id="physician_extra_info"/>
     <newline/>
     <field name="info" colspan="4"/>
+    <newline/>
+    <group col="6" colspan="4" id="hp_footer">
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="main_specialty"/>
+        <field name="main_specialty"/>
+        <label name="puid"/>
+        <field name="puid"/>
+    </group>
 </form>

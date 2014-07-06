@@ -3,8 +3,8 @@
     <group string="General Information" id="group_general_info">
         <label name="name"/>
         <field name="name"/>
-        <label name="street_name"/>
-        <field name="street_name"/>
+        <label name="code"/>
+        <field name="code"/>
         <newline/>
         <label name="toxicity"/>
         <field name="toxicity"/>
@@ -14,6 +14,9 @@
         <field name="legal_status"/>
         <label name="category"/>
         <field name="category"/>
+        <newline/>
+        <label name="street_name"/>
+        <field colspan="3" name="street_name"/>
     </group>
     <newline/>
     <separator colspan="4" string="DEA Schedule Level" id="separator_DEA"/>

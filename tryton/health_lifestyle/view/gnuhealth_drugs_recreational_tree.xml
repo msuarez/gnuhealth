@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <tree string="Recreational Drugs">
-    <field name="name"/>
+    <field name="name" expand="1"/>
+    <field name="code"/>
     <field name="category"/>
     <field name="toxicity"/>
     <field name="addiction_level"/>
