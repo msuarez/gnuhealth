@@ -1027,13 +1027,15 @@ class MedicalSpecialty(ModelSQL, ModelView):
     name = fields.Char(
         'Specialty', required=True, translate=True,
         help='ie, Addiction Psychiatry')
-    code = fields.Char('Code', help='ie, ADP')
+    code = fields.Char('Code', required=True,
+        help='ie, ADP. Please use CAPITAL LETTERS')
 
     @classmethod
     def __setup__(cls):
         super(MedicalSpecialty, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
+            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
         ]
 
 

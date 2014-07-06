@@ -232,7 +232,7 @@
         </record>
         <record model="gnuhealth.specialty" id="59">
             <field name="name">Vascular surgery</field>
-            <field name="code">VASCULARSURG>/field>
+            <field name="code">VASCULARSURG</field>
         </record>
 
         <record model="gnuhealth.specialty" id="60">
@@ -303,6 +303,11 @@
         <record model="gnuhealth.specialty" id="74">
             <field name="name">Child Health (Primary Care)</field>
             <field name="code">PRIMARY-CHILD</field>
+        </record>
+
+        <record model="gnuhealth.specialty" id="75">
+            <field name="name">Woman Health (Primary Care)</field>
+            <field name="code">PRIMARY-WOMAN</field>
         </record>
 
     </data>
