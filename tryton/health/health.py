@@ -426,7 +426,8 @@ class MedicationFrequency(ModelSQL, ModelView):
         help='Common frequency name')
     code = fields.Char(
         'Code', required=True,
-        help='Dosage Code,for example: SNOMED 229798009 = 3 times per day')
+        help='Dosage Code,for example: SNOMED 229798009 = 3 times per day.'
+           'Please use CAPITAL LETTERS and no spaces')
     abbreviation = fields.Char(
         'Abbreviation',
         help='Dosage abbreviation, such as tid in the US or tds in the UK')
@@ -445,7 +446,8 @@ class DrugForm(ModelSQL, ModelView):
     __name__ = 'gnuhealth.drug.form'
 
     name = fields.Char('Form', required=True, select=True, translate=True)
-    code = fields.Char('Code', required=True)
+    code = fields.Char('Code', required=True,
+        help="Please use CAPITAL LETTERS and no spaces")
 
     @classmethod
     def __setup__(cls):
@@ -461,13 +463,15 @@ class DrugRoute(ModelSQL, ModelView):
     __name__ = 'gnuhealth.drug.route'
 
     name = fields.Char('Unit', required=True, select=True, translate=True)
-    code = fields.Char('Code')
+    code = fields.Char('Code',
+        help="Please use CAPITAL LETTERS and no spaces")
 
     @classmethod
     def __setup__(cls):
         super(DrugRoute, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
+            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
         ]
 
 
