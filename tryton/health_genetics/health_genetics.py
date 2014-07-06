@@ -31,7 +31,7 @@ class DiseaseGene(ModelSQL, ModelView):
     'Disease Genes'
     __name__ = 'gnuhealth.disease.gene'
 
-    name = fields.Char('Official Symbol', select=True)
+    name = fields.Char('Official Symbol', required=True,select=True)
     long_name = fields.Char('Official Long Name', select=True)
     gene_id = fields.Char('Gene ID',
         help="default code from NCBI Entrez database.", select=True)
@@ -43,7 +43,15 @@ class DiseaseGene(ModelSQL, ModelView):
         ('d', 'dominant'),
         ('r', 'recessive'),
         ], 'Dominance', select=True)
-    info = fields.Text('Information', help="Name of the protein(s) affected")
+    info = fields.Text('Information', help="Extra Information")
+
+    @classmethod
+    def __setup__(cls):
+        super(DiseaseGene, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 
+            'The Official Symbol name must be unique !'),
+        ]
 
     def get_rec_name(self, name):
         return self.name + ':' + self.long_name
