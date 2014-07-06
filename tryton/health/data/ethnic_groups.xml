@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
-    <data skiptest="1" noupdate="1">
+    <data skiptest="1" noupdate="0">
 
         <record model="gnuhealth.ethnicity" id="eth1">
             <field name="name">Black</field>
-            <field name="code">1</field>
+            <field name="code">BLACK</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth2">
             <field name="name">Asian</field>
-            <field name="code">2</field>
+            <field name="code">ASIAN</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth3">
             <field name="name">White</field>
-            <field name="code">3</field>
+            <field name="code">WHITE</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth4">
             <field name="name">Middle-East</field>
-            <field name="code">4</field>
+            <field name="code">MIDEAST</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth5">
             <field name="name">Hispanic</field>
-            <field name="code">5</field>
+            <field name="code">HISPANIC</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth6">
             <field name="name">African American</field>
-            <field name="code">6</field>
+            <field name="code">AFRICANAMERICAN</field>
         </record>
         <record model="gnuhealth.ethnicity" id="eth7">
             <field name="name">Indian American</field>
-            <field name="code">7</field>
+            <field name="code">INDIANAMERICAN</field>
         </record>
 
     </data>
