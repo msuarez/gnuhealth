@@ -588,7 +588,8 @@ class HealthInstitution(ModelSQL, ModelView):
         required=True,
         states={'readonly': Bool(Eval('name'))})
         
-    code = fields.Char('Code',help="Institution code")
+    code = fields.Char('Code', required=True,
+        help="Institution code")
 
     picture = fields.Binary('Picture')
 
@@ -643,6 +644,7 @@ class HealthInstitution(ModelSQL, ModelView):
         super(HealthInstitution, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'This Institution already exists !'),
+            ('code_uniq', 'UNIQUE(code)', 'This CODE already exists !'),
         ]
 
     @classmethod
