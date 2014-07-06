@@ -1102,6 +1102,10 @@ class HealthProfessional(ModelSQL, ModelView):
     def get_hp_puid(self, name):
         return self.name.ref
 
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
     @classmethod
     def search_hp_puid(cls, name, clause):
         res = []
