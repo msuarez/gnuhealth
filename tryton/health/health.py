@@ -665,8 +665,8 @@ class HealthInstitution(ModelSQL, ModelView):
         if not records:
             cursor.execute(
                 "INSERT INTO gnuhealth_institution \
-                (name, institution_type, public_level) \
-                SELECT id,\'set_me\',\'set_me\' \
+                (name, code, institution_type, public_level) \
+                SELECT id, id,\'set_me\',\'set_me\' \
                 from party_party where is_institution='true';")
 
             # Drop old foreign key from institution building
