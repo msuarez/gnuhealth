@@ -56,6 +56,18 @@ class DiseaseGene(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return self.name + ':' + self.long_name
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        """ Search for the official and long name"""
+        field = None
+        for field in ('name', 'long_name'):
+            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if parties:
+                break
+        if parties:
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
+
 
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'
@@ -64,7 +76,7 @@ class PatientGeneticRisk(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
         'Disease Gene', required=True)
-
+    notes = fields.Char("Notes")
 
 class FamilyDiseases(ModelSQL, ModelView):
     'Family Diseases'

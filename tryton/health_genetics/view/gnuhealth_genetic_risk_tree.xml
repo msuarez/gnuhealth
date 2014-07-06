@@ -2,4 +2,6 @@
 <tree string="Patient Genetic Risks">
     <field name="patient"/>
     <field name="disease_gene" expand="1"/>
+    <field name="notes" expand="1"/>
+
 </tree>
