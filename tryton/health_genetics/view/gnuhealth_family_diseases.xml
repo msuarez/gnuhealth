@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <form string="Patient Genetic Family Diseases">
     <label name="name"/>
-    <field colspan="4" name="name"/>
+    <field colspan="3" name="name"/>
     <newline/>
     <label name="xory"/>
     <field name="xory"/>

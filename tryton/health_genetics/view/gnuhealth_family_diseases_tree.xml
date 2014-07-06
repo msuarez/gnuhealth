@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<tree string="Genetic Family Diseases">
-    <field name="name"/>
-    <field name="xory"/>
+<tree string="Genetic Family History">
+    <field name="name" expand="1"/>
+    <field name="xory" expand="1"/>
     <field name="relative" expand="1"/>
 </tree>
