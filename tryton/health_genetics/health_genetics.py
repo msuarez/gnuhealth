@@ -88,6 +88,7 @@ class FamilyDiseases(ModelSQL, ModelView):
         (None, ''),
         ('m', 'Maternal'),
         ('f', 'Paternal'),
+        ('s', 'Sibling'),
         ], 'Maternal or Paternal', select=True)
 
     relative = fields.Selection([
