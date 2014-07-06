@@ -1045,12 +1045,11 @@ class MedicalSpecialty(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
-        super(MedicalSpecialty, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
             ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
         ]
-
+        super(MedicalSpecialty, cls).__setup__()
 
 class HealthProfessional(ModelSQL, ModelView):
     'Health Professional'
@@ -1115,14 +1114,13 @@ class HealthProfessional(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
-        super(HealthProfessional, cls).__setup__()
         cls._sql_constraints = [
             ('hp_uniq', 'UNIQUE(name)',
                 'The health professional must be unique'),
             ('code_uniq', 'UNIQUE(code)',
                 'The LICENSE ID must be unique'),
-
         ]
+        super(HealthProfessional, cls).__setup__()
 
     def get_rec_name(self, name):
         if self.name:
