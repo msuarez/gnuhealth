@@ -489,7 +489,8 @@ class Ethnicity(ModelSQL, ModelView):
     __name__ = 'gnuhealth.ethnicity'
 
     name = fields.Char('Name', required=True, translate=True)
-    code = fields.Char('Code')
+    code = fields.Char('Code', required=True,
+        help="Please use CAPITAL LETTERS and no spaces")
     notes = fields.Char('Notes')
 
     @classmethod
@@ -497,6 +498,8 @@ class Ethnicity(ModelSQL, ModelView):
         super(Ethnicity, cls).__setup__()
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
+            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+
         ]
 
 class OperationalArea(ModelSQL, ModelView):
@@ -1028,7 +1031,7 @@ class MedicalSpecialty(ModelSQL, ModelView):
         'Specialty', required=True, translate=True,
         help='ie, Addiction Psychiatry')
     code = fields.Char('Code', required=True,
-        help='ie, ADP. Please use CAPITAL LETTERS')
+        help='ie, ADP. Please use CAPITAL LETTERS and no spaces')
 
     @classmethod
     def __setup__(cls):
