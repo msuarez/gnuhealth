@@ -85,7 +85,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
     picture = fields.Binary('Picture')
 
-    latitude = fields.Numeric('Latidude', digits=(3, 14))
+    latitude = fields.Numeric('Latitude', digits=(3, 14))
     longitude = fields.Numeric('Longitude', digits=(4, 14))
 
     urladdr = fields.Char(
