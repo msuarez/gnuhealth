@@ -1,11 +1,19 @@
 from flask import Blueprint, request, current_app
-from flask.ext.restful import Resource, abort, RequestParser
+from flask.ext.restful import Resource, abort, reqparse
 from health_fhir_flask import (tryton, api, patient, party,
                                 safe_fromstring, safe_parse)
 from io import StringIO
 import fhir_xml
 
-
+def etree_to_dict(tree):
+    '''Converts an etree into a dictionary.'''
+    #TODO Peculiarities of FHIR standard need to
+    #    be addresssed
+    children=tree.getchildren()
+    if children:
+        return {tree.tag: [etree_to_dict(c) for c in children]}
+    else:
+        return {tree.tag: dict(tree.attrib)}
 
 # 'Patient' blueprint on '/Patient'
 patient_endpoint = Blueprint('patient_endpoint', __name__,
@@ -16,118 +24,128 @@ patient_endpoint = Blueprint('patient_endpoint', __name__,
 api.init_app(patient_endpoint)
 
 class meta_patient(object):
-    '''Mediate between XML schema bindings and
+    '''Mediate between XML/JSON schema bindings and
         the GNU Health models'''
 
     def __init__(record=None, patient=None):
         self.record = record
         self.patient = patient or fhir_xml.Patient()
-        self.set_gender()
-        self.set_deceased_status()
-        self.set_deceased_datetime()
-        self.set_birthdate()
-        self.set_telecom()
-        self.set_name()
-        self.set_identifier()
-        self.set_address()
-        self.set_active()
-        self.set_photo()
-        self.set_communication()
-        self.set_contact()
-        self.set_care_provider()
-        self.set_marital_status()
+        if self.record and getattr(self.record, 'name', None):
+            self.set_gender()
+            self.set_deceased_status()
+            self.set_deceased_datetime()
+            self.set_birthdate()
+            self.set_telecom()
+            self.set_name()
+            self.set_identifier()
+            self.set_address()
+            self.set_active()
+            self.set_photo()
+            self.set_communication()
+            self.set_contact()
+            self.set_care_provider()
+            self.set_marital_status()
 
     def set_identifier(self):
-        if self.record.puid:
-            ident = fhirBase.Identifier(use=fhirBase.IdentifierUse(value='usual'),
-                                        label=fhirBase.string('SSN'),
-                                        system=fhirBase.system(fhirBase.uri(value='urn:oid:2.16.840.1.113883.4.1')),
-                                        value=fhirBase.string(self.record.puid))
-        elif self.record.alternative_identification:
-            ident = fhirBase.Identifier(use=fhirBase.IdentifierUse(value='usual'),
-                                        label=fhirBase.string('MRN'),
-                                        system=fhirBase.system(fhirBase.uri(value=current_app.config.get('INSTITUTION_ODI',
-                                                                                        None))),
-                                        value=fhirBase.string(self.record.identification_code))
+        if getattr(self.record, 'puid', None):
+            ident = fhir_xml.Identifier(
+                        use=fhir_xml.IdentifierUse(value='usual'),
+                        label=fhir_xml.string(value='PUID'),
+                        system=fhir_xml.system(
+                            fhir_xml.uri(
+                                value=current_app.config.get(
+                                    'INSTITUTION_ODI', None))),
+                        value=fhir_xml.string(value=self.record.puid))
+
+        elif getattr(self.record, 'alternative_identification', None):
+            ident = fhir_xml.Identifier(
+                        use=fhir_xml.IdentifierUse(value='usual'),
+                        label=fhir_xml.string(value='ALTERNATE_ID'),
+                        system=fhir_xml.system(
+                            fhir_xml.uri(
+                                value=current_app.config.get(
+                                    'INSTITUTION_ODI',None))),
+                        value=fhir_xml.string(
+                            value=self.record.alternative_identification))
         else:
             return
         self.patient.add_identifier(value=ident)
 
     def set_name(self):
         name = []
-        name.append(fhirBase.HumanName(
-                    use=fhirBase.NameUse(value='official'),
-                    family=[fhirBase.string(value=x) for x in self.record.lastname.split()],
-                    given=[fhirBase.string(value=x) for x in self.record.name.name.split()]))
+        name.append(fhir_xml.HumanName(
+                    use=fhir_xml.NameUse(value='official'),
+                    family=[fhir_xml.string(value=x) for x in self.record.lastname.split()],
+                    given=[fhir_xml.string(value=x) for x in self.record.name.name.split()]))
 
-        if self.record.name.alias:
-            name.append(fhirBaseHumanName(
-                        use=fhirBase.NameUse(value='usual'),
-                        given=[fhirBase.string(self.record.name.alias)]))
+        if getattr(self.record.name, 'alias', None):
+            name.append(fhir_xmlHumanName(
+                        use=fhir_xml.NameUse(value='usual'),
+                        given=[fhir_xml.string(value=self.record.name.alias)]))
         for x in name:
             self.patient.add_name(x)
 
     def set_telecom(self):
         telecom = []
-        if self.record.name.phone:
-            telecom.append(fhirBase.Contact(
-                    system=fhirBase.ContactSystem(value='phone'),
-                    value=fhirBase.string(value=self.record.name.phone),
-                    use=fhirBase.ContactUse(value='home')))
-        if self.record.name.mobile:
-            telecom.append(fhirBase.Contact(
-                    system=fhirBase.ContactSystem(value='phone'),
-                    value=fhirBase.string(value=self.record.name.mobile),
-                    use=fhirBase.ContactUse(value='mobile')))
-        if self.record.name.email:
-            telecom.append(fhirBase.Contact(
-                    system=fhirBase.ContactSystem(value='email'),
-                    value=fhirBase.string(value=self.record.name.email),
-                    use=fhirBase.ContactUse(value='email')))
+        if getattr(self.record.name, 'phone', None):
+            telecom.append(fhir_xml.Contact(
+                    system=fhir_xml.ContactSystem(value='phone'),
+                    value=fhir_xml.string(value=self.record.name.phone),
+                    use=fhir_xml.ContactUse(value='home')))
+        if getattr(self.record.name, 'mobile', None):
+            telecom.append(fhir_xml.Contact(
+                    system=fhir_xml.ContactSystem(value='phone'),
+                    value=fhir_xml.string(value=self.record.name.mobile),
+                    use=fhir_xml.ContactUse(value='mobile')))
+        if getattr(self.record.name, 'email', None):
+            telecom.append(fhir_xml.Contact(
+                    system=fhir_xml.ContactSystem(value='email'),
+                    value=fhir_xml.string(value=self.record.name.email),
+                    use=fhir_xml.ContactUse(value='email')))
         for x in telecom:
             self.patient.add_telecom(x)
 
     def set_gender(self):
-        if self.record.sex:
-            coding = fhirBase.Coding(
-                        system=fhirBase.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
-                        code=fhirBase.code(value=self.record.sex.upper()),
-                        display=fhirBase.string(value='Male' if record.sex == 'm' else 'Female')
+        if getattr(self.record, 'sex', None):
+            coding = fhir_xml.Coding(
+                        system=fhir_xml.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
+                        code=fhir_xml.code(value=self.record.sex.upper()),
+                        display=fhir_xml.string(value='Male' if record.sex == 'm' else 'Female')
                         )
-            gender=fhirBase.CodeableConcept(coding=[coding])
+            gender=fhir_xml.CodeableConcept(coding=[coding])
             self.patient.set_gender(gender)
 
     def set_birthdate(self):
-        if self.record.dob:
-            self.patient.set_birthdate(fhirBase.dateTime(value=self.record.dob))
+        if getattr(self.record, 'dob', None):
+            self.patient.set_birthdate(fhir_xml.dateTime(value=self.record.dob))
 
     def set_deceased_status(self):
-        if self.record.deceased:
-            status=fhirBase.boolean(value='true')
+        if getattr(self.record, 'deceased', None):
+            status=fhir_xml.boolean(value='true')
         else:
-            status=fhirBase.boolean(value='false')
+            status=fhir_xml.boolean(value='false')
         self.patient.set_deceaseadBoolean(status)
 
     def set_deceased_datetime(self):
-        if self.record.deceased:
-            self.patient.set_deceasedDateTime(fhirBase.dateTime(value=str(self.record.dod)))
+        if getattr(self.record, 'deceased', None):
+            self.patient.set_deceasedDateTime(fhir_xml.dateTime(value=str(self.record.dod)))
 
     def set_address(self):
-        if self.record.name.du:
-            address=fhirBase.Address()
-            address.set_use(fhirBase.string(value='home'))
-            address.add_line(fhirBase.string(value=' '.join([
+        if getattr(self.record.name, 'du', None):
+            address=fhir_xml.Address()
+            address.set_use(fhir_xml.string(value='home'))
+            address.add_line(fhir_xml.string(value=' '.join([
                                         str(self.record.name.du.address_street_number),
                                         self.record.name.du.address_street])))
-            address.set_city(fhirBase.string(value=self.record.name.du.address_city))
-            address.set_state(fhirBase.string(value=self.record.name.du.address_subdivision))
-            address.set_zip(fhirBase.string(value=self.record.name.du.address_zip))
-            address.set_country(fhirBase.string(value=self.record.name.du.address_country))
+            address.set_city(fhir_xml.string(value=self.record.name.du.address_city))
+            address.set_state(fhir_xml.string(value=self.record.name.du.address_subdivision))
+            address.set_zip(fhir_xml.string(value=self.record.name.du.address_zip))
+            address.set_country(fhir_xml.string(value=self.record.name.du.address_country))
 
             self.patient.add_address(address)
 
     def set_active(self):
-        self.patient.set_active(fhirBase.boolean(value='true'))
+        self.patient.set_active(fhir_xml.boolean(value='true'))
 
     def set_contact(self):
         pass
@@ -140,8 +158,8 @@ class meta_patient(object):
 
     def set_photo(self):
         import base64
-        if self.record.photo:
-            im = fhirBase.Attachment(data=base64.encodestring(self.record.photo))
+        if getattr(self.record, 'photo', None):
+            im = fhir_xml.Attachment(data=base64.encodestring(self.record.photo))
             self.patient.add_photo(im)
 
     def set_marital_status(self):
@@ -253,7 +271,9 @@ def output_xml(data, code, headers=None):
 @api.representation('application/json')
 @api.representation('application/json+fhir')
 def output_json(data, code, headers=None):
-    resp = make_response(json.dumps(data), code)
+    resp = make_response(
+                json.dumps(etree_to_dict(data.to_etree())),
+                code)
     resp.headers.extend(headers or {})
     resp.headers['Content-type']='application/json+fhir' #Return proper type
     return resp
