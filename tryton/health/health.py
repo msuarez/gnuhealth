@@ -804,7 +804,7 @@ class HospitalBuilding(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution', required=True,
-        help='Health Instituion of this building')
+        help='Health Institution of this building')
 
     code = fields.Char('Code', required=True)
     extra_info = fields.Text('Extra Info')
@@ -1084,7 +1084,7 @@ class HealthProfessional(ModelSQL, ModelView):
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
-        help='Main instituion where she/he works')
+        help='Main institution where she/he works')
 
     code = fields.Char('LICENSE ID', help='License ID')
 
@@ -1325,7 +1325,7 @@ class Medicament(ModelSQL, ModelView):
         ('X', 'X'),
         ('N', 'N'),
         ], 'Pregnancy Category',
-        help='** FDA Pregancy Categories ***\n'
+        help='** FDA Pregnancy Categories ***\n'
         'CATEGORY A :Adequate and well-controlled human studies have failed'
         ' to demonstrate a risk to the fetus in the first trimester of'
         ' pregnancy (and there is no evidence of risk in later'
@@ -2909,7 +2909,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         'gnuhealth.prescription.line', 'name', 'Prescription line')
 
     notes = fields.Text('Prescription Notes')
-    pregnancy_warning = fields.Boolean('Pregancy Warning', readonly=True)
+    pregnancy_warning = fields.Boolean('Pregnancy Warning', readonly=True)
     prescription_warning_ack = fields.Boolean('Prescription verified')
 
     healthprof = fields.Many2One(
@@ -3392,7 +3392,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     violent = fields.Boolean(
         'Violent Behaviour',
-        help='Check this box if the patient is agressive or violent at the'
+        help='Check this box if the patient is aggressive or violent at the'
         ' moment')
 
     mood = fields.Selection([
@@ -3423,7 +3423,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ' notorious events')
 
     judgment = fields.Boolean(
-        'Jugdment',
+        'Judgment',
         help='Check this box if the patient can not interpret basic scenario'
         ' solutions')
 
