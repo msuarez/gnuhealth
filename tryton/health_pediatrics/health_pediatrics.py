@@ -266,7 +266,7 @@ class PediatricSymptomsChecklist(ModelSQL, ModelView):
 
     evaluation_start = fields.DateTime('Date', required=True)
 
-    user_id = fields.Many2One('res.user', 'Healh Professional', readonly=True)
+    user_id = fields.Many2One('res.user', 'Health Professional', readonly=True)
 
     notes = fields.Text('Notes')
 
