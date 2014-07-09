@@ -59,7 +59,7 @@ class PaperArchive(ModelSQL, ModelView):
         'get_patient_history', searcher='search_patient_code')
 
     requested_by = fields.Many2One(
-        'party.party', 'Resquested by',
+        'party.party', 'Requested by',
         domain=[('is_person', '=', True)], 
         help="Person who last requested the document")
 
