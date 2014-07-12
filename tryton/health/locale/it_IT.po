@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # docmimmo <docmimmo@gmail.com>, 2013
 # Fabrizio Giannobili <iuza83@yahoo.it>, 2013
 # Gabriele Meloncelli <gabriele.meloncelli@virgilio.it>, 2013
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-02 12:35+0000\n"
-"PO-Revision-Date: 2014-07-02 16:05+0000\n"
+"POT-Creation-Date: 2014-07-09 01:27+0000\n"
+"PO-Revision-Date: 2014-07-12 15:31+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -27,8 +28,16 @@ msgid "The Unit must be unique !"
 msgstr "L'Unità deve essere unica !"
 
 msgctxt "error:gnuhealth.drug.form:"
+msgid "The CODE must be unique !"
+msgstr ""
+
+msgctxt "error:gnuhealth.drug.form:"
 msgid "The Unit must be unique !"
 msgstr "L'Unità deve essere unica !"
+
+msgctxt "error:gnuhealth.drug.route:"
+msgid "The CODE must be unique !"
+msgstr ""
 
 msgctxt "error:gnuhealth.drug.route:"
 msgid "The Name must be unique !"
@@ -39,6 +48,10 @@ msgid "The Domiciliary Unit must be unique !"
 msgstr "La Sede di Residenza deve essere unica"
 
 msgctxt "error:gnuhealth.ethnicity:"
+msgid "The CODE must be unique !"
+msgstr ""
+
+msgctxt "error:gnuhealth.ethnicity:"
 msgid "The Name must be unique !"
 msgstr "Il Nome deve essere unico !"
 
@@ -46,21 +59,49 @@ msgctxt "error:gnuhealth.family:"
 msgid "The Family Code must be unique !"
 msgstr "Il Codice Famiglia deve essere unico !"
 
-msgctxt "error:gnuhealth.healthprofessional:"
-msgid "The health professional must be unique"
+msgctxt "error:gnuhealth.hospital.bed:"
+msgid "The Bed must be unique per Health Center"
+msgstr ""
+
+msgctxt "error:gnuhealth.hospital.building:"
+msgid "The Building name must be unique per Health Center"
 msgstr ""
 
 msgctxt "error:gnuhealth.hospital.or:"
-msgid "The Operating Room code must be unique per Health Center"
-msgstr "Il codice della Sala Operatoria deve essere unico per ogni Centro di Salute"
+msgid "The Operating Room Name must be unique per Health Center"
+msgstr ""
+
+msgctxt "error:gnuhealth.hospital.unit:"
+msgid "The Unit CODE must be unique per Health Center"
+msgstr ""
+
+msgctxt "error:gnuhealth.hospital.unit:"
+msgid "The Unit NAME must be unique per Health Center"
+msgstr ""
+
+msgctxt "error:gnuhealth.hospital.ward:"
+msgid "The Ward / Room Name must be unique per Health Center"
+msgstr ""
+
+msgctxt "error:gnuhealth.institution:"
+msgid "This CODE already exists !"
+msgstr ""
 
 msgctxt "error:gnuhealth.institution:"
 msgid "This Institution already exists !"
 msgstr ""
 
 msgctxt "error:gnuhealth.medication.dosage:"
+msgid "The CODE must be unique !"
+msgstr ""
+
+msgctxt "error:gnuhealth.medication.dosage:"
 msgid "The Unit must be unique !"
 msgstr "L'Unità deve essere unica !"
+
+msgctxt "error:gnuhealth.occupation:"
+msgid "The CODE must be unique !"
+msgstr ""
 
 msgctxt "error:gnuhealth.occupation:"
 msgid "The Name must be unique !"
@@ -73,6 +114,14 @@ msgstr "L'area operativa deve essere unica !"
 msgctxt "error:gnuhealth.operational_sector:"
 msgid "The operational sector must be unique in each operational area!"
 msgstr "Il settore operativo deve essere unico in ogni area operativa !"
+
+msgctxt "error:gnuhealth.pathology.category:"
+msgid "The category name must be unique"
+msgstr ""
+
+msgctxt "error:gnuhealth.pathology.group:"
+msgid "The Pathology Group code must be unique"
+msgstr ""
 
 msgctxt "error:gnuhealth.pathology:"
 msgid "The disease code must be unique"
@@ -126,10 +175,6 @@ msgstr "== VERIFICA FARMACO E GRAVIDANZA ==\n\n- LA PAZIENTE È GRAVIDA ? \n- ST
 msgctxt "error:gnuhealth.prescription.order:"
 msgid "No health professional associated to this user"
 msgstr "Nessun professionista sanitario associato a questo utente"
-
-msgctxt "error:gnuhealth.specialty:"
-msgid "The Specialty must be unique !"
-msgstr "La Specialitè deve essere unica !"
 
 msgctxt "error:gnuhealth.vaccination:"
 msgid ""
@@ -586,7 +631,7 @@ msgid "Internet"
 msgstr "Internet"
 
 msgctxt "field:gnuhealth.du,latitude:"
-msgid "Latidude"
+msgid "Latitude"
 msgstr "Latitudine"
 
 msgctxt "field:gnuhealth.du,longitude:"
@@ -766,8 +811,8 @@ msgid "Write User"
 msgstr "Scrivere nome utente"
 
 msgctxt "field:gnuhealth.healthprofessional,code:"
-msgid "ID"
-msgstr "ID"
+msgid "LICENSE ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.healthprofessional,create_date:"
 msgid "Create Date"
@@ -796,6 +841,10 @@ msgstr "Prinipale specializzazione"
 msgctxt "field:gnuhealth.healthprofessional,name:"
 msgid "Health Professional"
 msgstr "Professionista medico"
+
+msgctxt "field:gnuhealth.healthprofessional,puid:"
+msgid "PUID"
+msgstr ""
 
 msgctxt "field:gnuhealth.healthprofessional,rec_name:"
 msgid "Name"
@@ -2138,7 +2187,7 @@ msgid "Institution"
 msgstr "Istituzione"
 
 msgctxt "field:gnuhealth.patient.evaluation,judgment:"
-msgid "Jugdment"
+msgid "Judgment"
 msgstr "Valutazione"
 
 msgctxt "field:gnuhealth.patient.evaluation,knowledge_current_events:"
@@ -2619,7 +2668,7 @@ msgid "Pharmacy"
 msgstr "Farmacia"
 
 msgctxt "field:gnuhealth.prescription.order,pregnancy_warning:"
-msgid "Pregancy Warning"
+msgid "Pregnancy Warning"
 msgstr "Allerta Gravidanza"
 
 msgctxt "field:gnuhealth.prescription.order,prescription_date:"
@@ -3054,6 +3103,14 @@ msgctxt "help:gnuhealth.appointment,speciality:"
 msgid "Medical Specialty / Sector"
 msgstr "Specialità Medica / Settore"
 
+msgctxt "help:gnuhealth.drug.form,code:"
+msgid "Please use CAPITAL LETTERS and no spaces"
+msgstr ""
+
+msgctxt "help:gnuhealth.drug.route,code:"
+msgid "Please use CAPITAL LETTERS and no spaces"
+msgstr ""
+
 msgctxt "help:gnuhealth.du,address_country:"
 msgid "Country"
 msgstr "Nazione"
@@ -3078,6 +3135,10 @@ msgctxt "help:gnuhealth.du,urladdr:"
 msgid "Locates the DU on the Open Street Map by default"
 msgstr "Localizza DU su Open Street Map come impostazione predefinita"
 
+msgctxt "help:gnuhealth.ethnicity,code:"
+msgid "Please use CAPITAL LETTERS and no spaces"
+msgstr ""
+
 msgctxt "help:gnuhealth.family,name:"
 msgid "Family code"
 msgstr "Codice famiglia"
@@ -3099,8 +3160,8 @@ msgid "License ID"
 msgstr ""
 
 msgctxt "help:gnuhealth.healthprofessional,institution:"
-msgid "Instituion where she/he works"
-msgstr "Ente doce lavora"
+msgid "Main institution where she/he works"
+msgstr ""
 
 msgctxt "help:gnuhealth.healthprofessional,main_specialty:"
 msgid "Specialty Code"
@@ -3109,6 +3170,10 @@ msgstr "odico Specialità"
 msgctxt "help:gnuhealth.healthprofessional,name:"
 msgid "Health Professional's Name, from the partner list"
 msgstr "Nome del Professionista Sanitario, dalla lista degli associati"
+
+msgctxt "help:gnuhealth.healthprofessional,puid:"
+msgid "Person Unique Identifier"
+msgstr ""
 
 msgctxt "help:gnuhealth.hospital.bed,institution:"
 msgid "Health Institution"
@@ -3127,7 +3192,7 @@ msgid "Ward or room"
 msgstr "Reparto o camera"
 
 msgctxt "help:gnuhealth.hospital.building,institution:"
-msgid "Health Instituion of this building"
+msgid "Health Institution of this building"
 msgstr ""
 
 msgctxt "help:gnuhealth.hospital.building,name:"
@@ -3252,7 +3317,7 @@ msgstr "Avvertenze per Donne Incinte"
 
 msgctxt "help:gnuhealth.medicament,pregnancy_category:"
 msgid ""
-"** FDA Pregancy Categories ***\n"
+"** FDA Pregnancy Categories ***\n"
 "CATEGORY A :Adequate and well-controlled human studies have failed to demonstrate a risk to the fetus in the first trimester of pregnancy (and there is no evidence of risk in later trimesters).\n"
 "\n"
 "CATEGORY B : Animal reproduction studies have failed todemonstrate a risk to the fetus and there are no adequate and well-controlled studies in pregnant women OR Animal studies have shown an adverse effect, but adequate and well-controlled studies in pregnant women have failed to demonstrate a risk to the fetus in any trimester.\n"
@@ -3283,12 +3348,18 @@ msgid "Dosage abbreviation, such as tid in the US or tds in the UK"
 msgstr "Abbreviazione del dosaggio, come tid negli USA e tds in UK"
 
 msgctxt "help:gnuhealth.medication.dosage,code:"
-msgid "Dosage Code,for example: SNOMED 229798009 = 3 times per day"
-msgstr "Codice Dosaggio, per esemio: SNOMED 229798009 = 3 volte al giorno"
+msgid ""
+"Dosage Code,for example: SNOMED 229798009 = 3 times per day.Please use "
+"CAPITAL LETTERS and no spaces"
+msgstr ""
 
 msgctxt "help:gnuhealth.medication.dosage,name:"
 msgid "Common frequency name"
 msgstr "Nome comune"
+
+msgctxt "help:gnuhealth.occupation,code:"
+msgid "Please use CAPITAL LETTERS and no spaces"
+msgstr ""
 
 msgctxt "help:gnuhealth.operational_area,name:"
 msgid "Operational Area of the city or region"
@@ -3605,7 +3676,7 @@ msgid ""
 msgstr "Se associata ad una malattia, per favore codificare nella storia clinica del paziente"
 
 msgctxt "help:gnuhealth.patient.evaluation,violent:"
-msgid "Check this box if the patient is agressive or violent at the moment"
+msgid "Check this box if the patient is aggressive or violent at the moment"
 msgstr "Selezionare se il paziente è aggressivo o violento al momento"
 
 msgctxt "help:gnuhealth.patient.evaluation,vocabulary:"
@@ -3802,8 +3873,8 @@ msgid "Type in the ID of this prescription"
 msgstr "Digitare il Codice di questa ricetta"
 
 msgctxt "help:gnuhealth.specialty,code:"
-msgid "ie, ADP"
-msgstr "esempio, ADP"
+msgid "ie, ADP. Please use CAPITAL LETTERS and no spaces"
+msgstr ""
 
 msgctxt "help:gnuhealth.specialty,name:"
 msgid "ie, Addiction Psychiatry"
@@ -4670,6 +4741,10 @@ msgstr "Specializzazioni mediche"
 
 msgctxt "model:gnuhealth.institution,name:"
 msgid "Health Institution"
+msgstr ""
+
+msgctxt "model:gnuhealth.institution.operationalsector,name:"
+msgid "Operational Sectors covered by Institution"
 msgstr ""
 
 msgctxt "model:gnuhealth.institution.specialties,name:"
@@ -7525,7 +7600,7 @@ msgid "Geriatrics"
 msgstr "Geriatria"
 
 msgctxt "model:gnuhealth.specialty,name:22"
-msgid "Gynaecology"
+msgid "Gynecology"
 msgstr "Ginecologia"
 
 msgctxt "model:gnuhealth.specialty,name:23"
@@ -7593,8 +7668,8 @@ msgid "Orthopedic surgery"
 msgstr "Chirurgia Ortopedica"
 
 msgctxt "model:gnuhealth.specialty,name:38"
-msgid "Otolaryngology, or ENT"
-msgstr "Otorinolaringoiatria o ENT"
+msgid "Otolaryngology - ENT"
+msgstr "Otorinolaringoiatria - ENT"
 
 msgctxt "model:gnuhealth.specialty,name:39"
 msgid "Palliative care"
@@ -7728,10 +7803,6 @@ msgctxt "model:gnuhealth.specialty,name:68"
 msgid "Obstetrics"
 msgstr "Ostetricia"
 
-msgctxt "model:gnuhealth.specialty,name:69"
-msgid "Gynecology"
-msgstr ""
-
 msgctxt "model:gnuhealth.specialty,name:7"
 msgid "Cardiology"
 msgstr "Cardiologia"
@@ -7741,7 +7812,7 @@ msgid "Primary Care"
 msgstr ""
 
 msgctxt "model:gnuhealth.specialty,name:71"
-msgid "Family Planning"
+msgid "Family Planning (Primary Care)"
 msgstr ""
 
 msgctxt "model:gnuhealth.specialty,name:72"
@@ -7749,7 +7820,15 @@ msgid "Social Services"
 msgstr ""
 
 msgctxt "model:gnuhealth.specialty,name:73"
-msgid "Oral Medicine"
+msgid "Oral Medicine (Primary Care)"
+msgstr ""
+
+msgctxt "model:gnuhealth.specialty,name:74"
+msgid "Child Health (Primary Care)"
+msgstr ""
+
+msgctxt "model:gnuhealth.specialty,name:75"
+msgid "Woman Health (Primary Care)"
 msgstr ""
 
 msgctxt "model:gnuhealth.specialty,name:8"
@@ -8608,10 +8687,6 @@ msgid "Age :"
 msgstr "Età:"
 
 msgctxt "odt:prescription.order:"
-msgid "Allowed"
-msgstr ""
-
-msgctxt "odt:prescription.order:"
 msgid "Directions"
 msgstr "Indicazioni"
 
@@ -8712,8 +8787,8 @@ msgid "Start"
 msgstr "Inizio"
 
 msgctxt "odt:prescription.order:"
-msgid "Substitution"
-msgstr ""
+msgid "Substitution Allowed"
+msgstr "Sostituzione Consentita"
 
 msgctxt "odt:prescription.order:"
 msgid "Tel"

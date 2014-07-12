@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # Carlos <carloschebair@gmail.com>, 2011
 # cristina <cmelgosa@thymbra.com>, 2012
 # meanmicio <lfalcon@gnusolidario.org>, 2012
@@ -8,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:22+0000\n"
-"PO-Revision-Date: 2014-06-27 23:00+0000\n"
+"POT-Creation-Date: 2014-07-07 13:30+0000\n"
+"PO-Revision-Date: 2014-07-12 14:30+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +137,7 @@ msgstr "Fecha"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "Revisado"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,id:"
 msgid "ID"
@@ -148,7 +149,7 @@ msgstr "Institución"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,last_colposcopy:"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,name:"
 msgid "Patient"
@@ -192,7 +193,7 @@ msgstr "Fecha"
 
 msgctxt "field:gnuhealth.patient.mammography_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "Revisado"
 
 msgctxt "field:gnuhealth.patient.mammography_history,id:"
 msgid "ID"
@@ -204,7 +205,7 @@ msgstr "Institución"
 
 msgctxt "field:gnuhealth.patient.mammography_history,last_mammography:"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgctxt "field:gnuhealth.patient.mammography_history,name:"
 msgid "Patient"
@@ -252,7 +253,7 @@ msgstr "frecuencia"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "Revisado"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,id:"
 msgid "ID"
@@ -316,7 +317,7 @@ msgstr "Fecha"
 
 msgctxt "field:gnuhealth.patient.pap_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "Revisado"
 
 msgctxt "field:gnuhealth.patient.pap_history,id:"
 msgid "ID"
@@ -328,7 +329,7 @@ msgstr "Institución"
 
 msgctxt "field:gnuhealth.patient.pap_history,last_pap:"
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgctxt "field:gnuhealth.patient.pap_history,name:"
 msgid "Patient"
@@ -352,7 +353,7 @@ msgstr "Escriba el usuario"
 
 msgctxt "field:gnuhealth.patient.pregnancy,bba:"
 msgid "BBA"
-msgstr ""
+msgstr "NAL"
 
 msgctxt "field:gnuhealth.patient.pregnancy,create_date:"
 msgid "Create Date"
@@ -380,7 +381,7 @@ msgstr "Prof. salud"
 
 msgctxt "field:gnuhealth.patient.pregnancy,home_birth:"
 msgid "Home Birth"
-msgstr ""
+msgstr "Nacimiento en casa"
 
 msgctxt "field:gnuhealth.patient.pregnancy,id:"
 msgid "ID"
@@ -880,7 +881,7 @@ msgstr "Embarazos a término"
 
 msgctxt "help:gnuhealth.patient,gravida:"
 msgid "Number of pregnancies, computed from Obstetric history"
-msgstr ""
+msgstr "Número de embarazos, calculados a partir del Historial de obstetricia"
 
 msgctxt "help:gnuhealth.patient,mammography:"
 msgid "Check if the patient does periodic mammographys"
@@ -908,7 +909,7 @@ msgstr "Fecha"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "Profesional de la salud quien realizó la última revisión de la prueba"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,last_colposcopy:"
 msgid "Last colposcopy"
@@ -925,7 +926,7 @@ msgstr "Fecha"
 
 msgctxt "help:gnuhealth.patient.mammography_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "Profesional de la salud quien realizó la última revisión de la prueba"
 
 msgctxt "help:gnuhealth.patient.mammography_history,last_mammography:"
 msgid "Last Mammography"
@@ -942,7 +943,7 @@ msgstr "Fecha de evaluación"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,healthprof:"
 msgid "Health Professional who reviewed the information"
-msgstr ""
+msgstr "Profesional de la salud que revisó la información"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,lmp:"
 msgid "Last Menstrual Period"
@@ -954,7 +955,7 @@ msgstr "Fecha"
 
 msgctxt "help:gnuhealth.patient.pap_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "Profesional de la salud quien realizó la última revisión de la prueba"
 
 msgctxt "help:gnuhealth.patient.pap_history,last_pap:"
 msgid "Last Papanicolau"
@@ -966,7 +967,7 @@ msgstr "Marque los resultados del laboratorio si está instalado el módulo heal
 
 msgctxt "help:gnuhealth.patient.pregnancy,bba:"
 msgid "Born Before Arrival"
-msgstr ""
+msgstr "Nacido Antes de Llegar"
 
 msgctxt "help:gnuhealth.patient.pregnancy,current_pregnancy:"
 msgid "This field marks the current pregnancy"
@@ -974,15 +975,15 @@ msgstr "Este campo denota el embarazo actual"
 
 msgctxt "help:gnuhealth.patient.pregnancy,healthprof:"
 msgid "Health Professional who created this initial obstetric record"
-msgstr ""
+msgstr "Profesionales de la salud que creó este registro inicial de obstetricia"
 
 msgctxt "help:gnuhealth.patient.pregnancy,home_birth:"
 msgid "Home Birth"
-msgstr ""
+msgstr "Nacimiento en casa"
 
 msgctxt "help:gnuhealth.patient.pregnancy,institution:"
 msgid "Health center where this initial obstetric record was created"
-msgstr ""
+msgstr "Centro de Salud donde éste registro inicial de obstetricia fue creado"
 
 msgctxt "help:gnuhealth.patient.pregnancy,lmp:"
 msgid "Last Menstrual Period"
@@ -1046,7 +1047,7 @@ msgctxt "help:gnuhealth.patient.prenatal.evaluation,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "Profesionales de la salud a cargo, o aquel quien introdujo la información en el sistema"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,hypertension:"
 msgid "Check this box if the mother has hypertension"
@@ -1076,7 +1077,7 @@ msgctxt "help:gnuhealth.perinatal,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "Profesionales de la salud a cargo, o aquel quien introdujo la información en el sistema"
 
 msgctxt "help:gnuhealth.perinatal,mother_deceased:"
 msgid "Mother died in the process"
@@ -1102,7 +1103,7 @@ msgctxt "help:gnuhealth.puerperium.monitor,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "Profesionales de la salud a cargo, o aquel quien introdujo la información en el sistema"
 
 msgctxt "help:gnuhealth.puerperium.monitor,uterus_involution:"
 msgid ""
@@ -1147,7 +1148,7 @@ msgstr "Monitor de puerperio"
 
 msgctxt "model:ir.action,name:act_pregnancy_form1"
 msgid "Obstetric History"
-msgstr ""
+msgstr "Historial de obstetricia"
 
 msgctxt "model:res.group,name:group_health_gyneco_admin"
 msgid "Health Gynecology and Obstetrics Administration"
@@ -1471,11 +1472,11 @@ msgstr "General"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "OB summary"
-msgstr ""
+msgstr "Resumen de obstetricia"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "OB/GYN"
-msgstr ""
+msgstr "OB/GIN"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Screening"
