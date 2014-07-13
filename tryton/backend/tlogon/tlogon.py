@@ -59,8 +59,8 @@ def parse_tlogonrc (init_tlogon):
         contents = getnode(child)
         if len (contents) > 0:
             attribs = [contents["id"],contents["description"],
-            contents["appserver"],contents["port"],
-            contents["url"],contents["role"]]
+            contents["host"],contents["port"],
+            contents["database"], contents["url"],contents["role"]]
             instance_values.append (attribs)
     return instance_values
 
@@ -81,13 +81,14 @@ def init_tlogonrc ():
         <tlogon>
         <instance id='1' 
             description='GNU Health Demo Server' 
-            appserver='health.gnusolidario.org' 
-            port='8000'
-            database='health26'
+            host='health.gnusolidario.org' 
+            port='8000' 
+            database='health26' 
+            url='tryton://localhost:8000/health26/'
             role='Demo'
-            url='tryton://localhost:8000/health26/'/>
+            />
         </tlogon>
-'''
+        '''
         
         tlogonrc = open (os.environ['HOME']+"/.tlogonrc","w")
         tlogonrc.write (tlogonrc_data)
@@ -179,7 +180,7 @@ class tlogongui:
 
 
         # liststore to hold instances data 
-        self.liststore = gtk.ListStore(str, str, str, str, str, str, 'gboolean')
+        self.liststore = gtk.ListStore(str, str, str, str, str, str, str, 'gboolean')
         self.framewindow = gtk.ScrolledWindow()
         self.framewindow.set_size_request(400,400)  
         self.treeview = gtk.TreeView(self.liststore)
@@ -189,9 +190,10 @@ class tlogongui:
         #Define all the columns
         col_instance_id = gtk.TreeViewColumn('Identifier')
         col_description = gtk.TreeViewColumn('Description')
-        col_appserver = gtk.TreeViewColumn('Appserver')
+        col_host = gtk.TreeViewColumn('Host')
         col_port = gtk.TreeViewColumn('Port')
-        col_url = gtk.TreeViewColumn('Url')
+        col_database = gtk.TreeViewColumn('Database')
+        col_url = gtk.TreeViewColumn('URL')
         col_role = gtk.TreeViewColumn('Role')
 
 
@@ -204,15 +206,15 @@ class tlogongui:
 
         #Make invisible some columns
         col_instance_id.set_visible (False)
-        col_appserver.set_visible (False)
+        col_host.set_visible (False)
         col_port.set_visible (False)
         col_url.set_visible (False)
 
         # We map the array components to the instance elements
         
-        for (instance_id, description,appserver,port,url,role) in instances:
-            self.liststore.append([instance_id,description,
-                appserver,port,url,role, True])
+        for (instance_id, description, host, port, database, url, role) in instances:
+            self.liststore.append([instance_id, description, host, port,
+             database, url,role, True])
 
 
         # Append description and role to the treeview
@@ -224,6 +226,7 @@ class tlogongui:
         cell_desc = gtk.CellRendererText()
         cell_apps = gtk.CellRendererText()
         cell_port = gtk.CellRendererText()
+        cell_database = gtk.CellRendererText()
         cell_url = gtk.CellRendererText()
         cell_role = gtk.CellRendererText()
 
@@ -236,8 +239,9 @@ class tlogongui:
         # Pack the columns 
         col_instance_id.pack_start (cell_id, True)
         col_description.pack_start (cell_desc, True)
-        col_appserver.pack_start (cell_apps, True)
+        col_host.pack_start (cell_apps, True)
         col_port.pack_start (cell_port, True)
+        col_database.pack_start (cell_database, True)
         col_url.pack_start (cell_url, True)
         col_role.pack_start (cell_role, True)
         
@@ -257,10 +261,11 @@ class tlogongui:
         # (0 = ID, 1= Description ... )
         col_instance_id.set_attributes(cell_id, text=0)
         col_description.set_attributes(cell_desc, text=1)
-        col_appserver.set_attributes(cell_apps, text=2)
+        col_host.set_attributes(cell_apps, text=2)
         col_port.set_attributes(cell_port, text=3)
-        col_url.set_attributes(cell_url, text=4)
-        col_role.set_attributes(cell_role, text=5)
+        col_database.set_attributes(cell_database, text=4)
+        col_url.set_attributes(cell_url, text=5)
+        col_role.set_attributes(cell_role, text=6)
 
         vbox.pack_start (self.framewindow, False)
         self.window.show_all()
@@ -272,7 +277,8 @@ class tlogongui:
             (data, column) = selection.get_selected ()
             instance_info = [data.get_value(column,0),data.get_value(column,1),
                 data.get_value(column,2),data.get_value(column,3),
-                data.get_value(column,4),data.get_value(column,5)]
+                data.get_value(column,4),data.get_value(column,5),
+                data.get_value(column,6)]
             return instance_info
         except:
             return
@@ -281,7 +287,7 @@ class tlogongui:
         #Pointer to selection ( passing args from treeview.connect
         # !=  action group connect )
 
-        (id, desc, host, port, url, role) = self.select_item (self.selection)
+        (id, desc, host, port, database, url, role) = self.select_item (self.selection)
 
         #Execute the Tryton client
         command = [TRYTON,url]
@@ -329,10 +335,11 @@ class tlogongui:
         tlogonrc_data.append (tlogonrc_header)
         
         for buffer in tlogonrc:
-            (id, desc, host, port, url, role) = buffer
+            (id, desc, host, port, database, url, role) = buffer
             line = unicode ("\t<instance id=\'%s\' description=\'%s\' \
-                appserver=\'%s\' port=\'%s\' url=\'%s\' role=\'%s\'/>\n"
-                % (id, desc,host,port,url,role))
+                host=\'%s\' port=\'%s\' database=\'%s\' \
+                url=\'%s\' role=\'%s\'/>\n"
+                % (id, desc, host, port, database, url, role))
             tlogonrc_data.append (line)
 
         tlogonrc_data.append (tlogonrc_footer)
@@ -398,7 +405,7 @@ class tlogongui:
     
     def save_instance (self,widget, buffer):
 
-        (action, id, desc, host, port, url, role) = buffer 
+        (action, id, desc, host, port, database, url, role) = buffer 
 
         # We get the active value in the Role combobox 
         role_model = role.get_model()
@@ -415,26 +422,26 @@ class tlogongui:
                 next_id = self.assign_new_id ()
                 tlogonrc.append ( [unicode (next_id), 
                     unicode (desc.get_text()),unicode (host.get_text()), 
-                    unicode (port.get_text()),unicode (url.get_text()), 
-                    unicode (role_txt)])
+                    unicode (port.get_text()),unicode (database.get_text()), 
+                    unicode (url.get_text()),unicode (role_txt)])
 
                 self.liststore.append([unicode (next_id), 
                     unicode (desc.get_text()),unicode (host.get_text()), 
-                    unicode (port.get_text()),unicode (url.get_text()),
-                    unicode (role_txt), True])
+                    unicode (port.get_text()),unicode (database.get_text()),
+                    unicode (url.get_text()),unicode (role_txt), True])
 
             else:   
                 # Update Instance contents when modifying it
                 position = self.search_instance_position (id)   
                 tlogonrc [position] = [unicode (id), 
                     unicode (desc.get_text()),unicode (host.get_text()), 
-                    unicode (port.get_text()),unicode (url.get_text()),
-                    unicode (role_txt)]
+                    unicode (port.get_text()),unicode (database.get_text()),
+                    unicode (url.get_text()),unicode (role_txt)]
 
                 self.liststore [position] = [unicode (id), 
                     unicode (desc.get_text()),unicode (host.get_text()), 
-                    unicode (port.get_text()),unicode (url.get_text()), 
-                    unicode (role_txt), True]
+                    unicode (port.get_text()),unicode (database.get_text()), 
+                    unicode (url.get_text()),unicode (role_txt), True]
         
             self.write_tlogonrc ()
 
@@ -445,7 +452,8 @@ class tlogongui:
     # Instance deletion from list
     def delete_instance (self,control):
         if len(tlogonrc) > 0:   
-            (id, desc, host, port, url, role) = self.select_item (self.selection)
+            (id, desc, host, port, database, url, role) = \
+                self.select_item (self.selection)
             position = self.search_instance_position (id)
             del tlogonrc [position]
             self.write_tlogonrc ()
@@ -454,11 +462,12 @@ class tlogongui:
 
     def modify_instance(self,control):
         ''' We need to input the following fields
-        - application server host or IP
-        - Tryton Server port
-        - Role
         - Description
+        - Application server host or IP
+        - Tryton Server port
+        - Database name
         - URL
+        - Role
         '''
         # Initialize it to dummy when creating a new instance
         id=-1  
@@ -469,7 +478,8 @@ class tlogongui:
             return
 
         if action == "Edit":
-            (id, desc, host, port, url, role) = \
+            print self.select_item(self.selection)
+            (id, desc, host, port, database, url, role) = \
                 self.select_item(self.selection)
 
         window_title = "%s Tryton Instance" % action
@@ -509,6 +519,11 @@ class tlogongui:
         #Port <= 5 chars
         iport = gtk.Entry (max=5)
 
+        #Instance Database 
+        idatabase_label = gtk.Label ("Database")
+        #Database <= 30 chars
+        idatabase = gtk.Entry (max=30)
+
         #Instance url
         iurl_label = gtk.Label ("URL")
         #URL < 100 chars
@@ -530,13 +545,18 @@ class tlogongui:
         #or creating a new one
 
         if action == "New":
-            iport.set_text("8000")
-            iport.set_text("tryton://localhost:8000/dbname/")
+            (hosttxt, porttxt, dbtxt) = ("localhost","8000","your_db_name")
+            iport.set_text(porttxt)
+            idatabase.set_text(dbtxt)
+            urltxt = "/".join (("tryton:/", ":".join((hosttxt, porttxt)), \
+                dbtxt,''))
+            iurl.set_text(urltxt)
             irole.set_active(0) # Set Development role by default
         else:
             idesc.set_text (desc)
             ihost.set_text (host)
             iport.set_text (port)
+            idatabase.set_text (database)
             iurl.set_text (url)
             role_id = {
                 "Development":0,
@@ -551,6 +571,7 @@ class tlogongui:
         buffer.append (idesc)
         buffer.append (ihost)
         buffer.append (iport)
+        buffer.append (idatabase)
         buffer.append (iurl)
         buffer.append (irole)
 
@@ -566,9 +587,13 @@ class tlogongui:
         grid.attach(iport_label,0,1,2,3,xpadding=10)
         grid.attach(iport,1,2,2,3,xpadding=10)
 
+        #Database
+        grid.attach(idatabase_label,0,1,3,4,xpadding=10)
+        grid.attach(idatabase,1,2,3,4,xpadding=10)
+
         #URL
-        grid.attach(iurl_label,0,1,3,4,xpadding=10)
-        grid.attach(iurl,1,2,3,4,xpadding=10)
+        grid.attach(iurl_label,0,1,4,5,xpadding=10)
+        grid.attach(iurl,1,2,4,5,xpadding=10)
 
         #Role
         grid.attach(irole_label,0,1,5,6,xpadding=10)
