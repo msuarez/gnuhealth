@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-
-
 ##############################################################################
 #
 #    T-Logon Manager
@@ -368,13 +366,13 @@ class tlogongui:
         about_window.set_border_width(10)
         about_window.set_resizable (False)
         message="""
-        T-Logon Logon Manager
+        T-Logon Manager
 
         (c) 2006-2014 Luis Falcon 
 
-        License : GNU General Public License (GPL v3+)
+        License : GPL v3+
 
-        n"""
+        """
 
         about_label = gtk.Label(message)
         about_label.set_justify (gtk.JUSTIFY_CENTER)    
