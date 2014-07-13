@@ -28,7 +28,7 @@ T-Logon Manager
 Description: Tlogon is a single point of entry to multiple Tryton instances 
 ( Development - QA - Training - Production, ...).
 
-Initially, Tlogon was "T"inyERP Logon, now "T"ryton Logon .
+Initially, Tlogon was "T"inyERP Logon, now "T"ryton Logon Manager.
 
 """
 
