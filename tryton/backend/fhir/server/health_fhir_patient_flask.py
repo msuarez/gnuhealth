@@ -25,26 +25,14 @@ api.init_app(patient_endpoint)
 
 class meta_patient(object):
     '''Mediate between XML/JSON schema bindings and
-        the GNU Health models'''
+        the GNU Health models
 
-    def __init__(record=None, patient=None):
-        self.record = record
-        self.patient = patient or fhir_xml.Patient()
-        if self.record and getattr(self.record, 'name', None):
-            self.set_gender()
-            self.set_deceased_status()
-            self.set_deceased_datetime()
-            self.set_birthdate()
-            self.set_telecom()
-            self.set_name()
-            self.set_identifier()
-            self.set_address()
-            self.set_active()
-            self.set_photo()
-            self.set_communication()
-            self.set_contact()
-            self.set_care_provider()
-            self.set_marital_status()
+        For now, focus on XML (because that is required)
+    '''
+
+    def __init__(record=None, xml_patient=None):
+        self.record = record #gnu health model
+        self.patient = xml_patient or fhir_xml.Patient() #patient xml
 
     def set_identifier(self):
         if getattr(self.record, 'puid', None):
@@ -165,8 +153,31 @@ class meta_patient(object):
     def set_marital_status(self):
         pass
 
-    def export(self):
-        return self.patient
+    def export_to_xml(self):
+        if self.record and getattr(self.record, 'name', None):
+            self.set_gender()
+            self.set_deceased_status()
+            self.set_deceased_datetime()
+            self.set_birthdate()
+            self.set_telecom()
+            self.set_name()
+            self.set_identifier()
+            self.set_address()
+            self.set_active()
+            self.set_photo()
+            self.set_communication()
+            self.set_contact()
+            self.set_care_provider()
+            self.set_marital_status()
+            with StringIO() as t:
+                self.patient.export(outfile=t, pretty_print=False)
+                return t.getvalue()
+        else:
+            return None
+
+    def export_to_json(self):
+        #TODO More difficult
+        pass
 
 class Create(Resource):
     @tryton.transaction()
@@ -260,9 +271,7 @@ api.add_resource(Version, '/<string:log_id>/_history',
 @api.representation('application/xml')
 @api.representation('application/xml+fhir')
 def output_xml(data, code, headers=None):
-    with StringIO() as t:
-        data.export(outfile=t, pretty_print=False)
-        resp = make_response(t.getvalue(), code)
+    resp = make_response(data.export_to_xml(), code)
     resp.headers.extend(headers or {})
     resp.headers['Content-type']='application/xml+fhir' #Return proper type
     return resp

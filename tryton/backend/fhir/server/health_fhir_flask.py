@@ -5,7 +5,8 @@ from flask.ext.restful import Api
 from functools import partial
 from defusedxml.lxml import parse, fromstring
 
-#### Set safe xml parsing functions (TODO: set these in the xml code, too)
+#### Set safe xml parsing functions 
+####  (TODO: set these in the xml code, too)
 safe_parse = partial(parse, forbid_dtd=True,
                                 forbid_entities=True)
 safe_fromstring = partial(fromstring, forbid_dtd=True,
