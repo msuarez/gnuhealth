@@ -183,7 +183,7 @@ class tlogongui:
         self.liststore = gtk.ListStore(str, str, str, str, str, str, str,
          'gboolean')
         self.framewindow = gtk.ScrolledWindow()
-        self.framewindow.set_size_request(400,400)  
+        # self.framewindow.set_size_request(400,400)  
         self.treeview = gtk.TreeView(self.liststore)
         self.framewindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)    
         self.framewindow.add (self.treeview)
