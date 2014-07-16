@@ -131,7 +131,7 @@ class tlogongui:
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.window.connect('destroy', lambda w: gtk.main_quit())
         self.window.set_title("Tryton Logon Manager")
-        self.window.set_resizable (False)
+        self.window.set_resizable (True)
         self.window.set_border_width(1)
 
         vbox = gtk.VBox()
@@ -183,7 +183,7 @@ class tlogongui:
         self.liststore = gtk.ListStore(str, str, str, str, str, str, str,
          'gboolean')
         self.framewindow = gtk.ScrolledWindow()
-        # self.framewindow.set_size_request(400,400)  
+        self.framewindow.set_size_request(400,400)  
         self.treeview = gtk.TreeView(self.liststore)
         self.framewindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_ALWAYS)    
         self.framewindow.add (self.treeview)
@@ -297,13 +297,19 @@ class tlogongui:
 
         pid = os.fork ()
 
-        if pid:  
-            try:
-                os.execvp (command[0],command)
-                sys.exit (0)   # Give back control to the parent
-            except OSError, error:
+        if pid: 
+            try: 
+                tryton=os.execvp (command[0],command)
+            except Exception as error:
+                """
+                gtk.MessageDialog(parent=None, flags=0, 
+                    type=gtk.MESSAGE_ERROR, buttons=gtk.BUTTONS_NONE,
+                    message_format=str(error)).run()
+                """
+
                 sys.stderr.write("Couldn't exec %s : %s\n"% (command[0], error))
-                sys.exit(1)
+
+            sys.exit (0)   # Give back control to the parent
 
         if pid < 0:
             sys.stderr.write ("Couldn't fork a new process.... exiting now")
@@ -357,7 +363,7 @@ class tlogongui:
         message_window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         message_window.set_title (message_type)
         message_window.set_border_width(10)
-        message_window.set_resizable (False)
+        message_window.set_resizable (True)
         message_label = gtk.Label(message)
         
         message_frame = gtk.VBox()
@@ -494,7 +500,7 @@ class tlogongui:
 
         self.modify_instance_window = gtk.Window(gtk.WINDOW_TOPLEVEL)
         self.modify_instance_window.set_title(window_title)
-        self.modify_instance_window.set_resizable (False)
+        self.modify_instance_window.set_resizable (True)
 
         # Vertical Box to hold the entry boxes
         main_box = gtk.VBox (False,0)
