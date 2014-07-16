@@ -1,9 +1,8 @@
 import fhir_xml
 from flask import Flask
-from flask.ext.tryton import Tryton
-from flask.ext.restful import Api
 from functools import partial
 from defusedxml.lxml import parse, fromstring
+from extensions import (api, tryton)
 
 #### Set safe xml parsing functions 
 ####  (TODO: set these in the xml code, too)
@@ -13,26 +12,16 @@ safe_fromstring = partial(fromstring, forbid_dtd=True,
                                 forbid_entities=True)
 #### /XML
 
-#### Extensions
-tryton = Tryton()
-api = Api()
-#### /Extensions
 
 def create_app(config=None):
     app = Flask(__name__)
 
     #Set db name --- CHANGE!
-    app.config['TRYTON_DATABASE']='test'
+    app.config['TRYTON_DATABASE']='gnuhealth_demo'
     with app.app_context():
 
         # Initialize tryton
         tryton.init_app(app)
-
-        # The patient model
-        patient = tryton.pool.get('gnuhealth.patient')
-
-        # The party model
-        party = tryton.pool.get('party.party')
 
         # The user model
         user = tryton.pool.get('res.user')
@@ -49,4 +38,4 @@ def create_app(config=None):
     return app
 
 if __name__=="__main__":
-    create_app().run(DEBUG=True)
+    create_app().run(debug=True)

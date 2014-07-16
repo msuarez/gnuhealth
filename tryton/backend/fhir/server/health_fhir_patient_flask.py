@@ -1,9 +1,13 @@
-from flask import Blueprint, request, current_app
+from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
-from health_fhir_flask import (tryton, api, patient, party,
-                                safe_fromstring, safe_parse)
+from health_fhir_flask import (safe_fromstring, safe_parse)
 from io import StringIO
+from extensions import (tryton, api)
+import json
 import fhir_xml
+
+# Patient model
+patient = tryton.pool.get('gnuhealth.patient')
 
 def etree_to_dict(tree):
     '''Converts an etree into a dictionary.'''
@@ -30,7 +34,7 @@ class meta_patient(object):
         For now, focus on XML (because that is required)
     '''
 
-    def __init__(record=None, xml_patient=None):
+    def __init__(self, record=None, xml_patient=None):
         self.record = record #gnu health model
         self.patient = xml_patient or fhir_xml.Patient() #patient xml
 
@@ -139,9 +143,12 @@ class meta_patient(object):
         pass
 
     def set_care_provider(self):
-        pass
+        #primary care doctor
+        if getattr(self.record, 'primary_care_doctor', None):
+            pass
 
     def set_communication(self):
+        # Is this even in Health?
         pass
 
     def set_photo(self):
@@ -151,7 +158,27 @@ class meta_patient(object):
             self.patient.add_photo(im)
 
     def set_marital_status(self):
-        pass
+        if getattr(self.record.name, 'marital_status', None):
+            #Health has concubinage and separated, which aren't truly
+            # matching to the FHIR defined statuses
+            status = self.record.get_patient_marital_status().upper()
+            statuses = { 'M': 'Married',
+                    'W': 'Widowed',
+                    'D': 'Divorced',
+                    'S': 'Single'}
+            if status in statuses:
+                code = fhir_xml.code(value=status)
+                display = fhir_xml.string(value=statuses[status])
+            else:
+                code = fhir_xml.code(value='OTH')
+                display = fhir_xml.string(value='other')
+            coding = fhir_xml.Coding(
+                        system=fhir_xml.uri(value='http://hl7.org/fhir/v3/MaritalStatus'),
+                        code=code,
+                        display=display
+                        )
+            marital_status=fhir_xml.CodeableConcept(coding=[coding])
+            self.patient.set_maritalStatus(marital_status)
 
     def export_to_xml(self):
         if self.record and getattr(self.record, 'name', None):
@@ -173,7 +200,7 @@ class meta_patient(object):
                 self.patient.export(outfile=t, pretty_print=False)
                 return t.getvalue()
         else:
-            return None
+            return '<error>No record(s) returned</error>'
 
     def export_to_json(self):
         #TODO More difficult
@@ -181,26 +208,25 @@ class meta_patient(object):
 
 class Create(Resource):
     @tryton.transaction()
-    def post():
+    def post(self):
         #Create interaction
+        abort(405, message='Not implemented.')
         json = request.get_json(force=True, silent=True)
         if json:
             #json
             pass
         else:
             #try xml?
-            xml=safe_xml_fromstring(request.data)
-            if xml:
-                pass
-            else:
+            try:
+                xml=safe_fromstring(request.data)
+                return '<valid>True</valid>'
+            except:
                 abort(400, message="Bad data")
-        abort(405, message='Not implemented.')
 
-api.add_resource(Create, '/')
 
 class Search(Resource):
     @tryton.transaction()
-    def get():
+    def get(self):
         #Search interaction
         #TODO Search implementation is important, but
         # also very robust, so keep it simple for now
@@ -210,25 +236,30 @@ class Search(Resource):
         _id = request.args.get('_id', None)
         identifier = request.args.get('identifier', None)
         if _id:
-            rec = patient.search(['id', '=', _id], limit=1)
+            rec, = patient.search(['id', '=', _id], limit=1)
         if identifier:
-            rec = patient.search(['OR', ['ssn', '=', identifier],
-                                ['identification_code', '=', identifier]], limit=1)
-        if rec:
-            return get_patient_record(rec)
-        else:
-            #TODO OperationOutcome; for now an error
-            abort(403, message="No matching record(s)")
+            rec, = patient.search(['puid', '=', identifier], limit=1)
+            if rec:
+                return meta_patient(rec)
+            else:
+                #TODO OperationOutcome; for now an error
+                abort(403, message="No matching record(s)")
+        return 'No records'
 
-api.add_resource(Search, '/', '/_search')
+class Validate(Resource):
+    @tryton.transaction()
+    def post(self, log_id):
+        #Validate interaction
+        abort(405, message='Not implemented.')
 
 class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         #Read interaction
-        record = patient.search(['id', '=', log_id], limit=1)
+        record, = patient.search(['id', '=', log_id], limit=1)
         if record:
-            return meta_patient(record=record)
+            d=meta_patient(record=record)
+            return d
         else:
             abort(404, message="Record not found")
             #if track deleted records
@@ -244,17 +275,6 @@ class Record(Resource):
         #Delete interaction
         abort(405, message='Not implemented.')
 
-api.add_resource(Record, '/<string:log_id>')
-
-class Validate(Resource):
-    @tryton.transaction()
-    def post(self, log_id):
-        #Validate interaction
-        abort(405, message='Not implemented.')
-
-api.add_resource(Validate, '/validate',
-                        '/validate/<string:log_id>',
-                defaults={'log_id': None})
 
 class Version(Resource):
     @tryton.transaction()
@@ -262,8 +282,18 @@ class Version(Resource):
         #Vread interaction
         abort(405, message='Not implemented.')
 
-api.add_resource(Version, '/<string:log_id>/_history',
-                    '/<string:log_id>/_history/<string:v_id>',
+api.add_resource(Create, '/')
+api.add_resource(Search,
+                        '/',
+                        '/_search')
+api.add_resource(Validate,
+                        '/_validate',
+                        '/_validate/<int:log_id>',
+                defaults={'log_id': None})
+api.add_resource(Record, '/<int:log_id>')
+api.add_resource(Version,
+                        '/<int:log_id>/_history',
+                        '/<int:int_id>/_history/<string:v_id>',
                 defaults={'v_id': None})
 
 @api.representation('xml')
@@ -280,19 +310,19 @@ def output_xml(data, code, headers=None):
 @api.representation('application/json')
 @api.representation('application/json+fhir')
 def output_json(data, code, headers=None):
-    resp = make_response(
-                json.dumps(etree_to_dict(data.to_etree())),
-                code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/json+fhir' #Return proper type
-    return resp
+    #resp = make_response(json.dumps(data),code)
+    #resp.headers.extend(headers or {})
+    #resp.headers['Content-type']='application/json+fhir' #Return proper type
+    #return resp
+    pass
 
 
 @api.representation('atom')
 @api.representation('application/atom')
 @api.representation('application/atom+fhir')
 def output_atom(data, code, headers=None):
-    resp = make_response(data, code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/atom+fhir' #Return proper type
-    return resp
+    #resp = make_response(data, code)
+    #resp.headers.extend(headers or {})
+    #resp.headers['Content-type']='application/atom+fhir' #Return proper type
+    #return resp
+    pass
