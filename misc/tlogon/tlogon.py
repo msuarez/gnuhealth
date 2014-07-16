@@ -33,6 +33,7 @@ Initially, Tlogon was "T"inyERP Logon, now "T"ryton Logon Manager.
 """
 
 #The tryton client program name
+#Include the absolute path if it is not in $PATH
 TRYTON = "tryton"
 
 import pygtk
