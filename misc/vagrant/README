@@ -1,0 +1,47 @@
+# Vagrant
+
+Vagrantfile for GNU Health, you can easily create/configure VMs from Virtualbox.
+
+## Requirements
+
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+
+## Getting started
+
+Create the VM
+```
+$ cd /your/directory/health/misc/vagrant
+$ vagrant up
+```
+
+SSH
+```
+$ vagrant ssh
+```
+
+Allow the server to listen on all interfaces
+```
+$ editconf
+jsonrpc = *:8000
+```
+
+Start the Tryton server
+```
+$ cdexe
+$ ./trytond
+```
+
+## Shutdown the VM
+
+```
+$ cd /your/directory/health/misc/vagrant
+$ vagrant halt
+```
+
+## Restart the VM
+
+```
+$ cd /your/directory/health/misc/vagrant
+$ vagrant up
+```
