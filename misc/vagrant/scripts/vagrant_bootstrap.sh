@@ -5,6 +5,17 @@ AS_VAGRANT='su vagrant'
 
 echo 'Running bootstrap for Vagrant'
 
+echo '.. installing firewall'
+apt-get install -y iptables
+mkdir -p /etc/iptables
+cp $GNUHEALTH_PATH/misc/vagrant/scripts/iptables/iptables.rules /etc/iptables/
+iptables-restore < /etc/iptables/iptables.rules
+cat - > /etc/network/if-pre-up.d/iptables <<EOF
+#!/bin/sh
+iptables-restore < /etc/iptables/iptables.rules
+EOF
+chmod +x /etc/network/if-pre-up.d/iptables
+
 echo '.. checking updates'
 apt-get update
 
