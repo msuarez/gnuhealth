@@ -1076,10 +1076,7 @@ class HealthProfessional(ModelSQL, ModelView):
 
     name = fields.Many2One(
         'party.party', 'Health Professional', required=True,
-        domain=[
-            ('is_healthprof', '=', True),
-            ('is_person', '=', True),
-            ],
+        domain=[('is_healthprof', '=', True)],
         help='Health Professional\'s Name, from the partner list')
 
     institution = fields.Many2One(
@@ -1775,10 +1772,7 @@ class PatientData(ModelSQL, ModelView):
 
     name = fields.Many2One(
         'party.party', 'Patient', required=True,
-        domain=[
-            ('is_patient', '=', True),
-            ('is_person', '=', True),
-            ],
+        domain=[('is_patient', '=', True)],
         states={'readonly': Bool(Eval('name'))},
         help="Person associated to this patient")
 
