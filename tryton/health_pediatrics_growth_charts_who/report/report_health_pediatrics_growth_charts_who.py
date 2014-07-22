@@ -72,7 +72,7 @@ class PediatricsGrowthChartsWHOReport(Report):
         localcontext['subtitle'] = 'Birth to 5 years (%s)' % \
             _MEASURES[data['measure']]
         localcontext['name'] = patient.name.rec_name
-        localcontext['identification_code'] = patient.identification_code
+        localcontext['puid'] = patient.puid
         localcontext['date'] = datetime.now().date()
         localcontext['age'] = patient.age
         localcontext['measure'] = data['measure']
