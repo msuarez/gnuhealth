@@ -2,8 +2,10 @@
 # Translators:
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
+# cristina <cmelgosa@thymbra.com>, 2011-2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2013
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
+# Iván López Pérez <ioloo00@eresmas.com>, 2012-2013
 # meanmicio <lfalcon@gnusolidario.org>, 2013-2014
 # meanmicio <lfalcon@gnusolidario.org>, 2011
 # Sebastián Marró <smarro@thymbra.com>, 2013-2014
@@ -11,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:12+0000\n"
+"POT-Creation-Date: 2014-07-22 15:46+0000\n"
+"PO-Revision-Date: 2014-07-22 20:02+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +29,11 @@ msgstr "Fecha fin \"%(end_date)s\" ANTES que fecha cirugía \"%(surgery_date)s\"
 
 msgctxt "field:gnuhealth.operation,create_date:"
 msgid "Create Date"
-msgstr "Crear cita"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.operation,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.operation,id:"
 msgid "ID"
@@ -55,11 +57,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.operation,write_date:"
 msgid "Write Date"
-msgstr "Escribir fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.operation,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient,surgery:"
 msgid "Surgeries"
@@ -67,11 +69,11 @@ msgstr "Cirugías"
 
 msgctxt "field:gnuhealth.rcri,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.rcri,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.rcri,health_professional:"
 msgid "Health Professional"
@@ -127,11 +129,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.rcri,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.rcri,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.surgery,admission:"
 msgid "Admission"
@@ -163,11 +165,11 @@ msgstr "Edad"
 
 msgctxt "field:gnuhealth.surgery,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.surgery,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.surgery,description:"
 msgid "Description"
@@ -263,11 +265,11 @@ msgstr "Duración"
 
 msgctxt "field:gnuhealth.surgery,write_date:"
 msgid "Write Date"
-msgstr "Escribir fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.surgery,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "help:gnuhealth.operation,procedure:"
 msgid "Procedure Code, for example ICD-10-PCS or ICPM"

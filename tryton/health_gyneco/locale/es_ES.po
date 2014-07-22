@@ -2,15 +2,17 @@
 # Translators:
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # Carlos <carloschebair@gmail.com>, 2011
+# Carlos <carloschebair@gmail.com>, 2011
+# cristina <cmelgosa@thymbra.com>, 2012
 # cristina <cmelgosa@thymbra.com>, 2012
 # meanmicio <lfalcon@gnusolidario.org>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2011
+# meanmicio <lfalcon@gnusolidario.org>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 14:30+0000\n"
+"POT-Creation-Date: 2014-07-22 15:45+0000\n"
+"PO-Revision-Date: 2014-07-22 20:01+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -121,11 +123,11 @@ msgstr "Observaciones"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation:"
 msgid "Evaluation"
@@ -165,11 +167,11 @@ msgstr "resultado"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.mammography_history,comments:"
 msgid "Remarks"
@@ -177,11 +179,11 @@ msgstr "Observaciones"
 
 msgctxt "field:gnuhealth.patient.mammography_history,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.mammography_history,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.mammography_history,evaluation:"
 msgid "Evaluation"
@@ -221,19 +223,19 @@ msgstr "resultado"
 
 msgctxt "field:gnuhealth.patient.mammography_history,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.mammography_history,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,dysmenorrhea:"
 msgid "Dysmenorrhea"
@@ -289,11 +291,11 @@ msgstr "Volumen"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,write_uid:"
 msgid "Write User"
-msgstr "EScriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.pap_history,comments:"
 msgid "Remarks"
@@ -301,11 +303,11 @@ msgstr "Observaciones"
 
 msgctxt "field:gnuhealth.patient.pap_history,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.pap_history,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.pap_history,evaluation:"
 msgid "Evaluation"
@@ -345,11 +347,11 @@ msgstr "resultado"
 
 msgctxt "field:gnuhealth.patient.pap_history,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.pap_history,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.pregnancy,bba:"
 msgid "BBA"
@@ -357,11 +359,11 @@ msgstr "NAL"
 
 msgctxt "field:gnuhealth.patient.pregnancy,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.pregnancy,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.pregnancy,current_pregnancy:"
 msgid "Current Pregnancy"
@@ -453,19 +455,19 @@ msgstr "Aviso"
 
 msgctxt "field:gnuhealth.patient.pregnancy,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.pregnancy,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,diabetes:"
 msgid "Diabetes"
@@ -501,7 +503,7 @@ msgstr "CC"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
 msgid "Fetus heart rate"
-msgstr "Frec. Cardiaca Fetal"
+msgstr "Frec. Cardíaca Fetal"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fundal_height:"
 msgid "Fundal Height"
@@ -573,11 +575,11 @@ msgstr "Vasa Previa"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.perinatal,abortion:"
 msgid "Abortion"
@@ -597,11 +599,11 @@ msgstr "Admisión"
 
 msgctxt "field:gnuhealth.perinatal,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.perinatal,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.perinatal,dismissed:"
 msgid "Discharged"
@@ -709,11 +711,11 @@ msgstr "Desgarro vaginal"
 
 msgctxt "field:gnuhealth.perinatal,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.perinatal,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.perinatal.monitor,bleeding:"
 msgid "Bleeding"
@@ -725,11 +727,11 @@ msgstr "Contracciones"
 
 msgctxt "field:gnuhealth.perinatal.monitor,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.perinatal.monitor,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.perinatal.monitor,date:"
 msgid "Date and Time"
@@ -781,19 +783,19 @@ msgstr "Presión sistólica"
 
 msgctxt "field:gnuhealth.perinatal.monitor,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.perinatal.monitor,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.puerperium.monitor,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.puerperium.monitor,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.puerperium.monitor,date:"
 msgid "Date and Time"
@@ -853,11 +855,11 @@ msgstr "Altura del Fundus"
 
 msgctxt "field:gnuhealth.puerperium.monitor,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.puerperium.monitor,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "help:gnuhealth.patient,breast_self_examination:"
 msgid "Check if patient does and knows how to self examine her breasts"

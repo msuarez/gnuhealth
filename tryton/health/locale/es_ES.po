@@ -1,25 +1,29 @@
 # 
 # Translators:
 # @atzerritik, 2014
+# @atzerritik, 2014
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2014
-# Carlos <carloschebair@gmail.com>, 2013
+# Carlos <carloschebair@gmail.com>, 2011-2013
 # Carlos <carloschebair@gmail.com>, 2011, 2012
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
+# cristina <cmelgosa@thymbra.com>, 2011-2012
 # Humberto Yances <hyances@gmail.com>, 2012
+# Humberto Yances <hyances@gmail.com>, 2012
+# Iván López Pérez <ioloo00@eresmas.com>, 2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
 # Iván Ramos <info@ivan.ramos.name>, 2012
 # Joan <joansaltod@gmail.com>, 2013
 # meanmicio <lfalcon@gnusolidario.org>, 2013
 # meanmicio <lfalcon@gnusolidario.org>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2011
-# Sebastián Marró <smarro@thymbra.com>, 2012-2014
+# meanmicio <lfalcon@gnusolidario.org>, 2011-2013
+# Sebastián Marró <smarro@thymbra.com>, 2011-2014
 # Sebastián Marró <smarro@thymbra.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-09 01:27+0000\n"
-"PO-Revision-Date: 2014-07-12 13:22+0000\n"
+"POT-Creation-Date: 2014-07-22 15:45+0000\n"
+"PO-Revision-Date: 2014-07-22 20:01+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -221,11 +225,11 @@ msgstr "Servicios de Consulta "
 
 msgctxt "field:gnuhealth.appointment,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.appointment,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.appointment,healthprof:"
 msgid "Health Prof"
@@ -269,11 +273,11 @@ msgstr "Visit"
 
 msgctxt "field:gnuhealth.appointment,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.appointment,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.appointment.report,address:"
 msgid "Address"
@@ -293,11 +297,11 @@ msgstr "Fecha y hora"
 
 msgctxt "field:gnuhealth.appointment.report,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.appointment.report,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.appointment.report,diagnosis:"
 msgid "Presumptive Diagnosis"
@@ -333,11 +337,11 @@ msgstr "Sexo"
 
 msgctxt "field:gnuhealth.appointment.report,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.appointment.report,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.appointment.report.open.start,date_end:"
 msgid "Date End"
@@ -361,11 +365,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.diagnostic_hypothesis,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.diagnostic_hypothesis,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.diagnostic_hypothesis,evaluation:"
 msgid "Evaluation"
@@ -385,11 +389,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.diagnostic_hypothesis,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.diagnostic_hypothesis,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.directions,comments:"
 msgid "Comments"
@@ -397,11 +401,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.directions,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.directions,create_uid:"
 msgid "Create User"
-msgstr "Crear usurio"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.directions,id:"
 msgid "ID"
@@ -421,19 +425,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.directions,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.directions,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.disease_group.members,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.disease_group.members,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.disease_group.members,disease_group:"
 msgid "Group"
@@ -453,19 +457,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.disease_group.members,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.disease_group.members,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.dose.unit,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.dose.unit,create_uid:"
 msgid "Create User"
-msgstr "Escriba la fecha"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.dose.unit,desc:"
 msgid "Description"
@@ -485,11 +489,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.dose.unit,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.dose.unit,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.drug.form,code:"
 msgid "Code"
@@ -497,11 +501,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.drug.form,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.drug.form,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.drug.form,id:"
 msgid "ID"
@@ -517,11 +521,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.drug.form,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.drug.form,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.drug.route,code:"
 msgid "Code"
@@ -529,11 +533,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.drug.route,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.drug.route,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.drug.route,id:"
 msgid "ID"
@@ -549,15 +553,15 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.drug.route,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.drug.route,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.du,address_city:"
 msgid "City"
-msgstr "Cuidad"
+msgstr "Ciudad"
 
 msgctxt "field:gnuhealth.du,address_country:"
 msgid "Country"
@@ -601,11 +605,11 @@ msgstr "Dormitorios"
 
 msgctxt "field:gnuhealth.du,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.du,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.du,desc:"
 msgid "Desc"
@@ -701,11 +705,11 @@ msgstr "Agua potable"
 
 msgctxt "field:gnuhealth.du,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.du,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.ethnicity,code:"
 msgid "Code"
@@ -713,11 +717,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.ethnicity,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.ethnicity,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.ethnicity,id:"
 msgid "ID"
@@ -737,19 +741,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.ethnicity,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.ethnicity,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.family,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.family,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.family,id:"
 msgid "ID"
@@ -773,19 +777,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.family,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.family,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.family_member,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.family_member,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.family_member,id:"
 msgid "ID"
@@ -797,7 +801,7 @@ msgstr "Familia"
 
 msgctxt "field:gnuhealth.family_member,party:"
 msgid "Party"
-msgstr "Fiesta"
+msgstr "Tercero"
 
 msgctxt "field:gnuhealth.family_member,rec_name:"
 msgid "Name"
@@ -809,11 +813,11 @@ msgstr "Rol"
 
 msgctxt "field:gnuhealth.family_member,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.family_member,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.healthprofessional,code:"
 msgid "LICENSE ID"
@@ -861,7 +865,7 @@ msgstr "Especialidades"
 
 msgctxt "field:gnuhealth.healthprofessional,write_date:"
 msgid "Write Date"
-msgstr "Fecha modicación"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.healthprofessional,write_uid:"
 msgid "Write User"
@@ -873,11 +877,11 @@ msgstr "Tipo de cama"
 
 msgctxt "field:gnuhealth.hospital.bed,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hospital.bed,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hospital.bed,extra_info:"
 msgid "Extra Info"
@@ -913,11 +917,11 @@ msgstr "Sala"
 
 msgctxt "field:gnuhealth.hospital.bed,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hospital.bed,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.hospital.building,code:"
 msgid "Code"
@@ -925,11 +929,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.hospital.building,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hospital.building,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hospital.building,extra_info:"
 msgid "Extra Info"
@@ -953,11 +957,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.hospital.building,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hospital.building,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.hospital.or,building:"
 msgid "Building"
@@ -965,11 +969,11 @@ msgstr "Edificio"
 
 msgctxt "field:gnuhealth.hospital.or,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hospital.or,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hospital.or,extra_info:"
 msgid "Extra Info"
@@ -997,11 +1001,11 @@ msgstr "Unidad"
 
 msgctxt "field:gnuhealth.hospital.or,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hospital.or,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.hospital.unit,code:"
 msgid "Code"
@@ -1009,11 +1013,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.hospital.unit,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hospital.unit,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hospital.unit,extra_info:"
 msgid "Extra Info"
@@ -1037,11 +1041,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.hospital.unit,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hospital.unit,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.hospital.ward,ac:"
 msgid "Air Conditioning"
@@ -1057,11 +1061,11 @@ msgstr "Edificio"
 
 msgctxt "field:gnuhealth.hospital.ward,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hospital.ward,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hospital.ward,extra_info:"
 msgid "Extra Info"
@@ -1089,11 +1093,11 @@ msgstr "Institución"
 
 msgctxt "field:gnuhealth.hospital.ward,internet:"
 msgid "Internet Access"
-msgstr "Acceso a Internet "
+msgstr "Acceso a Internet"
 
 msgctxt "field:gnuhealth.hospital.ward,microwave:"
 msgid "Microwave"
-msgstr "Microonadas"
+msgstr "Microondas"
 
 msgctxt "field:gnuhealth.hospital.ward,name:"
 msgid "Name"
@@ -1121,7 +1125,7 @@ msgstr "Refrigerador"
 
 msgctxt "field:gnuhealth.hospital.ward,state:"
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 msgctxt "field:gnuhealth.hospital.ward,telephone:"
 msgid "Telephone access"
@@ -1137,19 +1141,19 @@ msgstr "Unidad"
 
 msgctxt "field:gnuhealth.hospital.ward,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hospital.ward,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.hp_specialty,create_date:"
 msgid "Create Date"
-msgstr "Fecha de Creación"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.hp_specialty,create_uid:"
 msgid "Create User"
-msgstr "Creado por"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.hp_specialty,id:"
 msgid "ID"
@@ -1169,11 +1173,11 @@ msgstr "Especialidad"
 
 msgctxt "field:gnuhealth.hp_specialty,write_date:"
 msgid "Write Date"
-msgstr "Fecha de escritura"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.hp_specialty,write_uid:"
 msgid "Write User"
-msgstr "Escrito por"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.institution,beds:"
 msgid "Beds"
@@ -1257,7 +1261,7 @@ msgstr "Nivel de Trauma"
 
 msgctxt "field:gnuhealth.institution,write_date:"
 msgid "Write Date"
-msgstr "Fecha modicación"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.institution,write_uid:"
 msgid "Write User"
@@ -1289,7 +1293,7 @@ msgstr "Contacto"
 
 msgctxt "field:gnuhealth.institution.operationalsector,write_date:"
 msgid "Write Date"
-msgstr "Fecha modicación"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.institution.operationalsector,write_uid:"
 msgid "Write User"
@@ -1321,7 +1325,7 @@ msgstr "Especialidad"
 
 msgctxt "field:gnuhealth.institution.specialties,write_date:"
 msgid "Write Date"
-msgstr "Fecha modicación"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.institution.specialties,write_uid:"
 msgid "Write User"
@@ -1337,11 +1341,11 @@ msgstr "Compañía de Seguros"
 
 msgctxt "field:gnuhealth.insurance,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.insurance,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.insurance,id:"
 msgid "ID"
@@ -1381,11 +1385,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.insurance,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.insurance,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.insurance.plan,company:"
 msgid "Insurance Company"
@@ -1393,11 +1397,11 @@ msgstr "Compañía de Seguros"
 
 msgctxt "field:gnuhealth.insurance.plan,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.insurance.plan,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.insurance.plan,id:"
 msgid "ID"
@@ -1417,15 +1421,15 @@ msgstr "Información adicional"
 
 msgctxt "field:gnuhealth.insurance.plan,rec_name:"
 msgid "Name"
-msgstr "Name"
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.insurance.plan,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.insurance.plan,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.medicament,active_component:"
 msgid "Active component"
@@ -1445,11 +1449,11 @@ msgstr "Composición"
 
 msgctxt "field:gnuhealth.medicament,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.medicament,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.medicament,dosage:"
 msgid "Dosage Instructions"
@@ -1501,15 +1505,15 @@ msgstr "Condiciones de almacenamiento"
 
 msgctxt "field:gnuhealth.medicament,therapeutic_action:"
 msgid "Therapeutic effect"
-msgstr "Efecto terapeutico"
+msgstr "Efecto terapéutico"
 
 msgctxt "field:gnuhealth.medicament,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.medicament,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.medicament.category,childs:"
 msgid "Children"
@@ -1517,11 +1521,11 @@ msgstr "Hijos"
 
 msgctxt "field:gnuhealth.medicament.category,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.medicament.category,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.medicament.category,id:"
 msgid "ID"
@@ -1541,11 +1545,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.medicament.category,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.medicament.category,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.medication.dosage,abbreviation:"
 msgid "Abbreviation"
@@ -1557,11 +1561,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.medication.dosage,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.medication.dosage,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.medication.dosage,id:"
 msgid "ID"
@@ -1577,11 +1581,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.medication.dosage,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.medication.dosage,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.occupation,code:"
 msgid "Code"
@@ -1589,11 +1593,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.occupation,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.occupation,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.occupation,id:"
 msgid "ID"
@@ -1609,19 +1613,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.occupation,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.occupation,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.operational_area,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.operational_area,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.operational_area,id:"
 msgid "ID"
@@ -1645,19 +1649,19 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.operational_area,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.operational_area,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.operational_sector,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.operational_sector,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.operational_sector,id:"
 msgid "ID"
@@ -1681,11 +1685,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.operational_sector,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.operational_sector,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.pathology,category:"
 msgid "Main Category"
@@ -1701,11 +1705,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.pathology,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.pathology,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.pathology,gene:"
 msgid "Gene"
@@ -1737,11 +1741,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.pathology,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.pathology,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.pathology.category,childs:"
 msgid "Children Category"
@@ -1749,11 +1753,11 @@ msgstr "Categoría Infantil"
 
 msgctxt "field:gnuhealth.pathology.category,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.pathology.category,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.pathology.category,id:"
 msgid "ID"
@@ -1773,11 +1777,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.pathology.category,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.pathology.category,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.pathology.group,code:"
 msgid "Code"
@@ -1785,11 +1789,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.pathology.group,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.pathology.group,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.pathology.group,desc:"
 msgid "Short Description"
@@ -1817,11 +1821,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.pathology.group,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.pathology.group,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient,age:"
 msgid "Age"
@@ -1845,11 +1849,11 @@ msgstr "Causa de defunción"
 
 msgctxt "field:gnuhealth.patient,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient,critical_info:"
 msgid "Free text information not included in the automatic summary"
@@ -1941,11 +1945,11 @@ msgstr "Vacunas"
 
 msgctxt "field:gnuhealth.patient,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.disease,age:"
 msgid "Age when diagnosed"
@@ -1957,11 +1961,11 @@ msgstr "Tipo de alergia"
 
 msgctxt "field:gnuhealth.patient.disease,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.disease,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.disease,date_start_treatment:"
 msgid "Start"
@@ -2049,11 +2053,11 @@ msgstr "Contraído en la semana del embarazo #"
 
 msgctxt "field:gnuhealth.patient.disease,write_date:"
 msgid "Write Date"
-msgstr "Escriba fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.disease,write_uid:"
 msgid "Write User"
-msgstr "Escriba usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.evaluation,abdominal_circ:"
 msgid "Waist"
@@ -2073,7 +2077,7 @@ msgstr "Índice de Masa Corporal"
 
 msgctxt "field:gnuhealth.patient.evaluation,bpm:"
 msgid "Heart Rate"
-msgstr "Frecuencia Cardiaca"
+msgstr "Frecuencia Cardíaca"
 
 msgctxt "field:gnuhealth.patient.evaluation,calculation_ability:"
 msgid "Calculation Ability"
@@ -2089,11 +2093,11 @@ msgstr "Último Colesterol"
 
 msgctxt "field:gnuhealth.patient.evaluation,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.evaluation,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.evaluation,dehydration:"
 msgid "Dehydration"
@@ -2345,11 +2349,11 @@ msgstr "WHR"
 
 msgctxt "field:gnuhealth.patient.evaluation,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.evaluation,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.medication,admin_times:"
 msgid "Admin hours"
@@ -2369,11 +2373,11 @@ msgstr "Tratamiento completado"
 
 msgctxt "field:gnuhealth.patient.medication,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.medication,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.medication,discontinued:"
 msgid "Discontinued"
@@ -2397,7 +2401,7 @@ msgstr "Duración del tratamiento"
 
 msgctxt "field:gnuhealth.patient.medication,duration_period:"
 msgid "Treatment period"
-msgstr "Periodo del tratamiento"
+msgstr "Período del tratamiento"
 
 msgctxt "field:gnuhealth.patient.medication,end_treatment:"
 msgid "End"
@@ -2481,11 +2485,11 @@ msgstr "Inicio"
 
 msgctxt "field:gnuhealth.patient.medication,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.medication,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt ""
 "field:gnuhealth.person_alternative_identification,alternative_id_type:"
@@ -2502,11 +2506,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.person_alternative_identification,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.person_alternative_identification,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.person_alternative_identification,id:"
 msgid "ID"
@@ -2514,7 +2518,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.person_alternative_identification,name:"
 msgid "Party"
-msgstr "Fiesta"
+msgstr "Tercero"
 
 msgctxt "field:gnuhealth.person_alternative_identification,rec_name:"
 msgid "Name"
@@ -2522,11 +2526,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.person_alternative_identification,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.person_alternative_identification,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.prescription.line,admin_times:"
 msgid "Admin hours"
@@ -2542,11 +2546,11 @@ msgstr "Frecuencia"
 
 msgctxt "field:gnuhealth.prescription.line,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.prescription.line,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.prescription.line,dose:"
 msgid "Dose"
@@ -2562,7 +2566,7 @@ msgstr "Duración del tratamiento"
 
 msgctxt "field:gnuhealth.prescription.line,duration_period:"
 msgid "Treatment period"
-msgstr "Periodo del tratamiento"
+msgstr "Período del tratamiento"
 
 msgctxt "field:gnuhealth.prescription.line,end_treatment:"
 msgid "End"
@@ -2638,19 +2642,19 @@ msgstr "Inicio"
 
 msgctxt "field:gnuhealth.prescription.line,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.prescription.line,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.prescription.order,create_date:"
 msgid "Create Date"
-msgstr "Crear la fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.prescription.order,create_uid:"
 msgid "Create User"
-msgstr "Crear el usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.prescription.order,healthprof:"
 msgid "Prescribed by"
@@ -2702,19 +2706,19 @@ msgstr "Doctor que prescribe"
 
 msgctxt "field:gnuhealth.prescription.order,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.prescription.order,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.procedure,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.procedure,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.procedure,description:"
 msgid "Long Text"
@@ -2734,11 +2738,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.procedure,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.procedure,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.secondary_condition,comments:"
 msgid "Comments"
@@ -2746,11 +2750,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.secondary_condition,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.secondary_condition,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.secondary_condition,evaluation:"
 msgid "Evaluation"
@@ -2770,11 +2774,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.secondary_condition,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.secondary_condition,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.sequences,appointment_sequence:"
 msgid "Appointment Sequence"
@@ -2782,11 +2786,11 @@ msgstr "Secuencia de la Cita"
 
 msgctxt "field:gnuhealth.sequences,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.sequences,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.sequences,id:"
 msgid "ID"
@@ -2806,11 +2810,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.sequences,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.sequences,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,clinical:"
 msgid "Sign or Symptom"
@@ -2822,11 +2826,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,evaluation:"
 msgid "Evaluation"
@@ -2846,11 +2850,11 @@ msgstr "Subjetivo / Objetivo"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,write_date:"
 msgid "Write Date"
-msgstr "Escribir fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.signs_and_symptoms,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.specialty,code:"
 msgid "Code"
@@ -2858,11 +2862,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.specialty,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.specialty,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.specialty,id:"
 msgid "ID"
@@ -2878,11 +2882,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.specialty,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.specialty,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.vaccination,admin_route:"
 msgid "Route"
@@ -2890,11 +2894,11 @@ msgstr "Vía"
 
 msgctxt "field:gnuhealth.vaccination,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.vaccination,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.vaccination,date:"
 msgid "Date"
@@ -2946,11 +2950,11 @@ msgstr "Número de lote"
 
 msgctxt "field:gnuhealth.vaccination,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.vaccination,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:party.address,is_school:"
 msgid "School"
@@ -2974,7 +2978,7 @@ msgstr "Fecha de activación"
 
 msgctxt "field:party.party,alias:"
 msgid "Alias"
-msgstr "alias"
+msgstr "Alias"
 
 msgctxt "field:party.party,alternative_identification:"
 msgid "Alternative IDs"
@@ -3026,7 +3030,7 @@ msgstr "Institución"
 
 msgctxt "field:party.party,is_insurance_company:"
 msgid "Insurance Company"
-msgstr "Compañia de seguros"
+msgstr "Compañía de seguros"
 
 msgctxt "field:party.party,is_patient:"
 msgid "Patient"
@@ -3090,7 +3094,7 @@ msgstr "Vacuna"
 
 msgctxt "help:gnuhealth.appointment,consultations:"
 msgid "Consultation Services"
-msgstr "Servicios de Consulta "
+msgstr "Servicios de Consulta"
 
 msgctxt "help:gnuhealth.appointment,healthprof:"
 msgid "Health Professional"
@@ -3174,7 +3178,7 @@ msgstr "Código de la especialidad"
 
 msgctxt "help:gnuhealth.healthprofessional,name:"
 msgid "Health Professional's Name, from the partner list"
-msgstr "Nombre del médico, desde la lista de partner"
+msgstr "Nombre del médico, desde la lista de terceros"
 
 msgctxt "help:gnuhealth.healthprofessional,puid:"
 msgid "Person Unique Identifier"
@@ -3346,7 +3350,7 @@ msgstr "Envase"
 
 msgctxt "help:gnuhealth.medicament,therapeutic_action:"
 msgid "Therapeutic action"
-msgstr "Acción terapeutica"
+msgstr "Acción terapéutica"
 
 msgctxt "help:gnuhealth.medication.dosage,abbreviation:"
 msgid "Dosage abbreviation, such as tid in the US or tds in the UK"
@@ -3556,7 +3560,7 @@ msgstr "Introduzca o elija la fecha y la identificación de la cita relacionado 
 
 msgctxt "help:gnuhealth.patient.evaluation,evaluation_length:"
 msgid "Duration of the evaluation, in minutes"
-msgstr "Duracion de la evaluacion en minutos"
+msgstr "Duración de la evaluación en minutos"
 
 msgctxt "help:gnuhealth.patient.evaluation,glycemia:"
 msgid "Last blood glucose level. Can be approximative."
@@ -5546,7 +5550,7 @@ msgstr "Capitán de Puerto"
 
 msgctxt "model:gnuhealth.occupation,name:occ254"
 msgid "Harper"
-msgstr "arpista"
+msgstr "Arpista"
 
 msgctxt "model:gnuhealth.occupation,name:occ255"
 msgid "Hatter"
@@ -7250,7 +7254,7 @@ msgstr "Comediante"
 
 msgctxt "model:gnuhealth.occupation,name:occ651"
 msgid "Youth worker"
-msgstr "Jóven trabajador"
+msgstr "Joven trabajador"
 
 msgctxt "model:gnuhealth.occupation,name:occ652"
 msgid "Zookeeper"
@@ -7422,7 +7426,7 @@ msgstr "Enfermedades"
 
 msgctxt "model:gnuhealth.pathology.category,name:"
 msgid "Disease Categories"
-msgstr "Categorías enfermedad  "
+msgstr "Categorías enfermedad"
 
 msgctxt "model:gnuhealth.pathology.group,name:"
 msgid "Pathology Groups"
@@ -7754,7 +7758,7 @@ msgstr "Cirugía de transplantes"
 
 msgctxt "model:gnuhealth.specialty,name:56"
 msgid "Trauma surgery"
-msgstr "Traumatologo"
+msgstr "Traumatólogo"
 
 msgctxt "model:gnuhealth.specialty,name:57"
 msgid "Urgent Care Medicine"
@@ -7842,7 +7846,7 @@ msgstr "Cirugía cardiovascular"
 
 msgctxt "model:gnuhealth.specialty,name:9"
 msgid "Clinical laboratory sciences"
-msgstr "Ciencias clinicas de laboratorio"
+msgstr "Ciencias clínicas de laboratorio"
 
 msgctxt "model:gnuhealth.vaccination,name:"
 msgid "Patient Vaccination information"
@@ -7858,7 +7862,7 @@ msgstr "Paciente"
 
 msgctxt "model:ir.action,name:act_appointments_report_view_tree"
 msgid "Appointments Report"
-msgstr "Informe de CItas"
+msgstr "Informe de Citas"
 
 msgctxt "model:ir.action,name:act_bed_view"
 msgid "Beds"
@@ -7880,6 +7884,10 @@ msgctxt "model:ir.action,name:act_medicament_by_category"
 msgid "Medicament by Category"
 msgstr "Medicamentos por Categoría"
 
+msgctxt "model:ir.action,name:act_or_view"
+msgid "Operating Rooms"
+msgstr "Quirófanos"
+
 msgctxt "model:ir.action,name:act_people_form"
 msgid "People"
 msgstr "Persona"
@@ -7889,8 +7897,8 @@ msgid "Prescriptions"
 msgstr "Recetas"
 
 msgctxt "model:ir.action,name:act_unit_view"
-msgid "units"
-msgstr "unidades"
+msgid "Units"
+msgstr "Unidades"
 
 msgctxt "model:ir.action,name:act_vaccination_form1"
 msgid "Vaccinations"
@@ -8269,7 +8277,7 @@ msgstr "Instituciones"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_operational_areas"
 msgid "Operational Areas"
-msgstr "Areas operacionales"
+msgstr "Áreas operacionales"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_patients_menu"
 msgid "Patients"
@@ -8285,7 +8293,7 @@ msgstr "Reporting"
 
 msgctxt "model:ir.ui.menu,name:menu_appointments_report_view_tree"
 msgid "Appointments Report"
-msgstr "Informe de CItas"
+msgstr "Informe de Citas"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_evaluation_list"
 msgid "Patient Evaluations"
@@ -9609,7 +9617,7 @@ msgstr "Informe de cita"
 
 msgctxt "view:gnuhealth.appointment.report:"
 msgid "Appointments Report"
-msgstr "Informe de CItas"
+msgstr "Informe de Citas"
 
 msgctxt "view:gnuhealth.appointment:"
 msgid "Appointment"
@@ -9829,7 +9837,7 @@ msgstr "Indicaciones"
 
 msgctxt "view:gnuhealth.medicament:"
 msgid "Main Info"
-msgstr "Información Principal "
+msgstr "Información Principal"
 
 msgctxt "view:gnuhealth.medicament:"
 msgid "Notes"
@@ -10086,7 +10094,7 @@ msgstr "Duración del tratamiento"
 
 msgctxt "view:gnuhealth.patient.medication:"
 msgid "Treatment period"
-msgstr "Periodo del tratamiento"
+msgstr "Período del tratamiento"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Critical Information"

@@ -2,12 +2,13 @@
 # Translators:
 # Carlos <carloschebair@gmail.com>, 2013
 # meanmicio <lfalcon@gnusolidario.org>, 2013
+# meanmicio <lfalcon@gnusolidario.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:12+0000\n"
+"POT-Creation-Date: 2014-07-22 15:46+0000\n"
+"PO-Revision-Date: 2014-07-22 20:03+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -46,11 +47,11 @@ msgstr "Vacunas"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,id:"
 msgid "ID"
@@ -83,19 +84,19 @@ msgstr "Comentario"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,id:"
 msgid "ID"
@@ -131,11 +132,11 @@ msgstr "Comentario"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,admin_route:"
 msgid "Route"
@@ -143,11 +144,11 @@ msgstr "Vía"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,dose:"
 msgid "Dose"
@@ -187,11 +188,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.vaccine,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.rounding,hospitalization_location:"
 msgid "Hospitalization Location"
@@ -219,11 +220,11 @@ msgstr "Vacunas"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,id:"
 msgid "ID"
@@ -255,19 +256,19 @@ msgstr "Comentario"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.rounding.medicament,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.rounding.medicament,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.rounding.medicament,id:"
 msgid "ID"
@@ -303,11 +304,11 @@ msgstr "Comentario"
 
 msgctxt "field:gnuhealth.patient.rounding.medicament,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.rounding.medicament,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,admin_route:"
 msgid "Route"
@@ -315,11 +316,11 @@ msgstr "Vía"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,dose:"
 msgid "Dose"
@@ -359,11 +360,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.rounding.vaccine,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.prescription.order,moves:"
 msgid "Moves"

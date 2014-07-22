@@ -2,14 +2,17 @@
 # Translators:
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2013
 # Humberto Yances <hyances@gmail.com>, 2012
+# Humberto Yances <hyances@gmail.com>, 2012
 # meanmicio <lfalcon@gnusolidario.org>, 2013
 # Mariangel Gonzalez <mariangel.gfarias@gmail.com>, 2012
+# Mariangel Gonzalez <mariangel.gfarias@gmail.com>, 2012
+# meanmicio <lfalcon@gnusolidario.org>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:12+0000\n"
+"POT-Creation-Date: 2014-07-22 15:46+0000\n"
+"PO-Revision-Date: 2014-07-22 20:02+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -32,11 +35,11 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,id:"
 msgid "ID"
@@ -48,7 +51,7 @@ msgstr "Sesión"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,procedure:"
 msgid "Code"
-msgstr "Codigo"
+msgstr "Código"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,rec_name:"
 msgid "Name"
@@ -56,11 +59,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,base_condition:"
 msgid "Base Condition"
@@ -68,15 +71,15 @@ msgstr "Condición Base"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,bpm:"
 msgid "Heart Rate"
-msgstr "Frecuencia Cardiaca"
+msgstr "Frecuencia Cardíaca"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,diastolic:"
 msgid "Diastolic Pressure"
@@ -164,23 +167,23 @@ msgstr "Advertencia"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.rounding,bpm:"
 msgid "Heart Rate"
-msgstr "Frecuencia Cardiaca"
+msgstr "Frecuencia Cardíaca"
 
 msgctxt "field:gnuhealth.patient.rounding,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.rounding,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.rounding,depression:"
 msgid "Depression signs"
@@ -292,19 +295,19 @@ msgstr "Advertencia"
 
 msgctxt "field:gnuhealth.patient.rounding,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.rounding,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.rounding_procedure,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.rounding_procedure,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.rounding_procedure,id:"
 msgid "ID"
@@ -328,11 +331,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.rounding_procedure,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.rounding_procedure,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.sequences,ambulatory_care_sequence:"
 msgid "Health Ambulatory Care"
@@ -362,7 +365,7 @@ msgctxt "help:gnuhealth.patient.ambulatory_care,procedures:"
 msgid ""
 "List of the procedures in this session. Please enter the first one as the "
 "main procedure"
-msgstr "Lista de procedimientos en esta sesión.  Por favor ingrese el primero como el procedimiento principal"
+msgstr "Lista de procedimientos en esta sesión. Por favor ingrese el primero como el procedimiento principal"
 
 msgctxt "help:gnuhealth.patient.ambulatory_care,respiratory_rate:"
 msgid "Respiratory rate expressed in breaths per minute"
@@ -430,7 +433,7 @@ msgctxt "help:gnuhealth.patient.rounding,procedures:"
 msgid ""
 "List of the procedures in this rounding. Please enter the first one as the "
 "main procedure"
-msgstr "Lista de procedimientos en esta ronda.  Por favor ingrese el primero como el principal procedimiento"
+msgstr "Lista de procedimientos en esta ronda. Por favor ingrese el primero como el principal procedimiento"
 
 msgctxt "help:gnuhealth.patient.rounding,proximity:"
 msgid "Check if personal items, water, alarm, ... are not in easy reach"

@@ -1,17 +1,19 @@
 # 
 # Translators:
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
+# cristina <cmelgosa@thymbra.com>, 2011-2012
+# Iván López Pérez <ioloo00@eresmas.com>, 2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
 # meanmicio <lfalcon@gnusolidario.org>, 2013
-# meanmicio <lfalcon@gnusolidario.org>, 2011
+# meanmicio <lfalcon@gnusolidario.org>, 2011,2013
 # Sebastián Marró <smarro@thymbra.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:12+0000\n"
-"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"POT-Creation-Date: 2014-07-22 15:46+0000\n"
+"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,11 +35,11 @@ msgstr "El código ID de la prueba debe ser único"
 
 msgctxt "field:gnuhealth.lab,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.lab,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.lab,critearea:"
 msgid "Lab Test Critearea"
@@ -89,11 +91,11 @@ msgstr "Tipo de prueba"
 
 msgctxt "field:gnuhealth.lab,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.lab,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.lab.test.create.init,id:"
 msgid "ID"
@@ -101,11 +103,11 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.lab.test.critearea,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.lab.test.critearea,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.lab.test.critearea,excluded:"
 msgid "Excluded"
@@ -169,11 +171,11 @@ msgstr "Aviso"
 
 msgctxt "field:gnuhealth.lab.test.critearea,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.lab.test.critearea,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.lab.test.units,code:"
 msgid "Code"
@@ -181,11 +183,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.lab.test.units,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.lab.test.units,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.lab.test.units,id:"
 msgid "ID"
@@ -201,11 +203,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.lab.test.units,write_date:"
 msgid "Write Date"
-msgstr "Escribira la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.lab.test.units,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.lab.test_type,code:"
 msgid "Code"
@@ -213,11 +215,11 @@ msgstr "Código"
 
 msgctxt "field:gnuhealth.lab.test_type,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.lab.test_type,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.lab.test_type,critearea:"
 msgid "Test Cases"
@@ -245,11 +247,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.lab.test_type,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.lab.test_type,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient,lab_test_ids:"
 msgid "Lab Tests Required"
@@ -257,11 +259,11 @@ msgstr "Pruebas de Laboratorio Requeridas"
 
 msgctxt "field:gnuhealth.patient.lab.test,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.lab.test,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.lab.test,date:"
 msgid "Date"
@@ -301,11 +303,11 @@ msgstr "Urgente"
 
 msgctxt "field:gnuhealth.patient.lab.test,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.lab.test,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.lab.test.request.start,date:"
 msgid "Date"
@@ -709,7 +711,7 @@ msgstr "Tipo de prueba"
 
 msgctxt "view:gnuhealth.lab.test_type:"
 msgid "Main Info"
-msgstr "Información Principal "
+msgstr "Información Principal"
 
 msgctxt "view:gnuhealth.lab:"
 msgid "Extra Info"

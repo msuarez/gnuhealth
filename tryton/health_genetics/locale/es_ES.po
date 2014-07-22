@@ -2,14 +2,15 @@
 # Translators:
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # cristina <cmelgosa@thymbra.com>, 2012
+# cristina <cmelgosa@thymbra.com>, 2012
 # meanmicio <lfalcon@gnusolidario.org>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2011
+# meanmicio <lfalcon@gnusolidario.org>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:41+0000\n"
+"POT-Creation-Date: 2014-07-22 15:45+0000\n"
+"PO-Revision-Date: 2014-07-22 20:01+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -56,7 +57,7 @@ msgstr "Ubicación"
 
 msgctxt "field:gnuhealth.disease.gene,long_name:"
 msgid "Official Long Name"
-msgstr "Nombre largo oficial "
+msgstr "Nombre largo oficial"
 
 msgctxt "field:gnuhealth.disease.gene,name:"
 msgid "Official Symbol"
@@ -68,11 +69,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.disease.gene,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.disease.gene,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient,family_history:"
 msgid "Family History"
@@ -84,11 +85,11 @@ msgstr "Riesgos genéticos"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.family.diseases,id:"
 msgid "ID"
@@ -112,11 +113,11 @@ msgstr "Pariente"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal or Paternal"
@@ -124,11 +125,11 @@ msgstr "Materno o paterno"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,disease_gene:"
 msgid "Disease Gene"
@@ -152,11 +153,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "help:gnuhealth.disease.gene,chromosome:"
 msgid "Name of the affected chromosome"

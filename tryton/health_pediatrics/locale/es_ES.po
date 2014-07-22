@@ -2,14 +2,16 @@
 # Translators:
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
+# cristina <cmelgosa@thymbra.com>, 2011-2012
+# Humberto Yances <hyances@gmail.com>, 2012
 # Humberto Yances <hyances@gmail.com>, 2012
 # Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-07 13:30+0000\n"
-"PO-Revision-Date: 2014-07-12 13:12+0000\n"
+"POT-Creation-Date: 2014-07-22 15:46+0000\n"
+"PO-Revision-Date: 2014-07-22 20:30+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -56,11 +58,11 @@ msgstr "Puntuación APGAR"
 
 msgctxt "field:gnuhealth.neonatal.apgar,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.neonatal.apgar,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.neonatal.apgar,id:"
 msgid "ID"
@@ -76,11 +78,11 @@ msgstr "Nombre"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.newborn,apgar1:"
 msgid "APGAR 1st minute"
@@ -116,11 +118,11 @@ msgstr "Enfermedades Congénitas"
 
 msgctxt "field:gnuhealth.newborn,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.newborn,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.newborn,died_at_delivery:"
 msgid "Died at delivery room"
@@ -152,7 +154,7 @@ msgstr "Meconio"
 
 msgctxt "field:gnuhealth.newborn,medication:"
 msgid "Medication"
-msgstr "Medicamentos "
+msgstr "Medicamentos"
 
 msgctxt "field:gnuhealth.newborn,mother:"
 msgid "Mother"
@@ -172,7 +174,7 @@ msgstr "Reflejo de Babinski"
 
 msgctxt "field:gnuhealth.newborn,neonatal_barlow:"
 msgid "Positive Barlow"
-msgstr "Barlow postivo"
+msgstr "Barlow positivo"
 
 msgctxt "field:gnuhealth.newborn,neonatal_blink_reflex:"
 msgid "Blink Reflex"
@@ -212,7 +214,7 @@ msgstr "Polidactilia"
 
 msgctxt "field:gnuhealth.newborn,neonatal_rooting_reflex:"
 msgid "Rooting Reflex"
-msgstr "Relfejo de Búsqueda"
+msgstr "Reflejo de Búsqueda"
 
 msgctxt "field:gnuhealth.newborn,neonatal_stepping_reflex:"
 msgid "Stepping Reflex"
@@ -324,11 +326,11 @@ msgstr "Peso (kg)"
 
 msgctxt "field:gnuhealth.newborn,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.newborn,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient.disease,newborn_id:"
 msgid "Newborn ID"
@@ -340,11 +342,11 @@ msgstr "ID del Neonato"
 
 msgctxt "field:gnuhealth.patient.psc,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.patient.psc,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.patient.psc,evaluation_date:"
 msgid "Appointment"
@@ -508,7 +510,7 @@ msgstr "Quiere estar más con usted que antes"
 
 msgctxt "field:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Worries a lot"
-msgstr "Se preopcupa mucho"
+msgstr "Se preocupa mucho"
 
 msgctxt "field:gnuhealth.patient.psc,rec_name:"
 msgid "Name"
@@ -520,11 +522,11 @@ msgstr "Profesional de la salud"
 
 msgctxt "field:gnuhealth.patient.psc,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.patient.psc,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "help:gnuhealth.newborn,birth_date:"
 msgid "Date and Time of birth"
@@ -571,7 +573,7 @@ msgstr "Introduzca o elija la fecha y la identificación de la cita relacionado 
 
 msgctxt "model:gnuhealth.neonatal.apgar,name:"
 msgid "Neonatal APGAR Score"
-msgstr "Score APGAR Neonatal"
+msgstr "Puntuación APGAR Neonatal"
 
 msgctxt "model:gnuhealth.newborn,name:"
 msgid "Newborn Information"
@@ -646,12 +648,16 @@ msgid "Mother"
 msgstr "Madre"
 
 msgctxt "odt:newborn.card:"
-msgid "Mother's ID"
-msgstr "ID Madre"
+msgid "Mother's"
+msgstr "Madre"
 
 msgctxt "odt:newborn.card:"
 msgid "Name"
 msgstr "Nombre"
+
+msgctxt "odt:newborn.card:"
+msgid "PU"
+msgstr "ID"
 
 msgctxt "odt:newborn.card:"
 msgid "and"
@@ -703,7 +709,7 @@ msgstr "muecas al estimularlo"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "< 100"
-msgstr "<100"
+msgstr "< 100"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "> 100"
@@ -731,7 +737,7 @@ msgstr "Femenino"
 
 msgctxt "selection:gnuhealth.newborn,newborn_sex:"
 msgid "Male"
-msgstr "Male"
+msgstr "Masculino"
 
 msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Female"
