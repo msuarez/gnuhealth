@@ -658,6 +658,14 @@ class HealthInstitution(ModelSQL, ModelView):
 
         # Users need to specify the new type and plublic level attributes of 
         # the institution after the upgrade.
+        
+        # The code will be executed if the gnuhealth.institution model is
+        # empty. Normally there are two conditions for this to happen:
+        # 1) Upgrade from versions < 2.6.0 (the model did not exist)
+        # 2) The party / company / institution was not created during the
+        # installation. Although users should always finnish the installation
+        # wizards, sometimes it just does not happens. 
+
          
         cursor = Transaction().cursor
         cursor.execute("select name from gnuhealth_institution limit 1;")
@@ -674,17 +682,24 @@ class HealthInstitution(ModelSQL, ModelView):
             TableHandler = backend.get('TableHandler')
 
             if TableHandler.table_exist(cursor,'gnuhealth_hospital_building'):
-                cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
-                    CONSTRAINT gnuhealth_hospital_building_institution_fkey;")
-
+                try:
+                    cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
+                        CONSTRAINT IF EXISTS \
+                        gnuhealth_hospital_building_institution_fkey;")
+                except:
+                    pass 
+                    
                 # Link building with new institution model
                 
-                cursor.execute(
-                    'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
-                    'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                    'FROM GNUHEALTH_INSTITUTION '
-                    'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
-                    GNUHEALTH_INSTITUTION.NAME')
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass 
 
 
                 # Drop old foreign key from institution UNIT
@@ -692,62 +707,90 @@ class HealthInstitution(ModelSQL, ModelView):
                 cursor = Transaction().cursor
                 
                 if TableHandler.table_exist(cursor,'gnuhealth_hospital_unit'):
-                    cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
-                        CONSTRAINT gnuhealth_hospital_unit_institution_fkey;")
-
+                    try:
+                        cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
+                            CONSTRAINT IF EXISTS \
+                            gnuhealth_hospital_unit_institution_fkey;")
+                    except:
+                        pass
                 # Link unit with new institution model
                 
-                cursor.execute(
-                    'UPDATE GNUHEALTH_HOSPITAL_UNIT '
-                    'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                    'FROM GNUHEALTH_INSTITUTION '
-                    'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
-                    GNUHEALTH_INSTITUTION.NAME')
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_HOSPITAL_UNIT '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass 
+
 
             # Drop old foreign key from institution WARD
             
             if TableHandler.table_exist(cursor,'gnuhealth_hospital_ward'):
-                cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
-                    CONSTRAINT gnuhealth_hospital_ward_institution_fkey;")
-
+                try:
+                    cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
+                        CONSTRAINT IF EXISTS \
+                        gnuhealth_hospital_ward_institution_fkey;")
+                except:
+                    pass
+                    
                 # Link ward with new institution model
-                
-                cursor.execute(
-                    'UPDATE GNUHEALTH_HOSPITAL_WARD '
-                    'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                    'FROM GNUHEALTH_INSTITUTION '
-                    'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
-                    GNUHEALTH_INSTITUTION.NAME')
+  
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_HOSPITAL_WARD '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass 
+
 
                 # Drop old foreign key from institution OR
                       
             if TableHandler.table_exist(cursor,'gnuhealth_hospital_or'):
-                cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
-                    CONSTRAINT gnuhealth_hospital_or_institution_fkey;")
-
+                try:
+                    cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
+                        CONSTRAINT IF EXISTS \
+                        gnuhealth_hospital_or_institution_fkey;")
+                except:
+                    pass
+                    
                 # Link Operating Room with new institution model
                 
-                cursor.execute(
-                    'UPDATE GNUHEALTH_HOSPITAL_OR '
-                    'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                    'FROM GNUHEALTH_INSTITUTION '
-                    'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
-                    GNUHEALTH_INSTITUTION.NAME')
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_HOSPITAL_OR '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass
 
             # Drop old foreign key from Appointment
             
             if TableHandler.table_exist(cursor,'gnuhealth_hospital_appointment'):
-                cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
-                    CONSTRAINT gnuhealth_appointment_institution_fkey;")
-
+                try:
+                    cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
+                        CONSTRAINT IF EXISTS \
+                        gnuhealth_appointment_institution_fkey;")
+                except:
+                    pass
                 # Link Appointment with new institution model
                 
-                cursor.execute(
-                    'UPDATE GNUHEALTH_APPOINTMENT '
-                    'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                    'FROM GNUHEALTH_INSTITUTION '
-                    'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
-                    GNUHEALTH_INSTITUTION.NAME')
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_APPOINTMENT '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass 
 
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):

@@ -1,5 +1,295 @@
-changeset:   1430:253d95fa46a8
+changeset:   1482:8faac0c9c44b
+branch:      stable
 tag:         tip
+parent:      1480:1e54ed6c56e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 23 10:07:24 2014 +0100
+summary:     all : update translation files
+
+changeset:   1481:b707a9702be8
+parent:      1472:6c87746a035b
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Jul 22 17:52:50 2014 -0300
+summary:     all : Update official languages from transifex
+
+changeset:   1480:1e54ed6c56e7
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 17:25:21 2014 +0100
+summary:     fix bug #42828: Growth chart reports still have the Identification Code
+
+changeset:   1479:d37670b3cf7f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 16:22:42 2014 +0100
+summary:     Fix bug  #42827: Error in reports formatting date
+
+changeset:   1478:ee91bc55f45c
+branch:      stable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:25:26 2014 -0300
+summary:     health_pediatrics : Fix typo
+
+changeset:   1477:583a2e23bd62
+branch:      stable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:24:10 2014 -0300
+summary:     health_archives : Fix typo
+
+changeset:   1476:7b791f9340f8
+branch:      stable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:22:00 2014 -0300
+summary:     health : Fix typos
+
+changeset:   1475:30175996e420
+branch:      stable
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jul 07 19:59:47 2014 -0300
+summary:     health : Fix typo in du
+
+changeset:   1474:5aab6606e5a3
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 11:59:37 2014 +0100
+summary:     Fix bug #42826 : missing qrcode dependency in setup.py
+
+changeset:   1473:ecb38c7510af
+branch:      stable
+parent:      1469:b128fbec29cf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 21 11:25:10 2014 +0100
+summary:     fix bug #42819: Missing Operating Rooms from related records
+
+changeset:   1472:6c87746a035b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 21 11:25:10 2014 +0100
+summary:     fix bug #42819: Missing Operating Rooms from related records
+
+changeset:   1471:1e4ac29c0a8e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 20 20:01:42 2014 +0100
+summary:     health : revert changeset 1466:aeca38fff263
+
+changeset:   1470:4fa77deb8260
+parent:      1467:aeca38fff263
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jul 19 17:49:15 2014 -0700
+summary:     FHIR: Patient read endpoint works
+
+changeset:   1469:b128fbec29cf
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 19 20:21:36 2014 +0100
+summary:     health_icpm : Fix typo in salpingotomy procedure. Thanks Tiago Silva for reporting !
+
+changeset:   1468:54fdcf860ac5
+branch:      stable
+parent:      1463:3c98cdbe40f1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 20:42:45 2014 +0100
+summary:     pediatrics, qrcode : Change Mother ID by PUID Fix bug # 42769
+
+changeset:   1467:aeca38fff263
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jul 18 22:33:36 2014 -0300
+summary:     health : Fix bug #42809. Fails automatically set patient and health professional
+
+changeset:   1466:add00effe17a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jul 17 00:02:19 2014 -0700
+summary:     scripts: Added error handling; check if db already exists
+
+changeset:   1465:a9bac1048c07
+user:        David Routhieau <rootio@vmail.me>
+date:        Wed Jul 16 22:40:48 2014 -0400
+summary:     Add a simple firewall to vagrant
+
+changeset:   1464:6cff5428629d
+parent:      1462:2bb5e8a06bc5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Jul 16 13:07:58 2014 -0700
+summary:     scripts: Added shell script to install demo database; TODO: error handling and more testing
+
+changeset:   1463:3c98cdbe40f1
+branch:      stable
+parent:      1458:a4f276585314
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 15 10:01:29 2014 +0100
+summary:     Fixes bug https://savannah.gnu.org/bugs/index.php?42772 tree view
+
+changeset:   1462:2bb5e8a06bc5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 20:30:45 2014 +0100
+summary:     tlogon : Comment on absolute path
+
+changeset:   1461:bdd7222448f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 20:29:03 2014 +0100
+summary:     tlogon : Allow to resize windows
+
+changeset:   1460:6209dd08c6ea
+user:        David Routhieau <rootio@vmail.me>
+date:        Wed Jul 16 13:42:26 2014 -0400
+summary:     hgignore
+
+changeset:   1459:9b1dcc7153ba
+parent:      1457:3ee564612a0e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 18:13:28 2014 +0100
+summary:     tlogon : move tlogon to the misc directory
+
+changeset:   1458:a4f276585314
+branch:      stable
+parent:      1447:f3f339a4e73a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 18:02:25 2014 +0100
+summary:     fhir, fhir_patient : revert to the default branch
+
+changeset:   1457:3ee564612a0e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 17:57:25 2014 +0100
+summary:     all : Update development version number to 2.7
+
+changeset:   1456:096774c2abf3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 16 17:43:12 2014 +0100
+summary:     GNU HEALTH profile : Add GNUHEALTH_DIR and use it on the profile. Thanks Luis Gonzalez !
+
+changeset:   1455:080c066cf68d
+user:        David Routhieau <rootio@vmail.me>
+date:        Wed Jul 16 01:21:20 2014 -0400
+summary:     Vagrantfile
+
+changeset:   1454:be9e71c6787b
+user:        David Routhieau <rootio@vmail.me>
+date:        Wed Jul 16 01:20:51 2014 -0400
+summary:     Cleanup & typo README
+
+changeset:   1453:4ec12ac40a1e
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Jul 15 21:10:51 2014 -0700
+summary:     FHIR: Server runs, most endpoints simply return 40X
+
+changeset:   1452:77d98663facb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 15 10:01:29 2014 +0100
+summary:     Fixes bug https://savannah.gnu.org/bugs/index.php?42772 tree view
+
+changeset:   1451:62c85928aa1e
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jul 14 17:04:10 2014 -0700
+summary:     FHIR: Moved around some functions, other small changes
+
+changeset:   1450:668537d95eb5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 22:10:23 2014 +0100
+summary:     tlogon : PEP8
+
+changeset:   1449:9f9153fb9128
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 20:42:45 2014 +0100
+summary:     pediatrics, qrcode : Change Mother ID by PUID Fix bug # 42769
+
+changeset:   1448:ec8656610733
+parent:      1444:7f7e7c087a42
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 20:32:28 2014 +0100
+summary:     health_pediatrics, health_qrcodes : Fix report bug https://savannah.gnu.org/bugs/index.php?42769
+
+changeset:   1447:f3f339a4e73a
+branch:      stable
+parent:      1446:68c63e21988c
+parent:      1431:fafb8deef901
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 12:50:07 2014 +0100
+summary:     Merge default (development) branch to stable 2.6.0
+
+changeset:   1446:68c63e21988c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 12:38:02 2014 +0100
+summary:     Added tag 2.6.0 for changeset fafb8deef901
+
+changeset:   1445:ad4c6c0a161c
+branch:      stable
+parent:      1250:c4a83c58a22b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 12:36:49 2014 +0100
+summary:     Removed tag 2.6.0
+
+changeset:   1444:7f7e7c087a42
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 11:53:09 2014 +0100
+summary:     remove wrong version file
+
+changeset:   1443:a30f915d3b44
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 14 10:18:54 2014 +0100
+summary:     Added tag 2.6.0 for changeset 253d95fa46a8
+
+changeset:   1442:61f557ba1016
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 13 16:14:46 2014 +0100
+summary:     tlogon : Add database field in form
+
+changeset:   1441:fd5faff824f0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 13 12:49:02 2014 +0100
+summary:     t-logon: Add description
+
+changeset:   1440:bdab41acca5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 13 12:48:05 2014 +0100
+summary:     t-logon: Fix typos in About
+
+changeset:   1439:70e32a487492
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 13 12:42:37 2014 +0100
+summary:     t-logon : Initial commit
+
+changeset:   1438:6cd00e18c23a
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Jul 12 13:29:23 2014 -0300
+summary:     all : Update official languages from transifex
+
+changeset:   1437:4f083d6412a6
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:25:26 2014 -0300
+summary:     health_pediatrics : Fix typo
+
+changeset:   1436:d401c46f39f5
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:24:10 2014 -0300
+summary:     health_archives : Fix typo
+
+changeset:   1435:43fb33c4e40c
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jul 09 01:22:00 2014 -0300
+summary:     health : Fix typos
+
+changeset:   1434:3b00238207aa
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Jul 07 19:59:47 2014 -0300
+summary:     health : Fix typo in du
+
+changeset:   1433:05f9ff37b3af
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jul 06 17:07:55 2014 -0700
+summary:     FHIR: Added basic json exporting; fixed an etree export problem
+
+changeset:   1432:113860f56c89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 22:45:45 2014 +0100
+summary:     who_essential_medicines, crypto: Fix typo and descriptions in setup.py
+
+changeset:   1431:fafb8deef901
+tag:         2.6.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 19:05:47 2014 +0100
+summary:     Changelog : Update
+
+changeset:   1430:253d95fa46a8
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jul 06 18:57:02 2014 +0100
 summary:     GNU Health installer : Remove python-ldap installation via pip from all operating systems
