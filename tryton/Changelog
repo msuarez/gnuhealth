@@ -1,6 +1,12 @@
-changeset:   1482:8faac0c9c44b
+changeset:   1483:a214334c8076
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 23 14:00:02 2014 +0100
+summary:     check for existence of constraint before deletion. Update version to pre 2.6.1
+
+changeset:   1482:8faac0c9c44b
+branch:      stable
 parent:      1480:1e54ed6c56e7
 user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Jul 23 10:07:24 2014 +0100
