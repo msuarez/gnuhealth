@@ -1,7 +1,7 @@
 from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from health_fhir_flask import (safe_fromstring, safe_parse)
-from health_fhir_patient_class import meta_patient
+from health_fhir_patient_class import gnu_patient
 from extensions import (tryton, api)
 import json
 
@@ -78,7 +78,8 @@ class Record(Resource):
         #Read interaction
         record = patient.search(['id', '=', log_id], limit=1)
         if record:
-            d=meta_patient(record=record[0])
+            d=gnu_patient()
+            d.set_gnu_patient(record[0])
             return d
         else:
             abort(404, message="Record not found")
@@ -121,7 +122,7 @@ api.add_resource(Version,
 @api.representation('application/xml')
 @api.representation('application/xml+fhir')
 def output_xml(data, code, headers=None):
-    resp = make_response(data.export_to_xml(), code)
+    resp = make_response(data.export_to_xml_string(), code)
     resp.headers.extend(headers or {})
     resp.headers['Content-type']='application/xml+fhir' #Return proper type
     return resp
