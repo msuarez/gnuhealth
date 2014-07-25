@@ -43,7 +43,6 @@ class Create(Resource):
             except:
                 abort(400, message="Bad data")
 
-
 class Search(Resource):
     @tryton.transaction()
     def get(self):
@@ -60,7 +59,7 @@ class Search(Resource):
         if identifier:
             rec, = patient.search(['puid', '=', identifier], limit=1)
             if rec:
-                return meta_patient(rec)
+                return gnu_patient(rec)
             else:
                 #TODO OperationOutcome; for now an error
                 abort(403, message="No matching record(s)")
@@ -80,6 +79,7 @@ class Record(Resource):
         if record:
             d=gnu_patient()
             d.set_gnu_patient(record[0])
+            d.import_from_gnu_patient()
             return d
         else:
             abort(404, message="Record not found")
@@ -95,7 +95,6 @@ class Record(Resource):
     def delete(self, log_id):
         #Delete interaction
         abort(405, message='Not implemented.')
-
 
 class Version(Resource):
     @tryton.transaction()

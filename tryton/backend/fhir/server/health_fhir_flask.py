@@ -32,7 +32,7 @@ def create_app(config=None):
             return user.get_preferences(context_only=True)
 
         #Register the patient blueprint (and others, in the future)
-        from health_fhir_patient_flask import patient_endpoint
+        from health_fhir_patient_blueprint import patient_endpoint
         app.register_blueprint(patient_endpoint)
 
     return app

@@ -11,6 +11,9 @@ class gnu_patient(fhir_xml.Patient):
 
     def set_gnu_patient(self, gnu):
         self.gnu_patient = gnu #gnu health model
+
+    def import_from_gnu_patient(self):
+        # Get info, and set from, gnu model
         if self.gnu_patient and getattr(self.gnu_patient, 'name', None):
             self.__set_gender()
             self.__set_deceased_status()
@@ -26,6 +29,18 @@ class gnu_patient(fhir_xml.Patient):
             self.__set_contact()
             self.__set_care_provider()
             self.__set_marital_status()
+
+    def save_to_gnu_patient(self):
+        # Saves info to gnu model
+        if getattr(self, 'gnu_patient') is not None:
+            self.__save_gender()
+            self.__save_birthdate()
+            self.__save_deceased_datetime()
+            self.__save_name()
+            self.__save_marital_status()
+            self.__save_address()
+            self.__save_telecom()
+            self.__save_photo()
 
     def __set_identifier(self):
         if getattr(self.gnu_patient, 'puid', None):
@@ -52,18 +67,28 @@ class gnu_patient(fhir_xml.Patient):
         self.add_identifier(value=ident)
 
     def __set_name(self):
+        # TODO: Discuss these meanings more
         name = []
         name.append(fhir_xml.HumanName(
-                    use=fhir_xml.NameUse(value='official'),
+                    use=fhir_xml.NameUse(value='usual'),
                     family=[fhir_xml.string(value=x) for x in self.gnu_patient.lastname.split()],
                     given=[fhir_xml.string(value=x) for x in self.gnu_patient.name.name.split()]))
 
+
         if getattr(self.gnu_patient.name, 'alias', None):
             name.append(fhir_xmlHumanName(
-                        use=fhir_xml.NameUse(value='usual'),
+                        use=fhir_xml.NameUse(value='nickname'),
                         given=[fhir_xml.string(value=self.gnu_patient.name.alias)]))
         for x in name:
             self.add_name(x)
+
+    def __save_name(self):
+        if getattr(self, 'gnu_patient'):
+            if getattr(self.name[0].use, 'value') == 'nickname':
+                self.gnu_patient.name.alias=self.name[0].given[0].value
+            else:
+                self.gnu_patient.name.name=' '.join([m.value for m in self.name[0].given])
+                self.gnu_patient.lastname=' '.join([m.value for m in self.name[0].family])
 
     def __set_telecom(self):
         telecom = []
@@ -85,6 +110,16 @@ class gnu_patient(fhir_xml.Patient):
         for x in telecom:
             self.add_telecom(x)
 
+    def __save_telecom(self):
+        if getattr(self, 'gnu_patient'):
+            for c in self.telecom:
+                if c.use.value == 'home':
+                    self.gnu_patient.name.phone=c.value.value
+                elif c.use.value == 'mobile':
+                    self.gnu_patient.name.mobile=c.value.value
+                elif c.use.value == 'email':
+                    self.gnu_patient.name.email=c.value.value
+
     def __set_gender(self):
         if getattr(self.gnu_patient, 'sex', None):
             coding = fhir_xml.Coding(
@@ -95,11 +130,20 @@ class gnu_patient(fhir_xml.Patient):
             gender=fhir_xml.CodeableConcept(coding=[coding])
             self.set_gender(gender)
 
+    def __save_gender(self):
+        if getattr(self, 'gnu_patient'):
+            self.gnu_patient.sex='m' if self.gender.coding[0].code.value == 'M' else 'f'
+
     def __set_birthdate(self):
         if getattr(self.gnu_patient, 'dob', None):
             self.set_birthDate(fhir_xml.dateTime(value=self.gnu_patient.dob))
 
+    def __save_birthdate(self):
+        if getattr(self, 'gnu_patient'):
+            self.gnu_patient.dob=self.birthDate.value
+
     def __set_deceased_status(self):
+        # Not in gnu health explicitly (?)
         if getattr(self.gnu_patient, 'deceased', None):
             status=fhir_xml.boolean(value='true')
         else:
@@ -109,6 +153,11 @@ class gnu_patient(fhir_xml.Patient):
     def __set_deceased_datetime(self):
         if getattr(self.gnu_patient, 'deceased', None):
             self.set_deceasedDateTime(fhir_xml.dateTime(value=str(self.gnu_patient.dod)))
+
+    def __save_deceased_datetime(self):
+        if getattr(self, 'gnu_patient'):
+            if getattr(self, 'deceasedDateTime') is not None:
+                self.gnu_patient.dod=self.deceasedDateTime.value
 
     def __set_address(self):
         if getattr(self.gnu_patient.name, 'du', None):
@@ -123,6 +172,23 @@ class gnu_patient(fhir_xml.Patient):
             address.set_country(fhir_xml.string(value=self.gnu_patient.name.du.address_country.name))
 
             self.add_address(address)
+
+    def __save_address(self):
+        # TODO Add tests (?) and line
+        if getattr(self, 'gnu_patient'):
+            if self.address:
+                self.gnu_patient.name.du.address_zip=self.address[0].zip.value
+                self.gnu_patient.name.du.address_country.name=self.address[0].country.value
+                self.gnu_patient.name.du.address_subdivision.name=self.address[0].state.value
+                self.gnu_patient.name.du.address_city=self.address[0].city.value
+                street=[]
+                for x in self.address[0].line[0].value.split():
+                    try:
+                        m=int(x)
+                        self.gnu_patient.name.du.address_street_number=m
+                    except ValueError:
+                        street.append(x)
+                self.gnu_patient.name.du.address_street=' '.join(street)
 
     def __set_active(self):
         self.set_active(fhir_xml.boolean(value='true'))
@@ -146,6 +212,14 @@ class gnu_patient(fhir_xml.Patient):
             im = fhir_xml.Attachment(data=data)
             self.add_photo(im)
 
+    def __save_photo(self):
+        # Python 2 and Python 3 have bytes and string/bytes .... issues
+        #  Need to talk about this more with tryton storage
+        import base64
+        if getattr(self, 'gnu_patient'):
+            if self.photo:
+                self.gnu_patient.photo=base64.decodestring(self.photo[0].data.value)
+
     def __set_marital_status(self):
         if getattr(self.gnu_patient.name, 'marital_status', None):
             #Health has concubinage and separated, which aren't truly
@@ -168,6 +242,15 @@ class gnu_patient(fhir_xml.Patient):
                         )
             marital_status=fhir_xml.CodeableConcept(coding=[coding])
             self.set_maritalStatus(marital_status)
+
+    def __save_marital_status(self):
+        # TODO: Discuss categories
+        if getattr(self, 'gnu_patient'):
+            t=self.maritalStatus.coding[0].code.value.lower()
+            if t in ['m', 'w', 'd', 's']:
+                self.gnu_patient.marital_status=t
+            else:
+                pass
 
     def export_to_xml_string(self):
         output = StringIO()
