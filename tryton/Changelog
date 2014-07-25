@@ -1,6 +1,18 @@
-changeset:   1483:a214334c8076
+changeset:   1485:a770f6d47527
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 06 22:45:45 2014 +0100
+summary:     who_essential_medicines, crypto: Fix typo and descriptions in setup.py
+
+changeset:   1484:8a2ae9396ba3
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 23 19:09:25 2014 +0100
+summary:     Update Changelog
+
+changeset:   1483:a214334c8076
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Jul 23 14:00:02 2014 +0100
 summary:     check for existence of constraint before deletion. Update version to pre 2.6.1
