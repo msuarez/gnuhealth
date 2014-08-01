@@ -1,12 +1,15 @@
 from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
-from health_fhir_flask import (safe_fromstring, safe_parse)
-from health_fhir_patient_class import gnu_patient
+from health_fhir_patient_class import gnu_patient, parse
 from extensions import (tryton, api)
 import json
+import fhir_xml as supermod
 
 # Patient model
 patient = tryton.pool.get('gnuhealth.patient')
+
+# Party model
+party = tryton.pool.get('party.party')
 
 def etree_to_dict(tree):
     '''Converts an etree into a dictionary.'''
@@ -29,41 +32,53 @@ api.init_app(patient_endpoint)
 class Create(Resource):
     @tryton.transaction()
     def post(self):
-        #Create interaction
-        abort(405, message='Not implemented.')
-        json = request.get_json(force=True, silent=True)
-        if json:
-            #json
-            pass
-        else:
-            #try xml?
-            try:
-                xml=safe_fromstring(request.data)
-                return '<valid>True</valid>'
-            except:
-                abort(400, message="Bad data")
+        try:
+            # Doesn't work yet
+            c=StringIO(request.data)
+            res=parse(c)
+            c.close()
+            ds = res.get_gnu_patient()
+            n = party.create([ds['party']])[0]
+            ds['patient']['name']=n
+            p=patient.create([ds['patient']])
+        except:
+            abort(400, message="Bad data")
 
 class Search(Resource):
     @tryton.transaction()
     def get(self):
         #Search interaction
         #TODO Search implementation is important, but
-        # also very robust, so keep it simple for now
-        allowed=['_id', 'active', 'address', 'animal-breed', 'animal-species',
-            'birthdate', 'family', 'gender', 'given', 'identifier', 'language',
-            'link', 'name', 'phonetic', 'provider', 'telecom']
-        _id = request.args.get('_id', None)
-        identifier = request.args.get('identifier', None)
-        if _id:
-            rec, = patient.search(['id', '=', _id], limit=1)
-        if identifier:
-            rec, = patient.search(['puid', '=', identifier], limit=1)
+        #    also very robust, so keep it simple for now
+        #    but need to write general search parser in 
+        #    order that we can just plug in criteria for
+        #    each resource
+
+        allowed={'_id': 'id', 'active': None, 'address': None,
+                'animal-breed': None, 'animal-species': None,
+                'birthdate': 'dob', 'family': None,
+                'gender': 'sex', 'given': None,
+                'identifier': 'puid', '_language': None,
+                'language': None, 'link': None, 'name': None,
+                'phonetic': None, 'provider': None, 'telecom': None}
+        def crit():
+            _id = request.args.get('_id')
+            if _id:
+                return (allowed['_id'], _id)
+            identifier = request.args.get('identifier')
+            if identifier:
+                return (allowed['identifier'], identifier)
+            return None
+        m=crit()
+        if m:
+            rec = patient.search([m[0], '=', m[1]], limit=1)
             if rec:
-                return gnu_patient(rec)
-            else:
-                #TODO OperationOutcome; for now an error
-                abort(403, message="No matching record(s)")
-        return 'No records'
+                d=gnu_patient()
+                d.set_gnu_patient(rec[0])
+                d.import_from_gnu_patient()
+                return d
+        #TODO OperationOutcome; for now an error
+        abort(403, message="No matching record(s)")
 
 class Validate(Resource):
     @tryton.transaction()
