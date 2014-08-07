@@ -203,7 +203,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
         'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection')
     def on_change_with_fam_apgar_score(self):
-        fam_apgar_help = int(self.fam_apgar_help)
+        fam_apgar_help = int(self.fam_apgar_help or '0')
         fam_apgar_timesharing = int(self.fam_apgar_timesharing or '0')
         fam_apgar_discussion = int(self.fam_apgar_discussion or '0')
         fam_apgar_decisions = int(self.fam_apgar_decisions or '0')
