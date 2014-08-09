@@ -1,6 +1,32 @@
-changeset:   1485:a770f6d47527
+changeset:   1500:0175cfc53062
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 05 13:33:58 2014 +0100
+summary:     health_imaging : Fix imaging request on bug #42914: Check for health professional when requesting tests
+
+changeset:   1499:125afadabbff
+branch:      stable
+parent:      1496:d9a361e37ca0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 05 12:51:44 2014 +0100
+summary:     health_lab : Fix lab request on bug #42914: Check for health professional when requesting tests
+
+changeset:   1494:249e6c8d1150
+branch:      stable
+parent:      1486:268309b5b025
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 20:29:46 2014 +0100
+summary:     fix bug #42843: health_lab : Error in printing lab test result
+
+changeset:   1486:268309b5b025
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 10:40:48 2014 +0100
+summary:     Fix bug #42841 health: error in prescription report when assigining a revision date to prescription line
+
+changeset:   1485:a770f6d47527
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jul 06 22:45:45 2014 +0100
 summary:     who_essential_medicines, crypto: Fix typo and descriptions in setup.py
