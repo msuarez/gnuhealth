@@ -1,0 +1,123 @@
+#!/usr/bin/env bash
+
+# gnuhealth-update
+# The automatic GNU Health update program
+
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2014  Luis Falcon <falcon@gnu.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+VERSION="0.0.1"
+
+usage()
+{
+    cat << EOF
+
+usage: `basename $0` command [options]
+
+Command:
+ 
+  version : Show version
+  backup : Backup he gnuhealth kernel, attach dir and database
+  install : Download and install the patches
+
+Options:
+
+ --nobackup : Don't do a backup previous to the update. 
+ --backupdest : destination of the backup file
+ --dry-run : Check, download and preview, but don't actually update process
+ --database : database name to use with the install or backup command 
+
+EOF
+    exit 0
+}
+
+help()
+{
+    cat << EOF
+This program will update GNU Health components within the same major number
+The following components will be checked and updated if necessary
+ 
+ - Trytond : Tryton server version
+ - GNU Health patchsets
+
+This will be valid for version with the same major, minor numbers, for example
+2.6.x will look for the latest tryton updates and GNU Health updates
+associated to that release.
+
+GNU Health update is available for release 2.6 and newer.
+You can get the latest version of GNU Health update at GNU
+ftp://ftp.gnu.org/gnu/health
+
+
+EOF
+    usage
+    exit 0
+}
+
+get_current_values()
+{
+    # Bail out if no GNU Health profile exists
+    if [ ! -e $HOME/.gnuhealthrc ]
+    then
+        echo "No GNU Health profile found !"
+        exit 1
+    fi
+    
+    # Stop if it can't find the GNU Health version
+    if [ -z "$GNUHEALTH_VERSION" ]
+    then
+        echo "Could not find the GNU Health version env. variable"
+        exit 1
+    fi
+    
+    
+    echo "Environment variables"
+    echo "GNUHEALTH_VERSION = ${GNUHEALTH_VERSION}"
+    echo "PYTHONPATH = $PYTHONPATH"
+    
+}
+
+backup()
+{
+echo "Backing up the kernel and attach dir"
+echo "Backing up the database"
+}
+
+do_update()
+{
+   get_current_values
+}
+    
+parse_command_line()
+{
+    if [ $# -eq 0 ]; then
+        usage
+    fi
+    
+    case $1 in
+        version) echo $VERSION;;
+        backup) backup;;
+        install) do_update;;
+        help) help;;
+        *) echo $1: Unrecognized command; exit 1;;
+    esac
+}
+
+parse_command_line $@
