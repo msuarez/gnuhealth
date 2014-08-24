@@ -21,7 +21,7 @@
 #
 ##############################################################################
 from dateutil.relativedelta import relativedelta
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from sql import Literal, Join
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
@@ -297,7 +297,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     @staticmethod
     def default_activation_date():
-        return datetime.today()
+        return date.today()
 
     @classmethod
     def write(cls, parties, vals):
