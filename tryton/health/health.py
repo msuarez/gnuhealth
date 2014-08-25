@@ -827,8 +827,10 @@ class HealthInstitutionO2M(ModelSQL, ModelView):
         domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
         help="Choose the speciality in the case of Specialized Hospitals" \
             " or where this center excels", 
-        states={'required': And(Eval('institution_type') == 'specialized', Bool(Eval('specialties'))),
-            'readonly': Not(Bool(Eval('name')))})
+        states={'required': And(Eval('institution_type') == 'specialized',
+            Bool(Eval('specialties'))),
+            'readonly': Not(Bool(Eval('name'))),
+            'invisible':Not(Eval('institution_type') == 'specialized')})
 
     # Add Specialties to the Health Institution
     operational_sectors = fields.One2Many('gnuhealth.institution.operationalsector',
