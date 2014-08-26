@@ -797,21 +797,40 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
     'Health Institution Specialties'
     __name__ = 'gnuhealth.institution.specialties'
 
-    name = fields.Many2One('gnuhealth.institution', 'Institution')
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+    name = fields.Many2One('gnuhealth.institution', 'Institution',
+        required=True)
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        required=True)
 
     
     def get_rec_name(self, name):
-        if self.name:
+        if self.specialty:
             return self.specialty.name
 
+    @classmethod
+    def __setup__(cls):
+        super(HealthInstitutionSpecialties, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_sp_uniq', 'UNIQUE(name, specialty)',
+                'The Specialty already exists for this institution'),
+        ]
 
 class HealthInstitutionOperationalSector(ModelSQL, ModelView):
     'Operational Sectors covered by Institution'
     __name__ = 'gnuhealth.institution.operationalsector'
 
-    name = fields.Many2One('gnuhealth.institution', 'Institution')
-    operational_sector = fields.Many2One('gnuhealth.operational_sector', 'Operational Sector')
+    name = fields.Many2One('gnuhealth.institution', 'Institution',
+        required=True)
+    operational_sector = fields.Many2One('gnuhealth.operational_sector',
+        'Operational Sector', required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(HealthInstitutionOperationalSector, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_os_uniq', 'UNIQUE(name, operational_sector)',
+                'The Operational Sector already exists for this institution'),
+        ]
 
 class HealthInstitutionO2M(ModelSQL, ModelView):
     'Health Institution'
@@ -827,10 +846,11 @@ class HealthInstitutionO2M(ModelSQL, ModelView):
         domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
         help="Choose the speciality in the case of Specialized Hospitals" \
             " or where this center excels", 
-        states={'required': And(Eval('institution_type') == 'specialized',
-            Bool(Eval('specialties'))),
-            'readonly': Not(Bool(Eval('name'))),
-            'invisible':Not(Eval('institution_type') == 'specialized')})
+        
+        # Allow to select the institution specialty only if the record already
+        # exists
+        states={'required': Eval('institution_type') == 'specialized',
+            'readonly': Eval('id', 0) < 0})
 
     # Add Specialties to the Health Institution
     operational_sectors = fields.One2Many('gnuhealth.institution.operationalsector',
