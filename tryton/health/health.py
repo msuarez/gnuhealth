@@ -1229,6 +1229,14 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return self.specialty.name
 
+    @classmethod
+    def __setup__(cls):
+        super(HealthProfessionalSpecialties, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_sp_uniq', 'UNIQUE(name,specialty)',
+                'This specialty already exists for the health professional'),
+        ]
+
 
 class PhysicianSP(ModelSQL, ModelView):
     # Add Main Specialty field after from the Health Professional Speciality
