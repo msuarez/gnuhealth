@@ -1229,7 +1229,8 @@ class PhysicianSP(ModelSQL, ModelView):
 
     main_specialty = fields.Many2One(
         'gnuhealth.hp_specialty', 'Main Specialty',
-        domain=[('name', '=', Eval('active_id'))], help='Specialty Code')
+        domain=[('name', '=', Eval('active_id'))],
+        states={'readonly': Eval('id', 0) < 0})
 
     @classmethod
     # Update to version 2.2
