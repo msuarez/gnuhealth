@@ -849,7 +849,8 @@ class HealthInstitutionO2M(ModelSQL, ModelView):
         
         # Allow to select the institution specialty only if the record already
         # exists
-        states={'required': Eval('institution_type') == 'specialized',
+        states={'required': And(Eval('institution_type') == 'specialized',
+            Eval('id', 0) > 0),
             'readonly': Eval('id', 0) < 0})
 
     # Add Specialties to the Health Institution
