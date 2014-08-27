@@ -1196,6 +1196,14 @@ class HealthProfessional(ModelSQL, ModelView):
         return res
 
     @classmethod
+    def __setup__(cls):
+        super(HealthProfessional, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)',
+                'The Health Professional already exists'),
+        ]
+
+    @classmethod
     def __register__(cls, module_name):
 
         cursor = Transaction().cursor
