@@ -1,6 +1,5 @@
 from flask import current_app
-#from StringIO import StringIO
-from io import StringIO
+from StringIO import StringIO
 from datetime import datetime
 import fhir_xml as supermod
 import sys
@@ -88,9 +87,13 @@ class gnu_patient(supermod.Patient):
     def __set_name(self):
         # TODO: Discuss these meanings more
         name = []
+        if getattr(self.gnu_patient, 'lastname', None):
+            family=[supermod.string(value=x) for x in self.gnu_patient.lastname.split()]
+        else:
+            family=None
         name.append(supermod.HumanName(
                     use=supermod.NameUse(value='usual'),
-                    family=[supermod.string(value=x) for x in self.gnu_patient.lastname.split()],
+                    family=family,
                     given=[supermod.string(value=x) for x in self.gnu_patient.name.name.split()]))
 
 
@@ -108,13 +111,13 @@ class gnu_patient(supermod.Patient):
 
     def __get_lastname(self):
         if getattr(self, 'name', None):
-            if getattr(self.name[0].use, 'value') == 'usual':
+            if getattr(self.name[0].use, 'value') in ('usual', 'official'):
                 return ' '.join([m.value for m in self.name[0].family])
 
     def __get_firstname(self):
         if getattr(self, 'name', None):
-            if getattr(self.name[0].use, 'value') == 'usual':
-                return ' '.join([m.value for m in self.name[0].given])
+            if getattr(self.name[0].use, 'value') in ('official', 'usual'):
+                return self.name[0].given[0].value
 
     def __set_telecom(self):
         telecom = []

@@ -1,25 +1,16 @@
 from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
+from StringIO import StringIO
 from health_fhir_patient_class import gnu_patient, parse
 from extensions import (tryton, api)
 import json
-import fhir_xml as supermod
+import fhir_xml as fhir
 
 # Patient model
 patient = tryton.pool.get('gnuhealth.patient')
 
 # Party model
 party = tryton.pool.get('party.party')
-
-def etree_to_dict(tree):
-    '''Converts an etree into a dictionary.'''
-    #TODO Peculiarities of FHIR standard need to
-    #    be addresssed
-    children=tree.getchildren()
-    if children:
-        return {tree.tag: [etree_to_dict(c) for c in children]}
-    else:
-        return {tree.tag: dict(tree.attrib)}
 
 # 'Patient' blueprint on '/Patient'
 patient_endpoint = Blueprint('patient_endpoint', __name__,
@@ -33,7 +24,6 @@ class Create(Resource):
     @tryton.transaction()
     def post(self):
         try:
-            # Doesn't work yet
             c=StringIO(request.data)
             res=parse(c)
             c.close()
@@ -41,6 +31,9 @@ class Create(Resource):
             n = party.create([ds['party']])[0]
             ds['patient']['name']=n
             p=patient.create([ds['patient']])
+
+            # TODO: OperationOutcome
+            return 'Created'
         except:
             abort(400, message="Bad data")
 
@@ -84,7 +77,30 @@ class Validate(Resource):
     @tryton.transaction()
     def post(self, log_id):
         #Validate interaction
-        abort(405, message='Not implemented.')
+
+        if log_id:
+            # Proposed update to resource
+
+            #Don't allow this for now
+            abort(405)
+        else:
+            #What checks?
+            #TODO: Must return OperationOutcome with errors
+
+            try:
+                # 1) Must be able to parse
+                c=StringIO(request.data)
+                res=parse(c)
+                c.close()
+            except:
+                abort(400)
+
+            else:
+                # 2) Must be patient class (?)
+                if isinstance(res, gnu_patient):
+                    return 'Valid'
+                else:
+                    abort(422)
 
 class Record(Resource):
     @tryton.transaction()
@@ -109,17 +125,22 @@ class Record(Resource):
     @tryton.transaction()
     def delete(self, log_id):
         #Delete interaction
+
+        #For now, don't allow
         abort(405, message='Not implemented.')
 
 class Version(Resource):
     @tryton.transaction()
     def get(self, log_id, v_id):
         #Vread interaction
+
+        #No support for this in Health... yet?
         abort(405, message='Not implemented.')
 
-api.add_resource(Create, '/')
+api.add_resource(Create,
+                        '')
 api.add_resource(Search,
-                        '/',
+                        '',
                         '/_search')
 api.add_resource(Validate,
                         '/_validate',
@@ -136,7 +157,10 @@ api.add_resource(Version,
 @api.representation('application/xml')
 @api.representation('application/xml+fhir')
 def output_xml(data, code, headers=None):
-    resp = make_response(data.export_to_xml_string(), code)
+    if hasattr(data, 'export_to_xml_string'):
+        resp = make_response(data.export_to_xml_string(), code)
+    else:
+        resp = make_response(data, code)
     resp.headers.extend(headers or {})
     resp.headers['Content-type']='application/xml+fhir' #Return proper type
     return resp
@@ -145,19 +169,17 @@ def output_xml(data, code, headers=None):
 @api.representation('application/json')
 @api.representation('application/json+fhir')
 def output_json(data, code, headers=None):
-    #resp = make_response(json.dumps(data),code)
-    #resp.headers.extend(headers or {})
-    #resp.headers['Content-type']='application/json+fhir' #Return proper type
-    #return resp
-    pass
+    resp = make_response(data,code)
+    resp.headers.extend(headers or {})
+    resp.headers['Content-type']='application/json+fhir' #Return proper type
+    return resp
 
 
 @api.representation('atom')
 @api.representation('application/atom')
 @api.representation('application/atom+fhir')
 def output_atom(data, code, headers=None):
-    #resp = make_response(data, code)
-    #resp.headers.extend(headers or {})
-    #resp.headers['Content-type']='application/atom+fhir' #Return proper type
-    #return resp
-    pass
+    resp = make_response(data, code)
+    resp.headers.extend(headers or {})
+    resp.headers['Content-type']='application/atom+fhir' #Return proper type
+    return resp
