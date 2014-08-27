@@ -207,15 +207,15 @@ class EvaluationsDoctor(ModelSQL, ModelView):
                 Transaction().context['end_date']
 
         return evaluation.select(
-            evaluation.doctor.as_('id'),
+            evaluation.healthprof.as_('id'),
             Max(evaluation.create_uid).as_('create_uid'),
             Max(evaluation.create_date).as_('create_date'),
             Max(evaluation.write_uid).as_('write_uid'),
             Max(evaluation.write_date).as_('write_date'),
-            evaluation.doctor,
-            Count(evaluation.diagnosis).as_('evaluations'),
+            evaluation.healthprof.as_('doctor'),
+            Count(evaluation.id).as_('evaluations'),
             where=where,
-            group_by=evaluation.doctor)
+            group_by=evaluation.healthprof)
 
 
 class EvaluationsSpecialty(ModelSQL, ModelView):
