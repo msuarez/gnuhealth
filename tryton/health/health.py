@@ -1931,8 +1931,9 @@ class PatientData(ModelSQL, ModelView):
             ('c', 'Concubinage'),
             ('w', 'Widowed'),
             ('d', 'Divorced'),
-            ('x', 'Separated'),
-            ], 'Marital Status', sort=False), 'get_patient_marital_status')
+            ('x', 'Separated'), 
+            ], 'Marital Status', sort=False, help="Marital Status"),
+            'get_patient_marital_status')
 
     blood_type = fields.Selection([
         (None, ''),
