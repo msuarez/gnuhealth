@@ -12,6 +12,12 @@ patient = tryton.pool.get('gnuhealth.patient')
 # Party model
 party = tryton.pool.get('party.party')
 
+# DU model
+du = tryton.pool.get('gnuhealth.du')
+
+# Contacts model
+contact = tryton.pool.get('party.contact_mechanism')
+
 # 'Patient' blueprint on '/Patient'
 patient_endpoint = Blueprint('patient_endpoint', __name__,
                                 template_folder='templates',
@@ -23,24 +29,31 @@ api.init_app(patient_endpoint)
 class Create(Resource):
     @tryton.transaction()
     def post(self):
+        '''Create interaction'''
         try:
             c=StringIO(request.data)
             res=parse(c)
             c.close()
             ds = res.get_gnu_patient()
+            d = du.create([ds['du']])[0]
+            ds['party']['du']=d
             n = party.create([ds['party']])[0]
+            for cs in ds['contact_mechanism']:
+                if cs['value'] is not None:
+                    cs['party']=n
+                    contact.create([cs])
             ds['patient']['name']=n
-            p=patient.create([ds['patient']])
-
-            # TODO: OperationOutcome
-            return 'Created'
+            p=patient.create([ds['patient']])[0]
         except:
             abort(400, message="Bad data")
+        else:
+            # TODO: OperationOutcome
+            return 'Created'
 
 class Search(Resource):
     @tryton.transaction()
     def get(self):
-        #Search interaction
+        '''Search interaction'''
         #TODO Search implementation is important, but
         #    also very robust, so keep it simple for now
         #    but need to write general search parser in 
@@ -76,7 +89,7 @@ class Search(Resource):
 class Validate(Resource):
     @tryton.transaction()
     def post(self, log_id):
-        #Validate interaction
+        '''Validate interaction'''
 
         if log_id:
             # Proposed update to resource
@@ -105,7 +118,7 @@ class Validate(Resource):
 class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
-        #Read interaction
+        '''Read interaction'''
         record = patient.search(['id', '=', log_id], limit=1)
         if record:
             d=gnu_patient()
@@ -119,20 +132,20 @@ class Record(Resource):
 
     @tryton.transaction()
     def put(self, log_id):
-        #Update interaction
+        '''Update interaction'''
         abort(405, message='Not implemented.')
 
     @tryton.transaction()
     def delete(self, log_id):
-        #Delete interaction
+        '''Delete interaction'''
 
-        #For now, don't allow
+        #For now, don't allow (never allow?)
         abort(405, message='Not implemented.')
 
 class Version(Resource):
     @tryton.transaction()
     def get(self, log_id, v_id):
-        #Vread interaction
+        '''Vread interaction'''
 
         #No support for this in Health... yet?
         abort(405, message='Not implemented.')

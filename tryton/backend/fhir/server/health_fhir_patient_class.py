@@ -15,25 +15,29 @@ class gnu_patient(supermod.Patient):
         self.gnu_patient = gnu #gnu health model
 
     def import_from_gnu_patient(self):
-        # Get info, and set from, gnu model
+        '''Get info from gnu model and set it'''
         if self.gnu_patient and getattr(self.gnu_patient, 'name', None):
+            self.__set_identifier()
+            self.__set_name()
+            self.__set_telecom()
             self.__set_gender()
+            self.__set_birthdate()
             self.__set_deceased_status()
             self.__set_deceased_datetime()
-            self.__set_birthdate()
-            self.__set_telecom()
-            self.__set_name()
-            self.__set_identifier()
             self.__set_address()
-            self.__set_active()
+            self.__set_marital_status()
             self.__set_photo()
             self.__set_communication()
             self.__set_contact()
             self.__set_care_provider()
-            self.__set_marital_status()
+            self.__set_managing_organization()
+            self.__set_link()
+            self.__set_active()
 
     def get_gnu_patient(self):
-        # Return dicts for models
+        '''Return dicts for models'''
+        telecom=self.__get_telecom()
+        address=self.__get_address()
         ex = {}
         ex['party']={'name': self.__get_firstname(),
                         'activation_date': datetime.today().date().isoformat(),
@@ -46,14 +50,24 @@ class gnu_patient(supermod.Patient):
                         'marital_status': self.__get_marital_status(),
                         'ref': self.__get_identifier(),
                         'lastname': self.__get_lastname(),
-                        'alias': self.__get_alias()
-                    }
+                        'alias': self.__get_alias()}
+        ex['contact_mechanism']=[
+                    {'type': 'phone', 'value': telecom.get('phone')},
+                    {'type': 'mobile', 'value': telecom.get('mobile')},
+                    {'type': 'email', 'value': telecom.get('email')}]
         ex['patient']={
                           'deceased': self.__get_deceased_status(),
                           'dod': self.__get_deceased_datetime()
                       }
-        #self.__get_address()
-        #self.__get_telecom()
+        ex['du']={
+                    'name': ''.join([str(x) for x in address.values()]),
+                    'address_zip': address.get('zip'),
+                    'address_street': address.get('street'),
+                    'address_street_number': address.get('number'),
+                    'address_city': address.get('city')
+                }
+                    #'address_country'
+                    #'address_subdivision'
         return ex
 
     def __set_identifier(self):
@@ -143,15 +157,20 @@ class gnu_patient(supermod.Patient):
         if getattr(self, 'telecom', None):
             tc={}
             for c in self.telecom:
-                if c.use.value == 'home':
-                    if c.value:
-                        tc['phone']=c.value.value
-                elif c.use.value == 'mobile':
-                    if c.value:
-                        tc['mobile']=c.value.value
-                elif c.use.value == 'email':
-                    if c.value:
-                        tc['email']=c.value.value
+                if getattr(c.system, 'value', None) == 'phone':
+                    if c.use.value in ('home', 'work', 'temp'):
+                        if c.value:
+                            tc['phone']=c.value.value
+                    elif c.use.value == 'mobile':
+                        if c.value:
+                            tc['mobile']=c.value.value
+                    else:
+                        pass
+                elif getattr(c.system, 'value', None) == 'email':
+                        if c.value:
+                            tc['email']=c.value.value
+                else:
+                    pass
             return tc
 
     def __set_gender(self):
@@ -206,9 +225,11 @@ class gnu_patient(supermod.Patient):
                                         str(self.gnu_patient.name.du.address_street_number),
                                         self.gnu_patient.name.du.address_street])))
             address.set_city(supermod.string(value=self.gnu_patient.name.du.address_city))
-            address.set_state(supermod.string(value=self.gnu_patient.name.du.address_subdivision.name))
+            if getattr(self.gnu_patient.name.du.address_subdivision, 'name', None):
+                address.set_state(supermod.string(value=self.gnu_patient.name.du.address_subdivision))
             address.set_zip(supermod.string(value=self.gnu_patient.name.du.address_zip))
-            address.set_country(supermod.string(value=self.gnu_patient.name.du.address_country.name))
+            if getattr(self.gnu_patient.name.du.address_country, 'name', None):
+                address.set_country(supermod.string(value=self.gnu_patient.name.du.address_country))
 
             self.add_address(address)
 
@@ -246,8 +267,11 @@ class gnu_patient(supermod.Patient):
         if getattr(self.gnu_patient, 'primary_care_doctor', None):
             pass
 
+    def __set_managing_organization(self):
+        pass
+
     def __set_communication(self):
-        # Is this even in Health?
+        # This is in Health, gotta find it!
         pass
 
     def __set_photo(self):
@@ -294,7 +318,11 @@ class gnu_patient(supermod.Patient):
             if t in ['m', 'w', 'd', 's']:
                 return t
 
+    def __set_link(self):
+        pass
+
     def export_to_xml_string(self):
+        #TODO Add correct namespace?
         output = StringIO()
         self.export(outfile=output, pretty_print=False, level=4)
         content = output.getvalue()
