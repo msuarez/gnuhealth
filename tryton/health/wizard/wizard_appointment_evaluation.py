@@ -44,7 +44,10 @@ class CreateAppointmentEvaluation(Wizard):
         app_id = Pool().get('gnuhealth.appointment').browse([appointment])[0]
 
         patient = app_id.patient.id
-        specialty = app_id.speciality.id
+        if (app_id.speciality):
+            specialty = app_id.speciality.id
+        else:
+            specialty = None
         urgency = str(app_id.urgency)
         evaluation_type = str(app_id.appointment_type)
         visit_type = str(app_id.visit_type)
