@@ -23,7 +23,7 @@
 
 from trytond.pool import Pool
 from .health import *
-
+from wizard import *
 
 def register():
     Pool.register(
@@ -84,4 +84,5 @@ def register():
         module='health', type_='model')
     Pool.register(
         OpenAppointmentReport,
+        CreateAppointmentEvaluation,
         module='health', type_='wizard')

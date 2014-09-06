@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="ir.action.wizard" id="act_create_patient_evaluation">
+            <field name="name">Create Patient Evaluation</field>
+            <field name="wiz_name">wizard.gnuhealth.appointment.evaluation</field>
+        </record>
+
+        <record model="ir.action.keyword" id="act_create_app_evaluation_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.appointment,-1</field>
+            <field name="action" ref="act_create_patient_evaluation"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_app_evaluation">
+            <field name="name">Patient Evaluation</field>
+            <field name="res_model">gnuhealth.patient.evaluation</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_app_evaluation_form">
+            <field name="view" ref="gnuhealth_patient_evaluation_view"/>
+            <field name="sequence" eval="10"/>
+            <field name="act_window" ref="act_app_evaluation"/>
+        </record>
+    </data>
+</tryton>

@@ -1079,26 +1079,6 @@
             <field name="action" ref="act_appointment_form1"/>
         </record>
 
-
-<!-- Shortcut to the Evaluation from the Appointment -->
-
-        <record model="ir.action.act_window" id="act_eval_from_appointment_form">
-            <field name="name">Evaluation</field>
-            <field name="res_model">gnuhealth.patient.evaluation</field>
-            <field name="domain">[('evaluation_date', '=', Eval('active_id')),
-                ('patient', '=', Eval('patient')),
-                ('specialty', '=', Eval('speciality')),
-                ('urgency', '=', Eval('urgency')),
-                ('evaluation_type', '=', Eval('appointment_type')),
-                ('visit_type', '=', Eval('visit_type'))
-                ]</field>
-        </record>
-        <record model="ir.action.keyword" id="act_open_evaluation_keyword">
-            <field name="keyword">form_relate</field>
-            <field name="model">gnuhealth.appointment,-1</field>
-            <field name="action" ref="act_eval_from_appointment_form"/>
-        </record>
-
 <!-- Appointments Report -->
         <record model="ir.ui.view" id="appointments_report_view_tree">
             <field name="model">gnuhealth.appointment.report</field>
