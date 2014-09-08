@@ -41,9 +41,14 @@ class CreateAppointmentEvaluation(Wizard):
       
         appointment = Transaction().context.get('active_id')
 
-        app_id = Pool().get('gnuhealth.appointment').browse([appointment])[0]
-
+        try:
+            app_id = \
+                Pool().get('gnuhealth.appointment').browse([appointment])[0]
+        except:
+            self.raise_user_error('no_record_selected')
+            
         patient = app_id.patient.id
+
         if (app_id.speciality):
             specialty = app_id.speciality.id
         else:
@@ -71,3 +76,11 @@ class CreateAppointmentEvaluation(Wizard):
             
         return action, {}
         
+    @classmethod
+    def __setup__(cls):
+        super(CreateAppointmentEvaluation, cls).__setup__()
+        cls._error_messages.update({
+            'no_record_selected':
+                'You need to select one Appointment record',
+        })
+
