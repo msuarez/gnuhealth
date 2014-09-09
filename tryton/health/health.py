@@ -1646,7 +1646,7 @@ class Insurance(ModelSQL, ModelView):
     member_since = fields.Date('Member since')
     member_exp = fields.Date('Expiration date')
     category = fields.Char(
-        'Category', help='Insurance company plan / category')
+        'Category', help='Insurance company category')
 
     insurance_type = fields.Selection([
         (None, ''),
@@ -1664,6 +1664,13 @@ class Insurance(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return (self.company.name + ' : ' + self.number)
 
+    @classmethod
+    def __setup__(cls):
+        super(Insurance, cls).__setup__()
+        cls._sql_constraints = [
+            ('number_uniq', 'UNIQUE(number,company)',
+                'The number must be unique per insurance company'),
+        ]
 
 class AlternativePersonID (ModelSQL, ModelView):
     'Alternative person ID'
