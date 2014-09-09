@@ -1,6 +1,112 @@
-changeset:   1500:0175cfc53062
+changeset:   1531:d170e3afc0f9
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 09 10:21:55 2014 +0100
+summary:     health: Unique constraint in insurance ID/number as per each insurance company
+
+changeset:   1530:2877b3116244
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 08 19:54:15 2014 +0100
+summary:     health : Validate selection of appointment record before creating the associated evaluation
+
+changeset:   1529:fe51e83c1e98
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 06 10:08:32 2014 +0100
+summary:     Add validation to health speciality in appointment to evaluation wizard
+
+changeset:   1528:7c9b33919fb1
+branch:      stable
+parent:      1526:44e52d6f4b00
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 06 09:46:24 2014 +0100
+summary:     fix bug #43111: Traceback when creating an evaluation from the appointment form
+
+changeset:   1526:44e52d6f4b00
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 29 06:21:00 2014 +0100
+summary:     health : add marital status field description / tooltip
+
+changeset:   1525:799e29d51353
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 29 03:39:53 2014 +0100
+summary:     health_lab : Fix report when no health professional is given. Thanks Uriel !
+
+changeset:   1524:88dd35d6efde
+branch:      stable
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Aug 27 19:36:44 2014 -0300
+summary:     health_reporting : Fix bug #43092 Rename evaluations doctor to healthprof
+
+changeset:   1523:b9c64f64e267
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 20:25:54 2014 +0100
+summary:     health : Fix bug  #43090 Specialties should be unique per health professionals
+
+changeset:   1522:42d65ad19c3f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 20:15:29 2014 +0100
+summary:     health: fix bug  #43089 Missing unique constraint on health professionals
+
+changeset:   1521:32718ce4eee6
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 20:08:00 2014 +0100
+summary:     health: set readonly the health professional main specialty when the record hasn't been saved
+
+changeset:   1520:31e1d35784e2
+branch:      stable
+parent:      1518:8f1e55df2c2a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 18:04:31 2014 +0100
+summary:     health : The instituion specialty will be required only if the record exists and is a specialized health center
+
+changeset:   1518:8f1e55df2c2a
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 26 19:06:22 2014 +0100
+summary:     Fix bugs #43085 Institution Specialty should be available on existing records only;  #43083 Operational Sectors and Specialties for each institution must be unique and  #43059 Error creating specialties on institutions
+
+changeset:   1517:1878825c3caa
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 25 16:45:32 2014 +0100
+summary:     health : Show specialty of the hospital only if specialized institution
+
+changeset:   1516:0596bb85d016
+branch:      stable
+parent:      1510:88360f50f3f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 24 19:03:55 2014 +0100
+summary:     health: use datetime.date for default value in party activation. Thanks Oscar for pointing it in bug #43048
+
+changeset:   1510:88360f50f3f7
+branch:      stable
+parent:      1508:0d0073082d12
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Aug 07 19:26:09 2014 -0300
+summary:     fix bug #42938: health_socioeconomics : Error on Family APGAR selections.
+
+changeset:   1508:0d0073082d12
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:39:23 2014 +0100
+summary:     Added tag 2.6.2 for changeset da7b8fe6ff49
+
+changeset:   1502:495e6071e3ad
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:24:49 2014 +0100
+summary:     Added tag 2.6.3 for changeset da7b8fe6ff49
+
+changeset:   1500:0175cfc53062
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Aug 05 13:33:58 2014 +0100
 summary:     health_imaging : Fix imaging request on bug #42914: Check for health professional when requesting tests
