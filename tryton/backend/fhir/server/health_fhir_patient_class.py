@@ -100,15 +100,21 @@ class gnu_patient(supermod.Patient):
 
     def __set_name(self):
         # TODO: Discuss these meanings more
+        #   REMEMBER: Middle names are defined as given names
         name = []
+        family=[]
+        given=[supermod.string(value=x) for x in self.gnu_patient.name.name.split()]
         if getattr(self.gnu_patient, 'lastname', None):
-            family=[supermod.string(value=x) for x in self.gnu_patient.lastname.split()]
-        else:
-            family=None
+            after_names=[supermod.string(value=x) for x in self.gnu_patient.lastname.split()]
+            if len(after_names) > 1:
+                family=after_names[-1:]
+                given.extend(after_names[:-1])
+            else:
+                family=after_names
         name.append(supermod.HumanName(
                     use=supermod.NameUse(value='usual'),
                     family=family,
-                    given=[supermod.string(value=x) for x in self.gnu_patient.name.name.split()]))
+                    given=given))
 
 
         if getattr(self.gnu_patient.name, 'alias', None):
@@ -125,8 +131,12 @@ class gnu_patient(supermod.Patient):
 
     def __get_lastname(self):
         if getattr(self, 'name', None):
+            middles=[]
+            if len(self.name[0].given) > 1:
+                middles=self.name[0].given[1:]
             if getattr(self.name[0].use, 'value') in ('usual', 'official'):
-                return ' '.join([m.value for m in self.name[0].family])
+                lasts=self.name[0].family
+                return ' '.join([m.value for m in middles+lasts])
 
     def __get_firstname(self):
         if getattr(self, 'name', None):
