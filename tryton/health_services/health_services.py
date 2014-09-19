@@ -21,6 +21,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import datetime
 from trytond.model import ModelView, ModelSQL, fields, ModelSingleton
 from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
@@ -53,6 +54,7 @@ class HealthService(ModelSQL, ModelView):
         ('draft', 'Draft'),
         ('invoiced', 'Invoiced'),
         ], 'State', readonly=True)
+    invoice_to = fields.Many2One('party.party', 'Invoice to')
 
     @classmethod
     def __setup__(cls):
@@ -67,6 +69,10 @@ class HealthService(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+    @staticmethod
+    def default_service_date():
+        return datetime.date.today()
 
     @classmethod
     @ModelView.button
@@ -107,3 +113,9 @@ class HealthServiceLine(ModelSQL, ModelView):
     def default_qty():
         return 1
 
+    @fields.depends('product', 'desc')
+    def on_change_product(self, name=None):
+        res = {}
+        if self.product:
+            res['desc'] = self.product.name
+        return res

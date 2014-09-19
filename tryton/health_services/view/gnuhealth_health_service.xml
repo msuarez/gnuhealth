@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <form string="service ">
-    <group colspan="4" col="8" id="group_service_header">
-        <label name="name"/>
-        <field name="name"/>
-        <label name="service_date"/>
-        <field name="service_date"/>
-        <label name="desc"/>
-        <field name="desc"/>
+    <group colspan="4" col="6" id="group_service_header">
         <label name="patient"/>
         <field name="patient"/>
+        <label name="service_date"/>
+        <field name="service_date"/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="desc"/>
+        <field name="desc" colspan="3"/>
+        <label name="invoice_to"/>
+        <field name="invoice_to"/>
     </group>
-    <newline/>
     <field colspan="4" name="service_line"/>
-    <newline/>
     <label name="state"/>
     <field name="state"/>
     <button name="button_set_to_draft" string="Set to Draft"/>
