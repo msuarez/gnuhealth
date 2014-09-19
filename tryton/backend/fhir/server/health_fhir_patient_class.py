@@ -231,39 +231,50 @@ class gnu_patient(supermod.Patient):
         if getattr(self.gnu_patient.name, 'du', None):
             address=supermod.Address()
             address.set_use(supermod.string(value='home'))
-            address.add_line(supermod.string(value=' '.join([
-                                        str(self.gnu_patient.name.du.address_street_number),
-                                        self.gnu_patient.name.du.address_street])))
-            address.set_city(supermod.string(value=self.gnu_patient.name.du.address_city))
+            line=[]
+            if getattr(self.gnu_patient.name.du, 'address_street_number', None):
+                line.append(str(self.gnu_patient.name.du.address_street_number))
+            if getattr(self.gnu_patient.name.du, 'address_street', None):
+                line.append(self.gnu_patient.name.du.address_street)
+            if getattr(self.gnu_patient.name.du, 'address_city', None):
+                address.set_city(supermod.string(value=self.gnu_patient.name.du.address_city))
             if getattr(self.gnu_patient.name.du.address_subdivision, 'name', None):
-                address.set_state(supermod.string(value=self.gnu_patient.name.du.address_subdivision))
-            address.set_zip(supermod.string(value=self.gnu_patient.name.du.address_zip))
+                address.set_state(supermod.string(value=self.gnu_patient.name.du.address_subdivision.name))
+            if getattr(self.gnu_patient.name.du, 'address_zip', None):
+                address.set_zip(supermod.string(value=self.gnu_patient.name.du.address_zip))
             if getattr(self.gnu_patient.name.du.address_country, 'name', None):
-                address.set_country(supermod.string(value=self.gnu_patient.name.du.address_country))
-
+                address.set_country(supermod.string(value=self.gnu_patient.name.du.address_country.name))
+            if line:
+                address.add_line(supermod.string(value=' '.join(line)))
             self.add_address(address)
 
     def __get_address(self):
         # TODO Add tests (?) and line
         ad={}
         if getattr(self, 'address', None):
-            if self.address[0].zip:
-                ad['zip']=self.address[0].zip.value
-            if self.address[0].country:
-                ad['country']=self.address[0].country.value
-            if self.address[0].state:
-                ad['state']=self.address[0].state.value
-            if self.address[0].city:
-                ad['city']=self.address[0].city.value
-            if self.address[0].line:
-                ad['street']=[]
-                for x in self.address[0].line[0].value.split():
-                    try:
-                        m=int(x)
-                        ad['number']=m
-                    except ValueError:
-                        ad['street'].append(x)
-                ad['street']=' '.join(ad['street'])
+            if len(self.address) > 0:
+                if getattr(self.address[0], 'zip', None):
+                    if getattr(self.address[0].zip, 'value', None):
+                        ad['zip']=self.address[0].zip.value
+                if getattr(self.address[0], 'country', None):
+                    if getattr(self.address[0].country, 'value', None):
+                        ad['country']=self.address[0].country.value
+                if getattr(self.address[0], 'state', None):
+                    if getattr(self.address[0].state, 'value', None):
+                        ad['state']=self.address[0].state.value
+                if getattr(self.address[0], 'city', None):
+                    if getattr(self.address[0].city, 'value', None):
+                        ad['city']=self.address[0].city.value
+                if getattr(self.address[0], 'line', None):
+                    ad['street']=[]
+                    if len(self.address[0].line) > 0:
+                        if getattr(self.address[0].line[0], 'value', None):
+                            for x in self.address[0].line[0].value.split():
+                                try:
+                                    ad['number']=int(x)
+                                except ValueError:
+                                    ad['street'].append(x)
+                    ad['street']=' '.join(ad['street'])
             return ad
 
     def __set_active(self):
@@ -295,8 +306,10 @@ class gnu_patient(supermod.Patient):
         # Python 2 and Python 3 have bytes and string/bytes .... issues
         #  Need to talk about this more with tryton storage
         import base64
-        if getattr(self,'photo', None):
+        try:
             return base64.decodestring(self.photo[0].data.value)
+        except:
+            return None
 
     def __set_marital_status(self):
         if getattr(self.gnu_patient.name, 'marital_status', None):
@@ -323,18 +336,19 @@ class gnu_patient(supermod.Patient):
 
     def __get_marital_status(self):
         # TODO: Discuss categories
-        if getattr(self,'maritalStatus', None):
+        try:
             t=self.maritalStatus.coding[0].code.value.lower()
             if t in ['m', 'w', 'd', 's']:
                 return t
+        except:
+            return None
 
     def __set_link(self):
         pass
 
     def export_to_xml_string(self):
-        #TODO Add correct namespace?
         output = StringIO()
-        self.export(outfile=output, pretty_print=False, level=4)
+        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
         content = output.getvalue()
         output.close()
         return content
