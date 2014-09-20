@@ -65,7 +65,12 @@ class gnu_patient(supermod.Patient):
                     'address_street': address.get('street'),
                     'address_street_number': address.get('number'),
                     'address_city': address.get('city')
-                }
+                    }
+        l=self.__get_communication()
+        ex['lang']={
+                    'code': l.get('code'),
+                    'name': l.get('name')
+                    }
                     #'address_country'
                     #'address_subdivision'
         return ex
@@ -292,8 +297,35 @@ class gnu_patient(supermod.Patient):
         pass
 
     def __set_communication(self):
-        # This is in Health, gotta find it!
-        pass
+        if getattr(self.gnu_patient.name, 'lang', None):
+            from re import sub
+            code=sub('_','-', self.gnu_patient.name.lang.code)
+            name=self.gnu_patient.name.lang.name
+            coding = supermod.Coding(
+                        system=supermod.uri(value='urn:ietf:bcp:47'),
+                        code=supermod.code(value=code),
+                        display=supermod.string(value=name)
+                        )
+            com=supermod.CodeableConcept(coding=[coding],
+                                    text=supermod.string(value=name))
+            self.add_communication(com)
+
+    def __get_communication(self):
+        #TODO Discuss how to handle multiple languages,
+        # and close matches, etc.
+        lang={}
+        if getattr(self, 'communication', None):
+            if getattr(self, 'coding', None):
+                try:
+                    lang['code']=self.communication[0].coding[0].code.value
+                except AttributeError:
+                    lang['code']=None
+                try:
+                    lang['name']=self.communication[0].coding[0].display.value
+                except AttributeError:
+                    lang['name']=None
+        return lang
+
 
     def __set_photo(self):
         import base64
