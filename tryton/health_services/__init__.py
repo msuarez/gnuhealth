@@ -24,6 +24,7 @@
 from trytond.pool import Pool
 from .health_services import *
 from wizard import *
+from invoice import *
 
 
 def register():
@@ -32,6 +33,7 @@ def register():
         HealthService,
         HealthServiceLine,
         CreateServiceInvoiceInit,
+        Invoice,
         module='health_services', type_='model')
     Pool.register(
         CreateServiceInvoice,
