@@ -1,10 +1,11 @@
 from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
-from health_fhir_patient_class import gnu_patient, parse
+from lxml.etree import XMLSyntaxError
+from health_fhir import health_Patient, health_OperationOutcome
 from extensions import (tryton, api)
 import json
-import fhir_xml as fhir
+import sys
 
 # Patient model
 patient = tryton.pool.get('gnuhealth.patient')
@@ -31,6 +32,7 @@ class Create(Resource):
     def post(self):
         '''Create interaction'''
         try:
+            #TODO Check for existence then add
             c=StringIO(request.data)
             res=parse(c)
             c.close()
@@ -79,7 +81,7 @@ class Search(Resource):
         if m:
             rec = patient.search([m[0], '=', m[1]], limit=1)
             if rec:
-                d=gnu_patient()
+                d=health_Patient()
                 d.set_gnu_patient(rec[0])
                 d.import_from_gnu_patient()
                 return d
@@ -90,30 +92,44 @@ class Validate(Resource):
     @tryton.transaction()
     def post(self, log_id):
         '''Validate interaction'''
+        #TODO: Must return OperationOutcome with errors
+        try:
+            # 1) Must parse
+            c=StringIO(request.data)
+            doc=parse(c)
+            c.close()
+        except XMLSyntaxError as e:
+            oo=health_OperationOutcome()
+            oo.add_issue(details=e, severity='fatal')
+            return oo, 400
 
-        if log_id:
-            # Proposed update to resource
+        except:
+            #some general error
+            e = sys.exc_info()[0]
+            return e, 400
 
-            #Don't allow this for now
-            abort(405)
         else:
-            #What checks?
-            #TODO: Must return OperationOutcome with errors
+            # 2) Validate against XMLSchema
+            with open('schemas/patient.sch') as t:
+                sch=lxml.etree.parse(t)
 
-            try:
-                # 1) Must be able to parse
-                c=StringIO(request.data)
-                res=parse(c)
-                c.close()
-            except:
-                abort(400)
-
-            else:
-                # 2) Must be patient class (?)
-                if isinstance(res, gnu_patient):
-                    return 'Valid'
+            xmlschema=lxml.etree.XMLSchema(sch)
+            if xmlschema.validate(doc):
+                if log_id:
+                    # Proposed update to resource
+                    record = patient.search(['id', '=', log_id], limit=1)
+                    if not record:
+                        return 'No patient', 422
+                    else:
+                        #TODO: More checks
+                        return 'Valid update', 200
                 else:
-                    abort(422)
+                    return 'Valid', 200
+            else:
+                error = xmlschema.error_log.last_error
+                #TODO: Return OperationOutcome with error
+                return error.message, 400
+
 
 class Record(Resource):
     @tryton.transaction()
@@ -121,7 +137,7 @@ class Record(Resource):
         '''Read interaction'''
         record = patient.search(['id', '=', log_id], limit=1)
         if record:
-            d=gnu_patient()
+            d=health_Patient()
             d.set_gnu_patient(record[0])
             d.import_from_gnu_patient()
             return d
@@ -172,6 +188,12 @@ api.add_resource(Version,
 def output_xml(data, code, headers=None):
     if hasattr(data, 'export_to_xml_string'):
         resp = make_response(data.export_to_xml_string(), code)
+    elif hasattr(data, 'export'):
+        output=StringIO()
+        data.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
+        content = output.getvalue()
+        output.close()
+        resp = make_response(content, code)
     else:
         resp = make_response(data, code)
     resp.headers.extend(headers or {})

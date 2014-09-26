@@ -1,14 +1,16 @@
 from flask import current_app
 from StringIO import StringIO
 from datetime import datetime
-import fhir_xml as supermod
+import fhir as supermod
 import sys
 
-class gnu_patient(supermod.Patient):
-    '''Mediate between XML/JSON schema bindings and
-        the GNU Health models
 
-        For now, focus on XML (because that is required)
+#TODO: Use and add to parent methods
+
+
+class health_Patient(supermod.Patient):
+    '''Mediate between XML/JSON schema bindings and
+        the GNU Health models for Patient resource
     '''
 
     def set_gnu_patient(self, gnu):
@@ -38,6 +40,7 @@ class gnu_patient(supermod.Patient):
         '''Return dicts for models'''
         telecom=self.__get_telecom()
         address=self.__get_address()
+        com=self.__get_communication()
         ex = {}
         ex['party']={'name': self.__get_firstname(),
                         'activation_date': datetime.today().date().isoformat(),
@@ -66,10 +69,9 @@ class gnu_patient(supermod.Patient):
                     'address_street_number': address.get('number'),
                     'address_city': address.get('city')
                     }
-        l=self.__get_communication()
         ex['lang']={
-                    'code': l.get('code'),
-                    'name': l.get('name')
+                    'code': com.get('code'),
+                    'name': com.get('name')
                     }
                     #'address_country'
                     #'address_subdivision'
@@ -132,7 +134,10 @@ class gnu_patient(supermod.Patient):
     def __get_alias(self):
         if getattr(self, 'name', None):
             if getattr(self.name[0].use, 'value') == 'nickname':
-                return self.name[0].given[0].value
+                try:
+                    return self.name[0].given[0].value
+                except:
+                    return None
 
     def __get_lastname(self):
         if getattr(self, 'name', None):
@@ -388,30 +393,4 @@ class gnu_patient(supermod.Patient):
     def export_to_json_string(self):
         #TODO More difficult
         pass
-supermod.Patient.subclass=gnu_patient
-
-def get_root_tag(node):
-    tag = supermod.Tag_pattern_.match(node.tag).groups()[-1]
-    rootClass = supermod.GDSClassesMapping.get(tag)
-    if rootClass is None and hasattr(supermod, tag):
-        rootClass = getattr(supermod, tag)
-    return tag, rootClass
-
-def parse(inFileName, silence=False):
-    doc = supermod.parsexml_(inFileName)
-    rootNode = doc.getroot()
-    rootTag, rootClass = get_root_tag(rootNode)
-    if rootClass is None:
-        rootTag = 'Element'
-        rootClass = supermod.Element
-    rootObj = rootClass.factory()
-    rootObj.build(rootNode)
-    # Enable Python to collect the space used by the DOM.
-    doc = None
-    if not silence:
-        sys.stdout.write('<?xml version="1.0" ?>\n')
-        rootObj.export(
-            sys.stdout, 0, name_=rootTag,
-            namespacedef_='',
-            pretty_print=True)
-    return rootObj
+supermod.Patient.subclass=health_Patient
