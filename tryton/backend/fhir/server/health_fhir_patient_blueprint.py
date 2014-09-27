@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome
+from health_fhir import health_Patient, health_OperationOutcome, parse
 from extensions import (tryton, api)
 import json
 import sys
