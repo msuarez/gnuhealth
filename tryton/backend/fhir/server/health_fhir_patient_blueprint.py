@@ -4,6 +4,7 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from health_fhir import health_Patient, health_OperationOutcome, parse
 from extensions import (tryton, api)
+import lxml
 import json
 import sys
 
