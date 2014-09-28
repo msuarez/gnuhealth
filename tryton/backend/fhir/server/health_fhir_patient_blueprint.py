@@ -49,10 +49,9 @@ class Create(Resource):
             ds['patient']['name']=n
             p=patient.create([ds['patient']])[0]
         except:
-            abort(400, message="Bad data")
+            return 'Bad data', 400
         else:
-            # TODO: OperationOutcome
-            return 'Created'
+            return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
 
 class Search(Resource):
     @tryton.transaction()
@@ -88,13 +87,12 @@ class Search(Resource):
                 d.import_from_gnu_patient()
                 return d
         #TODO OperationOutcome; for now an error
-        abort(403, message="No matching record(s)")
+        return 'No matching record(s)', 403
 
 class Validate(Resource):
     @tryton.transaction()
     def post(self, log_id=None):
         '''Validate interaction'''
-        #TODO: Must return OperationOutcome with errors
         try:
             # 1) Must correctly parse as XML
             c=StringIO(request.data)
@@ -151,7 +149,6 @@ class Validate(Resource):
                 # 3) Passed checks
                 return 'Valid', 200
 
-
 class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
@@ -161,23 +158,23 @@ class Record(Resource):
             d=health_Patient()
             d.set_gnu_patient(record[0])
             d.import_from_gnu_patient()
-            return d
+            return d, 200
         else:
-            abort(404, message="Record not found")
+            return 'Record not found', 404
             #if track deleted records
-            #abort(410, message="Record deleted")
+            #return 'Record deleted', 410
 
     @tryton.transaction()
     def put(self, log_id):
         '''Update interaction'''
-        abort(405, message='Not implemented.')
+        return 'Not implemented', 405
 
     @tryton.transaction()
     def delete(self, log_id):
         '''Delete interaction'''
 
         #For now, don't allow (never allow?)
-        abort(405, message='Not implemented.')
+        return 'Not implemented', 405
 
 class Version(Resource):
     @tryton.transaction()
@@ -185,7 +182,7 @@ class Version(Resource):
         '''Vread interaction'''
 
         #No support for this in Health... yet?
-        abort(405, message='Not implemented.')
+        return 'Not supported', 405
 
 api.add_resource(Create,
                         '')
