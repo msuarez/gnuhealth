@@ -1,6 +1,7 @@
 import fhir as supermod
 from .health_fhir_patient import *
 from .health_fhir_operation_outcome import *
+from lxml import etree as etree_
 
 def get_root_tag(node):
     tag = supermod.Tag_pattern_.match(node.tag).groups()[-1]
@@ -29,7 +30,7 @@ def parse(inFileName, silence=False):
     return rootObj
 
 def parseEtree(inFilename, silence=False):
-    doc = parsexml_(inFilename)
+    doc = etree_.parse(inFilename)
     rootNode = doc.getroot()
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:
@@ -52,7 +53,7 @@ def parseEtree(inFilename, silence=False):
 
 def parseString(inString, silence=False):
     from StringIO import StringIO
-    doc = parsexml_(StringIO(inString))
+    doc = etree_.parse(StringIO(inString))
     rootNode = doc.getroot()
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:
@@ -87,4 +88,3 @@ def parseLiteral(inFilename, silence=False):
         rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
         sys.stdout.write(')\n')
     return rootObj
-

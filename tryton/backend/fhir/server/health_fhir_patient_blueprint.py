@@ -2,10 +2,11 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse
+from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree
 from extensions import (tryton, api)
 import lxml
 import json
+import os.path
 import sys
 
 # Patient model
@@ -91,13 +92,13 @@ class Search(Resource):
 
 class Validate(Resource):
     @tryton.transaction()
-    def post(self, log_id):
+    def post(self, log_id=None):
         '''Validate interaction'''
         #TODO: Must return OperationOutcome with errors
         try:
-            # 1) Must parse
+            # 1) Must correctly parse as XML
             c=StringIO(request.data)
-            doc=parse(c)
+            doc=lxml.etree.parse(c)
             c.close()
         except XMLSyntaxError as e:
             oo=health_OperationOutcome()
@@ -105,31 +106,50 @@ class Validate(Resource):
             return oo, 400
 
         except:
-            #some general error
             e = sys.exc_info()[0]
-            return e, 400
+            oo=health_OperationOutcome()
+            oo.add_issue(details=e, severity='fatal')
+            return oo, 400
 
         else:
-            # 2) Validate against XMLSchema
-            with open('schemas/patient.sch') as t:
-                sch=lxml.etree.parse(t)
+            if os.path.isfile('schemas/patient.xsd'):
+                # 2) Validate against XMLSchema
+                with open('schemas/patient.xsd') as t:
+                    sch=lxml.etree.parse(t)
 
-            xmlschema=lxml.etree.XMLSchema(sch)
-            if xmlschema.validate(doc):
-                if log_id:
-                    # Proposed update to resource
-                    record = patient.search(['id', '=', log_id], limit=1)
-                    if not record:
-                        return 'No patient', 422
-                    else:
-                        #TODO: More checks
-                        return 'Valid update', 200
-                else:
-                    return 'Valid', 200
+                xmlschema=lxml.etree.XMLSchema(sch)
+                if not xmlschema.validate(doc):
+                    error = xmlschema.error_log.last_error
+                    oo=health_OperationOutcome()
+                    oo.add_issue(details=error.message, severity='error')
+                    return oo, 400
             else:
-                error = xmlschema.error_log.last_error
-                #TODO: Return OperationOutcome with error
-                return error.message, 400
+                # 2) If no schema, check if it correctly parses to a Patient
+                try:
+                    pat=parseEtree(StringIO(doc))
+                    if not isinstance(pat, health_Patient):
+                        oo=health_OperationOutcome()
+                        oo.add_issue(details='Not a patient resource', severity='error')
+                        return oo, 400
+                except:
+                    e = sys.exc_info()[1]
+                    oo=health_OperationOutcome()
+                    oo.add_issue(details=e, severity='fatal')
+                    return oo, 400
+
+            if log_id:
+                # 3) Check if patient exists
+                record = patient.search(['id', '=', log_id], limit=1)
+                if not record:
+                    oo=health_OperationOutcome()
+                    oo.add_issue(details='No patient', severity='error')
+                    return oo, 422
+                else:
+                    #TODO: More checks
+                    return 'Valid update', 200
+            else:
+                # 3) Passed checks
+                return 'Valid', 200
 
 
 class Record(Resource):
@@ -161,7 +181,7 @@ class Record(Resource):
 
 class Version(Resource):
     @tryton.transaction()
-    def get(self, log_id, v_id):
+    def get(self, log_id, v_id=None):
         '''Vread interaction'''
 
         #No support for this in Health... yet?
@@ -174,13 +194,11 @@ api.add_resource(Search,
                         '/_search')
 api.add_resource(Validate,
                         '/_validate',
-                        '/_validate/<int:log_id>',
-                defaults={'log_id': None})
+                        '/_validate/<int:log_id>')
 api.add_resource(Record, '/<int:log_id>')
 api.add_resource(Version,
                         '/<int:log_id>/_history',
-                        '/<int:log_id>/_history/<string:v_id>',
-                defaults={'v_id': None})
+                        '/<int:log_id>/_history/<string:v_id>')
 
 @api.representation('xml')
 @api.representation('text/xml')
