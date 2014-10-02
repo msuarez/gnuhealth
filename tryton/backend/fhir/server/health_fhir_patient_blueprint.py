@@ -88,33 +88,59 @@ class Search(Resource):
         #    order that we can just plug in criteria for
         #    each resource
 
-        recs = patient.search([])
-        return bundle(request, recs)
-        allowed={'_id': 'id', '_language': None, 'active': None,
-                'address': None, 'animal-breed': None, 'animal-species': None,
-                'birthdate': 'dob', 'family': 'name.lastname',
-                'gender': 'sex', 'given': 'name.name',
-                'identifier': 'puid', 'language': 'name.lang.code',
-                'language': None, 'link': None, 'name': ['name.lastname', 'name.name'],
-                'phonetic': None, 'provider': None, 'telecom': None}
-        def crit():
-            _id = request.args.get('_id')
-            if _id:
-                return (allowed['_id'], _id)
-            identifier = request.args.get('identifier')
-            if identifier:
-                return (allowed['identifier'], identifier)
-            return None
-        m=crit()
-        if m:
-            rec = patient.search([m[0], '=', m[1]], limit=1)
-            if rec:
-                d=health_Patient()
-                d.set_gnu_patient(rec[0])
-                d.import_from_gnu_patient()
-                return d
-        #TODO OperationOutcome; for now an error
-        return 'No matching record(s)', 403
+        allowed={'_id': ('id', 'token'), 
+                '_language': None,
+                'active': None,
+                'address': None,
+                'animal-breed': None,
+                'animal-species': None,
+                'birthdate': ('dob', 'date'),
+                'family': ('name.lastname', 'string'),
+                'gender': ('sex', 'token'),
+                'given': ('name.name', 'string'),
+                'identifier': ('puid', 'token'),
+                'language': ('name.lang.code', 'token'),
+                'link': None,
+                'name': (['name.lastname', 'name.name'], 'string'),
+                'phonetic': None,
+                'provider': None,
+                'telecom': None}
+        ### GENERAL SEARCH INFO
+        search_prefixes=('<', '>', '<=', '>=')
+        search_types=('number', 'date', 'string', 'token',
+                    'reference', 'composite', 'quantity')
+        ###
+        query=[]
+        for key,values in request.args.iterlists():
+            if allowed.get(key) is None:
+                continue
+            for value in values:
+                #TODO Clean this up
+                db_key = allowed.get(key)[0]
+                db_type = allowed.get(key)[1]
+                if isinstance(db_key, basestring):
+                    if db_type == 'string':
+                        query.append((db_key, 'ilike', ''.join('%',value,'%')))
+                    else:
+                        query.append((db_key, '=', value))
+                else:
+                    a=['OR']
+                    for k in db_key:
+                        if db_type == 'string':
+                            a.append([(k, 'ilike', ''.join(('%',value,'%')))])
+                        else:
+                            a.append([(k, '=', value)])
+                    query.append(a)
+                    #if value.startswith(search_prefixes):
+                        #a=None
+                    #else:
+                        #t=value.split(',')
+        recs = patient.search(query)
+        if recs:
+            return bundle(request, recs)
+        else:
+            #TODO OperationOutcome; for now an error
+            return 'No matching record(s)', 403
 
 class Validate(Resource):
     @tryton.transaction()
