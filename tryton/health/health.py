@@ -773,7 +773,7 @@ class HealthInstitution(ModelSQL, ModelView):
 
             # Drop old foreign key from Appointment
             
-            if TableHandler.table_exist(cursor,'gnuhealth_hospital_appointment'):
+            if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
                 try:
                     cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
                         CONSTRAINT IF EXISTS \
