@@ -38,8 +38,6 @@ class CreateAppointmentStart(ModelView):
         required=True)
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
         required=True)
-    institution = fields.Many2One('party.party', 'Health Center',
-        domain=[('is_institution', '=', True)], required=True)
     date_start = fields.Date('Start Date', required=True)
     date_end = fields.Date('End Date', required=True)
     time_start = fields.Time('Start Time', required=True)
