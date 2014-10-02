@@ -4,6 +4,8 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree
 from extensions import (tryton, api)
+from datetime import datetime
+from werkzeug.contrib.atom import AtomFeed
 import lxml
 import json
 import os.path
@@ -21,6 +23,9 @@ du = tryton.pool.get('gnuhealth.du')
 # Contacts model
 contact = tryton.pool.get('party.contact_mechanism')
 
+# Language model
+lang = tryton.pool.get('ir.lang')
+
 # 'Patient' blueprint on '/Patient'
 patient_endpoint = Blueprint('patient_endpoint', __name__,
                                 template_folder='templates',
@@ -28,6 +33,26 @@ patient_endpoint = Blueprint('patient_endpoint', __name__,
 
 # Initialize api restful
 api.init_app(patient_endpoint)
+
+def bundle(request, entries):
+    '''Bundle definition is Atom feed'''
+    #TODO Add this to class, or generalize
+    #TODO More requirements
+    feed = AtomFeed(title="Search results",
+                    id=request.url,
+                    author='GNU Health',
+                    updated=datetime.utcnow())
+    for entry in entries:
+        d=health_Patient()
+        d.set_gnu_patient(entry)
+        d.import_from_gnu_patient()
+        feed.add(title=entry.rec_name,
+                id=entry.id,
+                published=entry.create_date,
+                updated=entry.write_date or entry.create_date,
+                content_type='text/xml',
+                content=d.export_to_xml_string())
+    return feed.to_string()
 
 class Create(Resource):
     @tryton.transaction()
@@ -63,12 +88,14 @@ class Search(Resource):
         #    order that we can just plug in criteria for
         #    each resource
 
-        allowed={'_id': 'id', 'active': None, 'address': None,
-                'animal-breed': None, 'animal-species': None,
-                'birthdate': 'dob', 'family': None,
-                'gender': 'sex', 'given': None,
-                'identifier': 'puid', '_language': None,
-                'language': None, 'link': None, 'name': None,
+        recs = patient.search([])
+        return bundle(request, recs)
+        allowed={'_id': 'id', '_language': None, 'active': None,
+                'address': None, 'animal-breed': None, 'animal-species': None,
+                'birthdate': 'dob', 'family': 'name.lastname',
+                'gender': 'sex', 'given': 'name.name',
+                'identifier': 'puid', 'language': 'name.lang.code',
+                'language': None, 'link': None, 'name': ['name.lastname', 'name.name'],
                 'phonetic': None, 'provider': None, 'telecom': None}
         def crit():
             _id = request.args.get('_id')
@@ -153,7 +180,7 @@ class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
-        record = patient.search(['id', '=', log_id], limit=1)
+        record = patient.search([('id', '=', log_id)], limit=1)
         if record:
             d=health_Patient()
             d.set_gnu_patient(record[0])
