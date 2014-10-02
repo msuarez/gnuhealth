@@ -120,7 +120,7 @@ class Search(Resource):
                 db_type = allowed.get(key)[1]
                 if isinstance(db_key, basestring):
                     if db_type == 'string':
-                        query.append((db_key, 'ilike', ''.join('%',value,'%')))
+                        query.append((db_key, 'ilike', ''.join(('%',value,'%'))))
                     else:
                         query.append((db_key, '=', value))
                 else:
