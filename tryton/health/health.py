@@ -2480,9 +2480,48 @@ class Appointment(ModelSQL, ModelView):
 
         if table.column_exist('doctor'):
             table.column_rename('doctor', 'healthprof')
+        
+        '''
+        Fix bug on upgrade to 2.6
+        Check whether the FK is still referencing the old party table
+        If it does, update the references to the corresponding institution
+        ids
+        '''
+
+        cursor.execute("select keycol.table_name \
+            from information_schema.referential_constraints referential \
+            join information_schema.key_column_usage keycol on \
+            keycol.constraint_name = referential.unique_constraint_name \
+            and referential.constraint_name = \
+            \'gnuhealth_appointment_institution_fkey\' \
+            and keycol.table_name=\'party_party\';")
+
+        old_reference = cursor.fetchone()
+      
+        if (old_reference):
+
+            # Drop old foreign key from Appointment
+            
+            if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
+                try:
+                    cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
+                        CONSTRAINT IF EXISTS \
+                        gnuhealth_appointment_institution_fkey;")
+                except:
+                    pass
+                # Link Appointment with new institution model
+                
+                try:
+                    cursor.execute(
+                        'UPDATE GNUHEALTH_APPOINTMENT '
+                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                        'FROM GNUHEALTH_INSTITUTION '
+                        'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
+                        GNUHEALTH_INSTITUTION.NAME')
+                except:
+                    pass 
 
         super(Appointment, cls).__register__(module_name)
-
 
 class AppointmentReport(ModelSQL, ModelView):
     'Appointment Report'
