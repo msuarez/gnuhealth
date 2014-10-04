@@ -1,6 +1,62 @@
-changeset:   1531:d170e3afc0f9
+changeset:   1554:962cfa25cbd3
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 16:41:59 2014 +0100
+summary:     all : Update version
+
+changeset:   1553:57de52d90a60
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 16:35:54 2014 +0100
+summary:     health_pediatrics_growth_charts_who: Add original POT file and fix msgid translation on chart
+
+changeset:   1552:21762a4bc637
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 15:40:19 2014 +0100
+summary:     health : remove SQL script from the upgrade 2.6 directory. It's no longer needed now
+
+changeset:   1551:7da77a9c7069
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 03 13:26:05 2014 +0100
+summary:     health : fix bug #43347 conversion is now included in the health.py code
+
+changeset:   1550:deb534c24e32
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 02 19:41:13 2014 +0100
+summary:     fix bug #43350: Institution field in Work Schedule still points to party
+
+changeset:   1549:6ca7c64e8dc1
+branch:      stable
+parent:      1534:58c03d412d35
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 02 14:01:18 2014 +0100
+summary:     Fix bug #43347 Invalid assignment of institution in appointments
+
+changeset:   1534:58c03d412d35
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 12 10:17:00 2014 +0100
+summary:     health : Include wizard package in setup.py
+
+changeset:   1533:7f99851717d0
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 11 22:36:48 2014 +0100
+summary:     Added tag 2.6.3 for changeset 6cbf09708a36
+
+changeset:   1532:6cbf09708a36
+branch:      stable
+tag:         2.6.3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 09 10:44:42 2014 +0100
+summary:     all : Update changelog and version number
+
+changeset:   1531:d170e3afc0f9
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Sep 09 10:21:55 2014 +0100
 summary:     health: Unique constraint in insurance ID/number as per each insurance company
