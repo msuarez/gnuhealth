@@ -2,10 +2,9 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree
+from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle
 from extensions import (tryton, api)
-from datetime import datetime
-from werkzeug.contrib.atom import AtomFeed
+from utils import search_query_generate
 import lxml
 import json
 import os.path
@@ -33,26 +32,6 @@ patient_endpoint = Blueprint('patient_endpoint', __name__,
 
 # Initialize api restful
 api.init_app(patient_endpoint)
-
-def bundle(request, entries):
-    '''Bundle definition is Atom feed'''
-    #TODO Add this to class, or generalize
-    #TODO More requirements
-    feed = AtomFeed(title="Search results",
-                    id=request.url,
-                    author='GNU Health',
-                    updated=datetime.utcnow())
-    for entry in entries:
-        d=health_Patient()
-        d.set_gnu_patient(entry)
-        d.import_from_gnu_patient()
-        feed.add(title=entry.rec_name,
-                id=entry.id,
-                published=entry.create_date,
-                updated=entry.write_date or entry.create_date,
-                content_type='text/xml',
-                content=d.export_to_xml_string())
-    return feed.to_string()
 
 class Create(Resource):
     @tryton.transaction()
@@ -96,7 +75,7 @@ class Search(Resource):
                 'animal-species': None,
                 'birthdate': ('dob', 'date'),
                 'family': ('name.lastname', 'string'),
-                'gender': ('sex', 'token'),
+                'gender': ('name.sex', 'token'),
                 'given': ('name.name', 'string'),
                 'identifier': ('puid', 'token'),
                 'language': ('name.lang.code', 'token'),
@@ -105,42 +84,16 @@ class Search(Resource):
                 'phonetic': None,
                 'provider': None,
                 'telecom': None}
-        ### GENERAL SEARCH INFO
-        search_prefixes=('<', '>', '<=', '>=')
-        search_types=('number', 'date', 'string', 'token',
-                    'reference', 'composite', 'quantity')
-        ###
-        query=[]
-        for key,values in request.args.iterlists():
-            if allowed.get(key) is None:
-                continue
-            for value in values:
-                #TODO Clean this up
-                db_key = allowed.get(key)[0]
-                db_type = allowed.get(key)[1]
-                if isinstance(db_key, basestring):
-                    if db_type == 'string':
-                        query.append((db_key, 'ilike', ''.join(('%',value,'%'))))
-                    else:
-                        query.append((db_key, '=', value))
-                else:
-                    a=['OR']
-                    for k in db_key:
-                        if db_type == 'string':
-                            a.append([(k, 'ilike', ''.join(('%',value,'%')))])
-                        else:
-                            a.append([(k, '=', value)])
-                    query.append(a)
-                    #if value.startswith(search_prefixes):
-                        #a=None
-                    #else:
-                        #t=value.split(',')
-        recs = patient.search(query)
-        if recs:
-            return bundle(request, recs)
-        else:
-            #TODO OperationOutcome; for now an error
-            return 'No matching record(s)', 403
+        query=search_query_generate(allowed, request.args)
+        print query
+        if query is not None:
+            recs = patient.search(query)
+            if recs:
+                bd=Bundle(request=request)
+                bd.add_entries(recs)
+                return bd
+        #TODO OperationOutcome; for now an error
+        return 'No matching record(s)', 403
 
 class Validate(Resource):
     @tryton.transaction()
