@@ -2,7 +2,7 @@
 def dt_parser(string):
     '''very narrow and error-prone parser'''
     from time import strptime
-    date=strptime(string, "%Y-%m-%dT%H:%M:%S")
+    date=[strptime(x, "%Y-%m-%dT%H:%M:%S") for x in split_string(string)]
     return date
 
 try:
@@ -10,13 +10,20 @@ try:
     def wrap_parse(string):
         '''Return ValueError, not TypeError'''
         try:
-            return parse(string)
+            date=[parse(x) for x in split_string(string)]
+            return date
         except:
             raise ValueError
     date_parser=wrap_parse
 except:
     date_parser=dt_parser
 
+def split_string(string):
+    return string.split(',')
+
+def float_parser(string):
+    floats=[float(x) for x in split_string(string)]
+    return floats
 
 def search_query_generate(endpoint_info, args):
     '''Generates an usable search query
@@ -29,18 +36,19 @@ def search_query_generate(endpoint_info, args):
             request.args object
     '''
     #TODO Make cleaner structures
+    #TODO Add prefix and modifier support
     search_prefixes=('<', '>', '<=', '>=')
 
     #structure:
     #    {<type>: (<type_conv>, (<modifier>, ..))
     #    ...}
-    search_types={'number': (float, (':missing')),
+    search_types={'number': (float_parser, (':missing')),
                 'date': (date_parser, (':missing')),
-                'string': (str, (':exact', ':missing')),
-                'token': (str, (':text' ':missing')),
-                'quantity': (str, (':missing')), 
-                'reference': (str, (':[type]', ':missing')), #todo [type]
-                'composite': (str, None)}
+                'string': (split_string, (':exact', ':missing')),
+                'token': (split_string, (':text' ':missing')),
+                'quantity': (split_string, (':missing')), 
+                'reference': (split_string, (':[type]', ':missing')), #todo [type]
+                'composite': (split_string, None)}
     query=[]
     for key in args.iterkeys():
         print 'key:', key
@@ -49,24 +57,49 @@ def search_query_generate(endpoint_info, args):
             continue
         db_key = info[0]
         db_type = info[1]
+
+        #Actual argument values
         values=args.getlist(key, type=search_types[db_type][0])
         print 'values:',values
         if values is None:
             continue
+
         for value in values:
-            #TODO Clean this up
+            #Could be string or list of lists
+            if isinstance(value, basestring):
+                composite=False
+            else:
+                composite=True
+
+            #TODO Clean this up, terrible structure
             if isinstance(db_key, basestring):
                 if db_type == 'string':
-                    query.append((db_key, 'ilike', ''.join(('%',value,'%'))))
+                    if composite:
+                        a=['OR']
+                        for x in value:
+                            a.append([(db_key, 'ilike', ''.join(('%',x,'%')))])
+                        query.append(a)
+                    else:
+                        query.append((db_key, 'ilike', ''.join(('%',value,'%'))))
                 else:
-                    query.append((db_key, '=', value))
+                    if composite:
+                        query.append((db_key, 'in', value))
+                    else:
+                        query.append((db_key, '=', value))
             else:
                 a=['OR']
                 for k in db_key:
                     if db_type == 'string':
-                        a.append([(k, 'ilike', ''.join(('%',value,'%')))])
+                        if composite:
+                            for x in value:
+                                a.append([(k, 'ilike', ''.join(('%',x,'%')))])
+                        else:
+                            a.append([(k, 'ilike', ''.join(('%',value,'%')))])
                     else:
-                        a.append([(k, '=', value)])
+                        if composite:
+                            a.append([(k, 'in', value)])
+                        else:
+                            a.append([(k, '=', value)])
                 query.append(a)
                 #if value.startswith(search_prefixes):
                     #a=None
