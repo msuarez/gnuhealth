@@ -1,17 +1,6 @@
 import fhir_xml
 from flask import Flask
-from functools import partial
-from defusedxml.lxml import parse, fromstring
 from extensions import (api, tryton)
-
-#### Set safe xml parsing functions 
-####  (TODO: set these in the xml code, too)
-safe_parse = partial(parse, forbid_dtd=True,
-                                forbid_entities=True)
-safe_fromstring = partial(fromstring, forbid_dtd=True,
-                                forbid_entities=True)
-#### /XML
-
 
 def create_app(config=None):
     app = Flask(__name__)

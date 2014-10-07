@@ -31,7 +31,7 @@ def parse(inFileName, silence=False):
     return rootObj
 
 def parseEtree(inFilename, silence=False):
-    doc = etree_.parse(inFilename)
+    doc = supermod.parsexml_(inFilename)
     rootNode = doc.getroot()
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:
@@ -54,7 +54,7 @@ def parseEtree(inFilename, silence=False):
 
 def parseString(inString, silence=False):
     from StringIO import StringIO
-    doc = etree_.parse(StringIO(inString))
+    doc = supermod.parsexml_(StringIO(inString))
     rootNode = doc.getroot()
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:
@@ -72,7 +72,7 @@ def parseString(inString, silence=False):
     return rootObj
 
 def parseLiteral(inFilename, silence=False):
-    doc = parsexml_(inFilename)
+    doc = supermod.parsexml_(inFilename)
     rootNode = doc.getroot()
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:

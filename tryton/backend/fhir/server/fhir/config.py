@@ -51,11 +51,24 @@ except ImportError:
                         "Failed to import ElementTree from any known place")
 
 
+from functools import partial
+import defusedxml.lxml
+
+#### SAFE PARSERS #####
+safe_parse = partial(defusedxml.lxml.parse, forbid_dtd=True,
+                                forbid_entities=True)
+safe_fromstring = partial(defusedxml.lxml.fromstring, forbid_dtd=True,
+                                forbid_entities=True)
+#### /SAFE PARSERS #####
+
+
+
 def parsexml_(*args, **kwargs):
     if (XMLParser_import_library == XMLParser_import_lxml and
             'parser' not in kwargs):
         # Use the lxml ElementTree compatible parser so that, e.g.,
         #   we ignore comments.
         kwargs['parser'] = etree_.ETCompatXMLParser()
-    doc = etree_.parse(*args, **kwargs)
+    #doc = etree_.parse(*args, **kwargs)
+    doc = safe_parse(*args, **kwargs)
     return doc
