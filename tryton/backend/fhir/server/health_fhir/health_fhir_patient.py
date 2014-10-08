@@ -6,6 +6,7 @@ import sys
 
 
 #TODO: Use and add to parent methods
+#TODO: Have standard None/True/False checks and conventions
 
 
 class health_Patient(supermod.Patient):
@@ -54,24 +55,26 @@ class health_Patient(supermod.Patient):
                         'ref': self.__get_identifier(),
                         'lastname': self.__get_lastname(),
                         'alias': self.__get_alias()}
-        ex['contact_mechanism']=[
-                    {'type': 'phone', 'value': telecom.get('phone')},
-                    {'type': 'mobile', 'value': telecom.get('mobile')},
-                    {'type': 'email', 'value': telecom.get('email')}]
+        if telecom:
+            ex['contact_mechanism']=[
+                        {'type': 'phone', 'value': telecom.get('phone')},
+                        {'type': 'mobile', 'value': telecom.get('mobile')},
+                        {'type': 'email', 'value': telecom.get('email')}]
         ex['patient']={
                           'deceased': self.__get_deceased_status(),
                           'dod': self.__get_deceased_datetime()
                       }
-        ex['du']={
-                    #TODO Name needs to be unique
-                    'name': ''.join([str(x) for x in [address['city'],
-                                                        address['street'],
-                                                        address['number']] if x is not None]),
-                    'address_zip': address.get('zip'),
-                    'address_street': address.get('street'),
-                    'address_street_number': address.get('number'),
-                    'address_city': address.get('city')
-                    }
+        if address:
+            ex['du']={
+                        #TODO Name needs to be unique
+                        'name': ''.join([str(x) for x in [address['city'],
+                                                            address['street'],
+                                                            address['number']] if x is not None]),
+                        'address_zip': address.get('zip'),
+                        'address_street': address.get('street'),
+                        'address_street_number': address.get('number'),
+                        'address_city': address.get('city')
+                        }
         ex['lang']={
                     'code': com.get('code'),
                     'name': com.get('name')
@@ -79,7 +82,6 @@ class health_Patient(supermod.Patient):
                 #TODO
                     #'address_country'
                     #'address_subdivision'
-        print ex
         return ex
 
     def __set_identifier(self):
@@ -268,30 +270,29 @@ class health_Patient(supermod.Patient):
         try:
             ad['zip']=self.address[0].zip.value
         except:
-            ad['zip']=None
+            pass
 
         try:
             ad['country']=self.address[0].country.value
         except:
-            ad['country']=None
+            pass
 
         try:
             ad['state']=self.address[0].state.value
         except:
-            ad['state']=None
+            pass
 
         try:
             ad['city']=self.address[0].city.value
         except:
-            ad['city']=None
+            pass
 
         try:
             line=self.address[0].line[0].value.split()
             if not line:
                 raise AttributeError
         except:
-            ad['street']=None
-            ad['number']=None
+            pass
         else:
             ad['street']=[]
             for x in line:
@@ -301,8 +302,6 @@ class health_Patient(supermod.Patient):
                 except ValueError:
                     ad['street'].append(x)
             ad['street']=' '.join(ad['street']) or None
-            if 'number' not in ad:
-                ad['number']=None
         return ad
 
     def __set_active(self):

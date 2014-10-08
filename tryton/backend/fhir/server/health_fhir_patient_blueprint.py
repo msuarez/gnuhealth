@@ -54,23 +54,34 @@ class Create(Resource):
             ds = res.get_gnu_patient()
 
             #Find language (or not!)
-            try:
-                comm = lang.search([['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
-                                        [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]],
-                                limit=1)[0]
-            except:
-                comm = None
+            if ds.get('lang'):
+                try:
+                    comm = lang.search([['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
+                                            [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]],
+                                    limit=1)[0]
+                except:
+                    comm = None
+                finally:
+                    ds['party']['lang']=comm
 
-            finally:
-                ds['party']['lang']=comm
+            #Find du (or not!)
+            #TODO Shared addresses (apartments, etc.)
+            if ds.get('du'):
+                try:
+                    d = du.search([('name', '=', ds['du'].get('name', None))], limit=1)[0]
+                    ds['party']['du']=d.id
+                except:
+                    d = du.create([ds['du']])[0]
+                    ds['party']['du']=d
 
-            d = du.create([ds['du']])[0]
-            ds['party']['du']=d
             n = party.create([ds['party']])[0]
-            for cs in ds['contact_mechanism']:
-                if cs['value'] is not None:
-                    cs['party']=n
-                    contact.create([cs])
+
+            if ds.get('contact_mechanism'):
+                for cs in ds['contact_mechanism']:
+                    if cs['value'] is not None:
+                        cs['party']=n
+                        contact.create([cs])
+
             ds['patient']['name']=n
             p=patient.create([ds['patient']])[0]
         except:
