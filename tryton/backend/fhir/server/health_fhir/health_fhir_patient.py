@@ -63,7 +63,10 @@ class health_Patient(supermod.Patient):
                           'dod': self.__get_deceased_datetime()
                       }
         ex['du']={
-                    'name': ''.join([str(x) for x in address.values()]),
+                    #TODO Name needs to be unique
+                    'name': ''.join([str(x) for x in [address['city'],
+                                                        address['street'],
+                                                        address['number']] if x is not None]),
                     'address_zip': address.get('zip'),
                     'address_street': address.get('street'),
                     'address_street_number': address.get('number'),
@@ -73,8 +76,10 @@ class health_Patient(supermod.Patient):
                     'code': com.get('code'),
                     'name': com.get('name')
                     }
+                #TODO
                     #'address_country'
                     #'address_subdivision'
+        print ex
         return ex
 
     def __set_identifier(self):
@@ -259,33 +264,46 @@ class health_Patient(supermod.Patient):
             self.add_address(address)
 
     def __get_address(self):
-        # TODO Add tests (?) and line
         ad={}
-        if getattr(self, 'address', None):
-            if len(self.address) > 0:
-                if getattr(self.address[0], 'zip', None):
-                    if getattr(self.address[0].zip, 'value', None):
-                        ad['zip']=self.address[0].zip.value
-                if getattr(self.address[0], 'country', None):
-                    if getattr(self.address[0].country, 'value', None):
-                        ad['country']=self.address[0].country.value
-                if getattr(self.address[0], 'state', None):
-                    if getattr(self.address[0].state, 'value', None):
-                        ad['state']=self.address[0].state.value
-                if getattr(self.address[0], 'city', None):
-                    if getattr(self.address[0].city, 'value', None):
-                        ad['city']=self.address[0].city.value
-                if getattr(self.address[0], 'line', None):
-                    ad['street']=[]
-                    if len(self.address[0].line) > 0:
-                        if getattr(self.address[0].line[0], 'value', None):
-                            for x in self.address[0].line[0].value.split():
-                                try:
-                                    ad['number']=int(x)
-                                except ValueError:
-                                    ad['street'].append(x)
-                    ad['street']=' '.join(ad['street'])
-            return ad
+        try:
+            ad['zip']=self.address[0].zip.value
+        except:
+            ad['zip']=None
+
+        try:
+            ad['country']=self.address[0].country.value
+        except:
+            ad['country']=None
+
+        try:
+            ad['state']=self.address[0].state.value
+        except:
+            ad['state']=None
+
+        try:
+            ad['city']=self.address[0].city.value
+        except:
+            ad['city']=None
+
+        try:
+            line=self.address[0].line[0].value.split()
+            if not line:
+                raise AttributeError
+        except:
+            ad['street']=None
+            ad['number']=None
+        else:
+            ad['street']=[]
+            for x in line:
+                try:
+                    #Apt numbers?
+                    ad['number']=int(x)
+                except ValueError:
+                    ad['street'].append(x)
+            ad['street']=' '.join(ad['street']) or None
+            if 'number' not in ad:
+                ad['number']=None
+        return ad
 
     def __set_active(self):
         self.set_active(supermod.boolean(value='true'))
@@ -320,15 +338,14 @@ class health_Patient(supermod.Patient):
         # and close matches, etc.
         lang={}
         if getattr(self, 'communication', None):
-            if getattr(self, 'coding', None):
-                try:
-                    lang['code']=self.communication[0].coding[0].code.value
-                except AttributeError:
-                    lang['code']=None
-                try:
-                    lang['name']=self.communication[0].coding[0].display.value
-                except AttributeError:
-                    lang['name']=None
+            try:
+                lang['code']=self.communication[0].coding[0].code.value
+            except AttributeError:
+                lang['code']=None
+            try:
+                lang['name']=self.communication[0].coding[0].display.value
+            except AttributeError:
+                lang['name']=None
         return lang
 
 

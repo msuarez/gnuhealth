@@ -25,6 +25,12 @@ contact = tryton.pool.get('party.contact_mechanism')
 # Language model
 lang = tryton.pool.get('ir.lang')
 
+# Country model
+country = tryton.pool.get('country.country')
+
+# Subdivision model
+subdivision = tryton.pool.get('country.subdivision')
+
 # 'Patient' blueprint on '/Patient'
 patient_endpoint = Blueprint('patient_endpoint', __name__,
                                 template_folder='templates',
@@ -39,10 +45,25 @@ class Create(Resource):
         '''Create interaction'''
         try:
             #TODO Check for existence then add
+            #TODO Add tests for None
+            #TODO Add lang
+            #TODO Add country
             c=StringIO(request.data)
-            res=parse(c)
+            res=parse(c, silence=True)
             c.close()
             ds = res.get_gnu_patient()
+
+            #Find language (or not!)
+            try:
+                comm = lang.search([['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
+                                        [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]],
+                                limit=1)[0]
+            except:
+                comm = None
+
+            finally:
+                ds['party']['lang']=comm
+
             d = du.create([ds['du']])[0]
             ds['party']['du']=d
             n = party.create([ds['party']])[0]
@@ -53,6 +74,7 @@ class Create(Resource):
             ds['patient']['name']=n
             p=patient.create([ds['patient']])[0]
         except:
+            print sys.exc_info()
             return 'Bad data', 400
         else:
             return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
@@ -173,7 +195,33 @@ class Record(Resource):
     @tryton.transaction()
     def put(self, log_id):
         '''Update interaction'''
-        return 'Not implemented', 405
+        record = patient.search([('id', '=', log_id)], limit=1)
+        if record:
+            try:
+                c=StringIO(request.data)
+                res=parse(c)
+                c.close()
+                pat=parseEtree(StringIO(res))
+                if not isinstance(pat, health_Patient):
+                    return 'Resource type not supported', 404
+                ds = res.get_gnu_patient()
+                d = du.create([ds['du']])[0]
+                ds['party']['du']=d
+                n = party.create([ds['party']])[0]
+                for cs in ds['contact_mechanism']:
+                    if cs['value'] is not None:
+                        cs['party']=n
+                        contact.create([cs])
+                ds['patient']['name']=n
+                p=patient.create([ds['patient']])[0]
+            except XMLSyntaxError:
+                return 'Bad data', 400
+            except:
+                pass
+
+        else:
+            # Do not allow client-defined ids
+            return 'Record not found', 405
 
     @tryton.transaction()
     def delete(self, log_id):

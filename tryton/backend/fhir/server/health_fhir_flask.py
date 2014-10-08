@@ -1,4 +1,3 @@
-import fhir_xml
 from flask import Flask
 from extensions import (api, tryton)
 
