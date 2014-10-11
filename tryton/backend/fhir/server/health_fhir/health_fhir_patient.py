@@ -75,13 +75,12 @@ class health_Patient(supermod.Patient):
                         'address_street_number': address.get('number'),
                         'address_city': address.get('city')
                         }
+            ex['subdivision']=address.get('state')
+            ex['country']=address.get('country')
         ex['lang']={
                     'code': com.get('code'),
                     'name': com.get('name')
                     }
-                #TODO
-                    #'address_country'
-                    #'address_subdivision'
         return ex
 
     def __set_identifier(self):

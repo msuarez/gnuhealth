@@ -106,3 +106,29 @@ def search_query_generate(endpoint_info, args):
                 #else:
                     #t=value.split(',')
     return query
+
+def get_address(string):
+    '''Given string, retrieve full address, easily parsed'''
+    import requests
+    ENDPOINT_URL='https://open.mapquestapi.com/nominatim/v1/search'
+    resp = requests.get(ENDPOINT_URL, params={'q':str(string),
+                                            'format': 'json',
+                                            'addressdetails': 1,
+                                            'limit': 1})
+    details = resp.json()
+    if details:
+        ad = details[0].get('address', {})
+        try:
+            ad['lat']=float(details[0].get('lat'))
+        except:
+            pass
+        try:
+            ad['lon']=float(details[0].get('lon'))
+        except:
+            pass
+        try:
+            ad['house_number']=int(ad['house_number'])
+        except:
+            pass
+
+        return ad
