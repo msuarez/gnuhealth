@@ -136,19 +136,18 @@ class Search(Resource):
         #    but need to write general search parser in 
         #    order that we can just plug in criteria for
         #    each resource
-
-        allowed={'_id': ('id', 'token'), 
+        allowed={'_id': (['id'], 'token'), 
                 '_language': None,
                 'active': None,
                 'address': None,
                 'animal-breed': None,
                 'animal-species': None,
-                'birthdate': ('dob', 'date'),
-                'family': ('name.lastname', 'string'),
-                'gender': ('name.sex', 'token'),
-                'given': ('name.name', 'string'),
-                'identifier': ('puid', 'token'),
-                'language': ('name.lang.code', 'token'),
+                'birthdate': (['name.dob'], 'date'),
+                'family': (['name.lastname'], 'string'),
+                'gender': (['name.sex'], 'token'),
+                'given': (['name.name'], 'string'),
+                'identifier': (['puid'], 'token'),
+                'language': (['name.lang.code'], 'token'),
                 'link': None,
                 'name': (['name.lastname', 'name.name'], 'string'),
                 'phonetic': None,

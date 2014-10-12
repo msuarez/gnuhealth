@@ -1,17 +1,27 @@
 #### SOME HELPFUL FUNCTIONS ####
 def dt_parser(string):
-    '''very narrow and error-prone parser'''
+    '''Fall-back date type parser.
+        ...very narrow and error-prone parser
+    '''
     from time import strptime
-    date=[strptime(x, "%Y-%m-%dT%H:%M:%S") for x in split_string(string)]
-    return date
+    prefixes=('<=', '>=', '<', '>')
+    prefix, tmp = pop_prefix(string, prefixes)
+    split = split_string(tmp)
+    date=[strptime(x, "%Y-%m-%dT%H:%M:%S") for x in split]
+    return (prefix, date)
 
 try:
     from dateutil.parser import parse
     def wrap_parse(string):
-        '''Return ValueError, not TypeError'''
+        '''Parser for date type.
+            Return ValueError, not TypeError
+        '''
         try:
-            date=[parse(x) for x in split_string(string)]
-            return date
+            prefixes=('<=', '>=', '<', '>')
+            prefix, tmp = pop_prefix(string, prefixes)
+            split = split_string(tmp)
+            date=[parse(x) for x in split]
+            return (prefix, date)
         except:
             raise ValueError
     date_parser=wrap_parse
@@ -19,92 +29,140 @@ except:
     date_parser=dt_parser
 
 def split_string(string):
-    return string.split(',')
+    '''Split the string according to discrete
+            search criteria... it gets complicated
 
-def float_parser(string):
-    floats=[float(x) for x in split_string(string)]
-    return floats
+    Still work-in-progress
+    '''
+    # FIX Handling \ is difficult:
+    #    the string is already escaped against singleton \,
+    #    but the standard is... uggh - do it simply now...
+    #    don't allow escaped and non-escaped special characters
+    #    in same search
+    seps=(',', '$', '|')
+    if ('\,' or '\$' or '\|') in string:
+        unescaped = string.replace("\$", '$')
+        unescaped = unescaped.replace("\,", ',')
+        unescaped = unescaped.replace("\|", '|')
+        return [unescaped]
+    else:
+        #Checked for allowed \, so if its singleton, must be invalid
+        if (len(string) - len(string.replace('\\', ''))) % 2:
+            raise ValueError
+        else:
+            return string.split(',')
+
+def pop_prefix(string, prefixes):
+    '''Pop the string prefix,
+            returning prefix + base
+    '''
+    # FIX Unescaping equals... with good url handling
+    #    becomes complicated since it will handle
+    #    non-escaped equals fine
+    for pre in prefixes:
+        if string.startswith(pre):
+            return (pre, string[len(pre):])
+    return (None, string)
+
+def pop_suffix(string):
+    '''Pop the string suffix,
+            returning base + suffix
+    '''
+
+    split=string.split(':')[:2]
+    return [split[0], split[1] if 1 < len(split) else None]
+
+def number_parser(string):
+    '''Parser for number type'''
+    prefixes=('<=', '>=', '<', '>')
+    prefix, tmp = pop_prefix(string, prefixes)
+    split = split_string(tmp)
+    floats=[float(x) for x in split]
+    return (prefix, floats)
+
+def string_parser(string):
+    '''Parser for string type'''
+    tmp = split_string(string)
+    return (None, tmp)
 
 def search_query_generate(endpoint_info, args):
     '''Generates an usable search query
         for tryton from endpoint_info
 
         endpoint_info :::
-            {<parameter>: (<model.attribute>, <type>),
+            {<parameter>: ([<model.attribute>, ...], <type>),
             ...}
         args ::::
             request.args object
     '''
     #TODO Make cleaner structures
     #TODO Add prefix and modifier support
-    search_prefixes=('<', '>', '<=', '>=')
 
     #structure:
     #    {<type>: (<type_conv>, (<modifier>, ..))
     #    ...}
-    search_types={'number': (float_parser, (':missing')),
-                'date': (date_parser, (':missing')),
-                'string': (split_string, (':exact', ':missing')),
-                'token': (split_string, (':text' ':missing')),
-                'quantity': (split_string, (':missing')), 
-                'reference': (split_string, (':[type]', ':missing')), #todo [type]
-                'composite': (split_string, None)}
+    search_prefixes=('<\=', '>\=', '<', '>')
+    search_types={'number': (number_parser, ('missing')),
+                'date': (date_parser, ('missing')),
+                'string': (string_parser, ('exact', 'missing')),
+                'token': (string_parser, ('text' 'missing')),
+                'quantity': (string_parser, ('missing')), 
+                'reference': (string_parser, ('missing')), #todo [type]
+                'composite': (string_parser, None)}
+    #FIX WOW UGLY!
     query=[]
     for key in args.iterkeys():
         print 'key:', key
-        info=endpoint_info.get(key)
+
+        #Converted key to key and suffix
+        new_key, suffix= pop_suffix(key)
+        print 'new_key:', new_key, suffix
+
+        info=endpoint_info.get(new_key)
         if info is None:
             continue
-        db_key = info[0]
-        db_type = info[1]
 
-        #Actual argument values
+        db_type = info[1]
+        db_key = info[0]
+
+        #Converted argument values
         values=args.getlist(key, type=search_types[db_type][0])
-        print 'values:',values
         if values is None:
             continue
+        print 'values:',values
 
-        for value in values:
-            #Could be string or list of lists
-            if isinstance(value, basestring):
-                composite=False
+        for pre,value in values:
+            #Could be singleton or list of lists
+            composite = False
+            if len(value) != 1:
+                composite = True
+
+            print 'comp:', composite
+
+            if len(db_key) > 1:
+                a=['OR']
             else:
-                composite=True
-
-            #TODO Clean this up, terrible structure
-            if isinstance(db_key, basestring):
+                a=[]
+            for k in db_key:
                 if db_type == 'string':
                     if composite:
                         a=['OR']
                         for x in value:
-                            a.append([(db_key, 'ilike', ''.join(('%',x,'%')))])
-                        query.append(a)
+                            a.append((k, 'ilike', ''.join(('%',x,'%'))))
                     else:
-                        query.append((db_key, 'ilike', ''.join(('%',value,'%'))))
+                        if suffix == 'exact':
+                            a.append((k, '=', value[0]))
+                        else:
+                            a.append((k, 'ilike', ''.join(('%',value[0],'%'))))
                 else:
                     if composite:
-                        query.append((db_key, 'in', value))
+                        a.append((k, 'in', value))
                     else:
-                        query.append((db_key, '=', value))
-            else:
-                a=['OR']
-                for k in db_key:
-                    if db_type == 'string':
-                        if composite:
-                            for x in value:
-                                a.append([(k, 'ilike', ''.join(('%',x,'%')))])
+                        if db_type == 'token' and suffix == 'text':
+                            a.append((k, 'ilike', ''.join(('%',value[0],'%'))))
                         else:
-                            a.append([(k, 'ilike', ''.join(('%',value,'%')))])
-                    else:
-                        if composite:
-                            a.append([(k, 'in', value)])
-                        else:
-                            a.append([(k, '=', value)])
-                query.append(a)
-                #if value.startswith(search_prefixes):
-                    #a=None
-                #else:
-                    #t=value.split(',')
+                            a.append((k, pre or '=', value[0]))
+            query.append(a)
     return query
 
 def get_address(string):
