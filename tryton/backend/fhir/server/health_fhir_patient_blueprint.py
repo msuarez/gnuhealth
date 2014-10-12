@@ -102,7 +102,6 @@ class Create(Resource):
                         except:
                             ds['du']['address_country']=None
 
-                    return ''
                     d = du.create([ds['du']])[0]
                     ds['party']['du']=d
 
