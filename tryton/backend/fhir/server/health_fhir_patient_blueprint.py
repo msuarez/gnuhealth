@@ -10,11 +10,6 @@ import json
 import os.path
 import sys
 
-try:
-    from geopy import OpenMapQuest as query_location
-except:
-    query_location=None
-
 # Patient model
 patient = tryton.pool.get('gnuhealth.patient')
 

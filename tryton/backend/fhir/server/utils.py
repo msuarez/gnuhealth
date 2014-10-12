@@ -96,7 +96,6 @@ def search_query_generate(endpoint_info, args):
             request.args object
     '''
     #TODO Make cleaner structures
-    #TODO Add prefix and modifier support
 
     #structure:
     #    {<type>: (<type_conv>, (<modifier>, ..))

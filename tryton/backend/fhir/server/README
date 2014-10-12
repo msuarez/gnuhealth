@@ -28,7 +28,18 @@ a working XML standard, we'll start working on JSON implementation.
 The substantive part of the server can be used in any server setup or
 framework. However, Flask (the python micro-framework) handles REST design very
 well, so we will use that, at least to get a minimally functioning product.
-Flask stays out of the way and having no experience wit Flask is fine if you
+Flask stays out of the way and having no experience with Flask is fine if you
 want to help develop.
 
 -C
+
+What is working:
+    -search
+    -read
+    -validate
+    -create (mostly, but can fail spectacularly)
+
+What is *NOT* working:
+    -vread/history (no version support)
+    -update (no version support)
+    -delete (never allow this?)
