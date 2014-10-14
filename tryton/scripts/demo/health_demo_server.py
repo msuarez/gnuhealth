@@ -183,7 +183,22 @@ def LoadBetzFamilyInfo():
         ])
     patient_genetic_risk.save()
 
+    party = Party()
+    party.name = 'Matt'
+    party.lastname = 'Betz'
+    party.ref = '76356545'
+    party.is_patient = True
+    party.is_person = True
+    party.sex = 'm'
+    party.dob = datetime.strptime('3/15/2010', '%m/%d/%Y')
+    party.save()
+
+    newborn_patient = Patient()
+    newborn_patient.name = party
+    newborn_patient.save()
+
     newborn = Newborn()
+    newborn.patient = newborn_patient
     newborn.mother = patient
     newborn.newborn_name = 'Matt'
     newborn.birth_date = datetime.strptime('3/15/2010', '%m/%d/%Y')
