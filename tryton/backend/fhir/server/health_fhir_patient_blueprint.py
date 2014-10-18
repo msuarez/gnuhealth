@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle
+from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record
 from extensions import (tryton, api)
 from utils import search_query_generate, get_address
 import lxml
@@ -51,24 +51,19 @@ class Create(Resource):
 
             #Find language (or not!)
             if ds.get('lang'):
-                try:
-                    comm = lang.search([['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
-                                            [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]],
-                                    limit=1)[0]
-                except:
-                    comm = None
-                finally:
+                ds['party']['lang']=None
+                comm = find_record(lang, [['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
+                                        [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]])
+                if comm:
                     ds['party']['lang']=comm
-
 
             #Find du (or not!)
             #TODO Shared addresses (apartments, etc.)
             if ds.get('du'):
-                try:
-                    d = du.search([('name', '=', ds['du'].get('name', None))], limit=1)[0]
+                d = find_record(du, [('name', '=', ds['du'].get('name', -1))]) # fail better
+                if d:
                     ds['party']['du']=d.id
-                except:
-
+                else:
                     #This uses Nominatim to give complete address details
                     query = ', '.join([str(v) for k,v in ds['du'].items() if k in ['address_street_number','address_street','address_city']])
                     query = ', '.join([query, ds['subdivision'] or '', ds['country'] or ''])
@@ -77,30 +72,22 @@ class Create(Resource):
                         pass
 
                     # Find subdivision (or not!)
-                    try:
-                        if ds['subdivision']:
-                            s = subdivision.search([['OR', [('code', 'ilike', '%{0}%'.format(ds['subdivision']))],
-                                                    [('name', 'ilike', '%{0}%'.format(ds['subdivision']))]]],
-                                                        limit=1)[0]
+                    if ds['subdivision']:
+                        ds['du']['address_subdivision']= None
+                        s = find_record(subdivision, [['OR', [('code', 'ilike', '%{0}%'.format(ds['subdivision']))],
+                                                [('name', 'ilike', '%{0}%'.format(ds['subdivision']))]]])
+                        if s:
                             ds['du']['address_subdivision']=s.id
                             ds['du']['address_country']=s.country.id
-                        else:
-                            raise ValueError
-                    except:
-                        ds['du']['address_subdivision']= None
 
                     # Find country (or not!)
-                    if not ds['du']['address_subdivision']:
-                        try:
-                            if ds['country']:
-                                co = country.search([['OR', [('code', 'ilike', '%{0}%'.format(ds['country']))],
-                                                    [('name', 'ilike', '%{0}%'.format(ds['country']))]]],
-                                                            limit=1)[0]
+                    if ds['du'].get('address_country', None):
+                        ds['du']['address_country']=None
+                        if ds['country']:
+                            co = find_record(country, [['OR', [('code', 'ilike', '%{0}%'.format(ds['country']))],
+                                                [('name', 'ilike', '%{0}%'.format(ds['country']))]]])
+                            if co:
                                 ds['du']['address_country']=co.id
-                            else:
-                                raise ValueError
-                        except:
-                            ds['du']['address_country']=None
 
                     d = du.create([ds['du']])[0]
                     ds['party']['du']=d
@@ -222,6 +209,7 @@ class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
+        #TODO Use converter?
         record = patient.search([('id', '=', log_id)], limit=1)
         if record:
             d=health_Patient()
