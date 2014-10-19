@@ -1,7 +1,9 @@
 from flask import current_app
 from StringIO import StringIO
 from datetime import datetime
+from .datastore import find_record
 import fhir as supermod
+from utils import get_address
 import sys
 
 
@@ -15,6 +17,7 @@ class health_Patient(supermod.Patient):
     '''
 
     def set_gnu_patient(self, gnu):
+        '''Set gnu patient record'''
         self.gnu_patient = gnu #gnu health model
 
     def import_from_gnu_patient(self):
@@ -37,13 +40,13 @@ class health_Patient(supermod.Patient):
             self.__set_link()
             self.__set_active()
 
-    def get_gnu_patient(self):
-        '''Return dicts for models'''
+    def set_models(self):
+        '''Set info for models'''
         telecom=self.__get_telecom()
         address=self.__get_address()
         com=self.__get_communication()
-        ex = {}
-        ex['party']={'name': self.__get_firstname(),
+        self.models = {}
+        self.models['party']={'name': self.__get_firstname(),
                         'activation_date': datetime.today().date().isoformat(),
                         'alias': self.__get_alias(),
                         'is_patient': True,
@@ -56,16 +59,16 @@ class health_Patient(supermod.Patient):
                         'lastname': self.__get_lastname(),
                         'alias': self.__get_alias()}
         if telecom:
-            ex['contact_mechanism']=[
+            self.models['contact_mechanism']=[
                         {'type': 'phone', 'value': telecom.get('phone')},
                         {'type': 'mobile', 'value': telecom.get('mobile')},
                         {'type': 'email', 'value': telecom.get('email')}]
-        ex['patient']={
+        self.models['patient']={
                           'deceased': self.__get_deceased_status(),
                           'dod': self.__get_deceased_datetime()
                       }
         if address:
-            ex['du']={
+            self.models['du']={
                         #TODO Name needs to be unique
                         'name': ''.join([str(x) for x in [address['city'],
                                                             address['street'],
@@ -75,13 +78,72 @@ class health_Patient(supermod.Patient):
                         'address_street_number': address.get('number'),
                         'address_city': address.get('city')
                         }
-            ex['subdivision']=address.get('state')
-            ex['country']=address.get('country')
-        ex['lang']={
+            self.models['subdivision']=address.get('state')
+            self.models['country']=address.get('country')
+        self.models['lang']={
                     'code': com.get('code'),
                     'name': com.get('name')
                     }
-        return ex
+
+    def create_patient(self, country, du, lang, patient, party, subdivision, contact):
+        '''Create the patient record
+
+            (better structure? better way to import models?)'''
+
+        #Find language (or not!)
+        if self.models.get('lang'):
+            self.models['party']['lang']=None
+            comm = find_record(lang, [['OR', [('code', 'like', '{0}%'.format(self.models['lang'].get('code', None)))],
+                                    [('name', 'ilike', '%{0}%'.format(self.models['lang'].get('name', None)))]]])
+            if comm:
+                self.models['party']['lang']=comm
+
+        #Find du (or not!)
+        #TODO Shared addresses (apartments, etc.)
+        if self.models.get('du'):
+            d = find_record(du, [('name', '=', self.models['du'].get('name', -1))]) # fail better
+            if d:
+                self.models['party']['du']=d.id
+            else:
+                #This uses Nominatim to give complete address details
+                query = ', '.join([str(v) for k,v in self.models['du'].items() if k in ['address_street_number','address_street','address_city']])
+                query = ', '.join([query, self.models['subdivision'] or '', self.models['country'] or ''])
+                details = get_address(query)
+                if details:
+                    pass
+
+                # Find subdivision (or not!)
+                if self.models['subdivision']:
+                    self.models['du']['address_subdivision']= None
+                    s = find_record(subdivision, [['OR', [('code', 'ilike', '%{0}%'.format(self.models['subdivision']))],
+                                            [('name', 'ilike', '%{0}%'.format(self.models['subdivision']))]]])
+                    if s:
+                        self.models['du']['address_subdivision']=s.id
+                        self.models['du']['address_country']=s.country.id
+
+                # Find country (or not!)
+                if self.models['du'].get('address_country', None):
+                    self.models['du']['address_country']=None
+                    if self.models['country']:
+                        co = find_record(country, [['OR', [('code', 'ilike', '%{0}%'.format(self.models['country']))],
+                                            [('name', 'ilike', '%{0}%'.format(self.models['country']))]]])
+                        if co:
+                            self.models['du']['address_country']=co.id
+
+                d = du.create([self.models['du']])[0]
+                self.models['party']['du']=d
+
+        n = party.create([self.models['party']])[0]
+
+        if self.models.get('contact_mechanism'):
+            for c in self.models['contact_mechanism']:
+                if c['value'] is not None:
+                    c['party']=n
+                    contact.create([c])
+
+        self.models['patient']['name']=n
+        p=patient.create([self.models['patient']])[0]
+        return p
 
     def __set_identifier(self):
         if getattr(self.gnu_patient, 'puid', None):

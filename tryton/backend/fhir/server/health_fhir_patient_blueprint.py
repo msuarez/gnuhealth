@@ -47,61 +47,14 @@ class Create(Resource):
             c=StringIO(request.data)
             res=parse(c, silence=True)
             c.close()
-            ds = res.get_gnu_patient()
-
-            #Find language (or not!)
-            if ds.get('lang'):
-                ds['party']['lang']=None
-                comm = find_record(lang, [['OR', [('code', 'like', '{0}%'.format(ds['lang'].get('code', None)))],
-                                        [('name', 'ilike', '%{0}%'.format(ds['lang'].get('name', None)))]]])
-                if comm:
-                    ds['party']['lang']=comm
-
-            #Find du (or not!)
-            #TODO Shared addresses (apartments, etc.)
-            if ds.get('du'):
-                d = find_record(du, [('name', '=', ds['du'].get('name', -1))]) # fail better
-                if d:
-                    ds['party']['du']=d.id
-                else:
-                    #This uses Nominatim to give complete address details
-                    query = ', '.join([str(v) for k,v in ds['du'].items() if k in ['address_street_number','address_street','address_city']])
-                    query = ', '.join([query, ds['subdivision'] or '', ds['country'] or ''])
-                    details = get_address(query)
-                    if details:
-                        pass
-
-                    # Find subdivision (or not!)
-                    if ds['subdivision']:
-                        ds['du']['address_subdivision']= None
-                        s = find_record(subdivision, [['OR', [('code', 'ilike', '%{0}%'.format(ds['subdivision']))],
-                                                [('name', 'ilike', '%{0}%'.format(ds['subdivision']))]]])
-                        if s:
-                            ds['du']['address_subdivision']=s.id
-                            ds['du']['address_country']=s.country.id
-
-                    # Find country (or not!)
-                    if ds['du'].get('address_country', None):
-                        ds['du']['address_country']=None
-                        if ds['country']:
-                            co = find_record(country, [['OR', [('code', 'ilike', '%{0}%'.format(ds['country']))],
-                                                [('name', 'ilike', '%{0}%'.format(ds['country']))]]])
-                            if co:
-                                ds['du']['address_country']=co.id
-
-                    d = du.create([ds['du']])[0]
-                    ds['party']['du']=d
-
-            n = party.create([ds['party']])[0]
-
-            if ds.get('contact_mechanism'):
-                for cs in ds['contact_mechanism']:
-                    if cs['value'] is not None:
-                        cs['party']=n
-                        contact.create([cs])
-
-            ds['patient']['name']=n
-            p=patient.create([ds['patient']])[0]
+            res.set_models()
+            p = res.create_patient(subdivision=subdivision,
+                                party=party,
+                                country=country,
+                                contact=contact,
+                                lang=lang,
+                                du=du,
+                                patient=patient)
         except:
             print sys.exc_info()
             return 'Bad data', 400
@@ -210,10 +163,10 @@ class Record(Resource):
     def get(self, log_id):
         '''Read interaction'''
         #TODO Use converter?
-        record = patient.search([('id', '=', log_id)], limit=1)
+        record = find_record(patient, [('id', '=', log_id)])
         if record:
             d=health_Patient()
-            d.set_gnu_patient(record[0])
+            d.set_gnu_patient(record)
             d.import_from_gnu_patient()
             return d, 200
         else:
