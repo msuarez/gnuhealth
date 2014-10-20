@@ -19,11 +19,13 @@
 #
 ##############################################################################
 from datetime import timedelta, datetime, time
+import pytz
 from trytond.model import ModelView, fields
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
 from trytond.pyson import PYSONEncoder
 from trytond.pool import Pool
+from trytond.transaction import Transaction
 
 __all__ = ['CreateAppointmentStart', 'CreateAppointment']
 
@@ -40,8 +42,8 @@ class CreateAppointmentStart(ModelView):
         required=True)
     date_start = fields.Date('Start Date', required=True)
     date_end = fields.Date('End Date', required=True)
-    time_start = fields.Time('Start Time', required=True)
-    time_end = fields.Time('End Time', required=True)
+    time_start = fields.Time('Start Time', required=True, format='%H:%M')
+    time_end = fields.Time('End Time', required=True, format='%H:%M')
     appointment_minutes = fields.Integer('Appointment Minutes', required=True)
     monday = fields.Boolean('Monday')
     tuesday = fields.Boolean('Tuesday')
@@ -50,6 +52,11 @@ class CreateAppointmentStart(ModelView):
     friday = fields.Boolean('Friday')
     saturday = fields.Boolean('Saturday')
     sunday = fields.Boolean('Sunday')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        return HealthInst.get_institution()
 
     @fields.depends('healthprof')
     def on_change_with_specialty(self):
@@ -73,7 +80,16 @@ class CreateAppointment(Wizard):
     open_ = StateAction('health.action_gnuhealth_appointment_view')
 
     def transition_create_(self):
-        Appointment = Pool().get('gnuhealth.appointment')
+        pool = Pool()
+        Appointment = pool.get('gnuhealth.appointment')
+        Company = pool.get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
 
         appointments = []
         # Iterate over days
@@ -88,8 +104,14 @@ class CreateAppointment(Wizard):
             or (single_date.weekday() == 5 and self.start.saturday)
             or (single_date.weekday() == 6 and self.start.sunday)):
                 # Iterate over time
-                dt = datetime.combine(single_date, self.start.time_start)
-                dt_end = datetime.combine(single_date, self.start.time_end)
+                dt = datetime.combine(
+                    single_date, self.start.time_start)
+                dt = timezone.localize(dt)
+                dt = dt.astimezone(pytz.utc) 
+                dt_end = datetime.combine(
+                    single_date, self.start.time_end)
+                dt_end = timezone.localize(dt_end)
+                dt_end = dt_end.astimezone(pytz.utc) 
                 while dt < dt_end:
                     appointment = {
                         'healthprof': self.start.healthprof.id,
