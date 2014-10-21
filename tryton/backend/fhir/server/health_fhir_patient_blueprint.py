@@ -56,8 +56,10 @@ class Create(Resource):
                                 du=du,
                                 patient=patient)
         except:
-            print sys.exc_info()
-            return 'Bad data', 400
+            e=sys.exc_info()[1]
+            oo=health_OperationOutcome()
+            oo.add_issue(details=e, severity='fatal')
+            return oo, 400
         else:
             return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
 
@@ -65,11 +67,6 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        #TODO Search implementation is important, but
-        #    also very robust, so keep it simple for now
-        #    but need to write general search parser in 
-        #    order that we can just plug in criteria for
-        #    each resource
         allowed={'_id': (['id'], 'token'), 
                 '_language': None,
                 'active': None,
@@ -88,15 +85,18 @@ class Search(Resource):
                 'provider': None,
                 'telecom': None}
         query=search_query_generate(allowed, request.args)
-        print query
         if query is not None:
             recs = patient.search(query)
             if recs:
                 bd=Bundle(request=request)
                 bd.add_entries(recs)
-                return bd
-        #TODO OperationOutcome; for now an error
-        return 'No matching record(s)', 403
+                return bd, 200
+            else:
+                return 'No matching record(s)', 403
+        else:
+            oo=health_OperationOutcome()
+            oo.add_issue(details=e, severity='fatal')
+            return oo, 400
 
 class Validate(Resource):
     @tryton.transaction()
@@ -113,7 +113,7 @@ class Validate(Resource):
             return oo, 400
 
         except:
-            e = sys.exc_info()[0]
+            e = sys.exc_info()[1]
             oo=health_OperationOutcome()
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
@@ -146,7 +146,7 @@ class Validate(Resource):
 
             if log_id:
                 # 3) Check if patient exists
-                record = patient.search(['id', '=', log_id], limit=1)
+                record = find_record(patient, [('id', '=', log_id)])
                 if not record:
                     oo=health_OperationOutcome()
                     oo.add_issue(details='No patient', severity='error')

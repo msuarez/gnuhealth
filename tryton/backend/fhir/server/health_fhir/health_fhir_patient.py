@@ -368,13 +368,25 @@ class health_Patient(supermod.Patient):
     def __set_active(self):
         self.set_active(supermod.boolean(value='true'))
 
+    def __get_contact(self):
+        pass
+
     def __set_contact(self):
         pass
 
+    def __get_care_provider(self):
+        pass
+
     def __set_care_provider(self):
-        #primary care doctor
+        # GP
+        # TODO Use url_for
         if getattr(self.gnu_patient, 'primary_care_doctor', None):
-            pass
+            uri = ''.join(['/Practitioner/', str(self.gnu_patient.primary_care_doctor.id)])
+            display = self.gnu_patient.primary_care_doctor.rec_name
+            ref=supermod.ResourceReference()
+            ref.display = supermod.string(value=display)
+            ref.reference = supermod.string(value=uri)
+            self.set_careProvider([ref])
 
     def __set_managing_organization(self):
         pass
