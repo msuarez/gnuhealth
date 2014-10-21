@@ -1,5 +1,5 @@
 from flask import Flask
-from extensions import (api, tryton)
+from extensions import tryton
 
 def create_app(config=None):
     app = Flask(__name__)
@@ -21,7 +21,9 @@ def create_app(config=None):
 
         #Register the patient blueprint (and others, in the future)
         from health_fhir_patient_blueprint import patient_endpoint
+        from health_fhir_observation_blueprint import observation_endpoint
         app.register_blueprint(patient_endpoint)
+        app.register_blueprint(observation_endpoint)
 
     return app
 

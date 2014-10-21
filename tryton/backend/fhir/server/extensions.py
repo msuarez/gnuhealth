@@ -3,5 +3,5 @@ from flask.ext.restful import Api
 
 #### Extensions
 tryton = Tryton()
-api = Api()
+#api = Api()
 #### /Extensions

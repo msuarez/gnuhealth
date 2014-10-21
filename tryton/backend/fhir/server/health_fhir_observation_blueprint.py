@@ -2,42 +2,28 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record
+from health_fhir import health_Patient, health_Observation, health_OperationOutcome, parse, parseEtree, Bundle, find_record
 from extensions import tryton
-from utils import search_query_generate, get_address
 import lxml
 import json
 import os.path
 import sys
 from flask.ext.restful import Api
 
+
 # Patient model
 patient = tryton.pool.get('gnuhealth.patient')
 
-# Party model
-party = tryton.pool.get('party.party')
-
-# DU model
-du = tryton.pool.get('gnuhealth.du')
-
-# Contacts model
-contact = tryton.pool.get('party.contact_mechanism')
-
-# Language model
-lang = tryton.pool.get('ir.lang')
-
-# Country model
-country = tryton.pool.get('country.country')
-
-# Subdivision model
-subdivision = tryton.pool.get('country.subdivision')
+# Lab result model (sp?)
+lab_result = tryton.pool.get('gnuhealth.lab.test.critearea')
 
 # 'Patient' blueprint on '/Patient'
-patient_endpoint = Blueprint('patient_endpoint', __name__,
+observation_endpoint = Blueprint('observation_endpoint', __name__,
                                 template_folder='templates',
-                                url_prefix="/Patient")
+                                url_prefix="/Observation")
+
 # Initialize api restful
-api = Api(patient_endpoint)
+api = Api(observation_endpoint)
 
 class Create(Resource):
     @tryton.transaction()
@@ -163,11 +149,11 @@ class Record(Resource):
     def get(self, log_id):
         '''Read interaction'''
         #TODO Use converter?
-        record = find_record(patient, [('id', '=', log_id)])
+        record = find_record(lab_result, [('id', '=', log_id)])
         if record:
-            d=health_Patient()
-            d.set_gnu_patient(record)
-            d.import_from_gnu_patient()
+            d=health_Observation()
+            d.set_gnu_observation(record)
+            d.import_from_gnu_observation()
             return d, 200
         else:
             return 'Record not found', 404

@@ -2,6 +2,7 @@ import fhir as supermod
 from .health_fhir_patient import *
 from .health_fhir_bundle import *
 from .health_fhir_operation_outcome import *
+from .health_fhir_observation import *
 from .datastore import *
 from lxml import etree as etree_
 
