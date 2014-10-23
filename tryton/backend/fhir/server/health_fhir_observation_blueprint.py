@@ -17,7 +17,7 @@ patient = tryton.pool.get('gnuhealth.patient')
 # Lab result model (sp?)
 lab_result = tryton.pool.get('gnuhealth.lab.test.critearea')
 
-# 'Patient' blueprint on '/Observation'
+# 'Observation' blueprint on '/Observation'
 observation_endpoint = Blueprint('observation_endpoint', __name__,
                                 template_folder='templates',
                                 url_prefix="/Observation")
@@ -29,6 +29,7 @@ class Create(Resource):
     @tryton.transaction()
     def post(self):
         '''Create interaction'''
+        return 'Not implemented', 405
         try:
             c=StringIO(request.data)
             res=parse(c, silence=True)
