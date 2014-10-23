@@ -335,7 +335,7 @@ class PatientData(ModelSQL, ModelView):
             cursor.execute('SELECT count(state) \
                 FROM gnuhealth_inpatient_registration \
                 WHERE patient = %s \
-                AND state = \'hospitalized\' ', (patient_dbid,))
+                AND state = \'hospitalized\' LIMIT 1' , (patient_dbid,))
             
             if cursor.fetchone()[0] > 0:
                 is_hospitalized = True
