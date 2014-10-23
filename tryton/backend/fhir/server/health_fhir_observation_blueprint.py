@@ -17,7 +17,7 @@ patient = tryton.pool.get('gnuhealth.patient')
 # Lab result model (sp?)
 lab_result = tryton.pool.get('gnuhealth.lab.test.critearea')
 
-# 'Patient' blueprint on '/Patient'
+# 'Patient' blueprint on '/Observation'
 observation_endpoint = Blueprint('observation_endpoint', __name__,
                                 template_folder='templates',
                                 url_prefix="/Observation")
@@ -34,20 +34,14 @@ class Create(Resource):
             res=parse(c, silence=True)
             c.close()
             res.set_models()
-            p = res.create_patient(subdivision=subdivision,
-                                party=party,
-                                country=country,
-                                contact=contact,
-                                lang=lang,
-                                du=du,
-                                patient=patient)
+            p = res.create_observation()
         except:
             e=sys.exc_info()[1]
             oo=health_OperationOutcome()
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
+            return 'Created', 201, {'Location': ''.join(['/Observation/', str(p.id)])}
 
 class Search(Resource):
     @tryton.transaction()
@@ -55,24 +49,23 @@ class Search(Resource):
         '''Search interaction'''
         allowed={'_id': (['id'], 'token'), 
                 '_language': None,
-                'active': None,
-                'address': None,
-                'animal-breed': None,
-                'animal-species': None,
-                'birthdate': (['name.dob'], 'date'),
-                'family': (['name.lastname'], 'string'),
-                'gender': (['name.sex'], 'token'),
-                'given': (['name.name'], 'string'),
-                'identifier': (['puid'], 'token'),
-                'language': (['name.lang.code'], 'token'),
-                'link': None,
-                'name': (['name.lastname', 'name.name'], 'string'),
-                'phonetic': None,
-                'provider': None,
-                'telecom': None}
+                'date': None,
+                'name': None,
+                'performer': None,
+                'reliability': None,
+                'related': None,
+                'related-target': None,
+                'related-type': None,
+                'specimen': None,
+                'status': None,
+                'subject': None, 
+                'value-concept': None,
+                'value-date': None,
+                'value-quantity': None,
+                'value-string': None}
         query=search_query_generate(allowed, request.args)
         if query is not None:
-            recs = patient.search(query)
+            recs = lab_result.search(query)
             if recs:
                 bd=Bundle(request=request)
                 bd.add_entries(recs)
@@ -105,9 +98,9 @@ class Validate(Resource):
             return oo, 400
 
         else:
-            if os.path.isfile('schemas/patient.xsd'):
+            if os.path.isfile('schemas/observation.xsd'):
                 # 2) Validate against XMLSchema
-                with open('schemas/patient.xsd') as t:
+                with open('schemas/observation.xsd') as t:
                     sch=lxml.etree.parse(t)
 
                 xmlschema=lxml.etree.XMLSchema(sch)
@@ -117,12 +110,12 @@ class Validate(Resource):
                     oo.add_issue(details=error.message, severity='error')
                     return oo, 400
             else:
-                # 2) If no schema, check if it correctly parses to a Patient
+                # 2) If no schema, check if it correctly parses to an Observation
                 try:
                     pat=parseEtree(StringIO(doc))
-                    if not isinstance(pat, health_Patient):
+                    if not isinstance(pat, health_Observation):
                         oo=health_OperationOutcome()
-                        oo.add_issue(details='Not a patient resource', severity='error')
+                        oo.add_issue(details='Not an observation resource', severity='error')
                         return oo, 400
                 except:
                     e = sys.exc_info()[1]
@@ -131,11 +124,12 @@ class Validate(Resource):
                     return oo, 400
 
             if log_id:
-                # 3) Check if patient exists
-                record = find_record(patient, [('id', '=', log_id)])
+                # 3) Check if observation exists
+                record = find_record(observation, [('id', '=', log_id),
+                                                    ('gnuhealth_lab_id', '!=', None)])
                 if not record:
                     oo=health_OperationOutcome()
-                    oo.add_issue(details='No patient', severity='error')
+                    oo.add_issue(details='No observation', severity='error')
                     return oo, 422
                 else:
                     #TODO: More checks
@@ -149,7 +143,10 @@ class Record(Resource):
     def get(self, log_id):
         '''Read interaction'''
         #TODO Use converter?
-        record = find_record(lab_result, [('id', '=', log_id)])
+        record = find_record(lab_result, [('id', '=', log_id),
+                                            ('result', '!=', None),
+                                            ('gnuhealth_lab_id', '!=', None)])
+                                            #('gnuhealth_lab_id.date_analysis', '!=', None)])
         if record:
             d=health_Observation()
             d.set_gnu_observation(record)
@@ -164,33 +161,6 @@ class Record(Resource):
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
-        #record = patient.search([('id', '=', log_id)], limit=1)
-        #if record:
-            #try:
-                #c=StringIO(request.data)
-                #res=parse(c)
-                #c.close()
-                #pat=parseEtree(StringIO(res))
-                #if not isinstance(pat, health_Patient):
-                    #return 'Resource type not supported', 404
-                #ds = res.get_gnu_patient()
-                #d = du.create([ds['du']])[0]
-                #ds['party']['du']=d
-                #n = party.create([ds['party']])[0]
-                #for cs in ds['contact_mechanism']:
-                    #if cs['value'] is not None:
-                        #cs['party']=n
-                        #contact.create([cs])
-                #ds['patient']['name']=n
-                #p=patient.create([ds['patient']])[0]
-            #except XMLSyntaxError:
-                #return 'Bad data', 400
-            #except:
-                #pass
-
-        #else:
-            # Do not allow client-defined ids
-            #return 'Record not found', 405
 
     @tryton.transaction()
     def delete(self, log_id):
