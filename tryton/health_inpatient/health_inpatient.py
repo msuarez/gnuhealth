@@ -321,27 +321,32 @@ class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
     __name__ = 'gnuhealth.patient'
 
-    patient_status = fields.Function(fields.Char('Hospitalization Status', help="Patient current Hospitalization Status"),
+    patient_status = fields.Function(fields.Boolean('Hospitalized',
+        help="Show the hospitalization status of the patient"),
         'get_patient_status')
 
     def get_patient_status(self, name):
+        
         cursor = Transaction().cursor
 
         def get_hospitalization_status(patient_dbid):
-            cursor.execute('SELECT state '
-                'FROM gnuhealth_inpatient_registration '
-                'WHERE patient = %s '
-                  'AND state = \'hospitalized\' ', (str(patient_dbid),))
-            try:
-                patient_status = str(cursor.fetchone()[0])
-            except:
-                patient_status = 'outpatient'
-            return patient_status
+            is_hospitalized = False
+
+            cursor.execute('SELECT count(state) \
+                FROM gnuhealth_inpatient_registration \
+                WHERE patient = %s \
+                AND state = \'hospitalized\' ', (patient_dbid,))
+            
+            if cursor.fetchone()[0] > 0:
+                is_hospitalized = True
+            
+            return is_hospitalized
 
         result = ''
 
         # Get the patient (DB) id to be used in the search on the medical
         # inpatient registration table lookup
+        
         patient_dbid = self.id
         if patient_dbid:
             result = get_hospitalization_status(patient_dbid)
