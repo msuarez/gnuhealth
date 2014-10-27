@@ -221,7 +221,7 @@ msgstr "Comentarios"
 
 msgctxt "field:gnuhealth.appointment,consultations:"
 msgid "Consultation Services"
-msgstr "Servicios de Consulta "
+msgstr "Servicios de Consulta"
 
 msgctxt "field:gnuhealth.appointment,create_date:"
 msgid "Create Date"
@@ -7888,6 +7888,10 @@ msgctxt "model:ir.action,name:act_or_view"
 msgid "Operating Rooms"
 msgstr "Quirófanos"
 
+msgctxt "model:ir.action,name:act_or_view"
+msgid "Operating Rooms"
+msgstr "Quirófanos"
+
 msgctxt "model:ir.action,name:act_people_form"
 msgid "People"
 msgstr "Persona"
@@ -8022,7 +8026,7 @@ msgstr "Seguros"
 
 msgctxt "model:ir.action,name:gnuhealth_action_insurance_company"
 msgid "Insurance Company"
-msgstr "Compañia de seguros"
+msgstr "Compañía de seguros"
 
 msgctxt "model:ir.action,name:gnuhealth_action_occupation"
 msgid "Occupations"
@@ -8030,7 +8034,7 @@ msgstr "Ocupaciones"
 
 msgctxt "model:ir.action,name:gnuhealth_action_operational_area"
 msgid "Operational Areas"
-msgstr "Areas operacionales"
+msgstr "Áreas operacionales"
 
 msgctxt "model:ir.action,name:gnuhealth_action_operational_sector"
 msgid "Operational Sectors"
