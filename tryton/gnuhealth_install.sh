@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # GNU Health installer
-# Version for 2.6 series
+# Version for 2.8 series
 
 ##############################################################################
 #
