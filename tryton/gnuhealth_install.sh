@@ -174,20 +174,20 @@ install_python_dependencies() {
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
-    local PIP_LXML="lxml==3.3.5"
-    local PIP_RELATORIO="relatorio==0.6.0"
+    local PIP_LXML="lxml==3.4.0"
+    local PIP_RELATORIO="relatorio==0.6.1"
     local PIP_DATEUTIL="python-dateutil==2.2"
-    local PIP_PSYCOPG2="psycopg2==2.5.3"
-    local PIP_PYTZ="pytz==2014.4"
-    local PIP_LDAP="python-ldap==2.4.15"
-    local PIP_VOBJECT="vobject==0.6.6"
+    local PIP_PSYCOPG2="psycopg2==2.5.4"
+    local PIP_PYTZ="pytz==2014.7"
+    local PIP_LDAP="python-ldap==2.4.18"
+    local PIP_VOBJECT="vobject==0.8.1c"
     local PIP_PYWEBDAV="PyWebDAV==0.9.8"
-    local PIP_QRCODE="qrcode==5.0.1"
-    local PIP_SIX="six==1.7.3"
-    local PIP_PILLOW="Pillow==2.4.0"
-    local PIP_CALDAV="caldav==0.1.12"
-    local PIP_POLIB="polib==1.0.4"
-    local PIP_SQL="python-sql==0.3"
+    local PIP_QRCODE="qrcode==5.1"
+    local PIP_SIX="six==1.8.0"
+    local PIP_PILLOW="Pillow==2.6.1"
+    local PIP_CALDAV="caldav==0.2.1"
+    local PIP_POLIB="polib==1.0.5"
+    local PIP_SQL="python-sql==0.4"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
