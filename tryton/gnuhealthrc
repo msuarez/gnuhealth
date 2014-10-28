@@ -18,12 +18,15 @@ TRYTOND=`ls -1d ${GNUHEALTH_DIR}/tryton/server/trytond-* | egrep -o "trytond-[0-
 # Add PYTHONPATH environment variable 
 export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}
 
+# Add Tryton server configuration file
+
+export TRYTOND_CONFIG=${GNUHEALTH_DIR}/tryton/server/config/trytond.conf
 # Aliases
 alias cdlogs='cd ${GNUHEALTH_DIR}/logs'
 alias cdexe='cd ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/bin'
-alias cdconf='cd ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/etc'
+alias cdconf='cd ${GNUHEALTH_DIR}/tryton/server/config'
 alias cdmods='cd ${GNUHEALTH_DIR}/tryton/server/modules'
-alias editconf='${EDITOR} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/etc/trytond.conf'
+alias editconf='${EDITOR} ${TRYTOND_CONFIG}'
 
 alias rm='rm -i'
 alias mv='mv -i'
