@@ -39,7 +39,7 @@ BLUE="\n$(tput setaf 4)"
 INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
-TRYTON_VERSION="3.2"
+TRYTON_VERSION="3.4"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 
@@ -222,7 +222,7 @@ install_tryton_modules() {
     local TRYTOND_URL=$(get_url trytond)
     local TRYTOND_FILE=$(basename ${TRYTOND_URL})
 
-    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
+    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot purchase account_invoice_stock stock_supply"
 
     local TRYTON_MODULES_FILE=""
     local TRYTON_MODULES_URL=""
