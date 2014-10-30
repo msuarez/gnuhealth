@@ -364,6 +364,8 @@ main() {
     cleanup
 
     message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}
+    
+    message "[INFO] Please create the master password for GNU Health server using the serverpass program"
 }
 
 
