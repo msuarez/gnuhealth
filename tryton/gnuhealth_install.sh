@@ -5,8 +5,10 @@
 
 ##############################################################################
 #
-#    GNU Health: The Free Health and Hospital Information System
+#    GNU Health Installer
+#
 #    Copyright (C) 2008-2014  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2014  GNU Solidario <health@gnusolidario.org>
 #                             Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -156,13 +158,14 @@ install_directories() {
     ATTACH_DIR="${HOME}/attach"
     CUSTOM_MODS_DIR="${MODULES_DIR}/custom"
     CONFIG_DIR="${TRYTOND_DIR}/config"
+    UTIL_DIR="${TRYTOND_DIR}/util"
 
     # Create GNU Health directories
     if [[ -e ${BASEDIR} ]]; then
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${CUSTOM_MODS_DIR} ${CONFIG_DIR} ||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${CUSTOM_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR}||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
@@ -286,12 +289,23 @@ install_tryton_modules() {
     message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
     cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || exit 1
 
+    ln -si ${MODULES_DIR}/health* .
+
+    # Copy LICENSE README and version files
+    
     local EXTRA_FILES="COPYING README version"
     for FILE in ${EXTRA_FILES}; do
         cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || exit 1
     done
 
-    ln -si ${MODULES_DIR}/health* .
+    # Copy Tryton configuration file
+    
+    cp ${GNUHEALTH_INST_DIR}/trytond.conf ${CONFIG_DIR} || exit 1
+
+    # Copy serverpass program
+    
+    cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || exit 1
+
     message "[INFO] OK." ${GREEN}
 
 }
@@ -329,6 +343,12 @@ bash_profile () {
 
 }
 
+serverpass () {
+ 
+    message "[INFO] Setting up your GNU Health Tryton master server password" ${BLUE}
+    /usr/bin/env python ${UTIL_DIR}/serverpass.py || exit 1
+}
+ 
 
 cleanup() {
     message "[INFO] Cleaning Up..." ${YELLOW}
@@ -360,12 +380,13 @@ main() {
     # (5) BASH Profile
     bash_profile
 
-    # (6) Clean
+    # (5) Server Password
+    serverpass
+    
+    # (7) Clean
     cleanup
 
     message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}
-    
-    message "[INFO] Please create the master password for GNU Health server using the serverpass program"
 }
 
 
