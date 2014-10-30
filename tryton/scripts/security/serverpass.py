@@ -36,9 +36,9 @@ try:
 except ImportError:
     print "Cracklib not installed. Please install the library and try again"
     sys.exit(-1)
-    
-config_file = os.environ['TRYTOND_CONFIG']
 
+config_file = ""
+  
 parser = argparse.ArgumentParser()
 
 parser.add_argument("-c", "--config",
@@ -46,9 +46,21 @@ parser.add_argument("-c", "--config",
 
 args = parser.parse_args()
 
+try: 
+    config_file = os.environ['TRYTOND_CONFIG']
+except:
+    pass
+
 if args.config:
     config_file = args.config
 
+if not config_file:
+    print "TRYTOND_CONFIG variable not set and No configuration file specified"
+    sys.exit(-1)
+
+
+
+    
 print "Using Tryton configuration file ", config_file
         
 def validate_password():
