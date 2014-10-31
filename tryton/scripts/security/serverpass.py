@@ -65,6 +65,13 @@ print "Using Tryton configuration file ", config_file
         
 def validate_password():
     passwd = getpass.getpass()
+    print "Again"
+    passwd2 = getpass.getpass()
+    
+    if (passwd != passwd2):
+        print "Password mismatch"
+        return validate_password()
+        
     """Check against cracklib to avoid simple passwords"""
     try: 
         cracklib.VeryFascistCheck (passwd)
