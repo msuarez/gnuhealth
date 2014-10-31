@@ -1,3 +1,4 @@
+from werkzeug.routing import BaseConverter, ValidationError
 #### SOME HELPFUL FUNCTIONS ####
 def dt_parser(string):
     '''Fall-back date type parser.
@@ -189,3 +190,20 @@ def get_address(string):
             pass
 
         return ad
+
+class recordConverter(BaseConverter):
+    '''Handle Model-ID-Field endpoint values'''
+    def to_python(self, value):
+        tmp = [None, None, None]
+        for k,v in enumerate(value.split('-')):
+            if k == 3: raise ValidationError()
+            tmp[k]=v
+        try:
+            tmp[1]=int(tmp[1])
+        except:
+            raise ValidationError()
+        return tmp
+
+    def to_url(self, values):
+        return '-'.join([BaseConverter.to_url(value) for value in values if value is not None])
+

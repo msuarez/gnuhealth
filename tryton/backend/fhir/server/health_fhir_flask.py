@@ -19,11 +19,15 @@ def create_app(config=None):
         def default_context():
             return user.get_preferences(context_only=True)
 
+        from utils import recordConverter
+        app.url_map.converters['item']=recordConverter
+
         #Register the patient blueprint (and others, in the future)
         from health_fhir_patient_blueprint import patient_endpoint
         from health_fhir_observation_blueprint import observation_endpoint
         app.register_blueprint(patient_endpoint)
         app.register_blueprint(observation_endpoint)
+
 
     return app
 

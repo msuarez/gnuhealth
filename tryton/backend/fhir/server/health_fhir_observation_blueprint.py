@@ -9,13 +9,33 @@ import json
 import os.path
 import sys
 from flask.ext.restful import Api
+from utils import search_query_generate
 
-
-# Patient model
-patient = tryton.pool.get('gnuhealth.patient')
 
 # Lab result model (sp?)
-lab_result = tryton.pool.get('gnuhealth.lab.test.critearea')
+lab = tryton.pool.get('gnuhealth.lab.test.critearea')
+
+# Patient evals
+eva = tryton.pool.get('gnuhealth.patient.evaluation')
+
+# Nurse rounds
+rounds = tryton.pool.get('gnuhealth.patient.rounding')
+
+# Ambulatory care
+amb = tryton.pool.get('gnuhealth.patient.ambulatory_care')
+
+# Imaging result
+image = tryton.pool.get('gnuhealth.imaging.test.result')
+
+# ICU
+icu = tryton.pool.get('gnuhealth.icu.apache2')
+
+#URL mapping (UGLY!)
+model_map={ 'lab': lab,
+        'eval': eva,
+        'rounds': rounds,
+        'amb': amb,
+        'icu': icu}
 
 # 'Observation' blueprint on '/Observation'
 observation_endpoint = Blueprint('observation_endpoint', __name__,
@@ -64,18 +84,21 @@ class Search(Resource):
                 'value-date': None,
                 'value-quantity': None,
                 'value-string': None}
-        query=search_query_generate(allowed, request.args)
-        if query is not None:
-            recs = lab_result.search(query)
-            if recs:
-                bd=Bundle(request=request)
-                bd.add_entries(recs)
+        try:
+            bd=Bundle(request=request)
+            for model in model_map.values():
+                query=search_query_generate(allowed, request.args)
+                if query is not None:
+                    recs = model.search(query)
+                    if recs:
+                        bd.add_entries(recs)
+            if bd.entries:
                 return bd, 200
             else:
                 return 'No matching record(s)', 403
-        else:
+        except:
             oo=health_OperationOutcome()
-            oo.add_issue(details=e, severity='fatal')
+            oo.add_issue(details=sys.exc_info()[1], severity='fatal')
             return oo, 400
 
 class Validate(Resource):
@@ -126,15 +149,8 @@ class Validate(Resource):
 
             if log_id:
                 # 3) Check if observation exists
-                record = find_record(observation, [('id', '=', log_id),
-                                                    ('gnuhealth_lab_id', '!=', None)])
-                if not record:
-                    oo=health_OperationOutcome()
-                    oo.add_issue(details='No observation', severity='error')
-                    return oo, 422
-                else:
-                    #TODO: More checks
-                    return 'Valid update', 200
+                #     Observation updating.... No allow
+                return 'Not supported', 405
             else:
                 # 3) Passed checks
                 return 'Valid', 200
@@ -143,16 +159,22 @@ class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
-        #TODO Use converter?
-        record = find_record(lab_result, [('id', '=', log_id),
-                                            ('result', '!=', None),
-                                            ('gnuhealth_lab_id', '!=', None)])
-                                            #('gnuhealth_lab_id.date_analysis', '!=', None)])
+        model = model_map.get(log_id[0])
+        if model is None:
+            return 'No record', 404
+        id = log_id[1]
+        field = log_id[2]
+        record = find_record(model, [('id', '=', id)])
         if record:
             d=health_Observation()
-            d.set_gnu_observation(record)
-            d.import_from_gnu_observation()
-            return d, 200
+            try:
+                d.set_gnu_observation(record, model=log_id[0], field=field)
+                d.import_from_gnu_observation()
+            except:
+                # Classed raised error
+                return 'Record not found', 404
+            else:
+                return d, 200
         else:
             return 'Record not found', 404
             #if track deleted records
@@ -185,11 +207,11 @@ api.add_resource(Search,
                         '/_search')
 api.add_resource(Validate,
                         '/_validate',
-                        '/_validate/<int:log_id>')
-api.add_resource(Record, '/<int:log_id>')
+                        '/_validate/<item:log_id>')
+api.add_resource(Record, '/<item:log_id>')
 api.add_resource(Version,
-                        '/<int:log_id>/_history',
-                        '/<int:log_id>/_history/<string:v_id>')
+                        '/<item:log_id>/_history',
+                        '/<item:log_id>/_history/<string:v_id>')
 
 @api.representation('xml')
 @api.representation('text/xml')
