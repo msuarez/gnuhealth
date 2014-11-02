@@ -2,7 +2,9 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2011-2014 Sebastian Marro <smarro@gnusolidario.org>
+#    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,19 +21,6 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
-from wizard import *
+from wizard_top_diseases import *
+from wizard_evaluations import *
 
-def register():
-    Pool.register(
-        TopDiseases,
-        OpenTopDiseasesStart,
-        OpenEvaluationsStart,
-        EvaluationsDoctor,
-        EvaluationsSpecialty,
-        EvaluationsSector,
-        module='health_reporting', type_='model')
-    Pool.register(
-        OpenTopDiseases,
-        OpenEvaluations,
-        module='health_reporting', type_='wizard')
