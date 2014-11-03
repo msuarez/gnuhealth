@@ -20,6 +20,7 @@
 #
 ##############################################################################
 
+from datetime import datetime, timedelta, date
 from trytond.model import ModelView, fields
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
@@ -38,6 +39,14 @@ class SummaryReportStart(ModelView):
     start_date = fields.Date("Start")
     end_date = fields.Date("End")
 
+    @staticmethod
+    def default_start_date():
+        return date.today()
+
+    @staticmethod
+    def default_end_date():
+        return date.today()
+
 class SummaryReport(Wizard):
     'Open Institution Summary Report'
     __name__ = 'gnuhealth.summary.report.open'
@@ -50,5 +59,15 @@ class SummaryReport(Wizard):
     
     open_ = StateAction('health_reporting.report_summary_information')
 
+    def fill_data(self):
+        return {
+            'institution': self.start.institution,
+            'start_date': self.start.start_date,
+            'end_date': self.start.end_date,
+        }
+    
+    def do_open_(self, action):
+        return action, self.fill_data()
+            
     def transition_open_(self):
         return 'end'

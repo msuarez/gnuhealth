@@ -22,21 +22,35 @@
 from datetime import datetime
 from trytond.report import Report
 from trytond.pool import Pool
+from trytond.transaction import Transaction
 
-__all__ = ['SummaryReport']
+__all__ = ['InstitutionSummaryReport']
 
-
-class SummaryReport(Report):
+class InstitutionSummaryReport(Report):
     __name__ = 'gnuhealth.summary.report'
 
     @classmethod
-    def parse(cls, report, objects, data, localcontext):
-        Patient = Pool.get('gnuhealth.patient')
-        Evaluation = Pool.get('gnuhealth.patient.evaluation')
-
-        localcontext['new_patients'] = 10
+    def get_new_patients(cls, start_date, end_date):
         
-        return super(SummaryReport, cls).parse(report,
-            objects, data, localcontext)
+        cursor = Transaction().cursor
+        cursor.execute("SELECT COUNT(activation_date) \
+            FROM party_party \
+            WHERE activation_date BETWEEN \
+            %s AND %s",(start_date, end_date))
+       
+        res = cursor.fetchone()
+        return(res)
 
+    @classmethod
+    def parse(cls, report, objects, data, localcontext):
+        Patient = Pool().get('gnuhealth.patient')
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+
+        start_date = data['start_date']
+        end_date = data['end_date']
+
+        localcontext['new_patients'] = InstitutionSummaryReport().get_new_patients(start_date, end_date)
+
+        return super(InstitutionSummaryReport, cls).parse(report,
+            objects, data, localcontext)
 
