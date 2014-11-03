@@ -27,6 +27,7 @@ def register():
         TopDiseases,
         OpenTopDiseasesStart,
         OpenEvaluationsStart,
+        SummaryReportStart,
         EvaluationsDoctor,
         EvaluationsSpecialty,
         EvaluationsSector,
@@ -34,4 +35,10 @@ def register():
     Pool.register(
         OpenTopDiseases,
         OpenEvaluations,
+        SummaryReport,
         module='health_reporting', type_='wizard')
+
+    Pool.register(
+        SummaryReport,
+        module='health_reporting', type_='report')
+
