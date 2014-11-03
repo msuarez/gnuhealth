@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Institution Summary Report">
+    <label name="start_date"/>
+    <field name="start_date"/>
+    <label name="end_date"/>
+    <field name="end_date"/>
+    <label name="institution"/>
+    <field name="institution"/>
+</form>

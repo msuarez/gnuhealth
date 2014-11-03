@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.action.report" id="report_summary_information">
+            <field name="name">Summary Report</field>
+            <field name="report_name">gnuhealth.summary.report</field>
+            <field name="report">health_reporting/report/summary_report.odt</field>
+        </record>
+
+    </data>
+</tryton>
