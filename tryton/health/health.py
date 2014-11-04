@@ -30,7 +30,9 @@ from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
-
+from uuid import uuid4
+import string
+import random
 
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
@@ -300,6 +302,22 @@ class PartyPatient (ModelSQL, ModelView):
         return date.today()
 
     @classmethod
+    def generate_puid(cls):
+        # Add a default random string in the ref field.
+        # The STRSIZE constant provides the length of the PUID
+        # The format of the PUID is XXXNNNXXX
+        # By default, this field will be used only if nothing is entered
+        
+        STRSIZE = 9
+        puid = ''
+        for x in range(STRSIZE): 
+            if ( x < 3 or x > 5 ):
+                puid = puid + random.choice(string.ascii_uppercase)
+            else:
+                puid = puid + random.choice(string.digits)
+        return puid
+
+    @classmethod
     def write(cls, parties, vals):
         # We use this method overwrite to make the fields that have a unique
         # constraint get the NULL value at PostgreSQL level, and not the value
@@ -311,14 +329,34 @@ class PartyPatient (ModelSQL, ModelView):
 
     @classmethod
     def create(cls, vlist):
-        # We use this method overwrite to make the fields that have a unique
-        # constraint get the NULL value at PostgreSQL level, and not the value
-        # '' coming from the client
+        Configuration = Pool().get('party.configuration')
 
         vlist = [x.copy() for x in vlist]
         for values in vlist:
-            if 'ref' in values and not values['ref']:
-                values['ref'] = None
+
+            if not 'ref' in values or values['ref'] == '':
+                values['ref'] = cls.generate_puid()
+                if 'unidentified' in values and values['unidentified']:
+                    values['ref'] = 'NN-' + values.get('ref')
+                if 'is_person' in values and not values['is_person']:
+                    values['ref'] = 'NP-' + values['ref']
+            if not values.get('code'):
+                config = Configuration(1)
+                # Use the company name . Initially, use the name
+                # since the company hasn't been created yet.
+                prefix = Transaction().context.get('company.rec_name') \
+                    or values['name']
+                # Generate the party code in the form of 
+                # "Company-UUID" . Where company is the name of the Health
+                # Institution.
+                #
+                # The field "code" is the one that is used in distributed
+                # environments, with multiple GNU Health instances across
+                # a country / region
+                values['code'] = str(prefix) + '-' + \
+                    str(uuid4())
+
+            values.setdefault('addresses', None)
 
         return super(PartyPatient, cls).create(vlist)
 
