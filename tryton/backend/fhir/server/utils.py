@@ -1,4 +1,5 @@
 from werkzeug.routing import BaseConverter, ValidationError
+import re
 #### SOME HELPFUL FUNCTIONS ####
 def dt_parser(string):
     '''Fall-back date type parser.
@@ -81,6 +82,16 @@ def number_parser(string):
     floats=[float(x) for x in split]
     return (prefix, floats)
 
+def quantity_parser(string):
+    '''Parser for quantity type
+        TODO: Handle ~
+        TODO: Handle units, etc.'''
+    prefixes=('<=', '>=', '<', '>')
+    prefix, tmp = pop_prefix(string, prefixes)
+    split = split_string(tmp)
+    floats=[float(x) for x in split]
+    return (prefix, floats)
+
 def string_parser(string):
     '''Parser for string type'''
     tmp = split_string(string)
@@ -93,8 +104,11 @@ def search_query_generate(endpoint_info, args):
         endpoint_info :::
             {<parameter>: ([<model.attribute>, ...], <type>),
             ...}
+                --- NOTE: Different for user-defined parameters
         args ::::
             request.args object
+        returns :::
+            (query, field_names)
     '''
     #TODO Make cleaner structures
 
@@ -105,18 +119,18 @@ def search_query_generate(endpoint_info, args):
     search_types={'number': (number_parser, ('missing')),
                 'date': (date_parser, ('missing')),
                 'string': (string_parser, ('exact', 'missing')),
+                'user-defined': (string_parser, ('exact', 'missing')),
                 'token': (string_parser, ('text' 'missing')),
-                'quantity': (string_parser, ('missing')), 
+                'quantity': (quantity_parser, ('missing')), 
                 'reference': (string_parser, ('missing')), #todo [type]
                 'composite': (string_parser, None)}
     #FIX WOW UGLY!
     query=[]
+    field_names=[]
     for key in args.iterkeys():
-        print 'key:', key
 
         #Converted key to key and suffix
         new_key, suffix= pop_suffix(key)
-        print 'new_key:', new_key, suffix
 
         info=endpoint_info.get(new_key)
         if info is None:
@@ -129,15 +143,36 @@ def search_query_generate(endpoint_info, args):
         values=args.getlist(key, type=search_types[db_type][0])
         if values is None:
             continue
-        print 'values:',values
+
+        if db_type == 'user-defined':
+            # TODO Fix this hack
+            #   Handle user-defined values
+            #   {<Value>: <field_name>)...}
+            #   If value matches, add field name
+            for pre,value in values:
+                for v in value:
+                    if suffix == 'text':
+                        st = ''.join(['.*', v, '.*'])
+                        reg = re.compile(st, re.IGNORECASE)
+                        for k,att in db_key.items():
+                            m = reg.match(k)
+                            if m:
+                                field_names.append(att)
+                    else:
+                        # Matches exactly
+                        if v in db_key:
+                            field_names.append(db_key[v])
+            if field_names:
+                continue
+            else:
+                # No matches on this key... therefore break
+                return (None, [])
 
         for pre,value in values:
             #Could be singleton or list of lists
             composite = False
             if len(value) != 1:
                 composite = True
-
-            print 'comp:', composite
 
             if len(db_key) > 1:
                 a=['OR']
@@ -163,7 +198,7 @@ def search_query_generate(endpoint_info, args):
                         else:
                             a.append((k, pre or '=', value[0]))
             query.append(a)
-    return query
+    return (query, field_names)
 
 def get_address(string):
     '''Given string, retrieve full address, easily parsed'''

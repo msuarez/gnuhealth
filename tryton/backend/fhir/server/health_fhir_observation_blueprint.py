@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_Observation, health_OperationOutcome, parse, parseEtree, Bundle, find_record
+from health_fhir import health_Patient, health_Observation, Observation_Map, health_OperationOutcome, parse, parseEtree, Bundle, find_record, FieldError
 from extensions import tryton
 import lxml
 import json
@@ -23,9 +23,6 @@ rounds = tryton.pool.get('gnuhealth.patient.rounding')
 
 # Ambulatory care
 amb = tryton.pool.get('gnuhealth.patient.ambulatory_care')
-
-# Imaging result
-image = tryton.pool.get('gnuhealth.imaging.test.result')
 
 # ICU
 icu = tryton.pool.get('gnuhealth.icu.apache2')
@@ -68,34 +65,38 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        allowed={'_id': (['id'], 'token'), 
-                '_language': None,
-                'date': None,
-                'name': None,
-                'performer': None,
-                'reliability': None,
-                'related': None,
-                'related-target': None,
-                'related-type': None,
-                'specimen': None,
-                'status': None,
-                'subject': None, 
-                'value-concept': None,
-                'value-date': None,
-                'value-quantity': None,
-                'value-string': None}
         try:
             bd=Bundle(request=request)
-            for model in model_map.values():
-                query=search_query_generate(allowed, request.args)
+            m = Observation_Map()
+            for k,v in m.search_mapping.items():
+                query, fields=search_query_generate(v, request.args)
                 if query is not None:
-                    recs = model.search(query)
-                    if recs:
-                        bd.add_entries(recs)
+                    recs = model_map[k].search(query)
+                    for rec in recs:
+                        # If specific fields match
+                        if fields:
+                            for f in fields:
+                                try:
+                                    o = health_Observation(gnu_record=rec, field=f)
+                                except:
+                                    continue
+                                else:
+                                    bd.add_entry(o)
+                        else:
+                            # No fields match
+                            try:
+                                o = health_Observation(gnu_record=rec)
+                            except:
+                                continue
+                            else:
+                                bd.add_entry(o)
             if bd.entries:
                 return bd, 200
             else:
-                return 'No matching record(s)', 403
+                st =[]
+                for k,v in request.args.items():
+                    st.append(':'.join([k,v]))
+                return 'No matching record(s) for {0}'.format(' '.join(st)), 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
@@ -168,8 +169,7 @@ class Record(Resource):
         if record:
             d=health_Observation()
             try:
-                d.set_gnu_observation(record, model=log_id[0], field=field)
-                d.import_from_gnu_observation()
+                d.set_gnu_observation(record, field=field)
             except:
                 # Classed raised error
                 return 'Record not found', 404

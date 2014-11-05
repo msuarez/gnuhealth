@@ -1,76 +1,190 @@
-from flask import current_app
+from flask import current_app, request
 from StringIO import StringIO
-from datetime import datetime
 from .datastore import find_record
 from operator import attrgetter
 import fhir as supermod
-from utils import get_address
 import sys
 
+class FieldError(Exception): pass
+
+class Observation_Map(object):
+    """This class holds the mapping between GNU Health and FHIR
+        for the Observation resource
+    """
+    model_mapping = {
+        'gnuhealth.lab.test.critearea':
+            {'patient': 'gnuhealth_lab_id.patient',
+            'date': 'gnuhealth_lab_id.date_analysis',
+            'comments': 'remarks',
+            'value': 'result'},
+        'gnuhealth.icu.apache2':
+            { 'patient': 'name.patient',
+            'date': 'score_date',
+            'fields': {
+                'rate': 'respiratory_rate',
+                'pulse': 'heart_rate',
+                'temp': 'temperature'}},
+        'gnuhealth.patient.ambulatory_care':
+            { 'patient': 'patient',
+            'comments': 'session_notes',
+            'date': 'session_start',
+            'performer': 'health_professional',
+            'fields': {
+                'rate': 'respiratory_rate',
+                'pulse': 'bpm',
+                'temp': 'temperature',
+                'press_d': 'diastolic',
+                'press_s': 'systolic'}},
+        'gnuhealth.patient.evaluation':
+            {'patient': 'patient',
+            'comments': 'notes',
+            'date': 'evaluation_start',
+            'performer': 'healthprof',
+            'fields': {
+                'rate': 'respiratory_rate',
+                'pulse': 'bpm',
+                'temp': 'temperature',
+                'press_d': 'diastolic',
+                'press_s': 'systolic'}},
+        'gnuhealth.patient.rounding':
+            {'patient': 'name.patient',
+            'comments': 'round_summary',
+            'date': 'evaluation_start',
+            'performer': 'health_professional',
+            'fields': {
+                'rate': 'respiratory_rate',
+                'pulse': 'bpm',
+                'temp': 'temperature',
+                'press_d': 'diastolic',
+                'press_s': 'systolic'}}}
+
+    search_mapping ={
+            'lab':
+                    {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    '_language': None,
+                    'date': (['gnuhealth_lab_id.date_analysis'], 'date'),
+                    'name': (['name'], 'token'),
+                    'performer': None,
+                    'reliability': None,
+                    'related': None,
+                    'related-target': None,
+                    'related-type': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['gnuhealth_lab_id.patient'], 'reference'), 
+                    'value-concept': None,
+                    'value-date': None,
+                    'value-quantity': (['result'], 'quantity'),
+                    'value-string': None},
+            'eval': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    '_language': None,
+                    'date': None,
+                    # These values point to keys on the 'fields' dict
+                    'name': ({'Respiratory rate': 'rate',
+                                'Heart rate': 'pulse', 'Systolic pressure': 'press_s',
+                                'Diastolic pressure': 'press_d',
+                                'Temperature': 'temp'}, 'user-defined'),
+                    'performer': (['healthprof'], 'reference'),
+                    'reliability': None,
+                    'related': None,
+                    'related-target': None,
+                    'related-type': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['patient'], 'reference'), 
+                    'value-concept': None,
+                    'value-date': None,
+                    'value-quantity': (['respiratory_rate', 'bpm','diastolic','systolic', 'temperature'], 'quantity'),
+                    'value-string': None},
+            'icu': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    '_language': None,
+                    'date': None,
+                    # These values point to keys on the 'fields' dict
+                    'name': ({'Respiratory rate': 'rate',
+                                'Heart rate': 'pulse',
+                                'Temperature': 'temp'}, 'user-defined'),
+                    'performer': None,
+                    'reliability': None,
+                    'related': None,
+                    'related-target': None,
+                    'related-type': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['name.patient'], 'reference'), 
+                    'value-concept': None,
+                    'value-date': None,
+                    'value-quantity': (['respiratory_rate', 'heart_rate', 'temperature'], 'quantity'),
+                    'value-string': None},
+            'rounds': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    '_language': None,
+                    'date': None,
+                    # These values point to keys on the 'fields' dict
+                    'name': ({'Respiratory rate': 'rate',
+                                'Heart rate': 'pulse', 'Systolic pressure': 'press_s',
+                                'Diastolic pressure': 'press_d',
+                                'Temperature': 'temp'}, 'user-defined'),
+                    'performer': (['health_professional'], 'reference'),
+                    'reliability': None,
+                    'related': None,
+                    'related-target': None,
+                    'related-type': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['name.patient'], 'reference'), 
+                    'value-concept': None,
+                    'value-date': None,
+                    'value-quantity': (['respiratory_rate', 'bpm','diastolic','systolic', 'temperature'], 'quantity'),
+                    'value-string': None},
+            'amb': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    '_language': None,
+                    'date': None,
+                    # These values point to keys on the 'fields' dict
+                    'name': ({'Respiratory rate': 'rate',
+                                'Heart rate': 'pulse', 'Systolic pressure': 'press_s',
+                                'Diastolic pressure': 'press_d',
+                                'Temperature': 'temp'}, 'user-defined'),
+                    'performer': (['health_professional'], 'reference'),
+                    'reliability': None,
+                    'related': None,
+                    'related-target': None,
+                    'related-type': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['patient'], 'reference'),
+                    'value-concept': None,
+                    'value-date': None,
+                    'value-quantity': (['respiratory_rate', 'bpm','diastolic','systolic', 'temperature'], 'quantity'),
+                    'value-string': None}}
+
 #TODO Put restrictions on code values (interp, status, reliability, etc)
-
-class health_Observation(supermod.Observation):
+class health_Observation(supermod.Observation, Observation_Map):
     def __init__(self, *args, **kwargs):
+        gnu=kwargs.pop('gnu_record', None)
+        field=kwargs.pop('field', None)
         super(health_Observation, self).__init__(*args, **kwargs)
-        self.model_mapping = {
-                'lab': {'patient': 'gnuhealth_lab_id.patient',
-                    'date': 'gnuhealth_lab_id.date_analysis',
-                    'comments': 'remarks',
-                    'value': 'result'},
-                'icu':{ 'patient': 'name.patient',
-                    'date': 'score_date',
-                    'fields': {
-                        'rate': 'respiratory_rate',
-                        'pulse': 'heart_rate',
-                        'temp': 'temperature'}},
-                'amb': { 'patient': 'patient',
-                    'comments': 'session_notes',
-                    'date': 'session_start',
-                    'fields': {
-                        'rate': 'respiratory_rate',
-                        'pulse': 'bpm',
-                        'temp': 'temperature',
-                        'press_d': 'diastolic',
-                        'press_s': 'systolic'}},
-                'eval': {'patient': 'patient',
-                    'comments': 'notes',
-                    'date': 'evaluation_start',
-                    'fields': {
-                        'rate': 'respiratory_rate',
-                        'pulse': 'bpm',
-                        'temp': 'temperature',
-                        'press_d': 'diastolic',
-                        'press_s': 'systolic'}},
-                'rounds': {'patient': 'name.patient',
-                    'comments': 'round_summary',
-                    'date': 'evaluation_start',
-                    'fields': {
-                        'rate': 'respiratory_rate',
-                        'pulse': 'bpm',
-                        'temp': 'temperature',
-                        'press_d': 'diastolic',
-                        'press_s': 'systolic'}}}
+        if gnu:
+            self.set_gnu_observation(gnu, field=field)
 
-    def set_gnu_observation(self, obs, model='lab', field=None):
+    def set_gnu_observation(self, obs, field=None):
         """Set gnu observation"""
         self.gnu_obs = obs
         self.field = field
-        self.model_type = model
+        self.model_type = self.gnu_obs.__name__
 
         # Only certain models
         if self.model_type not in self.model_mapping:
             raise ValueError('Not a valid model')
 
+        self.map = self.model_mapping[self.model_type]
+
         # These models require fields
-        if self.model_type in ('eval', 'rounds', 'amb', 'icu'):
-            if self.field is None: raise ValueError('Require a field')
+        if self.map.get('fields') and self.field is None:
+            raise FieldError('This model requires a field')
 
         # Not these
-        if self.model_type in ('lab'):
-            if self.field is not None:
-                raise ValueError('Bad field addendum')
+        if self.map.get('value') and self.field is not None:
+            raise ValueError('Ambiguous field; not required')
 
-        self.map = self.model_mapping[self.model_type]
         if self.field:
             self.model_field = self.map['fields'][self.field]
             self.description=self.gnu_obs.fields_get(self.model_field)[self.model_field]['string']
@@ -78,12 +192,16 @@ class health_Observation(supermod.Observation):
             self.model_field = self.map['value']
             self.description = self.gnu_obs.name
 
+        # Quietly import the info
+        self.__import_from_gnu_observation()
+
     def create_observation(self, lab_test, units, lab_result, patient):
         """Create observation.
 
         ***Must be connected to a patient***
 
         NOTE: Must create singleton Lab Test at the moment(?)
+        NOTE: Where to put vital signs? Evals?
         """
         patient_id = find_record(patient, [('id', '=', self.models['patient']['id'])])
         if not patient_id:
@@ -98,7 +216,16 @@ class health_Observation(supermod.Observation):
     def __set_gnu_models(self):
         pass
 
-    def import_from_gnu_observation(self):
+    def __set_feed_info(self):
+        if self.gnu_obs:
+            self.feed={'id': self.gnu_obs.id,
+                    'published': self.gnu_obs.create_date,
+                    'updated': self.gnu_obs.write_date or self.gnu_obs.create_date,
+                    'title': self.identifier.label.value
+                        }
+
+
+    def __import_from_gnu_observation(self):
         """Imports Health values into
             Observation structure"""
         if self.gnu_obs:
@@ -111,6 +238,10 @@ class health_Observation(supermod.Observation):
             self.__set_gnu_status()
             self.__set_gnu_reliability()
             self.__set_gnu_issued()
+            self.__set_gnu_performer()
+            self.__set_gnu_name()
+
+            self.__set_feed_info()
 
     def set_applies_date_time(self):
         pass
@@ -131,18 +262,15 @@ class health_Observation(supermod.Observation):
 
     def __set_gnu_identifier(self):
         if self.gnu_obs:
-            id = self.gnu_obs.id
             obj = self.description
-            patient, time = attrgetter(self.map['patient'], self.map['date'])(self.gnu_obs)
+            id, patient, time = attrgetter('id', self.map['patient'], self.map['date'])(self.gnu_obs)
 
             if id and obj and patient and time:
                 label = '{0} value for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
-                value = '-'.join([self.model_type, str(id)])
-                if self.field:
-                    value='-'.join((value, self.field))
+                value = request.path.split('/')[-1]
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
-                            system=supermod.uri(value='gnuhealth::0'), #TODO
+                            #system=supermod.uri(value='gnuhealth::0'), #TODO
                             value=supermod.string(value=value))
                 self.set_identifier(ident)
 
@@ -193,11 +321,39 @@ class health_Observation(supermod.Observation):
     def set_method(self):
         pass
 
-    def set_name(self):
-        pass
+    def __set_gnu_name(self):
+        #TODO Support better coding
+        if self.gnu_obs:
+            name = supermod.CodeableConcept()
+            name.coding = [supermod.Coding()]
+            name.coding[0].display = supermod.string(value=self.description)
+            self.set_name(name)
 
-    def set_performer(self):
-        pass
+    def set_name(self, name):
+        '''Set the observation type'''
+        if name:
+            super(health_Observation, self).set_name(name)
+
+    def __set_gnu_performer(self):
+        if self.gnu_obs:
+            try:
+                p = attrgetter(self.map['performer'])(self.gnu_obs)
+                uri = ''.join(['/Practioner/', str(p.id)])
+                display = p.name.rec_name
+                ref=supermod.ResourceReference()
+                ref.display = supermod.string(value=display)
+                ref.reference = supermod.string(value=uri)
+            except:
+                # Not absolutely needed, so continue execution
+                pass
+            else:
+                self.set_performer([ref])
+
+    def set_performer(self, performer):
+        '''Set who/what captured the observation'''
+        if performer:
+            super(health_Observation, self).set_performer(performer)
+
 
     def __set_gnu_referenceRange(self):
         if self.gnu_obs:
@@ -279,6 +435,8 @@ class health_Observation(supermod.Observation):
                     q.system = supermod.uri(value=system)
                 self.set_valueQuantity(q)
             else:
+                # If there is no value, the observation is useless
+                #    Therefore, exit early (handle this in the blueprint)
                 raise ValueError('No value.')
 
     def set_valueQuantity(self, quantity):
@@ -291,6 +449,8 @@ class health_Observation(supermod.Observation):
             try:
                 patient = attrgetter(self.map['patient'])(self.gnu_obs)
                 if not patient:
+                    # If there is no connected patient, the observation is useless
+                    #    Therefore, exit early (handle this in the blueprint)
                     raise ValueError('No patient field')
 
                 uri = ''.join(['/Patient/', str(patient.id)])
@@ -299,7 +459,8 @@ class health_Observation(supermod.Observation):
                 ref.display = supermod.string(value=display)
                 ref.reference = supermod.string(value=uri)
             except:
-                raise ValueError('Unknown error')
+                # Errors in this section must stop execution
+                raise
             else:
                 self.set_subject(ref)
 
@@ -307,6 +468,13 @@ class health_Observation(supermod.Observation):
         """Set subject (usually patient)"""
         if subject:
             super(health_Observation, self).set_subject(subject)
+
+    def export_to_xml_string(self):
+        output = StringIO()
+        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
+        content = output.getvalue()
+        output.close()
+        return content
 
 class health_Observation_ReferenceRange(supermod.Observation_ReferenceRange):
     pass
@@ -322,3 +490,4 @@ class health_ObservationStatus(supermod.ObservationStatus):
 
 class health_ObservationRelationshipType(supermod.ObservationRelationshipType):
     pass
+

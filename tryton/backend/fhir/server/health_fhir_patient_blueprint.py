@@ -84,12 +84,14 @@ class Search(Resource):
                 'phonetic': None,
                 'provider': None,
                 'telecom': None}
-        query=search_query_generate(allowed, request.args)
+        query=search_query_generate(allowed, request.args)[0] #no field names
         if query is not None:
             recs = patient.search(query)
             if recs:
                 bd=Bundle(request=request)
-                bd.add_entries(recs)
+                for rec in recs:
+                    p = health_Patient(gnu_record=rec)
+                    bd.add_entry(p)
                 return bd, 200
             else:
                 return 'No matching record(s)', 403
@@ -165,9 +167,7 @@ class Record(Resource):
         #TODO Use converter?
         record = find_record(patient, [('id', '=', log_id)])
         if record:
-            d=health_Patient()
-            d.set_gnu_patient(record)
-            d.import_from_gnu_patient()
+            d=health_Patient(gnu_record=record)
             return d, 200
         else:
             return 'Record not found', 404

@@ -16,11 +16,19 @@ class health_Patient(supermod.Patient):
         the GNU Health models for Patient resource
     '''
 
+    def __init__(self, *args, **kwargs):
+        gnu=kwargs.pop('gnu_record', None)
+        super(health_Patient, self).__init__(*args, **kwargs)
+        if gnu:
+            self.set_gnu_patient(gnu)
+
     def set_gnu_patient(self, gnu):
         '''Set gnu patient record'''
-        self.gnu_patient = gnu #gnu health model
+        if gnu:
+            self.gnu_patient = gnu #gnu health model
+            self.__import_from_gnu_patient()
 
-    def import_from_gnu_patient(self):
+    def __import_from_gnu_patient(self):
         '''Get info from gnu model and set it'''
         if self.gnu_patient and getattr(self.gnu_patient, 'name', None):
             self.__set_identifier()
@@ -39,6 +47,18 @@ class health_Patient(supermod.Patient):
             self.__set_managing_organization()
             self.__set_link()
             self.__set_active()
+
+            self.__set_feed_info()
+
+    def __set_feed_info(self):
+        ''' Sets the feed-relevant info
+        '''
+        if self.gnu_patient:
+            self.feed={'id': self.gnu_patient.id,
+                    'published': self.gnu_patient.create_date,
+                    'updated': self.gnu_patient.write_date or self.gnu_patient.create_date,
+                    'title': self.gnu_patient.name.rec_name
+                        }
 
     def set_models(self):
         '''Set info for models'''
