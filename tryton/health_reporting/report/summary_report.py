@@ -31,12 +31,23 @@ class InstitutionSummaryReport(Report):
 
     @classmethod
     def get_new_patients(cls, start_date, end_date):
-        
+        """ Return Total Number of new registered patients """
         cursor = Transaction().cursor
         cursor.execute("SELECT COUNT(activation_date) \
             FROM party_party \
             WHERE activation_date BETWEEN \
-            %s AND %s",(start_date, end_date))
+            %s AND %s and is_patient=True",(start_date, end_date))
+       
+        res = cursor.fetchone()
+        return(res)
+
+    @classmethod
+    def get_total_patients(cls):
+        """ Return Total Number of registered patients in the system """
+        cursor = Transaction().cursor
+        cursor.execute("SELECT COUNT(activation_date) \
+            FROM party_party \
+            WHERE is_patient=True")
        
         res = cursor.fetchone()
         return(res)
@@ -49,7 +60,13 @@ class InstitutionSummaryReport(Report):
         start_date = data['start_date']
         end_date = data['end_date']
 
-        localcontext['new_patients'] = InstitutionSummaryReport().get_new_patients(start_date, end_date)
+        localcontext['start_date'] = data['start_date']
+        localcontext['end_date'] = data['end_date']
+
+        localcontext['new_patients'] = \
+            InstitutionSummaryReport().get_new_patients(start_date, end_date)
+        localcontext['total_patients'] = \
+            InstitutionSummaryReport().get_total_patients()
 
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
