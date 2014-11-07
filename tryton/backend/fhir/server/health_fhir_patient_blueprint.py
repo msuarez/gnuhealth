@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record
+from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record, Search
 from extensions import tryton
 from utils import search_query_generate, get_address
 import lxml
@@ -67,24 +67,8 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        allowed={'_id': (['id'], 'token'), 
-                '_language': None,
-                'active': None,
-                'address': None,
-                'animal-breed': None,
-                'animal-species': None,
-                'birthdate': (['name.dob'], 'date'),
-                'family': (['name.lastname'], 'string'),
-                'gender': (['name.sex'], 'token'),
-                'given': (['name.name'], 'string'),
-                'identifier': (['puid'], 'token'),
-                'language': (['name.lang.code'], 'token'),
-                'link': None,
-                'name': (['name.lastname', 'name.name'], 'string'),
-                'phonetic': None,
-                'provider': None,
-                'telecom': None}
-        query=search_query_generate(allowed, request.args)[0] #no field names
+        p = Patient_Map()
+        query=search_query_generate(p.search_mapping, request.args)[0]
         if query is not None:
             recs = patient.search(query)
             if recs:

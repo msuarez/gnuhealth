@@ -6,12 +6,29 @@ import fhir as supermod
 from utils import get_address
 import sys
 
+class Patient_Map(object):
+    search_mapping={'_id': (['id'], 'token'), 
+                '_language': None,
+                'active': None,
+                'address': None,
+                'animal-breed': None,
+                'animal-species': None,
+                'birthdate': (['name.dob'], 'date'),
+                'family': (['name.lastname'], 'string'),
+                'gender': (['name.sex'], 'token'),
+                'given': (['name.name'], 'string'),
+                'identifier': (['puid'], 'token'),
+                'language': (['name.lang.code'], 'token'),
+                'link': None,
+                'name': (['name.lastname', 'name.name'], 'string'),
+                'phonetic': None,
+                'provider': None,
+                'telecom': None}
+
 
 #TODO: Use and add to parent methods
 #TODO: Have standard None/True/False checks and conventions
-
-
-class health_Patient(supermod.Patient):
+class health_Patient(supermod.Patient, Patient_Map):
     '''Mediate between XML/JSON schema bindings and
         the GNU Health models for Patient resource
     '''
