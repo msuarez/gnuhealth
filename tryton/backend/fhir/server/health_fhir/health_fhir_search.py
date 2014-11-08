@@ -1,8 +1,10 @@
 from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
+import re
 
-class Search(object):
+class health_Search:
     """This class computes search queries"""
+
     def __init__(self, endpoint=None):
         if endpoint is None:
             raise ValueError('Need endpoint value')
@@ -13,6 +15,7 @@ class Search(object):
         self.endpoint=endpoint
         self.patient=Patient_Map()
         self.observation=Observation_Map()
+
         self.__get_dt_parser()
 
     def __get_dt_parser(self):
@@ -130,7 +133,20 @@ class Search(object):
                     'paramaters': string.split('.')}
         return d
 
-    def search_query_generate(self, args):
+    def get_queries(self, args):
+        queries = []
+        self.endpoint_info = getattr(self, self.endpoint)
+        if not self.endpoint_info:
+            raise ValueError('No endpoint info; should not happen... weird')
+        for k,v in self.endpoint_info.search_mapping.items():
+            try:
+                fields = self.endpoint_info.model_mapping[self.endpoint_info.term_model_mapping[k]].get('fields', [])
+            except:
+                fields = []
+            queries.append(self.__search_query_generate(v, args, k, fields))
+        return queries
+
+    def __search_query_generate(self, model_info, args, model, fields):
         '''Generates an usable search query
             for tryton from endpoint_info
 
@@ -140,12 +156,12 @@ class Search(object):
                     --- NOTE: Different for user-defined parameters
             args ::::
                 request.args object
+                info endpoint
+                model string (only relevant for multi-model resources)
+                fields all possible fields w/i model (only set for multi-resource model singletons)
             returns :::
-                (query, field_names)
+                (query, fields, model)
         '''
-        endpoint_info = getattr(self, self.endpoint)
-        if not endpoint_info:
-            raise ValueError('No endpoint info; should not happen... weird')
 
         #TODO Make cleaner structures
 
@@ -163,13 +179,13 @@ class Search(object):
                     'composite': (self.string_parser, None)}
         #FIX WOW UGLY!
         query=[]
-        field_names=[]
+        field_names=fields
         for key in args.iterkeys():
 
             #Converted key to key and suffix
             new_key, suffix= self.pop_suffix(key)
 
-            info=endpoint_info.search_mapping.get(new_key)
+            info=model_info.get(new_key)
             if info is None:
                 continue
 
@@ -182,10 +198,15 @@ class Search(object):
                 continue
 
             if db_type == 'user-defined':
+                ANY_USER_DEFINED=True
                 # TODO Fix this hack
                 #   Handle user-defined values
                 #   {<Value>: <field_name>)...}
                 #   If value matches, add field name
+                
+                # Since we are building, not sieving, start from scratch
+                field_names = []
+
                 for pre,value in values:
                     for v in value:
                         if suffix == 'text':
@@ -196,14 +217,14 @@ class Search(object):
                                 if m:
                                     field_names.append(att)
                         else:
-                            # Matches exactly
+                            # Must match exactly
                             if v in db_key:
                                 field_names.append(db_key[v])
                 if field_names:
                     continue
                 else:
                     # No matches on this key... therefore break
-                    return (None, [])
+                    return {'query': None, 'model': model ,'fields': []}
 
             for pre,value in values:
                 #Could be singleton or list of lists
@@ -235,4 +256,4 @@ class Search(object):
                             else:
                                 a.append((k, pre or '=', value[0]))
                 query.append(a)
-        return (query, field_names)
+        return {'query': query, 'fields': field_names, 'model': model}

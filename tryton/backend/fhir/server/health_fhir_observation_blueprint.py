@@ -2,14 +2,15 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_Observation, Observation_Map, health_OperationOutcome, parse, parseEtree, Bundle, find_record, FieldError
+from health_fhir import (health_Patient, health_Observation, Observation_Map,
+        health_OperationOutcome, parse, parseEtree, Bundle, health_Search,
+        find_record, FieldError)
 from extensions import tryton
 import lxml
 import json
 import os.path
 import sys
 from flask.ext.restful import Api
-from utils import search_query_generate
 
 
 # Lab result model (sp?)
@@ -66,16 +67,17 @@ class Search(Resource):
     def get(self):
         '''Search interaction'''
         try:
-            bd=Bundle(request=request)
-            m = Observation_Map()
-            for k,v in m.search_mapping.items():
-                query, fields=search_query_generate(v, request.args)
-                if query is not None:
-                    recs = model_map[k].search(query)
+            # TODO Pass the models to the class to cleanup this uglines
+            bd = Bundle(request=request)
+            s = health_Search(endpoint='observation')
+            queries = s.get_queries(request.args)
+            for query in queries:
+                if query['query'] is not None:
+                    recs = model_map[query['model']].search(query['query'])
                     for rec in recs:
                         # If specific fields match
-                        if fields:
-                            for f in fields:
+                        if query['fields']:
+                            for f in query['fields']:
                                 try:
                                     o = health_Observation(gnu_record=rec, field=f)
                                 except:
@@ -83,7 +85,7 @@ class Search(Resource):
                                 else:
                                     bd.add_entry(o)
                         else:
-                            # No fields match
+                            # Model does not need field
                             try:
                                 o = health_Observation(gnu_record=rec)
                             except:

@@ -6,8 +6,10 @@ import fhir as supermod
 from utils import get_address
 import sys
 
-class Patient_Map(object):
-    search_mapping={'_id': (['id'], 'token'), 
+class Patient_Map:
+    search_mapping={
+            'patient':{
+                '_id': (['id'], 'token'), 
                 '_language': None,
                 'active': None,
                 'address': None,
@@ -23,7 +25,7 @@ class Patient_Map(object):
                 'name': (['name.lastname', 'name.name'], 'string'),
                 'phonetic': None,
                 'provider': None,
-                'telecom': None}
+                'telecom': None}}
 
 
 #TODO: Use and add to parent methods

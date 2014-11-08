@@ -7,7 +7,7 @@ import sys
 
 class FieldError(Exception): pass
 
-class Observation_Map(object):
+class Observation_Map:
     """This class holds the mapping between GNU Health and FHIR
         for the Observation resource
     """
@@ -57,6 +57,12 @@ class Observation_Map(object):
                 'temp': 'temperature',
                 'press_d': 'diastolic',
                 'press_s': 'systolic'}}}
+    term_model_mapping ={
+            'lab': 'gnuhealth.lab.test.critearea',
+            'rounds': 'gnuhealth.patient.rounding',
+            'eval': 'gnuhealth.patient.evaluation',
+            'amb': 'gnuhealth.patient.ambulatory_care',
+            'icu': 'gnuhealth.icu.apache2'}
 
     search_mapping ={
             'lab':

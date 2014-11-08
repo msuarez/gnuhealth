@@ -2,9 +2,9 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record, Search
+from health_fhir import health_Patient, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
 from extensions import tryton
-from utils import search_query_generate, get_address
+from utils import get_address
 import lxml
 import json
 import os.path
@@ -67,21 +67,27 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        p = Patient_Map()
-        query=search_query_generate(p.search_mapping, request.args)[0]
-        if query is not None:
-            recs = patient.search(query)
-            if recs:
-                bd=Bundle(request=request)
-                for rec in recs:
-                    p = health_Patient(gnu_record=rec)
-                    bd.add_entry(p)
+        s = health_Search(endpoint='patient')
+        queries=s.get_queries(request.args)
+        bd=Bundle(request=request)
+        try:
+            for query in queries:
+                if query['query'] is not None:
+                    recs = patient.search(query['query'])
+                    if recs:
+                        for rec in recs:
+                            p = health_Patient(gnu_record=rec)
+                            bd.add_entry(p)
+            if bd.entries:
                 return bd, 200
             else:
-                return 'No matching record(s)', 403
-        else:
+                st =[]
+                for k,v in request.args.items():
+                    st.append(':'.join([k,v]))
+                return 'No matching record(s) for {0}'.format(' '.join(st)), 403
+        except:
             oo=health_OperationOutcome()
-            oo.add_issue(details=e, severity='fatal')
+            oo.add_issue(details=sys.exc_info()[1], severity='fatal')
             return oo, 400
 
 class Validate(Resource):
