@@ -481,6 +481,7 @@ class health_Observation(supermod.Observation, Observation_Map):
         content = output.getvalue()
         output.close()
         return content
+supermod.Observation.subclass=health_Observation
 
 class health_Observation_ReferenceRange(supermod.Observation_ReferenceRange):
     pass

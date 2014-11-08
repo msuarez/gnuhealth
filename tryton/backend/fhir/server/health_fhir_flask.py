@@ -22,12 +22,13 @@ def create_app(config=None):
         from utils import recordConverter
         app.url_map.converters['item']=recordConverter
 
-        #Register the patient blueprint (and others, in the future)
+        #Register the patient, observation, etc. blueprints
         from health_fhir_patient_blueprint import patient_endpoint
         from health_fhir_observation_blueprint import observation_endpoint
+        from health_fhir_practitioner_blueprint import practitioner_endpoint 
         app.register_blueprint(patient_endpoint)
         app.register_blueprint(observation_endpoint)
-
+        app.register_blueprint(practitioner_endpoint)
 
     return app
 
