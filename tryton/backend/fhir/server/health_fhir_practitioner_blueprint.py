@@ -48,7 +48,7 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        return 'work in progress', 405
+        #return 'work in progress', 405
         s = health_Search(endpoint='practitioner')
         queries=s.get_queries(request.args)
         bd=Bundle(request=request)

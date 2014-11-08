@@ -12,7 +12,19 @@ class Practitioner_Map:
             'role': 'name.occupation',
             'sex': 'name.sex',
             'identifier': 'name.puid'}
-    search_mapping={}
+    search_mapping={
+            'practitioner':
+                {'_id': (['id'], 'token'),
+                    '_language': ([], 'token'),
+                    'address': ([], 'string'),
+                    'family': (['name.lastname'], 'string'),
+                    'gender': (['name.sex'], 'token'),
+                    'given': (['name.name'], 'string'),
+                    'identifier': (['name.puid'], 'token'),
+                    'name': (['name.lastname', 'name.name'], 'string'),
+                    'organization': ([], 'reference'),
+                    'phonetic': ([], 'string'),
+                    'telecom': ([], 'string')}}
 
 class health_Practitioner(supermod.Practitioner, Practitioner_Map):
     def __init__(self, *args, **kwargs):
@@ -33,6 +45,17 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             self.__set_gnu_gender()
             self.__set_gnu_name()
             self.__set_gnu_role()
+            self.__set_feed_info()
+
+    def __set_feed_info(self):
+        ''' Sets the feed-relevant info
+        '''
+        if self.practitioner:
+            self.feed={'id': self.practitioner.id,
+                    'published': self.practitioner.create_date,
+                    'updated': self.practitioner.write_date or self.practitioner.create_date,
+                    'title': self.practitioner.name.rec_name
+                        }
 
     def __set_gnu_name(self):
         family=[]

@@ -1,5 +1,6 @@
 from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
+from .health_fhir_practitioner import Practitioner_Map
 import re
 
 class health_Search:
@@ -15,6 +16,7 @@ class health_Search:
         self.endpoint=endpoint
         self.patient=Patient_Map()
         self.observation=Observation_Map()
+        self.practitioner=Practitioner_Map()
 
         self.__get_dt_parser()
 
