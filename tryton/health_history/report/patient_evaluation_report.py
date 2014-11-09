@@ -2,9 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2008-2014 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
-#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,11 +19,33 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
+import pytz
+from datetime import datetime
 from trytond.pool import Pool
-from report import *
+from trytond.transaction import Transaction
+from trytond.report import Report
 
-def register():
-    Pool.register(
-        PatientEvaluationReport,
-        module='health_history', type_='report')
+__all__ = ['PatientEvaluationReport']
+
+
+class PatientEvaluationReport(Report):
+    __name__ = 'patient.evaluation'
+
+    @classmethod
+    def parse(cls, report, objects, data, localcontext):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = datetime.now()
+        localcontext['print_date'] = datetime.astimezone(dt.replace(
+            tzinfo=pytz.utc), timezone)
+        localcontext['print_time'] = localcontext['print_date'].time()
+
+        return super(PatientEvaluationReport, cls).parse(report, objects, data, 
+            localcontext)
