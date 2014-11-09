@@ -56,6 +56,7 @@ setup(name='trytond_health_surgery',
     packages=[
         'trytond.modules.health_surgery',
         'trytond.modules.health_surgery.tests',
+        'trytond.modules.health_surgery.report',
         ],
     package_data={
         'trytond.modules.health_surgery': info.get('xml', []) \
