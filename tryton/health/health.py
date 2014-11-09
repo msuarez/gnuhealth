@@ -33,6 +33,7 @@ from trytond.tools import datetime_strftime
 from uuid import uuid4
 import string
 import random
+import pytz
 
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
@@ -3075,6 +3076,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Prescribed by', readonly=True)
 
+    report_prescription_date = fields.Function(fields.Date(
+        'Prescription Date'), 'get_report_prescription_date')
+    report_prescription_time = fields.Function(fields.Time(
+        'Prescription Time'), 'get_report_prescription_time')
+
     @classmethod
     def __setup__(cls):
         super(PatientPrescriptionOrder, cls).__setup__()
@@ -3135,6 +3141,32 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         User = Pool().get('res.user')
         user = User(Transaction().user)
         return int(user.id)
+
+    def get_report_prescription_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.prescription_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_prescription_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.prescription_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
     @classmethod
     def create(cls, vlist):
