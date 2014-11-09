@@ -20,6 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import pytz
 from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
@@ -317,6 +318,11 @@ class Surgery(ModelSQL, ModelView):
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
+    report_surgery_date = fields.Function(fields.Date('Surgery Date'), 
+        'get_report_surgery_date')
+    report_surgery_time = fields.Function(fields.Time('Surgery Time'), 
+        'get_report_surgery_time')
+
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')
@@ -412,6 +418,32 @@ class Surgery(ModelSQL, ModelView):
         cls.write(surgeries, {
             'state': 'done',
             'signed_by': signing_hp})
+
+    def get_report_surgery_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.surgery_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_surgery_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.surgery_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
 
 class Operation(ModelSQL, ModelView):
