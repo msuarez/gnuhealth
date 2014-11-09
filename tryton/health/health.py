@@ -3675,6 +3675,11 @@ class PatientEvaluation(ModelSQL, ModelView):
     
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
+    report_evaluation_date = fields.Function(fields.Date(
+        'Evaluation Date'), 'get_report_evaluation_date')
+    report_evaluation_time = fields.Function(fields.Time(
+        'Evaluation Time'), 'get_report_evaluation_time')
+
     @staticmethod
     def default_institution():
         return HealthInstitution().get_institution()
@@ -3814,6 +3819,32 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def get_rec_name(self, name):
         return str(self.evaluation_start)
+
+    def get_report_evaluation_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_start
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_evaluation_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_start
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
     @classmethod
     # Update to version 2.4
