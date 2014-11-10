@@ -2,7 +2,7 @@
 <form string="Institution Summary Report">
     <group colspan="4" string="Main" id="report_summary_header">
         <label name="institution"/>
-        <field col="2" name="institution"/>
+        <field name="institution"/>
         <newline/>
         <label name="start_date"/>
         <field name="start_date"/>
