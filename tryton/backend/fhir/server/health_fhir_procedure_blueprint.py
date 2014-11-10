@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Practitioner, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
+from health_fhir import health_Procedure, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
 from extensions import tryton
 from flask.ext.restful import Api
 import lxml
@@ -10,15 +10,23 @@ import json
 import os.path
 import sys
 
-# Practitioner model
-practitioner = tryton.pool.get('gnuhealth.healthprofessional')
+# Procedure models
+amb_procedure = tryton.pool.get('gnuhealth.ambulatory_care_procedure')
+surg_procedure = tryton.pool.get('gnuhealth.operation')
+rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
 
-# 'Practitioner' blueprint on '/Practitioner'
-practitioner_endpoint = Blueprint('practitioner_endpoint', __name__,
+# REST prefixes (e.g., amb-3 is amp_procedure model, id  = 3)
+term_map = {'amb': amb_procedure,
+        'surg': surg_procedure,
+        'rounds': rounds_procedure}
+
+
+# 'Procedure' blueprint on '/Procedure'
+procedure_endpoint = Blueprint('procedure_endpoint', __name__,
                                 template_folder='templates',
-                                url_prefix="/Practitioner")
+                                url_prefix="/Procedure")
 # Initialize api restful
-api = Api(practitioner_endpoint)
+api = Api(procedure_endpoint)
 
 class Create(Resource):
     @tryton.transaction()
@@ -49,16 +57,17 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        s = health_Search(endpoint='practitioner')
+        s = health_Search(endpoint='procedure')
         queries=s.get_queries(request.args)
         bd=Bundle(request=request)
         try:
             for query in queries:
                 if query['query'] is not None:
-                    recs = practitioner.search(query['query'])
+                    recs = term_map[query['model']].search(query['query'])
+                    print(query)
                     if recs:
                         for rec in recs:
-                            p = health_Practitioner(gnu_record=rec)
+                            p = health_Procedure(gnu_record=rec)
                             bd.add_entry(p)
             if bd.entries:
                 return bd, 200
@@ -93,9 +102,9 @@ class Validate(Resource):
             return oo, 400
 
         else:
-            if os.path.isfile('schemas/practitioner.xsd'):
+            if os.path.isfile('schemas/procedure.xsd'):
                 # 2) Validate against XMLSchema
-                with open('schemas/practitioner.xsd') as t:
+                with open('schemas/procedure.xsd') as t:
                     sch=lxml.etree.parse(t)
 
                 xmlschema=lxml.etree.XMLSchema(sch)
@@ -105,12 +114,12 @@ class Validate(Resource):
                     oo.add_issue(details=error.message, severity='error')
                     return oo, 400
             else:
-                # 2) If no schema, check if it correctly parses to a Practitioner
+                # 2) If no schema, check if it correctly parses to a Procedure
                 try:
                     pat=parseEtree(StringIO(doc))
-                    if not isinstance(pat, health_Practitioner):
+                    if not isinstance(pat, health_Procedure):
                         oo=health_OperationOutcome()
-                        oo.add_issue(details='Not a practitioner resource', severity='error')
+                        oo.add_issue(details='Not a procedure resource', severity='error')
                         return oo, 400
                 except:
                     e = sys.exc_info()[1]
@@ -119,11 +128,11 @@ class Validate(Resource):
                     return oo, 400
 
             if log_id:
-                # 3) Check if practitioner exists
-                record = find_record(practitioner, [('id', '=', log_id)])
+                # 3) Check if procedure exists
+                record = find_record(term_map[log_id[0]], [('id', '=', log_id)])
                 if not record:
                     oo=health_OperationOutcome()
-                    oo.add_issue(details='No practitioner', severity='error')
+                    oo.add_issue(details='No procedure', severity='error')
                     return oo, 422
                 else:
                     #TODO: More checks
@@ -136,9 +145,10 @@ class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
-        record = find_record(practitioner, [('id', '=', log_id)])
+        model = term_map[log_id[0]]
+        record = find_record(model, [('id', '=', log_id[1])])
         if record:
-            d=health_Practitioner(gnu_record=record)
+            d=health_Procedure(gnu_record=record)
             return d, 200
         else:
             return 'Record not found', 404
@@ -172,11 +182,11 @@ api.add_resource(Search,
                         '/_search')
 api.add_resource(Validate,
                         '/_validate',
-                        '/_validate/<int:log_id>')
-api.add_resource(Record, '/<int:log_id>')
+                        '/_validate/<item:log_id>')
+api.add_resource(Record, '/<item:log_id>')
 api.add_resource(Version,
-                        '/<int:log_id>/_history',
-                        '/<int:log_id>/_history/<string:v_id>')
+                        '/<item:log_id>/_history',
+                        '/<item:log_id>/_history/<string:v_id>')
 
 @api.representation('xml')
 @api.representation('text/xml')

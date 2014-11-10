@@ -269,7 +269,7 @@ class health_Observation(supermod.Observation, Observation_Map):
     def __set_gnu_identifier(self):
         if self.gnu_obs:
             obj = self.description
-            id, patient, time = attrgetter('id', self.map['patient'], self.map['date'])(self.gnu_obs)
+            patient, time = attrgetter(self.map['patient'], self.map['date'])(self.gnu_obs)
 
             if id and obj and patient and time:
                 label = '{0} value for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))

@@ -1,7 +1,13 @@
 from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
 from .health_fhir_practitioner import Practitioner_Map
+from .health_fhir_procedure import Procedure_Map 
 import re
+
+# TODO: Raise Error on bad arguments or parameters
+# TODO: Reference/chained parameters
+# TODO: token:text has different attribute searched frequently
+# TODO: :missing
 
 class health_Search:
     """This class computes search queries"""
@@ -11,12 +17,14 @@ class health_Search:
             raise ValueError('Need endpoint value')
         if endpoint not in ('patient',
                             'observation',
-                            'practitioner'):
+                            'practitioner',
+                            'procedure'):
             raise ValueError('Not a valid endpoint')
         self.endpoint=endpoint
         self.patient=Patient_Map()
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
+        self.procedure=Procedure_Map()
 
         self.__get_dt_parser()
 
@@ -174,8 +182,8 @@ class health_Search:
         search_types={'number': (self.number_parser, ('missing')),
                     'date': (self.date_parser, ('missing')),
                     'string': (self.string_parser, ('exact', 'missing')),
-                    'user-defined': (self.string_parser, ('exact', 'missing')),
-                    'token': (self.string_parser, ('text' 'missing')),
+                    'user-defined': (self.string_parser, ('text', 'exact', 'missing')),
+                    'token': (self.string_parser, ('missing', 'text')), #'token-text' on diff attribute handled as string
                     'quantity': (self.quantity_parser, ('missing')), 
                     'reference': (self.string_parser, ('missing')), #todo [type]
                     'composite': (self.string_parser, None)}
@@ -183,13 +191,16 @@ class health_Search:
         query=[]
         field_names=fields
         for key in args.iterkeys():
-
-            #Converted key to key and suffix
-            new_key, suffix= self.pop_suffix(key)
-
-            info=model_info.get(new_key)
-            if info is None:
-                continue
+            # FIX Hack for token:text on different attribute
+            if key not in model_info: 
+                #Converted key to key and suffix
+                new_key, suffix= self.pop_suffix(key)
+                info=model_info.get(new_key)
+                if info is None:
+                    continue
+            else:
+                new_key, suffix = key, None
+                info = model_info[key]
 
             db_type = info[1]
             db_key = info[0]

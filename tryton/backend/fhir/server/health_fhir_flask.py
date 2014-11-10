@@ -25,10 +25,12 @@ def create_app(config=None):
         #Register the patient, observation, etc. blueprints
         from health_fhir_patient_blueprint import patient_endpoint
         from health_fhir_observation_blueprint import observation_endpoint
-        from health_fhir_practitioner_blueprint import practitioner_endpoint 
+        from health_fhir_practitioner_blueprint import practitioner_endpoint
+        from health_fhir_procedure_blueprint import procedure_endpoint
         app.register_blueprint(patient_endpoint)
         app.register_blueprint(observation_endpoint)
         app.register_blueprint(practitioner_endpoint)
+        app.register_blueprint(procedure_endpoint)
 
     return app
 

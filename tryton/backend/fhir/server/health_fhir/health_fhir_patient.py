@@ -21,6 +21,7 @@ class Patient_Map:
                 'given': (['name.name'], 'string'),
                 'identifier': (['puid'], 'token'),
                 'language': (['name.lang.code'], 'token'),
+                'language:text': (['name.lang.rec_name'], 'string'),
                 'link': None,
                 'name': (['name.lastname', 'name.name'], 'string'),
                 'phonetic': None,
