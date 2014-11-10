@@ -32,15 +32,20 @@ class InstitutionSummaryReport(Report):
 
 
     @classmethod
-    def get_population(cls,date1,date2,sex):
+    def get_population(cls,date1,date2,sex,total):
         """ Return Total Number of people in the system 
         segmented by age group and sex"""
         cursor = Transaction().cursor
 
-        cursor.execute("SELECT COUNT(dob) \
-            FROM party_party \
-            WHERE dob BETWEEN %s and %s AND \
-            sex = %s" ,(date2, date1, sex))
+        if (total):
+            cursor.execute("SELECT COUNT(dob) \
+                FROM party_party WHERE sex = %s",(sex))
+
+        else:
+            cursor.execute("SELECT COUNT(dob) \
+                FROM party_party \
+                WHERE dob BETWEEN %s and %s AND \
+                sex = %s" ,(date2, date1, sex))
        
         res = cursor.fetchone()[0]
     
@@ -96,19 +101,23 @@ class InstitutionSummaryReport(Report):
 
         # Demographics
         today = date.today()
+
+        localcontext[''.join(['p','total_','f'])] = \
+            cls.get_population (None,None,'f', total=True)
+
+        localcontext[''.join(['p','total_','m'])] = \
+            cls.get_population (None,None,'m', total=True)
         
+        # Build the Population Pyramid for registered people
         for age_group in range (0,20):
             date1 = today - relativedelta(years=(age_group*5))
             date2 = today - relativedelta(years=((age_group*5)+4))
             
-            localcontext[''.join(['p',str(age_group),'f'])] = cls.get_population (date1,date2,'f')
-            localcontext[''.join(['p',str(age_group),'m'])] = (-1) * cls.get_population (date1,date2,'m')
+            localcontext[''.join(['p',str(age_group),'f'])] = \
+                cls.get_population (date1,date2,'f', total=False)
+            localcontext[''.join(['p',str(age_group),'m'])] = \
+                cls.get_population (date1,date2,'m', total=False)
             
-            print age_group*5, date1,'-', age_group*5 + 4, date2
-            
-        #localcontext['population'] = \
-        #    InstitutionSummaryReport().get_population()
-
         
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
