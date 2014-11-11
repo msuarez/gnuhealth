@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<form string="Death Certificate">
+    <group colspan="4" string="Main" id="group_death_cert_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="dod"/>
+        <field name="dod"/>
+        <label name="tod"/>
+        <field name="tod"/>
+        <label name="cod"/>
+        <field name="cod"/>
+        <label name="type_of_death"/>
+        <field name="type_of_death"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+    </group>
+    <newline/>
+    <separator colspan="4" string="Observations" id="separator_death_cert_observations"/>
+    <newline/>
+    <field name="observations" colspan="4"/>
+</form>
