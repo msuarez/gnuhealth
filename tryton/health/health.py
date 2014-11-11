@@ -38,8 +38,8 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
     'DomiciliaryUnit','PartyPatient', 'PartyAddress','DrugDoseUnits',
-    'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
-    'HealthInstitution', 'HealthInstitutionSpecialties',
+    'DeathCertificate','MedicationFrequency', 'DrugForm', 'DrugRoute',
+    'MedicalSpecialty', 'HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M', 
     'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
     'HospitalBed', 'HealthProfessional',
@@ -1728,6 +1728,43 @@ class AlternativePersonID (ModelSQL, ModelView):
     comments = fields.Char('Comments')
 
 
+class DeathCertificate (ModelSQL, ModelView):
+    'Death Certificate'
+    __name__ = 'gnuhealth.death_certificate'
+
+    name = fields.Many2One('party.party', 'Person')
+    code = fields.Char('Code', required=True)
+
+    approx_date = fields.Boolean('Approx', help="Check this box \
+        if the date / time of death is not exact")
+        
+    dod = fields.Date('Date of Death')
+    tod = fields.Time('Time of Death')
+
+    cod = fields.Many2One(
+        'gnuhealth.pathology', 'Cause of Death')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution')
+
+    type_of_death = fields.Selection(
+        [
+            ('natural', 'Natural'),
+            ('suicide', 'Suicide'),
+            ('homicide', 'Homicide'),
+            ('undertermined', 'Undertermined'),
+            ('pending_investigation', 'Pending Investigation'),
+        ], 'Type of death', required=True, sort=False,)
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional',
+        'Certifier', help='Health Professional')
+
+    observations = fields.Char('Observations')
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
 
 
 class ProductCategory(ModelSQL, ModelView):

@@ -948,6 +948,45 @@
         </record>
 
 
+<!-- DEATH CERTIFICATE -->
+
+        <record model="ir.ui.view" id="gnuhealth_death_cert_form">
+            <field name="model">gnuhealth.death_certificate</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_death_certificate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_death_cert_tree">
+            <field name="model">gnuhealth.death_certificate</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_death_certificate_tree</field>
+        </record>
+
+        <!-- Death Certificate menu entry in demographics -->
+    
+        <record model="ir.action.act_window" id="act_death_cert_form">
+            <field name="name">Death certificates</field>
+            <field name="res_model">gnuhealth.death_certificate</field>
+        </record>
+
+        <menuitem parent="gnuhealth_demographics_menu" 
+            action="act_death_cert_form" id="menu_death_cert"/>
+
+        <!-- Shortcut to the Death Certificate from the Party -->
+
+        <record model="ir.action.act_window" id="act_death_cert_form1">
+            <field name="name">Death Certificate</field>
+            <field name="res_model">gnuhealth.death_certificate</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+
+        <record model="ir.action.keyword" id="act_open_death_cert_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_death_cert_form1"/>
+        </record>
+
+
 <!-- PRODUCT -->
 
         <record model="ir.ui.view" id="view_gnuhealth_product_form">
