@@ -40,5 +40,5 @@ class recordConverter(BaseConverter):
         return tmp
 
     def to_url(self, values):
-        return '-'.join([BaseConverter.to_url(value) for value in values if value is not None])
+        return '-'.join([str(value) for value in values if value is not None])
 

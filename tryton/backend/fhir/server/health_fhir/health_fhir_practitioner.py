@@ -6,14 +6,16 @@ import fhir as supermod
 import sys
 
 class Practitioner_Map:
+    url_prefixes={}
     model_mapping={
-            'communication': 'name.lang',
-            'specialty': 'specialties',
-            'role': 'name.occupation',
-            'sex': 'name.sex',
-            'identifier': 'name.puid'}
+            'gnuhealth.healthprofessional': {
+                'communication': 'name.lang',
+                'specialty': 'specialties',
+                'role': 'name.occupation',
+                'sex': 'name.sex',
+                'identifier': 'name.puid'}}
     search_mapping={
-            'practitioner':
+            'gnuhealth.healthprofessional':
                 {'_id': (['id'], 'token'),
                     '_language': ([], 'token'),
                     'address': ([], 'string'),

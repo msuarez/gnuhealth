@@ -2,6 +2,7 @@ from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
 from .health_fhir_practitioner import Practitioner_Map
 from .health_fhir_procedure import Procedure_Map 
+from .health_fhir_diagnostic_report import DiagnosticReport_Map
 import re
 
 # TODO: Raise Error on bad arguments or parameters
@@ -18,13 +19,15 @@ class health_Search:
         if endpoint not in ('patient',
                             'observation',
                             'practitioner',
-                            'procedure'):
+                            'procedure',
+                            'diagnostic_report'):
             raise ValueError('Not a valid endpoint')
         self.endpoint=endpoint
         self.patient=Patient_Map()
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
         self.procedure=Procedure_Map()
+        self.diagnostic_report=DiagnosticReport_Map()
 
         self.__get_dt_parser()
 
@@ -150,10 +153,10 @@ class health_Search:
             raise ValueError('No endpoint info; should not happen... weird')
         for k,v in self.endpoint_info.search_mapping.items():
             try:
-                fields = self.endpoint_info.model_mapping[self.endpoint_info.term_model_mapping[k]].get('fields', [])
+                fields = self.endpoint_info.model_mapping[k].get('fields', [])
             except:
                 fields = []
-            queries.append(self.__search_query_generate(v, args, k, fields))
+            queries.append(self.__search_query_generate(v, args, self.endpoint_info.url_prefixes.get(k, None), fields))
         return queries
 
     def __search_query_generate(self, model_info, args, model, fields):

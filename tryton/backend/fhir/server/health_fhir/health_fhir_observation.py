@@ -1,4 +1,4 @@
-from flask import current_app, request
+from flask import current_app, request, url_for
 from StringIO import StringIO
 from .datastore import find_record
 from operator import attrgetter
@@ -57,15 +57,15 @@ class Observation_Map:
                 'temp': 'temperature',
                 'press_d': 'diastolic',
                 'press_s': 'systolic'}}}
-    term_model_mapping ={
-            'lab': 'gnuhealth.lab.test.critearea',
-            'rounds': 'gnuhealth.patient.rounding',
-            'eval': 'gnuhealth.patient.evaluation',
-            'amb': 'gnuhealth.patient.ambulatory_care',
-            'icu': 'gnuhealth.icu.apache2'}
+    url_prefixes ={
+            'gnuhealth.lab.test.critearea': 'lab',
+            'gnuhealth.patient.rounding': 'rounds',
+            'gnuhealth.patient.evaluation': 'eval',
+            'gnuhealth.patient.ambulatory_care': 'amb',
+            'gnuhealth.icu.apache2': 'icu'}
 
     search_mapping ={
-            'lab':
+            'gnuhealth.lab.test.critearea':
                     {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': (['gnuhealth_lab_id.date_analysis'], 'date'),
@@ -82,7 +82,7 @@ class Observation_Map:
                     'value-date': None,
                     'value-quantity': (['result'], 'quantity'),
                     'value-string': None},
-            'eval': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+            'gnuhealth.patient.evaluation': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': None,
                     # These values point to keys on the 'fields' dict
@@ -102,7 +102,7 @@ class Observation_Map:
                     'value-date': None,
                     'value-quantity': (['respiratory_rate', 'bpm','diastolic','systolic', 'temperature'], 'quantity'),
                     'value-string': None},
-            'icu': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+            'gnuhealth.icu.apache2': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': None,
                     # These values point to keys on the 'fields' dict
@@ -121,7 +121,7 @@ class Observation_Map:
                     'value-date': None,
                     'value-quantity': (['respiratory_rate', 'heart_rate', 'temperature'], 'quantity'),
                     'value-string': None},
-            'rounds': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+            'gnuhealth.patient.rounding': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': None,
                     # These values point to keys on the 'fields' dict
@@ -141,7 +141,7 @@ class Observation_Map:
                     'value-date': None,
                     'value-quantity': (['respiratory_rate', 'bpm','diastolic','systolic', 'temperature'], 'quantity'),
                     'value-string': None},
-            'amb': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+            'gnuhealth.patient.ambulatory_care': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': None,
                     # These values point to keys on the 'fields' dict
@@ -190,6 +190,8 @@ class health_Observation(supermod.Observation, Observation_Map):
         # Not these
         if self.map.get('value') and self.field is not None:
             raise ValueError('Ambiguous field; not required')
+
+        self.search_prefix = self.url_prefixes[self.model_type]
 
         if self.field:
             self.model_field = self.map['fields'][self.field]
@@ -273,7 +275,7 @@ class health_Observation(supermod.Observation, Observation_Map):
 
             if id and obj and patient and time:
                 label = '{0} value for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
-                value = request.path.split('/')[-1]
+                value = url_for('observation_endpoint.record', log_id=(self.search_prefix, self.gnu_obs.id, self.field))
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             #system=supermod.uri(value='gnuhealth::0'), #TODO

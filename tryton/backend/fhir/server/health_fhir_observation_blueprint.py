@@ -73,7 +73,9 @@ class Search(Resource):
             queries = s.get_queries(request.args)
             for query in queries:
                 if query['query'] is not None:
+                    print query
                     recs = model_map[query['model']].search(query['query'])
+                    print recs
                     for rec in recs:
                         # If specific fields match
                         if query['fields']:
@@ -173,6 +175,7 @@ class Record(Resource):
             try:
                 d.set_gnu_observation(record, field=field)
             except:
+                print sys.exc_info()
                 # Classed raised error
                 return 'Record not found', 404
             else:

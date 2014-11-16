@@ -2,7 +2,7 @@ from flask import Blueprint, request, current_app, make_response
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import health_Procedure, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
+from health_fhir import health_DiagnosticReport, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
 from extensions import tryton
 from flask.ext.restful import Api
 import lxml
@@ -10,24 +10,18 @@ import json
 import os.path
 import sys
 
-# Procedure models
-amb_procedure = tryton.pool.get('gnuhealth.ambulatory_care_procedure')
-surg_procedure = tryton.pool.get('gnuhealth.operation')
-rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
+# DiagnosticReport model
+diagnostic_report = tryton.pool.get('gnuhealth.lab')
 
-# REST prefixes (e.g., amb-3 is amp_procedure model, id  = 3)
-#   Note: Must match the Procedure_Map
-term_map = {'amb': amb_procedure,
-        'surg': surg_procedure,
-        'rounds': rounds_procedure}
-
-
-# 'Procedure' blueprint on '/Procedure'
-procedure_endpoint = Blueprint('procedure_endpoint', __name__,
+# 'diagnostic_report' blueprint on '/DiagnosticReport'
+diagnostic_report_endpoint = Blueprint('diagnostic_report_endpoint', __name__,
                                 template_folder='templates',
-                                url_prefix="/Procedure")
+                                url_prefix="/DiagnosticReport")
 # Initialize api restful
-api = Api(procedure_endpoint)
+api = Api(diagnostic_report_endpoint)
+
+model_map={
+        'labreport': diagnostic_report}
 
 class Create(Resource):
     @tryton.transaction()
@@ -58,21 +52,17 @@ class Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
-        s = health_Search(endpoint='procedure')
+        s = health_Search(endpoint='diagnostic_report')
         queries=s.get_queries(request.args)
+        bd=Bundle(request=request)
         try:
-            bd=Bundle(request=request)
             for query in queries:
                 if query['query'] is not None:
-                    recs = term_map[query['model']].search(query['query'])
+                    recs = diagnostic_report.search(query['query'])
                     if recs:
                         for rec in recs:
-                            try:
-                                p = health_Procedure(gnu_record=rec)
-                            except:
-                                continue
-                            finally:
-                                bd.add_entry(p)
+                            p = health_diagnostic_report(gnu_record=rec)
+                            bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:
@@ -106,9 +96,9 @@ class Validate(Resource):
             return oo, 400
 
         else:
-            if os.path.isfile('schemas/procedure.xsd'):
+            if os.path.isfile('schemas/diagnostic_report.xsd'):
                 # 2) Validate against XMLSchema
-                with open('schemas/procedure.xsd') as t:
+                with open('schemas/diagnostic_report.xsd') as t:
                     sch=lxml.etree.parse(t)
 
                 xmlschema=lxml.etree.XMLSchema(sch)
@@ -118,12 +108,12 @@ class Validate(Resource):
                     oo.add_issue(details=error.message, severity='error')
                     return oo, 400
             else:
-                # 2) If no schema, check if it correctly parses to a Procedure
+                # 2) If no schema, check if it correctly parses to a diagnostic_report
                 try:
                     pat=parseEtree(StringIO(doc))
-                    if not isinstance(pat, health_Procedure):
+                    if not isinstance(pat, health_diagnostic_report):
                         oo=health_OperationOutcome()
-                        oo.add_issue(details='Not a procedure resource', severity='error')
+                        oo.add_issue(details='Not a diagnostic_report resource', severity='error')
                         return oo, 400
                 except:
                     e = sys.exc_info()[1]
@@ -132,11 +122,11 @@ class Validate(Resource):
                     return oo, 400
 
             if log_id:
-                # 3) Check if procedure exists
-                record = find_record(term_map[log_id[0]], [('id', '=', log_id)])
+                # 3) Check if diagnostic_report exists
+                record = find_record(diagnostic_report, [('id', '=', log_id)])
                 if not record:
                     oo=health_OperationOutcome()
-                    oo.add_issue(details='No procedure', severity='error')
+                    oo.add_issue(details='No diagnostic_report', severity='error')
                     return oo, 422
                 else:
                     #TODO: More checks
@@ -149,15 +139,22 @@ class Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
-        model = term_map[log_id[0]]
-        record = find_record(model, [('id', '=', log_id[1])])
+        model = model_map.get(log_id[0])
+        if model is None:
+            return 'No record', 404
+        id = log_id[1]
+        field = log_id[2]
+        record = find_record(model, [('id', '=', id)])
         if record:
-            d=health_Procedure(gnu_record=record)
-            return d, 200
-        else:
-            return 'Record not found', 404
-            #if track deleted records
-            #return 'Record deleted', 410
+            try:
+                d=health_DiagnosticReport(gnu_record=record, field=field)
+                return d, 200
+            except:
+                print sys.exc_info()
+                pass
+        return 'Record not found', 404
+        #if track deleted records
+        #return 'Record deleted', 410
 
     @tryton.transaction()
     def put(self, log_id):

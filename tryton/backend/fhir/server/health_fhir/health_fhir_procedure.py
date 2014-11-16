@@ -30,23 +30,23 @@ class Procedure_Map:
                     'name': 'procedure.rec_name',
                     'code': 'procedure.name'}}
 
-    term_model_mapping={'rounds': 'gnuhealth.rounding_procedure',
-            'amb': 'gnuhealth.ambulatory_care_procedure',
-            'surg': 'gnuhealth.operation'}
+    url_prefixes={'gnuhealth.rounding_procedure': 'rounds',
+                    'gnuhealth.ambulatory_care_procedure': 'amb',
+                    'gnuhealth.operation': 'surg'}
 
     # Since these models are pretty similar, all can share same mapping
     #       i.e., no weird or special cases
     #       so we can generate the searches from the model_mapping
     search_mapping={}
-    for t,m in term_model_mapping.items():
+    for t,m in url_prefixes.items():
         search_mapping[t]={
             '_id': (['id'], 'token'),
             '_language': ([], 'token'),
-            'date': ([model_mapping[m]['date']], 'date'),
-            'subject': ([model_mapping[m]['patient']], 'reference'),
-            'type': ([model_mapping[m]['code']], 'token'),
-            'type:text': ([model_mapping[m]['name'],
-                        model_mapping[m]['description']], 'string')}
+            'date': ([model_mapping[t]['date']], 'date'),
+            'subject': ([model_mapping[t]['patient']], 'reference'),
+            'type': ([model_mapping[t]['code']], 'token'),
+            'type:text': ([model_mapping[t]['name'],
+                        model_mapping[t]['description']], 'string')}
 
 class health_Procedure(supermod.Procedure, Procedure_Map):
     def __init__(self, *args, **kwargs):
@@ -69,6 +69,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         if self.model_type not in self.model_mapping:
             raise ValueError('Not a valid model')
 
+        self.search_prefix = self.url_prefixes[self.model_type]
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_procedure()
@@ -95,7 +96,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             patient, time, name = attrgetter(self.map['patient'], self.map['date'], self.map['name'])(self.procedure)
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
-                        value = supermod.string(value=request.path.split('/')[-1]))
+                        value = supermod.string(value=url_for('procedure_endpoint.record', log_id=(self.search_prefix, self.procedure.id, None))))
             self.add_identifier(ident)
 
     def __set_gnu_subject(self):

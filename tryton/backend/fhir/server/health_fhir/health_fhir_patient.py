@@ -7,6 +7,7 @@ from utils import get_address
 import sys
 
 class Patient_Map:
+    url_prefixes={}
     search_mapping={
             'patient':{
                 '_id': (['id'], 'token'), 

@@ -37,10 +37,12 @@ def create_app(config=None):
         from health_fhir_practitioner_blueprint import practitioner_endpoint
         from health_fhir_procedure_blueprint import procedure_endpoint
         from health_fhir_auth_blueprint import auth_endpoint
+        from health_fhir_diagnostic_report_blueprint import diagnostic_report_endpoint
         app.register_blueprint(patient_endpoint)
         app.register_blueprint(observation_endpoint)
         app.register_blueprint(practitioner_endpoint)
         app.register_blueprint(procedure_endpoint)
+        app.register_blueprint(diagnostic_report_endpoint)
         app.register_blueprint(auth_endpoint)
 
 
