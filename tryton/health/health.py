@@ -45,9 +45,9 @@ __all__ = [
     'HospitalBed', 'HealthProfessional',
     'HealthProfessionalSpecialties', 'PhysicianSP', 'Family',
     'FamilyMember', 'MedicamentCategory',
-    'Medicament', 'PathologyCategory', 'PathologyGroup',
-    'Pathology', 'DiseaseMembers', 'ProcedureCode',
-    'InsurancePlan', 'Insurance', 'AlternativePersonID',
+    'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleDose', 
+    'PathologyCategory', 'PathologyGroup','Pathology', 'DiseaseMembers', 
+    'ProcedureCode', 'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'ProductCategory', 'ProductTemplate', 'Product',
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
     'Appointment', 'AppointmentReport',
@@ -1489,6 +1489,37 @@ class Medicament(ModelSQL, ModelView):
     def check_xml_record(cls, records, values):
         return True
 
+class ImmunizationScheduleDose(ModelSQL, ModelView):
+    'Immunization Schedule Dose'
+    __name__ = 'gnuhealth.immunization_schedule_dose'
+
+    vaccine = fields.Many2One(
+        'gnuhealth.immunization_schedule', 'Vaccine', required=True,
+        domain=[('is_vaccine', '=', True)],
+        help='Vaccine Name')
+    dose_number = fields.Integer('Dose')
+    age_dose = fields.Integer('Age')
+    age_unit = fields.Selection([
+        ('days','days'),
+        ('weeks','weeks'),
+        ('months','months'),
+        ('years','years'),
+        ],'Time Unit')
+    
+
+
+class ImmunizationSchedule(ModelSQL, ModelView):
+    'Immunization Schedule'
+    __name__ = 'gnuhealth.immunization_schedule'
+
+    vaccine = fields.Many2One(
+        'gnuhealth.medicament', 'Vaccine', required=True,
+        domain=[('is_vaccine', '=', True)],
+        help='Vaccine Name')
+
+    doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
+        'vaccine','Doses')
+    
 
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'

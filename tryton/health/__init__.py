@@ -57,6 +57,8 @@ def register():
         FamilyMember,
         MedicamentCategory,
         Medicament,
+        ImmunizationSchedule,
+        ImmunizationScheduleDose,
         PathologyCategory,
         PathologyGroup,
         Pathology,
