@@ -45,9 +45,10 @@ __all__ = [
     'HospitalBed', 'HealthProfessional',
     'HealthProfessionalSpecialties', 'PhysicianSP', 'Family',
     'FamilyMember', 'MedicamentCategory',
-    'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleDose', 
-    'PathologyCategory', 'PathologyGroup','Pathology', 'DiseaseMembers', 
-    'ProcedureCode', 'InsurancePlan', 'Insurance', 'AlternativePersonID',
+    'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleLine',
+    'ImmunizationScheduleDose', 'PathologyCategory', 'PathologyGroup',
+    'Pathology', 'DiseaseMembers', 'ProcedureCode', 
+    'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'ProductCategory', 'ProductTemplate', 'Product',
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
     'Appointment', 'AppointmentReport',
@@ -1468,6 +1469,7 @@ class Medicament(ModelSQL, ModelView):
     presentation = fields.Text('Presentation', help='Packaging')
     adverse_reaction = fields.Text('Adverse Reactions')
     storage = fields.Text('Storage Conditions')
+    is_vaccine = fields.Boolean('Vaccine')
     notes = fields.Text('Extra Info')
 
     @classmethod
@@ -1494,8 +1496,7 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
     __name__ = 'gnuhealth.immunization_schedule_dose'
 
     vaccine = fields.Many2One(
-        'gnuhealth.immunization_schedule', 'Vaccine', required=True,
-        domain=[('is_vaccine', '=', True)],
+        'gnuhealth.immunization_schedule_line', 'Vaccine', required=True,
         help='Vaccine Name')
     dose_number = fields.Integer('Dose')
     age_dose = fields.Integer('Age')
@@ -1507,10 +1508,14 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         ],'Time Unit')
     
 
+class ImmunizationScheduleLine(ModelSQL, ModelView):
+    'Immunization Schedule Line'
+    __name__ = 'gnuhealth.immunization_schedule_line'
 
-class ImmunizationSchedule(ModelSQL, ModelView):
-    'Immunization Schedule'
-    __name__ = 'gnuhealth.immunization_schedule'
+
+    sched = fields.Many2One(
+        'gnuhealth.immunization_schedule', 'Schedule', required=True,
+        help='Schedule Name')
 
     vaccine = fields.Many2One(
         'gnuhealth.medicament', 'Vaccine', required=True,
@@ -1519,7 +1524,22 @@ class ImmunizationSchedule(ModelSQL, ModelView):
 
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
+
+
+class ImmunizationSchedule(ModelSQL, ModelView):
+    'Immunization Schedule'
+    __name__ = 'gnuhealth.immunization_schedule'
+
+    sched = fields.Char('Schedule',
+     help="Code for this immunization schedule", required=True)
+    country = fields.Many2One('country.country','Country')
+    year = fields.Integer('Year')
+    active = fields.Boolean('Active')
+
+    vaccines = fields.One2Many ('gnuhealth.immunization_schedule_line',
+        'sched','Vaccines')
     
+
 
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'

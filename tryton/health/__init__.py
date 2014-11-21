@@ -58,6 +58,7 @@ def register():
         MedicamentCategory,
         Medicament,
         ImmunizationSchedule,
+        ImmunizationScheduleLine,
         ImmunizationScheduleDose,
         PathologyCategory,
         PathologyGroup,

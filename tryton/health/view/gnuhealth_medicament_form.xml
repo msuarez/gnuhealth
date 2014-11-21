@@ -11,6 +11,8 @@
     -->
     <label name="active_component"/>
     <field name="active_component"/>
+    <label name="is_vaccine"/>
+    <field name="is_vaccine"/>
     <newline/>
     <notebook>
         <page string="Main Info" id="medicament_main">
