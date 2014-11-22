@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree string="Doses" editable="top">
+    <field name="vaccine"/>
+    <field name="dose_number"/>
+    <field name="age_dose"/>
+    <field name="age_unit"/>
+    <field name="remarks"/>
+</tree>

@@ -1506,7 +1506,7 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         ('months','months'),
         ('years','years'),
         ],'Time Unit')
-    
+    remarks = fields.Char('Remarks')
 
 class ImmunizationScheduleLine(ModelSQL, ModelView):
     'Immunization Schedule Line'
@@ -1525,6 +1525,9 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
 
+    def get_rec_name(self, name):
+        return (self.vaccine.name.name)
+
 
 class ImmunizationSchedule(ModelSQL, ModelView):
     'Immunization Schedule'
@@ -1538,9 +1541,10 @@ class ImmunizationSchedule(ModelSQL, ModelView):
 
     vaccines = fields.One2Many ('gnuhealth.immunization_schedule_line',
         'sched','Vaccines')
+
+    def get_rec_name(self, name):
+        return (self.sched)
     
-
-
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'
     __name__ = 'gnuhealth.pathology.category'

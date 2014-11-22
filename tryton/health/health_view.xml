@@ -139,7 +139,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule_line">
-            <field name="name">Immunization Schedule lines</field>
+            <field name="name">Schedule Vaccines</field>
             <field name="res_model">gnuhealth.immunization_schedule_line</field>
         </record>
 
@@ -173,7 +173,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule_dose">
-            <field name="name">Immunization Schedule Doses</field>
+            <field name="name">Vaccine Doses</field>
             <field name="res_model">gnuhealth.immunization_schedule_dose</field>
         </record>
 

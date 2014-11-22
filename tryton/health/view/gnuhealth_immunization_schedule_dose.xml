@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Doses">
+    <label name="vaccine"/>
+    <field name="vaccine"/>
+    <label name="dose_number"/>
+    <field name="dose_number"/>
+    <newline/>
+    <label name="age_dose"/>
+    <field name="age_dose"/>
+    <label name="age_unit"/>
+    <field name="age_unit"/>
+    <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

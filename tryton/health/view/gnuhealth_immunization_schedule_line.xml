@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Immunization Schedule Line">
+    <label name="sched"/>
+    <field name="sched"/>
+    <label name="vaccine"/>
+    <field name="vaccine"/>
+    <newline/>
+    <field colspan="4" name="doses"/>
+</form>
