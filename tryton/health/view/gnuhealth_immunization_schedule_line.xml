@@ -4,6 +4,8 @@
     <field name="sched"/>
     <label name="vaccine"/>
     <field name="vaccine"/>
+    <label name="scope"/>
+    <field name="scope"/>
     <newline/>
     <field colspan="4" name="doses"/>
 </form>

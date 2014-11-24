@@ -1522,6 +1522,11 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
         domain=[('is_vaccine', '=', True)],
         help='Vaccine Name')
 
+    scope = fields.Selection([
+        ('systematic','Systematic'),
+        ('reccomended','Recommended'),
+        ('highrisk','Risk groups'),
+        ],'Scope')
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
 

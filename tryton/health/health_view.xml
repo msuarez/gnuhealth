@@ -124,6 +124,40 @@
             id="gnuhealth_conf_dosage" parent="gnuhealth_conf_medicaments"/>
 
 
+<!-- Immunization Schedule -->
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_view">
+            <field name="model">gnuhealth.immunization_schedule</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_immunization_schedule</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_tree">
+            <field name="model">gnuhealth.immunization_schedule</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_immunization_schedule_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule">
+            <field name="name">Immunization Schedule</field>
+            <field name="res_model">gnuhealth.immunization_schedule</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_tree"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_view"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_immunization_schedule" id="gnuhealth_conf_immunization_schedule"
+            parent="gnuhealth_conf_menu" sequence="60" />
+
+
 <!-- Immunization Schedule Line-->
 
         <record model="ir.ui.view" id="gnuhealth_immunization_schedule_line_view">
@@ -192,39 +226,6 @@
             id="gnuhealth_conf_immunization_schedule_dose"
             icon="gnuhealth-list" parent="gnuhealth_conf_immunization_schedule"/>
 
-
-<!-- Immunization Schedule -->
-
-        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_view">
-            <field name="model">gnuhealth.immunization_schedule</field>
-            <field name="type">form</field>
-            <field name="name">gnuhealth_immunization_schedule</field>
-        </record>
-
-        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_tree">
-            <field name="model">gnuhealth.immunization_schedule</field>
-            <field name="type">tree</field>
-            <field name="name">gnuhealth_immunization_schedule_tree</field>
-        </record>
-
-        <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule">
-            <field name="name">Immunization Schedule</field>
-            <field name="res_model">gnuhealth.immunization_schedule</field>
-        </record>
-
-        <record model="ir.action.act_window.view" id="act_immunization_schedule_list_view">
-            <field name="sequence" eval="10"/>
-            <field name="view" ref="gnuhealth_immunization_schedule_tree"/>
-            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
-        </record>
-        <record model="ir.action.act_window.view" id="act_immunization_schedule_form_view">
-            <field name="sequence" eval="20"/>
-            <field name="view" ref="gnuhealth_immunization_schedule_view"/>
-            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
-        </record>
-
-        <menuitem action="gnuhealth_action_immunization_schedule" id="gnuhealth_conf_immunization_schedule"
-            parent="gnuhealth_conf_menu" sequence="60" />
 
 
 <!-- Drug dose units -->
