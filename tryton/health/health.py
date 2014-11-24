@@ -1527,6 +1527,7 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
         ('reccomended','Recommended'),
         ('highrisk','Risk groups'),
         ],'Scope')
+
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
 
