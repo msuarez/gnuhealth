@@ -1525,8 +1525,8 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
     scope = fields.Selection([
         ('systematic','Systematic'),
         ('reccomended','Recommended'),
-        ('highrisk','Risk groups'),
-        ],'Scope')
+        ('highrisk','Risk groups'), 
+        ],'Scope', sort=False)
 
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
@@ -1534,6 +1534,9 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return (self.vaccine.name.name)
 
+    @staticmethod
+    def default_scope():
+        return 'systematic'
 
 class ImmunizationSchedule(ModelSQL, ModelView):
     'Immunization Schedule'
