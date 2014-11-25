@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app, make_response
+from flask import Blueprint, request, current_app, make_response, url_for
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
@@ -60,7 +60,7 @@ class Create(Resource):
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': ''.join(['/Observation/', str(p.id)])}
+            return 'Created', 201, {'Location':  url_for('observation_endpoint.record', log_id=())}
 
 class Search(Resource):
     @tryton.transaction()
@@ -73,9 +73,7 @@ class Search(Resource):
             queries = s.get_queries(request.args)
             for query in queries:
                 if query['query'] is not None:
-                    print query
                     recs = model_map[query['model']].search(query['query'])
-                    print recs
                     for rec in recs:
                         # If specific fields match
                         if query['fields']:
@@ -175,8 +173,6 @@ class Record(Resource):
             try:
                 d.set_gnu_observation(record, field=field)
             except:
-                print sys.exc_info()
-                # Classed raised error
                 return 'Record not found', 404
             else:
                 return d, 200

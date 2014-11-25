@@ -124,8 +124,8 @@ class health_Search:
         tmp = self.split_string(string)
         return (None, tmp)
 
-    def chained_paramater_parser(self, string):
-        '''Parse reference paramater
+    def chained_parameter_parser(self, string):
+        '''Parse reference parameter
             (e.g., subject.name, subject:Patient.name)
 
             return: {'type': <resource type>, 'parameters': [ <param>, ... ]}
@@ -139,11 +139,11 @@ class health_Search:
             pars = [m[0]]
             pars.extend(tmp[1:])
             d = { 'type': res,
-                    'paramaters': pars}
+                    'parameters': pars}
 
         else:
             d = { 'type': None,
-                    'paramaters': string.split('.')}
+                    'parameters': string.split('.')}
         return d
 
     def get_queries(self, args):
@@ -167,6 +167,7 @@ class health_Search:
                 {<parameter>: ([<model.attribute>, ...], <type>),
                 ...}
                     --- NOTE: Different for user-defined parameters
+                    --- NOTE: Different for reference parameters
             args ::::
                 request.args object
                 info endpoint
@@ -214,7 +215,6 @@ class health_Search:
                 continue
 
             if db_type == 'user-defined':
-                ANY_USER_DEFINED=True
                 # TODO Fix this hack
                 #   Handle user-defined values
                 #   {<Value>: <field_name>)...}

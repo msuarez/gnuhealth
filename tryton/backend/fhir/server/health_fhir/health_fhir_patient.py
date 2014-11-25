@@ -1,4 +1,5 @@
-from flask import current_app
+from flask import current_app, url_for
+from operator import attrgetter
 from StringIO import StringIO
 from datetime import datetime
 from .datastore import find_record
@@ -7,6 +8,31 @@ from utils import get_address
 import sys
 
 class Patient_Map:
+    model_mapping={
+            'gnuhealth.patient': {
+                'birthDate': 'name.dob',
+                'identifier': 'puid',
+                'gender': 'name.sex',
+                'photo': 'photo',
+                'phone': 'name.phone',
+                'email': 'name.email',
+                'mobile': 'name.mobile',
+                'given': 'name.name',
+                'family': 'name.lastname',
+                'nickname': 'name.alias',
+                'maritalStatus': 'name.marital_status',
+                'careProvider': 'primary_care_doctor',
+                'communicationCode': 'name.lang.code',
+                'communicationDisplay': 'name.lang.name',
+                'deceased': 'deceased',
+                'deceasedDateTime': 'dod',
+                'addressNumber': 'name.du.address_street_number',
+                'addressStreet': 'name.du.address_street',
+                'addressZip': 'name.du.address_zip',
+                'addressCity': 'name.du.address_city',
+                'addressState': 'name.du.address_subdivision.name',
+                'addressCountry': 'name.du.address_country.name'
+                }}
     url_prefixes={}
     search_mapping={
             'patient':{
@@ -46,39 +72,43 @@ class health_Patient(supermod.Patient, Patient_Map):
     def set_gnu_patient(self, gnu):
         '''Set gnu patient record'''
         if gnu:
-            self.gnu_patient = gnu #gnu health model
+            self.patient = gnu #gnu health model
+            if self.patient.__name__ not in self.model_mapping:
+                raise ValueError('Not a valid model')
+
+            self.map = self.model_mapping[self.patient.__name__]
             self.__import_from_gnu_patient()
 
     def __import_from_gnu_patient(self):
         '''Get info from gnu model and set it'''
-        if self.gnu_patient and getattr(self.gnu_patient, 'name', None):
-            self.__set_identifier()
-            self.__set_name()
-            self.__set_telecom()
-            self.__set_gender()
-            self.__set_birthdate()
-            self.__set_deceased_status()
-            self.__set_deceased_datetime()
-            self.__set_address()
-            self.__set_marital_status()
-            self.__set_photo()
-            self.__set_communication()
-            self.__set_contact()
-            self.__set_care_provider()
-            self.__set_managing_organization()
-            self.__set_link()
-            self.__set_active()
+        if self.patient:
+            self.__set_gnu_identifier()
+            self.__set_gnu_name()
+            self.__set_gnu_telecom()
+            self.__set_gnu_gender()
+            self.__set_gnu_birthdate()
+            self.__set_gnu_deceased_status()
+            self.__set_gnu_deceased_datetime()
+            self.__set_gnu_address()
+            self.__set_gnu_marital_status()
+            self.__set_gnu_photo()
+            self.__set_gnu_communication()
+            self.__set_gnu_contact()
+            self.__set_gnu_care_provider()
+            self.__set_gnu_managing_organization()
+            self.__set_gnu_link()
+            self.__set_gnu_active()
 
             self.__set_feed_info()
 
     def __set_feed_info(self):
         ''' Sets the feed-relevant info
         '''
-        if self.gnu_patient:
-            self.feed={'id': self.gnu_patient.id,
-                    'published': self.gnu_patient.create_date,
-                    'updated': self.gnu_patient.write_date or self.gnu_patient.create_date,
-                    'title': self.gnu_patient.name.rec_name
+        if self.patient:
+            self.feed={'id': self.patient.id,
+                    'published': self.patient.create_date,
+                    'updated': self.patient.write_date or self.patient.create_date,
+                    'title': self.patient.name.rec_name
                         }
 
     def set_models(self):
@@ -89,7 +119,6 @@ class health_Patient(supermod.Patient, Patient_Map):
         self.models = {}
         self.models['party']={'name': self.__get_firstname(),
                         'activation_date': datetime.today().date().isoformat(),
-                        'alias': self.__get_alias(),
                         'is_patient': True,
                         'is_person': True,
                         'sex': self.__get_gender(),
@@ -186,17 +215,17 @@ class health_Patient(supermod.Patient, Patient_Map):
         p=patient.create([self.models['patient']])[0]
         return p
 
-    def __set_identifier(self):
-        if getattr(self.gnu_patient, 'puid', None):
+    def __set_gnu_identifier(self):
+        if getattr(self.patient, 'puid', None):
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='PUID'),
                         system=supermod.uri(value='gnuhealth::0'),
                                 #value=current_app.config.get(
                                     #'INSTITUTION_ODI', None)),
-                        value=supermod.string(value=self.gnu_patient.puid))
+                        value=supermod.string(value=self.patient.puid))
 
-        elif getattr(self.gnu_patient, 'alternative_identification', None):
+        elif getattr(self.patient, 'alternative_identification', None):
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='ALTERNATE_ID'),
@@ -205,7 +234,7 @@ class health_Patient(supermod.Patient, Patient_Map):
                                 value=current_app.config.get(
                                     'INSTITUTION_ODI',None))),
                         value=supermod.string(
-                            value=self.gnu_patient.alternative_identification))
+                            value=self.patient.alternative_identification))
         else:
             return
         self.add_identifier(value=ident)
@@ -214,14 +243,14 @@ class health_Patient(supermod.Patient, Patient_Map):
         if self.identifier:
             return self.identifier[0].value.value
 
-    def __set_name(self):
+    def __set_gnu_name(self):
         # TODO: Discuss these meanings more
         #   REMEMBER: Middle names are defined as given names
         name = []
         family=[]
-        given=[supermod.string(value=x) for x in self.gnu_patient.name.name.split()]
-        if getattr(self.gnu_patient, 'lastname', None):
-            after_names=[supermod.string(value=x) for x in self.gnu_patient.lastname.split()]
+        given=[supermod.string(value=x) for x in self.patient.name.name.split()]
+        if getattr(self.patient, 'lastname', None):
+            after_names=[supermod.string(value=x) for x in self.patient.lastname.split()]
             if len(after_names) > 1:
                 family=after_names[-1:]
                 given.extend(after_names[:-1])
@@ -233,10 +262,10 @@ class health_Patient(supermod.Patient, Patient_Map):
                     given=given))
 
 
-        if getattr(self.gnu_patient.name, 'alias', None):
+        if getattr(self.patient.name, 'alias', None):
             name.append(supermodHumanName(
                         use=supermod.NameUse(value='nickname'),
-                        given=[supermod.string(value=self.gnu_patient.name.alias)]))
+                        given=[supermod.string(value=self.patient.name.alias)]))
         for x in name:
             self.add_name(x)
 
@@ -262,22 +291,22 @@ class health_Patient(supermod.Patient, Patient_Map):
             if getattr(self.name[0].use, 'value') in ('official', 'usual'):
                 return self.name[0].given[0].value
 
-    def __set_telecom(self):
+    def __set_gnu_telecom(self):
         telecom = []
-        if getattr(self.gnu_patient.name, 'phone', None):
+        if getattr(self.patient.name, 'phone', None):
             telecom.append(supermod.Contact(
                     system=supermod.ContactSystem(value='phone'),
-                    value=supermod.string(value=self.gnu_patient.name.phone),
+                    value=supermod.string(value=self.patient.name.phone),
                     use=supermod.ContactUse(value='home')))
-        if getattr(self.gnu_patient.name, 'mobile', None):
+        if getattr(self.patient.name, 'mobile', None):
             telecom.append(supermod.Contact(
                     system=supermod.ContactSystem(value='phone'),
-                    value=supermod.string(value=self.gnu_patient.name.mobile),
+                    value=supermod.string(value=self.patient.name.mobile),
                     use=supermod.ContactUse(value='mobile')))
-        if getattr(self.gnu_patient.name, 'email', None):
+        if getattr(self.patient.name, 'email', None):
             telecom.append(supermod.Contact(
                     system=supermod.ContactSystem(value='email'),
-                    value=supermod.string(value=self.gnu_patient.name.email),
+                    value=supermod.string(value=self.patient.name.email),
                     use=supermod.ContactUse(value='email')))
         for x in telecom:
             self.add_telecom(x)
@@ -302,34 +331,46 @@ class health_Patient(supermod.Patient, Patient_Map):
                     pass
             return tc
 
-    def __set_gender(self):
-        if getattr(self.gnu_patient, 'sex', None):
+    def __set_gnu_gender(self):
+        try:
+            gender = attrgetter(self.map['gender'])(self.patient)
             coding = supermod.Coding(
                         system=supermod.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
-                        code=supermod.code(value=self.gnu_patient.sex.upper()),
-                        display=supermod.string(value='Male' if self.gnu_patient.sex == 'm' else 'Female')
+                        code=supermod.code(value=gender.upper()),
+                        display=supermod.string(value='Male' if gender == 'm' else 'Female')
                         )
             gender=supermod.CodeableConcept(coding=[coding])
             self.set_gender(gender)
+        except:
+            raise ValueError('No gender')
 
     def __get_gender(self):
         if getattr(self, 'gender', None):
             return 'm' if self.gender.coding[0].code.value == 'M' else 'f'
 
-    def __set_birthdate(self):
-        if getattr(self.gnu_patient, 'dob', None):
-            self.set_birthDate(supermod.dateTime(value=self.gnu_patient.dob))
+    def __set_gnu_birthdate(self):
+        try:
+            dob = attrgetter(self.map['birthDate'])(self.patient)
+            if dob:
+                self.set_birthDate(supermod.dateTime(value=dob))
+        except:
+            pass
 
     def __get_birthdate(self):
         if getattr(self, 'birthDate', None):
             return self.birthDate.value
 
-    def __set_deceased_status(self):
-        if getattr(self.gnu_patient, 'deceased', None):
-            status=supermod.boolean(value='true')
-        else:
+    def __set_gnu_deceased_status(self):
+        try:
+            stat = attrgetter(self.map['deceased'])(self.patient)
+            if stat:
+                status=supermod.boolean(value='true')
+            else:
+                status=supermod.boolean(value='false')
+        except:
             status=supermod.boolean(value='false')
-        self.set_deceasedBoolean(status)
+        finally:
+            self.set_deceasedBoolean(status)
 
     def __get_deceased_status(self):
         if getattr(self.deceasedBoolean,'value', None) in (None ,'False', 'false'):
@@ -338,34 +379,69 @@ class health_Patient(supermod.Patient, Patient_Map):
             deceased=True
         return deceased
 
-    def __set_deceased_datetime(self):
-        if getattr(self.gnu_patient, 'dod', None):
-            self.set_deceasedDateTime(supermod.dateTime(value=str(self.gnu_patient.dod)))
+    def __set_gnu_deceased_datetime(self):
+        try:
+            dod = attrgetter(self.map['deceasedDateTime'])(self.patient)
+            if dod:
+                self.set_deceasedDateTime(supermod.dateTime(value=str(dod)))
+        except:
+            pass
+
 
     def __get_deceased_datetime(self):
         if getattr(self, 'deceasedDateTime', None) is not None:
             return self.deceasedDateTime.value
 
-    def __set_address(self):
-        if getattr(self.gnu_patient.name, 'du', None):
-            address=supermod.Address()
-            address.set_use(supermod.string(value='home'))
-            line=[]
-            if getattr(self.gnu_patient.name.du, 'address_street_number', None):
-                line.append(str(self.gnu_patient.name.du.address_street_number))
-            if getattr(self.gnu_patient.name.du, 'address_street', None):
-                line.append(self.gnu_patient.name.du.address_street)
-            if getattr(self.gnu_patient.name.du, 'address_city', None):
-                address.set_city(supermod.string(value=self.gnu_patient.name.du.address_city))
-            if getattr(self.gnu_patient.name.du.address_subdivision, 'name', None):
-                address.set_state(supermod.string(value=self.gnu_patient.name.du.address_subdivision.name))
-            if getattr(self.gnu_patient.name.du, 'address_zip', None):
-                address.set_zip(supermod.string(value=self.gnu_patient.name.du.address_zip))
-            if getattr(self.gnu_patient.name.du.address_country, 'name', None):
-                address.set_country(supermod.string(value=self.gnu_patient.name.du.address_country.name))
-            if line:
-                address.add_line(supermod.string(value=' '.join(line)))
-            self.add_address(address)
+    def __set_gnu_address(self):
+        #FIX Ugly, but clear
+        if self.patient:
+            try:
+                address=supermod.Address()
+                address.set_use(supermod.string(value='home'))
+                line=[]
+                try:
+                    line.append(str(attrgetter(self.map['addressNumber'](self.patient))))
+                except:
+                    pass
+
+                try:
+                    line.append(attrgetter(self.map['addressStreet'])(self.patient))
+                except:
+                    pass
+
+                try:
+                    city = attrgetter(self.map['addressCity'])(self.patient)
+                    if city:
+                        address.set_city(supermod.string(value=city))
+                except:
+                    pass
+
+                try:
+                    state = attrgetter(self.map['addressState'])(self.patient)
+                    if state:
+                        address.set_state(supermod.string(value=state))
+                except:
+                    pass
+
+                try:
+                    z = attrgetter(self.map['addressZip'])(self.patient)
+                    if z:
+                        address.set_zip(supermod.string(value=z))
+                except:
+                    pass
+
+                try:
+                    country = attrgetter(self.map['addressCountry'])(self.patient)
+                    if country:
+                        address.set_country(supermod.string(value=value))
+                except:
+                    pass
+
+                if line:
+                    address.add_line(supermod.string(value=' '.join(line)))
+                self.add_address(address)
+            except:
+                pass
 
     def __get_address(self):
         ad={}
@@ -406,45 +482,50 @@ class health_Patient(supermod.Patient, Patient_Map):
             ad['street']=' '.join(ad['street']) or None
         return ad
 
-    def __set_active(self):
+    def __set_gnu_active(self):
         self.set_active(supermod.boolean(value='true'))
 
     def __get_contact(self):
         pass
 
-    def __set_contact(self):
+    def __set_gnu_contact(self):
         pass
 
     def __get_care_provider(self):
         pass
 
-    def __set_care_provider(self):
-        # GP
-        # TODO Use url_for
-        if getattr(self.gnu_patient, 'primary_care_doctor', None):
-            uri = ''.join(['/Practitioner/', str(self.gnu_patient.primary_care_doctor.id)])
-            display = self.gnu_patient.primary_care_doctor.rec_name
+    def __set_gnu_care_provider(self):
+        try:
+            gp = attrgetter(self.map['careProvider'])(self.patient)
+            uri = url_for('practitioner_endpoint.record', log_id=gp.id)
+            display = gp.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
             self.set_careProvider([ref])
+        except:
+            pass
 
-    def __set_managing_organization(self):
+    def __set_gnu_managing_organization(self):
         pass
 
-    def __set_communication(self):
-        if getattr(self.gnu_patient.name, 'lang', None):
+    def __set_gnu_communication(self):
+        if self.patient:
             from re import sub
-            code=sub('_','-', self.gnu_patient.name.lang.code)
-            name=self.gnu_patient.name.lang.name
-            coding = supermod.Coding(
-                        system=supermod.uri(value='urn:ietf:bcp:47'),
-                        code=supermod.code(value=code),
-                        display=supermod.string(value=name)
-                        )
-            com=supermod.CodeableConcept(coding=[coding],
-                                    text=supermod.string(value=name))
-            self.add_communication(com)
+            try:
+                code=sub('_','-', \
+                        attrgetter(self.map['communicationCode'])(self.patient))
+                name=attrgetter(self.map['communicationDisplay'])(self.patient)
+                coding = supermod.Coding(
+                            system=supermod.uri(value='urn:ietf:bcp:47'),
+                            code=supermod.code(value=code),
+                            display=supermod.string(value=name)
+                            )
+                com=supermod.CodeableConcept(coding=[coding],
+                                        text=supermod.string(value=name))
+                self.add_communication(com)
+            except:
+                pass
 
     def __get_communication(self):
         #TODO Discuss how to handle multiple languages,
@@ -461,13 +542,17 @@ class health_Patient(supermod.Patient, Patient_Map):
                 lang['name']=None
         return lang
 
-
-    def __set_photo(self):
+    def __set_gnu_photo(self):
         import base64
-        if getattr(self.gnu_patient, 'photo', None):
-            data = supermod.base64Binary(value=base64.encodestring(self.gnu_patient.photo))
-            im = supermod.Attachment(data=data)
-            self.add_photo(im)
+        if self.patient:
+            try:
+                b64 = base64.encodestring(attrgetter(self.map['photo'])(self.patient))
+                if b64:
+                    data = supermod.base64Binary(value=b64)
+                    im = supermod.Attachment(data=data)
+                    self.add_photo(im)
+            except:
+                pass
 
     def __get_photo(self):
         # Python 2 and Python 3 have bytes and string/bytes .... issues
@@ -478,28 +563,31 @@ class health_Patient(supermod.Patient, Patient_Map):
         except:
             return None
 
-    def __set_marital_status(self):
-        if getattr(self.gnu_patient.name, 'marital_status', None):
-            #Health has concubinage and separated, which aren't truly
-            # matching to the FHIR defined statuses
-            status = self.gnu_patient.marital_status.upper()
-            statuses = { 'M': 'Married',
-                    'W': 'Widowed',
-                    'D': 'Divorced',
-                    'S': 'Single'}
-            if status in statuses:
-                code = supermod.code(value=status)
-                display = supermod.string(value=statuses[status])
-            else:
-                code = supermod.code(value='OTH')
-                display = supermod.string(value='other')
-            coding = supermod.Coding(
-                        system=supermod.uri(value='http://hl7.org/fhir/v3/MaritalStatus'),
-                        code=code,
-                        display=display
-                        )
-            marital_status=supermod.CodeableConcept(coding=[coding])
-            self.set_maritalStatus(marital_status)
+    def __set_gnu_marital_status(self):
+        if self.patient:
+            try:
+                #Health has concubinage and separated, which aren't truly
+                # matching to the FHIR defined statuses
+                status = attrgetter(self.map['maritalStatus'])(self.patient).upper()
+                statuses = { 'M': 'Married',
+                        'W': 'Widowed',
+                        'D': 'Divorced',
+                        'S': 'Single'}
+                if status in statuses:
+                    code = supermod.code(value=status)
+                    display = supermod.string(value=statuses[status])
+                else:
+                    code = supermod.code(value='OTH')
+                    display = supermod.string(value='other')
+                coding = supermod.Coding(
+                            system=supermod.uri(value='http://hl7.org/fhir/v3/MaritalStatus'),
+                            code=code,
+                            display=display
+                            )
+                marital_status=supermod.CodeableConcept(coding=[coding])
+                self.set_maritalStatus(marital_status)
+            except:
+                pass
 
     def __get_marital_status(self):
         # TODO: Discuss categories
@@ -510,7 +598,7 @@ class health_Patient(supermod.Patient, Patient_Map):
         except:
             return None
 
-    def __set_link(self):
+    def __set_gnu_link(self):
         pass
 
     def export_to_xml_string(self):

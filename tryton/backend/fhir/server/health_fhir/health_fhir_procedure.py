@@ -9,21 +9,21 @@ import sys
 class Procedure_Map:
     model_mapping={
             'gnuhealth.ambulatory_care_procedure':
-                {'patient': 'name.patient',
+                {'subject': 'name.patient',
                     'date': 'name.session_start',
                     'type': 'procedure',
                     'description': 'procedure.description',
                     'name': 'procedure.rec_name',
                     'code': 'procedure.name'},
             'gnuhealth.operation':
-                {'patient': 'name.patient',
+                {'subject': 'name.patient',
                     'date': 'name.surgery_date',
                     'type': 'procedure',
                     'description': 'procedure.description',
                     'name': 'procedure.rec_name',
                     'code': 'procedure.name'},
             'gnuhealth.rounding_procedure':
-                {'patient': 'name.name.patient',
+                {'subject': 'name.name.patient',
                     'date': 'name.evaluation_start',
                     'type': 'procedure',
                     'description': 'procedure.description',
@@ -43,7 +43,7 @@ class Procedure_Map:
             '_id': (['id'], 'token'),
             '_language': ([], 'token'),
             'date': ([model_mapping[t]['date']], 'date'),
-            'subject': ([model_mapping[t]['patient']], 'reference'),
+            'subject': ([model_mapping[t]['subject']], 'reference'),
             'type': ([model_mapping[t]['code']], 'token'),
             'type:text': ([model_mapping[t]['name'],
                         model_mapping[t]['description']], 'string')}
@@ -93,7 +93,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
 
     def __set_gnu_identifier(self):
         if self.procedure:
-            patient, time, name = attrgetter(self.map['patient'], self.map['date'], self.map['name'])(self.procedure)
+            patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
                         value = supermod.string(value=url_for('procedure_endpoint.record', log_id=(self.search_prefix, self.procedure.id, None))))
@@ -101,7 +101,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
 
     def __set_gnu_subject(self):
         if self.procedure:
-            patient = attrgetter(self.map['patient'])(self.procedure)
+            patient = attrgetter(self.map['subject'])(self.procedure)
             uri = url_for('patient_endpoint.record', log_id=patient.id)
             display = patient.rec_name
             ref=supermod.ResourceReference()
@@ -123,6 +123,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             self.set_type(concept)
 
     def export_to_xml_string(self):
+        """Export"""
         output = StringIO()
         self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
         content = output.getvalue()

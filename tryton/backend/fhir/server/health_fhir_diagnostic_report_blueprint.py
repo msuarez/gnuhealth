@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app, make_response
+from flask import Blueprint, request, current_app, make_response, url_for
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
@@ -32,21 +32,15 @@ class Create(Resource):
             c=StringIO(request.data)
             res=parse(c, silence=True)
             c.close()
-            res.set_models()
-            p = res.create_patient(subdivision=subdivision,
-                                party=party,
-                                country=country,
-                                contact=contact,
-                                lang=lang,
-                                du=du,
-                                patient=patient)
         except:
             e=sys.exc_info()[1]
             oo=health_OperationOutcome()
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
+            return 'Created', 201, {'Location': 
+                            url_for('diagnostic_report_endpoint.record',
+                                    log_id=('labreport', p.id))}
 
 class Search(Resource):
     @tryton.transaction()
@@ -59,10 +53,14 @@ class Search(Resource):
             for query in queries:
                 if query['query'] is not None:
                     recs = diagnostic_report.search(query['query'])
-                    if recs:
-                        for rec in recs:
-                            p = health_diagnostic_report(gnu_record=rec)
+                    for rec in recs:
+                        try:
+                            p = health_DiagnosticReport(gnu_record=rec)
+                        except:
+                            continue
+                        else:
                             bd.add_entry(p)
+
             if bd.entries:
                 return bd, 200
             else:
@@ -150,7 +148,6 @@ class Record(Resource):
                 d=health_DiagnosticReport(gnu_record=record, field=field)
                 return d, 200
             except:
-                print sys.exc_info()
                 pass
         return 'Record not found', 404
         #if track deleted records

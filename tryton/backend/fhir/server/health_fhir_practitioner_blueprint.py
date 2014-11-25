@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app, make_response
+from flask import Blueprint, request, current_app, make_response, url_for
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
@@ -30,20 +30,14 @@ class Create(Resource):
             res=parse(c, silence=True)
             c.close()
             res.set_models()
-            p = res.create_patient(subdivision=subdivision,
-                                party=party,
-                                country=country,
-                                contact=contact,
-                                lang=lang,
-                                du=du,
-                                patient=patient)
+            p=res.create_practitioner()
         except:
             e=sys.exc_info()[1]
             oo=health_OperationOutcome()
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
+            return 'Created', 201, {'Location': url_for('practitioner_endpoint.record', log_id=p.id)}
 
 class Search(Resource):
     @tryton.transaction()
@@ -58,8 +52,12 @@ class Search(Resource):
                     recs = practitioner.search(query['query'])
                     if recs:
                         for rec in recs:
-                            p = health_Practitioner(gnu_record=rec)
-                            bd.add_entry(p)
+                            try:
+                                p = health_Practitioner(gnu_record=rec)
+                            except:
+                                continue
+                            else:
+                                bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:

@@ -1,9 +1,13 @@
 import fhir as supermod
+from StringIO import StringIO
 from flask import url_for
 from operator import attrgetter
 import sys
 
 class DiagnosticReport_Map:
+    """
+    The model mapping for the DiagnosticReport Resource
+    """
     model_mapping={
             'gnuhealth.lab': {
                 'subject': 'patient',
@@ -16,9 +20,30 @@ class DiagnosticReport_Map:
                 'name': 'test.name'}
                 }
     url_prefixes={'gnuhealth.lab': 'labreport'}
-    search_mapping={}
+    search_mapping={'gnuhealth.lab':
+                {
+                    '_id': (['id'], 'token'),
+                    '_language': None,
+                    'date': None,
+                    'diagnosis': None, 
+                    'identifier': None,
+                    'image': None,
+                    'issued': (['date_analysis'], 'date'),
+                    'name': (['test.code'], 'token'),
+                    'name:text': (['test.name'], 'string'),
+                    'performer': (['pathologist'], 'reference'),
+                    'request': None,
+                    'result': (['critearea'], 'reference'),
+                    'service': None,
+                    'specimen': None,
+                    'status': None,
+                    'subject': (['subject'], 'reference')}}
 
 class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
+    """
+    Class that manages the interface between FHIR Resource DiagnosticReport
+        and GNU Health
+    """
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
         field = kwargs.pop('field', None)
@@ -75,11 +100,16 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
 
     def __set_gnu_name(self):
         if self.diagnostic_report:
-            conc = supermod.CodeableConcept()
-            conc.coding=[supermod.Coding()]
-            conc.coding[0].display=supermod.string(value=attrgetter(self.map['name'])(self.diagnostic_report))
-            conc.coding[0].code = supermod.code(value=attrgetter(self.map['code'])(self.diagnostic_report))
-            self.set_name(conc)
+            try:
+                conc = supermod.CodeableConcept()
+                conc.coding=[supermod.Coding()]
+                conc.coding[0].display=supermod.string(value=attrgetter(self.map['name'])(self.diagnostic_report))
+                conc.coding[0].code = supermod.code(value=attrgetter(self.map['code'])(self.diagnostic_report))
+                self.set_name(conc)
+            except:
+                # If you don't know what is being tested,
+                #   the data is useless
+                raise ValueError('No test coding info')
 
     def __set_gnu_issued(self):
         if self.diagnostic_report:
@@ -94,13 +124,21 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
 
     def __set_gnu_result(self):
         if self.diagnostic_report:
-            for test in attrgetter(self.map['result'])(self.diagnostic_report):
-                uri = url_for('observation_endpoint.record', log_id=('lab', test.id))
-                display = test.rec_name
-                ref=supermod.ResourceReference()
-                ref.display = supermod.string(value=display)
-                ref.reference = supermod.string(value=uri)
-                self.add_result(ref)
+            try:
+                for test in attrgetter(self.map['result'])(self.diagnostic_report):
+                    uri = url_for('observation_endpoint.record', log_id=('lab', test.id))
+                    display = test.rec_name
+                    ref=supermod.ResourceReference()
+                    ref.display = supermod.string(value=display)
+                    ref.reference = supermod.string(value=uri)
+                    self.add_result(ref)
+            except:
+                # No data = useless
+                raise ValueError('No data')
+            finally:
+                # No data = useless
+                if len(self.get_result()) == 0:
+                    raise ValueError('No data')
 
     def __set_gnu_performer(self):
         if self.diagnostic_report:
@@ -133,10 +171,23 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
 
     def __set_gnu_conclusion(self):
         if self.diagnostic_report:
-            text = attrgetter(self.map['conclusion'])(self.diagnostic_report)
-            if text:
-                conclusion = supermod.string(value=text)
-                self.set_conclusion(conclusion)
+            try:
+                text = attrgetter(self.map['conclusion'])(self.diagnostic_report)
+                if text:
+                    conclusion = supermod.string(value=text)
+                    self.set_conclusion(conclusion)
+            except:
+                # Not absolutely necessary
+                pass
+
+    def export_to_xml_string(self):
+        """Export"""
+        output = StringIO()
+        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
+        content = output.getvalue()
+        output.close()
+        return content
+supermod.DiagnosticReport.subclass=health_DiagnosticReport
 
 class health_DiagnosticReport_Image(supermod.DiagnosticReport_Image):
     pass

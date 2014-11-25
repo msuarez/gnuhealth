@@ -1,4 +1,4 @@
-from flask import Blueprint, request, current_app, make_response
+from flask import Blueprint, request, current_app, make_response, url_for
 from flask.ext.restful import Resource, abort, reqparse
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
@@ -17,7 +17,8 @@ rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
 
 # REST prefixes (e.g., amb-3 is amp_procedure model, id  = 3)
 #   Note: Must match the Procedure_Map
-term_map = {'amb': amb_procedure,
+term_map = {
+        'amb': amb_procedure,
         'surg': surg_procedure,
         'rounds': rounds_procedure}
 
@@ -39,20 +40,13 @@ class Create(Resource):
             res=parse(c, silence=True)
             c.close()
             res.set_models()
-            p = res.create_patient(subdivision=subdivision,
-                                party=party,
-                                country=country,
-                                contact=contact,
-                                lang=lang,
-                                du=du,
-                                patient=patient)
         except:
             e=sys.exc_info()[1]
             oo=health_OperationOutcome()
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': ''.join(['/Patient/', str(p.id)])}
+            return 'Created', 201, {'Location': url_for('procedure_endpoint.record', log_id=())}
 
 class Search(Resource):
     @tryton.transaction()
@@ -71,7 +65,7 @@ class Search(Resource):
                                 p = health_Procedure(gnu_record=rec)
                             except:
                                 continue
-                            finally:
+                            else:
                                 bd.add_entry(p)
             if bd.entries:
                 return bd, 200
@@ -152,8 +146,12 @@ class Record(Resource):
         model = term_map[log_id[0]]
         record = find_record(model, [('id', '=', log_id[1])])
         if record:
-            d=health_Procedure(gnu_record=record)
-            return d, 200
+            try:
+                d=health_Procedure(gnu_record=record)
+            except:
+                return 'Record not found', 404
+            else:
+                return d, 200
         else:
             return 'Record not found', 404
             #if track deleted records

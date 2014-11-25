@@ -3,9 +3,10 @@ from datetime import datetime
 from .health_fhir_patient import health_Patient
 from .health_fhir_observation import health_Observation
 
+#TODO More requirements
+#TODO Paging
 class Bundle(AtomFeed):
     '''Bundle definition is Atom feed'''
-    #TODO More requirements
     def __init__(self, *args, **kwargs):
         '''Add some default values
         '''
@@ -18,11 +19,20 @@ class Bundle(AtomFeed):
             kwargs['author']='GNU Health'
         if 'updated' not in kwargs:
             kwargs['updated']=datetime.utcnow()
+        if 'links' not in kwargs:
+            pass
 
         super(Bundle, self).__init__(*args, **kwargs)
 
     def add_entry(self, entry):
         '''Add entry to feed
+
+        ::::
+            params:
+                entry ===> Resource class
+                    *must have feed_info set*
+            returns:
+                side effects, return value irrelevant
         '''
         feed_info = entry.feed
         self.add(title=feed_info['title'],

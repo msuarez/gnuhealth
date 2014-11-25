@@ -6,14 +6,17 @@ import fhir as supermod
 import sys
 
 class Practitioner_Map:
-    url_prefixes={}
+    url_prefixes={'gnuhealth.healthprofessional': ''}
     model_mapping={
             'gnuhealth.healthprofessional': {
                 'communication': 'name.lang',
                 'specialty': 'specialties',
-                'role': 'name.occupation',
+                'role': 'name.occupation.name',
                 'sex': 'name.sex',
-                'identifier': 'name.puid'}}
+                'identifier': 'name.puid',
+                'given': 'name.name',
+                'family': 'name.lastname',
+                'nickname': 'name.alias'}}
     search_mapping={
             'gnuhealth.healthprofessional':
                 {'_id': (['id'], 'token'),
@@ -36,7 +39,23 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             self.set_gnu_practitioner(rec)
 
     def set_gnu_practitioner(self, practitioner):
+        """Set the GNU Health record
+        ::::
+            params:
+                practitioner ===> Health model
+            returns:
+                instance
+        """
         self.practitioner = practitioner
+        self.model_type = self.practitioner.__name__
+
+        # Only certain models
+        if self.model_type not in self.model_mapping:
+            raise ValueError('Not a valid model')
+
+        self.map = self.model_mapping[self.model_type]
+        self.search_prefix=self.url_prefixes[self.model_type]
+
         self.__import_from_gnu_practitioner()
 
     def __import_from_gnu_practitioner(self):
@@ -54,80 +73,93 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
         '''
         if self.practitioner:
             self.feed={'id': self.practitioner.id,
-                    'published': self.practitioner.create_date,
-                    'updated': self.practitioner.write_date or self.practitioner.create_date,
+                    'published': self.practitioner.name.create_date,
+                    'updated': self.practitioner.name.write_date or self.practitioner.name.create_date,
                     'title': self.practitioner.name.rec_name
                         }
 
     def __set_gnu_name(self):
-        family=[]
-        given=[supermod.string(value=x) for x in self.practitioner.name.name.split()]
-        after_names=[supermod.string(value=x) for x in self.practitioner.name.lastname.split()]
-        if len(after_names) > 1:
-            family=after_names[-1:]
-            given.extend(after_names[:-1])
-        else:
-            family=after_names
-        name=supermod.HumanName(
-                    use=supermod.NameUse(value='usual'),
-                    family=family,
-                    given=given)
+        try:
+            family=[]
+            full_given_name = attrgetter(self.map['given'])(self.practitioner)
+            full_family_name = attrgetter(self.map['family'])(self.practitioner)
+            given=[supermod.string(value=x) for x in full_given_name.split()]
+            after_names=[supermod.string(value=x) for x in full_family_name.split()]
+            if len(after_names) > 1:
+                family=after_names[-1:]
+                given.extend(after_names[:-1])
+            else:
+                family=after_names
+            name=supermod.HumanName(
+                        use=supermod.NameUse(value='usual'),
+                        family=family,
+                        given=given)
 
-        self.set_name(name)
+            self.set_name(name)
+        except:
+            print sys.exc_info()
+            pass
 
     def __set_gnu_identifier(self):
-        if getattr(self.practitioner.name, 'puid', None):
+        try:
+            puid = attrgetter(self.map['identifier'])(self.practitioner)
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='PUID'),
                         #system=supermod.uri(value='gnuhealth::0'),
                                 #value=current_app.config.get(
                                     #'INSTITUTION_ODI', None)),
-                        value=supermod.string(value=self.practitioner.name.puid))
+                        value=supermod.string(value=puid))
+            self.add_identifier(value=ident)
 
-        elif getattr(self.practitioner.name, 'alternative_identification', None):
-            ident = supermod.Identifier(
-                        use=supermod.IdentifierUse(value='usual'),
-                        label=supermod.string(value='ALTERNATE_ID'),
-                        system=supermod.system(
-                            supermod.uri(
-                                value=current_app.config.get(
-                                    'INSTITUTION_ODI',None))),
-                        value=supermod.string(
-                            value=self.practitioner.name.alternative_identification))
-        else:
-            return
-        self.add_identifier(value=ident)
+        except:
+            pass
+            #if getattr(self.practitioner.name, 'alternative_identification', None):
+                #ident = supermod.Identifier(
+                            #use=supermod.IdentifierUse(value='usual'),
+                            #label=supermod.string(value='ALTERNATE_ID'),
+                            #system=supermod.system(
+                                #supermod.uri(
+                                    #value=current_app.config.get(
+                                        #'INSTITUTION_ODI',None))),
+                            #value=supermod.string(
+                                #value=self.practitioner.name.alternative_identification))
+                #self.add_identifier(value=ident)
 
     def __set_gnu_gender(self):
-        if getattr(self.practitioner.name, 'sex', None):
+        try:
+            gender = attrgetter(self.map['sex'])(self.practitioner)
             coding = supermod.Coding(
                         system=supermod.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
-                        code=supermod.code(value=self.practitioner.name.sex.upper()),
-                        display=supermod.string(value='Male' if self.practitioner.name.sex == 'm' else 'Female')
+                        code=supermod.code(value=gender.upper()),
+                        display=supermod.string(value='Male' if gender == 'm' else 'Female')
                         )
             gender=supermod.CodeableConcept(coding=[coding])
             self.set_gender(gender)
+        except:
+            print sys.exc_info()
+            pass
 
     def __set_gnu_communication(self):
         try:
-            if attrgetter(self.model_mapping['communication'])(self.practitioner):
-                from re import sub
-                code=sub('_','-', self.practitioner.name.lang.code)
-                name=self.practitioner.name.lang.name
-                coding = supermod.Coding(
-                            system=supermod.uri(value='urn:ietf:bcp:47'),
-                            code=supermod.code(value=code),
-                            display=supermod.string(value=name)
-                            )
-                com=supermod.CodeableConcept(coding=[coding],
-                                        text=supermod.string(value=name))
-                self.add_communication(com)
+            communication=attrgetter(self.map['communication'])(self.practitioner)
+            from re import sub
+            code=sub('_','-', communication.code)
+            name=communication.name
+            coding = supermod.Coding(
+                        system=supermod.uri(value='urn:ietf:bcp:47'),
+                        code=supermod.code(value=code),
+                        display=supermod.string(value=name)
+                        )
+            com=supermod.CodeableConcept(coding=[coding],
+                                    text=supermod.string(value=name))
+            self.add_communication(com)
         except:
             pass
+
     def __set_gnu_specialty(self):
         try:
-            for spec in self.practitioner.specialties:
+            for spec in attrgetter(self.map['specialty'])(self.practitioner):
                 code, name = attrgetter('specialty.code', 'specialty.name')(spec)
                 coding = supermod.Coding(code=supermod.string(value=code),
                         display=supermod.string(value=name))
@@ -138,7 +170,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
 
     def __set_gnu_role(self):
         try:
-            name=attrgetter('name.occupation.name')(self.practitioner)
+            name=attrgetter(self.map['role'])(self.practitioner)
             coding = supermod.Coding(display=supermod.string(value=name))
             com=supermod.CodeableConcept(coding=[coding])
             self.set_role([com])
