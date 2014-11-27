@@ -85,10 +85,7 @@ class Search(Resource):
             if bd.entries:
                 return bd, 200
             else:
-                st =[]
-                for k,v in request.args.items():
-                    st.append(':'.join([k,v]))
-                return 'No matching record(s) for {0}'.format(' '.join(st)), 403
+                return search_error_string(request.args), 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')

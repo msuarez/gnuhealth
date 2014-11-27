@@ -10,7 +10,8 @@ from trytond.transaction import Transaction
 import trytond
 
 auth_endpoint = Blueprint('auth_endpoint', __name__,
-                                template_folder='templates')
+                                template_folder='templates',
+                                url_prefix='/auth')
 
 user_model = tryton.pool.get('res.user')
 
@@ -32,12 +33,11 @@ def get_user_id(uid=None, username=None, password=None):
         user=user_model.search([('id', '=', uid)])
         if user:
             return unicode(user[0].id)
-    elif username is not None and password is not None:
+    if username is not None and password is not None:
         user_id = user_model.get_login(username, password)
         if user_id:
             return unicode(user_id)
-    else:
-        return None
+    return None
 
 
 class User(UserMixin):

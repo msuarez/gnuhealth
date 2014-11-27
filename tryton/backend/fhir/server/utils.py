@@ -42,3 +42,16 @@ class recordConverter(BaseConverter):
     def to_url(self, values):
         return '-'.join([str(value) for value in values if value is not None])
 
+def search_error_string(args):
+    """Returns string for no matches with given arguments
+        (used by search interactions)
+
+        params:
+            args ===> request.args object
+        returns:
+            string
+    """
+    st =[]
+    for k,v in args.items():
+        st.append(': '.join([k,v]))
+    return 'No matching record(s) for {0}'.format('\n'.join(st))

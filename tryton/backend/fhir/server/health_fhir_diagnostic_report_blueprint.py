@@ -5,6 +5,7 @@ from lxml.etree import XMLSyntaxError
 from health_fhir import health_DiagnosticReport, health_OperationOutcome, parse, parseEtree, Bundle, find_record, health_Search
 from extensions import tryton
 from flask.ext.restful import Api
+from utils import search_error_string
 import lxml
 import json
 import os.path
@@ -64,10 +65,7 @@ class Search(Resource):
             if bd.entries:
                 return bd, 200
             else:
-                st =[]
-                for k,v in request.args.items():
-                    st.append(':'.join([k,v]))
-                return 'No matching record(s) for {0}'.format(' '.join(st)), 403
+                return search_error_string(request.args), 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')

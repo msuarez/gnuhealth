@@ -7,6 +7,7 @@ from .health_fhir_operation_outcome import *
 from .health_fhir_observation import *
 from .health_fhir_procedure import *
 from .health_fhir_diagnostic_report import *
+from .health_fhir_conformance import *
 from .datastore import *
 from lxml import etree as etree_
 

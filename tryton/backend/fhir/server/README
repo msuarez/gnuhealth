@@ -37,9 +37,14 @@ What is working:
     -search
     -read
     -validate
-    -create (mostly, but can fail spectacularly)
+    -create (on patient), *but can fail spectacularly*
 
 What is *NOT* working:
     -vread/history (no version support)
     -update (no version support)
     -delete (never allow this?)
+
+What REALLY needs to be done:
+    -Testing
+    -Lots of condensing/refactoring, creating funcs for similarly used code
+    -Better Conformance statement
