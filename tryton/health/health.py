@@ -3055,9 +3055,9 @@ class PatientVaccination(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
 
     vaccine = fields.Many2One(
-        'product.product', 'Vaccine', required=True,
+        'gnuhealth.medicament', 'Vaccine', required=True,
         domain=[('is_vaccine', '=', True)],
-        help='Vaccine Name. Make sure that the vaccine (product) has all the'
+        help='Vaccine Name. Make sure that the vaccine has all the'
         ' proper information at product level. Information such as provider,'
         ' supplier code, tracking number, etc.. This  information must always'
         ' be present. If available, please copy / scan the vaccine leaflet'
@@ -3146,7 +3146,58 @@ class PatientVaccination(ModelSQL, ModelView):
             if (self.next_dose_date < self.date):
                 self.raise_user_error('next_dose_before_first')
 
+    @classmethod
+    def __register__(cls, module_name):
 
+        # Upgrade to 2.8
+        # Link vaccine with the vaccine model instead of the product directly
+
+        super(PatientVaccination, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+
+        cursor.execute("select keycol.table_name \
+            from information_schema.referential_constraints referential \
+            join information_schema.key_column_usage keycol on \
+            keycol.constraint_name = referential.unique_constraint_name \
+            and referential.constraint_name = \
+            \'gnuhealth_vaccination_vaccine_fkey\' \
+            and keycol.table_name=\'product_product\';")
+
+        old_reference = cursor.fetchone()
+
+        # RUN ONCE :This code block within the if statement should 
+        # be met only once.
+        # Check that the reference of the vaccine is to the product model
+        # If that is the case :
+        # - Delete the foreign key
+        # - Assign the new ids to the vaccine field, referencing the 
+        # medicament model, instead of the product.
+
+        if (old_reference):
+
+            cursor.execute("ALTER TABLE gnuhealth_vaccination \
+                DROP CONSTRAINT IF EXISTS \
+                gnuhealth_vaccination_vaccine_fkey;")
+
+            cursor.execute(
+                'UPDATE GNUHEALTH_VACCINATION '
+                'SET VACCINE = GNUHEALTH_MEDICAMENT.ID '
+                'FROM GNUHEALTH_MEDICAMENT '
+                'WHERE GNUHEALTH_VACCINATION.VACCINE = \
+                GNUHEALTH_MEDICAMENT.NAME')
+
+            # It didn't take it from the new model attribute definition
+            # when running the update process, so just to be safe
+            # force the FK creation once.
+            cursor.execute(
+                'alter table gnuhealth_vaccination add constraint \
+                gnuhealth_vaccination_vaccine_fkey foreign key (vaccine) \
+                references gnuhealth_medicament')
+                
+        
 class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
     __name__ = 'gnuhealth.prescription.order'
