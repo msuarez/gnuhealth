@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <form string="Vaccination History">
-    <group colspan="4" string="Institution" id="group_puerperium_institution">
+    <group colspan="4" string="Institution" id="group_vaccination_institution">
         <label name="name"/>
         <field name="name"/>
         <label name="date"/>

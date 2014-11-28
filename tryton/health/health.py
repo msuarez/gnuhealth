@@ -3112,6 +3112,10 @@ class PatientVaccination(ModelSQL, ModelView):
         HealthProf= pool.get('gnuhealth.healthprofessional')
         return HealthProf.get_health_professional()
 
+    @staticmethod
+    def default_state():
+        return 'draft'
+
     @classmethod
     def __setup__(cls):
         super(PatientVaccination, cls).__setup__()

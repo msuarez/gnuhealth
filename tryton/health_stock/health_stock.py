@@ -34,7 +34,7 @@ __all__ = ['Medicament', 'Party', 'Lot', 'Move',
     'PatientAmbulatoryCareMedicalSupply', 'PatientAmbulatoryCareVaccine',
     'PatientRounding', 'PatientRoundingMedicament',
     'PatientRoundingMedicalSupply', 'PatientRoundingVaccine',
-    'PatientPrescriptionOrder']
+    'PatientPrescriptionOrder', 'PatientVaccination']
     
 __metaclass__ = PoolMeta
 
@@ -117,6 +117,7 @@ class Move:
             'gnuhealth.prescription.order',
             'gnuhealth.patient.ambulatory_care',
             'gnuhealth.patient.rounding',
+            'gnuhealth.vaccination',
             ]
 
 
@@ -634,3 +635,17 @@ class PatientPrescriptionOrder:
             prescriptions, default=default)
 
 
+class PatientVaccination:
+    __name__ = 'gnuhealth.vaccination'
+    moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
+    location = fields.Many2One('stock.location',
+        'Stock Location', domain=[('type', '=', 'storage')])
+
+    @classmethod
+    def copy(cls, vaccinations, default=None):
+        if default is None:
+            default = {}
+        default = default.copy()
+        default['moves'] = None
+        return super(PatientVaccination, cls).copy(
+            vaccinations, default=default)

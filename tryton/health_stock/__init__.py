@@ -41,8 +41,11 @@ def register():
         PatientRoundingMedicalSupply,
         PatientRoundingVaccine,
         PatientPrescriptionOrder,
+        PatientVaccination,
         CreatePrescriptionStockMoveInit,
+        CreateVaccinationStockMoveInit,
         module='health_stock', type_='model')
     Pool.register(
         CreatePrescriptionStockMove,
+        CreateVaccinationStockMove,
         module='health_stock', type_='wizard')

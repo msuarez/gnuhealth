@@ -27,19 +27,19 @@ from trytond.model import ModelView
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
-__all__ = ['CreatePrescriptionStockMoveInit','CreatePrescriptionStockMove']
+__all__ = ['CreateVaccinationStockMoveInit','CreateVaccinationStockMove']
 
-class CreatePrescriptionStockMoveInit(ModelView):
-    'Create Prescription Stock Move Init'
-    __name__ = 'gnuhealth.prescription.stock.move.init'
+class CreateVaccinationStockMoveInit(ModelView):
+    'Create Vaccination Stock Move Init'
+    __name__ = 'gnuhealth.vaccination.stock.move.init'
 
 
-class CreatePrescriptionStockMove(Wizard):
-    'Create Prescription Stock Move'
-    __name__ = 'gnuhealth.prescription.stock.move.create'
+class CreateVaccinationStockMove(Wizard):
+    'Create Vaccination Stock Move'
+    __name__ = 'gnuhealth.vaccination.stock.move.create'
 
-    start = StateView('gnuhealth.prescription.stock.move.init',
-            'health_stock.view_create_prescription_stock_move', [
+    start = StateView('gnuhealth.vaccination.stock.move.init',
+            'health_stock.view_create_vaccination_stock_move', [
             Button('Cancel', 'end', 'tryton-cancel'),
             Button('Create Stock Move', 'create_stock_move',
                 'tryton-ok', True),
@@ -49,40 +49,39 @@ class CreatePrescriptionStockMove(Wizard):
     def transition_create_stock_move(self):
         pool = Pool()
         StockMove = pool.get('stock.move')
-        Prescription = pool.get('gnuhealth.prescription.order')
+        Vaccination = pool.get('gnuhealth.vaccination')
 
-        prescriptions = Prescription.browse(Transaction().context.get(
+        vaccinations = Vaccination.browse(Transaction().context.get(
             'active_ids'))
-        for prescription in prescriptions:
+        for vaccination in vaccinations:
 
-            if prescription.moves:
+            if vaccination.moves:
                 raise Exception('Stock moves already exists!.')
 
-            if not prescription.pharmacy:
-                raise Exception('You need to enter a pharmacy.')
-
             lines = []
-            for line in prescription.prescription_line:
-                line_data = {}
-                line_data['origin'] = str(prescription)
-                line_data['from_location'] = \
-                    prescription.pharmacy.warehouse.storage_location.id
-                line_data['to_location'] = \
-                    prescription.patient.name.customer_location.id
-                line_data['product'] = \
-                    line.medicament.name.id
-                line_data['unit_price'] = \
-                    line.medicament.name.list_price
-                line_data['quantity'] = line.quantity
-                line_data['uom'] = \
-                    line.medicament.name.default_uom.id
-                line_data['state'] = 'draft'
-                lines.append(line_data)
-                
+            
+            line_data = {}
+            line_data['origin'] = str(vaccination)
+            line_data['from_location'] = \
+                vaccination.location.id
+            line_data['to_location'] = \
+                vaccination.name.name.customer_location.id
+            line_data['product'] = \
+                vaccination.vaccine.name.id
+            line_data['unit_price'] = \
+                vaccination.vaccine.name.list_price
+            line_data['quantity'] = 1
+            line_data['uom'] = \
+                vaccination.vaccine.name.default_uom.id
+            line_data['state'] = 'draft'
+            lines.append(line_data)
+            
             moves = StockMove.create(lines)
+
             StockMove.assign(moves)
             StockMove.do(moves)
-
+            
+            
         return 'end'
 
 
