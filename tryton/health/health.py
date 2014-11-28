@@ -3095,6 +3095,11 @@ class PatientVaccination(ModelSQL, ModelView):
         help="Health Professional who administered or reviewed the vaccine \
          information")
 
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('done', 'Done'),
+        ], 'State', readonly=True)
+
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')

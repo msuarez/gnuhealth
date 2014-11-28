@@ -32,4 +32,9 @@
     <separator colspan="4" string="Notes" id="separator_vaccination_notes"/>
     <newline/>
     <field name="observations" colspan="4"/>
+    <group colspan="4" id="group_vaccination_state">
+        <label name="state"/>
+        <field name="state"/>
+    </group>
+
 </form>
