@@ -34,8 +34,8 @@ __all__ = ['Medicament', 'Party', 'Lot', 'Move',
     'PatientAmbulatoryCareMedicalSupply', 'PatientAmbulatoryCareVaccine',
     'PatientRounding', 'PatientRoundingMedicament',
     'PatientRoundingMedicalSupply', 'PatientRoundingVaccine',
-    'PatientPrescriptionOrder', 'CreatePrescriptionStockMoveInit',
-    'CreatePrescriptionStockMove']
+    'PatientPrescriptionOrder']
+    
 __metaclass__ = PoolMeta
 
 _STATES = {
@@ -632,61 +632,5 @@ class PatientPrescriptionOrder:
         default['moves'] = None
         return super(PatientPrescriptionOrder, cls).copy(
             prescriptions, default=default)
-
-
-class CreatePrescriptionStockMoveInit(ModelView):
-    'Create Prescription Stock Move Init'
-    __name__ = 'gnuhealth.prescription.stock.move.init'
-
-
-class CreatePrescriptionStockMove(Wizard):
-    'Create Prescription Stock Move'
-    __name__ = 'gnuhealth.prescription.stock.move.create'
-
-    start = StateView('gnuhealth.prescription.stock.move.init',
-            'health_stock.view_create_prescription_stock_move', [
-            Button('Cancel', 'end', 'tryton-cancel'),
-            Button('Create Stock Move', 'create_stock_move',
-                'tryton-ok', True),
-            ])
-    create_stock_move = StateTransition()
-
-    def transition_create_stock_move(self):
-        pool = Pool()
-        StockMove = pool.get('stock.move')
-        Prescription = pool.get('gnuhealth.prescription.order')
-
-        prescriptions = Prescription.browse(Transaction().context.get(
-            'active_ids'))
-        for prescription in prescriptions:
-
-            if prescription.moves:
-                raise Exception('Stock moves already exists!.')
-
-            if not prescription.pharmacy:
-                raise Exception('You need to enter a pharmacy.')
-
-            lines = []
-            for line in prescription.prescription_line:
-                line_data = {}
-                line_data['origin'] = str(prescription)
-                line_data['from_location'] = \
-                    prescription.pharmacy.warehouse.storage_location.id
-                line_data['to_location'] = \
-                    prescription.patient.name.customer_location.id
-                line_data['product'] = \
-                    line.medicament.name.id
-                line_data['unit_price'] = \
-                    line.medicament.name.list_price
-                line_data['quantity'] = line.quantity
-                line_data['uom'] = \
-                    line.medicament.name.default_uom.id
-                line_data['state'] = 'draft'
-                lines.append(line_data)
-            moves = StockMove.create(lines)
-            StockMove.assign(moves)
-            StockMove.do(moves)
-
-        return 'end'
 
 

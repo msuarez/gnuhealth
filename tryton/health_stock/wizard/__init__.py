@@ -5,7 +5,6 @@
 #    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
 #
-#    Copyright (C) 2013  Sebastian Marro <smarro@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -22,27 +21,4 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
-from .health_stock import *
-from wizard import *
-
-def register():
-    Pool.register(
-        Medicament,
-        Party,
-        Lot,
-        Move,
-        PatientAmbulatoryCare,
-        PatientAmbulatoryCareMedicament,
-        PatientAmbulatoryCareMedicalSupply,
-        PatientAmbulatoryCareVaccine,
-        PatientRounding,
-        PatientRoundingMedicament,
-        PatientRoundingMedicalSupply,
-        PatientRoundingVaccine,
-        PatientPrescriptionOrder,
-        CreatePrescriptionStockMoveInit,
-        module='health_stock', type_='model')
-    Pool.register(
-        CreatePrescriptionStockMove,
-        module='health_stock', type_='wizard')
+from wizard_create_prescription_stock_move import *
