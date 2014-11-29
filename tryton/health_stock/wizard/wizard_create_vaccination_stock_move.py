@@ -56,8 +56,8 @@ class CreateVaccinationStockMove(Wizard):
         for vaccination in vaccinations:
 
             if vaccination.moves:
-                raise Exception('Stock moves already exists!.')
-
+                self.raise_user_error('stock_move_exists')
+                 
             lines = []
             
             line_data = {}
@@ -84,4 +84,10 @@ class CreateVaccinationStockMove(Wizard):
             
         return 'end'
 
+    @classmethod
+    def __setup__(cls):
+        super(CreateVaccinationStockMove, cls).__setup__()
+        cls._error_messages.update({
+            'stock_move_exists':
+                'Stock moves already exists!.',})
 

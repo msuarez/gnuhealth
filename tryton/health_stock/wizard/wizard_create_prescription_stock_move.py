@@ -56,10 +56,10 @@ class CreatePrescriptionStockMove(Wizard):
         for prescription in prescriptions:
 
             if prescription.moves:
-                raise Exception('Stock moves already exists!.')
+                self.raise_user_error('stock_move_exists')
 
             if not prescription.pharmacy:
-                raise Exception('You need to enter a pharmacy.')
+                self.raise_user_error('no_pharmacy_selected')
 
             lines = []
             for line in prescription.prescription_line:
@@ -85,4 +85,13 @@ class CreatePrescriptionStockMove(Wizard):
 
         return 'end'
 
+    @classmethod
+    def __setup__(cls):
+        super(CreatePrescriptionStockMove, cls).__setup__()
+        cls._error_messages.update({
+            'stock_move_exists':
+                'Stock moves already exists!.',
+            'no_pharmacy_selected':
+                'You need to select a pharmacy.',
+            })
 
