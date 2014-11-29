@@ -471,6 +471,14 @@ class PatientVaccination:
     lot = fields.Many2One('stock.lot', 'Lot', depends=['vaccine'],
         help="This field includes the lot number and expiration date")
 
+
+    @fields.depends('lot')
+    def on_change_lot(self):
+        # Check expiration date on the vaccine lot
+        if self.lot:
+            if self.lot.expiration_date < datetime.date(self.date):
+                self.raise_user_error('expired_vaccine')
+        return {}
     @classmethod
     def copy(cls, vaccinations, default=None):
         if default is None:
@@ -479,3 +487,11 @@ class PatientVaccination:
         default['moves'] = None
         return super(PatientVaccination, cls).copy(
             vaccinations, default=default)
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientVaccination, cls).__setup__()
+        cls._error_messages.update({
+            'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '
+                'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
+        })

@@ -3127,8 +3127,6 @@ class PatientVaccination(ModelSQL, ModelView):
                 'This vaccine dose has been given already to the patient'),
         ]
         cls._error_messages.update({
-            'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '
-                'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
             'next_dose_before_first': 'The Vaccine next dose is BEFORE the '
                 'first one !'
         })
@@ -3145,13 +3143,7 @@ class PatientVaccination(ModelSQL, ModelView):
     def validate(cls, vaccines):
         super(PatientVaccination, cls).validate(vaccines)
         for vaccine in vaccines:
-            vaccine.check_vaccine_expiration_date()
             vaccine.validate_next_dose_date()
-
-    def check_vaccine_expiration_date(self):
-        if self.vaccine_expiration_date:
-            if self.vaccine_expiration_date < datetime.date(self.date):
-                self.raise_user_error('expired_vaccine')
 
     def validate_next_dose_date(self):
         if (self.next_dose_date):
