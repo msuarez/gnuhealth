@@ -90,24 +90,7 @@ class Party:
 class Lot:
     __name__ = 'stock.lot'
     expiration_date = fields.Date('Expiration Date')
-    quantity = fields.Function(fields.Float('Quantity'), 'sum_lot_quantity')
-
-    def sum_lot_quantity(self, name):
-        Move = Pool().get('stock.move')
-
-        moves = Move.search([
-            ('lot', '=', self.id),
-            ('product', '=', self.product.id)
-        ])
-        quantity = 0
-        for move in moves:
-            if move.to_location.type == 'storage':
-                quantity += move.quantity
-            if move.from_location.type == 'storage':
-                quantity -= move.quantity
-        return quantity
-
-
+   
 class Move:
     __name__ = 'stock.move'
 
@@ -640,6 +623,9 @@ class PatientVaccination:
     moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
     location = fields.Many2One('stock.location',
         'Stock Location', domain=[('type', '=', 'storage')])
+
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['vaccine'],
+        help="This field includes the lot number and expiration date")
 
     @classmethod
     def copy(cls, vaccinations, default=None):

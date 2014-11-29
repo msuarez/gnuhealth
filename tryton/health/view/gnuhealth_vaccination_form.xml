@@ -22,12 +22,15 @@
         <field name="next_dose_date"/>
     </group>
     <newline/>
+    <!-- expiration date and lot are now part of the health_stock module -->
+    <!--
     <group colspan="4" col="8" id="group_vaccine_dates">
         <label name="vaccine_expiration_date"/>
         <field name="vaccine_expiration_date"/>
         <label name="vaccine_lot"/>
         <field name="vaccine_lot"/>
     </group>
+    -->
     <newline/>
     <separator colspan="4" string="Notes" id="separator_vaccination_notes"/>
     <newline/>

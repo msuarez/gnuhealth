@@ -3072,6 +3072,9 @@ class PatientVaccination(ModelSQL, ModelView):
         ('po', 'Oral'),
         ], 'Route', sort=False)
 
+    # Deprecated
+    # Since 2.8, we include the expiration date and lot number information
+    # in the health_stock module
     vaccine_expiration_date = fields.Date('Expiration date')
 
     vaccine_lot = fields.Char(
