@@ -12,6 +12,7 @@ class health_Conformance(supermod.Conformance):
         self.__set_rest()
         self.__set_format()
         self.__set_publisher()
+        self.__set_description()
         self.__set_date()
         self.__set_unknown()
         self.__set_implementation()
@@ -27,8 +28,7 @@ class health_Conformance(supermod.Conformance):
         self.set_publisher(p)
 
     def __set_description(self):
-        s = supermod.string(value='This is the conformance statement. It describes the capabilities of this FHIR \
-                installation')
+        s = supermod.string(value='This is the conformance statement. It describes the capabilities of this FHIR installation')
         self.set_description(s)
 
     def __set_date(self):
@@ -36,8 +36,8 @@ class health_Conformance(supermod.Conformance):
 
     def __set_implementation(self):
         i = supermod.Conformance_Implementation()
-        i.url = supermod.uri(value='/') #TODO Use url_for, but need to get FHIR root, not server
-        i.description=supermod.string(value='Got FHIR running on')
+        i.url = supermod.uri(value=url_for('base_endpoint.conformance'))
+        i.description=supermod.string(value='FHIR installation')
         self.set_implementation(i)
     
     def __set_version(self):
