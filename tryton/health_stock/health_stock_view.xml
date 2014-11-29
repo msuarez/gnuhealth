@@ -41,17 +41,6 @@
             <field name="name">gnuhealth_ambulatory_care_medical_supplies_tree</field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_tree">
-            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
-            <field name="type">tree</field>
-            <field name="name">gnuhealth_ambulatory_care_vaccine_tree</field>
-        </record>
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_form">
-            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
-            <field name="type">form</field>
-            <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
-        </record>
-
         <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_tree">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_tree"/>
@@ -80,6 +69,7 @@
             <field name="name">gnuhealth_rounding_medical_supply_tree</field>
         </record>
 
+        <!--
         <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_tree">
             <field name="model">gnuhealth.patient.rounding.vaccine</field>
             <field name="type">tree</field>
@@ -90,7 +80,8 @@
             <field name="type">form</field>
             <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_tree">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_tree"/>
