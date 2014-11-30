@@ -86,10 +86,12 @@ def register():
         SecondaryCondition,
         DiagnosticHypothesis,
         SignsAndSymptoms,
+        CheckImmunizationStatusInit,
         module='health', type_='model')
     Pool.register(
         OpenAppointmentReport,
         CreateAppointmentEvaluation,
+        CheckImmunizationStatus,
         module='health', type_='wizard')
     Pool.register(
         PatientDiseaseReport,
