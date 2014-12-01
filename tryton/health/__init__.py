@@ -97,4 +97,5 @@ def register():
         PatientDiseaseReport,
         PatientMedicationReport,
         PatientVaccinationReport,
+        ImmunizationStatusReport,
         module='health', type_='report')

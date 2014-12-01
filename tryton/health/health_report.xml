@@ -75,5 +75,12 @@
             <field name="action" ref="report_appointment_receipt"/>
         </record>
 
+        <record model="ir.action.report" id="report_immunization_status">
+            <field name="name">Immunization Status Report</field>
+            <field name="model">gnuhealth.patient</field>
+            <field name="report_name">gnuhealth.immunization_status_report</field>
+            <field name="report">health/report/immunization_status_report.odt</field>
+        </record>
+        
     </data>
 </tryton>

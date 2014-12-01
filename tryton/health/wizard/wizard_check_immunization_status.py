@@ -20,7 +20,7 @@
 #
 ##############################################################################
 
-from trytond.wizard import Wizard, StateView, Button, StateTransition
+from trytond.wizard import Wizard, StateView, Button, StateAction
 from trytond.model import ModelView, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
@@ -41,13 +41,20 @@ class CheckImmunizationStatus(Wizard):
     start = StateView('gnuhealth.check_immunization_status.init',
             'health.view_check_immunization_status', [
             Button('Cancel', 'end', 'tryton-cancel'),
-            Button('Check Immunization Status', 'check_immunization_status',
+            Button('Immunization Status', 'check_immunization_status',
                 'tryton-ok', True),
             ])
-    check_immunization_status = StateTransition()
+    check_immunization_status = StateAction('health.report_immunization_status')
+
+    def do_check_immunization_status(self, action):
+        return action, self.get_info()
+        
+    def get_info(self):
+    
+        return {
+            'patient_id': Transaction().context.get('active_id'),
+            'immunization_schedule_id': self.start.immunization_schedule.id
+            }
 
     def transition_check_immunization_status(self):
-       
-        immunization_schedule =  self.start.immunization_schedule
-        
         return 'end'
