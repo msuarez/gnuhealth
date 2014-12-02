@@ -1508,10 +1508,25 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         ],'Time Unit')
     remarks = fields.Char('Remarks')
 
+    sched = fields.Function(
+        fields.Char('Schedule'), 'get_dose_schedule',
+        searcher='search_dose_schedule')
+
     @classmethod
     def __setup__(cls):
         super(ImmunizationScheduleDose, cls).__setup__()
-        cls._order.insert(0, ('dose_number', 'ASC'))
+        cls._order.insert(0, ('vaccine', 'ASC'))
+        cls._order.insert(1, ('dose_number', 'ASC'))
+
+    def get_dose_schedule(self, name):
+        return self.vaccine.sched.sched
+
+    @classmethod
+    def search_dose_schedule(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('vaccine.sched.sched', clause[1], value))
+        return res
 
 class ImmunizationScheduleLine(ModelSQL, ModelView):
     'Immunization Schedule Line'

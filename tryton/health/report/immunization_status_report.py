@@ -36,11 +36,20 @@ class ImmunizationStatusReport(Report):
 
         Sched = Pool().get('gnuhealth.immunization_schedule')
         Patient = Pool().get('gnuhealth.patient')
-        localcontext['patient'] = Patient(data['patient_id'])
+        patient = Patient(data['patient_id'])
+        localcontext['patient'] = patient
         sched = Sched(data['immunization_schedule_id'])
         
         localcontext['immunization_schedule']=sched
-        
+
+        cls.get_immunizations_for_age(patient, sched)
+            
         return super(ImmunizationStatusReport, cls).parse(report,
             objects, data, localcontext)
 
+    @classmethod
+    def get_immunizations_for_age(cls,patient,immunization_schedule):
+        for vaccine in immunization_schedule.vaccines:
+            print vaccine.rec_name
+        return True
+            
