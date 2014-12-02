@@ -1508,6 +1508,11 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         ],'Time Unit')
     remarks = fields.Char('Remarks')
 
+    @classmethod
+    def __setup__(cls):
+        super(ImmunizationScheduleDose, cls).__setup__()
+        cls._order.insert(0, ('dose_number', 'ASC'))
+
 class ImmunizationScheduleLine(ModelSQL, ModelView):
     'Immunization Schedule Line'
     __name__ = 'gnuhealth.immunization_schedule_line'
