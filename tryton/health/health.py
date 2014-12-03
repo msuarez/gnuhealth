@@ -2012,6 +2012,11 @@ class PatientData(ModelSQL, ModelView):
                 else:
                     return False
 
+            # Return the raw age in the integers array [Y,M,D]
+            # When name is called as 'raw_age'
+            if (name == 'raw_age' and patient_dob):
+                return [delta.years,delta.months,delta.days]
+                
         return compute_age_from_dates(self.dob, self.deceased,
                                       self.dod, self.sex)
 
