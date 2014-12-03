@@ -1529,6 +1529,14 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         res.append(('vaccine.sched.sched', clause[1], value))
         return res
 
+    @classmethod
+    def __setup__(cls):
+        super(ImmunizationScheduleDose, cls).__setup__()
+        cls._sql_constraints = [
+            ('number_uniq', 'UNIQUE(dose_number,vaccine)',
+                'The dose number must be unique for this vaccine'),
+        ]
+
 class ImmunizationScheduleLine(ModelSQL, ModelView):
     'Immunization Schedule Line'
     __name__ = 'gnuhealth.immunization_schedule_line'
