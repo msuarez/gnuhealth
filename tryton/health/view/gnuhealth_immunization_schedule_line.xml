@@ -9,5 +9,8 @@
         <field name="scope"/>
     </group>
     <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+    <newline/>
     <field colspan="4" name="doses"/>
 </form>

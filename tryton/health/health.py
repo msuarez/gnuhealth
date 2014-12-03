@@ -1498,14 +1498,15 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
     vaccine = fields.Many2One(
         'gnuhealth.immunization_schedule_line', 'Vaccine', required=True,
         help='Vaccine Name')
-    dose_number = fields.Integer('Dose')
-    age_dose = fields.Integer('Age')
+    dose_number = fields.Integer('Dose',required=True)
+    age_dose = fields.Integer('Age',required=True)
     age_unit = fields.Selection([
         ('days','days'),
         ('weeks','weeks'),
         ('months','months'),
         ('years','years'),
-        ],'Time Unit')
+        ],'Time Unit',required=True)
+
     remarks = fields.Char('Remarks')
 
     sched = fields.Function(
@@ -1547,6 +1548,8 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
         ('reccomended','Recommended'),
         ('highrisk','Risk groups'), 
         ],'Scope', sort=False)
+
+    remarks = fields.Char('Remarks')
 
     doses = fields.One2Many ('gnuhealth.immunization_schedule_dose',
         'vaccine','Doses')
