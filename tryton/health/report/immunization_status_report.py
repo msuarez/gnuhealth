@@ -42,16 +42,18 @@ class ImmunizationStatusReport(Report):
         
         localcontext['immunization_schedule']=sched
 
-        immunization_to_check = \
+        immunizations_to_check = \
             cls.get_immunizations_for_age(patient, sched)
         
-        print immunization_to_check
+        immunization_status = \
+            cls.verify_status(immunizations_to_check)
+        
         
         return super(ImmunizationStatusReport, cls).parse(report,
             objects, data, localcontext)
 
     @classmethod
-    def get_immunizations_for_age(cls,Patient,immunization_schedule):
+    def get_immunizations_for_age(cls,patient,immunization_schedule):
         
         immunizations_for_age = []
         
@@ -61,7 +63,7 @@ class ImmunizationStatusReport(Report):
                 dose_number, dose_age, age_unit = dose.dose_number, \
                     dose.age_dose, dose.age_unit
                 
-                p_age = Patient.patient_age(name='raw_age')
+                p_age = patient.patient_age(name='raw_age')
                 
                 #Age of the person in years and months
                 pyears,pmonths = p_age[0],p_age[1]
@@ -71,6 +73,7 @@ class ImmunizationStatusReport(Report):
                 if ((age_unit == 'months' and pmonths >= dose_age) or
                     (age_unit == 'years' and pyears >= dose_age)):
                         immunization_info = {
+                            'patient' : patient,
                             'vaccine' : vaccine,
                             'dose' : dose_number,
                             'dose_age' : dose_age,
@@ -78,6 +81,21 @@ class ImmunizationStatusReport(Report):
                         
                         # Add to the list of this person immunization check
                         immunizations_for_age.append(immunization_info)
-                            
+
         return immunizations_for_age
-            
+
+    @classmethod
+    def verify_status(cls,immunizations_to_check):
+        Vaccination = Pool().get('gnuhealth.vaccination')
+
+        for immunization in immunizations_to_check:
+            status = "missing"
+            res = Vaccination.search_count([
+                ('name', '=', immunization['patient']),
+                ('dose', '=', immunization['dose']),
+                ('vaccine.name', '=', immunization['vaccine'].vaccine.name),
+                ])
+           
+            if res:
+                status = 'ok'
+            print "checking for", immunization['vaccine'].rec_name, "dose", immunization['dose'], status

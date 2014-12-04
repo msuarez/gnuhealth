@@ -9,5 +9,7 @@
     <label name="active"/>
     <field name="active"/>
     <newline/>
+    <label name="desc"/>
+    <field colspan="4" name="desc"/>
     <field colspan="4" name="vaccines"/>
 </form>

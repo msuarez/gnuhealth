@@ -1403,8 +1403,7 @@ class MedicamentCategory(ModelSQL, ModelView):
 class Medicament(ModelSQL, ModelView):
     'Medicament'
     __name__ = 'gnuhealth.medicament'
-    _rec_name = 'active_component'
-
+    
     name = fields.Many2One(
         'product.product', 'Product', required=True,
         domain=[('is_medicament', '=', True)],
@@ -1573,7 +1572,7 @@ class ImmunizationSchedule(ModelSQL, ModelView):
     'Immunization Schedule'
     __name__ = 'gnuhealth.immunization_schedule'
 
-    sched = fields.Char('Schedule',
+    sched = fields.Char('Code',
      help="Code for this immunization schedule", required=True)
     country = fields.Many2One('country.country','Country')
     year = fields.Integer('Year')
@@ -1582,8 +1581,19 @@ class ImmunizationSchedule(ModelSQL, ModelView):
     vaccines = fields.One2Many ('gnuhealth.immunization_schedule_line',
         'sched','Vaccines')
 
+    desc = fields.Char('Description',
+     help="Short Description for this immunization schedule", required=True)
+     
     def get_rec_name(self, name):
         return (self.sched)
+
+    @classmethod
+    def __setup__(cls):
+        super(ImmunizationSchedule, cls).__setup__()
+        cls._sql_constraints = [
+            ('sched_uniq', 'UNIQUE(sched)',
+                'The schedule code must be unique'),
+        ]
     
 class PathologyCategory(ModelSQL, ModelView):
     'Disease Categories'
