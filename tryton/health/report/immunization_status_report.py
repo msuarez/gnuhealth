@@ -48,6 +48,7 @@ class ImmunizationStatusReport(Report):
         immunization_status = \
             cls.verify_status(immunizations_to_check)
         
+        localcontext['immunization_status'] = immunization_status
         
         return super(ImmunizationStatusReport, cls).parse(report,
             objects, data, localcontext)
@@ -77,7 +78,8 @@ class ImmunizationStatusReport(Report):
                             'vaccine' : vaccine,
                             'dose' : dose_number,
                             'dose_age' : dose_age,
-                            'age_unit' : age_unit}
+                            'age_unit' : age_unit,
+                            'status' : None}
                         
                         # Add to the list of this person immunization check
                         immunizations_for_age.append(immunization_info)
@@ -88,8 +90,9 @@ class ImmunizationStatusReport(Report):
     def verify_status(cls,immunizations_to_check):
         Vaccination = Pool().get('gnuhealth.vaccination')
 
+        result = []
         for immunization in immunizations_to_check:
-            status = "missing"
+            immunization['status'] = "missing"
             res = Vaccination.search_count([
                 ('name', '=', immunization['patient']),
                 ('dose', '=', immunization['dose']),
@@ -97,5 +100,10 @@ class ImmunizationStatusReport(Report):
                 ])
            
             if res:
-                status = 'ok'
-            print "checking for", immunization['vaccine'].rec_name, "dose", immunization['dose'], status
+                immunization['status'] = 'ok'
+            
+            result.append(immunization)
+        
+        return result
+        
+
