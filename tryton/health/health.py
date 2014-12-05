@@ -1512,12 +1512,6 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
         fields.Char('Schedule'), 'get_dose_schedule',
         searcher='search_dose_schedule')
 
-    @classmethod
-    def __setup__(cls):
-        super(ImmunizationScheduleDose, cls).__setup__()
-        cls._order.insert(0, ('vaccine', 'ASC'))
-        cls._order.insert(1, ('dose_number', 'ASC'))
-
     def get_dose_schedule(self, name):
         return self.vaccine.sched.sched
 
@@ -1535,6 +1529,8 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
             ('number_uniq', 'UNIQUE(dose_number,vaccine)',
                 'The dose number must be unique for this vaccine'),
         ]
+        cls._order.insert(0, ('vaccine', 'ASC'))
+        cls._order.insert(1, ('dose_number', 'ASC'))
 
 class ImmunizationScheduleLine(ModelSQL, ModelView):
     'Immunization Schedule Line'
