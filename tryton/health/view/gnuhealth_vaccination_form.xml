@@ -1,31 +1,49 @@
 <?xml version="1.0"?>
 <form string="Vaccination History">
-    <group colspan="4" string="Institution" id="group_vaccination_institution">
-        <label name="name"/>
-        <field name="name"/>
-        <label name="date"/>
-        <field name="date"/>
+    <group  colspan="4" string="Header" id="group_vaccination_header">
+        <group yexpand="1" colspan="3" col="6" id='vaccination_main'>
+            <group id="group_vaccination_patient">
+                <label name="name"/>
+                <field name="name"/>
+                <label name="vaccine"/>
+                <field name="vaccine"/>
+            </group>
+            <newline/>
+            <group string="Dose" colspan="4" col="6" id="group_vaccination_dates">
+                <label name="date"/>
+                <field name="date"/>
+                <label name="dose"/>
+                <field name="dose"/>
+                <label name="next_dose_date"/>
+                <field name="next_dose_date"/>
+            </group>
+            <group string="Administration" colspan="4" col="6" id="group_vaccination_administration">
+                <label name="amount"/>
+                <field name="amount"/>
+                <label name="admin_route"/>
+                <field name="admin_route"/>
+                <label name="admin_site"/>
+                <field name="admin_site"/>
+            </group>
+
+        </group>
+
+        <group id="vaccine_label">
+            <field xfill="0" xexpand="1" name="picture" img_width="300" img_height="200" height="200" width="300" widget="image"/>
+        </group>
+    </group>
+    <newline/>
+    <group colspan="4" string="Notes" id="group_vaccination_notes">
+        <field name="observations" colspan="4"/>
+    </group>
+    
+    <newline/>
+
+    <group colspan="4" col="6" id="group_vaccination_other">
         <label name="institution"/>
         <field name="institution"/>
         <label name="healthprof"/>
         <field name="healthprof"/>
-    </group>
-    <newline/>
-    <group colspan="4" col="8" id="group_vaccine_dates">
-        <label name="vaccine"/>
-        <field name="vaccine"/>
-        <label name="admin_route"/>
-        <field name="admin_route"/>
-        <label name="dose"/>
-        <field name="dose"/>
-        <label name="next_dose_date"/>
-        <field name="next_dose_date"/>
-    </group>
-    <newline/>
-    <separator colspan="4" string="Notes" id="separator_vaccination_notes"/>
-    <newline/>
-    <field name="observations" colspan="4"/>
-    <group colspan="4" id="group_vaccination_state">
         <label name="state"/>
         <field name="state"/>
     </group>

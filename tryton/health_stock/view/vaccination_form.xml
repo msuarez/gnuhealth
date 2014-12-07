@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="/form/group[@id=&quot;group_vaccine_dates&quot;]" position="after">
-        <label name="location"/>
-        <field name="location"/>
-        <label name="lot"/>
-        <field name="lot"/>
+    <xpath expr="/form/group/group/group[@id=&quot;group_vaccination_administration&quot;]" position="after">
+        <newline/>
+        <group string="Stock" id="vaccine_stock_info">
+            <label name="location"/>
+            <field name="location"/>
+            <label name="lot"/>
+            <field name="lot"/>
+        </group>
     </xpath>
 </data>

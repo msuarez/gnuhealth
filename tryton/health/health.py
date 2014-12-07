@@ -3114,6 +3114,8 @@ class PatientVaccination(ModelSQL, ModelView):
         ('po', 'Oral'),
         ], 'Route', sort=False)
 
+    picture = fields.Binary('Label')
+
     # Deprecated
     # Since 2.8, we include the expiration date and lot number information
     # in the health_stock module
@@ -3131,7 +3133,7 @@ class PatientVaccination(ModelSQL, ModelView):
     date = fields.DateTime('Date')
     dose = fields.Integer('Dose #')
     next_dose_date = fields.DateTime('Next Dose')
-    observations = fields.Char('Observations')
+    observations = fields.Text('Observations')
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
@@ -3140,6 +3142,23 @@ class PatientVaccination(ModelSQL, ModelView):
         help="Health Professional who administered or reviewed the vaccine \
          information")
 
+    amount = fields.Float(
+        'Amount',
+        help='Amount of vaccine administered, in mL . The dose per mL \
+            (eg, mcg, EL.U ..) can be found at the related medicament')
+
+    admin_site = fields.Selection([
+        ('lvl', 'left vastus lateralis'),
+        ('rvl', 'right vastus lateralis'),
+        ('ld', 'left deltoid'),
+        ('rd', 'right deltoid'),
+        ('lalt', 'left antero lateral fat or thigh'),
+        ('ralt', 'right antero lateral fat or thigh'),
+        ('lpua', 'left posterolateral fat of upper arm'),
+        ('rpua', 'right posterolateral fat of upper arm'),
+        ('lfa', 'left fore arm'),
+        ('rfa', 'right fore arm')],'Admin Site')
+    
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),
