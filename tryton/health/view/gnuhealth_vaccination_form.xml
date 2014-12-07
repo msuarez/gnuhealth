@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <form string="Vaccination History">
-    <group  colspan="4" string="Header" id="group_vaccination_header">
-        <group yexpand="1" colspan="3" col="6" id='vaccination_main'>
+    <group  colspan="4" string="Vaccination" id="group_vaccination_header">
+        <group colspan="3" col="6" id='vaccination_main'>
             <group id="group_vaccination_patient">
                 <label name="name"/>
                 <field name="name"/>
@@ -29,7 +29,7 @@
         </group>
 
         <group id="vaccine_label">
-            <field xfill="0" xexpand="1" name="picture" img_width="300" img_height="200" height="200" width="300" widget="image"/>
+            <field xfill="0" xexpand="1" name="picture" widget="image"/>
         </group>
     </group>
     <newline/>

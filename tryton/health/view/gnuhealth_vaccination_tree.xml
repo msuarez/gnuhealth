@@ -7,5 +7,6 @@
     <field name="next_dose_date"/>
     <field name="observations"/>
     <field name="healthprof" tree_invisible="1"/>
+    <field name="signed_by"/>
     <field name="institution" tree_invisible="1"/>
 </tree>
