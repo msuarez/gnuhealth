@@ -39,13 +39,14 @@
     
     <newline/>
 
-    <group colspan="4" col="6" id="group_vaccination_other">
+    <group colspan="4" col="7" id="group_vaccination_other">
         <label name="institution"/>
         <field name="institution"/>
         <label name="healthprof"/>
         <field name="healthprof"/>
         <label name="state"/>
         <field name="state"/>
+        <button name="sign" help="Sign and close the vaccination" string="Sign" icon="tryton-go-next" confirm="Finish and sign this vaccination ? It will become read-only !"/>
     </group>
 
 </form>

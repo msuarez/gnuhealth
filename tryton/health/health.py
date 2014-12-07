@@ -3142,6 +3142,11 @@ class PatientVaccination(ModelSQL, ModelView):
         help="Health Professional who administered or reviewed the vaccine \
          information")
 
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that signed the vaccination document")
+
     amount = fields.Float(
         'Amount',
         help='Amount of vaccine administered, in mL . The dose per mL \
@@ -3159,8 +3164,9 @@ class PatientVaccination(ModelSQL, ModelView):
         ('lfa', 'left fore arm'),
         ('rfa', 'right fore arm')],'Admin Site')
     
+
     state = fields.Selection([
-        ('draft', 'Draft'),
+        ('in_progress', 'In Progress'),
         ('done', 'Done'),
         ], 'State', readonly=True)
 
@@ -3178,19 +3184,7 @@ class PatientVaccination(ModelSQL, ModelView):
 
     @staticmethod
     def default_state():
-        return 'draft'
-
-    @classmethod
-    def __setup__(cls):
-        super(PatientVaccination, cls).__setup__()
-        cls._sql_constraints = [
-            ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
-                'This vaccine dose has been given already to the patient'),
-        ]
-        cls._error_messages.update({
-            'next_dose_before_first': 'The Vaccine next dose is BEFORE the '
-                'first one !'
-        })
+        return 'in_progress'
 
     @staticmethod
     def default_date():
@@ -3199,6 +3193,48 @@ class PatientVaccination(ModelSQL, ModelView):
     @staticmethod
     def default_dose():
         return 1
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientVaccination, cls).__setup__()
+        cls._sql_constraints = [
+            ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
+                'This vaccine dose has been given already to the patient'),
+            ]
+        cls._error_messages.update({
+            'next_dose_before_first': 'The Vaccine next dose is BEFORE the '
+                'first one !'
+            })
+
+        cls._buttons.update({
+            'sign': {'invisible': Equal(Eval('state'), 'done')}
+            })
+
+
+    @classmethod
+    @ModelView.button
+    def sign(cls, vaccinations):
+
+        # Change the state of the vaccination to "Done"
+        # and write the name of the signing health professional
+
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(vaccinations, {
+            'state': 'done',
+            'signed_by': signing_hp})
+
+    @classmethod
+    def write(cls, vaccinations, vals):
+        # Don't allow to modify the record if the vaccination has been signed
+        if vaccinations[0].state == 'done':
+            cls.raise_user_error(
+                "This vaccination is at state Done\n"
+                "You can no longer modify it.")
+        return super(PatientVaccination, cls).write(vaccinations, vals)
 
     @classmethod
     def validate(cls, vaccines):
