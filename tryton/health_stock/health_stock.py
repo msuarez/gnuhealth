@@ -468,7 +468,10 @@ class PatientVaccination:
     location = fields.Many2One('stock.location',
         'Stock Location', domain=[('type', '=', 'storage')])
 
-    lot = fields.Many2One('stock.lot', 'Lot', depends=['vaccine'],
+    product = fields.Many2One('product.product', 'Product')
+
+    lot = fields.Many2One('stock.lot', 'Lot', depends=['product'],
+        domain=[('product', '=', Eval('product'))],
         help="This field includes the lot number and expiration date")
 
 
@@ -495,3 +498,12 @@ class PatientVaccination:
             'expired_vaccine': 'EXPIRED VACCINE. PLEASE INFORM  THE LOCAL '
                 'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
         })
+
+    @fields.depends('vaccine', 'product')
+    def on_change_vaccine(self):
+        res = {}
+        if self.vaccine:
+            res = {'product': self.vaccine.name.id}
+        else:
+            res = {'product': None}
+        return res
