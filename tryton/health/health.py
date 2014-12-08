@@ -1583,6 +1583,10 @@ class ImmunizationSchedule(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return (self.sched)
 
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(ImmunizationSchedule, cls).__setup__()
