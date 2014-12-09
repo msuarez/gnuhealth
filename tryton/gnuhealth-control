@@ -141,7 +141,7 @@ do_backup()
     
     if [ -f $LOCKFILE ]
     then
-        cli_msg "ERROR" "Backup in progress or stale lock file found ..." | tee $INFOFILE
+        cli_msg "ERROR" "Backup in progress or stale lock file found ..." | tee -a $INFOFILE
         exit 1
     fi
 
@@ -149,19 +149,19 @@ do_backup()
     
     # Backup start
 
-    cli_msg "INFO" "START Database Backup" | tee $INFOFILE
+    cli_msg "INFO" "START Database Backup" | tee -a $INFOFILE
     
     pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || exit 1 
 
-    cli_msg "INFO" "Compressing Database Backup" | tee $INFOFILE
+    cli_msg "INFO" "Compressing Database Backup" | tee -a $INFOFILE
 
     gzip $BACKDIR/backup\_$DB\_$BACKDATE || exit 1
     
-    cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee $INFOFILE
+    cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee -a $INFOFILE
 
     tar -cvf $BACKDIR/gnuhealth_backup\_$BACKDATE $HOME || exit 1
 
-    cli_msg "INFO" "Backup Successful" | tee $INFOFILE
+    cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
 
     #Remove lock file
     rm $LOCKFILE
