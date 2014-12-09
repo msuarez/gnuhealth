@@ -151,7 +151,7 @@ do_backup()
 
     cli_msg "INFO" "START Database Backup" | tee $INFOFILE
     
-    pg_dump $DB > $BACKDIR/backup\_$DB4\_$BACKDATE || exit 1 
+    pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || exit 1 
 
     cli_msg "INFO" "Compressing Database Backup" | tee $INFOFILE
 
