@@ -141,8 +141,8 @@ do_backup()
     
     if [ -f $LOCKFILE ]
     then
-            cli_msg "ERROR" "Backup in progress or stale lock file found ..." | tee $INFOFILE
-            exit
+        cli_msg "ERROR" "Backup in progress or stale lock file found ..." | tee $INFOFILE
+        exit 1
     fi
 
     touch $LOCKFILE
