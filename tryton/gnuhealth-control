@@ -117,7 +117,7 @@ get_current_values()
 do_backup()
 {
     local COMMAND=$1
-    local BACKDATE=`date -u +%Y-%m-%d_%H:%M:%S`
+    local BACKDATE=`date -u +%Y-%m-%d_%H%M%S`
     local LOCKFILE="/tmp/.gnuhealth_backup.lock"
     local INFOFILE="/tmp/gnuhealth_backup.log"
     local BACKDIR=""
@@ -155,11 +155,11 @@ do_backup()
 
     cli_msg "INFO" "Compressing Database Backup" | tee -a $INFOFILE
 
-    gzip $BACKDIR/backup\_$DB\_$BACKDATE || exit 1
+    gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || exit 1
     
     cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee -a $INFOFILE
 
-    tar -cvf $BACKDIR/gnuhealth_backup\_$BACKDATE $HOME || exit 1
+    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || exit 1
 
     cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
 
