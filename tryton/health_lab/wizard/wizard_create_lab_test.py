@@ -62,7 +62,8 @@ class CreateLabTestOrder(Wizard):
             test_report_data = {}
 
             if lab_test_order.state == 'ordered':
-                raise Exception('The Lab test order is already created.')
+                self.raise_user_error(
+                    "The Lab test order is already created")
 
             test_report_data['test'] = lab_test_order.name.id
             test_report_data['patient'] = lab_test_order.patient_id.id
