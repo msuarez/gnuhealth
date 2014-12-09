@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# gnuhealth-update
-# The automatic GNU Health update program
+# gnuhealth-control
+# The GNU Health control center 
 
 ##############################################################################
 #
@@ -35,7 +35,8 @@ Command:
  
   version : Show version
   backup : Backup he gnuhealth kernel, attach dir and database
-  install : Download and install the patches
+  update : Download and install the patches
+  status : Check whether GNU Health is running
 
 Options:
 
@@ -58,10 +59,10 @@ The following components will be checked and updated if necessary
  - GNU Health patchsets
 
 This will be valid for version with the same major, minor numbers, for example
-2.6.x will look for the latest tryton updates and GNU Health updates
+2.8.x will look for the latest tryton updates and GNU Health updates
 associated to that release.
 
-GNU Health update is available for release 2.6 and newer.
+GNU Health Control Center is available for release 2.8 and newer.
 You can get the latest version of GNU Health update at GNU
 ftp://ftp.gnu.org/gnu/health
 
@@ -121,3 +122,6 @@ parse_command_line()
 }
 
 parse_command_line $@
+
+
+
