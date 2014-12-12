@@ -156,7 +156,7 @@ install_directories() {
     MODULES_DIR="${TRYTOND_DIR}/modules"
     LOG_DIR="${BASEDIR}/logs"
     ATTACH_DIR="${HOME}/attach"
-    CUSTOM_MODS_DIR="${MODULES_DIR}/custom"
+    LOCAL_MODS_DIR="${MODULES_DIR}/local"
     CONFIG_DIR="${TRYTOND_DIR}/config"
     UTIL_DIR="${TRYTOND_DIR}/util"
 
@@ -165,7 +165,7 @@ install_directories() {
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${CUSTOM_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR}||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR}||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
