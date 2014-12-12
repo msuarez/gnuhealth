@@ -86,8 +86,8 @@ cli_msg()
     
     case $1 in
       ERROR ) echo -e "\e[00;31m${UTC} [ERROR] $2\e[00m";;
-      WARNING ) echo -e "\e[0;33m$UTC [WARNING] $2\e[m" ;;
-      INFO ) echo -e "\e[0;34m$UTC [INFO] $2\e[m" ;;
+      WARNING ) echo -e "\e[0;33m${UTC} [WARNING] $2\e[m" ;;
+      INFO ) echo -e "\e[0;36m${UTC} [INFO] $2\e[m" ;;
     esac
 }
 
