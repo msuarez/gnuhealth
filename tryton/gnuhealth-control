@@ -190,7 +190,7 @@ check_updates()
 
     # Check latest tryton server compared to the local version
     if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
-        cli_msg "WARNING" "TRYTON SERVER is outdated ! There are new updates available"
+        cli_msg "WARNING" "TRYTON SERVER is outdated ! There are new updates available (${LATEST_TRYTOND})"
         UPDATES="${LATEST_TRYTOND}"
     fi
     
