@@ -26,6 +26,8 @@
 VERSION="0.0.1"
 
 TRYTON_URL="http://downloads.tryton.org"
+GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
+
 
 usage()
 {
@@ -182,13 +184,13 @@ check_updates()
     local UPDATES=""
     local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
     local TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
-    
+
     cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
     LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
     local LATEST_TRYTOND_PATCHLEVEL=`echo ${LATEST_TRYTOND} | cut -d'.' -f3`
 
-    # Check latest tryton server compared to the local version
+    # Check latest tryton server against local version
     if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
         cli_msg "WARNING" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_TRYTOND})"
         NEED_UPDATE_TRYTOND=1
@@ -196,6 +198,7 @@ check_updates()
         cli_msg "INFO" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is at the latest version"
     fi
     
+    # Check latest tryton modules against local version
     for MODULE in ${TRYTON_MODULES}; do
         MODNAME=`echo $MODULE | cut -d'-' -f1`
         MODULE_PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
@@ -207,16 +210,40 @@ check_updates()
         else
             cli_msg "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
         fi
-
     done
 
-}
+    # Check latest GNU HEALTH PATCHSETS against local version
+    cli_msg "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
+    
+    GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
+    GNUHEALTH_PATCHSET=`echo $GNUHEALTH_VERSION | cut -d'.' -f3`
 
+    PATCHSETS_NUM=`wget --quiet -O - ${GNUHEALTH_URL}/ | egrep -o gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}\.[0-9\.]+.tar.gz | uniq | wc -l | tr -d ' '`
+    
+    if (( ${PATCHSETS_NUM} > 0 )); then
+        cli_msg "INFO" "Number of Patchsets for this version : ${PATCHSETS_NUM}"
+
+        LATEST_GNUHEALTH=`wget --quiet -O - ${GNUHEALTH_URL}/ | egrep -o gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}\.[0-9\.]+.tar.gz | sort -V | tail -1`
+        LATEST_GNUHEALTH_PATCHSET=`echo ${LATEST_GNUHEALTH} | cut -d'.' -f3`
+
+        if (( ${GNUHEALTH_PATCHSET} < ${LATEST_GNUHEALTH_PATCHSET} )); then
+            cli_msg "WARNING" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is outdated ! A newer version is available (${LATEST_GNUHEALTH})"
+            PATCHSETS="$PATCHSETS ${LATEST_GNUHEALTH}"
+        else
+            cli_msg "INFO" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is at the latest version"
+        fi
+
+    else
+        cli_msg "INFO" "** NO GNU HEALTH PATCHSETS FOUND FOR THIS VERSION **"
+    fi
+
+}
 
 install_updates()
 {
-    
+    echo "TODO"
 }
+
 do_update()
 {
     get_current_values
