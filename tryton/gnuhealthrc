@@ -15,6 +15,8 @@ fi
 # It should only be one trytond, but just in case..
 TRYTOND=`ls -1d ${GNUHEALTH_DIR}/tryton/server/trytond-* | egrep -o "trytond-[0-9\.]+.[0-9\.]+.[0-9\.]+" | sort -V | tail -1`
 
+export TRYTON_VERSION=`echo $TRYTOND | cut -d'-' -f2`
+
 # Add PYTHONPATH environment variable 
 export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}
 

@@ -36,7 +36,7 @@ Command:
   version : Show version
   backup  : Backup he gnuhealth kernel, attach dir and database
   update  : Download and install the patches
-  status  : Check whether GNU Health is running
+  status  : Show environment and GNU Health Tryton server status
 
 Options:
 
@@ -107,9 +107,9 @@ get_current_values()
         exit 1
     fi
     
-    
     cli_msg "INFO" "Environment variables"
     cli_msg "INFO" "GNUHEALTH_VERSION = ${GNUHEALTH_VERSION}"
+    cli_msg "INFO" "TRYTON VERSION = ${TRYTON_VERSION}"
     cli_msg "INFO" "PYTHONPATH = $PYTHONPATH"
     
 }
@@ -168,9 +168,26 @@ do_backup()
 
 }
 
+check_status()
+{
+  get_current_values
+}
+
+check_updates()
+{
+    source $HOME/.gnuhealthrc
+    TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
+    for MODULE in ${TRYTON_MODULES}; do
+        MODNAME=`echo $MODULE | cut -d'-' -f1`
+        PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
+        cli_msg "INFO" "Checking newer versions for $MODNAME , patchlevel $PATCHLEVEL"
+    done
+    
+}
 do_update()
 {
    get_current_values
+   check_updates
 }
     
 parse_command_line()
@@ -183,6 +200,7 @@ parse_command_line()
         version) echo $VERSION;;
         backup) do_backup $@;;
         update) do_update;;
+        status) check_status;;
         help) help;;
         *) echo $1: Unrecognized command; exit 1;;
     esac
