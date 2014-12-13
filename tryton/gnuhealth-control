@@ -25,6 +25,8 @@
 
 VERSION="0.0.1"
 
+TRYTON_URL="http://downloads.tryton.org"
+
 usage()
 {
     cat << EOF
@@ -176,7 +178,22 @@ check_status()
 check_updates()
 {
     source $HOME/.gnuhealthrc
-    TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
+    local TRYTOND_PATCHLEVEL=`echo ${TRYTON_VERSION} | cut -d'.' -f3`
+    local UPDATES=""
+    local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
+    local TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
+    
+    cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
+    
+    local LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
+    local LATEST_TRYTOND_PATCHLEVEL=`echo ${LATEST_TRYTOND} | cut -d'.' -f3`
+
+    # Check latest tryton server compared to the local version
+    if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
+        cli_msg "WARNING" "TRYTON SERVER is outdated ! There are new updates available"
+        UPDATES="${LATEST_TRYTOND}"
+    fi
+    
     for MODULE in ${TRYTON_MODULES}; do
         MODNAME=`echo $MODULE | cut -d'-' -f1`
         PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
