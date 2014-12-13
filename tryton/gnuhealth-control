@@ -185,26 +185,44 @@ check_updates()
     
     cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
-    local LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
+    LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
     local LATEST_TRYTOND_PATCHLEVEL=`echo ${LATEST_TRYTOND} | cut -d'.' -f3`
 
     # Check latest tryton server compared to the local version
     if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
-        cli_msg "WARNING" "TRYTON SERVER is outdated ! There are new updates available (${LATEST_TRYTOND})"
-        UPDATES="${LATEST_TRYTOND}"
+        cli_msg "WARNING" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_TRYTOND})"
+        NEED_UPDATE_TRYTOND=1
+    else
+        cli_msg "INFO" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is at the latest version"
     fi
     
     for MODULE in ${TRYTON_MODULES}; do
         MODNAME=`echo $MODULE | cut -d'-' -f1`
-        PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
-        cli_msg "INFO" "Checking newer versions for $MODNAME , patchlevel $PATCHLEVEL"
+        MODULE_PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
+        LATEST_MODULE=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o ${MODNAME}-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
+        LATEST_MODULE_PATCHLEVEL=`echo ${LATEST_MODULE} | cut -d'.' -f3`
+        if (( ${MODULE_PATCHLEVEL} < ${LATEST_MODULE_PATCHLEVEL} )); then
+            cli_msg "WARNING" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_MODULE})"
+            UPDATES="$UPDATES ${LATEST_MODULE}"
+        else
+            cli_msg "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
+        fi
+
     done
+
+}
+
+
+install_updates()
+{
     
 }
 do_update()
 {
-   get_current_values
-   check_updates
+    get_current_values
+    check_updates
+    install_updates
+   
 }
     
 parse_command_line()
