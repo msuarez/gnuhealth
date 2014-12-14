@@ -190,10 +190,15 @@ check_updates()
 {
     source $HOME/.gnuhealthrc
     local TRYTOND_PATCHLEVEL=`echo ${TRYTON_VERSION} | cut -d'.' -f3`
-    local UPDATES=""
+    
     local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
-    local TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
+    TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
 
+    NEED_UPDATE_TRYTOND=0
+    NEED_UPDATE_MODULES=0
+    NEED_UPDATE_PATCHSETS=0
+    MOD_UPDATES=""
+    
     cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
     LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
@@ -215,7 +220,8 @@ check_updates()
         LATEST_MODULE_PATCHLEVEL=`echo ${LATEST_MODULE} | cut -d'.' -f3`
         if (( ${MODULE_PATCHLEVEL} < ${LATEST_MODULE_PATCHLEVEL} )); then
             cli_msg "WARNING" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_MODULE})"
-            UPDATES="$UPDATES ${LATEST_MODULE}"
+            NEED_UPDATE_MODULES=1
+            MOD_UPDATES="${MOD_UPDATES} ${LATEST_MODULE}"
         else
             cli_msg "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
         fi
@@ -238,6 +244,7 @@ check_updates()
 
         if (( ${GNUHEALTH_PATCHSET} < ${LATEST_GNUHEALTH_PATCHSET} )); then
             cli_msg "WARNING" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is outdated ! A newer version is available (${LATEST_GNUHEALTH})"
+            NEED_UPDATE_PATCHSETS=1
             let PSET=GNUHEALTH_PATCHSET+1 
             for n in `seq $PSET $LATEST_GNUHEALTH_PATCHSET`
             do
@@ -257,8 +264,26 @@ check_updates()
 install_updates()
 {
     if [ $NEED_UPDATE_TRYTOND -eq 1 ]; then
-        echo "Downloading  $LATEST_TRYTOND"
+        cli_msg "INFO" "Downloading TRYTON SERVER $LATEST_TRYTOND"
+        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || exit 1
     fi
+
+    if [ $NEED_UPDATE_MODULES -eq 1 ]; then
+        for mod in ${MOD_UPDATES}
+        do
+            cli_msg "INFO" "Downloading $mod"
+            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || exit 1
+        done
+    fi
+
+    if [ $NEED_UPDATE_PATCHSETS -eq 1 ]; then
+        for patchset in ${PATCHSETS}
+        do
+            cli_msg "INFO" "Downloading $patchset"
+            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/patchsets ${GNUHEALTH_URL}/${patchset} || exit 1
+        done
+    fi
+
 }
 
 do_update()
