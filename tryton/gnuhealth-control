@@ -28,6 +28,8 @@ VERSION="0.0.1"
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
 
+UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
+
 usage()
 {
     cat << EOF
@@ -176,6 +178,14 @@ check_status()
   get_current_values
 }
 
+check_download_dir()
+{
+    if [ -d $UPDATE_DOWNLOAD_DIR ]; then
+        echo "Update download directory exists. Bailing out"
+        exit 1
+    fi
+}
+
 check_updates()
 {
     source $HOME/.gnuhealthrc
@@ -246,11 +256,14 @@ check_updates()
 
 install_updates()
 {
-    echo "TODO"
+    if [ $NEED_UPDATE_TRYTOND -eq 1 ]; then
+        echo "Downloading  $LATEST_TRYTOND"
+    fi
 }
 
 do_update()
 {
+    check_download_dir
     get_current_values
     check_updates
     install_updates
@@ -274,6 +287,3 @@ parse_command_line()
 }
 
 parse_command_line $@
-
-
-
