@@ -28,7 +28,6 @@ VERSION="0.0.1"
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
 
-
 usage()
 {
     cat << EOF
@@ -215,6 +214,7 @@ check_updates()
     # Check latest GNU HEALTH PATCHSETS against local version
     cli_msg "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
     
+    GNUHEALTH_VERSION="2.6.0" #DEBUG REMOVE ME !
     GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
     GNUHEALTH_PATCHSET=`echo $GNUHEALTH_VERSION | cut -d'.' -f3`
 
@@ -228,7 +228,12 @@ check_updates()
 
         if (( ${GNUHEALTH_PATCHSET} < ${LATEST_GNUHEALTH_PATCHSET} )); then
             cli_msg "WARNING" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is outdated ! A newer version is available (${LATEST_GNUHEALTH})"
-            PATCHSETS="$PATCHSETS ${LATEST_GNUHEALTH}"
+            let PSET=GNUHEALTH_PATCHSET+1 
+            for n in `seq $PSET $LATEST_GNUHEALTH_PATCHSET`
+            do
+                PATCHSETS="$PATCHSETS gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}.$n.tar.gz"
+            done
+            
         else
             cli_msg "INFO" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is at the latest version"
         fi
