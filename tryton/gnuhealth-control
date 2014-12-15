@@ -306,6 +306,36 @@ remove_old()
     fi
 }
 
+relink_mods()
+{
+    source $HOME/.gnuhealthrc
+    
+    if [ ${NEED_DELETE} -eq 1 ]; then
+        local TRYTON_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond_*`
+        for mod in ${TRYTON_MODS}; do
+            local modname=`echo ${mod} | cut -d'-' -f1`
+            cli_msg "INFO" "Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/${modname} || exit 1
+        done
+        
+        cli_msg "INFO" "Relinking GNU Health modules ..."
+        local HEALTH_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d health*`
+        for mod in ${HEALTH_MODS}; do
+            cli_msg "INFO" "--> Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || exit 1
+        done
+
+        cli_msg "INFO" "Relinking local modules and customizations ..."
+
+        local LOCAL_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules/local; ls -A`
+        for mod in ${LOCAL_MODS}; do
+            cli_msg "INFO" "--> Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/local/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || exit 1
+        done
+
+    fi
+}
+    
 do_update()
 {
     check_download_dir
@@ -313,7 +343,7 @@ do_update()
     check_updates
     install_updates
     remove_old
-   
+    relink_mods 
 }
     
 parse_command_line()
