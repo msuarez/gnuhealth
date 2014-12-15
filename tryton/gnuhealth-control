@@ -266,7 +266,7 @@ install_updates()
     if [ $NEED_UPDATE_TRYTOND -eq 1 ]; then
         cli_msg "INFO" "Downloading TRYTON SERVER $LATEST_TRYTOND"
         wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || exit 1
-        cli_msg "INFO" "Uncompressing TRYTON SERVER $LATEST_TRYTOND"
+        cli_msg "INFO" "--> Uncompressing TRYTON SERVER $LATEST_TRYTOND"
         tar -xzf ${UPDATE_DOWNLOAD_DIR}/trytond/${LATEST_TRYTOND} --directory ${GNUHEALTH_DIR}/tryton/server || exit 1
     fi
 
@@ -275,6 +275,8 @@ install_updates()
         do
             cli_msg "INFO" "Downloading $mod"
             wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || exit 1
+            cli_msg "INFO" "--> Uncompressing ${mod}"
+            tar -xzf ${UPDATE_DOWNLOAD_DIR}/modules/${mod} --directory ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
         done
     fi
 
