@@ -198,7 +198,9 @@ check_updates()
     NEED_UPDATE_MODULES=0
     NEED_UPDATE_PATCHSETS=0
     MOD_UPDATES=""
-    
+    NEED_DELETE=0
+    TO_DELETE=""
+
     cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
     LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
@@ -207,6 +209,8 @@ check_updates()
     # Check latest tryton server against local version
     if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
         cli_msg "WARNING" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_TRYTOND})"
+        NEED_DELETE=1
+        TO_DELETE="${TO_DELETE} ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_MAJOR_MINOR}.${TRYTOND_PATCHLEVEL}"
         NEED_UPDATE_TRYTOND=1
     else
         cli_msg "INFO" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is at the latest version"
@@ -222,6 +226,8 @@ check_updates()
             cli_msg "WARNING" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_MODULE})"
             NEED_UPDATE_MODULES=1
             MOD_UPDATES="${MOD_UPDATES} ${LATEST_MODULE}"
+            NEED_DELETE=1
+            TO_DELETE="${TO_DELETE} ${GNUHEALTH_DIR}/tryton/server/modules/${MODNAME}-${TRYTON_MAJOR_MINOR}.${MODULE_PATCHLEVEL}"
         else
             cli_msg "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
         fi
@@ -292,12 +298,21 @@ install_updates()
 
 }
 
+remove_old()
+{
+    if [ ${NEED_DELETE} -eq 1 ]; then
+        cli_msg "WARNING" "Removing obsolete kernel and/or modules : ${TO_DELETE}"
+        rm -rf ${TO_DELETE}
+    fi
+}
+
 do_update()
 {
     check_download_dir
     get_current_values
     check_updates
     install_updates
+    remove_old
    
 }
     
