@@ -230,7 +230,7 @@ check_updates()
     # Check latest GNU HEALTH PATCHSETS against local version
     cli_msg "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
     
-    GNUHEALTH_VERSION="2.6.0" #DEBUG REMOVE ME !
+    # GNUHEALTH_VERSION="2.6.0" #DEBUG REMOVE ME !
     GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
     GNUHEALTH_PATCHSET=`echo $GNUHEALTH_VERSION | cut -d'.' -f3`
 
@@ -285,6 +285,8 @@ install_updates()
         do
             cli_msg "INFO" "Downloading $patchset"
             wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/patchsets ${GNUHEALTH_URL}/${patchset} || exit 1
+            cli_msg "INFO" "--> Applying PATCHSET $patchset"
+            tar -xzf ${UPDATE_DOWNLOAD_DIR}/patchsets/${patchset} --directory ${HOME} || exit 1
         done
     fi
 
