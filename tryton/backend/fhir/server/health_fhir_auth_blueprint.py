@@ -10,8 +10,7 @@ from trytond.transaction import Transaction
 import trytond
 
 auth_endpoint = Blueprint('auth_endpoint', __name__,
-                                template_folder='templates',
-                                url_prefix='/auth')
+                            template_folder='templates')
 
 user_model = tryton.pool.get('res.user')
 

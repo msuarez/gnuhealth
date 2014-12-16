@@ -242,17 +242,8 @@ def output_xml(data, code, headers=None):
         resp = make_response(data, code)
     resp.headers.extend(headers or {})
     resp.headers['Content-type']='application/xml+fhir' #Return proper type
+    print resp.headers
     return resp
-
-@api.representation('json')
-@api.representation('application/json')
-@api.representation('application/json+fhir')
-def output_json(data, code, headers=None):
-    resp = make_response(data,code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/json+fhir' #Return proper type
-    return resp
-
 
 @api.representation('atom')
 @api.representation('application/atom')

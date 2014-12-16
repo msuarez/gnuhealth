@@ -9,6 +9,7 @@ def create_app(config=None):
 
     #Set secret --- CHANGE!
     app.config['SECRET_KEY'] = 'test'
+    app.config['DEBUG'] = True
     with app.app_context():
 
         # Initialize tryton
@@ -40,13 +41,13 @@ def create_app(config=None):
         from health_fhir_auth_blueprint import auth_endpoint
         from health_fhir_diagnostic_report_blueprint import diagnostic_report_endpoint
         from health_fhir_base_blueprint import base_endpoint
-        app.register_blueprint(base_endpoint, url_prefix='/fhir')
-        app.register_blueprint(patient_endpoint, url_prefix='/fhir/Patient')
-        app.register_blueprint(observation_endpoint, url_prefix='/fhir/Observation')
-        app.register_blueprint(practitioner_endpoint, url_prefix='/fhir/Practitioner')
-        app.register_blueprint(procedure_endpoint, url_prefix='/fhir/Procedure')
-        app.register_blueprint(diagnostic_report_endpoint, url_prefix='/fhir/DiagnosticReport')
-        app.register_blueprint(auth_endpoint, url_prefix='/fhir/auth')
+        app.register_blueprint(base_endpoint, url_prefix='/')
+        app.register_blueprint(auth_endpoint, url_prefix='/auth')
+        app.register_blueprint(patient_endpoint, url_prefix='/Patient')
+        app.register_blueprint(observation_endpoint, url_prefix='/Observation')
+        app.register_blueprint(practitioner_endpoint, url_prefix='/Practitioner')
+        app.register_blueprint(procedure_endpoint, url_prefix='/Procedure')
+        app.register_blueprint(diagnostic_report_endpoint, url_prefix='/DiagnosticReport')
 
     return app
 

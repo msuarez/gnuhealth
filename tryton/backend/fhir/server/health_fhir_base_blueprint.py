@@ -29,9 +29,7 @@ class Conformance(Resource):
         c = health_Conformance()
         return c, 200
 
-api.add_resource(Conformance,
-                        '',
-                        '/metadata')
+api.add_resource(Conformance, '', 'metadata') #adds '/' on metadata route on register
 
 @api.representation('xml')
 @api.representation('text/xml')
