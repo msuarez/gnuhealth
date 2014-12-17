@@ -1,17 +1,14 @@
-from flask import Blueprint, request, current_app, make_response, url_for
-from flask.ext.restful import Resource, abort, reqparse
+from flask import Blueprint, request, url_for
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from health_fhir import (health_Patient, health_Observation, Observation_Map,
         health_OperationOutcome, parse, parseEtree, Bundle, health_Search,
         find_record, FieldError)
-from extensions import tryton
+from extensions import tryton, Api, Resource
 import lxml
-import json
 import os.path
 import sys
 from utils import search_error_string
-from flask.ext.restful import Api
 
 
 # Lab result model (sp?)
@@ -211,41 +208,3 @@ api.add_resource(Record, '/<item:log_id>')
 api.add_resource(Version,
                         '/<item:log_id>/_history',
                         '/<item:log_id>/_history/<string:v_id>')
-
-@api.representation('xml')
-@api.representation('text/xml')
-@api.representation('application/xml')
-@api.representation('application/xml+fhir')
-def output_xml(data, code, headers=None):
-    if hasattr(data, 'export_to_xml_string'):
-        resp = make_response(data.export_to_xml_string(), code)
-    elif hasattr(data, 'export'):
-        output=StringIO()
-        data.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        resp = make_response(content, code)
-    else:
-        resp = make_response(data, code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/xml+fhir' #Return proper type
-    return resp
-
-@api.representation('json')
-@api.representation('application/json')
-@api.representation('application/json+fhir')
-def output_json(data, code, headers=None):
-    resp = make_response(data,code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/json+fhir' #Return proper type
-    return resp
-
-
-@api.representation('atom')
-@api.representation('application/atom')
-@api.representation('application/atom+fhir')
-def output_atom(data, code, headers=None):
-    resp = make_response(data, code)
-    resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/atom+fhir' #Return proper type
-    return resp

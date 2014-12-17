@@ -1,4 +1,6 @@
 from werkzeug.routing import BaseConverter, ValidationError
+from flask import make_response
+from StringIO import StringIO
 
 def get_address(string):
     '''Given string, retrieve full address, easily parsed'''
@@ -55,3 +57,32 @@ def search_error_string(args):
     for k,v in args.items():
         st.append(': '.join([k,v]))
     return 'No matching record(s) for {0}'.format('\n'.join(st))
+
+def output_xml(data, code, headers=None):
+    """Output response to xml
+
+    Data could be dict, fhir class, string, etc.
+    Code is code status of response
+    Headers is dict of headers
+    """
+    if hasattr(data, 'export_to_xml_string'):
+        resp = make_response(data.export_to_xml_string(), code)
+    elif hasattr(data, 'export'):
+        output=StringIO()
+        data.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
+        content = output.getvalue()
+        output.close()
+        resp = make_response(content, code)
+    else:
+        if isinstance(data, dict):
+            #TODO Fix this to use Flask-Restful error catching
+            #Check for error from Flask-Restful
+            msg = data.get('message', 'Unknown return')
+        elif isinstance(data, basestring):
+            msg = data
+        else:
+            msg = 'Unknown return'
+        resp = make_response(msg, code)
+    resp.headers.extend(headers or {})
+    resp.headers['Content-type']='application/xml+fhir' #Return proper type
+    return resp
