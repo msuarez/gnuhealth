@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<form string="Injury Surveillance System">
+    <group id="iss_header" colspan="4" col="10">
+        <label name="code"/>
+        <field name="code"/>
+        <label name="healthcenter"/>
+        <field name="healthcenter"/>
+        <newline/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="injury_date"/>
+        <field name="injury_date"/>
+        <label name="registration_date"/>
+        <field name="registration_date"/>
+    </group>
+    <newline/>
+    <group id="iss_location" colspan="4" col="8" string="Location">
+        <label name="operational_sector"/>
+        <field name="operational_sector"/>
+        <label name="latitude"/>
+        <field name="latitude"/>
+        <label name="longitude"/>
+        <field name="longitude"/>
+        <label name="urladdr"/>
+        <field name="urladdr" widget="url"/>
+    </group>
+    <newline/>
+    <group colspan="4" col="6" id="patient_demographics" string="Patient Demographics">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="patient_sex"/>
+        <field name="patient_sex"/>
+        <label name="patient_age"/>
+        <field name="patient_age"/>
+    </group>
+    <newline/>
+    <group id="iss_deatils" string="Specifics">
+        <label name="complaint"/>
+        <field name="complaint"/>
+        <label name="injury_type"/>
+        <field name="injury_type"/>
+    </group>
+    <newline/>
+    <group colspan="4" col="8" id="motor_vehicle_accident" string="Motor Vehicle Accident" states="{'invisible': Not(Equal(Eval('injury_type'), 'motor_vehicle'))}">
+        <label name="mva_mode"/>
+        <field name="mva_mode"/>
+        <label name="mva_position"/>
+        <field name="mva_position"/>
+        <label name="mva_counterpart"/>
+        <field name="mva_counterpart"/>
+        <label name="safety_gear"/>
+        <field name="safety_gear"/>
+    </group>
+    <group colspan="4" col="8" id="violent_injury" string="Violence" states="{'invisible': Not(Equal(Eval('injury_type'), 'violence'))}">
+        <label name="victim_perpetrator"/>
+        <field name="victim_perpetrator"/>
+        <label name="violence_circumstances"/>
+        <field name="violence_circumstances"/>
+        <label name="injury_method"/>
+        <field name="injury_method"/>
+    </group>
+
+    <newline/>
+    <group id="iss_place" string="Place of occurrance" states="{'invisible': Equal(Eval('injury_type'), 'motor_vehicle')}">
+        <label name="place_occurrance"/>
+        <field name="place_occurrance"/>
+    </group>
+    <newline/>
+    <group id="iss_drug_alcohol" string="Alcohol and other Drugs context">
+        <label name="alcohol"/>
+        <field name="alcohol"/>
+        <label name="drugs"/>
+        <field name="drugs"/>
+    </group>
+    <newline/>
+    <separator id="sep_details" colspan="4" string="Details"/>
+    <newline/>
+    <field colspan="4" name="injury_details"/>
+    <newline/>
+    <group colspan="4" id="iss_disposition" string="Disposition">
+        <field name="disposition"/>
+    </group>
+</form>
