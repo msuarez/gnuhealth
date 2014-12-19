@@ -232,7 +232,7 @@ class Iss (ModelSQL, ModelView):
         ], 'Disposition', help="Place of occurrance",sort=False, required=True)
     
     def get_patient(self, name):
-        return self.name.patient.name.name +' ' + self.name.patient.name.lastname
+        return self.name.patient.rec_name
 
     def get_patient_sex(self, name):
         return self.name.patient.sex
