@@ -264,3 +264,10 @@ class Iss (ModelSQL, ModelView):
         res.append(('name.patient', clause[1], value))
         return res
 
+    @classmethod
+    def __setup__(cls):
+        super(Iss, cls).__setup__()
+        cls._sql_constraints = [
+            ('code_uniq', 'UNIQUE(code)', 'This ISS registration Code already exists !'),
+        ]
+
