@@ -16,10 +16,24 @@
             <field name="name">health_iss_tree</field>
         </record>
 
+        <record model="ir.action.act_window" id="gnuhealth_action_iss">
+            <field name="name">Injury Surveillance System Registration</field>
+            <field name="res_model">gnuhealth.iss</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_iss_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_iss_tree"/>
+            <field name="act_window" ref="gnuhealth_action_iss"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_iss" icon="gnuhealth-list"
+            id="gnuhealth_report_iss" parent="health.gnuhealth_reporting_menu"/>
+
 <!-- Shortcut to the iss registration from the Evaluation -->
 
         <record model="ir.action.act_window" id="act_iss_form1">
-            <field name="name">ISS registration</field>
+            <field name="name">Injury Surveillance System Registration</field>
             <field name="res_model">gnuhealth.iss</field>
             <field name="domain">[('name', '=', Eval('active_id'))]</field>
         </record>
@@ -28,6 +42,7 @@
             <field name="model">gnuhealth.patient.evaluation,-1</field>
             <field name="action" ref="act_iss_form1"/>
         </record>
+
 
     </data>
 </tryton>
