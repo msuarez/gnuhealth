@@ -1,4 +1,4 @@
-import fhir as supermod
+import server.fhir as supermod
 from StringIO import StringIO
 from flask import url_for
 from operator import attrgetter
@@ -82,7 +82,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
 
             if obj and patient and time:
                 label = '{0} for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
-                value = url_for('diagnostic_report_endpoint.record', log_id=(self.search_prefix, self.diagnostic_report.id, self.field))
+                value = url_for('dr_record', log_id=(self.search_prefix, self.diagnostic_report.id, self.field))
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             value=supermod.string(value=value))
@@ -126,7 +126,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         if self.diagnostic_report:
             try:
                 for test in attrgetter(self.map['result'])(self.diagnostic_report):
-                    uri = url_for('observation_endpoint.record', log_id=('lab', test.id))
+                    uri = url_for('obs_record', log_id=('lab', test.id))
                     display = test.rec_name
                     ref=supermod.ResourceReference()
                     ref.display = supermod.string(value=display)
@@ -144,7 +144,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         if self.diagnostic_report:
             try:
                 p = attrgetter(self.map['performer'])(self.diagnostic_report)
-                uri = url_for('practitioner_endpoint.record', log_id=p.id)
+                uri = url_for('hp_record', log_id=p.id)
                 display = p.name.rec_name
                 ref=supermod.ResourceReference()
                 ref.display = supermod.string(value=display)
@@ -159,7 +159,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         if self.diagnostic_report:
             try:
                 patient = attrgetter(self.map['subject'])(self.diagnostic_report)
-                uri = url_for('patient_endpoint.record', log_id=patient.id)
+                uri = url_for('pat_record', log_id=patient.id)
                 display = patient.rec_name
                 ref=supermod.ResourceReference()
                 ref.display = supermod.string(value=display)

@@ -1,10 +1,9 @@
 from flask import Blueprint, request, url_for
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import (health_Patient, health_OperationOutcome, parse,
+from server.health_fhir import (health_Patient, health_OperationOutcome, parse,
                         parseEtree, Bundle, find_record, health_Search)
-from extensions import tryton, Api, Resource
-from utils import get_address
+from server.common import tryton, Api, Resource, search_error_string
 import lxml
 import os.path
 import sys
@@ -30,14 +29,7 @@ country = tryton.pool.get('country.country')
 # Subdivision model
 subdivision = tryton.pool.get('country.subdivision')
 
-# 'Patient' blueprint on '/Patient'
-patient_endpoint = Blueprint('patient_endpoint', __name__,
-                                template_folder='templates',
-                                url_prefix="/Patient")
-# Initialize api restful
-api = Api(patient_endpoint)
-
-class Create(Resource):
+class PAT_Create(Resource):
     @tryton.transaction()
     def post(self):
         '''Create interaction'''
@@ -59,9 +51,9 @@ class Create(Resource):
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location': url_for('patient_endpoint.record', log_id=p.id)}
+            return 'Created', 201, {'Location': url_for('pat_record', log_id=p.id)}
 
-class Search(Resource):
+class PAT_Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
@@ -89,7 +81,7 @@ class Search(Resource):
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
             return oo, 400
 
-class Validate(Resource):
+class PAT_Validate(Resource):
     @tryton.transaction()
     def post(self, log_id=None):
         '''Validate interaction'''
@@ -149,7 +141,7 @@ class Validate(Resource):
                 # 3) Passed checks
                 return 'Valid', 200
 
-class Record(Resource):
+class PAT_Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
@@ -202,23 +194,10 @@ class Record(Resource):
         #For now, don't allow (never allow?)
         return 'Not implemented', 405
 
-class Version(Resource):
+class PAT_Version(Resource):
     @tryton.transaction()
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 
         #No support for this in Health... yet?
         return 'Not supported', 405
-
-api.add_resource(Create,
-                        '')
-api.add_resource(Search,
-                        '',
-                        '/_search')
-api.add_resource(Validate,
-                        '/_validate',
-                        '/_validate/<int:log_id>')
-api.add_resource(Record, '/<int:log_id>')
-api.add_resource(Version,
-                        '/<int:log_id>/_history',
-                        '/<int:log_id>/_history/<string:v_id>')

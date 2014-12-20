@@ -2,7 +2,7 @@ from flask import current_app
 from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
-import fhir as supermod
+import server.fhir as supermod
 import sys
 
 class Practitioner_Map:

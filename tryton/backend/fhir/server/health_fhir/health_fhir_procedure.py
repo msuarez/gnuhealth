@@ -3,7 +3,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from datetime import datetime
 from .datastore import find_record
-import fhir as supermod
+import server.fhir as supermod
 import sys
 
 class Procedure_Map:
@@ -96,13 +96,13 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
-                        value = supermod.string(value=url_for('procedure_endpoint.record', log_id=(self.search_prefix, self.procedure.id, None))))
+                        value = supermod.string(value=url_for('op_record', log_id=(self.search_prefix, self.procedure.id, None))))
             self.add_identifier(ident)
 
     def __set_gnu_subject(self):
         if self.procedure:
             patient = attrgetter(self.map['subject'])(self.procedure)
-            uri = url_for('patient_endpoint.record', log_id=patient.id)
+            uri = url_for('pat_record', log_id=patient.id)
             display = patient.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)

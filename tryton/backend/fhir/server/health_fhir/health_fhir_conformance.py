@@ -1,8 +1,8 @@
 from datetime import datetime
-import fhir as supermod
 from flask import current_app, url_for
 from operator import attrgetter
 from StringIO import StringIO
+import server.fhir as supermod
 
 UPDATED=datetime(2014, 1, 1).strftime('%Y/%m/%d')
 
@@ -36,7 +36,7 @@ class health_Conformance(supermod.Conformance):
 
     def __set_implementation(self):
         i = supermod.Conformance_Implementation()
-        i.url = supermod.uri(value=url_for('base_endpoint.conformance'))
+        i.url = supermod.uri(value=url_for('conformance'))
         i.description=supermod.string(value='FHIR installation')
         self.set_implementation(i)
     

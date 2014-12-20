@@ -1,14 +1,13 @@
 from flask import Blueprint, request, url_for
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from health_fhir import (health_Patient, health_Observation, Observation_Map,
-        health_OperationOutcome, parse, parseEtree, Bundle, health_Search,
-        find_record, FieldError)
-from extensions import tryton, Api, Resource
+from server.health_fhir import (health_Patient, health_Observation,
+        Observation_Map, health_OperationOutcome, parse, parseEtree, Bundle,
+        health_Search, find_record, FieldError)
+from server.common import tryton, Api, Resource, search_error_string
 import lxml
 import os.path
 import sys
-from utils import search_error_string
 
 
 # Lab result model (sp?)
@@ -33,15 +32,7 @@ model_map={ 'lab': lab,
         'amb': amb,
         'icu': icu}
 
-# 'Observation' blueprint on '/Observation'
-observation_endpoint = Blueprint('observation_endpoint', __name__,
-                                template_folder='templates',
-                                url_prefix="/Observation")
-
-# Initialize api restful
-api = Api(observation_endpoint)
-
-class Create(Resource):
+class OBS_Create(Resource):
     @tryton.transaction()
     def post(self):
         '''Create interaction'''
@@ -58,9 +49,9 @@ class Create(Resource):
             oo.add_issue(details=e, severity='fatal')
             return oo, 400
         else:
-            return 'Created', 201, {'Location':  url_for('observation_endpoint.record', log_id=())}
+            return 'Created', 201, {'Location':  url_for('obs_record', log_id=())}
 
-class Search(Resource):
+class OBS_Search(Resource):
     @tryton.transaction()
     def get(self):
         '''Search interaction'''
@@ -99,7 +90,7 @@ class Search(Resource):
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
             return oo, 400
 
-class Validate(Resource):
+class OBS_Validate(Resource):
     @tryton.transaction()
     def post(self, log_id=None):
         '''Validate interaction'''
@@ -153,7 +144,7 @@ class Validate(Resource):
                 # 3) Passed checks
                 return 'Valid', 200
 
-class Record(Resource):
+class OBS_Record(Resource):
     @tryton.transaction()
     def get(self, log_id):
         '''Read interaction'''
@@ -188,23 +179,10 @@ class Record(Resource):
         #For now, don't allow (never allow?)
         return 'Not implemented', 405
 
-class Version(Resource):
+class OBS_Version(Resource):
     @tryton.transaction()
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 
         #No support for this in Health... yet?
         return 'Not supported', 405
-
-api.add_resource(Create,
-                        '')
-api.add_resource(Search,
-                        '',
-                        '/_search')
-api.add_resource(Validate,
-                        '/_validate',
-                        '/_validate/<item:log_id>')
-api.add_resource(Record, '/<item:log_id>')
-api.add_resource(Version,
-                        '/<item:log_id>/_history',
-                        '/<item:log_id>/_history/<string:v_id>')

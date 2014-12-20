@@ -2,7 +2,7 @@ from flask.ext.tryton import Tryton
 from flask.ext.restful import Api as base_api
 from flask.ext.restful import Resource as base_resource
 from flask.ext.login import LoginManager, login_required
-from utils import output_xml
+from .utils import output_xml
 
 #### Extensions
 tryton = Tryton()
@@ -20,8 +20,10 @@ class Api(base_api):
             'application/xml': output_xml,
             'application/xml+fhir': output_xml,
         }
+api = Api()
 
 # Authentication on every resource
+#   Import this for authenticated routes
 class Resource(base_resource):
     method_decorators = [login_required]
 #### /Extensions

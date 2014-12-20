@@ -2,7 +2,7 @@ from flask import current_app, request, url_for
 from StringIO import StringIO
 from .datastore import find_record
 from operator import attrgetter
-import fhir as supermod
+import server.fhir as supermod
 import sys
 
 class FieldError(Exception): pass
@@ -276,7 +276,7 @@ class health_Observation(supermod.Observation, Observation_Map):
 
             if id and obj and patient and time:
                 label = '{0} value for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
-                value = url_for('observation_endpoint.record', log_id=(self.search_prefix, self.gnu_obs.id, self.field))
+                value = url_for('obs_record', log_id=(self.search_prefix, self.gnu_obs.id, self.field))
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             #system=supermod.uri(value='gnuhealth::0'), #TODO

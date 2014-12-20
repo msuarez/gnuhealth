@@ -1,7 +1,7 @@
 from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
 from .health_fhir_practitioner import Practitioner_Map
-from .health_fhir_procedure import Procedure_Map 
+from .health_fhir_procedure import Procedure_Map
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
 import re
 

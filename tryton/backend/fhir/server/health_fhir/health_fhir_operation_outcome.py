@@ -1,6 +1,6 @@
 from StringIO import StringIO
 from datetime import datetime
-import fhir as supermod
+import server.fhir as supermod
 
 # Sub-class OperationOutcome
 

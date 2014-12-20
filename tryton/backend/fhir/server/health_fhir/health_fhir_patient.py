@@ -3,8 +3,8 @@ from operator import attrgetter
 from StringIO import StringIO
 from datetime import datetime
 from .datastore import find_record
-import fhir as supermod
-from utils import get_address
+import server.fhir as supermod
+from server.common import get_address
 import sys
 
 class Patient_Map:
@@ -497,7 +497,7 @@ class health_Patient(supermod.Patient, Patient_Map):
     def __set_gnu_care_provider(self):
         try:
             gp = attrgetter(self.map['careProvider'])(self.patient)
-            uri = url_for('practitioner_endpoint.record', log_id=gp.id)
+            uri = url_for('hp_record', log_id=gp.id)
             display = gp.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
