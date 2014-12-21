@@ -18,7 +18,7 @@ class Api(base_api):
             'xml': output_xml,
             'text/xml': output_xml,
             'application/xml': output_xml,
-            'application/xml+fhir': output_xml,
+            'application/xml+fhir': output_xml
         }
 api = Api()
 
@@ -27,3 +27,5 @@ api = Api()
 class Resource(base_resource):
     method_decorators = [login_required]
 #### /Extensions
+
+__all__=['Resource', 'api', 'tryton', 'login_manager']

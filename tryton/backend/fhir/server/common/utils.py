@@ -84,5 +84,7 @@ def output_xml(data, code, headers=None):
             msg = 'Unknown return'
         resp = make_response(msg, code)
     resp.headers.extend(headers or {})
-    resp.headers['Content-type']='application/xml+fhir' #Return proper type
+    #resp.headers['Content-type']='application/xml+fhir'
     return resp
+
+__all__=['get_address', 'recordConverter', 'search_error_string', 'output_xml']

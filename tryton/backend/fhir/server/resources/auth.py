@@ -1,5 +1,6 @@
-from flask.ext.login import login_user, UserMixin, \
-                login_required, logout_user, current_user, current_app
+from flask.ext.login import (login_user, UserMixin,
+                            login_required, logout_user,
+                            current_user, current_app)
 from flask.ext.wtf import Form
 from flask import Blueprint, render_template, request, redirect, url_for
 from wtforms import StringField, PasswordField, SubmitField
@@ -28,6 +29,8 @@ class LoginForm(Form):
 
 @tryton.transaction()
 def get_user_id(uid=None, username=None, password=None):
+    """Return user info from tryton
+    """
     if uid is not None:
         user=user_model.search([('id', '=', uid)])
         if user:
@@ -56,20 +59,26 @@ class User(UserMixin):
 
 @auth_endpoint.route("/login", methods=["GET", "POST"])
 def login():
-        form = LoginForm()
-        if form.validate_on_submit():
-            u = User(username=request.form['username'], password=request.form['password'])
-            login_user(u)
-            return redirect(url_for('auth_endpoint.home'))
-        return render_template("login.html", form=form)
+    """Login view"""
+    if current_user.is_authenticated():
+        return redirect(url_for('auth_endpoint.home'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        u = User(username=request.form['username'], password=request.form['password'])
+        login_user(u)
+        n = request.args.get('next', url_for('auth_endpoint.home'))
+        return redirect(n)
+    return render_template("login.html", form=form)
 
 @auth_endpoint.route("/logout", methods=["GET"])
 @login_required
 def logout():
+    """Logout view"""
     logout_user()
     return redirect(url_for('auth_endpoint.login'))
 
 @auth_endpoint.route("/home", methods=["GET"])
 @login_required
 def home():
+    """Home view"""
     return render_template('home.html')

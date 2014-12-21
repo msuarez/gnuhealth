@@ -4,7 +4,7 @@ from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_DiagnosticReport,
                     health_OperationOutcome, parse, parseEtree, Bundle,
                     find_record, health_Search)
-from server.common import search_error_string, tryton, Api, Resource
+from server.common import search_error_string, tryton, Resource
 import lxml
 import os.path
 import sys
@@ -161,3 +161,5 @@ class DR_Version(Resource):
 
         #No support for this in Health... yet?
         return 'Not supported', 405
+
+__all__=['DR_Version', 'DR_Record', 'DR_Validate', 'DR_Search', 'DR_Create']

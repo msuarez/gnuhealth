@@ -3,7 +3,7 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_Patient, health_OperationOutcome, parse,
                         parseEtree, Bundle, find_record, health_Search)
-from server.common import tryton, Api, Resource, search_error_string
+from server.common import tryton, Resource, search_error_string
 import lxml
 import os.path
 import sys
@@ -201,3 +201,6 @@ class PAT_Version(Resource):
 
         #No support for this in Health... yet?
         return 'Not supported', 405
+
+__all__=['PAT_Version', 'PAT_Record', 'PAT_Validate',
+            'PAT_Search', 'PAT_Create']

@@ -3,13 +3,11 @@ from server.common import tryton, login_manager, api, recordConverter
 
 def create_app(config=None):
     app = Flask(__name__)
+    app.config.from_object('server.config.DebugConfig')
+    if config is not None:
+        app.config.from_object(config)
+    app.config.from_envvar('FHIR_SERVER_CONFIG', silent=True)
 
-    #Set db name --- CHANGE!
-    app.config['TRYTON_DATABASE']='gnuhealth_demo'
-
-    #Set secret --- CHANGE!
-    app.config['SECRET_KEY'] = 'test'
-    app.config['DEBUG'] = True
     with app.app_context():
 
         # Initialize tryton

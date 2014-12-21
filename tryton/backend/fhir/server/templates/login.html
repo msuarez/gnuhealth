@@ -1,0 +1,11 @@
+<html>
+<body>
+    <h3>Please sign in to access FHIR API</h3>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.username(placeholder='Username') }}
+    {{ form.password(placeholder='Password') }}
+    {{ form.submit }}
+</form>
+</body>
+</html>

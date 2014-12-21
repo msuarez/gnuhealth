@@ -14,3 +14,5 @@ class Conformance(Resource):
         """Conformance interaction"""
         c = health_Conformance()
         return c, 200
+
+__all__=['Conformance']
