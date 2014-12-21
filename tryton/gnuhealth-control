@@ -337,9 +337,19 @@ relink_mods()
     
 do_update()
 {
+    if [ $# -gt 1 ];then
+        if [ $2 != "--dry-run" ];then
+        cli_msg "ERROR" "Unrecognized update option"
+        exit 1
+        fi
+    fi
+
     check_download_dir
     get_current_values
     check_updates
+    if [ $2 == "--dry-run" ];then
+        exit 0
+    fi
     install_updates
     remove_old
     relink_mods 
@@ -354,7 +364,7 @@ parse_command_line()
     case $1 in
         version) echo $VERSION;;
         backup) do_backup $@;;
-        update) do_update;;
+        update) do_update $@;;
         status) check_status;;
         help) help;;
         *) echo $1: Unrecognized command; exit 1;;
