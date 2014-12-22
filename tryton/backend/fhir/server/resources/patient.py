@@ -33,6 +33,7 @@ class PAT_Create(Resource):
     @tryton.transaction()
     def post(self):
         '''Create interaction'''
+        return 'Not supported', 405
         try:
             c=StringIO(request.data)
             res=parse(c, silence=True)
