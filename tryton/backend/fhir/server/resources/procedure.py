@@ -3,7 +3,7 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_Procedure, health_OperationOutcome, parse,
                             parseEtree, Bundle, find_record, health_Search)
-from server.common import tryton, Resource, search_error_string
+from server.common import tryton, Resource, search_error_string, get_userid
 import lxml
 import os.path
 import sys
@@ -21,7 +21,7 @@ term_map = {
         'rounds': rounds_procedure}
 
 class OP_Create(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self):
         '''Create interaction'''
         return 'not implemented', 405
@@ -39,7 +39,7 @@ class OP_Create(Resource):
             return 'Created', 201, {'Location': url_for('op_record', log_id=())}
 
 class OP_Search(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
         s = health_Search(endpoint='procedure')
@@ -67,7 +67,7 @@ class OP_Search(Resource):
             return oo, 400
 
 class OP_Validate(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
         try:
@@ -127,7 +127,7 @@ class OP_Validate(Resource):
                 return 'Valid', 200
 
 class OP_Record(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
         model = term_map[log_id[0]]
@@ -144,12 +144,12 @@ class OP_Record(Resource):
             #if track deleted records
             #return 'Record deleted', 410
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
 
@@ -157,7 +157,7 @@ class OP_Record(Resource):
         return 'Not implemented', 405
 
 class OP_Version(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 

@@ -3,7 +3,7 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_Patient, health_OperationOutcome, parse,
                         parseEtree, Bundle, find_record, health_Search)
-from server.common import tryton, Resource, search_error_string
+from server.common import tryton, Resource, search_error_string, get_userid
 import lxml
 import os.path
 import sys
@@ -30,7 +30,7 @@ country = tryton.pool.get('country.country')
 subdivision = tryton.pool.get('country.subdivision')
 
 class PAT_Create(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self):
         '''Create interaction'''
         return 'Not supported', 405
@@ -55,7 +55,7 @@ class PAT_Create(Resource):
             return 'Created', 201, {'Location': url_for('pat_record', log_id=p.id)}
 
 class PAT_Search(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
         s = health_Search(endpoint='patient')
@@ -83,7 +83,7 @@ class PAT_Search(Resource):
             return oo, 400
 
 class PAT_Validate(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
         try:
@@ -143,7 +143,7 @@ class PAT_Validate(Resource):
                 return 'Valid', 200
 
 class PAT_Record(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
         #TODO Use converter?
@@ -156,7 +156,7 @@ class PAT_Record(Resource):
             #if track deleted records
             #return 'Record deleted', 410
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
@@ -188,7 +188,7 @@ class PAT_Record(Resource):
             # Do not allow client-defined ids
             #return 'Record not found', 405
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
 
@@ -196,7 +196,7 @@ class PAT_Record(Resource):
         return 'Not implemented', 405
 
 class PAT_Version(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 

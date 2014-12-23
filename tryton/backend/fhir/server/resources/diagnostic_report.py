@@ -1,10 +1,10 @@
-from flask import Blueprint, request, url_for
+from flask import Blueprint, request, url_for, g
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_DiagnosticReport,
                     health_OperationOutcome, parse, parseEtree, Bundle,
                     find_record, health_Search)
-from server.common import search_error_string, tryton, Resource
+from server.common import search_error_string, tryton, Resource, get_userid
 import lxml
 import os.path
 import sys
@@ -16,7 +16,7 @@ model_map={
         'labreport': diagnostic_report}
 
 class DR_Create(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self):
         '''Create interaction'''
         return 'not implemented', 405
@@ -35,7 +35,7 @@ class DR_Create(Resource):
                                     log_id=('labreport', p.id))}
 
 class DR_Search(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
         s = health_Search(endpoint='diagnostic_report')
@@ -63,7 +63,7 @@ class DR_Search(Resource):
             return oo, 400
 
 class DR_Validate(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
         try:
@@ -123,7 +123,7 @@ class DR_Validate(Resource):
                 return 'Valid', 200
 
 class DR_Record(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
         model = model_map.get(log_id[0])
@@ -142,12 +142,12 @@ class DR_Record(Resource):
         #if track deleted records
         #return 'Record deleted', 410
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
 
@@ -155,7 +155,7 @@ class DR_Record(Resource):
         return 'Not implemented', 405
 
 class DR_Version(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 

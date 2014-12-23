@@ -1,5 +1,5 @@
 from werkzeug.routing import BaseConverter, ValidationError
-from flask import make_response
+from flask import make_response, g
 from StringIO import StringIO
 
 def get_address(string):
@@ -87,4 +87,12 @@ def output_xml(data, code, headers=None):
     #resp.headers['Content-type']='application/xml+fhir'
     return resp
 
-__all__=['get_address', 'recordConverter', 'search_error_string', 'output_xml']
+
+def get_userid():
+    """Return g.user.id, or None"""
+    try:
+        return int(g.user.id)
+    except:
+        return None
+
+__all__=['get_address', 'recordConverter', 'search_error_string', 'output_xml', 'get_userid']

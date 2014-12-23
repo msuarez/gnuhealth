@@ -4,7 +4,7 @@ from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_Patient, health_Observation,
         Observation_Map, health_OperationOutcome, parse, parseEtree, Bundle,
         health_Search, find_record, FieldError)
-from server.common import tryton, Resource, search_error_string
+from server.common import search_error_string, tryton, Resource, get_userid
 import lxml
 import os.path
 import sys
@@ -33,7 +33,7 @@ model_map={ 'lab': lab,
         'icu': icu}
 
 class OBS_Create(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self):
         '''Create interaction'''
         return 'Not implemented', 405
@@ -52,7 +52,7 @@ class OBS_Create(Resource):
             return 'Created', 201, {'Location':  url_for('obs_record', log_id=())}
 
 class OBS_Search(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
         try:
@@ -91,7 +91,7 @@ class OBS_Search(Resource):
             return oo, 400
 
 class OBS_Validate(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
         try:
@@ -145,7 +145,7 @@ class OBS_Validate(Resource):
                 return 'Valid', 200
 
 class OBS_Record(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
         model = model_map.get(log_id[0])
@@ -167,12 +167,12 @@ class OBS_Record(Resource):
             #if track deleted records
             #return 'Record deleted', 410
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
 
@@ -180,7 +180,7 @@ class OBS_Record(Resource):
         return 'Not implemented', 405
 
 class OBS_Version(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 

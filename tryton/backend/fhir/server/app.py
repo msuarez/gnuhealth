@@ -1,5 +1,9 @@
-from flask import Flask
+from flask import Flask, g
+from flask.ext.login import current_user
 from server.common import tryton, login_manager, api, recordConverter
+
+def before_request():
+    g.user = current_user
 
 def create_app(config=None):
     app = Flask(__name__)
@@ -28,6 +32,9 @@ def create_app(config=None):
 
         # Add Model-ID-Field url converter
         app.url_map.converters['item']=recordConverter
+
+        # Store current user in g.user
+        app.before_request(before_request)
 
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD
@@ -103,5 +110,6 @@ def create_app(config=None):
 
         # Initiate the REST API
         api.init_app(app)
+
 
     return app

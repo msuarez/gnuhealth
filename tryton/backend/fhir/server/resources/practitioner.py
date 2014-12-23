@@ -3,7 +3,7 @@ from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_Practitioner, health_OperationOutcome,
                 parse, parseEtree, Bundle, find_record, health_Search)
-from server.common import tryton, Resource, search_error_string
+from server.common import tryton, Resource, search_error_string, get_userid
 import lxml
 import os.path
 import sys
@@ -12,7 +12,7 @@ import sys
 practitioner = tryton.pool.get('gnuhealth.healthprofessional')
 
 class HP_Create(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self):
         '''Create interaction'''
         return 'not implemented', 405
@@ -31,7 +31,7 @@ class HP_Create(Resource):
             return 'Created', 201, {'Location': url_for('hp_record', log_id=p.id)}
 
 class HP_Search(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
         s = health_Search(endpoint='practitioner')
@@ -59,7 +59,7 @@ class HP_Search(Resource):
             return oo, 400
 
 class HP_Validate(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
         try:
@@ -119,7 +119,7 @@ class HP_Validate(Resource):
                 return 'Valid', 200
 
 class HP_Record(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
         record = find_record(practitioner, [('id', '=', log_id)])
@@ -131,12 +131,12 @@ class HP_Record(Resource):
             #if track deleted records
             #return 'Record deleted', 410
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
 
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
 
@@ -144,7 +144,7 @@ class HP_Record(Resource):
         return 'Not implemented', 405
 
 class HP_Version(Resource):
-    @tryton.transaction()
+    @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
 
