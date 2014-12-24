@@ -111,6 +111,14 @@ get_current_values()
         cli_msg "ERROR" "Could not find the GNU Health version env. variable"
         exit 1
     fi
+
+    # Stop if current GNU Health version < 2.8.0
+    local raw_ver=`echo $GNUHEALTH_VERSION | tr -d '.'`
+    if [ $raw_ver -lt 280 ]
+    then
+        cli_msg "ERROR" "GNU Health version must be at least 2.8"
+        exit 1
+    fi
     
     cli_msg "INFO" "Environment variables"
     cli_msg "INFO" "GNUHEALTH_VERSION = ${GNUHEALTH_VERSION}"
@@ -121,6 +129,9 @@ get_current_values()
 
 do_backup()
 {
+    
+    get_current_values
+    
     local COMMAND=$1
     local BACKDATE=`date -u +%Y-%m-%d_%H%M%S`
     local LOCKFILE="/tmp/.gnuhealth_backup.lock"
