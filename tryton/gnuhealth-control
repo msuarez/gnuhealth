@@ -47,7 +47,7 @@ Options:
 
  --backdir  : destination directory for the backup file
  --dry-run  : Check, download and preview, but don't actually update process
- --database : database name to use with the update or backup command 
+ --database : database name to use with the backup command 
 
 EOF
     exit 0
@@ -59,7 +59,7 @@ help()
     The GNU Health Control Center (gnuhealth-control) is the main tool for 
     administrative tasks of the GNU Health environment.
     
-    It can perform backups and updates of the instance.
+    It can perform backups and updates of the instance, ch
     
     Updates
     -------
@@ -71,11 +71,11 @@ help()
         - Trytond : Tryton server version
         - GNU Health patchsets
 
-    This will be valid for version with the same major, minor numbers, for example
+    This will be valid for version with the same major and minor numbers, for example
     2.8.x will look for the latest tryton updates and GNU Health updates
     associated to that release.
 
-    GNU Health Control Center is available for release 2.8 and newer.
+    GNU Health Control is available for release 2.8 and newer.
     You can get the latest version of GNU Health update at GNU
     ftp://ftp.gnu.org/gnu/health
 
