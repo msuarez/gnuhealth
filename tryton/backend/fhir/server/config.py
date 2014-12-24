@@ -1,5 +1,3 @@
-# Production settings
-
 class ProductionConfig(object):
     """A basic production config
     """
@@ -13,8 +11,9 @@ class ProductionConfig(object):
 
     SERVER_NAME="fhir.example.com"     #Set this
 
-# Testing settings
 class DebugConfig(object):
-    TRYTON_DATABASE='gnuhealth_demo'
+    """Testing settings"""
+    TRYTON_DATABASE='gnuhealth_demo_test'
     DEBUG = True
     SECRET_KEY = 'test'
+    WTF_CSRF_ENABLED=False

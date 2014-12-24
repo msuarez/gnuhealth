@@ -1,6 +1,6 @@
 from flask import Flask, g
 from flask.ext.login import current_user
-from server.common import tryton, login_manager, api, recordConverter
+from server.common import tryton, login_manager, Api, recordConverter
 
 def before_request():
     g.user = current_user
@@ -22,6 +22,9 @@ def create_app(config=None):
         login_manager.login_view='auth_endpoint.login'
         login_manager.session_protection='strong'
 
+        # Initiate the REST API
+        api=Api(app)
+
         # The user model
         user = tryton.pool.get('res.user')
 
@@ -36,14 +39,11 @@ def create_app(config=None):
         # Store current user in g.user
         app.before_request(before_request)
 
-        # Handle the authentication blueprint
-        #   NOT PART OF THE FHIR STANDARD
-        from server.resources.auth import auth_endpoint
-        app.register_blueprint(auth_endpoint, url_prefix='/auth')
 
         #### ADD THE ROUTES ####
         from server.resources.system import Conformance
         api.add_resource(Conformance, '/', '/metadata')
+
 
         from server.resources.patient import (PAT_Create, PAT_Search,
                         PAT_Validate, PAT_Record, PAT_Version)
@@ -83,7 +83,7 @@ def create_app(config=None):
                         '/Observation/<item:log_id>/_history',
                         '/Observation/<item:log_id>/_history/<string:v_id>')
 
-        from .resources.practitioner import (HP_Create, HP_Search,
+        from server.resources.practitioner import (HP_Create, HP_Search,
                                         HP_Validate, HP_Record, HP_Version)
         api.add_resource(HP_Create, '/Practitioner')
         api.add_resource(HP_Search, '/Practitioner', '/Practitioner/_search')
@@ -108,8 +108,10 @@ def create_app(config=None):
                         '/Procedure/<item:log_id>/_history',
                         '/Procedure/<item:log_id>/_history/<string:v_id>')
 
-        # Initiate the REST API
-        api.init_app(app)
+        # Handle the authentication blueprint
+        #   NOT PART OF THE FHIR STANDARD
+        from server.resources.auth import auth_endpoint
+        app.register_blueprint(auth_endpoint, url_prefix='/auth')
 
 
     return app
