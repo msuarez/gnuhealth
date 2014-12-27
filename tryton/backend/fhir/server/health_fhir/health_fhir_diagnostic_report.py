@@ -6,6 +6,7 @@ try:
     from flask import url_for
     RUN_FLASK=True
 except:
+    from .datastore import dumb_url_generate
     RUN_FLASK=False
 
 class DiagnosticReport_Map:
@@ -88,6 +89,11 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 label = '{0} for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
                 if RUN_FLASK:
                     value = url_for('dr_record', log_id=(self.search_prefix, self.diagnostic_report.id, self.field))
+                else:
+                    value = dumb_url_generate(['DiagnosticReport',
+                                                self.search_prefix,
+                                                self.diagnostic_report.id,
+                                                self.field])
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             value=supermod.string(value=value))
@@ -133,6 +139,8 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 for test in attrgetter(self.map['result'])(self.diagnostic_report):
                     if RUN_FLASK:
                         uri = url_for('obs_record', log_id=('lab', test.id))
+                    else:
+                        uri = dumb_url_generate(['Observation', 'lab', test.id])
                     display = test.rec_name
                     ref=supermod.ResourceReference()
                     ref.display = supermod.string(value=display)
@@ -152,6 +160,8 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 p = attrgetter(self.map['performer'])(self.diagnostic_report)
                 if RUN_FLASK:
                     uri = url_for('hp_record', log_id=p.id)
+                else:
+                    uri = dumb_url_generate(['Practitioner', p.id])
                 display = p.name.rec_name
                 ref=supermod.ResourceReference()
                 ref.display = supermod.string(value=display)
@@ -168,6 +178,8 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 patient = attrgetter(self.map['subject'])(self.diagnostic_report)
                 if RUN_FLASK:
                     uri = url_for('pat_record', log_id=patient.id)
+                else:
+                    uri = dumb_url_generate(['Patient', patient.id])
                 display = patient.rec_name
                 ref=supermod.ResourceReference()
                 ref.display = supermod.string(value=display)

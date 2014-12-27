@@ -4,12 +4,12 @@ from datetime import datetime
 from .datastore import find_record
 import server.fhir as supermod
 from server.common import get_address
-import sys
 
 try:
     from flask import current_app, url_for
     RUN_FLASK=True
 except:
+    from .datastore import dumb_url_generate
     RUN_FLASK=False
 
 
@@ -506,7 +506,7 @@ class health_Patient(supermod.Patient, Patient_Map):
             if RUN_FLASK:
                 uri = url_for('hp_record', log_id=gp.id)
             else:
-                uri = ''.join(['/Practitioner/', str(gp.id)])
+                uri = dumb_url_generate(['Practitioner', gp.id])
             display = gp.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)

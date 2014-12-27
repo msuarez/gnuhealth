@@ -8,6 +8,7 @@ try:
     from flask import url_for
     RUN_FLASK=True
 except:
+    from .datastore import dumb_url_generate
     RUN_FLASK=False
 
 class Procedure_Map:
@@ -101,7 +102,9 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             if RUN_FLASK:
                 value = supermod.string(value=url_for('op_record', log_id=(self.search_prefix, self.procedure.id, None)))
             else:
-                value = supermod.string(value=''.join(['/Procedure/', '-'.join(self.search_prefix, str(self.procedure.id))]))
+                value = supermod.string(value=dumb_url_generate(['Procedure',
+                                                                self.search_prefix,
+                                                                self.procedure.id]))
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
                         value=value)
@@ -110,7 +113,10 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
     def __set_gnu_subject(self):
         if self.procedure:
             patient = attrgetter(self.map['subject'])(self.procedure)
-            uri = url_for('pat_record', log_id=patient.id)
+            if RUN_FLASK:
+                uri = url_for('pat_record', log_id=patient.id)
+            else:
+                uri = dumb_url_generate(['Patient', patient.id])
             display = patient.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
