@@ -1,9 +1,7 @@
-from flask import current_app
 from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
 import server.fhir as supermod
-import sys
 
 class Practitioner_Map:
     url_prefixes={'gnuhealth.healthprofessional': ''}
@@ -97,7 +95,6 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
 
             self.set_name(name)
         except:
-            print sys.exc_info()
             pass
 
     def __set_gnu_identifier(self):
@@ -137,7 +134,6 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             gender=supermod.CodeableConcept(coding=[coding])
             self.set_gender(gender)
         except:
-            print sys.exc_info()
             pass
 
     def __set_gnu_communication(self):

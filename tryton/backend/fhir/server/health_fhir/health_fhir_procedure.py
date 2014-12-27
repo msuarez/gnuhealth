@@ -1,10 +1,14 @@
-from flask import current_app, request, url_for
 from StringIO import StringIO
 from operator import attrgetter
 from datetime import datetime
 from .datastore import find_record
 import server.fhir as supermod
-import sys
+
+try:
+    from flask import url_for
+    RUN_FLASK=True
+except:
+    RUN_FLASK=False
 
 class Procedure_Map:
     model_mapping={
@@ -94,9 +98,13 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
     def __set_gnu_identifier(self):
         if self.procedure:
             patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
+            if RUN_FLASK:
+                value = supermod.string(value=url_for('op_record', log_id=(self.search_prefix, self.procedure.id, None)))
+            else:
+                value = supermod.string(value=''.join(['/Procedure/', '-'.join(self.search_prefix, str(self.procedure.id))]))
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
-                        value = supermod.string(value=url_for('op_record', log_id=(self.search_prefix, self.procedure.id, None))))
+                        value=value)
             self.add_identifier(ident)
 
     def __set_gnu_subject(self):

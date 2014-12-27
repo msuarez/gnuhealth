@@ -1,4 +1,4 @@
-from flask import Blueprint, request, url_for, g
+from flask import request, url_for, g
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
 from server.health_fhir import (health_DiagnosticReport,

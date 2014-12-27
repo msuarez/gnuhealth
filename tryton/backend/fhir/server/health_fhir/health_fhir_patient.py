@@ -1,4 +1,3 @@
-from flask import current_app, url_for
 from operator import attrgetter
 from StringIO import StringIO
 from datetime import datetime
@@ -6,6 +5,13 @@ from .datastore import find_record
 import server.fhir as supermod
 from server.common import get_address
 import sys
+
+try:
+    from flask import current_app, url_for
+    RUN_FLASK=True
+except:
+    RUN_FLASK=False
+
 
 class Patient_Map:
     model_mapping={
@@ -220,7 +226,7 @@ class health_Patient(supermod.Patient, Patient_Map):
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='PUID'),
-                        system=supermod.uri(value='gnuhealth::0'),
+                        #system=supermod.uri(value='gnuhealth::0'),
                                 #value=current_app.config.get(
                                     #'INSTITUTION_ODI', None)),
                         value=supermod.string(value=self.patient.puid))
@@ -229,10 +235,10 @@ class health_Patient(supermod.Patient, Patient_Map):
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='ALTERNATE_ID'),
-                        system=supermod.system(
-                            supermod.uri(
-                                value=current_app.config.get(
-                                    'INSTITUTION_ODI',None))),
+                        #system=supermod.system(
+                            #supermod.uri(
+                                #value=current_app.config.get(
+                                    #'INSTITUTION_ODI',None))),
                         value=supermod.string(
                             value=self.patient.alternative_identification))
         else:
@@ -497,7 +503,10 @@ class health_Patient(supermod.Patient, Patient_Map):
     def __set_gnu_care_provider(self):
         try:
             gp = attrgetter(self.map['careProvider'])(self.patient)
-            uri = url_for('hp_record', log_id=gp.id)
+            if RUN_FLASK:
+                uri = url_for('hp_record', log_id=gp.id)
+            else:
+                uri = ''.join(['/Practitioner/', str(gp.id)])
             display = gp.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)

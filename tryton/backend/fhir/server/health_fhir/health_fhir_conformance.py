@@ -1,5 +1,4 @@
 from datetime import datetime
-from flask import current_app, url_for
 from operator import attrgetter
 from StringIO import StringIO
 import server.fhir as supermod
@@ -8,10 +7,12 @@ UPDATED=datetime(2014, 1, 1).strftime('%Y/%m/%d')
 
 class health_Conformance(supermod.Conformance):
     def __init__(self, *args, **kwargs):
+        institution = kwargs.pop('publisher', None)
         super(health_Conformance, self).__init__(*args, **kwargs)
+
         self.__set_rest()
         self.__set_format()
-        self.__set_publisher()
+        self.__set_publisher(institution)
         self.__set_description()
         self.__set_date()
         self.__set_unknown()
@@ -23,9 +24,10 @@ class health_Conformance(supermod.Conformance):
         n = supermod.string(value='Conformance Statement')
         self.set_name(n)
 
-    def __set_publisher(self):
-        p = supermod.string(value=current_app.config.get('INSTITUTION') or 'GNU HEALTH')
-        self.set_publisher(p)
+    def __set_publisher(self, publisher=None):
+        if publisher:
+            p = supermod.string(value=publisher)
+            self.set_publisher(p)
 
     def __set_description(self):
         s = supermod.string(value='This is the conformance statement. It describes the capabilities of this FHIR installation')
@@ -36,7 +38,7 @@ class health_Conformance(supermod.Conformance):
 
     def __set_implementation(self):
         i = supermod.Conformance_Implementation()
-        i.url = supermod.uri(value=url_for('conformance'))
+        i.url = supermod.uri(value='/')
         i.description=supermod.string(value='FHIR installation')
         self.set_implementation(i)
     
