@@ -1857,7 +1857,7 @@ class DeathCertificate (ModelSQL, ModelView):
             ('natural', 'Natural'),
             ('suicide', 'Suicide'),
             ('homicide', 'Homicide'),
-            ('undertermined', 'Undertermined'),
+            ('undetermined', 'Undetermined'),
             ('pending_investigation', 'Pending Investigation'),
         ], 'Type of death', required=True, sort=False,)
 
