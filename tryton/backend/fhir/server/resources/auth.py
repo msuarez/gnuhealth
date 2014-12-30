@@ -65,7 +65,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         u = User(username=request.form['username'], password=request.form['password'])
-        login_user(u)
+        login_user(u, remember=True)
         n = request.args.get('next', url_for('auth_endpoint.home'))
         return redirect(n)
     return render_template("login.html", form=form)
