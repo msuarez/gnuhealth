@@ -1,6 +1,6 @@
 from trytond.pool import Pool
 from .celerytools import *
-from .health import *
+from .health_synchro import *
 
 
 def register():
