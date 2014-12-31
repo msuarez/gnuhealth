@@ -18,7 +18,7 @@ TRYTOND=`ls -1d ${GNUHEALTH_DIR}/tryton/server/trytond-* | egrep -o "trytond-[0-
 export TRYTON_VERSION=`echo $TRYTOND | cut -d'-' -f2`
 
 # Add PYTHONPATH environment variable 
-export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}
+export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}:${GNUHEALTH_DIR}/tryton/server/config
 
 # Add Tryton server configuration file
 
