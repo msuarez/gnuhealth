@@ -1,11 +1,9 @@
 from trytond.pool import Pool
-from .celerytools import *
 from .health_synchro import *
 
 
 def register():
     Pool.register(
-        Sync,
         Party,
         PartyAddress,
         OperationalArea,
