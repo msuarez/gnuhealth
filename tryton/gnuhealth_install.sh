@@ -159,13 +159,14 @@ install_directories() {
     LOCAL_MODS_DIR="${MODULES_DIR}/local"
     CONFIG_DIR="${TRYTOND_DIR}/config"
     UTIL_DIR="${TRYTOND_DIR}/util"
+    DOC_DIR="${BASEDIR}/doc"
 
     # Create GNU Health directories
     if [[ -e ${BASEDIR} ]]; then
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR}||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
@@ -305,6 +306,12 @@ install_tryton_modules() {
     # Copy serverpass program
     
     cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || exit 1
+
+    message "[INFO] OK." ${GREEN}
+
+    # Copy documentation directory
+    
+    cp -a ${GNUHEALTH_INST_DIR}/../doc/* ${DOC_DIR} || exit 1
 
     message "[INFO] OK." ${GREEN}
 
