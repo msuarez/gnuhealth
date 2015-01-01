@@ -1052,6 +1052,44 @@
         </record>
 
 
+<!-- BIRTH CERTIFICATE -->
+
+        <record model="ir.ui.view" id="gnuhealth_birth_cert_form">
+            <field name="model">gnuhealth.birth_certificate</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_birth_certificate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_birth_cert_tree">
+            <field name="model">gnuhealth.birth_certificate</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_birth_certificate_tree</field>
+        </record>
+
+        <!-- birth Certificate menu entry in demographics -->
+    
+        <record model="ir.action.act_window" id="act_birth_cert_form">
+            <field name="name">birth certificates</field>
+            <field name="res_model">gnuhealth.birth_certificate</field>
+        </record>
+
+        <menuitem parent="gnuhealth_demographics_menu" 
+            action="act_birth_cert_form" id="menu_birth_cert"/>
+
+        <!-- Shortcut to the birth Certificate from the Party -->
+
+        <record model="ir.action.act_window" id="act_birth_cert_form1">
+            <field name="name">Birth Certificate</field>
+            <field name="res_model">gnuhealth.birth_certificate</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+
+        <record model="ir.action.keyword" id="act_open_birth_cert_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_birth_cert_form1"/>
+        </record>
+
 <!-- DEATH CERTIFICATE -->
 
         <record model="ir.ui.view" id="gnuhealth_death_cert_form">

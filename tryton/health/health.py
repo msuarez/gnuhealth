@@ -38,11 +38,11 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
     'DomiciliaryUnit','PartyPatient', 'PartyAddress','DrugDoseUnits',
-    'DeathCertificate','MedicationFrequency', 'DrugForm', 'DrugRoute',
-    'MedicalSpecialty', 'HealthInstitution', 'HealthInstitutionSpecialties',
-    'HealthInstitutionOperationalSector','HealthInstitutionO2M', 
-    'HospitalBuilding', 'HospitalUnit', 'HospitalOR', 'HospitalWard',
-    'HospitalBed', 'HealthProfessional',
+    'BirthCertificate','DeathCertificate','MedicationFrequency', 
+    'DrugForm', 'DrugRoute','MedicalSpecialty', 'HealthInstitution',
+    'HealthInstitutionSpecialties','HealthInstitutionOperationalSector',
+    'HealthInstitutionO2M', 'HospitalBuilding', 'HospitalUnit',
+    'HospitalOR', 'HospitalWard','HospitalBed', 'HealthProfessional',
     'HealthProfessionalSpecialties', 'PhysicianSP', 'Family',
     'FamilyMember', 'MedicamentCategory',
     'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleLine',
@@ -1832,6 +1832,34 @@ class AlternativePersonID (ModelSQL, ModelView):
 
     comments = fields.Char('Comments')
 
+
+class BirthCertificate (ModelSQL, ModelView):
+    'Birth Certificate'
+    __name__ = 'gnuhealth.birth_certificate'
+
+    name = fields.Many2One('party.party', 'Person')
+    mother = fields.Many2One('party.party', 'Mother')
+    father = fields.Many2One('party.party', 'Father')
+
+    code = fields.Char('Code', required=True)
+
+    approx_date = fields.Boolean('Approx', help="Check this box \
+        if the date / time of birth is not exact")
+        
+    dob = fields.Date('Date of Birth')
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional',
+        'Certifier', help='Health Professional')
+
+    observations = fields.Char('Observations')
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
 
 class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'

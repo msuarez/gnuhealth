@@ -67,6 +67,7 @@ def register():
         InsurancePlan,
         Insurance,
         AlternativePersonID,
+        BirthCertificate,
         DeathCertificate,
         ProductCategory,
         ProductTemplate,
