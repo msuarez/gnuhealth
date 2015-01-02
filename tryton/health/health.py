@@ -1874,6 +1874,8 @@ class BirthCertificate (ModelSQL, ModelView):
 
     @fields.depends('institution')
     def on_change_institution(self):
+        country=None
+        subdivision=None
         if (self.institution and self.institution.name.addresses[0].country):
             country = self.institution.name.addresses[0].country.id
         
