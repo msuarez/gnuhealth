@@ -300,7 +300,9 @@ class PartyPatient (ModelSQL, ModelView):
     du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
 
     deceased = fields.Boolean('Deceased', readonly=True,
-        help='The information is updated from the Death Certificate')
+        help='The information is updated from the Death Certificate',
+        states={'invisible': Not(Bool(Eval('deceased')))})
+
 
     @staticmethod
     def default_activation_date():

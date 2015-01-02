@@ -50,7 +50,9 @@
             <newline/>
             <field name="insurance" colspan="4"/>
             <newline/>
-            <group id="party_footer" colspan="4" col="10">
+            <group id="party_footer" colspan="4" col="12">
+                <label name="deceased"/>
+                <field name="deceased"/>
                 <label name="unidentified"/>
                 <field name="unidentified"/>
                 <label name="alias"/>
