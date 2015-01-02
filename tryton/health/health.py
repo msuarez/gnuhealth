@@ -1892,6 +1892,14 @@ class BirthCertificate (ModelSQL, ModelView):
 
         return res
 
+    @classmethod
+    def __setup__(cls):
+        super(BirthCertificate, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'Certificate already exists !'),
+            ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
+        ]
+
 
 class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
@@ -1932,6 +1940,14 @@ class DeathCertificate (ModelSQL, ModelView):
     @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
+
+    @classmethod
+    def __setup__(cls):
+        super(DeathCertificate, cls).__setup__()
+        cls._sql_constraints = [
+            ('name_uniq', 'UNIQUE(name)', 'Certificate already exists !'),
+            ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
+        ]
 
 
 class ProductCategory(ModelSQL, ModelView):
