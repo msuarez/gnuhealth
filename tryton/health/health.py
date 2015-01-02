@@ -1865,8 +1865,25 @@ class BirthCertificate (ModelSQL, ModelView):
         depends=['country'])
 
     @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
+    @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
+
+    @fields.depends('institution')
+    def on_change_institution(self):
+        if (self.institution and self.institution.name.addresses[0].country):
+            country = self.institution.name.addresses[0].country.id
+        
+        if (self.institution and self.institution.name.addresses[0].subdivision):
+            subdivision = self.institution.name.addresses[0].subdivision.id
+
+        res = {'country': country, 'country_subdivision': subdivision}
+
+        return res
+
 
 class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
