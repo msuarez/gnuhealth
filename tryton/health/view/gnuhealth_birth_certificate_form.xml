@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<form string="Birth Certificate">
+    <group colspan="4" string="Main" id="group_birth_cert_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+        <newline/>
+        <label name="mother"/>
+        <field name="mother"/>
+        <label name="father"/>
+        <field name="father"/>
+        <label name="dob"/>
+        <field name="dob"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+    </group>
+    <newline/>
+    <separator colspan="4" string="Observations" id="separator_birth_cert_observations"/>
+    <newline/>
+    <field name="observations" colspan="4"/>
+</form>
