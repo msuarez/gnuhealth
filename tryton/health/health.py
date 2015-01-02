@@ -1837,9 +1837,15 @@ class BirthCertificate (ModelSQL, ModelView):
     'Birth Certificate'
     __name__ = 'gnuhealth.birth_certificate'
 
-    name = fields.Many2One('party.party', 'Person')
-    mother = fields.Many2One('party.party', 'Mother')
-    father = fields.Many2One('party.party', 'Father')
+    name = fields.Many2One('party.party', 'Person', required=True,
+        domain=[('is_person', '=', True),])
+
+    mother = fields.Many2One('party.party', 'Mother', 
+        domain=[('is_person', '=', True),])
+
+    father = fields.Many2One('party.party', 'Father',
+        domain=[('is_person', '=', True),])
+
 
     code = fields.Char('Code', required=True)
 
@@ -1891,7 +1897,9 @@ class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
     __name__ = 'gnuhealth.death_certificate'
 
-    name = fields.Many2One('party.party', 'Person')
+    name = fields.Many2One('party.party', 'Person', required=True,
+        domain=[('is_person', '=', True),])
+
     code = fields.Char('Code', required=True)
 
     approx_date = fields.Boolean('Approx', help="Check this box \
