@@ -1857,6 +1857,13 @@ class BirthCertificate (ModelSQL, ModelView):
 
     observations = fields.Char('Observations')
 
+    country = fields.Many2One('country.country','Country')
+
+    country_subdivision = fields.Many2One(
+        'country.subdivision', 'Subdivision',
+        domain=[('country', '=', Eval('country'))],
+        depends=['country'])
+
     @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()

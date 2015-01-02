@@ -12,8 +12,14 @@
         <field name="father"/>
         <label name="dob"/>
         <field name="dob"/>
+        <newline/>
         <label name="institution"/>
         <field name="institution"/>
+        <label name="country"/>
+        <field name="country"/>
+        <label name="country_subdivision"/>
+        <field name="country_subdivision"/>
+        <newline/>
         <label name="healthprof"/>
         <field name="healthprof"/>
     </group>
