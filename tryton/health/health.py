@@ -1855,7 +1855,7 @@ class BirthCertificate (ModelSQL, ModelView):
         'gnuhealth.healthprofessional',
         'Certifier', help='Health Professional')
 
-    observations = fields.Char('Observations')
+    observations = fields.Text('Observations')
 
     country = fields.Many2One('country.country','Country')
 
@@ -1919,7 +1919,7 @@ class DeathCertificate (ModelSQL, ModelView):
         'gnuhealth.healthprofessional',
         'Certifier', help='Health Professional')
 
-    observations = fields.Char('Observations')
+    observations = fields.Text('Observations')
 
     @staticmethod
     def default_healthprof():
