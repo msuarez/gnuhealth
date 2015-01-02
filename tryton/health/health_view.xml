@@ -1069,12 +1069,12 @@
         <!-- birth Certificate menu entry in demographics -->
     
         <record model="ir.action.act_window" id="act_birth_cert_form">
-            <field name="name">birth certificates</field>
+            <field name="name">Birth certificates</field>
             <field name="res_model">gnuhealth.birth_certificate</field>
         </record>
 
         <menuitem parent="gnuhealth_demographics_menu" 
-            action="act_birth_cert_form" id="menu_birth_cert"/>
+            action="act_birth_cert_form" icon="gnuhealth-list" id="menu_birth_cert"/>
 
         <!-- Shortcut to the birth Certificate from the Party -->
 
@@ -1112,7 +1112,7 @@
         </record>
 
         <menuitem parent="gnuhealth_demographics_menu" 
-            action="act_death_cert_form" id="menu_death_cert"/>
+            action="act_death_cert_form" icon="gnuhealth-list" id="menu_death_cert"/>
 
         <!-- Shortcut to the Death Certificate from the Party -->
 
