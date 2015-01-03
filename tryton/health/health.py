@@ -1915,13 +1915,14 @@ class DeathCertificate (ModelSQL, ModelView):
 
     code = fields.Char('Code', required=True)
 
-    approx_date = fields.Boolean('Approx', help="Check this box \
-        if the date / time of death is not exact")
-        
-    dod = fields.DateTime('Date and Time of Death')
+    autopsy = fields.Boolean('Autopsy', help="Check this box "
+        "if autopsy has been done")
+     
+    dod = fields.DateTime('DoD', required=True,
+        help="Date and time of Death")
 
     cod = fields.Many2One(
-        'gnuhealth.pathology', 'Cause of Death')
+        'gnuhealth.pathology', 'Immediate Cause', help="Cause of Death")
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution')
@@ -1935,6 +1936,22 @@ class DeathCertificate (ModelSQL, ModelView):
             ('pending_investigation', 'Pending Investigation'),
         ], 'Type of death', required=True, sort=False,)
 
+    place_of_death = fields.Selection(
+        [
+            ('home', 'Home'),
+            ('work', 'Work'),
+            ('public_place', 'Public place'),
+            ('health_center', 'Health Center'),
+        ], 'Place', required=True, sort=False,)
+
+    operational_sector = fields.Many2One(
+        'gnuhealth.operational_sector', 'Operational Sector')
+
+    du = fields.Many2One(
+        'gnuhealth.du', 'Domiciliary Unit')
+
+    place_details = fields.Char('Details')
+    
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
         states={'invisible': Equal(Eval('state'), 'draft')},

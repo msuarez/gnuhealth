@@ -3,17 +3,39 @@
     <group colspan="4" string="Main" id="group_death_cert_header">
         <label name="name"/>
         <field name="name"/>
-        <label name="code"/>
-        <field name="code"/>
         <label name="dod"/>
         <field name="dod"/>
-        <label name="cod"/>
-        <field name="cod"/>
-        <label name="type_of_death"/>
-        <field name="type_of_death"/>
+        <newline/>
+    </group>
+    <newline/>
+    <group colspan="4" string="Place" id="group_death_place">
+        <label name="place_of_death"/>
+        <field name="place_of_death"/>
+        <label name="place_details"/>
+        <field name="place_details"/>
+        <newline/>
+        <label name="du"/>
+        <field name="du"/>
+        <label name="operational_sector"/>
+        <field name="operational_sector"/>
         <label name="institution"/>
         <field name="institution"/>
     </group>
+    <newline/>
+    <group colspan="4" string="Cause" id="group_death_cause">
+        <label name="cod"/>
+        <field name="cod"/>
+    </group>
+    <newline/>
+    <group id="group_death_misc" string="Other" colspan="4" col="8">
+        <label name="type_of_death"/>
+        <field name="type_of_death"/>
+        <label name="autopsy"/>
+        <field name="autopsy"/>
+        <label name="code"/>
+        <field name="code"/>
+    </group>
+
     <newline/>
     <separator colspan="4" string="Observations" id="separator_death_cert_observations"/>
     <newline/>
