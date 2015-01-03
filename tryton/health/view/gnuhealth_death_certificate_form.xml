@@ -15,11 +15,17 @@
         <field name="type_of_death"/>
         <label name="institution"/>
         <field name="institution"/>
-        <label name="healthprof"/>
-        <field name="healthprof"/>
     </group>
     <newline/>
     <separator colspan="4" string="Observations" id="separator_death_cert_observations"/>
     <newline/>
     <field name="observations" colspan="4"/>
+    <newline/>
+    <group id="death_certificate_footer" colspan="4" col="6">
+        <label name="state"/>
+        <field name="state"/>
+        <label name="signed_by"/>
+        <field name="signed_by"/>
+        <button name="sign" help="Sign the certificate" string="Sign" icon="tryton-go-next" confirm="Sign Death Certificate ?"/>
+    </group>
 </form>

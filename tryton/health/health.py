@@ -1936,15 +1936,27 @@ class DeathCertificate (ModelSQL, ModelView):
             ('pending_investigation', 'Pending Investigation'),
         ], 'Type of death', required=True, sort=False,)
 
-    healthprof = fields.Many2One(
-        'gnuhealth.healthprofessional',
-        'Certifier', help='Health Professional')
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'draft')},
+        help="Health Professional that signed the death certificate")
 
     observations = fields.Text('Observations')
+
+    state = fields.Selection([
+        (None, ''),
+        ('draft', 'Draft'),
+        ('signed', 'Signed'),
+        ('approved', 'Approved'),
+        ], 'State', readonly=True, sort=False)
 
     @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
 
     @classmethod
     def __setup__(cls):
@@ -1953,6 +1965,28 @@ class DeathCertificate (ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name)', 'Certificate already exists !'),
             ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
         ]
+
+        cls._buttons.update({
+            'sign': {'invisible': Equal(Eval('state'), 'signed')}
+            })
+
+
+    @classmethod
+    @ModelView.button
+    def sign(cls, certificates):
+
+        # Change the state of the death certificate to "Done"
+        # and write the name of the signing health professional
+
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(certificates, {
+            'state': 'signed',
+            'signed_by': signing_hp})
+
 
 
 class ProductCategory(ModelSQL, ModelView):
