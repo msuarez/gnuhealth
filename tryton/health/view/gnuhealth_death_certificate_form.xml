@@ -7,8 +7,6 @@
         <field name="code"/>
         <label name="dod"/>
         <field name="dod"/>
-        <label name="tod"/>
-        <field name="tod"/>
         <label name="cod"/>
         <field name="cod"/>
         <label name="type_of_death"/>
@@ -21,11 +19,13 @@
     <newline/>
     <field name="observations" colspan="4"/>
     <newline/>
-    <group id="death_certificate_footer" colspan="4" col="6">
+    <group id="death_certificate_footer" colspan="4" col="8">
         <label name="state"/>
         <field name="state"/>
         <label name="signed_by"/>
         <field name="signed_by"/>
+        <label name="certification_date"/>
+        <field name="certification_date"/>
         <button name="sign" help="Sign the certificate" string="Sign" icon="tryton-go-next" confirm="Sign Death Certificate ?"/>
     </group>
 </form>

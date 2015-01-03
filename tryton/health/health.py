@@ -1918,8 +1918,7 @@ class DeathCertificate (ModelSQL, ModelView):
     approx_date = fields.Boolean('Approx', help="Check this box \
         if the date / time of death is not exact")
         
-    dod = fields.Date('Date of Death')
-    tod = fields.Time('Time of Death')
+    dod = fields.DateTime('Date and Time of Death')
 
     cod = fields.Many2One(
         'gnuhealth.pathology', 'Cause of Death')
@@ -1940,6 +1939,8 @@ class DeathCertificate (ModelSQL, ModelView):
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
         states={'invisible': Equal(Eval('state'), 'draft')},
         help="Health Professional that signed the death certificate")
+
+    certification_date = fields.DateTime('Certified on', readonly=True)
 
     observations = fields.Text('Observations')
 
@@ -1970,7 +1971,6 @@ class DeathCertificate (ModelSQL, ModelView):
             'sign': {'invisible': Equal(Eval('state'), 'signed')}
             })
 
-
     @classmethod
     @ModelView.button
     def sign(cls, certificates):
@@ -1985,8 +1985,8 @@ class DeathCertificate (ModelSQL, ModelView):
 
         cls.write(certificates, {
             'state': 'signed',
-            'signed_by': signing_hp})
-
+            'signed_by': signing_hp,
+            'certification_date': datetime.now()})
 
 
 class ProductCategory(ModelSQL, ModelView):
