@@ -1998,9 +1998,14 @@ class DeathCertificate (ModelSQL, ModelView):
     @ModelView.button
     def sign(cls, certificates):
 
-        # Change the state of the death certificate to "Done"
-        # and write the name of the signing health professional
+        # Change the state of the death certificate to "Signed"
+        # and write the name of the certifying health professional
+        
+        # It also set the associated party attribute deceased to True.
 
+        Person = Pool().get('party.party')
+        party=[]
+        
         signing_hp = HealthProfessional().get_health_professional()
         if not signing_hp:
             cls.raise_user_error(
@@ -2011,8 +2016,14 @@ class DeathCertificate (ModelSQL, ModelView):
             'signed_by': signing_hp,
             'certification_date': datetime.now()})
 
-
-# UNDERLIYING CONDITIONS THAT RESULT IN DEATH INCLUDED IN DEATH CERT.
+        party.append(certificates[0].name)
+        
+        Person.write(party, {
+            'deceased': True,
+        })
+        
+        
+# UNDERLYING CONDITIONS THAT RESULT IN DEATH INCLUDED IN DEATH CERT.
 class DeathUnderlyingCondition(ModelSQL, ModelView):
     'Underlying Conditions'
     __name__ = 'gnuhealth.death_underlying_condition'
