@@ -303,6 +303,8 @@ class PartyPatient (ModelSQL, ModelView):
         help='The information is updated from the Death Certificate',
         states={'invisible': Not(Bool(Eval('deceased')))})
 
+    death_certificate = fields.Many2One('gnuhealth.death_certificate',
+        'Death Certificate', readonly=True)
 
     @staticmethod
     def default_activation_date():
@@ -2020,6 +2022,7 @@ class DeathCertificate (ModelSQL, ModelView):
         
         Person.write(party, {
             'deceased': True,
+            'death_certificate': certificates[0].id
         })
         
         
@@ -2352,23 +2355,22 @@ class PatientData(ModelSQL, ModelView):
         'General Information',
         help='General information about the patient')
 
-    deceased = fields.Boolean('Deceased', help='Mark if the patient has died')
+    deceased = fields.Function(fields.Boolean('Deceased'), 
+        'check_is_alive')
 
-    dod = fields.DateTime(
+    dod = fields.Function(fields.DateTime(
         'Date of Death',
         states={
             'invisible': Not(Bool(Eval('deceased'))),
-            'required': Bool(Eval('deceased')),
             },
-        depends=['deceased'])
+        depends=['deceased']),'get_dod')
 
-    cod = fields.Many2One(
+    cod = fields.Function(fields.Many2One(
         'gnuhealth.pathology', 'Cause of Death',
         states={
             'invisible': Not(Bool(Eval('deceased'))),
-            'required': Bool(Eval('deceased')),
             },
-        depends=['deceased'])
+        depends=['deceased']),'get_cod')
 
     childbearing_age = fields.Function(
         fields.Boolean('Potential for Childbearing'), 'patient_age')
@@ -2398,6 +2400,18 @@ class PatientData(ModelSQL, ModelView):
     def get_patient_marital_status(self, name):
         return self.name.marital_status
 
+    def check_is_alive(self, name):
+        return self.name.deceased
+
+    def get_dod(self, name):
+        if (self.deceased):
+            return self.name.death_certificate.dod
+
+    def get_cod(self, name):
+        if (self.deceased):
+            return self.name.death_certificate.cod.id
+
+            
     @classmethod
     def search_patient_puid(cls, name, clause):
         res = []
