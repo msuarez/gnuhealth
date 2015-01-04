@@ -69,6 +69,7 @@ def register():
         AlternativePersonID,
         BirthCertificate,
         DeathCertificate,
+        DeathUnderlyingCondition,
         ProductCategory,
         ProductTemplate,
         Product,

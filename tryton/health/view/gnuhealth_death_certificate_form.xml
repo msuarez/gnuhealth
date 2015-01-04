@@ -1,11 +1,10 @@
 <?xml version="1.0"?>
 <form string="Death Certificate">
-    <group colspan="4" string="Main" id="group_death_cert_header">
+    <group colspan="4" col="4" string="Main" id="group_death_cert_header">
         <label name="name"/>
         <field name="name"/>
         <label name="dod"/>
         <field name="dod"/>
-        <newline/>
     </group>
     <newline/>
     <group colspan="4" string="Place" id="group_death_place">
@@ -23,10 +22,11 @@
     </group>
     <newline/>
     <group colspan="4" string="Cause" id="group_death_cause">
-        <label name="cod"/>
         <field name="cod"/>
     </group>
     <newline/>
+    <field name="underlying_conditions"/>
+    <newline/>   
     <group id="group_death_misc" string="Other" colspan="4" col="8">
         <label name="type_of_death"/>
         <field name="type_of_death"/>

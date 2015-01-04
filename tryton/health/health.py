@@ -38,13 +38,13 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
     'DomiciliaryUnit','PartyPatient', 'PartyAddress','DrugDoseUnits',
-    'BirthCertificate','DeathCertificate','MedicationFrequency', 
-    'DrugForm', 'DrugRoute','MedicalSpecialty', 'HealthInstitution',
-    'HealthInstitutionSpecialties','HealthInstitutionOperationalSector',
-    'HealthInstitutionO2M', 'HospitalBuilding', 'HospitalUnit',
-    'HospitalOR', 'HospitalWard','HospitalBed', 'HealthProfessional',
-    'HealthProfessionalSpecialties', 'PhysicianSP', 'Family',
-    'FamilyMember', 'MedicamentCategory',
+    'BirthCertificate','DeathCertificate', 'DeathUnderlyingCondition',
+    'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
+    'HealthInstitution', 'HealthInstitutionSpecialties',
+    'HealthInstitutionOperationalSector','HealthInstitutionO2M',
+    'HospitalBuilding', 'HospitalUnit','HospitalOR', 'HospitalWard',
+    'HospitalBed', 'HealthProfessional','HealthProfessionalSpecialties',
+    'PhysicianSP', 'Family', 'FamilyMember', 'MedicamentCategory',
     'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleLine',
     'ImmunizationScheduleDose', 'PathologyCategory', 'PathologyGroup',
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 
@@ -1918,11 +1918,18 @@ class DeathCertificate (ModelSQL, ModelView):
     autopsy = fields.Boolean('Autopsy', help="Check this box "
         "if autopsy has been done")
      
-    dod = fields.DateTime('DoD', required=True,
+    dod = fields.DateTime('Date', required=True,
         help="Date and time of Death")
 
     cod = fields.Many2One(
-        'gnuhealth.pathology', 'Immediate Cause', help="Cause of Death")
+        'gnuhealth.pathology', 'Cause',
+        required=True, help="Immediate Cause of Death")
+
+    underlying_conditions = fields.One2Many(
+        'gnuhealth.death_underlying_condition',
+        'death_certificate', 'Underlying Conditions', help='Underlying'
+        ' conditions that initiated the events resulting in death.'
+        ' Please code them in sequential, chronological order')
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution')
@@ -1945,10 +1952,10 @@ class DeathCertificate (ModelSQL, ModelView):
         ], 'Place', required=True, sort=False,)
 
     operational_sector = fields.Many2One(
-        'gnuhealth.operational_sector', 'Operational Sector')
+        'gnuhealth.operational_sector', 'Op. Sector')
 
     du = fields.Many2One(
-        'gnuhealth.du', 'Domiciliary Unit')
+        'gnuhealth.du', 'DU', help="Domiciliary Unit")
 
     place_details = fields.Char('Details')
     
@@ -1965,7 +1972,6 @@ class DeathCertificate (ModelSQL, ModelView):
         (None, ''),
         ('draft', 'Draft'),
         ('signed', 'Signed'),
-        ('approved', 'Approved'),
         ], 'State', readonly=True, sort=False)
 
     @staticmethod
@@ -2005,6 +2011,29 @@ class DeathCertificate (ModelSQL, ModelView):
             'signed_by': signing_hp,
             'certification_date': datetime.now()})
 
+
+# UNDERLIYING CONDITIONS THAT RESULT IN DEATH INCLUDED IN DEATH CERT.
+class DeathUnderlyingCondition(ModelSQL, ModelView):
+    'Underlying Conditions'
+    __name__ = 'gnuhealth.death_underlying_condition'
+
+    death_certificate = fields.Many2One(
+        'gnuhealth.death_certificate', 'Certificate', readonly=True)
+
+    condition = fields.Many2One(
+        'gnuhealth.pathology', 'Condition', required=True)
+
+    interval = fields.Integer('Interval', help='Approx Interval'
+        'onset to death')
+
+    unit_of_time = fields.Selection([
+        (None, ''),
+        ('minutes', 'minutes'),
+        ('hours', 'hours'),
+        ('days', 'days'),
+        ('months', 'months'),
+        ('years', 'years'),
+        ], 'Unit', select=True, sort=False)
 
 class ProductCategory(ModelSQL, ModelView):
     'Product Category'

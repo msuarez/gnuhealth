@@ -1129,6 +1129,20 @@
         </record>
 
 
+<!-- DEATH CERTIFICATE .- UNDERLYING CONDITIONS -->
+
+        <record model="ir.ui.view" id="gnuhealth_underlying_condition_form">
+            <field name="model">gnuhealth.death_underlying_condition</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_death_underlying_condition_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_underlying_condition_tree">
+            <field name="model">gnuhealth.death_underlying_condition</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_death_underlying_condition_tree</field>
+        </record>
+
 <!-- PRODUCT -->
 
         <record model="ir.ui.view" id="view_gnuhealth_product_form">
