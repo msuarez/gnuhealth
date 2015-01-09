@@ -22,4 +22,9 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from .health_fhir import *
+from report import *
+
+def register():
+    Pool.register(
+        PatientFhirReport,
+        module='health_fhir_patient', type_='report')

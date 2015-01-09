@@ -1,0 +1,56 @@
+<py:for each="patient in objects">
+<Patient xmlns="http://hl7.org/fhir">
+    <identifier>
+        <use value="usual"/>
+        <label value="PUID"/>
+        <value value="${patient.puid}"/>
+    </identifier>
+    <py:with vars="names=' '.join([patient.name, patient.name.lastname]).split()">
+    <name>
+        <use value="official"/>
+        <family value="${names[-1]}"/>
+        <py:for each="name in ${names[:-1]}">
+            <given value="${name}"/>
+        </py:for>
+    </name>
+    </py:with>
+    <py:if test="patient.name.phone">
+    <telecom>
+        <system value="phone"/>
+        <value value="${patient.name.phone}"/>
+        <use value="home"/>
+    </telecom>
+    </py:if>
+    <py:if test="patient.name.mobile">
+    <telecom>
+        <system value="phone"/>
+        <value value="${patient.name.mobile}"/>
+        <use value="mobile"/>
+    </telecom>
+    </py:if>
+    <py:if test="patient.name.email">
+    <telecom>
+        <system value="email"/>
+        <value value="${patient.name.email}"/>
+        <use value="email"/>
+    </telecom>
+    </py:if>
+    <py:with vars="gender=patient.name.sex.upper()">
+    <gender>
+        <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="${gender}"/>
+            <py:if test="gender == 'M'">
+                <display value="Male"/>
+            </py:if>
+            <py:if test="gender == 'F'">
+                <display value="Female"/>
+            </py:if>
+        </coding>
+    </gender>
+    <py:if test="patient.dob">
+        <birthDate value="${patient.dob.strftime('%Y/%m/%d')}"/>
+    </py:if>
+    <active value="true"/>
+</Patient>
+</py:for>

@@ -3,6 +3,9 @@ from flask.ext.login import current_user
 from server.common import tryton, login_manager, Api, recordConverter
 
 def before_request():
+    """Allows access to user object
+        for every request
+    """
     g.user = current_user
 
 def create_app(config=None):

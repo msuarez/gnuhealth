@@ -87,7 +87,6 @@ def output_xml(data, code, headers=None):
     #resp.headers['Content-type']='application/xml+fhir'
     return resp
 
-
 def get_userid():
     """Return g.user.id, or None"""
     try:
