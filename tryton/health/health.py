@@ -2271,7 +2271,7 @@ class PatientData(ModelSQL, ModelView):
             ('is_patient', '=', True),
             ('is_person', '=', True),
             ],
-        states={'readonly': Bool(Eval('name'))},
+        states = {'readonly': Eval('id', 0) > 0},
         help="Person associated to this patient")
 
     lastname = fields.Function(
