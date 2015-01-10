@@ -2007,7 +2007,14 @@ class DeathCertificate (ModelSQL, ModelView):
         'gnuhealth.du', 'DU', help="Domiciliary Unit")
 
     place_details = fields.Char('Details')
-    
+
+    country = fields.Many2One('country.country','Country', required=True)
+
+    country_subdivision = fields.Many2One(
+        'country.subdivision', 'Subdivision',
+        domain=[('country', '=', Eval('country'))],
+        depends=['country'])
+
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
         states={'invisible': Equal(Eval('state'), 'draft')},
@@ -2024,12 +2031,30 @@ class DeathCertificate (ModelSQL, ModelView):
         ], 'State', readonly=True, sort=False)
 
     @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
+    @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
 
     @staticmethod
     def default_state():
         return 'draft'
+
+    @fields.depends('institution')
+    def on_change_institution(self):
+        country=None
+        subdivision=None
+        if (self.institution and self.institution.name.addresses[0].country):
+            country = self.institution.name.addresses[0].country.id
+        
+        if (self.institution and self.institution.name.addresses[0].subdivision):
+            subdivision = self.institution.name.addresses[0].subdivision.id
+
+        res = {'country': country, 'country_subdivision': subdivision}
+
+        return res
 
     @classmethod
     def __setup__(cls):

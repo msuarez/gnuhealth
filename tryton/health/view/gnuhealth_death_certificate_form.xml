@@ -19,6 +19,11 @@
         <field name="operational_sector"/>
         <label name="institution"/>
         <field name="institution"/>
+        <newline/>
+        <label name="country"/>
+        <field name="country"/>
+        <label name="country_subdivision"/>
+        <field name="country_subdivision"/>
     </group>
     <newline/>
     <group colspan="4" string="Cause" id="group_death_cause">

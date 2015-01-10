@@ -20,7 +20,6 @@
         <field name="country"/>
         <label name="country_subdivision"/>
         <field name="country_subdivision"/>
-        <newline/>
     </group>
     <newline/>
     <separator colspan="4" string="Observations" id="separator_birth_cert_observations"/>
