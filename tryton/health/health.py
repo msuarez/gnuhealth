@@ -1844,8 +1844,10 @@ class BirthCertificate (ModelSQL, ModelView):
     'Birth Certificate'
     __name__ = 'gnuhealth.birth_certificate'
 
-    name = fields.Many2One('party.party', 'Person', required=True,
-        domain=[('is_person', '=', True),])
+    name = fields.Many2One('party.party', 'Person', 
+        required=True,
+        domain=[('is_person', '=', True),],
+        states = {'readonly': Eval('id', 0) > 0})
 
     mother = fields.Many2One('party.party', 'Mother', 
         domain=[('is_person', '=', True),])
@@ -1853,29 +1855,34 @@ class BirthCertificate (ModelSQL, ModelView):
     father = fields.Many2One('party.party', 'Father',
         domain=[('is_person', '=', True),])
 
-
     code = fields.Char('Code', required=True)
 
-    approx_date = fields.Boolean('Approx', help="Check this box \
-        if the date / time of birth is not exact")
-        
-    dob = fields.Date('Date of Birth')
+    dob = fields.Date('Date of Birth', required=True)
 
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution')
 
-    healthprof = fields.Many2One(
-        'gnuhealth.healthprofessional',
-        'Certifier', help='Health Professional')
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 
+        'Certifier', readonly=True, help='Person who certifies this'
+        ' birth document')
 
     observations = fields.Text('Observations')
 
-    country = fields.Many2One('country.country','Country')
+    country = fields.Many2One('country.country','Country', required=True)
 
     country_subdivision = fields.Many2One(
         'country.subdivision', 'Subdivision',
         domain=[('country', '=', Eval('country'))],
         depends=['country'])
+
+    state = fields.Selection([
+        (None, ''),
+        ('draft', 'Draft'),
+        ('signed', 'Signed'),
+        ], 'State', readonly=True, sort=False)
+
+    certification_date = fields.DateTime('Signed on', readonly=True)
 
     @staticmethod
     def default_institution():
@@ -1914,6 +1921,10 @@ class BirthCertificate (ModelSQL, ModelView):
             ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
         ]
 
+        cls._buttons.update({
+            'sign': {'invisible': Equal(Eval('state'), 'signed')}
+        })
+
 
     @classmethod
     def validate(cls, certificates):
@@ -1925,6 +1936,23 @@ class BirthCertificate (ModelSQL, ModelView):
         if (self.name.dob <> self.dob):
                         self.raise_user_error(
                 "The date on the Party differs from the certificate !")
+
+    @classmethod
+    @ModelView.button
+    def sign(cls, certificates):
+
+        # Change the state of the birth certificate to "Signed"
+        # and write the name of the certifying health professional
+        
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(certificates, {
+            'state': 'signed',
+            'signed_by': signing_hp,
+            'certification_date': datetime.now()})
 
 
 class DeathCertificate (ModelSQL, ModelView):

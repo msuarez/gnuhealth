@@ -3,28 +3,37 @@
     <group colspan="4" string="Main" id="group_birth_cert_header">
         <label name="name"/>
         <field name="name"/>
-        <label name="code"/>
-        <field name="code"/>
+        <label name="dob"/>
+        <field name="dob"/>
         <newline/>
         <label name="mother"/>
         <field name="mother"/>
         <label name="father"/>
         <field name="father"/>
-        <label name="dob"/>
-        <field name="dob"/>
         <newline/>
         <label name="institution"/>
         <field name="institution"/>
+        <label name="code"/>
+        <field name="code"/>
+        <newline/>
         <label name="country"/>
         <field name="country"/>
         <label name="country_subdivision"/>
         <field name="country_subdivision"/>
         <newline/>
-        <label name="healthprof"/>
-        <field name="healthprof"/>
     </group>
     <newline/>
     <separator colspan="4" string="Observations" id="separator_birth_cert_observations"/>
     <newline/>
     <field name="observations" colspan="4"/>
+    <group id="death_certificate_footer" colspan="4" col="8">
+        <label name="state"/>
+        <field name="state"/>
+        <label name="signed_by"/>
+        <field name="signed_by"/>
+        <label name="certification_date"/>
+        <field name="certification_date"/>
+        <button name="sign" help="Sign the certificate" string="Sign" icon="tryton-go-next" confirm="Sign Birth Certificate ?"/>
+    </group>
+
 </form>
