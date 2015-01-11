@@ -1892,6 +1892,10 @@ class BirthCertificate (ModelSQL, ModelView):
     def default_healthprof():
         return HealthProfessional().get_health_professional()
 
+    @staticmethod
+    def default_state():
+        return 'draft'
+
     @fields.depends('name')
     def on_change_with_dob(self):
         if (self.name and self.name.dob):
