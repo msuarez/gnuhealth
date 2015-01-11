@@ -37,8 +37,8 @@ import pytz
 
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
-    'DomiciliaryUnit','PartyPatient', 'PartyAddress','DrugDoseUnits',
-    'BirthCertificate','DeathCertificate', 'DeathUnderlyingCondition',
+    'DomiciliaryUnit','BirthCertificate','DeathCertificate',
+    'DeathUnderlyingCondition','PartyPatient', 'PartyAddress','DrugDoseUnits',
     'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
     'HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
