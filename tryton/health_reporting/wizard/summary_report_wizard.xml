@@ -9,7 +9,7 @@
         </record>
 
         <record model="ir.action.wizard" id="act_wizard_summary_report">
-            <field name="name">Activity Summary</field>
+            <field name="name">Demographics Summary</field>
             <field name="wiz_name">gnuhealth.summary.report.open</field>
         </record>
         
@@ -22,7 +22,7 @@
 
         <menuitem parent="health.gnuhealth_reporting_menu"
             action="act_wizard_summary_report" icon="gnuhealth-list"
-            id="menu_institution_summary_report"/>
+            id="menu_institution_summary_report" sequence="1"/>
 
     </data>
 </tryton>
