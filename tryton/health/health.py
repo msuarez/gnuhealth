@@ -299,12 +299,31 @@ class PartyPatient (ModelSQL, ModelView):
 
     du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
 
+    birth_certificate = fields.Many2One('gnuhealth.birth_certificate',
+        'Birth Certificate', readonly=True)
+
     deceased = fields.Boolean('Deceased', readonly=True,
         help='The information is updated from the Death Certificate',
         states={'invisible': Not(Bool(Eval('deceased')))})
 
     death_certificate = fields.Many2One('gnuhealth.death_certificate',
         'Death Certificate', readonly=True)
+
+    mother = fields.Function(
+        fields.Many2One('party.party','Mother', 
+        help="Mother from the Birth Certificate"),'get_mother')
+
+    father = fields.Function(
+        fields.Many2One('party.party','Father', 
+        help="Father from the Birth Certificate"),'get_father')
+
+    def get_mother(self, name):
+        if (self.birth_certificate):
+            return self.birth_certificate.mother.id
+
+    def get_father(self, name):
+        if (self.birth_certificate):
+            return self.birth_certificate.father.id
 
     @staticmethod
     def default_activation_date():
@@ -1945,6 +1964,9 @@ class BirthCertificate (ModelSQL, ModelView):
     @ModelView.button
     def sign(cls, certificates):
 
+        Person = Pool().get('party.party')
+        party=[]
+
         # Change the state of the birth certificate to "Signed"
         # and write the name of the certifying health professional
         
@@ -1958,7 +1980,11 @@ class BirthCertificate (ModelSQL, ModelView):
             'signed_by': signing_hp,
             'certification_date': datetime.now()})
 
-
+        party.append(certificates[0].name)
+        
+        Person.write(party, {
+            'birth_certificate': certificates[0].id })
+    
 class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
     __name__ = 'gnuhealth.death_certificate'
