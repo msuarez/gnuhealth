@@ -116,5 +116,4 @@ def create_app(config=None):
         from server.resources.auth import auth_endpoint
         app.register_blueprint(auth_endpoint, url_prefix='/auth')
 
-
     return app

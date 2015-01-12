@@ -9,9 +9,10 @@ import lxml
 import os.path
 import sys
 
-# DiagnosticReport model
+# DiagnosticReport models
 diagnostic_report = tryton.pool.get('gnuhealth.lab')
 
+# Prefix mapping
 model_map={
         'labreport': diagnostic_report}
 

@@ -8,25 +8,13 @@ import lxml
 import os.path
 import sys
 
-# Patient model
+# Patient models
 patient = tryton.pool.get('gnuhealth.patient')
-
-# Party model
 party = tryton.pool.get('party.party')
-
-# DU model
 du = tryton.pool.get('gnuhealth.du')
-
-# Contacts model
 contact = tryton.pool.get('party.contact_mechanism')
-
-# Language model
 lang = tryton.pool.get('ir.lang')
-
-# Country model
 country = tryton.pool.get('country.country')
-
-# Subdivision model
 subdivision = tryton.pool.get('country.subdivision')
 
 class PAT_Create(Resource):

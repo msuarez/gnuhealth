@@ -8,7 +8,7 @@ import lxml
 import os.path
 import sys
 
-# Practitioner model
+# Practitioner models
 practitioner = tryton.pool.get('gnuhealth.healthprofessional')
 
 class HP_Create(Resource):

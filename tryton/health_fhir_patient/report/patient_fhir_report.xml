@@ -51,6 +51,15 @@
     <py:if test="patient.dob">
         <birthDate value="${patient.dob.strftime('%Y/%m/%d')}"/>
     </py:if>
+    <py:if test="patient.photo">
+        <photo value=""/>
+    </py:if>
+    <maritalStatus>
+        <coding>
+            <system value='http://hl7.org/fhir/v3/MaritalStatus'/>
+            <code="${patient.name.marital_status.upper()}"/>
+        </coding>
+    </maritalStatus>
     <active value="true"/>
 </Patient>
 </py:for>

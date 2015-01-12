@@ -2,7 +2,7 @@ from flask.ext.login import (login_user, UserMixin,
                             login_required, logout_user,
                             current_user, current_app)
 from flask.ext.wtf import Form
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired
 from server.common import tryton, login_manager
@@ -18,7 +18,6 @@ user_model = tryton.pool.get('res.user')
 @login_manager.user_loader
 def load_user(user_id):
     return User(uid=user_id)
-
 
 class LoginForm(Form):
     """The login form
@@ -41,7 +40,6 @@ def get_user_id(uid=None, username=None, password=None):
             return unicode(user_id)
     return None
 
-
 class User(UserMixin):
     """The user class
     """
@@ -56,7 +54,6 @@ class User(UserMixin):
     def get_id(self):
         return self.id
 
-
 @auth_endpoint.route("/login", methods=["GET", "POST"])
 def login():
     """Login view"""
@@ -66,6 +63,7 @@ def login():
     if form.validate_on_submit():
         u = User(username=request.form['username'], password=request.form['password'])
         login_user(u, remember=True)
+        flash('Logged in')
         n = request.args.get('next', url_for('auth_endpoint.home'))
         return redirect(n)
     return render_template("login.html", form=form)
@@ -75,6 +73,7 @@ def login():
 def logout():
     """Logout view"""
     logout_user()
+    flash('Logged out')
     return redirect(url_for('auth_endpoint.login'))
 
 @auth_endpoint.route("/home", methods=["GET"])

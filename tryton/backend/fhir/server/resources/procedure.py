@@ -15,7 +15,7 @@ rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
 
 # REST prefixes (e.g., amb-3 is amb_procedure model, id  = 3)
 #   Note: Must match the Procedure_Map
-term_map = {
+model_map = {
         'amb': amb_procedure,
         'surg': surg_procedure,
         'rounds': rounds_procedure}
@@ -48,7 +48,7 @@ class OP_Search(Resource):
             bd=Bundle(request=request)
             for query in queries:
                 if query['query'] is not None:
-                    recs = term_map[query['model']].search(query['query'])
+                    recs = model_map[query['model']].search(query['query'])
                     if recs:
                         for rec in recs:
                             try:
@@ -114,7 +114,7 @@ class OP_Validate(Resource):
 
             if log_id:
                 # 3) Check if procedure exists
-                record = find_record(term_map[log_id[0]], [('id', '=', log_id)])
+                record = find_record(model_map[log_id[0]], [('id', '=', log_id)])
                 if not record:
                     oo=health_OperationOutcome()
                     oo.add_issue(details='No procedure', severity='error')
@@ -130,7 +130,7 @@ class OP_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        model = term_map[log_id[0]]
+        model = model_map[log_id[0]]
         record = find_record(model, [('id', '=', log_id[1])])
         if record:
             try:

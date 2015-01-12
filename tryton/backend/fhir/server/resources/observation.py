@@ -10,22 +10,14 @@ import os.path
 import sys
 
 
-# Lab result model (sp?)
+# Observation models
 lab = tryton.pool.get('gnuhealth.lab.test.critearea')
-
-# Patient evals
 eva = tryton.pool.get('gnuhealth.patient.evaluation')
-
-# Nurse rounds
 rounds = tryton.pool.get('gnuhealth.patient.rounding')
-
-# Ambulatory care
 amb = tryton.pool.get('gnuhealth.patient.ambulatory_care')
-
-# ICU
 icu = tryton.pool.get('gnuhealth.icu.apache2')
 
-#URL mapping (UGLY!)
+# Prefix mapping
 model_map={ 'lab': lab,
         'eval': eva,
         'rounds': rounds,

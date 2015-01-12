@@ -47,6 +47,11 @@ class RestfulFHIR:
         self.validator=self.validators[content_type]
         self.base = base
 
+    def __url_join(self, args):
+        """Simple utility function to generate url from arguments
+        """
+        return '/'.join([str(arg) for arg in args if arg is not None])
+
     def search(self, resource, params):
         """Search FHIR Resources with specific criteria
             PARAMETERS:
@@ -58,7 +63,7 @@ class RestfulFHIR:
                     403 : Failed
         """
 
-        fhir_query = '/'.join([str(self.base), str(resource)])
+        fhir_query = self.__url_join([self.base, resource])
         headers={'accept': self.content_headers['resource']}
         response = requests.get(fhir_query, headers=headers, params=params)
         return response
@@ -75,7 +80,7 @@ class RestfulFHIR:
                     410 : Deleted resource
         """
 
-        fhir_query = str(self.base) + '/' + str(resource) + '/' + str(resid)
+        fhir_query = self.__url_join([self.base, resource, resid])
         headers={'accept': self.content_headers['resource']}
         response = requests.get(fhir_query, headers=headers)
         return response
@@ -94,8 +99,7 @@ class RestfulFHIR:
                     410 : Deleted resource
         """
 
-        fhir_query = '/'.join([str(x) for x in \
-                    [self.base, resource, resid, '_history', vid]])
+        fhir_query = self.__url_join([self.base, resource, resid, '_history', vid])
         headers={'accept': self.content_headers['resource']}
         response = requests.get(fhir_query, headers=headers)
         return response
@@ -122,7 +126,7 @@ class RestfulFHIR:
             self.validator(body)
         except:
             raise TypeError("Body does not have a valid structure")
-        fhir_query = '/'.join([str(self.base), str(resource), str(resid)])
+        fhir_query = self.__url_join([self.base, resource, resid])
         headers={'content-type': self.content_headers['resource']}
         response = requests.put(fhir_query, data=body, headers=headers)
         return response
@@ -139,7 +143,7 @@ class RestfulFHIR:
                     405 : Not allowed
         """
 
-        fhir_query = '/'.join([str(self.base), str(resource), str(resid)])
+        fhir_query = self.__url_join([self.base, resource, resid])
         response = requests.delete(fhir_query)
         return response
 
@@ -161,7 +165,7 @@ class RestfulFHIR:
             self.validator(body)
         except:
             raise TypeError("Body does not have a valid structure")
-        fhir_query = '/'.join([str(self.base), str(resource)])
+        fhir_query = self.__url_join([self.base, resource])
         headers = {'content-type': self.content_headers['resource']}
         response = requests.post(fhir_query, data=body, headers=headers)
         return response
@@ -204,7 +208,7 @@ class RestfulFHIR:
         if _options:
             response = requests.options(str(self.base), headers=headers)
         else:
-            fhir_query = '/'.join([str(self.base), 'metadata'])
+            fhir_query = self.__url_join([self.base, 'metadata'])
             response = requests.get(fhir_query, headers=headers)
         return response
 
@@ -218,8 +222,7 @@ class RestfulFHIR:
                 response
                     200 : Found
         """
-        fhir_query = '/'.join([str(x) for x in \
-                        [self.base, resource, resid, '_history'] if x])
+        fhir_query = self.__url_join([self.base, resource, resid, '_history'])
         headers={'accept': self.content_headers['resource']}
         response = requests.get(fhir_query, headers=headers, params=params)
         return response
@@ -242,8 +245,7 @@ class RestfulFHIR:
             self.validator(body)
         except:
             raise TypeError("Body does not have a valid structure")
-        fhir_query = '/'.join([str(x) for x in \
-                        [self.base, resource, '_validate', resid] if x])
+        fhir_query = self.__url_join([self.base, resource, '_validate', resid])
         headers = {'content-type': self.content_headers['resource']} 
         response = requests.post(fhir_query, data=body, headers=headers)
         return response
