@@ -38,7 +38,7 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
     'DomiciliaryUnit','BirthCertificate','DeathCertificate',
-    'DeathUnderlyingCondition','PartyPatient', 'PartyAddress','DrugDoseUnits',
+    'PartyPatient', 'PartyAddress','DrugDoseUnits',
     'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
     'HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
@@ -48,6 +48,7 @@ __all__ = [
     'Medicament', 'ImmunizationSchedule', 'ImmunizationScheduleLine',
     'ImmunizationScheduleDose', 'PathologyCategory', 'PathologyGroup',
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 
+    'BirthCertExtraInfo','DeathCertExtraInfo', 'DeathUnderlyingCondition',
     'InsurancePlan', 'Insurance', 'AlternativePersonID',
     'ProductCategory', 'ProductTemplate', 'Product',
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
@@ -372,17 +373,16 @@ class PartyPatient (ModelSQL, ModelView):
                 config = Configuration(1)
                 # Use the company name . Initially, use the name
                 # since the company hasn't been created yet.
-                prefix = Transaction().context.get('company.rec_name') \
+                suffix = Transaction().context.get('company.rec_name') \
                     or values['name']
                 # Generate the party code in the form of 
-                # "Company-UUID" . Where company is the name of the Health
+                # "UUID-" . Where company is the name of the Health
                 # Institution.
                 #
                 # The field "code" is the one that is used in distributed
                 # environments, with multiple GNU Health instances across
                 # a country / region
-                values['code'] = str(prefix) + '-' + \
-                    str(uuid4())
+                values['code'] = str(uuid4()) + '-' + str(suffix)
 
             values.setdefault('addresses', None)
 
@@ -1328,8 +1328,6 @@ class PhysicianSP(ModelSQL, ModelView):
             table.drop_column('specialty')
 
 
-
-
 class Family(ModelSQL, ModelView):
     'Family'
     __name__ = 'gnuhealth.family'
@@ -1772,6 +1770,175 @@ class ProcedureCode(ModelSQL, ModelView):
         return (self.name + ' : ' + self.description)
 
 
+# Add institution attribute AFTER registering the Health Institution
+# Health Professionals and underlying conditions
+
+class BirthCertExtraInfo (ModelSQL, ModelView):
+    'Birth Certificate'
+    __name__ = 'gnuhealth.birth_certificate'
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution')
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 
+        'Certifier', readonly=True, help='Person who certifies this'
+        ' birth document')
+
+    certification_date = fields.DateTime('Signed on', readonly=True)
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
+
+    @fields.depends('institution')
+    def on_change_institution(self):
+        country=None
+        subdivision=None
+        if (self.institution and self.institution.name.addresses[0].country):
+            country = self.institution.name.addresses[0].country.id
+        
+        if (self.institution and self.institution.name.addresses[0].subdivision):
+            subdivision = self.institution.name.addresses[0].subdivision.id
+
+        res = {'country': country, 'country_subdivision': subdivision}
+
+        return res
+
+
+    @classmethod
+    @ModelView.button
+    def sign(cls, certificates):
+
+        Person = Pool().get('party.party')
+        party=[]
+
+        # Change the state of the birth certificate to "Signed"
+        # and write the name of the certifying health professional
+        
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(certificates, {
+            'state': 'signed',
+            'signed_by': signing_hp,
+            'certification_date': datetime.now()})
+
+        party.append(certificates[0].name)
+        
+        Person.write(party, {
+            'birth_certificate': certificates[0].id })
+
+
+class DeathCertExtraInfo (ModelSQL, ModelView):
+    'Death Certificate'
+    __name__ = 'gnuhealth.death_certificate'
+
+    institution = fields.Many2One(
+        'gnuhealth.institution', 'Institution')
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'draft')},
+        help="Health Professional that signed the death certificate")
+
+    certification_date = fields.DateTime('Certified on', readonly=True)
+
+    cod = fields.Many2One(
+        'gnuhealth.pathology', 'Cause',
+        required=True, help="Immediate Cause of Death")
+
+    underlying_conditions = fields.One2Many(
+        'gnuhealth.death_underlying_condition',
+        'death_certificate', 'Underlying Conditions', help='Underlying'
+        ' conditions that initiated the events resulting in death.'
+        ' Please code them in sequential, chronological order')
+
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+    @fields.depends('institution')
+    def on_change_institution(self):
+        country=None
+        subdivision=None
+        if (self.institution and self.institution.name.addresses[0].country):
+            country = self.institution.name.addresses[0].country.id
+        
+        if (self.institution and self.institution.name.addresses[0].subdivision):
+            subdivision = self.institution.name.addresses[0].subdivision.id
+
+        res = {'country': country, 'country_subdivision': subdivision}
+
+        return res
+
+    @classmethod
+    @ModelView.button
+    def sign(cls, certificates):
+
+        # Change the state of the death certificate to "Signed"
+        # and write the name of the certifying health professional
+        
+        # It also set the associated party attribute deceased to True.
+
+        Person = Pool().get('party.party')
+        party=[]
+        
+        signing_hp = HealthProfessional().get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        cls.write(certificates, {
+            'state': 'signed',
+            'signed_by': signing_hp,
+            'certification_date': datetime.now()})
+
+        party.append(certificates[0].name)
+        
+        Person.write(party, {
+            'deceased': True,
+            'death_certificate': certificates[0].id
+        })
+        
+
+# UNDERLYING CONDITIONS THAT RESULT IN DEATH INCLUDED IN DEATH CERT.
+class DeathUnderlyingCondition(ModelSQL, ModelView):
+    'Underlying Conditions'
+    __name__ = 'gnuhealth.death_underlying_condition'
+
+    death_certificate = fields.Many2One(
+        'gnuhealth.death_certificate', 'Certificate', readonly=True)
+
+    condition = fields.Many2One(
+        'gnuhealth.pathology', 'Condition', required=True)
+
+    interval = fields.Integer('Interval', help='Approx Interval'
+        'onset to death')
+
+    unit_of_time = fields.Selection([
+        (None, ''),
+        ('minutes', 'minutes'),
+        ('hours', 'hours'),
+        ('days', 'days'),
+        ('months', 'months'),
+        ('years', 'years'),
+        ], 'Unit', select=True, sort=False)
+
 class InsurancePlan(ModelSQL, ModelView):
     'Insurance Plan'
 
@@ -1878,14 +2045,6 @@ class BirthCertificate (ModelSQL, ModelView):
 
     dob = fields.Date('Date of Birth', required=True)
 
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution')
-
-    signed_by = fields.Many2One(
-        'gnuhealth.healthprofessional', 
-        'Certifier', readonly=True, help='Person who certifies this'
-        ' birth document')
-
     observations = fields.Text('Observations')
 
     country = fields.Many2One('country.country','Country', required=True)
@@ -1901,15 +2060,6 @@ class BirthCertificate (ModelSQL, ModelView):
         ('signed', 'Signed'),
         ], 'State', readonly=True, sort=False)
 
-    certification_date = fields.DateTime('Signed on', readonly=True)
-
-    @staticmethod
-    def default_institution():
-        return HealthInstitution().get_institution()
-
-    @staticmethod
-    def default_healthprof():
-        return HealthProfessional().get_health_professional()
 
     @staticmethod
     def default_state():
@@ -1921,20 +2071,6 @@ class BirthCertificate (ModelSQL, ModelView):
             dob = self.name.dob
             return dob
 
-
-    @fields.depends('institution')
-    def on_change_institution(self):
-        country=None
-        subdivision=None
-        if (self.institution and self.institution.name.addresses[0].country):
-            country = self.institution.name.addresses[0].country.id
-        
-        if (self.institution and self.institution.name.addresses[0].subdivision):
-            subdivision = self.institution.name.addresses[0].subdivision.id
-
-        res = {'country': country, 'country_subdivision': subdivision}
-
-        return res
 
     @classmethod
     def __setup__(cls):
@@ -1960,31 +2096,7 @@ class BirthCertificate (ModelSQL, ModelView):
                         self.raise_user_error(
                 "The date on the Party differs from the certificate !")
 
-    @classmethod
-    @ModelView.button
-    def sign(cls, certificates):
-
-        Person = Pool().get('party.party')
-        party=[]
-
-        # Change the state of the birth certificate to "Signed"
-        # and write the name of the certifying health professional
-        
-        signing_hp = HealthProfessional().get_health_professional()
-        if not signing_hp:
-            cls.raise_user_error(
-                "No health professional associated to this user !")
-
-        cls.write(certificates, {
-            'state': 'signed',
-            'signed_by': signing_hp,
-            'certification_date': datetime.now()})
-
-        party.append(certificates[0].name)
-        
-        Person.write(party, {
-            'birth_certificate': certificates[0].id })
-    
+  
 class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
     __name__ = 'gnuhealth.death_certificate'
@@ -1999,19 +2111,6 @@ class DeathCertificate (ModelSQL, ModelView):
      
     dod = fields.DateTime('Date', required=True,
         help="Date and time of Death")
-
-    cod = fields.Many2One(
-        'gnuhealth.pathology', 'Cause',
-        required=True, help="Immediate Cause of Death")
-
-    underlying_conditions = fields.One2Many(
-        'gnuhealth.death_underlying_condition',
-        'death_certificate', 'Underlying Conditions', help='Underlying'
-        ' conditions that initiated the events resulting in death.'
-        ' Please code them in sequential, chronological order')
-
-    institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution')
 
     type_of_death = fields.Selection(
         [
@@ -2045,13 +2144,6 @@ class DeathCertificate (ModelSQL, ModelView):
         domain=[('country', '=', Eval('country'))],
         depends=['country'])
 
-    signed_by = fields.Many2One(
-        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'draft')},
-        help="Health Professional that signed the death certificate")
-
-    certification_date = fields.DateTime('Certified on', readonly=True)
-
     observations = fields.Text('Observations')
 
     state = fields.Selection([
@@ -2061,30 +2153,9 @@ class DeathCertificate (ModelSQL, ModelView):
         ], 'State', readonly=True, sort=False)
 
     @staticmethod
-    def default_institution():
-        return HealthInstitution().get_institution()
-
-    @staticmethod
-    def default_healthprof():
-        return HealthProfessional().get_health_professional()
-
-    @staticmethod
     def default_state():
         return 'draft'
 
-    @fields.depends('institution')
-    def on_change_institution(self):
-        country=None
-        subdivision=None
-        if (self.institution and self.institution.name.addresses[0].country):
-            country = self.institution.name.addresses[0].country.id
-        
-        if (self.institution and self.institution.name.addresses[0].subdivision):
-            subdivision = self.institution.name.addresses[0].subdivision.id
-
-        res = {'country': country, 'country_subdivision': subdivision}
-
-        return res
 
     @classmethod
     def __setup__(cls):
@@ -2098,58 +2169,7 @@ class DeathCertificate (ModelSQL, ModelView):
             'sign': {'invisible': Equal(Eval('state'), 'signed')}
             })
 
-    @classmethod
-    @ModelView.button
-    def sign(cls, certificates):
-
-        # Change the state of the death certificate to "Signed"
-        # and write the name of the certifying health professional
         
-        # It also set the associated party attribute deceased to True.
-
-        Person = Pool().get('party.party')
-        party=[]
-        
-        signing_hp = HealthProfessional().get_health_professional()
-        if not signing_hp:
-            cls.raise_user_error(
-                "No health professional associated to this user !")
-
-        cls.write(certificates, {
-            'state': 'signed',
-            'signed_by': signing_hp,
-            'certification_date': datetime.now()})
-
-        party.append(certificates[0].name)
-        
-        Person.write(party, {
-            'deceased': True,
-            'death_certificate': certificates[0].id
-        })
-        
-        
-# UNDERLYING CONDITIONS THAT RESULT IN DEATH INCLUDED IN DEATH CERT.
-class DeathUnderlyingCondition(ModelSQL, ModelView):
-    'Underlying Conditions'
-    __name__ = 'gnuhealth.death_underlying_condition'
-
-    death_certificate = fields.Many2One(
-        'gnuhealth.death_certificate', 'Certificate', readonly=True)
-
-    condition = fields.Many2One(
-        'gnuhealth.pathology', 'Condition', required=True)
-
-    interval = fields.Integer('Interval', help='Approx Interval'
-        'onset to death')
-
-    unit_of_time = fields.Selection([
-        (None, ''),
-        ('minutes', 'minutes'),
-        ('hours', 'hours'),
-        ('days', 'days'),
-        ('months', 'months'),
-        ('years', 'years'),
-        ], 'Unit', select=True, sort=False)
 
 class ProductCategory(ModelSQL, ModelView):
     'Product Category'
