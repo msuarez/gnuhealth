@@ -311,7 +311,7 @@ install_tryton_modules() {
 
     # Copy documentation directory
     
-    cp -a ${GNUHEALTH_INST_DIR}/../doc/* ${DOC_DIR} || exit 1
+    cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || exit 1
 
     message "[INFO] OK." ${GREEN}
 
