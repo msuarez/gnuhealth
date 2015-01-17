@@ -2144,6 +2144,8 @@ class DeathCertificate (ModelSQL, ModelView):
         domain=[('country', '=', Eval('country'))],
         depends=['country'])
 
+    age = fields.Function(fields.Char('Age'),'get_age_at_death')
+        
     observations = fields.Text('Observations')
 
     state = fields.Selection([
@@ -2169,8 +2171,15 @@ class DeathCertificate (ModelSQL, ModelView):
             'sign': {'invisible': Equal(Eval('state'), 'signed')}
             })
 
-        
 
+    def get_age_at_death(self,name):
+        if (self.name.dob):
+            delta = relativedelta(self.dod, self.name.dob)
+            years_months_days = str(delta.years) + 'y ' \
+                + str(delta.months) + 'm ' \
+                + str(delta.days) + 'd'
+        return years_months_days
+        
 class ProductCategory(ModelSQL, ModelView):
     'Product Category'
     __name__ = 'product.category'
