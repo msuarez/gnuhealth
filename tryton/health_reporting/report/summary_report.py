@@ -52,38 +52,50 @@ class InstitutionSummaryReport(Report):
         return(res)
 
     @classmethod
-    def get_new_people(cls, start_date, end_date):
+    def get_new_people(cls, start_date, end_date, in_health_system):
         """ Return Total Number of new registered persons """
-        cursor = Transaction().cursor
-        cursor.execute("SELECT COUNT(activation_date) \
+        
+        query = "SELECT COUNT(activation_date) \
             FROM party_party \
             WHERE activation_date BETWEEN \
-            %s AND %s and is_person=True",(start_date, end_date))
-       
-        res = cursor.fetchone()
-        return(res)
-
-
-    @classmethod
-    def get_new_health_users(cls, start_date, end_date):
-        """ Return Total Number of new registered patients """
+            %s AND %s and is_person=True"
+         
+        if (in_health_system):
+            query = query + " and is_patient=True"
+            
         cursor = Transaction().cursor
-        cursor.execute("SELECT COUNT(activation_date) \
-            FROM party_party \
-            WHERE activation_date BETWEEN \
-            %s AND %s and is_patient=True",(start_date, end_date))
+        cursor.execute(query,(start_date, end_date))
        
         res = cursor.fetchone()
         return(res)
 
     @classmethod
-    def get_total_health_users(cls):
-        """ Return Total Number of registered people in
-        health care system """
+    def get_new_births(cls, start_date, end_date):
+        """ Return birth certificates within that period """
+        
+        query = "SELECT COUNT(dob) \
+            FROM gnuhealth_birth_certificate \
+            WHERE dob BETWEEN \
+            %s AND %s"
+            
         cursor = Transaction().cursor
-        cursor.execute("SELECT COUNT(activation_date) \
-            FROM party_party \
-            WHERE is_patient=True")
+        cursor.execute(query,(start_date, end_date))
+       
+        res = cursor.fetchone()
+        return(res)
+
+    @classmethod
+    def get_new_deaths(cls, start_date, end_date):
+        """ Return death certificates within that period """
+        """ Truncate the timestamp of DoD to match a whole day"""
+    
+        query = "SELECT COUNT(dod) \
+            FROM gnuhealth_death_certificate \
+            WHERE date_trunc('day', dod) BETWEEN \
+            %s AND %s"
+            
+        cursor = Transaction().cursor
+        cursor.execute(query,(start_date, end_date))
        
         res = cursor.fetchone()
         return(res)
@@ -117,8 +129,21 @@ class InstitutionSummaryReport(Report):
                 cls.get_population (date1,date2,'f', total=False)
             localcontext[''.join(['p',str(age_group),'m'])] = \
                 cls.get_population (date1,date2,'m', total=False)
-            
         
+        # Count registered people, and those within the system of health
+        localcontext['new_people'] = \
+            cls.get_new_people(start_date, end_date, False)
+        localcontext['new_in_health_system'] = \
+            cls.get_new_people(start_date, end_date, in_health_system=True)
+
+        # New births
+        localcontext['new_births'] = \
+            cls.get_new_births(start_date, end_date)
+        
+        # New deaths
+        localcontext['new_deaths'] = \
+            cls.get_new_deaths(start_date, end_date)
+
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
 
