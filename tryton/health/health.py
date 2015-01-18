@@ -1928,7 +1928,7 @@ class DeathUnderlyingCondition(ModelSQL, ModelView):
         'gnuhealth.pathology', 'Condition', required=True)
 
     interval = fields.Integer('Interval', help='Approx Interval'
-        'onset to death')
+        'onset to death', required=True)
 
     unit_of_time = fields.Selection([
         (None, ''),
@@ -1937,7 +1937,7 @@ class DeathUnderlyingCondition(ModelSQL, ModelView):
         ('days', 'days'),
         ('months', 'months'),
         ('years', 'years'),
-        ], 'Unit', select=True, sort=False)
+        ], 'Unit', select=True, sort=False, required=True)
 
 class InsurancePlan(ModelSQL, ModelView):
     'Insurance Plan'
