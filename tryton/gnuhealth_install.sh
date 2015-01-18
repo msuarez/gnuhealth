@@ -299,13 +299,19 @@ install_tryton_modules() {
         cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || exit 1
     done
 
-    # Copy Tryton configuration file
+    # Copy Tryton configuration files
     
-    cp ${GNUHEALTH_INST_DIR}/trytond.conf ${CONFIG_DIR} || exit 1
+    cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || exit 1
 
-    # Copy serverpass program
+    # Copy serverpass
     
     cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || exit 1
+
+    message "[INFO] OK." ${GREEN}
+
+    # Copy gnuhealth-control
+    
+    cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || exit 1
 
     message "[INFO] OK." ${GREEN}
 
