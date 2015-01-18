@@ -27,7 +27,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 from uuid import uuid4
@@ -2152,6 +2152,7 @@ class DeathCertificate (ModelSQL, ModelView):
         (None, ''),
         ('draft', 'Draft'),
         ('signed', 'Signed'),
+        ('done', 'Done'),
         ], 'State', readonly=True, sort=False)
 
     @staticmethod
@@ -2168,7 +2169,8 @@ class DeathCertificate (ModelSQL, ModelView):
         ]
 
         cls._buttons.update({
-            'sign': {'invisible': Equal(Eval('state'), 'signed')}
+            'sign': {'invisible': Or(Equal(Eval('state'), 'signed'),
+                Equal(Eval('state'), 'done'))}
             })
 
 

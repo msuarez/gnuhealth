@@ -9,5 +9,14 @@
             <field name="type">form</field>
             <field name="name">prescription_form</field>
         </record>
+
+    <!-- Add Tab with the Serialized information about the death certificate -->
+
+        <record model="ir.ui.view" id="gnuhealth_death_cert_form_signed">
+            <field name="model">gnuhealth.death_certificate</field>
+            <field name="inherit" ref="health.gnuhealth_death_cert_form"/>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_death_certificate_form</field>
+        </record>
     </data>
 </tryton>

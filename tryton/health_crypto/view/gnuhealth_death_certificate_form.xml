@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/group[@id=&quot;death_certificate_footer&quot;]" position="before">
+        <newline/>
+        <separator colspan="4" string="Document validation" id="separator_docvalidation"/>
+        <newline/>
+        <group colspan="4" id="document_digest">
+            <label name="document_digest"/>
+            <field colspan="3" name="document_digest"/>
+            <newline/>
+            <label name="serializer"/>
+            <field name="serializer"/>
+            <label name="serializer_current"/>
+            <field name="serializer_current"/>
+            <newline/>
+            <label name="digest_current"/>
+            <field colspan="3" name="digest_current"/>
+            <newline/>
+            <label name="digital_signature"/>
+            <field name="digital_signature"/>
+            
+        </group>
+        <newline/>
+        <group colspan="4" col="6" id="certificate_generate">
+            <button name="generate_death_certificate" help="Generate the certificate" string="Generate" icon="tryton-go-next" confirm="Generate certificate ?"/>
+            <label name="digest_status"/>
+            <field name="digest_status"/>
+        </group>
+    </xpath>
+</data>
