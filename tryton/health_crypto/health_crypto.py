@@ -249,6 +249,16 @@ class DeathCertificate(ModelSQL, ModelView):
     @classmethod
     def get_serial(cls,certificate):
 
+        underlying_conds =[]
+        
+        for condition in certificate.underlying_conditions:
+            cond = []
+            cond = [condition.condition.rec_name,
+                condition.interval,
+                condition.unit_of_time]
+                
+            underlying_conds.append(cond)
+
         data_to_serialize = { 
             'certificate': certificate.code or '',
             'Date': str(certificate.dod) or '',
@@ -256,7 +266,14 @@ class DeathCertificate(ModelSQL, ModelView):
             'Person':certificate.name.rec_name,
             'Person_dob':str(certificate.name.dob) or '',
             'Person_ID': certificate.name.ref or '',
-            'Notes': str(certificate.observations),
+            'Cod': str(certificate.cod.rec_name),
+            'Underlying_conditions': str(underlying_conds) or '',    
+            'Autopsy': certificate.autopsy,
+            'Type_of_death': certificate.type_of_death,
+            'Place_of_death': certificate.place_of_death,
+            'Country': str(certificate.country.rec_name) or '',
+            'Country_subdivision': str(certificate.country_subdivision.rec_name) or '',
+            'Observations': str(certificate.observations),
              }
 
         serialized_doc = HealthCrypto().serialize(data_to_serialize)
