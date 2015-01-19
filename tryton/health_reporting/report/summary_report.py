@@ -121,14 +121,26 @@ class InstitutionSummaryReport(Report):
             cls.get_population (None,None,'m', total=True)
         
         # Build the Population Pyramid for registered people
-        for age_group in range (0,20):
+
+        for age_group in range (0,21):
             date1 = today - relativedelta(years=(age_group*5))
-            date2 = today - relativedelta(years=((age_group*5)+4))
+            date2 = today - relativedelta(years=((age_group*5)+5), days=-1)
             
             localcontext[''.join(['p',str(age_group),'f'])] = \
                 cls.get_population (date1,date2,'f', total=False)
             localcontext[''.join(['p',str(age_group),'m'])] = \
                 cls.get_population (date1,date2,'m', total=False)
+
+
+        # Count those lucky over 105 years old :)
+        date1 = today - relativedelta(years=105)
+        date2 = today - relativedelta(years=200)
+
+        localcontext['over105f'] = \
+            cls.get_population (date1,date2,'f', total=False)
+        localcontext['over105m'] = \
+            cls.get_population (date1,date2,'m', total=False)
+
         
         # Count registered people, and those within the system of health
         localcontext['new_people'] = \
