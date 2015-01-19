@@ -33,19 +33,19 @@ class InstitutionSummaryReport(Report):
 
     @classmethod
     def get_population(cls,date1,date2,sex,total):
-        """ Return Total Number of people in the system 
+        """ Return Total Number of living people in the system 
         segmented by age group and sex"""
         cursor = Transaction().cursor
 
         if (total):
             cursor.execute("SELECT COUNT(dob) \
-                FROM party_party WHERE sex = %s",(sex))
+                FROM party_party WHERE sex = %s and deceased is not TRUE",(sex))
 
         else:
             cursor.execute("SELECT COUNT(dob) \
                 FROM party_party \
                 WHERE dob BETWEEN %s and %s AND \
-                sex = %s" ,(date2, date1, sex))
+                sex = %s  and deceased is not TRUE" ,(date2, date1, sex))
        
         res = cursor.fetchone()[0]
     
@@ -53,12 +53,12 @@ class InstitutionSummaryReport(Report):
 
     @classmethod
     def get_new_people(cls, start_date, end_date, in_health_system):
-        """ Return Total Number of new registered persons """
+        """ Return Total Number of new registered persons alive """
         
         query = "SELECT COUNT(activation_date) \
             FROM party_party \
             WHERE activation_date BETWEEN \
-            %s AND %s and is_person=True"
+            %s AND %s and is_person=True and deceased is not TRUE"
          
         if (in_health_system):
             query = query + " and is_patient=True"
