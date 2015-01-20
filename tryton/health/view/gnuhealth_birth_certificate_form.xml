@@ -25,7 +25,7 @@
     <separator colspan="4" string="Observations" id="separator_birth_cert_observations"/>
     <newline/>
     <field name="observations" colspan="4"/>
-    <group id="death_certificate_footer" colspan="4" col="8">
+    <group id="birth_certificate_footer" colspan="4" col="8">
         <label name="state"/>
         <field name="state"/>
         <label name="signed_by"/>

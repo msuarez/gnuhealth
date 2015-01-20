@@ -2058,6 +2058,7 @@ class BirthCertificate (ModelSQL, ModelView):
         (None, ''),
         ('draft', 'Draft'),
         ('signed', 'Signed'),
+        ('done', 'Done'),
         ], 'State', readonly=True, sort=False)
 
 
@@ -2081,7 +2082,8 @@ class BirthCertificate (ModelSQL, ModelView):
         ]
 
         cls._buttons.update({
-            'sign': {'invisible': Equal(Eval('state'), 'signed')}
+            'sign': {'invisible': Or(Equal(Eval('state'), 'signed'),
+                Equal(Eval('state'), 'done'))}
         })
 
 

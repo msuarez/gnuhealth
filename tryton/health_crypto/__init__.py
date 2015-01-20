@@ -28,5 +28,6 @@ from .health_crypto import *
 def register():
     Pool.register(
         PatientPrescriptionOrder,
+        BirthCertificate,
         DeathCertificate,
         module='health_crypto', type_='model')
