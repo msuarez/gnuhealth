@@ -86,8 +86,9 @@ class Observation_Map:
                     'value-concept': None,
                     'value-date': None,
                     'value-quantity': (['result'], 'quantity'),
-                    'value-string': None},
-            'gnuhealth.patient.evaluation': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+                    'value-string': None}}
+    todo_search_mapping={
+           'gnuhealth.patient.evaluation': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
                     'date': None,
                     # These values point to keys on the 'fields' dict

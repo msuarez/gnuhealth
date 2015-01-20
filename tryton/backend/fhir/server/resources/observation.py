@@ -12,17 +12,17 @@ import sys
 
 # Observation models
 lab = tryton.pool.get('gnuhealth.lab.test.critearea')
-eva = tryton.pool.get('gnuhealth.patient.evaluation')
-rounds = tryton.pool.get('gnuhealth.patient.rounding')
-amb = tryton.pool.get('gnuhealth.patient.ambulatory_care')
-icu = tryton.pool.get('gnuhealth.icu.apache2')
+#eva = tryton.pool.get('gnuhealth.patient.evaluation')
+#rounds = tryton.pool.get('gnuhealth.patient.rounding')
+#amb = tryton.pool.get('gnuhealth.patient.ambulatory_care')
+#icu = tryton.pool.get('gnuhealth.icu.apache2')
 
 # Prefix mapping
-model_map={ 'lab': lab,
-        'eval': eva,
-        'rounds': rounds,
-        'amb': amb,
-        'icu': icu}
+model_map={ 'lab': lab}
+        #'eval': eva,
+        #'rounds': rounds,
+        #'amb': amb,
+        #'icu': icu}
 
 class OBS_Create(Resource):
     @tryton.transaction(user=get_userid)

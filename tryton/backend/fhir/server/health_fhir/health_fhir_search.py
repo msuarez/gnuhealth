@@ -124,8 +124,6 @@ class health_Search:
         tmp = self.split_string(string)
         return (None, tmp)
 
-    def 
-
     def chained_parameter_parser(self, string):
         '''Parse reference parameter
             (e.g., subject.name, subject:Patient.name)
