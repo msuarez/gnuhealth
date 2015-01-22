@@ -269,13 +269,13 @@ class Surgery(ModelSQL, ModelView):
         ], 'Mallampati Score', sort=False)
     preop_bleeding_risk = fields.Boolean(
         'Risk of Massive bleeding',
-        help="Check this box if patient has a risk of loosing more than 500 "
+        help="Patient has a risk of losing more than 500 "
         "ml in adults of over 7ml/kg in infants. If so, make sure that "
         "intravenous access and fluids are available")
 
     preop_oximeter = fields.Boolean(
         'Pulse Oximeter in place',
-        help="Check this box when verified the pulse oximeter is in place "
+        help="Pulse oximeter is in place "
         "and functioning")
 
     preop_site_marking = fields.Boolean(
