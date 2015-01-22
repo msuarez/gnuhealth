@@ -45,19 +45,20 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_health_archives',
+setup(name='trytond_health_iss',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Patient Paper Archives Module'),
+    description=info.get('description',
+        'GNU Health Injury Surveillance System Module'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
     download_url='http://ftp.gnu.org/gnu/health/',
-    package_dir={'trytond.modules.health_archives': '.'},
+    package_dir={'trytond.modules.health_iss': '.'},
     packages=[
-        'trytond.modules.health_archives',
+        'trytond.modules.health_iss',
         ],
     package_data={
-        'trytond.modules.health_archives': info.get('xml', []) \
+        'trytond.modules.health_iss': info.get('xml', []) \
             + info.get('translation', []) \
             + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
                'report/*.odt', 'icons/*.svg'],
@@ -82,7 +83,7 @@ setup(name='trytond_health_archives',
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    health_archives = trytond.modules.health_archives
+    health_iss = trytond.modules.health_iss
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
