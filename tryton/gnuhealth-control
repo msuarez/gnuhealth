@@ -358,8 +358,10 @@ do_update()
     check_download_dir
     get_current_values
     check_updates
-    if [ $2 == "--dry-run" ];then
-        exit 0
+    if [ $# -gt 1 ];then
+        if [ $2 == "--dry-run" ];then
+            exit 0
+        fi
     fi
     install_updates
     remove_old
