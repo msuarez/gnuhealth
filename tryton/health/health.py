@@ -4277,10 +4277,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         })
 
         cls._buttons.update({
-            'end_evaluation': {
-                'invisible': Equal(Eval('state'), 'done'),
-            },
-        })
+            'end_evaluation': {'invisible': Or(Equal(Eval('state'), 'signed'),
+                Equal(Eval('state'), 'done'))}
+            })
+
 
     @classmethod
     def validate(cls, evaluations):
@@ -4328,8 +4328,12 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         # Change the state of the evaluation to "Done"
 
+        signing_hp = HealthProfessional().get_health_professional()
+        
         cls.write(evaluations, {
-            'state': 'done'})
+            'state': 'done',
+            'signed_by': signing_hp,
+        })
             
     @staticmethod
     def default_healthprof():

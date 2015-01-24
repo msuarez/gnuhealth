@@ -491,7 +491,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         cls.write(evaluations, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
-            'signed_by': signing_hp,
             'state': 'signed',})
 
 
@@ -513,7 +512,8 @@ class PatientEvaluation(ModelSQL, ModelView):
             'Start': str(evaluation.evaluation_start) or '',
             'End': str(evaluation.evaluation_endtime) or '',
             'Initiated_by': str(evaluation.healthprof.rec_name),
-            'Signed_by': str(evaluation.signed_by.rec_name) or '',
+            'Signed_by': evaluation.signed_by and \
+                str(evaluation.signed_by.rec_name) or '',
             'Urgency': str(evaluation.urgency) or '',
             'Chief_complaint': str(evaluation.chief_complaint),
             'Present_illness': str(evaluation.present_illness),
