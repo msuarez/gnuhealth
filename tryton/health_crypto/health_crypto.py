@@ -30,7 +30,7 @@ import hashlib
 import json
 
 __all__ = ['HealthCrypto','PatientPrescriptionOrder',
-    'BirthCertificate','DeathCertificate']
+    'BirthCertificate','DeathCertificate','PatientEvaluation']
 
 
 class HealthCrypto:
@@ -388,6 +388,137 @@ class DeathCertificate(ModelSQL, ModelView):
             'Country_subdivision': certificate.country_subdivision \
                 and str(certificate.country_subdivision.rec_name) or '',
             'Observations': str(certificate.observations),
+             }
+
+        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        
+        return serialized_doc
+    
+    @classmethod
+    def set_signature(cls, data, signature):
+        """
+        Set the clearsigned signature
+        """
+        doc_id = data['id']
+        
+        cls.write([cls(doc_id)], {
+            'digital_signature': signature,
+            })
+
+    def check_digest (self,name):
+        result=''
+        serial_doc=self.get_serial(self)
+        if (name == 'digest_status' and self.document_digest):
+            if (HealthCrypto().gen_hash(serial_doc) == self.document_digest):
+                result = False
+            else:
+                ''' Return true if the document has been altered'''
+                result = True
+        if (name=='digest_current'):
+            result = HealthCrypto().gen_hash(serial_doc)
+
+        if (name=='serializer_current'):
+            result = serial_doc
+            
+        return result
+
+class PatientEvaluation(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient.evaluation'
+    
+    serializer = fields.Text('Doc String', readonly=True)
+
+    document_digest = fields.Char('Digest', readonly=True,
+        help="Original Document Digest")
+    
+    digest_status = fields.Function(fields.Boolean('Altered',
+        states={
+        'invisible': Not(Equal(Eval('state'),'done')),
+        },
+        help="This field will be set whenever parts of" \
+        " the main original document has been changed." \
+        " Please note that the verification is done only on selected" \
+        " fields." ),
+        'check_digest')
+
+    serializer_current = fields.Function(fields.Text('Current Doc',
+            states={
+            'invisible': Not(Bool(Eval('digest_status'))),
+            }),
+        'check_digest')
+
+        
+    digest_current = fields.Function(fields.Char('Current Hash',
+            states={
+            'invisible': Not(Bool(Eval('digest_status'))),
+            }),
+        'check_digest')
+
+    digital_signature = fields.Text('Digital Signature', readonly=True)
+
+    @classmethod
+    def __setup__(cls):
+        cls._buttons.update({
+            'sign_evaluation': {
+                'invisible': Equal(Eval('state'), 'signed'),
+                },
+            })
+        ''' Allow calling the set_signature method via RPC '''
+        cls.__rpc__.update({
+                'set_signature': RPC(readonly=False),
+                })
+
+
+    @classmethod
+    @ModelView.button
+    def sign_evaluation(cls, evaluations):
+        evaluation = evaluations[0]
+
+        HealthProf= Pool().get('gnuhealth.healthprofessional')
+        
+        # Change the state of the evaluation to "Signed"
+        # Include signing health professional 
+        
+        serial_doc=cls.get_serial(evaluation)
+
+
+        signing_hp = HealthProf.get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+
+
+        cls.write(evaluations, {
+            'serializer': serial_doc,
+            'document_digest': HealthCrypto().gen_hash(serial_doc),
+            'signed_by': signing_hp,
+            'state': 'signed',})
+
+
+    @classmethod
+    def get_serial(cls,evaluation):
+
+        signs_symptoms =[]
+        
+        for sign_symptom in evaluation.signs_and_symptoms:
+            finding = []
+            finding = [sign_symptom.rec_name,
+                sign_symptom.sign_or_symptom,
+                ]
+                
+            signs_symptoms.append(finding)
+
+        data_to_serialize = { 
+            'patient': evaluation.patient.rec_name or '',
+            'Start': str(evaluation.evaluation_start) or '',
+            'End': str(evaluation.evaluation_endtime) or '',
+            'Initiated_by': str(evaluation.healthprof.rec_name),
+            'Signed_by': str(evaluation.signed_by.rec_name) or '',
+            'Urgency': str(evaluation.urgency) or '',
+            'Chief_complaint': str(evaluation.chief_complaint),
+            'Present_illness': str(evaluation.present_illness),
+            'Evaluation_summary': str(evaluation.evaluation_summary),
+            'Signs_and_Symptoms': str(signs_symptoms) or ''
              }
 
         serialized_doc = HealthCrypto().serialize(data_to_serialize)

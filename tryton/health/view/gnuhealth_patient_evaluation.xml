@@ -40,7 +40,7 @@
                 <label name="evaluation_endtime"/>
                 <field name="evaluation_endtime"/>
                 <field name="state"/>
-                <button name="discharge" help="Sign and close the evaluation" string="Sign" icon="tryton-go-next" confirm="Finish and sign this evaluation ? This evaluation will become read-only !"/>
+                <button name="end_evaluation" help="Finnish this evaluation" string="Done" icon="tryton-go-next" confirm="End this evaluation ?"/>
             </group>
             <newline/>
             <label name="signed_by"/>

@@ -3987,6 +3987,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     state = fields.Selection([
         ('in_progress', 'In progress'),
         ('done', 'Done'),
+        ('signed', 'Signed'),
         ], 'State', readonly=True, sort=False)
 
     next_evaluation = fields.Many2One(
@@ -4276,7 +4277,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         })
 
         cls._buttons.update({
-            'discharge': {
+            'end_evaluation': {
                 'invisible': Equal(Eval('state'), 'done'),
             },
         })
@@ -4307,6 +4308,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         if not self.healthprof:
             self.raise_user_error('health_professional_warning')
 
+    """
     @classmethod
     def write(cls, evaluations, vals):
         # Don't allow to write the record if the evaluation has been done
@@ -4316,25 +4318,19 @@ class PatientEvaluation(ModelSQL, ModelView):
                 "You can no longer modify it.")
         return super(PatientEvaluation, cls).write(evaluations, vals)
 
+    """
     # End the evaluation and discharge the patient
 
     @classmethod
     @ModelView.button
-    def discharge(cls, evaluations):
+    def end_evaluation(cls, evaluations):
         evaluation_id = evaluations[0]
 
         # Change the state of the evaluation to "Done"
-        # and write the name of the signing health professional
-
-        signing_hp = HealthProfessional().get_health_professional()
-        if not signing_hp:
-            cls.raise_user_error(
-                "No health professional associated to this user !")
 
         cls.write(evaluations, {
-            'state': 'done',
-            'signed_by': signing_hp})
-
+            'state': 'done'})
+            
     @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
