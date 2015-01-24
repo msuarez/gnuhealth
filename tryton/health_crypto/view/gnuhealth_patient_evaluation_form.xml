@@ -4,8 +4,10 @@
         <newline/>
         <group colspan="4" string="Document validation" id="document_digest">
             <button name="sign_evaluation" help="Sign this patient evaluation" string="Sign" icon="tryton-go-next" confirm="Sign evaluation ?"/>
+            <label name="signed_by"/>
+            <field name="signed_by"/>
             <newline/>
-            <group colspan="4" string="Digital Signature" id="group_digital_signature">
+            <group colspan="4" string="Digital Signature" id="group_digital_signature" states="{'invisible': Not(Bool(Eval('digital_signature')))}">
                 <field colspan="4" name="digital_signature"/>
             </group>
             <newline/>
@@ -28,6 +30,7 @@
                     <field name="digest_status"/>
                 </group>
             </group>
+            <newline/>
         </group>
     </xpath>
 </data>
