@@ -432,7 +432,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     
     digest_status = fields.Function(fields.Boolean('Altered',
         states={
-        'invisible': Not(Equal(Eval('state'),'done')),
+        'invisible': Not(Equal(Eval('state'),'signed')),
         },
         help="This field will be set whenever parts of" \
         " the main original document has been changed." \
