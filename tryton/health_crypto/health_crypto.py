@@ -459,7 +459,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     def __setup__(cls):
         cls._buttons.update({
             'sign_evaluation': {
-                'invisible': Equal(Eval('state'), 'signed'),
+                'invisible': Not(Equal(Eval('state'), 'done')),
                 },
             })
         ''' Allow calling the set_signature method via RPC '''
@@ -498,6 +498,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     def get_serial(cls,evaluation):
 
         signs_symptoms =[]
+        secondary_conditions =[]
+        diagnostic_hypotheses =[]
+        procedures =[]
         
         for sign_symptom in evaluation.signs_and_symptoms:
             finding = []
@@ -507,18 +510,91 @@ class PatientEvaluation(ModelSQL, ModelView):
                 
             signs_symptoms.append(finding)
 
+        for secondary_condition in evaluation.secondary_conditions:
+            sc = []
+            sc = [secondary_condition.rec_name]
+                
+            secondary_conditions.append(sc)
+
+        for ddx in evaluation.diagnostic_hypothesis:
+            dx = []
+            dx = [ddx.rec_name]
+                
+            diagnostic_hypotheses.append(dx)
+
+        for procedure in evaluation.actions:
+            proc = []
+            proc = [procedure.rec_name]
+                
+            procedures.append(proc)
+
         data_to_serialize = { 
-            'patient': evaluation.patient.rec_name or '',
+            'Patient': evaluation.patient.rec_name or '',
             'Start': str(evaluation.evaluation_start) or '',
             'End': str(evaluation.evaluation_endtime) or '',
             'Initiated_by': str(evaluation.healthprof.rec_name),
-            'Signed_by': evaluation.signed_by and \
+            'Signed_by': evaluation.signed_by and
                 str(evaluation.signed_by.rec_name) or '',
             'Urgency': str(evaluation.urgency) or '',
+            'Information_source': str(evaluation.information_source) or '',
+            'Reliable_info': evaluation.reliable_info,
             'Chief_complaint': str(evaluation.chief_complaint),
             'Present_illness': str(evaluation.present_illness),
             'Evaluation_summary': str(evaluation.evaluation_summary),
-            'Signs_and_Symptoms': str(signs_symptoms) or ''
+            'Signs_and_Symptoms': str(signs_symptoms) or '',
+            'Glycemia': evaluation.glycemia or '',
+            'Hba1c': evaluation.hba1c or '',
+            'Total_Cholesterol': evaluation.cholesterol_total or '',
+            'HDL': evaluation.hdl or '',
+            'LDL': evaluation.ldl or '',
+            'TAG': evaluation.ldl or '',
+            'Systolic': evaluation.systolic or '',
+            'Diastolic': evaluation.diastolic or '',
+            'BPM': evaluation.bpm or '',
+            'Respiratory_rate': evaluation.respiratory_rate or '',
+            'Osat': evaluation.osat or '',
+            'BPM': evaluation.bpm or '',
+            'Malnutrition': evaluation.malnutrition,
+            'Dehydration': evaluation.dehydration,
+            'Temperature': evaluation.temperature,
+            'Weight': evaluation.weight or '',
+            'Height': evaluation.height or '',
+            'BMI': evaluation.bmi or '',
+            'Head_circ': evaluation.head_circumference or '',
+            'Abdominal_cir': evaluation.abdominal_circ or '',
+            'Hip': evaluation.hip or '',
+            'WHR': evaluation.whr or '',
+            'Abdominal_cir': evaluation.abdominal_circ or '',
+            'Loc': evaluation.loc or '',
+            'Loc_eyes': evaluation.loc_eyes or '',
+            'Loc_verbal': evaluation.loc_verbal or '',
+            'Loc_motor': evaluation.loc_motor or '',
+            'Tremor': evaluation.tremor,
+            'Violent': evaluation.violent,
+            'Mood': evaluation.mood,
+            'Orientation':evaluation.orientation,
+            'Orientation':evaluation.orientation,
+            'Memory':evaluation.memory,
+            'Knowledge_current_events':evaluation.knowledge_current_events,
+            'Judgment':evaluation.judgment,
+            'Abstraction':evaluation.abstraction,
+            'Vocabulary':evaluation.vocabulary,
+            'Calculation':evaluation.calculation_ability,
+            'Object_recognition':evaluation.object_recognition,
+            'Praxis':evaluation.praxis,
+            'Diagnosis':evaluation.diagnosis and
+                str(evaluation.diagnosis.rec_name) or '',
+            'Secondary_conditions':str(secondary_conditions) or '',
+            'DDX':str(diagnostic_hypotheses) or '',
+            'Info_Diagnosis':str(evaluation.info_diagnosis) or '',
+            'Treatment_plan':str(evaluation.directions) or '',
+            'Procedures':str(procedures) or '',
+            'Institution': evaluation.institution and
+                str(evaluation.institution.rec_name) or '',
+            'Derived_from': evaluation.derived_from and
+                str(evaluation.derived_from.rec_name) or '',
+            'Derived_to':evaluation.derived_to and
+                str(evaluation.derived_to.rec_name) or '',
              }
 
         serialized_doc = HealthCrypto().serialize(data_to_serialize)

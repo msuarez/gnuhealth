@@ -4005,9 +4005,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         ", when it becomes read-only", readonly=True)
 
     signed_by = fields.Many2One(
-        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
         states={'invisible': Equal(Eval('state'), 'in_progress')},
-        help="Health Professional that signed the patient evaluation document")
+        help="Health Professional that finnished the patient evaluation")
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
 
@@ -4311,7 +4311,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     """
     @classmethod
     def write(cls, evaluations, vals):
-        # Don't allow to write the record if the evaluation has been done
+        # Don't allow to write the record if the evaluation has been signed
         if evaluations[0].state == 'done':
             cls.raise_user_error(
                 "This evaluation is at state Done\n"
