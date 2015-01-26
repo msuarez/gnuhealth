@@ -3989,6 +3989,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     'Patient Evaluation'
     __name__ = 'gnuhealth.patient.evaluation'
 
+    STATES = {'readonly': Eval('state') == 'signed'}
+
     def evaluation_duration(self, name):
 
         duration = ''
@@ -4001,16 +4003,20 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return duration
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient',
+        states = STATES)
 
     evaluation_date = fields.Many2One(
         'gnuhealth.appointment', 'Appointment',
         domain=[('patient', '=', Eval('patient'))], depends=['patient'],
         help='Enter or select the date / ID of the appointment related to'
-        ' this evaluation')
+        ' this evaluation',
+        states = STATES)
 
-    evaluation_start = fields.DateTime('Start', required=True)
-    evaluation_endtime = fields.DateTime('End', required=True)
+    evaluation_start = fields.DateTime('Start', required=True,
+        states = STATES)
+    evaluation_endtime = fields.DateTime('End', required=True,
+        states = STATES)
 
     evaluation_length = fields.Function(
         fields.Char(
@@ -4027,7 +4033,8 @@ class PatientEvaluation(ModelSQL, ModelView):
     next_evaluation = fields.Many2One(
         'gnuhealth.appointment',
         'Next Appointment', domain=[('patient', '=', Eval('patient'))],
-        depends=['patient'])
+        depends=['patient'],
+        states = STATES)
 
     user_id = fields.Many2One('res.user', 'Last Changed by', readonly=True)
     healthprof = fields.Many2One(
@@ -4043,7 +4050,8 @@ class PatientEvaluation(ModelSQL, ModelView):
         states={'invisible': Equal(Eval('state'), 'in_progress')},
         help="Health Professional that finnished the patient evaluation")
 
-    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty')
+    specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
+        states = STATES)
 
     visit_type = fields.Selection([
         (None, ''),
@@ -4053,115 +4061,147 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('well_child', 'Well Child visit'),
         ('well_woman', 'Well Woman visit'),
         ('well_man', 'Well Man visit'),
-        ], 'Visit', sort=False)
+        ], 'Visit', sort=False,
+        states = STATES)
 
     urgency = fields.Selection([
         (None, ''),
         ('a', 'Normal'),
         ('b', 'Urgent'),
         ('c', 'Medical Emergency'),
-        ], 'Urgency', sort=False)
+        ], 'Urgency', sort=False,
+        states = STATES)
 
     information_source = fields.Char(
         'Source', help="Source of"
-        "Information, eg : Self, relative, friend ...")
+        "Information, eg : Self, relative, friend ...",
+        states = STATES)
 
     reliable_info = fields.Boolean(
         'Reliable', help="Uncheck this option"
-        "if the information provided by the source seems not reliable")
+        "if the information provided by the source seems not reliable",
+        states = STATES)
 
     derived_from = fields.Many2One(
         'gnuhealth.healthprofessional', 'Derived from',
-        help='Health Professional who derived the case')
+        help='Health Professional who derived the case',
+        states = STATES)
 
     derived_to = fields.Many2One(
         'gnuhealth.healthprofessional', 'Derived to',
-        help='Health Professional to derive the case')
+        help='Health Professional to derive the case',
+        states = STATES)
 
     evaluation_type = fields.Selection([
         (None, ''),
         ('ambulatory', 'Ambulatory'),
         ('outpatient', 'Outpatient'),
         ('inpatient', 'Inpatient'),
-        ], 'Type', sort=False)
+        ], 'Type', sort=False,
+        states = STATES)
 
-    chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint')
-    notes_complaint = fields.Text('Complaint details')
-    present_illness = fields.Text('Present Illness')
-    evaluation_summary = fields.Text('Evaluation Summary')
+    chief_complaint = fields.Char('Chief Complaint', help='Chief Complaint',
+        states = STATES)
+    notes_complaint = fields.Text('Complaint details',
+        states = STATES)
+    present_illness = fields.Text('Present Illness',
+        states = STATES)
+    evaluation_summary = fields.Text('Evaluation Summary',
+        states = STATES)
 
     glycemia = fields.Float(
         'Glycemia',
-        help='Last blood glucose level. Can be approximative.')
+        help='Last blood glucose level. Can be approximative.',
+        states = STATES)
 
     hba1c = fields.Float(
         'Glycated Hemoglobin',
-        help='Last Glycated Hb level. Can be approximative.')
+        help='Last Glycated Hb level. Can be approximative.',
+        states = STATES)
 
     cholesterol_total = fields.Integer(
         'Last Cholesterol',
-        help='Last cholesterol reading. Can be approximative')
+        help='Last cholesterol reading. Can be approximative',
+        states = STATES)
 
     hdl = fields.Integer(
         'Last HDL',
-        help='Last HDL Cholesterol reading. Can be approximative')
+        help='Last HDL Cholesterol reading. Can be approximative',
+        states = STATES)
 
     ldl = fields.Integer(
         'Last LDL',
-        help='Last LDL Cholesterol reading. Can be approximative')
+        help='Last LDL Cholesterol reading. Can be approximative',
+        states = STATES)
 
     tag = fields.Integer(
         'Last TAGs',
-        help='Triacylglycerol(triglicerides) level. Can be approximative')
+        help='Triacylglycerol(triglicerides) level. Can be approximative',
+        states = STATES)
 
-    systolic = fields.Integer('Systolic Pressure')
-    diastolic = fields.Integer('Diastolic Pressure')
+    systolic = fields.Integer('Systolic Pressure',
+        states = STATES)
+    diastolic = fields.Integer('Diastolic Pressure',
+        states = STATES)
 
     bpm = fields.Integer(
         'Heart Rate',
-        help='Heart rate expressed in beats per minute')
+        help='Heart rate expressed in beats per minute',
+        states = STATES)
 
     respiratory_rate = fields.Integer(
         'Respiratory Rate',
-        help='Respiratory rate expressed in breaths per minute')
+        help='Respiratory rate expressed in breaths per minute',
+        states = STATES)
 
     osat = fields.Integer(
         'Oxygen Saturation',
-        help='Oxygen Saturation(arterial).')
+        help='Oxygen Saturation(arterial).',
+        states = STATES)
 
     malnutrition = fields.Boolean(
         'Malnutrition',
         help='Check this box if the patient show signs of malnutrition. If'
         ' associated  to a disease, please encode the correspondent disease'
         ' on the patient disease history. For example, Moderate'
-        ' protein-energy malnutrition, E44.0 in ICD-10 encoding')
+        ' protein-energy malnutrition, E44.0 in ICD-10 encoding',
+        states = STATES)
 
     dehydration = fields.Boolean(
         'Dehydration',
         help='Check this box if the patient show signs of dehydration. If'
         ' associated  to a disease, please encode the  correspondent disease'
         ' on the patient disease history. For example, Volume Depletion, E86'
-        ' in ICD-10 encoding')
+        ' in ICD-10 encoding',
+        states = STATES)
 
     temperature = fields.Float(
         'Temperature',
-        help='Temperature in celcius')
+        help='Temperature in celcius',
+        states = STATES)
 
-    weight = fields.Float('Weight', help='Weight in Kilos')
-    height = fields.Float('Height', help='Height in centimeters, eg 175')
+    weight = fields.Float('Weight', help='Weight in Kilos',
+        states = STATES)
+    height = fields.Float('Height', help='Height in centimeters, eg 175',
+        states = STATES)
 
     bmi = fields.Float(
-        'Body Mass Index')
+        'Body Mass Index',
+        states = STATES)
 
     head_circumference = fields.Float(
         'Head Circumference',
-        help='Head circumference')
+        help='Head circumference',
+        states = STATES)
 
-    abdominal_circ = fields.Float('Waist')
-    hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100')
+    abdominal_circ = fields.Float('Waist',
+        states = STATES)
+    hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100',
+        states = STATES)
 
     whr = fields.Float(
-        'WHR', help='Waist to hip ratio')
+        'WHR', help='Waist to hip ratio',
+        states = STATES)
 
     # DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
     # NOW WE USE A O2M OBJECT TO MAKE IT MORE SCALABLE, CLEARER AND FUNCTIONAL
@@ -4169,20 +4209,23 @@ class PatientEvaluation(ModelSQL, ModelView):
     loc = fields.Integer(
         'Glasgow',
         help='Level of Consciousness - on Glasgow Coma Scale :  < 9 severe -'
-        ' 9-12 Moderate, > 13 minor')
+        ' 9-12 Moderate, > 13 minor',
+        states = STATES)
     loc_eyes = fields.Selection([
         ('1', 'Does not Open Eyes'),
         ('2', 'Opens eyes in response to painful stimuli'),
         ('3', 'Opens eyes in response to voice'),
         ('4', 'Opens eyes spontaneously'),
-        ], 'Glasgow - Eyes', sort=False)
+        ], 'Glasgow - Eyes', sort=False,
+        states = STATES)
     loc_verbal = fields.Selection([
         ('1', 'Makes no sounds'),
         ('2', 'Incomprehensible sounds'),
         ('3', 'Utters inappropriate words'),
         ('4', 'Confused, disoriented'),
         ('5', 'Oriented, converses normally'),
-        ], 'Glasgow - Verbal', sort=False)
+        ], 'Glasgow - Verbal', sort=False,
+        states = STATES)
     loc_motor = fields.Selection([
         ('1', 'Makes no movement'),
         ('2', 'Extension to painful stimuli - decerebrate response -'),
@@ -4190,17 +4233,20 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('4', 'Flexion / Withdrawal to painful stimuli'),
         ('5', 'Localizes painful stimuli'),
         ('6', 'Obeys commands'),
-        ], 'Glasgow - Motor', sort=False)
+        ], 'Glasgow - Motor', sort=False,
+        states = STATES)
 
     tremor = fields.Boolean(
         'Tremor',
         help='If associated  to a disease, please encode it on the patient'
-        ' disease history')
+        ' disease history',
+        states = STATES)
 
     violent = fields.Boolean(
         'Violent Behaviour',
         help='Check this box if the patient is aggressive or violent at the'
-        ' moment')
+        ' moment',
+        states = STATES)
 
     mood = fields.Selection([
         (None, ''),
@@ -4212,83 +4258,102 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('d', 'Disgust'),
         ('e', 'Euphoria'),
         ('fl', 'Flat'),
-        ], 'Mood', sort=False)
+        ], 'Mood', sort=False,
+        states = STATES)
 
     orientation = fields.Boolean(
         'Orientation',
         help='Check this box if the patient is disoriented in time and/or'
-        ' space')
+        ' space',
+        states = STATES)
 
     memory = fields.Boolean(
         'Memory',
         help='Check this box if the patient has problems in short or long'
-        ' term memory')
+        ' term memory',
+        states = STATES)
 
     knowledge_current_events = fields.Boolean(
         'Knowledge of Current Events',
         help='Check this box if the patient can not respond to public'
-        ' notorious events')
+        ' notorious events',
+        states = STATES)
 
     judgment = fields.Boolean(
         'Judgment',
         help='Check this box if the patient can not interpret basic scenario'
-        ' solutions')
+        ' solutions',
+        states = STATES)
 
     abstraction = fields.Boolean(
         'Abstraction',
         help='Check this box if the patient presents abnormalities in'
-        ' abstract reasoning')
+        ' abstract reasoning',
+        states = STATES)
 
     vocabulary = fields.Boolean(
         'Vocabulary',
         help='Check this box if the patient lacks basic intelectual capacity,'
-        ' when she/he can not describe elementary objects')
+        ' when she/he can not describe elementary objects',
+        states = STATES)
 
     calculation_ability = fields.Boolean(
         'Calculation Ability',
         help='Check this box if the patient can not do simple arithmetic'
-        ' problems')
+        ' problems',
+        states = STATES)
 
     object_recognition = fields.Boolean(
         'Object Recognition',
         help='Check this box if the patient suffers from any sort of gnosia'
-        ' disorders, such as agnosia, prosopagnosia ...')
+        ' disorders, such as agnosia, prosopagnosia ...',
+        states = STATES)
 
     praxis = fields.Boolean(
         'Praxis',
         help='Check this box if the patient is unable to make voluntary'
-        'movements')
+        'movements',
+        states = STATES)
 
     diagnosis = fields.Many2One(
         'gnuhealth.pathology', 'Presumptive Diagnosis',
         help='Presumptive Diagnosis. If no diagnosis can be made'
-        ', encode the main sign or symptom.')
+        ', encode the main sign or symptom.',
+        states = STATES)
 
     secondary_conditions = fields.One2Many(
         'gnuhealth.secondary_condition',
         'evaluation', 'Secondary Conditions', help='Other, Secondary'
-        ' conditions found on the patient')
+        ' conditions found on the patient',
+        states = STATES)
 
     diagnostic_hypothesis = fields.One2Many(
         'gnuhealth.diagnostic_hypothesis',
         'evaluation', 'Hypotheses / DDx', help='Other Diagnostic Hypotheses /'
-        ' Differential Diagnosis (DDx)')
+        ' Differential Diagnosis (DDx)',
+        states = STATES)
 
     signs_and_symptoms = fields.One2Many(
         'gnuhealth.signs_and_symptoms',
         'evaluation', 'Signs and Symptoms', help='Enter the Signs and Symptoms'
-        ' for the patient in this evaluation.')
+        ' for the patient in this evaluation.',
+        states = STATES)
 
-    info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info')
-    directions = fields.Text('Plan')
+    info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info',
+        states = STATES)
+    directions = fields.Text('Plan',
+        states = STATES)
 
     actions = fields.One2Many(
         'gnuhealth.directions', 'name', 'Procedures',
-        help='Procedures / Actions to take')
+        help='Procedures / Actions to take',
+        states = STATES)
 
-    notes = fields.Text('Notes')
+    notes = fields.Text('Notes',
+        states = STATES)
     
-    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+    institution = fields.Many2One('gnuhealth.institution', 'Institution',
+        states = STATES)
 
     report_evaluation_date = fields.Function(fields.Date(
         'Evaluation Date'), 'get_report_evaluation_date')
