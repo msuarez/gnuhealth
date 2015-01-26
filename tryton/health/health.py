@@ -1777,15 +1777,20 @@ class BirthCertExtraInfo (ModelSQL, ModelView):
     'Birth Certificate'
     __name__ = 'gnuhealth.birth_certificate'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+    
     institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution')
+        'gnuhealth.institution', 'Institution',
+        states = STATES )
 
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 
         'Certifier', readonly=True, help='Person who certifies this'
-        ' birth document')
+        ' birth document',
+        states = STATES )
 
-    certification_date = fields.DateTime('Signed on', readonly=True)
+    certification_date = fields.DateTime('Signed on', readonly=True,
+        states = STATES )
 
     @staticmethod
     def default_institution():
@@ -1840,8 +1845,11 @@ class DeathCertExtraInfo (ModelSQL, ModelView):
     'Death Certificate'
     __name__ = 'gnuhealth.death_certificate'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+    
     institution = fields.Many2One(
-        'gnuhealth.institution', 'Institution')
+        'gnuhealth.institution', 'Institution',
+        states = STATES)
 
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
@@ -1852,13 +1860,15 @@ class DeathCertExtraInfo (ModelSQL, ModelView):
 
     cod = fields.Many2One(
         'gnuhealth.pathology', 'Cause',
-        required=True, help="Immediate Cause of Death")
+        required=True, help="Immediate Cause of Death",
+        states = STATES)
 
     underlying_conditions = fields.One2Many(
         'gnuhealth.death_underlying_condition',
         'death_certificate', 'Underlying Conditions', help='Underlying'
         ' conditions that initiated the events resulting in death.'
-        ' Please code them in sequential, chronological order')
+        ' Please code them in sequential, chronological order',
+        states = STATES)
 
     @staticmethod
     def default_institution():
@@ -2030,29 +2040,39 @@ class BirthCertificate (ModelSQL, ModelView):
     'Birth Certificate'
     __name__ = 'gnuhealth.birth_certificate'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     name = fields.Many2One('party.party', 'Person', 
         required=True,
         domain=[('is_person', '=', True),],
         states = {'readonly': Eval('id', 0) > 0})
 
     mother = fields.Many2One('party.party', 'Mother', 
-        domain=[('is_person', '=', True),])
+        domain=[('is_person', '=', True),],
+        states = STATES )
+
 
     father = fields.Many2One('party.party', 'Father',
-        domain=[('is_person', '=', True),])
+        domain=[('is_person', '=', True),],
+        states = STATES )
 
-    code = fields.Char('Code', required=True)
+    code = fields.Char('Code', required=True,
+        states = STATES )
 
-    dob = fields.Date('Date of Birth', required=True)
+    dob = fields.Date('Date of Birth', required=True,
+        states = STATES )
 
-    observations = fields.Text('Observations')
+    observations = fields.Text('Observations',
+        states = STATES )
 
-    country = fields.Many2One('country.country','Country', required=True)
+    country = fields.Many2One('country.country','Country', required=True,
+        states = STATES )
 
     country_subdivision = fields.Many2One(
         'country.subdivision', 'Subdivision',
         domain=[('country', '=', Eval('country'))],
-        depends=['country'])
+        depends=['country'],
+        states = STATES )
 
     state = fields.Selection([
         (None, ''),
@@ -2103,16 +2123,22 @@ class DeathCertificate (ModelSQL, ModelView):
     'Death Certificate'
     __name__ = 'gnuhealth.death_certificate'
 
-    name = fields.Many2One('party.party', 'Person', required=True,
-        domain=[('is_person', '=', True),])
+    STATES = {'readonly': Eval('state') == 'done'}
 
-    code = fields.Char('Code', required=True)
+    name = fields.Many2One('party.party', 'Person', required=True,
+        domain=[('is_person', '=', True),],
+        states = STATES)
+
+    code = fields.Char('Code', required=True,
+        states = STATES)
 
     autopsy = fields.Boolean('Autopsy', help="Check this box "
-        "if autopsy has been done")
+        "if autopsy has been done",
+        states = STATES)
      
     dod = fields.DateTime('Date', required=True,
-        help="Date and time of Death")
+        help="Date and time of Death",
+        states = STATES)
 
     type_of_death = fields.Selection(
         [
@@ -2121,7 +2147,8 @@ class DeathCertificate (ModelSQL, ModelView):
             ('homicide', 'Homicide'),
             ('undetermined', 'Undetermined'),
             ('pending_investigation', 'Pending Investigation'),
-        ], 'Type of death', required=True, sort=False,)
+        ], 'Type of death', required=True, sort=False,
+        states = STATES)
 
     place_of_death = fields.Selection(
         [
@@ -2129,26 +2156,33 @@ class DeathCertificate (ModelSQL, ModelView):
             ('work', 'Work'),
             ('public_place', 'Public place'),
             ('health_center', 'Health Center'),
-        ], 'Place', required=True, sort=False,)
+        ], 'Place', required=True, sort=False,
+        states = STATES)
 
     operational_sector = fields.Many2One(
-        'gnuhealth.operational_sector', 'Op. Sector')
+        'gnuhealth.operational_sector', 'Op. Sector',
+        states = STATES)
 
     du = fields.Many2One(
-        'gnuhealth.du', 'DU', help="Domiciliary Unit")
+        'gnuhealth.du', 'DU', help="Domiciliary Unit",
+        states = STATES)
 
-    place_details = fields.Char('Details')
+    place_details = fields.Char('Details',
+        states = STATES)
 
-    country = fields.Many2One('country.country','Country', required=True)
+    country = fields.Many2One('country.country','Country', required=True,
+        states = STATES)
 
     country_subdivision = fields.Many2One(
         'country.subdivision', 'Subdivision',
         domain=[('country', '=', Eval('country'))],
-        depends=['country'])
+        depends=['country'],
+        states = STATES)
 
     age = fields.Function(fields.Char('Age'),'get_age_at_death')
         
-    observations = fields.Text('Observations')
+    observations = fields.Text('Observations',
+        states = STATES)
 
     state = fields.Selection([
         (None, ''),
