@@ -58,6 +58,7 @@ setup(name='trytond_health_reporting',
         'trytond.modules.health_reporting',
         'trytond.modules.health_reporting.wizard',
         'trytond.modules.health_reporting.tests',
+        'trytond.modules.health.report',
         ],
     package_data={
         'trytond.modules.health_reporting': info.get('xml', [])
