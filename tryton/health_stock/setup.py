@@ -55,6 +55,7 @@ setup(name='trytond_health_stock',
     package_dir={'trytond.modules.health_stock': '.'},
     packages=[
         'trytond.modules.health_stock',
+        'trytond.modules.health_stock.wizard',
         'trytond.modules.health_stock.tests',
         ],
     package_data={
