@@ -61,7 +61,8 @@ class SummaryReport(Wizard):
 
     def fill_data(self):
         return {
-            'institution': self.start.institution,
+            'institution': (self.start.institution.id
+                    if self.start.institution else None),
             'start_date': self.start.start_date,
             'end_date': self.start.end_date,
         }
