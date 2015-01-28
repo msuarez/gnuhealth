@@ -347,11 +347,16 @@ class DeathCertificate(ModelSQL, ModelView):
     @ModelView.button
     def generate_death_certificate(cls, certificates):
         certificate = certificates[0]
+        HealthProf = Pool().get('gnuhealth.healthprofessional')
 
         # Change the state of the certificate to "Done"
 
         serial_doc=cls.get_serial(certificate)
         
+        signing_hp = HealthProf.get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
 
         cls.write(certificates, {
             'serializer': serial_doc,
@@ -375,7 +380,8 @@ class DeathCertificate(ModelSQL, ModelView):
         data_to_serialize = { 
             'certificate': unicode(certificate.code) or '',
             'Date': unicode(certificate.dod) or '',
-            'HP': unicode(certificate.signed_by.rec_name),
+            'HP': certificate.signed_by \
+                and unicode(certificate.signed_by.rec_name) or '',
             'Person': unicode(certificate.name.rec_name),
             'Person_dob':unicode(certificate.name.dob) or '',
             'Person_ID': unicode(certificate.name.ref) or '',
