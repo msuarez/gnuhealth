@@ -234,11 +234,16 @@ class BirthCertificate(ModelSQL, ModelView):
     @ModelView.button
     def generate_birth_certificate(cls, certificates):
         certificate = certificates[0]
+        HealthProf = Pool().get('gnuhealth.healthprofessional')
 
         # Change the state of the certificate to "Done"
 
         serial_doc=cls.get_serial(certificate)
         
+        signing_hp = HealthProf.get_health_professional()
+        if not signing_hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
 
         cls.write(certificates, {
             'serializer': serial_doc,
@@ -252,15 +257,18 @@ class BirthCertificate(ModelSQL, ModelView):
         data_to_serialize = { 
             'certificate': unicode(certificate.code) or '',
             'Date': unicode(certificate.dob) or '',
-            'HP': unicode(certificate.signed_by.rec_name),
+            'HP': certificate.signed_by \
+                and unicode(certificate.signed_by.rec_name) or '',
             'Person':unicode(certificate.name.rec_name),
             'Person_dob':unicode(certificate.name.dob) or '',
             'Person_ID': unicode(certificate.name.ref) or '',
             'Country': unicode(certificate.country.rec_name) or '',
             'Country_subdivision': certificate.country_subdivision \
                 and unicode(certificate.country_subdivision.rec_name) or '',
-            'Mother': unicode(certificate.mother.rec_name) or '',
-            'Father': unicode(certificate.father.rec_name) or '',
+            'Mother': certificate.mother \
+                and unicode(certificate.mother.rec_name) or '',
+            'Father': certificate.father \
+                and unicode(certificate.father.rec_name) or '',
             'Observations': unicode(certificate.observations),
              }
 
