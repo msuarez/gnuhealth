@@ -2216,6 +2216,8 @@ class DeathCertificate (ModelSQL, ModelView):
             years_months_days = str(delta.years) + 'y ' \
                 + str(delta.months) + 'm ' \
                 + str(delta.days) + 'd'
+        else:
+            years_months_days = 'No DoB !'
         return years_months_days
         
 class ProductCategory(ModelSQL, ModelView):
