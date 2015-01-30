@@ -1,0 +1,57 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Shigeomi Shibata, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2014-11-22 06:00+0000\n"
+"Last-Translator: Shigeomi Shibata\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "model:product.template,name:product_template_ELISA_analysischarges0"
+msgid "HIV ELISA Analysis Charges"
+msgstr "HIV抗体検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_bacilloscopy_FL_analysischarges0"
+msgid "Fluorescent Bacilloscopy Analysis Charges"
+msgstr "蛍光性細菌検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_bacilloscopy_ZN_analysischarges0"
+msgid "Ziehl Neelsen Bacilloscopy Analysis Charges"
+msgstr "チール‐ネールゼン染色細菌検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_bactec_culture_analysischarges0"
+msgid "BACTEC Culture Analysis Charges"
+msgstr "バクテック培養検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_culture_lj_analysischarges0"
+msgid "Lowenstein-Jensen Culture Analysis Charges"
+msgstr "ローウェンスタイン-ジャンセン培養検査料"
+
+msgctxt "model:product.template,name:product_template_ppd_analysischarges0"
+msgid "Purified Protein Derivative - PPD Analysis Charges"
+msgstr "精製ツベルクリンタンパク体 - PPD検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_western_blot_analysischarges0"
+msgid "Western Blot Analysis Charges"
+msgstr "電気泳動解析料"
+
+msgctxt ""
+"model:product.template,name:product_template_xpert_mtb_rif_analysischarges0"
+msgid "Xpert MTB-RIF Analysis Charges"
+msgstr "Xpert MTB/RIF 検査料"

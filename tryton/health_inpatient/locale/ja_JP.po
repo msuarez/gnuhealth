@@ -1,0 +1,1331 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Shigeomi Shibata, 2014
+# Shinji KOBAYASHI <skoba@moss.gr.jp>, 2014
+# 池田　拓也 <keda.kuya.rc113@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
+"Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.bed.transfer.create:"
+msgid "Destination bed is unavailable"
+msgstr "搬送先の病床が空いていません"
+
+msgctxt "error:gnuhealth.bed.transfer.create:"
+msgid "You have chosen more than 1 records. Please choose only one"
+msgstr "2つ以上のレコードが選択されています。1つだけ選択してください。"
+
+msgctxt "error:gnuhealth.diet.belief:"
+msgid "The Diet code already exists"
+msgstr "この療養食コードは既に存在しています"
+
+msgctxt "error:gnuhealth.diet.therapeutic:"
+msgid "The Diet code already exists"
+msgstr "この療養食コードは既に存在しています"
+
+msgctxt "error:gnuhealth.inpatient.medication.log:"
+msgid "No health professional associated to this user"
+msgstr "担当者が割り当てられていません"
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid "Bed is not available"
+msgstr "病床が空いていません"
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid "Destination bed unavailable"
+msgstr "搬送先の病床が開いていません"
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid "The Registration code already exists"
+msgstr "その登録コードは既に存在します"
+
+msgctxt "field:gnuhealth.appointment,inpatient_registration_code:"
+msgid "Inpatient Registration"
+msgstr "入院登録"
+
+msgctxt "field:gnuhealth.bed.transfer,bed_from:"
+msgid "From"
+msgstr "から"
+
+msgctxt "field:gnuhealth.bed.transfer,bed_to:"
+msgid "To"
+msgstr "まで"
+
+msgctxt "field:gnuhealth.bed.transfer,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.bed.transfer,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.bed.transfer,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.bed.transfer,name:"
+msgid "Registration Code"
+msgstr "登録コード"
+
+msgctxt "field:gnuhealth.bed.transfer,reason:"
+msgid "Reason"
+msgstr "理由"
+
+msgctxt "field:gnuhealth.bed.transfer,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.bed.transfer,transfer_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.bed.transfer,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.bed.transfer,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.bed.transfer.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.bed.transfer.init,newbed:"
+msgid "New Bed"
+msgstr "新規病床"
+
+msgctxt "field:gnuhealth.bed.transfer.init,reason:"
+msgid "Reason"
+msgstr "理由"
+
+msgctxt "field:gnuhealth.diet.belief,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.diet.belief,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.diet.belief,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.diet.belief,description:"
+msgid "Description"
+msgstr "詳細"
+
+msgctxt "field:gnuhealth.diet.belief,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.diet.belief,name:"
+msgid "Belief"
+msgstr "信仰"
+
+msgctxt "field:gnuhealth.diet.belief,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.diet.belief,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.diet.belief,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.diet.therapeutic,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.diet.therapeutic,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.diet.therapeutic,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.diet.therapeutic,description:"
+msgid "Indications"
+msgstr "適応"
+
+msgctxt "field:gnuhealth.diet.therapeutic,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.diet.therapeutic,name:"
+msgid "Diet type"
+msgstr "療養食の種類"
+
+msgctxt "field:gnuhealth.diet.therapeutic,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.diet.therapeutic,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.diet.therapeutic,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.inpatient.diet,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.inpatient.diet,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.inpatient.diet,diet:"
+msgid "Diet"
+msgstr "療養食"
+
+msgctxt "field:gnuhealth.inpatient.diet,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.diet,name:"
+msgid "Registration Code"
+msgstr "登録コード"
+
+msgctxt "field:gnuhealth.inpatient.diet,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.inpatient.diet,remarks:"
+msgid "Remarks / Directions"
+msgstr "特記 / 指示事項"
+
+msgctxt "field:gnuhealth.inpatient.diet,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.inpatient.diet,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.inpatient.medication,admin_times:"
+msgid "Admin times"
+msgstr "管理時間"
+
+msgctxt "field:gnuhealth.inpatient.medication,adverse_reaction:"
+msgid "Adverse Reactions"
+msgstr "副作用"
+
+msgctxt "field:gnuhealth.inpatient.medication,common_dosage:"
+msgid "Frequency"
+msgstr "頻度"
+
+msgctxt "field:gnuhealth.inpatient.medication,course_completed:"
+msgid "Course Completed"
+msgstr "コース完了"
+
+msgctxt "field:gnuhealth.inpatient.medication,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.inpatient.medication,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.inpatient.medication,discontinued:"
+msgid "Discontinued"
+msgstr "中断"
+
+msgctxt "field:gnuhealth.inpatient.medication,discontinued_reason:"
+msgid "Reason for discontinuation"
+msgstr "中断理由"
+
+msgctxt "field:gnuhealth.inpatient.medication,dose:"
+msgid "Dose"
+msgstr "服薬量"
+
+msgctxt "field:gnuhealth.inpatient.medication,dose_unit:"
+msgid "dose unit"
+msgstr "服薬単位"
+
+msgctxt "field:gnuhealth.inpatient.medication,end_treatment:"
+msgid "End"
+msgstr "終了"
+
+msgctxt "field:gnuhealth.inpatient.medication,form:"
+msgid "Form"
+msgstr "伝票"
+
+msgctxt "field:gnuhealth.inpatient.medication,frequency:"
+msgid "Frequency"
+msgstr "頻度"
+
+msgctxt "field:gnuhealth.inpatient.medication,frequency_prn:"
+msgid "PRN"
+msgstr "頓用"
+
+msgctxt "field:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "unit"
+msgstr "単位"
+
+msgctxt "field:gnuhealth.inpatient.medication,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.medication,indication:"
+msgid "Indication"
+msgstr "適応"
+
+msgctxt "field:gnuhealth.inpatient.medication,is_active:"
+msgid "Active"
+msgstr "活動的"
+
+msgctxt "field:gnuhealth.inpatient.medication,log_history:"
+msgid "Log History"
+msgstr "ログ履歴"
+
+msgctxt "field:gnuhealth.inpatient.medication,medicament:"
+msgid "Medicament"
+msgstr "薬剤治療"
+
+msgctxt "field:gnuhealth.inpatient.medication,name:"
+msgid "Registration Code"
+msgstr "登録コード"
+
+msgctxt "field:gnuhealth.inpatient.medication,qty:"
+msgid "x"
+msgstr "x"
+
+msgctxt "field:gnuhealth.inpatient.medication,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.inpatient.medication,route:"
+msgid "Administration Route"
+msgstr "投与ルート"
+
+msgctxt "field:gnuhealth.inpatient.medication,start_treatment:"
+msgid "Start"
+msgstr "開始"
+
+msgctxt "field:gnuhealth.inpatient.medication,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.inpatient.medication,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,admin_time:"
+msgid "Time"
+msgstr "時"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,dose:"
+msgid "Dose"
+msgstr "服薬量"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,dose_unit:"
+msgid "dose unit"
+msgstr "服薬単位"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,name:"
+msgid "Medication"
+msgstr "投薬"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,remarks:"
+msgid "Remarks"
+msgstr "注意点"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.inpatient.medication.admin_time,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,admin_time:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,dose:"
+msgid "Dose"
+msgstr "量"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,dose_unit:"
+msgid "dose unit"
+msgstr "服薬単位"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,health_professional:"
+msgid "Health Professional"
+msgstr "医療従事者"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,name:"
+msgid "Medication"
+msgstr "投薬"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,remarks:"
+msgid "Remarks"
+msgstr "注意点"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.inpatient.medication.log,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.inpatient.registration,admission_reason:"
+msgid "Reason for Admission"
+msgstr "入院理由"
+
+msgctxt "field:gnuhealth.inpatient.registration,admission_type:"
+msgid "Admission type"
+msgstr "入院種別"
+
+msgctxt "field:gnuhealth.inpatient.registration,attending_physician:"
+msgid "Attending Physician"
+msgstr "主治医"
+
+msgctxt "field:gnuhealth.inpatient.registration,bed:"
+msgid "Hospital Bed"
+msgstr "病床"
+
+msgctxt "field:gnuhealth.inpatient.registration,bed_transfers:"
+msgid "Transfer History"
+msgstr "搬送歴"
+
+msgctxt "field:gnuhealth.inpatient.registration,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.inpatient.registration,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.inpatient.registration,diet_belief:"
+msgid "Belief"
+msgstr "信仰"
+
+msgctxt "field:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Vegetarian"
+msgstr "ベジタリアン"
+
+msgctxt "field:gnuhealth.inpatient.registration,discharge_date:"
+msgid "Expected Discharge Date"
+msgstr "退院予定日"
+
+msgctxt "field:gnuhealth.inpatient.registration,discharge_plan:"
+msgid "Discharge Plan"
+msgstr "退院計画"
+
+msgctxt "field:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Discharged by"
+msgstr "以下の理由により退院"
+
+msgctxt "field:gnuhealth.inpatient.registration,hospitalization_date:"
+msgid "Hospitalization date"
+msgstr "入院日数"
+
+msgctxt "field:gnuhealth.inpatient.registration,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.registration,info:"
+msgid "Extra Info"
+msgstr "特記事項"
+
+msgctxt "field:gnuhealth.inpatient.registration,institution:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "field:gnuhealth.inpatient.registration,medications:"
+msgid "Medications"
+msgstr "投薬"
+
+msgctxt "field:gnuhealth.inpatient.registration,name:"
+msgid "Registration Code"
+msgstr "登録コード"
+
+msgctxt "field:gnuhealth.inpatient.registration,nursing_plan:"
+msgid "Nursing Plan"
+msgstr "看護計画"
+
+msgctxt "field:gnuhealth.inpatient.registration,nutrition_notes:"
+msgid "Nutrition notes / directions"
+msgstr "栄養メモ / 指示"
+
+msgctxt "field:gnuhealth.inpatient.registration,operating_physician:"
+msgid "Operating Physician"
+msgstr "執刀医"
+
+msgctxt "field:gnuhealth.inpatient.registration,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.inpatient.registration,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.inpatient.registration,state:"
+msgid "Status"
+msgstr "状態"
+
+msgctxt "field:gnuhealth.inpatient.registration,therapeutic_diets:"
+msgid "Meals / Diet Program"
+msgstr "食事 / 食事療法計画"
+
+msgctxt "field:gnuhealth.inpatient.registration,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.inpatient.registration,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.patient,patient_status:"
+msgid "Hospitalized"
+msgstr "入院している"
+
+msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
+msgid "Inpatient Sequence"
+msgstr "入院手順"
+
+msgctxt "help:gnuhealth.appointment,inpatient_registration_code:"
+msgid "Enter the patient hospitalization code"
+msgstr "患者の入院コードを入力してください"
+
+msgctxt "help:gnuhealth.inpatient.diet,remarks:"
+msgid "specific remarks for this diet / patient"
+msgstr "患者の食事に対する注意点"
+
+msgctxt "help:gnuhealth.inpatient.medication,adverse_reaction:"
+msgid "Side effects or adverse reactions that the patient experienced"
+msgstr "患者が経験した副作用もしくは副反応"
+
+msgctxt "help:gnuhealth.inpatient.medication,common_dosage:"
+msgid "Common / standard dosage frequency for this medicament"
+msgstr "この薬剤の共通 / 標準服用間隔"
+
+msgctxt "help:gnuhealth.inpatient.medication,discontinued_reason:"
+msgid "Short description for discontinuing the treatment"
+msgstr "治療中止に対する簡易説明"
+
+msgctxt "help:gnuhealth.inpatient.medication,dose:"
+msgid "Amount of medication (eg, 250 mg) per dose"
+msgstr "服用ごとの薬量 (例　250 mg)"
+
+msgctxt "help:gnuhealth.inpatient.medication,dose_unit:"
+msgid "Unit of measure for the medication to be taken"
+msgstr "摂取する薬剤の薬量単位"
+
+msgctxt "help:gnuhealth.inpatient.medication,end_treatment:"
+msgid "Date of start of Treatment"
+msgstr "治療開始日"
+
+msgctxt "help:gnuhealth.inpatient.medication,form:"
+msgid "Drug form, such as tablet or gel"
+msgstr "剤型区分 (錠剤、ジェル等)"
+
+msgctxt "help:gnuhealth.inpatient.medication,frequency:"
+msgid ""
+"Time in between doses the patient must wait (ie, for 1 pill each 8 hours, "
+"put here 8 and select \"hours\" in the unit field"
+msgstr "患者が待たなければいけない服用間隔 (例　例えば8時間ごとに1錠までなら、8を入力して単位として\"時間\"を選択する"
+
+msgctxt "help:gnuhealth.inpatient.medication,frequency_prn:"
+msgid "Use it as needed, pro re nata"
+msgstr "必要に応じて服用、頓服"
+
+msgctxt "help:gnuhealth.inpatient.medication,indication:"
+msgid ""
+"Choose a disease for this medicament from the disease list. It can be an "
+"existing disease of the patient or a prophylactic."
+msgstr "疾患リストからこの薬剤に適用される疾患を選択してください。患者の罹患している疾患もしくは感染予防になります。"
+
+msgctxt "help:gnuhealth.inpatient.medication,is_active:"
+msgid "Check if the patient is currently taking the medication"
+msgstr "患者が服薬中ならチェックしてください"
+
+msgctxt "help:gnuhealth.inpatient.medication,medicament:"
+msgid "Prescribed Medicament"
+msgstr "処方された薬剤"
+
+msgctxt "help:gnuhealth.inpatient.medication,qty:"
+msgid "Quantity of units (eg, 2 capsules) of the medicament"
+msgstr "薬の量(例　2カプセル)"
+
+msgctxt "help:gnuhealth.inpatient.medication,route:"
+msgid "Drug administration route code."
+msgstr "薬剤投与ルートコード"
+
+msgctxt "help:gnuhealth.inpatient.medication,start_treatment:"
+msgid "Date of start of Treatment"
+msgstr "治療開始日"
+
+msgctxt "help:gnuhealth.inpatient.medication.admin_time,dose:"
+msgid "Amount of medication (eg, 250 mg) per dose"
+msgstr "服用ごとの薬量 (例　250 mg)"
+
+msgctxt "help:gnuhealth.inpatient.medication.admin_time,dose_unit:"
+msgid "Unit of measure for the medication to be taken"
+msgstr "摂取する薬剤の薬量単位"
+
+msgctxt "help:gnuhealth.inpatient.medication.admin_time,remarks:"
+msgid "specific remarks for this dose"
+msgstr "服用に対する注意点"
+
+msgctxt "help:gnuhealth.inpatient.medication.log,dose:"
+msgid "Amount of medication (eg, 250 mg) per dose"
+msgstr "服用ごとの薬量 (例　250 mg)"
+
+msgctxt "help:gnuhealth.inpatient.medication.log,dose_unit:"
+msgid "Unit of measure for the medication to be taken"
+msgstr "摂取する薬剤の薬量単位"
+
+msgctxt "help:gnuhealth.inpatient.medication.log,remarks:"
+msgid "specific remarks for this dose"
+msgstr "服用に対する注意点"
+
+msgctxt "help:gnuhealth.inpatient.registration,admission_reason:"
+msgid "Reason for Admission"
+msgstr "入院理由"
+
+msgctxt "help:gnuhealth.inpatient.registration,diet_belief:"
+msgid ""
+"Enter the patient belief or religion to choose the             proper diet"
+msgstr "適切な食事を提供するために患者の信仰、信条を入力してください"
+
+msgctxt "help:gnuhealth.inpatient.registration,discharged_by:"
+msgid "Health Professional that discharged the patient"
+msgstr "患者を退院させる医師"
+
+msgctxt "help:gnuhealth.patient,patient_status:"
+msgid "Show the hospitalization status of the patient"
+msgstr "患者の入院の状態を見る"
+
+msgctxt "model:gnuhealth.bed.transfer,name:"
+msgid "Bed transfers"
+msgstr "転床"
+
+msgctxt "model:gnuhealth.bed.transfer.init,name:"
+msgid "Create Bed Transfer Init"
+msgstr "転床の手続きを作成します"
+
+msgctxt "model:gnuhealth.diet.belief,description:BUDDHIST"
+msgid ""
+"While Buddhism does not have specific dietary rules, some buddhists practise"
+" vegetarianism based on a strict interpretation of the first of the Five "
+"Precepts"
+msgstr "仏教徒に特別な食事制限はありませんが、一部の仏教徒は五戒を厳密に解釈した結果、菜食主義者です"
+
+msgctxt "model:gnuhealth.diet.belief,description:EDENIC"
+msgid ""
+"A diet based on what Adam and Eve are believed to have consumed in Garden of"
+" Eden. Usually either vegetarian or vegan, and based predominantly on fruit"
+msgstr "アダムとイブがエデンの園で食べていたとされる食事にもとづきます。通常は菜食主義者もしくは果物のみを摂取する強い菜食主義者（ビーガン）です。"
+
+msgctxt "model:gnuhealth.diet.belief,description:HALLELUJAH"
+msgid ""
+"Hallelujah diet: A form of Christian vegetarianism developed in the 1970s. "
+"The creators interpret a verse from the Bible as suggesting that Christians "
+"should only consume seed bearing plants and fruits."
+msgstr "ハレルヤ食: 1970年代に発展したキリスト教菜食主義。聖書に出てくる詩を解釈し、種のできる植物および果物だけを摂取します。"
+
+msgctxt "model:gnuhealth.diet.belief,description:HINDU"
+msgid ""
+"Hindu and Jain diets: Followers of Hinduism and Jainism often follow lacto-"
+"vegetarian diets, based on the principle of Ahimsa (non-harming)"
+msgstr "ヒンドゥー、ジャイナ食: ヒンドゥー教およびジャイナ教の信仰者は教義にある非暴力(アヒンサ)に基づきしばしば乳菜食者（ラクトベジタリアン）である"
+
+msgctxt "model:gnuhealth.diet.belief,description:ISLAMIC"
+msgid ""
+"Muslims follow a diet consisting solely of food that is halal – permissible "
+"under Islamic law. The opposite of halal is haraam, food that is Islamically"
+" Impermissible. Haraam substances include alcohol, pork, and any meat from "
+"an animal which was not killed through the Islamic method of ritual "
+"slaughter (Dhabiha)"
+msgstr "ムスリム（イスラム教信者）はイスラム法で許されるハラル食のみで構成される食事をする。ハラルの反対はイスラム法で許されないハラムである。ハラムにはアルコール、豚肉、イスラムの正式な屠畜法(ザビハ)で処理されない全ての食肉が含まれる。"
+
+msgctxt "model:gnuhealth.diet.belief,description:ITAL"
+msgid ""
+"I-tal: A set of principles which influences the diet of many members of the "
+"Rastafari movement. One principle is that natural foods should be consumed. "
+"Some Rastafarians interpret I-tal to advocate vegetarianism or veganism"
+msgstr "アイタル: ラスタファリ運動信仰者の多くが準じる食事の原則。原則のひとつは自然食であることである。ラスタファリアンはアイタルから菜食主義やヴィーガンになる。"
+
+msgctxt "model:gnuhealth.diet.belief,description:KOSHER"
+msgid ""
+"Kosher diet: Food permissible under Kashrut, the set of Jewish dietary laws,"
+" is said to be Kosher. Some foods and food combinations are non-Kosher, and "
+"failure to prepare food in accordance with Kashrut can make otherwise "
+"permissible foods non-Kosher."
+msgstr "カシェル食:ユダヤ教の食事に関する清浄規定カシュルートで許される食事はカシェルと呼ばれる。ある食品および食品の組合せはカシェルではないとされ、カシュルートに基づいた食事が準備できない場合、本来カシェルであったほかの食品もカシェルでないことになる。 "
+
+msgctxt "model:gnuhealth.diet.belief,name:"
+msgid "Diet by Belief"
+msgstr "信仰に基づく食事"
+
+msgctxt "model:gnuhealth.diet.belief,name:BUDDHIST"
+msgid "Buddhist"
+msgstr "仏教徒"
+
+msgctxt "model:gnuhealth.diet.belief,name:EDENIC"
+msgid "Edenic"
+msgstr "エデニック"
+
+msgctxt "model:gnuhealth.diet.belief,name:HALLELUJAH"
+msgid "Hallelujah"
+msgstr "ハレルヤ"
+
+msgctxt "model:gnuhealth.diet.belief,name:HINDU"
+msgid "Hindu"
+msgstr "ヒンドゥー教徒"
+
+msgctxt "model:gnuhealth.diet.belief,name:ISLAMIC"
+msgid "Islamic"
+msgstr "ムスリム"
+
+msgctxt "model:gnuhealth.diet.belief,name:ITAL"
+msgid "I-tal"
+msgstr "アイタル"
+
+msgctxt "model:gnuhealth.diet.belief,name:KOSHER"
+msgid "Kosher"
+msgstr "コーシェル"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:2GS"
+msgid ""
+"Used in the treatment of conditions characterized by edema, including the following: cirrhosis of the\n"
+"liver with ascites, Congested Heart Failure - CHF, essential hypertension and renal disease."
+msgstr "浮腫によって特徴づけられる、以下を含む状態の治療に使われる：腹水を伴う肝硬変、鬱血性心不全、本態性高血圧、腎疾患"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:BLAND"
+msgid ""
+"The diet eliminates seasoned foods and condiments that may stimulate gastric"
+" discomfort and GERD"
+msgstr "胃を不快にさせたり胃食道逆流症を引き起こすような香辛料や炒め物を除去したダイエット"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:CARDIAC"
+msgid ""
+"Provides controlled amounts of sodium, cholesterol, saturated and total fat"
+msgstr "ナトリウム、コレステロール、トータルの飽和脂肪がコントロールされたものを提供する"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:CCH"
+msgid ""
+"1200-3000 cal/day .The diet provides consistent amount of carbohydrate based"
+" on caloric level to allow for optimal blood glucose control. The diet "
+"provides a Bedtime snack for all calorie levels. (45% CHO, 25% protein, 30% "
+"fat)"
+msgstr "1200-3000 cal/day. ダイエットでは、カロリーレベルに応じ、血糖管理で許容される、一貫した炭水化物の量を提供する。ダイエットでは夜食をカロリーレベルで提供する(45%CHO, 25%プロテイン、30%脂肪)。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:CDD"
+msgid ""
+"1800-3000 cal/day .The diet provides consistent amount of carbohydrate based"
+" on caloric level to allow for optimal blood glucose control. Snacks "
+"provided between meals to provide approximately 35-40% of Kcal from CHO."
+msgstr "1800-3000 cal/day. ダイエットでは、カロリーレベルに応じ、血糖管理で許容される、一貫した炭水化物の量を提供する。食事間の間食ではCHOにより約35-40%のKcalを提供する。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:CLIQUID"
+msgid ""
+"The diet is indicated for short-term use whenever an acute illness or "
+"surgery causes intolerance to food; or to temporarily restrict undigested "
+"material in the GI tract. The diet is not nutritionally adequate."
+msgstr "この食事は急性の病気や手術により食品を摂取できない場合、もしくは一時的に消化器官で消化制限のある食品がある場合に短期間利用するものである。栄養的に完全な食事ではない。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:CLIQUIDNCS"
+msgid ""
+"Clear liquid diet providing sugar-free products only (No Concentrated "
+"Sugar). This diet provides very limited amounts of carbohydrate."
+msgstr "糖分無しの食品のみで作られた食事(精製糖無し)。この食事ではほんの少量の炭水化物のみ摂取できる"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:DYSA"
+msgid ""
+"Mechanically altered. Meats are ground or minced. Foods are moist, soft-textured, and easily formed into a bolus. All vegetables\n"
+"are fork-mashable. Liquids must be ordered separately as regular, nectar, or honey."
+msgstr "加工した食材。肉類はグラインドもしくはひかれる。食品は水分を含み、やわらかく、容易に丸めることが出来る。全ての野菜は\nフォークでおしつぶせる。飲み物は別に必ず付き、ネクターや蜂蜜、通常の水分が選ばれる"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:DYSAD"
+msgid ""
+"Foods are nearly regular textures with the exception of hard, sticky, or crunchy foods. Foods are moist, bite-sized pieces. All\n"
+"vegetables are fork-mashable. Liquids must be ordered separately as regular, nectar, or honey."
+msgstr "固いもの、しっかりしたもの、カリカリした食品を除きほとんど通常食である。食品は水分を含み、一口サイズになっている。全ての\n野菜はフォークでつぶせる。飲み物は別に必ず付き、普通のもの、ネクターもしくは蜂蜜である。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:DYSP"
+msgid ""
+"For patients with problems chewing and swallowing or esophageal inflammation or varices. Food consistency is blended. Liquids must be ordered\n"
+"separately as regular, nectar, or honey."
+msgstr "咀嚼もしくは嚥下に問題がある、または食道の炎症や静脈瘤を持つ患者用の食事。. いろいろな食品が含まれる。通常の飲み物、ネクター、蜂蜜など水分は別途用意される"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:EMESIS"
+msgid ""
+"The diet provides bland, room temperature or cold foods separated into "
+"solids and liquids. Patients on this diet may request additional foods they "
+"feel can be tolerated. Patients are encouraged to separate their intake of "
+"food and drink"
+msgstr "やわらかく、室温まで温められたもしくは冷ました食事が固形食、流動食と分けられて提供される。患者が摂取可能な場合は他の食品を摂取することも出来る。食事と飲み物は別々に摂取することが推奨される"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:FINGERFOOD"
+msgid ""
+"Indicated for patients who may not be able to use utensils or for patients "
+"confined to a flat-lying position who require heart healthy foods."
+msgstr "食器を持てない、もしくはベットに寝たままの状態が推奨される患者に出される心臓病術後食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:FLLF"
+msgid ""
+"This diet is frequently used for GYN surgical patients. Provides foods such "
+"as non-cream based soups, Jell-O, juice, lactaid milk, tea and coffee"
+msgstr "この食事は婦人科の手術を受けた患者にしばしば用いられる。クリームを使わないスープ、ジェロ（フルーツゼラチンミックス）、ジュース、乳糖分解牛乳、紅茶やコーヒーなどが提供されます"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:FULLLIQUID"
+msgid ""
+"The diet consists of foods that are liquid at body temperature. Foods are "
+"easy to digest and provide minimal stimulation to the GI tract. The diet is "
+"not nutritionally adequate."
+msgstr "体温程度に温められた流動食。容易に消化でき、消化管にほとんど負担がかからない。栄養的には完全ではない"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GB1"
+msgid "Sugar-Free fluids"
+msgstr "無糖の液体"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GB2"
+msgid "Easily digested, semi-liquid foods to be consumed in small amounts."
+msgstr "少量摂取する消化が楽で半分液体状の食品"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GB3"
+msgid "Soft or pureed foods that are easy to chew and digest"
+msgstr "消化しやすく噛みやすい、やわらかいもしくはピューレ上の食品"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GB4"
+msgid "Soft foods such as cooked vegetables and soft or ground meats"
+msgstr "調理された野菜やひき肉などやわらかい食品"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GISOFT"
+msgid ""
+"The diet limits most raw, highly-seasoned and fried foods. The diet contains"
+" only moderate amounts of fiber"
+msgstr "ほとんど生の食品、味の濃い食品、揚げた食品を含まないもの。ある程度の繊維質だけを含んだ食事"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:GLUTENFREE"
+msgid ""
+"The diet omits foods processed with Gluten. The diet is the primary means of"
+" treatment for celiac sprue"
+msgstr "グルテンを含まない食品。セリアック病に対する第一選択となる食事"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:LOWFAT"
+msgid "Provides less than 30% energy from fat."
+msgstr "30%以下のエネルギーを脂肪から供給"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:MS"
+msgid "For patients who have difficulty in chewing or swallowing"
+msgstr "咀嚼や嚥下が困難な患者用"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:NAS"
+msgid ""
+"4 grams Sodium. Provides a moderate sodium restriction by eliminating foods "
+"and condiments high in sodium"
+msgstr "4グラムのナトリウム。食事や香辛料からの高いナトリウムを除外することにより、適度なナトリウム制限を提供する。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:NEUTROPENIC"
+msgid ""
+"The diet eliminates certain foods to provide a lower level of bacteria than "
+"is present in a typical hospital diet."
+msgstr "いくつかの食事を除外したダイエットは典型的な病院食よりもバクテリアのレベルを低くする。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:NPO"
+msgid "Nil per Os. Withhold oral food and fluids from the patient"
+msgstr "絶食。患者の経口食と水分の抑制"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:PGMY"
+msgid ""
+"Low sugar, low fat, low lactose foods. No fluids with meals. Small frequent "
+"feedings"
+msgstr "低糖、低脂肪、低乳糖食。水分の無い食事。小間隔の食事摂取"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:PRERENAL"
+msgid ""
+"Provides limited amounts of protein (40-60g/d), potassium (2g/d), and sodium"
+" (2g/d) for the pre-dialyzed patient."
+msgstr "制限されたプロテインの(40-60g/d)、カリウム(2g/d)、及びナトリウム(2g/d)を透析前の患者に提供する"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:REG"
+msgid "No dietary modifications required"
+msgstr "食習慣の改善の必要無し"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:RENAL"
+msgid ""
+"Provides adequate protein (80 - 100g/d) and limited amounts of potassium "
+"(2g) and sodium (2g) for the dialyzed patient."
+msgstr "透析前の患者に、適切なプロテイン(80-100g/d)と総量を制限されたカリウム(2g)、ナトリウム(2g)を提供する"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:SFM"
+msgid "The diet provides 6 small meals daily"
+msgstr "一日に6回、少量の食事を提供するダイエット"
+
+msgctxt "model:gnuhealth.diet.therapeutic,description:SLL"
+msgid "Soft bland foods that have low fiber content. Lactose is limited."
+msgstr "食物繊維をあまり含まない、低刺激な食事。乳糖は制限されている。"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:"
+msgid "Diet Therapy"
+msgstr "ダイエットTherapy"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:2GS"
+msgid "2 gram Sodium"
+msgstr "2gのナトリウム"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:BLAND"
+msgid "Bland"
+msgstr "無菌性"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:CARDIAC"
+msgid "Cardiac"
+msgstr "心臓病患者"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:CCH"
+msgid "Consistent Carbohydrate"
+msgstr "一定の炭水化物"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:CDD"
+msgid "Gestational Diabetic Diet"
+msgstr "妊娠による糖尿病の患者のダイエット"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:CLIQUID"
+msgid "Clear Liquid"
+msgstr "Liquid"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:CLIQUIDNCS"
+msgid "Clear Liquid / NCS"
+msgstr "清澄液 / NCS"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:DYSA"
+msgid "Dysphagia Altered"
+msgstr "嚥下改良食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:DYSAD"
+msgid "Dysphagia Advanced"
+msgstr "嚥下食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:DYSP"
+msgid "Dysphagia Puree"
+msgstr "嚥下食ピューレ"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:EMESIS"
+msgid "Hyperemesis"
+msgstr "妊娠悪阻"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:FINGERFOOD"
+msgid "Finger Food"
+msgstr "指でつまんで食べられる物(軽食)"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:FLLF"
+msgid "Full Liquid Lactose Free"
+msgstr "乳糖を含まない全流動食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:FULLLIQUID"
+msgid "Full Liquid"
+msgstr "全流動食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GB1"
+msgid "Gastric Bypass Stage 1"
+msgstr "胃バイパス術　ステージ1"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GB2"
+msgid "Gastric Bypass Stage 2"
+msgstr "胃パイパス術　ステージ2"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GB3"
+msgid "Gastric Bypass Stage 3"
+msgstr "胃バイパス術　ステージ3"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GB4"
+msgid "Gastric Bypass Stage 4"
+msgstr "胃バイパス術　ステージ4"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GISOFT"
+msgid "GI Soft - Low Residue"
+msgstr "GI（消化管）ソフト - 固形分ほぼ無し"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:GLUTENFREE"
+msgid "Gluten Free"
+msgstr "グルテンフリー"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:LOWFAT"
+msgid "Low-Fat"
+msgstr "低脂肪"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:MS"
+msgid "Mechanical Soft / Dental Soft"
+msgstr "加工食 / メカニカルソフト・デンタルソフト"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:NAS"
+msgid "Not Added Salt - NAS"
+msgstr "脱塩食 - NAS"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:NEUTROPENIC"
+msgid "Neutropenic"
+msgstr "好中球減少症"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:NPO"
+msgid "Nothing by Mouth / NPO "
+msgstr "絶食、経口摂取禁止 / NPO"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:PGMY"
+msgid "Post-Gastrectomy"
+msgstr "胃切除術後食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:PRERENAL"
+msgid "PRERENAL"
+msgstr "前腎性"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:REG"
+msgid "Regular"
+msgstr "通常"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:RENAL"
+msgid "RENAL"
+msgstr "腎性"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:SFM"
+msgid "Small Frequent Meals"
+msgstr "少回数食"
+
+msgctxt "model:gnuhealth.diet.therapeutic,name:SLL"
+msgid "Surgical Low Lactose"
+msgstr "胃切除後乳糖不耐"
+
+msgctxt "model:gnuhealth.inpatient.diet,name:"
+msgid "Inpatient Diet"
+msgstr "入院食"
+
+msgctxt "model:gnuhealth.inpatient.medication,name:"
+msgid "Inpatient Medication"
+msgstr "入院患者の投薬治療"
+
+msgctxt "model:gnuhealth.inpatient.medication.admin_time,name:"
+msgid "Inpatient Medication Admin Times"
+msgstr "入院時服薬管理時間"
+
+msgctxt "model:gnuhealth.inpatient.medication.log,name:"
+msgid "Inpatient Medication Log History"
+msgstr "入院時服薬記録"
+
+msgctxt "model:gnuhealth.inpatient.registration,name:"
+msgid "Patient admission History"
+msgstr "患者管理記録"
+
+msgctxt "model:ir.action,name:act_create_patient_bed_transfer"
+msgid "Bed Transfer"
+msgstr "転床"
+
+msgctxt "model:ir.action,name:gnuhealth_action_inpatient_registration"
+msgid "Hospitalizations"
+msgstr "入院"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_inpatient_registration"
+msgid "Inpatient Registration"
+msgstr "入院登録"
+
+msgctxt ""
+"model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_registration"
+msgid "Inpatient Registration"
+msgstr "入院登録"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_menu"
+msgid "Hospitalizations"
+msgstr "入院"
+
+msgctxt "model:res.group,name:group_health_inpatient_admin"
+msgid "Health Inpatient Administration"
+msgstr "入院管理"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "days"
+msgstr "日"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "hours"
+msgstr "時"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "minutes"
+msgstr "分"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "seconds"
+msgstr "秒"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "weeks"
+msgstr "週間"
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid "when required"
+msgstr "必要時に"
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Elective"
+msgstr "選択性"
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Emergency"
+msgstr "危機"
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Maternity"
+msgstr "母性"
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Routine"
+msgstr "日常"
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid "Urgent"
+msgstr "緊急"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Lacto vegetarian"
+msgstr "乳菜食者（ラクトベジタリアン）"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Lacto-ovo vegetarian"
+msgstr "乳卵菜食者（ラクトオボベジタリアン）"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "None"
+msgstr "なし"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Pescetarian"
+msgstr "非肉食者（ペスキタリアン）"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Vegan"
+msgstr "完全菜食者（ヴィーガン）"
+
+msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
+msgid "Vegetarian"
+msgstr "ベジタリアン"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "Done"
+msgstr "実施済み"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "cancelled"
+msgstr "キャンセルされた"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "confirmed"
+msgstr "確認された"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "free"
+msgstr "空き"
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "hospitalized"
+msgstr "入院中"
+
+msgctxt "view:gnuhealth.bed.transfer.init:"
+msgid "Patient Bed Transfer"
+msgstr "患者転床"
+
+msgctxt "view:gnuhealth.bed.transfer:"
+msgid "Bed Transfer History"
+msgstr "転床履歴"
+
+msgctxt "view:gnuhealth.diet.belief:"
+msgid "Diet Description"
+msgstr "食事の記述"
+
+msgctxt "view:gnuhealth.diet.belief:"
+msgid "Diet related to beliefs"
+msgstr "信仰に基づいた食事"
+
+msgctxt "view:gnuhealth.diet.belief:"
+msgid "Therapeutic Diet"
+msgstr "治療食"
+
+msgctxt "view:gnuhealth.diet.therapeutic:"
+msgid "Diet Description and Indications"
+msgstr "食事の説明と指示"
+
+msgctxt "view:gnuhealth.diet.therapeutic:"
+msgid "Therapeutic Diet"
+msgstr "治療食"
+
+msgctxt "view:gnuhealth.inpatient.diet:"
+msgid "Inpatient Diet"
+msgstr "入院食"
+
+msgctxt "view:gnuhealth.inpatient.medication.admin_time:"
+msgid "Inpatient Medication Admin Times"
+msgstr "入院時服薬管理時間"
+
+msgctxt "view:gnuhealth.inpatient.medication.log:"
+msgid "Inpatient Medication Log"
+msgstr "入院時服薬記録"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Admnistration"
+msgstr "管理"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Adverse Reactions and Notes"
+msgstr "副作用と注意"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Dosage"
+msgstr "適用量"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Extra Info"
+msgstr "特記事項"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "General Info"
+msgstr "概要"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Inpatient Medication"
+msgstr "入院患者の投薬治療"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Medication"
+msgstr "投薬"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Status"
+msgstr "状態"
+
+msgctxt "view:gnuhealth.inpatient.medication:"
+msgid "Treatment period"
+msgstr "治療期日"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Administrative data"
+msgstr "摂取データ"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admission"
+msgstr "入院"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Admit the patient in the health institution and assign the bed"
+msgstr "患者を医療機関に受け入れ、病床を確保する"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel Registration"
+msgstr "登録取消"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Cancel the patient registration process ?"
+msgstr "患者登録を中断しますか？"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Care Plan"
+msgstr "ケアプラン"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm"
+msgstr "確認"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Confirm Registration / Make the reservation"
+msgstr "登録を確認 / 予約を作成する"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge"
+msgstr "退院"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Discharge Patient"
+msgstr "退院した患者"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Inpatient Registration Info"
+msgstr "入院登録情報"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Inpatient Registration Information"
+msgstr "入院登録情報"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Medication Plan"
+msgstr "投薬計画"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Nutrition"
+msgstr "栄養状態"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Other nutrition notes / directions"
+msgstr "他の栄養メモ / 指示"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid "Patient Admission"
+msgstr "患者管理"
+
+msgctxt "view:gnuhealth.inpatient.registration:"
+msgid ""
+"You are about to SIGN the discharge the patient from the health institution."
+" This record will become READ ONLY "
+msgstr "医療機関からの患者の退院を認めサインしようとしています。この記録には今後書き込みできなくなります"
+
+msgctxt ""
+"wizard_button:gnuhealth.bed.transfer.create,start,create_bed_transfer:"
+msgid "Transfer Patient"
+msgstr "患者の転院"
+
+msgctxt "wizard_button:gnuhealth.bed.transfer.create,start,end:"
+msgid "Cancel"
+msgstr "キャンセル"

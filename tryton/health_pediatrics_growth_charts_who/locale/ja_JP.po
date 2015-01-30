@@ -1,0 +1,991 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014-2015
+# Shigeomi Shibata, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-20 21:31+0000\n"
+"Last-Translator: Kentaro Hatori <hatori@hatochan.dyndns.org>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Indicator"
+msgstr "指標"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "Measure"
+msgstr "測定"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,month:"
+msgid "Month"
+msgstr "月"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Sex"
+msgstr "性別"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,type:"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,value:"
+msgid "Value"
+msgstr "値"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who.report.open.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt ""
+"field:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Indicator"
+msgstr "指標"
+
+msgctxt ""
+"field:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "Measure"
+msgstr "測定"
+
+msgctxt "model:gnuhealth.pediatrics.growth.charts.who,name:"
+msgid "Pediatrics Growth Chart WHO"
+msgstr "WHO小児用成長曲線"
+
+msgctxt "model:gnuhealth.pediatrics.growth.charts.who.report.open.start,name:"
+msgid "Open Pediatrics Growth Charts WHO Report Start"
+msgstr "WHO小児用成長曲線レポートを開く"
+
+msgctxt "model:ir.action,name:gnuhealth_action_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr "WHO小児用成長曲線"
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_bmifa"
+msgid "Pediatrics Growth Charts WHO - BMI for age"
+msgstr "WHO小児用成長曲線 - 年齢別BMI"
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_lhfa"
+msgid "Pediatrics Growth Charts WHO - Length/Height for age"
+msgstr "WHO小児用成長曲線 - 年齢別長さ/身長"
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_wfa"
+msgid "Pediatrics Growth Charts WHO - Weight for age"
+msgstr "WHO小児用成長曲線 - 年齢別体重"
+
+msgctxt "model:ir.action,name:wizard_pediatrics_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr "WHO小児用成長曲線"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr "WHO小児用成長曲線"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "0"
+msgstr "0"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "1"
+msgstr "1"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "10"
+msgstr "10"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "11"
+msgstr "11"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "12"
+msgstr "12"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "13"
+msgstr "13"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "14"
+msgstr "14"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "15"
+msgstr "15"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "16"
+msgstr "16"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "17"
+msgstr "17"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "18"
+msgstr "18"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "19"
+msgstr "19"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "2"
+msgstr "2"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "20"
+msgstr "20"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "21"
+msgstr "21"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "22"
+msgstr "22"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "23"
+msgstr "23"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "24"
+msgstr "24"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "25"
+msgstr "25"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "26"
+msgstr "26"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "27"
+msgstr "27"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "28"
+msgstr "28"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "29"
+msgstr "29"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "3"
+msgstr "3"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "30"
+msgstr "30"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "31"
+msgstr "31"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "32"
+msgstr "32"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "33"
+msgstr "33"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "34"
+msgstr "34"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "35"
+msgstr "35"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "36"
+msgstr "36"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "37"
+msgstr "37"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "38"
+msgstr "38"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "39"
+msgstr "39"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "4"
+msgstr "4"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "40"
+msgstr "40"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "41"
+msgstr "41"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "42"
+msgstr "42"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "43"
+msgstr "43"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "44"
+msgstr "44"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "45"
+msgstr "45"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "46"
+msgstr "46"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "47"
+msgstr "47"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "48"
+msgstr "48"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "49"
+msgstr "49"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "5"
+msgstr "5"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "50"
+msgstr "50"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "51"
+msgstr "51"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "52"
+msgstr "52"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "53"
+msgstr "53"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "54"
+msgstr "54"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "55"
+msgstr "55"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "56"
+msgstr "56"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "57"
+msgstr "57"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "58"
+msgstr "58"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "59"
+msgstr "59"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "6"
+msgstr "6"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "60"
+msgstr "60"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "7"
+msgstr "7"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "8"
+msgstr "8"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "9"
+msgstr "9"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Month"
+msgstr "月"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
+msgid "Patient ID"
+msgstr "患者ID"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "0"
+msgstr "0"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "1"
+msgstr "1"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "10"
+msgstr "10"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "11"
+msgstr "11"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "12"
+msgstr "12"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "13"
+msgstr "13"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "14"
+msgstr "14"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "15"
+msgstr "15"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "16"
+msgstr "16"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "17"
+msgstr "17"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "18"
+msgstr "18"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "19"
+msgstr "19"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "2"
+msgstr "2"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "20"
+msgstr "20"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "21"
+msgstr "21"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "22"
+msgstr "22"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "23"
+msgstr "23"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "24"
+msgstr "24"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "25"
+msgstr "25"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "26"
+msgstr "26"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "27"
+msgstr "27"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "28"
+msgstr "28"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "29"
+msgstr "29"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "3"
+msgstr "3"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "30"
+msgstr "30"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "31"
+msgstr "31"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "32"
+msgstr "32"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "33"
+msgstr "33"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "34"
+msgstr "34"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "35"
+msgstr "35"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "36"
+msgstr "36"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "37"
+msgstr "37"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "38"
+msgstr "38"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "39"
+msgstr "39"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "4"
+msgstr "4"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "40"
+msgstr "40"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "41"
+msgstr "41"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "42"
+msgstr "42"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "43"
+msgstr "43"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "44"
+msgstr "44"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "45"
+msgstr "45"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "46"
+msgstr "46"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "47"
+msgstr "47"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "48"
+msgstr "48"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "49"
+msgstr "49"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "5"
+msgstr "5"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "50"
+msgstr "50"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "51"
+msgstr "51"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "52"
+msgstr "52"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "53"
+msgstr "53"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "54"
+msgstr "54"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "55"
+msgstr "55"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "56"
+msgstr "56"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "57"
+msgstr "57"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "58"
+msgstr "58"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "59"
+msgstr "59"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "6"
+msgstr "6"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "60"
+msgstr "60"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "7"
+msgstr "7"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "8"
+msgstr "8"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "9"
+msgstr "9"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Month"
+msgstr "月"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
+msgid "Patient ID"
+msgstr "患者ID"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "0"
+msgstr "0"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "1"
+msgstr "1"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "10"
+msgstr "10"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "11"
+msgstr "11"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "12"
+msgstr "12"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "13"
+msgstr "13"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "14"
+msgstr "14"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "15"
+msgstr "15"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "16"
+msgstr "16"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "17"
+msgstr "17"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "18"
+msgstr "18"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "19"
+msgstr "19"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "2"
+msgstr "2"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "20"
+msgstr "20"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "21"
+msgstr "21"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "22"
+msgstr "22"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "23"
+msgstr "23"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "24"
+msgstr "24"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "25"
+msgstr "25"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "26"
+msgstr "26"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "27"
+msgstr "27"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "28"
+msgstr "28"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "29"
+msgstr "29"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "3"
+msgstr "3"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "30"
+msgstr "30"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "31"
+msgstr "31"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "32"
+msgstr "32"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "33"
+msgstr "33"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "34"
+msgstr "34"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "35"
+msgstr "35"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "36"
+msgstr "36"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "37"
+msgstr "37"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "38"
+msgstr "38"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "39"
+msgstr "39"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "4"
+msgstr "4"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "40"
+msgstr "40"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "41"
+msgstr "41"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "42"
+msgstr "42"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "43"
+msgstr "43"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "44"
+msgstr "44"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "45"
+msgstr "45"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "46"
+msgstr "46"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "47"
+msgstr "47"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "48"
+msgstr "48"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "49"
+msgstr "49"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "5"
+msgstr "5"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "50"
+msgstr "50"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "51"
+msgstr "51"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "52"
+msgstr "52"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "53"
+msgstr "53"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "54"
+msgstr "54"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "55"
+msgstr "55"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "56"
+msgstr "56"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "57"
+msgstr "57"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "58"
+msgstr "58"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "59"
+msgstr "59"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "6"
+msgstr "6"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "60"
+msgstr "60"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "7"
+msgstr "7"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "8"
+msgstr "8"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "9"
+msgstr "9"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Month"
+msgstr "月"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "Patient ID"
+msgstr "患者ID"
+
+msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
+msgid "gráfico"
+msgstr "図形"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Body mass index for age (BMI for age)"
+msgstr "年齢別体格指数(年齢別BMI)"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Length/height for age"
+msgstr "年齢別長さ/身長"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Weight for age"
+msgstr "年齢別体重"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "percentiles"
+msgstr "パーセンタイル"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "z-scores"
+msgstr "Zスコア"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Body mass index for age (BMI for age)"
+msgstr "年齢別体格指数(年齢別BMI)"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Length/height for age"
+msgstr "年齢別長さ/身長"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Weight for age"
+msgstr "年齢別体重"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "percentiles"
+msgstr "パーセンタイル"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "z-scores"
+msgstr "Zスコア"
+
+msgctxt "view:gnuhealth.pediatrics.growth.charts.who.report.open.start:"
+msgid "Pediatrics Growth Charts WHO Report"
+msgstr "WHO小児用成長曲線レポート"
+
+msgctxt "view:gnuhealth.pediatrics.growth.charts.who:"
+msgid "Pediatrics Growth Charts WHO"
+msgstr "WHO小児用成長曲線"
+
+msgctxt ""
+"wizard_button:gnuhealth.pediatrics.growth.charts.who.report.open,start,choose:"
+msgid "Open"
+msgstr "開く"
+
+msgctxt ""
+"wizard_button:gnuhealth.pediatrics.growth.charts.who.report.open,start,end:"
+msgid "Cancel"
+msgstr "キャンセル"

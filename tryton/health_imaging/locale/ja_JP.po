@@ -1,0 +1,454 @@
+# 
+# Translators:
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# nyokohama <nyokohama@gmail.com>, 2014
+# Shinji KOBAYASHI <skoba@moss.gr.jp>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
+"Last-Translator: Kentaro Hatori <hatori@hatochan.dyndns.org>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.imaging.test,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.imaging.test,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.imaging.test,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.imaging.test,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.imaging.test,name:"
+msgid "Name"
+msgstr "氏名"
+
+msgctxt "field:gnuhealth.imaging.test,product:"
+msgid "Service"
+msgstr "サービス"
+
+msgctxt "field:gnuhealth.imaging.test,rec_name:"
+msgid "Name"
+msgstr "氏名"
+
+msgctxt "field:gnuhealth.imaging.test,test_type:"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "field:gnuhealth.imaging.test,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.imaging.test,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.imaging.test.request,comment:"
+msgid "Comment"
+msgstr "コメント"
+
+msgctxt "field:gnuhealth.imaging.test.request,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.imaging.test.request,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.imaging.test.request,date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.imaging.test.request,doctor:"
+msgid "Doctor"
+msgstr "医師"
+
+msgctxt "field:gnuhealth.imaging.test.request,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.imaging.test.request,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.imaging.test.request,rec_name:"
+msgid "Name"
+msgstr "氏名"
+
+msgctxt "field:gnuhealth.imaging.test.request,request:"
+msgid "Request"
+msgstr "依頼"
+
+msgctxt "field:gnuhealth.imaging.test.request,requested_test:"
+msgid "Test"
+msgstr "検査"
+
+msgctxt "field:gnuhealth.imaging.test.request,state:"
+msgid "State"
+msgstr "州"
+
+msgctxt "field:gnuhealth.imaging.test.request,urgent:"
+msgid "Urgent"
+msgstr "緊急"
+
+msgctxt "field:gnuhealth.imaging.test.request,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.imaging.test.request,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.imaging.test.result,comment:"
+msgid "Comment"
+msgstr "コメント"
+
+msgctxt "field:gnuhealth.imaging.test.result,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.imaging.test.result,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.imaging.test.result,date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.imaging.test.result,doctor:"
+msgid "Doctor"
+msgstr "医師"
+
+msgctxt "field:gnuhealth.imaging.test.result,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.imaging.test.result,images:"
+msgid "Images"
+msgstr "画像"
+
+msgctxt "field:gnuhealth.imaging.test.result,number:"
+msgid "Number"
+msgstr "番号"
+
+msgctxt "field:gnuhealth.imaging.test.result,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.imaging.test.result,rec_name:"
+msgid "Name"
+msgstr "氏名"
+
+msgctxt "field:gnuhealth.imaging.test.result,request:"
+msgid "Request"
+msgstr "依頼"
+
+msgctxt "field:gnuhealth.imaging.test.result,request_date:"
+msgid "Requested Date"
+msgstr "希望日"
+
+msgctxt "field:gnuhealth.imaging.test.result,requested_test:"
+msgid "Test"
+msgstr "検査"
+
+msgctxt "field:gnuhealth.imaging.test.result,write_date:"
+msgid "Write Date"
+msgstr "記入日"
+
+msgctxt "field:gnuhealth.imaging.test.result,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.imaging.test.type,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.imaging.test.type,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.imaging.test.type,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.imaging.test.type,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.imaging.test.type,name:"
+msgid "Name"
+msgstr "名称"
+
+msgctxt "field:gnuhealth.imaging.test.type,rec_name:"
+msgid "Name"
+msgstr "名称"
+
+msgctxt "field:gnuhealth.imaging.test.type,write_date:"
+msgid "Write Date"
+msgstr "記入日"
+
+msgctxt "field:gnuhealth.imaging.test.type,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,doctor:"
+msgid "Doctor"
+msgstr "医師"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,tests:"
+msgid "Tests"
+msgstr "検査"
+
+msgctxt "field:gnuhealth.patient.imaging.test.request.start,urgent:"
+msgid "Urgent"
+msgstr "緊急"
+
+msgctxt "field:gnuhealth.request-imaging-test,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.request-imaging-test,request:"
+msgid "Request"
+msgstr "依頼"
+
+msgctxt "field:gnuhealth.request-imaging-test,test:"
+msgid "Test"
+msgstr "検査"
+
+msgctxt "field:gnuhealth.sequences,imaging_request_sequence:"
+msgid "Imaging Request Sequence"
+msgstr "検査依頼順"
+
+msgctxt "field:gnuhealth.sequences,imaging_sequence:"
+msgid "Imaging Sequence"
+msgstr "画像シークエンス"
+
+msgctxt "help:gnuhealth.patient.imaging.test.request.start,doctor:"
+msgid "Doctor who Request the lab tests."
+msgstr "検査を依頼した医師"
+
+msgctxt "model:gnuhealth.imaging.test,name:"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "model:gnuhealth.imaging.test.request,name:"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:gnuhealth.imaging.test.result,name:"
+msgid "Imaging Test Result"
+msgstr "画像検査結果"
+
+msgctxt "model:gnuhealth.imaging.test.type,name:"
+msgid "Imaging Test Type"
+msgstr "画像検査種別"
+
+msgctxt "model:gnuhealth.patient.imaging.test.request.start,name:"
+msgid "Request Patient Imaging Test Start"
+msgstr "患者画像検査の開始依頼"
+
+msgctxt "model:gnuhealth.request-imaging-test,name:"
+msgid "Request - Test"
+msgstr "依頼 - 検査"
+
+msgctxt "model:ir.action,name:act_imaging_test_request_view"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.action,name:act_imaging_test_request_view2"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.action,name:act_imaging_test_result_view"
+msgid "Imaging Test Result"
+msgstr "画像検査結果"
+
+msgctxt "model:ir.action,name:act_imaging_test_result_view2"
+msgid "Imaging Test Results"
+msgstr "画像検査結果"
+
+msgctxt "model:ir.action,name:act_imaging_test_type_view"
+msgid "Imaging Test Type"
+msgstr "画像検査種別"
+
+msgctxt "model:ir.action,name:act_imaging_test_view"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "model:ir.action,name:patient_imaging_test_request"
+msgid "Request Imaging Test"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.action,name:wizard_generate_result"
+msgid "Generate Result"
+msgstr "結果報告書を作成"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_imaging_test_request_domain_all"
+msgid "All"
+msgstr "全て"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_imaging_test_request_domain_done"
+msgid "Done"
+msgstr "実施済み"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_imaging_test_request_domain_draft"
+msgid "Draft"
+msgstr "ドラフト"
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_imaging_test_request_domain_requested"
+msgid "Requested"
+msgstr "依頼ずみ"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test_request"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test_request"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging"
+msgid "Imaging"
+msgstr "画像"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging_test_parent"
+msgid "Imaging"
+msgstr "画像"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging_test_request_view"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging_test_result_view"
+msgid "Imaging Test Result"
+msgstr "画像検査結果"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging_test_type"
+msgid "Imaging Test Type"
+msgstr "画像検査種別"
+
+msgctxt "model:ir.ui.menu,name:menu_imaging_test_view"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "model:ir.ui.menu,name:menu_patient_imaging_test_request"
+msgid "Request Imaging Test"
+msgstr "画像検査を依頼する"
+
+msgctxt "model:product.category,name:product_category_imagingservices"
+msgid "Imaging Services"
+msgstr "画像サービス"
+
+msgctxt "model:product.template,name:product_template_ctscancharges"
+msgid "CT Scan charges"
+msgstr "CT検査費用"
+
+msgctxt "model:product.template,name:product_template_mricharges"
+msgid "MRI charges"
+msgstr "MRI検査費用"
+
+msgctxt "model:product.template,name:product_template_petscancharges"
+msgid "PET Scan charges"
+msgstr "PET検査費用"
+
+msgctxt "model:product.template,name:product_template_ultrasoundcharges"
+msgid "Ultrasound charges"
+msgstr "超音波検査費用"
+
+msgctxt "model:product.template,name:product_template_xraycharges"
+msgid "X-ray charges"
+msgstr "X線検査費用"
+
+msgctxt "selection:gnuhealth.imaging.test.request,state:"
+msgid "Done"
+msgstr "実施済み"
+
+msgctxt "selection:gnuhealth.imaging.test.request,state:"
+msgid "Draft"
+msgstr "ドラフト"
+
+msgctxt "selection:gnuhealth.imaging.test.request,state:"
+msgid "Requested"
+msgstr "依頼ずみ"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Generate Results"
+msgstr "結果報告書を作成"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Imaging Test Request"
+msgstr "画像検査依頼"
+
+msgctxt "view:gnuhealth.imaging.test.request:"
+msgid "Request"
+msgstr "依頼"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Comment"
+msgstr "コメント"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Images"
+msgstr "画像"
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Imaging Test Result"
+msgstr "画像検査結果"
+
+msgctxt "view:gnuhealth.imaging.test.type:"
+msgid "Imaging Test Type"
+msgstr "画像検査種別"
+
+msgctxt "view:gnuhealth.imaging.test:"
+msgid "Imaging Test"
+msgstr "画像検査"
+
+msgctxt "view:gnuhealth.patient.imaging.test.request.start:"
+msgid "Request Imaging Test"
+msgstr "画像検査を依頼する"
+
+msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,request:"
+msgid "Request"
+msgstr "依頼"
