@@ -2,20 +2,21 @@
 # Translators:
 # @atzerritik, 2014
 # @atzerritik, 2014
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014-2015
 # Carlos <carloschebair@gmail.com>, 2013
 # cristina <cmelgosa@thymbra.com>, 2012
 # cristina <cmelgosa@thymbra.com>, 2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2013
-# meanmicio <lfalcon@gnusolidario.org>, 2011,2013
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013
+# Luis Falcon <lfalcon@gnusolidario.org>, 2011,2013
 # Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:31+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +55,7 @@ msgstr "Cama no disponible"
 
 msgctxt "error:gnuhealth.inpatient.registration:"
 msgid "The Registration code already exists"
-msgstr "El código de registro ya existe !"
+msgstr "El código de registro ya existe"
 
 msgctxt "field:gnuhealth.appointment,inpatient_registration_code:"
 msgid "Inpatient Registration"
@@ -238,7 +239,7 @@ msgstr "Frecuencia"
 
 msgctxt "field:gnuhealth.inpatient.medication,course_completed:"
 msgid "Course Completed"
-msgstr "Tratamiento completado"
+msgstr "Completó el tratamiento"
 
 msgctxt "field:gnuhealth.inpatient.medication,create_date:"
 msgid "Create Date"
@@ -533,8 +534,8 @@ msgid "Write User"
 msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.patient,patient_status:"
-msgid "Hospitalization Status"
-msgstr "Estado de Hospitalización "
+msgid "Hospitalized"
+msgstr "Hospitalizado"
 
 msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
 msgid "Inpatient Sequence"
@@ -650,8 +651,8 @@ msgid "Health Professional that discharged the patient"
 msgstr "Profesional de la Salud que dio de baja al paciente"
 
 msgctxt "help:gnuhealth.patient,patient_status:"
-msgid "Patient current Hospitalization Status"
-msgstr "Estado del paciente hospitalizado "
+msgid "Show the hospitalization status of the patient"
+msgstr "Muestra el estado de la hospitalización del paciente"
 
 msgctxt "model:gnuhealth.bed.transfer,name:"
 msgid "Bed transfers"
@@ -1170,7 +1171,7 @@ msgstr "confirmado"
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "free"
-msgstr "libre"
+msgstr "Libre"
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "hospitalized"
@@ -1274,7 +1275,7 @@ msgstr "Cancelar registro"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Cancel the patient registration process ?"
-msgstr "Cancelar el proceso de registro del paciente ?"
+msgstr "¿Cancelar el proceso de registro del paciente?"
 
 msgctxt "view:gnuhealth.inpatient.registration:"
 msgid "Care Plan"

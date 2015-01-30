@@ -1,20 +1,21 @@
 # 
 # Translators:
-# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014-2015
 # cristina <cmelgosa@thymbra.com>, 2011, 2012
 # cristina <cmelgosa@thymbra.com>, 2011-2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2013
 # Iván López Pérez <ioloo00@eresmas.com>, 2012
 # Iván López Pérez <ioloo00@eresmas.com>, 2012-2013
-# meanmicio <lfalcon@gnusolidario.org>, 2013-2014
-# meanmicio <lfalcon@gnusolidario.org>, 2011
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013-2014
+# Luis Falcon <lfalcon@gnusolidario.org>, 2011
+# Luis Falcon <lfalcon@gnusolidario.org>, 2011
 # Sebastián Marró <smarro@thymbra.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -239,6 +240,14 @@ msgctxt "field:gnuhealth.surgery,rec_name:"
 msgid "Name"
 msgstr "Nombre"
 
+msgctxt "field:gnuhealth.surgery,report_surgery_date:"
+msgid "Surgery Date"
+msgstr "Fecha de la cirugía"
+
+msgctxt "field:gnuhealth.surgery,report_surgery_time:"
+msgid "Surgery Time"
+msgstr "Hora de la cirugía"
+
 msgctxt "field:gnuhealth.surgery,signed_by:"
 msgid "Signed by"
 msgstr "Firmado por"
@@ -346,15 +355,13 @@ msgstr "ASA Estado pre-quirúrgico"
 
 msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
 msgid ""
-"Check this box if patient has a risk of loosing more than 500 ml in adults "
-"of over 7ml/kg in infants. If so, make sure that intravenous access and "
-"fluids are available"
-msgstr "Marque esta casilla si el paciente tiene riesgo de perder más de 500 ml en adultos y más de 7ml/kg en niños. Si es así, asegúrese que están disponibles las vías intravenosas y fluidos."
+"Patient has a risk of losing more than 500 ml in adults of over 7ml/kg in "
+"infants. If so, make sure that intravenous access and fluids are available"
+msgstr "El paciente tiene riesgo de perder más de 500 ml en adultos y más de 7ml/kg en niños. Si es así, asegúrese que están disponibles las vías intravenosas y fluidos."
 
 msgctxt "help:gnuhealth.surgery,preop_oximeter:"
-msgid ""
-"Check this box when verified the pulse oximeter is in place and functioning"
-msgstr "Marque esta casilla cuando se haya verificado que el saturómetro está colocado y funcionando"
+msgid "Pulse oximeter is in place and functioning"
+msgstr "El saturómetro está colocado y funcionando"
 
 msgctxt "help:gnuhealth.surgery,preop_rcri:"
 msgid ""
@@ -389,15 +396,15 @@ msgstr "Cirujano que realizó el procedimiento"
 
 msgctxt "help:gnuhealth.surgery,surgery_date:"
 msgid "Start of the Surgery"
-msgstr "Comienzo de la operación"
+msgstr "Comienzo de la cirugía"
 
 msgctxt "help:gnuhealth.surgery,surgery_end_date:"
 msgid "End of the Surgery"
-msgstr "Fin de la operación"
+msgstr "Fin de la cirugía"
 
 msgctxt "help:gnuhealth.surgery,surgery_length:"
 msgid "Length of the surgery"
-msgstr "Duración de la operación"
+msgstr "Duración de la cirugía"
 
 msgctxt "model:gnuhealth.operation,name:"
 msgid "Operation - Surgical Procedures"
@@ -445,7 +452,7 @@ msgstr "(ID"
 
 msgctxt "odt:surgery:"
 msgid ")"
-msgstr "("
+msgstr ")"
 
 msgctxt "odt:surgery:"
 msgid ","
@@ -631,7 +638,7 @@ msgstr "Esterilidad verificada :"
 
 msgctxt "odt:surgery:"
 msgid "Surgery Details / Incidents"
-msgstr "Detalles de la operación / Incidentes"
+msgstr "Detalles de la cirugía / Incidentes"
 
 msgctxt "odt:surgery:"
 msgid "Surgery Report :"
@@ -639,7 +646,7 @@ msgstr "Informe de cirugía :"
 
 msgctxt "odt:surgery:"
 msgid "Surgery Time"
-msgstr "Hora de la operación"
+msgstr "Hora de la cirugía"
 
 msgctxt "odt:surgery:"
 msgid "Surgical Site Marking :"
@@ -719,7 +726,7 @@ msgctxt "selection:gnuhealth.surgery,preop_asa:"
 msgid ""
 "PS 5 : Moribund patients who are not expected to survive without the "
 "operation"
-msgstr "PS 5 : Pacientes moribundo que no se espera que sobrevivan la operación"
+msgstr "PS 5 : Pacientes moribundo que no se espera que sobrevivan sin la operación"
 
 msgctxt "selection:gnuhealth.surgery,preop_asa:"
 msgid ""
@@ -791,7 +798,7 @@ msgstr "Detalles / Incidentes"
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Finish and sign this surgery ? Itwill become read-only !"
-msgstr "¿ Finaliza y firma esta cirugía ? ! Se convertirá en sólo lectura !"
+msgstr "¿Finaliza y firma esta cirugía? ¡Se convertirá en sólo lectura!"
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Patient Surgical Risk assessment"
@@ -803,7 +810,7 @@ msgstr "Verificación Pre-quirúrgica"
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Sign"
-msgstr "Signo"
+msgstr "Firmar"
 
 msgctxt "view:gnuhealth.surgery:"
 msgid "Sign this surgery"

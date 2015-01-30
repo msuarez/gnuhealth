@@ -1,10 +1,11 @@
 # 
 # Translators:
-# Emmanuel Simond <emanediteur@gmail.com>, 2014
-# Emmanuel Simond <emanediteur@gmail.com>, 2014
+# Emmanuel Simond, 2014
+# Emmanuel Simond, 2014
 # Eric_InvisibleLink <eric.fouquet@invisible-link.com>, 2011
 # Eric Vernichon <eric@vernichon.fr>, 2011-2013
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
+# Marie-Andrée Coulombe <coulombe.ma@gmail.com>, 2014
 # Mathieu Anquetin <mathieu@anquetin.eu>, 2013
 # Mathieu Anquetin <mathieu@anquetin.eu>, 2013
 # rootio <david@vmail.me>, 2013
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -238,6 +239,14 @@ msgctxt "field:gnuhealth.surgery,rec_name:"
 msgid "Name"
 msgstr "Nom"
 
+msgctxt "field:gnuhealth.surgery,report_surgery_date:"
+msgid "Surgery Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,report_surgery_time:"
+msgid "Surgery Time"
+msgstr "Temps de Chirurgie"
+
 msgctxt "field:gnuhealth.surgery,signed_by:"
 msgid "Signed by"
 msgstr "Signé par"
@@ -299,7 +308,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.rcri,rcri_kidney_history:"
 msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
-msgstr ""
+msgstr "Créatinine sérique préopératoire >2.0 mg/dL (177 mol/L)"
 
 msgctxt "help:gnuhealth.rcri,rcri_total:"
 msgid ""
@@ -345,15 +354,13 @@ msgstr "ASA Statut Physique Préopératoire"
 
 msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
 msgid ""
-"Check this box if patient has a risk of loosing more than 500 ml in adults "
-"of over 7ml/kg in infants. If so, make sure that intravenous access and "
-"fluids are available"
-msgstr "Cochez cette case si le patient a un risque de perdre plus de 500 ml chez les adultes de plus de 7ml/kg chez les nourrissons. Si oui, assurez-vous que l'accès par voie intraveineuse et les fluides sont disponibles"
+"Patient has a risk of losing more than 500 ml in adults of over 7ml/kg in "
+"infants. If so, make sure that intravenous access and fluids are available"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_oximeter:"
-msgid ""
-"Check this box when verified the pulse oximeter is in place and functioning"
-msgstr "Cochez cette case lors de la vérification de l'oxymètre de pouls est en place et fonctionnel"
+msgid "Pulse oximeter is in place and functioning"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_rcri:"
 msgid ""
@@ -380,7 +387,7 @@ msgstr "Liste des procédures dans la chirurgie. S'il vous plaît entrez la prem
 
 msgctxt "help:gnuhealth.surgery,signed_by:"
 msgid "Health Professional that signed this surgery document"
-msgstr ""
+msgstr "Le professionnel de la santé qui a signé ce document de chirurgie"
 
 msgctxt "help:gnuhealth.surgery,surgeon:"
 msgid "Surgeon who did the procedure"
@@ -590,7 +597,7 @@ msgstr "Pré-opération Checklist"
 
 msgctxt "odt:surgery:"
 msgid "Pre-operation Information"
-msgstr ""
+msgstr "Information préopératoire"
 
 msgctxt "odt:surgery:"
 msgid "Pre-operative"

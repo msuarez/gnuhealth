@@ -1,0 +1,629 @@
+# 
+# Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2015
+# kvisitor <kvisitor@gnugr.org>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-30 17:00+0000\n"
+"PO-Revision-Date: 2015-01-30 20:31+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "error:gnuhealth.iss:"
+msgid "This ISS registration Code already exists !"
+msgstr "Αυτός ο κωδικός εγγραφής ISS ήδη υπάρχει  !"
+
+msgctxt "field:gnuhealth.iss,alcohol:"
+msgid "Alcohol"
+msgstr "Ακοόλη"
+
+msgctxt "field:gnuhealth.iss,code:"
+msgid "Code"
+msgstr "Κωδικός"
+
+msgctxt "field:gnuhealth.iss,complaint:"
+msgid "Chief Complaint"
+msgstr "Βασικό πρόβλημα"
+
+msgctxt "field:gnuhealth.iss,create_date:"
+msgid "Create Date"
+msgstr "Δημιουργία ημερομηνίας"
+
+msgctxt "field:gnuhealth.iss,create_uid:"
+msgid "Create User"
+msgstr "Δημιουργία χρήστη"
+
+msgctxt "field:gnuhealth.iss,disposition:"
+msgid "Disposition"
+msgstr ""
+
+msgctxt "field:gnuhealth.iss,drugs:"
+msgid "Other Drugs"
+msgstr "Άλλα φάρμακα"
+
+msgctxt "field:gnuhealth.iss,healthcenter:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "field:gnuhealth.iss,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.iss,injury_date:"
+msgid "Injury Date"
+msgstr "Ημερομηνία ατυχήματος"
+
+msgctxt "field:gnuhealth.iss,injury_details:"
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgctxt "field:gnuhealth.iss,injury_method:"
+msgid "Method"
+msgstr "Μέθοδος"
+
+msgctxt "field:gnuhealth.iss,injury_type:"
+msgid "Injury Type"
+msgstr "Είδος ατυχήματος"
+
+msgctxt "field:gnuhealth.iss,latitude:"
+msgid "Latidude"
+msgstr "Γεωγραφικό πλάτος"
+
+msgctxt "field:gnuhealth.iss,longitude:"
+msgid "Longitude"
+msgstr "Γεωγραφικό μήκος"
+
+msgctxt "field:gnuhealth.iss,mva_counterpart:"
+msgid "Counterpart"
+msgstr ""
+
+msgctxt "field:gnuhealth.iss,mva_mode:"
+msgid "Mode"
+msgstr "Τρόπος"
+
+msgctxt "field:gnuhealth.iss,mva_position:"
+msgid "User Position"
+msgstr "Θέση του χρήστη"
+
+msgctxt "field:gnuhealth.iss,name:"
+msgid "Evaluation"
+msgstr "Εκτίμηση"
+
+msgctxt "field:gnuhealth.iss,operational_sector:"
+msgid "O. Sector"
+msgstr "Τομέας Ο."
+
+msgctxt "field:gnuhealth.iss,patient:"
+msgid "Patient"
+msgstr "Ασθενής"
+
+msgctxt "field:gnuhealth.iss,patient_age:"
+msgid "Age"
+msgstr "Ηλικία"
+
+msgctxt "field:gnuhealth.iss,patient_sex:"
+msgid "Sex"
+msgstr "Σεξ"
+
+msgctxt "field:gnuhealth.iss,place_occurrance:"
+msgid "Place"
+msgstr "Τοποθεσία"
+
+msgctxt "field:gnuhealth.iss,rec_name:"
+msgid "Name"
+msgstr "Όνομα"
+
+msgctxt "field:gnuhealth.iss,registration_date:"
+msgid "Registration Date"
+msgstr "Ημερομηνία καταχώρησης"
+
+msgctxt "field:gnuhealth.iss,safety_gear:"
+msgid "Safety Gear"
+msgstr "Εξοπλισμός ασφαλείας"
+
+msgctxt "field:gnuhealth.iss,urladdr:"
+msgid "OSM Map"
+msgstr "Χάρτης OpenStreetMap"
+
+msgctxt "field:gnuhealth.iss,victim_perpetrator:"
+msgid "Relationship"
+msgstr "Σχέση"
+
+msgctxt "field:gnuhealth.iss,violence_circumstances:"
+msgid "Context"
+msgstr "Γενικές συνθήκες"
+
+msgctxt "field:gnuhealth.iss,write_date:"
+msgid "Write Date"
+msgstr "Γράψτε την ημερομηνία"
+
+msgctxt "field:gnuhealth.iss,write_uid:"
+msgid "Write User"
+msgstr "Γράψτε τον χρήστη"
+
+msgctxt "help:gnuhealth.iss,alcohol:"
+msgid ""
+"Is there evidence of alcohol use by the injured person in the 6 hours before"
+" the accident ?"
+msgstr "Υπάρχουν ενδείξεις χρήσης οινοπνεύματος από τον παθόντα, στις 6 ώρες αμέσως πριν το ατύχημα;"
+
+msgctxt "help:gnuhealth.iss,code:"
+msgid "Injury Code"
+msgstr "Κωδικός ατυχήματος"
+
+msgctxt "help:gnuhealth.iss,disposition:"
+msgid "Place of occurrance"
+msgstr "Τοποθεσία όπου συνέβη"
+
+msgctxt "help:gnuhealth.iss,drugs:"
+msgid ""
+"Is there evidence of drug use by the injured person in the 6 hours before "
+"the accident ?"
+msgstr "Υπάρχουν ενδείξεις χρήσης φαρμάκων από τον παθόντα, στις 6 ώρες αμέσως πριν το ατύχημα;"
+
+msgctxt "help:gnuhealth.iss,injury_date:"
+msgid "Usually the same as the Evaluation"
+msgstr "Συνήθως το ίδιο όπως στην Εκτίμηση"
+
+msgctxt "help:gnuhealth.iss,injury_method:"
+msgid "Method of Injury"
+msgstr "Μηχανισμός πρόκλησης βλάβης"
+
+msgctxt "help:gnuhealth.iss,mva_counterpart:"
+msgid "Motor Vehicle Accident Counterpart"
+msgstr ""
+
+msgctxt "help:gnuhealth.iss,mva_mode:"
+msgid "Motor Vehicle Accident Mode"
+msgstr "Τρόπος Αυτοκινητιστικού Ατυχήματος"
+
+msgctxt "help:gnuhealth.iss,mva_position:"
+msgid "Motor Vehicle Accident user position"
+msgstr "Θέση χρήστη στο αυτοκινητιστικό ατύχημα"
+
+msgctxt "help:gnuhealth.iss,name:"
+msgid "Related Patient Evaluation"
+msgstr "Σχετική εκτίμηση ασθενούς"
+
+msgctxt "help:gnuhealth.iss,operational_sector:"
+msgid "Operational Sector in which happened the injury"
+msgstr "Επιχειρησιακός τομέας εντός του οποίου συνέβη το ατύχημα"
+
+msgctxt "help:gnuhealth.iss,place_occurrance:"
+msgid "Place of occurrance"
+msgstr "Τοποθεσία όπου συνέβη"
+
+msgctxt "help:gnuhealth.iss,safety_gear:"
+msgid "Use of Safety Gear - Helmet, safety belt..."
+msgstr "Χρήση εξοπλισμού ασφαλείας - Κράνος., ιμάντες ασφαλείας..."
+
+msgctxt "help:gnuhealth.iss,urladdr:"
+msgid "Maps the Accident / Injury location on Open Street Map"
+msgstr "Χαρτογράφηση του ατυχήματος / Εντόπιση ατυχήματος στο Open Street Map"
+
+msgctxt "help:gnuhealth.iss,victim_perpetrator:"
+msgid "Victim - Perpetrator relationship"
+msgstr "Σχέση Θύματος - Ενόχου"
+
+msgctxt "help:gnuhealth.iss,violence_circumstances:"
+msgid "Precipitating Factor"
+msgstr "Εκλυτικός παράγων"
+
+msgctxt "model:gnuhealth.iss,name:"
+msgid "Injury Surveillance System Registration"
+msgstr "Εγγραφή στο Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "model:ir.action,name:act_iss_form1"
+msgid "Injury Surveillance System Registration"
+msgstr "Καταχώρηση στο Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "model:ir.action,name:gnuhealth_action_iss"
+msgid "Injury Surveillance System Registration"
+msgstr "Καταχώρηση στο Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_report_iss"
+msgid "Injury Surveillance System Registration"
+msgstr "Καταχώρηση στο Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "No"
+msgstr "Όχι"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Suspected"
+msgstr "Πιθανώς"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Yes"
+msgstr "Ναι"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Admitted to Observation"
+msgstr "Εισήχθη προς παρακολούθηση"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Admitted to Ward"
+msgstr "Εισήχθη σε Θάλαμο νοσηλείας"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Dead on Arrival"
+msgstr "Νεκρός κατά την άφιξη"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Died"
+msgstr "Απεβίωσε"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Discharge Against Advise"
+msgstr "Εξιτήριο παρά τις ιατρικές συμβουλές "
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Transferred"
+msgstr "Διεκομίσθη"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Treated and Sent Home"
+msgstr "Χορηγήθηκε θεραπεία και στάλθηκε στο σπίτι"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "No"
+msgstr "Όχι "
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Suspected"
+msgstr "Πιθανώς"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Yes"
+msgstr "Ναι"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Blunt object"
+msgstr "Αμβλύ αντικείμενο"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Choking/strangulation"
+msgstr "Πνιγμός/Στραγγαλισμός"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Gun shot"
+msgstr "Πυροβολισμός"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Push/bodily force"
+msgstr "Πίεση/Σωματική βία"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Sexual Assault"
+msgstr "Σεξουαλική κακοποίηση"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Sharp objects"
+msgstr "Αιχμηρά αντικείμενα"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Accidental / Unintentional"
+msgstr "Τυχαίο / Μη ηθελημένο"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Motor Vehicle"
+msgstr "Αυτοκίνητο"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Suicide Attempt"
+msgstr "Απόπειρα αυτοκτονίας"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Violence"
+msgstr "Βία"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Aircraft"
+msgstr "Αεροπλάνο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Bicycle"
+msgstr "Ποδήλατο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Boat / Ship"
+msgstr "Βάρκα / Πλοίο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Bus"
+msgstr "Λεωφορείο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Car"
+msgstr "Αυτοκίνητο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Motorbike"
+msgstr "Μοτοσυκλέτα"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Pedestrian"
+msgstr "Πεζός"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Taxi"
+msgstr "Ταξί"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Train"
+msgstr "Τραίνο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Truck / Heavy vehicle"
+msgstr "Φορτηγό / Βαρύ όχημα"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Van / Pickup / Jeep"
+msgstr "Φορτηγάκι / Pickup / Jeep"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Aircraft"
+msgstr "Αεροπλάνο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Bicycle"
+msgstr "Ποδήλατο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Boat / Ship"
+msgstr "Βάρκα / Πλοίο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Bus"
+msgstr "Λεωφορείο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Car"
+msgstr "Αυτοκίνητο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Motorbike"
+msgstr "Μοτοσυκλέτα"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Pedestrian"
+msgstr "Πεζός"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Taxi"
+msgstr "Ταξί"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Train"
+msgstr "Τραίνο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Truck / Heavy vehicle"
+msgstr "Φορτηγό / Βαρύ όχημα"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Van / Pickup / Jeep"
+msgstr "Φορτηγάκι / Pickup / Jeep"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Bystander"
+msgstr "Παριστάμενος"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Driver"
+msgstr "Οδηγός"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Outside / on the back"
+msgstr "Έξω / στο πίσω μέρος"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Passenger"
+msgstr "Επιβάτης"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Unspecified vehicle"
+msgstr "Αδιευκρίνιστο όχημα"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Commercial Area"
+msgstr "Εμπορικός χώρος"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Home"
+msgstr "Σπίτι"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Institution"
+msgstr "Ίδρυμα"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Public Building"
+msgstr "Δημόσιο κτίριο"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Public transportation"
+msgstr "Δημόσιο Μέσα Μεταφορά;ς"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Recreational Area"
+msgstr "Χώρος αναψυχής"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "School"
+msgstr "Σχολείο"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Sports event"
+msgstr "Αθλητική εκδήλωση"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Street"
+msgstr "Οδός"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "No"
+msgstr "Όχι"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "Yes"
+msgstr "Ναι"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Acquaintance / Friend"
+msgstr "Γνωστός / Φίλος\""
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Girl / Boyfriend"
+msgstr "Κορίτσι / Φιλενάδα"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Official / Legal"
+msgstr "Επίσημο / Νόμιμο"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Other relative"
+msgstr "Άλλος συγγενής"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Parent"
+msgstr "Γονέας"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Stranger"
+msgstr "Ξένος"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Wife / Husband"
+msgstr "Σύζυγος"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "other"
+msgstr "άλλος"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Committing a crime (other)"
+msgstr "Διάπραξη εγκλήματος (άλλο)"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Drug Related"
+msgstr "Σχετικό με ναρκωτικά"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Fight"
+msgstr "Πτήση"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Gang Activity"
+msgstr "Δραστηριότητα εγκληματικής ομάδας/ gang "
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Other"
+msgstr "Άλλα"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Robbery"
+msgstr "Ληστεία"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Sexual Assault"
+msgstr "Σεξουαλική κακοποίηση"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Alcohol and other Drugs context"
+msgstr "Συνθήκες οινοπνευματωδών και άλλων φαρμάκων"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Details"
+msgstr "Λεπτομέρειες"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Disposition"
+msgstr ""
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Injury Surveillance System"
+msgstr "Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Injury Surveillance System Record"
+msgstr "Καταχώρηση στο Σύστημα Επιτήρησης Ατυχημάτων"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Location"
+msgstr "Τοποθεσία"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Motor Vehicle Accident"
+msgstr "Αυτοκινητιστικό ατύχημα"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Patient Demographics"
+msgstr "Δημογραφικά στοιχεία ασθενούς"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Place of occurrance"
+msgstr "Τοποθεσία όπου συνέβη"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Specifics"
+msgstr ""
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Violence"
+msgstr "Βία"

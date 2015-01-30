@@ -2,14 +2,14 @@
 # Translators:
 # kvisitor <kvisitor@gnugr.org>, 2013-2014
 # kvisitor <kvisitor@gnugr.org>, 2012
-# Vassilis Perantzakis <vaspervnp@yahoo.gr>, 2013
+# Vassilis Perantzakis <vaspervnp@yahoo.gr>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-05-20 18:32+0000\n"
-"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-13 14:56+0000\n"
+"Last-Translator: Vassilis Perantzakis <vaspervnp@yahoo.gr>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4271,35 +4271,35 @@ msgstr "Κακοήθης όγκος χοληδόχου κύστεως"
 
 msgctxt "model:gnuhealth.pathology,name:C24"
 msgid "Malignant neoplasm of other and unspecified parts of biliary tract"
-msgstr ""
+msgstr "Κακοήθη νεοπλάσματα άλλων και διαφόρων τμημάτων της χοληφόρου οδού"
 
 msgctxt "model:gnuhealth.pathology,name:C240"
 msgid "Extrahepatic bile duct"
-msgstr ""
+msgstr "Εξωηπατικό χολαγγειακό σύστημα"
 
 msgctxt "model:gnuhealth.pathology,name:C241"
 msgid "Ampulla of Vater"
-msgstr ""
+msgstr "Λήκυθος του Vater"
 
 msgctxt "model:gnuhealth.pathology,name:C248"
 msgid "Overlapping lesion of biliary tract"
-msgstr ""
+msgstr "Αλληλοκαλυπτόμενες βλάβες της χοληφόρου οδού"
 
 msgctxt "model:gnuhealth.pathology,name:C249"
 msgid "Biliary tract, unspecified"
-msgstr ""
+msgstr "Διάφορα τμήματα των χοληφόρων "
 
 msgctxt "model:gnuhealth.pathology,name:C25"
 msgid "Malignant neoplasm of pancreas"
-msgstr ""
+msgstr "Κακοήθη νεοπλάσματα του παγκρέατος"
 
 msgctxt "model:gnuhealth.pathology,name:C250"
 msgid "Head of pancreas"
-msgstr ""
+msgstr "Κεφαλή του παγκρέατος"
 
 msgctxt "model:gnuhealth.pathology,name:C251"
 msgid "Body of pancreas"
-msgstr ""
+msgstr "Σώμα του παγκρέατος"
 
 msgctxt "model:gnuhealth.pathology,name:C252"
 msgid "Tail of pancreas"
@@ -43908,7 +43908,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W000"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W001"
 msgid "Residential institution"
@@ -43952,7 +43952,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W010"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W011"
 msgid "Residential institution"
@@ -43996,7 +43996,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W020"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W021"
 msgid "Residential institution"
@@ -44042,7 +44042,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W030"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W031"
 msgid "Residential institution"
@@ -44086,7 +44086,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W040"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W041"
 msgid "Residential institution"
@@ -44130,7 +44130,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W050"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W051"
 msgid "Residential institution"
@@ -44174,7 +44174,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W060"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W061"
 msgid "Residential institution"
@@ -44218,7 +44218,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W070"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W071"
 msgid "Residential institution"
@@ -44262,7 +44262,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W080"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W081"
 msgid "Residential institution"
@@ -44306,7 +44306,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W090"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W091"
 msgid "Residential institution"
@@ -44350,7 +44350,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W100"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W101"
 msgid "Residential institution"
@@ -44394,7 +44394,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W110"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W111"
 msgid "Residential institution"
@@ -44438,7 +44438,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W120"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W121"
 msgid "Residential institution"
@@ -44482,7 +44482,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W130"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W131"
 msgid "Residential institution"
@@ -44526,7 +44526,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W140"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W141"
 msgid "Residential institution"
@@ -44570,7 +44570,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W150"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W151"
 msgid "Residential institution"
@@ -44616,7 +44616,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W160"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W161"
 msgid "Residential institution"
@@ -44660,7 +44660,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W170"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W171"
 msgid "Residential institution"
@@ -44704,7 +44704,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W180"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W181"
 msgid "Residential institution"
@@ -44748,7 +44748,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W190"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W191"
 msgid "Residential institution"
@@ -44792,7 +44792,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W200"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W201"
 msgid "Residential institution"
@@ -44836,7 +44836,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W210"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W211"
 msgid "Residential institution"
@@ -44880,7 +44880,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W220"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W221"
 msgid "Residential institution"
@@ -44924,7 +44924,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W230"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W231"
 msgid "Residential institution"
@@ -44969,7 +44969,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W240"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W241"
 msgid "Residential institution"
@@ -45013,7 +45013,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W250"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W251"
 msgid "Residential institution"
@@ -45057,7 +45057,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W260"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W261"
 msgid "Residential institution"
@@ -45101,7 +45101,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W270"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W271"
 msgid "Residential institution"
@@ -45145,7 +45145,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W280"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W281"
 msgid "Residential institution"
@@ -45189,7 +45189,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W290"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W291"
 msgid "Residential institution"
@@ -45233,7 +45233,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W300"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W301"
 msgid "Residential institution"
@@ -45277,7 +45277,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W310"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W311"
 msgid "Residential institution"
@@ -45321,7 +45321,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W320"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W321"
 msgid "Residential institution"
@@ -45365,7 +45365,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W330"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W331"
 msgid "Residential institution"
@@ -45409,7 +45409,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W340"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W341"
 msgid "Residential institution"
@@ -45453,7 +45453,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W350"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W351"
 msgid "Residential institution"
@@ -45497,7 +45497,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W360"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W361"
 msgid "Residential institution"
@@ -45541,7 +45541,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W370"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W371"
 msgid "Residential institution"
@@ -45585,7 +45585,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W380"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W381"
 msgid "Residential institution"
@@ -45629,7 +45629,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W390"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W391"
 msgid "Residential institution"
@@ -45673,7 +45673,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W400"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W401"
 msgid "Residential institution"
@@ -45717,7 +45717,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W410"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W411"
 msgid "Residential institution"
@@ -45761,7 +45761,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W420"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W421"
 msgid "Residential institution"
@@ -45805,7 +45805,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W430"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W431"
 msgid "Residential institution"
@@ -45849,7 +45849,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W440"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W441"
 msgid "Residential institution"
@@ -45893,7 +45893,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W450"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W451"
 msgid "Residential institution"
@@ -45937,7 +45937,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W490"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W491"
 msgid "Residential institution"
@@ -45981,7 +45981,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W500"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W501"
 msgid "Residential institution"
@@ -46025,7 +46025,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W510"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W511"
 msgid "Residential institution"
@@ -46069,7 +46069,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W520"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W521"
 msgid "Residential institution"
@@ -46113,7 +46113,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W530"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W531"
 msgid "Residential institution"
@@ -46157,7 +46157,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W540"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W541"
 msgid "Residential institution"
@@ -46201,7 +46201,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W550"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W551"
 msgid "Residential institution"
@@ -46245,7 +46245,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W560"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W561"
 msgid "Residential institution"
@@ -46290,7 +46290,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W570"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W571"
 msgid "Residential institution"
@@ -46334,7 +46334,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W580"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W581"
 msgid "Residential institution"
@@ -46378,7 +46378,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W590"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W591"
 msgid "Residential institution"
@@ -46422,7 +46422,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W600"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W601"
 msgid "Residential institution"
@@ -46466,7 +46466,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W640"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W641"
 msgid "Residential institution"
@@ -46510,7 +46510,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W650"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W651"
 msgid "Residential institution"
@@ -46554,7 +46554,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W660"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W661"
 msgid "Residential institution"
@@ -46598,7 +46598,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W670"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W671"
 msgid "Residential institution"
@@ -46642,7 +46642,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W680"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W681"
 msgid "Residential institution"
@@ -46686,7 +46686,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W690"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W691"
 msgid "Residential institution"
@@ -46730,7 +46730,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W700"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W701"
 msgid "Residential institution"
@@ -46774,7 +46774,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W730"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W731"
 msgid "Residential institution"
@@ -46818,7 +46818,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W740"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W741"
 msgid "Residential institution"
@@ -46862,7 +46862,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W750"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W751"
 msgid "Residential institution"
@@ -46906,7 +46906,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W760"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W761"
 msgid "Residential institution"
@@ -46950,7 +46950,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W770"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W771"
 msgid "Residential institution"
@@ -46994,7 +46994,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W780"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W781"
 msgid "Residential institution"
@@ -47039,7 +47039,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W790"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W791"
 msgid "Residential institution"
@@ -47085,7 +47085,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W800"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W801"
 msgid "Residential institution"
@@ -47129,7 +47129,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W810"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W811"
 msgid "Residential institution"
@@ -47173,7 +47173,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W830"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W831"
 msgid "Residential institution"
@@ -47217,7 +47217,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W840"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W841"
 msgid "Residential institution"
@@ -47261,7 +47261,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W850"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W851"
 msgid "Residential institution"
@@ -47305,7 +47305,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W860"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W861"
 msgid "Residential institution"
@@ -47349,7 +47349,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W870"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W871"
 msgid "Residential institution"
@@ -47393,7 +47393,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W880"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W881"
 msgid "Residential institution"
@@ -47437,7 +47437,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W890"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W891"
 msgid "Residential institution"
@@ -47481,7 +47481,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W900"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W901"
 msgid "Residential institution"
@@ -47525,7 +47525,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W910"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W911"
 msgid "Residential institution"
@@ -47569,7 +47569,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W920"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W921"
 msgid "Residential institution"
@@ -47613,7 +47613,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W930"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W931"
 msgid "Residential institution"
@@ -47657,7 +47657,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W940"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W941"
 msgid "Residential institution"
@@ -47701,7 +47701,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W990"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:W991"
 msgid "Residential institution"
@@ -47745,7 +47745,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X000"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X001"
 msgid "Residential institution"
@@ -47789,7 +47789,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X010"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X011"
 msgid "Residential institution"
@@ -47833,7 +47833,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X020"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X021"
 msgid "Residential institution"
@@ -47877,7 +47877,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X030"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X031"
 msgid "Residential institution"
@@ -47921,7 +47921,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X040"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X041"
 msgid "Residential institution"
@@ -47965,7 +47965,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X050"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X051"
 msgid "Residential institution"
@@ -48009,7 +48009,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X060"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X061"
 msgid "Residential institution"
@@ -48053,7 +48053,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X080"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X081"
 msgid "Residential institution"
@@ -48097,7 +48097,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X090"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X091"
 msgid "Residential institution"
@@ -48141,7 +48141,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X100"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X101"
 msgid "Residential institution"
@@ -48185,7 +48185,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X110"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X111"
 msgid "Residential institution"
@@ -48229,7 +48229,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X120"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X121"
 msgid "Residential institution"
@@ -48273,7 +48273,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X130"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X131"
 msgid "Residential institution"
@@ -48317,7 +48317,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X140"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X141"
 msgid "Residential institution"
@@ -48361,7 +48361,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X150"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X151"
 msgid "Residential institution"
@@ -48405,7 +48405,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X160"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X161"
 msgid "Residential institution"
@@ -48449,7 +48449,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X170"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X171"
 msgid "Residential institution"
@@ -48493,7 +48493,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X180"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X181"
 msgid "Residential institution"
@@ -48537,7 +48537,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X190"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X191"
 msgid "Residential institution"
@@ -48581,7 +48581,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X200"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X201"
 msgid "Residential institution"
@@ -48625,7 +48625,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X210"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X211"
 msgid "Residential institution"
@@ -48669,7 +48669,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X220"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X221"
 msgid "Residential institution"
@@ -48713,7 +48713,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X230"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X231"
 msgid "Residential institution"
@@ -48757,7 +48757,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X240"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X241"
 msgid "Residential institution"
@@ -48801,7 +48801,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X250"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X251"
 msgid "Residential institution"
@@ -48845,7 +48845,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X260"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X261"
 msgid "Residential institution"
@@ -48889,7 +48889,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X270"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X271"
 msgid "Residential institution"
@@ -48933,7 +48933,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X280"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X281"
 msgid "Residential institution"
@@ -48977,7 +48977,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X290"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X291"
 msgid "Residential institution"
@@ -49021,7 +49021,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X300"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X301"
 msgid "Residential institution"
@@ -49065,7 +49065,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X310"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X311"
 msgid "Residential institution"
@@ -49109,7 +49109,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X320"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X321"
 msgid "Residential institution"
@@ -49153,7 +49153,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X330"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X331"
 msgid "Residential institution"
@@ -49197,7 +49197,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X340"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X341"
 msgid "Residential institution"
@@ -49241,7 +49241,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X350"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X351"
 msgid "Residential institution"
@@ -49285,7 +49285,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X360"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X361"
 msgid "Residential institution"
@@ -49329,7 +49329,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X370"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X371"
 msgid "Residential institution"
@@ -49373,7 +49373,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X380"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X381"
 msgid "Residential institution"
@@ -49417,7 +49417,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X390"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X391"
 msgid "Residential institution"
@@ -49463,7 +49463,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X400"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X401"
 msgid "Residential institution"
@@ -49509,7 +49509,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X410"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X411"
 msgid "Residential institution"
@@ -49555,7 +49555,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X420"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X421"
 msgid "Residential institution"
@@ -49601,7 +49601,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X430"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X431"
 msgid "Residential institution"
@@ -49647,7 +49647,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X440"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X441"
 msgid "Residential institution"
@@ -49691,7 +49691,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X450"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X451"
 msgid "Residential institution"
@@ -49737,7 +49737,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X460"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X461"
 msgid "Residential institution"
@@ -49781,7 +49781,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X470"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X471"
 msgid "Residential institution"
@@ -49825,7 +49825,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X480"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X481"
 msgid "Residential institution"
@@ -49871,7 +49871,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X490"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X491"
 msgid "Residential institution"
@@ -49915,7 +49915,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X500"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X501"
 msgid "Residential institution"
@@ -49959,7 +49959,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X510"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X511"
 msgid "Residential institution"
@@ -50003,7 +50003,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X520"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X521"
 msgid "Residential institution"
@@ -50047,7 +50047,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X530"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X531"
 msgid "Residential institution"
@@ -50091,7 +50091,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X540"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X541"
 msgid "Residential institution"
@@ -50135,7 +50135,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X570"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X571"
 msgid "Residential institution"
@@ -50179,7 +50179,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X580"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X581"
 msgid "Residential institution"
@@ -50223,7 +50223,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X590"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X591"
 msgid "Residential institution"
@@ -50269,7 +50269,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X600"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X601"
 msgid "Residential institution"
@@ -50315,7 +50315,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X610"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X611"
 msgid "Residential institution"
@@ -50361,7 +50361,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X620"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X621"
 msgid "Residential institution"
@@ -50407,7 +50407,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X630"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X631"
 msgid "Residential institution"
@@ -50453,7 +50453,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X640"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X641"
 msgid "Residential institution"
@@ -50497,7 +50497,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X650"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X651"
 msgid "Residential institution"
@@ -50543,7 +50543,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X660"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X661"
 msgid "Residential institution"
@@ -50587,7 +50587,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X670"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X671"
 msgid "Residential institution"
@@ -50631,7 +50631,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X680"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X681"
 msgid "Residential institution"
@@ -50677,7 +50677,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X690"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X691"
 msgid "Residential institution"
@@ -50721,7 +50721,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X700"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X701"
 msgid "Residential institution"
@@ -50765,7 +50765,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X710"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X711"
 msgid "Residential institution"
@@ -50809,7 +50809,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X720"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X721"
 msgid "Residential institution"
@@ -50853,7 +50853,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X730"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X731"
 msgid "Residential institution"
@@ -50897,7 +50897,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X740"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X741"
 msgid "Residential institution"
@@ -50941,7 +50941,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X750"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X751"
 msgid "Residential institution"
@@ -50985,7 +50985,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X760"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X761"
 msgid "Residential institution"
@@ -51029,7 +51029,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X770"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X771"
 msgid "Residential institution"
@@ -51073,7 +51073,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X780"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X781"
 msgid "Residential institution"
@@ -51117,7 +51117,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X790"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X791"
 msgid "Residential institution"
@@ -51161,7 +51161,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X800"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X801"
 msgid "Residential institution"
@@ -51205,7 +51205,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X810"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X811"
 msgid "Residential institution"
@@ -51249,7 +51249,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X820"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X821"
 msgid "Residential institution"
@@ -51293,7 +51293,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X830"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X831"
 msgid "Residential institution"
@@ -51337,7 +51337,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X840"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X841"
 msgid "Residential institution"
@@ -51381,7 +51381,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X850"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X851"
 msgid "Residential institution"
@@ -51425,7 +51425,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X860"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X861"
 msgid "Residential institution"
@@ -51469,7 +51469,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X870"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X871"
 msgid "Residential institution"
@@ -51513,7 +51513,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X880"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X881"
 msgid "Residential institution"
@@ -51557,7 +51557,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X890"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X891"
 msgid "Residential institution"
@@ -51601,7 +51601,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X900"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X901"
 msgid "Residential institution"
@@ -51645,7 +51645,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X910"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X911"
 msgid "Residential institution"
@@ -51689,7 +51689,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X920"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X921"
 msgid "Residential institution"
@@ -51733,7 +51733,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X930"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X931"
 msgid "Residential institution"
@@ -51777,7 +51777,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X940"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X941"
 msgid "Residential institution"
@@ -51821,7 +51821,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X950"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X951"
 msgid "Residential institution"
@@ -51865,7 +51865,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X960"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X961"
 msgid "Residential institution"
@@ -51909,7 +51909,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X970"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X971"
 msgid "Residential institution"
@@ -51953,7 +51953,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X980"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X981"
 msgid "Residential institution"
@@ -51997,7 +51997,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X990"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:X991"
 msgid "Residential institution"
@@ -52041,7 +52041,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y000"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y001"
 msgid "Residential institution"
@@ -52085,7 +52085,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y010"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y011"
 msgid "Residential institution"
@@ -52129,7 +52129,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y020"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y021"
 msgid "Residential institution"
@@ -52173,7 +52173,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y030"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y031"
 msgid "Residential institution"
@@ -52217,7 +52217,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y040"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y041"
 msgid "Residential institution"
@@ -52261,7 +52261,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y050"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y051"
 msgid "Residential institution"
@@ -52357,7 +52357,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y080"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y081"
 msgid "Residential institution"
@@ -52401,7 +52401,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y090"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y091"
 msgid "Residential institution"
@@ -52447,7 +52447,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y100"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y101"
 msgid "Residential institution"
@@ -52494,7 +52494,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y110"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y111"
 msgid "Residential institution"
@@ -52540,7 +52540,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y120"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y121"
 msgid "Residential institution"
@@ -52586,7 +52586,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y130"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y131"
 msgid "Residential institution"
@@ -52632,7 +52632,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y140"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y141"
 msgid "Residential institution"
@@ -52676,7 +52676,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y150"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y151"
 msgid "Residential institution"
@@ -52722,7 +52722,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y160"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y161"
 msgid "Residential institution"
@@ -52767,7 +52767,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y170"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y171"
 msgid "Residential institution"
@@ -52811,7 +52811,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y180"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y181"
 msgid "Residential institution"
@@ -52857,7 +52857,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y190"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y191"
 msgid "Residential institution"
@@ -52901,7 +52901,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y200"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y201"
 msgid "Residential institution"
@@ -52945,7 +52945,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y210"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y211"
 msgid "Residential institution"
@@ -52989,7 +52989,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y220"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y221"
 msgid "Residential institution"
@@ -53033,7 +53033,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y230"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y231"
 msgid "Residential institution"
@@ -53077,7 +53077,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y240"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y241"
 msgid "Residential institution"
@@ -53121,7 +53121,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y250"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y251"
 msgid "Residential institution"
@@ -53165,7 +53165,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y260"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y261"
 msgid "Residential institution"
@@ -53209,7 +53209,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y270"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y271"
 msgid "Residential institution"
@@ -53253,7 +53253,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y280"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y281"
 msgid "Residential institution"
@@ -53297,7 +53297,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y290"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y291"
 msgid "Residential institution"
@@ -53341,7 +53341,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y300"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y301"
 msgid "Residential institution"
@@ -53386,7 +53386,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y310"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y311"
 msgid "Residential institution"
@@ -53430,7 +53430,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y320"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y321"
 msgid "Residential institution"
@@ -53474,7 +53474,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y330"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y331"
 msgid "Residential institution"
@@ -53518,7 +53518,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y340"
 msgid "Home"
-msgstr ""
+msgstr "Σπίτι"
 
 msgctxt "model:gnuhealth.pathology,name:Y341"
 msgid "Residential institution"

@@ -1,7 +1,8 @@
 # 
 # Translators:
 # Gabriele Meloncelli <gabriele.meloncelli@virgilio.it>, 2013
-# meanmicio <lfalcon@gnusolidario.org>, 2011
+# Luis Falcon <lfalcon@gnusolidario.org>, 2011
+# rob.paoli <rob.paoli@gmail.com>, 2015
 # Selene <scordara@thymbra.com>, 2014
 # Selene <scordara@thymbra.com>, 2011, 2012
 # Selene <scordara@thymbra.com>, 2011
@@ -9,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
+"Last-Translator: rob.paoli <rob.paoli@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,6 +236,14 @@ msgctxt "field:gnuhealth.surgery,rec_name:"
 msgid "Name"
 msgstr "Nome"
 
+msgctxt "field:gnuhealth.surgery,report_surgery_date:"
+msgid "Surgery Date"
+msgstr "Data intervento"
+
+msgctxt "field:gnuhealth.surgery,report_surgery_time:"
+msgid "Surgery Time"
+msgstr "Ora Chirurgia"
+
 msgctxt "field:gnuhealth.surgery,signed_by:"
 msgid "Signed by"
 msgstr "Firmato da"
@@ -342,15 +351,13 @@ msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
 msgid ""
-"Check this box if patient has a risk of loosing more than 500 ml in adults "
-"of over 7ml/kg in infants. If so, make sure that intravenous access and "
-"fluids are available"
-msgstr "Selezionare questa casella se il paziente rischia di perdere più di 500 ml in adulti rispetto a 7ml/kg in neonati, assicurarsi che siano disponibili accesso endovenoso e fluidi"
+"Patient has a risk of losing more than 500 ml in adults of over 7ml/kg in "
+"infants. If so, make sure that intravenous access and fluids are available"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_oximeter:"
-msgid ""
-"Check this box when verified the pulse oximeter is in place and functioning"
-msgstr "Seleziona questa casella quando si é verificato che il puslossometro è al posto e funziona"
+msgid "Pulse oximeter is in place and functioning"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_rcri:"
 msgid ""

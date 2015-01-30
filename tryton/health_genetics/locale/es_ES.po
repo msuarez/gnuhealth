@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014-2015
 # cristina <cmelgosa@thymbra.com>, 2012
 # cristina <cmelgosa@thymbra.com>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2011-2012
+# Luis Falcon <lfalcon@gnusolidario.org>, 2012
+# Luis Falcon <lfalcon@gnusolidario.org>, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:45+0000\n"
-"PO-Revision-Date: 2014-07-22 20:01+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 msgctxt "error:gnuhealth.disease.gene:"
 msgid "The Official Symbol name must be unique !"
-msgstr "El Símbolo oficial debe ser único !"
+msgstr "¡El Símbolo oficial debe ser único!"
 
 msgctxt "field:gnuhealth.disease.gene,chromosome:"
 msgid "Affected Chromosome"
@@ -29,11 +29,11 @@ msgstr "Cromosoma afectado"
 
 msgctxt "field:gnuhealth.disease.gene,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.disease.gene,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.disease.gene,dominance:"
 msgid "Dominance"

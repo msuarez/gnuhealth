@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Gabriele Meloncelli <gabriele.meloncelli@virgilio.it>, 2013
-# meanmicio <lfalcon@gnusolidario.org>, 2013
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013
 # Selene <scordara@thymbra.com>, 2013
 # Selene <scordara@thymbra.com>, 2011, 2012
 # Selene <scordara@thymbra.com>, 2011
@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -528,8 +528,8 @@ msgid "Write User"
 msgstr "Scrivere nome Utente"
 
 msgctxt "field:gnuhealth.patient,patient_status:"
-msgid "Hospitalization Status"
-msgstr "Stato del ricovero"
+msgid "Hospitalized"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
 msgid "Inpatient Sequence"
@@ -645,7 +645,7 @@ msgid "Health Professional that discharged the patient"
 msgstr ""
 
 msgctxt "help:gnuhealth.patient,patient_status:"
-msgid "Patient current Hospitalization Status"
+msgid "Show the hospitalization status of the patient"
 msgstr ""
 
 msgctxt "model:gnuhealth.bed.transfer,name:"

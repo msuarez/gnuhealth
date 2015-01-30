@@ -1,12 +1,13 @@
 # 
 # Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
 # Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2014-07-22 20:03+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -41,7 +42,7 @@ msgstr "Mes"
 
 msgctxt "field:gnuhealth.pediatrics.growth.charts.who,rec_name:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.pediatrics.growth.charts.who,sex:"
 msgid "Sex"
@@ -367,7 +368,7 @@ msgstr "Mes"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nombre"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.bmifa.report:"
 msgid "Patient"
@@ -635,7 +636,7 @@ msgstr "Mes"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nombre"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.lhfa.report:"
 msgid "Patient"
@@ -903,7 +904,7 @@ msgstr "Mes"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nombre"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
 msgid "Patient"
@@ -914,7 +915,7 @@ msgid "Patient ID"
 msgstr "ID del paciente"
 
 msgctxt "odt:gnuhealth.pediatrics.growth.charts.who.wfa.report:"
-msgid "chart"
+msgid "gráfico"
 msgstr "gráfico"
 
 msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"

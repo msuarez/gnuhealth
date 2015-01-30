@@ -1,12 +1,12 @@
 # 
 # Translators:
-# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:45+0000\n"
-"PO-Revision-Date: 2014-07-22 20:04+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,11 @@ msgstr ""
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The History already exists !"
-msgstr "El Historial ya existe !"
+msgstr "¡El Historial ya existe!"
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The Patient History already exists !"
-msgstr "El Historial del Paciente ya existe !"
+msgstr "¡El Historial del Paciente ya existe!"
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
@@ -45,7 +45,7 @@ msgstr "Estado"
 
 msgctxt "field:gnuhealth.paper_archive,id:"
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgctxt "field:gnuhealth.paper_archive,identification_code:"
 msgid "Code"
@@ -65,7 +65,7 @@ msgstr "Paciente"
 
 msgctxt "field:gnuhealth.paper_archive,rec_name:"
 msgid "Name"
-msgstr "Contacto"
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
