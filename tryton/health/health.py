@@ -1572,7 +1572,7 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
 
     scope = fields.Selection([
         ('systematic','Systematic'),
-        ('reccomended','Recommended'),
+        ('recommended','Recommended'),
         ('highrisk','Risk groups'), 
         ],'Scope', sort=False)
 
@@ -1938,7 +1938,7 @@ class DeathUnderlyingCondition(ModelSQL, ModelView):
         'gnuhealth.pathology', 'Condition', required=True)
 
     interval = fields.Integer('Interval', help='Approx Interval'
-        'onset to death', required=True)
+        ' onset to death', required=True)
 
     unit_of_time = fields.Selection([
         (None, ''),
