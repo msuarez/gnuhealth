@@ -168,7 +168,7 @@ class Iss (ModelSQL, ModelView):
         ('spouse', 'Wife / Husband'),
         ('girlboyfriend', 'Girl / Boyfriend'),
         ('relative', 'Other relative'),
-        ('aquaintance', 'Aquaitance / Friend'),
+        ('acquaintance', 'Acquaintance / Friend'),
         ('official', 'Official / Legal'),
         ('stranger', 'Stranger'),
         ('other', 'other'),
