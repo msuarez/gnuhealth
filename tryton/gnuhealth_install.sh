@@ -7,9 +7,9 @@
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2014  Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2008-2014  GNU Solidario <health@gnusolidario.org>
-#                             Bruno M. Villasanti <bvillasanti@thymbra.com>
+#    Copyright (C) 2008-2015  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2015  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
