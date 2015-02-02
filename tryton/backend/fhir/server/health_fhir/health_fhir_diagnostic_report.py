@@ -60,7 +60,7 @@ class DiagnosticReport_Map:
                     'name:text': ['test.name'],
                     'performer': ['pathologist'],
                     'result': ['critearea'],
-                    'subject': ['subject']}
+                    'subject': ['patient']}
 
 class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
     """
