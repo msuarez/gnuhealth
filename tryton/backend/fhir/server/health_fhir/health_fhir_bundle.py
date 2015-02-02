@@ -1,4 +1,6 @@
+from math import ceil
 from werkzeug.contrib.atom import AtomFeed
+from werkzeug.urls import Href
 from datetime import datetime
 from .health_fhir_patient import health_Patient
 from .health_fhir_observation import health_Observation
@@ -20,9 +22,40 @@ class Bundle(AtomFeed):
         if 'updated' not in kwargs:
             kwargs['updated']=datetime.utcnow()
         if 'links' not in kwargs:
-            pass
+            self.total=kwargs.pop('total', None)
+            self.per_page=kwargs.pop('per_page', 10) or 10
+            self.page = kwargs.pop('page', 1) or 1
+            if self.page and self.per_page and self.total:
+                kwargs['links']=self.__generate_links()
 
         super(Bundle, self).__init__(*args, **kwargs)
+
+    def __generate_links(self):
+        links = []
+
+        total_pages= int(ceil(float(self.total)/self.per_page))
+        args = self.request.args.copy()
+        href = Href(self.request.base_url)
+
+        # first link
+        args['page'] = 1
+        links.append({'href': href(args), 'rel': 'first'})
+
+        # last link
+        args['page'] = total_pages
+        links.append({'href': href(args), 'rel': 'last'})
+
+        # prev link
+        if self.page > 1:
+            args['page'] = self.page-1
+            links.append({'href': href(args), 'rel': 'previous'})
+
+        # next link
+        if self.page < total_pages:
+            args['page'] = self.page + 1
+            links.append({'href': href(args), 'rel': 'next'})
+
+        return links
 
     def add_entry(self, entry):
         '''Add entry to feed

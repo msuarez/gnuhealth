@@ -4,7 +4,14 @@ from .datastore import find_record
 import server.fhir as supermod
 
 class Practitioner_Map:
-    url_prefixes={'gnuhealth.healthprofessional': ''}
+
+    #No requirements yet
+    root_search=[]
+
+    #Just use row id
+    url_prefixes={}
+            #'gnuhealth.healthprofessional': ''}
+
     model_mapping={
             'gnuhealth.healthprofessional': {
                 'communication': 'name.lang',
@@ -15,19 +22,25 @@ class Practitioner_Map:
                 'given': 'name.name',
                 'family': 'name.lastname',
                 'nickname': 'name.alias'}}
+    resource_search_params={
+                    '_id': 'token',
+                    '_language': None,
+                    'address': None,
+                    'family': 'string',
+                    'gender': 'token',
+                    'given': 'string',
+                    'identifier': 'token',
+                    'name': 'string',
+                    'organization': None,
+                    'phonetic': None,
+                    'telecom': None}
     search_mapping={
-            'gnuhealth.healthprofessional':
-                {'_id': (['id'], 'token'),
-                    '_language': ([], 'token'),
-                    'address': ([], 'string'),
-                    'family': (['name.lastname'], 'string'),
-                    'gender': (['name.sex'], 'token'),
-                    'given': (['name.name'], 'string'),
-                    'identifier': (['name.puid'], 'token'),
-                    'name': (['name.lastname', 'name.name'], 'string'),
-                    'organization': ([], 'reference'),
-                    'phonetic': ([], 'string'),
-                    'telecom': ([], 'string')}}
+                '_id': ['id'],
+                    'family': ['name.lastname'],
+                    'gender': ['name.sex'],
+                    'given': ['name.name'],
+                    'identifier': ['name.puid'],
+                    'name': ['name.lastname', 'name.name']}
 
 class health_Practitioner(supermod.Practitioner, Practitioner_Map):
     def __init__(self, *args, **kwargs):
@@ -52,7 +65,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             raise ValueError('Not a valid model')
 
         self.map = self.model_mapping[self.model_type]
-        self.search_prefix=self.url_prefixes[self.model_type]
+        #self.search_prefix=self.url_prefixes[self.model_type]
 
         self.__import_from_gnu_practitioner()
 

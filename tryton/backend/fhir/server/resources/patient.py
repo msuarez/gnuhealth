@@ -46,25 +46,34 @@ class PAT_Search(Resource):
     @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
-        s = health_Search(endpoint='patient')
-        queries=s.get_queries(request.args)
-        bd=Bundle(request=request)
         try:
-            for query in queries:
-                if query['query'] is not None:
-                    recs = patient.search(query['query'])
-                    if recs:
-                        for rec in recs:
-                            try:
-                                p = health_Patient(gnu_record=rec)
-                            except:
-                                continue
-                            else:
-                                bd.add_entry(p)
+            s = health_Search(endpoint='patient')
+            query=s.get_query(request.args)
+            if query is not None:
+                total_recs = patient.search_count(query)
+                per_page = int(request.args.get('_count', 10))
+                page = int(request.args.get('page', 1))
+                bd=Bundle(request=request,
+                                total=total_recs,
+                                per_page = per_page,
+                                page = page)
+                offset = (page-1) * per_page
+                for rec in patient.search(query,
+                                        offset=offset,
+                                        limit=per_page):
+                    try:
+                        p = health_Patient(gnu_record=rec)
+                    except:
+                        continue
+                    else:
+                        bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:
-                return search_error_string(request.args), 403
+                oo=health_OperationOutcome()
+                oo.add_issue(details=search_error_string(request.args),
+                                severity='warning')
+                return oo, 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
@@ -134,15 +143,14 @@ class PAT_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        #TODO Use converter?
         record = find_record(patient, [('id', '=', log_id)])
         if record:
             d=health_Patient(gnu_record=record)
             return d, 200
         else:
-            return 'Record not found', 404
-            #if track deleted records
-            #return 'Record deleted', 410
+            oo=health_OperationOutcome()
+            oo.add_issue(details='No record', severity='fatal')
+            return oo, 404
 
     @tryton.transaction(user=get_userid)
     def put(self, log_id):

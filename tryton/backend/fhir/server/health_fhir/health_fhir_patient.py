@@ -12,7 +12,6 @@ except:
     from .datastore import dumb_url_generate
     RUN_FLASK=False
 
-
 class Patient_Map:
     model_mapping={
             'gnuhealth.patient': {
@@ -39,27 +38,40 @@ class Patient_Map:
                 'addressState': 'name.du.address_subdivision.name',
                 'addressCountry': 'name.du.address_country.name'
                 }}
+    # No requierements (as of yet)
+    root_search = []
+
+    # Use row id
     url_prefixes={}
-    search_mapping={
-            'patient':{
-                '_id': (['id'], 'token'), 
+
+    resource_search_params={
+                '_id': 'token',
                 '_language': None,
                 'active': None,
                 'address': None,
                 'animal-breed': None,
                 'animal-species': None,
-                'birthdate': (['name.dob'], 'date'),
-                'family': (['name.lastname'], 'string'),
-                'gender': (['name.sex'], 'token'),
-                'given': (['name.name'], 'string'),
-                'identifier': (['puid'], 'token'),
-                'language': (['name.lang.code'], 'token'),
-                'language:text': (['name.lang.rec_name'], 'string'),
+                'birthdate': 'date',
+                'family': 'string',
+                'gender': 'token',
+                'given': 'string',
+                'identifier': 'token',
+                'language': 'token',
                 'link': None,
-                'name': (['name.lastname', 'name.name'], 'string'),
+                'name': 'string',
                 'phonetic': None,
                 'provider': None,
-                'telecom': None}}
+                'telecom': None}
+    search_mapping={
+                '_id': ['id'],
+                'birthdate': ['name.dob'],
+                'family': ['name.lastname'],
+                'gender': ['name.sex'],
+                'given': ['name.name'],
+                'identifier': ['puid'],
+                'language': ['name.lang.code'],
+                'language:text': ['name.lang.rec_name'],
+                'name': ['name.lastname', 'name.name']}
 
 
 #TODO: Use and add to parent methods

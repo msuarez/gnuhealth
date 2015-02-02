@@ -1,14 +1,27 @@
 from datetime import datetime
 from operator import attrgetter
 from StringIO import StringIO
+from .health_fhir_patient import Patient_Map
+from .health_fhir_observation import Observation_Map
+from .health_fhir_practitioner import Practitioner_Map
+from .health_fhir_procedure import Procedure_Map
+from .health_fhir_diagnostic_report import DiagnosticReport_Map
 import server.fhir as supermod
 
-UPDATED=datetime(2014, 1, 1).strftime('%Y/%m/%d')
+UPDATED=datetime(2015, 1, 28).strftime('%Y/%m/%d')
 
 class health_Conformance(supermod.Conformance):
     def __init__(self, *args, **kwargs):
         institution = kwargs.pop('publisher', None)
         super(health_Conformance, self).__init__(*args, **kwargs)
+
+        # Need access to search mappings
+        #    to see what is working
+        self.patient=Patient_Map()
+        self.observation=Observation_Map()
+        self.practitioner=Practitioner_Map()
+        self.procedure=Procedure_Map()
+        self.diagnostic_report=DiagnosticReport_Map()
 
         self.__set_rest()
         self.__set_format()
@@ -60,10 +73,20 @@ class health_Conformance(supermod.Conformance):
         r = supermod.Conformance_Rest()
         r.mode = supermod.RestfulConformanceMode(value='server')
         endpoints = []
-        for endpoint in ['Patient', 'DiagnosticReport', 'Practitioner', 'Procedure', 'Observation']:
+        for endpoint, mapping in [('Patient', self.patient),
+                            ('DiagnosticReport', self.diagnostic_report),
+                            ('Practitioner', self.practitioner),
+                            ('Procedure', self.procedure),
+                            ('Observation', self.observation)]:
             e = supermod.Conformance_Resource()
             e.type_=supermod.code(value=endpoint)
             e.operation=[supermod.code(value=operation) for operation in ['read', 'validate', 'search']]
+            for k,v in mapping.resource_search_params.items():
+                if v is not None: #None are non-implemented
+                    s = supermod.Conformance_SearchParam()
+                    s.name = supermod.string(value=str(k))
+                    s.type_ = supermod.code(value=str(v))
+                    e.add_searchParam(s)
             endpoints.append(e)
         r.resource = endpoints
         self.set_rest([r])

@@ -13,6 +13,12 @@ class DiagnosticReport_Map:
     """
     The model mapping for the DiagnosticReport Resource
     """
+    # Must be completed (i.e., have date)
+    root_search=[('date_analysis', '!=', None)]
+
+    # No other models, just use row id
+    url_prefixes={}
+
     model_mapping={
             'gnuhealth.lab': {
                 'subject': 'patient',
@@ -24,25 +30,37 @@ class DiagnosticReport_Map:
                 'code': 'test.code',
                 'name': 'test.name'}
                 }
-    url_prefixes={'gnuhealth.lab': 'labreport'}
-    search_mapping={'gnuhealth.lab':
-                {
-                    '_id': (['id'], 'token'),
+    resource_search_params={
+                    '_id': 'token',
                     '_language': None,
                     'date': None,
                     'diagnosis': None, 
                     'identifier': None,
                     'image': None,
-                    'issued': (['date_analysis'], 'date'),
-                    'name': (['test.code'], 'token'),
-                    'name:text': (['test.name'], 'string'),
-                    'performer': (['pathologist'], 'reference'),
+                    'issued': 'date',
+                    'name': 'token',
+                    'performer': 'reference',
                     'request': None,
-                    'result': (['critearea'], 'reference'),
+                    'result': 'reference',
                     'service': None,
                     'specimen': None,
                     'status': None,
-                    'subject': (['subject'], 'reference')}}
+                    'subject': 'reference'}
+
+    # Reference parameters to resource type
+    chain_map={
+            'subject': 'Patient',
+            'result': 'Observation',
+            'performer': 'Practitioner'}
+
+    search_mapping={
+                    '_id': ['id'],
+                    'issued': ['date_analysis'],
+                    'name': ['test.code'],
+                    'name:text': ['test.name'],
+                    'performer': ['pathologist'],
+                    'result': ['critearea'],
+                    'subject': ['subject']}
 
 class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
     """
@@ -51,14 +69,12 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
     """
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
-        field = kwargs.pop('field', None)
         super(health_DiagnosticReport, self).__init__(*args, **kwargs)
         if rec:
-            self.set_gnu_diagnostic_report(rec, field)
+            self.set_gnu_diagnostic_report(rec)
 
-    def set_gnu_diagnostic_report(self, diagnostic_report, field):
+    def set_gnu_diagnostic_report(self, diagnostic_report):
         self.diagnostic_report = diagnostic_report
-        self.field = field
         self.model_type = self.diagnostic_report.__name__
 
         # Only certain models
@@ -66,7 +82,6 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             raise ValueError('Not a valid model')
 
         self.map = self.model_mapping[self.model_type]
-        self.search_prefix=self.url_prefixes[self.model_type]
 
         self.__import_from_gnu_diagnostic_report()
 
@@ -88,12 +103,10 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             if obj and patient and time:
                 label = '{0} for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
                 if RUN_FLASK:
-                    value = url_for('dr_record', log_id=(self.search_prefix, self.diagnostic_report.id, self.field))
+                    value = url_for('dr_record', log_id=self.diagnostic_report.id)
                 else:
                     value = dumb_url_generate(['DiagnosticReport',
-                                                self.search_prefix,
-                                                self.diagnostic_report.id,
-                                                self.field])
+                                                self.diagnostic_report.id])
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             value=supermod.string(value=value))
@@ -138,9 +151,9 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             try:
                 for test in attrgetter(self.map['result'])(self.diagnostic_report):
                     if RUN_FLASK:
-                        uri = url_for('obs_record', log_id=('lab', test.id))
+                        uri = url_for('obs_record', log_id=test.id)
                     else:
-                        uri = dumb_url_generate(['Observation', 'lab', test.id])
+                        uri = dumb_url_generate(['Observation', test.id])
                     display = test.rec_name
                     ref=supermod.ResourceReference()
                     ref.display = supermod.string(value=display)

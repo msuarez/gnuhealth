@@ -34,25 +34,34 @@ class HP_Search(Resource):
     @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
-        s = health_Search(endpoint='practitioner')
-        queries=s.get_queries(request.args)
-        bd=Bundle(request=request)
         try:
-            for query in queries:
-                if query['query'] is not None:
-                    recs = practitioner.search(query['query'])
-                    if recs:
-                        for rec in recs:
-                            try:
-                                p = health_Practitioner(gnu_record=rec)
-                            except:
-                                continue
-                            else:
-                                bd.add_entry(p)
+            s = health_Search(endpoint='practitioner')
+            query=s.get_query(request.args)
+            if query is not None:
+                total_recs = practitioner.search_count(query)
+                per_page = int(request.args.get('_count', 10))
+                page = int(request.args.get('page', 1))
+                bd=Bundle(request=request,
+                                total=total_recs,
+                                per_page = per_page,
+                                page = page)
+                offset = (page-1) * per_page
+                for rec in practitioner.search(query,
+                                        offset=offset,
+                                        limit=per_page):
+                    try:
+                        p = health_Practitioner(gnu_record=rec)
+                    except:
+                        continue
+                    else:
+                        bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:
-                return search_error_string(request.args), 403
+                oo=health_OperationOutcome()
+                oo.add_issue(details=search_error_string(request.args),
+                        severity='warning')
+                return oo, 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
@@ -127,7 +136,9 @@ class HP_Record(Resource):
             d=health_Practitioner(gnu_record=record)
             return d, 200
         else:
-            return 'Record not found', 404
+            oo=health_OperationOutcome()
+            oo.add_issue(details='No record', severity='error')
+            return oo, 404
             #if track deleted records
             #return 'Record deleted', 410
 

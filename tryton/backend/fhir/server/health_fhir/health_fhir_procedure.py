@@ -35,23 +35,35 @@ class Procedure_Map:
                     'name': 'procedure.rec_name',
                     'code': 'procedure.name'}}
 
-    url_prefixes={'gnuhealth.rounding_procedure': 'rounds',
-                    'gnuhealth.ambulatory_care_procedure': 'amb',
-                    'gnuhealth.operation': 'surg'}
+    url_prefixes={}
+                    #'gnuhealth.rounding_procedure': 'rounds',
+                    #'gnuhealth.ambulatory_care_procedure': 'amb',
+                    #'gnuhealth.operation': 'surg'}
+
+    resource_search_params= {
+            '_id': 'token',
+            '_language': None,
+            'date': 'date',
+            'subject': 'reference',
+            'type': 'token',
+            }
+
+    # Reference parameter to resource type
+    chain_map={
+            'subject': 'Patient'}
 
     # Since these models are pretty similar, all can share same mapping
     #       i.e., no weird or special cases
     #       so we can generate the searches from the model_mapping
-    search_mapping={}
-    for t,m in url_prefixes.items():
-        search_mapping[t]={
-            '_id': (['id'], 'token'),
-            '_language': ([], 'token'),
-            'date': ([model_mapping[t]['date']], 'date'),
-            'subject': ([model_mapping[t]['subject']], 'reference'),
-            'type': ([model_mapping[t]['code']], 'token'),
-            'type:text': ([model_mapping[t]['name'],
-                        model_mapping[t]['description']], 'string')}
+    #    But for now, ignore other models = only gnuhealth.operation
+    t='gnuhealth.operation'
+    search_mapping={
+            '_id': ['id'],
+            'date': [model_mapping[t]['date']],
+            'subject': [model_mapping[t]['subject']],
+            'type': [model_mapping[t]['code']],
+            'type:text': [model_mapping[t]['name'],
+                        model_mapping[t]['description']]}
 
 class health_Procedure(supermod.Procedure, Procedure_Map):
     def __init__(self, *args, **kwargs):
@@ -62,7 +74,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
 
     def set_gnu_procedure(self, procedure):
         """Set procedure;
-        
+
         GNU Health uses 'operation' and 'procedure'
         sometimes interchangeably
         """
@@ -74,7 +86,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         if self.model_type not in self.model_mapping:
             raise ValueError('Not a valid model')
 
-        self.search_prefix = self.url_prefixes[self.model_type]
+        #self.search_prefix = self.url_prefixes[self.model_type]
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_procedure()
@@ -100,10 +112,9 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         if self.procedure:
             patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
             if RUN_FLASK:
-                value = supermod.string(value=url_for('op_record', log_id=(self.search_prefix, self.procedure.id, None)))
+                value = supermod.string(value=url_for('op_record', log_id=self.procedure.id))
             else:
                 value = supermod.string(value=dumb_url_generate(['Procedure',
-                                                                self.search_prefix,
                                                                 self.procedure.id]))
             ident = supermod.Identifier(
                         label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),

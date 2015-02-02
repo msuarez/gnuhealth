@@ -9,16 +9,16 @@ import os.path
 import sys
 
 # Procedure models
-amb_procedure = tryton.pool.get('gnuhealth.ambulatory_care_procedure')
-surg_procedure = tryton.pool.get('gnuhealth.operation')
-rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
+#amb_procedure = tryton.pool.get('gnuhealth.ambulatory_care_procedure')
+procedure = tryton.pool.get('gnuhealth.operation')
+#rounds_procedure = tryton.pool.get('gnuhealth.rounding_procedure')
 
 # REST prefixes (e.g., amb-3 is amb_procedure model, id  = 3)
 #   Note: Must match the Procedure_Map
-model_map = {
-        'amb': amb_procedure,
-        'surg': surg_procedure,
-        'rounds': rounds_procedure}
+#model_map = {
+        #'amb': amb_procedure,
+        #'surg': surg_procedure,
+        #'rounds': rounds_procedure}
 
 class OP_Create(Resource):
     @tryton.transaction(user=get_userid)
@@ -42,25 +42,35 @@ class OP_Search(Resource):
     @tryton.transaction(user=get_userid)
     def get(self):
         '''Search interaction'''
-        s = health_Search(endpoint='procedure')
-        queries=s.get_queries(request.args)
         try:
-            bd=Bundle(request=request)
-            for query in queries:
-                if query['query'] is not None:
-                    recs = model_map[query['model']].search(query['query'])
-                    if recs:
-                        for rec in recs:
-                            try:
-                                p = health_Procedure(gnu_record=rec)
-                            except:
-                                continue
-                            else:
-                                bd.add_entry(p)
+            s = health_Search(endpoint='procedure')
+            query=s.get_query(request.args)
+            if query is not None:
+                total_recs = procedure.search_count(query)
+                per_page = int(request.args.get('_count', 10))
+                page = int(request.args.get('page', 1))
+                bd=Bundle(request=request,
+                                total=total_recs,
+                                per_page = per_page,
+                                page = page)
+                offset = (page-1) * per_page
+                for rec in procedure.search(query,
+                                        offset=offset,
+                                        limit=per_page):
+                    try:
+                        p = health_Procedure(gnu_record=rec)
+                    except:
+                        continue
+                    else:
+                        bd.add_entry(p)
+
             if bd.entries:
                 return bd, 200
             else:
-                return search_error_string(request.args), 403
+                oo=health_OperationOutcome()
+                oo.add_issue(details=search_error_string(request.args),
+                        severity='warning')
+                return oo, 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
@@ -130,19 +140,14 @@ class OP_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        model = model_map[log_id[0]]
-        record = find_record(model, [('id', '=', log_id[1])])
+        record = find_record(procedure, [('id', '=', log_id)])
         if record:
-            try:
-                d=health_Procedure(gnu_record=record)
-            except:
-                return 'Record not found', 404
-            else:
-                return d, 200
+            d=health_Procedure(gnu_record=record)
+            return d, 200
         else:
-            return 'Record not found', 404
-            #if track deleted records
-            #return 'Record deleted', 410
+            oo=health_OperationOutcome()
+            oo.add_issue(details='No record', severity='fatal')
+            return oo, 404
 
     @tryton.transaction(user=get_userid)
     def put(self, log_id):

@@ -2,6 +2,7 @@ from StringIO import StringIO
 from .datastore import find_record
 from operator import attrgetter
 import server.fhir as supermod
+from server.common import safe_attrgetter
 
 try:
     from flask import url_for
@@ -21,7 +22,8 @@ class Observation_Map:
             {'patient': 'gnuhealth_lab_id.patient',
             'date': 'gnuhealth_lab_id.date_analysis',
             'comments': 'remarks',
-            'value': 'result'},
+            'value': 'result',
+            'excluded': 'excluded'},
         'gnuhealth.icu.apache2':
             { 'patient': 'name.patient',
             'date': 'score_date',
@@ -62,19 +64,19 @@ class Observation_Map:
                 'temp': 'temperature',
                 'press_d': 'diastolic',
                 'press_s': 'systolic'}}}
-    url_prefixes ={
-            'gnuhealth.lab.test.critearea': 'lab',
-            'gnuhealth.patient.rounding': 'rounds',
-            'gnuhealth.patient.evaluation': 'eval',
-            'gnuhealth.patient.ambulatory_care': 'amb',
-            'gnuhealth.icu.apache2': 'icu'}
 
-    search_mapping ={
-            'gnuhealth.lab.test.critearea':
-                    {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
+    url_prefixes ={}
+            #'gnuhealth.lab.test.critearea': 'lab',
+            #'gnuhealth.patient.rounding': 'rounds',
+            #'gnuhealth.patient.evaluation': 'eval',
+            #'gnuhealth.patient.ambulatory_care': 'amb',
+            #'gnuhealth.icu.apache2': 'icu'}
+
+    resource_search_params = {
+                    '_id': 'token',
                     '_language': None,
-                    'date': (['gnuhealth_lab_id.date_analysis'], 'date'),
-                    'name': (['name'], 'token'),
+                    'date': 'date',
+                    'name': 'token',
                     'performer': None,
                     'reliability': None,
                     'related': None,
@@ -82,11 +84,27 @@ class Observation_Map:
                     'related-type': None,
                     'specimen': None,
                     'status': None,
-                    'subject': (['gnuhealth_lab_id.patient'], 'reference'), 
+                    'subject': 'reference',
                     'value-concept': None,
                     'value-date': None,
-                    'value-quantity': (['result'], 'quantity'),
-                    'value-string': None}}
+                    'value-quantity': 'quantity',
+                    'value-string': None}
+
+    # Must have result or be excluded
+    root_search=[['OR', [('result', '!=', None)],
+                        [('excluded', '=', True)]]]
+
+    # Maps reference parameters to correct resource
+    chain_map={
+                'subject': 'Patient'}
+
+    search_mapping ={
+                    '_id': ['id'],
+                    'date': ['gnuhealth_lab_id.date_analysis'],
+                    'name': ['name'],
+                    'subject': ['gnuhealth_lab_id.patient'],
+                    'value-quantity': ['result']}
+
     todo_search_mapping={
            'gnuhealth.patient.evaluation': {'_id': (['id'], 'token'), #Needs to be parsed MODEL-ID-FIELD
                     '_language': None,
@@ -198,7 +216,7 @@ class health_Observation(supermod.Observation, Observation_Map):
         if self.map.get('value') and self.field is not None:
             raise ValueError('Ambiguous field; not required')
 
-        self.search_prefix = self.url_prefixes[self.model_type]
+        #self.search_prefix = self.url_prefixes[self.model_type]
 
         if self.field:
             self.model_field = self.map['fields'][self.field]
@@ -280,14 +298,12 @@ class health_Observation(supermod.Observation, Observation_Map):
             obj = self.description
             patient, time = attrgetter(self.map['patient'], self.map['date'])(self.gnu_obs)
 
-            if id and obj and patient and time:
+            if obj and patient and time:
                 label = '{0} value for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
                 if RUN_FLASK:
-                    value = url_for('obs_record', log_id=(self.search_prefix, self.gnu_obs.id, self.field))
+                    value = url_for('obs_record', log_id=self.gnu_obs.id)
                 else:
-                    value = dumb_url_generate(['Observation', self.search_prefix,
-                                                                self.gnu_obs.id,
-                                                                self.field])
+                    value = dumb_url_generate(['Observation', self.gnu_obs.id])
                 ident = supermod.Identifier(
                             label=supermod.string(value=label),
                             #system=supermod.uri(value='gnuhealth::0'), #TODO
@@ -417,7 +433,16 @@ class health_Observation(supermod.Observation, Observation_Map):
     def __set_gnu_status(self):
         if self.gnu_obs:
             s = health_ObservationStatus()
-            s.value = 'final'
+            excluded = safe_attrgetter(self.gnu_obs, self.map['excluded'])
+            value = safe_attrgetter(self.gnu_obs, self.map['value'])
+
+            if excluded:
+                if value is not None:
+                    s.value = 'cancelled'
+                else:
+                    s.value = 'entered in error'
+            else:
+                s.value = 'final'
             self.set_status(s)
 
     def set_status(self, status):
@@ -455,9 +480,14 @@ class health_Observation(supermod.Observation, Observation_Map):
                     q.system = supermod.uri(value=system)
                 self.set_valueQuantity(q)
             else:
-                # If there is no value, the observation is useless
-                #    Therefore, exit early (handle this in the blueprint)
-                raise ValueError('No value.')
+                if safe_attrgetter(self.gnu_obs, self.map['excluded']):
+                    # Allow excluded observations with no value
+                    pass
+                else:
+                    # If there is no value and non-excluded,
+                    #    the observation is useless
+                    #    Therefore, exit early (handle this in the blueprint)
+                    raise ValueError('No value.')
 
     def set_valueQuantity(self, quantity):
         """Set actual value of observation"""

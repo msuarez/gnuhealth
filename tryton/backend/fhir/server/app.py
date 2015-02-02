@@ -63,28 +63,28 @@ def create_app(config=None):
         from server.resources.diagnostic_report import (DR_Create, DR_Search,
                                         DR_Validate, DR_Record, DR_Version)
         api.add_resource(DR_Create, '/DiagnosticReport')
-        api.add_resource(DR_Record, '/DiagnosticReport/<item:log_id>')
+        api.add_resource(DR_Record, '/DiagnosticReport/<int:log_id>')
         api.add_resource(DR_Search,
                         '/DiagnosticReport',
                         '/DiagnosticReport/_search')
         api.add_resource(DR_Validate,
                         '/DiagnosticReport/_validate',
-                        '/DiagnosticReport/_validate/<item:log_id>')
+                        '/DiagnosticReport/_validate/<int:log_id>')
         api.add_resource(DR_Version,
-                        '/DiagnosticReport/<item:log_id>/_history',
-                        '/DiagnosticReport/<item:log_id>/_history/<string:v_id>')
+                        '/DiagnosticReport/<int:log_id>/_history',
+                        '/DiagnosticReport/<int:log_id>/_history/<string:v_id>')
 
         from server.resources.observation import (OBS_Create, OBS_Search,
                                         OBS_Validate, OBS_Record, OBS_Version)
         api.add_resource(OBS_Create, '/Observation')
         api.add_resource(OBS_Search, '/Observation', '/Observation/_search')
-        api.add_resource(OBS_Record, '/Observation/<item:log_id>')
+        api.add_resource(OBS_Record, '/Observation/<int:log_id>')
         api.add_resource(OBS_Validate,
                         '/Observation/_validate',
-                        '/Observation/_validate/<item:log_id>')
+                        '/Observation/_validate/<int:log_id>')
         api.add_resource(OBS_Version,
-                        '/Observation/<item:log_id>/_history',
-                        '/Observation/<item:log_id>/_history/<string:v_id>')
+                        '/Observation/<int:log_id>/_history',
+                        '/Observation/<int:log_id>/_history/<string:v_id>')
 
         from server.resources.practitioner import (HP_Create, HP_Search,
                                         HP_Validate, HP_Record, HP_Version)
@@ -102,14 +102,14 @@ def create_app(config=None):
         from server.resources.procedure import (OP_Create, OP_Search,
                                         OP_Validate, OP_Record, OP_Version)
         api.add_resource(OP_Create, '/Procedure')
-        api.add_resource(OP_Record, '/Procedure/<item:log_id>')
+        api.add_resource(OP_Record, '/Procedure/<int:log_id>')
         api.add_resource(OP_Search, '/Procedure', '/Procedure/_search')
         api.add_resource(OP_Validate,
                         '/Procedure/_validate',
-                        '/Procedure/_validate/<item:log_id>')
+                        '/Procedure/_validate/<int:log_id>')
         api.add_resource(OP_Version,
-                        '/Procedure/<item:log_id>/_history',
-                        '/Procedure/<item:log_id>/_history/<string:v_id>')
+                        '/Procedure/<int:log_id>/_history',
+                        '/Procedure/<int:log_id>/_history/<string:v_id>')
 
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD

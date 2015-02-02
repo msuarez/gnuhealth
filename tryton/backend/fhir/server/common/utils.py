@@ -1,4 +1,5 @@
 from werkzeug.routing import BaseConverter, ValidationError
+from operator import attrgetter
 from flask import make_response, g
 from StringIO import StringIO
 
@@ -56,7 +57,7 @@ def search_error_string(args):
     st =[]
     for k,v in args.items():
         st.append(': '.join([k,v]))
-    return 'No matching record(s) for {0}'.format('\n'.join(st))
+    return 'No matching record(s) for {0}'.format('\n'.join(st) or '/')
 
 def output_xml(data, code, headers=None):
     """Output response to xml
@@ -94,4 +95,11 @@ def get_userid():
     except:
         return None
 
-__all__=['get_address', 'recordConverter', 'search_error_string', 'output_xml', 'get_userid']
+def safe_attrgetter(obj, attr, default=None):
+    try:
+        return attrgetter(attr)(obj)
+    except:
+        return default
+
+__all__=['get_address', 'recordConverter', 'search_error_string',
+                'output_xml', 'get_userid', 'safe_attrgetter']

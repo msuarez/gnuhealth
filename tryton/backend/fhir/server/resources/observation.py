@@ -18,7 +18,7 @@ lab = tryton.pool.get('gnuhealth.lab.test.critearea')
 #icu = tryton.pool.get('gnuhealth.icu.apache2')
 
 # Prefix mapping
-model_map={ 'lab': lab}
+#model_map={ 'lab': lab}
         #'eval': eva,
         #'rounds': rounds,
         #'amb': amb,
@@ -48,35 +48,33 @@ class OBS_Search(Resource):
     def get(self):
         '''Search interaction'''
         try:
-            # TODO Pass the models to the class to cleanup this uglines
-            bd = Bundle(request=request)
             s = health_Search(endpoint='observation')
-            queries = s.get_queries(request.args)
-            for query in queries:
-                if query['query'] is not None:
-                    recs = model_map[query['model']].search(query['query'])
-                    for rec in recs:
-                        # If specific fields match
-                        if query['fields']:
-                            for f in query['fields']:
-                                try:
-                                    o = health_Observation(gnu_record=rec, field=f)
-                                except:
-                                    continue
-                                else:
-                                    bd.add_entry(o)
-                        else:
-                            # Model does not need field
-                            try:
-                                o = health_Observation(gnu_record=rec)
-                            except:
-                                continue
-                            else:
-                                bd.add_entry(o)
+            query=s.get_query(request.args)
+            if query is not None:
+                total_recs = lab.search_count(query)
+                per_page = int(request.args.get('_count', 10))
+                page = int(request.args.get('page', 1))
+                bd=Bundle(request=request,
+                                total=total_recs,
+                                per_page = per_page,
+                                page = page)
+                offset = (page-1) * per_page
+                for rec in lab.search(query,
+                                        offset=offset,
+                                        limit=per_page):
+                    try:
+                        p = health_Observation(gnu_record=rec)
+                    except:
+                        continue
+                    else:
+                        bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:
-                return search_error_string(request.args), 403
+                oo=health_OperationOutcome()
+                oo.add_issue(details=search_error_string(request.args),
+                                severity='warning')
+                return oo, 403
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
@@ -140,24 +138,19 @@ class OBS_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        model = model_map.get(log_id[0])
-        if model is None:
-            return 'No record', 404
-        id = log_id[1]
-        field = log_id[2]
-        record = find_record(model, [('id', '=', id)])
+        record = find_record(lab, [('id', '=', log_id)])
         if record:
-            d=health_Observation()
             try:
-                d.set_gnu_observation(record, field=field)
-            except:
-                return 'Record not found', 404
-            else:
+                d=health_Observation(gnu_record=record)
                 return d, 200
+            except:
+                oo=health_OperationOutcome()
+                oo.add_issue(details='No record', severity='fatal')
+                return oo, 404
         else:
-            return 'Record not found', 404
-            #if track deleted records
-            #return 'Record deleted', 410
+            oo=health_OperationOutcome()
+            oo.add_issue(details='No record', severity='fatal')
+            return oo, 404
 
     @tryton.transaction(user=get_userid)
     def put(self, log_id):
