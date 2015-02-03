@@ -3,6 +3,8 @@
 GNUHEALTH_PATH='/srv/gnuhealth'
 AS_VAGRANT='su vagrant'
 
+export DEBIAN_FRONTEND=noninteractive
+
 echo 'Running bootstrap for Vagrant'
 
 echo '.. installing firewall'
