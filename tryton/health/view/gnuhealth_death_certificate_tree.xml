@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Death Certificate">
+    <field name="name" expand="1"/>
+    <field name="dod" expand="1"/>
+    <field name="age" expand="1"/>
+    <field name="cod" expand="1"/>
+    <field name="code" tree_invisible="1"/>
+    <field name="signed_by" tree_invisible="1"/>
+    <field name="institution" tree_invisible="1"/>
+</tree>

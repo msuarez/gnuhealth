@@ -1,6 +1,1356 @@
+changeset:   1819:6610646ea829
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 01 22:22:56 2015 +0000
+summary:     add README to Injury Surveillance System module
+
+changeset:   1818:36dbe1637c39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 01 22:21:35 2015 +0000
+summary:     update READMEs
+
+changeset:   1817:bd098dda4954
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 01 22:15:34 2015 +0000
+summary:     all : update version to 2.8.0
+
+changeset:   1816:7e60fa720d73
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 31 09:41:01 2015 +0000
+summary:     all: update copyright dates
+
+changeset:   1815:3a53dc8ce6dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 31 09:00:18 2015 +0000
+summary:     gnuhealth-control : Update version to 1.0.0
+
+changeset:   1814:280e87312c3a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 31 08:55:30 2015 +0000
+summary:     remove health_fhir directories . Development will be at the GNU Health FHIR server
+
+changeset:   1813:b7ecfcc09409
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jan 30 20:00:29 2015 -0300
+summary:     all : Update official languages from transifex
+
+changeset:   1812:ba3ad6612b17
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jan 30 18:44:47 2015 -0300
+summary:     all : Add Japanese as an official language
+
+changeset:   1811:f45912b1624d
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jan 30 17:04:23 2015 -0300
+summary:     health_iss : Fix typo
+
+changeset:   1810:5e32ff5972a6
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jan 30 16:22:11 2015 -0300
+summary:     health : Fix typos
+
+changeset:   1809:535c832d46fe
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jan 28 17:16:04 2015 -0300
+summary:     health_crypto : Fix bug #44110: Error saving Birth Certificate.
+
+changeset:   1808:7cd6cf636709
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jan 28 13:54:31 2015 -0300
+summary:     health : Fix bug #44108: Error saving Death Certificate when no DoB
+
+changeset:   1807:8670e9e93f02
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jan 28 12:37:01 2015 -0300
+summary:     health_crypto : Fix bug #44105: Error saving Death Certificate
+
+changeset:   1806:564b2012e9fe
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Jan 28 11:00:30 2015 -0300
+summary:     health_reporting : Fix bug #44104 : Error on Summary Report only when the
+
+changeset:   1805:d68fda45a7ac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 27 15:08:17 2015 +0000
+summary:     health_stock : Add wizard package to setup.py
+
+changeset:   1804:2c51a68af46d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 27 11:21:46 2015 +0000
+summary:     all : update to 28 RC3
+
+changeset:   1803:0c18f26f9415
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 27 11:10:37 2015 +0000
+summary:     Add README to the synchronization guide documentation
+
+changeset:   1802:e16eaaa81c2d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 27 10:18:09 2015 +0000
+summary:     health_reporting : remove extra report line
+
+changeset:   1801:498ff458a544
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 27 10:15:21 2015 +0000
+summary:     remove new page break on evaluation report
+
+changeset:   1800:6b860bd6c78a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 19:43:50 2015 +0000
+summary:     health_history : Add GPG digital signature to the patient evaluation and history report
+
+changeset:   1799:f14c6f2eb1c5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 19:12:07 2015 +0000
+summary:     health : set the patient evaluation record readonly once it has been signed / closed
+
+changeset:   1798:d426ed4fe40e
+parent:      1797:cc24292c36d6
+parent:      1795:952eb447c329
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 18:52:41 2015 +0000
+summary:     merge : PLEASE create the bug / assign before commiting hg push!
+
+changeset:   1797:cc24292c36d6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 18:50:36 2015 +0000
+summary:     health : set the birth and death cert record readonly once it has been signed / closed
+
+changeset:   1796:9d98c61189b3
+parent:      1794:77df2e25e124
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Jan 26 10:40:23 2015 -0300
+summary:     health_reporting : bug #44091: Missing package directory for report on setup.py
+
+changeset:   1795:952eb447c329
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 13:49:20 2015 +0000
+summary:     health_reporting : Add report to packages on setup.py
+
+changeset:   1794:77df2e25e124
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 26 13:22:56 2015 +0000
+summary:     health_crypto : Work on unicode for both JSON encoding and hash functions
+
+changeset:   1793:129257fd03bc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 25 18:53:30 2015 +0000
+summary:     health_crypto, crypto plugin : Add document JSON representation in GPG signature. Improve view for patient evaluation
+
+changeset:   1792:22cac3027b52
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 25 16:21:22 2015 +0000
+summary:     health_crypto : Add validation tab in patient evaluation
+
+changeset:   1791:b86e749b2396
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 25 13:49:24 2015 +0000
+summary:     health_crypto : Add main components of the patient evaluation to the serialization process
+
+changeset:   1790:f6ecd924940e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 24 20:21:27 2015 +0000
+summary:     health_crypto, health : Keep the signing health prof in both modules, so it does not create hash differences when changing from state done to signed
+
+changeset:   1789:9d0fb9505206
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 24 18:46:52 2015 +0000
+summary:     health_crypto: Add the sign field in the patient evaluation form. Hide digital signature info if empty
+
+changeset:   1788:1f501677e4c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 24 14:01:09 2015 +0000
+summary:     health_crypto : Add initial serialization to patient evaluation
+
+changeset:   1787:301265a1642d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 23 06:38:34 2015 +0000
+summary:     health_reporting : bug #44072: Missing package directory for wizard on setup.py
+
+changeset:   1786:cc45529c50db
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 22 19:52:07 2015 +0000
+summary:     gnuhealth-control : Fix update command args
+
+changeset:   1785:abc372fb57a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 22 17:18:34 2015 +0000
+summary:     all : update Tryton version to 3.4 in setup.py. Add setup.py for Injury Surveillance Module
+
+changeset:   1784:7887aa336687
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 22 13:04:57 2015 +0000
+summary:     health_surgery : Fix bug #44034: health_surgery : Condense preop_oximeter help string
+
+changeset:   1783:5fd3e2549a87
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 22 10:33:59 2015 +0000
+summary:     health_fhir_patient : remove lingering link
+
+changeset:   1782:5159e9366332
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Jan 20 12:50:39 2015 -0800
+summary:     FHIR: Remove some buggy Observation models for now
+
+changeset:   1781:ad3ab87cd358
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 20 19:23:40 2015 +0000
+summary:     all : update version to 28RC2
+
+changeset:   1780:e9b94204919a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 20 12:03:50 2015 +0000
+summary:     Added tag 28rc2 for changeset fe988feeff48
+
+changeset:   1779:fe988feeff48
+tag:         28rc2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 20 10:31:37 2015 +0000
+summary:     health_crypto : Add birth certificate form
+
+changeset:   1778:862d57c1e7cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 20 10:31:01 2015 +0000
+summary:     health_crypto : Add Birth certificate serializer
+
+changeset:   1777:f6509dad128e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 19 17:08:34 2015 +0000
+summary:     health_reporting : Add age range 100-104 to population pyramid. Create a new separate group for 105+
+
+changeset:   1776:692db103965a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 19 15:10:42 2015 +0000
+summary:     health_reporing : work on living population
+
+changeset:   1775:2f8ba4db03b7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 19 12:59:10 2015 +0000
+summary:     health_crypto : Reorder fields and generate template for further uses
+
+changeset:   1774:f96f2aadfe83
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 18 19:52:14 2015 +0000
+summary:     health : Make death cert underlying conditions time interval required
+
+changeset:   1773:736fe5519424
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 18 19:45:26 2015 +0000
+summary:     health_crypto : Add extra field values for death certficate
+
+changeset:   1772:36d549fd4b38
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 18 19:00:02 2015 +0000
+summary:     health_crypto : Add death certificate model
+
+changeset:   1771:cc377cb8bb25
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 18 17:39:18 2015 +0000
+summary:     GNU Health installer : Add logger configuration file. Create the config directory
+
+changeset:   1770:8f9590eab4a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 18 12:11:02 2015 +0000
+summary:     GNU Health Installer : Update python dependencies to the latest version
+
+changeset:   1769:38769d301672
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 17 19:11:43 2015 +0000
+summary:     health : include age at death in certificate
+
+changeset:   1768:b09edc862257
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 17 18:38:54 2015 +0000
+summary:     health_reporting : Include basic demographic indicators during specific periods
+
+changeset:   1767:e8d9e09889ba
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 14 17:48:58 2015 +0000
+summary:     FS structure: Include the documentation in the main directory
+
+changeset:   1766:2783ceb51839
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 13 13:34:08 2015 +0000
+summary:     health : Fix bug #43993: Relation «gnuhealth_institution» does not exist on installation
+
+changeset:   1765:643e78d7175d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jan 11 21:33:13 2015 -0800
+summary:     FHIR: Small cosmetic changes; maritalstatus in report
+
+changeset:   1764:4b389e02816f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 11 21:47:45 2015 +0000
+summary:     health : init before the Certificate classes than party to avoid error on update
+
+changeset:   1763:197e436af4b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 11 20:53:05 2015 +0000
+summary:     all : Update to 2.8 Release Candidate 1
+
+changeset:   1762:c13818e0a768
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 11 14:15:05 2015 +0000
+summary:     health_reporting : Use Demographic Summary for report
+
+changeset:   1761:58380588ff3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 11 12:45:56 2015 +0000
+summary:     health: Add mother and father information from the Birth Certificate to the person demographics info
+
+changeset:   1760:4c9e384bf103
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 11 11:27:40 2015 +0000
+summary:     health : Add default state to birth certificate
+
+changeset:   1759:1808d96979e8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 10 18:18:25 2015 +0000
+summary:     health : Add country and subdivision to death certificate
+
+changeset:   1758:f40b604be2a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 10 18:07:57 2015 +0000
+summary:     health : Make the patient field readonly when the record has been saved, not before
+
+changeset:   1757:a840886cc034
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 10 18:01:38 2015 +0000
+summary:     health : Add signature process for Birth Certificate. Improve view
+
+changeset:   1756:5d1bfbe8b3a8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 10 15:45:45 2015 +0000
+summary:     health : Add validation on birth certificate DoB
+
+changeset:   1755:462a2e80831d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 10 15:13:21 2015 +0000
+summary:     health: Get the certificate DoB from the party (person)
+
+changeset:   1754:6b309328746d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jan 08 22:40:17 2015 -0800
+summary:     FHIR: Add patient report in fhir xml
+
+changeset:   1753:20d1adad1f29
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 04 21:02:12 2015 +0000
+summary:     health : deceased information related to the patient is now linked to the death certificate
+
+changeset:   1752:1b06348a50c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 04 13:44:05 2015 +0000
+summary:     health : set person (party) deceased attribute to true upon signing the death certificate
+
+changeset:   1751:2b290be01137
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 04 12:34:39 2015 +0000
+summary:     health : Add death underlying conditions form and tree view
+
+changeset:   1750:baf1b89e5e12
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 04 12:33:42 2015 +0000
+summary:     health : include underlying conditions in death certificate
+
+changeset:   1749:fdaf46fac064
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 03 19:46:04 2015 +0000
+summary:     health : include Domiciliary Unit, Operational Sector and other place of death details to death certificate
+
+changeset:   1748:02f26ca2b83c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 03 15:13:53 2015 +0000
+summary:     health : Add certification date and use datetime on death
+
+changeset:   1747:d4c902cf38ba
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 03 13:02:35 2015 +0000
+summary:     health : Sign process for death certificate
+
+changeset:   1746:bcc9ed6e2e28
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 22:00:18 2015 +0000
+summary:     health : show the deceased field on form when is true
+
+changeset:   1745:02d605794335
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 21:40:19 2015 +0000
+summary:     health : Add deceased field as read-only in Party model
+
+changeset:   1744:652e177c601f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 21:06:03 2015 +0000
+summary:     health : Add constraint on person and code for birth and death certificates
+
+changeset:   1743:b8f08480dc21
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 18:40:47 2015 +0000
+summary:     health: include person domain in birth and death certificates
+
+changeset:   1742:c0779e7a7096
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 18:27:59 2015 +0000
+summary:     health: Include standard GNU Health list icons for birth and death certificates
+
+changeset:   1741:6dc4619bf12a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 18:19:14 2015 +0000
+summary:     health: char -> text in birth / death observation fields
+
+changeset:   1740:ef6aea81ce53
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 12:47:19 2015 +0000
+summary:     health : initial None values to both country and subdivision in birth cert
+
+changeset:   1739:e7bb065c6153
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 12:38:10 2015 +0000
+summary:     health : Use default country and subdivision on the person birth certificate based on the Instituion address
+
+changeset:   1738:546470bf1e0d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 11:56:53 2015 +0000
+summary:     health : Add country and subdivision to the birth certificate
+
+changeset:   1737:d973f331221d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 02 11:40:00 2015 +0000
+summary:     health: Add tree and form views to birth certificate
+
+changeset:   1736:55a9a5f69ad2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 01 14:42:31 2015 +0000
+summary:     health : Initial birth certificate form
+
+changeset:   1735:f52cf2ac0efe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 20:38:18 2014 +0000
+summary:     Offline documentation : Include README. Happy and Healty GNU Year 2015 hg add :)
+
+changeset:   1734:a8b6c869956f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 17:27:24 2014 +0000
+summary:     health_synchro : fix template . Remove obsolete 3.2 info
+
+changeset:   1733:fe8dcf830292
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 16:48:00 2014 +0000
+summary:     gnuhealth RC : add config directory to PYTHONPATH
+
+changeset:   1732:a9794268105c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 13:33:49 2014 +0000
+summary:     gnuhealth installer : create documentation directory and populate it
+
+changeset:   1731:70b6643c460f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 12:58:12 2014 +0000
+summary:     health_synchro : move the module to the documentation area
+
+changeset:   1730:64adfcd2daf8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 31 10:01:59 2014 +0000
+summary:     health_synchro : rename health.py to health_synchro.py
+
+changeset:   1729:66d3c6a80f50
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 30 15:09:17 2014 +0000
+summary:     health_synchro : use code as the unique column
+
+changeset:   1728:88e8ada0b05d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Dec 29 19:46:02 2014 -0800
+summary:     FHIR: Update docs; add Remember Me cookie support
+
+changeset:   1727:91f325dc20fe
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Mon Dec 29 19:13:06 2014 -0300
+summary:     health : Fix wrong term.
+
+changeset:   1726:5305967c0d15
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 29 11:53:45 2014 +0000
+summary:     health_synchro : initial set of models
+
+changeset:   1725:2bd30a9ea0f1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Dec 26 22:13:16 2014 -0800
+summary:     FHIR: small fixes
+
+changeset:   1724:32d0b6d369ec
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Dec 26 19:43:11 2014 -0800
+summary:     FHIR: Handle non-flask environment in health_fhir modules
+
+changeset:   1723:b109b1a7a820
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 24 10:38:22 2014 +0000
+summary:     gnuhealth-control : update version
+
+changeset:   1722:83adb352b75c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 24 10:11:27 2014 +0000
+summary:     gnuhealth-control : Check current GNU Health version against gnuhealth-control version
+
+changeset:   1721:5dfa2a04c6e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 24 09:39:47 2014 +0000
+summary:     gnuhealth-control : Update description
+
+changeset:   1720:435505f99be0
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Dec 23 22:38:27 2014 -0800
+summary:     FHIR: First commit of tests file; other small changes
+
+changeset:   1719:24de5711eeab
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Dec 22 21:13:43 2014 -0800
+summary:     FHIR: Added run server script; Added installation/config help file; Responses now respect user access permissions
+
+changeset:   1718:eaa5dd268dd6
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Dec 21 22:51:42 2014 -0800
+summary:     FHIR: Remove create patient support
+
+changeset:   1717:f8b071d65eb5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 21 18:36:53 2014 +0000
+summary:     gnuhealth-control : Add --dry-run option to update
+
+changeset:   1716:3189ee373651
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 21 18:03:27 2014 +0000
+summary:     gnuhealth-control : remove debugging environment variable
+
+changeset:   1715:3483779faf11
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Dec 20 21:02:21 2014 -0800
+summary:     FHIR: Add basic config, templates; other small changes/fixes
+
+changeset:   1714:f5dc83fc5d1b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Dec 19 18:15:48 2014 -0800
+summary:     FHIR: Restructured app into modules
+
+changeset:   1713:361230c6bdec
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Dec 19 18:16:00 2014 -0300
+summary:     Fix bug #43853: Error creating new record in "Imaging Test Result".
+
+changeset:   1712:fb455e4e89d5
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Dec 19 17:25:46 2014 -0300
+summary:     Fix bug #43852 : Duplicate translations.
+
+changeset:   1711:3662b8666310
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 19 18:29:41 2014 +0000
+summary:     health_iss : add unique ISS registration code constraint
+
+changeset:   1710:27b08cafb990
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 19 18:24:48 2014 +0000
+summary:     health_iss : use patient rec_name
+
+changeset:   1709:7096e2668ab4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 19 16:11:31 2014 +0000
+summary:     health_iss : Include Injury Surveillance System data in the reporting menu
+
+changeset:   1708:ad5d09371968
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Dec 18 23:38:10 2014 -0800
+summary:     FHIR: xml as default response
+
+changeset:   1707:f0682469d1bf
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Dec 18 15:03:32 2014 -0300
+summary:     Fix remaining translations in health_pediatrics_growth_charts_who.
+
+changeset:   1706:9d62375f65c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 18 10:07:06 2014 +0000
+summary:     ISS : Injury Surveillance System initial registration
+
+changeset:   1705:213e8e13db1f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Dec 17 01:45:03 2014 -0800
+summary:     FHIR: xml response to shared file; authenticate almost all endpoints; other cleanup
+
+changeset:   1704:8c69d3acbcf0
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Dec 15 19:13:10 2014 -0800
+summary:     FHIR: Added modules list (possibly incomplete); small changes
+
+changeset:   1703:42237bd43208
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 15 17:25:05 2014 +0000
+summary:     gnuhealth-control : relink modules after upgrade
+
+changeset:   1702:6828c400e3a7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 15 13:37:36 2014 +0000
+summary:     gnuhealth-control : delete obsolete kernel and modules after the update
+
+changeset:   1701:58e9e51a440f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 15 12:43:47 2014 +0000
+summary:     gnuhealth-control : Apply GNU Health patchsets in the update process
+
+changeset:   1700:0b7da7ba9f38
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 15 11:19:36 2014 +0000
+summary:     gnuhealth-control : extract new modules after the update
+
+changeset:   1699:6bfb62bb7e0c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 14 19:03:25 2014 +0000
+summary:     gnuhealth-control : extract latest tryton kernel update
+
+changeset:   1698:68cc28141409
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 14 16:39:31 2014 +0000
+summary:     gnuhealth-control : Download all required updates in tryton kernel, modules and GNU Health patchsets
+
+changeset:   1697:4f0314a41768
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 14 14:28:42 2014 +0000
+summary:     gnuhealth-control: check for download dir in updates
+
+changeset:   1696:231ae9deecbb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 14 14:00:05 2014 +0000
+summary:     gnuhealth-control : retrieve the GNU Health patchset list to be installed
+
+changeset:   1695:21ff42d9a238
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 13 18:10:24 2014 +0000
+summary:     gnuhealth-control : check for gnu health kernel patchsets
+
+changeset:   1694:e45f525e9fb2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 13 16:03:16 2014 +0000
+summary:     gnuhealth-control : check latest version on standard modules
+
+changeset:   1693:2e7b9cbbe1e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 13 12:42:22 2014 +0000
+summary:     gnuhealth-control : verify latest tryton server patchlevel
+
+changeset:   1692:8c53c68a9daa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 13 12:40:58 2014 +0000
+summary:     gnuhealth-control : verify latest tryton server patchlevel
+
+changeset:   1691:9393535a5399
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 13 11:43:20 2014 +0000
+summary:     gnuhealthrc : Add Tryton version environment variable. gnuhealth-control : add initial update function declaration
+
+changeset:   1690:436bb383cc6b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 12 13:29:45 2014 +0000
+summary:     gnuhealth installer : rename custom by local for user modules
+
+changeset:   1689:164049452011
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 12 13:25:49 2014 +0000
+summary:     gnuhealth-control : change information message color
+
+changeset:   1688:c654be2c6aeb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 18:55:24 2014 +0000
+summary:     gnuhealth-control : improve backup file naming style
+
+changeset:   1687:796739f56ad8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 18:30:28 2014 +0000
+summary:     gnuhealth-control : use append mode in tee
+
+changeset:   1686:d1d885e9f411
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 18:23:29 2014 +0000
+summary:     gnuhealth-control : fix typo on DB variable
+
+changeset:   1685:9a9b5a7f6bd0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 18:14:41 2014 +0000
+summary:     gnuhealth-control : add RC for stale lock exit
+
+changeset:   1684:73df50d19e97
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 18:05:53 2014 +0000
+summary:     gnuhealth-control : use UTC date and colors for logging actions
+
+changeset:   1683:1d6809d656a7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 14:16:20 2014 +0000
+summary:     gnuhealth-control : initial backup command
+
+changeset:   1682:1c61ff738ff5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 11:14:20 2014 +0000
+summary:     gnuhealth-control : Integrate the update process into the gnuhealth control center script
+
+changeset:   1681:95e905639e20
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 09 09:47:09 2014 +0000
+summary:     health_lab : Complete task #13360: Show error window instead of traceback in lab test generation
+
+changeset:   1680:df786774d20b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 08 20:48:50 2014 +0000
+summary:     health : set active attribute by default when creating a new immunization schedule
+
+changeset:   1679:b08e5c47bb6c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 08 20:05:42 2014 +0000
+summary:     health : fix vaccine name in patient vaccination report
+
+changeset:   1678:181fac6efd92
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 08 11:52:52 2014 +0000
+summary:     health_stock : Add product associated to the vaccine
+
+changeset:   1677:e17fda30c7dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 07 19:39:52 2014 +0000
+summary:     health : remove fix size in the vaccination label pic. Add Signed-by in tree view
+
+changeset:   1676:cbd6de6235dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 07 17:09:56 2014 +0000
+summary:     health : include signing procedure in vaccinations / set up as read-only when signed
+
+changeset:   1675:c1926a450665
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 07 15:42:10 2014 +0000
+summary:     health : fix descriptions of vaccine administration sites
+
+changeset:   1674:b4bb69fddfbe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 07 13:58:05 2014 +0000
+summary:     Add vaccine label picture to the vaccination model. Note field from Char -> Text. Improve view
+
+changeset:   1673:f4a62d2a3825
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 05 17:43:05 2014 +0000
+summary:     health : fix sort order in immunization dose
+
+changeset:   1672:046a9f47a362
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 04 20:29:23 2014 +0000
+summary:     health : Improve look on immunization status report
+
+changeset:   1671:a65dac92075a
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Dec 04 14:43:59 2014 -0300
+summary:     Fix bug #43755 : Wrong translations in health_pediatrics_growth_charts_who
+
+changeset:   1670:9aedc119e687
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 04 14:32:15 2014 +0000
+summary:     health : include person immunization status on report
+
+changeset:   1669:6bc722497cfe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 04 13:01:34 2014 +0000
+summary:     health: debugging for autom. immunization check. Remove _rec_name from medicament. Include vaccine attribute in tree view
+
+changeset:   1668:9aff0019428e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 03 13:09:02 2014 +0000
+summary:     health : Add unique constraint for schedule immunization dose
+
+changeset:   1667:56e37c0a4e3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 03 11:55:17 2014 +0000
+summary:     health : Add remarks to the immunization line. Make required dose, age and unit fields
+
+changeset:   1666:b2107ec02ea0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 03 11:19:17 2014 +0000
+summary:     health : collect the immunization and doses to be checked in the persons age period
+
+changeset:   1665:c73ee4ca41f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 03 10:20:22 2014 +0000
+summary:     health : allow to get the patient age in raw format, using the parameter raw_age
+
+changeset:   1664:d0cbf8f7d40d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 02 20:39:32 2014 +0000
+summary:     health: include schedule calendar in the vaccination check
+
+changeset:   1663:708e8ed66edb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 02 13:22:25 2014 +0000
+summary:     health : sort by immunization dose number. Work on ODT report
+
+changeset:   1662:de317b66246a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 01 18:47:00 2014 +0000
+summary:     health : start listing all vaccines for the given immunization schedule in report
+
+changeset:   1661:09011c930dbd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 01 17:52:30 2014 +0000
+summary:     health : Add initial header to immunization status report
+
+changeset:   1660:9ac92e2f8048
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 30 11:20:25 2014 +0000
+summary:     health: Initial model for immunization check wizard
+
+changeset:   1659:39a91bbc7403
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 29 20:23:41 2014 +0000
+summary:     health_stock : Real-time check on vaccine expiration date
+
+changeset:   1658:afc0e2153e7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 29 14:11:09 2014 +0000
+summary:     health_stock : cleanup older code related to rounding and ambulatory vaccination. Now is all in the vaccination model
+
+changeset:   1657:6596e5ddf4f6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 29 13:30:27 2014 +0000
+summary:     health_stock : use standard method for quantity in stock lot. Use stock lot model for vaccine expiration date and lot number
+
+changeset:   1656:58a0574f5277
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 29 10:57:34 2014 +0000
+summary:     health_stock : Move health_stock.xml to health_stock_view.xml
+
+changeset:   1655:71ca438a0b8b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 29 10:50:06 2014 +0000
+summary:     health_stock : Replace raise exception by gtk user error
+
+changeset:   1654:957aa1dc7dbb
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 28 22:25:11 2014 -0800
+summary:     FHIR: small fixes
+
+changeset:   1653:b0f3da6b04c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 28 18:16:05 2014 +0000
+summary:     health_stock : Create stock move wizard for vaccines in the vaccination model
+
+changeset:   1652:c17a1e6ddcec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 28 14:56:59 2014 +0000
+summary:     health_stock : Move prescription wizard to its own directory
+
+changeset:   1651:6b46d8771c70
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 28 13:09:19 2014 +0000
+summary:     health : add state attribute to vaccination model
+
+changeset:   1650:dc8da36c20dc
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Nov 27 14:33:38 2014 -0800
+summary:     FHIR: Added basic Conformance endpoint; other small changes
+
+changeset:   1649:8638b415cd9d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 27 12:20:27 2014 +0000
+summary:     health: move the vaccine reference from the product model to the medicament model
+
+changeset:   1648:34b98207bc54
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Nov 24 23:34:32 2014 -0800
+summary:     FHIR: Lots of cleanup, move towards standard class structure; DiagnosticReport endpoint better func; other changes
+
+changeset:   1647:4be47d4d47fe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 24 10:56:29 2014 +0000
+summary:     health : Use default value for systematic immunization on schedules.
+
+changeset:   1646:66e7dd98dd9f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 24 10:44:51 2014 +0000
+summary:     health: Improve immunization view
+
+changeset:   1645:1737bf362720
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 24 10:29:00 2014 +0000
+summary:     health : Add vaccination schedule population scope
+
+changeset:   1644:861850fd005f
+parent:      1641:54ef3bbcccc6
+parent:      1643:08c998150c1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 22 13:44:10 2014 +0000
+summary:     health : merge
+
+changeset:   1643:08c998150c1b
+parent:      1640:4e74213500c4
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Nov 21 16:29:25 2014 -0300
+summary:     Fix bug #43666 : Inconsistencies in translation of units
+
+changeset:   1642:c22af9f2a70b
+branch:      stable
+parent:      1614:6a6f5c9d094a
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Nov 21 15:27:36 2014 -0300
+summary:     Fix bug #43666 : Inconsistencies in translation of units
+
+changeset:   1641:54ef3bbcccc6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 22 13:43:03 2014 +0000
+summary:     health : include views on the new immunization models
+
+changeset:   1640:4e74213500c4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 21 17:14:39 2014 +0000
+summary:     health : Add header for Immunization schedule. Start moving the vaccine attribute to the medicament model
+
+changeset:   1639:384d719f4586
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 21 12:11:46 2014 +0000
+summary:     health : initial draft for immunization schedule model
+
+changeset:   1638:3e0a1152f882
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Nov 15 21:06:43 2014 -0800
+summary:     FHIR: Procedure endpoint; more consistent naming conventions; fix route converter; fix search query issue; Inital work on DiagnosticReport endpoint
+
+changeset:   1637:20033b69db88
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Nov 12 23:31:34 2014 -0800
+summary:     FHIR: Add login endpoint and support
+
+changeset:   1636:0cb705b7cdd9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 11 20:59:20 2014 +0000
+summary:     health : add death certificate views
+
+changeset:   1635:9df4763a9716
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 11 20:57:29 2014 +0000
+summary:     health : add initial death certificate model
+
+changeset:   1634:531f87077f06
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 10 21:23:28 2014 +0000
+summary:     health_reporting : Update demographics reporting - population pyramid
+
+changeset:   1633:675976d2d5e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 10 11:04:39 2014 +0000
+summary:     health_reporting : fix attribute in form
+
+changeset:   1632:32499b451f2b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 10 10:40:58 2014 +0000
+summary:     health_reporting : Update Population Pyramid chart and other stats
+
+changeset:   1631:9191fa410d5d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Nov 09 21:27:16 2014 -0800
+summary:     FHIR: Start on Procedure endpoint; small changes to Search (still work in progress)
+
+changeset:   1630:58fcf2697f81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 09 19:35:04 2014 +0000
+summary:     health_reporting : Initial demographics report base
+
+changeset:   1629:5a65d2c4e2be
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:59:23 2014 -0300
+summary:     health_surgery : fix bug #43561. Report print date printed in UTC timezone
+
+changeset:   1628:9a47a0bf520c
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:53:33 2014 -0300
+summary:     health_surgery : fix bug #43561. Surgery date printed in UTC timezone
+
+changeset:   1627:9a4feb82009f
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:44:46 2014 -0300
+summary:     health_history : fix bug #43561. Report print date printed in UTC timezone
+
+changeset:   1626:ddbe01a7fbb7
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:35:23 2014 -0300
+summary:     health, health_history : fix bug #43561. Evaluation date printed in UTC timezone
+
+changeset:   1625:beb8605d5c1b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:25:23 2014 -0300
+summary:     health : fix bug #43561. Prescription date printed in UTC timezone
+
+changeset:   1624:0e34aab5cb32
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Sun Nov 09 12:11:07 2014 -0300
+summary:     health : fix bug #43561. Reports print date printed in UTC timezone
+
+changeset:   1623:d4a0a7e4fe60
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 19:58:03 2014 -0800
+summary:     FHIR: Add Practitioner search
+
+changeset:   1622:6f95a8ae07c9
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 19:47:18 2014 -0800
+summary:     FHIR: oops, add blueprint
+
+changeset:   1621:e3a784beb750
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 19:46:25 2014 -0800
+summary:     FHIR: Initial work on Practitioner endpoint
+
+changeset:   1620:2b9a4d1352d8
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 18:16:00 2014 -0800
+summary:     FHIR: Fix Search class; other small changes
+
+changeset:   1619:cbdee397677f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 12:07:22 2014 -0800
+summary:     FHIR: Add Search class
+
+changeset:   1618:442faed20c8e
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Nov 07 12:06:03 2014 -0800
+summary:     FHIR: Work on general Search class to compute searches
+
+changeset:   1617:1d5753015de9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 06 21:01:37 2014 +0000
+summary:     health_reporting : Add # of patients, new and total
+
+changeset:   1616:763ff23a9de1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Nov 04 19:56:09 2014 -0800
+summary:     FHIR: Searchable Observation endpoint; other endpoint additions; TODO: Work on chained parameters
+
+changeset:   1615:60cf00c8fb27
+parent:      1613:10a7e5887f73
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 04 12:11:57 2014 +0000
+summary:     health : Task #13377 Add PUID generation and UUID to party code code. https://savannah.gnu.org/task/index.php?13377
+
+changeset:   1614:6a6f5c9d094a
+branch:      stable
+parent:      1571:199747b800a6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 04 10:04:28 2014 +0000
+summary:     Added tag 2.6.4 for changeset 962cfa25cbd3
+
+changeset:   1613:10a7e5887f73
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 03 18:13:26 2014 +0000
+summary:     health_reporting : Improve base for the summary report - Start the new patient calculation
+
+changeset:   1612:8a0547dac451
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 03 13:31:40 2014 +0000
+summary:     health_reporting : add initial base files for summary report
+
+changeset:   1611:6995c55d0c96
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 03 13:30:48 2014 +0000
+summary:     health_reportin : draft for upcoming institution summary report
+
+changeset:   1610:114e8ab97122
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 02 16:56:02 2014 +0000
+summary:     health_reporting : Individualize wizards and change file naming
+
+changeset:   1609:25fd2c596d06
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 02 12:13:25 2014 +0000
+summary:     move health_reporting to health_reporting_view.xml
+
+changeset:   1608:c6b14847b075
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 02 12:11:51 2014 +0000
+summary:     health_reporting : Start migrating file names to GNU Health naming convention
+
+changeset:   1607:e849a4bb8664
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 31 09:38:45 2014 +0000
+summary:     serverpass : Add re-typing password to avoid typos
+
+changeset:   1606:99595d7004d7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Oct 30 21:58:35 2014 -0700
+summary:     FHIR: New url converter; observation now can span multiple models... work in progress; FIX: Search endpoint
+
+changeset:   1605:483101938cfa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 30 19:28:04 2014 +0000
+summary:     Installer : Include serverpass utility in the installation program
+
+changeset:   1604:2cf371f93957
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 30 13:54:53 2014 +0000
+summary:     Installer : Include message to run update the master password using serverpass
+
+changeset:   1603:b73c36f7b9ee
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 30 12:48:19 2014 +0000
+summary:     Add validation for filename in Tryton configuration server password
+
+changeset:   1602:80fe32372d33
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 29 13:29:48 2014 +0000
+summary:     GNU Health Security scripts : update Tryton server password validating against cracklib
+
+changeset:   1601:6609b9f67802
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 28 19:59:00 2014 +0000
+summary:     Installer : Add new configuration directory
+
+changeset:   1600:7df7c6993fea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 28 19:42:47 2014 +0000
+summary:     profile : Add TRYTOND_CONFIG and edit alias for the new configuration file location
+
+changeset:   1599:b30c07019fe4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 28 19:00:39 2014 +0000
+summary:     installer : Update to the latest python packages
+
+changeset:   1598:0148265dbf99
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 28 18:34:32 2014 +0000
+summary:     Installer : Add modules purchase,account_invoice_stock and stock_supply to base installation
+
+changeset:   1597:32fdff235889
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 28 18:22:10 2014 +0000
+summary:     change version number in development branch
+
+changeset:   1596:b3e22ca1e881
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Oct 21 16:33:19 2014 -0300
+summary:     health: Remove duplicated field in evaluations tree
+
+changeset:   1595:36927e87db21
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Oct 20 19:23:16 2014 -0300
+summary:     health_calendar: fix bug #43450. Create appointments in UTC timezone
+
+changeset:   1594:f89738a387be
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Oct 14 20:00:27 2014 -0300
+summary:     Demo : Create party and patient for newborn
+
+changeset:   1593:ef683c9508ec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 16:35:54 2014 +0100
+summary:     health_pediatrics_growth_charts_who: Add original POT file and fix msgid translation on chart
+
+changeset:   1592:c27559b3bc50
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 03 13:26:05 2014 +0100
+summary:     health : fix bug #43347 conversion is now included in the health.py code
+
+changeset:   1591:e436b8be8f77
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 02 19:41:13 2014 +0100
+summary:     fix bug #43350: Institution field in Work Schedule still points to party
+
+changeset:   1590:3e3f3c09e374
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 02 14:01:18 2014 +0100
+summary:     Fix bug #43347 Invalid assignment of institution in appointments
+
+changeset:   1589:e4cc23fa466b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 09 10:21:55 2014 +0100
+summary:     health: Unique constraint in insurance ID/number as per each insurance company
+
+changeset:   1588:281b96ea2396
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 08 19:54:15 2014 +0100
+summary:     health : Validate selection of appointment record before creating the associated evaluation
+
+changeset:   1587:2a787ad93572
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 06 10:08:32 2014 +0100
+summary:     Add validation to health speciality in appointment to evaluation wizard
+
+changeset:   1586:8ce68ac37c49
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 06 09:46:24 2014 +0100
+summary:     fix bug #43111: Traceback when creating an evaluation from the appointment form
+
+changeset:   1585:c205cbf08f9e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 29 06:21:00 2014 +0100
+summary:     health : add marital status field description / tooltip
+
+changeset:   1584:e09e4a785ebd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 29 03:39:53 2014 +0100
+summary:     health_lab : Fix report when no health professional is given. Thanks Uriel !
+
+changeset:   1583:2c73b92f200e
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Wed Aug 27 19:36:44 2014 -0300
+summary:     health_reporting : Fix bug #43092 Rename evaluations doctor to healthprof
+
+changeset:   1582:0f972318a6d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 20:15:29 2014 +0100
+summary:     health: fix bug  #43089 Missing unique constraint on health professionals
+
+changeset:   1581:14674a9330bd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 20:08:00 2014 +0100
+summary:     health: set readonly the health professional main specialty when the record hasn't been saved
+
+changeset:   1580:e80da1687ce7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 27 18:04:31 2014 +0100
+summary:     health : The instituion specialty will be required only if the record exists and is a specialized health center
+
+changeset:   1579:f606c90f31ec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 26 19:06:22 2014 +0100
+summary:     Fix bugs #43085 Institution Specialty should be available on existing records only;  #43083 Operational Sectors and Specialties for each institution must be unique and  #43059 Error creating specialties on institutions
+
+changeset:   1578:09201ba3f8f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 27 11:20:32 2014 +0000
+summary:     health : import patches from stable
+
+changeset:   1577:218f340c6de9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 11:59:37 2014 +0100
+summary:     Fix bug #42826 : missing qrcode dependency in setup.py
+
+changeset:   1576:95e28ab81e68
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Oct 23 16:28:32 2014 -0700
+summary:     FHIR: Typo; create not supported yet
+
+changeset:   1575:995f06fffeb5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Oct 23 16:20:05 2014 -0700
+summary:     FHIR: Observation endpoint has basic functionality
+
+changeset:   1574:960bfb63e5f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 23 08:35:43 2014 +0100
+summary:     health_inpatient : Limit to 1 the patient hospitalization status
+
+changeset:   1573:2418927376cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 23 08:21:27 2014 +0100
+summary:     health_inpatient : Complete task #13331: Make translatable the hospitalization status in the main patient form
+
+changeset:   1572:1c80d9aa717e
+parent:      1570:f648f33d1046
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Oct 21 16:25:04 2014 -0700
+summary:     FHIR: Start work on diagnostic reports (labs, etc.); blueprints + rest api should work better; other changes
+
+changeset:   1571:199747b800a6
+branch:      stable
+parent:      1569:f94634ff51d5
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Oct 21 16:33:19 2014 -0300
+summary:     health: Remove duplicated field in evaluations tree
+
+changeset:   1570:f648f33d1046
+parent:      1568:196b25c20d48
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Oct 20 21:58:37 2014 -0700
+summary:     FHIR: Report primary care doctor; other small changes
+
+changeset:   1569:f94634ff51d5
+branch:      stable
+parent:      1566:88cd271c0cf0
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Mon Oct 20 19:23:16 2014 -0300
+summary:     health_calendar: fix bug #43450. Create appointments in UTC timezone
+
+changeset:   1568:196b25c20d48
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Oct 19 12:54:35 2014 -0700
+summary:     FHIR: Move creation logic to class... ugly, but functional
+
+changeset:   1567:ec8deebb7468
+parent:      1565:6a42cbba9486
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 18 15:07:27 2014 -0700
+summary:     FHIR: Clean up try/except clauses
+
+changeset:   1566:88cd271c0cf0
+branch:      stable
+parent:      1556:f1e9fe6963ad
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Tue Oct 14 20:00:27 2014 -0300
+summary:     Demo : Create party and patient for newborn
+
+changeset:   1565:6a42cbba9486
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 11 21:30:01 2014 -0700
+summary:     FHIR: fix: remove break
+
+changeset:   1564:0b038c17e6b6
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 11 21:25:24 2014 -0700
+summary:     FHIR: Clean up; update README
+
+changeset:   1563:9d8bccb0a0c9
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 11 21:12:29 2014 -0700
+summary:     FHIR: Added modifier and prefix support to searching
+
+changeset:   1562:0955f4541586
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 11 15:42:59 2014 -0700
+summary:     FHIR: Disable update (for now); more work on handling addresses
+
+changeset:   1561:db3cccc471bf
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Oct 07 21:19:12 2014 -0700
+summary:     FHIR: Better handling when no address or contacts
+
+changeset:   1560:38fa53a8c9b1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Oct 07 20:05:00 2014 -0700
+summary:     FHIR: Add language support to create endpoint; cleanup a little; start on update endpoint
+
+changeset:   1559:d05e09b607d7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Oct 07 15:54:01 2014 -0700
+summary:     FHIR: Use safer parsing backend
+
+changeset:   1558:b9134709d806
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Oct 06 20:04:43 2014 -0700
+summary:     FHIR: Basic patient composite search with ',' character... still needs a lot of work
+
+changeset:   1557:b784ba236d63
+parent:      1548:6af06a748d2f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Oct 06 19:18:27 2014 -0700
+summary:     FHIR: Create Bundle class in health_fhir; better search query generation; other changes
+
+changeset:   1556:f1e9fe6963ad
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 16:47:48 2014 +0100
+summary:     Update version file to 2.6.4
+
+changeset:   1555:15f1121c1a02
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 04 16:46:15 2014 +0100
+summary:     Update Changelog
+
 changeset:   1554:962cfa25cbd3
 branch:      stable
-tag:         tip
+tag:         2.6.4
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Oct 04 16:41:59 2014 +0100
 summary:     all : Update version
@@ -35,6 +1385,82 @@ parent:      1534:58c03d412d35
 user:        Luis Falcon <falcon@gnu.org>
 date:        Thu Oct 02 14:01:18 2014 +0100
 summary:     Fix bug #43347 Invalid assignment of institution in appointments
+
+changeset:   1548:6af06a748d2f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Oct 01 22:05:24 2014 -0700
+summary:     FHIR: fix: join func needs tuple
+
+changeset:   1547:b19c6b647ad5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Oct 01 22:01:45 2014 -0700
+summary:     FHIR: Limited and ugly patient searching, lots of work still needed
+
+changeset:   1546:1d11760cc1b3
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Oct 01 20:33:12 2014 -0700
+summary:     FHIR: Limited search results with AtomFeed generator; TODO: robust search query support
+
+changeset:   1545:791cb4e059a9
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Sep 27 17:48:32 2014 -0700
+summary:     FHIR: cleanup view returns, added location header to create endpoint
+
+changeset:   1544:ed8f57cfc536
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Sep 27 17:21:30 2014 -0700
+summary:     FHIR: fix: url routing rules, subclass names; validate endpoint mostly working; other small changes
+
+changeset:   1543:23fbeabce182
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Sep 27 15:47:26 2014 -0700
+summary:     FHIR: fix: add import
+
+changeset:   1542:5919ecc6b4fa
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Sep 27 15:37:52 2014 -0700
+summary:     FHIR: fix: import parse command
+
+changeset:   1541:3f9f8f4b7ba6
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Sep 26 16:41:43 2014 -0700
+summary:     FHIR: Renamed module; created new module for health subclasses; added validate against schema; other changes
+
+changeset:   1540:2aa9aeab1044
+parent:      1539:4e1da1e87efa
+parent:      1537:8850e10c39b7
+user:        Oscar Alvarez <oscar.alvarez.montero@gmail.com>
+date:        Thu Sep 25 12:38:13 2014 -0500
+summary:     Merge
+
+changeset:   1539:4e1da1e87efa
+parent:      1538:06c720a4c03d
+parent:      1536:f60c74b93db5
+user:        Oscar Alvarez <oscar.alvarez.montero@gmail.com>
+date:        Fri Sep 19 09:28:22 2014 -0500
+summary:     Merge
+
+changeset:   1538:06c720a4c03d
+parent:      1535:f02a07921c03
+user:        Oscar Alvarez <oscar.alvarez.montero@gmail.com>
+date:        Fri Sep 19 09:23:16 2014 -0500
+summary:     Improvements on wizard create invoice process from health services
+
+changeset:   1537:8850e10c39b7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Sep 20 15:11:53 2014 -0700
+summary:     FHIR: Add communication/language to patient functions and info
+
+changeset:   1536:f60c74b93db5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Sep 18 22:16:18 2014 -0700
+summary:     FHIR: Add correct namespace, other attribute checks
+
+changeset:   1535:f02a07921c03
+parent:      1527:b0c568869cd2
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Sep 12 23:01:06 2014 -0700
+summary:     FHIR: Fix middle and last name handling (hopefully)
 
 changeset:   1534:58c03d412d35
 branch:      stable
@@ -80,6 +1506,12 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Sep 06 09:46:24 2014 +0100
 summary:     fix bug #43111: Traceback when creating an evaluation from the appointment form
 
+changeset:   1527:b0c568869cd2
+parent:      1519:2bd8ee122868
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Aug 31 23:10:37 2014 -0700
+summary:     FHIR: Create interaction should support basic telecom and address info; other small and cosmetic changes
+
 changeset:   1526:44e52d6f4b00
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
@@ -123,6 +1555,12 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Aug 27 18:04:31 2014 +0100
 summary:     health : The instituion specialty will be required only if the record exists and is a specialized health center
 
+changeset:   1519:2bd8ee122868
+parent:      1515:a63a17934bfa
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Aug 26 17:36:52 2014 -0700
+summary:     FHIR: Patient create endpoint works properly but very limited; other endpoint updates
+
 changeset:   1518:8f1e55df2c2a
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
@@ -142,24 +1580,93 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Aug 24 19:03:55 2014 +0100
 summary:     health: use datetime.date for default value in party activation. Thanks Oscar for pointing it in bug #43048
 
+changeset:   1515:a63a17934bfa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 25 16:45:32 2014 +0100
+summary:     health : Show specialty of the hospital only if specialized institution
+
+changeset:   1514:51348375b030
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 24 19:03:55 2014 +0100
+summary:     health: use datetime.date for default value in party activation. Thanks Oscar for pointing it in bug #43048
+
+changeset:   1513:00f8b5e9f101
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 23 19:56:54 2014 +0100
+summary:     gnuhealth-update : Initial commit. PoC
+
+changeset:   1512:83361f228f30
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 05 12:51:44 2014 +0100
+summary:     health_lab : Fix lab request on bug #42914: Check for health professional when requesting tests
+
+changeset:   1511:47e509668254
+parent:      1501:635948823670
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 05 13:33:58 2014 +0100
+summary:     health_imaging : Fix imaging request on bug #42914: Check for health professional when requesting tests
+
 changeset:   1510:88360f50f3f7
 branch:      stable
-parent:      1508:0d0073082d12
 user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
 date:        Thu Aug 07 19:26:09 2014 -0300
 summary:     fix bug #42938: health_socioeconomics : Error on Family APGAR selections.
 
-changeset:   1508:0d0073082d12
+changeset:   1509:0d0073082d12
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Aug 09 09:39:23 2014 +0100
 summary:     Added tag 2.6.2 for changeset da7b8fe6ff49
 
-changeset:   1502:495e6071e3ad
+changeset:   1508:7371e29fd23c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:38:46 2014 +0100
+summary:     Removed tag 2.6.2
+
+changeset:   1507:9641847b391f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:36:50 2014 +0100
+summary:     Added tag 2.6.2 for changeset 495e6071e3ad
+
+changeset:   1506:99d57d42dbf5
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:34:41 2014 +0100
+summary:     Removed tag 2.6.2
+
+changeset:   1505:c3658376039d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:25:43 2014 +0100
+summary:     Removed tag 2.6.3
+
+changeset:   1504:3c851c2c9b44
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:24:56 2014 +0100
+summary:     Added tag 2.6.2 for changeset 495e6071e3ad
+
+changeset:   1503:495e6071e3ad
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Aug 09 09:24:49 2014 +0100
 summary:     Added tag 2.6.3 for changeset da7b8fe6ff49
+
+changeset:   1502:da7b8fe6ff49
+branch:      stable
+tag:         2.6.2
+parent:      1500:0175cfc53062
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 09 09:20:51 2014 +0100
+summary:     Update version and Changelog
+
+changeset:   1501:635948823670
+parent:      1498:7aac8901d471
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Aug 07 19:26:09 2014 -0300
+summary:     fix bug #42938: health_socioeconomics : Error on Family APGAR selections.
 
 changeset:   1500:0175cfc53062
 branch:      stable
@@ -174,21 +1681,84 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Aug 05 12:51:44 2014 +0100
 summary:     health_lab : Fix lab request on bug #42914: Check for health professional when requesting tests
 
-changeset:   1494:249e6c8d1150
+changeset:   1498:7aac8901d471
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Aug 01 15:23:52 2014 -0700
+summary:     FHIR: Added README; started on create endpoint; more work on integrating subclasses
+
+changeset:   1497:66097936a3b1
+parent:      1495:f9db28212985
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 20:54:01 2014 +0100
+summary:     health : apply changeset 1489 from stable. Fix prescription report
+
+changeset:   1496:d9a361e37ca0
 branch:      stable
-parent:      1486:268309b5b025
+parent:      1494:249e6c8d1150
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 20:44:38 2014 +0100
+summary:     Added tag 2.6.1 for changeset a770f6d47527
+
+changeset:   1495:f9db28212985
+parent:      1493:cd50b8472aaf
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Jul 25 20:29:46 2014 +0100
 summary:     fix bug #42843: health_lab : Error in printing lab test result
 
-changeset:   1486:268309b5b025
+changeset:   1494:249e6c8d1150
 branch:      stable
+parent:      1489:268309b5b025
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 20:29:46 2014 +0100
+summary:     fix bug #42843: health_lab : Error in printing lab test result
+
+changeset:   1493:cd50b8472aaf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 11:05:18 2014 +0100
+summary:     health: update health.py from changeset 1483:a214334c8076
+
+changeset:   1492:f5aabdd4488a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 25 11:00:40 2014 +0100
+summary:     update .hgignore
+
+changeset:   1491:ad6d6a0a66a8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 16:22:42 2014 +0100
+summary:     Fix bug  #42827: Error in reports formatting date
+
+changeset:   1490:d41aee237803
+parent:      1488:855d872e6f55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 22 17:25:21 2014 +0100
+summary:     fix bug #42828: Growth chart reports still have the Identification Code
+
+changeset:   1489:268309b5b025
+branch:      stable
+parent:      1485:a770f6d47527
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Jul 25 10:40:48 2014 +0100
 summary:     Fix bug #42841 health: error in prescription report when assigining a revision date to prescription line
 
+changeset:   1488:855d872e6f55
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jul 24 17:38:14 2014 -0700
+summary:     FHIR: Started implementing write methods; other small changes
+
+changeset:   1487:c483ec092d5b
+user:        Sebastian Marro <smarro@thymbra.com>
+date:        Thu Jul 24 19:37:36 2014 -0300
+summary:     health : Add write permission to Beds for the doctor access group
+
+changeset:   1486:5883988bf9ef
+parent:      1481:b707a9702be8
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Jul 23 23:07:19 2014 -0700
+summary:     FHIR: Inherit class, methods... cleaner code
+
 changeset:   1485:a770f6d47527
 branch:      stable
+tag:         2.6.1
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jul 06 22:45:45 2014 +0100
 summary:     who_essential_medicines, crypto: Fix typo and descriptions in setup.py
@@ -278,7 +1848,7 @@ date:        Sun Jul 20 20:01:42 2014 +0100
 summary:     health : revert changeset 1466:aeca38fff263
 
 changeset:   1470:4fa77deb8260
-parent:      1467:aeca38fff263
+parent:      1466:aeca38fff263
 user:        Chris Zimmerman <siv@riseup.net>
 date:        Sat Jul 19 17:49:15 2014 -0700
 summary:     FHIR: Patient read endpoint works
@@ -291,38 +1861,36 @@ summary:     health_icpm : Fix typo in salpingotomy procedure. Thanks Tiago Silv
 
 changeset:   1468:54fdcf860ac5
 branch:      stable
-parent:      1463:3c98cdbe40f1
 user:        Luis Falcon <falcon@gnu.org>
 date:        Mon Jul 14 20:42:45 2014 +0100
 summary:     pediatrics, qrcode : Change Mother ID by PUID Fix bug # 42769
 
-changeset:   1467:aeca38fff263
-user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
-date:        Fri Jul 18 22:33:36 2014 -0300
-summary:     health : Fix bug #42809. Fails automatically set patient and health professional
-
-changeset:   1466:add00effe17a
-user:        Chris Zimmerman <siv@riseup.net>
-date:        Thu Jul 17 00:02:19 2014 -0700
-summary:     scripts: Added error handling; check if db already exists
-
-changeset:   1465:a9bac1048c07
-user:        David Routhieau <rootio@vmail.me>
-date:        Wed Jul 16 22:40:48 2014 -0400
-summary:     Add a simple firewall to vagrant
-
-changeset:   1464:6cff5428629d
-parent:      1462:2bb5e8a06bc5
-user:        Chris Zimmerman <siv@riseup.net>
-date:        Wed Jul 16 13:07:58 2014 -0700
-summary:     scripts: Added shell script to install demo database; TODO: error handling and more testing
-
-changeset:   1463:3c98cdbe40f1
+changeset:   1467:3c98cdbe40f1
 branch:      stable
 parent:      1458:a4f276585314
 user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Jul 15 10:01:29 2014 +0100
 summary:     Fixes bug https://savannah.gnu.org/bugs/index.php?42772 tree view
+
+changeset:   1466:aeca38fff263
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jul 18 22:33:36 2014 -0300
+summary:     health : Fix bug #42809. Fails automatically set patient and health professional
+
+changeset:   1465:add00effe17a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jul 17 00:02:19 2014 -0700
+summary:     scripts: Added error handling; check if db already exists
+
+changeset:   1464:a9bac1048c07
+user:        David Routhieau <rootio@vmail.me>
+date:        Wed Jul 16 22:40:48 2014 -0400
+summary:     Add a simple firewall to vagrant
+
+changeset:   1463:6cff5428629d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Jul 16 13:07:58 2014 -0700
+summary:     scripts: Added shell script to install demo database; TODO: error handling and more testing
 
 changeset:   1462:2bb5e8a06bc5
 user:        Luis Falcon <falcon@gnu.org>

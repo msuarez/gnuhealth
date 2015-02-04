@@ -1,0 +1,252 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# nabaua <kazsan@bk2.so-net.ne.jp>, 2014
+# Shigeomi Shibata, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-20 21:31+0000\n"
+"Last-Translator: Shigeomi Shibata\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.dengue_du_survey,aedes_larva:"
+msgid "Larvae"
+msgstr "幼虫"
+
+msgctxt "field:gnuhealth.dengue_du_survey,animal_water_container:"
+msgid "Animal Water containers"
+msgstr "動物用自動給水機"
+
+msgctxt "field:gnuhealth.dengue_du_survey,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.dengue_du_survey,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.dengue_du_survey,du:"
+msgid "DU"
+msgstr "住居単位"
+
+msgctxt "field:gnuhealth.dengue_du_survey,du_fumigation:"
+msgid "Fumigation"
+msgstr "燻蒸消毒"
+
+msgctxt "field:gnuhealth.dengue_du_survey,du_status:"
+msgid "Status"
+msgstr "状態"
+
+msgctxt "field:gnuhealth.dengue_du_survey,flower_vase:"
+msgid "Flower vase"
+msgstr "花瓶"
+
+msgctxt "field:gnuhealth.dengue_du_survey,fumigation_date:"
+msgid "Fumigation Date"
+msgstr "燻蒸消毒日"
+
+msgctxt "field:gnuhealth.dengue_du_survey,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.dengue_du_survey,larva_in_house:"
+msgid "Domiciliary"
+msgstr "住居"
+
+msgctxt "field:gnuhealth.dengue_du_survey,larva_peri:"
+msgid "Peri-Domiciliary"
+msgstr "近所"
+
+msgctxt "field:gnuhealth.dengue_du_survey,name:"
+msgid "Survey Code"
+msgstr "調査コード"
+
+msgctxt "field:gnuhealth.dengue_du_survey,next_survey_date:"
+msgid "Next survey"
+msgstr "次回調査"
+
+msgctxt "field:gnuhealth.dengue_du_survey,observations:"
+msgid "Observations"
+msgstr "観察"
+
+msgctxt "field:gnuhealth.dengue_du_survey,old_tyres:"
+msgid "Tyres"
+msgstr "タイヤ"
+
+msgctxt "field:gnuhealth.dengue_du_survey,ovitraps:"
+msgid "Ovitraps"
+msgstr "捕虫器"
+
+msgctxt "field:gnuhealth.dengue_du_survey,potted_plant:"
+msgid "Potted Plants"
+msgstr "植木"
+
+msgctxt "field:gnuhealth.dengue_du_survey,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.dengue_du_survey,rock_holes:"
+msgid "Rock holes"
+msgstr "岩の割れ目"
+
+msgctxt "field:gnuhealth.dengue_du_survey,survey_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.dengue_du_survey,tree_holes:"
+msgid "Tree holes"
+msgstr "樹洞"
+
+msgctxt "field:gnuhealth.dengue_du_survey,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.dengue_du_survey,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.sequences,dengue_du_survey_sequence:"
+msgid "Dengue Survey Sequence"
+msgstr "デング熱の調査手順"
+
+msgctxt "help:gnuhealth.dengue_du_survey,aedes_larva:"
+msgid "Check this box if Aedes aegypti larvae were found"
+msgstr "熱帯縞蚊の幼虫を見つけた場合はチェックをしてください"
+
+msgctxt "help:gnuhealth.dengue_du_survey,animal_water_container:"
+msgid "Animal water containers not scrubbed or clean"
+msgstr "動物用自動給水機が洗浄されていない、もしくは不潔である"
+
+msgctxt "help:gnuhealth.dengue_du_survey,du:"
+msgid "Domiciliary Unit"
+msgstr "住居単位"
+
+msgctxt "help:gnuhealth.dengue_du_survey,du_fumigation:"
+msgid "The DU has been fumigated"
+msgstr "住居は燻蒸されています"
+
+msgctxt "help:gnuhealth.dengue_du_survey,du_status:"
+msgid "DU status compared to last visit"
+msgstr "住居状態の前回訪問時からの変化"
+
+msgctxt "help:gnuhealth.dengue_du_survey,flower_vase:"
+msgid "Flower vases without scrubbing or cleaning"
+msgstr "未洗浄の花瓶"
+
+msgctxt "help:gnuhealth.dengue_du_survey,fumigation_date:"
+msgid "Last Fumigation Date"
+msgstr "前回の燻蒸消毒"
+
+msgctxt "help:gnuhealth.dengue_du_survey,larva_in_house:"
+msgid "Check this box if larvae were found inside the house"
+msgstr "家の中で幼虫が発見された場合はチェックをしてください"
+
+msgctxt "help:gnuhealth.dengue_du_survey,larva_peri:"
+msgid "Check this box if larva were found in the peridomiciliary area"
+msgstr "近隣に幼虫が発見された場合はチェックをしてください"
+
+msgctxt "help:gnuhealth.dengue_du_survey,old_tyres:"
+msgid "Old vehicle tyres found"
+msgstr "古タイヤが見つかった"
+
+msgctxt "help:gnuhealth.dengue_du_survey,ovitraps:"
+msgid "Check if ovitraps are in place"
+msgstr "捕虫器が現地にある場合はチェックしてください。"
+
+msgctxt "help:gnuhealth.dengue_du_survey,potted_plant:"
+msgid "Potted Plants with saucers"
+msgstr "受け皿のついた植木鉢"
+
+msgctxt "help:gnuhealth.dengue_du_survey,rock_holes:"
+msgid "unfilled rock holes"
+msgstr "埋められていない岩の割れ目"
+
+msgctxt "help:gnuhealth.dengue_du_survey,tree_holes:"
+msgid "unfilled tree holes"
+msgstr "埋められていない樹洞"
+
+msgctxt "model:gnuhealth.dengue_du_survey,name:"
+msgid "Dengue DU Survey"
+msgstr "デング熱の住居単位での調査"
+
+msgctxt "model:ir.action,name:act_dengue_du_survey_form"
+msgid "Dengue DU Survey"
+msgstr "デング熱の住居単位での調査"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_du_survey"
+msgid "Dengue DU Survey"
+msgstr "デング熱の住居単位での調査"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_du_survey"
+msgid "Dengue DU Survey"
+msgstr "デング熱の住居単位での調査"
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_elisa_igg_analysischarges0"
+msgid "Dengue IgG Charges"
+msgstr "デング熱に関する免疫グロブリンG（IgG）検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_elisa_igm_analysischarges0"
+msgid "Dengue ELISA MAC Ig-M Charges"
+msgstr "デング熱に関する免疫グロブリンM（lg-M）酵素結合免疫吸着法（MAC ELISA）検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_pcr_analysischarges0"
+msgid "Dengue PCR Charges"
+msgstr "デング熱に関するPCR（ポリメラーゼ連鎖反応）検査料"
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_prnt_analysischarges0"
+msgid "Dengue PRNT Charges"
+msgstr "デング熱に関するPRNT（抗体）検査料"
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Improved"
+msgstr "改善"
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Initial"
+msgstr "初期"
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Unchanged"
+msgstr "変化無し"
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Worsen"
+msgstr "悪化"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Areas to Improve"
+msgstr "改善エリア"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Dengue Domiciliary Unit Entomological Survey"
+msgstr "民家単位でのデング熱に関する昆虫学的調査"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Dengue Domiciliary Unit Entomological Surveys"
+msgstr "民家単位でのデング熱に関する昆虫学的調査"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Notes"
+msgstr "備考"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Presence of larvae"
+msgstr "幼虫の存在"
+
+msgctxt "view:gnuhealth.dengue_du_survey:"
+msgid "Preventive Measures"
+msgstr "予防処理"

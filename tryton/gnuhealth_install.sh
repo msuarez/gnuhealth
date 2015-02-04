@@ -1,13 +1,15 @@
 #!/bin/bash
 
 # GNU Health installer
-# Version for 2.6 series
+# Version for 2.8 series
 
 ##############################################################################
 #
-#    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2014  Luis Falcon <falcon@gnu.org>
-#                             Bruno M. Villasanti <bvillasanti@thymbra.com>
+#    GNU Health Installer
+#
+#    Copyright (C) 2008-2015  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2015  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -39,7 +41,7 @@ BLUE="\n$(tput setaf 4)"
 INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
-TRYTON_VERSION="3.2"
+TRYTON_VERSION="3.4"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 
@@ -154,14 +156,17 @@ install_directories() {
     MODULES_DIR="${TRYTOND_DIR}/modules"
     LOG_DIR="${BASEDIR}/logs"
     ATTACH_DIR="${HOME}/attach"
-    CUSTOM_MODS_DIR="${MODULES_DIR}/custom"
+    LOCAL_MODS_DIR="${MODULES_DIR}/local"
+    CONFIG_DIR="${TRYTOND_DIR}/config"
+    UTIL_DIR="${TRYTOND_DIR}/util"
+    DOC_DIR="${BASEDIR}/doc"
 
     # Create GNU Health directories
     if [[ -e ${BASEDIR} ]]; then
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
         exit 1
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${CUSTOM_MODS_DIR} ||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  exit 1
     fi
     message "[INFO] OK." ${GREEN}
 }
@@ -174,20 +179,20 @@ install_python_dependencies() {
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
-    local PIP_LXML="lxml==3.3.5"
-    local PIP_RELATORIO="relatorio==0.6.0"
-    local PIP_DATEUTIL="python-dateutil==2.2"
-    local PIP_PSYCOPG2="psycopg2==2.5.3"
-    local PIP_PYTZ="pytz==2014.4"
-    local PIP_LDAP="python-ldap==2.4.15"
-    local PIP_VOBJECT="vobject==0.6.6"
+    local PIP_LXML="lxml==3.4.1"
+    local PIP_RELATORIO="relatorio==0.6.1"
+    local PIP_DATEUTIL="python-dateutil==2.4.0"
+    local PIP_PSYCOPG2="psycopg2==2.5.4"
+    local PIP_PYTZ="pytz==2014.10"
+    local PIP_LDAP="python-ldap==2.4.19"
+    local PIP_VOBJECT="vobject==0.8.1c"
     local PIP_PYWEBDAV="PyWebDAV==0.9.8"
-    local PIP_QRCODE="qrcode==5.0.1"
-    local PIP_SIX="six==1.7.3"
-    local PIP_PILLOW="Pillow==2.4.0"
-    local PIP_CALDAV="caldav==0.1.12"
-    local PIP_POLIB="polib==1.0.4"
-    local PIP_SQL="python-sql==0.3"
+    local PIP_QRCODE="qrcode==5.1"
+    local PIP_SIX="six==1.9.0"
+    local PIP_PILLOW="Pillow==2.7.0"
+    local PIP_CALDAV="caldav==0.2.1"
+    local PIP_POLIB="polib==1.0.6"
+    local PIP_SQL="python-sql==0.4"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
@@ -222,7 +227,7 @@ install_tryton_modules() {
     local TRYTOND_URL=$(get_url trytond)
     local TRYTOND_FILE=$(basename ${TRYTOND_URL})
 
-    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot"
+    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot purchase account_invoice_stock stock_supply"
 
     local TRYTON_MODULES_FILE=""
     local TRYTON_MODULES_URL=""
@@ -285,12 +290,35 @@ install_tryton_modules() {
     message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
     cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || exit 1
 
+    ln -si ${MODULES_DIR}/health* .
+
+    # Copy LICENSE README and version files
+    
     local EXTRA_FILES="COPYING README version"
     for FILE in ${EXTRA_FILES}; do
         cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || exit 1
     done
 
-    ln -si ${MODULES_DIR}/health* .
+    # Copy Tryton configuration files
+    
+    cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || exit 1
+
+    # Copy serverpass
+    
+    cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || exit 1
+
+    message "[INFO] OK." ${GREEN}
+
+    # Copy gnuhealth-control
+    
+    cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || exit 1
+
+    message "[INFO] OK." ${GREEN}
+
+    # Copy documentation directory
+    
+    cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || exit 1
+
     message "[INFO] OK." ${GREEN}
 
 }
@@ -328,6 +356,12 @@ bash_profile () {
 
 }
 
+serverpass () {
+ 
+    message "[INFO] Setting up your GNU Health Tryton master server password" ${BLUE}
+    /usr/bin/env python ${UTIL_DIR}/serverpass.py || exit 1
+}
+ 
 
 cleanup() {
     message "[INFO] Cleaning Up..." ${YELLOW}
@@ -359,7 +393,10 @@ main() {
     # (5) BASH Profile
     bash_profile
 
-    # (6) Clean
+    # (5) Server Password
+    serverpass
+    
+    # (7) Clean
     cleanup
 
     message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}

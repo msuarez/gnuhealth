@@ -23,14 +23,18 @@
                     <field name="dob"/>
                     <label name="sex"/>
                     <field name="sex"/>
+                    <label name="mother"/>
+                    <field name="mother"/>
+                    <label name="father"/>
+                    <field name="father"/>
                     <label name="marital_status"/>
                     <field name="marital_status"/>
-                    <label name="du"/>
-                    <field name="du"/>
                     <label name="citizenship"/>
                     <field name="citizenship"/>
                     <label name="residence"/>
                     <field name="residence"/>
+                    <label name="du"/>
+                    <field name="du"/>
                     <label name="ethnic_group"/>
                     <field name="ethnic_group"/>
                     <label name="alternative_identification"/>
@@ -50,7 +54,9 @@
             <newline/>
             <field name="insurance" colspan="4"/>
             <newline/>
-            <group id="party_footer" colspan="4" col="10">
+            <group id="party_footer" colspan="4" col="12">
+                <label name="deceased"/>
+                <field name="deceased"/>
                 <label name="unidentified"/>
                 <field name="unidentified"/>
                 <label name="alias"/>

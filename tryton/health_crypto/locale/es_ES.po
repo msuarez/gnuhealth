@@ -1,13 +1,14 @@
 # 
 # Translators:
-# meanmicio <lfalcon@gnusolidario.org>, 2014
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2015
+# Luis Falcon <lfalcon@gnusolidario.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:45+0000\n"
-"PO-Revision-Date: 2014-06-28 09:50+0000\n"
-"Last-Translator: meanmicio <lfalcon@gnusolidario.org>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 22:51+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,13 +16,85 @@ msgstr ""
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgctxt "field:gnuhealth.birth_certificate,digest_current:"
+msgid "Current Hash"
+msgstr "Hash actual"
+
+msgctxt "field:gnuhealth.birth_certificate,digest_status:"
+msgid "Altered"
+msgstr "Alterado"
+
+msgctxt "field:gnuhealth.birth_certificate,digital_signature:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "field:gnuhealth.birth_certificate,document_digest:"
+msgid "Digest"
+msgstr "MD"
+
+msgctxt "field:gnuhealth.birth_certificate,serializer:"
+msgid "Doc String"
+msgstr "Cadena Doc"
+
+msgctxt "field:gnuhealth.birth_certificate,serializer_current:"
+msgid "Current Doc"
+msgstr "Doc. actual"
+
+msgctxt "field:gnuhealth.death_certificate,digest_current:"
+msgid "Current Hash"
+msgstr "Hash actual"
+
+msgctxt "field:gnuhealth.death_certificate,digest_status:"
+msgid "Altered"
+msgstr "Alterado"
+
+msgctxt "field:gnuhealth.death_certificate,digital_signature:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "field:gnuhealth.death_certificate,document_digest:"
+msgid "Digest"
+msgstr "MD"
+
+msgctxt "field:gnuhealth.death_certificate,serializer:"
+msgid "Doc String"
+msgstr "Cadena Doc"
+
+msgctxt "field:gnuhealth.death_certificate,serializer_current:"
+msgid "Current Doc"
+msgstr "Doc. actual"
+
+msgctxt "field:gnuhealth.patient.evaluation,digest_current:"
+msgid "Current Hash"
+msgstr "Hash actual"
+
+msgctxt "field:gnuhealth.patient.evaluation,digest_status:"
+msgid "Altered"
+msgstr "Alterado"
+
+msgctxt "field:gnuhealth.patient.evaluation,digital_signature:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "field:gnuhealth.patient.evaluation,document_digest:"
+msgid "Digest"
+msgstr "MD"
+
+msgctxt "field:gnuhealth.patient.evaluation,serializer:"
+msgid "Doc String"
+msgstr "Cadena Doc"
+
+msgctxt "field:gnuhealth.patient.evaluation,serializer_current:"
+msgid "Current Doc"
+msgstr "Doc. actual"
+
 msgctxt "field:gnuhealth.prescription.order,digest_current:"
 msgid "Current Hash"
 msgstr "Hash actual"
 
 msgctxt "field:gnuhealth.prescription.order,digest_status:"
 msgid "Altered"
-msgstr "Modificado"
+msgstr "Alterado"
 
 msgctxt "field:gnuhealth.prescription.order,digital_signature:"
 msgid "Digital Signature"
@@ -43,6 +116,36 @@ msgctxt "field:gnuhealth.prescription.order,state:"
 msgid "State"
 msgstr "Estado"
 
+msgctxt "help:gnuhealth.birth_certificate,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr "Este campo se activará siempre que el documento original se haya alterado. Recuerde que el proceso de verificación se realiza únicamente en los campos seleccionados."
+
+msgctxt "help:gnuhealth.birth_certificate,document_digest:"
+msgid "Original Document Digest"
+msgstr "Hash del documento original"
+
+msgctxt "help:gnuhealth.death_certificate,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr "Este campo se activará siempre que el documento original se haya alterado. Recuerde que el proceso de verificación se realiza únicamente en los campos seleccionados."
+
+msgctxt "help:gnuhealth.death_certificate,document_digest:"
+msgid "Original Document Digest"
+msgstr "Hash del documento original"
+
+msgctxt "help:gnuhealth.patient.evaluation,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr "Este campo se activará siempre que el documento original se haya alterado. Recuerde que el proceso de verificación se realiza únicamente en los campos seleccionados."
+
+msgctxt "help:gnuhealth.patient.evaluation,document_digest:"
+msgid "Original Document Digest"
+msgstr "Hash del documento original"
+
 msgctxt "help:gnuhealth.prescription.order,digest_status:"
 msgid ""
 "This field will be set whenever parts of the main original document has been"
@@ -61,6 +164,106 @@ msgctxt "selection:gnuhealth.prescription.order,state:"
 msgid "Draft"
 msgstr "Borrador"
 
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Altered / current String"
+msgstr "Cadena Actual/Alterada"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Document validation"
+msgstr "Validación"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate"
+msgstr "Generar"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate certificate ?"
+msgstr "¿Generar certificado?"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate the certificate"
+msgstr "Generar certificado"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Hashes"
+msgstr "Hashes"
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Original String"
+msgstr "Cadena Original"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Altered / current String"
+msgstr "Cadena Actual/Alterada"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Document validation"
+msgstr "Validación"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate"
+msgstr "Generar"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate certificate ?"
+msgstr "¿Generar certificado?"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate the certificate"
+msgstr "Generar certificado"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Hashes"
+msgstr "Hashes"
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Original String"
+msgstr "Cadena Original"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Altered / current String"
+msgstr "Cadena Actual/Alterada"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Close Evaluation"
+msgstr "Cerrar Evaluación"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Close and Sign evaluation ?"
+msgstr "¿Cerrar y Firmar la evaluación?"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Digital Signature"
+msgstr "Firma Digital"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Document validation"
+msgstr "Validación"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Hashes"
+msgstr "Hashes"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Original String"
+msgstr "Cadena Original"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Sign this patient evaluation"
+msgstr "Firmar esta evaluación del paciente"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Validation"
+msgstr "Validación"
+
 msgctxt "view:gnuhealth.prescription.order:"
 msgid "Document validation"
 msgstr "Validación"
@@ -71,7 +274,7 @@ msgstr "Generar"
 
 msgctxt "view:gnuhealth.prescription.order:"
 msgid "Generate prescription ?"
-msgstr "Generar receta ?"
+msgstr "¿Generar receta?"
 
 msgctxt "view:gnuhealth.prescription.order:"
 msgid "Sign the prescription"

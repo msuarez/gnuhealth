@@ -1,0 +1,112 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-20 21:31+0000\n"
+"Last-Translator: Shinji KOBAYASHI <skoba@moss.gr.jp>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "field:gnuhealth.newborn,qr:"
+msgid "QR Code"
+msgstr "QRコード"
+
+msgctxt "field:gnuhealth.patient,qr:"
+msgid "QR Code"
+msgstr "QRコード"
+
+msgctxt "model:ir.action,name:report_newborn_qrcard"
+msgid "Newborn ID - QR"
+msgstr "新生児ID - QR"
+
+msgctxt "model:ir.action,name:report_patient_qrcard"
+msgid "ID Cards - QR"
+msgstr "IDカード - QR"
+
+msgctxt "odt:newborn.qrcard:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:newborn.qrcard:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:newborn.qrcard:"
+msgid "DoB"
+msgstr "生年月日"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Mother"
+msgstr "母"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Mother's"
+msgstr "母親の"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "PU"
+msgstr "PU"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "and"
+msgstr "と"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "cm"
+msgstr "cm"
+
+msgctxt "odt:newborn.qrcard:"
+msgid "gr"
+msgstr "g"
+
+msgctxt "odt:patient.qrcard:"
+msgid ","
+msgstr ","
+
+msgctxt "odt:patient.qrcard:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:patient.qrcard:"
+msgid "Blood Type"
+msgstr "血液型"
+
+msgctxt "odt:patient.qrcard:"
+msgid "DoB"
+msgstr "生年月日"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "odt:patient.qrcard:"
+msgid "Name"
+msgstr "名前"

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="evaluations_open_start_view_form">
+            <field name="model">gnuhealth.evaluations.open.start</field>
+            <field name="type">form</field>
+            <field name="name">evaluations_open_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="act_evaluations_open">
+            <field name="name">Evaluations Report</field>
+            <field name="wiz_name">gnuhealth.evaluations.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_evaluations_open" icon="gnuhealth-list"
+            id="menu_evaluations_open" sequence="20"/>
+    </data>
+</tryton>
+

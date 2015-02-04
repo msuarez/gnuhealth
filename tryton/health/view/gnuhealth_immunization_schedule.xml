@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Immunization Schedule">
+    <label name="sched"/>
+    <field name="sched"/>
+    <label name="country"/>
+    <field name="country"/>
+    <label name="year"/>
+    <field name="year"/>
+    <label name="active"/>
+    <field name="active"/>
+    <newline/>
+    <label name="desc"/>
+    <field colspan="4" name="desc"/>
+    <field colspan="4" name="vaccines"/>
+</form>

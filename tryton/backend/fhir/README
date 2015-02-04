@@ -1,0 +1,183 @@
+#    Copyright (C) 2014-2015 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2014-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+About the FHIR Python Package
+------------------------------
+
+The FHIR goal is to implement the HL7 FHIR[1] Reference in Python
+
+The project was born to provide the backend to the GNU Health[2] FHIR modules, but it should work in other EMRs and clients.
+
+You can get the latest development version at the Mercurial server in Savannah[3]
+
+1.- http://www.hl7.org/fhir
+2.- http://health.gnu.org
+3.- http://hg.savannah.gnu.org/hgweb/health/
+
+Sample uses :
+
+1) Search Interaction
+2) Read Interaction
+3) Create Interaction
+
+
+1) #### Search interactions ####
+
+>>> from fhir import *
+
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> params = {'identifier': 55567890}
+>>> query = rest.search('Patient', params)
+>>> print query
+<Response [200]>
+>>> print query.text
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Search results for resource type Patient</title>
+  <id>urn:uuid:8b018fb9-7df4-4e1b-9f4b-8a34955d86</id>
+  <link href="http://fhir.healthintersections.com.au/open/" rel="fhir-base" />
+  <link href="http://fhir.healthintersections.com.au/open/Patient/_search?search-id=49f23df4-3b9a-4117-9726-41d2aa3256&amp;identifier=55567890&amp;search-sort=_id" rel="self" />
+  <updated>2014-03-30T03:51:25Z</updated>
+  <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">1</totalResults>
+  <entry xmlns="http://www.w3.org/2005/Atom">
+    <title>Patient "1046" Version "1"</title>
+    <id>http://fhir.healthintersections.com.au/open/Patient/1046</id>
+    <link href="http://fhir.healthintersections.com.au/open/Patient/1046/_history/1" rel="self" />
+    <updated>2014-03-30T03:47:37Z</updated>
+    <author>
+      <name>190.195.19.13</name>
+    </author>
+    <published>2014-03-30T03:51:25Z</published>
+    <content type="text/xml">
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier>
+          <use value="usual"/>
+          <label value="SSN"/>
+          <value value="55567890"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Ana"/>
+          <given value="Betz"/>
+        </name>
+        <gender>
+          <coding>
+            <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+            <code value="F"/>
+            <display value="Female"/>
+          </coding>
+        </gender>
+        <birthDate value="1985-10-04"/>
+        <deceasedBoolean value="false"/>
+        <active value="true"/>
+      </Patient>
+    </content>
+    <summary type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">--No Summary for this resource--</div>
+    </summary>
+  </entry>
+</feed>
+
+######################################################################
+
+2) ###### Read interaction ##############
+
+>>> from fhir import *
+
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> query = rest.read('Patient', 1046)
+>>> print query
+<Response [200]>
+>>> print query.text
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <identifier>
+    <use value="usual"/>
+    <label value="SSN"/>
+    <value value="55567890"/>
+  </identifier>
+  <name>
+    <use value="official"/>
+    <family value="Ana"/>
+    <given value="Betz"/>
+  </name>
+  <gender>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+      <code value="F"/>
+      <display value="Female"/>
+    </coding>
+  </gender>
+  <birthDate value="1985-10-04"/>
+  <deceasedBoolean value="false"/>
+  <active value="true"/>
+</Patient>
+
+If the resource ID does not exist, a 404 Response will be generated
+
+Say we try to access the non-existant ID 210834
+
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+>>> query = rest.read('Patient', 210834)
+>>> print query
+<Response [404]>
+>>> print query.text
+<?xml version="1.0" encoding="UTF-8"?>
+<OperationOutcome xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Resource Id "Patient/210834" does not exist</p>
+    </div>
+  </text>
+  <issue>
+    <severity value="error"/>
+    <details value="Resource Id &quot;Patient/210834&quot; does not exist"/>
+  </issue>
+</OperationOutcome>
+
+
+#### CREATE INTERACTION on the Patient Profile #######
+
+>>> from fhir import *
+>>> import json
+
+# XML data elements for the Patient resource
+#>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open', 'xml')
+#>>> body = "<Patient xmlns=\"http://hl7.org/fhir\">" \
+#    "<name><family>John</family></name></Patient>"
+
+# JSON data elements for the Patient resource
+>>> body = json.dumps({"resourceType":"Patient",
+    "name":[{"use":"official", "family":["Doe"], "given":["John"]}]})
+
+>>> rest = RestfulFHIR('http://fhir.healthintersections.com.au/open')
+>>> query = rest.create('Patient', body)
+>>> print query
+<Response [201]>
+>>> print query.text
+{
+  "resourceType" : "OperationOutcome",
+  "text" : {
+    "status" : "generated",
+    "div" : "\r\n<div xmlns=\"http://www.w3.org/1999/xhtml\">The operation was succesful</div>"
+  }
+}
+
+
+########################################################################

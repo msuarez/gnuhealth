@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Daniel Linhares <danielinhares@gmail.com>, 2012
+# Daniel Linhares <danielinhares@gmail.com>, 2012,2014
 # Fernando Nunes <fernubr@gmail.com>, 2013
 # Pedro Vitti, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:45+0000\n"
-"PO-Revision-Date: 2014-07-22 20:02+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-27 14:30+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Avaliação e Histórico do Paciente"
 
 msgctxt "odt:patient.evaluation:"
 msgid "& history"
-msgstr ""
+msgstr "e histórico"
 
 msgctxt "odt:patient.evaluation:"
 msgid "*"
@@ -151,7 +151,7 @@ msgstr "Diagnosticados"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Diagnostics Section"
-msgstr ""
+msgstr "Sessão de Diagnósticos"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Diastolic"
@@ -184,6 +184,10 @@ msgstr "Fim"
 msgctxt "odt:patient.evaluation:"
 msgid "Ethnicity:"
 msgstr "Etnia"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Evaluation Digital Signature"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "Evaluation date:"
@@ -346,8 +350,8 @@ msgid "Primary School"
 msgstr "Ensino Fundamental"
 
 msgctxt "odt:patient.evaluation:"
-msgid "Print Date :"
-msgstr "Data de Publicação :"
+msgid "Print Date:"
+msgstr ""
 
 msgctxt "odt:patient.evaluation:"
 msgid "Remarks"

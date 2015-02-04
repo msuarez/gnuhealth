@@ -1,0 +1,546 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Shigeomi Shibata, 2014
+# Shinji KOBAYASHI <skoba@moss.gr.jp>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-27 14:30+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "model:ir.action,name:report_patient_evaluation"
+msgid "Patient Evaluation and History"
+msgstr "患者病歴と評価"
+
+msgctxt "odt:patient.evaluation:"
+msgid "& history"
+msgstr "& 病歴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "*"
+msgstr "*"
+
+msgctxt "odt:patient.evaluation:"
+msgid ","
+msgstr "'"
+
+msgctxt "odt:patient.evaluation:"
+msgid ", monogamous"
+msgstr ", 一夫一婦制の"
+
+msgctxt "odt:patient.evaluation:"
+msgid ", poligamous"
+msgstr ", 一夫多妻制の"
+
+msgctxt "odt:patient.evaluation:"
+msgid "."
+msgstr "."
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 15"
+msgstr "/ 15"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 4"
+msgstr "/ 4"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 5"
+msgstr "/ 5"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ 6"
+msgstr "/ 6"
+
+msgctxt "odt:patient.evaluation:"
+msgid "/ Reliability :"
+msgstr "/ 信頼性："
+
+msgctxt "odt:patient.evaluation:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Female"
+msgstr ": 女性"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Male"
+msgstr ": 男性"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Married"
+msgstr ": 既婚"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Separated"
+msgstr ": 離婚"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Single"
+msgstr ": 独身"
+
+msgctxt "odt:patient.evaluation:"
+msgid ": Widow"
+msgstr ": 寡婦"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Active"
+msgstr "活動的"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Annotations about the patient condition"
+msgstr "患者状態への注釈"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Anthropometry"
+msgstr "身体測定"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Automated"
+msgstr "自動化された"
+
+msgctxt "odt:patient.evaluation:"
+msgid "BMI"
+msgstr "BMI"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Blood Pressure"
+msgstr "血圧"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Care Plan"
+msgstr "ケアプラン"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Chief Complaint"
+msgstr "主訴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Clinical finding"
+msgstr "臨床所見"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Comfortable and good sanitary conditions"
+msgstr "快適で衛生的な状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Comments"
+msgstr "コメント"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diagnosed"
+msgstr "診断ずみ"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diagnostics Section"
+msgstr "診断領域"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diastolic"
+msgstr "拡張期"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Disease"
+msgstr "疾患"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Diseases"
+msgstr "疾患"
+
+msgctxt "odt:patient.evaluation:"
+msgid "DoB:"
+msgstr "生年月日："
+
+msgctxt "odt:patient.evaluation:"
+msgid "Dose"
+msgstr "量"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Educational Level"
+msgstr "教育水準"
+
+msgctxt "odt:patient.evaluation:"
+msgid "End"
+msgstr "終了"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Ethnicity:"
+msgstr "民族:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Evaluation Digital Signature"
+msgstr ""
+
+msgctxt "odt:patient.evaluation:"
+msgid "Evaluation date:"
+msgstr "評価日："
+
+msgctxt "odt:patient.evaluation:"
+msgid "Eyes"
+msgstr "両眼"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Family History and Genetic Information"
+msgstr "家族歴および遺伝情報"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Family Information"
+msgstr "家族情報"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Heart rate"
+msgstr "心拍数"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Height"
+msgstr "身長"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Hip"
+msgstr "ヒップ"
+
+msgctxt "odt:patient.evaluation:"
+msgid "History of Present Illness"
+msgstr "現病歴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Housing conditions"
+msgstr "住宅事情"
+
+msgctxt "odt:patient.evaluation:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Immunizations"
+msgstr "ワクチン接種歴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Incomplete Primary School"
+msgstr "小学校中退"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Incomplete Secondary School"
+msgstr "中学校中退"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Indication"
+msgstr "適応"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Infectious"
+msgstr "感染性"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Information Source:"
+msgstr "情報源："
+
+msgctxt "odt:patient.evaluation:"
+msgid "Information about the Diagnosis"
+msgstr "診断に関する情報"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Level of Conciousness / Glasgow Scale"
+msgstr "意識レベル / グラスゴースケール"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Lifestyle"
+msgstr "ライフスタイル"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Luxury and excellent sanitary conditions"
+msgstr "豪華で衛生状況に優れた状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Marital Status"
+msgstr "婚姻状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Maternal"
+msgstr "母方"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Medicament"
+msgstr "薬剤治療"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Medication History"
+msgstr "投薬歴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Motor"
+msgstr "運動"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Next Dose"
+msgstr "次の量"
+
+msgctxt "odt:patient.evaluation:"
+msgid "None"
+msgstr "なし"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Observations"
+msgstr "観察"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Occupation :"
+msgstr "職業 :"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Other Hypotheses / DDx"
+msgstr "その他の仮説 / 鑑別診断"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Oxygen Saturation"
+msgstr "酸素飽和度"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Paternal"
+msgstr "父方"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Patient Genetic Abnormalities / “Disease Genes”"
+msgstr "患者の遺伝子異常 / \"遺伝病\""
+
+msgctxt "odt:patient.evaluation:"
+msgid "Patient Name:"
+msgstr "患者氏名:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Personal History"
+msgstr "病歴"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Physical Examination"
+msgstr "理学所見"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Practices"
+msgstr "処置"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Practices safe sex ."
+msgstr "安全な性交渉の実施"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Presumptive Diagnosis"
+msgstr "仮診断"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Primary School"
+msgstr "小学校"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Print Date:"
+msgstr "印刷日:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Remarks"
+msgstr "注意点"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Respiratory Rate"
+msgstr "呼吸数"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Roomy and excellent sanitary conditions"
+msgstr "広くて衛生的に優れた状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "SSN #"
+msgstr "ソーシャルセキュリティナンバー #"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Secondary School"
+msgstr "中学校"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Severity"
+msgstr "重症度"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Sex"
+msgstr "性別"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Sexuality"
+msgstr "性別"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Shanty, deficient sanitary conditions"
+msgstr "貧しく、衛生的ではない状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Signs and Symptoms"
+msgstr "徴候と症状"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Small, crowded but with good sanitary conditions"
+msgstr "狭く混雑せいているが衛生的には良好な状況"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Socioeconomic Status"
+msgstr "社会経済学的状態"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Socioeconomics"
+msgstr "社会経済学"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Start"
+msgstr "開始"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Status"
+msgstr "状態"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Systolic"
+msgstr "収縮期"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Temperature"
+msgstr "体温"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Total Glasgow"
+msgstr "グラスゴースケール合計"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "odt:patient.evaluation:"
+msgid "University"
+msgstr "大学"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Vaccine"
+msgstr "ワクチン"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Verbal"
+msgstr "言語"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Vital Signs"
+msgstr "バイタルサイン"
+
+msgctxt "odt:patient.evaluation:"
+msgid "WHR"
+msgstr "WHR"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Waist"
+msgstr "ウエスト"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Weight"
+msgstr "体重"
+
+msgctxt "odt:patient.evaluation:"
+msgid "bisexual"
+msgstr "バイセクシャル"
+
+msgctxt "odt:patient.evaluation:"
+msgid "chronic"
+msgstr "慢性的"
+
+msgctxt "odt:patient.evaluation:"
+msgid "healed"
+msgstr "治癒"
+
+msgctxt "odt:patient.evaluation:"
+msgid "heterosexual"
+msgstr "ヘテロセクシャル"
+
+msgctxt "odt:patient.evaluation:"
+msgid "homosexual"
+msgstr "ホモセクシャル"
+
+msgctxt "odt:patient.evaluation:"
+msgid "improving"
+msgstr "改善している"
+
+msgctxt "odt:patient.evaluation:"
+msgid "lower"
+msgstr "低"
+
+msgctxt "odt:patient.evaluation:"
+msgid "lower-middle"
+msgstr "低〜中"
+
+msgctxt "odt:patient.evaluation:"
+msgid "middle"
+msgstr "中"
+
+msgctxt "odt:patient.evaluation:"
+msgid "middle-upper"
+msgstr "中〜高"
+
+msgctxt "odt:patient.evaluation:"
+msgid "mild"
+msgstr "高"
+
+msgctxt "odt:patient.evaluation:"
+msgid "moderate"
+msgstr "中等症"
+
+msgctxt "odt:patient.evaluation:"
+msgid "report about patient important conditions"
+msgstr "重要な状態の患者についての報告"
+
+msgctxt "odt:patient.evaluation:"
+msgid "risky"
+msgstr "危険"
+
+msgctxt "odt:patient.evaluation:"
+msgid "s"
+msgstr "s"
+
+msgctxt "odt:patient.evaluation:"
+msgid "severe"
+msgstr "重症"
+
+msgctxt "odt:patient.evaluation:"
+msgid "sex ."
+msgstr "性別"
+
+msgctxt "odt:patient.evaluation:"
+msgid "transexual"
+msgstr "トランスセクシャル"
+
+msgctxt "odt:patient.evaluation:"
+msgid "unchanged"
+msgstr "不変"
+
+msgctxt "odt:patient.evaluation:"
+msgid "upper"
+msgstr "高"
+
+msgctxt "odt:patient.evaluation:"
+msgid "worsening"
+msgstr "悪化"

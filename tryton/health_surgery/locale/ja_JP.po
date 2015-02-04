@@ -1,0 +1,816 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014-2015
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Shigeomi Shibata, 2014
+# 池田　拓也 <keda.kuya.rc113@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-27 05:00+0000\n"
+"Last-Translator: Hisahiro Ohmura\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.surgery:"
+msgid "End time \"%(end_date)s\" BEFORE surgery date \"%(surgery_date)s\""
+msgstr "終了時刻 \"%(end_date)s\" が手術日 \"%(surgery_date)s\" より前です"
+
+msgctxt "field:gnuhealth.operation,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.operation,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.operation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.operation,name:"
+msgid "Surgery"
+msgstr "外科"
+
+msgctxt "field:gnuhealth.operation,notes:"
+msgid "Notes"
+msgstr "備考"
+
+msgctxt "field:gnuhealth.operation,procedure:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.operation,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.operation,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.operation,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.patient,surgery:"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "field:gnuhealth.rcri,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.rcri,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.rcri,health_professional:"
+msgid "Health Professional"
+msgstr "主治医"
+
+msgctxt "field:gnuhealth.rcri,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.rcri,patient:"
+msgid "Patient ID"
+msgstr "患者ID"
+
+msgctxt "field:gnuhealth.rcri,rcri_cerebrovascular_history:"
+msgid "History of Cerebrovascular disease"
+msgstr "脳血管疾患の既往歴"
+
+msgctxt "field:gnuhealth.rcri,rcri_class:"
+msgid "RCRI Class"
+msgstr "RCRIクラス"
+
+msgctxt "field:gnuhealth.rcri,rcri_congestive_history:"
+msgid "History of congestive heart disease"
+msgstr "鬱血性心不全の既往歴"
+
+msgctxt "field:gnuhealth.rcri,rcri_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Preoperative Diabetes"
+msgstr "糖尿病予備軍"
+
+msgctxt "field:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid "High Risk surgery"
+msgstr "高いリスクを伴う手術"
+
+msgctxt "field:gnuhealth.rcri,rcri_ischemic_history:"
+msgid "History of ischemic heart disease"
+msgstr "虚血性心疾患の既往歴"
+
+msgctxt "field:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative Kidney disease"
+msgstr "術前の腎疾患"
+
+msgctxt "field:gnuhealth.rcri,rcri_total:"
+msgid "Score"
+msgstr "スコア."
+
+msgctxt "field:gnuhealth.rcri,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.rcri,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.rcri,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.surgery,admission:"
+msgid "Admission"
+msgstr "入院"
+
+msgctxt "field:gnuhealth.surgery,age:"
+msgid "Estimative Age"
+msgstr "推定年齢"
+
+msgctxt "field:gnuhealth.surgery,anesthesia_report:"
+msgid "Anesthesia Report"
+msgstr "麻酔記録"
+
+msgctxt "field:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist"
+msgstr "麻酔医"
+
+msgctxt "field:gnuhealth.surgery,classification:"
+msgid "Urgency"
+msgstr "緊急性"
+
+msgctxt "field:gnuhealth.surgery,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.surgery,computed_age:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "field:gnuhealth.surgery,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.surgery,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.surgery,description:"
+msgid "Description"
+msgstr "詳細"
+
+msgctxt "field:gnuhealth.surgery,extra_info:"
+msgid "Extra Info"
+msgstr "特記事項"
+
+msgctxt "field:gnuhealth.surgery,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.surgery,institution:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "field:gnuhealth.surgery,operating_room:"
+msgid "Operating Room"
+msgstr "手術室"
+
+msgctxt "field:gnuhealth.surgery,pathology:"
+msgid "Base condition"
+msgstr "基礎状態"
+
+msgctxt "field:gnuhealth.surgery,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
+msgid "Antibiotic Prophylaxis"
+msgstr "感染予防"
+
+msgctxt "field:gnuhealth.surgery,preop_asa:"
+msgid "ASA PS"
+msgstr "米国麻酔学会　状態分類"
+
+msgctxt "field:gnuhealth.surgery,preop_bleeding_risk:"
+msgid "Risk of Massive bleeding"
+msgstr "大量出血のリスク"
+
+msgctxt "field:gnuhealth.surgery,preop_mallampati:"
+msgid "Mallampati Score"
+msgstr "マランパチ分類"
+
+msgctxt "field:gnuhealth.surgery,preop_oximeter:"
+msgid "Pulse Oximeter in place"
+msgstr "パルスオキシメーター準備"
+
+msgctxt "field:gnuhealth.surgery,preop_rcri:"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "field:gnuhealth.surgery,preop_site_marking:"
+msgid "Surgical Site Marking"
+msgstr "手術部位マーキング"
+
+msgctxt "field:gnuhealth.surgery,preop_sterility:"
+msgid "Sterility confirmed"
+msgstr "滅菌済"
+
+msgctxt "field:gnuhealth.surgery,procedures:"
+msgid "Procedures"
+msgstr "手続き"
+
+msgctxt "field:gnuhealth.surgery,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.surgery,report_surgery_date:"
+msgid "Surgery Date"
+msgstr "手術の予定日"
+
+msgctxt "field:gnuhealth.surgery,report_surgery_time:"
+msgid "Surgery Time"
+msgstr "手術時間"
+
+msgctxt "field:gnuhealth.surgery,signed_by:"
+msgid "Signed by"
+msgstr "サインされました"
+
+msgctxt "field:gnuhealth.surgery,state:"
+msgid "State"
+msgstr "州"
+
+msgctxt "field:gnuhealth.surgery,surgeon:"
+msgid "Surgeon"
+msgstr "外科医"
+
+msgctxt "field:gnuhealth.surgery,surgery_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.surgery,surgery_end_date:"
+msgid "End"
+msgstr "終了"
+
+msgctxt "field:gnuhealth.surgery,surgery_length:"
+msgid "Duration"
+msgstr "期間"
+
+msgctxt "field:gnuhealth.surgery,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.surgery,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "help:gnuhealth.operation,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS or ICPM"
+msgstr "処置コード, 例 ICD-10-PCS や ICPM"
+
+msgctxt "help:gnuhealth.rcri,health_professional:"
+msgid "Health professional /Cardiologist who signed the assesment RCRI"
+msgstr "RCRI（改訂心疾患リスク指数）のアセスメントを担当した心臓専門医 / 医療従事者"
+
+msgctxt "help:gnuhealth.rcri,rcri_diabetes_history:"
+msgid "Diabetes Mellitus requiring treatment with Insulin"
+msgstr "インスリン療法が必要な糖尿病"
+
+msgctxt "help:gnuhealth.rcri,rcri_high_risk_surgery:"
+msgid ""
+"Includes andy suprainguinal vascular, intraperitoneal, or intrathoracic "
+"procedures"
+msgstr "開腹術、開胸術、腸骨動脈以上中枢の血管手術を含む"
+
+msgctxt "help:gnuhealth.rcri,rcri_ischemic_history:"
+msgid ""
+"history of MI or a positive exercise test, current         complaint of "
+"chest pain considered to be secondary to myocardial         ischemia, use of"
+" nitrate therapy, or ECG with pathological         Q waves; do not count "
+"prior coronary revascularization procedure         unless one of the other "
+"criteria for ischemic heart disease is         present"
+msgstr "心筋梗塞の既往もしくは運動負荷試験で陽性, 心筋梗塞により引き起こされている可能性のある胸痛が現在ある,  硝酸薬で治療している, 心電図上、病的なQ波を認める; 虚血性心疾患の可能性が現在存在する限り、以前の冠動脈パイパス術は考慮しない"
+
+msgctxt "help:gnuhealth.rcri,rcri_kidney_history:"
+msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
+msgstr "術前血清クレアチニン >2.0 mg/dL (177 mol/L)"
+
+msgctxt "help:gnuhealth.rcri,rcri_total:"
+msgid ""
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr "0 点 : クラス I とても低い (0.4% 合併症)\n1 点 : クラス II 低い (0.9% 合併症)\n2 点 : クラス III 中庸 (6.6% 合併症)\n3 点以上 : クラス IV 高い (>11% 合併症)"
+
+msgctxt "help:gnuhealth.surgery,age:"
+msgid ""
+"Use this field for historical purposes,         when no date of surgery is "
+"given"
+msgstr "手術日のデータがない場合に、このフィールドを歴史的名経緯で利用します。"
+
+msgctxt "help:gnuhealth.surgery,anesthetist:"
+msgid "Anesthetist in charge"
+msgstr "担当麻酔医"
+
+msgctxt "help:gnuhealth.surgery,classification:"
+msgid "Urgency level for this surgery"
+msgstr "手術の緊急性"
+
+msgctxt "help:gnuhealth.surgery,code:"
+msgid "Health Center Unique code"
+msgstr "医療機関の一意なコード"
+
+msgctxt "help:gnuhealth.surgery,computed_age:"
+msgid "Computed patient age at the moment of the surgery"
+msgstr "手術時点での患者年齢（生年月日より計算）"
+
+msgctxt "help:gnuhealth.surgery,pathology:"
+msgid "Base Condition / Reason"
+msgstr "基礎状態 / 理由"
+
+msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
+msgid "Prophylactic antibiotic treatment within the last 60 minutes"
+msgstr "60分以内に行われた感染症予防対策"
+
+msgctxt "help:gnuhealth.surgery,preop_asa:"
+msgid "ASA pre-operative Physical Status"
+msgstr "米国麻酔学会　術前状態分類"
+
+msgctxt "help:gnuhealth.surgery,preop_bleeding_risk:"
+msgid ""
+"Patient has a risk of losing more than 500 ml in adults of over 7ml/kg in "
+"infants. If so, make sure that intravenous access and fluids are available"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery,preop_oximeter:"
+msgid "Pulse oximeter is in place and functioning"
+msgstr "パルスオキシメーターが装着され動作しています"
+
+msgctxt "help:gnuhealth.surgery,preop_rcri:"
+msgid ""
+"Patient Revised Cardiac Risk Index\n"
+"Points 0: Class I Very Low (0.4% complications)\n"
+"Points 1: Class II Low (0.9% complications)\n"
+"Points 2: Class III Moderate (6.6% complications)\n"
+"Points 3 or more : Class IV High (>11% complications)"
+msgstr "患者の改訂心疾患リスク指数（Revised Cardiac Risk Index）\n0 点 : クラス I とても低い (0.4% 合併症)\n1 点 : クラス II 低い (0.9% 合併症)\n2 点 : クラス III 中庸 (6.6% 合併症)\n3 点以上 : クラス IV 高い (>11% 合併症)"
+
+msgctxt "help:gnuhealth.surgery,preop_site_marking:"
+msgid "The surgeon has marked the surgical incision"
+msgstr "外科医が切開面をマークしました"
+
+msgctxt "help:gnuhealth.surgery,preop_sterility:"
+msgid "Nursing team has confirmed sterility of the devices and room"
+msgstr "看護師チームは機器および部屋の滅菌を確認した"
+
+msgctxt "help:gnuhealth.surgery,procedures:"
+msgid ""
+"List of the procedures in the surgery. Please enter the first one as the "
+"main procedure"
+msgstr "手術における処置のリスト。主要手順として最初の一つを入力してください。"
+
+msgctxt "help:gnuhealth.surgery,signed_by:"
+msgid "Health Professional that signed this surgery document"
+msgstr "この手術記録にサインした医師"
+
+msgctxt "help:gnuhealth.surgery,surgeon:"
+msgid "Surgeon who did the procedure"
+msgstr "処置を担当した外科医"
+
+msgctxt "help:gnuhealth.surgery,surgery_date:"
+msgid "Start of the Surgery"
+msgstr "外科手術の開始"
+
+msgctxt "help:gnuhealth.surgery,surgery_end_date:"
+msgid "End of the Surgery"
+msgstr "外科手術の終了"
+
+msgctxt "help:gnuhealth.surgery,surgery_length:"
+msgid "Length of the surgery"
+msgstr "外科手術の時間"
+
+msgctxt "model:gnuhealth.operation,name:"
+msgid "Operation - Surgical Procedures"
+msgstr "手術 - 外科手術の手順"
+
+msgctxt "model:gnuhealth.rcri,name:"
+msgid "Revised Cardiac Risk Index"
+msgstr "心臓リスク指標"
+
+msgctxt "model:gnuhealth.surgery,name:"
+msgid "Surgery"
+msgstr "手術"
+
+msgctxt "model:ir.action,name:act_rcri_form1"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "model:ir.action,name:act_surgery_form"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "model:ir.action,name:action_gnuhealth_surgery_view"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "model:ir.action,name:report_surgery_report"
+msgid "Surgery Report"
+msgstr "外科手術報告書"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_surgery_menu"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "model:res.group,name:group_health_surgery_admin"
+msgid "Health Surgery Administration"
+msgstr "外科管理"
+
+msgctxt "odt:surgery:"
+msgid "( Class"
+msgstr "( クラス"
+
+msgctxt "odt:surgery:"
+msgid "(ID"
+msgstr "(ID"
+
+msgctxt "odt:surgery:"
+msgid ")"
+msgstr ")"
+
+msgctxt "odt:surgery:"
+msgid ","
+msgstr "'"
+
+msgctxt "odt:surgery:"
+msgid "1 : Normal healthy patient"
+msgstr "1 : 通常健康な患者"
+
+msgctxt "odt:surgery:"
+msgid "2 : Patients with mild systemic disease"
+msgstr "2 : 軽度の全身疾患を有するが日常生活動作は正常"
+
+msgctxt "odt:surgery:"
+msgid "3 : Patients with severe systemic disease"
+msgstr "3 : 高度の全身疾患を有するが運動不可能ではない"
+
+msgctxt "odt:surgery:"
+msgid ""
+"4 : Patients with severe systemic disease that is a constant threat to life"
+msgstr "4 :  生命を脅かす全身疾患を有し、日常生活は不可能"
+
+msgctxt "odt:surgery:"
+msgid ""
+"5 : Moribund patients who are not expected to survive without the operation"
+msgstr "5 : 瀕死であり手術をしなければ助からない"
+
+msgctxt "odt:surgery:"
+msgid ""
+"6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "6 : 脳死状態、臓器は移植用に摘出される"
+
+msgctxt "odt:surgery:"
+msgid ":"
+msgstr "："
+
+msgctxt "odt:surgery:"
+msgid "ASA"
+msgstr "米国麻酔学会"
+
+msgctxt "odt:surgery:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:surgery:"
+msgid "Anesthesia Report"
+msgstr "麻酔記録"
+
+msgctxt "odt:surgery:"
+msgid "Anesthetist"
+msgstr "麻酔医"
+
+msgctxt "odt:surgery:"
+msgid "Antibiotic Prophylaxis :"
+msgstr "感染予防 :"
+
+msgctxt "odt:surgery:"
+msgid "Base Condition"
+msgstr "基礎状態"
+
+msgctxt "odt:surgery:"
+msgid "Class 1:"
+msgstr "クラス 1"
+
+msgctxt "odt:surgery:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "クラス 2:  軟口蓋、口峡、口蓋垂（一部）が見える。口蓋垂の先端が隠れる"
+
+msgctxt "odt:surgery:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "クラス 3: 軟口蓋（口蓋垂の基部）のみ見える"
+
+msgctxt "odt:surgery:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "クラス 4: 軟口蓋も見えない"
+
+msgctxt "odt:surgery:"
+msgid "Classification"
+msgstr "区分"
+
+msgctxt "odt:surgery:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "odt:surgery:"
+msgid "Description"
+msgstr "詳細"
+
+msgctxt "odt:surgery:"
+msgid "Emergency"
+msgstr "危機"
+
+msgctxt "odt:surgery:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "odt:surgery:"
+msgid "Full visibility of tonsils, uvula and soft palate"
+msgstr "1:  軟口蓋、口峡、口蓋垂、口蓋弓が見える。さわやかに良く見える"
+
+msgctxt "odt:surgery:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "odt:surgery:"
+msgid "Main Surgeon"
+msgstr "主術者"
+
+msgctxt "odt:surgery:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "odt:surgery:"
+msgid "Mallampati Score"
+msgstr "マランパチ分類"
+
+msgctxt "odt:surgery:"
+msgid "Notes"
+msgstr "備考"
+
+msgctxt "odt:surgery:"
+msgid "Operating Room"
+msgstr "手術室"
+
+msgctxt "odt:surgery:"
+msgid "Optional"
+msgstr "オプション"
+
+msgctxt "odt:surgery:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "odt:surgery:"
+msgid "Physical Status"
+msgstr "身体状態"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Checklist"
+msgstr "手術前チェックリスト"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operation Information"
+msgstr "手術前情報"
+
+msgctxt "odt:surgery:"
+msgid "Pre-operative"
+msgstr "手術前"
+
+msgctxt "odt:surgery:"
+msgid "Print Date"
+msgstr "印刷日"
+
+msgctxt "odt:surgery:"
+msgid "Procedure Code"
+msgstr "処置コード"
+
+msgctxt "odt:surgery:"
+msgid "Pulse Oximeter in place :"
+msgstr "パルスオキシメータ準備 :"
+
+msgctxt "odt:surgery:"
+msgid "Required"
+msgstr "必要"
+
+msgctxt "odt:surgery:"
+msgid "Revised Cardiac Risk Index (RCRI)"
+msgstr "心臓リスク指標(RCRI)"
+
+msgctxt "odt:surgery:"
+msgid "Risk of Massive bleeding,"
+msgstr "大量出血のリスク"
+
+msgctxt "odt:surgery:"
+msgid "Sex"
+msgstr "性別"
+
+msgctxt "odt:surgery:"
+msgid "Sterility confirmed :"
+msgstr "滅菌確認済 :"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Details / Incidents"
+msgstr "手術詳細 / インシデント"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Report :"
+msgstr "外科手術報告書 :"
+
+msgctxt "odt:surgery:"
+msgid "Surgery Time"
+msgstr "手術時間"
+
+msgctxt "odt:surgery:"
+msgid "Surgical Site Marking :"
+msgstr "手術部位マーキング :"
+
+msgctxt "odt:surgery:"
+msgid "Urgent"
+msgstr "緊急"
+
+msgctxt "odt:surgery:"
+msgid "at surgery"
+msgstr "術中"
+
+msgctxt "odt:surgery:"
+msgid "e :"
+msgstr "e（緊急） :"
+
+msgctxt "odt:surgery:"
+msgid "i"
+msgstr "i"
+
+msgctxt "odt:surgery:"
+msgid "ntravenous access and fluids availabl"
+msgstr "点滴準備および輸液利用可能"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "I"
+msgstr "Ⅰ"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "II"
+msgstr "Ⅱ"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "III"
+msgstr "Ⅲ"
+
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
+msgid "IV"
+msgstr "Ⅳ"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Emergency"
+msgstr "危機"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Optional"
+msgstr "オプション"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Required"
+msgstr "必要"
+
+msgctxt "selection:gnuhealth.surgery,classification:"
+msgid "Urgent"
+msgstr "緊急"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 1 : Normal healthy patient"
+msgstr "PS 1 : 一般に良好。合併症無し"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 2 : Patients with mild systemic disease"
+msgstr "PS 2 : 軽度の全身疾患を有するが日常生活動作は正常"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid "PS 3 : Patients with severe systemic disease"
+msgstr "PS 3 : 高度の全身疾患を有するが運動不可能ではない"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 4 : Patients with severe systemic disease that is a constant threat to "
+"life "
+msgstr "PS 4 : 生命を脅かす全身疾患を有し、日常生活は不可能"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 5 : Moribund patients who are not expected to survive without the "
+"operation"
+msgstr "PS 5 : 瀕死であり手術をしなければ助からない"
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+"PS 6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr "PS 6 : 脳死状態、臓器は移植用に摘出される"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
+msgstr "クラス 1:  軟口蓋、口峡、口蓋垂、口蓋弓が見える。さわやかに良く見える"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr "クラス 2:  軟口蓋、口峡、口蓋垂（一部）が見える。口蓋垂の先端が隠れる"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr "クラス 3: 軟口蓋（口蓋垂の基部）のみ見える"
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr "クラス 4: 軟口蓋も見えない"
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Done"
+msgstr "実施済み"
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "In progress"
+msgstr "進行中"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Operation"
+msgstr "手術"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure"
+msgstr "処置"
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure Details / Incidents"
+msgstr "処置詳細 / インシデント"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Surgeries"
+msgstr "外科手術"
+
+msgctxt "view:gnuhealth.procedure:"
+msgid "Procedure"
+msgstr "処置"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI"
+msgstr "RCRI"
+
+msgctxt "view:gnuhealth.rcri:"
+msgid "RCRI : Revised Cardiac Risk Index"
+msgstr "RCRI:心臓リスク指標"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Anesthesia"
+msgstr "麻酔"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Details / Incidents"
+msgstr "詳細 / インシデント"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finish and sign this surgery ? Itwill become read-only !"
+msgstr "手術をサインアウトしますか？手術記録は変更不可になります！"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Patient Surgical Risk assessment"
+msgstr "患者の手術リスクアセスメント"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Preoperative checklist"
+msgstr "手術前チェックリスト"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign"
+msgstr "サイン"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign this surgery"
+msgstr "サインイン"
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Surgery"
+msgstr "手術"

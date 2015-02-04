@@ -3,13 +3,14 @@
 # Bogdan Czaplinski Martins Barros <bogdan.czaplinski@gmail.com>, 2014
 # carlo giusepe tadei valente sasaki <carlo.gt.valente@gmail.com>, 2014
 # Enrico Nicoletto <enrico.BR@gmx.co.uk>, 2013
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:23+0000\n"
-"PO-Revision-Date: 2014-06-27 17:02+0000\n"
-"Last-Translator: Bogdan Czaplinski Martins Barros <bogdan.czaplinski@gmail.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-13 14:57+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,11 +32,11 @@ msgstr "Data de criação"
 
 msgctxt "field:gnuhealth.dengue_du_survey,create_uid:"
 msgid "Create User"
-msgstr "Criado pelo usuário"
+msgstr "Criado por"
 
 msgctxt "field:gnuhealth.dengue_du_survey,du:"
 msgid "DU"
-msgstr "DU"
+msgstr "UD"
 
 msgctxt "field:gnuhealth.dengue_du_survey,du_fumigation:"
 msgid "Fumigation"
@@ -83,7 +84,7 @@ msgstr "Pneus"
 
 msgctxt "field:gnuhealth.dengue_du_survey,ovitraps:"
 msgid "Ovitraps"
-msgstr "Ovitrampas"
+msgstr "Armadilhas para Ovos"
 
 msgctxt "field:gnuhealth.dengue_du_survey,potted_plant:"
 msgid "Potted Plants"
@@ -107,11 +108,11 @@ msgstr "Buracos em árvores"
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_date:"
 msgid "Write Date"
-msgstr "Data de gravação"
+msgstr "Data de edição"
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_uid:"
 msgid "Write User"
-msgstr "Gravado pelo usuário"
+msgstr "Editado por"
 
 msgctxt "field:gnuhealth.sequences,dengue_du_survey_sequence:"
 msgid "Dengue Survey Sequence"
@@ -119,7 +120,7 @@ msgstr "Sequência de pesquisa sobre a dengue"
 
 msgctxt "help:gnuhealth.dengue_du_survey,aedes_larva:"
 msgid "Check this box if Aedes aegypti larvae were found"
-msgstr "Marque esta caixa se foi encontrado larva de Aedes aegypti"
+msgstr "Marque esta caixa se foram encontradas larvas de Aedes aegypti"
 
 msgctxt "help:gnuhealth.dengue_du_survey,animal_water_container:"
 msgid "Animal water containers not scrubbed or clean"
@@ -147,11 +148,11 @@ msgstr "Data da Última Fumigação"
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_in_house:"
 msgid "Check this box if larvae were found inside the house"
-msgstr "Marque esta caixa se foi encontrado larva dentro da casa"
+msgstr "Marque esta caixa se foram encontradas larvas dentro da casa"
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_peri:"
 msgid "Check this box if larva were found in the peridomiciliary area"
-msgstr "Marque esta caixa se foi encontrado larva no peridomicílio - área no entorno da residência -"
+msgstr "Marque esta caixa se foram encontradas larvas na área do entorno da residência"
 
 msgctxt "help:gnuhealth.dengue_du_survey,old_tyres:"
 msgid "Old vehicle tyres found"

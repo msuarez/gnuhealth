@@ -2,14 +2,16 @@
 # Translators:
 # Diego de Souza Lopes <djkakaroto@gmail.com>, 2013
 # Marcel Ribeiro Dantas, 2014
+# Marcel Ribeiro Dantas, 2014
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2014
 # Sandro Regis Cardoso <projetaty@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:23+0000\n"
-"PO-Revision-Date: 2014-06-27 17:02+0000\n"
-"Last-Translator: Sandro Regis Cardoso <projetaty@gmail.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,7 +93,7 @@ msgstr "Nome"
 
 msgctxt "field:gnuhealth.imaging.test.request,request:"
 msgid "Request"
-msgstr "Requisições"
+msgstr "Requisição"
 
 msgctxt "field:gnuhealth.imaging.test.request,requested_test:"
 msgid "Test"
@@ -143,7 +145,7 @@ msgstr "Imagens"
 
 msgctxt "field:gnuhealth.imaging.test.result,number:"
 msgid "Number"
-msgstr "Numero"
+msgstr "Número"
 
 msgctxt "field:gnuhealth.imaging.test.result,patient:"
 msgid "Patient"
@@ -155,11 +157,11 @@ msgstr "Nome"
 
 msgctxt "field:gnuhealth.imaging.test.result,request:"
 msgid "Request"
-msgstr "Requisições"
+msgstr "Requisição"
 
 msgctxt "field:gnuhealth.imaging.test.result,request_date:"
 msgid "Requested Date"
-msgstr "Data solicitada"
+msgstr "Data da Requisição"
 
 msgctxt "field:gnuhealth.imaging.test.result,requested_test:"
 msgid "Test"
@@ -223,7 +225,7 @@ msgstr "Paciente"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,tests:"
 msgid "Tests"
-msgstr "Testes"
+msgstr "Exames"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,urgent:"
 msgid "Urgent"
@@ -235,7 +237,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.request-imaging-test,request:"
 msgid "Request"
-msgstr "Requisições"
+msgstr "Requisição"
 
 msgctxt "field:gnuhealth.request-imaging-test,test:"
 msgid "Test"
@@ -255,55 +257,55 @@ msgstr "Médico que solicitou o exame"
 
 msgctxt "model:gnuhealth.imaging.test,name:"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "model:gnuhealth.imaging.test.request,name:"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:gnuhealth.imaging.test.result,name:"
 msgid "Imaging Test Result"
-msgstr "Resultado de Imagem de Teste"
+msgstr "Resultado de Exame de Imagem"
 
 msgctxt "model:gnuhealth.imaging.test.type,name:"
 msgid "Imaging Test Type"
-msgstr "Tipo de Imagem de Teste"
+msgstr "Tipo de Exame de Imagem"
 
 msgctxt "model:gnuhealth.patient.imaging.test.request.start,name:"
 msgid "Request Patient Imaging Test Start"
-msgstr "Requisição de Imagem de Teste Inicial para Paciente"
+msgstr "Requerer o início de exame de imagem"
 
 msgctxt "model:gnuhealth.request-imaging-test,name:"
 msgid "Request - Test"
-msgstr "Requisições - Teste"
+msgstr "Requisição - Exame"
 
 msgctxt "model:ir.action,name:act_imaging_test_request_view"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:ir.action,name:act_imaging_test_request_view2"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:ir.action,name:act_imaging_test_result_view"
 msgid "Imaging Test Result"
-msgstr "Resultado de Teste de Imagem"
+msgstr "Resultado de Exame de Imagem"
 
 msgctxt "model:ir.action,name:act_imaging_test_result_view2"
 msgid "Imaging Test Results"
-msgstr "Resultado de Teste de Imagem"
+msgstr "Resultados de Exames de Imagem"
 
 msgctxt "model:ir.action,name:act_imaging_test_type_view"
 msgid "Imaging Test Type"
-msgstr "Tipo de Imagem de Teste"
+msgstr "Tipo de Exame de Imagem"
 
 msgctxt "model:ir.action,name:act_imaging_test_view"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "model:ir.action,name:patient_imaging_test_request"
 msgid "Request Imaging Test"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Pedido de Exame de Imagem"
 
 msgctxt "model:ir.action,name:wizard_generate_result"
 msgid "Generate Result"
@@ -331,19 +333,19 @@ msgstr "Solicitado"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test_request"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test_request"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging"
 msgid "Imaging"
@@ -355,23 +357,23 @@ msgstr "Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_request_view"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_result_view"
 msgid "Imaging Test Result"
-msgstr "Resultado de Teste de Imagem"
+msgstr "Resultado de Exame de Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_type"
 msgid "Imaging Test Type"
-msgstr "Tipo de Imagem de Teste"
+msgstr "Tipo de Exame de Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_view"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "model:ir.ui.menu,name:menu_patient_imaging_test_request"
 msgid "Request Imaging Test"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Pedido de Exame de Imagem"
 
 msgctxt "model:product.category,name:product_category_imagingservices"
 msgid "Imaging Services"
@@ -387,7 +389,7 @@ msgstr "Encargos de IRM (Imagem de Resonância Magnética)"
 
 msgctxt "model:product.template,name:product_template_petscancharges"
 msgid "PET Scan charges"
-msgstr "Encargos de PET (Posição de Emissão de Tomografia)"
+msgstr "Encargos de PET Scan (Positron Emission Tomography)"
 
 msgctxt "model:product.template,name:product_template_ultrasoundcharges"
 msgid "Ultrasound charges"
@@ -415,11 +417,11 @@ msgstr "Gerar Resultados"
 
 msgctxt "view:gnuhealth.imaging.test.request:"
 msgid "Imaging Test Request"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Andamento dos Exames de Imagem"
 
 msgctxt "view:gnuhealth.imaging.test.request:"
 msgid "Request"
-msgstr "Requisições"
+msgstr "Requisição"
 
 msgctxt "view:gnuhealth.imaging.test.result:"
 msgid "Comment"
@@ -431,19 +433,19 @@ msgstr "Imagens"
 
 msgctxt "view:gnuhealth.imaging.test.result:"
 msgid "Imaging Test Result"
-msgstr "Resultado de Teste de Imagem"
+msgstr "Resultado de Exame de Imagem"
 
 msgctxt "view:gnuhealth.imaging.test.type:"
 msgid "Imaging Test Type"
-msgstr "Tipo de Imagem de Teste"
+msgstr "Tipo de Exame de Imagem"
 
 msgctxt "view:gnuhealth.imaging.test:"
 msgid "Imaging Test"
-msgstr "Imagem de Teste"
+msgstr "Exame de Imagem"
 
 msgctxt "view:gnuhealth.patient.imaging.test.request.start:"
 msgid "Request Imaging Test"
-msgstr "Requisição de Imagem de Teste"
+msgstr "Pedido de Exame de Imagem"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
 msgid "Cancel"
@@ -451,4 +453,4 @@ msgstr "Cancelar"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,request:"
 msgid "Request"
-msgstr "Requisições"
+msgstr "Requisição"

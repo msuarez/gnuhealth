@@ -1,15 +1,16 @@
 # 
 # Translators:
-# meanmicio <lfalcon@gnusolidario.org>, 2013
-# meanmicio <lfalcon@gnusolidario.org>, 2012
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013
+# Luis Falcon <lfalcon@gnusolidario.org>, 2012
 # Sebastián Marró <smarro@thymbra.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:23+0000\n"
-"PO-Revision-Date: 2014-06-27 17:02+0000\n"
-"Last-Translator: Sebastián Marró <smarro@thymbra.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,13 +34,21 @@ msgctxt "error:gnuhealth.service.invoice.create:"
 msgid "Service already invoiced"
 msgstr "Servicio ya ha sido facturado"
 
+msgctxt "field:account.invoice,health_service:"
+msgid "Health Service"
+msgstr "Servicio de Salud"
+
+msgctxt "field:account.invoice,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
 msgctxt "field:gnuhealth.health_service,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.health_service,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.health_service,desc:"
 msgid "Description"
@@ -48,6 +57,10 @@ msgstr "Descripción"
 msgctxt "field:gnuhealth.health_service,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:gnuhealth.health_service,invoice_to:"
+msgid "Invoice to"
+msgstr "Factura a"
 
 msgctxt "field:gnuhealth.health_service,name:"
 msgid "ID"
@@ -75,11 +88,11 @@ msgstr "Estado"
 
 msgctxt "field:gnuhealth.health_service,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.health_service,write_uid:"
 msgid "Write User"
-msgstr "Escribir usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.health_service.line,appointment:"
 msgid "Appointment"
@@ -87,11 +100,11 @@ msgstr "Cita"
 
 msgctxt "field:gnuhealth.health_service.line,create_date:"
 msgid "Create Date"
-msgstr "Crear fecha"
+msgstr "Fecha creación"
 
 msgctxt "field:gnuhealth.health_service.line,create_uid:"
 msgid "Create User"
-msgstr "Crear usuario"
+msgstr "Usuario creación"
 
 msgctxt "field:gnuhealth.health_service.line,desc:"
 msgid "Description"
@@ -115,7 +128,7 @@ msgstr "Producto"
 
 msgctxt "field:gnuhealth.health_service.line,qty:"
 msgid "Qty"
-msgstr "Ctad"
+msgstr "Ctdad"
 
 msgctxt "field:gnuhealth.health_service.line,rec_name:"
 msgid "Name"
@@ -131,11 +144,11 @@ msgstr "Factura"
 
 msgctxt "field:gnuhealth.health_service.line,write_date:"
 msgid "Write Date"
-msgstr "Escriba la fecha"
+msgstr "Fecha modificación"
 
 msgctxt "field:gnuhealth.health_service.line,write_uid:"
 msgid "Write User"
-msgstr "Escriba el usuario"
+msgstr "Usuario modificación"
 
 msgctxt "field:gnuhealth.sequences,health_service_sequence:"
 msgid "Health Service Sequence"
@@ -202,6 +215,10 @@ msgctxt "selection:gnuhealth.health_service,state:"
 msgid "Invoiced"
 msgstr "Facturado"
 
+msgctxt "view:account.invoice:"
+msgid "Health"
+msgstr "Salud"
+
 msgctxt "view:gnuhealth.health_service.line:"
 msgid "Health Service Line"
 msgstr "Línea de Servicio de Salud"
@@ -228,7 +245,7 @@ msgstr "Crear Facturas"
 
 msgctxt "view:gnuhealth.service.invoice.init:"
 msgid "Do you want to generate the Invoice(s) ?"
-msgstr "Quiere generar la factura(s)"
+msgstr "¿Quiere generar la Factura(s)?"
 
 msgctxt "view:gnuhealth.service.invoice.init:"
 msgid "Health Services Invoices"

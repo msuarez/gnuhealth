@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,6 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import pytz
 from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
@@ -268,13 +269,13 @@ class Surgery(ModelSQL, ModelView):
         ], 'Mallampati Score', sort=False)
     preop_bleeding_risk = fields.Boolean(
         'Risk of Massive bleeding',
-        help="Check this box if patient has a risk of loosing more than 500 "
+        help="Patient has a risk of losing more than 500 "
         "ml in adults of over 7ml/kg in infants. If so, make sure that "
         "intravenous access and fluids are available")
 
     preop_oximeter = fields.Boolean(
         'Pulse Oximeter in place',
-        help="Check this box when verified the pulse oximeter is in place "
+        help="Pulse oximeter is in place "
         "and functioning")
 
     preop_site_marking = fields.Boolean(
@@ -316,6 +317,11 @@ class Surgery(ModelSQL, ModelView):
     anesthesia_report = fields.Text('Anesthesia Report')
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    report_surgery_date = fields.Function(fields.Date('Surgery Date'), 
+        'get_report_surgery_date')
+    report_surgery_time = fields.Function(fields.Time('Surgery Time'), 
+        'get_report_surgery_time')
 
     @staticmethod
     def default_institution():
@@ -412,6 +418,32 @@ class Surgery(ModelSQL, ModelView):
         cls.write(surgeries, {
             'state': 'done',
             'signed_by': signing_hp})
+
+    def get_report_surgery_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.surgery_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_surgery_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.surgery_date
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
 
 class Operation(ModelSQL, ModelView):

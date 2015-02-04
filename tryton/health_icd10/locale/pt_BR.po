@@ -7,14 +7,15 @@
 # Fernando Nunes <fernubr@gmail.com>, 2013
 # Fernando Nunes <fernubr@gmail.com>, 2013
 # fernubr <fernubrgmail.com>, 2013
+# Roberto Vasconcelos Novaes <rvnovaes@gmail.com>, 2014
 # Sandro Regis Cardoso <projetaty@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-07-22 15:46+0000\n"
-"PO-Revision-Date: 2013-10-15 17:52+0000\n"
-"Last-Translator: Fernando Nunes <fernubr@gmail.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-13 14:55+0000\n"
+"Last-Translator: Roberto Vasconcelos Novaes <rvnovaes@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +29,15 @@ msgstr "Cólera"
 
 msgctxt "model:gnuhealth.pathology,name:A000"
 msgid "Cholera due to Vibrio cholerae 01, biovar cholerae"
-msgstr "A cólera devido a Vibrio cholerae 01, biovar cholerae"
+msgstr "Cólera devido a Vibrio cholerae 01, biovar cholerae"
 
 msgctxt "model:gnuhealth.pathology,name:A001"
 msgid "Cholera due to Vibrio cholerae 01, biovar el tor"
-msgstr "A cólera devido a Vibrio cholerae 01, biovar el tor"
+msgstr "Cólera devida a Vibrio cholerae 01, biótipo El Tor"
 
 msgctxt "model:gnuhealth.pathology,name:A009"
 msgid "Cholera, unspecified"
-msgstr "Cólera, não especificado"
+msgstr "Cólera não especificada"
 
 msgctxt "model:gnuhealth.pathology,name:A01"
 msgid "Typhoid and paratyphoid fevers"
@@ -44,23 +45,23 @@ msgstr "Febres tifóide e paratifóide"
 
 msgctxt "model:gnuhealth.pathology,name:A010"
 msgid "Typhoid fever"
-msgstr "febre tifóide"
+msgstr "Febre tifóide"
 
 msgctxt "model:gnuhealth.pathology,name:A011"
 msgid "Paratyphoid fever A"
-msgstr "febre paratifóide A"
+msgstr "Febre paratifóide A"
 
 msgctxt "model:gnuhealth.pathology,name:A012"
 msgid "Paratyphoid fever B"
-msgstr "febre paratifóide B"
+msgstr "Febre paratifóide B"
 
 msgctxt "model:gnuhealth.pathology,name:A013"
 msgid "Paratyphoid fever C"
-msgstr "febre paratifóide C"
+msgstr "Febre paratifóide C"
 
 msgctxt "model:gnuhealth.pathology,name:A014"
 msgid "Paratyphoid fever, unspecified"
-msgstr "febre paratifóide, não especificado"
+msgstr "Febre paratifóide não especificada"
 
 msgctxt "model:gnuhealth.pathology,name:A02"
 msgid "Other Salmonella infections"
@@ -68,51 +69,51 @@ msgstr "Outras infecções por Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A020"
 msgid "Salmonella gastro-enteritis"
-msgstr "Salmonella gastro-enterite"
+msgstr "Enterite por salmonela"
 
 msgctxt "model:gnuhealth.pathology,name:A021"
 msgid "Salmonella septicaemia"
-msgstr "septicemia Salmonella"
+msgstr "Septicemia por salmonela"
 
 msgctxt "model:gnuhealth.pathology,name:A022"
 msgid "Localised Salmonella infections"
-msgstr "As infecções por Salmonella Localizadas"
+msgstr "Infecções localizadas por salmonela"
 
 msgctxt "model:gnuhealth.pathology,name:A028"
 msgid "Other specified Salmonella infections"
-msgstr "Outras infecções por Salmonella especificados"
+msgstr "Outras infecções especificadas por salmonela"
 
 msgctxt "model:gnuhealth.pathology,name:A029"
 msgid "Salmonella infection, unspecified"
-msgstr "infecção por Salmonella, não especificado"
+msgstr "Infecção não especificada por salmonela"
 
 msgctxt "model:gnuhealth.pathology,name:A03"
 msgid "Shigellosis"
-msgstr "shigelose"
+msgstr "Shiguelose"
 
 msgctxt "model:gnuhealth.pathology,name:A030"
 msgid "Shigellosis due to Shigella dysenteriae"
-msgstr "Shigelose devido a Shigella dysenteriae"
+msgstr "Shiguelose devida a Shigella dysenteriae"
 
 msgctxt "model:gnuhealth.pathology,name:A031"
 msgid "Shigellosis due to Shigella flexneri"
-msgstr "Shigelose devido a Shigella flexneri"
+msgstr "Shiguelose devida a Shigella flexneri"
 
 msgctxt "model:gnuhealth.pathology,name:A032"
 msgid "Shigellosis due to Shigella boydii"
-msgstr "Shigelose devido a Shigella boydii"
+msgstr "Shiguelose devida a Shigella boydii"
 
 msgctxt "model:gnuhealth.pathology,name:A033"
 msgid "Shigellosis due to Shigella sonnei"
-msgstr "Shigelose devido a Shigella sonnei"
+msgstr "Shiguelose devida a Shigella sonnei"
 
 msgctxt "model:gnuhealth.pathology,name:A038"
 msgid "Other shigellosis"
-msgstr "Other shigellosis"
+msgstr "Outras shigueloses"
 
 msgctxt "model:gnuhealth.pathology,name:A039"
 msgid "Shigellosis, unspecified"
-msgstr "Shigelose, não especificado"
+msgstr "Shiguelose não especificada"
 
 msgctxt "model:gnuhealth.pathology,name:A04"
 msgid "Other bacterial intestinal infections"
@@ -4812,7 +4813,7 @@ msgstr "Neoplasia maligna da mama"
 
 msgctxt "model:gnuhealth.pathology,name:C500"
 msgid "Nipple and areola"
-msgstr "mamilo ea aréola"
+msgstr "Mamilo e aréola"
 
 msgctxt "model:gnuhealth.pathology,name:C501"
 msgid "Central portion of breast"

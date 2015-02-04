@@ -20,14 +20,15 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from .health_reporting import *
-
+from wizard import *
+from report import *
 
 def register():
     Pool.register(
         TopDiseases,
         OpenTopDiseasesStart,
         OpenEvaluationsStart,
+        SummaryReportStart,
         EvaluationsDoctor,
         EvaluationsSpecialty,
         EvaluationsSector,
@@ -35,4 +36,10 @@ def register():
     Pool.register(
         OpenTopDiseases,
         OpenEvaluations,
+        SummaryReport,
         module='health_reporting', type_='wizard')
+
+    Pool.register(
+        InstitutionSummaryReport,
+        module='health_reporting', type_='report')
+

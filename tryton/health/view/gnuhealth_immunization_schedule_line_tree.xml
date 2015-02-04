@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tree string="Immunization Schedule Line">
+    <field name="sched"/>
+    <field name="vaccine" expand="1"/>
+    <field name="remarks" expand="1"/>
+    <field name="scope"/>
+</tree>

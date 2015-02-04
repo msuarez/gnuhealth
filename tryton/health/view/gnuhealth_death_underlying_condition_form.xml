@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Underlying Condition">
+    <label name="condition"/>
+    <field name="condition"/>
+    <label name="interval"/>
+    <field name="interval"/>
+    <label name="unit_of_time"/>
+    <field name="unit_of_time"/>
+</form>

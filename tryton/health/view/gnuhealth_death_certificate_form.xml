@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<form string="Death Certificate">
+    <group colspan="4" col="6" string="Main" id="group_death_cert_header">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="dod"/>
+        <field name="dod"/>
+        <label name="age"/>
+        <field name="age"/>
+
+    </group>
+    <newline/>
+    <group colspan="4" string="Place" id="group_death_place">
+        <label name="place_of_death"/>
+        <field name="place_of_death"/>
+        <label name="place_details"/>
+        <field name="place_details"/>
+        <newline/>
+        <label name="du"/>
+        <field name="du"/>
+        <label name="operational_sector"/>
+        <field name="operational_sector"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <newline/>
+        <label name="country"/>
+        <field name="country"/>
+        <label name="country_subdivision"/>
+        <field name="country_subdivision"/>
+    </group>
+    <newline/>
+    <group colspan="4" string="Cause" id="group_death_cause">
+        <field name="cod"/>
+    </group>
+    <newline/>
+    <field name="underlying_conditions"/>
+    <newline/>   
+    <group id="group_death_misc" string="Other" colspan="4" col="8">
+        <label name="type_of_death"/>
+        <field name="type_of_death"/>
+        <label name="autopsy"/>
+        <field name="autopsy"/>
+        <label name="code"/>
+        <field name="code"/>
+    </group>
+
+    <newline/>
+    <separator colspan="4" string="Observations" id="separator_death_cert_observations"/>
+    <newline/>
+    <field name="observations" colspan="4"/>
+    <newline/>
+    <group id="death_certificate_footer" colspan="4" col="8">
+        <label name="state"/>
+        <field name="state"/>
+        <label name="signed_by"/>
+        <field name="signed_by"/>
+        <label name="certification_date"/>
+        <field name="certification_date"/>
+        <button name="sign" help="Sign the certificate" string="Sign" icon="tryton-go-next" confirm="Sign Death Certificate ?"/>
+    </group>
+</form>

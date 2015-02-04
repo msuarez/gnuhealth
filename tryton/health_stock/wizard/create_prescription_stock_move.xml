@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="view_create_prescription_stock_move">
+            <field name="model">gnuhealth.prescription.stock.move.init</field>
+            <field name="type">form</field>
+            <field name="name">create_prescription_stock_move</field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_create_prescription_stock_move">
+            <field name="name">Create Prescription Stock Move</field>
+            <field name="wiz_name">gnuhealth.prescription.stock.move.create</field>
+            <field name="model">gnuhealth.prescription.order</field>
+        </record>
+        <record model="ir.action.keyword" id="act_create_prescription_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">gnuhealth.prescription.order,-1</field>
+            <field name="action" ref="act_create_prescription_stock_move"/>
+        </record>
+    </data>
+</tryton>

@@ -30,7 +30,7 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 2
+major_version, minor_version = 3, 4
 
 requires = []
 
@@ -58,6 +58,7 @@ setup(name='trytond_health',
         'trytond.modules.health',
         'trytond.modules.health.tests',
         'trytond.modules.health.wizard',
+        'trytond.modules.health.report',
         ],
 
     package_data={

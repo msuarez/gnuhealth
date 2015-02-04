@@ -6,7 +6,6 @@
             <field name="care_location"/>
             <field name="medicaments" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_medicament_tree"/>
             <field name="medical_supplies" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_medical_supplies_tree"/>
-            <field name="vaccines" colspan="4" view_ids="health_stock.gnuhealth_ambulatory_care_vaccine_tree"/>
         </page>
         <page string="Stock Moves" id="Stock Moves">
             <field name="moves" colspan="4"/>

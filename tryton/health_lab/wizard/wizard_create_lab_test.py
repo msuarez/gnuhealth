@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -62,7 +62,8 @@ class CreateLabTestOrder(Wizard):
             test_report_data = {}
 
             if lab_test_order.state == 'ordered':
-                raise Exception('The Lab test order is already created.')
+                self.raise_user_error(
+                    "The Lab test order is already created")
 
             test_report_data['test'] = lab_test_order.name.id
             test_report_data['patient'] = lab_test_order.patient_id.id

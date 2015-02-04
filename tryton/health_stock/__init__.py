@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2014 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2014 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
 #
 #    Copyright (C) 2013  Sebastian Marro <smarro@gnusolidario.org>
 #
@@ -24,7 +24,7 @@
 
 from trytond.pool import Pool
 from .health_stock import *
-
+from wizard import *
 
 def register():
     Pool.register(
@@ -35,14 +35,15 @@ def register():
         PatientAmbulatoryCare,
         PatientAmbulatoryCareMedicament,
         PatientAmbulatoryCareMedicalSupply,
-        PatientAmbulatoryCareVaccine,
         PatientRounding,
         PatientRoundingMedicament,
         PatientRoundingMedicalSupply,
-        PatientRoundingVaccine,
         PatientPrescriptionOrder,
+        PatientVaccination,
         CreatePrescriptionStockMoveInit,
+        CreateVaccinationStockMoveInit,
         module='health_stock', type_='model')
     Pool.register(
         CreatePrescriptionStockMove,
+        CreateVaccinationStockMove,
         module='health_stock', type_='wizard')

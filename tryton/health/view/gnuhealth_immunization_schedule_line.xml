@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form string="Immunization Schedule Line">
+    <group id="imm_line_header" col="6" colspan="4">
+        <label name="sched"/>
+        <field name="sched"/>
+        <label name="vaccine"/>
+        <field name="vaccine"/>
+        <label name="scope"/>
+        <field name="scope"/>
+    </group>
+    <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+    <newline/>
+    <field colspan="4" name="doses"/>
+</form>

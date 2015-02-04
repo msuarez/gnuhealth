@@ -1,0 +1,261 @@
+# 
+# Translators:
+# Hisahiro Ohmura, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Shigeomi Shibata, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-20 21:31+0000\n"
+"Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.health_service:"
+msgid "The Service ID must be unique"
+msgstr "サービスIDは重複禁止です "
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No Payment Term associated to the Patient"
+msgstr "患者へ関連付けられた支払期限がない"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No invoice address associated"
+msgstr "請求書住所が関連付けられていない"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "Service already invoiced"
+msgstr "請求済サービス"
+
+msgctxt "field:account.invoice,health_service:"
+msgid "Health Service"
+msgstr "診療科目"
+
+msgctxt "field:account.invoice,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.health_service,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.health_service,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.health_service,desc:"
+msgid "Description"
+msgstr "詳細"
+
+msgctxt "field:gnuhealth.health_service,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.health_service,invoice_to:"
+msgid "Invoice to"
+msgstr "送り状"
+
+msgctxt "field:gnuhealth.health_service,name:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.health_service,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.health_service,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.health_service,service_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.health_service,service_line:"
+msgid "Service Line"
+msgstr "サービス品目"
+
+msgctxt "field:gnuhealth.health_service,state:"
+msgid "State"
+msgstr "州"
+
+msgctxt "field:gnuhealth.health_service,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.health_service,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.health_service.line,appointment:"
+msgid "Appointment"
+msgstr "予約"
+
+msgctxt "field:gnuhealth.health_service.line,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.health_service.line,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.health_service.line,desc:"
+msgid "Description"
+msgstr "詳細"
+
+msgctxt "field:gnuhealth.health_service.line,from_date:"
+msgid "From"
+msgstr "から"
+
+msgctxt "field:gnuhealth.health_service.line,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.health_service.line,name:"
+msgid "Service"
+msgstr "サービス"
+
+msgctxt "field:gnuhealth.health_service.line,product:"
+msgid "Product"
+msgstr "製品"
+
+msgctxt "field:gnuhealth.health_service.line,qty:"
+msgid "Qty"
+msgstr "数量"
+
+msgctxt "field:gnuhealth.health_service.line,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.health_service.line,to_date:"
+msgid "To"
+msgstr "まで"
+
+msgctxt "field:gnuhealth.health_service.line,to_invoice:"
+msgid "Invoice"
+msgstr "請求書"
+
+msgctxt "field:gnuhealth.health_service.line,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.health_service.line,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.sequences,health_service_sequence:"
+msgid "Health Service Sequence"
+msgstr "診療科目手順"
+
+msgctxt "field:gnuhealth.service.invoice.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "help:gnuhealth.health_service,service_line:"
+msgid "Service Line"
+msgstr "サービス品目"
+
+msgctxt "help:gnuhealth.health_service.line,appointment:"
+msgid ""
+"Enter or select the date / ID of the appointment related to this evaluation"
+msgstr "この評価に関連する予約の日時 / IDを選ぶもしくは入力してください"
+
+msgctxt "model:gnuhealth.health_service,name:"
+msgid "Health Service"
+msgstr "診療科目"
+
+msgctxt "model:gnuhealth.health_service.line,name:"
+msgid "Health Service"
+msgstr "診療科目"
+
+msgctxt "model:gnuhealth.service.invoice.init,name:"
+msgid "Create Service Invoice Init"
+msgstr "サービス請求書作成"
+
+msgctxt "model:ir.action,name:act_create_health_service_invoice"
+msgid "Create Health Service Invoice"
+msgstr "診療請求書作成"
+
+msgctxt "model:ir.action,name:gnuhealth_action_health_service"
+msgid "Health services"
+msgstr "診療科目"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_health_service"
+msgid "Health Service"
+msgstr "診療科目"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_health_service"
+msgid "Health Service"
+msgstr "診療科目"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_health_service_menu"
+msgid "Health services"
+msgstr "診療科目"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_services_menu"
+msgid "Health Services"
+msgstr "診療科目"
+
+msgctxt "model:res.group,name:group_health_services_admin"
+msgid "Health Services Administration"
+msgstr "診療科目管理"
+
+msgctxt "selection:gnuhealth.health_service,state:"
+msgid "Draft"
+msgstr "ドラフト"
+
+msgctxt "selection:gnuhealth.health_service,state:"
+msgid "Invoiced"
+msgstr "請求済み"
+
+msgctxt "view:account.invoice:"
+msgid "Health"
+msgstr "保健"
+
+msgctxt "view:gnuhealth.health_service.line:"
+msgid "Health Service Line"
+msgstr "診療科目分野"
+
+msgctxt "view:gnuhealth.health_service.line:"
+msgid "Service Line"
+msgstr "サービス品目"
+
+msgctxt "view:gnuhealth.health_service:"
+msgid "Health service "
+msgstr "診療科目"
+
+msgctxt "view:gnuhealth.health_service:"
+msgid "Set to Draft"
+msgstr "下書きに設定"
+
+msgctxt "view:gnuhealth.health_service:"
+msgid "service "
+msgstr "サービス"
+
+msgctxt "view:gnuhealth.service.invoice.init:"
+msgid "Create Invoices"
+msgstr "請求書作成"
+
+msgctxt "view:gnuhealth.service.invoice.init:"
+msgid "Do you want to generate the Invoice(s) ?"
+msgstr "請求書を作成しますか？"
+
+msgctxt "view:gnuhealth.service.invoice.init:"
+msgid "Health Services Invoices"
+msgstr "診療請求書"
+
+msgctxt ""
+"wizard_button:gnuhealth.service.invoice.create,start,create_service_invoice:"
+msgid "Create Invoice"
+msgstr "請求書作成"
+
+msgctxt "wizard_button:gnuhealth.service.invoice.create,start,end:"
+msgid "Cancel"
+msgstr "キャンセル"

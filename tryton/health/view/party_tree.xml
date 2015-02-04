@@ -13,6 +13,7 @@
         <field name="is_institution"/>
         <field name="is_pharmacy" tree_invisible="1"/>
         <field name="is_insurance_company" tree_invisible="1"/>
+        <field name="deceased"/>
         <field name="code" tree_invisible="1"/>
     </xpath>
 

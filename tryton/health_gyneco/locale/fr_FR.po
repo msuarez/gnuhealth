@@ -4,13 +4,14 @@
 # Eric_InvisibleLink <eric.fouquet@invisible-link.com>, 2011
 # Eric Vernichon <eric@vernichon.fr>, 2011,2013
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
+# Marie-Andrée Coulombe <coulombe.ma@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:22+0000\n"
-"PO-Revision-Date: 2014-06-27 23:00+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:54+0000\n"
+"Last-Translator: Marie-Andrée Coulombe <coulombe.ma@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -900,7 +901,7 @@ msgstr "Entrez la date du dernier test Papanicolaou"
 
 msgctxt "help:gnuhealth.patient,premature:"
 msgid "Preterm < 37 wks live births"
-msgstr ""
+msgstr "Prématuré < 37 semaines de vie"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,evaluation_date:"
 msgid "Date"
@@ -942,7 +943,7 @@ msgstr "Date d'évaluation"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,healthprof:"
 msgid "Health Professional who reviewed the information"
-msgstr ""
+msgstr "Le professionnel de la santé qui a révisé l'information"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,lmp:"
 msgid "Last Menstrual Period"

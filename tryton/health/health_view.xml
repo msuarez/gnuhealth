@@ -85,9 +85,9 @@
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
-            parent="gnuhealth_conf_menu" sequence="60" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_menu" sequence="70" icon="gnuhealth-open"/>
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
-            parent="gnuhealth_conf_misc" sequence="20" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_misc" sequence="80" icon="gnuhealth-open"/>
 
 
 <!-- Medication Frequencies -->
@@ -122,6 +122,110 @@
 
         <menuitem action="gnuhealth_action_dosage" icon="gnuhealth-list"
             id="gnuhealth_conf_dosage" parent="gnuhealth_conf_medicaments"/>
+
+
+<!-- Immunization Schedule -->
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_view">
+            <field name="model">gnuhealth.immunization_schedule</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_immunization_schedule</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_tree">
+            <field name="model">gnuhealth.immunization_schedule</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_immunization_schedule_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule">
+            <field name="name">Immunization Schedule</field>
+            <field name="res_model">gnuhealth.immunization_schedule</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_tree"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_view"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_immunization_schedule" id="gnuhealth_conf_immunization_schedule"
+            parent="gnuhealth_conf_menu" sequence="60" />
+
+
+<!-- Immunization Schedule Line-->
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_line_view">
+            <field name="model">gnuhealth.immunization_schedule_line</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_immunization_schedule_line</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_line_tree">
+            <field name="model">gnuhealth.immunization_schedule_line</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_immunization_schedule_line_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule_line">
+            <field name="name">Schedule Vaccines</field>
+            <field name="res_model">gnuhealth.immunization_schedule_line</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_line_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_line_tree"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule_line"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_line_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_line_view"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule_line"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_immunization_schedule_line" 
+            id="gnuhealth_conf_immunization_schedule_line"
+            icon="gnuhealth-list" parent="gnuhealth_conf_immunization_schedule"/>
+
+<!-- Immunization Schedule Dose-->
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_dose_view">
+            <field name="model">gnuhealth.immunization_schedule_dose</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_immunization_schedule_dose</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_immunization_schedule_dose_tree">
+            <field name="model">gnuhealth.immunization_schedule_dose</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_immunization_schedule_dose_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_immunization_schedule_dose">
+            <field name="name">Vaccine Doses</field>
+            <field name="res_model">gnuhealth.immunization_schedule_dose</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_dose_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_dose_tree"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule_dose"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_immunization_schedule_dose_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_immunization_schedule_dose_view"/>
+            <field name="act_window" ref="gnuhealth_action_immunization_schedule_dose"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_immunization_schedule_dose" 
+            id="gnuhealth_conf_immunization_schedule_dose"
+            icon="gnuhealth-list" parent="gnuhealth_conf_immunization_schedule"/>
+
 
 
 <!-- Drug dose units -->
@@ -947,6 +1051,97 @@
             <field name="name">address_tree</field>
         </record>
 
+
+<!-- BIRTH CERTIFICATE -->
+
+        <record model="ir.ui.view" id="gnuhealth_birth_cert_form">
+            <field name="model">gnuhealth.birth_certificate</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_birth_certificate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_birth_cert_tree">
+            <field name="model">gnuhealth.birth_certificate</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_birth_certificate_tree</field>
+        </record>
+
+        <!-- birth Certificate menu entry in demographics -->
+    
+        <record model="ir.action.act_window" id="act_birth_cert_form">
+            <field name="name">Birth certificates</field>
+            <field name="res_model">gnuhealth.birth_certificate</field>
+        </record>
+
+        <menuitem parent="gnuhealth_demographics_menu" 
+            action="act_birth_cert_form" icon="gnuhealth-list" id="menu_birth_cert"/>
+
+        <!-- Shortcut to the birth Certificate from the Party -->
+
+        <record model="ir.action.act_window" id="act_birth_cert_form1">
+            <field name="name">Birth Certificate</field>
+            <field name="res_model">gnuhealth.birth_certificate</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+
+        <record model="ir.action.keyword" id="act_open_birth_cert_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_birth_cert_form1"/>
+        </record>
+
+<!-- DEATH CERTIFICATE -->
+
+        <record model="ir.ui.view" id="gnuhealth_death_cert_form">
+            <field name="model">gnuhealth.death_certificate</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_death_certificate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_death_cert_tree">
+            <field name="model">gnuhealth.death_certificate</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_death_certificate_tree</field>
+        </record>
+
+        <!-- Death Certificate menu entry in demographics -->
+    
+        <record model="ir.action.act_window" id="act_death_cert_form">
+            <field name="name">Death certificates</field>
+            <field name="res_model">gnuhealth.death_certificate</field>
+        </record>
+
+        <menuitem parent="gnuhealth_demographics_menu" 
+            action="act_death_cert_form" icon="gnuhealth-list" id="menu_death_cert"/>
+
+        <!-- Shortcut to the Death Certificate from the Party -->
+
+        <record model="ir.action.act_window" id="act_death_cert_form1">
+            <field name="name">Death Certificate</field>
+            <field name="res_model">gnuhealth.death_certificate</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+
+        <record model="ir.action.keyword" id="act_open_death_cert_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">party.party,-1</field>
+            <field name="action" ref="act_death_cert_form1"/>
+        </record>
+
+
+<!-- DEATH CERTIFICATE .- UNDERLYING CONDITIONS -->
+
+        <record model="ir.ui.view" id="gnuhealth_underlying_condition_form">
+            <field name="model">gnuhealth.death_underlying_condition</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_death_underlying_condition_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_underlying_condition_tree">
+            <field name="model">gnuhealth.death_underlying_condition</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_death_underlying_condition_tree</field>
+        </record>
 
 <!-- PRODUCT -->
 

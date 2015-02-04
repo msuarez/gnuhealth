@@ -1,0 +1,3330 @@
+# 
+# Translators:
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Shinji KOBAYASHI <skoba@moss.gr.jp>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2014-12-22 17:50+0000\n"
+"Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-190"
+msgid "APGAR SCORING OF NEWBORN, WITHOUT OTHER INITIAL MEDICAL EVALUATION"
+msgstr "他の医学的一次評価なしの新生児アプガースコア"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-191"
+msgid "INITIAL MEDICAL EVALUATION OF NEWBORN WITHOUT APGAR SCORING"
+msgstr "アプガースコア以外の新生児一次評価"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-192"
+msgid "APGAR SCORING WITH OTHER MEDICAL EVALUATION OF NEWBORN"
+msgstr "アプガースコアを含む新生児の一次評価"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-193"
+msgid "RECORDING OF BIRTHWEIGHT"
+msgstr "出生時体重の記録"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-194"
+msgid "RECORDING OF CROWN-HEEL  LENGTH"
+msgstr "頂踵長の記録"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-195"
+msgid "RECORDING OF OTHER NEWBORN MEASUREMENTS"
+msgstr "新生児のときに他に測定した記録"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-198"
+msgid "SUBSEQUENT CARE OF HEALTHY NEWBORN"
+msgstr "新生児への産後処置"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-199"
+msgid "NOT OTHERWISE SPECIFIED"
+msgstr "他に特定されない"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-200"
+msgid "SENSORY MAPPING AND TESTING (EXCLUDES AUDITORY(1-23), VISUAL (1-21)"
+msgstr "知覚マッピングと検査（聴覚(1-23)、視覚(1-21)以外"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-201"
+msgid "CLINICAL REFLEX TESTING"
+msgstr "医学的反射試験"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-202"
+msgid "TENDON REFLEX TIME RECORDING"
+msgstr "腱反射時間の記録"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-203"
+msgid "NERVE CONDUCTION TESTING"
+msgstr "神経伝導検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-204"
+msgid "DETERMINATION OF PAIN THRESHOLD"
+msgstr "痛覚域値の判定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-205"
+msgid "MUSCLE POWER TESTING"
+msgstr "筋力検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-206"
+msgid "EXAMINATION OF CEREBROSPINAL FLUID"
+msgstr "髄液検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-207"
+msgid "ELECTROENCEPHALOGRAPHY"
+msgstr "脳波検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-209"
+msgid "OTHER INSTRUMENTAL NEUROLOGICAL EXAMINATION"
+msgstr "その他の機器の神経学的検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-210"
+msgid "PERIMETRY, COLOR FIELDS AND VISUAL FIELDS"
+msgstr "視野測定、色彩と視野"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-211"
+msgid "VISUAL ACUITY , READING TEST"
+msgstr "視力読解力検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-212"
+msgid "VISUAL ACUITY OF INFANTS AND ILLITERATES"
+msgstr "幼児および非識字者の視力"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-213"
+msgid "EIKONOMETRIC EXAMINATION, PRESECRIPTION OF ANISEIKONIC LENSES"
+msgstr "エイコノメータ検査、視覚障害不等像視に関する水晶体の処方"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-214"
+msgid "DARK ADAPTATION VISUAL ACUITY"
+msgstr "暗順応視力"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-215"
+msgid "COLOR VISION TESTING"
+msgstr "色覚検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-216"
+msgid "OCULAR MUSCLE BALANCE TESSTING"
+msgstr "眼筋バランス検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-220"
+msgid "OPTHALMOLOGY, FUNDUSCOPY"
+msgstr "眼科、眼底検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-221"
+msgid "SLIT LAMP EXAMINATION"
+msgstr "細隙灯顕微鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-224"
+msgid "MEASUREMENT OF CURVATURE OF EYE"
+msgstr "目の湾曲の測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-232"
+msgid "CLINICAL TESTS OF HEARING, TUNING FORK TESTS, WHISPERED SPEECH"
+msgstr "聴覚臨床検査、音叉テスト、ささやき声"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-240"
+msgid "ROUTINE OTOSCOPY, AUROSCOPY"
+msgstr "定常の耳鏡検査、金検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-241"
+msgid "MAGNIFYING OTOSCOPY"
+msgstr "拡大耳鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-242"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF EAR"
+msgstr "耳のその他の機器による検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-243"
+msgid "RHINOSCOPY"
+msgstr "鼻鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-244"
+msgid "TRANSILLUMINATION OF ANTRUM"
+msgstr "幽門洞の透照"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-245"
+msgid "OTHER EXAMINATIN OF NOSE"
+msgstr "鼻のその他の機器による検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-246"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF THROAT"
+msgstr "喉のその他の機器による検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-249"
+msgid ""
+"INSTRUMENTAL OTORRHINOLARYNGOLOGICAL EXAMINATION, NOT OTHERWISE SPECIFIED"
+msgstr "機器による耳鼻咽喉科試験、他に特定されない"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-270"
+msgid "JUGULAR VEIN CATHERIZATION"
+msgstr "頸静脈カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-271"
+msgid "INFERIOR VENA CAVA CATHERIZATION"
+msgstr "下大静脈カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-272"
+msgid "CENTRAL VENOUS PRESSURE (CVP) MEASUREMENT"
+msgstr "中心静脈圧(CVP)の測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-273"
+msgid "INTRAVENOUS CATHERIZATION OF HEART, CARDIAC CATHERIZATION, UNQUALIFIED"
+msgstr "心臓の静脈内カテーテル、心臓カテーテル、条件なし"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-274"
+msgid "TRANSEPTAL CARDIAC CATHERIZATION"
+msgstr "経中隔心臓カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-275"
+msgid "RETROGRADE CATHERIZATION OF LEFT HEART"
+msgstr "左心逆行カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-276"
+msgid "MYOCARDIAL OXYGEN CONSUMPTION"
+msgstr "心筋酸素消費量"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-278"
+msgid "OTHER CATHERIZATION OF HEART"
+msgstr "その他の心臓カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-279"
+msgid "OTHER DIAGNOSTIC CATHERIZATION OF VESSELS"
+msgstr "その他の血管診断カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-300"
+msgid "DENTAL EXAMINATION"
+msgstr "歯科検診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-301"
+msgid "DMF (DISEASED, MISSING, FILLED) CHARTING"
+msgstr "DMF(未治癒、抜歯、完治)指数作成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-302"
+msgid "DIAGNOSTIC OCCLUSAL MULDS"
+msgstr "診断用咬合の型"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-304"
+msgid "BUCCAL EXAMINATION WITH FINGER"
+msgstr "頬の触診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-309"
+msgid "OTHER EXAMINATION OF ORAL CAVITY"
+msgstr "その他の口腔検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-310"
+msgid "PHARYNGEAL EXAMINATION WITH FINGER"
+msgstr "咽頭の触診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-312"
+msgid "RETRIEVAL OF VOMIT FOR ANALYSIS"
+msgstr "分析のための嘔吐の回収"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-313"
+msgid "ESOPHAGEAL MANOMETRY"
+msgstr "食道内圧測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-319"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF UPPER DIGESTIVE TRACT"
+msgstr "その他の機器による上部消化管検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-320"
+msgid "DIGITAL EXAMINATION OF RECTUM"
+msgstr "直腸の指診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-321"
+msgid "ELECTROGASTROGRAM"
+msgstr "胃筋電図"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-322"
+msgid "STOMAL CALIBRATION"
+msgstr "ストーマ較正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-329"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF GASTROINTESTINAL TRACT"
+msgstr "その他の機器による消化管検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-330"
+msgid "EVALUATION OF BLADDER SENSATION"
+msgstr "膀胱知覚の評価"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-331"
+msgid "RESIDUAL URINARY VOLUME"
+msgstr "残尿量"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-332"
+msgid "DIAGNOSTIC CATHERIZATION OF BLADDER"
+msgstr "膀胱の診断カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-333"
+msgid "CONTINUOUS FLOW CYSTOMETRY"
+msgstr "連続流による膀胱内圧測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-334"
+msgid "OTHER CYSTOMETRY, AIR CYSTOMETRY AND CYSTOMETROGRAPHY"
+msgstr "その他の膀胱内圧測定、エア膀胱内圧測定と膀胱メトロ記録法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-335"
+msgid "URETHRAL PRESSURE MEASUREMENT"
+msgstr "尿道圧力測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-336"
+msgid "MEATAL CALIBRATION"
+msgstr "外耳道較正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-339"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF THE URINARY TRACT"
+msgstr "その他の機器による尿道検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-340"
+msgid "IN-DEPTH CLINICAL EXAMINATION OF MALE GENITAL ORGAN"
+msgstr "男性生殖器の徹底的な臨床検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-341"
+msgid "COLLECTION OF SEMEN SPECIMEN FOR EXAMINATION"
+msgstr "検査のための精液標本の収集"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-349"
+msgid "OTHER INSTRUMENTAL EXAMINATION OF MALE GENITAL ORGAN"
+msgstr "その他の機器による男性性器検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-350"
+msgid "INTERNAL CLINICAL GYNECOLOGICAL EXAMINATION "
+msgstr "内部の臨床婦人科検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-351"
+msgid "ENDOCRINE ASSESSMENT, VAGINAL CYTOLOGY"
+msgstr "内分泌の評価、膣細胞診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-352"
+msgid "ENDOCRINE ASSESSMENT, ENDOMETRIAL CYTOLOGY"
+msgstr "内分泌の評価、子宮内膜細胞診"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-353"
+msgid "POSTCOITAL PLUG EXAMINATION FOR INFERTILITY"
+msgstr "不妊性のための性交後プラグ検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-354"
+msgid "INTRAUTERINE PRESSURE MEASUREMENT"
+msgstr "子宮内圧測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-355"
+msgid "PLACENTAL LOCALIZATION"
+msgstr "胎盤位置測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-358"
+msgid ""
+"OTHER INSTRUMENTAL GYNAECOLOGICAL EXAMINATION (EXCLUDES CULDOSCOPY (1-696), "
+"INSUFFLATION OF FALLOPIAN TUBES (5-667))"
+msgstr "その他の機器による婦人科検査（骨盤腔鏡検査を除く (1-696)、卵管吹送 (5-667)）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-359"
+msgid ""
+"OTHER INSTRUMENTAL OBSTETRICAL EXAMINATION (EXCLUDES AMNIOCENTESIS (5-753))"
+msgstr "その他の機器による産科検査（羊水穿刺を除く (5-753)）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-360"
+msgid "IN-DEPTH CLINICAL EXAMINATION OF MUSCLOSKETAL SYSTEM"
+msgstr "筋骨格系の詳細な臨床検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-361"
+msgid "MEASUREMENT OF LIMB LENGTHS"
+msgstr "肢長の測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-362"
+msgid "MEASUREMENT OF RANGE OF MOVEMENT"
+msgstr "移動範囲の測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-363"
+msgid "ELECTROMYOGRAPHY"
+msgstr "筋電図検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-369"
+msgid "OTHER INSTRUMETNAL MUSCULOSKETAL EXAMINATION"
+msgstr "その他の器械の筋骨格検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-370"
+msgid "SKIN TEMPERATURES MEASUREMENT"
+msgstr "皮膚温度測定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-379"
+msgid "OTHER INSTRUMENTAL EXAMINATION"
+msgstr "その他の機器による検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-400"
+msgid "ADRENAL, PERCUTANEOUS BIOPSY"
+msgstr "副腎、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-401"
+msgid "BRAIN AND MENINGES PERCUTANEOUS BIOPSY"
+msgstr "脳と髄膜経皮生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-402"
+msgid "NERVE, PERCUTANEOUS BIOPSY"
+msgstr "神経、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-409"
+msgid "OTHER NERVOUS OR ENDOCRINE STRUCTURE, PERCUTANEOUS BIOPSY"
+msgstr "その他の神経または内分泌構造、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-410"
+msgid "EXTERNAL EAR, BIOPSY"
+msgstr "外耳、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-411"
+msgid "BIOPSY OF EAR BY OTOSCOPY"
+msgstr "耳鏡検査による耳の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-412"
+msgid "SKIN OF EYELID OR EYEBROW, BIOPSY"
+msgstr "まぶたまたは眉の皮膚、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-413"
+msgid "CONJUNCTIVA, BIOPSY"
+msgstr "結膜、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-414"
+msgid "SKIN OF NOSE BY RHINOSCOPY"
+msgstr "鼻鏡検査による鼻の皮膚"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-415"
+msgid "BIOPSY OF NOSE BY RHINOSCOPY"
+msgstr "鼻鏡検査による鼻の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-420"
+msgid "BIOPSY TO LARYNX"
+msgstr "喉頭への生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-421"
+msgid "ORAL CAVITY, BIOPSY. TONNGUE AND PALATE"
+msgstr "口腔、生検。 舌と口蓋"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-422"
+msgid "TONSILS, FAUCES AND ADENOIDS, BIOPSY"
+msgstr "扁桃腺、口峡とアデノイド、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-423"
+msgid "BIOPSY OF PHARYNX, GUM AND UVULA BY PHARYNGOSCOPY"
+msgstr "咽頭鏡検査による咽頭、歯肉と口蓋垂の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-425"
+msgid "BONE MARROW BIOPSY"
+msgstr "骨髄生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-426"
+msgid "LYMPHATIC BIOPSY"
+msgstr "リンパ管生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-430"
+msgid "BIOPSY OF TRACHEA BY ENDOSCOPY"
+msgstr "内視鏡検査による気管の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-431"
+msgid "LUNG, PERCUTANEOUS BIOPSY"
+msgstr "肺、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-432"
+msgid "BIOPSY OF BRONCHUS BY ENDOSCOPY"
+msgstr "内視鏡検査による気管支の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-434"
+msgid "BIOPSY OF CHEST"
+msgstr "胸の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-440"
+msgid "BIOPSY OF ESOPHAGUS BY ENDOSCOPY"
+msgstr "内視鏡検査による食道の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-441"
+msgid "BIOPSY OF STOMACH BY ENDOSCOPY"
+msgstr "内視鏡検査による胃の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-442"
+msgid "DUODENAL CAPSULE BIOPSY"
+msgstr "十二指腸球部生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-450"
+msgid "BIOPSY OF COLON BY ENDOSCOPY"
+msgstr "内視鏡検査による結腸の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-451"
+msgid "BIOPSY OF SIGMOID COLON BY ENDOSCOPY"
+msgstr "内視鏡検査によるS状結腸の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-453"
+msgid "BIOPSY OF ANUS AND PERINANAL REGION"
+msgstr "肛門と肛門周囲の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-454"
+msgid "LIVER, PERCUTANEOUS BIOPSY"
+msgstr "肝臓、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-460"
+msgid "KIDNEY, PERCUTANEOUS BIOPSY"
+msgstr "腎臓、経皮的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-461"
+msgid "BIOPSY OF URETER"
+msgstr "尿管の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-462"
+msgid "BIOPSY OF BLADDER"
+msgstr "膀胱の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-463"
+msgid "BIOPSY OF THE PROSTATE"
+msgstr "前立腺の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-464"
+msgid "BIOPSY OF URETHRA"
+msgstr "尿道の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-465"
+msgid "BIOPSY OF TESTIS, EPIDIDYMIS AND SPERMATIC CORD"
+msgstr "精巣、副睾丸、精索の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-466"
+msgid "BIOPSY OF PENIS"
+msgstr "陰茎の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-470"
+msgid "OVARY, ASPIRATION BIOPSY"
+msgstr "卵巣吸引生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-471"
+msgid "ENDOMETRIAL BIOPSY"
+msgstr "子宮内膜生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-472"
+msgid "CERVICAL SMEAR"
+msgstr "子宮頸部塗抹標本"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-473"
+msgid "ENDOCERVICAL BIOPSY"
+msgstr "子宮頸管生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-474"
+msgid "RING BIOPSY OF CERVIX"
+msgstr "子宮頸部の生検RING"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-475"
+msgid "OTHER AND UNSPECIFIED CERVICAL BIOPSY"
+msgstr "他と明らかでない頸部の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-476"
+msgid "VAGINAL BIOPSY OR SMEAR"
+msgstr "膣の生検または塗抹標本"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-477"
+msgid "BIOPSY OF INTROITUS"
+msgstr "管口の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-480"
+msgid "LIPS, BIOPSY"
+msgstr "唇、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-481"
+msgid "ABDOMINAL WALL BIOPSY"
+msgstr "腹壁生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-482"
+msgid "BREAST BIOPSY (NON SURGICAL)"
+msgstr "乳房生検 （外科的な措置なし）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-483"
+msgid "BIOPSY OF SKIN"
+msgstr "皮膚の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-484"
+msgid "BONE OR JOINT BIOPSY"
+msgstr "骨または関節の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-499"
+msgid "BIOPSY UNQUALIFIED"
+msgstr "不適切な生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-500"
+msgid "SKIN AND SUBCAUTANEOUS TISSUE"
+msgstr "皮膚と皮下の組織"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-501"
+msgid "BREAST  "
+msgstr "胸部"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-502"
+msgid "SURGICAL BIOPSY OF MUSCLE"
+msgstr "筋肉直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-503"
+msgid "BONE BIOPSY"
+msgstr "骨生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-504"
+msgid "BIOPSY OF JOINT (ARTHROTOMY"
+msgstr "関節の生検（関節切開）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-510"
+msgid "BIOPSY INTRACRANIAL TISSUE"
+msgstr "頭蓋内組織生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-511"
+msgid "INTRASPINAL BIOPSY"
+msgstr "脊椎内生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-519"
+msgid "SURGICAL BIOPSY OF THE NERVE"
+msgstr "神経の外科的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-520"
+msgid "EYELID"
+msgstr "眼瞼"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-521"
+msgid "CONJUNCTIVA"
+msgstr "結膜"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-522"
+msgid "LACRIMINAL GLAND AND SAC"
+msgstr "涙腺および涙嚢"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-523"
+msgid "CORNEA"
+msgstr "角膜"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-529"
+msgid "OTHER EYE BIOPSY"
+msgstr "その他の目の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-530"
+msgid "EXTERNAL EAR, BIOPSY"
+msgstr "外耳、生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-531"
+msgid "EXTERNAL AUDITORY CANAL"
+msgstr "外耳道"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-532"
+msgid "EAR, OTHER"
+msgstr "耳、その他"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-537"
+msgid "BIOPSY OF NOSE, INTERNAL"
+msgstr "鼻の生検、内部"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-538"
+msgid "SURGICAL BIOPSY OF NOSE, OTHER"
+msgstr "鼻の外科生検、その他"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-540"
+msgid "LIP "
+msgstr "LIP"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-541"
+msgid "TONGUE"
+msgstr "舌"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-542"
+msgid "SALIVARY GLAND"
+msgstr "唾液腺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-543"
+msgid "VESTIBULE OF MOUTH"
+msgstr "口腔前庭"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-544"
+msgid "SURGICAL BIOPSY FOR PALATE, UVU"
+msgstr "口蓋、口蓋垂のための外科的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-545"
+msgid "MOUTH, OTHER"
+msgstr "口、その他"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-546"
+msgid "OROPHARYNX"
+msgstr "中咽頭"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-547"
+msgid "HYPOPHARYNX"
+msgstr "下咽頭"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-548"
+msgid "NASOPHARYNX"
+msgstr "上咽頭"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-550"
+msgid "DIAPHRAGM"
+msgstr "横隔膜"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-551"
+msgid "BIOPSY OF LIVER"
+msgstr "肝生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-552"
+msgid "EXTRAHEPATIC BILIARY SYSTEM"
+msgstr "肝外胆管系"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-553"
+msgid "PANCREAS"
+msgstr "膵臓"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-554"
+msgid "SURGICAL BIOPSY OF STOMACH"
+msgstr "胃の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-555"
+msgid "SURGICAL BIOPSY OF SMALL INTESTINE"
+msgstr "小腸の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-556"
+msgid "SURGICAL BIOPSY OF COLON"
+msgstr "大腸の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-557"
+msgid "SURGICAL BIOPSY OF THE RECTUM"
+msgstr "直腸の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-558"
+msgid "ANUS"
+msgstr "肛門"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-560"
+msgid "SURGICAL BIOPSY OF KIDNEY"
+msgstr "腎臓の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-561"
+msgid "SURGICAL BIOPSY OF URETHRA"
+msgstr "尿道の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-562"
+msgid "BIOPSY URINARY ORGANS"
+msgstr "泌尿器生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-563"
+msgid "PROSTATE"
+msgstr "前立腺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-564"
+msgid "PENIS"
+msgstr "陰茎"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-565"
+msgid "TESTIS"
+msgstr "睾丸"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-566"
+msgid "SURGICABIOPSY OF THE PERINEU"
+msgstr "会陰の直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-569"
+msgid "SURGICAL BIOPSY OF OTHER MALE"
+msgstr "その他男性の外科生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-571"
+msgid "BIOPSY OF CERVIX"
+msgstr "頸部の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-572"
+msgid "BIOPSY OF VAGINA"
+msgstr "膣の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-573"
+msgid "BIOPSY OF VULVA"
+msgstr "陰門の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-574"
+msgid "BIOPSY OF PERINEUM, FEMALE"
+msgstr "（女性の）会陰の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-580"
+msgid "SURGICAL BIOPSY OF THE PERICARARDIUM"
+msgstr "心膜の外科的生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-581"
+msgid "BIOPSY OF OTHER MEDIACTINAL OR INTRATHORACIC ORGAN"
+msgstr "その他の縦隔や胸腔内臓器の生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-582"
+msgid "THYROID AND PARATHROID GLANDS"
+msgstr "甲状腺と副甲状腺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-583"
+msgid "OTHER NECK ORGANS , NEC"
+msgstr "その他の首の器官、NEC"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-585"
+msgid "OTHER INTRA-ABDOMINAL ORGAN, NEC"
+msgstr "他の腹腔内器官、NEC"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-586"
+msgid "LYMPH NODE BIOPSY"
+msgstr "リンパ節生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-599"
+msgid "SURGICAL BIOPSY"
+msgstr "直視下生検"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-610"
+msgid "LARYNGOSCOPY"
+msgstr "喉頭鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-611"
+msgid "INDIRECT LARYNGOSCOPY"
+msgstr "間接喉頭検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-612"
+msgid "DIRECT LARYNGOSCOPY"
+msgstr "直接喉頭検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-613"
+msgid "MICROLARYNGOSCOPY"
+msgstr "顕微喉頭鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-615"
+msgid "PHARYNGOSCOPY"
+msgstr "咽頭鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-620"
+msgid "BRONCHOSCOPY"
+msgstr "気管支鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-621"
+msgid "TRACHEOSCOPY"
+msgstr "気管鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-630"
+msgid "ESOPHAGOSCOPY"
+msgstr "食道鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-632"
+msgid "ESOPHAGOGASTROSCOPY"
+msgstr "食道胃内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-633"
+msgid "GASTROSCOPY"
+msgstr "胃内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-636"
+msgid "DUODENOSCOPY"
+msgstr "十二指腸内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-641"
+msgid "COLONOSCOPY"
+msgstr "大腸内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-642"
+msgid "SIGMOIDOSCOPY"
+msgstr "S状結腸鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-650"
+msgid "URETOSCOPY"
+msgstr "尿管鏡検査法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-652"
+msgid "CYSTOSCOPY"
+msgstr "膀胱鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-653"
+msgid "PANENDOSCOPY"
+msgstr "汎内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-655"
+msgid "URETHROSCOPY"
+msgstr "尿管鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-660"
+msgid "HYSTEROSCOPY"
+msgstr "子宮鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-663"
+msgid "COLPOSCOPY"
+msgstr "腟鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-679"
+msgid "OTHER SPECIFIED ENDOSCOPY"
+msgstr "他の特定内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-689"
+msgid "ENDOSCOPY"
+msgstr "内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-691"
+msgid "THORASCOPY"
+msgstr "胸腔穿刺検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-692"
+msgid "GASTROESOPHAGEAL ENDOSCOPY BY MEANS OF GASTRONOMY"
+msgstr "ガストロノミーによる胃食道内視鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-694"
+msgid "LAPAROSCOPY"
+msgstr "腹腔鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-695"
+msgid "ENTEROSCOPY"
+msgstr "小腸鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-697"
+msgid "ARTHROSCOPY"
+msgstr "関節鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-830"
+msgid "PROBING OF LACRIMAL SYSTEM"
+msgstr "涙器系の調査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-844"
+msgid "PUNCTURE OF PLEURAL CAVITY, DX"
+msgstr "胸膜腔の穿刺、DX"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-850"
+msgid "ASPIRATION OF CYST DIAGNOSTIC"
+msgstr "診断嚢胞の吸引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-901"
+msgid "EXAMINATION UNDER ANESTHESIA"
+msgstr "麻酔の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_1-916"
+msgid "OTHER GENITAL SPECIMEN"
+msgstr "他の生殖器検体"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_2-282"
+msgid "PLEURAL FLUID EXAMINATION"
+msgstr "胸水検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_2-283"
+msgid "PERITONEAL FLUID EXAMINATION"
+msgstr "腹水検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_2-906"
+msgid "ELECTRON MICROSCOPY OF TISSUES"
+msgstr "組織の電子顕微鏡検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-193"
+msgid "RADIOGRAPHY OF MAMMARY GLAND"
+msgstr "乳腺のX線撮影"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-253"
+msgid "RETROGRADE PYELOGRAPHY"
+msgstr "逆行性腎盂造影"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-260"
+msgid "PANCREATOGRAPHY"
+msgstr "膵管造影"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-262"
+msgid "OPERATIVE AND POSTOPERATIVE CHOLECYT"
+msgstr "手術と術後の胆嚢"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-305"
+msgid "COMMON CAROTID ARTERY"
+msgstr "総頸動脈"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-309"
+msgid "ANGIOGRAPHY (NEC)"
+msgstr "血管造影（NEC）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-312"
+msgid "CORONARY ARTERY"
+msgstr "冠動脈"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-338"
+msgid "OTHER ANGIOGRAPHY"
+msgstr "その他の血管造影"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-441"
+msgid "CT SCAN"
+msgstr "CTスキャン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-445"
+msgid "CT ABDOMEN"
+msgstr "腹部のCT"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-500"
+msgid "THYROID IODINE INTAKE"
+msgstr "甲状腺ヨウ素摂取"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-523"
+msgid "LUNG SCAN"
+msgstr "肺スキャン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_3-613"
+msgid "ULTRASOUND OF ABDOMEN"
+msgstr "腹部の超音波検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_4-251"
+msgid "PAP SMEAR"
+msgstr "PAP塗抹標本"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_4-653"
+msgid "INSERTION OF INTRAUTERINE DEVICE"
+msgstr "子宮内避妊器具の挿入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-010"
+msgid "PLEURAL TAP"
+msgstr "胸腔穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-011"
+msgid "CRANIOTOMY"
+msgstr "開頭"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-012"
+msgid "INCISION & DRAINING BRAIN ABSCESS"
+msgstr "切開＆脳膿瘍の排出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-013"
+msgid "EXCISION OF MENINGIOMA"
+msgstr "髄膜腫の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-014"
+msgid "OTHER EXCISION OR DESTRUCTION OF BRAIN AND MENINGES"
+msgstr "他の削除または脳と髄膜の破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-015"
+msgid "EXCISION OF CRANIAL LESION"
+msgstr "頭蓋病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-020"
+msgid "ELEVATION OF SKULL"
+msgstr "頭蓋の立面図"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-021"
+msgid "REPAIR OF CEREBRAL MENINGES"
+msgstr "脳髄膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-022"
+msgid "VENTRICULOSTOMY"
+msgstr "脳室フィステル形成術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-023"
+msgid "VENTRICULOPLEURAL SHUNT"
+msgstr "脳室胸膜シャント術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-024"
+msgid "REMOVAL OF VENTRICULAR SHUNT"
+msgstr "心室シャントの取り外し"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-029"
+msgid "TRANSSPHENOID RESECTION"
+msgstr "経蝶形骨性の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-030"
+msgid "LAMINECTOMY"
+msgstr "椎弓切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-033"
+msgid "EXCISION OR DESTRUCTION OF SPINAL CORD AND MENINGES"
+msgstr "脊髄と髄膜の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-034"
+msgid "PLASTIC OPERATIONS ON SPINAL CORD AND MENINGES"
+msgstr "脊髄と髄膜の形成手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-037"
+msgid "INJECTION OF DESTRUCTIVE AGENT INTO SPINAL CORD"
+msgstr "破壊的な薬剤の脊髄への注射"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-040"
+msgid "NEUROLYSIS"
+msgstr "神経剥離術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-041"
+msgid "EXCISION OF NEUROMA"
+msgstr "神経腫の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-042"
+msgid "REPAIR OF NERVE INJURY"
+msgstr "神経損傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-043"
+msgid "CARPAL TUNNEL NERVE RELEASE"
+msgstr "手根管神経遊離"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-045"
+msgid "TRANSPOSITION OF NERVE"
+msgstr "神経の転位"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-046"
+msgid "REPAIR OF NERVE"
+msgstr "神経の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-060"
+msgid "INCISION OF THROID FIELD"
+msgstr "甲状腺部の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-061"
+msgid "HEMITHYROIDECTOMY"
+msgstr "片側甲状腺切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-062"
+msgid "EXCISION OF THYROID CYST"
+msgstr "甲状腺嚢胞の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-063"
+msgid "THYROIDECTOMY"
+msgstr "甲状腺摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-066"
+msgid "EXCISION OF THYROGLOSSAL GLAND"
+msgstr "甲状舌腺の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-067"
+msgid "PARTIAL PARATHYROIDECTOMY"
+msgstr "部分的な副甲状腺切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-071"
+msgid "PARTIAL ADRENALECTOMY"
+msgstr "部分的な副腎摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-074"
+msgid "OPERATIONS ON PINEAL GLAND"
+msgstr "松果腺手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-075"
+msgid "EXCISION OF PITUTARY GLAND"
+msgstr "脳下垂体の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-077"
+msgid "THYMECTOMY"
+msgstr "胸腺除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-084"
+msgid "INCISION OF LACRIMAL SAC AND PASSAGE"
+msgstr "涙嚢と流路の切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-085"
+msgid "DACRYCYSTECTOMY"
+msgstr "涙膀胱切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-086"
+msgid "REPAIR OF CANALICULUS AND PUNCTUM"
+msgstr "涙小管と涙点の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-087"
+msgid "DACRYOCYSTORHINOSTOMY"
+msgstr "涙嚢鼻腔吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-091"
+msgid "EXCISION OF CYST EYELID"
+msgstr "嚢胞まぶたの切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-093"
+msgid "ENTROPIAN REPAIR"
+msgstr "眼瞼内反の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-094"
+msgid "SLING OPERATION OF EYELID"
+msgstr "まぶたの吊り上げ法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-095"
+msgid "SUTURE EYELID"
+msgstr "縫合まぶた"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-096"
+msgid "REPAIR OF EYELID"
+msgstr "まぶたの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-101"
+msgid ""
+"EXCISION OF OCULAR MUSCLE WITH OR  TENDON WITH RECESSION OR ADVANCEMENT OF "
+"SAME MUSCLE"
+msgstr "筋肉の後転または前転にともなう眼筋または腱の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-109"
+msgid "OTHER OPERATIONS ON OCULAR MUSCLE"
+msgstr "その他の眼筋手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-113"
+msgid "CONJUNCTIVOPLASTY"
+msgstr "結膜形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-114"
+msgid "REMOVAL SYMBLEPHARON"
+msgstr "眼瞼癒着の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-122"
+msgid "EXCISION OF PTERYGIUM"
+msgstr "翼状片切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-124"
+msgid "REPAIR OF CORNEA"
+msgstr "角膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-125"
+msgid "KERATOPLASTY"
+msgstr "角膜移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-126"
+msgid "REPAIR OF CORNEA (OTHER PLASTY)"
+msgstr "角膜の修復（その他の形成術）"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-129"
+msgid "ANTERIOR SEGMENT RECONSTRUCTION"
+msgstr "前方部分再建"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-130"
+msgid "REMOVAL OF FOREIGN BODY FROM ANTERIOR EYE BY INCISION"
+msgstr "切開による眼球前部からの異物の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-133"
+msgid "TRABECULECTOMY"
+msgstr "線維柱帯切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-135"
+msgid "IRRIDECTOMY"
+msgstr "虹彩切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-137"
+msgid "REPAIR OF SCLERAL"
+msgstr "強膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-139"
+msgid "EXPLORATION OF SCLERA"
+msgstr "強膜の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-141"
+msgid "LENS EXTRACTION"
+msgstr "水晶体摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-143"
+msgid "DISCISSION OF LENS AND CAPSULO"
+msgstr "水晶体および胞の切割"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-144"
+msgid "LENS EXTRACTION"
+msgstr "水晶体摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-145"
+msgid "EXTRA CAPSULAR EXTRACT OF LENS"
+msgstr "水晶体からの余分の莢膜抽出物"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-146"
+msgid "LENSECTOMY"
+msgstr "水晶体切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-147"
+msgid "LENS IMPLANTATION"
+msgstr "水晶体移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-149"
+msgid "MEMBRANECTOMY"
+msgstr "膜切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-152"
+msgid "SCLERAL BUCKING WITH IMPLANT"
+msgstr "移植片をともなう強膜締結"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-153"
+msgid "OTHER SCLERAL BUCKLING"
+msgstr "その他の強膜締結"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-154"
+msgid "REPAIR OF RETINA"
+msgstr "網膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-155"
+msgid "DESTRUCTION OF LESION OF RETINA"
+msgstr "網膜の病巣の破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-156"
+msgid "OTHER OPERATIONS ON RETINA OR CHOROID"
+msgstr "網膜または脈絡膜上のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-157"
+msgid "VITRECTOMY"
+msgstr "硝子体茎切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-160"
+msgid "INCISION & DRAINAGE ABSCESS OF ORBIT"
+msgstr "眼窩の切開と腫瘍排水"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-161"
+msgid "EXTRACTION OF FORIEGN BODY FROM EYE OR ORBIT (NEC)"
+msgstr "眼または眼窩から異物の摘出(NEC)"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-162"
+msgid "EVICERATION OF EYEBALL"
+msgstr "眼球の摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-164"
+msgid "EVACUATION OF ORBIT"
+msgstr "眼窩の瀉出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-165"
+msgid "INSERTION OF ORBITAL IMPLANT"
+msgstr "眼窩インプラントの挿入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-167"
+msgid "GRAFTING OF ORBIT"
+msgstr "眼窩の移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-169"
+msgid "OTHER OPERATIONS ON ORBIT & EYE"
+msgstr "眼窩と目のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-180"
+msgid "INCISION OF AURICLE ABSCESS"
+msgstr "耳介膿瘍切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-181"
+msgid "PREAURICULAR FISTULA EXCISION"
+msgstr "耳介前瘻切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-183"
+msgid "SUTURE OF EAR"
+msgstr "耳の縫合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-185"
+msgid "MEATOPLASTY"
+msgstr "管形成術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-189"
+msgid "OTHER OPERATIONS ON EXTERNAL EAR"
+msgstr "外耳のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-194"
+msgid "MYRINGOPLASTY"
+msgstr "鼓膜形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-200"
+msgid "PARACENTHESIS OF TYMPANUM"
+msgstr "鼓膜の穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-202"
+msgid "INCISION & DRAINAGE MASTOID"
+msgstr "乳様突起の切開＆ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-203"
+msgid "MASTOIDECTOMY"
+msgstr "乳突開放術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-204"
+msgid "POLYPECTOMY 0F MIDDLE EAR"
+msgstr "中耳のポリープ切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-207"
+msgid "EXPLORATION OF EAR"
+msgstr "耳の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-209"
+msgid "OTHER OPERATION ON MIDDLE"
+msgstr "中間上のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-210"
+msgid "CONTROL OF EPISTAXIA"
+msgstr "鼻血制御"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-211"
+msgid "RHINOTOMY"
+msgstr "鼻切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-212"
+msgid "NASAL POLYPECTOMY"
+msgstr "鼻ポリープ切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-213"
+msgid "RESECTION OF NOSE"
+msgstr "鼻の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-215"
+msgid "TURBINECTOMY"
+msgstr "鼻甲介切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-216"
+msgid "OPEN REDUCTION OF NASAL BONE"
+msgstr "尾骨の観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-217"
+msgid "RHINOPLASTY"
+msgstr "鼻形成術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-219"
+msgid "FREEING NASAL ADHESIONS"
+msgstr "鼻癒着の解放"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-220"
+msgid "ANTRUM WASHOUT"
+msgstr "前庭部洗い出し"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-222"
+msgid "CALDWELL-LUC OPERATION"
+msgstr "コールドウェル‐ルック手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-224"
+msgid "OTHER NASAL SINUSOTOMY"
+msgstr "その他の鼻洞切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-225"
+msgid "ETMOIDAL EXCISION"
+msgstr "篩骨切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-226"
+msgid "CLOSURE OF ORO-NASAL FISTULA"
+msgstr "口腔鼻瘻の閉鎖"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-229"
+msgid "OTHER OPERATIONS ON NASAL SINUS"
+msgstr "副鼻腔のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-230"
+msgid "REMOVAL OF TOOTH"
+msgstr "歯の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-231"
+msgid "SURGICAL EXTRACTION OF TOOTH"
+msgstr "歯の外科的摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-234"
+msgid "OTHER DENTAL RESTORATION"
+msgstr "その他の歯科修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-240"
+msgid "INCISION & DRAINAGE OF DENTAL ABSCESS"
+msgstr "内歯瘻の切開＆ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-242"
+msgid "OTHER OPERATIONS ON GUM"
+msgstr "歯肉のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-243"
+msgid "EXCISION OF DENTAL CYST"
+msgstr "歯科嚢胞切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-246"
+msgid "APPLICATION OF ORTRHODONTIC APPLIANCE"
+msgstr "歯列矯正器具の使用"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-250"
+msgid "EXCISION OF TONGUE LESION"
+msgstr "舌病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-254"
+msgid "SUTURE TONGUE"
+msgstr "縫合舌"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-258"
+msgid "FREEING OF TONGUE TIE"
+msgstr "舌小帯短縮の解放"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-260"
+msgid "INCISION & DRAINAGE OF PAROTID GLAND"
+msgstr "耳下腺の切開＆ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-261"
+msgid "EXCISION OF LESION OF SALIVARY GLAND"
+msgstr "唾液腺病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-262"
+msgid "PAROTIDECTOMY SUPERFICIAL"
+msgstr "表面的な耳下腺切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-270"
+msgid "I & DRAINAGE OF FACIAL ABSCESS"
+msgstr "顔の膿瘍の切開＆ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-272"
+msgid "EXCISION OF PALATE"
+msgstr "口蓋切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-273"
+msgid "EXCISION OF RANULA"
+msgstr "がま腫切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-274"
+msgid "PLASTIC REPAIR OF MOUTH"
+msgstr "口の形成修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-275"
+msgid "RECONSTRUCTION OF PALATE"
+msgstr "口蓋の再建"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-279"
+msgid "OPERATION ON PALATE"
+msgstr "口蓋の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-280"
+msgid "DRAINAGE OF PERITONSILLAR ABSCESS"
+msgstr "扁桃周囲膿瘍ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-281"
+msgid "TONSILLECTOMY"
+msgstr "扁桃摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-282"
+msgid "TONSILLECTOMY WITH ADENOIDECTOMY"
+msgstr "アデノイド切除による扁桃腺摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-285"
+msgid "ADENOIDECTOMY"
+msgstr "アデノイド切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-290"
+msgid "EXCISION OF CALCULUS OF PHARYNX"
+msgstr "咽頭結石切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-291"
+msgid "EXCISION OF BRANCHIAL CYST"
+msgstr "鰓嚢胞切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-292"
+msgid "EXCISION OR DISTRIBUTION OF LESION"
+msgstr "病変の切除または分布"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-300"
+msgid "EXCISION OF LESION OF LARYNX"
+msgstr "喉頭の病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-302"
+msgid "LARYNGECTOMY"
+msgstr "喉頭切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-303"
+msgid "TOTAL LARYNGECTOMY"
+msgstr "喉頭全摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-304"
+msgid "RADICAL LARYNGECTOMY"
+msgstr "根治的喉頭切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-311"
+msgid "TEMPORARY TRACHEOSTOMY"
+msgstr "一時的な気管切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-313"
+msgid "EXPLORATION OF LARYNX"
+msgstr "喉頭の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-315"
+msgid "REPAIR OF LARYNX"
+msgstr "喉頭の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-316"
+msgid "TRACHEOPLASTY"
+msgstr "気管形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-319"
+msgid "DILATION OF LARYNX"
+msgstr "喉頭の拡張"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-323"
+msgid "LINGUALECTOMY"
+msgstr "舌音切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-324"
+msgid "LOBECTOMY OF LUNG"
+msgstr "肺の肺葉切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-340"
+msgid "CHEST TUBE INSERTION"
+msgstr "胸腔チューブ挿入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-341"
+msgid "INCISION OF MEDIASTINUM"
+msgstr "縦隔切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-343"
+msgid "EXCISION OR DESTRUCTION OF CHEST WALL LESION"
+msgstr "胸壁病変の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-345"
+msgid "SCARIFIACTION OF PLEURA"
+msgstr "肋膜の乱切"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-346"
+msgid "REPAIR OF CHEST WALL"
+msgstr "胸壁の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-347"
+msgid "REPAIR OF DIAPHRAM"
+msgstr "隔膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-352"
+msgid "REPLACEMENT OF HEART VALVE"
+msgstr "心臓弁置換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-357"
+msgid "REPAIR OF HEART SEPTUM"
+msgstr "心臓中隔の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-370"
+msgid "PERICARDIAL DRAIN"
+msgstr "心膜ドレーン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-371"
+msgid "PERICARDIAL WINDOW"
+msgstr "心膜開窓術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-373"
+msgid "EXCISION OF LESION OF HEART"
+msgstr "心臓の病巣切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-374"
+msgid "CARDIORRHAPHY"
+msgstr "心臓縫合術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-377"
+msgid "IMPLANT OF CARDIAC PACE MAKER"
+msgstr "心臓ペースメーカーの注入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-378"
+msgid "REMOVAL OR REPLACEMENT OF IMPLANTED CARDIAC PACEMAKER"
+msgstr "挿入された心臓ペースメーカーの除去または交換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-380"
+msgid "EMBOLECTOMY"
+msgstr "塞栓除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-384"
+msgid "STRIPPING OF VARICOSE VEINS"
+msgstr "静脈瘤の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-385"
+msgid "ANEURYSMORRHAPHY"
+msgstr "動脈瘤形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-387"
+msgid "LIGATION OF VEINS"
+msgstr "静脈の結紮"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-392"
+msgid "FEMORAL ARTERY BYPASS"
+msgstr "大腿動脈バイパス"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-393"
+msgid "SUTURING OF BLOOD VESSELS"
+msgstr "血管の縫合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-395"
+msgid "REPAIR OF ARTERY"
+msgstr "動脈の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-399"
+msgid "OTHER OPERATIONS ON VESSEL"
+msgstr "血管のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-400"
+msgid "LYMPHADENOTOMY"
+msgstr "リンパ管切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-401"
+msgid "EXCISION OF CYSTIC HYGROMA"
+msgstr "嚢胞性ヒグローマの切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-402"
+msgid "EXCISION OF REGIONAL LYMPH NODE"
+msgstr "所属リンパ節の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-410"
+msgid "BONE MARROW TRANSPLANT"
+msgstr "骨髄移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-413"
+msgid "SPLENECTOMY"
+msgstr "脾臓摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-419"
+msgid "REPAIR OF SPLEEN"
+msgstr "脾臓の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-421"
+msgid "ESOPHAGOSTOMY"
+msgstr "食道造瘻"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-422"
+msgid "LOCAL EXCISION OR DESTRUCTION"
+msgstr "局所の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-423"
+msgid "ESOPHAGECTOMY"
+msgstr "食道切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-424"
+msgid "ANASTOMOSIS OF ESOPHAGUS"
+msgstr "食道の吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-426"
+msgid "HELLER'S CARDIOMYOTOMY"
+msgstr "ヘラーの噴門筋切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-427"
+msgid "REPAIR ESOPHAGUS"
+msgstr "食堂修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-428"
+msgid "DILATION OF ESOPHAGUS"
+msgstr "食道の拡張"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-430"
+msgid "GASTROTOMY"
+msgstr "胃切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-431"
+msgid "GASTROSTOMY TUBE"
+msgstr "胃瘻管"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-432"
+msgid "STAMM-KADER OPERATION"
+msgstr "シュタム・カデール手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-434"
+msgid "EXCISION OF STOMACH TUMOUR"
+msgstr "胃腫瘍の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-436"
+msgid "ANTRECTOMY GASTRIC WITH VAGOTO"
+msgstr "迷走神経切除をともなう胃の幽門洞切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-437"
+msgid "PARTIAL GASTRECTOMY WITH ANASTOMOSIS TO JEJUNUM"
+msgstr "空腸への吻合をともなう胃部分切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-438"
+msgid "GASTRECTOMY"
+msgstr "胃切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-439"
+msgid "COMPLETE GASTRECTOMY"
+msgstr "完全胃切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-440"
+msgid "VAGOTOMY TRUNCAL"
+msgstr "全幹迷走神経切離"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-441"
+msgid "PYLOROPLASTY"
+msgstr "幽門形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-442"
+msgid "JEGUNOGASTRASTOMY"
+msgstr "胃空腸瘻造設"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-443"
+msgid "CLOSURE OF GASTRO AND DUODENAL ULCER SITE"
+msgstr "胃と十二指腸潰瘍部位の閉鎖"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-444"
+msgid "GASTROJEJUNOSTOMY"
+msgstr "胃空腸吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-445"
+msgid "REPAIR OF STOMACH"
+msgstr "胃の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-450"
+msgid "EXPLORATION OF INTESTINE"
+msgstr "腸の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-452"
+msgid "EXCISION OF DESTRUCTION OF LESION OF SMALL INTESTINE"
+msgstr "小腸の病変の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-454"
+msgid "SMALL BOWEL RESECTION"
+msgstr "小腸切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-455"
+msgid "HEMICOLECTOMY"
+msgstr "半結腸切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-456"
+msgid "HARTMANS PROCEDURE"
+msgstr "ハルトマン処置"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-457"
+msgid "ANASTOMOSIS, SMALL TO SMALL"
+msgstr "吻合、細小と細小"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-458"
+msgid "ANASTOMOSIS OF SMALL INTESTINE"
+msgstr "小腸の吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-459"
+msgid "COLOSIGMOIDOSTOMY"
+msgstr "結腸S状結腸吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-460"
+msgid "LOOP COLOSTOMY"
+msgstr "ループ人工肛門形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-461"
+msgid "COLOSTOMY"
+msgstr "人工肛門形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-462"
+msgid "LLEOSTOMY"
+msgstr "回腸瘻造設"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-463"
+msgid "JEJUNOSTOMY"
+msgstr "空腸造瘻"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-464"
+msgid "REPAIR OF INTESTINAL STOMACH"
+msgstr "腸胃の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-465"
+msgid "REMOVAL OF COLON"
+msgstr "結腸切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-467"
+msgid "REPAIR OF INTESTINAL TRAUMA"
+msgstr "腸内外傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-468"
+msgid "REDUCTION OF INTUSSUSCEPTION"
+msgstr "腸重積症の低減"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-470"
+msgid "APPENDECTOMY"
+msgstr "虫垂切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-471"
+msgid "DRAINAGE OF APPENDIX ABSCESS"
+msgstr "虫垂膿瘍のドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-481"
+msgid "PROCTOSTOMY"
+msgstr "人工肛門形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-482"
+msgid "EXCISION OF RECTAL LESION"
+msgstr "直腸病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-484"
+msgid "ABDOMINOPERIANAL RESECTION"
+msgstr "腹部肛門周囲切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-485"
+msgid "HARTMANS PROCEDURE"
+msgstr "ハルトマン処置"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-486"
+msgid "WIRING OF RECTUM"
+msgstr "直腸の鋼線締結"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-489"
+msgid "OTHER OPERATIONS ON RECTUM AND"
+msgstr "直腸のその他の手術と"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-490"
+msgid "INCISION DRAINAGE PERIANAL ABS"
+msgstr "肛門周囲膿瘍の切開とドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-491"
+msgid "ANAL FISTULECTOMY"
+msgstr "肛門瘻孔切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-492"
+msgid "ANAL POLYPECTOMY"
+msgstr "肛門ポリープ切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-493"
+msgid "HAEMORRHOIDECTOMY"
+msgstr "痔核切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-494"
+msgid "SPHINCTERECTOMY"
+msgstr "括約筋切"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-499"
+msgid "EXTRACTION OF FOREIGNBODY"
+msgstr "異物の抽出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-500"
+msgid "DRAINAGE OF HEPATIC ABSCESS"
+msgstr "肝膿瘍ドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-505"
+msgid "REPAIR OF LIVER LACERATION"
+msgstr "肝裂傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-510"
+msgid "CHOLECYSTOTOMY"
+msgstr "胆嚢切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-511"
+msgid "CHOLECYSTECTOMY"
+msgstr "胆嚢摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-512"
+msgid "ANASTOMOSIS OF GALLBLADDER OR BILE DUCT"
+msgstr "胆嚢または胆管吻合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-513"
+msgid "INCISION OF BILE DUCTS , FOR RELIEF OF OBSTRUCTION"
+msgstr "胆管の切開、閉塞の軽減のため"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-514"
+msgid "OTHER INCISION OF BILE DUCTS"
+msgstr "胆管のその他の切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-515"
+msgid "LOCAL EXCISION OR DESTRUCTION OF BILE DUCTS"
+msgstr "胆管の局所切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-524"
+msgid "DISTAL PANCREATECTOMY"
+msgstr "膵尾部切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-526"
+msgid "WHIPPLE'S OPERATION"
+msgstr "ウィップル手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-530"
+msgid "HERNIA REPAIR"
+msgstr "ヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-531"
+msgid "REPAIR OF HERNIA WITH GRAFT/PR"
+msgstr "グラフト/プロテーゼをともなうヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-532"
+msgid "REPAIR INGUINO-FEMORAL HERNIA"
+msgstr "鼠径大腿ヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-533"
+msgid "BILATERAL REPAIR INGUINOFEMORAL HERNIA WITH GRAFT OR PROTHESIS"
+msgstr "グラフトまたはプロテーゼをともなう鼠径または大腿ヘルニアの両側の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-534"
+msgid "REPAIR OF HERNIA"
+msgstr "ヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-535"
+msgid "REPAIR OF HERNIA ABDOMINAL WALL"
+msgstr "ヘルニア腹壁の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-536"
+msgid "REPAIR OF OTHER HERNIA"
+msgstr "その他のヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-537"
+msgid "HEMIDIAPHRAM REPAIR"
+msgstr "片側横隔膜の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-538"
+msgid "REPAIR OF DIAPHRAGMATIC HERNIA"
+msgstr "横隔膜ヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-539"
+msgid "OTHER HERNIA REPAIR"
+msgstr "その他のヘルニアの修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-540"
+msgid "GROIN EXPLORATION"
+msgstr "鼠径部検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-541"
+msgid "LAPAROTOMY EXPLORATOIN"
+msgstr "開腹診査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-542"
+msgid "EXCISION OF DESTRUCTION OF ABD"
+msgstr "腹の破壊の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-543"
+msgid "OMENTECTOMY"
+msgstr "大網切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-544"
+msgid "FREEING INTESTINAL ADHESIONS"
+msgstr "腸管癒着の解放"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-546"
+msgid "OMENTUM REPAIR"
+msgstr "大網修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-549"
+msgid "REPAIR MULTIPLE ABDOMINAL ORGAN"
+msgstr "複数の腹部器官の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-550"
+msgid "NEPHROLITHOTOMY"
+msgstr "腎砕石"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-551"
+msgid "PYELOLITHOTOMY"
+msgstr "腎盂切石術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-553"
+msgid "PARTIAL NEPHRECTOMY"
+msgstr "腎部分切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-554"
+msgid "NEPHRECTOMY"
+msgstr "腎切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-555"
+msgid "KIDNEY TRANSPLANT"
+msgstr "腎臓移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-557"
+msgid "PYELOPLASTY"
+msgstr "腎盂形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-560"
+msgid "TRANSURETHRAL OF URETER"
+msgstr "尿管の経尿道"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-561"
+msgid "URETERAL MEATOTOMY"
+msgstr "尿管の外尿道口切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-562"
+msgid "URETEROLITHOTOMY"
+msgstr "尿管結石切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-563"
+msgid "URETERECTOMY"
+msgstr "尿管摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-566"
+msgid "URETEROCECOSTOMY"
+msgstr "尿管盲腸瘻造設"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-567"
+msgid "OTHER ANASTOMOSISS OR BYPASS OF URETER"
+msgstr "尿管のその他の吻合またはバイパス"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-568"
+msgid "URETHROPLASTY"
+msgstr "尿道形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-569"
+msgid "OPERATION TO THE URETER"
+msgstr "尿管への手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-570"
+msgid ""
+"TRANSURETHRAL CLEARANCE FROM BLADDER OR ASPIRATION OF BLOOD CLOT OR CRUSHING"
+" AND REMOVAL OF CALCULUS"
+msgstr "膀胱から尿道クリアランスまたは凝血の吸引または結石の粉砕除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-571"
+msgid "SUPRAPUBIC CATHERIZATION"
+msgstr "恥骨上カテーテル"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-572"
+msgid "SUPRAPUBIC CYSTOSTOMY"
+msgstr "恥骨上膀胱瘻造設"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-573"
+msgid "DIVERTICULECTOMY"
+msgstr "憩室切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-574"
+msgid "OTHER EXCISION OR DESTRUCTION OF BLADDER"
+msgstr "膀胱のその他の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-575"
+msgid "CYSTECTOMY"
+msgstr "膀胱切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-576"
+msgid "COMPLETE CYSTECTOMY"
+msgstr "完全な膀胱切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-577"
+msgid "BLADDER AUGMENTATION"
+msgstr "膀胱増強"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-578"
+msgid "BLADDER REPAIR"
+msgstr "膀胱修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-580"
+msgid "URETHROLITHOTOMY"
+msgstr "尿道膀胱結石切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-581"
+msgid "URETHRAL MEATOTOMY"
+msgstr "尿道口切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-583"
+msgid "URETHROPLASTY"
+msgstr "尿道形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-584"
+msgid "INTERNAL URETHROTOMY"
+msgstr "内尿道切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-585"
+msgid "DILATION OF URETHRA"
+msgstr "尿道の拡張"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-589"
+msgid "OPERATIONS ON URETHRA"
+msgstr "尿道上の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-591"
+msgid "URINARY DRAINAGE"
+msgstr "排尿"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-595"
+msgid "RETROPUBIC URETHRAL SUS[PENSION, MARSHALL-MARCHETTI-KRANK OPERATION"
+msgstr "恥骨後尿道懸垂、マーシャル-マーケット-ファン手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-598"
+msgid "URETERAL CATHERERIZATION"
+msgstr "尿管カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-599"
+msgid "SURGICAL OPERATION TO URETHRA"
+msgstr "尿道手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-601"
+msgid "TRANSURETRAL PROSTATECTOMY"
+msgstr "塞栓前立腺切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-602"
+msgid "TRANSVESICAL PROSTATECTOMY"
+msgstr "経膀胱前立腺摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-603"
+msgid "RETROPUBIC PROSTECTOMY"
+msgstr "恥骨後直腸切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-604"
+msgid "RADICAL PROSTECTOMY"
+msgstr "根治的直腸切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-605"
+msgid "PROSTATECTOMY"
+msgstr "前立腺切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-610"
+msgid "INCISION & DRAIN SCROTAL ABSCESS"
+msgstr "陰嚢膿瘍の切開＆ドレーン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-611"
+msgid "EXCISION OF HYDROCELE"
+msgstr "水瘤摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-612"
+msgid "RESECTION OF SCROTUM"
+msgstr "陰嚢切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-622"
+msgid "ORCHIDECTOMY"
+msgstr "精巣摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-623"
+msgid "BILATERAL ORCHIDECTOMY"
+msgstr "両側精巣摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-624"
+msgid "ORCHIDOPEXY"
+msgstr "睾丸固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-630"
+msgid "VARICOCELECTOMY"
+msgstr "精索静脈瘤切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-631"
+msgid "EXCISION OF SPERMATOCELE"
+msgstr "精液瘤の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-632"
+msgid "EXCISION OF OTHER LESION OF SP"
+msgstr "精液瘤のその他の病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-633"
+msgid "OTHER EPIDIDYMECTOMY"
+msgstr "その他の精巣上体摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-634"
+msgid "REDUCTION OF TESTES"
+msgstr "精巣の縮小"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-639"
+msgid "EXPLORATION OF TESTES"
+msgstr "精巣の検査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-640"
+msgid "CIRCUMCISION"
+msgstr "環状切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-641"
+msgid "LOCAL EXCISION OR DESTRUCTION"
+msgstr "局所の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-642"
+msgid "AMPUTATION OF PENIS"
+msgstr "陰茎切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-643"
+msgid "REPAIR OF PENIS"
+msgstr "陰茎修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-649"
+msgid "OPERATION ON PENIS"
+msgstr "陰茎上の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-650"
+msgid "OOPHOROTOMY"
+msgstr "卵巣切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-651"
+msgid "OVARIAN CYSTECTOMY"
+msgstr "卵巣膀胱切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-652"
+msgid "OOPHERECTOMY"
+msgstr "卵巣摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-653"
+msgid "SALPINGO-OOPHORECTOMY"
+msgstr "卵管卵巣摘"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-654"
+msgid "BILATERAL OOPHORECTOMY"
+msgstr "両側卵巣摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-655"
+msgid "SALPINGOO-OPHERECTOMY"
+msgstr "卵管卵巣摘"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-656"
+msgid "REPAIR OF OVARY"
+msgstr "卵巣の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-657"
+msgid "FREEING OF ADHESIONS OF OVARY AND FALLOPIAN TUBE"
+msgstr "卵巣および卵管の癒着の解放"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-659"
+msgid "OTHER OPERATIONS ON OVARY"
+msgstr "卵巣のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-660"
+msgid "SALPINGOTOY"
+msgstr "卵管切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-661"
+msgid "TOT. SALPINGECTOMY (UNILATERAL)"
+msgstr "小児卵管摘除(片側のみ)"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-662"
+msgid "SALPINGECTOMY BILATERAL"
+msgstr "両側の卵管切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-663"
+msgid "BILATERAL ENDOSCOPY DESTRUCTION OR OCCLUSION OF FALLOPIAN TUBES"
+msgstr "両側の卵管の内視鏡による破壊または閉塞"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-664"
+msgid "OTHER BILATERAL DESTRUCTION OR OCCLUSION OF FALLOPIAN TUBE"
+msgstr "両側の卵管のその他の破壊または閉塞"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-665"
+msgid "SALPINGECTOMY"
+msgstr "卵管切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-666"
+msgid "REPAIR OF FALLOPIAN TUBE"
+msgstr "卵管の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-667"
+msgid "INSUFFLATION OF FALLOPIAN TUBES"
+msgstr "卵管の吹送"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-672"
+msgid "OTHER EXCISION OR DESTRUCTION"
+msgstr "他の切除または破壊"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-673"
+msgid "EXCISION OF CERVICAL STUMP"
+msgstr "子宮頚基部の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-674"
+msgid "REPAIR OF INTERNAL CERVICAL OS"
+msgstr "内子宮口の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-675"
+msgid ""
+"LATE REPAIR OF OBSTETRIC OPERATIONS & REPAIR OF NONOBSTETRIC LACERATION"
+msgstr "産科手術の後期修復＆非産科裂傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-680"
+msgid "HYSTEROTOMY"
+msgstr "帝王切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-681"
+msgid "MYOMECTOMY"
+msgstr "筋腫摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-682"
+msgid "SUB-TOTAL ABDOMINAL HYSTERECTOMY"
+msgstr "亜全腹式子宮摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-683"
+msgid "HYSTERECTOMY"
+msgstr "子宮摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-684"
+msgid "VAGINAL HYSTERECTOMY"
+msgstr "膣式子宮摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-685"
+msgid "RADICALS ABDOMINAL HYSTERECTOMY"
+msgstr "根治的腹式子宮摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-686"
+msgid "RADICAL VAGINAL HYSTERECTOMY"
+msgstr "根治的腟式子宮摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-687"
+msgid "PELVIC EVISCERATION"
+msgstr "骨盤内臓器全摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-690"
+msgid ""
+"DILATION AND CURETTAGE OF UTERUS & REMOVAL OF MOLE, RETAINED PRODUCT OF "
+"CONCEPTION"
+msgstr "子宮拡張と掻爬および奇胎、妊娠付属物遺残の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-691"
+msgid ""
+"VAGINAL REMOVAL OF INTRAUTERINE BODY & REMOVAL OF INTRAUTERINE CONTRACEPTIVE"
+" DEVICE"
+msgstr "子宮内物の膣除去および子宮内避妊器具の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-692"
+msgid "ENUCLEATION OF CYST"
+msgstr "嚢胞摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-699"
+msgid "OPERATION ON UTERUS, CERVIX"
+msgstr "子宮の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-701"
+msgid "I & DRAINAGE OF PELVIC ABSCESS"
+msgstr "骨盤腫瘍の切開とドレーン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-704"
+msgid "REPAIR OF CYSTOCELE AND RECTOCELE"
+msgstr "膀胱瘤と腸瘤の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-706"
+msgid "EXCISION AND CLOSURE OF FISTULA/VAG & SUTURE"
+msgstr "膣瘻の切除と閉鎖および縫合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-710"
+msgid "INCISION OF VULVA & PERINEUM"
+msgstr "外陰部＆会陰切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-711"
+msgid "OPERATIONS ON BARTOLIN'S GLAND & MARSUPIALIZATION"
+msgstr "バルトリン腺上の手術および造瘻"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-712"
+msgid "EXCISION OF NASOLABIAL CYST"
+msgstr "鼻唇嚢胞"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-713"
+msgid "OPERATION ON CLITORIS"
+msgstr "クリトリス上の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-714"
+msgid "RADICAL VULVECTOMY"
+msgstr "根治的外陰摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-716"
+msgid "UVULOPLASTY"
+msgstr "口蓋垂口蓋弓形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-720"
+msgid "LOW FORCEPS DELIVERY WITHOUT EPISIOTOMY"
+msgstr "会陰切開のない低鉗子分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-721"
+msgid "LOW FORCPS DELIVERY WITH EPISOTOMY"
+msgstr "会陰切開の低鉗子分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-722"
+msgid "MID FORCEP DELIVERY"
+msgstr "中位鉗子分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-723"
+msgid "HIGH FORCEP DELIVERY"
+msgstr "高位鉗子分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-724"
+msgid "FORCEP ROTATION OF FETAL HEAD"
+msgstr "児頭回転鉗子"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-725"
+msgid "BREECH EXTRACTION"
+msgstr "骨盤位牽出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-727"
+msgid "BREECH DELIVERY"
+msgstr "骨盤位分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-730"
+msgid "ARTIFICIAL RUPTURE OF MEMBRANE"
+msgstr "人工破膜"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-738"
+msgid "EPISIOTOMY"
+msgstr "会陰切開術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-740"
+msgid "CLASSICAL CESAREAN SECTION"
+msgstr "古典的帝王切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-741"
+msgid "LOWER SEGMENTAL CESAREAN SECT"
+msgstr "子宮下部帝王切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-749"
+msgid "REPEAT LOWER SEGMENT C/SECTION"
+msgstr "子宮下部帝王切開の再施行"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-751"
+msgid "VACUUM ASPIRATION FOR TERMINATIN OF PREGNANCY"
+msgstr "妊娠中絶のための真空吸引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-752"
+msgid "TERMINATION OF PREGNANCY"
+msgstr "妊娠中絶"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-753"
+msgid "AMNIOCENTESIS"
+msgstr "羊水せん刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-756"
+msgid "EVACUATION OF RETAINED PLACENTA"
+msgstr "停留胎盤の瀉出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-757"
+msgid "REPAIR OF OBSTERIC LACERATION"
+msgstr "産科裂傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-758"
+msgid "LACERATION SUTURE"
+msgstr "裂傷縫合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-760"
+msgid "CLOSED REDUCTION OF ZYGOMATIC FRACTURES"
+msgstr "頬骨骨折の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-761"
+msgid "OPEN REDUCTION OF ZYGOMATIC FRACTURE"
+msgstr "頬骨骨折の観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-762"
+msgid "WIRE FIXATION OF MANDIBLE"
+msgstr "下顎骨のワイヤ固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-763"
+msgid "REDUCTION OF MANDIBLE"
+msgstr "下顎の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-765"
+msgid "OPEN REDUCTION OF ORBITAL FRACTURE"
+msgstr "眼窩骨折の観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-766"
+msgid "OTHER CLOSED REDUCTION OF FACIAL FRACTURE"
+msgstr "顔面骨折のその他の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-767"
+msgid "OTHER OPEN REDUCTION OF FACIAL"
+msgstr "顔面のその他の観血整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-770"
+msgid "SEQUESTRECTOMY OF JAW"
+msgstr "顎の腐骨摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-771"
+msgid "ENUCLEATION OF LESION OF JAW"
+msgstr "顎の病変摘出"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-772"
+msgid "MAXILLECTOMY"
+msgstr "上顎骨切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-773"
+msgid "RESECTION OF JAW BONE"
+msgstr "顎骨切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-774"
+msgid "TEMPOROMANDIBULAR ARTHROPLASTY"
+msgstr "顎関節形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-775"
+msgid "RECONSTRUCT/MAXILLA & BONE GRAPH"
+msgstr "再構築/上顎および骨の移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-779"
+msgid "OTHER OPERATIONS ON FACIAL BONE"
+msgstr "顔面骨上のその他の手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-780"
+msgid "REMOVAL OF FB FROM BONE"
+msgstr "骨からの異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-781"
+msgid "OSTEOTOMY"
+msgstr "骨切り"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-782"
+msgid "OSTECTOMY OF HALLUX VALGUS"
+msgstr "外反母趾の骨切除術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-783"
+msgid "EXCISION OF BONE LESION"
+msgstr "骨病巣切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-784"
+msgid "OSTECTOMY"
+msgstr "骨切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-786"
+msgid "BONE GRAFTING"
+msgstr "骨移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-787"
+msgid "INSERTION OF FIXATION APPLIANC"
+msgstr "固定機器の挿入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-788"
+msgid "REMOVAL OF PLATING OF FRACTURE"
+msgstr "骨折の表面被覆の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-789"
+msgid "RECONSTRUCTION OF BONE"
+msgstr "骨の再建"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-790"
+msgid "CLOSED REDUCTION OF FRACTURE WITH INTERNAL FIXATION"
+msgstr "内部固定をともなう骨折の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-791"
+msgid "ELEVATION OF FRAGMENTS"
+msgstr "骨折片の挙上"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-792"
+msgid "OPEN REDUCTION AND INTERNAL FIXATION"
+msgstr "観血的整復固"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-793"
+msgid "CLOSED REDUCTION OF SEPARATED EPIPYSIS"
+msgstr "分離骨端の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-795"
+msgid "TOILET OF OPEN FRACTURE SITE"
+msgstr "開放骨折部位の洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-796"
+msgid "OPEN REDUCTION OF DISLOCATION OF JOINT"
+msgstr "関節の転位の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-800"
+msgid "ARTHROTOMY"
+msgstr "関節切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-801"
+msgid "DIVISION OF JOINT CAPSULE ,LIG"
+msgstr "関節包、靭帯の分割"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-803"
+msgid "EXCISION OF INTERVERTEBRAL DISC"
+msgstr "椎間板の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-804"
+msgid "EXCISION OF SEMILUNAR CARTILAGE"
+msgstr "半月軟骨の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-805"
+msgid "SYNOVECTOMY"
+msgstr "滑膜切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-809"
+msgid "OTHER EXCISION OF JOINT STRUCTURE"
+msgstr "関節構造のその他の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-810"
+msgid "FUSION OF SPINE"
+msgstr "脊柱の癒着"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-811"
+msgid "ARTHRODESIS  OF ANKLE"
+msgstr "足首の関節固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-812"
+msgid "ARTHRODESIS OF OTHER JOINTS"
+msgstr "その他の関節の関節固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-813"
+msgid "REPAIR OF LIGAMENT"
+msgstr "靱帯修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-814"
+msgid "ARTHROPLASTY OF KNEE & CAPSULOPLASTY OR CHRONDROPLASTY"
+msgstr "膝の関節形成および関節包形成または軟骨形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-815"
+msgid "TOTAL HIP REPLACEMENT"
+msgstr "人工股関節全置換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-816"
+msgid "AUSTIN MOORE PROSTHESIS"
+msgstr "オースティン・ムーア人工器官"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-818"
+msgid "ANTHROPLASTY OF SHOULDER"
+msgstr "肩の関節形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-819"
+msgid "OTHER REPAIR OF JOINT STRUCTURE"
+msgstr "関節構造のその他の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-820"
+msgid "FASCIOTOMY OF HAND"
+msgstr "手の筋膜切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-821"
+msgid "RELEASE OF TENDOND OR MUSCLE"
+msgstr "腱または筋肉の遊離"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-822"
+msgid "EXCISION OF LESION OF MUSCLE TENDON"
+msgstr "筋腱病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-823"
+msgid "EXCISION OF MUSCLE TENDON"
+msgstr "筋腱の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-824"
+msgid "SUTURE REPAIR OF TENDON HAND"
+msgstr "腱手の縫合糸修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-826"
+msgid "RECONSTRUCTION OF THUMB"
+msgstr "親指の再建"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-828"
+msgid "REPAIR OF TENDON OF HAND"
+msgstr "手の腱の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-830"
+msgid "FASCIOTOMY"
+msgstr "筋膜切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-831"
+msgid ""
+"DIVISION OF MUSCLE, TENDON, FASCIA AND BURSA & REMOVAL OF CALCAREOUS DEPOSIT"
+" IN BURSA OR REMOVAL OF FOREIGN BODY"
+msgstr "筋肉、腱、筋膜と嚢の分割および嚢の石灰沈着の除去または異物の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-833"
+msgid "OTHER EXCISION OF MUSCLE, TENDON"
+msgstr "筋、腱のその他の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-835"
+msgid "SUTURE REPAIR OF TENDON"
+msgstr "腱縫合糸修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-836"
+msgid "TEND0N TRANSPLANT"
+msgstr "腱移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-837"
+msgid "REPAIR OF ROTATOR CUFF TEAR"
+msgstr "回旋腱板裂傷の修復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-840"
+msgid "AMPUTATION OF FINGER"
+msgstr "指の切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-841"
+msgid "AMPUTATION OF THUMB"
+msgstr "親指の切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-842"
+msgid "AMPUTATION OF FOREARM"
+msgstr "前腕の切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-843"
+msgid "ABOVE ELBOW AMPUTATION"
+msgstr "肘上切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-844"
+msgid "DISARTICULATION OF SHOULDER"
+msgstr "肩離断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-845"
+msgid "AMPUTATION OF TOE"
+msgstr "つま先の切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-846"
+msgid "DISARTICULATION OF METATARSAL"
+msgstr "中足骨離断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-847"
+msgid "BELOW KNEE AMPUTATION"
+msgstr "膝下切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-848"
+msgid "ABOVE KNEE AMPUTATION"
+msgstr "膝上切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-849"
+msgid "DISARTICULATION OF HIP"
+msgstr "股関節離断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-850"
+msgid "REVISION OF AMPUTATION STUMP"
+msgstr "切断端修正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-851"
+msgid "REATTACHMENT OF FINGERS"
+msgstr "指の再付着"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-855"
+msgid "IMPLANT OF PROSTHETIC LIMB DEVICE"
+msgstr "義手・義足装置の移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-859"
+msgid "REIMPLANTATION OF SEVERED LIMB"
+msgstr "切断された肢の再移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-860"
+msgid "EXCISION OF FISTULA"
+msgstr "瘻孔切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-861"
+msgid "SIMPLE MASTECTOMY"
+msgstr "単純乳房切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-862"
+msgid "RADICAL MODIFIED  MASTECTOMY"
+msgstr "根治的変更された乳房切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-863"
+msgid "RADICAL MASTECTOMY"
+msgstr "根治的乳房切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-864"
+msgid "RADICAL MASTECTOMY"
+msgstr "根治的乳房切断"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-869"
+msgid "MASTECTOMY"
+msgstr "乳房切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-870"
+msgid "ASPIRATION OF BREAST"
+msgstr "乳房の吸引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-871"
+msgid "INCISION DRAINAGE BREAST ABSCE"
+msgstr "乳房膿瘍の切開とドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-873"
+msgid "AUGMENTATION MAMMOPLASTY"
+msgstr "豊胸形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-874"
+msgid "REDUCTION MAMMOPLASTY"
+msgstr "乳房縮小形成"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-875"
+msgid "OTHER REPAIR AND PLASTIC OPERATION ON BREAST"
+msgstr "胸の他の修理と形成手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-881"
+msgid "EXPLORATION"
+msgstr "診査"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-882"
+msgid "INCISION AND DRAINAGE OF SKIN"
+msgstr "皮膚の切開とドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-883"
+msgid "DEBRIDEMENT OF WOUND"
+msgstr "傷のデブリードマン"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-884"
+msgid "EXCISION OF SEBACEOUS LESION"
+msgstr "皮脂病変の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-885"
+msgid "RADICAL EXCISION OF SKIN LESIO"
+msgstr "皮膚病変の根治的切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-887"
+msgid "EXCISION OF PILONIDAL (SINUS)"
+msgstr "毛巣嚢摘除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-888"
+msgid "EXCISION OF SKIN FOR GRAFT"
+msgstr "移植片のための皮膚の切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-890"
+msgid "SUTURE"
+msgstr "縫合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-892"
+msgid "SKIN GRAFT TO HAND"
+msgstr "手への皮膚移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-893"
+msgid "SKIN GRAFTING"
+msgstr "皮膚移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-894"
+msgid "CUTTING & PREPARATION OF FLAP"
+msgstr "皮弁の切離および組織標本"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-895"
+msgid "ATTACHMENT TO HAND OF FLAP OR"
+msgstr "皮弁または有茎移植片の手への生着"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-898"
+msgid "RECONSTRUCTION OF LIP"
+msgstr "口唇修正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-899"
+msgid "OTHER REPAIR AND RECONSTRUCTION"
+msgstr "その他の修復および再建"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-909"
+msgid "REIMPLANTATION"
+msgstr "再移植"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-910"
+msgid "CORNEAL CAUTHERIZATION"
+msgstr "角膜焼灼"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-911"
+msgid "NASAL CAUTHERIZATION"
+msgstr "鼻焼灼"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-913"
+msgid "SKIN CAUTHERIZATION"
+msgstr "皮膚焼灼"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-949"
+msgid "CRYOSURGERY"
+msgstr "凍結外科"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-969"
+msgid "OTHER CYTOTOXIC DRUG THERAPY"
+msgstr "その他の細胞傷害性薬物療法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-980"
+msgid "SURGICAL OPERATIONS TO PRODUCE FEMALE STERILIZATION"
+msgstr "不妊手術につながる外科手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-982"
+msgid "OTHER SURGICAL OPERATIONS FOR PREVENTIVE PURPOSES"
+msgstr "予防目的のためのその他の外科手術"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-994"
+msgid "OPERATION NOT COMPLETED (ABANDONED BEFORE ONSET)"
+msgstr "手術未了(開始前に断念)"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_5-995"
+msgid "OPERATION NOT COMPLETED (ABANDONED DURING PROGRESS OF OPERATION)"
+msgstr "手術未了(手術中に断念)"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-101"
+msgid "REMOVAL OF FOREGN BODY FROM CONJUNCTIVIA OR CORNEA"
+msgstr "結膜または角膜からの異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-102"
+msgid "REMOVAL OF OBJECT FROM EYELID OR ORBIT"
+msgstr "まぶたまたは眼窩から対象の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-103"
+msgid "REMOVAL OF FOREIGN BODY FROM EAR"
+msgstr "耳から異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-104"
+msgid "REMOVAL OF OBJECT BY RHINOSCOPY"
+msgstr "鼻鏡検査による対象の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-105"
+msgid "REMOVAL OF FOREIGN BODY BY LARYNGOSCOPY"
+msgstr "喉頭鏡検査による異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-107"
+msgid "BRONCHSCOPY FORIEGN BODY REMOVAL"
+msgstr "気管支鏡検査による異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-108"
+msgid "REMOVAL OF FB BY THOROCOSCOPY"
+msgstr "胸腔鏡検査による異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-111"
+msgid "OTHER REMOVAL OF FOREIGN BODY FROM RESPIRATORY TRACT"
+msgstr "気道からのその他の異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-112"
+msgid "REMOVAL OF FOREIGNBODY BY GASTROSCOPY"
+msgstr "胃内視鏡検査による異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-114"
+msgid "REMOVAL OF OBJECT BY CYSTOSCOPY"
+msgstr "膀胱鏡検査による対象の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-116"
+msgid "REMOVAL OF OBJECT FROM SPECIFIED DERMAL SITES"
+msgstr "指定された皮膚の部位から対象の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-117"
+msgid "REMOVAL OF PARASITE FROM TISSUE"
+msgstr "組織から寄生虫除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-118"
+msgid "REMOVAL OF FORIEGN BODY FROM ANUS"
+msgstr "肛門から異物除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-123"
+msgid "GASTRIC LAVAGE"
+msgstr "胃洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-125"
+msgid "DECOMPRESSION OF INTESTINE"
+msgstr "腸の減圧"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-126"
+msgid "GASTRIC  LAVAGE"
+msgstr "胃洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-130"
+msgid "CATHERTERIZATION OF BLADDER"
+msgstr "膀胱のカテーテル"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-132"
+msgid "BLADDER IRRIGATION"
+msgstr "膀胱洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-135"
+msgid "REPLACEMENT OF URETHRAL CATHETER"
+msgstr "尿道カテーテルの交換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-140"
+msgid "CATHERIZATION"
+msgstr "カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-149"
+msgid "PERCUTANEOUS CATHERIZATION"
+msgstr "経皮カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-150"
+msgid "ASPIRATION OF ABSCESS"
+msgstr "膿瘍吸引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-152"
+msgid "IRRIGATION OF ANTERIOR CHAMBER"
+msgstr "前房洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-154"
+msgid "BONE MARROW ASPIRATION"
+msgstr "骨髄穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-155"
+msgid "ASPIRATION OF PLEURAL CAVITY"
+msgstr "胸腔吸引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-156"
+msgid "DRAINAGE OF FLUID FROM LUNG"
+msgstr "肺からの体液のドレナージ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-157"
+msgid "PERITONEAL LAVAGE"
+msgstr "腹腔洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-158"
+msgid "ASPIRATION OF LIVER"
+msgstr "肝臓穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-160"
+msgid "ASPIRATION OF KIDNEY"
+msgstr "腎臓穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-163"
+msgid "ENCYSTED HYDROCELE"
+msgstr "被嚢水瘤"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-166"
+msgid "ASPIRATION OF JOINT"
+msgstr "関節穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-169"
+msgid "ASPIRATION"
+msgstr "穿刺"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-170"
+msgid "SYRINGING OF LACRIMAL SAC"
+msgstr "涙嚢の注射"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-179"
+msgid "IRRIGATION OF WOUND"
+msgstr "傷の洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-185"
+msgid "EXCISION"
+msgstr "切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-186"
+msgid "REMOVAL OF TOE NAIL"
+msgstr "足指爪切除"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-191"
+msgid "WOUND TOILET"
+msgstr "創傷洗浄"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-192"
+msgid "DRESSING OF WOUND"
+msgstr "創傷への包帯"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-193"
+msgid "DRESSING OF ULCER"
+msgstr "潰瘍への包帯"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-194"
+msgid "DRESSING OF BURN"
+msgstr "火傷への包帯"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-200"
+msgid "REDUCTION OF NASAL BONE"
+msgstr "鼻骨の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-202"
+msgid "CLOSED REDUCTION OF HUMERUS"
+msgstr "上腕骨の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-203"
+msgid "REDUCTION OF WRIST FRACTURE"
+msgstr "手首骨折の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-204"
+msgid "REDUCTION OF FRACTURE"
+msgstr "骨折の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-205"
+msgid "CLOSED REDUCTION OF FRACTURE"
+msgstr "骨折の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-208"
+msgid "CLOSED REDUCTION OF OTHER FRACTURE"
+msgstr "その他の骨折の非観血的整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-209"
+msgid "REDUCTION OF DISLOCATION"
+msgstr "脱臼の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-211"
+msgid "MANIPULATION OF TEMPOROMANDIBULAR JOINT"
+msgstr "顎関節の処置"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-214"
+msgid "LIPSIS OF ADHESIONS"
+msgstr "癒着溶解"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-215"
+msgid "STRETCHING OF MUSCLE OR TENDON"
+msgstr "筋肉または腱のストレッチ"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-217"
+msgid "MANIPULATION UNDER ANESTHESIA"
+msgstr "麻酔下での操作"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-219"
+msgid "STRETCHING OF SKIN"
+msgstr "皮膚の伸長"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-225"
+msgid "DILATION OF BOWEL OF ARTIFICIA"
+msgstr "人工腸の拡張"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-230"
+msgid "WEDGING OF PLASTER"
+msgstr "石膏ギプスの切開"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-241"
+msgid "REDUCTION OF HERNIA"
+msgstr "ヘルニアの縮小"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-242"
+msgid "REDUCTION OF PROLAPSE RECTUM"
+msgstr "直脱腸の縮小"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-243"
+msgid "REDUCTION OF HAEMORRHOIDS"
+msgstr "痔の縮小"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-250"
+msgid "ANTENATAL MANIPULATION, UNQUALIFIED"
+msgstr "産前操作、条件なし"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-251"
+msgid "CORRECTION OF BREECH PRESENTATION"
+msgstr "逆子の矯正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-252"
+msgid "CORRECTION OF RETROVERTED GRAVID UTERUS"
+msgstr "子宮後傾の補正"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-253"
+msgid "REPOSITION OF FETUS"
+msgstr "胎児の整復"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-255"
+msgid "MANUALLY ASSISTED VAGINAL DELIVERY"
+msgstr "手動補助された経膣分娩"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-301"
+msgid "APPLICATION OF SLING"
+msgstr "三角布の適用"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-310"
+msgid "APPLICATION OF PLASTER OF PARIS"
+msgstr "焼石膏の適用"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-321"
+msgid "SPLINTING OF FINGER"
+msgstr "指の副子固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-324"
+msgid "SPLINTING OF FRACTURE"
+msgstr "骨折の副木固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-330"
+msgid "EXTERNAL FIXATION"
+msgstr "外固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-331"
+msgid "EXTERNAL FIXTATION OF BONE"
+msgstr "骨の外固定"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-334"
+msgid "WIRING OF JAW"
+msgstr "顎の結束"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-340"
+msgid "COMPRESSION UNION OF FRACTURE"
+msgstr "骨折の圧縮結合"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-350"
+msgid "ORTHODONTIC ARCH  BANDS"
+msgstr "歯科矯正バンド"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-359"
+msgid "CERVICAL COLLAR"
+msgstr "頚椎カラー"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-362"
+msgid "NAILING OF FRACTURE CLOSE"
+msgstr "骨折付近の釘"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-380"
+msgid "REMOVAL OF CAST, MOLD OR SUPPORT"
+msgstr "ギブス、型または支持器の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-381"
+msgid "REMOVAL OF SPLINT"
+msgstr "副木の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-382"
+msgid "REMOVAL OF SUPPORT OR BRACE"
+msgstr "支持器または固定器の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-389"
+msgid "REMOVAL OF NAIL FIXATION"
+msgstr "釘固定の除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-400"
+msgid "INFIXED BONE PIN (TRACTION)"
+msgstr "固定された骨の(牽引用)釘"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-403"
+msgid "SKELETAL TRACTION"
+msgstr "骨格牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-411"
+msgid "SKULL TRACTION"
+msgstr "頭蓋牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-412"
+msgid "CERVICAL TRACTION"
+msgstr "頚椎牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-420"
+msgid "SKIN TRACTION"
+msgstr "皮膚牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-421"
+msgid "BOOT TRACTION"
+msgstr "ブーツ牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-422"
+msgid "THOMAS' SPLINT TRACTION"
+msgstr "トーマス型副木牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-423"
+msgid "GALLOWS TRACTION"
+msgstr "垂直牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-424"
+msgid "PLASTER CAST TRACTION"
+msgstr "ギプス牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-450"
+msgid "CERVICAL COLLAR FOR TRACTION O"
+msgstr "牽引用頚椎カラー"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-460"
+msgid "REMOVAL OF INFIXED PIN IN BONE"
+msgstr "骨のはめ込まれたピンの除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-471"
+msgid "SKELETAL TRACTION"
+msgstr "骨格牽引"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-479"
+msgid "TRACTION, OTHER & UNQUALIFIED"
+msgstr "牽引、その他＆不適切"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-480"
+msgid "APPLICATION OF ORTHOPEDIC APPLIANCE"
+msgstr "整形外科器具の適用"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-500"
+msgid "HAEMOSTASIS"
+msgstr "止血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-566"
+msgid "REPAIR,READJUSTMENT OF PROSTHESIS"
+msgstr "修復、人工器官の再調整"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-584"
+msgid "INFILTRATION"
+msgstr "浸潤"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-620"
+msgid "PHOTOTHERAOY"
+msgstr "光線療法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-621"
+msgid "RADIATION"
+msgstr "放射線"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-622"
+msgid "PHOTOCOAGULATION"
+msgstr "光凝固"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-649"
+msgid "OTHER CONVERSION OF CRADIAC RHYTHM"
+msgstr "心リズムのその他の転換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-651"
+msgid "EMERGENCY PACEMAKER"
+msgstr "非常用ペースメーカー"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-652"
+msgid "PERMANENT PACEMAKER"
+msgstr "長期ペースメーカー"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-801"
+msgid "BLOOD TRANSFUSION"
+msgstr "輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-803"
+msgid "REPLACENMENT TRANSFUSION"
+msgstr "交換輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-805"
+msgid "TRANSFUSION OF PACKED BLOOD CELLS"
+msgstr "圧縮血液細胞輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-806"
+msgid "PLATELET TRANSFUSION"
+msgstr "血小板輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-809"
+msgid "TRANSFUSION , UNQUALIFIED"
+msgstr "輸血、不適切"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-810"
+msgid "TRANSFUSION OF PLASMA"
+msgstr "血漿輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-814"
+msgid "TRANFUSION OF ANTIHEMOPHILIC FACTOR"
+msgstr "抗血友病因子輸血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-830"
+msgid "ARTERIAL CATHETERIZATION OR CANNULATION"
+msgstr "動脈カテーテルまたはカニューレ挿入"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-834"
+msgid "VEIN CATHETERISATION"
+msgstr "静脈カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-852"
+msgid "ARTERIOVENOUS CANNULATION BLOOD"
+msgstr "動静脈へのカニューレ挿入血"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-853"
+msgid "HEMODIALYSIS"
+msgstr "血液透析"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-860"
+msgid "PERITONEAL DIALYSIS"
+msgstr "腹膜透析"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-881"
+msgid "REPLACEMENT OF SUBCUTANEOUS"
+msgstr "皮下の交換"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_8-882"
+msgid "REPLACEMENT OR REMOVAL OF INTRAVENOUS ENDOCARDIAL ELECTRODE"
+msgstr "静脈心内膜電極の交換または除去"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-129"
+msgid "CHEMOTHERAPY"
+msgstr "化学療法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-190"
+msgid "OTHER AND ILL-DEFINED THERAPY"
+msgstr "その他または不明確な治療"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-251"
+msgid "INDUCTION BY INTRAVENOUS INJECTION"
+msgstr "静脈内注射による誘導"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-259"
+msgid "URETRAL CATHERIZATION"
+msgstr "尿道カテーテル"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-360"
+msgid "CATHETERIZATION"
+msgstr "カテーテル法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-442"
+msgid "FITTING OR ADJUSTMEMNT OF CRUTCHES"
+msgstr "松葉杖の取付または調整"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-472"
+msgid "DEEP BREATHING EXERCISE"
+msgstr "深呼吸運動"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-489"
+msgid "PHYSIOTHERAPY"
+msgstr "理学療法"
+
+msgctxt "model:gnuhealth.procedure,description:icpm_9-779"
+msgid "SPECIALIZED TREATMENT"
+msgstr "専門処置"

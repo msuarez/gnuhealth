@@ -1,0 +1,629 @@
+# 
+# Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2015
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2015-01-30 17:00+0000\n"
+"PO-Revision-Date: 2015-01-30 20:31+0000\n"
+"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.iss:"
+msgid "This ISS registration Code already exists !"
+msgstr "このISS登録コードは既に存在しています！"
+
+msgctxt "field:gnuhealth.iss,alcohol:"
+msgid "Alcohol"
+msgstr "アルコール"
+
+msgctxt "field:gnuhealth.iss,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.iss,complaint:"
+msgid "Chief Complaint"
+msgstr "主訴"
+
+msgctxt "field:gnuhealth.iss,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.iss,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.iss,disposition:"
+msgid "Disposition"
+msgstr "処理"
+
+msgctxt "field:gnuhealth.iss,drugs:"
+msgid "Other Drugs"
+msgstr "その他の薬"
+
+msgctxt "field:gnuhealth.iss,healthcenter:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "field:gnuhealth.iss,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.iss,injury_date:"
+msgid "Injury Date"
+msgstr "損傷日"
+
+msgctxt "field:gnuhealth.iss,injury_details:"
+msgid "Details"
+msgstr "詳細"
+
+msgctxt "field:gnuhealth.iss,injury_method:"
+msgid "Method"
+msgstr "方法"
+
+msgctxt "field:gnuhealth.iss,injury_type:"
+msgid "Injury Type"
+msgstr "損傷の種類"
+
+msgctxt "field:gnuhealth.iss,latitude:"
+msgid "Latidude"
+msgstr "緯度"
+
+msgctxt "field:gnuhealth.iss,longitude:"
+msgid "Longitude"
+msgstr "軽度"
+
+msgctxt "field:gnuhealth.iss,mva_counterpart:"
+msgid "Counterpart"
+msgstr "カウンターパート"
+
+msgctxt "field:gnuhealth.iss,mva_mode:"
+msgid "Mode"
+msgstr "方法"
+
+msgctxt "field:gnuhealth.iss,mva_position:"
+msgid "User Position"
+msgstr "ユーザの姿勢"
+
+msgctxt "field:gnuhealth.iss,name:"
+msgid "Evaluation"
+msgstr "判定"
+
+msgctxt "field:gnuhealth.iss,operational_sector:"
+msgid "O. Sector"
+msgstr "O. セクター"
+
+msgctxt "field:gnuhealth.iss,patient:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.iss,patient_age:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "field:gnuhealth.iss,patient_sex:"
+msgid "Sex"
+msgstr "性別"
+
+msgctxt "field:gnuhealth.iss,place_occurrance:"
+msgid "Place"
+msgstr "場所"
+
+msgctxt "field:gnuhealth.iss,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.iss,registration_date:"
+msgid "Registration Date"
+msgstr "登録日"
+
+msgctxt "field:gnuhealth.iss,safety_gear:"
+msgid "Safety Gear"
+msgstr "安全装置"
+
+msgctxt "field:gnuhealth.iss,urladdr:"
+msgid "OSM Map"
+msgstr "地図"
+
+msgctxt "field:gnuhealth.iss,victim_perpetrator:"
+msgid "Relationship"
+msgstr "関係"
+
+msgctxt "field:gnuhealth.iss,violence_circumstances:"
+msgid "Context"
+msgstr "コンテキスト"
+
+msgctxt "field:gnuhealth.iss,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.iss,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "help:gnuhealth.iss,alcohol:"
+msgid ""
+"Is there evidence of alcohol use by the injured person in the 6 hours before"
+" the accident ?"
+msgstr "事件の6時間前に被害者がアルコールを使用していた証拠はあるか？"
+
+msgctxt "help:gnuhealth.iss,code:"
+msgid "Injury Code"
+msgstr "損傷コード"
+
+msgctxt "help:gnuhealth.iss,disposition:"
+msgid "Place of occurrance"
+msgstr "事件発生場所"
+
+msgctxt "help:gnuhealth.iss,drugs:"
+msgid ""
+"Is there evidence of drug use by the injured person in the 6 hours before "
+"the accident ?"
+msgstr "事件の6時間前に被害者がドラッグを使用していた証拠はあるか？"
+
+msgctxt "help:gnuhealth.iss,injury_date:"
+msgid "Usually the same as the Evaluation"
+msgstr "通常、評価と同じになる"
+
+msgctxt "help:gnuhealth.iss,injury_method:"
+msgid "Method of Injury"
+msgstr "障害の方法"
+
+msgctxt "help:gnuhealth.iss,mva_counterpart:"
+msgid "Motor Vehicle Accident Counterpart"
+msgstr "交通事故のカウンターパート"
+
+msgctxt "help:gnuhealth.iss,mva_mode:"
+msgid "Motor Vehicle Accident Mode"
+msgstr "交通事故の状態"
+
+msgctxt "help:gnuhealth.iss,mva_position:"
+msgid "Motor Vehicle Accident user position"
+msgstr "交通事故のユーザの位置"
+
+msgctxt "help:gnuhealth.iss,name:"
+msgid "Related Patient Evaluation"
+msgstr "関係する患者の評価"
+
+msgctxt "help:gnuhealth.iss,operational_sector:"
+msgid "Operational Sector in which happened the injury"
+msgstr "負傷が発生したオペレーショナルセクター"
+
+msgctxt "help:gnuhealth.iss,place_occurrance:"
+msgid "Place of occurrance"
+msgstr "事件発生場所"
+
+msgctxt "help:gnuhealth.iss,safety_gear:"
+msgid "Use of Safety Gear - Helmet, safety belt..."
+msgstr "安全装備の使い方 - ヘルメット、安全ベルト・・・"
+
+msgctxt "help:gnuhealth.iss,urladdr:"
+msgid "Maps the Accident / Injury location on Open Street Map"
+msgstr "オープンストリートマップ上の交通事故・障害地域"
+
+msgctxt "help:gnuhealth.iss,victim_perpetrator:"
+msgid "Victim - Perpetrator relationship"
+msgstr "被害者 - 加害者の関係"
+
+msgctxt "help:gnuhealth.iss,violence_circumstances:"
+msgid "Precipitating Factor"
+msgstr "増悪因子"
+
+msgctxt "model:gnuhealth.iss,name:"
+msgid "Injury Surveillance System Registration"
+msgstr "傷害監視システム登録"
+
+msgctxt "model:ir.action,name:act_iss_form1"
+msgid "Injury Surveillance System Registration"
+msgstr "傷害監視システム登録"
+
+msgctxt "model:ir.action,name:gnuhealth_action_iss"
+msgid "Injury Surveillance System Registration"
+msgstr "傷害監視システム登録"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_report_iss"
+msgid "Injury Surveillance System Registration"
+msgstr "傷害監視システム登録"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "No"
+msgstr "No"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Suspected"
+msgstr "疑わしい"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,alcohol:"
+msgid "Yes"
+msgstr "Yes"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Admitted to Observation"
+msgstr "観察を認められた"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Admitted to Ward"
+msgstr "保護を認められた"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Dead on Arrival"
+msgstr "来院時死亡"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Died"
+msgstr "死亡した"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Discharge Against Advise"
+msgstr "退院させないようにアドバイスする"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Transferred"
+msgstr "配置転換"
+
+msgctxt "selection:gnuhealth.iss,disposition:"
+msgid "Treated and Sent Home"
+msgstr "処置後、家に帰らせた"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "No"
+msgstr "No"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Suspected"
+msgstr "疑わしい"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,drugs:"
+msgid "Yes"
+msgstr "Yes"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Blunt object"
+msgstr "鈍器"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Choking/strangulation"
+msgstr "首を締める／絞殺"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Gun shot"
+msgstr "撃たれる"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Other"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Push/bodily force"
+msgstr "体ごと強制的に押す"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Sexual Assault"
+msgstr "性的暴力"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Sharp objects"
+msgstr "刃物類"
+
+msgctxt "selection:gnuhealth.iss,injury_method:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Accidental / Unintentional"
+msgstr "偶然の / 故意でない"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Motor Vehicle"
+msgstr "動力車"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Suicide Attempt"
+msgstr "自殺未遂"
+
+msgctxt "selection:gnuhealth.iss,injury_type:"
+msgid "Violence"
+msgstr "バイオレンス"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Aircraft"
+msgstr "航空機"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Bicycle"
+msgstr "自転車"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Boat / Ship"
+msgstr "ボート / 船"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Bus"
+msgstr "バス"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Car"
+msgstr "車"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Motorbike"
+msgstr "バイク"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Other"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Pedestrian"
+msgstr "歩行者"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Taxi"
+msgstr "タクシー"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Train"
+msgstr "列車"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Truck / Heavy vehicle"
+msgstr "トラック / 大型車両"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,mva_counterpart:"
+msgid "Van / Pickup / Jeep"
+msgstr "バン / 貨物車 / ジープ"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Aircraft"
+msgstr "航空機"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Bicycle"
+msgstr "自転車"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Boat / Ship"
+msgstr "ボート / 船"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Bus"
+msgstr "バス"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Car"
+msgstr "車"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Motorbike"
+msgstr "バイク"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Other"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Pedestrian"
+msgstr "歩行者"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Taxi"
+msgstr "タクシー"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Train"
+msgstr "列車"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Truck / Heavy vehicle"
+msgstr "トラック / 大型車両"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,mva_mode:"
+msgid "Van / Pickup / Jeep"
+msgstr "バン / 貨物車 / ジープ"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Bystander"
+msgstr "第三者"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Driver"
+msgstr "運転士"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Outside / on the back"
+msgstr "外部 / 後方"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Passenger"
+msgstr "旅行者"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,mva_position:"
+msgid "Unspecified vehicle"
+msgstr "詳細不明の車両"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Commercial Area"
+msgstr "商業地域"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Home"
+msgstr "自宅"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Public Building"
+msgstr "公共の建物"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Public transportation"
+msgstr "公共輸送機関"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Recreational Area"
+msgstr "レクリエーション地域"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "School"
+msgstr "学校"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Sports event"
+msgstr "スポーツ大会"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Street"
+msgstr "通り"
+
+msgctxt "selection:gnuhealth.iss,place_occurrance:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "No"
+msgstr "No"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "selection:gnuhealth.iss,safety_gear:"
+msgid "Yes"
+msgstr "Yes"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Acquaintance / Friend"
+msgstr "知人/友人"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Girl / Boyfriend"
+msgstr "ガールフレンド／ボーイフレンド"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Official / Legal"
+msgstr "オフィシャル / リーガル"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Other relative"
+msgstr "その他の近親者"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Parent"
+msgstr "親"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Stranger"
+msgstr "よそ者"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "Wife / Husband"
+msgstr "妻 / 夫"
+
+msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
+msgid "other"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Committing a crime (other)"
+msgstr "犯行 (その他)"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Drug Related"
+msgstr "麻薬関連"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Fight"
+msgstr "喧嘩"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Gang Activity"
+msgstr "ギャング行為"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Other"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Robbery"
+msgstr "強盗"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Sexual Assault"
+msgstr "性的暴力"
+
+msgctxt "selection:gnuhealth.iss,violence_circumstances:"
+msgid "Unknown"
+msgstr "未知の"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Alcohol and other Drugs context"
+msgstr "アルコールとその他ドラッグ関係"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Details"
+msgstr "詳細"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Disposition"
+msgstr "処理"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Injury Surveillance System"
+msgstr "傷害監視システム"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Injury Surveillance System Record"
+msgstr "傷害監視システム記録"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Location"
+msgstr "場所"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Motor Vehicle Accident"
+msgstr "交通事故"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Patient Demographics"
+msgstr "患者の統計"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Place of occurrance"
+msgstr "事件発生場所"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Specifics"
+msgstr "明確な"
+
+msgctxt "view:gnuhealth.iss:"
+msgid "Violence"
+msgstr "バイオレンス"

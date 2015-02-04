@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="top_diseases_open_start_view_form">
+            <field name="model">gnuhealth.top_diseases.open.start</field>
+            <field name="type">form</field>
+            <field name="name">top_diseases_open_start_form</field>
+        </record>
+        <record model="ir.action.wizard" id="act_top_diseases_open">
+            <field name="name">Top Diseases</field>
+            <field name="wiz_name">gnuhealth.top_diseases.open</field>
+        </record>
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_top_diseases_open" icon="gnuhealth-list"
+            id="menu_top_diseases_open" sequence="10" />
+    </data>
+</tryton>
+

@@ -1,12 +1,13 @@
 # 
 # Translators:
+# kvisitor <kvisitor@gnugr.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:22+0000\n"
-"PO-Revision-Date: 2014-06-16 18:40+0000\n"
-"Last-Translator: Luis Falcon <falcon@gnu.org>\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-13 14:58+0000\n"
+"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
 "Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,11 +17,11 @@ msgstr ""
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The History already exists !"
-msgstr ""
+msgstr "Το ιστορικό υπάρχει ήδη !"
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The Patient History already exists !"
-msgstr ""
+msgstr "Το ιστορικό του ασθενούς υπάρχει ήδη !"
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
@@ -36,7 +37,7 @@ msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.paper_archive,current_location:"
 msgid "Current Location"
-msgstr ""
+msgstr "Τρέχουσα τοποθεσία"
 
 msgctxt "field:gnuhealth.paper_archive,hc_status:"
 msgid "Status"
@@ -52,7 +53,7 @@ msgstr "Κωδικός"
 
 msgctxt "field:gnuhealth.paper_archive,legacy:"
 msgid "Legacy Code"
-msgstr ""
+msgstr "Παλιός κωδικός"
 
 msgctxt "field:gnuhealth.paper_archive,location:"
 msgid "Unit"
@@ -68,15 +69,15 @@ msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
-msgstr ""
+msgstr "Ημερομ. αιτήματος"
 
 msgctxt "field:gnuhealth.paper_archive,requested_by:"
-msgid "Resquested by"
+msgid "Requested by"
 msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,return_date:"
 msgid "Returned Date"
-msgstr ""
+msgstr "Ημερομ. επιστροφής"
 
 msgctxt "field:gnuhealth.paper_archive,write_date:"
 msgid "Write Date"
@@ -88,17 +89,17 @@ msgstr "Γράψτε τον χρήστη"
 
 msgctxt "help:gnuhealth.paper_archive,current_location:"
 msgid "Location / Unit where this clinical history document should reside."
-msgstr ""
+msgstr "Τοποθεσία / Μονάδα όπου θα πρέπει να βρίσκεται το κλινικό ιστορικό."
 
 msgctxt "help:gnuhealth.paper_archive,legacy:"
 msgid ""
 "If existing, please enter the old / legacy code associated to this Clinical "
 "History"
-msgstr ""
+msgstr "Αν υπάρχει, παρακαλώ δώστε τον παλιό κωδικό που συνδέεται με αυτό το Κλινικό Ιστορικό"
 
 msgctxt "help:gnuhealth.paper_archive,location:"
 msgid "Location / Unit where this clinical history document should reside."
-msgstr ""
+msgstr "Τοποθεσία / Μονάδα όπου θα πρέπει να βρίσκεται το κλινικό ιστορικό."
 
 msgctxt "help:gnuhealth.paper_archive,patient:"
 msgid "Patient associated to this newborn baby"
@@ -106,32 +107,32 @@ msgstr "Ασθενής συνδεδεμένη με αυτό το νεογνό"
 
 msgctxt "help:gnuhealth.paper_archive,requested_by:"
 msgid "Person who last requested the document"
-msgstr ""
+msgstr "Το άτομο που ζήτησε τελευταίος αυτό το έγγραφο"
 
 msgctxt "model:gnuhealth.paper_archive,name:"
 msgid "Location of PAPER Patient Clinical History"
-msgstr ""
+msgstr "Τοποθεσία ΕΓΓΡΑΦΟΥ Κλινικό Ιστορικό Ασθενούς"
 
 msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
 msgid "Medical Archives"
-msgstr ""
+msgstr "Ιατρικά αρχεία"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
 msgid "Archives"
-msgstr ""
+msgstr "Αρχεία"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Archived"
-msgstr ""
+msgstr "Αρχειοθετήθηκε"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Borrowed"
-msgstr ""
+msgstr "Δανείσθηκε"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Lost"
-msgstr ""
+msgstr "Χάθηκε"
 
 msgctxt "view:gnuhealth.paper_archive:"
 msgid "Patient PAPER Clinical History"
-msgstr ""
+msgstr "ΕΓΓΡΑΦΟ ασθενούς Κλινικό Ιστορικό"

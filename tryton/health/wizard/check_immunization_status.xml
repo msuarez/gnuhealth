@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="view_check_immunization_status">
+            <field name="model">gnuhealth.check_immunization_status.init</field>
+            <field name="type">form</field>
+            <field name="name">check_immunization_status</field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_check_immunization_status">
+            <field name="name">Immunization Status Report</field>
+            <field name="wiz_name">gnuhealth.check_immunization_status</field>
+            <field name="model">gnuhealth.patient</field>
+        </record>
+        <record model="ir.action.keyword" id="act_check_immunization_status_keyword">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_check_immunization_status"/>
+        </record>
+    </data>
+</tryton>

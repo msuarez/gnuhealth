@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="Check Person Immunization Status">
+    <label name="immunization_schedule"/>
+    <field name="immunization_schedule"/>
+    <newline/>
+    <separator string="Immunization status Report" colspan="4" id="immunization_check_ask"/>
+</form>

@@ -41,17 +41,6 @@
             <field name="name">gnuhealth_ambulatory_care_medical_supplies_tree</field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_tree">
-            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
-            <field name="type">tree</field>
-            <field name="name">gnuhealth_ambulatory_care_vaccine_tree</field>
-        </record>
-        <record model="ir.ui.view" id="gnuhealth_ambulatory_care_vaccine_form">
-            <field name="model">gnuhealth.patient.ambulatory_care.vaccine</field>
-            <field name="type">form</field>
-            <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
-        </record>
-
         <record model="ir.ui.view" id="gnuhealth_patient_ambulatory_care_tree">
             <field name="model">gnuhealth.patient.ambulatory_care</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_ambulatory_care_tree"/>
@@ -80,6 +69,7 @@
             <field name="name">gnuhealth_rounding_medical_supply_tree</field>
         </record>
 
+        <!--
         <record model="ir.ui.view" id="gnuhealth_rounding_vaccine_tree">
             <field name="model">gnuhealth.patient.rounding.vaccine</field>
             <field name="type">tree</field>
@@ -90,7 +80,8 @@
             <field name="type">form</field>
             <field name="name">gnuhealth_ambulatory_care_vaccine_form</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_patient_rounding_tree">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_tree"/>
@@ -102,22 +93,6 @@
             <field name="name">gnuhealth_patient_rounding</field>
         </record>
 
-        <record model="ir.ui.view" id="view_create_prescription_stock_move">
-            <field name="model">gnuhealth.prescription.stock.move.init</field>
-            <field name="type">form</field>
-            <field name="name">create_prescription_stock_move</field>
-        </record>
-
-        <record model="ir.action.wizard" id="act_create_prescription_stock_move">
-            <field name="name">Create Prescription Stock Move</field>
-            <field name="wiz_name">gnuhealth.prescription.stock.move.create</field>
-            <field name="model">gnuhealth.prescription.order</field>
-        </record>
-        <record model="ir.action.keyword" id="act_create_prescription_keyword">
-            <field name="keyword">form_action</field>
-            <field name="model">gnuhealth.prescription.order,-1</field>
-            <field name="action" ref="act_create_prescription_stock_move"/>
-        </record>
 
         <record model="ir.ui.view" id="move_view_tree">
             <field name="model">stock.move</field>
@@ -139,6 +114,27 @@
             <field name="keyword">form_relate</field>
             <field name="model">gnuhealth.prescription.order,-1</field>
             <field name="action" ref="act_prescription_move_form1"/>
+        </record>
+
+        <!-- Shortcut to stock moves from vaccination model -->
+        
+        <record model="ir.action.act_window" id="act_vaccination_move_form1">
+            <field name="name">Stock Moves</field>
+            <field name="res_model">stock.move</field>
+            <field name="domain">[('origin.id', '=', Eval('active_id'), 'gnuhealth.vaccination')]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_vaccination_move_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.vaccination,-1</field>
+            <field name="action" ref="act_vaccination_move_form1"/>
+        </record>
+
+        <!-- Inherit vaccination view to add stock location field -->
+        <record model="ir.ui.view" id="gnuhealth_vaccination_stock_form">
+            <field name="model">gnuhealth.vaccination</field>
+            <field name="inherit" ref="health.gnuhealth_vaccination_form"/>
+            <field name="type">form</field>
+            <field name="name">vaccination_form</field>
         </record>
 
     </data>

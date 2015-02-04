@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <data>
     <xpath expr="//field[@name=&quot;rh&quot;]" position="after">
+        <label name="patient_status"/>
         <field name="patient_status"/>
     </xpath>
 </data>

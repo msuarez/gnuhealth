@@ -946,6 +946,15 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
+        <record model="ir.model.access" id="access_health_hospital_bed_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.hospital.bed')]"/>
+            <field name="group" ref="group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
 <!-- END OF DOCTOR GROUP ACCESS RIGHTS -->
 
 <!-- BEGIN SOCIAL WORKER GROUP ACCESS RIGHTS -->

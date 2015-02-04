@@ -38,7 +38,7 @@
                         <field height="100" name="general_info"/>
                     </group>
                     <newline/>
-                    <group colspan="4" col="8" id="patient_info_2">
+                    <group colspan="4" col="10" id="patient_info_2">
                         <label name="dob"/>
                         <field name="dob"/>
 <!--

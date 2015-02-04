@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree string="Birh Certificate">
+    <field name="name" expand="1"/>
+    <field name="code" expand="1"/>
+    <field name="dob" expand="1"/>
+    <field name="signed_by" tree_invisible="1"/>
+    <field name="institution" tree_invisible="1"/>
+</tree>

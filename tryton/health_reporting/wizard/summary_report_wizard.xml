@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="summary_report_open_start_view_form">
+            <field name="model">gnuhealth.summary.report.open.start</field>
+            <field name="type">form</field>
+            <field name="name">summary_report_open_start_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="act_wizard_summary_report">
+            <field name="name">Demographics Summary</field>
+            <field name="wiz_name">gnuhealth.summary.report.open</field>
+        </record>
+        
+        <!-- Shortcut to report from Institution Model -->
+        <record model="ir.action.keyword" id="keyword_summary_report">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.institution,-1</field>
+            <field name="action" ref="act_wizard_summary_report"/>
+        </record>
+
+        <menuitem parent="health.gnuhealth_reporting_menu"
+            action="act_wizard_summary_report" icon="gnuhealth-list"
+            id="menu_institution_summary_report" sequence="1"/>
+
+    </data>
+</tryton>

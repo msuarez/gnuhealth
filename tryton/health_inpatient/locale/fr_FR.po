@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Emmanuel Simond <emanediteur@gmail.com>, 2014
+# Emmanuel Simond, 2014
 # Eriam Schaffter <eriam@mediavirtuel.com>, 2012
 # Eric Vernichon <eric@vernichon.fr>, 2011
 # gestionRessources <klinik_mailinglist@gestion-ressources.com>, 2011
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:23+0000\n"
-"PO-Revision-Date: 2014-06-27 23:00+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-26 16:55+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -530,8 +530,8 @@ msgid "Write User"
 msgstr "Inscrivez utilisateur"
 
 msgctxt "field:gnuhealth.patient,patient_status:"
-msgid "Hospitalization Status"
-msgstr "Statut d'hospitalisation"
+msgid "Hospitalized"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
 msgid "Inpatient Sequence"
@@ -647,8 +647,8 @@ msgid "Health Professional that discharged the patient"
 msgstr ""
 
 msgctxt "help:gnuhealth.patient,patient_status:"
-msgid "Patient current Hospitalization Status"
-msgstr "Statut Actuel Hospitalisation Patient"
+msgid "Show the hospitalization status of the patient"
+msgstr ""
 
 msgctxt "model:gnuhealth.bed.transfer,name:"
 msgid "Bed transfers"

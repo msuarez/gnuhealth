@@ -1,15 +1,18 @@
 # 
 # Translators:
+# Bruno Villasanti <bvillasanti@thymbra.com>, 2014-2015
 # Carlos <carloschebair@gmail.com>, 2013
 # cristina <cmelgosa@thymbra.com>, 2012
-# meanmicio <lfalcon@gnusolidario.org>, 2013
+# cristina <cmelgosa@thymbra.com>, 2012
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013
+# Luis Falcon <lfalcon@gnusolidario.org>, 2013
 # Sebastián Marró <smarro@thymbra.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2014-06-27 19:22+0000\n"
-"PO-Revision-Date: 2014-06-27 23:01+0000\n"
+"POT-Creation-Date: 2015-01-27 11:17+0000\n"
+"PO-Revision-Date: 2015-01-30 17:11+0000\n"
 "Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +27,7 @@ msgstr "Evaluación del paciente e Historia"
 
 msgctxt "odt:patient.evaluation:"
 msgid "& history"
-msgstr ""
+msgstr "& historia"
 
 msgctxt "odt:patient.evaluation:"
 msgid "*"
@@ -104,7 +107,7 @@ msgstr "Edad"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Annotations about the patient condition"
-msgstr ""
+msgstr "Apuntes de la condición del paciente"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Anthropometry"
@@ -112,7 +115,7 @@ msgstr "Antropometría"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Automated"
-msgstr ""
+msgstr "Informe"
 
 msgctxt "odt:patient.evaluation:"
 msgid "BMI"
@@ -152,7 +155,7 @@ msgstr "Diagnosticada"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Diagnostics Section"
-msgstr ""
+msgstr "Sección de Diagnósticos"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Diastolic"
@@ -185,6 +188,10 @@ msgstr "Fin"
 msgctxt "odt:patient.evaluation:"
 msgid "Ethnicity:"
 msgstr "Grupo étnico:"
+
+msgctxt "odt:patient.evaluation:"
+msgid "Evaluation Digital Signature"
+msgstr "Firma Digital de la Evaluación"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Evaluation date:"
@@ -347,8 +354,8 @@ msgid "Primary School"
 msgstr "Escuela Primaria"
 
 msgctxt "odt:patient.evaluation:"
-msgid "Print Date :"
-msgstr "Fecha impresión :"
+msgid "Print Date:"
+msgstr "Fecha de impresión:"
 
 msgctxt "odt:patient.evaluation:"
 msgid "Remarks"
@@ -508,7 +515,7 @@ msgstr "moderado"
 
 msgctxt "odt:patient.evaluation:"
 msgid "report about patient important conditions"
-msgstr ""
+msgstr "automatizado sobre las condiciones importantes del paciente"
 
 msgctxt "odt:patient.evaluation:"
 msgid "risky"
