@@ -110,7 +110,7 @@ class Lab(ModelSQL, ModelView):
         return datetime.now()
 
     @staticmethod
-    def default_analysis():
+    def default_date_analysis():
         return datetime.now()
 
     @classmethod
