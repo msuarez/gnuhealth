@@ -144,7 +144,10 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             name = attrgetter(self.map['name'])(self.procedure)
             if name:
                 concept.coding[0].display = supermod.string(value=name)
+                concept.text=supermod.string(value=name)
             concept.coding[0].code=supermod.code(value=attrgetter(self.map['code'])(self.procedure))
+            #ICD-10-PCS
+            concept.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.4')
             self.set_type(concept)
 
     def export_to_xml_string(self):
