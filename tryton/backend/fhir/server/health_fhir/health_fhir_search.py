@@ -2,6 +2,7 @@ from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map
 from .health_fhir_practitioner import Practitioner_Map
 from .health_fhir_procedure import Procedure_Map
+from .health_fhir_condition import Condition_Map 
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
 from server.common import safe_attrgetter
 import re
@@ -21,13 +22,15 @@ class health_Search:
                             'observation',
                             'practitioner',
                             'procedure',
-                            'diagnostic_report'):
+                            'diagnostic_report',
+                            'condition'):
             raise ValueError('Not a valid endpoint')
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
         self.procedure=Procedure_Map()
         self.diagnostic_report=DiagnosticReport_Map()
         self.patient=Patient_Map()
+        self.condition=Condition_Map()
         self.endpoint = getattr(self, endpoint)
 
         self.__get_dt_parser()
@@ -230,6 +233,8 @@ class health_Search:
                 current_map=self.practitioner
             elif target_resource == 'Procedure':
                 current_map=self.procedure
+            elif target_resource == 'Condition':
+                current_map=self.condition
             else:
                 raise ValueError('Unknown chain target')
             try:

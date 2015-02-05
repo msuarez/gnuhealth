@@ -11,7 +11,7 @@ Setup the environment (as the gnuhealth user):
     $ virtualenv -p /usr/bin/python2 venv   # Create the environment, with the Python 2.x interpreter
     $ source venv/bin/activate              # Active the environment
 
-Now just install the packages:
+Now install the packages:
 
     $ pip install Flask Flask-Login Flask-Tryton Flask-Restful Flask-WTF        # Flask, and the addons
     $ pip install Tornado psycopg2                                              # HTTP server and database driver

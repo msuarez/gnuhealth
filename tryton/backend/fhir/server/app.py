@@ -111,6 +111,18 @@ def create_app(config=None):
                         '/Procedure/<int:log_id>/_history',
                         '/Procedure/<int:log_id>/_history/<string:v_id>')
 
+        from server.resources.condition import (CO_Create, CO_Search,
+                                        CO_Validate, CO_Record, CO_Version)
+        api.add_resource(CO_Create, '/Condition')
+        api.add_resource(CO_Record, '/Condition/<int:log_id>')
+        api.add_resource(CO_Search, '/Condition', '/Condition/_search')
+        api.add_resource(CO_Validate,
+                        '/Condition/_validate',
+                        '/Condition/_validate/<int:log_id>')
+        api.add_resource(CO_Version,
+                        '/Condition/<int:log_id>/_history',
+                        '/Condition/<int:log_id>/_history/<string:v_id>')
+
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD
         from server.resources.auth import auth_endpoint
