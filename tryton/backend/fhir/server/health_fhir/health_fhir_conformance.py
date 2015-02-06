@@ -7,9 +7,10 @@ from .health_fhir_practitioner import Practitioner_Map
 from .health_fhir_procedure import Procedure_Map
 from .health_fhir_condition import Condition_Map
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
+from .health_fhir_family_history import FamilyHistory_Map
 import server.fhir as supermod
 
-UPDATED=datetime(2015, 2, 4).strftime('%Y/%m/%d')
+UPDATED=datetime(2015, 2, 5).strftime('%Y/%m/%d')
 
 class health_Conformance(supermod.Conformance):
     def __init__(self, *args, **kwargs):
@@ -24,6 +25,7 @@ class health_Conformance(supermod.Conformance):
         self.procedure=Procedure_Map()
         self.condition=Condition_Map()
         self.diagnostic_report=DiagnosticReport_Map()
+        self.family_history=FamilyHistory_Map()
 
         self.__set_rest()
         self.__set_format()
@@ -80,7 +82,8 @@ class health_Conformance(supermod.Conformance):
                             ('Practitioner', self.practitioner),
                             ('Procedure', self.procedure),
                             ('Observation', self.observation),
-                            ('Condition', self.condition)]:
+                            ('Condition', self.condition),
+                            ('FamilyHistory', self.family_history)]:
             e = supermod.Conformance_Resource()
             e.type_=supermod.code(value=endpoint)
             e.operation=[supermod.code(value=operation) for operation in ['read', 'validate', 'search']]

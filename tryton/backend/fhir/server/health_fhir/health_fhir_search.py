@@ -4,6 +4,7 @@ from .health_fhir_practitioner import Practitioner_Map
 from .health_fhir_procedure import Procedure_Map
 from .health_fhir_condition import Condition_Map 
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
+from .health_fhir_family_history import FamilyHistory_Map
 from server.common import safe_attrgetter
 import re
 
@@ -23,7 +24,8 @@ class health_Search:
                             'practitioner',
                             'procedure',
                             'diagnostic_report',
-                            'condition'):
+                            'condition',
+                            'family_history'):
             raise ValueError('Not a valid endpoint')
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
@@ -31,6 +33,7 @@ class health_Search:
         self.diagnostic_report=DiagnosticReport_Map()
         self.patient=Patient_Map()
         self.condition=Condition_Map()
+        self.family_history=FamilyHistory_Map()
         self.endpoint = getattr(self, endpoint)
 
         self.__get_dt_parser()
@@ -216,7 +219,11 @@ class health_Search:
         """Take chain info, and return correct attr(s)"""
         assert info['type'] == 'reference'
         attrs = []
-        attrs.extend(self.endpoint.search_mapping[info['key']])
+        t=self.endpoint.search_mapping[info['key']]
+        # Fix for searching from different start from expected model
+        #  (e.g., FamilyHistory --> patient.search()
+        if t:
+            attrs.extend(t)
         target_resource = info['modifier'] or self.endpoint.chain_map[info['key']]
         while True:
             if not info['chains']:
@@ -235,6 +242,8 @@ class health_Search:
                 current_map=self.procedure
             elif target_resource == 'Condition':
                 current_map=self.condition
+            elif target_resource == 'FamilyHistory':
+                current_map=self.family_history
             else:
                 raise ValueError('Unknown chain target')
             try:

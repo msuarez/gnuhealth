@@ -123,6 +123,15 @@ def create_app(config=None):
                                     'validate': CO_Validate,
                                     'version': CO_Version})
 
+        from server.resources.family_history import (FH_Create, FH_Search,
+                                        FH_Validate, FH_Record, FH_Version)
+        add_fhir_routes('FamilyHistory',
+                                    {'create': FH_Create,
+                                    'search': FH_Search,
+                                    'record': FH_Record,
+                                    'validate': FH_Validate,
+                                    'version': FH_Version})
+
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD
         from server.resources.auth import auth_endpoint

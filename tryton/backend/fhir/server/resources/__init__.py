@@ -6,3 +6,4 @@ from server.resources.patient import *
 from server.resources.practitioner import *
 from server.resources.procedure import *
 from server.resources.condition import *
+from server.resources.family_history import *

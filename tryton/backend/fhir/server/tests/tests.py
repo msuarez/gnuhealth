@@ -36,7 +36,8 @@ class MyTest(unittest.TestCase):
         assert 302 == resp.status_code
         rv = self.login('admin', 'gnusolidario')
         for ep in ['/Patient', '/DiagnosticReport', '/Observation',
-                '/Procedure', '/Practitioner', '/Condition']:
+                '/Procedure', '/Practitioner', '/Condition',
+                '/FamilyHistory']:
             resp = self.client.get(ep)
             assert 200 == resp.status_code
             assert 'feed' in resp.data
