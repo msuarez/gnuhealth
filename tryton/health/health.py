@@ -382,7 +382,7 @@ class PartyPatient (ModelSQL, ModelView):
                 # The field "code" is the one that is used in distributed
                 # environments, with multiple GNU Health instances across
                 # a country / region
-                values['code'] = str(uuid4()) + '-' + str(suffix)
+                values['code'] = '%s-%s' % (uuid4(), suffix)
 
             values.setdefault('addresses', None)
 
