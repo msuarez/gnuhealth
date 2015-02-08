@@ -1,3 +1,38 @@
+changeset:   1839:d636c42033f4
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 08 19:48:41 2015 +0000
+summary:     Update version to patchset 2.8.1
+
+changeset:   1838:2e9d6767a751
+branch:      stable
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Feb 04 17:07:21 2015 -0300
+summary:     health_lab : Fix bug #44165: Typo in default date analysis.
+
+changeset:   1837:689a171ee5af
+branch:      stable
+parent:      1835:c81a9b23b105
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 08 19:29:39 2015 +0000
+summary:     installer : fix bug #44182: 2.8 installer fails with TRYTOND_CONFIG variable not set
+
+changeset:   1835:c81a9b23b105
+branch:      stable
+parent:      1825:20e41412f220
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 07 21:11:24 2015 +0000
+summary:     health : fix bug #44189: Ascii code Error when trying to create Institution
+
+changeset:   1825:20e41412f220
+branch:      stable
+parent:      1641:c22af9f2a70b
+parent:      1820:9073b042c9f0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 04 18:42:40 2015 +0000
+summary:     Merge default (development) branch at release 1820 tag 2.8.0 to stable
+
 changeset:   1819:6610646ea829
 tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
