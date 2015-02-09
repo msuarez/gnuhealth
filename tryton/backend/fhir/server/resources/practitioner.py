@@ -37,24 +37,24 @@ class HP_Search(Resource):
         try:
             s = health_Search(endpoint='practitioner')
             query=s.get_query(request.args)
-            if query is not None:
-                total_recs = practitioner.search_count(query)
-                per_page = int(request.args.get('_count', 10))
-                page = int(request.args.get('page', 1))
-                bd=Bundle(request=request,
-                                total=total_recs,
-                                per_page = per_page,
-                                page = page)
-                offset = (page-1) * per_page
-                for rec in practitioner.search(query,
-                                        offset=offset,
-                                        limit=per_page):
-                    try:
-                        p = health_Practitioner(gnu_record=rec)
-                    except:
-                        continue
-                    else:
-                        bd.add_entry(p)
+            total_recs = practitioner.search_count(query)
+            per_page = int(request.args.get('_count', 10))
+            page = int(request.args.get('page', 1))
+            bd=Bundle(request=request,
+                            total=total_recs,
+                            per_page = per_page,
+                            page = page)
+            offset = (page-1) * per_page
+            for rec in practitioner.search(query,
+                                    offset=offset,
+                                    limit=per_page,
+                                    order=[('id', 'DESC')]):
+                try:
+                    p = health_Practitioner(gnu_record=rec)
+                except:
+                    continue
+                else:
+                    bd.add_entry(p)
             if bd.entries:
                 return bd, 200
             else:
@@ -139,8 +139,6 @@ class HP_Record(Resource):
             oo=health_OperationOutcome()
             oo.add_issue(details='No record', severity='error')
             return oo, 404
-            #if track deleted records
-            #return 'Record deleted', 410
 
     @tryton.transaction(user=get_userid)
     def put(self, log_id):
@@ -150,16 +148,12 @@ class HP_Record(Resource):
     @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
-
-        #For now, don't allow (never allow?)
         return 'Not implemented', 405
 
 class HP_Version(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
-
-        #No support for this in Health... yet?
         return 'Not supported', 405
 
 __all__=['HP_Create', 'HP_Search', 'HP_Version', 'HP_Validate', 'HP_Record']

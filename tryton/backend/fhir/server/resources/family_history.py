@@ -27,24 +27,24 @@ class FH_Search(Resource):
         try:
             s = health_Search(endpoint='family_history')
             query=s.get_query(request.args)
-            if query is not None:
-                total_recs = patient.search_count(query)
-                per_page = int(request.args.get('_count', 10))
-                page = int(request.args.get('page', 1))
-                bd=Bundle(request=request,
-                                total=total_recs,
-                                per_page = per_page,
-                                page = page)
-                offset = (page-1) * per_page
+            total_recs = patient.search_count(query)
+            per_page = int(request.args.get('_count', 10))
+            page = int(request.args.get('page', 1))
+            bd=Bundle(request=request,
+                            total=total_recs,
+                            per_page = per_page,
+                            page = page)
+            offset = (page-1) * per_page
 
-                for pat in patient.search(query,
-                                        offset=offset,
-                                        limit=per_page):
-                    try:
-                        p = health_FamilyHistory(gnu_records=pat.family_history)
-                    except:
-                        continue
-                    else:
+            for pat in patient.search(query,
+                                    offset=offset,
+                                    limit=per_page,
+                                    order=[('id', 'DESC')]):
+                try:
+                    p = health_FamilyHistory(gnu_records=pat.family_history)
+                except:
+                    continue
+                else:
                         bd.add_entry(p)
             if bd.entries:
                 return bd, 200

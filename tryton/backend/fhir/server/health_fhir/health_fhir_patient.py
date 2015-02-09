@@ -4,6 +4,7 @@ from datetime import datetime
 from .datastore import find_record
 import server.fhir as supermod
 from server.common import get_address
+import sys
 
 try:
     from flask import current_app, url_for
@@ -351,14 +352,16 @@ class health_Patient(supermod.Patient, Patient_Map):
 
     def __set_gnu_gender(self):
         try:
-            gender = attrgetter(self.map['gender'])(self.patient)
+            from server.fhir.value_sets import administrativeGender as gender
+            us = attrgetter(self.map['gender'])(self.patient).upper()
+            sd = [x for x in gender.contents if x['code'] == us][0]
             coding = supermod.Coding(
-                        system=supermod.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
-                        code=supermod.code(value=gender.upper()),
-                        display=supermod.string(value='Male' if gender == 'm' else 'Female')
+                        system=supermod.uri(value=sd['system']),
+                        code=supermod.code(value=sd['code']),
+                        display=supermod.string(value=sd['display'])
                         )
-            gender=supermod.CodeableConcept(coding=[coding])
-            self.set_gender(gender)
+            g=supermod.CodeableConcept(coding=[coding])
+            self.set_gender(g)
         except:
             raise ValueError('No gender')
 
@@ -587,16 +590,15 @@ class health_Patient(supermod.Patient, Patient_Map):
     def __set_gnu_marital_status(self):
         if self.patient:
             try:
+                from server.fhir.value_sets import maritalStatus as ms
                 #Health has concubinage and separated, which aren't truly
                 # matching to the FHIR defined statuses
-                status = attrgetter(self.map['maritalStatus'])(self.patient).upper()
-                statuses = { 'M': 'Married',
-                        'W': 'Widowed',
-                        'D': 'Divorced',
-                        'S': 'Single'}
-                if status in statuses:
-                    code = supermod.code(value=status)
-                    display = supermod.string(value=statuses[status])
+                us=attrgetter(self.map['maritalStatus'])(self.patient).upper()
+                fhir_status = [x for x in ms.contents\
+                                        if x['code'] == us]
+                if fhir_status:
+                    code = supermod.code(value=ms[0]['code'])
+                    display = supermod.string(value=ms[0]['display'])
                 else:
                     code = supermod.code(value='OTH')
                     display = supermod.string(value='other')

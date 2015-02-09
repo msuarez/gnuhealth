@@ -267,7 +267,7 @@ class health_Search:
             return self.__make_attrs(l, ['.'.join((l,a)) for l in current_attrs for a in at] or [a for a in at])
 
 
-    def __parse_url_string(self, request_args):
+    def parse_url_string(self, request_args):
         """Parse url string"""
         full_search_info=[]
         for key, values in request_args.iterlists():
@@ -312,7 +312,7 @@ class health_Search:
                     raise ValueError('Do not allow :exact with multiple AND values')
         return search_info
 
-    def __single_model_query_generate(self, request_args):
+    def single_model_query_generate(self, full_search_info):
         """For single model searches, no weird outer joins, etc.
 
         This function is bloated, but hard to simplify
@@ -320,7 +320,6 @@ class health_Search:
         return domain (e.g., [('name', 'ilike', '%e%')])
         """
         full_query=[]
-        full_search_info = self.__parse_url_string(request_args)
         #Look for key or key+modifier in the search_mapping
         for query in full_search_info:
             #Look for key+modifier first
@@ -423,4 +422,5 @@ class health_Search:
 
         For now, only single model support
         """
-        return self.__single_model_query_generate(request_args)
+        full_search_info=self.parse_url_string(request_args)
+        return self.single_model_query_generate(full_search_info)

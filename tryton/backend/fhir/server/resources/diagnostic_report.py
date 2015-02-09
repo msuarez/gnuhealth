@@ -38,24 +38,24 @@ class DR_Search(Resource):
         try:
             s = health_Search(endpoint='diagnostic_report')
             query=s.get_query(request.args)
-            if query is not None:
-                total_recs = diagnostic_report.search_count(query)
-                per_page = int(request.args.get('_count', 10))
-                page = int(request.args.get('page', 1))
-                bd=Bundle(request=request,
-                                total=total_recs,
-                                per_page = per_page,
-                                page = page)
-                offset = (page-1) * per_page
-                for rec in diagnostic_report.search(query,
-                                        offset=offset,
-                                        limit=per_page):
-                    try:
-                        p = health_DiagnosticReport(gnu_record=rec)
-                    except:
-                        continue
-                    else:
-                        bd.add_entry(p)
+            total_recs = diagnostic_report.search_count(query)
+            per_page = int(request.args.get('_count', 10))
+            page = int(request.args.get('page', 1))
+            bd=Bundle(request=request,
+                            total=total_recs,
+                            per_page = per_page,
+                            page = page)
+            offset = (page-1) * per_page
+            for rec in diagnostic_report.search(query,
+                                    offset=offset,
+                                    limit=per_page,
+                                    order=[('id', 'DESC')]):
+                try:
+                    p = health_DiagnosticReport(gnu_record=rec)
+                except:
+                    continue
+                else:
+                    bd.add_entry(p)
 
             if bd.entries:
                 return bd, 200
@@ -154,16 +154,12 @@ class DR_Record(Resource):
     @tryton.transaction(user=get_userid)
     def delete(self, log_id):
         '''Delete interaction'''
-
-        #For now, don't allow (never allow?)
         return 'Not implemented', 405
 
 class DR_Version(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
-
-        #No support for this in Health... yet?
         return 'Not supported', 405
 
 __all__=['DR_Version', 'DR_Record', 'DR_Validate', 'DR_Search', 'DR_Create']

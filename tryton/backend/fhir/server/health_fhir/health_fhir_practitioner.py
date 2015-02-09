@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
 import server.fhir as supermod
+import sys
 
 class Practitioner_Map:
 
@@ -17,7 +18,7 @@ class Practitioner_Map:
                 'communication': 'name.lang',
                 'specialty': 'specialties',
                 'role': 'name.occupation.name',
-                'sex': 'name.sex',
+                'gender': 'name.sex',
                 'identifier': 'name.puid',
                 'given': 'name.name',
                 'family': 'name.lastname',
@@ -138,14 +139,16 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
 
     def __set_gnu_gender(self):
         try:
-            gender = attrgetter(self.map['sex'])(self.practitioner)
+            from server.fhir.value_sets import administrativeGender as gender
+            us = attrgetter(self.map['gender'])(self.practitioner).upper()
+            sd = [x for x in gender.contents if x['code'] == us][0]
             coding = supermod.Coding(
-                        system=supermod.uri(value='http://hl7.org/fhir/v3/AdministrativeGender'),
-                        code=supermod.code(value=gender.upper()),
-                        display=supermod.string(value='Male' if gender == 'm' else 'Female')
+                        system=supermod.uri(value=sd['system']),
+                        code=supermod.code(value=sd['code']),
+                        display=supermod.string(value=sd['display'])
                         )
-            gender=supermod.CodeableConcept(coding=[coding])
-            self.set_gender(gender)
+            g=supermod.CodeableConcept(coding=[coding])
+            self.set_gender(g)
         except:
             pass
 
