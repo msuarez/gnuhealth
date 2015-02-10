@@ -17,7 +17,7 @@
                 <field name="end_treatment"/>
             </group>
             <newline/>
-            <group id="inpatient_medicament_form" string="Admnistration">
+            <group id="inpatient_medicament_form" string="Administration">
                 <label name="form"/>
                 <field name="form"/>
                 <label name="route"/>
