@@ -156,33 +156,6 @@ class PAT_Record(Resource):
     def put(self, log_id):
         '''Update interaction'''
         return 'Not supported', 405
-        #record = patient.search([('id', '=', log_id)], limit=1)
-        #if record:
-            #try:
-                #c=StringIO(request.data)
-                #res=parse(c)
-                #c.close()
-                #pat=parseEtree(StringIO(res))
-                #if not isinstance(pat, health_Patient):
-                    #return 'Resource type not supported', 404
-                #ds = res.get_gnu_patient()
-                #d = du.create([ds['du']])[0]
-                #ds['party']['du']=d
-                #n = party.create([ds['party']])[0]
-                #for cs in ds['contact_mechanism']:
-                    #if cs['value'] is not None:
-                        #cs['party']=n
-                        #contact.create([cs])
-                #ds['patient']['name']=n
-                #p=patient.create([ds['patient']])[0]
-            #except XMLSyntaxError:
-                #return 'Bad data', 400
-            #except:
-                #pass
-
-        #else:
-            # Do not allow client-defined ids
-            #return 'Record not found', 405
 
     @tryton.transaction(user=get_userid)
     def delete(self, log_id):
