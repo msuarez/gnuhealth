@@ -1,5 +1,5 @@
-# Script to run server; pass port option to change
-# listening port
+# Script to run server; pass port option to change listening port
+# Place one level outside of directory server/
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
