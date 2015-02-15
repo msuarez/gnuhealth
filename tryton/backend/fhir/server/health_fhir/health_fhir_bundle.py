@@ -37,23 +37,26 @@ class Bundle(AtomFeed):
         args = self.request.args.copy()
         href = Href(self.request.base_url)
 
-        # first link
-        args['page'] = 1
-        links.append({'href': href(args), 'rel': 'first'})
+        if total_pages > 1:
 
-        # last link
-        args['page'] = total_pages
-        links.append({'href': href(args), 'rel': 'last'})
+            # first link
+            args['page'] = 1
+            links.append({'href': href(args), 'rel': 'first'})
 
-        # prev link
-        if self.page > 1:
-            args['page'] = self.page-1
-            links.append({'href': href(args), 'rel': 'previous'})
+            # last link
+            args['page'] = total_pages
+            links.append({'href': href(args), 'rel': 'last'})
 
-        # next link
-        if self.page < total_pages:
-            args['page'] = self.page + 1
-            links.append({'href': href(args), 'rel': 'next'})
+            if self.page > 2:
+
+                # prev link
+                args['page'] = self.page-1
+                links.append({'href': href(args), 'rel': 'previous'})
+
+                # next link
+                if self.page < total_pages:
+                    args['page'] = self.page + 1
+                    links.append({'href': href(args), 'rel': 'next'})
 
         return links
 
