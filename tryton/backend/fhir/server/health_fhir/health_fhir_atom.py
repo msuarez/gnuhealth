@@ -74,9 +74,8 @@ class Bundle(supermod.FeedType):
         args = self.request.args.copy()
         href = Href(self.request.base_url)
 
-        l = supermod.linkType()
-
         # self link
+        l = supermod.linkType()
         l.rel = 'self'
         l.href = href(args)
         links.append(l)
@@ -86,6 +85,7 @@ class Bundle(supermod.FeedType):
             # first link
             if page > 1:
                 args['page'] = 1
+                l = supermod.linkType()
                 l.rel = 'first'
                 l.href = href(args)
                 links.append(l)
@@ -93,6 +93,7 @@ class Bundle(supermod.FeedType):
             # last link
             if page < total_pages:
                 args['page'] = total_pages
+                l = supermod.linkType()
                 l.rel = 'last'
                 l.href = href(args)
                 links.append(l)
@@ -100,6 +101,7 @@ class Bundle(supermod.FeedType):
             # next link
             if page < total_pages - 1:      # last link already generated
                 args['page'] = page + 1
+                l = supermod.linkType()
                 l.rel = 'next'
                 l.href = href(args)
                 links.append(l)
@@ -107,6 +109,7 @@ class Bundle(supermod.FeedType):
             # prev link
             if page > 2:
                 args['page'] = page-1
+                l = supermod.linkType()
                 l.rel = 'previous'
                 l.href = href(args)
                 links.append(l)
