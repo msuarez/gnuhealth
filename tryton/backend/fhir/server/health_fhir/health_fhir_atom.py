@@ -297,7 +297,11 @@ class Bundle(supermod.FeedType):
     def export_to_xml_string(self):
         """Export to atom format"""
         i = StringIO()
-        self.export(i, level=0, namespace_='', name_='feed', namespacedef_='xmlns="http://www.w3.org/2005/Atom"')
+        self.export(i,
+                    level=0,
+                    namespace_='',
+                    name_='feed',
+                    namespacedef_='xmlns="http://www.w3.org/2005/Atom" xmlns:os="http://a9.com/-/spec/opensearch/1.1/"')
         return i.getvalue()
 
 supermod.FeedType.subclass = Bundle
