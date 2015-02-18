@@ -524,7 +524,12 @@ class FeedType(GeneratedsSuper):
             deleted_entry_.export(outfile, level, namespace_='at:', name_='deleted-entry', pretty_print=pretty_print)
         for totalResults_ in self.totalResults:
             showIndent(outfile, level, pretty_print)
-            outfile.write('<%stotalResults>%s</%stotalResults>%s' % (namespace_, self.gds_format_integer(totalResults_, input_name='totalResults'), namespace_, eol_))
+            outfile.write('<%stotalResults %s>%s</%stotalResults>%s' %
+                        ('os:',
+                        'xmlns="http://a9.com/-/spec/opensearch/1.1/"',
+                        self.gds_format_integer(totalResults_,
+                                input_name='totalResults'),
+                        'os:', eol_))
         for score_ in self.score:
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sscore>%s</%sscore>%s' % (namespace_, self.gds_format_float(score_, input_name='score'), namespace_, eol_))

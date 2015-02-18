@@ -1,5 +1,5 @@
 from math import ceil
-from werkzeug.urls import Href
+from werkzeug.urls import Href, url_quote
 from datetime import datetime
 from StringIO import StringIO
 import server.fhir as supermod
@@ -32,11 +32,19 @@ class Bundle(supermod.FeedType):
     def entries(self):
         return self.entry
 
+    @staticmethod
+    def format_iso8601(obj):
+        """Format a datetime object for iso8601"""
+        iso8601 = obj.isoformat()
+        if obj.tzinfo:
+            return iso8601
+        return iso8601 + 'Z'
+
     def set_id(self, id_):
         """Set id"""
         if id_:
             i = supermod.IdType()
-            i.set_valueOf_(str(id_))
+            i.set_valueOf_(url_quote(id_))
             super(Bundle, self).set_id([i])
 
     def set_author(self, author):
@@ -59,7 +67,7 @@ class Bundle(supermod.FeedType):
         """Set updated; datetime object"""
         if updated is not None:
             u = supermod.DateTimeType()
-            u.set_valueOf_(updated.isoformat())
+            u.set_valueOf_(self.format_iso8601(updated))
             super(Bundle, self).set_updated([u])
 
     def set_totalResults(self, total):
@@ -77,7 +85,8 @@ class Bundle(supermod.FeedType):
         # self link
         l = supermod.linkType()
         l.rel = 'self'
-        l.href = href(args)
+        f = {k:v for k,v in args.items() if k not in ['_count', 'page']}
+        l.href = href(f)
         links.append(l)
 
         if total_pages > 1:
@@ -127,8 +136,8 @@ class Bundle(supermod.FeedType):
                     supermod.MixedContainer.TypeNone, '', entry.feed['title']))
             e.title=[t]
             e.id = [supermod.IdType(valueOf_=entry.feed['id'])]
-            e.updated = [supermod.DateTimeType(valueOf_=entry.feed['updated'].isoformat())]
-            e.published = [supermod.DateTimeType(valueOf_=entry.feed['published'].isoformat())]
+            e.updated = [supermod.DateTimeType(valueOf_=self.format_iso8601(entry.feed['updated']))]
+            e.published = [supermod.DateTimeType(valueOf_=self.format_iso8601(entry.feed['published']))]
             ct = supermod.ContentType(type_='text/xml') # only xml for now
 
             if isinstance(entry, supermod.Binary):

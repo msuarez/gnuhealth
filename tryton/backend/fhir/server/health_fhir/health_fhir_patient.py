@@ -124,7 +124,11 @@ class health_Patient(supermod.Patient, Patient_Map):
         ''' Sets the feed-relevant info
         '''
         if self.patient:
-            self.feed={'id': self.patient.id,
+            if RUN_FLASK:
+                uri = url_for('pat_record', log_id=self.patient.id, _external=True)
+            else:
+                uri = dumb_url_generate(['Patient', self.patient.id])
+            self.feed={'id': uri,
                     'published': self.patient.create_date,
                     'updated': self.patient.write_date or self.patient.create_date,
                     'title': self.patient.name.rec_name
