@@ -481,6 +481,8 @@ class FeedType(GeneratedsSuper):
             eol_ = ''
         if self.original_tagname_ is not None:
             name_ = self.original_tagname_
+        #only run once (hopefully)
+        outfile.write('<?xml version="1.0" encoding="utf-8"?>\n')
         showIndent(outfile, level, pretty_print)
         outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
         already_processed = set()
@@ -2279,7 +2281,7 @@ class TextType(GeneratedsSuper):
             return True
         else:
             return False
-    def export(self, outfile, level, namespace_='', name_='TextType', namespacedef_='', pretty_print=True):
+    def export(self, outfile, level, namespace_='', name_='TextType', namespacedef_='', pretty_print=False):
         if pretty_print:
             eol_ = '\n'
         else:
@@ -2291,9 +2293,9 @@ class TextType(GeneratedsSuper):
         already_processed = set()
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='TextType')
         if self.hasContent_():
-            outfile.write('>%s' % (eol_, ))
-            self.exportChildren(outfile, level + 1, namespace_='', name_='TextType', pretty_print=pretty_print)
-            showIndent(outfile, level, pretty_print)
+            outfile.write('>%s' % ('', ))
+            self.exportChildren(outfile, level + 1, namespace_='', name_='TextType', pretty_print=False)
+            #showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_, ))
@@ -2307,7 +2309,7 @@ class TextType(GeneratedsSuper):
         if self.type_ is not None and 'type_' not in already_processed:
             already_processed.add('type_')
             outfile.write(' type=%s' % (self.gds_format_string(quote_attrib(self.type_).encode(ExternalEncoding), input_name='type'), ))
-    def exportChildren(self, outfile, level, namespace_='', name_='TextType', fromsubclass_=False, pretty_print=True):
+    def exportChildren(self, outfile, level, namespace_='', name_='TextType', fromsubclass_=False, pretty_print=False):
         if not fromsubclass_:
             for item_ in self.content_:
                 item_.export(outfile, level, item_.name, namespace_, pretty_print=pretty_print)
