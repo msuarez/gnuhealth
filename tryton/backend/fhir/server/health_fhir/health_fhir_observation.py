@@ -251,7 +251,14 @@ class health_Observation(supermod.Observation, Observation_Map):
 
     def __set_feed_info(self):
         if self.gnu_obs:
-            self.feed={'id': self.gnu_obs.id,
+            if RUN_FLASK:
+                uri = url_for('obs_record',
+                                log_id=self.gnu_obs.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['Observation',
+                                self.gnu_obs.id])
+            self.feed={'id': uri,
                     'published': self.gnu_obs.create_date,
                     'updated': self.gnu_obs.write_date or self.gnu_obs.create_date,
                     'title': self.identifier.label.value

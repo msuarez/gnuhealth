@@ -95,7 +95,13 @@ class health_Condition(supermod.Condition, Condition_Map):
         ''' Sets the feed-relevant info
         '''
         if self.condition:
-            self.feed={'id': self.condition.id,
+            if RUN_FLASK:
+                uri = url_for('co_record',
+                                log_id=self.condition.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['Condition', self.condition.id])
+            self.feed={'id': uri,
                     'published': self.condition.create_date,
                     'updated': self.condition.write_date or self.condition.create_date,
                     'title': attrgetter('pathology.name')(self.condition)

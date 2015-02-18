@@ -86,7 +86,14 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
         ''' Sets the feed-relevant info
         '''
         if self.family_history:
-            self.feed={'id': self.family_history[0].patient.id,
+            if RUN_FLASK:
+                uri = url_for('fh_record',
+                                log_id=self.family_history[0].id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['FamilyHistory',
+                                self.family_history[0].id])
+            self.feed={'id': uri,
                     'published': self.family_history[0].create_date,
                     'updated': self.family_history[0].write_date or self.family_history[0].create_date,
                     'title': 'Family history for {}'.format(self.family_history[0].patient.rec_name)

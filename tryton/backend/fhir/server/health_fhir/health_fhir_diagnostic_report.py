@@ -116,7 +116,14 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         ''' Sets the feed-relevant info
         '''
         if self.diagnostic_report:
-            self.feed={'id': self.diagnostic_report.id,
+            if RUN_FLASK:
+                uri = url_for('dr_record',
+                                log_id=self.diagnostic_report.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['DiagnosticReport',
+                                self.diagnostic_report.id])
+            self.feed={'id': uri,
                     'published': self.diagnostic_report.create_date,
                     'updated': self.diagnostic_report.write_date or self.diagnostic_report.create_date,
                     'title': self.diagnostic_report.rec_name

@@ -102,7 +102,14 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         ''' Sets the feed-relevant info
         '''
         if self.procedure:
-            self.feed={'id': self.procedure.id,
+            if RUN_FLASK:
+                uri = url_for('op_record',
+                                log_id=self.procedure.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['Procedure',
+                                self.procedure.id])
+            self.feed={'id': uri,
                     'published': self.procedure.create_date,
                     'updated': self.procedure.write_date or self.procedure.create_date,
                     'title': attrgetter(self.map['name'])(self.procedure)

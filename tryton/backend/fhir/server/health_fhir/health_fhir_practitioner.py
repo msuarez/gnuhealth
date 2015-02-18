@@ -84,7 +84,14 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
         ''' Sets the feed-relevant info
         '''
         if self.practitioner:
-            self.feed={'id': self.practitioner.id,
+            if RUN_FLASK:
+                uri = url_for('pat_record',
+                                log_id=self.practitioner.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['Practitioner',
+                                self.practitioner.id])
+            self.feed={'id': uri,
                     'published': self.practitioner.name.create_date,
                     'updated': self.practitioner.name.write_date or self.practitioner.name.create_date,
                     'title': self.practitioner.name.rec_name
