@@ -32,14 +32,6 @@ class Bundle(supermod.FeedType):
     def entries(self):
         return self.entry
 
-    @staticmethod
-    def format_iso8601(obj):
-        """Format a datetime object for iso8601"""
-        iso8601 = obj.isoformat()
-        if obj.tzinfo:
-            return iso8601
-        return iso8601 + 'Z'
-
     def set_id(self, id_):
         """Set id"""
         if id_:
@@ -67,7 +59,7 @@ class Bundle(supermod.FeedType):
         """Set updated; datetime object"""
         if updated is not None:
             u = supermod.DateTimeType()
-            u.set_valueOf_(self.format_iso8601(updated))
+            u.set_valueOf_(updated)
             super(Bundle, self).set_updated([u])
 
     def set_totalResults(self, total):
@@ -136,8 +128,8 @@ class Bundle(supermod.FeedType):
                     supermod.MixedContainer.TypeNone, '', entry.feed['title']))
             e.title=[t]
             e.id = [supermod.IdType(valueOf_=entry.feed['id'])]
-            e.updated = [supermod.DateTimeType(valueOf_=self.format_iso8601(entry.feed['updated']))]
-            e.published = [supermod.DateTimeType(valueOf_=self.format_iso8601(entry.feed['published']))]
+            e.updated = [supermod.DateTimeType(valueOf_=entry.feed['updated'])]
+            e.published = [supermod.DateTimeType(valueOf_=entry.feed['published'])]
             ct = supermod.ContentType(type_='text/xml') # only xml for now
 
             if isinstance(entry, supermod.Binary):

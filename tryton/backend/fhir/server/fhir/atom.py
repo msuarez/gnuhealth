@@ -28,6 +28,13 @@ class DateTimeType(GeneratedsSuper):
             return True
         else:
             return False
+    @staticmethod
+    def format_iso8601(obj):
+        """Format a datetime object for iso8601 (Atom standard)"""
+        iso8601 = obj.isoformat()
+        if obj.tzinfo:
+            return iso8601
+        return ''.join((iso8601,'Z'))
     def export(self, outfile, level, namespace_='', name_='DateTimeType', namespacedef_='', pretty_print=True):
         if pretty_print:
             eol_ = '\n'
@@ -41,7 +48,7 @@ class DateTimeType(GeneratedsSuper):
         self.exportAttributes(outfile, level, already_processed, namespace_, name_='DateTimeType')
         if self.hasContent_():
             outfile.write('>')
-            outfile.write(str(self.valueOf_).encode(ExternalEncoding))
+            outfile.write(self.format_iso8601(self.valueOf_).encode(ExternalEncoding))
             self.exportChildren(outfile, level + 1, namespace_='', name_='DateTimeType', pretty_print=pretty_print)
             outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
         else:
