@@ -117,7 +117,7 @@ class Query_Response(BackboneElement):
     """A description of a query with a set of parameters."""
     subclass = None
     superclass = BackboneElement
-    def __init__(self, id=None, extension=None, modifierExtension=None, identifier=None, outcome=None, total=None, parameter=None, first=None, previous=None, next=None, last=None, reference=None):
+    def __init__(self, id=None, extension=None, modifierExtension=None, identifier=None, outcome=None, total=None, parameter=None, first=None, previous=None, next_=None, last=None, reference=None):
         self.original_tagname_ = None
         super(Query_Response, self).__init__(id, extension, modifierExtension, )
         self.identifier = identifier
@@ -135,10 +135,10 @@ class Query_Response(BackboneElement):
             self.previous = []
         else:
             self.previous = previous
-        if next is None:
-            self.next = []
+        if next_ is None:
+            self.next_ = []
         else:
-            self.next = next
+            self.next_ = next_
         if last is None:
             self.last = []
         else:
@@ -171,10 +171,10 @@ class Query_Response(BackboneElement):
     def set_previous(self, previous): self.previous = previous
     def add_previous(self, value): self.previous.append(value)
     def insert_previous(self, index, value): self.previous[index] = value
-    def get_next(self): return self.__next__
-    def set_next(self, next): self.next = next
-    def add_next(self, value): self.next.append(value)
-    def insert_next(self, index, value): self.next[index] = value
+    def get_next(self): return self.next_
+    def set_next(self, next_): self.next_ = next_
+    def add_next(self, value): self.next_.append(value)
+    def insert_next(self, index, value): self.next_[index] = value
     def get_last(self): return self.last
     def set_last(self, last): self.last = last
     def add_last(self, value): self.last.append(value)
@@ -191,7 +191,7 @@ class Query_Response(BackboneElement):
             self.parameter or
             self.first or
             self.previous or
-            self.__next__ or
+            self.next_ or
             self.last or
             self.reference or
             super(Query_Response, self).hasContent_()
@@ -237,7 +237,7 @@ class Query_Response(BackboneElement):
             first_.export(outfile, level, namespace_, name_='first', pretty_print=pretty_print)
         for previous_ in self.previous:
             previous_.export(outfile, level, namespace_, name_='previous', pretty_print=pretty_print)
-        for next_ in self.__next__:
+        for next_ in self.next_:
             next_.export(outfile, level, namespace_, name_='next', pretty_print=pretty_print)
         for last_ in self.last:
             last_.export(outfile, level, namespace_, name_='last', pretty_print=pretty_print)
@@ -260,7 +260,7 @@ class Query_Response(BackboneElement):
             first_.to_etree(element, name_='first', mapping_=mapping_)
         for previous_ in self.previous:
             previous_.to_etree(element, name_='previous', mapping_=mapping_)
-        for next_ in self.__next__:
+        for next_ in self.next_:
             next_.to_etree(element, name_='next', mapping_=mapping_)
         for last_ in self.last:
             last_.to_etree(element, name_='last', mapping_=mapping_)
@@ -312,7 +312,7 @@ class Query_Response(BackboneElement):
         elif nodeName_ == 'next':
             obj_ = Extension.factory()
             obj_.build(child_)
-            self.next.append(obj_)
+            self.next_.append(obj_)
             obj_.original_tagname_ = 'next'
         elif nodeName_ == 'last':
             obj_ = Extension.factory()
