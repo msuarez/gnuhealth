@@ -4,6 +4,13 @@ from .datastore import find_record
 import server.fhir as supermod
 import sys
 
+try:
+    from flask import current_app, url_for
+    RUN_FLASK=True
+except:
+    from .datastore import dumb_url_generate
+    RUN_FLASK=False
+
 class Practitioner_Map:
 
     #No requirements yet
