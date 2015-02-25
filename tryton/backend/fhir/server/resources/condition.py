@@ -27,10 +27,7 @@ class CO_Search(Resource):
             total_recs = condition.search_count(query)
             per_page = int(request.args.get('_count', 10))
             page = int(request.args.get('page', 1))
-            bd=Bundle(request=request,
-                            total=total_recs,
-                            per_page = per_page,
-                            page = page)
+            bd=Bundle(request=request, total=total_recs)
             offset = (page-1) * per_page
             for rec in condition.search(query,
                                     offset=offset,

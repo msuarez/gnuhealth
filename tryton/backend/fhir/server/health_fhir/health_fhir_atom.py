@@ -5,19 +5,34 @@ from StringIO import StringIO
 import server.fhir as supermod
 
 class Bundle(supermod.FeedType):
-    """A bundle is an atom feed"""
+    """A bundle is an atom feed
+
+    Subclasses the FeedType class but extends many
+    functions for convevience and ease of use. In additon,
+    adds some new functions and properties.
+    """
 
     def __init__(self, *args, **kwargs):
-        """Set default values"""
+        """Extends __init__ to set sane default values
+        and add new attributes
+
+        Keyword arguments:
+        request -- Request object (required)
+        total -- total results (required)
+        title -- feed title (optional, default = Search results)
+        author --  feed author (optional, default = GNU Health)
+        updated -- feed updated (optional, default = utcnow())
+        """
 
         self.request=kwargs.pop('request', None)
         id_=kwargs.pop('id', getattr(self.request, 'url'))
+        page = int(self.request.args.get('page', 1)) or 1
+        per_page= int(self.request.args.get('_count', 10)) or 10
+        total = kwargs.pop('total', None)
+        if total is None: raise ValueError('Total results required')
         title = kwargs.pop('title', 'Search results')
         author = kwargs.pop('author', 'GNU Health')
         updated = kwargs.pop('updated', datetime.utcnow())
-        total = kwargs.pop('total', 1) or 1     # Assume one result
-        per_page = kwargs.pop('per_page', 10) or 10
-        page = kwargs.pop('page', 1) or 1
         super(Bundle, self).__init__(*args, **kwargs)
 
         self.set_id(id_)
@@ -26,28 +41,40 @@ class Bundle(supermod.FeedType):
         self.set_updated(updated)
         self.set_totalResults(total)
         self.set_link(page, per_page, total)
-        self.entries
 
     @property
     def entries(self):
+        """Current entries"""
         return self.entry
 
     def set_id(self, id_):
-        """Set id"""
+        """Extends set_id function to properly escape ids
+
+        Keyword arguments:
+        id_ -- the feed id
+        """
         if id_:
             i = supermod.IdType()
             i.set_valueOf_(url_quote(id_))
             super(Bundle, self).set_id([i])
 
     def set_author(self, author):
-        """Set author"""
+        """Extends set_author for string
+
+        Keyword arguments:
+        author -- the feed author
+        """
         if author:
             a = supermod.PersonType()
             a.add_name(str(author))
             super(Bundle, self).set_author([a])
 
     def set_title(self, title):
-        """Set title"""
+        """Extends set_title for string
+
+        Keyword arguments:
+        title -- the feed title
+        """
         if title:
             t = supermod.TextType(valueOf_=str(title))
             t.content_.append(t.mixedclass_(
@@ -56,19 +83,34 @@ class Bundle(supermod.FeedType):
             super(Bundle, self).set_title([t])
 
     def set_updated(self, updated):
-        """Set updated; datetime object"""
+        """Extends set_updated for convenience
+
+        Keyword arguments:
+        updated -- feed updated datetime object
+        """
         if updated is not None:
             u = supermod.DateTimeType()
             u.set_valueOf_(updated)
             super(Bundle, self).set_updated([u])
 
     def set_totalResults(self, total):
-        """Set total results"""
+        """Extends set_totalResults for str/int
+
+        Keyword argument:
+        total -- total results
+        """
         if total is not None:
             super(Bundle, self).set_totalResults([int(total)])
 
     def set_link(self, page, per_page, total):
-        """Set links: rel, prev, self, next, last"""
+        """Extends set_link for convenience, adds
+        rel, prev, self, next, and last when applicable
+
+        Keyword arguments:
+        page -- current page
+        per_page -- items per page
+        total -- total results
+        """
         links = []
         total_pages= int(ceil(float(total)/per_page))
         args = self.request.args.copy()
@@ -118,7 +160,11 @@ class Bundle(supermod.FeedType):
         super(Bundle, self).set_link(links)
 
     def add_entry(self, entry):
-        """Add entry; expects FHIR class"""
+        """Extends add_entry for FHIR class instance
+
+        Keyword arguments:
+        entry -- entry to add (FHIR class object)
+        """
 
         if entry.feed:
             e = supermod.EntryType()
@@ -276,6 +322,8 @@ class Bundle(supermod.FeedType):
             elif isinstance(entry, supermod.ValueSet):
                 t = 'ValueSet'
                 ct.set_ValueSet(entry)
+            else:
+                raise TypeError('Unknown FHIR class')
 
             # Now tell the class what type it is holding
             ct.content_.append(

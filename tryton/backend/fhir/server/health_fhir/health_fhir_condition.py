@@ -92,8 +92,7 @@ class health_Condition(supermod.Condition, Condition_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Sets the feed-relevant info"""
         if self.condition:
             if RUN_FLASK:
                 uri = url_for('co_record',
