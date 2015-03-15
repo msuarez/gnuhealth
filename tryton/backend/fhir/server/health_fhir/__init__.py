@@ -11,6 +11,7 @@ from .health_fhir_conformance import *
 from .health_fhir_condition import *
 from .health_fhir_family_history import *
 from .health_fhir_medication import *
+from .health_fhir_medication_statement import *
 from .datastore import *
 from lxml import etree as etree_
 

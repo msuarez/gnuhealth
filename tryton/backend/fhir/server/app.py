@@ -141,6 +141,15 @@ def create_app(config=None):
                                     'validate': MED_Validate,
                                     'version': MED_Version})
 
+        from server.resources.medication_statement import (MS_Create, MS_Search,
+                                        MS_Validate, MS_Record, MS_Version)
+        add_fhir_routes('MedicationStatement',
+                                    {'create': MS_Create,
+                                    'search': MS_Search,
+                                    'record': MS_Record,
+                                    'validate': MS_Validate,
+                                    'version': MS_Version})
+
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD
         from server.resources.auth import auth_endpoint
