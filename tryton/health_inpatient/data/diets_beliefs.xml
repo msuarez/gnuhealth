@@ -26,9 +26,9 @@
             <field name="description">Hindu and Jain diets: Followers of Hinduism and Jainism often follow lacto-vegetarian diets, based on the principle of Ahimsa (non-harming)</field>
         </record>
 
-        <record model="gnuhealth.diet.belief" id="ISLAMIC">
-            <field name="name">Islamic</field>
-            <field name="code">ISLAMIC</field>
+        <record model="gnuhealth.diet.belief" id="MUSLIM">
+            <field name="name">Muslim</field>
+            <field name="code">MUSLIM</field>
             <field name="description">Muslims follow a diet consisting solely of food that is halal – permissible under Islamic law. The opposite of halal is haraam, food that is Islamically Impermissible. Haraam substances include alcohol, pork, and any meat from an animal which was not killed through the Islamic method of ritual slaughter (Dhabiha)</field>
         </record>
 
