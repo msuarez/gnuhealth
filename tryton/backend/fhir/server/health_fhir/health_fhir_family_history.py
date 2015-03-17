@@ -75,6 +75,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
         self.__import_from_gnu_family_history()
 
     def __import_from_gnu_family_history(self):
+        """Import data from the model"""
         if self.family_history:
             self.__set_gnu_subject()
             self.__set_gnu_relation()
@@ -83,8 +84,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Set the feed-relevant  data"""
         if self.family_history:
             if RUN_FLASK:
                 uri = url_for('fh_record',
@@ -100,6 +100,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
                         }
 
     def __set_gnu_subject(self):
+        """Set the subject from the data model"""
         if self.family_history:
             patient = attrgetter(self.map['subject'])(self.family_history[0])
             if RUN_FLASK:
@@ -116,6 +117,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
         pass
 
     def __set_gnu_relation(self):
+        """Set the relation from the data model"""
         # TODO Combine multiple conditions for same person
         from server.fhir.value_sets import familyMember
         if self.family_history:

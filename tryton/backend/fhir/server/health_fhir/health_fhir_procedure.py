@@ -92,6 +92,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         self.__import_from_gnu_procedure()
 
     def __import_from_gnu_procedure(self):
+        """Set the data from the model"""
         if self.procedure:
             self.__set_gnu_identifier()
             self.__set_gnu_type()
@@ -99,8 +100,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Set the feed-relevant data"""
         if self.procedure:
             if RUN_FLASK:
                 uri = url_for('op_record',
@@ -116,6 +116,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
                         }
 
     def __set_gnu_identifier(self):
+        """Set identifier from the model"""
         if self.procedure:
             patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
             if RUN_FLASK:
@@ -129,6 +130,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             self.add_identifier(ident)
 
     def __set_gnu_subject(self):
+        """Set subject from the model"""
         if self.procedure:
             patient = attrgetter(self.map['subject'])(self.procedure)
             if RUN_FLASK:
@@ -142,6 +144,7 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             self.set_subject(ref)
 
     def __set_gnu_type(self):
+        """Set type from the model"""
         if self.procedure:
             concept = supermod.CodeableConcept()
             des= attrgetter(self.map['description'])(self.procedure)
@@ -166,12 +169,3 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         return content
 
 supermod.Procedure.subclass=health_Procedure
-
-class health_Procedure_Performer(supermod.Procedure_Performer):
-    pass
-
-class health_Procedure_RelatedItem(supermod.Procedure_RelatedItem):
-    pass
-
-class health_ProcedureRelationshipType(supermod.ProcedureRelationshipType):
-    pass

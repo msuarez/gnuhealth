@@ -89,7 +89,7 @@ class health_Patient(supermod.Patient, Patient_Map):
             self.set_gnu_patient(gnu)
 
     def set_gnu_patient(self, gnu):
-        '''Set gnu patient record'''
+        """Set gnu patient record"""
         if gnu:
             self.patient = gnu #gnu health model
             if self.patient.__name__ not in self.model_mapping:
@@ -99,7 +99,7 @@ class health_Patient(supermod.Patient, Patient_Map):
             self.__import_from_gnu_patient()
 
     def __import_from_gnu_patient(self):
-        '''Get info from gnu model and set it'''
+        """Set data from the model"""
         if self.patient:
             self.__set_gnu_identifier()
             self.__set_gnu_name()
@@ -121,8 +121,7 @@ class health_Patient(supermod.Patient, Patient_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Set the feed-relevant data"""
         if self.patient:
             if RUN_FLASK:
                 uri = url_for('pat_record', log_id=self.patient.id, _external=True)
@@ -135,7 +134,7 @@ class health_Patient(supermod.Patient, Patient_Map):
                         }
 
     def set_models(self):
-        '''Set info for models'''
+        """Set info for models"""
         telecom=self.__get_telecom()
         address=self.__get_address()
         com=self.__get_communication()
@@ -629,6 +628,7 @@ class health_Patient(supermod.Patient, Patient_Map):
         pass
 
     def export_to_xml_string(self):
+        """Export"""
         output = StringIO()
         self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
         content = output.getvalue()
@@ -638,4 +638,5 @@ class health_Patient(supermod.Patient, Patient_Map):
     def export_to_json_string(self):
         #TODO More difficult
         pass
+
 supermod.Patient.subclass=health_Patient

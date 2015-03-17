@@ -53,6 +53,11 @@ class Condition_Map:
             }}
 
 class health_Condition(supermod.Condition, Condition_Map):
+    """Extends the FHIR condition class
+
+    Handles parsing, getting, and setting values between
+    a Health model and FHIR condition class
+    """
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
         super(health_Condition, self).__init__(*args, **kwargs)
@@ -61,11 +66,9 @@ class health_Condition(supermod.Condition, Condition_Map):
 
     def set_gnu_condition(self, condition):
         """Set the GNU Health record
-        ::::
-            params:
-                condition ===> Health model
-            returns:
-                instance
+
+        Keywoard arguments:
+        condition -- Health model
         """
         self.condition = condition
         self.model_type = self.condition.__name__
@@ -79,6 +82,7 @@ class health_Condition(supermod.Condition, Condition_Map):
         self.__import_from_gnu_condition()
 
     def __import_from_gnu_condition(self):
+        """Sets the data from the model"""
         if self.condition:
             self.__set_gnu_subject()
             self.__set_gnu_asserter()

@@ -53,6 +53,7 @@ class Bundle(supermod.FeedType):
         Keyword arguments:
         id_ -- the feed id
         """
+
         if id_:
             i = supermod.IdType()
             i.set_valueOf_(url_quote(id_))
@@ -64,6 +65,7 @@ class Bundle(supermod.FeedType):
         Keyword arguments:
         author -- the feed author
         """
+
         if author:
             a = supermod.PersonType()
             a.add_name(str(author))
@@ -88,6 +90,7 @@ class Bundle(supermod.FeedType):
         Keyword arguments:
         updated -- feed updated datetime object
         """
+
         if updated is not None:
             u = supermod.DateTimeType()
             u.set_valueOf_(updated)
@@ -99,6 +102,7 @@ class Bundle(supermod.FeedType):
         Keyword argument:
         total -- total results
         """
+
         if total is not None:
             super(Bundle, self).set_totalResults([int(total)])
 
@@ -111,6 +115,7 @@ class Bundle(supermod.FeedType):
         per_page -- items per page
         total -- total results
         """
+
         links = []
         total_pages= int(ceil(float(total)/per_page))
         args = self.request.args.copy()

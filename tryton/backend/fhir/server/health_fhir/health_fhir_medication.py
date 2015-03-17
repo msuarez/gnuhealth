@@ -70,6 +70,7 @@ class health_Medication(supermod.Medication, Medication_Map):
         self.__import_from_gnu_medication()
 
     def __import_from_gnu_medication(self):
+        """Set the data from the model"""
         if self.medication:
             #self.__set_gnu_package()
             #self.__set_gnu_product()
@@ -82,8 +83,7 @@ class health_Medication(supermod.Medication, Medication_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Set the feed-relevant data"""
         if self.medication:
             if RUN_FLASK:
                 uri = url_for('med_record',
@@ -98,6 +98,7 @@ class health_Medication(supermod.Medication, Medication_Map):
                         }
 
     def __set_gnu_name(self):
+        """Set the name from the model"""
         #TODO Need common/commercial names
         if self.medication:
             pass
@@ -110,6 +111,7 @@ class health_Medication(supermod.Medication, Medication_Map):
             super(health_Medication, self).set_name(n)
 
     def __set_gnu_code(self):
+        """Set the code from the model"""
         #TODO Better info, use recognized codes
         if self.medication:
             c = supermod.Coding()
@@ -129,6 +131,7 @@ class health_Medication(supermod.Medication, Medication_Map):
             super(health_Medication, self).set_code(code)
 
     def __set_gnu_kind(self):
+        """Set the kind from the model"""
         #TODO Be better about this
         if self.medication:
             self.set_kind('product')

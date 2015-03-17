@@ -74,6 +74,12 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             self.set_gnu_diagnostic_report(rec)
 
     def set_gnu_diagnostic_report(self, diagnostic_report):
+        """Set the GNU Health model
+
+        Keyword arguments:
+        diagnostic_report -- the Health model
+        """
+
         self.diagnostic_report = diagnostic_report
         self.model_type = self.diagnostic_report.__name__
 
@@ -86,6 +92,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         self.__import_from_gnu_diagnostic_report()
 
     def __import_from_gnu_diagnostic_report(self):
+        """Import data from the model"""
         if self.diagnostic_report:
             self.__set_gnu_identifier()
             self.__set_gnu_result()
@@ -113,8 +120,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 self.set_identifier(ident)
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Sets the feed-relevant data"""
         if self.diagnostic_report:
             if RUN_FLASK:
                 uri = url_for('dr_record',
@@ -130,6 +136,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                         }
 
     def __set_gnu_name(self):
+        """Set the name from the data model"""
         if self.diagnostic_report:
             try:
                 conc = supermod.CodeableConcept()
@@ -143,6 +150,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 raise ValueError('No test coding info')
 
     def __set_gnu_issued(self):
+        """Set issued from the data model"""
         if self.diagnostic_report:
             try:
                 time=attrgetter(self.map['date'])(self.diagnostic_report)
@@ -154,6 +162,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 raise ValueError('No date')
 
     def __set_gnu_result(self):
+        """Set the result from the data model"""
         if self.diagnostic_report:
             try:
                 for test in attrgetter(self.map['result'])(self.diagnostic_report):
@@ -175,6 +184,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                     raise ValueError('No data')
 
     def __set_gnu_performer(self):
+        """Set the performer from the data model"""
         if self.diagnostic_report:
             try:
                 p = attrgetter(self.map['performer'])(self.diagnostic_report)
@@ -193,6 +203,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 self.set_performer(ref)
 
     def __set_gnu_subject(self):
+        """Set the subject from the data model"""
         if self.diagnostic_report:
             try:
                 patient = attrgetter(self.map['subject'])(self.diagnostic_report)
@@ -210,6 +221,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
                 raise ValueError('No subject')
 
     def __set_gnu_conclusion(self):
+        """Set the conclusion from the data model"""
         if self.diagnostic_report:
             try:
                 text = attrgetter(self.map['conclusion'])(self.diagnostic_report)
@@ -227,10 +239,5 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         content = output.getvalue()
         output.close()
         return content
+
 supermod.DiagnosticReport.subclass=health_DiagnosticReport
-
-class health_DiagnosticReport_Image(supermod.DiagnosticReport_Image):
-    pass
-
-class health_DiagnosticReportStatus(supermod.DiagnosticReportStatus):
-    pass

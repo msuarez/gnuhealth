@@ -9,8 +9,8 @@ def dumb_url_generate(args):
     """Generate url route with arguments
 
     params:
-        args should be list
-    returs:
+        args -- list of args to join
+    returns:
         string (e.g., /Patient/test-3)
     """
     return ''.join(['/{0}/'.format(args[0]), '-'.join(map(str, args[1:]))])

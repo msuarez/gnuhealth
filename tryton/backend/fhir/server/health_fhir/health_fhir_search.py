@@ -6,16 +6,23 @@ from .health_fhir_condition import Condition_Map
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
 from .health_fhir_family_history import FamilyHistory_Map
 from .health_fhir_medication import Medication_Map 
-from .health_fhir_medication_statement import MedicationStatement_Map 
 from server.common import safe_attrgetter
 import re
 
-# TODO: :missing
+# TODO: Add support for :missing modifier
 
 class health_Search:
-    """This class computes search queries"""
+    """This class computes search queries to be used
+    by Tryton models. In the future, hopefully add support
+    for more complicated raw SQL queries.
+    """
 
     def __init__(self, endpoint=None):
+        """Create class
+
+        Keyword arguments:
+        endpoint -- name of endpoint (required!)
+        """
         if endpoint is None:
             raise ValueError('Need endpoint value')
         if endpoint not in ('patient',
@@ -25,8 +32,7 @@ class health_Search:
                             'diagnostic_report',
                             'condition',
                             'family_history',
-                            'medication',
-                            'medication_statement'):
+                            'medication'):
             raise ValueError('Not a valid endpoint')
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
@@ -36,7 +42,6 @@ class health_Search:
         self.condition=Condition_Map()
         self.family_history=FamilyHistory_Map()
         self.medication=Medication_Map()
-        self.medication_statement=MedicationStatement_Map()
         self.endpoint = getattr(self, endpoint)
 
         self.__get_dt_parser()
@@ -108,11 +113,14 @@ class health_Search:
             return True
 
     def split_string(self, string):
-        '''Split the string according to discrete
-                search criteria... it gets complicated
+        """Split the string according to discrete
+        search criteria (complicated!)
 
-        Still work-in-progress
-        '''
+        Still work-in-progress!
+
+        Keyword arguments:
+        string -- the string to split
+        """
         # FIX Handling \ is difficult:
         #    the string is already escaped against singleton \,
         #    but the standard is... uggh - do it simply now...
@@ -132,9 +140,13 @@ class health_Search:
                 return string.split(',')
 
     def pop_prefix(self, string, prefixes):
-        '''Pop the string prefix,
-                returning prefix + base
-        '''
+        """Pop the string prefix,
+        returning (prefix, base)
+
+        Keyword arguments:
+        string -- string to parse
+        prefixes -- prefixes to check
+        """
         # FIX Unescaping equals... with good url handling
         #    becomes complicated since it will handle
         #    non-escaped equals fine
@@ -144,7 +156,12 @@ class health_Search:
         return (None, string)
 
     def number_parser(self, string):
-        '''Parser for number type'''
+        """Parser for number type,
+        returning (prefix, floats)
+
+        Keyword arguments:
+        string -- string to parse
+        """
         prefixes=('<=', '>=', '<', '>')
         prefix, tmp = self.pop_prefix(string, prefixes)
         split = self.split_string(tmp)
@@ -162,18 +179,22 @@ class health_Search:
         return (prefix, floats)
 
     def string_parser(self, string):
-        '''Parser for string type'''
+        """Parser for string type
+
+        Keyword arguments:
+        string -- the string to parse
+        """
         tmp = self.split_string(string)
         return (None, tmp)
 
     def __key_parameter_parser(self, string):
-        '''Parse key, including chains 
-            (e.g., name:text, subject.name, subject:Patient.name)
+        """Parse key, including chains 
+        (e.g., name:text, subject.name, subject:Patient.name)
 
-            return: {'key': <name>,
-                    'modifier': <modifier>,
-                    'chains': [ <param>, ... ]}
-        '''
+        return: {'key': <name>,
+                'modifier': <modifier>,
+                'chains': [ <param>, ... ]}
+        """
 
         m = string.split(':')
         if len(m) > 2:
@@ -196,6 +217,8 @@ class health_Search:
         return d
 
     def __pop_chain(self, string):
+        """Naively pop chained arguments"""
+
         return string.split('.')
 
     def __parse_url_parameter(self, parameter):
@@ -219,7 +242,13 @@ class health_Search:
         return None
 
     def chain_parameter_parser(self, info):
-        """Take chain info, and return correct attr(s)"""
+        """Take chain info, and return correct attr(s),
+        returning (new_model_attrs, new_search_target_type)
+
+        Keyword arguments:
+        info -- search argument info
+        """
+
         assert info['type'] == 'reference'
         attrs = []
         t=self.endpoint.search_mapping[info['key']]
@@ -249,8 +278,6 @@ class health_Search:
                 current_map=self.family_history
             elif target_resource == 'Medication':
                 current_map=self.medication
-            elif target_resource == 'MedicationStatement':
-                current_map=self.medication_statement
             else:
                 raise ValueError('Unknown chain target')
             try:
@@ -264,8 +291,7 @@ class health_Search:
         return (self.__make_attrs(attrs), current_map.resource_search_params[chain])
 
     def __make_attrs(self, l, current_attrs=[]):
-        """Create attributes from chain lists
-        """
+        """Create attributes from chain lists"""
         if len(l) == 0: return current_attrs
         at = l.pop(0)
         if isinstance(at, basestring):
@@ -273,9 +299,13 @@ class health_Search:
         else:
             return self.__make_attrs(l, ['.'.join((l,a)) for l in current_attrs for a in at] or [a for a in at])
 
-
     def parse_url_string(self, request_args):
-        """Parse url string"""
+        """Parse url string
+
+        Keyword arguments:
+        request_args -- url arguments
+        """
+
         full_search_info=[]
         for key, values in request_args.iterlists():
             if key in ['_count', 'page']: continue
@@ -305,6 +335,9 @@ class health_Search:
          - Do not allow multiple AND values with exact modifier
          - Do not allow prefixes with multiple OR values
          - Do not allow parameter without argument
+
+         Keyword arguments:
+         search_info -- parsed search arguments
         """
 
         for d in search_info:
@@ -320,12 +353,17 @@ class health_Search:
         return search_info
 
     def single_model_query_generate(self, full_search_info):
-        """For single model searches, no weird outer joins, etc.
+        """For single model searches (no weird outer joins, etc.)
 
-        This function is bloated, but hard to simplify
+        This function is bloated
 
-        return domain (e.g., [('name', 'ilike', '%e%')])
+        Keywoard arguments:
+        full_search_info -- fully parsed search argumnts
+
+        Returns:
+        search domain -- (e.g., [('name', 'ilike', '%e%')])
         """
+
         full_query=[]
         #Look for key or key+modifier in the search_mapping
         for query in full_search_info:
@@ -425,9 +463,10 @@ class health_Search:
         return full_query
 
     def get_query(self, request_args):
-        """Get the query
+        """Get the search query
 
         For now, only single model support
         """
+
         full_search_info=self.parse_url_string(request_args)
         return self.single_model_query_generate(full_search_info)

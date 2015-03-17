@@ -78,6 +78,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
         self.__import_from_gnu_practitioner()
 
     def __import_from_gnu_practitioner(self):
+        """Set data from model"""
         if self.practitioner:
             self.__set_gnu_specialty()
             self.__set_gnu_communication()
@@ -88,8 +89,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             self.__set_feed_info()
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Set the feed-relevant data"""
         if self.practitioner:
             if RUN_FLASK:
                 uri = url_for('pat_record',
@@ -105,6 +105,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
                         }
 
     def __set_gnu_name(self):
+        """Set name from model"""
         try:
             family=[]
             full_given_name = attrgetter(self.map['given'])(self.practitioner)
@@ -126,6 +127,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             pass
 
     def __set_gnu_identifier(self):
+        """Set identifier from model"""
         try:
             puid = attrgetter(self.map['identifier'])(self.practitioner)
             ident = supermod.Identifier(
@@ -152,6 +154,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
                 #self.add_identifier(value=ident)
 
     def __set_gnu_gender(self):
+        """Set gender from model"""
         try:
             from server.fhir.value_sets import administrativeGender as gender
             us = attrgetter(self.map['gender'])(self.practitioner).upper()
@@ -167,6 +170,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             pass
 
     def __set_gnu_communication(self):
+        """Set communication from model"""
         try:
             communication=attrgetter(self.map['communication'])(self.practitioner)
             from re import sub
@@ -184,6 +188,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             pass
 
     def __set_gnu_specialty(self):
+        """Set specialty from model"""
         try:
             for spec in attrgetter(self.map['specialty'])(self.practitioner):
                 code, name = attrgetter('specialty.code', 'specialty.name')(spec)
@@ -195,6 +200,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             pass
 
     def __set_gnu_role(self):
+        """Set role from model"""
         try:
             name=attrgetter(self.map['role'])(self.practitioner)
             coding = supermod.Coding(display=supermod.string(value=name))
@@ -204,6 +210,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             pass
 
     def export_to_xml_string(self):
+        """Export"""
         output = StringIO()
         self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
         content = output.getvalue()

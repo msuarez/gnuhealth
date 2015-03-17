@@ -250,6 +250,7 @@ class health_Observation(supermod.Observation, Observation_Map):
         pass
 
     def __set_feed_info(self):
+        """Set the feed-relevant data"""
         if self.gnu_obs:
             if RUN_FLASK:
                 uri = url_for('obs_record',
@@ -266,8 +267,7 @@ class health_Observation(supermod.Observation, Observation_Map):
 
 
     def __import_from_gnu_observation(self):
-        """Imports Health values into
-            Observation structure"""
+        """Set the data from the model"""
         if self.gnu_obs:
             self.__set_gnu_identifier()
             self.__set_gnu_subject()
@@ -290,6 +290,7 @@ class health_Observation(supermod.Observation, Observation_Map):
         pass
 
     def __set_gnu_comments(self):
+        """Set comments from the data model"""
         if self.gnu_obs:
             comments = attrgetter(self.map['comments'])(self.gnu_obs)
             self.set_comments(comments)
@@ -301,6 +302,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             super(health_Observation, self).set_comments(m)
 
     def __set_gnu_identifier(self):
+        """Set the identifier from the data model"""
         if self.gnu_obs:
             obj = self.description
             patient, time = attrgetter(self.map['patient'], self.map['date'])(self.gnu_obs)
@@ -324,6 +326,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             super(health_Observation, self).set_identifier(identifier)
 
     def __set_gnu_interpretation(self):
+        """Set the interpretation from the data model"""
         # TODO: Interpretation is complicated
         if self.gnu_obs:
             if self.model_type == 'lab':
@@ -349,6 +352,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             super(health_Observation, self).set_interpretation(interpretation)
 
     def __set_gnu_issued(self):
+        """Set issued from the data model"""
         if self.gnu_obs:
             time=self.gnu_obs.write_date.strftime("%Y-%m-%dT%H:%M:%S")
             if time:
@@ -365,6 +369,7 @@ class health_Observation(supermod.Observation, Observation_Map):
         pass
 
     def __set_gnu_name(self):
+        """Set name from data model"""
         #TODO Support better coding
         if self.gnu_obs:
             name = supermod.CodeableConcept()
@@ -373,7 +378,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             self.set_name(name)
 
     def set_name(self, name):
-        '''Set the observation type'''
+        """Set the observation type"""
         if name:
             super(health_Observation, self).set_name(name)
 
@@ -393,15 +398,16 @@ class health_Observation(supermod.Observation, Observation_Map):
                 self.set_performer([ref])
 
     def set_performer(self, performer):
-        '''Set who/what captured the observation'''
+        """Set who/what captured the observation"""
         if performer:
             super(health_Observation, self).set_performer(performer)
 
 
     def __set_gnu_referenceRange(self):
+        """Set reference range from data model"""
         if self.gnu_obs:
             if self.model_type == 'lab':
-                ref = health_Observation_ReferenceRange()
+                ref = supermod.Observation_ReferenceRange()
                 #ref.age = supermod.Range() #Not relevant, usually
                 ref.low = supermod.Quantity()
                 ref.low.units = supermod.string(value=self.gnu_obs.units.name)
@@ -424,13 +430,14 @@ class health_Observation(supermod.Observation, Observation_Map):
         pass
 
     def __set_gnu_reliability(self):
+        """Set reliability from data model"""
         if self.gnu_obs:
-            rel = health_ObservationReliability()
+            rel = supermod.ObservationReliability()
             rel.value = 'ok'
             self.set_reliability(rel)
 
     def set_reliability(self, rel):
-        '''Set reliability; mandatory'''
+        """Set reliability; mandatory"""
         if rel:
             super(health_Observation, self).set_reliability(rel)
 
@@ -438,8 +445,9 @@ class health_Observation(supermod.Observation, Observation_Map):
         pass
 
     def __set_gnu_status(self):
+        """Set status from data model"""
         if self.gnu_obs:
-            s = health_ObservationStatus()
+            s = supermod.ObservationStatus()
             excluded = safe_attrgetter(self.gnu_obs, self.map['excluded'])
             value = safe_attrgetter(self.gnu_obs, self.map['value'])
 
@@ -453,11 +461,12 @@ class health_Observation(supermod.Observation, Observation_Map):
             self.set_status(s)
 
     def set_status(self, status):
-        '''Set status; mandatory'''
+        """Set status; mandatory"""
         if status:
             super(health_Observation, self).set_status(status)
 
     def __set_gnu_value(self):
+        """Set value form data model"""
         if self.gnu_obs:
             code = None
             system = None
@@ -502,6 +511,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             super(health_Observation, self).set_valueQuantity(quantity)
 
     def __set_gnu_subject(self):
+        """Set subject from the data model"""
         if self.gnu_obs:
             try:
                 patient = attrgetter(self.map['patient'])(self.gnu_obs)
@@ -527,25 +537,11 @@ class health_Observation(supermod.Observation, Observation_Map):
             super(health_Observation, self).set_subject(subject)
 
     def export_to_xml_string(self):
+        """Export"""
         output = StringIO()
         self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
         content = output.getvalue()
         output.close()
         return content
+
 supermod.Observation.subclass=health_Observation
-
-class health_Observation_ReferenceRange(supermod.Observation_ReferenceRange):
-    pass
-
-class health_Observation_Related(supermod.Observation_Related):
-    pass
-
-class health_ObservationReliability(supermod.ObservationReliability):
-    pass
-
-class health_ObservationStatus(supermod.ObservationStatus):
-    pass
-
-class health_ObservationRelationshipType(supermod.ObservationRelationshipType):
-    pass
-
