@@ -26,6 +26,7 @@ class Immunization_Map:
             'dose-sequence': 'number',
             'performer': 'reference',
             'vaccine-type': 'token',
+            'subject': 'reference',
             '_language': None,
             'identifier': None,
             'location': None,
@@ -35,8 +36,7 @@ class Immunization_Map:
             'reason': None,
             'refusal-reason': None,
             'refused': None,
-            'requester': None,
-            'subject': None}
+            'requester': None}
 
     chain_map={ 'subject': 'Patient',
             'performer': 'Practitioner',
@@ -52,7 +52,8 @@ class Immunization_Map:
             'lot-number': ['lot.number'],
             'dose-sequence': ['dose'],
             'performer': ['healthprof'],
-            'vaccine-type': ['vaccine']
+            'vaccine-type': ['vaccine.name.code'],
+            'vaccine-type:text': ['vaccine.name.name']
         }
 
     url_prefixes={}
@@ -112,8 +113,29 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
                     self.map['route']))
             self.set_site(safe_attrgetter(self.immunization,
                     self.map['site']))
+            self.set_vaccineType(safe_attrgetter(self.immunization,
+                    self.map['vaccine-type']))
             self.set_reported()
             self.set_refusedIndicator()
+
+    def __set_feed_info(self):
+        """Set the feed-relevant data"""
+
+        if self.immunization:
+            if RUN_FLASK:
+                uri = url_for('im_record',
+                            log_id=self.immunization.id,
+                            _external=True)
+            else:
+                uri = dumb_url_generate(['Immunization', self.immunization.id])
+            self.feed={'id': uri,
+                        'published': self.immunization.create_date,
+                        'updated': self.immunization.write_date or \
+                                self.immunization.create_date,
+                        'title': '{} for {}'.format(
+                            self.immunization.vaccine.name.name,
+                            self.immunization.name.rec_name)
+                        }
 
     def set_date(self, date):
         """Extends superclass for convenience
@@ -237,10 +259,9 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
             ir=[i for i in immunizationRoute.contents if i.code == route.upper()]
             if ir:
                 cc=supermod.CodeableConcept()
-                cc.text = supermod.string(value=ir[0]['display'])
                 c = supermod.Coding()
+                c.display = cc.text = supermod.string(value=ir[0]['display'])
                 c.code = supermod.code(value=ir[0]['code'])
-                c.display = supermod.code(value=ir[0]['display'])
                 cc.coding=[c]
                 super(health_Immunization).set_route(cc)
 
@@ -256,11 +277,27 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
             m=[i for i in immunizationSite.contents if i.code == site.upper()]
             if m:
                 cc=supermod.CodeableConcept()
-                cc.text = supermod.string(value=m[0]['display'])
                 c = supermod.Coding()
+                c.display = cc.text = supermod.string(value=m[0]['display'])
                 c.code = supermod.code(value=m[0]['code'])
-                c.display = supermod.code(value=m[0]['display'])
                 cc.coding=[c]
                 super(health_Immunization).set_site(cc)
+
+    def set_vaccineType(self, vaccineType):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        vaccineType -- the vaccine (Health model)
+        """
+        #TODO Need better coding, much better!
+
+        if vaccineType:
+            cc = supermod.CodeableConcept()
+            c = supermod.Coding()
+            c.display = cc.text = supermod.string(value=vaccineType.name.name)
+            if vaccineType.name.code:
+                c.code = supermod.code(value=vaccineType.name.code)
+                cc.coding=[c]
+            super(health_Immunization).set_vaccineType(cc)
 
 supermod.Immunization.subclass=health_Immunization
