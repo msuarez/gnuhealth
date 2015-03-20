@@ -40,10 +40,10 @@ class Immunization_Map:
 
     chain_map={ 'subject': 'Patient',
             'performer': 'Practitioner',
-            'requester': 'Practitioner',
-            'reaction': 'Observation', #TODO AdverseReaction
-            'location': 'Location', #TODO
-            'manufacturer': 'Organization'} #TODO
+            'requester': 'Practitioner'}
+            #'reaction': 'Observation', #TODO AdverseReaction
+            #'location': 'Location', #TODO
+            #'manufacturer': 'Organization'} #TODO
 
     search_mapping={
             '_id': ['id'],
@@ -59,15 +59,15 @@ class Immunization_Map:
     url_prefixes={}
     model_mapping={'gnuhealth.vaccination':
             {
-                'date': ['date'],
-                'expirationDate': ['lot.expiration_date'],
-                'lot-number': ['lot.number'],
-                'performer': ['healthprof'],
-                'subject': ['name'],
-                'doseQuantity': ['amount'],
-                'site': ['admin_site'],
-                'route': ['admin_route'],
-                'vaccine-type': ['vaccine']
+                'date': 'date',
+                'expirationDate': 'lot.expiration_date',
+                'lotNumber': 'lot.number',
+                'performer': 'healthprof',
+                'subject': 'name',
+                'doseQuantity': 'amount',
+                'site': 'admin_site',
+                'route': 'admin_route',
+                'vaccine-type': 'vaccine'
             }}
 
 
@@ -79,10 +79,10 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         if rec:
             self.set_gnu_immunization(rec)
 
-    def set_gnu_immunization(self, procedure):
-        """Set immunization
-        """
-        self.immunization = immunization 
+    def set_gnu_immunization(self, immunization):
+        """Set immunization"""
+
+        self.immunization = immunization
         self.model_type = self.immunization.__name__
 
         # Only certain models
@@ -92,6 +92,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_immunization()
+        self.__set_feed_info()
 
     def __import_from_gnu_immunization(self):
         """Import the data from the Health model"""
@@ -115,8 +116,8 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
                     self.map['site']))
             self.set_vaccineType(safe_attrgetter(self.immunization,
                     self.map['vaccine-type']))
-            self.set_reported()
-            self.set_refusedIndicator()
+            self.set_reported(reported=False)
+            self.set_refusedIndicator(refusedIndicator=False)
 
     def __set_feed_info(self):
         """Set the feed-relevant data"""
@@ -146,7 +147,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
 
         if date is not None:
             d = supermod.dateTime(value=date.strftime("%Y/%m/%d"))
-            super(health_Immunization).set_date(d)
+            super(health_Immunization, self).set_date(d)
 
     def set_subject(self, subject):
         """Extends superclass for convenience
@@ -160,11 +161,11 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
                 uri = url_for('pat_record', log_id=subject.id)
             else:
                 uri = dumb_url_generate(['Patient', subject.id])
-            display = patient.rec_name
+            display = subject.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
-            super(health_Immunization).set_subject(ref)
+            super(health_Immunization, self).set_subject(ref)
 
     def set_performer(self, performer):
         """Extends superclass for convenience
@@ -182,7 +183,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
-            super(health_Immunization).set_performer(ref)
+            super(health_Immunization, self).set_performer(ref)
 
     def set_lotNumber(self, lotNumber):
         """Extends superclass for convenience
@@ -193,7 +194,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
 
         if lotNumber is not None:
             s = supermod.string(value=str(lotNumber))
-            super(health_Immunization).set_lotNumber(s)
+            super(health_Immunization, self).set_lotNumber(s)
 
     def set_expirationDate(self, expirationDate):
         """Extends superclass for convenince
@@ -204,7 +205,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
 
         if expirationDate is not None:
             d = supermod.date(value=expirationDate.strftime("%Y/%m/%d"))
-            super(health_Immunization).set_expirationDate(d)
+            super(health_Immunization, self).set_expirationDate(d)
 
     def set_doseQuantity(self, doseQuantity):
         """Extends superclass for convenience
@@ -219,7 +220,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
             s = supermod.uri(value='http://snomed.info/sct')
             c = supermod.code(value='258773002')
             dq = supermod.Quantity(value=v, units=u, system=s, code=c)
-            super(health_Immunization).set_doseQuantity(dq)
+            super(health_Immunization, self).set_doseQuantity(dq)
 
     def set_refusedIndicator(self, refusedIndicator=False):
         """Extends superclass for convenience
@@ -232,7 +233,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         if refusedIndicator:
             b = 'true'
         ri = supermod.boolean(value=b)
-        super(health_Immunization).set_refusedIndicator(ri)
+        super(health_Immunization, self).set_refusedIndicator(ri)
 
     def set_reported(self, reported=False):
         """Extends superclass for convenience
@@ -245,7 +246,7 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         if reported:
             b = 'true'
         r = supermod.boolean(value=b)
-        super(health_Immunization).set_reported(r)
+        super(health_Immunization, self).set_reported(r)
 
     def set_route(self, route):
         """Extends superclass for convenience
@@ -254,16 +255,16 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         route -- how vaccine entered body
         """
 
-        from server.fhir.valuesets import immunizationRoute
+        from server.fhir.value_sets import immunizationRoute
         if route:
-            ir=[i for i in immunizationRoute.contents if i.code == route.upper()]
+            ir=[i for i in immunizationRoute.contents if i['code'] == route.upper()]
             if ir:
                 cc=supermod.CodeableConcept()
                 c = supermod.Coding()
                 c.display = cc.text = supermod.string(value=ir[0]['display'])
                 c.code = supermod.code(value=ir[0]['code'])
                 cc.coding=[c]
-                super(health_Immunization).set_route(cc)
+                super(health_Immunization, self).set_route(cc)
 
     def set_site(self, site):
         """Extends superclass for convenience
@@ -272,16 +273,16 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
         site -- site code where the vaccine was administered
         """
 
-        from server.fhir.valuesets import immunizationSite
+        from server.fhir.value_sets import immunizationSite
         if site:
-            m=[i for i in immunizationSite.contents if i.code == site.upper()]
+            m=[i for i in immunizationSite.contents if i['code'] == site.upper()]
             if m:
                 cc=supermod.CodeableConcept()
                 c = supermod.Coding()
                 c.display = cc.text = supermod.string(value=m[0]['display'])
                 c.code = supermod.code(value=m[0]['code'])
                 cc.coding=[c]
-                super(health_Immunization).set_site(cc)
+                super(health_Immunization, self).set_site(cc)
 
     def set_vaccineType(self, vaccineType):
         """Extends superclass for convenience
@@ -298,6 +299,14 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
             if vaccineType.name.code:
                 c.code = supermod.code(value=vaccineType.name.code)
                 cc.coding=[c]
-            super(health_Immunization).set_vaccineType(cc)
+            super(health_Immunization, self).set_vaccineType(cc)
+
+    def export_as_xml_string(self):
+        """Export"""
+        output = StringIO()
+        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
+        content = output.getvalue()
+        output.close()
+        return content
 
 supermod.Immunization.subclass=health_Immunization

@@ -150,6 +150,15 @@ def create_app(config=None):
                                     'validate': MS_Validate,
                                     'version': MS_Version})
 
+        from server.resources.immunization import (IM_Create, IM_Search,
+                                        IM_Validate, IM_Record, IM_Version)
+        add_fhir_routes('Immunization',
+                                    {'create': IM_Create,
+                                    'search': IM_Search,
+                                    'record': IM_Record,
+                                    'validate': IM_Validate,
+                                    'version': IM_Version})
+
         # Handle the authentication blueprint
         #   NOT PART OF THE FHIR STANDARD
         from server.resources.auth import auth_endpoint
