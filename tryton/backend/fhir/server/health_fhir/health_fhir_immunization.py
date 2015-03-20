@@ -65,7 +65,7 @@ class Immunization_Map:
                 'performer': ['healthprof'],
                 'subject': ['name'],
                 'doseQuantity': ['amount'],
-                'site': ['admin-site'],
+                'site': ['admin_site'],
                 'route': ['admin_route'],
                 'vaccine-type': ['vaccine']
             }}
