@@ -14,7 +14,6 @@ class Api(restful.Api):
         media = kwargs.pop('default_mediatype', 'application/xml')
         super(Api, self).__init__(*args, default_mediatype=media, **kwargs)
         self.representations = {
-            'xml': output_xml,
             'text/xml': output_xml,
             'application/xml': output_xml,
             'application/xml+fhir': output_xml
