@@ -1,0 +1,1 @@
+from tests.test_pdq import suite

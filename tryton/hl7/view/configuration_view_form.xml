@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="HL7 Global Configuration">
+    <label name="enabled" string="Server Enabled:"/>
+    <field name="enabled"/>
+    <label name="mllp_server_port" string="MLLP Server Port:"/>
+    <field name="mllp_server_port"/>
+    <label name="message_logger_enabled" string="Message Logger:"/>
+    <field name="message_logger_enabled"/>
+    <label name="application_code" string="Application Code:"/>
+    <field name="application_code"/>
+</form>

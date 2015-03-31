@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<tryton>
+    <data>
+         <record model="ir.ui.view" id="pdq_module_view_form">
+            <field name="model">pdq.pdq</field>
+            <field name="type">form</field>
+            <field name="name">configuration_view_form</field>
+        </record>
+        
+        <record model="ir.ui.view" id="pdq_allowed_apps_view_form">
+            <field name="model">pdq.allowed_applications</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              <![CDATA[
+              <form string="">
+                <label name="name"/>
+                <field name="allowed_application"/>
+              </form>
+              ]]>
+            </field>
+        </record>
+        
+           <record model="ir.ui.view" id="pdq_allowed_apps_view_tree">
+            <field name="model">pdq.allowed_applications</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="">
+                   <field name="allowed_application"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+        
+        <record model="ir.action.act_window" id="act_pdq_conf_module_form">
+            <field name="name">PDQ Configuration</field>
+            <field name="res_model">pdq.pdq</field>
+        </record>
+        
+        <record model="ir.action.act_window.view" id="act_pdq_module_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="pdq_module_view_form"/>
+            <field name="act_window" ref="act_pdq_conf_module_form"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_pdq_allowed_apps_module_form">
+            <field name="name">Allowed Applications</field>
+            <field name="res_model">pdq.allowed_applications</field>
+        </record>
+         
+        <record model="ir.action.act_window.view" id="act_pdq_allowed_apps_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="pdq_allowed_apps_view_tree"/>
+            <field name="act_window" ref="act_pdq_allowed_apps_module_form"/>
+        </record>
+        
+          <record model="ir.action.act_window.view" id="act_pdq_allowed_apps_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="pdq_allowed_apps_view_form"/>
+            <field name="act_window" ref="act_pdq_allowed_apps_module_form"/>
+        </record>
+
+        <menuitem parent="hl7.menu_transactions" sequence="5" name="PDQ"
+            id="menu_pdq" icon="tryton-list"/>
+
+        <menuitem parent="menu_pdq" sequence="1" name="Configuration"
+            id="menu_configuration_form" icon="tryton-list" action="act_pdq_conf_module_form"/>
+        
+        <menuitem parent="menu_pdq" sequence="2" name="Allowed Applications"
+            id="menu_allowed_apps_form" icon="tryton-list" action="act_pdq_allowed_apps_module_form"/>
+        
+
+    </data>
+</tryton>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="HL7 Message Logger" col="2">
+    <label name="creation_date" string="Creation Date"/>
+    <field name="creation_date"/>
+    <label name="handler_module" string="Handler Module"/>
+    <field name="handler_module"/>
+    <label name="request" string="Message Request" yalign="0.0"/>
+    <field name="request" widget="text" />
+    <label name="response" string="Message Response" yalign="0.0"/>
+    <field name="response" widget="text" />
+</form>

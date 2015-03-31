@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form string="PDQ Global Configuration">
+    <label name="enabled" string="Enabled:"/>
+    <field name="enabled"/>
+    <label name="filter_by_allowed_app" string="Enable allowed apps filter:"/>
+    <field name="filter_by_allowed_app"/>
+    <label name="facility_name" string="Facility Name:"/>
+    <field name="facility_name"/>
+    <label name="encoding_char" string="Encoding: "/>
+    <field name="encoding_char"/>
+    <label name="country" string="Country:"/>
+    <field name="country"/>
+    <label name="language" string="Language:"/>
+    <field name="language"/>
+</form>
