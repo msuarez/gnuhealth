@@ -68,19 +68,19 @@ class health_Medication(supermod.Medication, Medication_Map):
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_medication()
+        self.__set_feed_info()
 
     def __import_from_gnu_medication(self):
         """Set the data from the model"""
         if self.medication:
-            #self.__set_gnu_package()
-            #self.__set_gnu_product()
-            self.__set_gnu_kind()
-            #self.__set_gnu_manufacturer()
-            #self.__set_gnu_isBrand()
-            self.__set_gnu_code()
-            #self.__set_gnu_name()
-
-            self.__set_feed_info()
+            self.set_code(safe_attrgetter(self.medication, self.map['display']),
+                    safe_attrgetter(self.medication, self.map['code']))
+            self.set_kind('product')
+            #self.set_package()
+            #self.set_product()
+            #self.set_manufacturer()
+            #self.set_isBrand()
+            #self.set_name()
 
     def __set_feed_info(self):
         """Set the feed-relevant data"""
@@ -97,55 +97,41 @@ class health_Medication(supermod.Medication, Medication_Map):
                         'title': self.medication.name.name
                         }
 
-    def __set_gnu_name(self):
-        """Set the name from the model"""
-        #TODO Need common/commercial names
-        if self.medication:
-            pass
-            #self.set_name(self.medication.active_compenent)
-
     def set_name(self, name):
         """Set medication name"""
+
+        #TODO Need common/commercial names
         if name:
             n = supermod.string(value=str(name))
             super(health_Medication, self).set_name(n)
 
-    def __set_gnu_code(self):
-        """Set the code from the model"""
+    def set_code(self, code, name):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        code -- code value
+        name -- name of the medication
+        """
+
         #TODO Better info, use recognized codes
-        if self.medication:
+        if code and name:
             c = supermod.Coding()
-            c.display = supermod.string(value=attrgetter(self.map['display'])(self.medication))
-
-            t = attrgetter(self.map['code'])(self.medication)
-            if t:
-                c.code = supermod.code(value=t)
-
+            c.display = supermod.string(value=str(name))
+            c.code = supermod.code(value=code)
             cc = supermod.CodeableConcept()
             cc.coding=[c]
-            self.set_code(cc)
+            super(health_Medication, self).set_code(cc)
 
-    def set_code(self, code):
-        """Set code value"""
-        if getattr(code, 'coding'):
-            super(health_Medication, self).set_code(code)
+    def set_kind(self, kind='product'):
+        """Extends superclass for convenience
 
-    def __set_gnu_kind(self):
-        """Set the kind from the model"""
-        #TODO Be better about this
-        if self.medication:
-            self.set_kind('product')
+        Keyword arguments:
+        kind - basically, product or package
+        """
 
-    def set_kind(self, kind):
-        """Set medication kind - basically, product or package"""
-        if kind == 'product':
-            c = supermod.code(value='product')
+        if kind in ['product', 'package']:
+            c = supermod.code(value=kind)
             super(health_Medication, self).set_kind(c)
-        elif kind == 'package':
-            c = supermod.code(value='package')
-            super(health_Medication, self).set_kind(c)
-        else:
-            pass
 
     def export_to_xml_string(self):
         """Export"""

@@ -22,6 +22,7 @@ class Procedure_Map:
                     'code': 'procedure.name'},
             'gnuhealth.operation':
                 {'subject': 'name.patient',
+                    'subject_name': 'name.patient.rec_name',
                     'date': 'name.surgery_date',
                     'type': 'procedure',
                     'description': 'procedure.description',
@@ -81,7 +82,6 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         self.procedure = procedure
         self.model_type = self.procedure.__name__
 
-
         # Only certain models
         if self.model_type not in self.model_mapping:
             raise ValueError('Not a valid model')
@@ -90,14 +90,17 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_procedure()
+        self.__set_feed_info()
 
     def __import_from_gnu_procedure(self):
         """Set the data from the model"""
         if self.procedure:
-            self.__set_gnu_identifier()
-            self.__set_gnu_type()
-            self.__set_gnu_subject()
-            self.__set_feed_info()
+            self.set_subject(safe_attrgetter(self.procedure, self.map['subject']))
+            self.set_type(safe_attrgetter(self.procedure, self.map['type']))
+            self.set_identifier(
+                    safe_attrgetter(self.procedure, self.map['subject_name']),
+                    safe_attrgetter(self.procedure, self.map['type']),
+                    safe_attrgetter(self.procedure, self.map['date']))
 
     def __set_feed_info(self):
         """Set the feed-relevant data"""
@@ -115,50 +118,68 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
                     'title': attrgetter(self.map['name'])(self.procedure)
                         }
 
-    def __set_gnu_identifier(self):
-        """Set identifier from the model"""
-        if self.procedure:
-            patient, time, name = attrgetter(self.map['subject'], self.map['date'], self.map['name'])(self.procedure)
+    def set_identifier(self, patient, procedure, date):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        patient -- patient name
+        procedure -- procedure (Health model)
+        date -- date (datetime object)
+        """
+
+        if procedure and patient and date:
             if RUN_FLASK:
-                value = supermod.string(value=url_for('op_record', log_id=self.procedure.id))
+                value = supermod.string(value=url_for('op_record', log_id=procedure.id))
             else:
                 value = supermod.string(value=dumb_url_generate(['Procedure',
-                                                                self.procedure.id]))
+                                                                procedure.id]))
             ident = supermod.Identifier(
-                        label = supermod.string(value='{0} performed on {1} on {2}'.format(name, patient.rec_name, time.strftime('%Y/%m/%d'))),
+                    label = supermod.string(
+                        value='{0} performed on {1} on {2}'.format(
+                            procedure.rec_name, patient, date.strftime('%Y/%m/%d'))),
                         value=value)
-            self.add_identifier(ident)
+            super(health_Procedure, self).add_identifier(ident)
 
-    def __set_gnu_subject(self):
-        """Set subject from the model"""
-        if self.procedure:
-            patient = attrgetter(self.map['subject'])(self.procedure)
+    def set_subject(self, subject):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        subject -- the patient (Health model)
+        """
+
+        if subject:
             if RUN_FLASK:
-                uri = url_for('pat_record', log_id=patient.id)
+                uri = url_for('pat_record', log_id=subject.id)
             else:
-                uri = dumb_url_generate(['Patient', patient.id])
-            display = patient.rec_name
+                uri = dumb_url_generate(['Patient', subject.id])
+            display = subject.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
-            self.set_subject(ref)
+            super(health_Procedure, self).set_subject(ref)
 
-    def __set_gnu_type(self):
-        """Set type from the model"""
-        if self.procedure:
+
+    def set_type(self, type_):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        type_ -- procedure (Health model)
+        """
+
+        if type_:
             concept = supermod.CodeableConcept()
-            des= attrgetter(self.map['description'])(self.procedure)
+            des= type_.description
             if des:
                 concept.text = supermod.string(value=des)
             concept.coding=[supermod.Coding()]
-            name = attrgetter(self.map['name'])(self.procedure)
+            name = type_.rec_name
             if name:
                 concept.coding[0].display = supermod.string(value=name)
                 concept.text=supermod.string(value=name)
-            concept.coding[0].code=supermod.code(value=attrgetter(self.map['code'])(self.procedure))
+            concept.coding[0].code=supermod.code(value=type_.name)
             #ICD-10-PCS
             concept.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.4')
-            self.set_type(concept)
+            super(health_Procedure, self).set_type(concept)
 
     def export_to_xml_string(self):
         """Export"""

@@ -1,6 +1,7 @@
 from StringIO import StringIO
 from operator import attrgetter
 import server.fhir as supermod
+from server.common import safe_attrgetter
 
 try:
     from flask import url_for
@@ -63,6 +64,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
                 instance
 
         """
+
         self.family_history = family_history
         self.model_type = self.family_history[0].__name__
 
@@ -73,18 +75,19 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_family_history()
+        self.__set_feed_info()
 
     def __import_from_gnu_family_history(self):
         """Import data from the model"""
-        if self.family_history:
-            self.__set_gnu_subject()
-            self.__set_gnu_relation()
-            self.__set_gnu_note()
 
-            self.__set_feed_info()
+        if self.family_history:
+            self.set_relation(self.family_history)
+            self.set_subject(safe_attrgetter(self.family_history[0], self.map['subject']))
+            #self.set_note()
 
     def __set_feed_info(self):
-        """Set the feed-relevant  data"""
+        """Set the feed-relevant data"""
+
         if self.family_history:
             if RUN_FLASK:
                 uri = url_for('fh_record',
@@ -99,61 +102,69 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
                     'title': 'Family history for {}'.format(self.family_history[0].patient.rec_name)
                         }
 
-    def __set_gnu_subject(self):
-        """Set the subject from the data model"""
-        if self.family_history:
-            patient = attrgetter(self.map['subject'])(self.family_history[0])
+    def set_subject(self, subject):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        subject -- the patient (Health model)
+        """
+
+        if subject:
             if RUN_FLASK:
-                uri = url_for('pat_record', log_id=patient.id)
+                uri = url_for('pat_record', log_id=subject.id)
             else:
-                uri = dumb_url_generate(['Patient', patient.id])
-            display = patient.rec_name
+                uri = dumb_url_generate(['Patient', subject.id])
+            display = subject.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
-            self.set_subject(ref)
+            super(health_FamilyHistory, self).set_subject(ref)
 
-    def __set_gnu_note(self):
-        pass
+    def set_note(self, note):
+        super(health_FamilyHistory, self).set_note(note)
 
-    def __set_gnu_relation(self):
-        """Set the relation from the data model"""
+    def set_relation(self, familyHistory):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        familyHistory -- the relatives
+        """
+
         # TODO Combine multiple conditions for same person
         from server.fhir.value_sets import familyMember
-        if self.family_history:
-            for member in self.family_history:
-                rel = supermod.FamilyHistory_Relation()
-                rel.relationship = supermod.CodeableConcept()
+        for member in familyHistory:
+            rel = supermod.FamilyHistory_Relation()
+            rel.relationship = supermod.CodeableConcept()
 
-                # Add relationship
-                t = {'s': 'sibling', 'm': 'maternal', 'f': 'paternal'}
-                k = ' '.join((t.get(member.xory, ''), member.relative))
-                info = [d for d in familyMember.contents if d['display'] == k]
+            # Add relationship
+            t = {'s': 'sibling', 'm': 'maternal', 'f': 'paternal'}
+            k = ' '.join((t.get(member.xory, ''), member.relative))
+            info = [d for d in familyMember.contents if d['display'] == k]
 
-                c = supermod.Coding()
-                if info:
-                    c.code = supermod.code(value=info[0]['code'])
-                    c.system = supermod.uri(value=info[0]['system'])
-                rel.relationship.text = supermod.string(value=k)
-                c.display = supermod.string(value=k)
-                rel.relationship.text = supermod.string(value=k)
-                rel.relationship.coding=[c]
+            c = supermod.Coding()
+            if info:
+                c.code = supermod.code(value=info[0]['code'])
+                c.system = supermod.uri(value=info[0]['system'])
+            rel.relationship.text = supermod.string(value=k)
+            c.display = supermod.string(value=k)
+            rel.relationship.text = supermod.string(value=k)
+            rel.relationship.coding=[c]
 
-                # Add the condition
-                s = attrgetter(self.map['condition'])(member)
-                if s:
-                    con = supermod.FamilyHistory_Condition()
-                    t = supermod.CodeableConcept()
-                    t.coding=[supermod.Coding()]
-                    t.coding[0].display=supermod.string(value=s.name)
-                    t.coding[0].code=supermod.code(value=s.code)
-                    #ICD-10-CM
-                    t.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.90')
-                    t.text = supermod.string(value=s.name)
-                    con.set_type(t)
-                    rel.add_condition(con)
+            # Add the condition
+            s = attrgetter(self.map['condition'])(member)
+            if s:
+                con = supermod.FamilyHistory_Condition()
+                t = supermod.CodeableConcept()
+                t.coding=[supermod.Coding()]
+                t.coding[0].display=supermod.string(value=s.name)
+                t.coding[0].code=supermod.code(value=s.code)
+                #ICD-10-CM
+                t.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.90')
+                t.text = supermod.string(value=s.name)
+                con.set_type(t)
+                rel.add_condition(con)
 
-                self.add_relation(rel)
+            super(health_FamilyHistory, self).add_relation(rel)
 
     def export_to_xml_string(self):
         """Export"""

@@ -1,6 +1,7 @@
 from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
+from server.common import safe_attrgetter
 import server.fhir as supermod
 import sys
 
@@ -30,6 +31,7 @@ class Practitioner_Map:
                 'given': 'name.name',
                 'family': 'name.lastname',
                 'nickname': 'name.alias'}}
+
     resource_search_params={
                     '_id': 'token',
                     '_language': None,
@@ -76,17 +78,17 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
         #self.search_prefix=self.url_prefixes[self.model_type]
 
         self.__import_from_gnu_practitioner()
+        self.__set_feed_info()
 
     def __import_from_gnu_practitioner(self):
         """Set data from model"""
         if self.practitioner:
-            self.__set_gnu_specialty()
-            self.__set_gnu_communication()
-            self.__set_gnu_identifier()
-            self.__set_gnu_gender()
-            self.__set_gnu_name()
-            self.__set_gnu_role()
-            self.__set_feed_info()
+            self.set_specialty(safe_attrgetter(self.practitioner, self.map['specialty']))
+            self.set_role(safe_attrgetter(self.practitioner, self.map['role']))
+            self.set_communication(safe_attrgetter(self.practitioner, self.map['communication']))
+            self.set_gender(safe_attrgetter(self.practitioner, self.map['gender']))
+            self.set_name(safe_attrgetter(self.practitioner, self.map['name']))
+            self.set_identifier(safe_attrgetter(self.practitioner, self.map['identifier']))
 
     def __set_feed_info(self):
         """Set the feed-relevant data"""
@@ -104,12 +106,17 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
                     'title': self.practitioner.name.rec_name
                         }
 
-    def __set_gnu_name(self):
-        """Set name from model"""
-        try:
+    def set_name(self, name):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        name -- patient party model (Health model)
+        """
+
+        if name:
             family=[]
-            full_given_name = attrgetter(self.map['given'])(self.practitioner)
-            full_family_name = attrgetter(self.map['family'])(self.practitioner)
+            full_given_name = name.name
+            full_family_name = name.lastname
             given=[supermod.string(value=x) for x in full_given_name.split()]
             after_names=[supermod.string(value=x) for x in full_family_name.split()]
             if len(after_names) > 1:
@@ -122,57 +129,50 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
                         family=family,
                         given=given)
 
-            self.set_name(name)
-        except:
-            pass
+            super(health_Practitioner, self).set_name(name)
 
-    def __set_gnu_identifier(self):
-        """Set identifier from model"""
-        try:
-            puid = attrgetter(self.map['identifier'])(self.practitioner)
+    def set_identifier(self, identifier):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        identifier -- puid
+        """
+
+        if identifier:
             ident = supermod.Identifier(
                         use=supermod.IdentifierUse(value='usual'),
                         label=supermod.string(value='PUID'),
-                        #system=supermod.uri(value='gnuhealth::0'),
-                                #value=current_app.config.get(
-                                    #'INSTITUTION_ODI', None)),
-                        value=supermod.string(value=puid))
-            self.add_identifier(value=ident)
+                        value=supermod.string(value=identifier))
+            super(health_Practitioner, self).add_identifier(ident)
 
-        except:
-            pass
-            #if getattr(self.practitioner.name, 'alternative_identification', None):
-                #ident = supermod.Identifier(
-                            #use=supermod.IdentifierUse(value='usual'),
-                            #label=supermod.string(value='ALTERNATE_ID'),
-                            #system=supermod.system(
-                                #supermod.uri(
-                                    #value=current_app.config.get(
-                                        #'INSTITUTION_ODI',None))),
-                            #value=supermod.string(
-                                #value=self.practitioner.name.alternative_identification))
-                #self.add_identifier(value=ident)
 
-    def __set_gnu_gender(self):
-        """Set gender from model"""
-        try:
-            from server.fhir.value_sets import administrativeGender as gender
-            us = attrgetter(self.map['gender'])(self.practitioner).upper()
-            sd = [x for x in gender.contents if x['code'] == us][0]
+    def set_gender(self, gender):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        gender -- practitioner's gender
+        """
+
+        if gender:
+            from server.fhir.value_sets import administrativeGender as codes
+            us = gender.upper()
+            sd = [x for x in codes.contents if x['code'] == us][0]
             coding = supermod.Coding(
                         system=supermod.uri(value=sd['system']),
                         code=supermod.code(value=sd['code']),
                         display=supermod.string(value=sd['display'])
                         )
             g=supermod.CodeableConcept(coding=[coding])
-            self.set_gender(g)
-        except:
-            pass
+            super(health_Practitioner, self).set_gender(g)
 
-    def __set_gnu_communication(self):
-        """Set communication from model"""
-        try:
-            communication=attrgetter(self.map['communication'])(self.practitioner)
+    def set_communication(self, communication):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        communication -- language
+        """
+
+        if communication:
             from re import sub
             code=sub('_','-', communication.code)
             name=communication.name
@@ -183,31 +183,33 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
                         )
             com=supermod.CodeableConcept(coding=[coding],
                                     text=supermod.string(value=name))
-            self.add_communication(com)
-        except:
-            pass
+            super(health_Practitioner, self).add_communication(com)
 
-    def __set_gnu_specialty(self):
-        """Set specialty from model"""
-        try:
-            for spec in attrgetter(self.map['specialty'])(self.practitioner):
-                code, name = attrgetter('specialty.code', 'specialty.name')(spec)
-                coding = supermod.Coding(code=supermod.string(value=code),
-                        display=supermod.string(value=name))
-                com=supermod.CodeableConcept(coding=[coding])
-                self.add_specialty(com)
-        except:
-            pass
+    def set_specialty(self, specialty):
+        """Extends superclass for convenience
 
-    def __set_gnu_role(self):
-        """Set role from model"""
-        try:
-            name=attrgetter(self.map['role'])(self.practitioner)
-            coding = supermod.Coding(display=supermod.string(value=name))
+        Keyword arguments
+        specialty -- person's specialties
+        """
+
+        for spec in  specialty:
+            code, name = attrgetter('specialty.code', 'specialty.name')(spec)
+            coding = supermod.Coding(code=supermod.string(value=code),
+                    display=supermod.string(value=name))
             com=supermod.CodeableConcept(coding=[coding])
-            self.set_role([com])
-        except:
-            pass
+            super(health_Practitioner, self).add_specialty(com)
+
+    def set_role(self, role):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        role -- occupation name
+        """
+
+        if role:
+            coding = supermod.Coding(display=supermod.string(value=str(role)))
+            com=supermod.CodeableConcept(coding=[coding])
+            super(health_Practitioner, self).set_role([com])
 
     def export_to_xml_string(self):
         """Export"""

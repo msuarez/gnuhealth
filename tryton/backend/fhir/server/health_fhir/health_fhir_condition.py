@@ -1,6 +1,7 @@
 from StringIO import StringIO
 from operator import attrgetter
 import server.fhir as supermod
+from server.common import safe_attrgetter
 
 try:
     from flask import url_for
@@ -80,20 +81,20 @@ class health_Condition(supermod.Condition, Condition_Map):
         self.map = self.model_mapping[self.model_type]
 
         self.__import_from_gnu_condition()
+        self.__set_feed_info()
 
     def __import_from_gnu_condition(self):
         """Sets the data from the model"""
         if self.condition:
-            self.__set_gnu_subject()
-            self.__set_gnu_asserter()
-            self.__set_gnu_dateAsserted()
-            self.__set_gnu_code()
-            self.__set_gnu_severity()
-            self.__set_gnu_abatement()
-            self.__set_gnu_status()
-            self.__set_gnu_notes()
+            self.set_code(safe_attrgetter(self.condition, self.map['code']))
+            self.set_subject(safe_attrgetter(self.condition, self.map['subject']))
+            self.set_asserter(safe_attrgetter(self.condition, self.map['asserter']))
+            self.set_dateAsserted(safe_attrgetter(self.condition, self.map['dateAsserted']))
+            self.set_notes(safe_attrgetter(self.condition, self.map['notes']))
+            self.set_abatement(safe_attrgetter(self.condition, self.map['abatementDate']))
+            self.set_severity(safe_attrgetter(self.condition, self.map['severity']))
+            self.set_status('confirmed')
 
-            self.__set_feed_info()
 
     def __set_feed_info(self):
         """Sets the feed-relevant info"""
@@ -110,88 +111,126 @@ class health_Condition(supermod.Condition, Condition_Map):
                     'title': attrgetter('pathology.name')(self.condition)
                         }
 
-    def __set_gnu_subject(self):
-        if self.condition:
-            patient = attrgetter(self.map['subject'])(self.condition)
+    def set_subject(self, subject):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        subject -- patient (Health model)
+        """
+
+        if subject:
             if RUN_FLASK:
-                uri = url_for('pat_record', log_id=patient.id)
+                uri = url_for('pat_record', log_id=subject.id)
             else:
-                uri = dumb_url_generate(['Patient', patient.id])
-            display = patient.rec_name
+                uri = dumb_url_generate(['Patient', subject.id])
+            display = subject.rec_name
             ref=supermod.ResourceReference()
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
-            self.set_subject(ref)
+            super(health_Condition, self).set_subject(ref)
 
-    def __set_gnu_asserter(self):
-        if self.condition:
-            hp = attrgetter(self.map['asserter'])(self.condition)
-            if hp:
-                if RUN_FLASK:
-                    uri = url_for('hp_record', log_id=hp.id)
-                else:
-                    uri = dumb_url_generate(['Practitioner', hp.id])
-                display = hp.rec_name
-                ref=supermod.ResourceReference()
-                ref.display = supermod.string(value=display)
-                ref.reference = supermod.string(value=uri)
-                self.set_asserter(ref)
+    def set_asserter(self, asserter):
+        """Extends superclass for convenience
 
-    def __set_gnu_dateAsserted(self):
-        if self.condition:
-            d = attrgetter(self.map['dateAsserted'])(self.condition)
-            if d:
-                self.set_dateAsserted(supermod.date(value=d.strftime('%Y/%m/%d')))
+        Keyword arguments:
+        asserter -- the practitioner (Health model)
+        """
 
-    def __set_gnu_notes(self):
-        if self.condition:
-            s = attrgetter(self.map['notes'])(self.condition)
-            if s:
-                self.set_notes(supermod.string(value=str(s)))
+        if asserter:
+            if RUN_FLASK:
+                uri = url_for('hp_record', log_id=asserter.id)
+            else:
+                uri = dumb_url_generate(['Practitioner', asserter.id])
+            display = asserter.rec_name
+            ref=supermod.ResourceReference()
+            ref.display = supermod.string(value=display)
+            ref.reference = supermod.string(value=uri)
+            super(health_Condition, self).set_asserter(ref)
 
-    def __set_gnu_abatement(self):
-        if self.condition:
-            d = attrgetter(self.map['abatementDate'])(self.condition)
-            if d:
-                self.set_abatementDate(supermod.date(value=d.strftime('%Y/%m/%d')))
+    def set_dateAsserted(self, dateAsserted):
+        """Extends superclass for convenience
 
-    def __set_gnu_status(self):
+        Keyword arguments:
+        dateAsserted -- the date (datetime object)
+        """
+
+        if dateAsserted is not None:
+            d=supermod.date(value=dateAsserted.strftime('%Y/%m/%d'))
+            super(health_Condition, self).set_dateAsserted(d)
+
+    def set_notes(self, notes):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        notes -- notes to add
+        """
+
+        if notes:
+            n = supermod.string(value=str(s))
+            super(health_Condition, self).set_notes(n)
+
+    def set_abatement(self, abatementDate):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        abatementDate -- the date (datetime object)
+        """
+
+        if abatementDate is not None:
+            d = supermod.date(value=d.strftime('%Y/%m/%d'))
+            super(health_Condition, self).set_abatementDate(d)
+
+    def set_status(self, status='confirmed'):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        status -- status
+        """
         # TODO This is required, but no corresponding Health equivalent
         #    so, default is 'confirmed'
-        if self.condition:
+
+        if status:
             st = supermod.ConditionStatus(value='confirmed')
-            self.set_status(st)
+            super(health_Condition, self).set_status(st)
 
-    def __set_gnu_severity(self):
-        if self.condition:
-            s = attrgetter(self.map['severity'])(self.condition)
-            if s:
-                # These are the snomed codes
-                sev={'1_mi': ('Mild', '255604002'),
-                    '2_mo': ('Moderate', '6736007'),
-                    '3_sv': ('Severe', '24484000')}
-                t=sev.get(s)
-                if t:
-                    c = supermod.CodeableConcept()
-                    c.coding = [supermod.Coding()]
-                    c.coding[0].display=supermod.string(value=t[0])
-                    c.coding[0].code=supermod.code(value=t[1])
-                    c.coding[0].system=supermod.uri(value='http://snomed.info/sct')
-                    c.text = supermod.string(value=t[0])
-                    self.set_severity(c)
+    def set_severity(self, severity):
+        """Extends superclass for convenience
 
-    def __set_gnu_code(self):
-        if self.condition:
-            s = attrgetter(self.map['code'])(self.condition)
-            if s:
+        Keyword arguments:
+        severity -- the disease severity
+        """
+
+        if severity:
+            # These are the snomed codes
+            sev={'1_mi': ('Mild', '255604002'),
+                '2_mo': ('Moderate', '6736007'),
+                '3_sv': ('Severe', '24484000')}
+            t=sev.get(severity)
+            if t:
                 c = supermod.CodeableConcept()
-                c.coding=[supermod.Coding()]
-                c.coding[0].display=supermod.string(value=s.name)
-                c.coding[0].code=supermod.code(value=s.code)
-                #ICD-10-CM
-                c.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.90')
-                c.text = supermod.string(value=s.name)
-                self.set_code(c)
+                c.coding = [supermod.Coding()]
+                c.coding[0].display=supermod.string(value=t[0])
+                c.coding[0].code=supermod.code(value=t[1])
+                c.coding[0].system=supermod.uri(value='http://snomed.info/sct')
+                c.text = supermod.string(value=t[0])
+                super(health_Condition, self).set_severity(c)
+
+    def set_code(self, code):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        code -- the pathology info (Health model)
+        """
+
+        if code:
+            c = supermod.CodeableConcept()
+            c.coding=[supermod.Coding()]
+            c.coding[0].display=supermod.string(value=code.name)
+            c.coding[0].code=supermod.code(value=code.code)
+            #ICD-10-CM
+            c.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.90')
+            c.text = supermod.string(value=code.name)
+            super(health_Condition, self).set_code(c)
 
     def export_to_xml_string(self):
         """Export"""
