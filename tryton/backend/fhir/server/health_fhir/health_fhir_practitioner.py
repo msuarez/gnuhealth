@@ -30,7 +30,8 @@ class Practitioner_Map:
                 'identifier': 'name.puid',
                 'given': 'name.name',
                 'family': 'name.lastname',
-                'nickname': 'name.alias'}}
+                'nickname': 'name.alias',
+                'name': 'name'}}
 
     resource_search_params={
                     '_id': 'token',

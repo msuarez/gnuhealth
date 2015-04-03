@@ -34,11 +34,9 @@ class MS_Search(Resource):
                                     offset=offset,
                                     limit=per_page,
                                     order=[('id', 'DESC')]):
-                print rec
                 try:
                     p = health_MedicationStatement(gnu_record=rec)
                 except:
-                    print sys.exc_info()
                     continue
                 else:
                     bd.add_entry(p)

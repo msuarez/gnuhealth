@@ -3,6 +3,7 @@ from operator import attrgetter
 from datetime import datetime
 from .datastore import find_record
 import server.fhir as supermod
+from server.common import safe_attrgetter
 
 try:
     from flask import url_for
@@ -97,6 +98,8 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
         if self.procedure:
             self.set_subject(safe_attrgetter(self.procedure, self.map['subject']))
             self.set_type(safe_attrgetter(self.procedure, self.map['type']))
+            self.set_date(safe_attrgetter(self.procedure, self.map['date']),
+                            safe_attrgetter(self.procedure, self.map['date']))
             self.set_identifier(
                     safe_attrgetter(self.procedure, self.map['subject_name']),
                     safe_attrgetter(self.procedure, self.map['type']),
@@ -129,10 +132,10 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
 
         if procedure and patient and date:
             if RUN_FLASK:
-                value = supermod.string(value=url_for('op_record', log_id=procedure.id))
+                value = supermod.string(value=url_for('op_record', log_id=self.procedure.id))
             else:
                 value = supermod.string(value=dumb_url_generate(['Procedure',
-                                                                procedure.id]))
+                                                                self.procedure.id]))
             ident = supermod.Identifier(
                     label = supermod.string(
                         value='{0} performed on {1} on {2}'.format(
@@ -158,6 +161,21 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             ref.reference = supermod.string(value=uri)
             super(health_Procedure, self).set_subject(ref)
 
+    def set_date(self, start, end):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        start -- the start date (datetime object)
+        end -- the end date (datetime object)
+        """
+        #TODO Better specifics
+
+        if start is not None:
+            p = supermod.Period()
+            p.start = supermod.dateTime(value=start.strftime("%Y/%m/%d"))
+            if end is not None:
+                p.end = supermod.dateTime(value=end.strftime("%Y/%m/%d"))
+            super(health_Procedure, self).set_date(p)
 
     def set_type(self, type_):
         """Extends superclass for convenience

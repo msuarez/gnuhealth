@@ -1,6 +1,7 @@
 from StringIO import StringIO
 from operator import attrgetter
 import server.fhir as supermod
+from server.common import safe_attrgetter
 
 try:
     from flask import url_for
@@ -105,7 +106,7 @@ class health_Medication(supermod.Medication, Medication_Map):
             n = supermod.string(value=str(name))
             super(health_Medication, self).set_name(n)
 
-    def set_code(self, code, name):
+    def set_code(self, name, code):
         """Extends superclass for convenience
 
         Keyword arguments:
@@ -114,10 +115,11 @@ class health_Medication(supermod.Medication, Medication_Map):
         """
 
         #TODO Better info, use recognized codes
-        if code and name:
+        if name:
             c = supermod.Coding()
             c.display = supermod.string(value=str(name))
-            c.code = supermod.code(value=code)
+            if code:
+                c.code = supermod.code(value=code)
             cc = supermod.CodeableConcept()
             cc.coding=[c]
             super(health_Medication, self).set_code(cc)

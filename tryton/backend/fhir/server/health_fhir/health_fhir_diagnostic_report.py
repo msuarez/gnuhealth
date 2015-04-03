@@ -104,7 +104,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             self.set_result(safe_attrgetter(self.diagnostic_report, self.map['result']))
             self.set_name(safe_attrgetter(self.diagnostic_report, self.map['test']))
             self.set_identifier(
-                    safe_attrgetter(self.diagnostic_report, self.map['name']),
+                    safe_attrgetter(self.diagnostic_report, self.map['test']),
                     safe_attrgetter(self.diagnostic_report, 'patient.rec_name'),
                     safe_attrgetter(self.diagnostic_report, self.map['date']))
 
@@ -118,7 +118,7 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         """
 
         if report and patient and date:
-            label = '{0} for {1} on {2}'.format(report.test.name, patient, date.strftime('%Y/%m/%d'))
+            label = '{0} for {1} on {2}'.format(report.name, patient, date.strftime('%Y/%m/%d'))
             if RUN_FLASK:
                 value = url_for('dr_record', log_id=report.id)
             else:
