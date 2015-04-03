@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
 #
 #
@@ -57,7 +57,7 @@ class TestType(ModelSQL, ModelView):
 
     name = fields.Char('Test',
         help="Test type, eg X-Ray, hemogram,biopsy...", required=True,
-        select=True)
+        select=True, translate=True)
     code = fields.Char('Code',
         help="Short name - code for the test", required=True, select=True)
     info = fields.Text('Description')
@@ -151,7 +151,8 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     'Lab Test Critearea'
     __name__ = 'gnuhealth.lab.test.critearea'
 
-    name = fields.Char('Analyte', required=True, select=True)
+    name = fields.Char('Analyte', required=True, select=True,
+        translate=True)
     excluded = fields.Boolean('Excluded', help='Select this option when'
         ' this analyte is excluded from the test')
     result = fields.Float('Value')
