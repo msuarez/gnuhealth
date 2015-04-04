@@ -139,8 +139,13 @@ class OP_Record(Resource):
         '''Read interaction'''
         record = find_record(procedure, [('id', '=', log_id)])
         if record:
-            d=health_Procedure(gnu_record=record)
-            return d, 200
+            try:
+                d=health_Procedure(gnu_record=record)
+                return d, 200
+            except:
+                oo=health_OperationOutcome()
+                oo.add_issue(details=sys.exc_info()[1], severity='fatal')
+                return oo, 404
         else:
             oo=health_OperationOutcome()
             oo.add_issue(details='No record', severity='fatal')

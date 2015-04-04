@@ -120,12 +120,16 @@ class FH_Record(Resource):
         '''Read interaction'''
         records = family_history.search([('patient.id', '=', log_id)])
         if records:
-            d=health_FamilyHistory(gnu_records=records)
-            return d, 200
-        else:
-            oo=health_OperationOutcome()
-            oo.add_issue(details='No record', severity='error')
-            return oo, 404
+            try:
+                d=health_FamilyHistory(gnu_records=records)
+                return d, 200
+            except:
+                oo=health_OperationOutcome()
+                oo.add_issue(details=sys.exc_info()[1], severity='error')
+                return oo, 404
+        oo=health_OperationOutcome()
+        oo.add_issue(details='No record', severity='error')
+        return oo, 404
 
     @tryton.transaction(user=get_userid)
     def put(self, log_id):

@@ -137,7 +137,7 @@ class DR_Record(Resource):
                 return d, 200
             except:
                 oo=health_OperationOutcome()
-                oo.add_issue(details='No record', severity='fatal')
+                oo.add_issue(details=sys.exc_info()[1], severity='fatal')
                 return oo, 404
         oo=health_OperationOutcome()
         oo.add_issue(details='No record', severity='fatal')

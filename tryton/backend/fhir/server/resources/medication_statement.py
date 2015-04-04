@@ -118,8 +118,13 @@ class MS_Record(Resource):
         '''Read interaction'''
         record = find_record(medication_statement, [('id', '=', log_id)])
         if record:
-            d=health_MedicationStatement(gnu_record=record)
-            return d, 200
+            try:
+                d=health_MedicationStatement(gnu_record=record)
+                return d, 200
+            except:
+                oo=health_OperationOutcome()
+                oo.add_issue(details=sys.exc_info()[1], severity='error')
+                return oo, 404
         else:
             oo=health_OperationOutcome()
             oo.add_issue(details='No record', severity='error')

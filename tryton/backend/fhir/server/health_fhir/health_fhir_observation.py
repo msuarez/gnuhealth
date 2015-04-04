@@ -90,9 +90,11 @@ class Observation_Map:
                     'value-quantity': 'quantity',
                     'value-string': None}
 
-    # Must have result or be excluded
-    root_search=[['OR', [('result', '!=', None)],
-                        [('excluded', '=', True)]]]
+    # Must have result, be excluded, or be attached to lab
+    root_search=[[('gnuhealth_lab_id', '!=', None)]]
+    #root_search=[['OR', [('result', '!=', None)],
+                        #[('excluded', '=', True)],
+                        #[('gnuhealth_lab_id', '!=', None)]]]
 
     # Maps reference parameters to correct resource
     chain_map={
@@ -495,15 +497,15 @@ class health_Observation(supermod.Observation, Observation_Map):
                     q.code = supermod.code(value=code)
                     q.system = supermod.uri(value=system)
                 self.set_valueQuantity(q)
-            else:
-                if safe_attrgetter(self.gnu_obs, self.map['excluded']):
+            #else:
+                #if safe_attrgetter(self.gnu_obs, self.map['excluded']):
                     # Allow excluded observations with no value
-                    pass
-                else:
+                    #pass
+                #else:
                     # If there is no value and non-excluded,
                     #    the observation is useless
                     #    Therefore, exit early (handle this in the blueprint)
-                    raise ValueError('No value.')
+                    #raise ValueError('No value.')
 
     def set_valueQuantity(self, quantity):
         """Set actual value of observation"""

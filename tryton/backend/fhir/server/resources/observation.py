@@ -135,14 +135,15 @@ class OBS_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        record = find_record(lab, [('id', '=', log_id)])
+        record = find_record(lab, [('id', '=', log_id),
+                                    ('gnuhealth_lab_id', '!=', None)])
         if record:
             try:
                 d=health_Observation(gnu_record=record)
                 return d, 200
             except:
                 oo=health_OperationOutcome()
-                oo.add_issue(details='No record', severity='fatal')
+                oo.add_issue(details=sys.exc_info()[1], severity='fatal')
                 return oo, 404
         else:
             oo=health_OperationOutcome()
