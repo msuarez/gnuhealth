@@ -409,9 +409,9 @@ class health_Observation(supermod.Observation, Observation_Map):
             units=safe_attrgetter(self.gnu_obs, 'units.name', 'unknown')
             #ref.age = supermod.Range() #Not relevant, usually
             ref.low = supermod.Quantity()
+            ref.high = supermod.Quantity()
             ref.low.units = ref.high.units = supermod.string(value=units)
             ref.low.value = supermod.decimal(value=self.gnu_obs.lower_limit)
-            ref.high = supermod.Quantity()
             ref.high.value = supermod.decimal(value=self.gnu_obs.upper_limit)
             ref.meaning = supermod.Coding()
             ref.meaning.system = supermod.uri(value='http://hl7.org/fhir/referencerange-meaning')
