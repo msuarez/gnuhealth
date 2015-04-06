@@ -405,20 +405,19 @@ class health_Observation(supermod.Observation, Observation_Map):
     def __set_gnu_referenceRange(self):
         """Set reference range from data model"""
         if self.gnu_obs:
-            if self.model_type == 'lab':
-                ref = supermod.Observation_ReferenceRange()
-                #ref.age = supermod.Range() #Not relevant, usually
-                ref.low = supermod.Quantity()
-                ref.low.units = supermod.string(value=safe_attrgetter(self.gnu_obs, 'units.name'))
-                ref.low.value = supermod.decimal(value=safe_attrgetter(self.gnu_obs, 'lower_limit'))
-                ref.high = supermod.Quantity()
-                ref.high.units = supermod.string(value=self.gnu_obs.units.name)
-                ref.high.value = supermod.decimal(value=self.gnu_obs.upper_limit)
-                ref.meaning = supermod.Coding()
-                ref.meaning.system = supermod.uri(value='http://hl7.org/fhir/referencerange-meaning')
-                ref.meaning.code = supermod.code(value='normal')
-                ref.meaning.display = supermod.string(value='Normal range')
-                self.set_referenceRange([ref])
+            ref = supermod.Observation_ReferenceRange()
+            units=safe_attrgetter(self.gnu_obs, 'units.name', 'unknown')
+            #ref.age = supermod.Range() #Not relevant, usually
+            ref.low = supermod.Quantity()
+            ref.low.units = ref.high.units = supermod.string(value=units)
+            ref.low.value = supermod.decimal(value=self.gnu_obs.lower_limit)
+            ref.high = supermod.Quantity()
+            ref.high.value = supermod.decimal(value=self.gnu_obs.upper_limit)
+            ref.meaning = supermod.Coding()
+            ref.meaning.system = supermod.uri(value='http://hl7.org/fhir/referencerange-meaning')
+            ref.meaning.code = supermod.code(value='normal')
+            ref.meaning.display = supermod.string(value='Normal range')
+            self.set_referenceRange([ref])
 
     def set_referenceRange(self, ranges):
         """Set reference range"""
