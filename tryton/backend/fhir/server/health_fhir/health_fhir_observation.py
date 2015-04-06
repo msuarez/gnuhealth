@@ -279,7 +279,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             self.__set_gnu_interpretation()
             self.__set_gnu_status()
             self.__set_gnu_reliability()
-            self.__set_gnu_issued()
+            self.set_issued()
             self.__set_gnu_performer()
             self.__set_gnu_name()
 
@@ -353,19 +353,16 @@ class health_Observation(supermod.Observation, Observation_Map):
         if interpretation:
             super(health_Observation, self).set_interpretation(interpretation)
 
-    def __set_gnu_issued(self):
-        """Set issued from the data model"""
+    def set_issued(self):
+        """Extends superclass for convenience
+
+        Set newest update time
+        """
         if self.gnu_obs:
-            time=self.gnu_obs.write_date.strftime("%Y-%m-%dT%H:%M:%S")
-            if time:
-                instant = supermod.instant(value=time)
-                self.set_issued(instant)
-
-
-    def set_issued(self, issued):
-        """Set newest update time"""
-        if issued:
-            super(health_Observation, self).set_issued(issued)
+            t=self.gnu_obs.write_date or self.gnu_obs.create_date
+            time=t.strftime("%Y-%m-%dT%H:%M:%S")
+            instant = supermod.instant(value=time)
+            super(health_Observation, self).set_issued(instant)
 
     def set_method(self):
         pass
@@ -412,8 +409,8 @@ class health_Observation(supermod.Observation, Observation_Map):
                 ref = supermod.Observation_ReferenceRange()
                 #ref.age = supermod.Range() #Not relevant, usually
                 ref.low = supermod.Quantity()
-                ref.low.units = supermod.string(value=self.gnu_obs.units.name)
-                ref.low.value = supermod.decimal(value=self.gnu_obs.lower_limit)
+                ref.low.units = supermod.string(value=safe_attrgetter(self.gnu_obs, 'units.name'))
+                ref.low.value = supermod.decimal(value=safe_attrgetter(self.gnu_obs, 'lower_limit'))
                 ref.high = supermod.Quantity()
                 ref.high.units = supermod.string(value=self.gnu_obs.units.name)
                 ref.high.value = supermod.decimal(value=self.gnu_obs.upper_limit)
@@ -487,7 +484,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             elif self.field == 'rate':
                 units= "breaths/min"
             else:
-                units = self.gnu_obs.units.name
+                units = safe_attrgetter(self.gnu_obs, 'units.name')
 
             if value and units:
                 q = supermod.Quantity()
