@@ -21,6 +21,7 @@ class Observation_Map:
         'gnuhealth.lab.test.critearea':
             {'patient': 'gnuhealth_lab_id.patient',
             'date': 'gnuhealth_lab_id.date_analysis',
+            'performer': 'pathologist',
             'comments': 'remarks',
             'value': 'result',
             'excluded': 'excluded'},
@@ -541,7 +542,7 @@ class health_Observation(supermod.Observation, Observation_Map):
                     uri=url_for('pat_record', log_id=subject.id)
                 else:
                     uri=dumb_url_generate('/Patient', str(subject.id))
-                display = patient.name.rec_name
+                display = subject.name.rec_name
                 ref=supermod.ResourceReference()
                 ref.display = supermod.string(value=display)
                 ref.reference = supermod.string(value=uri)
