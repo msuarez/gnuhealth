@@ -30,7 +30,7 @@ from trytond.pool import Pool
 from trytond.tools import datetime_strftime
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 
-__all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
+__all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData', 'SurgeryTeam']
 
 
 class RCRI(ModelSQL, ModelView):
@@ -323,6 +323,10 @@ class Surgery(ModelSQL, ModelView):
     report_surgery_time = fields.Function(fields.Time('Surgery Time'), 
         'get_report_surgery_time')
 
+    surgery_team = fields.One2Many(
+        'gnuhealth.surgery_team', 'name', 'Team Members',
+        help="Professionals Involved in the surgery")
+
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')
@@ -456,6 +460,16 @@ class Operation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
+
+class SurgeryTeam(ModelSQL, ModelView):
+    'Team Involved in the surgery'
+    __name__ = 'gnuhealth.surgery_team'
+
+    name = fields.Many2One('gnuhealth.surgery', 'Surgery')
+    team_member = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Member', required=True, select=True,
+        help="Procedure Code, for example ICD-10-PCS or ICPM")
+    notes = fields.Char('Notes')
 
 class PatientData(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'

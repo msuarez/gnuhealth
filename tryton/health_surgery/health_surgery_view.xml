@@ -115,6 +115,20 @@
             <field name="name">gnuhealth_operation_tree</field>
         </record>
 
+<!-- Surgery Team -->
+
+        <record model="ir.ui.view" id="gnuhealth_surgery_team_view">
+            <field name="model">gnuhealth.surgery_team</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_surgery_team</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_surgery_team_tree">
+            <field name="model">gnuhealth.surgery_team</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_surgery_team_tree</field>
+        </record>
+
 <!-- Include the Surgery page into the Patient History -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_view">

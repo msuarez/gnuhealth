@@ -31,6 +31,7 @@ def register():
         Surgery,
         Operation,
         PatientData,
+        SurgeryTeam,
         module='health_surgery', type_='model')
     Pool.register(
         SurgeryReport,
