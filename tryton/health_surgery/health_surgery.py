@@ -468,7 +468,13 @@ class SurgeryTeam(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
     team_member = fields.Many2One(
         'gnuhealth.healthprofessional', 'Member', required=True, select=True,
-        help="Procedure Code, for example ICD-10-PCS or ICPM")
+        help="Health professional that participated on this surgery")
+
+    role = fields.Many2One(
+        'gnuhealth.hp_specialty', 'Role',
+        domain=[('name', '=', Eval('team_member'))],
+        depends=['team_member'])
+    
     notes = fields.Char('Notes')
 
 class PatientData(ModelSQL, ModelView):
