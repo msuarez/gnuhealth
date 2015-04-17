@@ -327,6 +327,10 @@ class Surgery(ModelSQL, ModelView):
         'gnuhealth.surgery_team', 'name', 'Team Members',
         help="Professionals Involved in the surgery")
 
+    postoperative_dx = fields.Many2One(
+        'gnuhealth.pathology', 'Post-op dx',
+        help="Post-operative diagnosis")
+
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')
