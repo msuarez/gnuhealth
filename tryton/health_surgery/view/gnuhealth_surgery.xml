@@ -27,13 +27,15 @@
         <field name="anesthetist"/>
     </group>
     <newline/>
-    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="6">
+    <group string="Patient Surgical Risk assessment" id="group_patient_surgery_risk" colspan="4" col="8">
         <label name="preop_asa"/>
         <field name="preop_asa" width="150"/>
         <label name="preop_rcri"/>
         <field name="preop_rcri"/>
         <label name="preop_mallampati"/>
         <field name="preop_mallampati" width="150"/>
+        <label name="surgical_wound"/>
+        <field name="surgical_wound"/>
     </group>
     <newline/>
     <group string="Preoperative checklist" id="group_preoperative_checklist" colspan="4" col="10">

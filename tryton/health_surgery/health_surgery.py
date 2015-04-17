@@ -312,6 +312,15 @@ class Surgery(ModelSQL, ModelView):
         'Points 2: Class III Moderate (6.6% complications)\n'
         'Points 3 or more : Class IV High (>11% complications)')
 
+    surgical_wound = fields.Selection([
+        (None, ''),
+        ('I', 'Clean . Class I'),
+        ('II', 'Clean-Contaminated . Class II'),
+        ('III', 'Contaminated . Class III'),
+        ('IV', 'Dirty-Infected . Class IV'),
+        ], 'Surgical wound', sort=False)
+
+
     extra_info = fields.Text('Extra Info')
 
     anesthesia_report = fields.Text('Anesthesia Report')
