@@ -204,7 +204,7 @@ class Surgery(ModelSQL, ModelView):
         "one as the main procedure")
 
     pathology = fields.Many2One(
-        'gnuhealth.pathology', 'Base condition',
+        'gnuhealth.pathology', 'Condition',
         help="Base Condition / Reason")
 
     classification = fields.Selection([
