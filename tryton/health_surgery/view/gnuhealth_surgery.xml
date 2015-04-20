@@ -20,7 +20,9 @@
         <field name="operating_room"/>
     </group>
     <newline/>
-    <group colspan="4" id="group_surgery_1">
+    <group colspan="4" col="6" id="group_surgery_1">
+        <label name="institution"/>
+        <field name="institution"/>
         <label name="surgeon"/>
         <field name="surgeon"/>
         <label name="anesthetist"/>
