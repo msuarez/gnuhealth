@@ -235,7 +235,8 @@ class Surgery(ModelSQL, ModelView):
         'surgery_duration')
 
     state = fields.Selection([
-        ('in_progress', 'In progress'),
+        ('draft', 'Draft'),
+        ('confirmed', 'confirmed'),
         ('done', 'Done'),
         ], 'State', readonly=True, sort=False)
 
@@ -359,7 +360,7 @@ class Surgery(ModelSQL, ModelView):
 
     @staticmethod
     def default_state():
-        return 'in_progress'
+        return 'draft'
 
     @classmethod
     # Update to version 2.0
