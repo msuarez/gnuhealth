@@ -77,6 +77,7 @@ class Bundle(supermod.FeedType):
         Keyword arguments:
         title -- the feed title
         """
+
         if title:
             t = supermod.TextType(valueOf_=str(title))
             t.content_.append(t.mixedclass_(

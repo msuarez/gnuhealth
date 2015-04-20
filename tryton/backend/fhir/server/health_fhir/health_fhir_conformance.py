@@ -13,7 +13,7 @@ from .health_fhir_medication_statement import MedicationStatement_Map
 from .health_fhir_immunization import Immunization_Map 
 import server.fhir as supermod
 
-UPDATED=datetime(2015, 2, 5).strftime('%Y/%m/%d')
+UPDATED=datetime(2015, 4, 10).strftime('%Y/%m/%d')
 
 class health_Conformance(supermod.Conformance):
     def __init__(self, *args, **kwargs):
@@ -74,12 +74,11 @@ class health_Conformance(supermod.Conformance):
         self.set_acceptUnknown(u)
 
     def __set_format(self):
-        # When JSON supported, add it to here
         f = [supermod.code(value='xml')]
+        #f.append(supermod.code(value='json')) #When JSON is supported
         self.set_format(f)
 
     def __set_rest(self):
-        #TODO Add SearchParam
         r = supermod.Conformance_Rest()
         r.mode = supermod.RestfulConformanceMode(value='server')
         endpoints = []

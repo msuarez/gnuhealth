@@ -76,6 +76,19 @@ class TestType(ModelSQL, ModelView):
     def check_xml_record(cls, records, values):
         return True
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        """ Search for the full name and the code """
+        field = None
+        for field in ('name', 'code'):
+            tests = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if tests:
+                break
+        if tests:
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
+
+
 
 class Lab(ModelSQL, ModelView):
     'Lab Test'
