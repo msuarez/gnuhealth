@@ -1246,13 +1246,13 @@ class HealthProfessional(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(HealthProfessional, cls).__setup__()
         cls._sql_constraints = [
             ('hp_uniq', 'UNIQUE(name)',
                 'The health professional must be unique'),
             ('code_uniq', 'UNIQUE(code)',
                 'The LICENSE ID must be unique'),
         ]
-        super(HealthProfessional, cls).__setup__()
 
     def get_rec_name(self, name):
         if self.name:
@@ -4105,37 +4105,40 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     glycemia = fields.Float(
         'Glycemia',
-        help='Last blood glucose level. Can be approximative.',
+        help='Last blood glucose level. Can be approximative. Expressed in mg/dL or mmol/L.',
         states = STATES)
 
     hba1c = fields.Float(
         'Glycated Hemoglobin',
-        help='Last Glycated Hb level. Can be approximative.',
+        help='Last Glycated Hb level. Can be approximative. Expressed in mmol/mol.',
         states = STATES)
 
     cholesterol_total = fields.Integer(
         'Last Cholesterol',
-        help='Last cholesterol reading. Can be approximative',
+        help='Last cholesterol reading. Can be approximative. Expressed in mg/dL or mmol/L.',
         states = STATES)
 
     hdl = fields.Integer(
         'Last HDL',
-        help='Last HDL Cholesterol reading. Can be approximative',
+        help='Last HDL Cholesterol reading. Can be approximative. Expressed in mg/dL or mmol/L.',
         states = STATES)
 
     ldl = fields.Integer(
         'Last LDL',
-        help='Last LDL Cholesterol reading. Can be approximative',
+        help='Last LDL Cholesterol reading. Can be approximative. Expressed in mg/dL or mmol/L.',
         states = STATES)
 
     tag = fields.Integer(
         'Last TAGs',
-        help='Triacylglycerol(triglicerides) level. Can be approximative',
+        help='Triacylglycerol(triglicerides) level. Can be approximative. Expressed in mg/dL or mmol/L.',
         states = STATES)
 
     systolic = fields.Integer('Systolic Pressure',
+        help='Systolic pressure expressed in mmHg',
         states = STATES)
+
     diastolic = fields.Integer('Diastolic Pressure',
+        help='Diastolic pressure expressed in mmHg',
         states = STATES)
 
     bpm = fields.Integer(
@@ -4150,7 +4153,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     osat = fields.Integer(
         'Oxygen Saturation',
-        help='Oxygen Saturation(arterial).',
+        help='Arterial oxygen saturation expressed as a percentage',
         states = STATES)
 
     malnutrition = fields.Boolean(
@@ -4174,23 +4177,28 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Temperature in celcius',
         states = STATES)
 
-    weight = fields.Float('Weight', help='Weight in Kilos',
+    weight = fields.Float('Weight', help='Weight in kilos',
         states = STATES)
-    height = fields.Float('Height', help='Height in centimeters, eg 175',
+
+    height = fields.Float('Height', help='Height in centimeters',
         states = STATES)
 
     bmi = fields.Float(
-        'Body Mass Index',
+        'BMI',
+        help='Body mass index',
         states = STATES)
 
     head_circumference = fields.Float(
-        'Head Circumference',
-        help='Head circumference',
+        'Head',
+        help='Head circumference in centimeters',
         states = STATES)
 
     abdominal_circ = fields.Float('Waist',
+        help='Waist circumference in centimeters',
         states = STATES)
-    hip = fields.Float('Hip', help='Hip circumference in centimeters, eg 100',
+
+    hip = fields.Float('Hip',
+        help='Hip circumference in centimeters',
         states = STATES)
 
     whr = fields.Float(
