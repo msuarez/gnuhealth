@@ -27,7 +27,6 @@ from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
-from trytond.tools import datetime_strftime
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 
 __all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData', 'SurgeryTeam']
@@ -396,16 +395,18 @@ class Surgery(ModelSQL, ModelView):
     def validate_surgery_period(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if (self.surgery_end_date and self.surgery_date):
             if (self.surgery_end_date < self.surgery_date):
                 self.raise_user_error('end_date_before_start', {
-                        'surgery_date': datetime_strftime(self.surgery_date,
-                            str(languages[0].date)),
-                        'end_date': datetime_strftime(self.surgery_end_date,
-                            str(languages[0].date)),
+                        'surgery_date': Lang.strftime(self.surgery_date,
+                            language.code,
+                            language.date),
+                        'end_date': Lang.strftime(self.surgery_end_date,
+                            language.code,
+                            language.date),
                         })
 
 

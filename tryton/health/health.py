@@ -29,7 +29,6 @@ from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 from trytond.pool import Pool
-from trytond.tools import datetime_strftime
 from uuid import uuid4
 import string
 import random
@@ -2782,31 +2781,33 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     def validate_disease_period(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if (self.healed_date and self.diagnosed_date):
             if (self.healed_date < self.diagnosed_date):
                 self.raise_user_error('end_date_before_start', {
-                        'healed_date': datetime_strftime(self.healed_date,
-                            str(languages[0].date)),
-                        'diagnosed_date': datetime_strftime(self.diagnosed_date,
-                            str(languages[0].date)),
+                        'healed_date': Lang.strftime(self.healed_date,
+                            language.code, language.date),
+                        'diagnosed_date': Lang.strftime(self.diagnosed_date,
+                            language.code, language.date),
                         })
 
     def validate_treatment_dates(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if (self.date_stop_treatment and self.date_start_treatment):
             if (self.date_stop_treatment < self.date_start_treatment):
                 self.raise_user_error('end_treatment_date_before_start', {
-                        'date_stop_treatment': datetime_strftime(
-                            self.date_stop_treatment, str(languages[0].date)),
-                        'date_start_treatment': datetime_strftime(
-                            self.date_start_treatment, str(languages[0].date)),
+                        'date_stop_treatment': Lang.strftime(
+                            self.date_stop_treatment,
+                            language.code, language.date),
+                        'date_start_treatment': Lang.strftime(
+                            self.date_start_treatment,
+                            language.code, language.date),
                         })
 
 
@@ -3432,16 +3433,16 @@ class PatientMedication(ModelSQL, ModelView):
     def validate_medication_dates(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if self.end_treatment:
             if (self.end_treatment < self.start_treatment):
                 self.raise_user_error('end_date_before_start', {
-                    'start_treatment': datetime_strftime(self.start_treatment,
-                        str(languages[0].date)),
-                    'end_treatment': datetime_strftime(self.end_treatment,
-                        str(languages[0].date)),
+                    'start_treatment': Lang.strftime(self.start_treatment,
+                        language.code, language.date),
+                    'end_treatment': Lang.strftime(self.end_treatment,
+                        language.code, language.date),
                     })
 
 # PATIENT VACCINATION INFORMATION
@@ -4393,16 +4394,16 @@ class PatientEvaluation(ModelSQL, ModelView):
     def validate_evaluation_period(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if (self.evaluation_endtime and self.evaluation_start):
             if (self.evaluation_endtime < self.evaluation_start):
                 self.raise_user_error('end_date_before_start', {
-                        'evaluation_start': datetime_strftime(
-                            self.evaluation_start, str(languages[0].date)),
-                        'evaluation_endtime': datetime_strftime(
-                            self.evaluation_endtime, str(languages[0].date)),
+                        'evaluation_start': Lang.strftime(
+                            self.evaluation_start, language.code, language.date),
+                        'evaluation_endtime': Lang.strftime(
+                            self.evaluation_endtime, language.code, language.date),
                         })
 
     def check_health_professional(self):
