@@ -225,7 +225,12 @@ class Surgery(ModelSQL, ModelView):
         'Date', help="Start of the Surgery")
 
     surgery_end_date = fields.DateTime(
-        'End', required=True, help="End of the Surgery")
+        'End',
+        states={
+            'invisible': Equal(Eval('state'), 'draft'),
+            'required': Equal(Eval('state'), 'done'),
+            },
+        help="End of the Surgery")
 
     surgery_length = fields.Function(
         fields.Char(
