@@ -235,6 +235,10 @@ class Surgery(ModelSQL, ModelView):
     surgery_length = fields.Function(
         fields.Char(
             'Duration',
+            states={
+                'invisible': Equal(Eval('state'), 'draft'),
+            },
+
             help="Length of the surgery"),
         'surgery_duration')
 
@@ -343,6 +347,9 @@ class Surgery(ModelSQL, ModelView):
 
     postoperative_dx = fields.Many2One(
         'gnuhealth.pathology', 'Post-op dx',
+        states={
+            'invisible': Equal(Eval('state'), 'draft'),
+            },
         help="Post-operative diagnosis")
 
     @staticmethod
