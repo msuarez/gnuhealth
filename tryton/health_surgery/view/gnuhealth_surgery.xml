@@ -56,7 +56,7 @@
     <separator id="surgery_separator_1" colspan="4"/>
     <field name="procedures" colspan="4"/>
     <newline/>
-    <separator string="Details / Incidents" id="separator_surgery_details" colspan="2"/>
+    <separator string="Details" id="separator_surgery_details" colspan="2"/>
     <separator string="Anesthesia" id="separator_anesthesia_details" colspan="2"/>
     <newline/>
     <field name="extra_info" colspan="2"/>
