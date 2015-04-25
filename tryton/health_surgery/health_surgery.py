@@ -250,7 +250,7 @@ class Surgery(ModelSQL, ModelView):
 
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        states={'invisible': Equal(Eval('state'), 'draft')},
         help="Health Professional that signed this surgery document")
 
     # age is deprecated in GNU Health 2.0
