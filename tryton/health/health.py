@@ -1009,9 +1009,20 @@ class HospitalOR(ModelSQL, ModelView):
         domain=[('institution', '=', Eval('institution'))])
     extra_info = fields.Text('Extra Info')
 
+    state = fields.Selection((
+        ('free', 'Free'),
+        ('reserved', 'Reserved'),
+        ('occupied', 'Occupied'),
+        ('na', 'Not available'),
+        ), 'Status', readonly=True, sort=False)
+
     @staticmethod
     def default_institution():
         return HealthInstitution().get_institution()
+
+    @staticmethod
+    def default_state():
+        return 'free'
 
     @classmethod
     def __setup__(cls):

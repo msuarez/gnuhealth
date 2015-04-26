@@ -11,4 +11,7 @@
     <newline/>
     <label name="extra_info"/>
     <field name="extra_info" colspan="4"/>
+    <newline/>
+    <label name="state"/>
+    <field name="state"/>
 </form>
