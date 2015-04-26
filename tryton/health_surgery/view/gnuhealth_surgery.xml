@@ -72,6 +72,7 @@
         <label name="postoperative_dx"/>
         <field name="postoperative_dx"/>
         <field name="state"/>
+        <button name="confirmed" help="Confirm the scheduled surgery" string="Confirm" icon="tryton-go-next" confirm="Confirm the surgery and reserve the Operating Room ?"/>
         <button name="signsurgery" help="Sign this surgery" string="Sign" icon="tryton-go-next" confirm="Finish and sign this surgery ? Itwill become read-only !"/>
     <field name="signed_by"/>
     </group>

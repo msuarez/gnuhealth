@@ -27,7 +27,7 @@ from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
 
 __all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData', 'SurgeryTeam']
 
@@ -227,7 +227,6 @@ class Surgery(ModelSQL, ModelView):
     surgery_end_date = fields.DateTime(
         'End',
         states={
-            'invisible': Equal(Eval('state'), 'draft'),
             'required': Equal(Eval('state'), 'done'),
             },
         help="End of the Surgery")
@@ -391,13 +390,24 @@ class Surgery(ModelSQL, ModelView):
         super(Surgery, cls).__setup__()
         cls._error_messages.update({
             'end_date_before_start': 'End time "%(end_date)s" BEFORE '
-                'surgery date "%(surgery_date)s"'})
+                'surgery date "%(surgery_date)s"',
+            'or_is_not_available': 'Operating Room is not available'})
 
         cls._buttons.update({
             'signsurgery': {
                 'invisible': Equal(Eval('state'), 'done'),
-            },
-        })
+                },
+            'confirmed': {
+                'invisible': Not(Equal(Eval('state'), 'draft')),
+                },
+            'cancel': {
+                'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                },
+            'start': {
+                'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                },
+
+            })
         
     @classmethod
     def validate(cls, surgeries):
@@ -476,6 +486,38 @@ class Surgery(ModelSQL, ModelView):
 
         dt = self.surgery_date
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
+
+
+    ## Method to check for availability and make the Operating Room reservation
+     # for the associated surgery
+     
+    @classmethod
+    @ModelView.button
+    def confirmed(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        cursor = Transaction().cursor
+
+        or_id = surgery_id.operating_room.id
+        cursor.execute("SELECT COUNT(*) \
+            FROM gnuhealth_surgery \
+            WHERE (surgery_date::timestamp,surgery_end_date::timestamp) \
+                OVERLAPS (timestamp %s, timestamp %s) \
+              AND (state = %s or state = %s) \
+              AND operating_room = CAST(%s AS INTEGER) ",
+            (surgery_id.surgery_date,
+            surgery_id.surgery_end_date,
+            'confirmed', 'in_progress', str(or_id)))
+        res = cursor.fetchone()
+        if (surgery_id.surgery_end_date.date() <
+            surgery_id.surgery_date.date()):
+            cls.raise_user_error("The Surgery end date must later than the \
+                Start")
+        if res[0] > 0:
+            cls.raise_user_error('or_is_not_available')
+        else:
+            cls.write(surgeries, {'state': 'confirmed'})
+            Operating_room.write([surgery_id.operating_room], {'state': 'confirmed'})
 
 
 class Operation(ModelSQL, ModelView):
