@@ -244,7 +244,8 @@ class Surgery(ModelSQL, ModelView):
 
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('confirmed', 'confirmed'),
+        ('confirmed', 'Confirmed'),
+        ('in_progress', 'In Progress'),
         ('done', 'Done'),
         ], 'State', readonly=True, sort=False)
 
