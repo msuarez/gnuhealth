@@ -394,6 +394,7 @@ class PartyPatient (ModelSQL, ModelView):
             ('ref_uniq', 'UNIQUE(ref)', 'The PUID must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')]
+        cls._order_name = 'lastname'
 
     def get_rec_name(self, name):
         if self.lastname:
