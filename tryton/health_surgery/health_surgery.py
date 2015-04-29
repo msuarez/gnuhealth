@@ -456,6 +456,11 @@ class Surgery(ModelSQL, ModelView):
         Operating_room = Pool().get('gnuhealth.hospital.or')
         cursor = Transaction().cursor
 
+        # OR and end surgery time check
+        if (not surgery_id.operating_room or not surgery_id.surgery_end_date):
+            cls.raise_user_error("Operating Room and estimated end time  "
+            "are needed in order to confirm the surgery")
+
         or_id = surgery_id.operating_room.id
         cursor.execute("SELECT COUNT(*) \
             FROM gnuhealth_surgery \
