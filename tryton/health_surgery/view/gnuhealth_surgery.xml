@@ -53,8 +53,8 @@
         <field name="preop_sterility"/>
     </group>
     <newline/>
-    <separator id="surgery_separator_1" colspan="4"/>
-    <field name="procedures" colspan="4"/>
+    <field name="procedures" colspan="2"/>
+    <field name="supplies" colspan="2"/>
     <newline/>
     <separator string="Details" id="separator_surgery_details" colspan="2"/>
     <separator string="Anesthesia" id="separator_anesthesia_details" colspan="2"/>

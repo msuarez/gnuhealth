@@ -29,7 +29,8 @@ from trytond import backend
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
 
-__all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData', 'SurgeryTeam']
+__all__ = ['RCRI', 'Surgery', 'Operation',  'SurgerySupply',
+    'PatientData', 'SurgeryTeam']
 
 
 class RCRI(ModelSQL, ModelView):
@@ -201,6 +202,10 @@ class Surgery(ModelSQL, ModelView):
         'gnuhealth.operation', 'name', 'Procedures',
         help="List of the procedures in the surgery. Please enter the first "
         "one as the main procedure")
+
+    supplies = fields.One2Many(
+        'gnuhealth.surgery_supply', 'name', 'Supplies',
+        help="List of the supplies required for the surgery")
 
     pathology = fields.Many2One(
         'gnuhealth.pathology', 'Condition',
@@ -581,6 +586,18 @@ class Operation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
+
+class SurgerySupply(ModelSQL, ModelView):
+    'Supplies related to the surgery'
+    __name__ = 'gnuhealth.surgery_supply'
+
+    name = fields.Many2One('gnuhealth.surgery', 'Surgery')
+    supply = fields.Many2One(
+        'product.product', 'Supply', required=True,
+        domain=[('is_medical_supply', '=', True)],
+        help="Supply to be used in this surgery")
+   
+    notes = fields.Char('Notes')
 
 class SurgeryTeam(ModelSQL, ModelView):
     'Team Involved in the surgery'

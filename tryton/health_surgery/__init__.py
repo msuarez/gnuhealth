@@ -30,6 +30,7 @@ def register():
         RCRI,
         Surgery,
         Operation,
+        SurgerySupply,
         PatientData,
         SurgeryTeam,
         module='health_surgery', type_='model')

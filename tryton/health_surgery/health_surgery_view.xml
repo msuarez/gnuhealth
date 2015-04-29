@@ -101,6 +101,7 @@
             <field name="name">gnuhealth_procedure_tree</field>
         </record>
 
+
 <!-- Operation -->
 
         <record model="ir.ui.view" id="gnuhealth_operation_view">
@@ -113,6 +114,20 @@
             <field name="model">gnuhealth.operation</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_operation_tree</field>
+        </record>
+
+<!-- Surgery Supply -->
+
+        <record model="ir.ui.view" id="gnuhealth_surgery_supply_view">
+            <field name="model">gnuhealth.surgery_supply</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_surgery_supply</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_surgery_supply_tree">
+            <field name="model">gnuhealth.surgery_supply</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_surgery_supply_tree</field>
         </record>
 
 <!-- Surgery Team -->
