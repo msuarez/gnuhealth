@@ -246,6 +246,7 @@ class Surgery(ModelSQL, ModelView):
         ('confirmed', 'Confirmed'),
         ('in_progress', 'In Progress'),
         ('done', 'Done'),
+        ('signed', 'Signed'),
         ], 'State', readonly=True, sort=False)
 
     signed_by = fields.Many2One(
@@ -394,9 +395,6 @@ class Surgery(ModelSQL, ModelView):
             'or_is_not_available': 'Operating Room is not available'})
 
         cls._buttons.update({
-            'signsurgery': {
-                'invisible': Equal(Eval('state'), 'done'),
-                },
             'confirmed': {
                 'invisible': Not(Equal(Eval('state'), 'draft')),
                 },
@@ -405,6 +403,12 @@ class Surgery(ModelSQL, ModelView):
                 },
             'start': {
                 'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                },
+            'done': {
+                'invisible': Not(Equal(Eval('state'), 'in_progress')),
+                },
+            'signsurgery': {
+                'invisible': Not(Equal(Eval('state'), 'done')),
                 },
 
             })
@@ -436,20 +440,92 @@ class Surgery(ModelSQL, ModelView):
     @classmethod
     def write(cls, surgeries, vals):
         # Don't allow to write the record if the surgery has been signed
-        if surgeries[0].state == 'done':
+        if surgeries[0].state == 'signed':
             cls.raise_user_error(
                 "This surgery is at state Done and has been signed\n"
                 "You can no longer modify it.")
         return super(Surgery, cls).write(surgeries, vals)
 
- # Finish and sign the surgery document, and the surgical act.
+    ## Method to check for availability and make the Operating Room reservation
+     # for the associated surgery
+     
+    @classmethod
+    @ModelView.button
+    def confirmed(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        cursor = Transaction().cursor
+
+        or_id = surgery_id.operating_room.id
+        cursor.execute("SELECT COUNT(*) \
+            FROM gnuhealth_surgery \
+            WHERE (surgery_date::timestamp,surgery_end_date::timestamp) \
+                OVERLAPS (timestamp %s, timestamp %s) \
+              AND (state = %s or state = %s) \
+              AND operating_room = CAST(%s AS INTEGER) ",
+            (surgery_id.surgery_date,
+            surgery_id.surgery_end_date,
+            'confirmed', 'in_progress', str(or_id)))
+        res = cursor.fetchone()
+        if (surgery_id.surgery_end_date <
+            surgery_id.surgery_date):
+            cls.raise_user_error("The Surgery end date must later than the \
+                Start")
+        if res[0] > 0:
+            cls.raise_user_error('or_is_not_available')
+        else:
+            cls.write(surgeries, {'state': 'confirmed'})
+            Operating_room.write([surgery_id.operating_room], {'state': 'confirmed'})
+
+    
+
+    # Cancel the surgery and set it to draft state
+    # Free the related Operating Room
+    
+    @classmethod
+    @ModelView.button
+    def cancel(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        
+        cls.write(surgeries, {'state': 'draft'})
+        Operating_room.write([surgery_id.operating_room], {'state': 'free'})
+
+    # Start the surgery
+    
+    @classmethod
+    @ModelView.button
+    def start(cls, surgeries):
+        surgery_id = surgeries[0]
+        
+        cls.write(surgeries, 
+            {'state': 'in_progress',
+             'surgery_date': datetime.now()})
+
+
+    # Finnish the surgery
+    # Free the related Operating Room
+    
+    @classmethod
+    @ModelView.button
+    def done(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        
+        cls.write(surgeries, {'state': 'done',
+                              'surgery_end_date': datetime.now()})
+                              
+        Operating_room.write([surgery_id.operating_room], {'state': 'free'})
+
+
+    # Sign the surgery document, and the surgical act.
 
     @classmethod
     @ModelView.button
     def signsurgery(cls, surgeries):
         surgery_id = surgeries[0]
 
-        # Sign, change the state of the Surgery to "Done"
+        # Sign, change the state of the Surgery to "Signed"
         # and write the name of the signing health professional
 
         signing_hp = Pool().get('gnuhealth.healthprofessional').get_health_professional()
@@ -458,7 +534,7 @@ class Surgery(ModelSQL, ModelView):
                 "No health professional associated to this user !")
 
         cls.write(surgeries, {
-            'state': 'done',
+            'state': 'signed',
             'signed_by': signing_hp})
 
     def get_report_surgery_date(self, name):
@@ -488,36 +564,6 @@ class Surgery(ModelSQL, ModelView):
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
 
-    ## Method to check for availability and make the Operating Room reservation
-     # for the associated surgery
-     
-    @classmethod
-    @ModelView.button
-    def confirmed(cls, surgeries):
-        surgery_id = surgeries[0]
-        Operating_room = Pool().get('gnuhealth.hospital.or')
-        cursor = Transaction().cursor
-
-        or_id = surgery_id.operating_room.id
-        cursor.execute("SELECT COUNT(*) \
-            FROM gnuhealth_surgery \
-            WHERE (surgery_date::timestamp,surgery_end_date::timestamp) \
-                OVERLAPS (timestamp %s, timestamp %s) \
-              AND (state = %s or state = %s) \
-              AND operating_room = CAST(%s AS INTEGER) ",
-            (surgery_id.surgery_date,
-            surgery_id.surgery_end_date,
-            'confirmed', 'in_progress', str(or_id)))
-        res = cursor.fetchone()
-        if (surgery_id.surgery_end_date.date() <
-            surgery_id.surgery_date.date()):
-            cls.raise_user_error("The Surgery end date must later than the \
-                Start")
-        if res[0] > 0:
-            cls.raise_user_error('or_is_not_available')
-        else:
-            cls.write(surgeries, {'state': 'confirmed'})
-            Operating_room.write([surgery_id.operating_room], {'state': 'confirmed'})
 
 
 class Operation(ModelSQL, ModelView):
