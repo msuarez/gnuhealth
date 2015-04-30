@@ -27,7 +27,7 @@ from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 
 __all__ = ['RCRI', 'Surgery', 'Operation',  'SurgerySupply',
     'PatientData', 'SurgeryTeam']
@@ -240,7 +240,7 @@ class Surgery(ModelSQL, ModelView):
         fields.Char(
             'Duration',
             states={
-                'invisible': Equal(Eval('state'), 'draft'),
+                'invisible': Not(Equal(Eval('state'), 'done')),
             },
 
             help="Length of the surgery"),
@@ -354,7 +354,8 @@ class Surgery(ModelSQL, ModelView):
     postoperative_dx = fields.Many2One(
         'gnuhealth.pathology', 'Post-op dx',
         states={
-            'invisible': Equal(Eval('state'), 'draft'),
+            'invisible': Or(Equal(Eval('state'), 'draft'),
+                Equal(Eval('state'), 'confirmed'))
             },
         help="Post-operative diagnosis")
 
@@ -461,7 +462,7 @@ class Surgery(ModelSQL, ModelView):
         Operating_room = Pool().get('gnuhealth.hospital.or')
         cursor = Transaction().cursor
 
-        # OR and end surgery time check
+        # Operating Room and end surgery time check
         if (not surgery_id.operating_room or not surgery_id.surgery_end_date):
             cls.raise_user_error("Operating Room and estimated end time  "
             "are needed in order to confirm the surgery")
@@ -485,7 +486,8 @@ class Surgery(ModelSQL, ModelView):
             cls.raise_user_error('or_is_not_available')
         else:
             cls.write(surgeries, {'state': 'confirmed'})
-            Operating_room.write([surgery_id.operating_room], {'state': 'confirmed'})
+            Operating_room.write([surgery_id.operating_room],
+             {'state': 'confirmed'})
 
     
 
@@ -510,7 +512,8 @@ class Surgery(ModelSQL, ModelView):
         
         cls.write(surgeries, 
             {'state': 'in_progress',
-             'surgery_date': datetime.now()})
+             'surgery_date': datetime.now(),
+             'surgery_end_date': datetime.now()})
 
 
     # Finnish the surgery

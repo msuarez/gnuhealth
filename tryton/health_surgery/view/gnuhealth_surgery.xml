@@ -64,7 +64,7 @@
     <newline/>
     <field name="surgery_team" colspan="4"/>
     <newline/>
-    <group id="end_surgery" colspan="4" col="12">
+    <group id="end_surgery" colspan="4" col="14">
         <label name="surgery_end_date"/>
         <field name="surgery_end_date"/>
         <label name="surgery_length"/>
@@ -77,6 +77,6 @@
         <button name="start" help="Start the Surgery" string="Start" icon="tryton-go-next" confirm="Start the surgery ?"/>
         <button name="done" help="Finnish the surgery" string="Finnish" icon="tryton-go-next" confirm="End this surgery ?"/>
         <button name="signsurgery" help="Sign this surgery" string="Sign" icon="tryton-go-next" confirm="Finish and sign this surgery ? Itwill become read-only !"/>
-    <field name="signed_by"/>
+        <field name="signed_by"/>
     </group>
 </form>
