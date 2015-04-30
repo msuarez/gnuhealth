@@ -592,13 +592,17 @@ class SurgerySupply(ModelSQL, ModelView):
     __name__ = 'gnuhealth.surgery_supply'
 
     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
+    qty = fields.Numeric('Qty',required=True,
+        help="Initial required quantity")
     supply = fields.Many2One(
         'product.product', 'Supply', required=True,
         domain=[('is_medical_supply', '=', True)],
         help="Supply to be used in this surgery")
    
     notes = fields.Char('Notes')
-
+    qty_used = fields.Numeric('Used', required=True,
+        help="Actual amount used")
+    
 class SurgeryTeam(ModelSQL, ModelView):
     'Team Involved in the surgery'
     __name__ = 'gnuhealth.surgery_team'

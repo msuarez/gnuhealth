@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Supply">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="qty"/>
+    <field name="qty"/>
+    <label name="supply"/>
+    <field name="supply"/>
+    <label name="qty_used"/>
+    <field name="qty_used"/>
+    <label name="notes"/>
+    <field name="notes"/>
+</form>
