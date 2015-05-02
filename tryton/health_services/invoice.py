@@ -2,6 +2,8 @@
 #this repository contains the full copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import PoolMeta
+from trytond.transaction import Transaction
+from trytond import backend
 
 __all__ = ['Invoice', 'InvoiceLine']
 __metaclass__ = PoolMeta
