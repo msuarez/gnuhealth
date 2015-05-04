@@ -7,8 +7,11 @@
         <field name="service_date"/>
         <label name="name"/>
         <field name="name"/>
+        <newline/>
         <label name="desc"/>
-        <field name="desc" colspan="3"/>
+        <field name="desc"/>
+        <label name="institution"/>
+        <field name="institution"/>
         <label name="invoice_to"/>
         <field name="invoice_to"/>
     </group>

@@ -47,6 +47,8 @@ class HealthService(ModelSQL, ModelView):
     name = fields.Char('ID', readonly=True)
     desc = fields.Char('Description', required=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
     service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
@@ -73,6 +75,12 @@ class HealthService(ModelSQL, ModelView):
     @staticmethod
     def default_service_date():
         return datetime.date.today()
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
 
     @classmethod
     @ModelView.button
