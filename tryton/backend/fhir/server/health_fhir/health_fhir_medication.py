@@ -75,7 +75,7 @@ class health_Medication(supermod.Medication, Medication_Map):
         """Set the data from the model"""
         if self.medication:
             self.set_code(safe_attrgetter(self.medication, self.map['display']),
-                    safe_attrgetter(self.medication, self.map['code']))
+                            safe_attrgetter(self.medication, self.map['code']))
             self.set_kind('product')
             #self.set_package()
             #self.set_product()

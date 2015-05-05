@@ -285,7 +285,7 @@ class health_Observation(supermod.Observation, Observation_Map):
                     self.model_field,
                     safe_attrgetter(self.gnu_obs, 'units.name'))
             self.set_referenceRange(
-                    safe_attrgetter(self.gnu_obs, 'units.name', 'unknown'),
+                    safe_attrgetter(self.gnu_obs, 'units.name', default='unknown'),
                     safe_attrgetter(self.gnu_obs, 'lower_limit'),
                     safe_attrgetter(self.gnu_obs, 'upper_limit'))
             self.set_interpretation(

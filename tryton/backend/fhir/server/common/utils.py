@@ -95,11 +95,20 @@ def get_userid():
     except:
         return None
 
-def safe_attrgetter(obj, attr, default=None):
-    try:
-        return attrgetter(attr)(obj)
-    except:
-        return default
+#def safe_attrgetter(obj, *attrs, default=None): #py3 declaration
+def safe_attrgetter(obj, *attrs, **kwargs):
+    """The fail-safe version of attrgetter"""
+    default = kwargs.get('default', None) #py2 compatibility
+    v = []
+    for attr in attrs:
+        try:
+           x=attrgetter(attr)(obj)
+        except:
+           x=default
+        v.append(x)
+    if len(v) == 1:
+        return v[0]
+    return v
 
 __all__=['get_address', 'recordConverter', 'search_error_string',
                 'output_xml', 'get_userid', 'safe_attrgetter']

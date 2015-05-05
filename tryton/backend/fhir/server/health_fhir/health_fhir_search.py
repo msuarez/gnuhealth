@@ -106,11 +106,11 @@ class health_Search:
                 return (prefix, date)
             self.date_parser=fallback
 
-    def __is_valid_modifier(self, type, modifier):
+    def __is_valid_modifier(self, type_, modifier):
         if modifier is not None:
-            modifiers = self.valid_modifiers.get(type, None)
+            modifiers = self.valid_modifiers.get(type_, None)
             if modifiers is not None:
-                if type == 'resource':
+                if type_ == 'resource':
                     modifiers.extend(self.valid_resources)
                 if modifier in modifiers:
                     return True
@@ -233,15 +233,15 @@ class health_Search:
         # Is key in search_params?
         if key_info['key'] in self.endpoint.resource_search_params:
             #Great, now, is it supported and valid modifier?
-            type = self.endpoint.resource_search_params[key_info['key']]
-            if type is not None:
-                if self.__is_valid_modifier(type, key_info['modifier']):
+            type_ = self.endpoint.resource_search_params[key_info['key']]
+            if type_ is not None:
+                if self.__is_valid_modifier(type_, key_info['modifier']):
                     # For resource types, semantic checking
                     #   later, but allow for now
-                    if key_info['chains'] and type != 'reference':
+                    if key_info['chains'] and type_ != 'reference':
                         # No chains with non-reference types
                         return None
-                    key_info['type']=type
+                    key_info['type']=type_
                     return key_info
         # Bad modifier OR Non-supported OR bad parameter
         #   whatever, return None

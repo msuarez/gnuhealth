@@ -1,5 +1,4 @@
 from datetime import datetime
-from operator import attrgetter
 from StringIO import StringIO
 from .health_fhir_patient import Patient_Map
 from .health_fhir_observation import Observation_Map

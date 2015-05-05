@@ -10,7 +10,7 @@ login_manager = LoginManager()
 # Handle different outputs
 class Api(restful.Api):
     def __init__(self, *args, **kwargs):
-        # Set xml as default (application/xml)
+        # Set application/xml as default content-type
         media = kwargs.pop('default_mediatype', 'application/xml')
         super(Api, self).__init__(*args, default_mediatype=media, **kwargs)
         self.representations = {
