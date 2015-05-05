@@ -44,9 +44,13 @@ class HealthService(ModelSQL, ModelView):
     'Health Service'
     __name__ = 'gnuhealth.health_service'
 
+    STATES = {'readonly': Eval('state') == 'invoiced'}
+
     name = fields.Char('ID', readonly=True)
     desc = fields.Char('Description', required=True)
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    patient = fields.Many2One('gnuhealth.patient',
+            'Patient', required=True,
+            states=STATES)
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
     service_date = fields.Date('Date')
