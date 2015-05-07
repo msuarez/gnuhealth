@@ -104,7 +104,6 @@ class HealthService(ModelSQL, ModelView):
                     config.health_service_sequence.id)
         return super(HealthService, cls).create(vlist)
 
-
 class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
     __name__ = 'gnuhealth.health_service.line'
@@ -131,3 +130,21 @@ class HealthServiceLine(ModelSQL, ModelView):
         if self.product:
             res['desc'] = self.product.name
         return res
+
+    @classmethod
+    def write(cls, lines, vals):
+        """Do not allow new service lines for invoiced items"""
+        if lines[0].name.state == 'invoiced':
+            cls.raise_user_error(
+                "This service has been invoiced.\n"
+                "You can no longer modify service lines.")
+        return super(HealthServiceLine, cls).write(lines, vals)
+
+    @classmethod
+    def delete(cls, lines):
+        """Prohibit deleting service lines for invoiced items """
+        if lines[0].name.state == 'invoiced':
+            cls.raise_user_error(
+                "This service has been invoiced.\n"
+                "You can no longer modify service lines.")
+        return super(HealthServiceLine, cls).delete(lines)
