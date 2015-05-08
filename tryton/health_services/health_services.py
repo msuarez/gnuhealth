@@ -140,11 +140,11 @@ class HealthServiceLine(ModelSQL, ModelView):
                 "You can no longer modify service lines.")
         return super(HealthServiceLine, cls).write(lines, vals)
 
-    @classmethod
-    def delete(cls, lines):
-        """Prohibit deleting service lines for invoiced items """
-        if lines[0].name.state == 'invoiced':
-            cls.raise_user_error(
-                "This service has been invoiced.\n"
-                "You can no longer modify service lines.")
-        return super(HealthServiceLine, cls).delete(lines)
+    #@classmethod
+    #def delete(cls, lines):
+        #"""Prohibit deleting service lines for invoiced items """
+        #if lines[0].name.state == 'invoiced':
+            #cls.raise_user_error(
+                #"This service has been invoiced.\n"
+                #"You can no longer modify service lines.")
+        #return super(HealthServiceLine, cls).delete(lines)
