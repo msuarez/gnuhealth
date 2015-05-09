@@ -79,6 +79,16 @@ class CreateAppointment(Wizard):
     create_ = StateTransition()
     open_ = StateAction('health.action_gnuhealth_appointment_view')
 
+    @classmethod
+    def __setup__(cls):
+        super(CreateAppointment, cls).__setup__()
+        cls._error_messages.update({
+            'no_company_timezone':
+                'You need to define a timezone for this company'
+                ' before creating a work schedule.\n\n'
+                'Party > Configuration > Companies',
+        })
+
     def transition_create_(self):
         pool = Pool()
         Appointment = pool.get('gnuhealth.appointment')
@@ -90,6 +100,8 @@ class CreateAppointment(Wizard):
             company = Company(company_id)
             if company.timezone:
                 timezone = pytz.timezone(company.timezone)
+            else:
+                self.raise_user_error('no_company_timezone')
 
         appointments = []
         # Iterate over days
