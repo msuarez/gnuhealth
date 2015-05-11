@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Surgery">
+<tree string="Surgery" colors="If(Equal(Eval('state'), 'in_progress'), 'red', If(Equal(Eval('state'), 'confirmed'), 'brown', 'black'))">
     <field name="patient"/>
     <field name="description"/>
     <field name="pathology"/>
