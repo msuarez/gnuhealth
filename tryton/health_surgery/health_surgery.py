@@ -486,11 +486,7 @@ class Surgery(ModelSQL, ModelView):
             cls.raise_user_error('or_is_not_available')
         else:
             cls.write(surgeries, {'state': 'confirmed'})
-            Operating_room.write([surgery_id.operating_room],
-             {'state': 'confirmed'})
-
-    
-
+ 
     # Cancel the surgery and set it to draft state
     # Free the related Operating Room
     
@@ -501,7 +497,6 @@ class Surgery(ModelSQL, ModelView):
         Operating_room = Pool().get('gnuhealth.hospital.or')
         
         cls.write(surgeries, {'state': 'draft'})
-        Operating_room.write([surgery_id.operating_room], {'state': 'free'})
 
     # Start the surgery
     
@@ -514,6 +509,7 @@ class Surgery(ModelSQL, ModelView):
             {'state': 'in_progress',
              'surgery_date': datetime.now(),
              'surgery_end_date': datetime.now()})
+        Operating_room.write([surgery_id.operating_room], {'state': 'occupied'})
 
 
     # Finnish the surgery

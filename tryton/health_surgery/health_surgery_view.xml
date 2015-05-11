@@ -108,7 +108,6 @@
             <field name="act_window" ref="action_gnuhealth_surgery_view"/>
         </record>
 
-
         <menuitem name="Surgeries" parent="health.gnuhealth_menu"
             id="gnuhealth_surgery_menu" sequence="50"
             action="action_gnuhealth_surgery_view"
