@@ -504,7 +504,8 @@ class Surgery(ModelSQL, ModelView):
     @ModelView.button
     def start(cls, surgeries):
         surgery_id = surgeries[0]
-        
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+
         cls.write(surgeries, 
             {'state': 'in_progress',
              'surgery_date': datetime.now(),
