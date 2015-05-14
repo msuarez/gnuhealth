@@ -16,6 +16,9 @@ def create_app(config=None):
     app.config.from_envvar('FHIR_SERVER_CONFIG', silent=True)
 
     with app.app_context():
+        import logging
+        logging.basicConfig(filename='flask.log', level=logging.INFO,
+                format='%(asctime)s:::%(levelname)s:::%(name)s: %(message)s')
 
         # Initialize tryton
         tryton.init_app(app)
