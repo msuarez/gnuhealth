@@ -249,6 +249,7 @@ class Surgery(ModelSQL, ModelView):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled'),
         ('in_progress', 'In Progress'),
         ('done', 'Done'),
         ('signed', 'Signed'),
@@ -402,7 +403,8 @@ class Surgery(ModelSQL, ModelView):
 
         cls._buttons.update({
             'confirmed': {
-                'invisible': Not(Equal(Eval('state'), 'draft')),
+                'invisible': And(Not(Equal(Eval('state'), 'draft')),
+                    Not(Equal(Eval('state'), 'cancelled'))),
                 },
             'cancel': {
                 'invisible': Not(Equal(Eval('state'), 'confirmed')),
@@ -496,7 +498,7 @@ class Surgery(ModelSQL, ModelView):
         surgery_id = surgeries[0]
         Operating_room = Pool().get('gnuhealth.hospital.or')
         
-        cls.write(surgeries, {'state': 'draft'})
+        cls.write(surgeries, {'state': 'cancelled'})
 
     # Start the surgery
     

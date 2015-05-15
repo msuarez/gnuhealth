@@ -73,7 +73,7 @@
         <field name="postoperative_dx"/>
         <field name="state"/>
         <button name="confirmed" help="Confirm the scheduled surgery" string="Confirm" icon="tryton-go-next" confirm="Confirm the surgery and reserve the Operating Room ?"/>
-        <button name="cancel" help="Set to draft and free the Operating Room" string="Cancel" icon="tryton-go-next" confirm="Cancel surgery and set it to draft ?"/>
+        <button name="cancel" help="Cancel the confirmed surgery" string="Cancel" icon="tryton-go-next" confirm="Cancel surgery ?"/>
         <button name="start" help="Start the Surgery" string="Start" icon="tryton-go-next" confirm="Start the surgery ?"/>
         <button name="done" help="Finnish the surgery" string="Finnish" icon="tryton-go-next" confirm="End this surgery ?"/>
         <button name="signsurgery" help="Sign this surgery" string="Sign" icon="tryton-go-next" confirm="Finish and sign this surgery ? Itwill become read-only !"/>
