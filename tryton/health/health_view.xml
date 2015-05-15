@@ -1501,7 +1501,7 @@
 <!-- READ-ONLY TREE VIEW We create the patient evaluation from the patient form -->
 
         <record model="ir.action.act_window" id="action_gnuhealth_patient_evaluation_view">
-            <field name="name">Patient Evaluations [READONLY LIST VIEW]</field>
+            <field name="name">Patient Evaluations [readonly]</field>
             <field name="res_model">gnuhealth.patient.evaluation</field>
         </record>
 
