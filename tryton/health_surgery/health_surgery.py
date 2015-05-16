@@ -161,6 +161,7 @@ class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
+    
     def surgery_duration(self, name):
 
         duration = ''
@@ -234,15 +235,14 @@ class Surgery(ModelSQL, ModelView):
         states={
             'required': Equal(Eval('state'), 'done'),
             },
-        help="End of the Surgery")
+        help="Automatically set when the surgery is done."
+            "It is also the estimated end time when confirming the surgery.")
 
     surgery_length = fields.Function(
         fields.Char(
             'Duration',
-            states={
-                'invisible': Not(Equal(Eval('state'), 'done')),
-            },
-
+            states={'invisible': And(Not(Equal(Eval('state'), 'done')),
+                    Not(Equal(Eval('state'), 'signed')))},
             help="Length of the surgery"),
         'surgery_duration')
 
@@ -257,7 +257,10 @@ class Surgery(ModelSQL, ModelView):
 
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'draft')},
+        states={
+            'invisible': Not(Equal(Eval('state'), 'signed'))
+            },
+
         help="Health Professional that signed this surgery document")
 
     # age is deprecated in GNU Health 2.0
@@ -354,10 +357,8 @@ class Surgery(ModelSQL, ModelView):
 
     postoperative_dx = fields.Many2One(
         'gnuhealth.pathology', 'Post-op dx',
-        states={
-            'invisible': Or(Equal(Eval('state'), 'draft'),
-                Equal(Eval('state'), 'confirmed'))
-            },
+        states={'invisible': And(Not(Equal(Eval('state'), 'done')),
+                    Not(Equal(Eval('state'), 'signed')))},
         help="Post-operative diagnosis")
 
     @staticmethod
