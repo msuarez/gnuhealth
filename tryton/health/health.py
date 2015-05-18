@@ -4441,6 +4441,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     def end_evaluation(cls, evaluations):
         evaluation_id = evaluations[0]
 
+        Appointment = Pool().get('gnuhealth.appointment')
+        patient_app=[]
+        
         # Change the state of the evaluation to "Done"
 
         signing_hp = HealthProfessional().get_health_professional()
@@ -4448,8 +4451,17 @@ class PatientEvaluation(ModelSQL, ModelView):
         cls.write(evaluations, {
             'state': 'done',
             'signed_by': signing_hp,
-        })
-            
+            })
+        
+        # If there is an appointment associated to this evaluation
+        # set it to state "Done"
+        
+        if evaluations[0].evaluation_date:
+            patient_app.append(evaluations[0].evaluation_date)
+            Appointment.write(patient_app, {
+                'state': 'done',
+                })
+
     @staticmethod
     def default_healthprof():
         return HealthProfessional().get_health_professional()
