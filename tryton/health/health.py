@@ -2867,6 +2867,7 @@ class Appointment(ModelSQL, ModelView):
         (None, ''),
         ('free', 'Free'),
         ('confirmed', 'Confirmed'),
+        ('checked_in', 'Checked in'),
         ('done', 'Done'),
         ('user_cancelled', 'Cancelled by patient'),
         ('center_cancelled', 'Cancelled by Health Center'),
