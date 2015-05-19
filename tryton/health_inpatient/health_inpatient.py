@@ -30,7 +30,8 @@ from trytond.pyson import Eval, Not, Bool, And, Equal
 __all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
     'InpatientRegistration', 'BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
-    'InpatientMedicationLog', 'InpatientDiet']
+    'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
+    'InpatientMealOrder']
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -497,3 +498,45 @@ class InpatientDiet (ModelSQL, ModelView):
     diet = fields.Many2One('gnuhealth.diet.therapeutic', 'Diet', required=True)
     remarks = fields.Text('Remarks / Directions',
         help='specific remarks for this diet / patient')
+
+class InpatientMeal (ModelSQL, ModelView):
+    'Inpatient Meal'
+    __name__="gnuhealth.inpatient.meal"
+
+    name = fields.Many2One(
+        'product.product', 'Food', required=True,
+        help='Food')
+
+    diet_therapeutic = fields.Many2One('gnuhealth.diet.therapeutic',
+        'Diet', required=True)
+
+    diet_belief = fields.Many2One('gnuhealth.diet.therapeutic',
+        'Diet', required=True)
+
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+class InpatientMealOrder (ModelSQL, ModelView):
+    'Inpatient Meal Order'
+    __name__="gnuhealth.inpatient.meal.order"
+
+    name = fields.Many2One('gnuhealth.inpatient.registration',
+        'Registration Code')
+
+    meal_order = fields.One2Many('gnuhealth.inpatient.meal', 'name',
+        'Items')
+
+    health_professional = fields.Many2One('gnuhealth.healthprofessional',
+        'Health Professional', select=True)
+
+    remarks = fields.Text('Remarks')
+
+    @staticmethod
+    def default_health_professional():
+        pool = Pool()
+        return pool.get('gnuhealth.healthprofessional').get_health_professional()

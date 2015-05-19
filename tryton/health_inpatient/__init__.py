@@ -40,6 +40,8 @@ def register():
         InpatientMedicationLog,
         InpatientDiet,
         CreateBedTransferInit,
+        InpatientMeal,
+        InpatientMealOrder,
         module='health_inpatient', type_='model')
     
     Pool.register(
