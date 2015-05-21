@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form string="Vegetarian Types">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <newline/>
+    <label name="desc"/>
+    <field name="desc"/>
+</form>

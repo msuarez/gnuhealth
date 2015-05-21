@@ -24,8 +24,19 @@ from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 
 
-__all__ = ['DrugsRecreational', 'PatientRecreationalDrugs', 'PatientCAGE',
-        'MedicalPatient']
+__all__ = ['VegetarianTypes','DrugsRecreational', 
+            'PatientRecreationalDrugs', 'PatientCAGE','MedicalPatient']
+
+class VegetarianTypes(ModelSQL, ModelView):
+    'Vegetarian Types'
+    __name__ = 'gnuhealth.vegetarian_types'
+
+    name = fields.Char('Vegetarian', translate=True, required=True,
+        help="Vegetarian")
+    code = fields.Char('Code', required=True,
+        help="Short description")
+    desc = fields.Char('Description', required=True,
+        help="Short description")
 
 
 class DrugsRecreational(ModelSQL, ModelView):
@@ -249,6 +260,7 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Check if the patient sleep hours are during daylight rather "
         "than at night")
     number_of_meals = fields.Integer('Meals per day')
+    vegetarian_type = fields.Many2One('gnuhealth.vegetarian_types','Vegetarian')
     eats_alone = fields.Boolean('Eats alone',
         help="Check this box if the patient eats by him / herself.")
     salt = fields.Boolean('Salt',

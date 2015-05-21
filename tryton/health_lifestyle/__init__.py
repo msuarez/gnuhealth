@@ -27,6 +27,7 @@ from .health_lifestyle import *
 
 def register():
     Pool.register(
+        VegetarianTypes,
         DrugsRecreational,
         PatientRecreationalDrugs,
         PatientCAGE,
