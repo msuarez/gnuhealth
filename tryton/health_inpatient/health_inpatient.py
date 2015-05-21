@@ -508,10 +508,10 @@ class InpatientMeal (ModelSQL, ModelView):
         help='Food')
 
     diet_therapeutic = fields.Many2One('gnuhealth.diet.therapeutic',
-        'Diet', required=True)
+        'Diet')
 
-    diet_belief = fields.Many2One('gnuhealth.diet.therapeutic',
-        'Diet', required=True)
+    diet_belief = fields.Many2One('gnuhealth.diet.belief',
+        'Belief')
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 

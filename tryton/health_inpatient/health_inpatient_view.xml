@@ -239,6 +239,51 @@
             <field name="name">gnuhealth_inpatient_diet_tree</field>
         </record>
 
+
+<!-- SECTION FOR HOSPITALIZATION MEALS-->
+
+
+<!-- Form view related to meals -->
+
+        <record id="gnuhealth_inpatient_meal_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_form</field>
+        </record>
+
+<!-- Tree view for the meals -->
+
+        <record id="gnuhealth_inpatient_meal_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_tree</field>
+        </record>
+
+<!-- Add Inpatient Meal to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_inpatient_meal">
+            <field name="name">Inpatient Meal</field>
+            <field name="res_model">gnuhealth.inpatient.meal</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_tree"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_form"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal"/>
+        </record>
+
+        <menuitem name="Inpatient Meals" action="gnuhealth_action_inpatient_meal"
+            id="gnuhealth_conf_inpatient_meal" parent="health.gnuhealth_conf_misc"
+            icon="gnuhealth-list"/>
+
+
+
+
 <!-- Bed transfer history -->
 
         <record id="gnuhealth_bed_transfer_form" model="ir.ui.view">
