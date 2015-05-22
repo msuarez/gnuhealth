@@ -56,6 +56,21 @@
             <field name="name">gnuhealth_recreational_drugs_tree</field>
         </record>
 
+<!-- Person vegetarian diet -->
+
+        <record model="ir.ui.view" id="gnuhealth_vegetarian_types_view">
+            <field name="model">gnuhealth.vegetarian_types</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_vegetarian_types</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_vegetarian_types_tree">
+            <field name="model">gnuhealth.vegetarian_types</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_vegetarian_types_tree</field>
+        </record>
+
+
 <!-- PATIENT CAGE -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_cage_view">
