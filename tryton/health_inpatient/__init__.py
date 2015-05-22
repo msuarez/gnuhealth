@@ -30,7 +30,6 @@ def register():
     Pool.register(
         InpatientSequences,
         DietTherapeutic,
-        DietBelief,
         InpatientRegistration,
         BedTransfer,
         Appointment,

@@ -24,7 +24,7 @@ from trytond.model import ModelView, ModelSQL, fields
 from datetime import datetime
 
 
-__all__ = ['VegetarianTypes','DrugsRecreational', 
+__all__ = ['VegetarianTypes','DietBelief','DrugsRecreational', 
             'PatientRecreationalDrugs', 'PatientCAGE','MedicalPatient']
 
 class VegetarianTypes(ModelSQL, ModelView):
@@ -38,6 +38,23 @@ class VegetarianTypes(ModelSQL, ModelView):
     desc = fields.Char('Description', required=True,
         help="Short description")
 
+# Diet by belief / religion
+
+class DietBelief (ModelSQL, ModelView):
+    'Diet by Belief'
+    __name__="gnuhealth.diet.belief"
+
+    name = fields.Char('Belief', required=True, translate=True)
+    code = fields.Char('Code', required=True)
+    description = fields.Text('Description', required=True, translate=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(DietBelief, cls).__setup__()
+
+        cls._sql_constraints = [
+            ('code_uniq', 'unique(code)',
+             'The Diet code already exists')]
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
@@ -261,6 +278,9 @@ class MedicalPatient(ModelSQL, ModelView):
         "than at night")
     number_of_meals = fields.Integer('Meals per day')
     vegetarian_type = fields.Many2One('gnuhealth.vegetarian_types','Vegetarian')
+    diet_belief = fields.Many2One('gnuhealth.diet.belief',
+        'Belief', help="Enter the patient belief or religion")
+
     eats_alone = fields.Boolean('Eats alone',
         help="Check this box if the patient eats by him / herself.")
     salt = fields.Boolean('Salt',

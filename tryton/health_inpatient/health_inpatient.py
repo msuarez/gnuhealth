@@ -27,8 +27,8 @@ from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal
 
 
-__all__ = ['InpatientSequences', 'DietTherapeutic', 'DietBelief',
-    'InpatientRegistration', 'BedTransfer', 'Appointment', 'PatientData',
+__all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
+    'BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
     'InpatientMealOrder']
@@ -56,25 +56,6 @@ class DietTherapeutic (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DietTherapeutic, cls).__setup__()
-
-        cls._sql_constraints = [
-            ('code_uniq', 'unique(code)',
-             'The Diet code already exists')]
-
-
-# Diet by belief / religion
-
-class DietBelief (ModelSQL, ModelView):
-    'Diet by Belief'
-    __name__="gnuhealth.diet.belief"
-
-    name = fields.Char('Belief', required=True, translate=True)
-    code = fields.Char('Code', required=True)
-    description = fields.Text('Description', required=True, translate=True)
-
-    @classmethod
-    def __setup__(cls):
-        super(DietBelief, cls).__setup__()
 
         cls._sql_constraints = [
             ('code_uniq', 'unique(code)',
@@ -116,17 +97,13 @@ class InpatientRegistration(ModelSQL, ModelView):
         'Medications')
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
         'Meals / Diet Program')
-    diet_belief = fields.Many2One('gnuhealth.diet.belief',
-        'Belief', help="Enter the patient belief or religion to choose the \
-            proper diet")
-    diet_vegetarian = fields.Selection((
-        ('none', 'None'),
-        ('vegetarian', 'Vegetarian'),
-        ('lacto', 'Lacto vegetarian'),
-        ('lactoovo', 'Lacto-ovo vegetarian'),
-        ('pescetarian', 'Pescetarian'),
-        ('vegan', 'Vegan'),
-        ), 'Vegetarian', sort=False, required=True)
+    diet_belief = fields.Function(fields.Many2One('gnuhealth.diet.belief',
+        'Belief', help="Based on the patient lifestyle information"),
+        'get_diet_belief')
+
+    diet_vegetarian = fields.Function(fields.Many2One(
+        'gnuhealth.vegetarian_types', 'Vegetarian'),'get_veggie_type')
+        
     nutrition_notes = fields.Text('Nutrition notes / directions')
     discharge_plan = fields.Text('Discharge Plan')
     info = fields.Text('Extra Info')
@@ -294,7 +271,14 @@ class InpatientRegistration(ModelSQL, ModelView):
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
+    # Return diet types from patient lifestyle section
+    
+    def get_diet_belief(self, name):
+        return self.patient.diet_belief.id
 
+    def get_veggie_type(self, name):
+        return self.patient.vegetarian_type.id
+        
 class BedTransfer(ModelSQL, ModelView):
     'Bed transfers'
     __name__ = 'gnuhealth.bed.transfer'

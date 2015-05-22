@@ -21,6 +21,9 @@
                         <group colspan="4" col="8" id="group_diet">
                             <label name="vegetarian_type"/>
                             <field name="vegetarian_type"/>
+                            <label name="diet_belief"/>
+                            <field name="diet_belief"/>
+                            <newline/>
                             <label name="number_of_meals"/>
                             <field name="number_of_meals"/>
                             <label name="eats_alone"/>
