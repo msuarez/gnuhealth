@@ -97,12 +97,10 @@ class InpatientRegistration(ModelSQL, ModelView):
         'Medications')
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
         'Meals / Diet Program')
-    diet_belief = fields.Function(fields.Many2One('gnuhealth.diet.belief',
-        'Belief', help="Based on the patient lifestyle information"),
-        'get_diet_belief')
+    diet_belief = fields.Many2One('gnuhealth.diet.belief',
+        'Belief', help="Based on the patient lifestyle information")
 
-    diet_vegetarian = fields.Function(fields.Many2One(
-        'gnuhealth.vegetarian_types', 'Vegetarian'),'get_veggie_type')
+    diet_vegetarian = fields.Many2One('gnuhealth.vegetarian_types', 'Vegetarian')
         
     nutrition_notes = fields.Text('Nutrition notes / directions')
     discharge_plan = fields.Text('Discharge Plan')
@@ -130,6 +128,29 @@ class InpatientRegistration(ModelSQL, ModelView):
         HealthInst = Pool().get('gnuhealth.institution')
         institution = HealthInst.get_institution()
         return institution
+
+
+    # Assign default values
+    # diet types based on current patient lifestyle values
+    # When saved, they will reflect the patient lifestyle at that point in time
+    # that not necessarily has to be the same as in the future.
+    
+    @fields.depends('patient')
+    def on_change_patient(self):
+        vegetarian_type = diet_belief = None
+        
+        if (self.patient):
+            if (self.patient.vegetarian_type):
+                vegetarian_type = self.patient.vegetarian_type.id
+
+            if (self.patient.diet_belief):
+                diet_belief = self.patient.diet_belief.id
+            
+        return {
+            'diet_vegetarian': vegetarian_type,
+            'diet_belief': diet_belief,
+        }
+
 
     @classmethod
     def __setup__(cls):
@@ -273,11 +294,6 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     # Return diet types from patient lifestyle section
     
-    def get_diet_belief(self, name):
-        return self.patient.diet_belief.id
-
-    def get_veggie_type(self, name):
-        return self.patient.vegetarian_type.id
         
 class BedTransfer(ModelSQL, ModelView):
     'Bed transfers'
