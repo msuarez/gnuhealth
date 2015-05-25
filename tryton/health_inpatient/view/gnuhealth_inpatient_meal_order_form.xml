@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form string="Inpatient Meal">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="meal_order"/>
+    <field name="meal_order"/>
+    <newline/>
+    <label name="meal_item"/>
+    <field name="meal_item"/>
+    <label name="health_professional"/>
+    <field name="health_professional"/>
+    <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

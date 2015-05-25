@@ -41,6 +41,7 @@ def register():
         CreateBedTransferInit,
         InpatientMeal,
         InpatientMealOrder,
+        InpatientMealOrderItem,
         module='health_inpatient', type_='model')
     
     Pool.register(

@@ -161,7 +161,7 @@
         <record id="gnuhealth_inpatient_diet_therapeutic_tree" model="ir.ui.view">
             <field name="model">gnuhealth.diet.therapeutic</field>
             <field name="type">tree</field>
-            <field name="name">gnuhealth_inpatient_diet_belief_tree</field>
+            <field name="name">gnuhealth_inpatient_diet_therapeutic_tree</field>
         </record>
 
 <!-- Add Therapeutic Diets to configuration menu -->
@@ -244,6 +244,70 @@
         <menuitem name="Inpatient Meals" action="gnuhealth_action_inpatient_meal"
             id="gnuhealth_conf_inpatient_meal" parent="health.gnuhealth_conf_misc"
             icon="icon-meals"/>
+
+
+
+<!-- MEAL ORDERS -->
+
+<!-- Form view related to meal orders-->
+
+        <record id="gnuhealth_inpatient_meal_order_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_order_form</field>
+        </record>
+
+<!-- Tree view for the meal orders -->
+
+        <record id="gnuhealth_inpatient_meal_order_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_order_tree</field>
+        </record>
+
+<!-- Add Inpatient Meal Orders to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_inpatient_meal_order">
+            <field name="name">Meal Orders</field>
+            <field name="res_model">gnuhealth.inpatient.meal.order</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_order_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_order_tree"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_order_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_order_form"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <menuitem name="Meal Orders" action="gnuhealth_action_inpatient_meal_order"
+            id="gnuhealth_inpatient_meal_order" parent="gnuhealth_inpatient_menu"
+            icon="icon-meals"/>
+
+
+
+<!-- MEAL ORDERS ITEMS -->
+
+<!-- Form view related to meal order item -->
+
+        <record id="gnuhealth_inpatient_meal_order_item_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order.item</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_order_item_form</field>
+        </record>
+
+<!-- Tree view for the meal order item -->
+
+        <record id="gnuhealth_inpatient_meal_order_item_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order.item</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_order_item_tree</field>
+        </record>
+
+
 
 
 

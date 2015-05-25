@@ -31,7 +31,7 @@ __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration',
     'BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
-    'InpatientMealOrder']
+    'InpatientMealOrder','InpatientMealOrderItem']
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -41,6 +41,10 @@ class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
     inpatient_registration_sequence = fields.Property(fields.Many2One(
         'ir.sequence', 'Inpatient Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.inpatient.registration')]))
+
+    inpatient_meal_order_sequence = fields.Property(fields.Many2One(
+        'ir.sequence', 'Inpatient Meal Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.inpatient.meal.order')]))
 
 
 # Therapeutic Diet types
@@ -122,6 +126,7 @@ class InpatientRegistration(ModelSQL, ModelView):
         help="Health Professional that discharged the patient")
 
     discharge_reason = fields.Selection([
+        (None, ''),
         ('home','Home / Selfcare'),
         ('transfer','Transferred to another institution'),
         ('death','Death'),
@@ -531,6 +536,18 @@ class InpatientMeal (ModelSQL, ModelView):
         institution = HealthInst.get_institution()
         return institution
 
+class InpatientMealOrderItem (ModelSQL, ModelView):
+    'Inpatient Meal Item'
+    __name__="gnuhealth.inpatient.meal.order.item"
+
+    name = fields.Many2One('gnuhealth.inpatient.meal.order',
+        'Meal Order')
+
+    meal = fields.Many2One('gnuhealth.inpatient.meal', 'Meal')
+
+    remarks = fields.Char('Remarks')
+
+
 class InpatientMealOrder (ModelSQL, ModelView):
     'Inpatient Meal Order'
     __name__="gnuhealth.inpatient.meal.order"
@@ -538,8 +555,10 @@ class InpatientMealOrder (ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code')
 
-    meal_order = fields.One2Many('gnuhealth.inpatient.meal', 'name',
+    meal_item = fields.One2Many('gnuhealth.inpatient.meal.order.item', 'name',
         'Items')
+
+    meal_order = fields.Char('Order')
 
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', select=True)
@@ -550,3 +569,16 @@ class InpatientMealOrder (ModelSQL, ModelView):
     def default_health_professional():
         pool = Pool()
         return pool.get('gnuhealth.healthprofessional').get_health_professional()
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('meal_order'):
+                config = Config(1)
+                values['meal_order'] = Sequence.get_id(
+                    config.inpatient_meal_order_sequence.id)
+        return super(InpatientMealOrder, cls).create(vlist)
