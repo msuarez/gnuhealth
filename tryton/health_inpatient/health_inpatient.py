@@ -553,7 +553,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
     __name__="gnuhealth.inpatient.meal.order"
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
-        'Registration Code')
+        'Registration Code', required=True)
 
     meal_item = fields.One2Many('gnuhealth.inpatient.meal.order.item', 'name',
         'Items')
@@ -561,7 +561,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
     meal_order = fields.Char('Order')
 
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
-        'Health Professional', select=True)
+        'Health Professional')
 
     remarks = fields.Text('Remarks')
 
