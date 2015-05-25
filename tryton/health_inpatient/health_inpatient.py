@@ -121,6 +121,16 @@ class InpatientRegistration(ModelSQL, ModelView):
         states={'invisible': Not(Equal(Eval('state'), 'done'))},
         help="Health Professional that discharged the patient")
 
+    discharge_reason = fields.Selection([
+        ('home','Home / Selfcare'),
+        ('transfer','Transferred to another institution'),
+        ('death','Death'),
+        ('against_advice','Left against medical advice')],
+        'Discharge Reason', 
+        states={'invisible': Not(Equal(Eval('state'), 'done')),
+            'required': Equal(Eval('state'), 'done')},
+        help="Reason for patient discharge")
+
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
     @staticmethod
@@ -261,7 +271,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     @classmethod
     def write(cls, registrations, vals):
         # Don't allow to write the record if the evaluation has been done
-        if registrations[0].state == 'done':
+        if registrations[0].state == 'done' and registrations[0].discharge_reason:
             cls.raise_user_error(
                 "This hospitalization is at state Done\n"
                 "You can no longer modify it.")

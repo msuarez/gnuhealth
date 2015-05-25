@@ -42,10 +42,12 @@
                     <field name="state" readonly="1"/>
                     <button name="confirmed" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
                 </group>
-                <group colspan="2" id="group_registration_holder3">
+                <group colspan="2" col="6" id="group_registration_holder3">
                     <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
                     <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
                     <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to SIGN the discharge the patient from the health institution. This record will become READ ONLY "/>
+                    <label name="discharge_reason"/>
+                    <field name="discharge_reason"/>
                     <field name="discharged_by"/>
                 </group>
             </group>
