@@ -569,6 +569,25 @@ class InpatientMealOrder (ModelSQL, ModelView):
 
     remarks = fields.Text('Remarks')
 
+    order_date = fields.DateTime('Date',
+        help='Order date', required=True)
+
+    state = fields.Selection((
+        ('draft', 'Draft'),
+        ('cancelled', 'Cancelled'),
+        ('ordered', 'Ordered'),
+        ('processing', 'Processing'),
+        ('done','Done'),
+        ), 'Status', readonly=True)
+
+    @staticmethod
+    def default_order_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
     @staticmethod
     def default_health_professional():
         pool = Pool()
