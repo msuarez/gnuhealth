@@ -41,6 +41,10 @@
             <field name="name">gnuhealth-prescription</field>
             <field name="path">icons/prescription.svg</field>
         </record>
+        <record model="ir.ui.icon" id="gnuhealth_preferences_icon">
+            <field name="name">gnuhealth-immunizations</field>
+            <field name="path">icons/immunizations.svg</field>
+        </record>
         <record model="ir.ui.icon" id="gnuhealth_report_icon">
             <field name="name">gnuhealth-report</field>
             <field name="path">icons/report.svg</field>
@@ -57,7 +61,7 @@
             <field name="name">gnuhealth-open</field>
             <field name="path">icons/tryton-open.svg</field>
         </record>
-        <record model="ir.ui.icon" id="gnuhealth_preferences_icon">
+        <record model="ir.ui.icon" id="gnuhealth_immunizations_icon">
             <field name="name">gnuhealth-preferences</field>
             <field name="path">icons/tryton-preferences.svg</field>
         </record>
@@ -155,7 +159,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_immunization_schedule" id="gnuhealth_conf_immunization_schedule"
-            parent="gnuhealth_conf_menu" sequence="60" />
+            parent="gnuhealth_conf_menu" icon="gnuhealth-immunizations" sequence="60" />
 
 
 <!-- Immunization Schedule Line-->
