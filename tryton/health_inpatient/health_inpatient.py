@@ -536,6 +536,10 @@ class InpatientMeal (ModelSQL, ModelView):
         institution = HealthInst.get_institution()
         return institution
 
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
+
 class InpatientMealOrderItem (ModelSQL, ModelView):
     'Inpatient Meal Item'
     __name__="gnuhealth.inpatient.meal.order.item"
