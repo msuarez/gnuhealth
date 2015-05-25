@@ -25,6 +25,11 @@
             <field name="path">icons/go-home.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_meal_icon">
+            <field name="name">icon-meals</field>
+            <field name="path">icons/meals.svg</field>
+        </record>
+
         <record model="ir.ui.icon" id="gnuhealth_list_icon">
             <field name="name">gnuhealth-list</field>
             <field name="path">../health/icons/tryton-list.svg</field>
@@ -238,7 +243,7 @@
 
         <menuitem name="Inpatient Meals" action="gnuhealth_action_inpatient_meal"
             id="gnuhealth_conf_inpatient_meal" parent="health.gnuhealth_conf_misc"
-            icon="gnuhealth-list"/>
+            icon="icon-meals"/>
 
 
 
