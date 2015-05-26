@@ -605,3 +605,36 @@ class InpatientMealOrder (ModelSQL, ModelView):
                 values['meal_order'] = Sequence.get_id(
                     config.inpatient_meal_order_sequence.id)
         return super(InpatientMealOrder, cls).create(vlist)
+
+    @classmethod
+    def __setup__(cls):
+        super(InpatientMealOrder, cls).__setup__()
+        cls._buttons.update({
+            'cancel': {'invisible': Not(Equal(Eval('state'), 'ordered'))}
+            })
+
+        cls._buttons.update({
+            'generate': {'invisible': Equal(Eval('state'), 'done')}
+            })
+
+        cls._buttons.update({
+            'done': {'invisible': Not(Equal(Eval('state'), 'ordered'))}
+            })
+
+    @classmethod
+    @ModelView.button
+    def generate(cls, mealorders):
+        cls.write(mealorders, {
+            'state': 'ordered'})
+
+    @classmethod
+    @ModelView.button
+    def cancel(cls, mealorders):
+        cls.write(mealorders, {
+            'state': 'cancelled'})
+
+    @classmethod
+    @ModelView.button
+    def done(cls, mealorders):
+        cls.write(mealorders, {
+            'state': 'done'})

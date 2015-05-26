@@ -9,11 +9,14 @@
     <newline/>
     <field colspan="4" name="remarks"/>
     <newline/>
-    <group id="inpatient_meal_order_footer" col="6" colspan="4">
+    <group id="inpatient_meal_order_footer" col="10" colspan="4">
         <label name="state"/>
         <field name="state"/>
         <label name="order_date"/>
         <field name="order_date"/>
+        <button name="cancel" help="Cancel order" string="Cancel" icon="icon-cancel" confirm="Cancel the this meal order ?"/>
+        <button name="generate" help="Create order" string="Generate" icon="icon-ok" confirm="Generate the meal order ?"/>
+        <button name="done" help="The meal order is done" string="Done" icon="icon-home" confirm="The meal order will be closed"/>
         <label name="health_professional"/>
         <field name="health_professional"/>
     </group>
