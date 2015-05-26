@@ -24,7 +24,7 @@ from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
-from trytond.pyson import Eval, Not, Bool, And, Equal
+from trytond.pyson import Eval, Not, Bool, And, Equal, Or
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
@@ -614,7 +614,8 @@ class InpatientMealOrder (ModelSQL, ModelView):
             })
 
         cls._buttons.update({
-            'generate': {'invisible': Equal(Eval('state'), 'done')}
+            'generate': {'invisible': Or(Equal(Eval('state'), 'ordered'),
+                    Equal(Eval('state'), 'done'))},
             })
 
         cls._buttons.update({
