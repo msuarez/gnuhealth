@@ -2855,6 +2855,8 @@ class Appointment(ModelSQL, ModelView):
 
     appointment_date = fields.DateTime('Date and Time')
 
+    checked_in_date = fields.DateTime('Checked-in Time')
+
     institution = fields.Many2One(
         'gnuhealth.institution', 'Institution',
         help='Health Care Institution')
@@ -2934,6 +2936,10 @@ class Appointment(ModelSQL, ModelView):
                 config = Config(1)
                 values['name'] = Sequence.get_id(
                     config.appointment_sequence.id)
+
+            #Update the checked-in time
+            if values.get('state') == 'checked_in':
+                values['checked_in_date'] = datetime.now()
 
         return super(Appointment, cls).write(appointments, values)
 
@@ -4011,6 +4017,23 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return duration
 
+    def get_wait_time(self, name): #3.6
+        # Compute wait time between checked-in and start of evaluation
+        if self.evaluation_date:
+            if self.evaluation_date.checked_in_date:
+                if self.evaluation_date.checked_in_date < self.evaluation_start:
+                    return self.evaluation_start-self.evaluation_date.checked_in_date
+
+    def get_string_wait_time(self, name): #3.4
+        # Compute the string for the wait time
+        duration = ''
+        if self.evaluation_date:
+            if self.evaluation_date.checked_in_date:
+                if self.evaluation_date.checked_in_date < self.evaluation_start:
+                    delta=self.evaluation_start-self.evaluation_date.checked_in_date
+                    duration = str(int(round(delta.total_seconds()/60)))
+        return duration
+            
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
         states = STATES)
 
@@ -4031,6 +4054,15 @@ class PatientEvaluation(ModelSQL, ModelView):
             'Length',
             help="Duration of the evaluation, in minutes"),
         'evaluation_duration')
+
+    # 3.6
+    #wait_time = fields.Function(fields.TimeDelta('Patient wait time'),
+            #help="How long the patient waited"),
+            #'get_wait_time')
+    # 3.4
+    wait_time = fields.Function(fields.Char('Patient wait time',
+        help="How long the patient waited, in minutes"),
+        'get_string_wait_time')
 
     state = fields.Selection([
         ('in_progress', 'In progress'),

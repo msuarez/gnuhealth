@@ -11,6 +11,8 @@
                 <field name="healthprof"/>
                 <label name="evaluation_start"/>
                 <field name="evaluation_start"/>
+                <label name="wait_time"/>
+                <field name="wait_time"/>
             </group>
             <newline/>
             <separator colspan="4" id="separator_chief_complaint"/>
