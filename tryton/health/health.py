@@ -2937,8 +2937,9 @@ class Appointment(ModelSQL, ModelView):
                 values['name'] = Sequence.get_id(
                     config.appointment_sequence.id)
 
-            #Update the checked-in time
-            if values.get('state') == 'checked_in':
+            #Update the checked-in time only if unset
+            if values.get('state') == 'checked_in' \
+                    and values.get('checked_in_date') is None:
                 values['checked_in_date'] = datetime.now()
 
         return super(Appointment, cls).write(appointments, values)
