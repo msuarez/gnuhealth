@@ -95,7 +95,7 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
         """Set the feed-relevant data"""
         if self.practitioner:
             if RUN_FLASK:
-                uri = url_for('pat_record',
+                uri = url_for('hp_record',
                                 log_id=self.practitioner.id,
                                 _external=True)
             else:
