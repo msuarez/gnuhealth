@@ -569,6 +569,13 @@ class InpatientMealOrder (ModelSQL, ModelView):
 
     remarks = fields.Text('Remarks')
 
+    meal_warning = fields.Boolean('Warning',readonly=True,
+        help="The patient has special needs on meals")
+
+    meal_warning_ack = fields.Boolean('Warning Ack',
+        help="Check if you have verified the warnings on the"
+        " patient meal items")
+
     order_date = fields.DateTime('Date',
         help='Order date', required=True)
 
@@ -607,6 +614,33 @@ class InpatientMealOrder (ModelSQL, ModelView):
         return super(InpatientMealOrder, cls).create(vlist)
 
     @classmethod
+    def validate(cls, meal_orders):
+        super(InpatientMealOrder, cls).validate(meal_orders)
+        for meal_order in meal_orders:
+            meal_order.check_meal_order_warning()
+
+    def check_meal_order_warning(self):
+        if not self.meal_warning_ack:
+            self.raise_user_error('meal_order_warning')
+
+
+    @fields.depends('name')
+    def on_change_name(self):
+        meal_warning = False
+        meal_warning_ack = True
+        if self.name:
+            # Trigger the warning if the patient 
+            # has special needs on meals (religion / philosophy )
+            if (self.name.patient.vegetarian_type or 
+                self.name.patient.diet_belief):
+                meal_warning = True
+                meal_warning_ack = False
+        return {
+            'meal_warning': meal_warning,
+            'meal_warning_ack': meal_warning_ack,
+        }
+
+    @classmethod
     def __setup__(cls):
         super(InpatientMealOrder, cls).__setup__()
         cls._buttons.update({
@@ -620,6 +654,14 @@ class InpatientMealOrder (ModelSQL, ModelView):
 
         cls._buttons.update({
             'done': {'invisible': Not(Equal(Eval('state'), 'ordered'))}
+            })
+
+        cls._error_messages.update({
+            'meal_order_warning':
+            '===== MEAL WARNING ! =====\n\n\n'
+            'This patient has special meal needs \n\n'
+            'Check and acknowledge that\n'
+            'the meal items in this order are correct \n\n',
             })
 
     @classmethod

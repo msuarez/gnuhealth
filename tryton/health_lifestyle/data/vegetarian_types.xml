@@ -2,12 +2,6 @@
 <tryton>
     <data noupdate="0" skiptest="1">
  
-        <record model="gnuhealth.vegetarian_types" id="nonveggie">
-            <field name="name">Non Vegetarian</field>
-            <field name="code">NONVEGGIE</field>
-            <field name="desc">Not vegetarian</field>
-        </record>
-
         <record model="gnuhealth.vegetarian_types" id="ovo">
             <field name="name">Ovo vegetarian</field>
             <field name="code">OVO</field>

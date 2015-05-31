@@ -1,9 +1,15 @@
 <?xml version="1.0"?>
 <form string="Inpatient Meal Order">
-    <label name="name"/>
-    <field name="name"/>
-    <label name="meal_order"/>
-    <field name="meal_order"/>
+    <group id="inpatient_meal_order_header" col="8" colspan="4">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="meal_order"/>
+        <field name="meal_order"/>
+        <label name="meal_warning"/>
+        <field name="meal_warning"/>
+        <label name="meal_warning_ack"/>
+        <field name="meal_warning_ack"/>
+    </group>
     <newline/>
     <field colspan="4" name="meal_item"/>
     <newline/>
