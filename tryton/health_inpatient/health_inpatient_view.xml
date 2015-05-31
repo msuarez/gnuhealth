@@ -283,6 +283,37 @@
             <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
         </record>
 
+
+<!-- DOMAIN WINDOWS -->
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="10"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_ordered">
+            <field name="name">Ordered</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain">[('state', '=', 'ordered')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_done">
+            <field name="name">Done</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain">[('state', '=', 'done')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+
         <menuitem name="Meal Orders" action="gnuhealth_action_inpatient_meal_order"
             id="gnuhealth_inpatient_meal_order" parent="gnuhealth_inpatient_menu"
             icon="icon-meals"/>
