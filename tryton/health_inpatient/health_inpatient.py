@@ -25,6 +25,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal, Or
+from trytond import backend
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
@@ -101,10 +102,6 @@ class InpatientRegistration(ModelSQL, ModelView):
         'Medications')
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
         'Meals / Diet Program')
-    diet_belief = fields.Many2One('gnuhealth.diet.belief',
-        'Belief', help="Based on the patient lifestyle information")
-
-    diet_vegetarian = fields.Many2One('gnuhealth.vegetarian_types', 'Vegetarian')
         
     nutrition_notes = fields.Text('Nutrition notes / directions')
     discharge_plan = fields.Text('Discharge Plan')
@@ -145,26 +142,22 @@ class InpatientRegistration(ModelSQL, ModelView):
         return institution
 
 
-    # Assign default values
-    # diet types based on current patient lifestyle values
-    # When saved, they will reflect the patient lifestyle at that point in time
-    # that not necessarily has to be the same as in the future.
-    
-    @fields.depends('patient')
-    def on_change_patient(self):
-        vegetarian_type = diet_belief = None
-        
-        if (self.patient):
-            if (self.patient.vegetarian_type):
-                vegetarian_type = self.patient.vegetarian_type.id
+    @classmethod
+    def __register__(cls, module_name):
+        super(InpatientRegistration, cls).__register__(module_name)
 
-            if (self.patient.diet_belief):
-                diet_belief = self.patient.diet_belief.id
-            
-        return {
-            'diet_vegetarian': vegetarian_type,
-            'diet_belief': diet_belief,
-        }
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+
+        # Update to version 3.0
+        # The diets based on religion and philosophy
+        # are now in the lifestyle module
+        if table.column_exist('diet_vegetarian'):
+            table.drop_column('diet_vegetarian')
+
+        if table.column_exist('diet_belief'):
+            table.drop_column('diet_belief')
 
 
     @classmethod

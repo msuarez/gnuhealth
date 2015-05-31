@@ -53,11 +53,6 @@
             </group>
         </page>
         <page string="Nutrition" id="page_inpatient_nutrition">
-            <label name="diet_belief"/>
-            <field name="diet_belief"/>
-            <label name="diet_vegetarian"/>
-            <field name="diet_vegetarian"/>
-            <newline/>
             <field colspan="4" name="therapeutic_diets"/>
             <newline/>
             <separator colspan="4" id="separator_nutrition_notes" string="Other nutrition notes / directions"/>
