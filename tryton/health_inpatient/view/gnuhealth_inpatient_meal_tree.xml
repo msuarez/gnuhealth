@@ -2,6 +2,7 @@
 <tree string="Inpatient Meal">
     <field name="name" expand="1"/>
     <field name="diet_therapeutic" expand="1"/>
-    <field name="diet_belief" expand="1"/>
+    <field name="diet_vegetarian"/>
+    <field name="diet_belief"/>
     <field name="institution"/>
 </tree>

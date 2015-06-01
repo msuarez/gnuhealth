@@ -521,6 +521,9 @@ class InpatientMeal (ModelSQL, ModelView):
     diet_belief = fields.Many2One('gnuhealth.diet.belief',
         'Belief')
 
+    diet_vegetarian = fields.Many2One('gnuhealth.vegetarian_types',
+        'Vegetarian')
+
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
     @staticmethod
