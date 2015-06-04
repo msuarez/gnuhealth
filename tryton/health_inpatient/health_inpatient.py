@@ -553,7 +553,8 @@ class InpatientMealOrder (ModelSQL, ModelView):
     __name__="gnuhealth.inpatient.meal.order"
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
-        'Registration Code', required=True)
+        'Registration Code', domain=[('state', '=', 'hospitalized')],
+        required=True)
 
     meal_item = fields.One2Many('gnuhealth.inpatient.meal.order.item', 'name',
         'Items')
