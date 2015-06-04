@@ -568,8 +568,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
         ('dinner', 'Dinner'),
         ('snack', 'Snack'),
         ('special', 'Special order'),
-        ('done','Done'),
-        ), 'Meal time', required=True)
+        ), 'Meal time', required=True, sort=False)
 
     meal_item = fields.One2Many('gnuhealth.inpatient.meal.order.item', 'name',
         'Items')
