@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <form string="Inpatient Meal Order">
-    <group id="inpatient_meal_order_header" col="8" colspan="4">
+    <group id="inpatient_meal_order_header" col="10" colspan="4">
         <label name="name"/>
         <field name="name"/>
         <label name="meal_order"/>
         <field name="meal_order"/>
+        <label name="mealtime"/>
+        <field name="mealtime"/>
         <label name="meal_warning"/>
         <field name="meal_warning"/>
         <label name="meal_warning_ack"/>

@@ -559,10 +559,19 @@ class InpatientMealOrder (ModelSQL, ModelView):
         'Registration Code', domain=[('state', '=', 'hospitalized')],
         required=True)
 
+    mealtime = fields.Selection((
+        ('breakfast', 'Breakfast'),
+        ('lunch', 'Lunch'),
+        ('dinner', 'Dinner'),
+        ('snack', 'Snack'),
+        ('special', 'Special order'),
+        ('done','Done'),
+        ), 'Meal time', required=True)
+
     meal_item = fields.One2Many('gnuhealth.inpatient.meal.order.item', 'name',
         'Items')
 
-    meal_order = fields.Char('Order')
+    meal_order = fields.Char('Order', readonly=True)
 
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional')
@@ -572,7 +581,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
     meal_warning = fields.Boolean('Warning',readonly=True,
         help="The patient has special needs on meals")
 
-    meal_warning_ack = fields.Boolean('Warning Ack',
+    meal_warning_ack = fields.Boolean('Ack',
         help="Check if you have verified the warnings on the"
         " patient meal items")
 
