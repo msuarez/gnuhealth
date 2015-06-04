@@ -627,10 +627,15 @@ class InpatientMealOrder (ModelSQL, ModelView):
         super(InpatientMealOrder, cls).validate(meal_orders)
         for meal_order in meal_orders:
             meal_order.check_meal_order_warning()
-
+            meal_order.check_health_professional()
+            
     def check_meal_order_warning(self):
         if not self.meal_warning_ack:
             self.raise_user_error('meal_order_warning')
+
+    def check_health_professional(self):
+        if not self.health_professional:
+            self.raise_user_error('health_professional_warning')
 
 
     @fields.depends('name')
@@ -671,7 +676,16 @@ class InpatientMealOrder (ModelSQL, ModelView):
             'This patient has special meal needs \n\n'
             'Check and acknowledge that\n'
             'the meal items in this order are correct \n\n',
+            'health_professional_warning':
+            'No health professional associated to this user',
             })
+
+        cls._sql_constraints = [
+            ('meal_order_uniq', 'UNIQUE(meal_order)',
+                'The Meal Order must be unique !'),
+        ]
+
+
 
     @classmethod
     @ModelView.button
