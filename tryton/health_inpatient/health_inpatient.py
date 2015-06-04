@@ -279,20 +279,23 @@ class InpatientRegistration(ModelSQL, ModelView):
     def default_state():
         return 'free'
 
-    # Allow searching by the hospitalization code or patient name
-
+    # Format Registration ID : Patient : Bed
     def get_rec_name(self, name):
         if self.patient:
-            return self.name + ': ' + self.patient.name.name + ' ' + \
-             self.patient.name.lastname
+            return self.name + ':' + self.bed.rec_name + ':' \
+                + self.patient.rec_name 
+                
         else:
             return self.name
+
+    # Allow searching by the hospitalization code, patient name
+    # or bed number 
 
     @classmethod
     def search_rec_name(cls, name, clause):
         field = None
         # Search by Registration Code ID or Patient
-        for field in ('name', 'patient'):
+        for field in ('name', 'patient', 'bed'):
             registrations = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if registrations:
                 break
