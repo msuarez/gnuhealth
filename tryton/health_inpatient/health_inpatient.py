@@ -75,6 +75,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
      required=True, select=True)
     admission_type = fields.Selection([
+        (None, ''),
         ('routine', 'Routine'),
         ('maternity', 'Maternity'),
         ('elective', 'Elective'),
@@ -107,6 +108,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     discharge_plan = fields.Text('Discharge Plan')
     info = fields.Text('Extra Info')
     state = fields.Selection((
+        (None, ''),
         ('free', 'free'),
         ('cancelled', 'cancelled'),
         ('confirmed', 'confirmed'),
@@ -560,6 +562,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
         required=True)
 
     mealtime = fields.Selection((
+        (None, ''),
         ('breakfast', 'Breakfast'),
         ('lunch', 'Lunch'),
         ('dinner', 'Dinner'),
@@ -589,6 +592,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
         help='Order date', required=True)
 
     state = fields.Selection((
+        (None, ''),
         ('draft', 'Draft'),
         ('cancelled', 'Cancelled'),
         ('ordered', 'Ordered'),
