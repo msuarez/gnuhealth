@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <record model="ir.action.report" id="report_round_nursing">
+            <field name="name">Nursing rounds</field>
+            <field name="model">gnuhealth.patient.rounding</field>
+            <field name="report_name">patient.rounding.report</field>
+            <field name="report">health_nursing/report/round_report.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_nursing_round">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient.rounding,-1</field>
+            <field name="action" ref="report_round_nursing"/>
+        </record>
+    </data>
+</tryton>

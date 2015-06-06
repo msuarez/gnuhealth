@@ -31,6 +31,10 @@
                 <label name="personal_needs"/>
                 <field name="personal_needs"/>
             </group>
+            <group states="{'invisible': Not(Bool(Eval('pain')))}" string="Further information">
+                <label string="Pain level"/>
+                <field name="pain_level"/>
+            </group>
             <newline/>
             <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">
                 <label name="temperature"/>
@@ -48,6 +52,8 @@
             </group>
             <newline/>
             <group colspan="4" col="10" id="group_patient_rounding_others" string="Other">
+                <label name="weight"/>
+                <field name="weight"/>
                 <label name="diuresis"/>
                 <field name="diuresis"/>
                 <label name="urinary_catheter"/>

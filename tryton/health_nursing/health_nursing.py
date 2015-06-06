@@ -20,6 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import pytz
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from datetime import datetime
 from trytond.pool import Pool
@@ -58,10 +59,12 @@ class PatientRounding(ModelSQL, ModelView):
     environmental_assessment = fields.Char('Environment', help="Environment"
         " assessment . State any disorder in the room.")
 
+    weight = fields.Integer('Weight', help="Measured weight, in kg")
+
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
     pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to "
-        "10")
+        "10", domain=[('pain_level', '<=', 10), ('pain_level', '>=', 1)])
     potty = fields.Boolean('Potty', help="Check if the patient needs to "
         "urinate / defecate")
     position = fields.Boolean('Position', help="Check if the patient needs to "
@@ -109,6 +112,15 @@ class PatientRounding(ModelSQL, ModelView):
         'Procedures', help="List of the procedures in this rounding. Please "
         "enter the first one as the main procedure")
 
+    report_start_date = fields.Function(fields.Date('Start Date'), 
+        'get_report_start_date')
+    report_start_time = fields.Function(fields.Time('Start Time'), 
+        'get_report_start_time')
+    report_end_date = fields.Function(fields.Date('End Date'), 
+        'get_report_end_date')
+    report_end_time = fields.Function(fields.Time('End Time'), 
+        'get_report_end_time')
+
     @classmethod
     def __setup__(cls):
         super(PatientRounding, cls).__setup__()
@@ -146,6 +158,58 @@ class PatientRounding(ModelSQL, ModelView):
     @staticmethod
     def default_evaluation_start():
         return datetime.now()
+
+    def get_report_start_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_start
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_start_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_start
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
+
+    def get_report_end_date(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_end
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).date()
+
+    def get_report_end_time(self, name):
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+
+        dt = self.evaluation_end
+        return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
 
 class RoundingProcedure(ModelSQL, ModelView):
