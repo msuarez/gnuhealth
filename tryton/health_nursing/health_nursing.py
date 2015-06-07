@@ -64,7 +64,7 @@ class PatientRounding(ModelSQL, ModelView):
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
     pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to "
-        "10", domain=[('pain_level', '<=', 10), ('pain_level', '>=', 1)])
+            "10")
     potty = fields.Boolean('Potty', help="Check if the patient needs to "
         "urinate / defecate")
     position = fields.Boolean('Position', help="Check if the patient needs to "
