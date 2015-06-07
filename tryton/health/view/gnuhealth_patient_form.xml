@@ -84,6 +84,11 @@ code with the unique patient ID.
             <field name="medications"/>
             <field name="vaccinations"/>
         </page>
+        <!-- ECGs -->
+        <page string="ECGs" id="patient_ecgs">
+            <field name="ecgs" colspan="4"/>
+        </page>
+
         <!-- Patient Diseases -->
         <page string="Diseases" id="patient_diseases">
             <field name="diseases" colspan="4"/>

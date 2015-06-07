@@ -1438,6 +1438,19 @@
             <field name="name">gnuhealth_signs_and_symptoms_tree</field>
         </record>
 
+<!-- PATIENT ECGS -->
+        <record model="ir.ui.view" id="gnuhealth_patient_ecg_form">
+            <field name="model">gnuhealth.patient.ecg</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_ecg_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_ecg_tree">
+            <field name="model">gnuhealth.patient.ecg</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_patient_ecg_tree</field>
+        </record>
+
 <!-- PATIENT DISEASES -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">

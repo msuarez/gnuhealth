@@ -32,7 +32,7 @@ __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration',
     'BedTransfer', 'Appointment', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
-    'InpatientMealOrder','InpatientMealOrderItem']
+    'InpatientMealOrder','InpatientMealOrderItem', 'ECG']
 
 
 class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
@@ -325,6 +325,14 @@ class BedTransfer(ModelSQL, ModelView):
 class Appointment(ModelSQL, ModelView):
     'Add Inpatient Registration field to the Appointment model.'
     __name__ = 'gnuhealth.appointment'
+
+    inpatient_registration_code = fields.Many2One(
+        'gnuhealth.inpatient.registration', 'Inpatient Registration',
+        help="Enter the patient hospitalization code")
+
+class ECG(ModelSQL, ModelView):
+    'Add Inpatient Registration field to the ECG model.'
+    __name__ = 'gnuhealth.patient.ecg'
 
     inpatient_registration_code = fields.Many2One(
         'gnuhealth.inpatient.registration', 'Inpatient Registration',

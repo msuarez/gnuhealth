@@ -90,6 +90,7 @@ def register():
         SecondaryCondition,
         DiagnosticHypothesis,
         SignsAndSymptoms,
+        PatientECG,
         CheckImmunizationStatusInit,
         module='health', type_='model')
     Pool.register(

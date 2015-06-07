@@ -33,6 +33,7 @@ def register():
         InpatientRegistration,
         BedTransfer,
         Appointment,
+        ECG,
         PatientData,
         InpatientMedication,
         InpatientMedicationAdminTimes,

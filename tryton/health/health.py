@@ -56,7 +56,7 @@ __all__ = [
     'PatientMedication', 'PatientVaccination',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms']
+    'SignsAndSymptoms', 'PatientECG']
 
 
 class DomiciliaryUnit(ModelSQL, ModelView):
@@ -2506,6 +2506,7 @@ class PatientData(ModelSQL, ModelView):
 #        'Prescriptions')
 
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
+    ecgs = fields.One2Many('gnuhealth.patient.ecg', 'name', 'ECGs')
     critical_summary = fields.Function(fields.Text(
         'Important disease about patient allergies or procedures',
         help='Automated summary of patient allergies and '
@@ -4663,3 +4664,119 @@ class SignsAndSymptoms(ModelSQL, ModelView):
         domain=[('code', 'like', 'R%')], required=True)
 
     comments = fields.Char('Comments')
+
+# ECG
+class PatientECG(ModelSQL, ModelView):
+    'Patient ECG'
+    __name__ = 'gnuhealth.patient.ecg'
+
+    name = fields.Many2One('gnuhealth.patient',
+        'Patient', required=True)
+
+    ecg_date = fields.DateTime('Date', required=True)
+    lead = fields.Selection([
+        (None, ''),
+        ('i', 'I'),
+        ('ii', 'II'),
+        ('iii', 'III'),
+        ('avf', 'aVF'),
+        ('avr', 'aVR'),
+        ('avl', 'aVL'),
+        ('v1', 'V1'),
+        ('v2', 'V2'),
+        ('v3', 'V3'),
+        ('v4', 'V4'),
+        ('v5', 'V5'),
+        ('v6', 'V6')],
+        'Lead', sort=False)
+
+    axis = fields.Selection([
+        ('normal', 'Normal Axis'),
+        ('left', 'Left deviation'),
+        ('right', 'Right deviation'),
+        ('extreme_right', 'Extreme right deviation')],
+        'Axis', sort=False, required=True)
+
+    rate = fields.Integer('Rate', required=True)
+
+    rhythm = fields.Selection([
+        ('regular', 'Regular'),
+        ('irregular', 'Irregular')],
+        'Rhythm', sort=False, required=True)
+
+    pacemaker = fields.Selection([
+        ('sa', 'Sinus Node'),
+        ('av', 'Atrioventricular'),
+        ('pk', 'Purkinje')
+        ],
+        'Pacemaker', sort=False, required=True)
+
+    pr = fields.Integer('PR', help="Duration of PR interval in milliseconds")
+    qrs = fields.Integer('QRS',
+        help="Duration of QRS interval in milliseconds")
+    qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
+    st_segment = fields.Selection([
+        ('normal', 'Normal'),
+        ('depressed', 'Depressed'),
+        ('elevated', 'Elevated')],
+        'ST Segment', sort=False, required=True)
+
+    twave_inversion = fields.Boolean('T wave inversion')
+
+    interpretation = fields.Char('Interpretation', required=True)
+    ecg_strip = fields.Binary('ECG Strip')
+
+    # Default ECG date
+    @staticmethod
+    def default_ecg_date():
+        return datetime.now()
+
+    # Return the ECG Interpretation with main components
+    def get_rec_name(self, name):
+        if self.name:
+            res = str(self.interpretation) + ' // Rate ' + str(self.rate)
+        return res
+
+    @classmethod
+    def __register__(cls, module_name):
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+
+        # Rename table to gnuhealth.patient.ecg from gnuhealth_icu_ecg
+        if TableHandler.table_exist(cursor, 'gnuhealth_icu_ecg'):
+            TableHandler.table_rename(cursor, 'gnuhealth_icu_ecg', 'gnuhealth_patient_ecg')
+
+            table = TableHandler(cursor, cls, module_name)
+
+            # Since ECG used to rely on health_icu module
+            # we should try to keep the inpatient registration
+            # information by renaming the column to 
+            # inpatient_registration_code (the new field defined in
+            # the health_inpatient module)
+            table.column_rename('name', 'inpatient_registration_code')
+
+            # Add name column to link to patient
+            # but we'll let the models handle the foreign keys
+            cursor.execute('ALTER TABLE gnuhealth_patient_ecg \
+                            ADD COLUMN name integer')
+
+            # Update the name column with the patient id, not
+            # inpatient registration id
+            cursor.execute('UPDATE gnuhealth_patient_ecg SET name = b.patient \
+                            FROM gnuhealth_inpatient_registration b \
+                            WHERE gnuhealth_patient_ecg.inpatient_registration_code = b.id')
+
+            # Drop the old foreign key(s) (hopefully the correct ones
+            # will be recreated with the correct names by the models)
+            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
+                    CONSTRAINT IF EXISTS \
+                    gnuhealth_icu_ecg_name_fkey;")
+            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
+                    CONSTRAINT IF EXISTS \
+                    gnuhealth_icu_ecg_create_uid_fkey;")
+            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
+                    CONSTRAINT IF EXISTS \
+                    gnuhealth_icu_ecg_write_uid_fkey;")
+
+        super(PatientECG, cls).__register__(module_name)

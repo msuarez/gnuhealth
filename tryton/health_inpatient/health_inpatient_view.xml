@@ -99,6 +99,15 @@
             <field name="name">gnuhealth_patient_extd_tree</field>
         </record>
 
+<!-- Add the patient hospitalization registration code to the ecg view -->
+
+        <record model="ir.ui.view" id="view_ecg_registration_form1">
+            <field name="model">gnuhealth.patient.ecg</field>
+            <field name="inherit" ref="health.gnuhealth_patient_ecg_form" />
+            <field name="type">form</field>
+            <field name="name">ecg_registration</field>
+        </record>
+
 <!-- Inpatient Medication -->
 
 

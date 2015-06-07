@@ -27,12 +27,11 @@ from .health_icu import *
 
 def register():
     Pool.register(
-		InpatientRegistration,
-		InpatientIcu,
-		Glasgow,
-		ApacheII,
-		MechanicalVentilation,
+        InpatientRegistration,
+        InpatientIcu,
+        Glasgow,
+        ApacheII,
+        MechanicalVentilation,
         ChestDrainageAssessment,
-        ECG,
-		PatientRounding,
+        PatientRounding,
         module='health_icu', type_='model')

@@ -28,7 +28,7 @@ from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration', 'InpatientIcu', 'Glasgow', 'ApacheII',
-            'MechanicalVentilation', 'ChestDrainageAssessment', 'ECG',
+            'MechanicalVentilation', 'ChestDrainageAssessment',
             'PatientRounding']
 
 
@@ -526,78 +526,6 @@ class ChestDrainageAssessment(ModelSQL, ModelView):
     remarks = fields.Char('Remarks')
 
 
-class ECG(ModelSQL, ModelView):
-    'ECG'
-    __name__ = 'gnuhealth.icu.ecg'
-
-    name = fields.Many2One('gnuhealth.inpatient.registration',
-        'Registration Code', required=True)
-
-    ecg_date = fields.DateTime('Date', required=True)
-    lead = fields.Selection([
-        (None, ''),
-        ('i', 'I'),
-        ('ii', 'II'),
-        ('iii', 'III'),
-        ('avf', 'aVF'),
-        ('avr', 'aVR'),
-        ('avl', 'aVL'),
-        ('v1', 'V1'),
-        ('v2', 'V2'),
-        ('v3', 'V3'),
-        ('v4', 'V4'),
-        ('v5', 'V5'),
-        ('v6', 'V6')],
-        'Lead', sort=False)
-
-    axis = fields.Selection([
-        ('normal', 'Normal Axis'),
-        ('left', 'Left deviation'),
-        ('right', 'Right deviation'),
-        ('extreme_right', 'Extreme right deviation')],
-        'Axis', sort=False, required=True)
-
-    rate = fields.Integer('Rate', required=True)
-
-    rhythm = fields.Selection([
-        ('regular', 'Regular'),
-        ('irregular', 'Irregular')],
-        'Rhythm', sort=False, required=True)
-
-    pacemaker = fields.Selection([
-        ('sa', 'Sinus Node'),
-        ('av', 'Atrioventricular'),
-        ('pk', 'Purkinje')
-        ],
-        'Pacemaker', sort=False, required=True)
-
-    pr = fields.Integer('PR', help="Duration of PR interval in milliseconds")
-    qrs = fields.Integer('QRS',
-        help="Duration of QRS interval in milliseconds")
-    qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
-    st_segment = fields.Selection([
-        ('normal', 'Normal'),
-        ('depressed', 'Depressed'),
-        ('elevated', 'Elevated')],
-        'ST Segment', sort=False, required=True)
-
-    twave_inversion = fields.Boolean('T wave inversion')
-
-    interpretation = fields.Char('Interpretation', required=True)
-    ecg_strip = fields.Binary('ECG Strip')
-
-    # Default ECG date
-    @staticmethod
-    def default_ecg_date():
-        return datetime.now()
-
-    # Return the ECG Interpretation with main components
-    def get_rec_name(self, name):
-        if self.name:
-            res = str(self.interpretation) + ' // Rate ' + str(self.rate)
-        return res
-
-
 class PatientRounding(ModelSQL, ModelView):
     # Nursing Rounding for ICU
     # Inherit and append to the existing model the new functionality for ICU
@@ -686,8 +614,9 @@ class PatientRounding(ModelSQL, ModelView):
 
     # Cardiovascular assessment
 
-    ecg = fields.Many2One('gnuhealth.icu.ecg', 'ECG',
-        domain=[('name', '=', Eval('name'))], depends=['name'],)
+    ecg = fields.Many2One('gnuhealth.patient.ecg', 'Inpatient ECG',
+        domain=[('inpatient_registration_code', '=', Eval('name'))],
+        depends=['name'],)
 
     venous_access = fields.Selection([
         (None, ''),
