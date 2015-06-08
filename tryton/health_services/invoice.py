@@ -20,7 +20,7 @@ class Invoice:
     health_service = fields.Function(
             fields.Many2One('gnuhealth.health_service', 'Health Service',
                 help="The service entry"),
-                'get_health_service')
+                'get_health_service', searcher='search_health_service')
 
     def get_patient(self, name):
         try:
@@ -33,6 +33,14 @@ class Invoice:
             return self.lines[0].origin.name.id
         except:
             return None
+
+    @classmethod
+    def search_health_service(cls, name, clause):
+        return [('lines.origin.name.id',
+                    clause[1],
+                    clause[2],
+                    'gnuhealth.health_service.line')]
+
 
     @classmethod
     def __setup__(cls):
