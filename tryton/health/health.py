@@ -4771,8 +4771,8 @@ class PatientECG(ModelSQL, ModelView):
 
             # Drop the old foreign key(s) (hopefully the correct ones
             # will be recreated with the correct names by the models)
-            table.drop_fk('name')
-            table.drop_fk('create_uid')
-            table.drop_fk('write_uid')
+            table.drop_fk('name', table='gnuhealth_icu_ecg')
+            table.drop_fk('create_uid', table='gnuhealth_icu_ecg')
+            table.drop_fk('write_uid', table='gnuhealth_icu_ecg')
 
         super(PatientECG, cls).__register__(module_name)
