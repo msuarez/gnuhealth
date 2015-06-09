@@ -22,7 +22,7 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
-from sql import Literal, Join
+from sql import Literal, Join, Table
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
@@ -4758,25 +4758,21 @@ class PatientECG(ModelSQL, ModelView):
 
             # Add name column to link to patient
             # but we'll let the models handle the foreign keys
-            cursor.execute('ALTER TABLE gnuhealth_patient_ecg \
-                            ADD COLUMN name integer')
+            table.add_raw_column('name', cls.name.sql_type(), migrate=False)
 
             # Update the name column with the patient id, not
             # inpatient registration id
-            cursor.execute('UPDATE gnuhealth_patient_ecg SET name = b.patient \
-                            FROM gnuhealth_inpatient_registration b \
-                            WHERE gnuhealth_patient_ecg.inpatient_registration_code = b.id')
+            a = Table('gnuhealth.patient.ecg')
+            b = Table('gnuhealth.inpatient.registration')
+            cursor.execute(str(a.update(columns=[a.name], 
+                                values=[b.patient],
+                                from_=[b],
+                                where = a.inpatient_registration_code == b.id)))
 
             # Drop the old foreign key(s) (hopefully the correct ones
             # will be recreated with the correct names by the models)
-            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
-                    CONSTRAINT IF EXISTS \
-                    gnuhealth_icu_ecg_name_fkey;")
-            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
-                    CONSTRAINT IF EXISTS \
-                    gnuhealth_icu_ecg_create_uid_fkey;")
-            cursor.execute("ALTER TABLE gnuhealth_patient_ecg DROP \
-                    CONSTRAINT IF EXISTS \
-                    gnuhealth_icu_ecg_write_uid_fkey;")
+            table.drop_fk('name')
+            table.drop_fk('create_uid')
+            table.drop_fk('write_uid')
 
         super(PatientECG, cls).__register__(module_name)
