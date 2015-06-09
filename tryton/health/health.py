@@ -4762,8 +4762,10 @@ class PatientECG(ModelSQL, ModelView):
 
             # Update the name column with the patient id, not
             # inpatient registration id
-            a = Table('gnuhealth.patient.ecg')
-            b = Table('gnuhealth.inpatient.registration')
+            ecg = Pool().get('gnuhealth.patient.ecg')
+            a = ecg.__table__()
+            reg = Pool().get('gnuhealth.inpatient.registration')
+            b = reg.__table__()
             cursor.execute(str(a.update(columns=[a.name], 
                                 values=[b.patient],
                                 from_=[b],
