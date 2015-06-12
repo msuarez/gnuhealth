@@ -345,7 +345,7 @@ class PatientData(ModelSQL, ModelView):
 
     patient_status = fields.Function(fields.Boolean('Hospitalized',
         help="Show the hospitalization status of the patient"),
-        'get_patient_status')
+        'get_patient_status', searcher='search_patient_status')
 
     def get_patient_status(self, name):
         
@@ -374,6 +374,22 @@ class PatientData(ModelSQL, ModelView):
             result = get_hospitalization_status(patient_dbid)
         return result
 
+    @classmethod
+    def search_patient_status(cls, name, clause):
+        p = Pool().get('gnuhealth.inpatient.registration')
+        table = p.__table__()
+        pat = cls.__table__()
+        _, _, value = clause
+        
+        # Find hospitalized patient ids
+        j = pat.join(table, condition = pat.id == table.patient)
+        s = j.select(pat.id, where = table.state == 'hospitalized')
+
+        # It's a boolean field
+        if value is True:
+            return [('id', 'in', s)]
+        else:
+            return [('id', 'not in', s)]
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
