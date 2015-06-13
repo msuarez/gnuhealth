@@ -379,17 +379,25 @@ class PatientData(ModelSQL, ModelView):
         p = Pool().get('gnuhealth.inpatient.registration')
         table = p.__table__()
         pat = cls.__table__()
-        _, _, value = clause
+        _, operator, value = clause
+
+        # Validate operator and value
+        if operator not in ['=', '!=']:
+            raise ValueError('Wrong operator: %s' % operator)
+        if value is not True and value is not False:
+            raise ValueError('Wrong value: %s' % value)
         
         # Find hospitalized patient ids
         j = pat.join(table, condition = pat.id == table.patient)
         s = j.select(pat.id, where = table.state == 'hospitalized')
 
-        # It's a boolean field
-        if value is True:
-            return [('id', 'in', s)]
+        # Choose domain operator
+        if (operator == '=' and value) or (operator == '!=' and not value):
+            d = 'in'
         else:
-            return [('id', 'not in', s)]
+            d = 'not in'
+
+        return [('id', d, s)]
 
 class InpatientMedication (ModelSQL, ModelView):
     'Inpatient Medication'
