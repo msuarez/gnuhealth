@@ -23,6 +23,8 @@
 from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
+from trytond.tools import grouped_slice, reduce_ids
+from sql import Literal
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal, Or
 from trytond import backend
@@ -345,33 +347,32 @@ class PatientData(ModelSQL, ModelView):
 
     patient_status = fields.Function(fields.Boolean('Hospitalized',
         help="Show the hospitalization status of the patient"),
-        'get_patient_status', searcher='search_patient_status')
+        getter='get_patient_status', searcher='search_patient_status')
 
-    def get_patient_status(self, name):
-        
+    @classmethod
+    def get_patient_status(cls, patients, name):
         cursor = Transaction().cursor
+        pool = Pool()
+        Registration = pool.get('gnuhealth.inpatient.registration')
+        registration = Registration.__table__()
 
-        def get_hospitalization_status(patient_dbid):
-            is_hospitalized = False
+        # Will store statuses {patient: True/False, ...}
+        ids = map(int, patients)
+        result = dict.fromkeys(ids, False)
 
-            cursor.execute('SELECT count(state) \
-                FROM gnuhealth_inpatient_registration \
-                WHERE patient = %s \
-                AND state = \'hospitalized\' LIMIT 1' , (patient_dbid,))
-            
-            if cursor.fetchone()[0] > 0:
-                is_hospitalized = True
-            
-            return is_hospitalized
+        for sub_ids in grouped_slice(ids):
+            # SQL expression for relevant patient ids
+            clause_ids = reduce_ids(registration.id, sub_ids)
 
-        result = ''
+            # Hospitalized patient ids
+            query = registration.select(registration.patient, Literal(True),
+                where=(registration.state == 'hospitalized') & clause_ids,
+                group_by=registration.patient)
 
-        # Get the patient (DB) id to be used in the search on the medical
-        # inpatient registration table lookup
-        
-        patient_dbid = self.id
-        if patient_dbid:
-            result = get_hospitalization_status(patient_dbid)
+            # Update dictionary of patient ids with True statuses
+            cursor.execute(*query)
+            result.update(cursor.fetchall())
+
         return result
 
     @classmethod
@@ -386,7 +387,7 @@ class PatientData(ModelSQL, ModelView):
             raise ValueError('Wrong operator: %s' % operator)
         if value is not True and value is not False:
             raise ValueError('Wrong value: %s' % value)
-        
+
         # Find hospitalized patient ids
         j = pat.join(table, condition = pat.id == table.patient)
         s = j.select(pat.id, where = table.state == 'hospitalized')
