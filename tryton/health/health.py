@@ -29,6 +29,7 @@ from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 from trytond.pool import Pool
+from trytond.tools import grouped_slice, reduce_ids
 from uuid import uuid4
 import string
 import random
@@ -317,13 +318,35 @@ class PartyPatient (ModelSQL, ModelView):
         fields.Many2One('party.party','Father', 
         help="Father from the Birth Certificate"),'get_father')
 
-    def get_mother(self, name):
-        if (self.birth_certificate):
-            return self.birth_certificate.mother.id
+    @classmethod
+    def get_mother(cls, parties, name):
+        cursor = Transaction().cursor
+        BD = Pool().get('gnuhealth.birth_certificate')
+        bd = BD.__table__()
+        ids = map(int, parties)
+        result = dict.fromkeys(ids, None)
+        for sub_ids in grouped_slice(ids):
+            clause_ids = reduce_ids(bd.name, sub_ids)
+            query = bd.select(bd.name, bd.mother,
+                    where = (bd.mother != None) & clause_ids)
+            cursor.execute(*query)
+            result.update(cursor.fetchall())
+        return result
 
-    def get_father(self, name):
-        if (self.birth_certificate):
-            return self.birth_certificate.father.id
+    @classmethod
+    def get_father(cls, parties, name):
+        cursor = Transaction().cursor
+        BD = Pool().get('gnuhealth.birth_certificate')
+        bd = BD.__table__()
+        ids = map(int, parties)
+        result = dict.fromkeys(ids, None)
+        for sub_ids in grouped_slice(ids):
+            clause_ids = reduce_ids(bd.name, sub_ids)
+            query = bd.select(bd.name, bd.father,
+                    where = (bd.father != None) & clause_ids)
+            cursor.execute(*query)
+            result.update(cursor.fetchall())
+        return result
 
     @staticmethod
     def default_activation_date():
