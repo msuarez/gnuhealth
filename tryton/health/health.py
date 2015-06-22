@@ -2140,7 +2140,7 @@ class BirthCertificate (ModelSQL, ModelView):
             certificate.validate_dob()
 
     def validate_dob(self):
-        if (self.name.dob <> self.dob):
+        if (self.name.dob != self.dob):
                         self.raise_user_error(
                 "The date on the Party differs from the certificate !")
 
