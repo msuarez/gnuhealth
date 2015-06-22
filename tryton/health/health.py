@@ -4758,14 +4758,14 @@ class PatientECG(ModelSQL, ModelView):
 
             # Add name column to link to patient
             # but we'll let the models handle the foreign keys
-            table.add_raw_column('name', cls.name.sql_type(), migrate=False)
+            table.add_raw_column('name', cls.name.sql_type(), cls.name.sql_format,
+                        migrate=False)
 
             # Update the name column with the patient id, not
             # inpatient registration id
             ecg = Pool().get('gnuhealth.patient.ecg')
             a = ecg.__table__()
-            reg = Pool().get('gnuhealth.inpatient.registration')
-            b = reg.__table__()
+            b = Table('gnuhealth_inpatient_registration')
             cursor.execute(str(a.update(columns=[a.name], 
                                 values=[b.patient],
                                 from_=[b],
