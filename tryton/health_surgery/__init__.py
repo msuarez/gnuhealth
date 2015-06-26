@@ -27,6 +27,7 @@ from report import *
 
 def register():
     Pool.register(
+		SurgerySequences,
         RCRI,
         Surgery,
         Operation,

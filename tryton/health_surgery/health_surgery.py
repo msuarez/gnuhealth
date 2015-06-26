@@ -22,15 +22,25 @@
 ##############################################################################
 import pytz
 from dateutil.relativedelta import relativedelta
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 
-__all__ = ['RCRI', 'Surgery', 'Operation',  'SurgerySupply',
-    'PatientData', 'SurgeryTeam']
+__all__ = ['SurgerySequences', 'RCRI', 'Surgery', 'Operation',
+    'SurgerySupply', 'PatientData', 'SurgeryTeam']
+
+
+
+class SurgerySequences(ModelSingleton, ModelSQL, ModelView):
+    "Inpatient Registration Sequences for GNU Health"
+    __name__ = "gnuhealth.sequences"
+
+    surgery_code_sequence = fields.Property(fields.Many2One(
+        'ir.sequence', 'Surgery Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.surgery')]))
 
 
 class RCRI(ModelSQL, ModelView):
@@ -197,7 +207,7 @@ class Surgery(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
-    code = fields.Char('Code', required=True, help="Health Center Unique code")
+    code = fields.Char('Code', help="Health Center Unique code")
 
     procedures = fields.One2Many(
         'gnuhealth.operation', 'name', 'Procedures',
@@ -381,6 +391,21 @@ class Surgery(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('code'):
+                config = Config(1)
+                values['code'] = Sequence.get_id(
+                    config.surgery_code_sequence.id)
+        return super(Surgery, cls).create(vlist)
+
 
     @classmethod
     # Update to version 2.0
