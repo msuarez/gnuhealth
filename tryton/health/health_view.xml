@@ -1451,6 +1451,19 @@
             <field name="name">gnuhealth_patient_ecg_tree</field>
         </record>
 
+<!-- Shortcut to the ECG from the Patient -->
+
+        <record model="ir.action.act_window" id="act_ecg_view">
+            <field name="name">ECGs</field>
+            <field name="res_model">gnuhealth.patient.ecg</field>
+            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+        </record>
+        <record model="ir.action.keyword" id="act_open_ecg_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_ecg_view"/>
+        </record>
+
 <!-- PATIENT DISEASES -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">

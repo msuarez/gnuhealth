@@ -1239,6 +1239,8 @@ class HealthProfessional(ModelSQL, ModelView):
             healthprof_id = cursor.fetchone()
             if (healthprof_id):
                 return int(healthprof_id[0])
+        else:
+            cls.raise_user_error("No Health Professional associated to this user")
 
     name = fields.Many2One(
         'party.party', 'Health Professional', required=True,
@@ -4080,11 +4082,12 @@ class PatientEvaluation(ModelSQL, ModelView):
             help="Duration of the evaluation, in minutes"),
         'evaluation_duration')
 
-    # 3.6
+    # release 3.0 (Tryton 3.6)
     #wait_time = fields.Function(fields.TimeDelta('Patient wait time'),
             #help="How long the patient waited"),
             #'get_wait_time')
-    # 3.4
+    
+    # release 2.8
     wait_time = fields.Function(fields.Char('Patient wait time',
         help="How long the patient waited, in minutes"),
         'get_string_wait_time')
@@ -4749,10 +4752,36 @@ class PatientECG(ModelSQL, ModelView):
     interpretation = fields.Char('Interpretation', required=True)
     ecg_strip = fields.Binary('ECG Strip')
 
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional',
+        'Health Prof', readonly=True,
+        help='Health Professional who performed the ECG')
+
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
     # Default ECG date
     @staticmethod
     def default_ecg_date():
         return datetime.now()
+        
+    @staticmethod
+    def default_institution():
+        return HealthInstitution().get_institution()
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
+
+    @classmethod
+    def validate(cls, ecgs):
+        super(PatientECG, cls).validate(ecgs)
+        for ecg in ecgs:
+            ecg.check_health_professional()
+
+    def check_health_professional(self):
+        if not self.healthprof:
+            self.raise_user_error('health_professional_warning')
+
 
     # Return the ECG Interpretation with main components
     def get_rec_name(self, name):
@@ -4760,3 +4789,11 @@ class PatientECG(ModelSQL, ModelView):
             res = str(self.interpretation) + ' // Rate ' + str(self.rate)
         return res
 
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientECG, cls).__setup__()
+        cls._error_messages.update({
+            'health_professional_warning':
+                'No health professional associated to this user',
+        })

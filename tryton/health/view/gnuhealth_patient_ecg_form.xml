@@ -31,4 +31,9 @@
     <field name="interpretation" colspan="3"/>
     <newline/>
     <field colspan="4" name="ecg_strip" widget="image"/>
+    <newline/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="institution"/>
+    <field name="institution"/>
 </form>

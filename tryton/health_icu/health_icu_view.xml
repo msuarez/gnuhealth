@@ -171,12 +171,12 @@
 
 <!-- Add explicit ECG menu item to ICU -->
 
-        <record model="ir.action.act_window" id="action_gnuhealth_icu_ecg_form">
+        <record model="ir.action.act_window" id="action_gnuhealth_icu_ecg_form1">
             <field name="name">ECGs</field>
             <field name="res_model">gnuhealth.patient.ecg</field>
         </record>
 
-        <menuitem action="action_gnuhealth_icu_ecg_form"
+        <menuitem action="action_gnuhealth_icu_ecg_form1"
             id="menu_gnuhealth_icu_ecgs_list1" icon="gnuhealth-list"
             parent="gnuhealth_icu_menu"/>
 
