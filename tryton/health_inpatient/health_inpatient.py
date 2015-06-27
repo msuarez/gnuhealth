@@ -398,7 +398,8 @@ class ECG(ModelSQL, ModelView):
 
 
                 # Rename obsolete table gnuhealth_icu_ecg
-                # Once we now everything is OK we can drop it
+                # Once we know everything is OK we can drop it
+                
                 cursor.execute('alter table gnuhealth_icu_ecg rename \
                 to old_icu_ecg')
                 
