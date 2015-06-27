@@ -24,7 +24,7 @@ from datetime import datetime
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.tools import grouped_slice, reduce_ids
-from sql import Literal
+from sql import Literal, Table
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal, Or
 from trytond import backend
@@ -340,6 +340,68 @@ class ECG(ModelSQL, ModelView):
         'gnuhealth.inpatient.registration', 'Inpatient Registration',
         help="Enter the patient hospitalization code")
 
+    @classmethod
+    def __register__(cls, module_name):
+
+        # Upgrade to release 3.0 
+        # Move existing ICU EGC records to the generic gnuhealth.patient.ecg
+        # model
+        
+        super(ECG, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+
+        
+        if TableHandler.table_exist(cursor, 'gnuhealth_icu_ecg'):
+
+            table = TableHandler(cursor, cls, module_name)
+
+            # Retrieve IDs from ECGs at ICU
+
+            cursor.execute('select id,name from gnuhealth_icu_ecg')
+            
+            icu_ecg_ids = cursor.fetchall()
+
+            # Traverse each record on the icu_ecg table
+            for icu_ecg in icu_ecg_ids:
+
+                registration = str(icu_ecg[1])
+
+                # Get the patient ID related to the registration
+                cursor.execute('select patient FROM \
+                gnuhealth_inpatient_registration \
+                where id = %s',registration)
+                
+                patient_id = cursor.fetchone()
+
+                cursor.execute('select name, ecg_date, lead, axis, rate,\
+                rhythm, pacemaker, pr, qrs, qt, st_segment, twave_inversion, \
+                interpretation, ecg_strip FROM gnuhealth_icu_ecg where \
+                name = %s and id = %s', (registration, icu_ecg[0]))
+                
+                ecg = cursor.fetchone()
+                                
+                (name, ecg_date, lead, axis, rate, rhythm, \
+                pacemaker, pr, qrs, qt, st_segment, twave_inversion, \
+                interpretation, ecg_strip) = ecg
+
+                # Insert the values on the new ECG table
+                cursor.execute('insert into gnuhealth_patient_ecg \
+                (name, inpatient_registration_code, ecg_date, lead, axis, \
+                rate,rhythm,pacemaker, pr, qrs, qt, st_segment, \
+                twave_inversion, interpretation, ecg_strip) \
+                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',
+                (patient_id, registration, ecg_date, lead, axis, rate, \
+                rhythm, pacemaker, pr, qrs, qt, st_segment, \
+                twave_inversion, interpretation, ecg_strip))
+
+
+                # Rename obsolete table gnuhealth_icu_ecg
+                # Once we now everything is OK we can drop it
+                cursor.execute('alter table gnuhealth_icu_ecg rename \
+                to old_icu_ecg')
+                
 
 class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
