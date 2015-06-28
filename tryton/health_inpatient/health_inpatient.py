@@ -101,7 +101,10 @@ class InpatientRegistration(ModelSQL, ModelView):
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
         states={
             'required': Not(Bool(Eval('name'))),
-            'readonly': Bool(Eval('name')),
+            'readonly': Or(Eval('state') == 'done',
+                            Eval('state') == 'finished', 
+                            Bool(Eval('name')),
+                        )
             },
         depends=['name'])
     nursing_plan = fields.Text('Nursing Plan', states = STATES)
@@ -121,14 +124,13 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('hospitalized', 'hospitalized'),
         ('done','Discharged - needs cleaning'),
         ('finished','Finished'),
-        ), 'Status', select=True, states = STATES)
+        ), 'Status', select=True, readonly=True)
         
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
         'Transfer History', readonly=True)
 
     discharged_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Discharged by', readonly=True,
-        states={'invisible': Not(Equal(Eval('state'), 'done'))},
         help="Health Professional that discharged the patient")
 
     discharge_reason = fields.Selection([
@@ -138,11 +140,15 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('death','Death'),
         ('against_advice','Left against medical advice')],
         'Discharge Reason', 
-        states={'invisible': Not(Equal(Eval('state'), 'done')),
-            'required': Equal(Eval('state'), 'done')},
+        states={'readonly': Not(Equal(Eval('state'), 'hospitalized')),},
         help="Reason for patient discharge")
 
-    institution = fields.Many2One('gnuhealth.institution', 'Institution', readonly=True)
+    discharge_dx = fields.Many2One('gnuhealth.pathology',
+        'Discharge Dx', help="Code for Discharge Diagnosis",
+        states={'readonly': Not(Equal(Eval('state'), 'hospitalized')),})
+  
+    institution = fields.Many2One('gnuhealth.institution', 'Institution',
+        readonly=True)
 
     @staticmethod
     def default_institution():
@@ -178,6 +184,8 @@ class InpatientRegistration(ModelSQL, ModelView):
         ]
         cls._error_messages.update({
                 'bed_is_not_available': 'Bed is not available',
+                'discharge_reason_needed': 'Admission and Discharge reasons \n'
+                'as well as Discharge Dx are needed',
                 'destination_bed_unavailable': 'Destination bed unavailable'})
         cls._buttons.update({
                 'confirmed': {
@@ -292,6 +300,20 @@ class InpatientRegistration(ModelSQL, ModelView):
     def default_state():
         return 'free'
 
+    @classmethod
+    def validate(cls, registrations):
+        super(InpatientRegistration, cls).validate(registrations)
+        for registration in registrations:
+            registration.check_discharge_context()
+
+
+    def check_discharge_context(self):
+        if ((not self.discharge_reason or not self.discharge_dx
+            or not self.admission_reason)
+            and self.state == 'done'):
+                self.raise_user_error('discharge_reason_needed')
+
+    
     # Format Registration ID : Patient : Bed
     def get_rec_name(self, name):
         if self.patient:
@@ -316,8 +338,8 @@ class InpatientRegistration(ModelSQL, ModelView):
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
-    # Return diet types from patient lifestyle section
-    
+
+
         
 class BedTransfer(ModelSQL, ModelView):
     'Bed transfers'
