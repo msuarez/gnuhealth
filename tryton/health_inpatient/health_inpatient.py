@@ -207,7 +207,8 @@ class InpatientRegistration(ModelSQL, ModelView):
                 })
 
     ## Method to check for availability and make the hospital bed reservation
-
+    # Checks that there are not overlapping dates and status of the bed / room
+    # is not confirmed, hospitalized or done but requiring cleaning ('done')
     @classmethod
     @ModelView.button
     def confirmed(cls, registrations):
@@ -219,11 +220,11 @@ class InpatientRegistration(ModelSQL, ModelView):
             FROM gnuhealth_inpatient_registration \
             WHERE (hospitalization_date::timestamp,discharge_date::timestamp) \
                 OVERLAPS (timestamp %s, timestamp %s) \
-              AND (state = %s or state = %s) \
+              AND (state = %s or state = %s or state = %s) \
               AND bed = CAST(%s AS INTEGER) ",
             (registration_id.hospitalization_date,
             registration_id.discharge_date,
-            'confirmed', 'hospitalized', str(bed_id)))
+            'confirmed', 'hospitalized', 'done', str(bed_id)))
         res = cursor.fetchone()
         if (registration_id.discharge_date.date() <
             registration_id.hospitalization_date.date()):
