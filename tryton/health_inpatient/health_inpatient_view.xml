@@ -50,6 +50,7 @@
             <field name="name">gnuhealth_inpatient_registration_tree</field>
         </record>
 
+
 <!-- Create the Action -->
 
         <record model="ir.action.act_window" id="gnuhealth_action_inpatient_registration">
@@ -73,6 +74,49 @@
             parent="health.gnuhealth_menu"
             id="gnuhealth_inpatient_menu" sequence="50"
             icon="icon-hospital-patient"/>
+
+<!-- Domain Action Windows -->
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="10"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_draft">
+            <field name="name">Cancelled</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain">[('state', '=', 'cancelled')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_confirmed">
+            <field name="name">Confirmed</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain">[('state', '=', 'confirmed')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_hospitalized">
+            <field name="name">Hospitalized</field>
+            <field name="sequence" eval="40"/>
+            <field name="domain">[('state', '=', 'hospitalized')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_done">
+            <field name="name">To clean</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain">[('state', '=', 'done')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_finished">
+            <field name="name">Finished</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain">[('state', '=', 'finished')]</field>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
 
 <!-- Add the patient hospitalization registration code to the appointment view -->
 
