@@ -1167,6 +1167,7 @@ class HospitalBed(ModelSQL, ModelView):
         ('free', 'Free'),
         ('reserved', 'Reserved'),
         ('occupied', 'Occupied'),
+        ('to_clean', 'Needs cleaning'),
         ('na', 'Not available'),
         ), 'Status', readonly=True, sort=False)
 

@@ -30,25 +30,29 @@
                     <label name="admission_reason"/>
                     <field name="admission_reason"/>
                     <newline/>
-                    <label name="info" colspan="4"/>
-                    <field name="info" colspan="4"/>
+                    <group colspan="4" string="Notes" id="inpatient_registration_notes_group">
+                        <field name="info"/>
+                    </group>
                 </group>
             </group>
             <newline/>
-            <field name="bed_transfers"/>
+            <group colspan="4" id="group_bed_transfers">
+                <field height="150" name="bed_transfers"/>
+            </group>
             <newline/>
             <group colspan="4" id="group_registration_holder1">
                 <group colspan="2" id="group_registration_holder2">
                     <field name="state" readonly="1"/>
                     <button name="confirmed" string="Confirm" help="Confirm Registration / Make the reservation" icon="icon-ok"/>
                 </group>
-                <group colspan="2" col="6" id="group_registration_holder3">
+                <group colspan="2" col="8" id="group_registration_holder3">
                     <button name="cancel" help="Cancel Registration" string="Cancel" icon="icon-cancel" confirm="Cancel the patient registration process ?"/>
                     <button name="admission" help="Patient Admission" string="Admission" icon="icon-ok" confirm="Admit the patient in the health institution and assign the bed"/>
-                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to SIGN the discharge the patient from the health institution. This record will become READ ONLY "/>
+                    <button name="discharge" help="Discharge Patient" string="Discharge" icon="icon-home" confirm="You are about to SIGN the discharge the patient from the health institution."/>
                     <label name="discharge_reason"/>
                     <field name="discharge_reason"/>
                     <field name="discharged_by"/>
+                    <button name="bedclean" help="Click when Bed has been cleaned" string="Clean Bed" icon="icon-home" confirm="Confirm that the bed has been cleaned and is now ready to use"/>
                 </group>
             </group>
         </page>
@@ -63,10 +67,12 @@
             <field name="medications"/>
         </page>
         <page string="Care Plan" id="page_care_plan">
-            <label name="nursing_plan"/>
+            <separator id="separator_nursing_plan" string="Nursing Plan"/>
+            <newline/>
             <field name="nursing_plan"/>
             <newline/>
-            <label name="discharge_plan"/>
+            <separator id="separator_discharge_plan" string="Discharge Plan"/>
+            <newline/>
             <field name="discharge_plan"/>
         </page>
     </notebook>

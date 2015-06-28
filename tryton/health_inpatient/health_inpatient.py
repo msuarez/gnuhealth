@@ -73,9 +73,12 @@ class InpatientRegistration(ModelSQL, ModelView):
     'Patient admission History'
     __name__ = 'gnuhealth.inpatient.registration'
 
+    STATES = {'readonly': Or(Eval('state') == 'done',
+        Eval('state') == 'finished')}
+    
     name = fields.Char('Registration Code', readonly=True, select=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
-     required=True, select=True)
+     required=True, select=True, states = STATES)
     admission_type = fields.Selection([
         (None, ''),
         ('routine', 'Routine'),
@@ -83,40 +86,42 @@ class InpatientRegistration(ModelSQL, ModelView):
         ('elective', 'Elective'),
         ('urgent', 'Urgent'),
         ('emergency', 'Emergency'),
-        ], 'Admission type', required=True, select=True)
+        ], 'Admission type', required=True, select=True, states = STATES)
     hospitalization_date = fields.DateTime('Hospitalization date',
-        required=True, select=True)
+        required=True, select=True, states = STATES)
     discharge_date = fields.DateTime('Expected Discharge Date', required=True,
-        select=True)
+        states = STATES)
     attending_physician = fields.Many2One('gnuhealth.healthprofessional',
-        'Attending Physician', select=True)
+        'Attending Physician',  states = STATES)
     operating_physician = fields.Many2One('gnuhealth.healthprofessional',
-        'Operating Physician')
+        'Operating Physician',  states = STATES)
     admission_reason = fields.Many2One('gnuhealth.pathology',
-        'Reason for Admission', help="Reason for Admission", select=True)
+        'Reason for Admission', help="Reason for Admission",  states = STATES,
+        select=True)
     bed = fields.Many2One('gnuhealth.hospital.bed', 'Hospital Bed',
         states={
             'required': Not(Bool(Eval('name'))),
             'readonly': Bool(Eval('name')),
             },
         depends=['name'])
-    nursing_plan = fields.Text('Nursing Plan')
+    nursing_plan = fields.Text('Nursing Plan', states = STATES)
     medications = fields.One2Many('gnuhealth.inpatient.medication', 'name',
-        'Medications')
+        'Medications', states = STATES)
     therapeutic_diets = fields.One2Many('gnuhealth.inpatient.diet', 'name',
-        'Meals / Diet Program')
+        'Meals / Diet Program', states = STATES)
         
-    nutrition_notes = fields.Text('Nutrition notes / directions')
-    discharge_plan = fields.Text('Discharge Plan')
-    info = fields.Text('Extra Info')
+    nutrition_notes = fields.Text('Nutrition notes / directions', states = STATES)
+    discharge_plan = fields.Text('Discharge Plan', states = STATES)
+    info = fields.Text('Notes',states = STATES)
     state = fields.Selection((
         (None, ''),
         ('free', 'free'),
         ('cancelled', 'cancelled'),
         ('confirmed', 'confirmed'),
         ('hospitalized', 'hospitalized'),
-        ('done','Done'),
-        ), 'Status', select=True)
+        ('done','Discharged - needs cleaning'),
+        ('finished','Finished'),
+        ), 'Status', select=True, states = STATES)
         
     bed_transfers = fields.One2Many('gnuhealth.bed.transfer', 'name',
         'Transfer History', readonly=True)
@@ -137,7 +142,7 @@ class InpatientRegistration(ModelSQL, ModelView):
             'required': Equal(Eval('state'), 'done')},
         help="Reason for patient discharge")
 
-    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+    institution = fields.Many2One('gnuhealth.institution', 'Institution', readonly=True)
 
     @staticmethod
     def default_institution():
@@ -182,11 +187,14 @@ class InpatientRegistration(ModelSQL, ModelView):
                 'cancel': {
                     'invisible': Not(Equal(Eval('state'), 'confirmed')),
                     },
+                'admission': {
+                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                    },
                 'discharge': {
                     'invisible': Not(Equal(Eval('state'), 'hospitalized')),
                     },
-                'admission': {
-                    'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                'bedclean': {
+                    'invisible': Not(Equal(Eval('state'), 'done')),
                     },
                 })
 
@@ -233,6 +241,16 @@ class InpatientRegistration(ModelSQL, ModelView):
         cls.write(registrations, {'state': 'done',
             'discharged_by': signing_hp})
 
+        Bed.write([registration_id.bed], {'state': 'to_clean'})
+
+    @classmethod
+    @ModelView.button
+    def bedclean(cls, registrations):
+        registration_id = registrations[0]
+        Bed = Pool().get('gnuhealth.hospital.bed')
+
+        cls.write(registrations, {'state': 'finished'})
+
         Bed.write([registration_id.bed], {'state': 'free'})
 
     @classmethod
@@ -269,15 +287,6 @@ class InpatientRegistration(ModelSQL, ModelView):
                 values['name'] = Sequence.get_id(
                     config.inpatient_registration_sequence.id)
         return super(InpatientRegistration, cls).create(vlist)
-
-    @classmethod
-    def write(cls, registrations, vals):
-        # Don't allow to write the record if the evaluation has been done
-        if registrations[0].state == 'done' and registrations[0].discharge_reason:
-            cls.raise_user_error(
-                "This hospitalization is at state Done\n"
-                "You can no longer modify it.")
-        return super(InpatientRegistration, cls).write(registrations, vals)
 
     @staticmethod
     def default_state():
