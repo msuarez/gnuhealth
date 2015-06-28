@@ -207,7 +207,7 @@ class Surgery(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
-    code = fields.Char('Code', help="Health Center Unique code")
+    code = fields.Char('Code', readonly=True, help="Health Center code / sequence")
 
     procedures = fields.One2Many(
         'gnuhealth.operation', 'name', 'Procedures',
@@ -285,7 +285,7 @@ class Surgery(ModelSQL, ModelView):
             help="Computed patient age at the moment of the surgery"),
         'patient_age_at_surgery')
 
-    description = fields.Char('Description', required=True)
+    description = fields.Char('Description')
     preop_mallampati = fields.Selection([
         (None, ''),
         ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft '

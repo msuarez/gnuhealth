@@ -12,8 +12,8 @@
         <record id="seq_gnuhealth_surgery_code" model="ir.sequence">
             <field name="name">Surgery</field>
             <field name="code">gnuhealth.surgery</field>
-            <field name="prefix">SURGERY-</field>
-            <field name="padding">3</field>
+            <field name="prefix">SRG-${year}-</field>
+            <field name="padding">5</field>
         </record>
 
         <record model="ir.property" id="property_surgery_code_sequence">
