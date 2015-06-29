@@ -2,6 +2,9 @@
 <form string="Patient Bed Transfer">
     <label name="newbed"/>
     <field name="newbed"/>
+    <newline/>
+    <label name="orig_bed_state"/>
+    <field name="orig_bed_state"/>
     <label name="reason"/>
     <field name="reason"/>
 </form>
