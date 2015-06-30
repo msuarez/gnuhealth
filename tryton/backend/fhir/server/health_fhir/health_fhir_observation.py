@@ -282,7 +282,7 @@ class health_Observation(supermod.Observation, Observation_Map):
             self.set_comments(
                     safe_attrgetter(self.gnu_obs, self.map_['comments']))
             self.set_valueQuantity(
-                    self.model_field,
+                    safe_attrgetter(self.gnu_obs, self.model_field),
                     safe_attrgetter(self.gnu_obs, 'units.name'))
             self.set_referenceRange(
                     safe_attrgetter(self.gnu_obs, 'units.name', default='unknown'),
