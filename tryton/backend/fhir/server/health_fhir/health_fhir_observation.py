@@ -327,10 +327,15 @@ class health_Observation(supermod.Observation, Observation_Map):
         date -- date of observation (datetime object)
         """
 
-        if observation and patient and date is not None:
-            label = '{0} value for {1} on {2}'.format(observation.name,
+        if observation and patient:
+            if date is not None:
+                label = '{0} value for {1} on {2}'.format(observation.name,
                                                     patient.name.rec_name,
                                                     date.strftime('%Y/%m/%d'))
+            else:
+                label = '{0} value for {1} on unknown'.format(observation.name,
+                                                    patient.name.rec_name)
+
             if RUN_FLASK:
                 value = url_for('obs_record', log_id=observation.id)
             else:
