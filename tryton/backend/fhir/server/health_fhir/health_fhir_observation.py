@@ -289,12 +289,12 @@ class health_Observation(supermod.Observation, Observation_Map):
                     safe_attrgetter(self.gnu_obs, 'lower_limit'),
                     safe_attrgetter(self.gnu_obs, 'upper_limit'))
             self.set_interpretation(
-                    self.model_field,
+                    safe_attrgetter(self.gnu_obs, self.model_field),
                     safe_attrgetter(self.gnu_obs, 'lower_limit'),
                     safe_attrgetter(self.gnu_obs, 'upper_limit'))
             self.set_status(
                     safe_attrgetter(self.gnu_obs, self.map_['excluded']),
-                    self.model_field)
+                    safe_attrgetter(self.gnu_obs, self.model_field))
             self.set_reliability('ok')
             self.set_issued(
                     self.gnu_obs.write_date or self.gnu_obs.create_date)
