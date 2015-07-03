@@ -152,17 +152,25 @@ class InpatientRegistration(ModelSQL, ModelView):
 
     puid = fields.Function(
         fields.Char('PUID', help="Person Unique Identifier"),
-        'get_hp_puid', searcher='search_hp_puid')
+        'get_patient_puid', searcher="search_patient_puid")
 
 
-    def get_hp_puid(self, name):
-        return self.patient.name.ref
 
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')
         institution = HealthInst.get_institution()
         return institution
+
+    def get_patient_puid(self, name):
+        return self.patient.name.ref
+
+    @classmethod
+    def search_patient_puid(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.ref', clause[1], value))
+        return res
 
 
     @classmethod
