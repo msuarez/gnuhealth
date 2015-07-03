@@ -150,6 +150,14 @@ class InpatientRegistration(ModelSQL, ModelView):
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
         readonly=True)
 
+    puid = fields.Function(
+        fields.Char('PUID', help="Person Unique Identifier"),
+        'get_hp_puid', searcher='search_hp_puid')
+
+
+    def get_hp_puid(self, name):
+        return self.patient.name.ref
+
     @staticmethod
     def default_institution():
         HealthInst = Pool().get('gnuhealth.institution')

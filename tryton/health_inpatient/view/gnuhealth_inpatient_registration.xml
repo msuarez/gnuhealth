@@ -3,11 +3,13 @@
     <notebook>
         <page string="Administrative data" id="page_admin_data">
             <group colspan="4" id="group_admin_data_holder1">
-                <group colspan="2" id="group_admin_data">
+                <group colspan="2" col="6" id="group_admin_data">
                     <label name="name"/>
                     <field name="name"/>
                     <label name="patient"/>
                     <field name="patient"/>
+                    <label name="puid"/>
+                    <field name="puid"/>
                 </group>
                 <group colspan="2" id="group_admin_bed">
                     <label name="bed"/>
