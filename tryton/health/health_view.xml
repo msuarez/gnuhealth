@@ -66,6 +66,15 @@
             <field name="path">icons/tryton-preferences.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_ok_icon">
+            <field name="name">icon-ok</field>
+            <field name="path">icons/ok.svg</field>
+        </record>
+
+        <record model="ir.ui.icon" id="gnuhealth_cancel_icon">
+            <field name="name">icon-cancel</field>
+            <field name="path">icons/cancel.svg</field>
+        </record>
 
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
