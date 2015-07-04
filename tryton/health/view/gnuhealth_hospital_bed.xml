@@ -17,4 +17,9 @@
         <label name="extra_info"/>
         <field name="extra_info"/>
     </group>
+    <newline/>
+    <group colspan="4" id="group_bed_status">
+        <button name="fix_bed" help="Click when Bed has been fixed / cleaned" string="Fix Bed" icon="icon-ok" confirm="Confirm that the bed has been cleaned / fixed and is now ready to use"/>
+    </group>
+
 </form>

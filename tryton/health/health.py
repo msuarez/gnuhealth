@@ -1198,6 +1198,19 @@ class HospitalBed(ModelSQL, ModelView):
             ('name_uniq', 'UNIQUE(name, institution)',
                 'The Bed must be unique per Health Center'),
         ]
+        # Show fix button when is in state "needs cleaning" or "NA"
+        cls._buttons.update({
+                'fix_bed': {
+                    'invisible': Or(Equal(Eval('state'), 'free'),
+                        Equal(Eval('state'), 'occupied'),
+                        Equal(Eval('state'), 'reserved')
+                        )},
+                    }),
+
+    @classmethod
+    @ModelView.button
+    def fix_bed(cls, beds):
+        cls.write(beds, {'state': 'free'})
 
 
 class MedicalSpecialty(ModelSQL, ModelView):
