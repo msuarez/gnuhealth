@@ -45,7 +45,6 @@ def create_app(config=None):
         # Store current user in g.user
         app.before_request(before_request)
 
-
         #### ADD THE ROUTES ####
         from server.resources.system import Conformance
         api.add_resource(Conformance, '/', '/metadata')
@@ -162,8 +161,17 @@ def create_app(config=None):
                                     'validate': IM_Validate,
                                     'version': IM_Version})
 
+        from server.resources.organization import (ORG_Create, ORG_Search,
+                                        ORG_Validate, ORG_Record, ORG_Version)
+        add_fhir_routes('Organization',
+                                    {'create': ORG_Create,
+                                    'search': ORG_Search,
+                                    'record': ORG_Record,
+                                    'validate': ORG_Validate,
+                                    'version': ORG_Version})
+
         # Handle the authentication blueprint
-        #   NOT PART OF THE FHIR STANDARD
+        #   TODO: Use OAuth or something robust
         from server.resources.auth import auth_endpoint
         app.register_blueprint(auth_endpoint, url_prefix='/auth')
 

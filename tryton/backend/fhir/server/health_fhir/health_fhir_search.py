@@ -5,9 +5,10 @@ from .health_fhir_procedure import Procedure_Map
 from .health_fhir_condition import Condition_Map 
 from .health_fhir_diagnostic_report import DiagnosticReport_Map
 from .health_fhir_family_history import FamilyHistory_Map
-from .health_fhir_medication import Medication_Map 
+from .health_fhir_medication import Medication_Map
 from .health_fhir_medication_statement import MedicationStatement_Map 
 from .health_fhir_immunization import Immunization_Map 
+from .health_fhir_organization import Organization_Map 
 from server.common import safe_attrgetter
 import re
 
@@ -36,7 +37,8 @@ class health_Search:
                             'family_history',
                             'medication',
                             'medication_statement',
-                            'immunization'):
+                            'immunization',
+                            'organization'):
             raise ValueError('Not a valid endpoint')
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
@@ -48,6 +50,7 @@ class health_Search:
         self.medication=Medication_Map()
         self.medication_statement=MedicationStatement_Map()
         self.immunization=Immunization_Map()
+        self.organization=Organization_Map()
         self.endpoint = getattr(self, endpoint)
 
         self.__get_dt_parser()
@@ -288,6 +291,8 @@ class health_Search:
                 current_map=self.medication_statement
             elif target_resource == 'Immunization':
                 current_map=self.immunization
+            elif target_resource == 'Organization':
+                current_map=self.organization
             else:
                 raise ValueError('Unknown chain target')
             try:

@@ -38,7 +38,7 @@ class MyTest(unittest.TestCase):
         for ep in ['/Patient', '/DiagnosticReport', '/Observation',
                 '/Procedure', '/Practitioner', '/Condition',
                 '/FamilyHistory', '/Medication', '/MedicationStatement',
-                '/Immunization']:
+                '/Immunization', '/Organization']:
             resp = self.client.get(ep)
             assert 200 == resp.status_code
             assert 'feed' in resp.data

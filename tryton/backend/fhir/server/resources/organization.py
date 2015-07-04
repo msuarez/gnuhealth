@@ -1,7 +1,7 @@
 from flask import Blueprint, request, url_for
 from StringIO import StringIO
 from lxml.etree import XMLSyntaxError
-from server.health_fhir import (health_FamilyHistory, health_OperationOutcome,
+from server.health_fhir import (health_Organization, health_OperationOutcome,
                 parse, parseEtree, Bundle, find_record, health_Search)
 from trytond.transaction import Transaction
 from server.common import tryton, Resource, search_error_string, get_userid
@@ -9,35 +9,35 @@ import lxml
 import os.path
 import sys
 
-# FamilyHistory models
-family_history = tryton.pool.get('gnuhealth.patient.family.diseases')
-patient = tryton.pool.get('gnuhealth.patient')
+# Organization model(s)
+organization = tryton.pool.get('gnuhealth.institution')
 
-class FH_Create(Resource):
+class ORG_Create(Resource):
     @tryton.transaction(user=get_userid)
     def post(self):
-        '''Create interaction'''
+        """Create interaction"""
+
         return 'Not implemented', 405
 
-class FH_Search(Resource):
+class ORG_Search(Resource):
     @tryton.transaction(user=get_userid)
     def get(self):
-        '''Search interaction'''
-        # NOTE We search from patient, not family_history
+        """Search interaction"""
+
         try:
-            s = health_Search(endpoint='family_history')
+            s = health_Search(endpoint='organization')
             query=s.get_query(request.args)
-            total_recs = patient.search_count(query)
+            total_recs = organization.search_count(query)
             per_page = int(request.args.get('_count', 10))
             page = int(request.args.get('page', 1))
             bd=Bundle(request=request, total=total_recs)
             offset = (page-1) * per_page
-            for pat in patient.search(query,
+            for org in organization.search(query,
                                     offset=offset,
                                     limit=per_page,
                                     order=[('id', 'DESC')]):
                 try:
-                    p = health_FamilyHistory(gnu_records=pat.family_history)
+                    p = health_Organization(gnu_record=org)
                 except:
                     continue
                 else:
@@ -54,7 +54,7 @@ class FH_Search(Resource):
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
             return oo, 400
 
-class FH_Validate(Resource):
+class ORG_Validate(Resource):
     @tryton.transaction(user=get_userid)
     def post(self, log_id=None):
         '''Validate interaction'''
@@ -75,9 +75,9 @@ class FH_Validate(Resource):
             return oo, 400
 
         else:
-            if os.path.isfile('schemas/family_history.xsd'):
+            if os.path.isfile('schemas/organization.xsd'):
                 # 2) Validate against XMLSchema
-                with open('schemas/family_history.xsd') as t:
+                with open('schemas/organization.xsd') as t:
                     sch=lxml.etree.parse(t)
 
                 xmlschema=lxml.etree.XMLSchema(sch)
@@ -87,12 +87,12 @@ class FH_Validate(Resource):
                     oo.add_issue(details=error.message, severity='error')
                     return oo, 400
             else:
-                # 2) If no schema, check if it correctly parses to a FamilyHistory
+                # 2) If no schema, check if it correctly parses to a Organization
                 try:
                     pat=parseEtree(StringIO(doc))
-                    if not isinstance(pat, health_FamilyHistory):
+                    if not isinstance(pat, health_Organization):
                         oo=health_OperationOutcome()
-                        oo.add_issue(details='Not a family_history resource', severity='error')
+                        oo.add_issue(details='Not a organization resource', severity='error')
                         return oo, 400
                 except:
                     e = sys.exc_info()[1]
@@ -101,11 +101,11 @@ class FH_Validate(Resource):
                     return oo, 400
 
             if log_id:
-                # 3) Check if family_history exists
-                record = family_history.search([('patient.id', '=', log_id)])
+                # 3) Check if organization exists
+                record = organization.search([('id', '=', log_id)])
                 if not record:
                     oo=health_OperationOutcome()
-                    oo.add_issue(details='No family_history', severity='error')
+                    oo.add_issue(details='No organization', severity='error')
                     return oo, 422
                 else:
                     #TODO: More checks
@@ -114,14 +114,14 @@ class FH_Validate(Resource):
                 # 3) Passed checks
                 return 'Valid', 200
 
-class FH_Record(Resource):
+class ORG_Record(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id):
         '''Read interaction'''
-        records = family_history.search([('patient.id', '=', log_id)])
-        if records:
+        record = find_record(organization, [('id', '=', log_id)])
+        if record:
             try:
-                d=health_FamilyHistory(gnu_records=records)
+                d=health_Organization(gnu_record=record)
                 return d, 200
             except:
                 oo=health_OperationOutcome()
@@ -141,10 +141,10 @@ class FH_Record(Resource):
         '''Delete interaction'''
         return 'Not implemented', 405
 
-class FH_Version(Resource):
+class ORG_Version(Resource):
     @tryton.transaction(user=get_userid)
     def get(self, log_id, v_id=None):
         '''Vread interaction'''
         return 'Not supported', 405
 
-__all__=['FH_Create', 'FH_Search', 'FH_Version', 'FH_Validate', 'FH_Record']
+__all__=['ORG_Create', 'ORG_Search', 'ORG_Version', 'ORG_Validate', 'ORG_Record']
