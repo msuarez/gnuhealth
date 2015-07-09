@@ -61,13 +61,7 @@ class OP_Search(Resource):
                 else:
                     bd.add_entry(p)
 
-            if bd.entries:
-                return bd, 200
-            else:
-                oo=health_OperationOutcome()
-                oo.add_issue(details=search_error_string(request.args),
-                        severity='warning')
-                return oo, 403
+            return bd, 200
         except:
             oo=health_OperationOutcome()
             oo.add_issue(details=sys.exc_info()[1], severity='fatal')
