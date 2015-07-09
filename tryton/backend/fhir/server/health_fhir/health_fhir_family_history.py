@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 import server.fhir as supermod
 from server.common import safe_attrgetter
+from .health_mixin import ExportXMLMixin
 
 try:
     from flask import url_for
@@ -48,7 +49,7 @@ class FamilyHistory_Map:
 #    Consequently, the class must accept multiple records
 #    WATCH FOR BUGS
 
-class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
+class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         recs = kwargs.pop('gnu_records', None)
         super(health_FamilyHistory, self).__init__(*args, **kwargs)
@@ -165,13 +166,5 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map):
                 rel.add_condition(con)
 
             super(health_FamilyHistory, self).add_relation(rel)
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.FamilyHistory.subclass=health_FamilyHistory

@@ -2,6 +2,7 @@ import server.fhir as supermod
 from server.common import safe_attrgetter
 from StringIO import StringIO
 from operator import attrgetter
+from .health_mixin import ExportXMLMixin
 
 try:
     from flask import url_for
@@ -64,10 +65,10 @@ class DiagnosticReport_Map:
                     'result': ['critearea'],
                     'subject': ['patient']}
 
-class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
+class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map, ExportXMLMixin):
     """
     Class that manages the interface between FHIR Resource DiagnosticReport
-        and GNU Health
+    and GNU Health
     """
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
@@ -256,13 +257,5 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
         if conclusion:
             c = supermod.string(value=conclusion)
             super(health_DiagnosticReport, self).set_conclusion(c)
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.DiagnosticReport.subclass=health_DiagnosticReport

@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
 from server.common import safe_attrgetter
+from .health_mixin import ExportXMLMixin
 import server.fhir as supermod
 import sys
 
@@ -53,7 +54,7 @@ class Practitioner_Map:
                     'identifier': ['name.puid'],
                     'name': ['name.lastname', 'name.name']}
 
-class health_Practitioner(supermod.Practitioner, Practitioner_Map):
+class health_Practitioner(supermod.Practitioner, Practitioner_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
         super(health_Practitioner, self).__init__(*args, **kwargs)
@@ -211,13 +212,5 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map):
             coding = supermod.Coding(display=supermod.string(value=str(role)))
             com=supermod.CodeableConcept(coding=[coding])
             super(health_Practitioner, self).set_role([com])
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Practitioner.subclass=health_Practitioner

@@ -3,6 +3,7 @@ from .datastore import find_record
 from operator import attrgetter
 import server.fhir as supermod
 from server.common import safe_attrgetter
+from .health_mixin import ExportXMLMixin
 
 try:
     from flask import url_for
@@ -191,7 +192,7 @@ class Observation_Map:
                     'value-string': None}}
 
 #TODO Put restrictions on code values (interp, status, reliability, etc)
-class health_Observation(supermod.Observation, Observation_Map):
+class health_Observation(supermod.Observation, Observation_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         gnu=kwargs.pop('gnu_record', None)
         field=kwargs.pop('field', None)
@@ -570,13 +571,5 @@ class health_Observation(supermod.Observation, Observation_Map):
 
     def set_method(self):
         pass
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Observation.subclass=health_Observation

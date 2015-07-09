@@ -11,11 +11,12 @@ from .health_fhir_medication import Medication_Map
 from .health_fhir_medication_statement import MedicationStatement_Map
 from .health_fhir_immunization import Immunization_Map
 from .health_fhir_organization import Organization_Map
+from .health_mixin import ExportXMLMixin
 import server.fhir as supermod
 
 UPDATED=datetime(2015, 7, 3).strftime('%Y/%m/%d')
 
-class health_Conformance(supermod.Conformance):
+class health_Conformance(supermod.Conformance, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         institution = kwargs.pop('publisher', None)
         super(health_Conformance, self).__init__(*args, **kwargs)
@@ -106,12 +107,5 @@ class health_Conformance(supermod.Conformance):
             endpoints.append(e)
         r.resource = endpoints
         self.set_rest([r])
-
-    def export_to_xml_string(self):
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Conformance.subclass=health_Conformance

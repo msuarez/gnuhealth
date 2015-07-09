@@ -3,6 +3,7 @@ from operator import attrgetter
 from .datastore import find_record
 import server.fhir as supermod
 from server.common import safe_attrgetter
+from .health_mixin import ExportXMLMixin
 
 # URL values
 try:
@@ -71,7 +72,7 @@ class Immunization_Map:
             }}
 
 
-class health_Immunization(supermod.Immunization, Immunization_Map):
+class health_Immunization(supermod.Immunization, Immunization_Map, ExportXMLMixin):
 
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
@@ -300,13 +301,5 @@ class health_Immunization(supermod.Immunization, Immunization_Map):
                 c.code = supermod.code(value=vaccineType.name.code)
                 cc.coding=[c]
             super(health_Immunization, self).set_vaccineType(cc)
-
-    def export_as_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Immunization.subclass=health_Immunization

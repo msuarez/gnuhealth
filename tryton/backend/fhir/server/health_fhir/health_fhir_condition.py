@@ -1,6 +1,7 @@
 from StringIO import StringIO
 from operator import attrgetter
 import server.fhir as supermod
+from .health_mixin import ExportXMLMixin
 from server.common import safe_attrgetter
 
 try:
@@ -53,7 +54,7 @@ class Condition_Map:
                 'code': 'pathology'
             }}
 
-class health_Condition(supermod.Condition, Condition_Map):
+class health_Condition(supermod.Condition, Condition_Map, ExportXMLMixin):
     """Extends the FHIR condition class
 
     Handles parsing, getting, and setting values between
@@ -231,13 +232,5 @@ class health_Condition(supermod.Condition, Condition_Map):
             c.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.90')
             c.text = supermod.string(value=code.name)
             super(health_Condition, self).set_code(c)
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Condition.subclass=health_Condition

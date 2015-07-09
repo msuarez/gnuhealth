@@ -8,7 +8,7 @@ class Bundle(supermod.FeedType):
     """A bundle is an atom feed
 
     Subclasses the FeedType class but extends many
-    functions for convevience and ease of use. In additon,
+    functions for convenience and ease of use. In additon,
     adds some new functions and properties.
     """
 

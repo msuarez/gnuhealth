@@ -3,6 +3,7 @@ from StringIO import StringIO
 from datetime import datetime
 from .datastore import find_record
 import server.fhir as supermod
+from .health_mixin import ExportXMLMixin
 from server.common import get_address, safe_attrgetter
 import sys
 
@@ -74,7 +75,7 @@ class Patient_Map:
                 #'telecom': ['name.email', 'name.phone', 'name.mobile'], #FIX no searcher
                 'name': ['name.lastname', 'name.name']}
 
-class health_Patient(supermod.Patient, Patient_Map):
+class health_Patient(supermod.Patient, Patient_Map, ExportXMLMixin):
     """ Mediate between the FHIR standard and
         the GNU Health models relavant for the
         Patient resource
@@ -710,13 +711,5 @@ class health_Patient(supermod.Patient, Patient_Map):
 
     def __set_gnu_link(self):
         pass
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Patient.subclass=health_Patient

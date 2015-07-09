@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from datetime import datetime
 from .datastore import find_record
+from .health_mixin import ExportXMLMixin
 import server.fhir as supermod
 from server.common import safe_attrgetter
 
@@ -67,7 +68,7 @@ class Procedure_Map:
             'type:text': [model_mapping[t]['name'],
                         model_mapping[t]['description']]}
 
-class health_Procedure(supermod.Procedure, Procedure_Map):
+class health_Procedure(supermod.Procedure, Procedure_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
         super(health_Procedure, self).__init__(*args, **kwargs)
@@ -198,13 +199,5 @@ class health_Procedure(supermod.Procedure, Procedure_Map):
             #ICD-10-PCS
             concept.coding[0].system=supermod.uri(value='urn:oid:2.16.840.1.113883.6.4')
             super(health_Procedure, self).set_type(concept)
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.Procedure.subclass=health_Procedure

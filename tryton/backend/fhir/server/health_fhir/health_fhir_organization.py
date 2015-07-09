@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from .datastore import find_record
 from server.common import safe_attrgetter
+from. health_mixin import ExportXMLMixin
 import server.fhir as supermod
 import sys
 
@@ -40,7 +41,7 @@ class Organization_Map:
             #'type': ['institution_type']
             #}
 
-class health_Organization(supermod.Organization, Organization_Map):
+class health_Organization(supermod.Organization, Organization_Map, ExportXMLMixin):
     """This subclass provides the glue between the schema generated bindings
     and GNU Health models. The Organization resource is robust, including
     healthcare providers, insurance companies, departments, etc. Currently,

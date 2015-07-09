@@ -2,6 +2,7 @@ from StringIO import StringIO
 from operator import attrgetter
 from server.common import safe_attrgetter
 import server.fhir as supermod
+from .health_mixin import ExportXMLMixin
 
 try:
     from flask import url_for
@@ -52,7 +53,7 @@ class MedicationStatement_Map:
                         'asNeededBoolean': 'frequency_prn'}
             }}
 
-class health_MedicationStatement(supermod.MedicationStatement, MedicationStatement_Map):
+class health_MedicationStatement(supermod.MedicationStatement, MedicationStatement_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
         super(health_MedicationStatement, self).__init__(*args, **kwargs)
@@ -183,14 +184,5 @@ class health_MedicationStatement(supermod.MedicationStatement, MedicationStateme
             ref.display = supermod.string(value=display)
             ref.reference = supermod.string(value=uri)
             self.set_medication(ref)
-
-
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
 
 supermod.MedicationStatement.subclass=health_MedicationStatement
