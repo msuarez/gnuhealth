@@ -396,7 +396,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ('8', 'Contraceptive injection'),
         ('9', 'Skin Patch'),
         ('10', 'Female condom'),
-        ], 'Anticonceptive Method', sort=False)
+        ], 'Contraceptive Method', sort=False)
 
     sex_oral = fields.Selection([
         (None, ''),
