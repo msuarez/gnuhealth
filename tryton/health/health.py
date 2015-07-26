@@ -395,8 +395,11 @@ class PartyPatient (ModelSQL, ModelView):
             ('ref_uniq', 'UNIQUE(ref)', 'The PUID must be unique'),
             ('internal_user_uniq', 'UNIQUE(internal_user)',
                 'This health professional is already assigned to a party')]
+        cls._order.insert(0, ('lastname', 'ASC'))
+        cls._order.insert(1, ('name', 'ASC'))
+        #Sort to be used when called from other models.
         cls._order_name = 'lastname'
-
+        
     def get_rec_name(self, name):
         if self.lastname:
             return self.lastname + ', ' + self.name
@@ -2563,7 +2566,6 @@ class PatientData(ModelSQL, ModelView):
             'invisible': Not(Bool(Eval('deceased'))),
             },
         depends=['deceased']),'get_cod')
-
     childbearing_age = fields.Function(
         fields.Boolean('Potential for Childbearing'), 'patient_age')
 
@@ -2576,6 +2578,9 @@ class PatientData(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
         ]
+        cls._order.insert(0, ('name', 'ASC'))
+
+
 
     def get_patient_dob(self, name):
         return self.name.dob
