@@ -104,13 +104,6 @@ class HealthService(ModelSQL, ModelView):
                     config.health_service_sequence.id)
         return super(HealthService, cls).create(vlist)
 
-    @classmethod
-    def __register__(cls, module_name):
-        super(HealthService, cls).__register__(module_name)
-        # Upgrade to 3.0
-        # Remove the required attribute from description
-        if cls.desc.required:
-            cls.desc.required = False 
 
 class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
