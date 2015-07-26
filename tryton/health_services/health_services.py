@@ -47,7 +47,7 @@ class HealthService(ModelSQL, ModelView):
     STATES = {'readonly': Eval('state') == 'invoiced'}
 
     name = fields.Char('ID', readonly=True)
-    desc = fields.Char('Description', required=True)
+    desc = fields.Char('Description')
     patient = fields.Many2One('gnuhealth.patient',
             'Patient', required=True,
             states=STATES)
@@ -103,6 +103,13 @@ class HealthService(ModelSQL, ModelView):
                 values['name'] = Sequence.get_id(
                     config.health_service_sequence.id)
         return super(HealthService, cls).create(vlist)
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(HealthService, cls).__register__(module_name)
+        # Remove the required attribute from description
+        if cls.desc.required:
+            cls.desc.required = False 
 
 class HealthServiceLine(ModelSQL, ModelView):
     'Health Service'
