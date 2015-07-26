@@ -19,7 +19,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from datetime import date
+from datetime import date, datetime
 from trytond.report import Report
 from trytond.pool import Pool
 from trytond.transaction import Transaction
@@ -101,6 +101,24 @@ class InstitutionSummaryReport(Report):
         return(res)
 
     @classmethod
+    def get_evaluations(cls, start_date, end_date):
+        """ Return evaluation info """
+        
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+        start_date = datetime.strptime(str(start_date), '%Y-%m-%d')
+        end_date = datetime.strptime(str(end_date), '%Y-%m-%d')
+        clause = [
+            ('evaluation_start', '>=', start_date),
+            ('evaluation_start', '<=', end_date),
+            ]
+
+        res = Evaluation.search(clause)
+        
+        return(res)
+
+
+
+    @classmethod
     def parse(cls, report, objects, data, localcontext):
         Patient = Pool().get('gnuhealth.patient')
         Evaluation = Pool().get('gnuhealth.patient.evaluation')
@@ -155,6 +173,10 @@ class InstitutionSummaryReport(Report):
         # New deaths
         localcontext['new_deaths'] = \
             cls.get_new_deaths(start_date, end_date)
+
+        # Number of evaluations
+        localcontext['evaluations'] = \
+            cls.get_evaluations(start_date, end_date)
 
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
