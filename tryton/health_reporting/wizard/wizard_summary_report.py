@@ -50,6 +50,10 @@ class SummaryReportStart(ModelView):
     def default_end_date():
         return date.today()
 
+    @staticmethod
+    def default_patient_evaluations():
+        return True
+
 class SummaryReport(Wizard):
     'Open Institution Summary Report'
     __name__ = 'gnuhealth.summary.report.open'
