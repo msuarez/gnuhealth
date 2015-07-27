@@ -4029,6 +4029,27 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     STATES = {'readonly': Eval('state') == 'signed'}
 
+    def patient_age_at_evaluation(self, name):
+
+        if (self.patient.name.dob):
+            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
+
+            if (self.evaluation_start):
+                evaluation_start = datetime.strptime(
+                    str(self.evaluation_start), '%Y-%m-%d %H:%M:%S')
+                delta = relativedelta(self.evaluation_start, dob)
+
+                years_months_days = str(
+                    delta.years) + 'y ' \
+                    + str(delta.months) + 'm ' \
+                    + str(delta.days) + 'd'
+            else:
+                years_months_days = 'No evaluation Date !'
+        else:
+            years_months_days = 'No DoB !'
+
+        return years_months_days
+
     def evaluation_duration(self, name):
 
         duration = ''
@@ -4136,6 +4157,16 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('c', 'Medical Emergency'),
         ], 'Urgency', sort=False,
         states = STATES)
+
+    computed_age = fields.Function(fields.Char(
+            'Age',
+            help="Computed patient age at the moment of the evaluation"),
+            'patient_age_at_evaluation')
+            
+    sex = fields.Function(fields.Selection([
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
 
     information_source = fields.Char(
         'Source', help="Source of"
@@ -4437,6 +4468,16 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_institution():
         return HealthInstitution().get_institution()
 
+
+    def get_patient_sex(self, name):
+        return self.patient.sex
+
+    @classmethod
+    def search_patient_sex(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.sex', clause[1], value))
+        return res
 
     @classmethod
     def __setup__(cls):
