@@ -238,29 +238,56 @@ class InstitutionSummaryReport(Report):
         
         unique_dx = set(eval_dx)
 
+        summary_dx = []
         # Traverse the evaluations with Dx to get the key values
         for dx in unique_dx:
             unique_evaluations = cls.get_evaluations(start_date, end_date, dx)
+
+            group_1 = group_2 = group_3 = group_4 = group_5 = 0
+            group_1f = group_2f = group_3f = group_4f = group_5f = 0
+
+
             for unique_eval in unique_evaluations:
-                print "Working with dx", unique_eval.diagnosis
-                
                 #Strip to get the raw year
                 age = int(unique_eval.computed_age.split(' ')[0][:-1])
                 
-                group_1 = group_2 = group_3 = group_4 = group_5 = group_6 = 0
                 
                 # Age groups in this diagnostic
                 if (age < 5):
                     group_1 += 1
+                    if (unique_eval.sex == 'f'):
+                        group_1f += 1
                 if (age in range(5,14)):
                     group_2 += 1
+                    if (unique_eval.sex == 'f'):
+                        group_2f += 1
                 if (age in range(15,45)):
                     group_3 += 1
+                    if (unique_eval.sex == 'f'):
+                        group_3f += 1
                 if (age in range(46,60)):
                     group_4 += 1
+                    if (unique_eval.sex == 'f'):
+                        group_4f += 1
                 if (age > 60):
                     group_5 += 1
+                    if (unique_eval.sex == 'f'):
+                        group_5f += 1
 
+            eval_dx = {'diagnosis': unique_eval.diagnosis.rec_name,
+                'age_group_1': group_1, 'age_group_1f': group_1f,
+                'age_group_2': group_2, 'age_group_2f': group_2f,
+                'age_group_3': group_3, 'age_group_3f': group_3f,
+                'age_group_4': group_4, 'age_group_4f': group_4f,
+                'age_group_5': group_5, 'age_group_5f': group_5f,
+                }
+                
+            # Append into the report list the resulting
+            # dictionary entry
+            
+            summary_dx.append(eval_dx)
+        
+        localcontext['summary_dx'] = summary_dx
                 
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
