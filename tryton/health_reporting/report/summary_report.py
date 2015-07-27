@@ -210,7 +210,10 @@ class InstitutionSummaryReport(Report):
         
         eval_dx =[]
         non_dx_eval = 0
+        eval_f = 0
+        eval_m = 0
         
+        # Global Evaluation info
         for evaluation in evaluations:
             if evaluation.diagnosis:
                 #eval_dx.append(evaluation.diagnosis.rec_name)
@@ -218,10 +221,15 @@ class InstitutionSummaryReport(Report):
             else:
                 # Increase the evaluations without Dx counter
                 non_dx_eval += 1
+            if (evaluation.sex == 'f'):
+                eval_f +=1
+            else:
+                eval_m +=1
         
         localcontext['non_dx_eval'] = non_dx_eval
-
         localcontext['eval_num'] = len(evaluations)
+        localcontext['eval_f'] = eval_f
+        localcontext['eval_m'] = eval_m
         
         # Create a set to work with single diagnoses
         # removing duplicate entries from eval_dx
