@@ -1,20 +1,19 @@
 <?xml version="1.0"?>
 <form string="Patient Evaluation">
+    <group string="Header" colspan="4" col="10" id="evaluation_header">
+        <label name="patient"/>
+        <field name="patient" colspan="3"/>
+        <label name="visit_type"/>
+        <field name="visit_type"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+        <label name="evaluation_start"/>
+        <field name="evaluation_start"/>
+    </group>
+    <newline/>
+
     <notebook>
         <page string="Main Info" id="page_patient_evaluation_main">
-            <group colspan="4" col="10" id="evaluation_header">
-                <label name="patient"/>
-                <field name="patient" colspan="3"/>
-                <label name="visit_type"/>
-                <field name="visit_type"/>
-                <label name="healthprof"/>
-                <field name="healthprof"/>
-                <label name="evaluation_start"/>
-                <field name="evaluation_start"/>
-                <label name="wait_time"/>
-                <field name="wait_time"/>
-            </group>
-            <newline/>
             <separator colspan="4" id="separator_chief_complaint"/>
             <newline/>
             <group col="9" string="Chief Complaint" id="eval_chief_complaint">
@@ -161,13 +160,14 @@
             <newline/>
             <label name="evaluation_date"/>
             <field name="evaluation_date"/>
+            <label name="wait_time"/>
+            <field name="wait_time"/>
             <label name="derived_from"/>
             <field name="derived_from"/>
             <label name="next_evaluation"/>
             <field name="next_evaluation"/>
             <label name="derived_to"/>
             <field name="derived_to"/>
-
         </page>
     </notebook>
 </form>
