@@ -101,7 +101,7 @@ class InstitutionSummaryReport(Report):
         return(res)
 
     @classmethod
-    def get_evaluations(cls, start_date, end_date):
+    def get_evaluations(cls, start_date, end_date, dx):
         """ Return evaluation info """
         
         Evaluation = Pool().get('gnuhealth.patient.evaluation')
@@ -114,6 +114,9 @@ class InstitutionSummaryReport(Report):
             ('evaluation_start', '<=', end_date),
             ]
 
+        if dx:
+            clause.append(('diagnosis', '=', dx))
+            
         res = Evaluation.search(clause)
         
         return(res)
@@ -204,9 +207,9 @@ class InstitutionSummaryReport(Report):
         # Get evaluations within the specified date range
         
         localcontext['evaluations'] = \
-            cls.get_evaluations(start_date, end_date)
+            cls.get_evaluations(start_date, end_date, None)
         
-        evaluations = cls.get_evaluations(start_date, end_date)
+        evaluations = cls.get_evaluations(start_date, end_date, None)
         
         eval_dx =[]
         non_dx_eval = 0
@@ -216,7 +219,6 @@ class InstitutionSummaryReport(Report):
         # Global Evaluation info
         for evaluation in evaluations:
             if evaluation.diagnosis:
-                #eval_dx.append(evaluation.diagnosis.rec_name)
                 eval_dx.append(evaluation.diagnosis)
             else:
                 # Increase the evaluations without Dx counter
@@ -236,10 +238,30 @@ class InstitutionSummaryReport(Report):
         
         unique_dx = set(eval_dx)
 
+        # Traverse the evaluations with Dx to get the key values
         for dx in unique_dx:
-            cls.count_evaluations(start_date, end_date, dx)
-            
-        
+            unique_evaluations = cls.get_evaluations(start_date, end_date, dx)
+            for unique_eval in unique_evaluations:
+                print "Working with dx", unique_eval.diagnosis
+                
+                #Strip to get the raw year
+                age = int(unique_eval.computed_age.split(' ')[0][:-1])
+                
+                group_1 = group_2 = group_3 = group_4 = group_5 = group_6 = 0
+                
+                # Age groups in this diagnostic
+                if (age < 5):
+                    group_1 += 1
+                if (age in range(5,14)):
+                    group_2 += 1
+                if (age in range(15,45)):
+                    group_3 += 1
+                if (age in range(46,60)):
+                    group_4 += 1
+                if (age > 60):
+                    group_5 += 1
+
+                
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
 
