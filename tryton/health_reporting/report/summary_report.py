@@ -241,12 +241,15 @@ class InstitutionSummaryReport(Report):
         summary_dx = []
         # Traverse the evaluations with Dx to get the key values
         for dx in unique_dx:
+            # unique_evaluations holds the evaluations with
+            # the same diagnostic
             unique_evaluations = cls.get_evaluations(start_date, end_date, dx)
 
             group_1 = group_2 = group_3 = group_4 = group_5 = 0
             group_1f = group_2f = group_3f = group_4f = group_5f = 0
 
-
+            total_evals = len(unique_evaluations)
+            
             for unique_eval in unique_evaluations:
                 #Strip to get the raw year
                 age = int(unique_eval.computed_age.split(' ')[0][:-1])
@@ -280,6 +283,7 @@ class InstitutionSummaryReport(Report):
                 'age_group_3': group_3, 'age_group_3f': group_3f,
                 'age_group_4': group_4, 'age_group_4f': group_4f,
                 'age_group_5': group_5, 'age_group_5f': group_5f,
+                'total': total_evals,
                 }
                 
             # Append into the report list the resulting
