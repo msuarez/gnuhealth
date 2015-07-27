@@ -107,6 +107,8 @@ class InstitutionSummaryReport(Report):
         Evaluation = Pool().get('gnuhealth.patient.evaluation')
         start_date = datetime.strptime(str(start_date), '%Y-%m-%d')
         end_date = datetime.strptime(str(end_date), '%Y-%m-%d')
+        end_date += relativedelta(hours=+23,minutes=+59,seconds=+59)
+        
         clause = [
             ('evaluation_start', '>=', start_date),
             ('evaluation_start', '<=', end_date),
@@ -126,6 +128,12 @@ class InstitutionSummaryReport(Report):
         start_date = data['start_date']
         end_date = data['end_date']
 
+        demographics = data['demographics']
+        localcontext['demographics'] = data['demographics']
+
+        patient_evaluations = data['patient_evaluations']
+        localcontext['patient_evaluations'] = data['patient_evaluations']
+        
         localcontext['start_date'] = data['start_date']
         localcontext['end_date'] = data['end_date']
 

@@ -39,6 +39,9 @@ class SummaryReportStart(ModelView):
     start_date = fields.Date("Start")
     end_date = fields.Date("End")
 
+    demographics = fields.Boolean("Demographics")
+    patient_evaluations = fields.Boolean("Evaluations")
+
     @staticmethod
     def default_start_date():
         return date.today()
@@ -65,6 +68,8 @@ class SummaryReport(Wizard):
                     if self.start.institution else None),
             'start_date': self.start.start_date,
             'end_date': self.start.end_date,
+            'demographics': self.start.demographics,
+            'patient_evaluations': self.start.patient_evaluations,
         }
     
     def do_open_(self, action):
