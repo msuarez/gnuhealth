@@ -209,11 +209,20 @@ class InstitutionSummaryReport(Report):
         evaluations = cls.get_evaluations(start_date, end_date)
         
         eval_dx =[]
+        non_dx_eval = 0
+        
         for evaluation in evaluations:
             if evaluation.diagnosis:
                 #eval_dx.append(evaluation.diagnosis.rec_name)
                 eval_dx.append(evaluation.diagnosis)
-                
+            else:
+                # Increase the evaluations without Dx counter
+                non_dx_eval += 1
+        
+        localcontext['non_dx_eval'] = non_dx_eval
+
+        localcontext['eval_num'] = len(evaluations)
+        
         # Create a set to work with single diagnoses
         # removing duplicate entries from eval_dx
         
