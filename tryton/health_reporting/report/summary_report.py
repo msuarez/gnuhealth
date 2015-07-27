@@ -118,6 +118,24 @@ class InstitutionSummaryReport(Report):
         
         return(res)
 
+    @classmethod
+    def count_evaluations(cls, start_date, end_date, dx):
+        """ count diagnoses by groups """
+        
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+        start_date = datetime.strptime(str(start_date), '%Y-%m-%d')
+        end_date = datetime.strptime(str(end_date), '%Y-%m-%d')
+        end_date += relativedelta(hours=+23,minutes=+59,seconds=+59)
+        
+        clause = [
+            ('evaluation_start', '>=', start_date),
+            ('evaluation_start', '<=', end_date),
+            ('diagnosis', '=', dx),
+            ]
+
+        res = Evaluation.search_count(clause)
+        
+        return(res)
 
 
     @classmethod
@@ -182,10 +200,29 @@ class InstitutionSummaryReport(Report):
         localcontext['new_deaths'] = \
             cls.get_new_deaths(start_date, end_date)
 
-        # Number of evaluations
+
+        # Get evaluations within the specified date range
+        
         localcontext['evaluations'] = \
             cls.get_evaluations(start_date, end_date)
+        
+        evaluations = cls.get_evaluations(start_date, end_date)
+        
+        eval_dx =[]
+        for evaluation in evaluations:
+            if evaluation.diagnosis:
+                #eval_dx.append(evaluation.diagnosis.rec_name)
+                eval_dx.append(evaluation.diagnosis)
+                
+        # Create a set to work with single diagnoses
+        # removing duplicate entries from eval_dx
+        
+        unique_dx = set(eval_dx)
 
+        for dx in unique_dx:
+            cls.count_evaluations(start_date, end_date, dx)
+            
+        
         return super(InstitutionSummaryReport, cls).parse(report,
             objects, data, localcontext)
 
