@@ -113,7 +113,7 @@ class InstitutionSummaryReport(Report):
             ('evaluation_start', '>=', start_date),
             ('evaluation_start', '<=', end_date),
             ]
-
+                
         if dx:
             clause.append(('diagnosis', '=', dx))
             
@@ -237,7 +237,7 @@ class InstitutionSummaryReport(Report):
         # removing duplicate entries from eval_dx
         
         unique_dx = set(eval_dx)
-
+        
         summary_dx = []
         # Traverse the evaluations with Dx to get the key values
         for dx in unique_dx:
@@ -249,6 +249,8 @@ class InstitutionSummaryReport(Report):
             group_1f = group_2f = group_3f = group_4f = group_5f = 0
 
             total_evals = len(unique_evaluations)
+            
+            new_conditions = 0
             
             for unique_eval in unique_evaluations:
                 #Strip to get the raw year
@@ -277,13 +279,19 @@ class InstitutionSummaryReport(Report):
                     if (unique_eval.sex == 'f'):
                         group_5f += 1
 
+                # Check for new conditions vs followup / chronic checkups 
+                # in the evaluation with a particular diagnosis
+                
+                if (unique_eval.visit_type == 'new'):
+                    new_conditions += 1
+                    
             eval_dx = {'diagnosis': unique_eval.diagnosis.rec_name,
                 'age_group_1': group_1, 'age_group_1f': group_1f,
                 'age_group_2': group_2, 'age_group_2f': group_2f,
                 'age_group_3': group_3, 'age_group_3f': group_3f,
                 'age_group_4': group_4, 'age_group_4f': group_4f,
                 'age_group_5': group_5, 'age_group_5f': group_5f,
-                'total': total_evals,
+                'total': total_evals, 'new_conditions' : new_conditions,
                 }
                 
             # Append into the report list the resulting
