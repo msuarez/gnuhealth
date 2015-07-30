@@ -11,8 +11,8 @@
         <field name="visit_type"/>
         <label name="healthprof"/>
         <field name="healthprof"/>
-        <label name="evaluation_start"/>
-        <field name="evaluation_start"/>
+        <label name="code"/>
+        <field name="code"/>
     </group>
     <newline/>
 
@@ -35,13 +35,15 @@
             <newline/>
             <field name="evaluation_summary" colspan="4"/>
             <newline/>
-            <group colspan="4" col="12" id="group_eval_misc">
+            <group colspan="4" col="14" id="group_eval_misc">
                 <label name="evaluation_type"/>
                 <field name="evaluation_type"/>
                 <label name="specialty"/>
                 <field name="specialty"/>
                 <label name="urgency"/>
                 <field name="urgency"/>
+                <label name="evaluation_start"/>
+                <field name="evaluation_start"/>
                 <label name="evaluation_endtime"/>
                 <field name="evaluation_endtime"/>
                 <field name="state"/>

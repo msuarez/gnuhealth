@@ -2323,6 +2323,10 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
         'ir.sequence', 'Patient Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.patient')]))
 
+    patient_evaluation_sequence = fields.Property(fields.Many2One(
+        'ir.sequence', 'Patient Evaluation Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.evaluation')]))
+
     appointment_sequence = fields.Property(fields.Many2One(
         'ir.sequence', 'Appointment Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.appointment')]))
@@ -4079,6 +4083,9 @@ class PatientEvaluation(ModelSQL, ModelView):
                     duration = str(int(round(delta.total_seconds()/60)))
         return duration
             
+    code = fields.Char('Code', help="Unique code that \
+        identifies the evaluation")
+    
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
         states = STATES)
 
@@ -4665,6 +4672,29 @@ class PatientEvaluation(ModelSQL, ModelView):
             table.column_rename('doctor', 'healthprof')
 
         super(PatientEvaluation, cls).__register__(module_name)
+
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientEvaluation, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The evaluation code must be unique !'),
+        ]
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('code'):
+                config = Config(1)
+                values['code'] = Sequence.get_id(
+                    config.patient_evaluation_sequence.id)
+
+        return super(PatientEvaluation, cls).create(vlist)
 
 
 # PATIENT EVALUATION DIRECTIONS

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <tree string="Evaluations">
+    <field name="code" expand="1"/>
     <field name="patient" expand="1"/>
     <field name="sex"/>
     <field name="visit_type"/>
