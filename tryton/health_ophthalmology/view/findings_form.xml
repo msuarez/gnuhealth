@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<form string="Findings">
+    <field name="patient"/>
+    <field name="patient_age"/>
+    <field name="visit_date"/>
+    <field name="health_professional"/>
+    <newline></newline>
+    <field name="lid_findings" colspan="2"/>
+    <field name="ncs_findings" colspan="2"/>
+    <field name="conjunctiva_findings" colspan="2"/>
+    <field name="cornea_findings" colspan="2"/>
+    <field name="anteriorchamber_findings" colspan="2"/>
+    <field name="iris_findings" colspan="2"/>
+    <field name="pupil_findings" colspan="2"/>
+    <field name="lens_findings" colspan="2"/>
+    
+    <field name="vitreous_findings" colspan="2"/>
+    <field name="fundusdisc_findings" colspan="2"/>
+    <field name="fundusmacula_findings" colspan="2"/>
+    <field name="fundusbackground_findings" colspan="2"/>
+    <field name="fundusvessles_findings" colspan="2"/>
+    <field name="misc_findings" colspan="2"/>
+    
+</form>
+

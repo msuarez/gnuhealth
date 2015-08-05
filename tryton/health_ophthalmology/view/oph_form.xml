@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<form string="Optometry form">
+   <group colspan="4" col="8" id="patient_group" >
+      <label name="patient" string="Patient"/>
+      <field name="patient"/>
+      <label name="patient_age" string="Age"/>
+      <field name="patient_age"/>
+      <label name="health_professional" string="Health Professional"/>
+      <field name="health_professional"/>
+      <label name="visit_date" string="Date"/>
+      <field name="visit_date"/>
+   </group>
+    
+   <newline></newline>
+   <group colspan="4" string="Refraction" id="refraction group">
+      <group id="va_group" colspan="2">
+         <group  string="Right Eye " id="right_vc_group" >  
+            <label name="rdva" string="Unaided Visual Acuity"/>
+            <field name="rdva" />
+            <label name="rdva_pinhole" string="Pin Hole"/>
+            <field name="rdva_pinhole"/>    
+            <label name="rdva_aid" string="With Glass"/>
+            <field name="rdva_aid"/>
+            <label name="rnv" string="Near Vision"/>
+            <field name="rnv"/>
+         </group>
+         <group  string="Left Eye " id="left_vc_group">
+            <label name="ldva" string="Unaided Visual Acuity"/>
+            <field name="ldva"/>
+            <label name="ldva_pinhole" string="Pin Hole"/>
+            <field name="ldva_pinhole"/>
+            <label name="ldva_aid" string="With Glass"/>
+            <field name="ldva_aid"/>
+            <label name="lnv" string="Near Vision"/>
+            <field name="lnv"/>
+         </group>
+      </group>
+      <newline></newline>
+      <group colspan="2" id="lens_values_ar" >
+         <group colspan="2" col="3" string="Right Eye" id="right_eye_ar">
+            <label xalign="0" name="rspherical" string="Spherical"/>
+            <label xalign="0" name="rcylinder" string="Cylinder"/>
+            <label xalign="0" name="raxis" string="Axis"/>
+            <newline></newline>
+            <field name="rspherical"/>
+            <field name="rcylinder"/>
+            <field name="raxis"/>
+            <label name="rnv_add" string="Add NV"/>
+            <field name="rnv_add"/>
+         </group>
+         <group colspan="2" col="3" string="Left Eye" id="left_eye_ar">
+            <label xalign="0" name="lspherical" string="Spherical"/>
+            <label xalign="0" name="lcylinder" string="Cylinder"/>
+            <label xalign="0" name="laxis" string="Axis"/>
+            <newline></newline>
+            <field name="lspherical"/>
+            <field name="lcylinder"/>
+            <field name="laxis"/>
+            <label name="lnv_add" string="Add NV"/>
+            <field name="lnv_add"/>
+         </group>
+      </group>
+   </group>
+   <group colspan="4" col="10" id="final_vision_correction" string="Best Corrected Visual Acuity" >
+      <group colspan="2" col="4" id="Right_Eye_BCVA" string="Right Eye" >
+         <label xalign="0" name="rbcva_spherical" string="Spherical" />
+         <label xalign="0" name="rbcva_cylinder" string="Cylinder"/>
+         <label xalign="0" name="rbcva_axis" string="Axis"/>
+         <label xalign="0" name="rbcva" string="BCVA" />
+         <newline></newline>
+         <field name="rbcva_spherical" />
+         <field name="rbcva_cylinder" />
+         <field name="rbcva_axis" />
+         <field name="rbcva" />
+         <newline></newline>
+         <label xalign="1" name="rbcva_nv_add" string="Add NV"/>
+         <field name="rbcva_nv_add"/>
+         <label xalign="1" name="rbcva_nv" string="NV"/>
+         <field name="rbcva_nv"/>
+      </group>            
+      <group colspan="2" col="4" id="Left_eye_BCVA" string="Left Eye" >
+         <label xalign="0" name="lbcva_spherical" string="Spherical" />
+         <label xalign="0" name="lbcva_cylinder" string="Cylinder"/>
+         <label xalign="0" name="lbcva_axis" string="Axis"/>
+         <label xalign="0" name="lbcva" string="BCVA"/>
+         <newline></newline>
+         <field name="lbcva_spherical" />
+         <field name="lbcva_cylinder" />
+         <field name="lbcva_axis" />
+         <field name="lbcva" />
+         <newline></newline>
+         <label xalign="1" name="lbcva_nv_add" string="Add NV"/>
+         <field name="lbcva_nv_add"/>
+         <label xalign="1" name="lbcva_nv" string="NV"/>
+         <field name="lbcva_nv"/>
+      </group>
+   </group>
+   <group colspan="4" col="2" id="optometry_notes_group_master">
+      <group id="optometry_notes_group" string="Notes" >
+         <field name="optometry_notes"  string="Notes" />
+      </group>
+   </group>
+   <button name="confirmed" help="Confirm and Save" string="Confirm and Save" icon="tryton-go-next" confirm="Confirm and save"/>
+   
+<!-- for future
+    <group id="iop_tests" string="Intra Ocular Pressure">
+    
+            
+        <label name="rschiotz_iop" string="Right Eye Intra Ocular Pressure (schiotz)"/>
+        <field name="rschiotz_iop"/>
+        <label name="lschiotz_iop" string="Left Eye Intra Ocular Pressure (schiotz)"/>
+        <field name="lschiotz_iop"/>  
+        
+        <label name="rnct_iop" string="Right Eye Intra Ocular Pressure (NCT)"/>
+        <field name="rnct_iop"/>
+        <label name="lnct_iop" string="Left Eye Intra Ocular Pressure (NCT)"/>
+        <field name="lnct_iop"/>
+        
+        <label name="rgoldmann_iop" string="Right Eye Intra Ocular Pressure (Goldmann)"/>
+        <field name="rgoldmann_iop"/>
+        <label name="lgoldmann_iop" string="Left Eye Intra Ocular Pressure (Goldmann)"/>
+        <field name="lgoldmann_iop"/>
+        
+        <label name="rsyringing" string="Right Eye syringing"/>
+        <field name="rsyringing"/>
+        <label name="lsyringing" string="Left Eye syringing"/>
+        <field name="lsyringing"/>
+        
+        <label name="rsquint" string="Right Eye Squint"/>
+        <field name="rsquint"/>
+        <label name="lsquint" string="Left Eye Squint"/>
+        <field name="lsquint"/>
+    </group>
+-->               
+</form>
