@@ -10,7 +10,7 @@
         </record>
         <record id="seq_gnuhealth_patient_evaluation" model="ir.sequence">
             <field name="name">Patient Evaluation</field>
-            <field name="code">gnuhealth.prescription.order</field>
+            <field name="code">gnuhealth.patient.evaluation</field>
             <field name="prefix">EVAL ${year}/</field>
             <field name="padding">6</field>
             <field name="number_increment" eval="1"/>
