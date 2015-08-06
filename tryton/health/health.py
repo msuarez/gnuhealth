@@ -1833,10 +1833,8 @@ class BirthCertExtraInfo (ModelSQL, ModelView):
         if (self.institution and self.institution.name.addresses[0].subdivision):
             subdivision = self.institution.name.addresses[0].subdivision.id
 
-        res = {'country': country, 'country_subdivision': subdivision}
-
-        return res
-
+        self.country = country
+        self.country_subdivision = subdivision
 
     @classmethod
     @ModelView.button
@@ -1915,9 +1913,8 @@ class DeathCertExtraInfo (ModelSQL, ModelView):
         if (self.institution and self.institution.name.addresses[0].subdivision):
             subdivision = self.institution.name.addresses[0].subdivision.id
 
-        res = {'country': country, 'country_subdivision': subdivision}
-
-        return res
+        self.country = country
+        self.country_subdivision = subdivision
 
     @classmethod
     @ModelView.button
@@ -3009,8 +3006,7 @@ class Appointment(ModelSQL, ModelView):
     def on_change_patient(self):
         res = {'state': 'free'}
         if self.patient:
-            res = {'state': 'confirmed'}
-        return res
+            self.state = 'confirmed'
 
     @fields.depends('healthprof')
     def on_change_with_speciality(self):
@@ -3783,10 +3779,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             if (self.patient.childbearing_age):
                 preg_warning = True
                 presc_warning_ack = False
-        return {
-            'prescription_warning_ack': presc_warning_ack,
-            'pregnancy_warning': preg_warning,
-        }
+        
+        self.prescription_warning_ack = presc_warning_ack
+        self.pregnancy_warning = preg_warning
+
 
     @staticmethod
     def default_prescription_date():
