@@ -16,7 +16,7 @@
             </group>
         </group>
         <group id="patient__pic">
-            <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+            <field xfill="0" xexpand="1" name="photo" height="200" width="200" widget="image"/>
         </group>
     </group>
     <newline/>

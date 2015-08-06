@@ -27,7 +27,7 @@
             <field name="address_subdivision"/>
         </group>
         <group id="du_picture">
-            <field xfill="0" xexpand="1" name="picture" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+            <field xfill="0" xexpand="1" name="picture" height="200" width="200" widget="image"/>
         </group>
         <newline/>
         <group col="6" colspan="4" id="du_georef">
