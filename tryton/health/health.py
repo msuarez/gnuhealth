@@ -455,6 +455,17 @@ class PartyPatient (ModelSQL, ModelView):
 
         super(PartyPatient, cls).__register__(module_name)
 
+
+    # Hide the group holding all the demographics when the party is not
+    # a person
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="person_details"]', 'states', {
+                'invisible': ~Eval('is_person'),
+                })]
+                
+
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
     __name__ = 'party.address'
@@ -1536,6 +1547,19 @@ class Medicament(ModelSQL, ModelView):
     @classmethod
     def check_xml_record(cls, records, values):
         return True
+
+    # Use the following color scheme depending on the 
+    # FDA pregnancy risk status of each drug
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree[@on_write="on_write"]', 'colors',
+                If(Equal(Eval('pregnancy_category'), 'X'), 'red', 
+                If(Equal(Eval('pregnancy_category'), 'D'), 'brown', 
+                If(Equal(Eval('pregnancy_category'), 'C'), 'orange', 
+                If(Equal(Eval('pregnancy_category'), 'N'), 'black',
+                 'blue')))))]
+
 
 class ImmunizationScheduleDose(ModelSQL, ModelView):
     'Immunization Schedule Dose'

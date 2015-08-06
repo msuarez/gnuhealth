@@ -730,8 +730,14 @@
         <record model="ir.action.act_window" id="act_medicament_by_category">
             <field name="name">Medicament by Category</field>
             <field name="res_model">gnuhealth.medicament</field>
-            <field name="context">{'categories': [Eval('active_id')]}</field>
-            <field name="domain">[('category', 'child_of', [Eval('active_id')], 'parent')]</field>
+
+            <field name="context"
+                eval="{'categories': [Eval('active_id')]}" pyson="1"/>
+ 
+            <field name="domain" 
+                eval="[('category', 'child_of', [Eval('active_id')], 'parent')]" 
+                pyson="1"/>
+                
         </record>
 
         <record model="ir.action.act_window.view" id="act_medicament_by_category_view1">
@@ -773,7 +779,7 @@
         <record model="ir.action.act_window" id="action_gnuhealth_medicament_category_tree">
             <field name="name">Medicament categories</field>
             <field name="res_model">gnuhealth.medicament.category</field>
-            <field name="domain">[('parent', '=', None)]</field>
+            <field name="domain" eval="[('parent', '=', None)]" pyson="1"/>
         </record>
 
         <record model="ir.action.act_window.view" id="act_medicament_category_tree_view1">
@@ -905,7 +911,7 @@
         <record model="ir.action.act_window" id="action_gnuhealth_pathology_category_tree">
             <field name="name">Disease categories</field>
             <field name="res_model">gnuhealth.pathology.category</field>
-            <field name="domain">[('parent', '=', None)]</field>
+            <field name="domain" eval="[('parent', '=', None)]" pyson="1"/>
         </record>
 
         <record model="ir.action.act_window.view" id="act_pathology_category_tree_view1">
@@ -985,7 +991,7 @@
         <record model="ir.action.act_window" id="gnuhealth_action_insurance_company">
              <field name="name">Insurance Company</field>
              <field name="res_model">party.party</field>
-             <field name="domain">[('is_insurance_company', '=', True)]</field>
+             <field name="domain" eval="[('is_insurance_company', '=', True)]" pyson="1"/>
         </record>
 
         <record model="ir.action.act_window.view" id="act_insurance_company_list_view">
@@ -1032,7 +1038,7 @@
         <record model="ir.action.act_window" id="act_people_form">
             <field name="name">People</field>
             <field name="res_model">party.party</field>
-            <field name="domain">[('is_person', '=', True)]</field>
+            <field name="domain" eval="[('is_person', '=', True)]" pyson="1"/>
         </record>
 
         <menuitem parent="party.menu_party_form" sequence="1"
@@ -1094,7 +1100,7 @@
         <record model="ir.action.act_window" id="act_birth_cert_form1">
             <field name="name">Birth Certificate</field>
             <field name="res_model">gnuhealth.birth_certificate</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
         </record>
 
         <record model="ir.action.keyword" id="act_open_birth_cert_keyword1">
@@ -1132,7 +1138,7 @@
         <record model="ir.action.act_window" id="act_death_cert_form1">
             <field name="name">Death Certificate</field>
             <field name="res_model">gnuhealth.death_certificate</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
         </record>
 
         <record model="ir.action.keyword" id="act_open_death_cert_keyword1">
@@ -1254,13 +1260,13 @@
         <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_free">
             <field name="name">Free</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'free')]</field>
+            <field name="domain" eval="[('state', '=', 'free')]" pyson="1"/>
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_confirmed">
             <field name="name">Confirmed</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'confirmed')]</field>
+            <field name="domain" eval="[('state', '=', 'confirmed')]" pyson="1"/>
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_all">
@@ -1279,7 +1285,7 @@
         <record model="ir.action.act_window" id="act_appointment_form1">
             <field name="name">Appointments</field>
             <field name="res_model">gnuhealth.appointment</field>
-            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_appointment_keyword1">
             <field name="keyword">form_relate</field>
@@ -1322,8 +1328,8 @@
         <record model="ir.action.act_window" id="act_appointment_report_patient">
             <field name="name">Patient</field>
             <field name="res_model">gnuhealth.patient</field>
-            <field name="context">{'appointments': [Eval('active_id')]}</field>
-            <field name="domain">[('appointments', 'in', [Eval('active_id')])]</field>
+            <field name="context" eval="{'appointments': [Eval('active_id')]}" pyson="1"/>
+            <field name="domain" eval="[('appointments', 'in', [Eval('active_id')])]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_appointment_report_patient_keyword1">
             <field name="keyword">tree_open</field>
@@ -1335,7 +1341,7 @@
         <record model="ir.action.act_window" id="act_evaluation_form1">
             <field name="name">Evaluations</field>
             <field name="res_model">gnuhealth.patient.evaluation</field>
-            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_evaluation_keyword1">
@@ -1348,7 +1354,7 @@
         <record model="ir.action.act_window" id="act_prescription_form1">
             <field name="name">Prescriptions</field>
             <field name="res_model">gnuhealth.prescription.order</field>
-            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_prescription_keyword1">
@@ -1377,7 +1383,7 @@
         <record model="ir.action.act_window" id="act_vaccination_form1">
             <field name="name">Vaccinations</field>
             <field name="res_model">gnuhealth.vaccination</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_vaccination_keyword1">
@@ -1465,7 +1471,7 @@
         <record model="ir.action.act_window" id="act_ecg_view">
             <field name="name">ECGs</field>
             <field name="res_model">gnuhealth.patient.ecg</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_ecg_keyword">
             <field name="keyword">form_relate</field>
@@ -1645,7 +1651,7 @@
         <record model="ir.action.act_window" id="act_building_view">
             <field name="name">Buildings</field>
             <field name="res_model">gnuhealth.hospital.building</field>
-            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('institution', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_building_keyword">
             <field name="keyword">form_relate</field>
@@ -1658,7 +1664,7 @@
         <record model="ir.action.act_window" id="act_unit_view">
             <field name="name">Units</field>
             <field name="res_model">gnuhealth.hospital.unit</field>
-            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('institution', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_unit_keyword">
             <field name="keyword">form_relate</field>
@@ -1671,7 +1677,7 @@
         <record model="ir.action.act_window" id="act_or_view">
             <field name="name">Operating Rooms</field>
             <field name="res_model">gnuhealth.hospital.or</field>
-            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('institution', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_or_keyword">
             <field name="keyword">form_relate</field>
@@ -1684,7 +1690,7 @@
         <record model="ir.action.act_window" id="act_ward_view">
             <field name="name">Wards</field>
             <field name="res_model">gnuhealth.hospital.ward</field>
-            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('institution', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_ward_keyword">
             <field name="keyword">form_relate</field>
@@ -1697,7 +1703,7 @@
         <record model="ir.action.act_window" id="act_bed_view">
             <field name="name">Beds</field>
             <field name="res_model">gnuhealth.hospital.bed</field>
-            <field name="domain">[('institution', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('institution', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_bed_keyword">
             <field name="keyword">form_relate</field>

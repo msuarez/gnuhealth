@@ -17,7 +17,7 @@
                 <field name="is_pharmacy"/>
             </group>
             <newline/>
-            <group colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+            <group colspan="4" id="person_details">
                 <group yfill="1" id="person_demographics" string="Demographics">
                     <label name="dob"/>
                     <field name="dob"/>

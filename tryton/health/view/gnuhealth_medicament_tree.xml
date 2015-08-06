@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="medicament" colors="If(Equal(Eval('pregnancy_category'), 'X'), 'red', If(Equal(Eval('pregnancy_category'), 'D'), 'brown', If(Equal(Eval('pregnancy_category'), 'C'), 'orange', If(Equal(Eval('pregnancy_category'), 'N'), 'black', 'blue'))))">
+<tree string="medicament" on_write="on_write">
     <field name="name" expand="1"/>
     <field name="active_component" expand="1"/>
     <field name="is_vaccine" expand="1"/>
