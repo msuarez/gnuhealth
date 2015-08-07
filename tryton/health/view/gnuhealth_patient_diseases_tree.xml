@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient diseases" colors="If(Bool(Eval('is_infectious')),'orange','black')">
+<tree string="Patient diseases" on_write="on_write">
     <field name="pathology" expand="1"/>
     <field name="status" expand="1"/>
     <field name="is_active"/>

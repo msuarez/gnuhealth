@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient appointment" colors="If(Equal(Eval('state'), 'confirmed'), 'blue', 'black')">
+<tree string="Patient appointment" on_write="on_write">
     <field name="name" expand="1"/>
     <field name="patient" expand="1"/>
     <field name="appointment_type" expand="1"/>

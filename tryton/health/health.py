@@ -27,7 +27,7 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond.pool import Pool
 from trytond.tools import grouped_slice, reduce_ids
 from uuid import uuid4
@@ -2885,6 +2885,13 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
         super(PatientDiseaseInfo, cls).__register__(module_name)
 
+
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree[@on_write="on_write"]', 'colors',
+                If(Bool(Eval('is_infectious')),'orange','black'))]
+
+
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
     'Patient Appointments'
@@ -3209,6 +3216,11 @@ class AppointmentReport(ModelSQL, ModelView):
     def get_patient_age(self, name):
         return self.patient.age
 
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree[@on_write="on_write"]', 'colors',
+                If(Equal(Eval('state'), 'confirmed'), 'blue', 'black'))]
+
 
 class OpenAppointmentReportStart(ModelView):
     'Open Appointment Report'
@@ -3511,6 +3523,13 @@ class PatientMedication(ModelSQL, ModelView):
                     'end_treatment': Lang.strftime(self.end_treatment,
                         language.code, language.date),
                     })
+
+
+    @classmethod
+    def view_attributes(cls):
+        return [('/tree[@on_write="on_write"]', 'colors',
+                If(Bool(Eval('is_active')),'blue','grey'))]
+
 
 # PATIENT VACCINATION INFORMATION
 class PatientVaccination(ModelSQL, ModelView):
