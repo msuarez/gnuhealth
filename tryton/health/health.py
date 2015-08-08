@@ -2551,7 +2551,6 @@ class PatientData(ModelSQL, ModelView):
 #        'Prescriptions')
 
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
-    ecgs = fields.One2Many('gnuhealth.patient.ecg', 'name', 'ECGs')
     critical_summary = fields.Function(fields.Text(
         'Important disease about patient allergies or procedures',
         help='Automated summary of patient allergies and '

@@ -79,14 +79,11 @@ code with the unique patient ID.
                 </page>
             </notebook>
         </page>
+
         <!-- Patient Medication and Vaccinations -->
         <page string="Medication" id="patient_medication">
             <field name="medications"/>
             <field name="vaccinations"/>
-        </page>
-        <!-- ECGs -->
-        <page string="ECGs" id="patient_ecgs">
-            <field name="ecgs" colspan="4"/>
         </page>
 
         <!-- Patient Diseases -->
