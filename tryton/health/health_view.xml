@@ -79,7 +79,7 @@
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
         <menuitem name="Demographics" id="gnuhealth_demographics_menu"
-            parent="gnuhealth_menu" sequence="40" icon="gnuhealth-demography"/>
+            parent="gnuhealth_menu" sequence="50" icon="gnuhealth-demography"/>
         <menuitem name="Reporting" id="gnuhealth_reporting_menu"
             parent="gnuhealth_menu" sequence="998" icon="gnuhealth-report"/>
 
@@ -1319,9 +1319,12 @@
             <field name="name">Appointments Report</field>
             <field name="wiz_name">gnuhealth.appointment.report.open</field>
         </record>
-        <menuitem parent="health.gnuhealth_appointment_menu"
+
+<!-- Menu entry for appointments -->
+
+        <menuitem parent="gnuhealth_reporting_menu"
             action="appointments_report_open"
-            id="menu_appointments_report_view_tree" sequence="30"
+            id="menu_appointments_report_view_tree" sequence="20"
             icon="gnuhealth-list"/>
 
         <record model="ir.action.act_window" id="act_appointment_report_patient">
@@ -1643,7 +1646,7 @@
 
         <menuitem action="action_gnuhealth_institution"
             id="gnuhealth_menu_institution" icon="gnuhealth-health-center"
-            parent="gnuhealth_menu" sequence="15"/>
+            parent="gnuhealth_menu" sequence="40"/>
 
 <!-- Shortcut to the Health center Buildings from the Institution -->
 
@@ -1742,7 +1745,7 @@
 
         <menuitem action="action_gnuhealth_institution_specialties"
             id="gnuhealth_institution_specialties" icon="gnuhealth-list"
-            parent="gnuhealth_menu_institution" sequence="1"/>
+            parent="gnuhealth_reporting_menu" sequence="1"/>
 
 
 <!-- Health Centers by OPerational Sectors -->
@@ -1760,7 +1763,7 @@
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_institution_operationalsector">
-            <field name="name">operational sectors by institution</field>
+            <field name="name">Operational sectors by institution</field>
             <field name="res_model">gnuhealth.institution.operationalsector</field>
         </record>
 
@@ -1777,7 +1780,7 @@
 
         <menuitem action="action_gnuhealth_institution_operationalsector"
             id="gnuhealth_institution_operationalsector" icon="gnuhealth-list"
-            parent="gnuhealth_menu_institution" sequence="1"/>
+            parent="gnuhealth_reporting_menu" sequence="1"/>
 
 <!-- Hospital Building -->
 
