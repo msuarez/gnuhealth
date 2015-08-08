@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tree string="Patient ECG Assesment">
-    <field name="ecg_date"/>
+    <field name="ecg_date" widget="date"/>
     <field name="name"/>
     <field name="lead"/>
     <field name="axis"/>
