@@ -76,6 +76,16 @@
             <field name="path">icons/cancel.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_warning_icon">
+            <field name="name">gnuhealth-warning</field>
+            <field name="path">icons/warning.svg</field>
+        </record>
+
+        <record model="ir.ui.icon" id="gnuhealth_stop_icon">
+            <field name="name">gnuhealth-stop</field>
+            <field name="path">icons/stop.svg</field>
+        </record>
+
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
         <menuitem name="Demographics" id="gnuhealth_demographics_menu"

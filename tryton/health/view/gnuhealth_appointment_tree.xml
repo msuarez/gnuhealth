@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient appointment" on_write="on_write">
+<tree string="Patient appointment">
     <field name="name" expand="1"/>
     <field name="patient" expand="1"/>
     <field name="appointment_type" expand="1"/>

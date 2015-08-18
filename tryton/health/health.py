@@ -1528,7 +1528,18 @@ class Medicament(ModelSQL, ModelView):
     storage = fields.Text('Storage Conditions')
     is_vaccine = fields.Boolean('Vaccine')
     notes = fields.Text('Extra Info')
+    
+    # Show the icon depending on the pregnancy category
+    pregnancy_cat_icon = \
+        fields.Function(fields.Char('Preg. Cat. Icon'), 'get_preg_cat_icon')
+    
+    def get_preg_cat_icon(self, name):
+        if (self.pregnancy_category == 'X'):
+            return 'gnuhealth-stop'
+        if (self.pregnancy_category == 'D' or self.pregnancy_category == "C"):
+            return 'gnuhealth-warning'
 
+        
     @classmethod
     def __register__(cls, module_name):
         cursor = Transaction().cursor
@@ -1547,18 +1558,6 @@ class Medicament(ModelSQL, ModelView):
     @classmethod
     def check_xml_record(cls, records, values):
         return True
-
-    # Use the following color scheme depending on the 
-    # FDA pregnancy risk status of each drug
-    
-    @classmethod
-    def view_attributes(cls):
-        return [('/tree[@on_write="on_write"]', 'colors',
-                If(Equal(Eval('pregnancy_category'), 'X'), 'red', 
-                If(Equal(Eval('pregnancy_category'), 'D'), 'brown', 
-                If(Equal(Eval('pregnancy_category'), 'C'), 'orange', 
-                If(Equal(Eval('pregnancy_category'), 'N'), 'black',
-                 'blue')))))]
 
 
 class ImmunizationScheduleDose(ModelSQL, ModelView):
@@ -2887,7 +2886,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
     @classmethod
     def view_attributes(cls):
-        return [('/tree[@on_write="on_write"]', 'colors',
+        return [('/tree', 'colors',
                 If(Bool(Eval('is_infectious')),'orange','black'))]
 
 
@@ -3217,7 +3216,7 @@ class AppointmentReport(ModelSQL, ModelView):
 
     @classmethod
     def view_attributes(cls):
-        return [('/tree[@on_write="on_write"]', 'colors',
+        return [('/tree', 'colors',
                 If(Equal(Eval('state'), 'confirmed'), 'blue', 'black'))]
 
 
@@ -3526,8 +3525,8 @@ class PatientMedication(ModelSQL, ModelView):
 
     @classmethod
     def view_attributes(cls):
-        return [('/tree[@on_write="on_write"]', 'colors',
-                If(Bool(Eval('is_active')),'blue','grey'))]
+        return [('/tree', 'colors',
+                If(Bool('is_active'),'blue','grey'))]
 
 
 # PATIENT VACCINATION INFORMATION

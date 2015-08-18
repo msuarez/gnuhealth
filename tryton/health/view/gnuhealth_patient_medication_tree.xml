@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient Medication" on_write="on_write">
+<tree string="Patient Medication">
     <field name="medicament" expand="1"/>
     <field name="start_treatment" widget="date" expand="1"/>
     <field name="end_treatment" widget="date" expand="1"/>
