@@ -410,14 +410,16 @@ class PartyPatient (ModelSQL, ModelView):
     @classmethod
     def search_rec_name(cls, name, clause):
         """ Search for the name, lastname, PUID and any alternative IDs"""
-        field = None
-        for field in ('name', 'lastname', 'ref', 'alternative_ids.code'):
-            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if parties:
-                break
-        if parties:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('ref',) + tuple(clause[1:]),
+            ('alternative_ids.code',) + tuple(clause[1:]),
+            ('name',) + tuple(clause[1:]),
+            ('lastname',) + tuple(clause[1:]),
+            ]
 
     @fields.depends('is_person', 'is_patient', 'is_healthprof')
     def on_change_with_is_person(self):
@@ -1799,22 +1801,21 @@ class ProcedureCode(ModelSQL, ModelView):
     name = fields.Char('Code', required=True)
     description = fields.Char('Long Text', translate=True)
 
-    # Search by the Procedure code or the description
-    @classmethod
-    def search_rec_name(cls, name, clause):
-        field = None
-        for field in ('name', 'description'):
-            procedures = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if procedures:
-                break
-        if procedures:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
-
     # Include code + description in result
     def get_rec_name(self, name):
         return (self.name + ' : ' + self.description)
 
+    # Search by the Procedure code or the description
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('description',) + tuple(clause[1:]),
+            ]
 
 # Add institution attribute AFTER registering the Health Institution
 # Health Professionals and underlying conditions
@@ -2649,24 +2650,25 @@ class PatientData(ModelSQL, ModelView):
         res.append(('name.lastname', clause[1], value))
         return res
 
-    # Search by the patient name, lastname or PUID
-
-    @classmethod
-    def search_rec_name(cls, name, clause):
-        field = None
-        for field in ('name', 'lastname', 'puid'):
-            patients = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if patients:
-                break
-        if patients:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
-
     def get_rec_name(self, name):
         if self.name.lastname:
             return self.name.lastname + ', ' + self.name.name
         else:
             return self.name.name
+
+    # Search by the patient name, lastname or PUID
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('puid',) + tuple(clause[1:]),
+            ('name',) + tuple(clause[1:]),
+            ('lastname',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     # Update to version 2.0
@@ -2884,11 +2886,13 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         super(PatientDiseaseInfo, cls).__register__(module_name)
 
 
-    @classmethod
-    def view_attributes(cls):
-        return [('/tree', 'colors',
-                If(Bool(Eval('is_infectious')),'orange','black'))]
-
+    # Show warning on infectious disease
+    infectious_disease_icon = \
+        fields.Function(fields.Char('Infect'), 'get_infect_disease_icon')
+    
+    def get_infect_disease_icon(self, name):
+        if (self.is_infectious):
+            return 'gnuhealth-warning'
 
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
