@@ -395,7 +395,7 @@ Tablet (scored): 100 mg; 200 mg</field>
     <field name="name" model="product.product" ref="prod_em47"/>
     <field name="active_component">magnesium sulfate</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_5"/>
-    <field name="pregnancy_category">A</field>
+    <field name="pregnancy_category">D</field>
     <field name="notes">Injection: 500 mg/ml in 2‐ml ampoule; 500 mg/ml in
 10‐ml ampoule.
  For use in eclampsia and severe pre‐eclampsia and not for other
