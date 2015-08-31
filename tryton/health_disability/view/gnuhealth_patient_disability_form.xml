@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<form string="Patient Disability Information">
+    <group id="patient_disability_header">
+        <label name="patient"/>
+        <field name="patient"/>
+    </group>
+</form>
