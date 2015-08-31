@@ -92,7 +92,7 @@ class Observation_Map:
                     'value-quantity': 'quantity',
                     'value-string': None}
 
-    # Must have result, be excluded, or be attached to lab
+    # Must be attached to lab
     root_search=[[('gnuhealth_lab_id', '!=', None)]]
     #root_search=[['OR', [('result', '!=', None)],
                         #[('excluded', '=', True)],

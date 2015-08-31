@@ -19,8 +19,7 @@ class FamilyHistory_Map:
     # NOTE We are searching from the gnuhealth.patient view,
     #   since it is easier since family_history is many_to_one
 
-    # Must have some family history
-    root_search=[('family_history', '!=', None)]
+    root_search=[]
 
     resource_search_params={
             '_id': 'token',
@@ -34,11 +33,9 @@ class FamilyHistory_Map:
             'subject': None} #DEBUG Hacky, could cause later problems
 
 
-    # NOTE However, the class receives disease models, not patients
     url_prefixes={}
     model_mapping={'gnuhealth.patient.family.diseases':
             {
-                'subject': 'patient',
                 'relation': 'relative',
                 'relationship': 'xory',
                 'condition': 'name'
@@ -46,34 +43,34 @@ class FamilyHistory_Map:
 # TODO This class should accept a list of dicts, not rows
 
 # DEBUG FamilyHistory stores the entire history in one resource
-#    Consequently, the class must accept multiple records
+#    Consequently, the class must process multiple records
 #    WATCH FOR BUGS
 
 class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map, ExportXMLMixin):
     def __init__(self, *args, **kwargs):
-        recs = kwargs.pop('gnu_records', None)
+        rec = kwargs.pop('gnu_record', None)
         super(health_FamilyHistory, self).__init__(*args, **kwargs)
-        if recs:
-            self.set_gnu_family_history(recs)
+        if rec:
+            self.set_gnu_family_history(rec)
 
-    def set_gnu_family_history(self, family_history):
+    def set_gnu_family_history(self, patient):
         """Set the GNU Health records
         ::::
             params:
-                family_history ===> Health model
+                patient ===> Health model
             returns:
                 instance
 
         """
 
-        self.family_history = family_history
-        self.model_type = self.family_history[0].__name__
+        self.patient = patient
+        self.model_type = self.patient.__name__
 
-        # Only certain models
-        if self.model_type not in self.model_mapping:
+        ## Only certain models
+        if self.model_type not in ['gnuhealth.patient']:
             raise ValueError('Not a valid model')
 
-        self.map = self.model_mapping[self.model_type]
+        self.map_ = self.model_mapping['gnuhealth.patient.family.diseases']
 
         self.__import_from_gnu_family_history()
         self.__set_feed_info()
@@ -81,26 +78,28 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map, ExportXMLM
     def __import_from_gnu_family_history(self):
         """Import data from the model"""
 
-        if self.family_history:
-            self.set_relation(self.family_history)
-            self.set_subject(safe_attrgetter(self.family_history[0], self.map['subject']))
+        if self.patient:
+            self.set_relation(self.patient.family_history)
+            self.set_subject(self.patient)
             #self.set_note()
 
     def __set_feed_info(self):
         """Set the feed-relevant data"""
 
-        if self.family_history:
+        if self.patient:
             if RUN_FLASK:
                 uri = url_for('fh_record',
-                                log_id=self.family_history[0].id,
+                                log_id=self.patient.id,
                                 _external=True)
             else:
                 uri = dumb_url_generate(['FamilyHistory',
-                                self.family_history[0].id])
+                                self.patient.id])
             self.feed={'id': uri,
-                    'published': self.family_history[0].create_date,
-                    'updated': self.family_history[0].write_date or self.family_history[0].create_date,
-                    'title': 'Family history for {}'.format(self.family_history[0].patient.rec_name)
+                    #'published': self.family_history[0].create_date,
+                    #'updated': self.family_history[0].write_date or self.family_history[0].create_date,
+                    'published': self.patient.create_date,
+                    'updated': self.patient.write_date or self.patient.create_date,
+                    'title': 'Family history for {}'.format(self.patient.rec_name)
                         }
 
     def set_subject(self, subject):
@@ -152,7 +151,7 @@ class health_FamilyHistory(supermod.FamilyHistory, FamilyHistory_Map, ExportXMLM
             rel.relationship.coding=[c]
 
             # Add the condition
-            s = attrgetter(self.map['condition'])(member)
+            s = attrgetter(self.map_['condition'])(member)
             if s:
                 con = supermod.FamilyHistory_Condition()
                 t = supermod.CodeableConcept()

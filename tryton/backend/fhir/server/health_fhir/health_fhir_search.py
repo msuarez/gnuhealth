@@ -20,7 +20,7 @@ class health_Search:
     for more complicated raw SQL queries.
     """
 
-    def __init__(self, endpoint=None):
+    def __init__(self, endpoint=None, request_args=None):
         """Create class
 
         Keyword arguments:
@@ -40,6 +40,10 @@ class health_Search:
                             'immunization',
                             'organization'):
             raise ValueError('Not a valid endpoint')
+        if request_args is None:
+            raise ValueError('Need the request arguments!')
+
+        self.request_args = request_args
         self.observation=Observation_Map()
         self.practitioner=Practitioner_Map()
         self.procedure=Procedure_Map()
@@ -83,6 +87,7 @@ class health_Search:
                     'reference': self.string_parser}
                     #'user-defined': self.string_parser,
                     #'composite': self.string_parser}
+
     def __get_dt_parser(self):
         try:
             from dateutil.parser import parse
@@ -453,23 +458,18 @@ class health_Search:
                     #    AND only one statemement, then it
                     #    will be OR'd later...
                     if MULTIPLE == True and len(q) == 1:
-                        #print 'append:', q
                         or_queries.append(q)
                     else:
-                        #print 'extending:', q
                         or_queries.extend(q)
 
                 #If only one or_query, then cleanup
                 #  Not absolutely necessary, but cleaner query
                 if len(or_queries) == 1:
-                    #print 'extending:', or_queries
                     and_queries.extend(or_queries)
                 else:
                     t=['OR']
                     t.extend(or_queries)
-                    #print 'extending:', t
                     and_queries.append(t)
-            #print 'extending:', and_queries
             full_query.extend(and_queries)
 
         # Extend with root search
@@ -477,11 +477,12 @@ class health_Search:
 
         return full_query
 
-    def get_query(self, request_args):
+    @property
+    def query(self):
         """Get the search query
 
         For now, only single model support
         """
 
-        full_search_info=self.parse_url_string(request_args)
+        full_search_info=self.parse_url_string(self.request_args)
         return self.single_model_query_generate(full_search_info)

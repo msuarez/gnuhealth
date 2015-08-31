@@ -47,6 +47,14 @@ class Bundle(supermod.FeedType):
         """Current entries"""
         return self.entry
 
+    def __len__(self):
+        return len(self.entry)
+
+    def __getitem__(self, index):
+        if index >= len(self):
+            raise IndexError
+        return self.entry[index]
+
     def set_id(self, id_):
         """Extends set_id function to properly escape ids
 

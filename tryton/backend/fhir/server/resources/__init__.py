@@ -1,3 +1,6 @@
+from server.resources.mappings import *
+from server.resources.actions import *
+from server.resources.routes import *
 from server.resources.auth import *
 from server.resources.system import *
 from server.resources.diagnostic_report import *
