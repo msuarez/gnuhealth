@@ -24,7 +24,6 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 from sql import Literal, Join, Table
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
-from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
@@ -32,9 +31,43 @@ from trytond.pool import Pool
 import string
 import pytz
 
-__all__ = ['PatientDisability']
+__all__ = ['BodyFunctionCategory','BodyFunction',
+    'PatientDisabilityAssessment']
 
-class PatientDisability(ModelSQL, ModelView):
+
+class BodyFunctionCategory(ModelSQL, ModelView):
+    'Body Function Category'
+    __name__ = 'gnuhealth.body_function.category'
+
+    name = fields.Char('Name', required=True)
+    code = fields.Char('code', required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(BodyFunctionCategory, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+class BodyFunction(ModelSQL, ModelView):
+    'Body Functions'
+    __name__ = 'gnuhealth.body_function'
+
+    name = fields.Char('Function', required=True)
+    code = fields.Char('code', required=True)
+    category = fields.Char('Category')
+    
+    @classmethod
+    def __setup__(cls):
+        super(BodyFunction, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+
+class PatientDisabilityAssessment(ModelSQL, ModelView):
     'Patient Disability Information'
     __name__ = 'gnuhealth.patient_disability'
     
@@ -42,5 +75,49 @@ class PatientDisability(ModelSQL, ModelView):
     
     crutches = fields.Boolean('Crutches')
     wheelchair = fields.Boolean('Wheelchair')
-    
+
+    hand_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ], 'Hand', sort=False)
+
+    visual_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ('blind', 'Blind'),
+        ], 'Visual', sort=False)
+
+    speech_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ('mute', 'Mute'),
+        ], 'Speech', sort=False)
+
+    hearing_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ('deaf', 'Deaf'),
+        ], 'Hearing', sort=False)
+
+    cognitive_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ], 'Cognitive', sort=False)
+
+    locomotor_function = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ], 'Locomotor', sort=False)
 

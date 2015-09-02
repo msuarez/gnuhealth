@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+        <record model="gnuhealth.body_function" id="b110">
+            <field name="name">Consciousness</field>
+            <field name="code">b110</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b114">
+            <field name="name">Orientation</field>
+            <field name="code">b114</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b117">
+            <field name="name">Intellectual</field>
+            <field name="code">b117</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b130">
+            <field name="name">Energy and drive functions</field>
+            <field name="code">b130</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b134">
+            <field name="name">Sleep</field>
+            <field name="code">b134</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b140">
+            <field name="name">Attention</field>
+            <field name="code">b140</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b144">
+            <field name="name">Memory</field>
+            <field name="code">b144</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b152">
+            <field name="name">Emotional Functions</field>
+            <field name="code">b152</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b156">
+            <field name="name">Perceptual Functions</field>
+            <field name="code">b156</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b164">
+            <field name="name">Higher level cognitive functions</field>
+            <field name="code">b164</field>
+            <field name="category">b1</field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b167">
+            <field name="name">Language</field>
+            <field name="code">b167</field>
+            <field name="category">b1</field>
+        </record>
+
+    </data>
+</tryton>

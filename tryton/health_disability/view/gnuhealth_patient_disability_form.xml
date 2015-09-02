@@ -1,7 +1,30 @@
 <?xml version="1.0"?>
 <form string="Patient Disability Information">
-    <group id="patient_disability_header">
+    <group string="Header" id="patient_disability_header">
         <label name="patient"/>
         <field name="patient"/>
     </group>
+    <newline/>
+    <group string="Main" id="disability_main_info" colspan="4" col="10">
+        <label name="cognitive_function"/>
+        <field name="cognitive_function"/>
+        <label name="visual_function"/>
+        <field name="visual_function"/>
+        <label name="hearing_function"/>
+        <field name="hearing_function"/>
+        <label name="speech_function"/>
+        <field name="speech_function"/>
+        <label name="locomotor_function"/>
+        <field name="locomotor_function"/>
+        <newline/>
+        <separator colspan="4" id="disability_main_info_separator"/>
+        <newline/>
+        <label name="crutches"/>
+        <field name="crutches"/>
+        <label name="wheelchair"/>
+        <field name="wheelchair"/>
+        <label name="hand_function"/>
+        <field name="hand_function"/>
+    </group>
+
 </form>

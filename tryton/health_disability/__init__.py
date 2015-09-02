@@ -26,5 +26,7 @@ from trytond.pool import Pool
 
 def register():
     Pool.register(
-        PatientDisability,
+        BodyFunctionCategory,
+        BodyFunction,
+        PatientDisabilityAssessment,
         module='health_disability', type_='model')

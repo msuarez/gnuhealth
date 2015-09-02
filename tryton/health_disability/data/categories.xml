@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<tryton>
+<data skiptest="1" noupdate="1">
+
+<!-- Body Functions Categories, based on ICF -->
+
+	<record model="gnuhealth.body_function.category" id="b1">
+		<field name="name">MENTAL FUNCTIONS</field>
+		<field name="code">b1</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b2">
+		<field name="name">SENSORY FUNCTIONS AND PAIN</field>
+		<field name="code">b2</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b3">
+		<field name="name">VOICE AND SPEECH FUNCTIONS</field>
+		<field name="code">b3</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b4">
+		<field name="name">FUNCTIONS OF THE CARDIOVASCULAR, HEMATOLOGICAL, IMMUNOLOGICAL AND RESPIRATORY SYSTEMS</field>
+		<field name="code">b4</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b5">
+		<field name="name">FUNCTIONS OF THE DIGESTIVE, METABOLIC AND ENDOCRINE SYSTEMS</field>
+		<field name="code">b5</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b6">
+		<field name="name">GENITOURINARY AND REPRODUCTIVE FUNCTIONS</field>
+		<field name="code">b6</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b7">
+		<field name="name">NEUROMUSCULOSKELETAL AND MOVEMENT RELATED FUNCTIONS</field>
+		<field name="code">b7</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b8">
+		<field name="name">FUNCTIONS OF THE SKIN AND RELATED STRUCTURES</field>
+		<field name="code">b8</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b0">
+		<field name="name">ANY OTHER BODY FUNCTIONS</field>
+		<field name="code">b0</field>
+	</record>
+
+</data>
+</tryton>
+
