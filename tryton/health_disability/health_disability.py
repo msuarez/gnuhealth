@@ -32,6 +32,7 @@ import string
 import pytz
 
 __all__ = ['BodyFunctionCategory','BodyFunction',
+    'BodyStructureCategory','BodyStructure',
     'PatientDisabilityAssessment']
 
 
@@ -65,6 +66,39 @@ class BodyFunction(ModelSQL, ModelView):
             ('code', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
+
+class BodyStructureCategory(ModelSQL, ModelView):
+    'Body Structure Category'
+    __name__ = 'gnuhealth.body_structure.category'
+
+    name = fields.Char('Name', required=True)
+    code = fields.Char('code', required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(BodyStructureCategory, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+class BodyStructure(ModelSQL, ModelView):
+    'Body Functions'
+    __name__ = 'gnuhealth.body_structure'
+
+    name = fields.Char('Function', required=True)
+    code = fields.Char('code', required=True)
+    category = fields.Char('Category')
+    
+    @classmethod
+    def __setup__(cls):
+        super(BodyStructure, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+
 
 
 class PatientDisabilityAssessment(ModelSQL, ModelView):

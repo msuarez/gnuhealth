@@ -44,9 +44,53 @@
 		<field name="code">b8</field>
 	</record>
 
+
 	<record model="gnuhealth.body_function.category" id="b0">
 		<field name="name">ANY OTHER BODY FUNCTIONS</field>
 		<field name="code">b0</field>
+	</record>
+
+    <!-- Body Structures Categories -->
+
+
+	<record model="gnuhealth.body_structure.category" id="s1">
+		<field name="name">STRUCTURES OF THE NERVOUS SYSTEM</field>
+		<field name="code">s1</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s2">
+		<field name="name">THE EYE, EAR AND RELATED STRUCTURES</field>
+		<field name="code">s2</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s3">
+		<field name="name">STRUCTURES INVOLVED IN VOICE AND SPEECH</field>
+		<field name="code">s3</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s4">
+		<field name="name">STRUCTURES OF THE CARDIOVASCULAR, IMMUNOLOGICAL AND RESPIRATORY SYSTEMS</field>
+		<field name="code">s4</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s5">
+		<field name="name">STRUCTURES RELATED TO THE DIGESTIVE, METABOLIC AND ENDOCRINE SYSTEMS</field>
+		<field name="code">s5</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s6">
+		<field name="name">STRUCTURES RELATED TO THE GENITOURINARY AND REPRODUCTIVE SYSTEMS</field>
+		<field name="code">s6</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s7">
+		<field name="name">STRUCTURES RELATED TO MOVEMENT</field>
+		<field name="code">s7</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s8">
+		<field name="name">SKIN AND RELATED STRUCTURES</field>
+		<field name="code">s8</field>
 	</record>
 
 </data>

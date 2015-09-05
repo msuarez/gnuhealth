@@ -28,5 +28,7 @@ def register():
     Pool.register(
         BodyFunctionCategory,
         BodyFunction,
+        BodyStructureCategory,
+        BodyStructure,
         PatientDisabilityAssessment,
         module='health_disability', type_='model')
