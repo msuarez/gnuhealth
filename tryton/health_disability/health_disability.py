@@ -115,8 +115,8 @@ class ActivityAndParticipationCategory(ModelSQL, ModelView):
         ]
 
 class ActivityAndParticipation(ModelSQL, ModelView):
-    'Activity and Participation'
-    __name__ = 'gnuhealth.gnuhealth.activity_and_participation'
+    'Activity limitations and participation restrictions'
+    __name__ = 'gnuhealth.activity_and_participation'
 
     name = fields.Char('A & P', required=True)
     code = fields.Char('code', required=True)
@@ -129,8 +129,6 @@ class ActivityAndParticipation(ModelSQL, ModelView):
             ('code', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
-
-
 
 
 class PatientDisabilityAssessment(ModelSQL, ModelView):
@@ -186,4 +184,11 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         ('moderate', 'Moderate impairment'),
         ('severe', 'Severe impairment'),
         ], 'Locomotor', sort=False)
+
+    activity_participation = fields.Selection([
+        (None, ''),
+        ('normal', 'Normal'),
+        ('moderate', 'Moderate impairment'),
+        ('severe', 'Severe impairment'),
+        ], 'A & P', sort=False)
 
