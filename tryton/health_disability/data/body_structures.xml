@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+        <!-- STRUCTURES OF THE NERVOUS SYSTEM -->
+        <record model="gnuhealth.body_structure" id="s110">
+            <field name="name">Brain</field>
+            <field name="code">s110</field>
+            <field name="category">s1</field>
+        </record>
+
+        
+        <record model="gnuhealth.body_structure" id="s120">
+            <field name="name">Spinal cord and peripheral nerves</field>
+            <field name="code">s120</field>
+            <field name="category">s1</field>
+        </record>
+
+        <!-- THE EYE, EAR AND RELATED STRUCTURES -->
+        
+        <!-- STRUCTURES INVOLVED IN VOICE AND SPEECH -->
+        
+        <!-- STRUCTURE OF THE CARDIOVASCULAR, IMMUNOLOGICAL  AND RESPIRATORY SYSTEMS -->
+        
+        <record model="gnuhealth.body_structure" id="s410">
+            <field name="name">Cardiovascular system</field>
+            <field name="code">s410</field>
+            <field name="category">s4</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s430">
+            <field name="name">Respiratory system</field>
+            <field name="code">s430</field>
+            <field name="category">s4</field>
+        </record>
+         
+       <!-- STRUCTURES RELATED TO THE DIGESTIVE, METABOLISM  AND ENDOCRINE SYSTEMS -->
+       
+       <!--  STRUCTURE RELATED TO GENITOURINARY AND REPRODUCTIVE SYSTEM -->
+
+        <record model="gnuhealth.body_structure" id="s610">
+            <field name="name">Urinary System</field>
+            <field name="code">s610</field>
+            <field name="category">s6</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s630">
+            <field name="name">Resproductive system</field>
+            <field name="code">s630</field>
+            <field name="category">s6</field>
+        </record>
+
+       <!-- STRUCTURES RELATED TO MOVEMENT -->
+
+        <record model="gnuhealth.body_structure" id="s710">
+            <field name="name">Head and neck region</field>
+            <field name="code">s710</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7100">
+            <field name="name">Bones of cranium</field>
+            <field name="code">s7100</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7101">
+            <field name="name">Bones of the face</field>
+            <field name="code">s7101</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7102">
+            <field name="name">Bones of neck region</field>
+            <field name="code">s7102</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7103">
+            <field name="name">Joints of head and neck region</field>
+            <field name="code">s7103</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7104">
+            <field name="name">Muscles of head and neck region</field>
+            <field name="code">s7104</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7105">
+            <field name="name">Ligaments and fasciae of head and neck region</field>
+            <field name="code">s7105</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7108">
+            <field name="name">Structure of head and neck region, other specified</field>
+            <field name="code">s7108</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7109">
+            <field name="name">Structure of head and neck region, unspecified</field>
+            <field name="code">s7109</field>
+            <field name="category">s7</field>
+        </record>
+
+
+        <record model="gnuhealth.body_structure" id="s720">
+            <field name="name">Shoulder region</field>
+            <field name="code">s720</field>
+            <field name="category">s7</field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s730">
+            <field name="name">Upper extremity</field>
+            <field name="code">s730</field>
+            <field name="category">s7</field>
+        </record>
+       
+    </data>
+</tryton>
