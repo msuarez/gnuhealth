@@ -31,4 +31,6 @@ def register():
         BodyStructureCategory,
         BodyStructure,
         PatientDisabilityAssessment,
+        ActivityAndParticipationCategory,
+        ActivityAndParticipation,
         module='health_disability', type_='model')

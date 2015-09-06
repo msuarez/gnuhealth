@@ -33,6 +33,7 @@ import pytz
 
 __all__ = ['BodyFunctionCategory','BodyFunction',
     'BodyStructureCategory','BodyStructure',
+    'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'PatientDisabilityAssessment']
 
 
@@ -86,13 +87,44 @@ class BodyStructure(ModelSQL, ModelView):
     'Body Functions'
     __name__ = 'gnuhealth.body_structure'
 
-    name = fields.Char('Function', required=True)
+    name = fields.Char('Structure', required=True)
     code = fields.Char('code', required=True)
     category = fields.Char('Category')
     
     @classmethod
     def __setup__(cls):
         super(BodyStructure, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+class ActivityAndParticipationCategory(ModelSQL, ModelView):
+    'Activity and Participation Category'
+    __name__ = 'gnuhealth.activity_and_participation.category'
+
+    name = fields.Char('Name', required=True)
+    code = fields.Char('code', required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(ActivityAndParticipationCategory, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+class ActivityAndParticipation(ModelSQL, ModelView):
+    'Activity and Participation'
+    __name__ = 'gnuhealth.gnuhealth.activity_and_participation'
+
+    name = fields.Char('A & P', required=True)
+    code = fields.Char('code', required=True)
+    category = fields.Char('Category')
+    
+    @classmethod
+    def __setup__(cls):
+        super(ActivityAndParticipation, cls).__setup__()
         cls._sql_constraints = [
             ('code', 'UNIQUE(code)',
                 'The code must be unique !'),

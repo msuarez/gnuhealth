@@ -2,7 +2,7 @@
 <tryton>
 <data skiptest="1" noupdate="1">
 
-<!-- Body Functions Categories, based on ICF -->
+    <!-- Body Functions Categories, based on ICF -->
 
 	<record model="gnuhealth.body_function.category" id="b1">
 		<field name="name">MENTAL FUNCTIONS</field>
@@ -91,6 +91,48 @@
 	<record model="gnuhealth.body_structure.category" id="s8">
 		<field name="name">SKIN AND RELATED STRUCTURES</field>
 		<field name="code">s8</field>
+	</record>
+
+    <!-- Activity and Participation Categories -->
+
+	<record model="gnuhealth.activity_and_participation.category" id="d1">
+		<field name="name">LEARNING AND APPLYING KNOWLEDGE</field>
+		<field name="code">d1</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d2">
+		<field name="name">GENERAL TASKS AND DEMANDS</field>
+		<field name="code">d2</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d3">
+		<field name="name">COMMUNICATION</field>
+		<field name="code">d3</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d4">
+		<field name="name">MOBILITY</field>
+		<field name="code">d4</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d5">
+		<field name="name">SELF CARE</field>
+		<field name="code">d5</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d6">
+		<field name="name">DOMESTIC LIFE</field>
+		<field name="code">d6</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d7">
+		<field name="name">INTERPERSONAL INTERACTIONS AND RELATIONSHIPS</field>
+		<field name="code">d7</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d8">
+		<field name="name">MAJOR LIFE AREAS</field>
+		<field name="code">d8</field>
 	</record>
 
 </data>
