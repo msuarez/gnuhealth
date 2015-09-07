@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <record model="gnuhealth.environmental_factor" id="e110">
+            <field name="name">For personal consumption (food, medicines)</field>
+            <field name="code">e110</field>
+            <field name="category">e1</field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e115">
+            <field name="name">For personal use in daily living</field>
+            <field name="code">e115</field>
+            <field name="category">e1</field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e120">
+            <field name="name">For personal indoor and outdoor mobility and transportation</field>
+            <field name="code">e120</field>
+            <field name="category">e1</field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e125">
+            <field name="name">Products for communication</field>
+            <field name="code">e125</field>
+            <field name="category">e1</field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e150">
+            <field name="name">Design, construction and building products and technology of buildings for public use</field>
+            <field name="code">e150</field>
+            <field name="category">e1</field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e155">
+            <field name="name">Design, construction and building products and technology of buildings for private use</field>
+            <field name="code">e155</field>
+            <field name="category">e1</field>
+        </record>
+
+    </data>
+</tryton>

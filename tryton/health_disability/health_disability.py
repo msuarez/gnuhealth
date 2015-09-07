@@ -34,6 +34,7 @@ import pytz
 __all__ = ['BodyFunctionCategory','BodyFunction',
     'BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
+    'EnvironmentalFactorCategory','EnvironmentalFactor',
     'PatientDisabilityAssessment']
 
 
@@ -130,6 +131,37 @@ class ActivityAndParticipation(ModelSQL, ModelView):
                 'The code must be unique !'),
         ]
 
+
+class EnvironmentalFactorCategory(ModelSQL, ModelView):
+    'Environmental Factor Category'
+    __name__ = 'gnuhealth.environmental_factor.category'
+
+    name = fields.Char('Name', required=True)
+    code = fields.Char('code', required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(EnvironmentalFactorCategory, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
+
+class EnvironmentalFactor(ModelSQL, ModelView):
+    'Environmental factors restrictions'
+    __name__ = 'gnuhealth.environmental_factor'
+
+    name = fields.Char('Environment', required=True)
+    code = fields.Char('code', required=True)
+    category = fields.Char('Category')
+    
+    @classmethod
+    def __setup__(cls):
+        super(EnvironmentalFactor, cls).__setup__()
+        cls._sql_constraints = [
+            ('code', 'UNIQUE(code)',
+                'The code must be unique !'),
+        ]
 
 class PatientDisabilityAssessment(ModelSQL, ModelView):
     'Patient Disability Information'

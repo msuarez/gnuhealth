@@ -135,6 +135,32 @@
 		<field name="code">d8</field>
 	</record>
 
+    <!-- Environmental Factors Categories -->
+
+	<record model="gnuhealth.environmental_factor.category" id="e1">
+		<field name="name">PRODUCTS AND TECHNOLOGY</field>
+		<field name="code">e1</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e2">
+		<field name="name">NATURAL ENVIRONMENT AND HUMAN MADE CHANGES TO ENVIRONMENT</field>
+		<field name="code">e2</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e3">
+		<field name="name">SUPPORT AND RELATIONSHIPS</field>
+		<field name="code">e3</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e4">
+		<field name="name">ATTITUDES</field>
+		<field name="code">e4</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e5">
+		<field name="name">SERVICES, SYSTEMS AND POLICIES</field>
+		<field name="code">e5</field>
+	</record>
+
 </data>
 </tryton>
-

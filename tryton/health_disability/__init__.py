@@ -33,4 +33,6 @@ def register():
         PatientDisabilityAssessment,
         ActivityAndParticipationCategory,
         ActivityAndParticipation,
+        EnvironmentalFactorCategory,
+        EnvironmentalFactor,
         module='health_disability', type_='model')
