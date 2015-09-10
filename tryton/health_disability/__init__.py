@@ -30,10 +30,10 @@ def register():
         BodyFunction,
         BodyStructureCategory,
         BodyStructure,
-        PatientBodyFunctionAssessment,
-        PatientDisabilityAssessment,
         ActivityAndParticipationCategory,
         ActivityAndParticipation,
         EnvironmentalFactorCategory,
         EnvironmentalFactor,
+        PatientDisabilityAssessment,
+        PatientBodyFunctionAssessment,
         module='health_disability', type_='model')

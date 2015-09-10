@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <tree string="Patient Disability Assessment">
     <field name="patient"/>
+    <field name="assessment"/>
     <field name="cognitive_function"/>
     <field name="visual_function"/>
     <field name="hearing_function"/>

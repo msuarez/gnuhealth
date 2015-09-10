@@ -20,13 +20,13 @@
         <!-- Body Function Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_body_function_assessment_view">
-            <field name="model">gnuhealth.body_function_assessment</field>
+            <field name="model">gnuhealth.body_function.assessment</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_body_function_assessment_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_body_function_assessment_tree">
-            <field name="model">gnuhealth.body_function_assessment</field>
+            <field name="model">gnuhealth.body_function.assessment</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_body_function_assessment_tree</field>
         </record>
@@ -34,13 +34,13 @@
         <!-- Patient Disability Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_view">
-            <field name="model">gnuhealth.patient_disability_assessment</field>
+            <field name="model">gnuhealth.patient.disability_assessment</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_patient_disability_assessment_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_tree">
-            <field name="model">gnuhealth.patient_disability_assessment</field>
+            <field name="model">gnuhealth.patient.disability_assessment</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_patient_disability_assessment_tree</field>
         </record>
@@ -48,8 +48,8 @@
         <!-- Shortcut to Disability assessment / history from the Patient -->
 
         <record model="ir.action.act_window" id="act_patient_disability_assessment_form">
-            <field name="name">Disability Assesment</field>
-            <field name="res_model">gnuhealth.patient_disability_assessment</field>
+            <field name="name">Disability Assessment</field>
+            <field name="res_model">gnuhealth.patient.disability_assessment</field>
             <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
 

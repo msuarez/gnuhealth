@@ -35,8 +35,8 @@ __all__ = ['BodyFunctionCategory','BodyFunction',
     'BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
-    'PatientBodyFunctionAssessment',
-    'PatientDisabilityAssessment']
+    'PatientDisabilityAssessment',
+    'PatientBodyFunctionAssessment']
 
 
 class BodyFunctionCategory(ModelSQL, ModelView):
@@ -164,32 +164,15 @@ class EnvironmentalFactor(ModelSQL, ModelView):
                 'The code must be unique !'),
         ]
 
-class PatientBodyFunctionAssessment(ModelSQL, ModelView):
-    'Body Functions'
-    __name__ = 'gnuhealth.body_function_assesment'
-
-    assessment = fields.Many2One('gnuhealth.patient_disability_assessment',
-        'Assessment', required=True)
-    
-    body_function = fields.Many2One('gnuhealth.body_function', 'Body Function')
-    qualifier = fields.Selection([
-        (None, ''),
-        ('0', '0 - No impairment'),
-        ('1', '1 - Mild impairment'),
-        ('2', '2 - Severe impairment'),
-        ('3', '3 - Complete impairment'),
-        ('8', '8 - Not specified'),
-        ('9', '9 - Not applicable'),
-        ], 'Qualifier', sort=False)
 
 class PatientDisabilityAssessment(ModelSQL, ModelView):
     'Patient Disability Information'
-    __name__ = 'gnuhealth.patient_disability_assessment'
+    __name__ = 'gnuhealth.patient.disability_assessment'
 
-    name = fields.Char('Code')
-    
     patient = fields.Many2One('gnuhealth.patient','Patient', required=True)
-    
+
+    assessment = fields.Char('Code')
+
     crutches = fields.Boolean('Crutches')
     wheelchair = fields.Boolean('Wheelchair')
 
@@ -245,5 +228,23 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         ('severe', 'Severe impairment'),
         ], 'A & P', sort=False)
 
-    body_functions = fields.One2Many('gnuhealth.body_function_assesment',
+    body_functions = fields.One2Many('gnuhealth.body_function.assessment',
         'assessment','Body Functions')
+
+
+class PatientBodyFunctionAssessment(ModelSQL, ModelView):
+    'Body Functions Assessment'
+    __name__ = 'gnuhealth.body_function.assessment'
+
+    assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
+        'Assessment', required=True)
+    body_function = fields.Many2One('gnuhealth.body_function', 'Body Function')
+    qualifier = fields.Selection([
+        (None, ''),
+        ('0', '0 - No impairment'),
+        ('1', '1 - Mild impairment'),
+        ('2', '2 - Severe impairment'),
+        ('3', '3 - Complete impairment'),
+        ('8', '8 - Not specified'),
+        ('9', '9 - Not applicable'),
+        ], 'Qualifier', sort=False)
