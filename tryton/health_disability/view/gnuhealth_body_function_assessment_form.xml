@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Body Function Assessment">
+    <label name="assessment"/>
+    <field name="assessment"/>
+    <label name="body_function"/>
+    <field name="body_function"/>
+    <label name="qualifier"/>
+    <field name="qualifier"/>
+</form>

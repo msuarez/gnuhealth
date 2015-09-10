@@ -30,6 +30,7 @@ def register():
         BodyFunction,
         BodyStructureCategory,
         BodyStructure,
+        PatientBodyFunctionAssessment,
         PatientDisabilityAssessment,
         ActivityAndParticipationCategory,
         ActivityAndParticipation,

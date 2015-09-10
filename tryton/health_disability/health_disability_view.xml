@@ -1,33 +1,62 @@
 <?xml version="1.0"?>
 <tryton>
     <data>
-        
-        <!-- Patient Disability -->
 
-        <record model="ir.ui.view" id="gnuhealth_patient_disability_view">
-            <field name="model">gnuhealth.patient_disability</field>
+        <!-- Body Function -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_view">
+            <field name="model">gnuhealth.body_function</field>
             <field name="type">form</field>
-            <field name="name">gnuhealth_patient_disability_form</field>
+            <field name="name">gnuhealth_body_function_form</field>
         </record>
 
-        <record model="ir.ui.view" id="gnuhealth_patient_disability_tree">
-            <field name="model">gnuhealth.patient_disability</field>
+        <record model="ir.ui.view" id="gnuhealth_body_function_tree">
+            <field name="model">gnuhealth.body_function</field>
             <field name="type">tree</field>
-            <field name="name">gnuhealth_patient_disability_tree</field>
+            <field name="name">gnuhealth_body_function_tree</field>
+        </record>
+
+
+        <!-- Body Function Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_assessment_view">
+            <field name="model">gnuhealth.body_function_assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_function_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_assessment_tree">
+            <field name="model">gnuhealth.body_function_assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_function_assessment_tree</field>
+        </record>
+        
+        <!-- Patient Disability Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_view">
+            <field name="model">gnuhealth.patient_disability_assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_disability_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_tree">
+            <field name="model">gnuhealth.patient_disability_assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_patient_disability_assessment_tree</field>
         </record>
 
         <!-- Shortcut to Disability assessment / history from the Patient -->
 
-        <record model="ir.action.act_window" id="act_patient_disability_form">
-            <field name="name">Disability Information</field>
-            <field name="res_model">gnuhealth.patient_disability</field>
+        <record model="ir.action.act_window" id="act_patient_disability_assessment_form">
+            <field name="name">Disability Assesment</field>
+            <field name="res_model">gnuhealth.patient_disability_assessment</field>
             <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
 
-        <record model="ir.action.keyword" id="act_open_patient_disability_keyword">
+        <record model="ir.action.keyword" id="act_open_patient_disability_assessment_keyword">
             <field name="keyword">form_relate</field>
             <field name="model">gnuhealth.patient,-1</field>
-            <field name="action" ref="act_patient_disability_form"/>
+            <field name="action" ref="act_patient_disability_assessment_form"/>
         </record>
 
     </data>

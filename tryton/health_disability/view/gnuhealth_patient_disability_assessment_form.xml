@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Patient Disability Information">
+<form string="Patient Disability Assessment">
     <group string="Header" id="patient_disability_header">
         <label name="patient"/>
         <field name="patient"/>
@@ -29,4 +29,7 @@
         <field name="hand_function"/>
     </group>
 
+    <group string="ICF Assessment" id="disability_icf_info" colspan="4" col="10">
+        <field name="body_functions"/>
+    </group>
 </form>
