@@ -36,4 +36,5 @@ def register():
         EnvironmentalFactor,
         PatientDisabilityAssessment,
         PatientBodyFunctionAssessment,
+        PatientBodyStructureAssessment,
         module='health_disability', type_='model')

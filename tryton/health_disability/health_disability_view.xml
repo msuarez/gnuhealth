@@ -30,6 +30,35 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_body_function_assessment_tree</field>
         </record>
+
+
+        <!-- Body Structure -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_view">
+            <field name="model">gnuhealth.body_structure</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_structure_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_tree">
+            <field name="model">gnuhealth.body_structure</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_structure_tree</field>
+        </record>
+
+        <!-- Body Structure Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_assessment_view">
+            <field name="model">gnuhealth.body_structure.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_structure_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_assessment_tree">
+            <field name="model">gnuhealth.body_structure.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_structure_assessment_tree</field>
+        </record>
         
         <!-- Patient Disability Assessment -->
 

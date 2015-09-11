@@ -36,7 +36,8 @@ __all__ = ['BodyFunctionCategory','BodyFunction',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
     'PatientDisabilityAssessment',
-    'PatientBodyFunctionAssessment']
+    'PatientBodyFunctionAssessment',
+    'PatientBodyStructureAssessment']
 
 
 class BodyFunctionCategory(ModelSQL, ModelView):
@@ -231,6 +232,9 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     body_functions = fields.One2Many('gnuhealth.body_function.assessment',
         'assessment','Body Functions')
 
+    body_structures = fields.One2Many('gnuhealth.body_structure.assessment',
+        'assessment','Body Structures')
+
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'
@@ -241,10 +245,49 @@ class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     body_function = fields.Many2One('gnuhealth.body_function', 'Body Function')
     qualifier = fields.Selection([
         (None, ''),
-        ('0', '0 - No impairment'),
-        ('1', '1 - Mild impairment'),
-        ('2', '2 - Severe impairment'),
-        ('3', '3 - Complete impairment'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Severe impairment'),
+        ('3', 'Complete impairment'),
+        ('8', 'Not specified'),
+        ('9', 'Not applicable'),
+        ], 'Qualifier', sort=False)
+
+class PatientBodyStructureAssessment(ModelSQL, ModelView):
+    'Body Functions Assessment'
+    __name__ = 'gnuhealth.body_structure.assessment'
+
+    assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
+        'Assessment', required=True)
+    body_structure = fields.Many2One('gnuhealth.body_structure', 'Body Structure')
+    qualifier1 = fields.Selection([
+        (None, ''),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
+        ('8', 'Not specified'),
+        ('9', 'Not applicable'),
+        ], 'Extent', help="Extent of the impairment", sort=False)
+
+    qualifier2 = fields.Selection([
+        (None, ''),
+        ('0', 'No change in structure'),
+        ('1', 'Total absence'),
+        ('2', 'Partial absence'),
+        ('3', 'Additional part'),
+        ('4', 'Aberrant dimensions'),
+        ('5', 'Discontinuity'),
+        ('6', 'Deviating position'),
+        ('7', 'Qualitative changes in structure, including accumulation of fluid'),
         ('8', '8 - Not specified'),
         ('9', '9 - Not applicable'),
-        ], 'Qualifier', sort=False)
+        ], 'Nature', help="Nature of the change", sort=False)
+
+    body_side = fields.Selection([
+        (None, ''),
+        ('left', 'Left'),
+        ('right', 'Right'),
+        ('both', 'Both'),
+        ], 'Side', help="Side of the body, if applies", sort=False)
