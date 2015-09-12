@@ -7,7 +7,7 @@
         <field name="assessment"/>
     </group>
     <newline/>
-    <group string="Main" id="disability_main_info" colspan="4" col="10">
+    <group string="Summary - Brief Assessment" id="disability_main_info" colspan="4" col="8">
         <label name="cognitive_function"/>
         <field name="cognitive_function"/>
         <label name="visual_function"/>
@@ -16,23 +16,26 @@
         <field name="hearing_function"/>
         <label name="speech_function"/>
         <field name="speech_function"/>
+        <newline/>
+        <label name="hand_function"/>
+        <field name="hand_function"/>
         <label name="locomotor_function"/>
         <field name="locomotor_function"/>
         <label name="activity_participation"/>
         <field name="activity_participation"/>
         <newline/>
-        <separator colspan="4" col="10" id="disability_main_info_separator"/>
+        <separator xexpand="1" id="disability_main_info_separator"/>
         <newline/>
         <label name="crutches"/>
         <field name="crutches"/>
         <label name="wheelchair"/>
         <field name="wheelchair"/>
-        <label name="hand_function"/>
-        <field name="hand_function"/>
+        <label name="uxo"/>
+        <field name="uxo"/>
     </group>
 
-
-    <group string="ICF Assessment" id="disability_icf_info" colspan="4">
+    <newline/>
+    <group string="Detailed Functioning and Disability Assessment" id="disability_icf_info" colspan="4" yexpand="1" yfill="1">
         <field name="body_functions"/>
         <field name="body_structures"/>
         <newline/>
@@ -40,5 +43,11 @@
         <field name="environmental_factor"/>        
     </group>
 
+    <newline/>
+    
+    <group string="Extra Info" id="disability_extra_info" colspan="4">
+        <field name="notes"/>
+    </group>
+    
 
 </form>

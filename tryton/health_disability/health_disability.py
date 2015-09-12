@@ -178,6 +178,9 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     crutches = fields.Boolean('Crutches')
     wheelchair = fields.Boolean('Wheelchair')
+    uxo = fields.Boolean('UXO', help="UXO casualty")
+
+    notes = fields.Text('Notes', help="Extra Information")
 
     hand_function = fields.Selection([
         (None, ''),
