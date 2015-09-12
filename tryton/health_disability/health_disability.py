@@ -38,7 +38,8 @@ __all__ = ['BodyFunctionCategory','BodyFunction',
     'PatientDisabilityAssessment',
     'PatientBodyFunctionAssessment',
     'PatientBodyStructureAssessment',
-    'PatientActivityAndParticipationAsssessment']
+    'PatientActivityAndParticipationAsssessment',
+    'PatientEnvironmentalFactorAssessment']
 
 
 class BodyFunctionCategory(ModelSQL, ModelView):
@@ -221,7 +222,7 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         ('normal', 'Normal'),
         ('moderate', 'Moderate impairment'),
         ('severe', 'Severe impairment'),
-        ], 'Locomotor', sort=False)
+        ], 'Mobility', sort=False)
 
     activity_participation = fields.Selection([
         (None, ''),
@@ -231,15 +232,18 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         ], 'A & P', sort=False)
 
     body_functions = fields.One2Many('gnuhealth.body_function.assessment',
-        'assessment','Body Functions')
+        'assessment','Body Functions Impairments')
 
     body_structures = fields.One2Many('gnuhealth.body_structure.assessment',
-        'assessment','Body Structures')
+        'assessment','Body Structures Impairments')
 
     activity_and_participation = fields.One2Many(
         'gnuhealth.activity_and_participation.assessment',
-        'assessment','Activity and Participation')
+        'assessment','Activities and Participation Impairments')
 
+    environmental_factor = fields.One2Many(
+        'gnuhealth.environmental_factor.assessment',
+        'assessment','Environmental Factors Barriers')
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'
@@ -309,22 +313,46 @@ class PatientActivityAndParticipationAsssessment(ModelSQL, ModelView):
         'gnuhealth.activity_and_participation','Activity')
     qualifier1 = fields.Selection([
         (None, ''),
-        ('0', 'No dificulty'),
-        ('1', 'Mild dificulty'),
-        ('2', 'Moderate dificulty'),
-        ('3', 'Severe dificulty'),
-        ('4', 'Complete dificulty'),
+        ('0', 'No difficulty'),
+        ('1', 'Mild difficulty'),
+        ('2', 'Moderate difficulty'),
+        ('3', 'Severe difficulty'),
+        ('4', 'Complete difficulty'),
         ('8', 'Not specified'),
         ('9', 'Not applicable'),
-        ], 'Performance', help="Extent of the dificulty", sort=False)
+        ], 'Performance', help="Extent of the difficulty", sort=False)
 
     qualifier2 = fields.Selection([
         (None, ''),
-        ('0', 'No dificulty'),
-        ('1', 'Mild dificulty'),
-        ('2', 'Moderate dificulty'),
-        ('3', 'Severe dificulty'),
-        ('4', 'Complete dificulty'),
+        ('0', 'No difficulty'),
+        ('1', 'Mild difficulty'),
+        ('2', 'Moderate difficulty'),
+        ('3', 'Severe difficulty'),
+        ('4', 'Complete difficulty'),
         ('8', 'Not specified'),
         ('9', 'Not applicable'),
         ], 'Capacity', help="Extent of the dificulty", sort=False)
+
+class PatientEnvironmentalFactorAssessment(ModelSQL, ModelView):
+    'Environmental Factors Assessment'
+    __name__ = 'gnuhealth.environmental_factor.assessment'
+
+    assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
+        'Assessment', required=True)
+    
+    environmental_factor = fields.Many2One(
+        'gnuhealth.environmental_factor','Environment')
+
+    qualifier = fields.Selection([
+        (None, ''),
+        ('0', 'No barriers'),
+        ('1', 'Mild barriers'),
+        ('2', 'Moderate barriers'),
+        ('3', 'Severe barriers'),
+        ('4', 'Complete barriers'),
+        ('00', 'No facilitator'),
+        ('11', 'Mild facilitator'),
+        ('22', 'Moderate facilitator'),
+        ('33', 'Severe facilitator'),
+        ('44', 'Complete facilitator'),
+        ], 'Barriers', help="Extent of the barriers or facilitators", sort=False)
