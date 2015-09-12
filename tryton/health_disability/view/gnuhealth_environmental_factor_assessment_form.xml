@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<form string="Environmental Factors Assessment">
+    <label name="assessment"/>
+    <field name="assessment"/>
+    <label name="environmental_factor"/>
+    <field name="environmental_factor"/>
+    <label name="qualifier"/>
+    <field name="qualifier"/>
+</form>
