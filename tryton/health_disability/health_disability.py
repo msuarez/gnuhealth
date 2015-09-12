@@ -37,7 +37,8 @@ __all__ = ['BodyFunctionCategory','BodyFunction',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
     'PatientDisabilityAssessment',
     'PatientBodyFunctionAssessment',
-    'PatientBodyStructureAssessment']
+    'PatientBodyStructureAssessment',
+    'PatientActivityAndParticipationAsssessment']
 
 
 class BodyFunctionCategory(ModelSQL, ModelView):
@@ -235,6 +236,10 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     body_structures = fields.One2Many('gnuhealth.body_structure.assessment',
         'assessment','Body Structures')
 
+    activity_and_participation = fields.One2Many(
+        'gnuhealth.activity_and_participation.assessment',
+        'assessment','Activity and Participation')
+
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'
@@ -291,3 +296,35 @@ class PatientBodyStructureAssessment(ModelSQL, ModelView):
         ('right', 'Right'),
         ('both', 'Both'),
         ], 'Side', help="Side of the body, if applies", sort=False)
+
+
+class PatientActivityAndParticipationAsssessment(ModelSQL, ModelView):
+    'Activity and Participation Assessment'
+    __name__ = 'gnuhealth.activity_and_participation.assessment'
+
+    assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
+        'Assessment', required=True)
+    
+    activity_and_participation = fields.Many2One(
+        'gnuhealth.activity_and_participation','Activity')
+    qualifier1 = fields.Selection([
+        (None, ''),
+        ('0', 'No dificulty'),
+        ('1', 'Mild dificulty'),
+        ('2', 'Moderate dificulty'),
+        ('3', 'Severe dificulty'),
+        ('4', 'Complete dificulty'),
+        ('8', 'Not specified'),
+        ('9', 'Not applicable'),
+        ], 'Performance', help="Extent of the dificulty", sort=False)
+
+    qualifier2 = fields.Selection([
+        (None, ''),
+        ('0', 'No dificulty'),
+        ('1', 'Mild dificulty'),
+        ('2', 'Moderate dificulty'),
+        ('3', 'Severe dificulty'),
+        ('4', 'Complete dificulty'),
+        ('8', 'Not specified'),
+        ('9', 'Not applicable'),
+        ], 'Capacity', help="Extent of the dificulty", sort=False)

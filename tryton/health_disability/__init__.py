@@ -37,4 +37,5 @@ def register():
         PatientDisabilityAssessment,
         PatientBodyFunctionAssessment,
         PatientBodyStructureAssessment,
+        PatientActivityAndParticipationAsssessment,
         module='health_disability', type_='model')

@@ -21,7 +21,7 @@
         <label name="activity_participation"/>
         <field name="activity_participation"/>
         <newline/>
-        <separator colspan="4" id="disability_main_info_separator"/>
+        <separator colspan="4" col="10" id="disability_main_info_separator"/>
         <newline/>
         <label name="crutches"/>
         <field name="crutches"/>
@@ -32,9 +32,11 @@
     </group>
 
 
-    <group string="ICF Assessment" id="disability_icf_info" colspan="4" col="10">
+    <group string="ICF Assessment" id="disability_icf_info" colspan="4">
         <field name="body_functions"/>
         <field name="body_structures"/>
+        <newline/>
+        <field name="activity_and_participation"/>        
     </group>
 
 
