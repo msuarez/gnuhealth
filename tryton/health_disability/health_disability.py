@@ -193,7 +193,7 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     uxo = fields.Function(fields.Boolean('UXO'), 'get_uxo_status')
     amputee = fields.Function(fields.Boolean('Amputee'),
-        'get_amputation_status')
+        'get_amputee_status')
     
     notes = fields.Text('Notes', help="Extra Information")
 
@@ -267,7 +267,7 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     def get_uxo_status(self, name):
         return self.patient.uxo
 
-    def get_amputation_status(self, name):
+    def get_amputee_status(self, name):
         return self.patient.amputee
 
 

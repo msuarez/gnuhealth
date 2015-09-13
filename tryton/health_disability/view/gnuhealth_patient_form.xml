@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <data>
+    <!-- Include disability / barriers field on main patient form -->
+    
     <xpath expr="//field[@name=&quot;critical_info&quot;]" position="after">
         <newline/>
         <group id="disability_status" colspan="2">
@@ -7,4 +9,15 @@
             <field name="disability"/>
         </group>
     </xpath>
+
+    <!-- Include UXO victim field on Socioeconomics form, after Hostile area -->
+
+    <xpath expr="//field[@name=&quot;hostile_area&quot;]" position="after">
+        <label name="uxo"/>
+        <field name="uxo"/>
+        <label name="amputee"/>
+        <field name="amputee"/>
+
+    </xpath>
+
 </data>
