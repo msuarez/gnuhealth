@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//field[@name=&quot;critical_info&quot;]" position="after">
+        <newline/>
+        <group id="disability_status" colspan="2">
+            <label name="disability"/>
+            <field name="disability"/>
+        </group>
+    </xpath>
+</data>
