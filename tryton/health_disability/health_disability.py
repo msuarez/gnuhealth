@@ -32,7 +32,7 @@ import string
 import pytz
 
 __all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
-    'BodyStructureCategory','BodyStructure',
+    'Product','BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
     'PatientDisabilityAssessment',
@@ -54,6 +54,14 @@ class GnuHealthPatient(ModelSQL, ModelView):
     amputee = fields.Boolean('Amputee', help="Person has had one or more"
         " limbs removed by amputation. Includes congenital conditions")
     amputee_since = fields.Date('Since', help="Date of amputee status")
+
+
+class Product(ModelSQL, ModelView):
+    'Product'
+    __name__ = 'product.product'
+    
+    is_prothesis = fields.Boolean(
+        'Prothesis', help='Check if the product is a prothesis')
 
 class BodyFunctionCategory(ModelSQL, ModelView):
     'Body Function Category'
@@ -202,54 +210,65 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     hand_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Hand', sort=False)
 
     visual_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
-        ('blind', 'Blind'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Visual', sort=False)
 
     speech_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
-        ('mute', 'Mute'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Speech', sort=False)
 
     hearing_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
-        ('deaf', 'Deaf'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Hearing', sort=False)
 
     cognitive_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Cognitive', sort=False)
 
     locomotor_function = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'Mobility', sort=False)
 
     activity_participation = fields.Selection([
         (None, ''),
-        ('normal', 'Normal'),
-        ('moderate', 'Moderate impairment'),
-        ('severe', 'Severe impairment'),
+        ('0', 'No impairment'),
+        ('1', 'Mild impairment'),
+        ('2', 'Moderate impairment'),
+        ('3', 'Severe impairment'),
+        ('4', 'Complete impairment'),
         ], 'A & P', sort=False)
 
     body_functions = fields.One2Many('gnuhealth.body_function.assessment',

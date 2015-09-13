@@ -27,6 +27,7 @@ from trytond.pool import Pool
 def register():
     Pool.register(
         GnuHealthPatient,
+        Product,
         BodyFunctionCategory,
         BodyFunction,
         BodyStructureCategory,
