@@ -31,7 +31,7 @@ from trytond.pool import Pool
 import string
 import pytz
 
-__all__ = ['BodyFunctionCategory','BodyFunction',
+__all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
     'BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
@@ -41,6 +41,18 @@ __all__ = ['BodyFunctionCategory','BodyFunction',
     'PatientActivityAndParticipationAsssessment',
     'PatientEnvironmentalFactorAssessment']
 
+
+# Include disabilty amputation and UXO casualty information on patient model
+class GnuHealthPatient(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient'
+
+    disability = fields.Boolean('Disabilities / Barriers', help="Mark this "
+        "box if the patient has history of significant disabilities and/or "
+        "barriers. Review the Disability Assessments, socioeconomic info,  "
+        "diseases and surgeries for more details")
+    uxo = fields.Boolean('UXO', help="UXO casualty")
+    amputee = fields.Boolean('Amputee', help="Person has had one or more"
+        " limbs removed by amputation. Includes congenital conditions")
 
 class BodyFunctionCategory(ModelSQL, ModelView):
     'Body Function Category'
@@ -178,8 +190,11 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     crutches = fields.Boolean('Crutches')
     wheelchair = fields.Boolean('Wheelchair')
-    uxo = fields.Boolean('UXO', help="UXO casualty")
 
+    uxo = fields.Function(fields.Boolean('UXO'), 'get_uxo_status')
+    amputee = fields.Function(fields.Boolean('Amputee'),
+        'get_amputation_status')
+    
     notes = fields.Text('Notes', help="Extra Information")
 
     hand_function = fields.Selection([
@@ -247,6 +262,14 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     environmental_factor = fields.One2Many(
         'gnuhealth.environmental_factor.assessment',
         'assessment','Environmental Factors Barriers')
+
+
+    def get_uxo_status(self, name):
+        return self.patient.uxo
+
+    def get_amputation_status(self, name):
+        return self.patient.amputee
+
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'

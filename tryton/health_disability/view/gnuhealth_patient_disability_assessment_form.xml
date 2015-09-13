@@ -24,7 +24,7 @@
         <label name="activity_participation"/>
         <field name="activity_participation"/>
         <newline/>
-        <separator xexpand="1" id="disability_main_info_separator"/>
+        <separator colspan="10" id="disability_main_info_separator"/>
         <newline/>
         <label name="crutches"/>
         <field name="crutches"/>

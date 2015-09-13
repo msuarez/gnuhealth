@@ -2,6 +2,16 @@
 <tryton>
     <data>
 
+        <!-- Include Disability information in the Patient History -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_view">
+            <field name="model">gnuhealth.patient</field>
+            <field name="inherit" ref="health.gnuhealth_patient_view_form" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_form</field>
+        </record>
+
+
         <!-- Body Function -->
 
         <record model="ir.ui.view" id="gnuhealth_body_function_view">
