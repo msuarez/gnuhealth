@@ -53,6 +53,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     uxo = fields.Boolean('UXO', help="UXO casualty")
     amputee = fields.Boolean('Amputee', help="Person has had one or more"
         " limbs removed by amputation. Includes congenital conditions")
+    amputee_since = fields.Date('Since', help="Date of amputee status")
 
 class BodyFunctionCategory(ModelSQL, ModelView):
     'Body Function Category'
@@ -194,6 +195,8 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     uxo = fields.Function(fields.Boolean('UXO'), 'get_uxo_status')
     amputee = fields.Function(fields.Boolean('Amputee'),
         'get_amputee_status')
+    amputee_since = fields.Function(fields.Date('Since'),
+        'get_amputee_date')
     
     notes = fields.Text('Notes', help="Extra Information")
 
@@ -270,6 +273,8 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     def get_amputee_status(self, name):
         return self.patient.amputee
 
+    def get_amputee_date(self, name):
+        return self.patient.amputee_since
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'

@@ -32,8 +32,12 @@
         <field name="wheelchair"/>
         <label name="uxo"/>
         <field name="uxo"/>
-        <label name="amputee"/>
-        <field name="amputee"/>
+        <group string="Amputee Status" id="amputee_status_group" col="4" colspan="2">
+            <label name="amputee"/>
+            <field name="amputee"/>
+            <label name="amputee_since"/>
+            <field name="amputee_since"/>
+        </group>
     </group>
 
     <newline/>
