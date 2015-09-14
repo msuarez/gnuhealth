@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <tryton>
     <data>
+        
+        
+        <!-- Menu entries -->
+        <menuitem name="Functioning and Disability" id="disability_conf_menu"
+            parent="health.gnuhealth_conf_menu" icon="gnuhealth-preferences"/>
+
 
         <!-- Include Disability information in the Patient History -->
 
@@ -33,6 +39,27 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_body_function_tree</field>
         </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_body_function_view">
+            <field name="name">body_functions</field>
+            <field name="res_model">gnuhealth.body_function</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_function_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_body_function_tree"/>
+            <field name="act_window" ref="action_gnuhealth_body_function_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_function_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_body_function_view"/>
+            <field name="act_window" ref="action_gnuhealth_body_function_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_body_function_view"
+            id="menu_gnuhealth_body_function_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
 
 
         <!-- Body Function Assessment -->
