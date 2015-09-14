@@ -135,6 +135,12 @@
 		<field name="code">d8</field>
 	</record>
 
+	<record model="gnuhealth.activity_and_participation.category" id="d9">
+		<field name="name">COMMUNITY, SOCIAL AND CIVIC LIFE</field>
+		<field name="code">d9</field>
+	</record>
+
+
     <!-- Environmental Factors Categories -->
 
 	<record model="gnuhealth.environmental_factor.category" id="e1">

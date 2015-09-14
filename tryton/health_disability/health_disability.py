@@ -84,7 +84,7 @@ class BodyFunction(ModelSQL, ModelView):
 
     name = fields.Char('Function', required=True)
     code = fields.Char('code', required=True)
-    category = fields.Char('Category')
+    category = fields.Many2One('gnuhealth.body_function.category','Category')
     
     @classmethod
     def __setup__(cls):
@@ -115,7 +115,7 @@ class BodyStructure(ModelSQL, ModelView):
 
     name = fields.Char('Structure', required=True)
     code = fields.Char('code', required=True)
-    category = fields.Char('Category')
+    category = fields.Many2One('gnuhealth.body_structure.category','Category')
     
     @classmethod
     def __setup__(cls):
@@ -146,7 +146,8 @@ class ActivityAndParticipation(ModelSQL, ModelView):
 
     name = fields.Char('A & P', required=True)
     code = fields.Char('code', required=True)
-    category = fields.Char('Category')
+    category = fields.Many2One(
+        'gnuhealth.activity_and_participation.category','Category')
     
     @classmethod
     def __setup__(cls):
@@ -178,7 +179,8 @@ class EnvironmentalFactor(ModelSQL, ModelView):
 
     name = fields.Char('Environment', required=True)
     code = fields.Char('code', required=True)
-    category = fields.Char('Category')
+    category = fields.Many2One(
+        'gnuhealth.environmental_factor.category','Category')
     
     @classmethod
     def __setup__(cls):
