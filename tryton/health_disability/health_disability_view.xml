@@ -41,7 +41,7 @@
         </record>
 
         <record model="ir.action.act_window" id="action_gnuhealth_body_function_view">
-            <field name="name">body_functions</field>
+            <field name="name">Body Functions</field>
             <field name="res_model">gnuhealth.body_function</field>
         </record>
 
@@ -91,6 +91,26 @@
             <field name="name">gnuhealth_body_structure_tree</field>
         </record>
 
+        <record model="ir.action.act_window" id="action_gnuhealth_body_structure_view">
+            <field name="name">Body Structures</field>
+            <field name="res_model">gnuhealth.body_structure</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_structure_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_body_structure_tree"/>
+            <field name="act_window" ref="action_gnuhealth_body_structure_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_structure_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_body_structure_view"/>
+            <field name="act_window" ref="action_gnuhealth_body_structure_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_body_structure_view"
+            id="menu_gnuhealth_body_structure_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
         <!-- Body Structure Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_body_structure_assessment_view">
@@ -104,6 +124,41 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_body_structure_assessment_tree</field>
         </record>
+
+
+        <!-- Activity and Participation -->
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_view">
+            <field name="model">gnuhealth.activity_and_participation</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_activity_and_participation_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_tree">
+            <field name="model">gnuhealth.activity_and_participation</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_activity_and_participation_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_activity_and_participation_view">
+            <field name="name">Activities and Participation</field>
+            <field name="res_model">gnuhealth.activity_and_participation</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_activity_and_participation_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_activity_and_participation_tree"/>
+            <field name="act_window" ref="action_gnuhealth_activity_and_participation_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_activity_and_participation_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_activity_and_participation_view"/>
+            <field name="act_window" ref="action_gnuhealth_activity_and_participation_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_activity_and_participation_view"
+            id="menu_gnuhealth_activity_and_participation_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
 
 
         <!-- Activity and Participation Assessment -->
@@ -120,6 +175,41 @@
             <field name="name">gnuhealth_activity_and_participation_assessment_tree</field>
         </record>
         
+
+        <!-- Environmental Factor -->
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_view">
+            <field name="model">gnuhealth.environmental_factor</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_environmental_factor_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_tree">
+            <field name="model">gnuhealth.environmental_factor</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_environmental_factor_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_environmental_factor_view">
+            <field name="name">Environmental Factors</field>
+            <field name="res_model">gnuhealth.environmental_factor</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_environmental_factor_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_environmental_factor_tree"/>
+            <field name="act_window" ref="action_gnuhealth_environmental_factor_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_environmental_factor_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_environmental_factor_view"/>
+            <field name="act_window" ref="action_gnuhealth_environmental_factor_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_environmental_factor_view"
+            id="menu_gnuhealth_environmental_factor_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
         <!-- Environmental Factor Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_view">
