@@ -26,7 +26,6 @@ from trytond.pool import Pool
 
 def register():
     Pool.register(
-        PatientAmputation,
         GnuHealthPatient,
         Product,
         BodyFunctionCategory,
@@ -37,6 +36,7 @@ def register():
         ActivityAndParticipation,
         EnvironmentalFactorCategory,
         EnvironmentalFactor,
+        PatientAmputation,
         PatientDisabilityAssessment,
         PatientBodyFunctionAssessment,
         PatientBodyStructureAssessment,
