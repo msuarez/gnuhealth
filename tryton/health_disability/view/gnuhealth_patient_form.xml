@@ -29,7 +29,8 @@
             <field name="amputee_since"/>
             <newline/>
             <field name="amputations" colspan="4"/>
-            
+            <newline/>
+            <field name="protheses" colspan="4"/>
         </group>
     </xpath>
 

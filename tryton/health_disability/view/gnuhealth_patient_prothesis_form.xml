@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Patient Protheses">
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="prothesis"/>
+    <field name="prothesis"/>
+    <label name="issue_date"/>
+    <field name="issue_date"/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

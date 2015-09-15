@@ -14,6 +14,8 @@
     <field name="amputation_level"/>
     <label name="etiology"/>
     <field name="etiology"/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
     <label name="comments"/>
     <field name="comments"/>
 </form>

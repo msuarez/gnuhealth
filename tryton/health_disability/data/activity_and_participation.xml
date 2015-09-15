@@ -140,7 +140,7 @@
 
         <record model="gnuhealth.activity_and_participation" id="d540">
             <field name="name">Dressing</field>
-            <field name="code">d530</field>
+            <field name="code">d540</field>
             <field name="category" ref="d5"></field>
         </record>
 

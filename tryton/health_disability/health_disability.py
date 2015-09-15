@@ -39,7 +39,8 @@ __all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
     'PatientBodyFunctionAssessment',
     'PatientBodyStructureAssessment',
     'PatientActivityAndParticipationAsssessment',
-    'PatientEnvironmentalFactorAssessment']
+    'PatientEnvironmentalFactorAssessment',
+    'PatientProthesis']
 
 
     
@@ -57,6 +58,8 @@ class GnuHealthPatient(ModelSQL, ModelView):
     amputee_since = fields.Date('Since', help="Date of amputee status")
     
     amputations = fields.One2Many('gnuhealth.patient.amputation','patient','Amputations')
+
+    protheses = fields.One2Many('gnuhealth.patient.prothesis','patient','Protheses')
 
 class Product(ModelSQL, ModelView):
     'Product'
@@ -461,3 +464,42 @@ class PatientAmputation(ModelSQL, ModelView):
         ], 'Level', sort=False)
 
     comments = fields.Char('Comments')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof',
+        help="Authorized health professional")
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        hp = HealthProf.get_health_professional()
+        return hp
+
+# Patient Protheses Information
+class PatientProthesis(ModelSQL, ModelView):
+    'Amputation'
+    __name__ = 'gnuhealth.patient.prothesis'
+    
+    patient = fields.Many2One('gnuhealth.patient','Patient', required=True)
+
+    issue_date = fields.Date('Date')
+
+    prothesis = fields.Many2One(
+        'product.product', 'Prothesis', required=True,
+        domain=[('is_prothesis', '=', True)],
+        help='Prosthetic device')
+
+    comments = fields.Char('Comments')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof',
+        help="Prosthetist or authorized health professional")
+    
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        hp = HealthProf.get_health_professional()
+        return hp
+

@@ -37,6 +37,7 @@ def register():
         EnvironmentalFactorCategory,
         EnvironmentalFactor,
         PatientAmputation,
+        PatientProthesis,
         PatientDisabilityAssessment,
         PatientBodyFunctionAssessment,
         PatientBodyStructureAssessment,
