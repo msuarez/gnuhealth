@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <form string="Patient Disability Assessment">
-    <group string="Header" colspan="4" col="6" id="patient_disability_header">
+    <group string="Header" colspan="4" col="8" id="patient_disability_header">
         <label name="patient"/>
         <field name="patient"/>
         <label name="assessment_date"/>
         <field name="assessment_date"/>
         <label name="assessment"/>
         <field name="assessment"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
     </group>
     <newline/>
     <group string="Summary - Brief Assessment" id="disability_main_info" colspan="4" col="8">

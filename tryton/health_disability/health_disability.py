@@ -294,6 +294,9 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         'gnuhealth.environmental_factor.assessment',
         'assessment','Environmental Factors Barriers')
 
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof',
+        help="Authorized health professional")
 
     def get_uxo_status(self, name):
         return self.patient.uxo
@@ -308,6 +311,13 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
     def default_assessment_date():
         return date.today()
 
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        hp = HealthProf.get_health_professional()
+        return hp
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'
