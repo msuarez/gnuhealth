@@ -79,7 +79,7 @@ class BodyFunctionCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(BodyFunctionCategory, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -95,7 +95,7 @@ class BodyFunction(ModelSQL, ModelView):
     def __setup__(cls):
         super(BodyFunction, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -110,7 +110,7 @@ class BodyStructureCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(BodyStructureCategory, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -126,7 +126,7 @@ class BodyStructure(ModelSQL, ModelView):
     def __setup__(cls):
         super(BodyStructure, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -141,7 +141,7 @@ class ActivityAndParticipationCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(ActivityAndParticipationCategory, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -158,7 +158,7 @@ class ActivityAndParticipation(ModelSQL, ModelView):
     def __setup__(cls):
         super(ActivityAndParticipation, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -174,7 +174,7 @@ class EnvironmentalFactorCategory(ModelSQL, ModelView):
     def __setup__(cls):
         super(EnvironmentalFactorCategory, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
@@ -191,7 +191,7 @@ class EnvironmentalFactor(ModelSQL, ModelView):
     def __setup__(cls):
         super(EnvironmentalFactor, cls).__setup__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code_uniq', 'UNIQUE(code)',
                 'The code must be unique !'),
         ]
 
