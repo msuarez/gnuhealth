@@ -15,11 +15,19 @@
     <xpath expr="//field[@name=&quot;hostile_area&quot;]" position="after">
         <label name="uxo"/>
         <field name="uxo"/>
-        <label name="amputee"/>
-        <field name="amputee"/>
-        <label name="amputee_since"/>
-        <field name="amputee_since"/>
 
+    </xpath>
+
+    <!-- Include Disability information, after the disease area -->
+
+    <xpath expr="//field[@name=&quot;diseases&quot;]" position="after">
+        <newline/>
+        <group string="Disability Information" id="disability_barriers" colspan="4">
+            <label name="amputee"/>
+            <field name="amputee"/>
+            <label name="amputee_since"/>
+            <field name="amputee_since"/>
+        </group>
     </xpath>
 
 </data>

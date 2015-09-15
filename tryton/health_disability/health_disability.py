@@ -31,7 +31,7 @@ from trytond.pool import Pool
 import string
 import pytz
 
-__all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
+__all__ = ['PatientAmputation','GnuHealthPatient','BodyFunctionCategory','BodyFunction',
     'Product','BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
@@ -41,6 +41,53 @@ __all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
     'PatientActivityAndParticipationAsssessment',
     'PatientEnvironmentalFactorAssessment']
 
+
+# Amputation Information
+class PatientAmputation(ModelSQL, ModelView):
+    'Amputation'
+    __name__ = 'gnuhealth.patient.amputation'
+    
+    patient = fields.Many2One('gnuhealth.patient','Patient', required=True)
+
+    amputation_date = fields.Date('Date')
+
+    etiology = fields.Selection([
+        (None, ''),
+        ('pvd', 'Peripherial Vascular Disease'),
+        ('trauma', 'Trauma'),
+        ('tumor', 'Tumor'),
+        ('infection', 'Infection'),
+        ('congenital', 'Congenital'),
+        ], 'Etiology', sort=False)
+
+    limb = fields.Selection([
+        (None, ''),
+        ('lower', 'lower limb'),
+        ('upper', 'upper limb'),
+        ], 'Limb', sort=False)
+
+    side = fields.Selection([
+        (None, ''),
+        ('left', 'left'),
+        ('right', 'right'),
+        ('both', 'both'),
+        ], 'Side', sort=False)
+
+    amputation_level = fields.Selection([
+        (None, ''),
+        ('sd', 'SD - Shoulder disarticulation'),
+        ('th', 'TH - Transhumeral'),
+        ('ed', 'ED - Elbow disarticulation'),
+        ('tr', 'TR - Transradial'),
+        ('wh', 'WH'),
+        ('ph', 'PH'),
+        ('hp', 'HD - hemipelvectomy'),
+        ('tf', 'TF - transfemoral'),
+        ('tt', 'TT - transtibial'),
+        ('symes', 'symes'),
+        ('pffd', 'PFFD'),
+
+        ], 'Limb', sort=False)
 
 # Include disabilty amputation and UXO casualty information on patient model
 class GnuHealthPatient(ModelSQL, ModelView):
@@ -54,6 +101,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     amputee = fields.Boolean('Amputee', help="Person has had one or more"
         " limbs removed by amputation. Includes congenital conditions")
     amputee_since = fields.Date('Since', help="Date of amputee status")
+    
 
 
 class Product(ModelSQL, ModelView):
