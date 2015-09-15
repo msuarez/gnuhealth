@@ -427,7 +427,7 @@ class PatientAmputation(ModelSQL, ModelView):
         (None, ''),
         ('pvd', 'Peripherial Vascular Disease'),
         ('trauma', 'Trauma'),
-        ('tumor', 'Tumor'),
+        ('neoplasia', 'Neoplasia'),
         ('infection', 'Infection'),
         ('congenital', 'Congenital'),
         ], 'Etiology', sort=False)
