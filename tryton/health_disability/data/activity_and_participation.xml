@@ -228,7 +228,7 @@
 
         <record model="gnuhealth.activity_and_participation" id="d770">
             <field name="name">Intimate relationships</field>
-            <field name="code">d760</field>
+            <field name="code">d770</field>
             <field name="category" ref="d7"></field>
         </record>
 
@@ -280,7 +280,7 @@
 
         <record model="gnuhealth.activity_and_participation" id="d920">
             <field name="name">Recreation and leisure</field>
-            <field name="code">d910</field>
+            <field name="code">d920</field>
             <field name="category" ref="d9"></field>
         </record>
 
