@@ -202,6 +202,8 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient','Patient', required=True)
 
+    assessment_date = fields.Date('Date')
+
     assessment = fields.Char('Code')
 
     crutches = fields.Boolean('Crutches')
@@ -301,6 +303,11 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
 
     def get_amputee_date(self, name):
         return self.patient.amputee_since
+        
+    @staticmethod
+    def default_assessment_date():
+        return date.today()
+
 
 class PatientBodyFunctionAssessment(ModelSQL, ModelView):
     'Body Functions Assessment'
