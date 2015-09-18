@@ -22,7 +22,7 @@
         <record model="ir.action.act_window" id="action_gnuhealth_appointment_calendar">
             <field name="name">Appointments Calendar</field>
             <field name="res_model">gnuhealth.appointment</field>
-            <field name="domain">[('state', '!=', 'free')]</field>
+            <field name="domain" eval="[('state', '!=', 'free')]" pyson="1"/>
         </record>
 
         <record model="ir.action.act_window.view" id="act_gnuhealth_appointment_view_calendar">

@@ -43,6 +43,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     gravida = fields.Integer('Pregnancy #', required=True)
     warning = fields.Boolean('Warn', help='Check this box if this is pregancy'
         ' is or was NOT normal')
+    warning_icon = fields.Function(fields.Char('Pregnancy warning icon'), 'get_warn_icon')
     reverse = fields.Boolean ('Reverse', help="Use this method *only* when the \
         pregnancy information is referred by the patient, as a history taking \
         procedure. Please keep in mind that the reverse pregnancy data is \
@@ -189,6 +190,9 @@ class PatientPregnancy(ModelSQL, ModelView):
             else:
                 return 0
 
+    def get_warn_icon(self, name):
+        if self.warning:
+            return 'gnuhealth-warning'
 
 class PrenatalEvaluation(ModelSQL, ModelView):
     'Prenatal and Antenatal Evaluations'

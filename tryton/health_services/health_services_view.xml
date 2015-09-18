@@ -77,7 +77,7 @@
         <record model="ir.action.act_window" id="gnuhealth_action_health_service_invoices">
             <field name="name">Created invoices</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('health_service', '!=', None)]</field>
+            <field name="domain" eval="[('health_service', '!=', None)]" pyson="1"/>
         </record>
 
         <menuitem parent="gnuhealth_services_menu"
@@ -89,7 +89,7 @@
         <record model="ir.action.act_window" id="act_invoice_related_form1">
             <field name="name">Related Invoice</field>
             <field name="res_model">account.invoice</field>
-            <field name="domain">[('health_service', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('health_service', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_invoice_related_keyword1">

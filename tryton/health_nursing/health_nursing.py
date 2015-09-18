@@ -106,8 +106,9 @@ class PatientRounding(ModelSQL, ModelView):
         "patient condition", sort=False)
     round_summary = fields.Text('Round Summary')
     warning = fields.Boolean('Warning', help="Check this box to alert the "
-        "supervisor about this patient rounding. It will be shown in red in "
-        "the rounding list")
+        "supervisor about this patient rounding. A warning icon will be shown "
+        "in the rounding list")
+    warning_icon = fields.Function(fields.Char('Warning Icon'), 'get_warn_icon')
     procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name',
         'Procedures', help="List of the procedures in this rounding. Please "
         "enter the first one as the main procedure")
@@ -211,6 +212,10 @@ class PatientRounding(ModelSQL, ModelView):
         dt = self.evaluation_end
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
+    def get_warn_icon(self, name):
+        if self.warning:
+            return 'gnuhealth-warning'
+
 
 class RoundingProcedure(ModelSQL, ModelView):
     'Rounding - Procedure'
@@ -257,8 +262,9 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         help='Temperature in celsius')
 
     warning = fields.Boolean('Warning', help="Check this box to alert the "
-        "supervisor about this session. It will be shown in red in the "
+        "supervisor about this session. A warning icon will be shown in the "
         "session list")
+    warning_icon = fields.Function(fields.Char('Warning Icon'), 'get_warn_icon')
 
     #Glycemia
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
@@ -336,6 +342,10 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         default['session_end'] = cls.default_session_start()
         return super(PatientAmbulatoryCare, cls).copy(ambulatorycares,
             default=default)
+
+    def get_warn_icon(self, name):
+        if self.warning:
+            return 'gnuhealth-warning'
 
 
 class AmbulatoryCareProcedure(ModelSQL, ModelView):

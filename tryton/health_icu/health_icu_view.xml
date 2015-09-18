@@ -55,7 +55,7 @@
         <record model="ir.action.act_window" id="act_glasgow_form1">
             <field name="name">Glasgow Coma Scale</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
-            <field name="domain">[('name.icu_admissions', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_glasgow_keyword1">
@@ -108,7 +108,7 @@
         <record model="ir.action.act_window" id="act_apache_form1">
             <field name="name">APACHE II</field>
             <field name="res_model">gnuhealth.icu.apache2</field>
-            <field name="domain">[('name.icu_admissions', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_apache_keyword1">
@@ -184,7 +184,7 @@
         <record model="ir.action.act_window" id="act_ecg_form1">
             <field name="name">Inpatient ECGs</field>
             <field name="res_model">gnuhealth.patient.ecg</field>
-            <field name="domain">[('inpatient_registration_code.icu_admissions', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('inpatient_registration_code.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_ecg_keyword1">
