@@ -304,6 +304,13 @@ class BirthCertificate(ModelSQL, ModelView):
             
         return result
 
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]
 
 class DeathCertificate(ModelSQL, ModelView):
     
@@ -435,6 +442,14 @@ class DeathCertificate(ModelSQL, ModelView):
             result = serial_doc
             
         return result
+
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]
 
 class PatientEvaluation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.evaluation'
@@ -645,3 +660,12 @@ class PatientEvaluation(ModelSQL, ModelView):
             result = serial_doc
             
         return result
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_digital_signature"]', 'states', {
+                'invisible': ~Eval('digital_signature')}),
+                ('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]

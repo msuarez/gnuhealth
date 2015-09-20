@@ -10,7 +10,7 @@
             <label name="signed_by"/>
             <field name="signed_by"/>
             <newline/>
-            <group colspan="4" string="Digital Signature" id="group_digital_signature" states="{'invisible': Not(Bool(Eval('digital_signature')))}">
+            <group colspan="4" string="Digital Signature" id="group_digital_signature">
                 <field colspan="4" name="digital_signature"/>
             </group>
             <newline/>
@@ -18,7 +18,7 @@
                 <group string="Original String" id="group_original_string">
                     <field name="serializer"/>
                 </group>
-                <group string="Altered / current String" id="group_current_string" states="{'invisible': Not(Bool(Eval('digest_status')))}">
+                <group string="Altered / current String" id="group_current_string">
                     <field name="serializer_current"/>
                 </group>
             </group>

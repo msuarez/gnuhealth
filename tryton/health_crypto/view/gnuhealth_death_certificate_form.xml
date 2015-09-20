@@ -13,7 +13,7 @@
                 <group string="Original String" id="group_original_string">
                     <field name="serializer"/>
                 </group>
-                <group string="Altered / current String" id="group_current_string" states="{'invisible': Not(Bool(Eval('digest_status')))}">
+                <group string="Altered / current String" id="group_current_string">
                     <field name="serializer_current"/>
                 </group>
             </group>
