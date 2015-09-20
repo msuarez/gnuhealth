@@ -4528,22 +4528,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         return res
 
     @classmethod
-    def __setup__(cls):
-        super(PatientEvaluation, cls).__setup__()
-        cls._error_messages.update({
-            'health_professional_warning':
-                'No health professional associated to this user',
-            'end_date_before_start': 'End time "%(evaluation_endtime)s" BEFORE'
-                ' evaluation start "%(evaluation_start)s"'
-        })
-
-        cls._buttons.update({
-            'end_evaluation': {'invisible': Or(Equal(Eval('state'), 'signed'),
-                Equal(Eval('state'), 'done'))}
-            })
-
-
-    @classmethod
     def validate(cls, evaluations):
         super(PatientEvaluation, cls).validate(evaluations)
         for evaluation in evaluations:
@@ -4569,44 +4553,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         if not self.healthprof:
             self.raise_user_error('health_professional_warning')
 
-    """
-    @classmethod
-    def write(cls, evaluations, vals):
-        # Don't allow to write the record if the evaluation has been signed
-        if evaluations[0].state == 'done':
-            cls.raise_user_error(
-                "This evaluation is at state Done\n"
-                "You can no longer modify it.")
-        return super(PatientEvaluation, cls).write(evaluations, vals)
-
-    """
-    # End the evaluation and discharge the patient
-
-    @classmethod
-    @ModelView.button
-    def end_evaluation(cls, evaluations):
-        evaluation_id = evaluations[0]
-
-        Appointment = Pool().get('gnuhealth.appointment')
-        patient_app=[]
-        
-        # Change the state of the evaluation to "Done"
-
-        signing_hp = HealthProfessional().get_health_professional()
-        
-        cls.write(evaluations, {
-            'state': 'done',
-            'signed_by': signing_hp,
-            })
-        
-        # If there is an appointment associated to this evaluation
-        # set it to state "Done"
-        
-        if evaluations[0].evaluation_date:
-            patient_app.append(evaluations[0].evaluation_date)
-            Appointment.write(patient_app, {
-                'state': 'done',
-                })
 
     @staticmethod
     def default_healthprof():
@@ -4659,7 +4605,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_evaluation_start():
         return datetime.now()
 
-# Calculate the WH ratio
+    # Calculate the WH ratio
     @fields.depends('abdominal_circ', 'hip', 'whr')
     def on_change_with_whr(self):
         waist = self.abdominal_circ
@@ -4721,7 +4667,19 @@ class PatientEvaluation(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('code', 'UNIQUE(code)',
                 'The evaluation code must be unique !'),
-        ]
+            ]
+
+        cls._error_messages.update({
+            'health_professional_warning':
+                'No health professional associated to this user',
+            'end_date_before_start': 'End time "%(evaluation_endtime)s" BEFORE'
+                ' evaluation start "%(evaluation_start)s"'
+        })
+
+        cls._buttons.update({
+            'end_evaluation': {'invisible': Or(Equal(Eval('state'), 'signed'),
+                Equal(Eval('state'), 'done'))}
+            })
 
     @classmethod
     def create(cls, vlist):
@@ -4737,6 +4695,35 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return super(PatientEvaluation, cls).create(vlist)
 
+
+    # End the evaluation and discharge the patient
+
+    @classmethod
+    @ModelView.button
+    def end_evaluation(cls, evaluations):
+        
+        evaluation_id = evaluations[0]
+
+        Appointment = Pool().get('gnuhealth.appointment')
+        patient_app=[]
+        
+        # Change the state of the evaluation to "Done"
+
+        signing_hp = HealthProfessional().get_health_professional()
+        
+        cls.write(evaluations, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            })
+        
+        # If there is an appointment associated to this evaluation
+        # set it to state "Done"
+        
+        if evaluations[0].evaluation_date:
+            patient_app.append(evaluations[0].evaluation_date)
+            Appointment.write(patient_app, {
+                'state': 'done',
+                })
 
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
