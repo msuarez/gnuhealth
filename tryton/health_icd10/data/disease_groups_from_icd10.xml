@@ -4,6 +4,422 @@
 
 <!-- TODO: HEART, NUTRITION, GYNOBS, SOCIAL, VIOLENCE, NOTIFIABLE -->
 
+<!-- NOTIFIABLE DISEASES GROUP (subject to change) -->
+
+<!-- Anthrax -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A22">
+	<field name="name" ref="A22"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Western equine encephalitis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A831">
+	<field name="name" ref="A831"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Eastern equine encephalitis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A832">
+	<field name="name" ref="A832"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- St. Louis encephalitis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A833">
+	<field name="name" ref="A833"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- California sero virus -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A835">
+	<field name="name" ref="A835"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- West nile virus -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A923">
+	<field name="name" ref="A923"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Botulism -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A051">
+	<field name="name" ref="A051"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Brucellosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A23">
+	<field name="name" ref="A23"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Cholera -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A00">
+	<field name="name" ref="A00"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Cryptosporidiosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A072">
+	<field name="name" ref="A072"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Cyclosporiasis (protozoal intestinal) -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A078">
+	<field name="name" ref="A078"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Dengue Fever -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A90">
+	<field name="name" ref="A090"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Dengue hemorrhagic fever -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A91">
+	<field name="name" ref="A091"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Diptheria -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A36">
+	<field name="name" ref="A36"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Human granulocytic anaplasmosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A798">
+	<field name="name" ref="A798"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Giardiasis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A071">
+	<field name="name" ref="A071"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Gonorrhea -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A54">
+	<field name="name" ref="A54"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Haemophilus influenzae -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A492">
+	<field name="name" ref="A492"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Leprosy -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A30">
+	<field name="name" ref="A30"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Hantavirus -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B334">
+	<field name="name" ref="B334"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Hemolytic uremic syndrome -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-D593">
+	<field name="name" ref="D593"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Hepatitis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B15">
+	<field name="name" ref="B15"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B16">
+	<field name="name" ref="B16"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B17">
+	<field name="name" ref="B17"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B18">
+	<field name="name" ref="B18"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B19">
+	<field name="name" ref="B19"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- HIV -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B20">
+	<field name="name" ref="B20"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B21">
+	<field name="name" ref="B21"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B22">
+	<field name="name" ref="B22"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B23">
+	<field name="name" ref="B23"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B24">
+	<field name="name" ref="B24"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Legionnaire's Disease -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A481">
+	<field name="name" ref="A481"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A482">
+	<field name="name" ref="A482"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Listeriosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A32">
+	<field name="name" ref="A32"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Lyme Disease -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A692">
+	<field name="name" ref="A692"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Malaria -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B50">
+	<field name="name" ref="B50"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B51">
+	<field name="name" ref="B51"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B52">
+	<field name="name" ref="B52"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B53">
+	<field name="name" ref="B53"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B54">
+	<field name="name" ref="B54"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Measles -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B05">
+	<field name="name" ref="B05"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Meningococcal disease -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A39">
+	<field name="name" ref="A39"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Pertussis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A37">
+	<field name="name" ref="A37"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Plague (Bubonic, etc) -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A20">
+	<field name="name" ref="A20"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Poliomyelitis, paralytic -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A80">
+	<field name="name" ref="A80"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Psittacosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A70">
+	<field name="name" ref="A70"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Q fever -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A78">
+	<field name="name" ref="A78"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Rubella -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B06">
+	<field name="name" ref="B06"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Congenital rubella syndrome -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-P350">
+	<field name="name" ref="P350"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Salmonella -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A020">
+	<field name="name" ref="A020"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- SARS -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-U04">
+	<field name="name" ref="U04"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Shigellosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A03">
+	<field name="name" ref="A03"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Smallpox (eradicated, for surveillance> -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B03">
+	<field name="name" ref="B03"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Spotted fever rickettsiosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A77">
+	<field name="name" ref="A77"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Toxic-shock syndrome -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A483">
+	<field name="name" ref="A483"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Streptococcal pneumonia -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-J13">
+	<field name="name" ref="J13"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Syphilis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A50">
+	<field name="name" ref="A50"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A51">
+	<field name="name" ref="A51"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A52">
+	<field name="name" ref="A52"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A53">
+	<field name="name" ref="A53"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Tetanus -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A33">
+	<field name="name" ref="A33"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A34">
+	<field name="name" ref="A34"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A35">
+	<field name="name" ref="A35"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Trichinosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B75">
+	<field name="name" ref="B75"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Tuberculosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A15">
+	<field name="name" ref="A15"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A16">
+	<field name="name" ref="A16"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A17">
+	<field name="name" ref="A17"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A18">
+	<field name="name" ref="A18"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A19">
+	<field name="name" ref="A19"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Tularemia -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A21">
+	<field name="name" ref="A21"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Typhoid Fever -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A010">
+	<field name="name" ref="A010"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Varicella -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-B01">
+	<field name="name" ref="B01"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Vibriosis -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A053">
+	<field name="name" ref="A053"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Viral hemorrhagic fevers -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A96">
+	<field name="name" ref="A96"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A98">
+	<field name="name" ref="A98"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A99">
+	<field name="name" ref="A99"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
+<!-- Yellow fever -->
+<record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A95">
+	<field name="name" ref="A95"></field>
+    <field name="disease_group" ref="health.NOTIFIABLE"></field>
+</record>
+
 <!-- ALLERGIC DISEASES GROUP FROM ICD10 -->
 
 <record model="gnuhealth.disease_group.members" id="ALLERGIC-J30">

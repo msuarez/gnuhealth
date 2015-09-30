@@ -2946,6 +2946,11 @@
 	<field name="code">B33.3</field>
 	<field name="category" ref="icdcat1-14"></field>
 </record>
+<record model="gnuhealth.pathology" id="B334">
+	<field name="name">Hantavirus (cardio-)pulmonary syndrome</field>
+	<field name="code">B33.4</field>
+	<field name="category" ref="icdcat1-14"></field>
+</record>
 <record model="gnuhealth.pathology" id="B338">
 	<field name="name">Other specified viral diseases</field>
 	<field name="code">B33.8</field>
