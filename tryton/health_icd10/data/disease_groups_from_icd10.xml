@@ -134,13 +134,13 @@
 
 <!-- Dengue Fever -->
 <record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A90">
-	<field name="name" ref="A090"></field>
+	<field name="name" ref="A90"></field>
     <field name="disease_group" ref="health.NOTIFIABLE"></field>
 </record>
 
 <!-- Dengue hemorrhagic fever -->
 <record model="gnuhealth.disease_group.members" id="NOTIFIABLE-A91">
-	<field name="name" ref="A091"></field>
+	<field name="name" ref="A91"></field>
     <field name="disease_group" ref="health.NOTIFIABLE"></field>
 </record>
 
