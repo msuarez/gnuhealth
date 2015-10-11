@@ -46,7 +46,6 @@ def sign_document(data):
     gpg = gnupg.GPG()
 
     gpg.encoding = 'utf-8'
-    # gpg.verbose = True
     
     document_model = data['model']
 
@@ -140,6 +139,7 @@ def verify_document(data):
     """ Verify the digital signature of the document """
 
     gpg = gnupg.GPG()
+    gpg.encoding = 'utf-8'
 
     document_model = data['model']
 
@@ -159,17 +159,19 @@ def verify_document(data):
         return
 
 
-    """ Verify signature """
+    # Verify signature
     digital_signature = record_vals[0]['digital_signature']
-
-    """ Check that the document has been signed """
+    
+    # Check that the document has a digital signature associated to it
+    
     if not digital_signature:
         warning(
             _('Unsigned document'),
             _('This document has not been signed yet'),
             )
         return
-    
+
+    # Signature verification
     try:
         verify_signature = gpg.verify(digital_signature)
 
@@ -180,7 +182,7 @@ def verify_document(data):
         )
 
     else:
-        """ Show message of warning boxes depending on the verification """
+        # Show message of warning boxes depending on the verification
         if (verify_signature.valid):
             message(_("Valid Signature !\n\n" + verify_signature.stderr))
         else:
@@ -188,7 +190,6 @@ def verify_document(data):
                 _(str(verify_signature.stderr)),
                 _(str("Error !")),
             )
-
 
 def get_plugins(model):
     return [
