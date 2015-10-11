@@ -45,6 +45,9 @@ def sign_document(data):
 
     gpg = gnupg.GPG()
 
+    gpg.encoding = 'utf-8'
+    # gpg.verbose = True
+    
     document_model = data['model']
 
     """ Don't allow signing more than one document at a time
@@ -84,15 +87,30 @@ def sign_document(data):
         )
         return
 
-    try:
-        gpg_signature = gpg.sign(digest, clearsign=True)
+   
 
-    except:
-        warning(
-            _('Error when signing the document'),
-            _('Please check your encryption settings'),
-        )
+    # Check that the document has the digest before trying to
+    # to sign it.
+    if digest:
+        
+        try:
+            gpg_signature = gpg.sign(digest, clearsign=True)
 
+
+        except:
+            warning(
+                _('Error when signing the document'),
+                _('Please check your encryption settings'),
+            )
+
+    else:
+            warning(
+                _('No Digest found for this document'),
+                _('You need generate the digest'),
+
+            )
+            return
+        
     """
     Set the clearsigned digest
     """
