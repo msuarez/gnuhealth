@@ -260,6 +260,16 @@ class PatientCAGE(ModelSQL, ModelView):
 
     cage_score = fields.Integer('CAGE Score')
 
+    # Show the icon depending on the CAGE Score
+    cage_warning_icon = \
+        fields.Function(fields.Char('Cage Warning Icon'),
+         'get_cage_warning_icon')
+    
+    def get_cage_warning_icon(self, name):
+        if (self.cage_score > 1):
+            return 'gnuhealth-warning'
+
+
     @fields.depends('cage_c', 'cage_a', 'cage_g', 'cage_e')
     def on_change_with_cage_score(self):
         total = 0
