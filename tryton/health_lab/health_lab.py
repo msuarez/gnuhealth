@@ -186,6 +186,15 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
         select=True)
     sequence = fields.Integer('Sequence')
 
+    # Show the warning icon if warning is active on the analyte line
+    lab_warning_icon = \
+        fields.Function(fields.Char('Lab Warning Icon'),
+         'get_lab_warning_icon')
+    
+    def get_lab_warning_icon(self, name):
+        if (self.warning):
+            return 'gnuhealth-warning'
+
     @classmethod
     def __setup__(cls):
         super(GnuHealthTestCritearea, cls).__setup__()
