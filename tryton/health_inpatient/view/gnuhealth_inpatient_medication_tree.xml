@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Inpatient Medication" colors="If(Bool(Eval('is_active')),'blue','grey')">
+<tree string="Inpatient Medication">
     <field name="medicament" expand="1"/>
     <field name="start_treatment" expand="1"/>
     <field name="end_treatment" expand="1"/>
