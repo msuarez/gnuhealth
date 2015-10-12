@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tree editable="top" string="Patient CAGE SCORE">
-    <field name="evaluation_date" widget="date"/>
-    <field name="cage_c"/>
-    <field name="cage_a"/>
-    <field name="cage_g"/>
-    <field name="cage_e"/>
-    <field name="cage_score" icon="cage_warning_icon"/>
+    <field name="evaluation_date" widget="date"  expand="1"/>
+    <field name="cage_c" expand="1"/>
+    <field name="cage_a" expand="1"/>
+    <field name="cage_g" expand="1"/>
+    <field name="cage_e" expand="1"/>
+    <field name="cage_score" icon="cage_warning_icon" expand="1"/>
 </tree>

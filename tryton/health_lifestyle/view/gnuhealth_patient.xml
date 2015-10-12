@@ -76,7 +76,7 @@
                             </group>
                         </page>
                         <page string="Alcohol" id="page_alchohol">
-                            <group colspan="2" id="group_alcohol">
+                            <group colspan="4" id="group_alcohol">
                                 <label name="alcohol"/>
                                 <field name="alcohol"/>
                                 <label name="ex_alcoholic"/>
@@ -92,6 +92,7 @@
                                 <label name="alcohol_liquor_number"/>
                                 <field name="alcohol_liquor_number"/>
                             </group>
+                            <newline/>
                             <field name="cage"/>
                         </page>
                         <page string="Recreational Drugs" id="page_recreational_drugs">
