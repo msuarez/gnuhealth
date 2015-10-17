@@ -23,7 +23,7 @@
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 from sql import Literal, Join, Table
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
@@ -78,8 +78,9 @@ class BodyFunctionCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(BodyFunctionCategory, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -94,8 +95,9 @@ class BodyFunction(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(BodyFunction, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -109,8 +111,9 @@ class BodyStructureCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(BodyStructureCategory, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -125,8 +128,9 @@ class BodyStructure(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(BodyStructure, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -140,8 +144,9 @@ class ActivityAndParticipationCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(ActivityAndParticipationCategory, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -157,8 +162,9 @@ class ActivityAndParticipation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(ActivityAndParticipation, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -173,8 +179,9 @@ class EnvironmentalFactorCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(EnvironmentalFactorCategory, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
@@ -190,8 +197,9 @@ class EnvironmentalFactor(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(EnvironmentalFactor, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The code must be unique !'),
         ]
 
