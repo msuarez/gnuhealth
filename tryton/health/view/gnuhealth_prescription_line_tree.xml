@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<tree string="Prescription lines">
+<tree string="Prescription lines" editable="top">
     <field name="prnt" expand="1"/>
+    <field name="add_to_history" expand="1"/>
     <field name="medicament" expand="1"/>
     <field name="indication" expand="1"/>
     <field name="dose"/>

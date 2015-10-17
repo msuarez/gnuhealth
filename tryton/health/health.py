@@ -3934,6 +3934,10 @@ class PrescriptionLine(ModelSQL, ModelView):
         'Print',
         help='Check this box to print this line of the prescription.')
 
+    add_to_history = fields.Boolean(
+        'Hist',
+        help='Include this medication in the patient medication history')
+
     medicament = fields.Many2One(
         'gnuhealth.medicament', 'Medicament',
         required=True, help='Prescribed Medicament')
