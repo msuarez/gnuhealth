@@ -23,7 +23,7 @@
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 from sql import Literal, Join, Table
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
@@ -195,11 +195,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)',
-                'The Domiciliary Unit must be unique !'),
+            ('code_uniq', Unique(t, t.name),
+             'The Domiciliary Unit must be unique !')
         ]
-
+ 
 class PartyPatient (ModelSQL, ModelView):
     'Party'
     __name__ = 'party.party'
@@ -391,10 +392,12 @@ class PartyPatient (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PartyPatient, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('ref_uniq', 'UNIQUE(ref)', 'The PUID must be unique'),
-            ('internal_user_uniq', 'UNIQUE(internal_user)',
-                'This health professional is already assigned to a party')]
+            ('ref_uniq', Unique(t,t.ref), 'The PUID must be unique'),
+            ('internal_user_uniq', Unique(t,t.internal_user),
+                'This internal user is already assigned to a party')]
+
         cls._order.insert(0, ('lastname', 'ASC'))
         cls._order.insert(1, ('name', 'ASC'))
         #Sort to be used when called from other models.
@@ -495,8 +498,10 @@ class DrugDoseUnits(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugDoseUnits, cls).__setup__()
+        t = cls.__table__()
+
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Unit must be unique !'),
         ]
 
 
@@ -518,9 +523,10 @@ class MedicationFrequency(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(MedicationFrequency, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Unit must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
         ]
 
 
@@ -535,9 +541,10 @@ class DrugForm(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugForm, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Unit must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Unit must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
         ]
 
 
@@ -552,9 +559,11 @@ class DrugRoute(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugRoute, cls).__setup__()
+        t = cls.__table__()
+
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Name must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
         ]
 
 
@@ -569,9 +578,10 @@ class Occupation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Occupation, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Name must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
         ]
 
 
@@ -587,9 +597,11 @@ class Ethnicity(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Ethnicity, cls).__setup__()
+        t = cls.__table__()
+
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Name must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Name must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
 
         ]
 
@@ -609,8 +621,9 @@ class OperationalArea(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(OperationalArea, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name)',
+            ('name_uniq', Unique(t,t.name),
                 'The operational area must be unique !'),
         ]
 
@@ -631,8 +644,9 @@ class OperationalSector(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(OperationalSector, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name, operational_area)',
+            ('name_uniq', Unique(t,t.name, t.operational_area),
                 'The operational sector must be unique in each'
                 ' operational area!'),
         ]
@@ -725,9 +739,10 @@ class HealthInstitution(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthInstitution, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'This Institution already exists !'),
-            ('code_uniq', 'UNIQUE(code)', 'This CODE already exists !'),
+            ('name_uniq', Unique(t,t.name), 'This Institution already exists !'),
+            ('code_uniq', Unique(t,t.code), 'This CODE already exists !'),
         ]
 
     @classmethod
@@ -893,8 +908,9 @@ class HealthInstitutionSpecialties(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthInstitutionSpecialties, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_sp_uniq', 'UNIQUE(name, specialty)',
+            ('name_sp_uniq', Unique(t,t.name, t.specialty),
                 'The Specialty already exists for this institution'),
         ]
 
@@ -910,8 +926,9 @@ class HealthInstitutionOperationalSector(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthInstitutionOperationalSector, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_os_uniq', 'UNIQUE(name, operational_sector)',
+            ('name_os_uniq', Unique(t,t.name, t.operational_sector),
                 'The Operational Sector already exists for this institution'),
         ]
 
@@ -965,12 +982,13 @@ class HospitalBuilding(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalBuilding, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
+            ('name_uniq', Unique(t,t.name, t.institution),
                 'The Building name must be unique per Health'
                 ' Center'),
-            ('code_uniq', 'UNIQUE(code, institution)',
-                'The Building name must be unique per Health'
+            ('code_uniq', Unique(t,t.code, t.institution),
+                'The Building code must be unique per Health'
                 ' Center'),
         ]
 
@@ -997,11 +1015,12 @@ class HospitalUnit(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalUnit, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
+            ('name_uniq', Unique(t,t.name, t.institution),
                 'The Unit NAME must be unique per Health'
                 ' Center'),
-            ('code_uniq', 'UNIQUE(code, institution)',
+            ('code_uniq', Unique(t,t.code, t.institution),
                 'The Unit CODE must be unique per Health'
                 ' Center'),
         ]
@@ -1045,8 +1064,9 @@ class HospitalOR(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalOR, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
+            ('name_uniq', Unique(t,t.name, t.institution),
                 'The Operating Room Name must be unique per Health'
                 ' Center'),
         ]
@@ -1116,8 +1136,9 @@ class HospitalWard(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalWard, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
+            ('name_uniq', Unique(t,t.name, t.institution),
                 'The Ward / Room Name must be unique per Health'
                 ' Center'),
         ]
@@ -1188,8 +1209,9 @@ class HospitalBed(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HospitalBed, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name, institution)',
+            ('name_uniq', Unique(t,t.name, t.institution),
                 'The Bed must be unique per Health Center'),
         ]
         # Show fix button when is in state "needs cleaning" or "NA"
@@ -1219,9 +1241,10 @@ class MedicalSpecialty(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Specialty must be unique !'),
-            ('code_uniq', 'UNIQUE(code)', 'The CODE must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Specialty must be unique !'),
+            ('code_uniq', Unique(t,t.code), 'The CODE must be unique !'),
         ]
         super(MedicalSpecialty, cls).__setup__()
 
@@ -1291,10 +1314,11 @@ class HealthProfessional(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthProfessional, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('hp_uniq', 'UNIQUE(name)',
+            ('hp_uniq', Unique(t,t.name),
                 'The health professional must be unique'),
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
                 'The LICENSE ID must be unique'),
         ]
 
@@ -1378,8 +1402,9 @@ class Family(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Family, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Family Code must be unique !'),
+            ('name_uniq', Unique(t,t.name), 'The Family Code must be unique !'),
         ]
 
     @classmethod
@@ -1597,8 +1622,9 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(ImmunizationScheduleDose, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('number_uniq', 'UNIQUE(dose_number,vaccine)',
+            ('number_uniq', Unique(t,t.dose_number,t.vaccine),
                 'The dose number must be unique for this vaccine'),
         ]
         cls._order.insert(0, ('vaccine', 'ASC'))
@@ -1662,8 +1688,9 @@ class ImmunizationSchedule(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(ImmunizationSchedule, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('sched_uniq', 'UNIQUE(sched)',
+            ('sched_uniq', Unique(t,t.sched),
                 'The schedule code must be unique'),
         ]
     
@@ -1697,8 +1724,9 @@ class PathologyCategory(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PathologyCategory, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name)',
+            ('name_uniq', Unique(t,t.name),
             'The category name must be unique'),
         ]
 
@@ -1724,8 +1752,9 @@ class PathologyGroup(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PathologyGroup, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('code_uniq', 'UNIQUE(code)',
+            ('code_uniq', Unique(t,t.code),
             'The Pathology Group code must be unique'),
         ]
 
@@ -1779,8 +1808,9 @@ class Pathology(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Pathology, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints += [
-            ('code_uniq', 'UNIQUE(code)', 'The disease code must be unique'),
+            ('code_uniq', Unique(t,t.code), 'The disease code must be unique'),
         ]
 
 
@@ -2058,8 +2088,9 @@ class Insurance(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Insurance, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('number_uniq', 'UNIQUE(number,company)',
+            ('number_uniq', Unique(t,t.number,t.company),
                 'The number must be unique per insurance company'),
         ]
 
@@ -2140,9 +2171,10 @@ class BirthCertificate (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(BirthCertificate, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'Certificate already exists !'),
-            ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
+            ('name_uniq', Unique(t,t.name), 'Certificate already exists !'),
+            ('code_uniq', Unique(t,t.code), 'Certificate already exists !'),
         ]
 
         cls._buttons.update({
@@ -2243,9 +2275,10 @@ class DeathCertificate (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DeathCertificate, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'Certificate already exists !'),
-            ('code_uniq', 'UNIQUE(code)', 'Certificate already exists !'),
+            ('name_uniq', Unique(t,t.name), 'Certificate already exists !'),
+            ('code_uniq', Unique(t,t.code), 'Certificate already exists !'),
         ]
 
         cls._buttons.update({
@@ -2599,8 +2632,9 @@ class PatientData(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientData, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 'The Patient already exists !'),
+            ('name_uniq', Unique(t,t.name), 'The Patient already exists !'),
         ]
         cls._order.insert(0, ('name', 'ASC'))
 
@@ -3641,8 +3675,9 @@ class PatientVaccination(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientVaccination, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('dose_uniq', 'UNIQUE(name, vaccine, dose)',
+            ('dose_uniq', Unique(t,t.name, t.vaccine, t.dose),
                 'This vaccine dose has been given already to the patient'),
             ]
         cls._error_messages.update({
@@ -4668,8 +4703,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientEvaluation, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code', 'UNIQUE(code)',
+            ('code', Unique(t,t.code),
                 'The evaluation code must be unique !'),
             ]
 
