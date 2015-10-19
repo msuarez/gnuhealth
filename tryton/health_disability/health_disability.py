@@ -296,11 +296,11 @@ class PatientDisabilityAssessment(ModelSQL, ModelView):
         'assessment','Body Structures Impairments')
 
     activity_and_participation = fields.One2Many(
-        'gnuhealth.activity_and_participation.assessment',
+        'gnuhealth.activity.assessment',
         'assessment','Activities and Participation Impairments')
 
     environmental_factor = fields.One2Many(
-        'gnuhealth.environmental_factor.assessment',
+        'gnuhealth.environment.assessment',
         'assessment','Environmental Factors Barriers')
 
     healthprof = fields.Many2One(
