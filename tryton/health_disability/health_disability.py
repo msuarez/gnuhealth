@@ -31,15 +31,16 @@ from trytond.pool import Pool
 import string
 import pytz
 
-__all__ = ['GnuHealthPatient','BodyFunctionCategory','BodyFunction',
-    'Product','BodyStructureCategory','BodyStructure',
+__all__ = ['GnuHealthPatient','Product','BodyFunctionCategory','BodyFunction',
+    'BodyStructureCategory','BodyStructure',
     'ActivityAndParticipationCategory', 'ActivityAndParticipation',
     'EnvironmentalFactorCategory','EnvironmentalFactor',
-    'PatientAmputation','PatientDisabilityAssessment',
+    'PatientDisabilityAssessment',
     'PatientBodyFunctionAssessment',
     'PatientBodyStructureAssessment',
     'PatientActivityAndParticipationAsssessment',
     'PatientEnvironmentalFactorAssessment',
+    'PatientAmputation',
     'PatientProthesis']
 
 
@@ -386,13 +387,14 @@ class PatientBodyStructureAssessment(ModelSQL, ModelView):
 
 class PatientActivityAndParticipationAsssessment(ModelSQL, ModelView):
     'Activity and Participation Assessment'
-    __name__ = 'gnuhealth.activity_and_participation.assessment'
+    __name__ = 'gnuhealth.activity.assessment'
 
     assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
         'Assessment', required=True)
     
     activity_and_participation = fields.Many2One(
         'gnuhealth.activity_and_participation','Activity')
+    
     qualifier1 = fields.Selection([
         (None, ''),
         ('0', 'No difficulty'),
@@ -417,7 +419,7 @@ class PatientActivityAndParticipationAsssessment(ModelSQL, ModelView):
 
 class PatientEnvironmentalFactorAssessment(ModelSQL, ModelView):
     'Environmental Factors Assessment'
-    __name__ = 'gnuhealth.environmental_factor.assessment'
+    __name__ = 'gnuhealth.environment.assessment'
 
     assessment = fields.Many2One('gnuhealth.patient.disability_assessment',
         'Assessment', required=True)

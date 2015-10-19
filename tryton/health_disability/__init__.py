@@ -36,11 +36,11 @@ def register():
         ActivityAndParticipation,
         EnvironmentalFactorCategory,
         EnvironmentalFactor,
-        PatientAmputation,
-        PatientProthesis,
         PatientDisabilityAssessment,
         PatientBodyFunctionAssessment,
         PatientBodyStructureAssessment,
         PatientActivityAndParticipationAsssessment,
         PatientEnvironmentalFactorAssessment,
+        PatientAmputation,
+        PatientProthesis,
         module='health_disability', type_='model')

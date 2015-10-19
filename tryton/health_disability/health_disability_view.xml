@@ -164,13 +164,13 @@
         <!-- Activity and Participation Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_activity_and_participation_assessment_view">
-            <field name="model">gnuhealth.activity_and_participation.assessmentt</field>
+            <field name="model">gnuhealth.activity.assessment</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_activity_and_participation_assessment_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_activity_and_participation_assessment_tree">
-            <field name="model">gnuhealth.activity_and_participation.assessment</field>
+            <field name="model">gnuhealth.activity.assessment</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_activity_and_participation_assessment_tree</field>
         </record>
@@ -213,13 +213,13 @@
         <!-- Environmental Factor Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_view">
-            <field name="model">gnuhealth.environmental_factor.assessmentt</field>
+            <field name="model">gnuhealth.environment.assessmentt</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_environmental_factor_assessment_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_tree">
-            <field name="model">gnuhealth.environmental_factor.assessment</field>
+            <field name="model">gnuhealth.environment.assessment</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_environmental_factor_assessment_tree</field>
         </record>
