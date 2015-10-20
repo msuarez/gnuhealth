@@ -1780,7 +1780,7 @@ class PathologyGroup(ModelSQL, ModelView):
 
 
 class Pathology(ModelSQL, ModelView):
-    'Diseases'
+    'Health Conditions'
     __name__ = 'gnuhealth.pathology'
 
     name = fields.Char(
@@ -1819,7 +1819,7 @@ class DiseaseMembers(ModelSQL, ModelView):
     'Disease group members'
     __name__ = 'gnuhealth.disease_group.members'
 
-    name = fields.Many2One('gnuhealth.pathology', 'Disease', readonly=True)
+    name = fields.Many2One('gnuhealth.pathology', 'Condition', readonly=True)
     disease_group = fields.Many2One(
         'gnuhealth.pathology.group', 'Group', required=True)
 
@@ -2583,16 +2583,16 @@ class PatientData(ModelSQL, ModelView):
 #    prescriptions = fields.One2Many('gnuhealth.prescription.order', 'name',
 #        'Prescriptions')
 
-    diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Diseases')
+    diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Conditions')
     critical_summary = fields.Function(fields.Text(
-        'Important disease about patient allergies or procedures',
-        help='Automated summary of patient allergies and '
+        'Important health conditions related to this patient',
+        help='Automated summary of patient important health conditions '
         'other critical information'),
         'patient_critical_summary')
 
     critical_info = fields.Text(
         'Free text information not included in the automatic summary',
-        help='Write any important information on the patient\'s disease,'
+        help='Write any important information on the patient\'s condition,'
         ' surgeries, allergies, ...')
 
 
@@ -2788,7 +2788,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient')
 
     pathology = fields.Many2One(
-        'gnuhealth.pathology', 'Disease', required=True, help='Disease')
+        'gnuhealth.pathology', 'Condition', required=True, help='Condition')
 
     disease_severity = fields.Selection([
         (None, ''),
@@ -2843,7 +2843,7 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         ('h', 'healed'),
         ('i', 'improving'),
         ('w', 'worsening'),
-        ], 'Status of the disease', select=True, sort=False)
+        ], 'Status', select=True, sort=False)
     extra_info = fields.Text('Extra Info')
 
     @classmethod

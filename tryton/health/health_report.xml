@@ -38,10 +38,10 @@
         </record>
 
         <record model="ir.action.report" id="report_patient_disease">
-            <field name="name">Diseases</field>
+            <field name="name">Health Conditions</field>
             <field name="model">gnuhealth.patient</field>
-            <field name="report_name">patient.disease</field>
-            <field name="report">health/report/patient_diseases_history.odt</field>
+            <field name="report_name">patient.conditions_history</field>
+            <field name="report">health/report/patient_conditions_history.odt</field>
         </record>
 
         <record model="ir.action.keyword" id="report_disease_patient">

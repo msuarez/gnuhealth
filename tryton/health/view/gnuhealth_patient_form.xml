@@ -86,8 +86,8 @@ code with the unique patient ID.
             <field name="vaccinations"/>
         </page>
 
-        <!-- Patient Diseases -->
-        <page string="Diseases" id="patient_diseases">
+        <!-- Patient Health Conditions -->
+        <page string="Conditions" id="patient_diseases">
             <field name="diseases" colspan="4"/>
         </page>
         <!-- Patient Evaluations NOW as a shortcut
