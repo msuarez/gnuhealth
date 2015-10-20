@@ -97,7 +97,7 @@
             parent="gnuhealth_menu" sequence="999" icon="gnuhealth-preferences"/>
 
 <!-- Configuration Menu -->
-        <menuitem name="Diseases" id="gnuhealth_conf_pathology"
+        <menuitem name="Conditions" id="gnuhealth_conf_pathology"
             parent="gnuhealth_conf_menu" sequence="10" icon="gnuhealth-disease"/>
         <menuitem name="Procedures" id="gnuhealth_conf_procedure"
             parent="gnuhealth_conf_menu" sequence="20" icon="gnuhealth-procedure"/>
@@ -874,7 +874,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_form_pathology">
-            <field name="name">Diseases</field>
+            <field name="name">Conditions</field>
             <field name="res_model">gnuhealth.pathology</field>
         </record>
 

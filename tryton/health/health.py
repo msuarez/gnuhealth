@@ -4703,11 +4703,13 @@ class PatientEvaluation(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientEvaluation, cls).__setup__()
+        
         t = cls.__table__()
         cls._sql_constraints = [
-            ('code', Unique(t,t.code),
+            ('code_unique', Unique(t,t.code),
                 'The evaluation code must be unique !'),
             ]
+
 
         cls._error_messages.update({
             'health_professional_warning':
