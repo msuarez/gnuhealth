@@ -4052,6 +4052,43 @@ class PrescriptionLine(ModelSQL, ModelView):
         help='Period that the patient must take the medication in minutes,'
         ' hours, days, months, years or indefinately')
 
+
+    @staticmethod
+    def default_qty():
+        return 1
+
+    @staticmethod
+    def default_duration_period():
+        return 'days'
+
+    @staticmethod
+    def default_frequency_unit():
+        return 'hours'
+
+    @staticmethod
+    def default_quantity():
+        return 1
+
+    @staticmethod
+    def default_prnt():
+        return True
+
+
+    @classmethod
+    def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
+
+        for values in vlist:
+            if values.get('add_to_history'):
+                print values['add_to_history'], values['indication'], values['medicament']
+
+
+                Medication = Pool().get('gnuhealth.medication')
+                med = []
+                
+
+        return super(PrescriptionLine, cls).create(vlist)
+
     @classmethod
     def __register__(cls, module_name):
         super(PrescriptionLine, cls).__register__(module_name)
@@ -4086,25 +4123,6 @@ class PrescriptionLine(ModelSQL, ModelView):
 
             table.drop_column('template')
 
-    @staticmethod
-    def default_qty():
-        return 1
-
-    @staticmethod
-    def default_duration_period():
-        return 'days'
-
-    @staticmethod
-    def default_frequency_unit():
-        return 'hours'
-
-    @staticmethod
-    def default_quantity():
-        return 1
-
-    @staticmethod
-    def default_prnt():
-        return True
 
 
 class PatientEvaluation(ModelSQL, ModelView):
