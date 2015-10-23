@@ -4080,13 +4080,31 @@ class PrescriptionLine(ModelSQL, ModelView):
 
         for values in vlist:
             if values.get('add_to_history'):
-                print values['add_to_history'], values['indication'], values['medicament']
+                
+                medicament = values['medicament']
+                indication = values['indication']
+                patient = values.get('name.patient')
 
-
-                Medication = Pool().get('gnuhealth.medication')
+                if values['start_treatment']:
+                    start_treatment = values['start_treatment'] 
+                    
+                else:
+                    start_treatment = values.get('name.prescription_date')
+                               
+                Medication = Pool().get('gnuhealth.patient.medication')
                 med = []
                 
-
+                values = {
+                    'name': 1,
+                    'medicament': medicament,
+                    'indication': indication,
+                    'start_treatment': start_treatment,
+                    }
+                    
+                # Add the medicament from the prescription
+                med.append(values)
+                Medication.create(med)
+ 
         return super(PrescriptionLine, cls).create(vlist)
 
     @classmethod
