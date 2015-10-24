@@ -3310,11 +3310,6 @@ class PatientMedication(ModelSQL, ModelView):
     'Patient Medication'
     __name__ = 'gnuhealth.patient.medication'
 
-# Remove inherits to be compatible with Tryton 2.8
-#    _inherits = {'gnuhealth.medication.template': 'template'}
-#    template = fields.Many2One('gnuhealth.medication.template',
-#        'Medication')
-
     medicament = fields.Many2One(
         'gnuhealth.medicament', 'Medicament',
         required=True, help='Prescribed Medicament')
@@ -3443,8 +3438,10 @@ class PatientMedication(ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('infusion')))},
         select=True, sort=False)
 
-
-    
+    prescription = fields.Many2One(
+        'gnuhealth.prescription.order', 'Prescription', readonly=True,
+        domain=[('patient', '=', Eval('name'))],help='Related prescription')
+   
     @classmethod
     def __setup__(cls):
         super(PatientMedication, cls).__setup__()
@@ -3453,6 +3450,8 @@ class PatientMedication(ModelSQL, ModelView):
             ' "%(end_treatment)s" is BEFORE the start date'
             ' "%(start_treatment)s"!',
             })
+        cls._order.insert(0, ('is_active', 'DESC'))
+        cls._order.insert(1, ('start_treatment', 'DESC'))
 
     @classmethod
     def __register__(cls, module_name):
@@ -3560,11 +3559,6 @@ class PatientMedication(ModelSQL, ModelView):
                         language.code, language.date),
                     })
 
-
-    @classmethod
-    def view_attributes(cls):
-        return [('/tree', 'colors',
-                If(Bool('is_active'),'blue','grey'))]
 
 
 # PATIENT VACCINATION INFORMATION
@@ -3828,6 +3822,8 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'No health professional associated to this user',
         })
 
+        cls._order.insert(0, ('prescription_date', 'DESC'))
+
     @classmethod
     def validate(cls, prescriptions):
         super(PatientPrescriptionOrder, cls).validate(prescriptions)
@@ -4053,6 +4049,20 @@ class PrescriptionLine(ModelSQL, ModelView):
         ' hours, days, months, years or indefinately')
 
 
+    infusion = fields.Boolean(
+        'Infusion', 
+        help='Mark if the medication is in the form of infusion' \
+        ' Intravenous, Gastrostomy tube, nasogastric, etc...' )
+    infusion_rate = fields.Float('Rate',
+            states={'invisible': Not(Bool(Eval('infusion')))})
+
+    infusion_rate_units = fields.Selection([
+        (None, ''),
+        ('mlhr', 'mL/hour'),
+        ], 'Unit Rate',
+        states={'invisible': Not(Bool(Eval('infusion')))},
+        select=True, sort=False)
+
     @staticmethod
     def default_qty():
         return 1
@@ -4073,32 +4083,35 @@ class PrescriptionLine(ModelSQL, ModelView):
     def default_prnt():
         return True
 
-
+    @staticmethod
+    def default_start_treatment():
+        return datetime.now()
+        
     @classmethod
     def create(cls, vlist):
         vlist = [x.copy() for x in vlist]
 
         for values in vlist:
             if values.get('add_to_history'):
-                
-                medicament = values['medicament']
-                indication = values['indication']
-                patient = values.get('name.patient')
-
-                if values['start_treatment']:
-                    start_treatment = values['start_treatment'] 
-                    
-                else:
-                    start_treatment = values.get('name.prescription_date')
-                               
+                                               
                 Medication = Pool().get('gnuhealth.patient.medication')
                 med = []
+
+                # Retrieve the patient ID from the prescription
+                Prescs = Pool().get('gnuhealth.prescription.order')
+                patient = Prescs.browse([values['name']])[0].patient.id
+
+                medicament = values['medicament']
+                indication = values['indication']
+                start_treatment = values.get('start_treatment')
+                prescription = values['name']
                 
                 values = {
-                    'name': 1,
+                    'name': patient,
                     'medicament': medicament,
                     'indication': indication,
                     'start_treatment': start_treatment,
+                    'prescription': prescription
                     }
                     
                 # Add the medicament from the prescription
