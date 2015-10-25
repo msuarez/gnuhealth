@@ -11,6 +11,10 @@
         <group col="1" string="Form" id="medicament_form">
             <field name="form"/>
         </group>
+
+        <group col="1" string="Route" id="medicament_route">
+            <field name="route"/>
+        </group>
         
         <newline/>
 
