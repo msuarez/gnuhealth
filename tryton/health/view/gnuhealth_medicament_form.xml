@@ -1,38 +1,49 @@
 <?xml version="1.0"?>
 <form string="medicaments">
-    <label name="name"/>
-    <field name="name"/>
-    <label name="category"/>
-    <field name="category"/>
+    <group colspan="4" col="10" string="Main" id="medicament_presentation">
+        <group col="7" string="Product" id="medicament_product">
+            <field name="name"/>
+        </group>
+        <group string="strength" id="medicament_strength">
+            <field name="strength"/>
+            <field name="unit"/>
+        </group>
+        <group col="1" string="Form" id="medicament_form">
+            <field name="form"/>
+        </group>
+        
+        <newline/>
+
+        <group colspan="4" id="medicament_category">
+            <label name="active_component"/>
+            <field name="active_component"/>
+            <label name="category"/>
+            <field name="category"/>
+        </group>
+
+    </group>
     <newline/>
-    <!--
-    <label name="therapeutic_action"/>
-    <field name="therapeutic_action"/>
-    -->
-    <label name="active_component"/>
-    <field name="active_component"/>
-    <label name="is_vaccine"/>
-    <field name="is_vaccine"/>
-    <newline/>
+
     <notebook>
         <page string="Main Info" id="medicament_main">
             <separator string="Indications" colspan="4" id="separator_medication_indication"/>
             <newline/>
             <field name="indications" colspan="4"/>
+            <label name="is_vaccine"/>
+            <field name="is_vaccine"/>
+
         </page>
         <page string="Presentation" id="medicament_presentation">
-            <label name="presentation"/>
             <field name="presentation"/>
         </page>
         <page string="Composition" id="medicament_composition">
-            <label name="composition"/>
             <field name="composition"/>
         </page>
         <page string="Dosage" id="medicament_dosage">
-            <label name="dosage"/>
             <field name="dosage"/>
             <newline/>
-            <label name="overdosage"/>
+            <separator string="Overdose" id="medicament_overdosage"/>
+            <newline/>
             <field name="overdosage"/>
         </page>
         <page string="Pregnancy" id="medicament_pregnancy">
@@ -46,15 +57,12 @@
             <field colspan="4" name="pregnancy"/>
         </page>
         <page string="Adverse Reactions" id="medicament_adverse_reactions">
-            <label name="adverse_reaction"/>
             <field name="adverse_reaction"/>
         </page>
         <page string="Storage" id="medicament_storage">
-            <label name="storage"/>
             <field name="storage"/>
         </page>
         <page string="Extra Info" id="medicament_extra_info">
-            <label name="notes"/>
             <field name="notes"/>
         </page>
     </notebook>

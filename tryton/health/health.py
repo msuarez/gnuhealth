@@ -1506,6 +1506,22 @@ class Medicament(ModelSQL, ModelView):
 
     composition = fields.Text('Composition', help='Components')
     indications = fields.Text('Indication', help='Indications')
+    strength = fields.Float(
+        'Strength',
+        help='Amount of medication (eg, 250 mg) per dose')
+
+    unit = fields.Many2One(
+        'gnuhealth.dose.unit', 'dose unit',
+        help='Unit of measure for the medication to be taken')
+
+    route = fields.Many2One(
+        'gnuhealth.drug.route', 'Administration Route',
+        help='Drug administration route code.')
+
+    form = fields.Many2One(
+        'gnuhealth.drug.form', 'Form',
+        help='Drug form, such as tablet, suspension, liquid ..')
+
     dosage = fields.Text('Dosage Instructions', help='Dosage / Indications')
     overdosage = fields.Text('Overdosage', help='Overdosage')
     pregnancy_warning = fields.Boolean(
