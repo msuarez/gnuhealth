@@ -4102,6 +4102,14 @@ class PrescriptionLine(ModelSQL, ModelView):
     @staticmethod
     def default_start_treatment():
         return datetime.now()
+
+    @fields.depends('medicament')
+    def on_change_medicament(self):
+        if self.medicament:
+            self.dose = self.medicament.strength
+            self.dose_unit = self.medicament.unit
+            self.form = self.medicament.form
+            self.route = self.medicament.route
         
     @classmethod
     def create(cls, vlist):
