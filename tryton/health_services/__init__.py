@@ -35,6 +35,7 @@ def register():
         CreateServiceInvoiceInit,
         Invoice,
         InvoiceLine,
+        PatientPrescriptionOrder,
         module='health_services', type_='model')
     Pool.register(
         CreateServiceInvoice,

@@ -27,7 +27,8 @@ from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine']
+__all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine',
+    'PatientPrescriptionOrder']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
@@ -149,3 +150,60 @@ class HealthServiceLine(ModelSQL, ModelView):
                 #"This service has been invoiced.\n"
                 #"You can no longer modify service lines.")
         #return super(HealthServiceLine, cls).delete(lines)
+
+
+""" Add Prescription order charges to service model """
+
+class PatientPrescriptionOrder(ModelSQL, ModelView):
+    'Prescription Order'
+    __name__ = 'gnuhealth.prescription.order'
+
+    service = fields.Many2One(
+        'gnuhealth.health_service', 'Service',
+        domain=[('patient', '=', Eval('patient'))], depends=['patient'],
+        states = {'readonly': Equal(Eval('state'), 'done')},
+        help="Service document associated to this prescription")
+
+    @classmethod
+    def __setup__(cls):
+        cls._buttons.update({
+            'update_service': {
+                'readonly': Equal(Eval('state'), 'done'),
+            },
+            })
+
+
+    @classmethod
+    @ModelView.button
+    def update_service(cls, prescriptions):
+        pool = Pool()
+        HealthService = pool.get('gnuhealth.health_service')
+
+        hservice = []
+        prescription = prescriptions[0]
+
+        if not prescription.service:
+            cls.raise_user_error("Need to associate a service !")
+
+        service_data = {}
+        service_lines = []
+
+        # Add the prescription lines to the service document
+
+        for line in prescription.prescription_line:
+            service_lines.append(('create', [{
+                'product': line.medicament.name.id,
+                'desc': 'Prescription Line',
+                'qty': line.quantity
+                }]))
+
+            
+        hservice.append(prescription.service)
+        
+        description = "Services including " + \
+            prescription.prescription_id
+        
+        service_data ['desc'] =  description
+        service_data ['service_line'] = service_lines
+                
+        HealthService.write(hservice, service_data)
