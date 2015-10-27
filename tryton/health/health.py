@@ -3964,7 +3964,8 @@ class PrescriptionLine(ModelSQL, ModelView):
 #        'Medication Template')
 
     name = fields.Many2One('gnuhealth.prescription.order', 'Prescription ID')
-    review = fields.DateTime('Review')
+    review = fields.DateTime('Valid Until', help="Until this date, the patient \
+        usually can ask for a refill / reorder of this medicament")
 
     quantity = fields.Integer(
         'Units',
