@@ -2599,7 +2599,9 @@ class PatientData(ModelSQL, ModelView):
 #    prescriptions = fields.One2Many('gnuhealth.prescription.order', 'name',
 #        'Prescriptions')
 
-    diseases = fields.One2Many('gnuhealth.patient.disease', 'name', 'Conditions')
+    diseases = fields.One2Many('gnuhealth.patient.disease', 'name',
+     'Conditions', readonly=True)
+     
     critical_summary = fields.Function(fields.Text(
         'Important health conditions related to this patient',
         help='Automated summary of patient important health conditions '
@@ -2796,9 +2798,9 @@ class PatientData(ModelSQL, ModelView):
             table.drop_column('identification_code')
 
 
-# PATIENT DISESASES INFORMATION
+# PATIENT CONDITIONS INFORMATION
 class PatientDiseaseInfo(ModelSQL, ModelView):
-    'Patient Disease History'
+    'Patient Conditions History'
     __name__ = 'gnuhealth.patient.disease'
 
     name = fields.Many2One('gnuhealth.patient', 'Patient')

@@ -1491,7 +1491,7 @@
             <field name="action" ref="act_ecg_view"/>
         </record>
 
-<!-- PATIENT DISEASES -->
+<!-- PATIENT CONDITIONS -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_diseases_view_form">
             <field name="model">gnuhealth.patient.disease</field>
@@ -1504,6 +1504,20 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_patient_diseases_tree</field>
         </record>
+
+<!-- Shortcut to the Patient conditions from the patient view -->
+        <record model="ir.action.act_window" id="act_condition_form1">
+            <field name="name">Conditions</field>
+            <field name="res_model">gnuhealth.patient.disease</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_condition_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_condition_form1"/>
+        </record>
+
 
 
 <!-- PATIENT DATA -->
