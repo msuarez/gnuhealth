@@ -4263,16 +4263,10 @@ class PatientEvaluation(ModelSQL, ModelView):
             help="Duration of the evaluation, in minutes"),
         'evaluation_duration')
 
-    # release 3.0 (Tryton 3.6)
-    #wait_time = fields.Function(fields.TimeDelta('Patient wait time'),
-            #help="How long the patient waited"),
-            #'get_wait_time')
+    wait_time = fields.Function(fields.TimeDelta('Patient wait time',
+        help="How long the patient waited"),
+        'get_wait_time')
     
-    # release 2.8
-    wait_time = fields.Function(fields.Char('Patient wait time',
-        help="How long the patient waited, in minutes"),
-        'get_string_wait_time')
-
     state = fields.Selection([
         ('in_progress', 'In progress'),
         ('done', 'Done'),
