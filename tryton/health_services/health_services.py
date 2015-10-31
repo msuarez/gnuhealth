@@ -22,7 +22,7 @@
 #
 ##############################################################################
 import datetime
-from trytond.model import ModelView, ModelSQL, fields, ModelSingleton
+from trytond.model import ModelView, ModelSQL, fields, ModelSingleton, Unique
 from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
 
@@ -66,8 +66,12 @@ class HealthService(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthService, cls).__setup__()
-        cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_unique', Unique(t,t.name),
+                'The Service ID must be unique'),
+            ]
         cls._buttons.update({
             'button_set_to_draft': {'invisible': Equal(Eval('state'),
                 'draft')}
