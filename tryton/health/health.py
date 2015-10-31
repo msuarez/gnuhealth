@@ -3259,7 +3259,7 @@ class AppointmentReport(ModelSQL, ModelView):
 
         res = None
         evaluations = Evaluation.search([
-            ('evaluation_date', '=', self.id)
+            ('appointment', '=', self.id)
         ])
         if evaluations:
             evaluation = evaluations[0]
@@ -4222,20 +4222,20 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return duration
 
-    def get_wait_time(self, name): #3.6
+    def get_wait_time(self, name): # 3.0
         # Compute wait time between checked-in and start of evaluation
-        if self.evaluation_date:
-            if self.evaluation_date.checked_in_date:
-                if self.evaluation_date.checked_in_date < self.evaluation_start:
-                    return self.evaluation_start-self.evaluation_date.checked_in_date
+        if self.appointment:
+            if self.appointment.checked_in_date:
+                if self.appointment.checked_in_date < self.evaluation_start:
+                    return self.evaluation_start-self.appointment.checked_in_date
 
     def get_string_wait_time(self, name): #3.4
         # Compute the string for the wait time
         duration = ''
-        if self.evaluation_date:
-            if self.evaluation_date.checked_in_date:
-                if self.evaluation_date.checked_in_date < self.evaluation_start:
-                    delta=self.evaluation_start-self.evaluation_date.checked_in_date
+        if self.appointment:
+            if self.appointment.checked_in_date:
+                if self.appointment.checked_in_date < self.evaluation_start:
+                    delta=self.evaluation_start-self.appointment.checked_in_date
                     duration = str(int(round(delta.total_seconds()/60)))
         return duration
             
@@ -4245,7 +4245,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
         states = STATES)
 
-    evaluation_date = fields.Many2One(
+    appointment = fields.Many2One(
         'gnuhealth.appointment', 'Appointment',
         domain=[('patient', '=', Eval('patient'))], depends=['patient'],
         help='Enter or select the date / ID of the appointment related to'
@@ -4755,19 +4755,26 @@ class PatientEvaluation(ModelSQL, ModelView):
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
     @classmethod
-    # Update to version 2.4
 
     def __register__(cls, module_name):
 
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
+        # Update to version 2.4
         # Rename doctor to a healthprof
 
         if table.column_exist('doctor'):
             table.column_rename('doctor', 'healthprof')
 
+        # Update to version 3.0
+        # Rename evaluation_date to appointment
+
+        if table.column_exist('evaluation_date'):
+            table.column_rename('evaluation_date', 'appointment')
+
         super(PatientEvaluation, cls).__register__(module_name)
+
 
 
     @classmethod
@@ -4831,8 +4838,8 @@ class PatientEvaluation(ModelSQL, ModelView):
         # If there is an appointment associated to this evaluation
         # set it to state "Done"
         
-        if evaluations[0].evaluation_date:
-            patient_app.append(evaluations[0].evaluation_date)
+        if evaluations[0].appointment:
+            patient_app.append(evaluations[0].appointment)
             Appointment.write(patient_app, {
                 'state': 'done',
                 })

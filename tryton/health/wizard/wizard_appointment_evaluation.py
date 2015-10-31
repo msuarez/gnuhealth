@@ -58,7 +58,7 @@ class CreateAppointmentEvaluation(Wizard):
         visit_type = str(app_id.visit_type)
 
         action['pyson_domain'] = PYSONEncoder().encode([
-            ('evaluation_date', '=', appointment),
+            ('appointment', '=', appointment),
             ('patient', '=', patient),
             ('specialty', '=', specialty),
             ('urgency', '=', urgency),
@@ -66,7 +66,7 @@ class CreateAppointmentEvaluation(Wizard):
             ('visit_type', '=', visit_type),
             ])
         action['pyson_context'] = PYSONEncoder().encode({
-            'evaluation_date': appointment,
+            'appointment': appointment,
             'patient': patient,
             'specialty': specialty,
             'urgency': urgency,

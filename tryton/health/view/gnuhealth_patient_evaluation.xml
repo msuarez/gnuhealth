@@ -164,8 +164,8 @@
             <label name="institution"/>               
             <field name="institution" colspan="3"/>               
             <newline/>
-            <label name="evaluation_date"/>
-            <field name="evaluation_date"/>
+            <label name="appointment"/>
+            <field name="appointment"/>
             <label name="wait_time"/>
             <field name="wait_time"/>
             <label name="derived_from"/>
