@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <form string="Patient Evaluation">
-    <group string="Header" colspan="4" col="14" id="evaluation_header">
+    <group string="Header" colspan="4" col="16" id="evaluation_header">
         <label name="patient"/>
         <field name="patient" colspan="3"/>
         <label name="sex"/>
@@ -9,6 +9,8 @@
         <field name="computed_age"/>
         <label name="visit_type"/>
         <field name="visit_type"/>
+        <label name="related_condition"/>
+        <field name="related_condition"/>
         <label name="healthprof"/>
         <field name="healthprof"/>
         <label name="code"/>

@@ -4252,6 +4252,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         ' this evaluation',
         states = STATES)
 
+    related_condition = fields.Many2One('gnuhealth.patient.disease', 'Related condition',
+        domain=[('name', '=', Eval('patient'))], depends=['patient'],
+        help="Related condition related to this follow-up evaluation",states = STATES)
+
     evaluation_start = fields.DateTime('Start', required=True,
         states = STATES)
     evaluation_endtime = fields.DateTime('End', required=True,
