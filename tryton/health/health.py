@@ -2684,7 +2684,13 @@ class PatientData(ModelSQL, ModelView):
         if (self.deceased):
             return self.name.death_certificate.cod.id
 
-            
+
+    # Show the sex upon entering the individual 
+    @fields.depends('name')
+    def on_change_name(self):
+        sex=None
+        self.sex = self.name.sex
+
     @classmethod
     def search_patient_puid(cls, name, clause):
         res = []
@@ -4719,6 +4725,17 @@ class PatientEvaluation(ModelSQL, ModelView):
     def on_change_with_loc(self):
         return int(self.loc_motor) + int(self.loc_eyes) + int(self.loc_verbal)
 
+
+    # Show the sex and age upon entering the patient 
+    # These two are function fields (don't exist at DB level)
+    @fields.depends('patient')
+    def on_change_patient(self):
+        sex=None
+        age=''
+        self.sex = self.patient.sex
+        self.computed_age = self.patient.age
+
+    
     @staticmethod
     def default_information_source():
         return 'Self'
