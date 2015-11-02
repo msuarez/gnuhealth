@@ -2864,6 +2864,10 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         ], 'Status', select=True, sort=False)
     extra_info = fields.Text('Extra Info')
 
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
+        help='Health Professional')
+
     @classmethod
     def __setup__(cls):
         super(PatientDiseaseInfo, cls).__setup__()
@@ -2945,6 +2949,10 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     def get_infect_disease_icon(self, name):
         if (self.is_infectious):
             return 'gnuhealth-warning'
+
+    @staticmethod
+    def default_healthprof():
+        return HealthProfessional().get_health_professional()
 
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
