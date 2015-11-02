@@ -2868,6 +2868,11 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
         help='Health Professional')
 
+    related_evaluations = fields.One2Many(
+        'gnuhealth.patient.evaluation', 'related_condition',
+        'Related Evaluations', readonly=True)
+
+
     @classmethod
     def __setup__(cls):
         super(PatientDiseaseInfo, cls).__setup__()
