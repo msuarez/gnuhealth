@@ -54,8 +54,8 @@ __all__ = [
     'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
     'Appointment', 'AppointmentReport',
     'OpenAppointmentReportStart', 'OpenAppointmentReport',
-    'PatientMedication', 'PatientVaccination',
-    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientEvaluation',
+    'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
+    'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'PatientECG']
 
