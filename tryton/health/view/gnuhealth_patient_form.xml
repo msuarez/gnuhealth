@@ -34,6 +34,8 @@
                         <field name="current_insurance"/>
                     </group>
                     <newline/>
+                    <field name="diseases" colspan="4" yfill="1"/>
+                    
                     <group string="Notepad" id="patient_notepad">
                         <field height="100" name="general_info"/>
                     </group>
@@ -86,9 +88,10 @@ code with the unique patient ID.
             <field name="vaccinations"/>
         </page>
 
-        <!-- Patient Health Conditions -->
+        <!-- Patient Health Conditions 
         <page string="Conditions" id="patient_diseases">
-            <field name="diseases" colspan="4"/>
         </page>
+        -->
+        
     </notebook>
 </form>
