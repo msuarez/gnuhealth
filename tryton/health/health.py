@@ -205,6 +205,57 @@ class PartyPatient (ModelSQL, ModelView):
     'Party'
     __name__ = 'party.party'
 
+    # Get the person age in the following format : 'YEARS MONTHS DAYS'
+    # It will calculate the age of the patient while the person is alive.
+    # When the person dies, it will show the age at time of death.
+
+    def person_age(self, name):
+
+        def compute_age_from_dates(person_dob, person_deceased,
+                                   person_dod, person_sex):
+
+            now = datetime.now()
+
+            if (person_dob):
+                dob = datetime.strptime(str(person_dob), '%Y-%m-%d')
+
+                if person_deceased:
+                    dod = datetime.strptime(
+                        str(person_dod), '%Y-%m-%d %H:%M:%S')
+                    delta = relativedelta(dod, dob)
+                    deceased = ' (deceased)'
+                else:
+                    delta = relativedelta(now, dob)
+                    deceased = ''
+                years_months_days = str(delta.years) + 'y ' \
+                    + str(delta.months) + 'm ' \
+                    + str(delta.days) + 'd' + deceased
+            else:
+                years_months_days = 'No DoB !'
+
+            # Return the age in format y m d when the caller is the field name
+            if name == 'age':
+                return years_months_days
+
+            # Return if the person is in the period of childbearing age >10 is
+            # the caller is childbearing_potential
+
+            if (name == 'childbearing_age' and person_dob):
+                if (delta.years >= 11
+                   and delta.years <= 55 and person_sex == 'f'):
+                    return True
+                else:
+                    return False
+
+            # Return the raw age in the integers array [Y,M,D]
+            # When name is called as 'raw_age'
+            if (name == 'raw_age' and person_dob):
+                return [delta.years,delta.months,delta.days]
+                
+        return compute_age_from_dates(self.dob, self.deceased,
+                                      self.dod, self.sex)
+
+
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
 
@@ -243,6 +294,8 @@ class PartyPatient (ModelSQL, ModelView):
     lastname = fields.Char('Last Name', help='Last Name',
         states={'invisible': Not(Bool(Eval('is_person')))})
     dob = fields.Date('DoB', help='Date of Birth')
+
+    age = fields.Function(fields.Char('Age'), 'person_age')
 
     sex = fields.Selection([
         (None, ''),
@@ -308,6 +361,13 @@ class PartyPatient (ModelSQL, ModelView):
         help='The information is updated from the Death Certificate',
         states={'invisible': Not(Bool(Eval('deceased')))})
 
+    dod = fields.Function(fields.DateTime(
+        'Date of Death',
+        states={
+            'invisible': Not(Bool(Eval('deceased'))),
+            },
+        depends=['deceased']),'get_dod')
+
     death_certificate = fields.Many2One('gnuhealth.death_certificate',
         'Death Certificate', readonly=True)
 
@@ -326,6 +386,10 @@ class PartyPatient (ModelSQL, ModelView):
     def get_father(self, name):
         if (self.birth_certificate and self.birth_certificate.father):
             return self.birth_certificate.father.id
+
+    def get_dod(self, name):
+        if (self.deceased):
+            return self.death_certificate.dod
 
     @staticmethod
     def default_activation_date():
@@ -2689,7 +2753,10 @@ class PatientData(ModelSQL, ModelView):
     @fields.depends('name')
     def on_change_name(self):
         sex=None
-        self.sex = self.name.sex
+        age=None
+        if self.name:
+            self.sex = self.name.sex
+            self.age = self.name.age
 
     @classmethod
     def search_patient_puid(cls, name, clause):
