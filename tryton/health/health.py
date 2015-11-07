@@ -4311,19 +4311,16 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return duration
 
-    def get_string_wait_time(self, name): #3.4
-        # Compute the string for the wait time
-        duration = ''
+    def get_wait_time(self, name):
+        # Compute wait time between checked-in and start of evaluation
         if self.appointment:
             if self.appointment.checked_in_date:
                 if self.appointment.checked_in_date < self.evaluation_start:
-                    delta=self.evaluation_start-self.appointment.checked_in_date
-                    duration = str(int(round(delta.total_seconds()/60)))
-        return duration
-            
+                    return self.evaluation_start-self.appointment.checked_in_date
+
     code = fields.Char('Code', help="Unique code that \
         identifies the evaluation")
-    
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient',
         states = STATES)
 
@@ -4336,7 +4333,8 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     related_condition = fields.Many2One('gnuhealth.patient.disease', 'Related condition',
         domain=[('name', '=', Eval('patient'))], depends=['patient'],
-        help="Related condition related to this follow-up evaluation",states = STATES)
+        help="Related condition related to this follow-up evaluation",
+        states = {'invisible': (Eval('visit_type') != 'followup')})
 
     evaluation_start = fields.DateTime('Start', required=True,
         states = STATES)
