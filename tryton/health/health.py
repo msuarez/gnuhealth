@@ -3032,6 +3032,9 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
     def default_healthprof():
         return HealthProfessional().get_health_professional()
 
+    def get_rec_name(self, name):
+        return self.pathology.rec_name
+
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
     'Patient Appointments'
