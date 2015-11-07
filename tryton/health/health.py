@@ -4311,13 +4311,6 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         return duration
 
-    def get_wait_time(self, name): # 3.0
-        # Compute wait time between checked-in and start of evaluation
-        if self.appointment:
-            if self.appointment.checked_in_date:
-                if self.appointment.checked_in_date < self.evaluation_start:
-                    return self.evaluation_start-self.appointment.checked_in_date
-
     def get_string_wait_time(self, name): #3.4
         # Compute the string for the wait time
         duration = ''
