@@ -3109,6 +3109,26 @@ class Appointment(ModelSQL, ModelView):
         super(Appointment, cls).__setup__()
         cls._order.insert(0, ('appointment_date', 'ASC'))
 
+        cls._buttons.update({
+            'checked_in': {'invisible': Not(Equal(Eval('state'), 'confirmed'))}
+            })
+
+        cls._buttons.update({
+            'no_show': {'invisible': Not(Equal(Eval('state'), 'confirmed'))}
+            })
+
+    @classmethod
+    @ModelView.button
+    def checked_in(cls, appointments):
+        cls.write(appointments, {
+            'state': 'checked_in'})
+
+    @classmethod
+    @ModelView.button
+    def no_show(cls, appointments):
+        cls.write(appointments, {
+            'state': 'no_show'})
+
     @classmethod
     def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')

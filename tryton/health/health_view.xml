@@ -1266,16 +1266,28 @@
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
 
-        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_free">
-            <field name="name">Free</field>
-            <field name="sequence" eval="10"/>
-            <field name="domain" eval="[('state', '=', 'free')]" pyson="1"/>
-            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
-        </record>
         <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_confirmed">
             <field name="name">Confirmed</field>
             <field name="sequence" eval="10"/>
             <field name="domain" eval="[('state', '=', 'confirmed')]" pyson="1"/>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_checkedin">
+            <field name="name">Checked in</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'checked_in')]" pyson="1"/>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_noshow">
+            <field name="name">No Shows</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'no_show')]" pyson="1"/>
+            <field name="act_window" ref="action_gnuhealth_appointment_view"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_free">
+            <field name="name">Free</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'free')]" pyson="1"/>
             <field name="act_window" ref="action_gnuhealth_appointment_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_gnuhealth_appointment_domain_all">
