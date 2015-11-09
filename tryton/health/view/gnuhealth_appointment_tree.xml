@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tree string="Patient appointment" editable="top">
+    <button name="checked_in" help="The patient has arrived and is waiting" string="Checked in"/>
     <field name="appointment_date" string="Date" widget="date"/>
     <field name="appointment_date" string="Time" widget="time"/>
     <field name="patient" expand="1"/>
-    <button name="checked_in" help="The patient has arrived and is waiting" string="Checked in"/>
     <button name="no_show" help="The patient did not show up" string="No show"/>
     <field name="state" expand="1"/>
     <field name="visit_type" expand="1"/>

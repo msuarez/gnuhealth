@@ -4357,8 +4357,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     evaluation_start = fields.DateTime('Start', required=True,
         states = STATES)
-    evaluation_endtime = fields.DateTime('End', required=True,
-        states = STATES)
+    evaluation_endtime = fields.DateTime('End', states = STATES)
 
     evaluation_length = fields.Function(
         fields.Char(
@@ -4946,6 +4945,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         cls.write(evaluations, {
             'state': 'done',
             'signed_by': signing_hp,
+            'evaluation_endtime': datetime.now()
             })
         
         # If there is an appointment associated to this evaluation
