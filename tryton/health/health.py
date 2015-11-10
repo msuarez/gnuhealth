@@ -3308,7 +3308,7 @@ class AppointmentReport(ModelSQL, ModelView):
     diagnosis = fields.Function(
         fields.Many2One(
             'gnuhealth.pathology',
-            'Presumptive Diagnosis'), 'get_diagnosis')
+            'Main Codition'), 'get_diagnosis')
 
     @classmethod
     def __setup__(cls):
@@ -4678,14 +4678,14 @@ class PatientEvaluation(ModelSQL, ModelView):
         states = STATES)
 
     diagnosis = fields.Many2One(
-        'gnuhealth.pathology', 'Presumptive Diagnosis',
+        'gnuhealth.pathology', 'Main Condition',
         help='Presumptive Diagnosis. If no diagnosis can be made'
         ', encode the main sign or symptom.',
         states = STATES)
 
     secondary_conditions = fields.One2Many(
         'gnuhealth.secondary_condition',
-        'evaluation', 'Secondary Conditions', help='Other, Secondary'
+        'evaluation', 'Other Conditions', help='Other '
         ' conditions found on the patient',
         states = STATES)
 
