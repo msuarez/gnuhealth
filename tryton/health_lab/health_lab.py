@@ -21,7 +21,7 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
@@ -68,8 +68,10 @@ class TestType(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(TestType, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'unique(name)', 'The Lab Test code must be unique'),
+            ('code_uniq', Unique(t, t.name),
+             'The Lab Test code must be unique')
         ]
 
     @classmethod
@@ -114,8 +116,10 @@ class Lab(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Lab, cls).__setup__()
-        cls._sql_constraints += [
-            ('id_uniq', 'unique (name)', 'The test ID code must be unique'),
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('id_uniq', Unique(t, t.name),
+             'The test ID code must be unique')
         ]
 
     @staticmethod
@@ -151,9 +155,12 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(GnuHealthLabTestUnits, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'unique(name)', 'The Unit name must be unique'),
+            ('name_uniq', Unique(t, t.name),
+             'The Unit name must be unique')
         ]
+
 
     @classmethod
     def check_xml_record(cls, records, values):
