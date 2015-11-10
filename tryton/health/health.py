@@ -5015,7 +5015,7 @@ class SignsAndSymptoms(ModelSQL, ModelView):
 
     clinical = fields.Many2One(
         'gnuhealth.pathology', 'Sign or Symptom',
-        domain=[('code', 'like', 'R%')], required=True)
+        required=True)
 
     comments = fields.Char('Comments')
 
