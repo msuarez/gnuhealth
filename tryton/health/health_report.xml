@@ -81,6 +81,19 @@
             <field name="report_name">gnuhealth.immunization_status_report</field>
             <field name="report">health/report/immunization_status_report.odt</field>
         </record>
+
+        <record model="ir.action.report" id="report_patient_evaluation">
+            <field name="name">Patient Evaluation</field>
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="report_name">gnuhealth.patient_evaluation</field>
+            <field name="report">health/report/patient_evaluation.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_evaluation_patient">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient.evaluation,-1</field>
+            <field name="action" ref="report_patient_evaluation"/>
+        </record>
+
         
     </data>
 </tryton>
