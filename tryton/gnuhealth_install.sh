@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # GNU Health installer
-# Version for 2.8 series
+# Version for 3.0 series
 
 ##############################################################################
 #
@@ -41,7 +41,7 @@ BLUE="\n$(tput setaf 4)"
 INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
-TRYTON_VERSION="3.4"
+TRYTON_VERSION="3.8"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 
@@ -66,7 +66,7 @@ check_requirements() {
 
     if ! type wget 2>/dev/null ; then
         message "[ERROR] wget command not found. Please install it or check your PATH variable" ${RED}
-        exit 1
+        bailout
     fi
 
     # PYTHON version [2.7.x < 3.x]
@@ -74,7 +74,7 @@ check_requirements() {
 
     if ! type python 2>/dev/null ; then
         message "[ERROR] Python interpreter not found. Please install it or check your PATH variable." ${RED}
-        exit 1
+        bailout
     fi
 
     local PVERSION=$(python -V 2>&1 | grep 2.[7-9].[0-9])
@@ -84,7 +84,7 @@ check_requirements() {
     else
         python -V
         message "[ERROR] Found an Incompatible Python version." ${RED}
-        exit 1
+        bailout
     fi
 
     # PIP command
@@ -102,7 +102,7 @@ check_requirements() {
 
     if [[ ! ${PIP_NAME} ]]; then
         message "[ERROR] PIP command not found. Please install it or check your PATH variable." ${RED}
-        exit 1
+        bailout
     fi
 
     # Check main operating system
@@ -138,9 +138,9 @@ install_directories() {
 
     if [[ -e ${TMP_DIR} ]]; then
         message "[ERROR] Directory ${TMP_DIR} exists. You need to delete it." ${RED}
-        exit 1
+        bailout
     else
-        mkdir ${TMP_DIR} || exit 1
+        mkdir ${TMP_DIR} || bailout
     fi
     message "[INFO] OK." ${GREEN}
 
@@ -164,9 +164,9 @@ install_directories() {
     # Create GNU Health directories
     if [[ -e ${BASEDIR} ]]; then
         message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
-        exit 1
+        bailout
     else
-        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  exit 1
+        mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  bailout
     fi
     message "[INFO] OK." ${GREEN}
 }
@@ -179,33 +179,35 @@ install_python_dependencies() {
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
-    local PIP_LXML="lxml==3.4.1"
+    local PIP_LXML="lxml==3.5.0"
     local PIP_RELATORIO="relatorio==0.6.1"
-    local PIP_DATEUTIL="python-dateutil==2.4.0"
-    local PIP_PSYCOPG2="psycopg2==2.5.4"
-    local PIP_PYTZ="pytz==2014.10"
-    local PIP_LDAP="python-ldap==2.4.19"
+    local PIP_DATEUTIL="python-dateutil==2.4.2"
+    local PIP_PSYCOPG2="psycopg2==2.6.1"
+    local PIP_PYTZ="pytz==2015.7"
+    local PIP_LDAP="python-ldap==2.4.20"
     local PIP_VOBJECT="vobject==0.8.1c"
     local PIP_PYWEBDAV="PyWebDAV==0.9.8"
     local PIP_QRCODE="qrcode==5.1"
-    local PIP_SIX="six==1.9.0"
-    local PIP_PILLOW="Pillow==2.7.0"
-    local PIP_CALDAV="caldav==0.2.1"
-    local PIP_POLIB="polib==1.0.6"
-    local PIP_SQL="python-sql==0.4"
+    local PIP_SIX="six==1.10.0"
+    local PIP_PILLOW="Pillow==3.0.0"
+    local PIP_CALDAV="caldav==0.4.0"
+    local PIP_POLIB="polib==1.0.7"
+    local PIP_SQL="python-sql==0.8"
+    local PIP_STDNUM="python-stdnum==1.2"
+    local PIP_SIMPLEEVAL="simpleeval==0.8.7"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL"
+    local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
     for PKG in ${PIP_PKGS}; do
         message " >> ${PKG}" ${BLUE}
-        ${PIP_CMD} ${PIP_ARGS} ${PKG} || exit 1
+        ${PIP_CMD} ${PIP_ARGS} ${PKG} || bailout
         message " >> OK" ${GREEN}
     done
 }
@@ -245,16 +247,16 @@ install_tryton_modules() {
     # Download Tryton packages.
     #
     message "[INFO] Changing to temporary directory." ${BLUE}
-    cd ${TMP_DIR} || exit 1
+    cd ${TMP_DIR} || bailout
 
     message "[INFO] Downloading the Tryton server..." ${YELLOW}
-    wget ${TRYTOND_URL} || exit 1
+    wget ${TRYTOND_URL} || bailout
     message "[INFO] OK." ${GREEN}
 
     message "[INFO] Downloading Tryton modules..." ${YELLOW}
     local URL=""
     for URL in ${TRYTON_MODULES_URL}; do
-        wget ${URL} || exit 1
+        wget ${URL} || bailout
     done
     message "[INFO] OK." ${GREEN}
 
@@ -263,13 +265,13 @@ install_tryton_modules() {
     #
     message "[INFO] Uncompressing the Tryton server..." ${YELLOW}
     cd ${TRYTOND_DIR}
-    tar -xzf ${TMP_DIR}/${TRYTOND_FILE} || exit 1
+    tar -xzf ${TMP_DIR}/${TRYTOND_FILE} || bailout
     message "[INFO] OK." ${GREEN}
 
     message "[INFO] Uncompressing the Tryton modules..." ${YELLOW}
-    cd ${MODULES_DIR} || exit 1
+    cd ${MODULES_DIR} || bailout
     for MODULE in $(ls ${TMP_DIR}/trytond_*); do
-        tar -xzf ${MODULE} || exit 1
+        tar -xzf ${MODULE} || bailout
     done
     message "[INFO] OK." ${GREEN}
 
@@ -278,17 +280,17 @@ install_tryton_modules() {
     #
     message "[INFO] Changing directory to <../trytond/modules>." ${BLUE}
     local TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
-    cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || exit 1
+    cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
 
     message "[INFO] Linking the Tryton modules..." ${YELLOW}
     local LNMOD=""
     for LNMOD in ${TRYTON_MODULES}; do
-        ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD} || exit 1
+        ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD} || bailout
     done
     message "[INFO] OK." ${GREEN}
 
     message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
-    cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || exit 1
+    cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
 
     ln -si ${MODULES_DIR}/health* .
 
@@ -296,28 +298,28 @@ install_tryton_modules() {
     
     local EXTRA_FILES="COPYING README version"
     for FILE in ${EXTRA_FILES}; do
-        cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || exit 1
+        cp -a ${GNUHEALTH_INST_DIR}/${FILE} ${BASEDIR} || bailout
     done
 
     # Copy Tryton configuration files
     
-    cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || exit 1
+    cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || bailout
 
     # Copy serverpass
     
-    cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || exit 1
+    cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || bailout
 
     message "[INFO] OK." ${GREEN}
 
     # Copy gnuhealth-control
     
-    cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || exit 1
+    cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || bailout
 
     message "[INFO] OK." ${GREEN}
 
     # Copy documentation directory
     
-    cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || exit 1
+    cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || bailout
 
     message "[INFO] OK." ${GREEN}
 
@@ -335,10 +337,10 @@ bash_profile () {
     if [[ -e ${PROFILE} ]]; then
         # Make a backup copy of the GNU Health BASH profile if it exists
         message "[INFO] GNU Health BASH Profile exists. Making backup to ${PROFILE}.bak ." ${YELLOW}
-        cp ${PROFILE} ${PROFILE}.bak || exit 1
+        cp ${PROFILE} ${PROFILE}.bak || bailout
     fi
 
-    cp gnuhealthrc ${PROFILE} ||  exit 1
+    cp gnuhealthrc ${PROFILE} ||  bailout
 
     # Load .gnuhealthrc from .bash_profile . If .bash_profile does not exist, create it.
     if [[ -e $HOME/.bash_profile ]]; then
@@ -359,18 +361,27 @@ bash_profile () {
 serverpass () {
  
     message "[INFO] Setting up your GNU Health Tryton master server password" ${BLUE}
-    /usr/bin/env python ${UTIL_DIR}/serverpass.py || exit 1
+    /usr/bin/env python ${UTIL_DIR}/serverpass.py || bailout
 }
  
 
 cleanup() {
     message "[INFO] Cleaning Up..." ${YELLOW}
-    rm -rf ${TMP_DIR} || exit 1
+    rm -rf ${TMP_DIR} || bailout
 
     message "[INFO] OK." ${GREEN}
 }
 
-
+bailout() {
+    message "[INFO] Bailing out !" ${BLUE}
+    message "[INFO] Cleaning up temp directories at ${TMP_DIR}" ${BLUE}
+    rm -rf ${TMP_DIR}
+    message "[INFO] removind base dir at ${BASEDIR}" ${BLUE}
+    rm -rf ${BASEDIR}
+ 
+    exit 1
+}
+    
 #-----------------------------------------------------------------------------
 # Main
 #-----------------------------------------------------------------------------
