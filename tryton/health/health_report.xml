@@ -83,7 +83,7 @@
         </record>
 
         <record model="ir.action.report" id="report_patient_evaluation">
-            <field name="name">Patient Evaluation</field>
+            <field name="name">Patient Evaluation Summary</field>
             <field name="model">gnuhealth.patient.evaluation</field>
             <field name="report_name">gnuhealth.patient_evaluation</field>
             <field name="report">health/report/patient_evaluation.odt</field>
