@@ -4544,7 +4544,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         states = STATES)
 
     bmi = fields.Float(
-        'BMI',
+        'BMI', digits=(2,2),
         help='Body mass index',
         states = STATES)
 
