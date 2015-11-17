@@ -4537,10 +4537,10 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Temperature in celcius',
         states = STATES)
 
-    weight = fields.Float('Weight', help='Weight in kilos',
+    weight = fields.Float('Weight', digits=(3,2),help='Weight in kilos',
         states = STATES)
 
-    height = fields.Float('Height', help='Height in centimeters',
+    height = fields.Float('Height', digits=(3,1), help='Height in centimeters',
         states = STATES)
 
     bmi = fields.Float(
@@ -4562,7 +4562,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         states = STATES)
 
     whr = fields.Float(
-        'WHR', help='Waist to hip ratio',
+        'WHR', digits=(2,2),help='Waist to hip ratio . Reference values:\n'
+        'Men : < 0.9 Normal // 0.9 - 0.99 Overweight // > 1 Obesity \n'
+        'Women : < 0.8 Normal // 0.8 - 0.84 Overweight // > 0.85 Obesity',
         states = STATES)
 
     # DEPRECATION NOTE : SIGNS AND SYMPTOMS FIELDS TO BE REMOVED IN 1.6 .
@@ -4792,12 +4794,23 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_state():
         return 'in_progress'
 
-    @fields.depends('weight', 'height', 'bmi')
+    @fields.depends('weight', 'height')
     def on_change_with_bmi(self):
         if self.height and self.weight:
             if (self.height > 0):
-                return self.weight / ((self.height / 100) ** 2)
+                return round(self.weight / ((self.height / 100) ** 2),2)
             return 0
+
+    @fields.depends('weight', 'height', 'bmi')
+    def on_change_bmi(self):
+        if self.height and self.weight:
+            if (self.height > 0):
+                self.bmi = round(self.weight / ((self.height / 100) ** 2),2)
+        elif (self.height and not self.weight):
+            self.weight = round((((self.height / 100) ** 2) * self.bmi),2)
+                
+        elif (self.weight and not self.height):
+            self.height = round(((self.weight / self.bmi)**(0.5)*100),2)
 
     @fields.depends('loc_verbal', 'loc_motor', 'loc_eyes')
     def on_change_with_loc(self):
@@ -4832,7 +4845,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         waist = self.abdominal_circ
         hip = self.hip
         if (hip > 0):
-            whr = waist / hip
+            whr = round((waist / hip),2)
         else:
             whr = 0
         return whr
