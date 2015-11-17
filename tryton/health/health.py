@@ -4553,12 +4553,12 @@ class PatientEvaluation(ModelSQL, ModelView):
         help='Head circumference in centimeters',
         states = STATES)
 
-    abdominal_circ = fields.Float('Waist',
+    abdominal_circ = fields.Float('Waist', digits=(3,1),
         help='Waist circumference in centimeters',
         states = STATES)
 
-    hip = fields.Float('Hip',
-        help='Hip circumference in centimeters',
+    hip = fields.Float('Hip', digits=(3,1),
+        help='Hip circumference in centimeters', 
         states = STATES)
 
     whr = fields.Float(
