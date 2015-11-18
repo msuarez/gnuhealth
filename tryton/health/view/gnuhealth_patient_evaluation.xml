@@ -22,7 +22,7 @@
         <page string="Main Info" id="page_patient_evaluation_main">
             <separator colspan="4" id="separator_chief_complaint"/>
             <newline/>
-            <group col="9" string="Chief Complaint" id="eval_chief_complaint">
+            <group col="9" colspan="4" string="Chief Complaint" id="eval_chief_complaint">
                 <field name="chief_complaint" colspan="5"/>
                 <label name="information_source"/>
                 <field name="information_source"/>
@@ -33,6 +33,20 @@
             <separator string="Present Illness" colspan="4" id="separator_present_illness"/>
             <field name="present_illness" colspan="4"/>
             <newline/>
+            <label name="diagnosis"/>
+            <field name="diagnosis" colspan="4"/>
+            <newline/>
+            <field name="secondary_conditions" colspan="4"/>
+            <newline/>
+            <separator string="Information on Diagnosis" colspan="2" id="separator_evaluation_diagnosis_1"/>
+            <separator string="Treatment Plan" colspan="2" id="separator_evaluation_diagnosis_2"/>
+            <newline/>
+            <field name="info_diagnosis" colspan="2"/>
+            <field name="directions" colspan="2"/>
+            <newline/>
+            <field name="diagnostic_hypothesis" colspan="2"/>
+            <field name="actions" colspan="2"/>
+
             <separator string="Evaluation Summary" colspan="4" id="separator_evaluation_summary"/>
             <newline/>
             <field name="evaluation_summary" colspan="4"/>
@@ -149,19 +163,6 @@
             </group>
         </page>
         <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
-            <label name="diagnosis"/>
-            <field name="diagnosis" colspan="3"/>
-            <newline/>
-            <field name="secondary_conditions" colspan="4"/>
-            <newline/>
-            <separator string="Information on Diagnosis" colspan="2" id="separator_evaluation_diagnosis_1"/>
-            <separator string="Treatment Plan" colspan="2" id="separator_evaluation_diagnosis_2"/>
-            <newline/>
-            <field name="info_diagnosis" colspan="2"/>
-            <field name="directions" colspan="2"/>
-            <newline/>
-            <field name="diagnostic_hypothesis" colspan="2"/>
-            <field name="actions" colspan="2"/>
             <newline/>
             <label name="institution"/>               
             <field name="institution" colspan="3"/>               
