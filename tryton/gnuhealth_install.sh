@@ -361,6 +361,7 @@ bash_profile () {
 serverpass () {
  
     message "[INFO] Setting up your GNU Health Tryton master server password" ${BLUE}
+    source ${PROFILE}
     /usr/bin/env python ${UTIL_DIR}/serverpass.py || bailout
 }
  
