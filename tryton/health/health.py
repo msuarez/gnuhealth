@@ -3288,8 +3288,9 @@ class Appointment(ModelSQL, ModelView):
                     pass 
 
         # Merge "chronic" checkups visit types into followup       
-        cursor.execute("update gnuhealth_appointment \
-            set visit_type='followup' where visit_type='chronic'")
+        if table.column_exist('visit_type'):
+            cursor.execute("update gnuhealth_appointment \
+                set visit_type='followup' where visit_type='chronic'")
 
         super(Appointment, cls).__register__(module_name)
 
@@ -4903,8 +4904,9 @@ class PatientEvaluation(ModelSQL, ModelView):
             table.column_rename('evaluation_date', 'appointment')
 
         # Merge "chronic" checkups visit types into followup       
-        cursor.execute("update gnuhealth_patient_evaluation \
-            set visit_type='followup' where visit_type='chronic'")
+        if table.column_exist('visit_type'):
+            cursor.execute("update gnuhealth_patient_evaluation \
+                set visit_type='followup' where visit_type='chronic'")
 
         super(PatientEvaluation, cls).__register__(module_name)
 
