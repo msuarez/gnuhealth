@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
@@ -71,10 +71,16 @@ class PaperArchive(ModelSQL, ModelView):
     def __setup__(cls):
         '''Create constraints for both the legacy number and patient'''
         super(PaperArchive, cls).__setup__()
+
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('legacy_uniq', 'UNIQUE(legacy)', 'The History already exists !'),
-            ('patient_uniq', 'UNIQUE(patient)', 'The Patient History already exists !'),
-        ]
+            ('legacy_unique', Unique(t,t.legacy),
+                'The history already exists'),
+            ('patient_unique', Unique(t,t.patient),
+                'The patient history already exists'),
+
+            ]
+
 
     @classmethod
     def search_patient_code(cls, name, clause):
