@@ -7031,6 +7031,11 @@
 	<field name="code">C93.2</field>
 	<field name="category" ref="icdcat2-14"></field>
 </record>
+<record model="gnuhealth.pathology" id="C933">
+	<field name="name">Juvenile monocytic leukaemia</field>
+	<field name="code">C93.3</field>
+	<field name="category" ref="icdcat2-14"></field>
+</record>
 <record model="gnuhealth.pathology" id="C937">
 	<field name="name">Other monocytic leukaemia</field>
 	<field name="code">C93.7</field>
