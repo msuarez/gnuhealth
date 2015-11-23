@@ -18,20 +18,21 @@
 
     </xpath>
 
-    <!-- Include Disability information, after the disease area -->
+    <!-- Include Disability information on the -->
 
-    <xpath expr="//field[@name=&quot;diseases&quot;]" position="after">
-        <newline/>
-        <group string="Disability Information" id="disability_barriers" colspan="4">
-            <label name="amputee"/>
-            <field name="amputee"/>
-            <label name="amputee_since"/>
-            <field name="amputee_since"/>
-            <newline/>
-            <field name="amputations" colspan="4"/>
-            <newline/>
-            <field name="protheses" colspan="4"/>
-        </group>
+    <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
+        <page string="Functioning and Disability" id="patient_disability">
+            <group string="Disability Information" id="disability_barriers" colspan="4">
+                <label name="amputee"/>
+                <field name="amputee"/>
+                <label name="amputee_since"/>
+                <field name="amputee_since"/>
+                <newline/>
+                <field name="amputations" colspan="4"/>
+                <newline/>
+                <field name="protheses" colspan="4"/>
+            </group>
+        </page>
     </xpath>
 
 </data>
