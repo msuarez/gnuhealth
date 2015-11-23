@@ -87,6 +87,8 @@ class CreateAppointment(Wizard):
                 'You need to define a timezone for this company'
                 ' before creating a work schedule.\n\n'
                 'Party > Configuration > Companies',
+            'end_before_start': 'End date before start',
+            'period_too_long': 'The schedule period should be < 31 days',
         })
 
     def transition_create_(self):
@@ -104,8 +106,18 @@ class CreateAppointment(Wizard):
                 self.raise_user_error('no_company_timezone')
 
         appointments = []
+
         # Iterate over days
         day_count = (self.start.date_end - self.start.date_start).days + 1
+        
+        # Validate dates
+        if (self.start.date_start and self.start.date_end):
+            if (self.start.date_end < self.start.date_start):
+                self.raise_user_error('end_before_start')
+
+            if (day_count > 31):
+                self.raise_user_error('period_too_long')
+        
         for single_date in (self.start.date_start + timedelta(n)
             for n in range(day_count)):
             if ((single_date.weekday() == 0 and self.start.monday)
