@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 
 
 __all__ = ['DiseaseGene', 'PatientGeneticRisk', 'FamilyDiseases',
@@ -48,10 +48,12 @@ class DiseaseGene(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DiseaseGene, cls).__setup__()
+
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 
-            'The Official Symbol name must be unique !'),
-        ]
+            ('name_unique', Unique(t,t.name),
+                'The Official Symbol name must be unique'),
+            ]
 
     def get_rec_name(self, name):
         return self.name + ':' + self.long_name
