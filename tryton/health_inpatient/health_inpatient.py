@@ -21,7 +21,7 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.tools import grouped_slice, reduce_ids
 from sql import Literal, Table
@@ -31,7 +31,7 @@ from trytond import backend
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
-    'BedTransfer', 'Appointment', 'PatientData',
+    'BedTransfer', 'Appointment', 'PatientEvaluation', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
     'InpatientMealOrder','InpatientMealOrderItem', 'ECG']
@@ -64,9 +64,11 @@ class DietTherapeutic (ModelSQL, ModelView):
     def __setup__(cls):
         super(DietTherapeutic, cls).__setup__()
 
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'unique(code)',
-             'The Diet code already exists')]
+            ('code_unique', Unique(t,t.code),
+                'The Diet code already exists'),
+            ]
 
 
 class InpatientRegistration(ModelSQL, ModelView):
@@ -194,10 +196,12 @@ class InpatientRegistration(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(InpatientRegistration, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'unique(name)',
-             'The Registration code already exists')
-        ]
+            ('name_unique', Unique(t,t.name),
+                'The Registration code already exists'),
+            ]
+
         cls._error_messages.update({
                 'bed_is_not_available': 'Bed is not available',
                 'discharge_reason_needed': 'Admission and Discharge reasons \n'
@@ -373,15 +377,20 @@ class BedTransfer(ModelSQL, ModelView):
 
 
 class Appointment(ModelSQL, ModelView):
-    'Add Inpatient Registration field to the Appointment model.'
     __name__ = 'gnuhealth.appointment'
 
     inpatient_registration_code = fields.Many2One(
         'gnuhealth.inpatient.registration', 'Inpatient Registration',
         help="Enter the patient hospitalization code")
 
+class PatientEvaluation(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient.evaluation'
+
+    inpatient_registration_code = fields.Many2One(
+        'gnuhealth.inpatient.registration', 'IPC',
+        help="Enter the patient hospitalization code")
+
 class ECG(ModelSQL, ModelView):
-    'Add Inpatient Registration field to the ECG model.'
     __name__ = 'gnuhealth.patient.ecg'
 
     inpatient_registration_code = fields.Many2One(
@@ -827,11 +836,11 @@ class InpatientMealOrder (ModelSQL, ModelView):
             'No health professional associated to this user',
             })
 
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('meal_order_uniq', 'UNIQUE(meal_order)',
-                'The Meal Order must be unique !'),
-        ]
-
+            ('meal_order_uniq', Unique(t,t.meal_order),
+                'The Meal Order code already exists'),
+            ]
 
 
     @classmethod

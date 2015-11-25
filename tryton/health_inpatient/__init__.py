@@ -33,6 +33,7 @@ def register():
         InpatientRegistration,
         BedTransfer,
         Appointment,
+        PatientEvaluation,
         ECG,
         PatientData,
         InpatientMedication,
@@ -47,5 +48,6 @@ def register():
     
     Pool.register(
         CreateBedTransfer,
+        CreateInpatientEvaluation,
         module='health_inpatient', type_='wizard')
 

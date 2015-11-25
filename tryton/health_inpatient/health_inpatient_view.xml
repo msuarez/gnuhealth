@@ -127,6 +127,29 @@
             <field name="name">partner_form</field>
         </record>
 
+<!-- Add the patient hospitalization registration code to the evaluation view -->
+
+        <record model="ir.ui.view" id="view_patient_evaluation_form">
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="inherit" ref="health.gnuhealth_patient_evaluation_view" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_evaluation_form</field>
+        </record>
+
+<!-- Shortcut to the Hospitalized Patient Evaluations -->
+        <record model="ir.action.act_window" id="act_evaluation_form1">
+            <field name="name">Inpatient Evaluations</field>
+            <field name="res_model">gnuhealth.patient.evaluation</field>
+            <field name="domain" eval="[('inpatient_registration_code', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_evaluation_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.inpatient.registration,-1</field>
+            <field name="action" ref="act_evaluation_form1"/>
+        </record>
+
+
 <!-- Add the patient Hospitalization Status to the partner form -->
 
         <record id="view_patient_form" model="ir.ui.view">
@@ -255,6 +278,7 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_inpatient_diet_tree</field>
         </record>
+
 
 
 <!-- SECTION FOR HOSPITALIZATION MEALS-->

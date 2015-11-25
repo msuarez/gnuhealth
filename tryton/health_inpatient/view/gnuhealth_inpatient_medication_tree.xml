@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <tree string="Inpatient Medication">
     <field name="medicament" expand="1"/>
-    <field name="start_treatment" expand="1"/>
-    <field name="end_treatment" expand="1"/>
+    <field name="start_treatment" widget="date"/>
+    <field name="start_treatment" widget="time"/>
+    <field name="end_treatment" widget="date"/>
+    <field name="end_treatment" widget="time"/>
     <field name="admin_times"/>
     <field name="course_completed"/>
     <field name="discontinued"/>

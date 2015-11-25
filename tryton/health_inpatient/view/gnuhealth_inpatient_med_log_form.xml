@@ -2,6 +2,7 @@
 <form string="Inpatient Medication Log">
     <label name="admin_time"/>
     <field name="admin_time"/>
+    <field name="admin_time"/>
     <label name="health_professional"/>
     <field name="health_professional"/>
     <label name="dose"/>
