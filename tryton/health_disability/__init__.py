@@ -43,4 +43,5 @@ def register():
         PatientEnvironmentalFactorAssessment,
         PatientAmputation,
         PatientProthesis,
+        PatientData,
         module='health_disability', type_='model')

@@ -18,7 +18,7 @@
 
     </xpath>
 
-    <!-- Include Disability information on the -->
+    <!-- Include Disability information on the patient form-->
 
     <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
         <page string="Functioning and Disability" id="patient_disability">
@@ -32,6 +32,8 @@
                 <newline/>
                 <field name="protheses" colspan="4"/>
             </group>
+            <newline/>
+            <field name="disability_assesments"/>
         </page>
     </xpath>
 

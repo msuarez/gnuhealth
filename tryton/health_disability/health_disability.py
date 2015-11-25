@@ -40,8 +40,8 @@ __all__ = ['GnuHealthPatient','Product','BodyFunctionCategory','BodyFunction',
     'PatientBodyStructureAssessment',
     'PatientActivityAndParticipationAsssessment',
     'PatientEnvironmentalFactorAssessment',
-    'PatientAmputation',
-    'PatientProthesis']
+    'PatientAmputation','PatientProthesis',
+    'PatientData']
 
 
     
@@ -530,3 +530,10 @@ class PatientProthesis(ModelSQL, ModelView):
         hp = HealthProf.get_health_professional()
         return hp
 
+
+
+class PatientData (ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient'
+
+    disability_assesments = fields.One2Many('gnuhealth.patient.disability_assessment',
+        'patient', 'Assessment', readonly=True)
