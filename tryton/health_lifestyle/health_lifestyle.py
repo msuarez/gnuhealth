@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
@@ -71,9 +71,11 @@ class DietBelief (ModelSQL, ModelView):
     def __setup__(cls):
         super(DietBelief, cls).__setup__()
 
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'unique(code)',
-             'The Diet code already exists')]
+            ('code_unique', Unique(t,t.code),
+                'The Diet code already exists'),
+            ]
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
@@ -220,14 +222,14 @@ class DrugsRecreational(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugsRecreational, cls).__setup__()
+
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('NAME_uniq', 'UNIQUE(name)',
-                'The Recreational Drug NAME must be unique'),
-            ('code_uniq', 'UNIQUE(code)',
+            ('name_unique', Unique(t,t.name),
+                'The Recreational Drug name must be unique'),
+            ('code_unique', Unique(t,t.code),
                 'The Recreational Drug CODE must be unique'),
-
-        ]
-
+            ]
 
 class PatientRecreationalDrugs(ModelSQL, ModelView):
     'Patient use of Recreational Drugs'
