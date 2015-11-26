@@ -217,12 +217,6 @@ class PatientRounding(ModelSQL, ModelView):
         if self.warning:
             return 'gnuhealth-warning'
 
-    
-    @classmethod
-    def view_attributes(cls):
-        return [('//field[@name="pain_level"]', 'states', {
-                'invisible': ~Eval('pain'),
-                })]
 
 class RoundingProcedure(ModelSQL, ModelView):
     'Rounding - Procedure'
