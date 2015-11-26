@@ -21,9 +21,10 @@
 #
 ##############################################################################
 import datetime
-from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval, Not, Bool
+from trytond.model import ModelView, ModelSQL, fields, Unique
+from trytond.pyson import Eval, Not, Bool, Equal
 from trytond.pool import Pool
+from trytond import backend
 from trytond.transaction import Transaction
 from sql import *
 from sql.aggregate import *
@@ -104,7 +105,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     iugr = fields.Selection([
         (None, ''),
         ('symmetric', 'Symmetric'),
-        ('assymetric', 'Assymetric'),
+        ('assymetric', 'Asymmetric'),
         ], 'IUGR', sort=False)
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
@@ -117,10 +118,12 @@ class PatientPregnancy(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientPregnancy, cls).__setup__()
-        cls._sql_constraints = [
-            ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must'
-                ' be unique for this patient !'),
+        t = cls.__table__()
+        cls._sql_constraints += [
+            ('gravida_uniq', Unique(t,t.name, t.gravida),
+                'This pregnancy code for this patient already exists'),
         ]
+
         cls._error_messages.update({
             'patient_already_pregnant': 'Our records indicate that the patient'
                 ' is already pregnant !'})
@@ -387,28 +390,6 @@ class Perinatal(ModelSQL, ModelView):
         ('vulvar', 'Vulvar'),
         ('retroperitoneal', 'Retroperitoneal'),
         ], 'Hematoma', sort=False)
-    # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
-    # and is included in the obstetric evaluation history
-    # puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor',
-    #     'name', 'Puerperium monitor')
-    # Deprecated in 1.6.4. The medication and procedures will be done in the
-    # nursing and surgery modules
-    medication = fields.One2Many('gnuhealth.patient.medication', 'name',
-        'Medication and anesthesics')
-    dismissed = fields.DateTime('Discharged')
-    # Deprecated in 1.6.4 . Use the death information in the patient model
-    # Date and cause of death
-    place_of_death = fields.Selection([
-        (None, ''),
-        ('ho', 'Hospital'),
-        ('dr', 'At the delivery room'),
-        ('hh', 'in transit to the hospital'),
-        ('th', 'Being transferred to other hospital'),
-        ], 'Place of Death', help="Place where the mother died",
-        states={'invisible': Not(Bool(Eval('mother_deceased')))},
-        depends=['mother_deceased'], sort=False)
-    mother_deceased = fields.Boolean('Maternal death',
-        help="Mother died in the process")
     notes = fields.Text('Notes')
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
@@ -439,6 +420,24 @@ class Perinatal(ModelSQL, ModelView):
                 self.name.lmp
             return (gestational_age.days) / 7
 
+
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(Perinatal, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Upgrade to GNU Health 3.0
+        # Remove deprecated fields since 1.6.4
+
+        if table.column_exist('dismissed'):
+            table.drop_column('dismissed')
+        if table.column_exist('place_of_death'):
+            table.drop_column('place_of_death')
+        if table.column_exist('mother_deceased'):
+            table.drop_column('mother_deceased')
 
 
 class PerinatalMonitor(ModelSQL, ModelView):
@@ -590,6 +589,12 @@ class GnuHealthPatient(ModelSQL, ModelView):
                 counter=counter+1
             return stillbirths
 
+
+    @classmethod
+    def view_attributes(cls):
+        return [('//page[@id="page_gyneco_obs"]', 'states', {
+                'invisible': Equal(Eval('sex'), 'm'),
+                })]
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'

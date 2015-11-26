@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <tree string="Perinatal Monitor">
-    <field name="date" expand="1"/>
+    <field name="date" widget="date"/>
+    <field name="date" widget="time"/>
     <field name="dilation" expand="1"/>
     <field name="systolic" expand="1"/>
     <field name="diastolic" expand="1"/>
