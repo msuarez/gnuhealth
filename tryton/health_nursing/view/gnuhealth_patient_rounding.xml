@@ -17,23 +17,21 @@
                 <field name="warning"/>
             </group>
             <newline/>
-            <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
+            <group colspan="4" col="7" id="the_six_p_wiew" string="Six P's">
                 <label name="pain"/>
                 <field name="pain"/>
+                <field name="pain_level"/>
                 <label name="potty"/>
                 <field name="potty"/>
                 <label name="position"/>
                 <field name="position"/>
+                <newline/>
                 <label name="proximity"/>
                 <field name="proximity"/>
                 <label name="pump"/>
                 <field name="pump"/>
                 <label name="personal_needs"/>
                 <field name="personal_needs"/>
-            </group>
-            <group states="{'invisible': Not(Bool(Eval('pain')))}" string="Further information">
-                <label string="Pain level"/>
-                <field name="pain_level"/>
             </group>
             <newline/>
             <group colspan="4" col="6" string="Vital Signs" id="group_patient_rounding_vital_signs">

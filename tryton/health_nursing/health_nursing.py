@@ -64,7 +64,8 @@ class PatientRounding(ModelSQL, ModelView):
     # The 6 P's of rounding
     pain = fields.Boolean('Pain', help="Check if the patient is in pain")
     pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to "
-            "10")
+            "10", states={'invisible': ~Eval('pain')})
+
     potty = fields.Boolean('Potty', help="Check if the patient needs to "
         "urinate / defecate")
     position = fields.Boolean('Position', help="Check if the patient needs to "
@@ -216,6 +217,12 @@ class PatientRounding(ModelSQL, ModelView):
         if self.warning:
             return 'gnuhealth-warning'
 
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('//field[@name="pain_level"]', 'states', {
+                'invisible': ~Eval('pain'),
+                })]
 
 class RoundingProcedure(ModelSQL, ModelView):
     'Rounding - Procedure'
