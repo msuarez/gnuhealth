@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <tree string="Surgery">
     <field name="patient"/>
-    <field name="description"/>
-    <field name="pathology"/>
+    <field name="description" expand="1"/>
+    <field name="pathology" expand="1"/>
     <field name="classification"/>
     <field name="surgery_date" widget="date"/>
-    <field name="surgery_date" widget="time"/>
+    <field name="surgery_date" string="Time" widget="time"/>
     <field name="state"/>
     <field name="surgery_length"/>
     <field name="operating_room"/>
