@@ -3,7 +3,7 @@
     <field name="warning" icon="warning_icon" expand="1"/>
     <field name="name" expand="1"/>
     <field name="patient" expand="1"/>
-    <field name="session_start" expand="1"/>
+    <field name="session_start" expand="1" widget="date"/>
     <field name="health_professional" expand="1"/>
     <field name="evolution" expand="1"/>
 </tree>
