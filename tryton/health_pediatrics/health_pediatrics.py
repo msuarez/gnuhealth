@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from datetime import datetime
@@ -128,11 +128,13 @@ class Newborn(ModelSQL, ModelView):
     def __setup__(cls):
         super(Newborn, cls).__setup__()
 
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'unique(name)', 'The Newborn ID must be unique !'),
-            ('patient_uniq', 'unique(patient)',
-                'There is already a newborn record for this patient'),
-        ]
+            ('name_uniq', Unique(t, t.name),
+             'The Newborn ID must be unique'),
+            ('patient_uniq', Unique(t, t.patient),
+             'There is already a newborn record for this patient'),
+            ]
 
     # Update the birth date on the party model upon writing it on the 
     # newborn model
