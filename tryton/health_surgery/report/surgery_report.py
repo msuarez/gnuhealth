@@ -43,9 +43,6 @@ class SurgeryReport(Report):
                 timezone = pytz.timezone(company.timezone)
 
         dt = datetime.now()
-        localcontext['print_date'] = datetime.astimezone(dt.replace(
-            tzinfo=pytz.utc), timezone)
-        localcontext['print_time'] = localcontext['print_date'].time()
 
         return super(SurgeryReport, cls).parse(report, objects, data, 
             localcontext)

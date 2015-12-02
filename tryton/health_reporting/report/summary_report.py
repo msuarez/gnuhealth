@@ -142,29 +142,31 @@ class InstitutionSummaryReport(Report):
 
 
     @classmethod
-    def parse(cls, report, objects, data, localcontext):
+    def get_context(cls, records, data):
         Patient = Pool().get('gnuhealth.patient')
         Evaluation = Pool().get('gnuhealth.patient.evaluation')
+
+        context = super(InstitutionSummaryReport, cls).get_context(records, data)
 
         start_date = data['start_date']
         end_date = data['end_date']
 
         demographics = data['demographics']
-        localcontext['demographics'] = data['demographics']
+        context['demographics'] = data['demographics']
 
         patient_evaluations = data['patient_evaluations']
-        localcontext['patient_evaluations'] = data['patient_evaluations']
+        context['patient_evaluations'] = data['patient_evaluations']
         
-        localcontext['start_date'] = data['start_date']
-        localcontext['end_date'] = data['end_date']
+        context['start_date'] = data['start_date']
+        context['end_date'] = data['end_date']
 
         # Demographics
         today = date.today()
 
-        localcontext[''.join(['p','total_','f'])] = \
+        context[''.join(['p','total_','f'])] = \
             cls.get_population (None,None,'f', total=True)
 
-        localcontext[''.join(['p','total_','m'])] = \
+        context[''.join(['p','total_','m'])] = \
             cls.get_population (None,None,'m', total=True)
         
         # Build the Population Pyramid for registered people
@@ -173,9 +175,9 @@ class InstitutionSummaryReport(Report):
             date1 = today - relativedelta(years=(age_group*5))
             date2 = today - relativedelta(years=((age_group*5)+5), days=-1)
             
-            localcontext[''.join(['p',str(age_group),'f'])] = \
+            context[''.join(['p',str(age_group),'f'])] = \
                 cls.get_population (date1,date2,'f', total=False)
-            localcontext[''.join(['p',str(age_group),'m'])] = \
+            context[''.join(['p',str(age_group),'m'])] = \
                 cls.get_population (date1,date2,'m', total=False)
 
 
@@ -183,30 +185,30 @@ class InstitutionSummaryReport(Report):
         date1 = today - relativedelta(years=105)
         date2 = today - relativedelta(years=200)
 
-        localcontext['over105f'] = \
+        context['over105f'] = \
             cls.get_population (date1,date2,'f', total=False)
-        localcontext['over105m'] = \
+        context['over105m'] = \
             cls.get_population (date1,date2,'m', total=False)
 
         
         # Count registered people, and those within the system of health
-        localcontext['new_people'] = \
+        context['new_people'] = \
             cls.get_new_people(start_date, end_date, False)
-        localcontext['new_in_health_system'] = \
+        context['new_in_health_system'] = \
             cls.get_new_people(start_date, end_date, in_health_system=True)
 
         # New births
-        localcontext['new_births'] = \
+        context['new_births'] = \
             cls.get_new_births(start_date, end_date)
         
         # New deaths
-        localcontext['new_deaths'] = \
+        context['new_deaths'] = \
             cls.get_new_deaths(start_date, end_date)
 
 
         # Get evaluations within the specified date range
         
-        localcontext['evaluations'] = \
+        context['evaluations'] = \
             cls.get_evaluations(start_date, end_date, None)
         
         evaluations = cls.get_evaluations(start_date, end_date, None)
@@ -228,10 +230,10 @@ class InstitutionSummaryReport(Report):
             else:
                 eval_m +=1
         
-        localcontext['non_dx_eval'] = non_dx_eval
-        localcontext['eval_num'] = len(evaluations)
-        localcontext['eval_f'] = eval_f
-        localcontext['eval_m'] = eval_m
+        context['non_dx_eval'] = non_dx_eval
+        context['eval_num'] = len(evaluations)
+        context['eval_f'] = eval_f
+        context['eval_m'] = eval_m
         
         # Create a set to work with single diagnoses
         # removing duplicate entries from eval_dx
@@ -299,8 +301,6 @@ class InstitutionSummaryReport(Report):
             
             summary_dx.append(eval_dx)
         
-        localcontext['summary_dx'] = summary_dx
-                
-        return super(InstitutionSummaryReport, cls).parse(report,
-            objects, data, localcontext)
+        context['summary_dx'] = summary_dx
 
+        return context

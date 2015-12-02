@@ -51,7 +51,7 @@ class SummaryReportStart(ModelView):
         return date.today()
 
     @staticmethod
-    def default_patient_evaluations():
+    def default_demographics():
         return True
 
 class SummaryReport(Wizard):
