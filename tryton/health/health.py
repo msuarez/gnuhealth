@@ -755,6 +755,7 @@ class HealthInstitution(ModelSQL, ModelView):
     picture = fields.Binary('Picture')
 
     institution_type = fields.Selection((
+        (None, ''),
         ('doctor_office', 'Doctor office'),
         ('primary_care', 'Primary Care Center'),
         ('clinic', 'Clinic'),
@@ -774,7 +775,8 @@ class HealthInstitution(ModelSQL, ModelView):
     or_number = fields.Integer("ORs",
         states={'invisible': Not(Bool(Eval('operating_room')))})
     
-    public_level = fields.Selection((  
+    public_level = fields.Selection((
+        (None, ''),
         ('private', 'Private'),
         ('public', 'Public'),
         ('mixed', 'Private - State'),
@@ -1111,6 +1113,7 @@ class HospitalOR(ModelSQL, ModelView):
     extra_info = fields.Text('Extra Info')
 
     state = fields.Selection((
+        (None, ''),
         ('free', 'Free'),
         ('confirmed', 'Confirmed'),
         ('occupied', 'Occupied'),
@@ -1171,6 +1174,7 @@ class HospitalWard(ModelSQL, ModelView):
     microwave = fields.Boolean('Microwave')
 
     gender = fields.Selection((
+        (None, ''),
         ('men', 'Men Ward'),
         ('women', 'Women Ward'),
         ('unisex', 'Unisex'),
@@ -1228,6 +1232,7 @@ class HospitalBed(ModelSQL, ModelView):
         help='Ward or room')
 
     bed_type = fields.Selection((
+        (None, ''),
         ('gatch', 'Gatch Bed'),
         ('electric', 'Electric'),
         ('stretcher', 'Stretcher'),
@@ -1243,6 +1248,7 @@ class HospitalBed(ModelSQL, ModelView):
     extra_info = fields.Text('Extra Info')
 
     state = fields.Selection((
+        (None, ''),
         ('free', 'Free'),
         ('reserved', 'Reserved'),
         ('occupied', 'Occupied'),
@@ -1677,6 +1683,7 @@ class ImmunizationScheduleDose(ModelSQL, ModelView):
     dose_number = fields.Integer('Dose',required=True)
     age_dose = fields.Integer('Age',required=True)
     age_unit = fields.Selection([
+        (None,''),
         ('days','days'),
         ('weeks','weeks'),
         ('months','months'),
@@ -1725,6 +1732,7 @@ class ImmunizationScheduleLine(ModelSQL, ModelView):
         help='Vaccine Name')
 
     scope = fields.Selection([
+        (None, ''),
         ('systematic','Systematic'),
         ('recommended','Recommended'),
         ('highrisk','Risk groups'), 
@@ -2182,6 +2190,7 @@ class AlternativePersonID (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     alternative_id_type = fields.Selection(
         [
+            (None, ''),
             ('country_id', 'Country of origin ID'),
             ('passport', 'Passport'),
             ('medical_record', 'Medical Record'),
@@ -2298,6 +2307,7 @@ class DeathCertificate (ModelSQL, ModelView):
 
     type_of_death = fields.Selection(
         [
+            (None, ''),
             ('natural', 'Natural'),
             ('suicide', 'Suicide'),
             ('homicide', 'Homicide'),
@@ -2308,6 +2318,7 @@ class DeathCertificate (ModelSQL, ModelView):
 
     place_of_death = fields.Selection(
         [
+            (None, ''),
             ('home', 'Home'),
             ('work', 'Work'),
             ('public_place', 'Public place'),
@@ -2618,6 +2629,7 @@ class PatientData(ModelSQL, ModelView):
     #    ], 'Sex', required=True)
 
     sex = fields.Function(fields.Selection([
+        (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
         ], 'Sex'), 'get_patient_sex')
@@ -3305,7 +3317,10 @@ class AppointmentReport(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
     age = fields.Function(fields.Char('Age'), 'get_patient_age')
-    sex = fields.Selection([('m', 'Male'), ('f', 'Female')], 'Sex')
+    sex = fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female')], 'Sex')
     address = fields.Function(fields.Char('Address'), 'get_address')
     insurance = fields.Function(fields.Char('Insurance'), 'get_insurance')
     appointment_date = fields.Date('Date')
@@ -3756,6 +3771,7 @@ class PatientVaccination(ModelSQL, ModelView):
             (eg, mcg, EL.U ..) can be found at the related medicament')
 
     admin_site = fields.Selection([
+        (None, ''),
         ('lvl', 'left vastus lateralis'),
         ('rvl', 'right vastus lateralis'),
         ('ld', 'left deltoid'),
@@ -3769,6 +3785,7 @@ class PatientVaccination(ModelSQL, ModelView):
     
 
     state = fields.Selection([
+        (None, ''),
         ('in_progress', 'In Progress'),
         ('done', 'Done'),
         ], 'State', readonly=True)
@@ -4375,6 +4392,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         'get_wait_time')
     
     state = fields.Selection([
+        (None, ''),
         ('in_progress', 'In progress'),
         ('done', 'Done'),
         ('signed', 'Signed'),
@@ -4427,6 +4445,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'patient_age_at_evaluation')
             
     sex = fields.Function(fields.Selection([
+        (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
         ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
@@ -5068,6 +5087,7 @@ class PatientECG(ModelSQL, ModelView):
         'Lead', sort=False)
 
     axis = fields.Selection([
+        (None, ''),
         ('normal', 'Normal Axis'),
         ('left', 'Left deviation'),
         ('right', 'Right deviation'),
@@ -5077,11 +5097,13 @@ class PatientECG(ModelSQL, ModelView):
     rate = fields.Integer('Rate', required=True)
 
     rhythm = fields.Selection([
+        (None, ''),
         ('regular', 'Regular'),
         ('irregular', 'Irregular')],
         'Rhythm', sort=False, required=True)
 
     pacemaker = fields.Selection([
+        (None, ''),
         ('sa', 'Sinus Node'),
         ('av', 'Atrioventricular'),
         ('pk', 'Purkinje')
@@ -5093,6 +5115,7 @@ class PatientECG(ModelSQL, ModelView):
         help="Duration of QRS interval in milliseconds")
     qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
     st_segment = fields.Selection([
+        (None, ''),
         ('normal', 'Normal'),
         ('depressed', 'Depressed'),
         ('elevated', 'Elevated')],
