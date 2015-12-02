@@ -247,14 +247,13 @@ class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
-    @fields.depends('medicament', 'product')
+    @fields.depends('medicament')
     def on_change_medicament(self):
-        res = {}
         if self.medicament:
-            res = {'product': self.medicament.name.id}
+            self.product = self.medicament.name.id
+
         else:
-            res = {'product': None}
-        return res
+            self.product = None
 
 
 class PatientAmbulatoryCareMedicalSupply(ModelSQL, ModelView):
@@ -418,14 +417,13 @@ class PatientRoundingMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
-    @fields.depends('medicament', 'product')
+    @fields.depends('medicament')
     def on_change_medicament(self):
-        res = {}
         if self.medicament:
-            res = {'product': self.medicament.name.id}
+            self.product = self.medicament.name.id
+
         else:
-            res = {'product': None}
-        return res
+            self.product = None
 
 
 class PatientRoundingMedicalSupply(ModelSQL, ModelView):
@@ -499,11 +497,9 @@ class PatientVaccination:
                 'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
         })
 
-    @fields.depends('vaccine', 'product')
+    @fields.depends('vaccine')
     def on_change_vaccine(self):
-        res = {}
         if self.vaccine:
-            res = {'product': self.vaccine.name.id}
+            self.product = self.vaccine.name.id
         else:
-            res = {'product': None}
-        return res
+            self.product =  None
