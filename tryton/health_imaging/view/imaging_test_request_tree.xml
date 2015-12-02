@@ -2,7 +2,7 @@
 <tree string="Imaging Test Request">
     <field name="request"/>
     <field name="patient" expand="1"/>
-    <field name="date"/>
+    <field name="date" widget="date"/>
     <field name="requested_test" expand="1"/>
     <field name="doctor"/>
     <field name="state"/>
