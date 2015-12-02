@@ -52,11 +52,13 @@ class PediatricsGrowthChartsWHOReport(Report):
     __name__ = 'gnuhealth.pediatrics.growth.charts.who.report'
 
     @classmethod
-    def parse(cls, report, objects, data, localcontext):
+    def get_context(cls, records, data):
         pool = Pool()
         GrowthChartsWHO = pool.get('gnuhealth.pediatrics.growth.charts.who')
         Patient = pool.get('gnuhealth.patient')
         Evaluation = pool.get('gnuhealth.patient.evaluation')
+
+        context = super(PediatricsGrowthChartsWHOReport, cls).get_context(records, data)
 
         patient = Patient(data['patient'])
 
@@ -67,35 +69,35 @@ class PediatricsGrowthChartsWHOReport(Report):
                 ], order=[('month', 'ASC')],
                 )
 
-        localcontext['title'] = _INDICATORS[data['indicator']] + ' ' + \
+        context['title'] = _INDICATORS[data['indicator']] + ' ' + \
             _GENDERS[patient.sex]
-        localcontext['subtitle'] = 'Birth to 5 years (%s)' % \
+        context['subtitle'] = 'Birth to 5 years (%s)' % \
             _MEASURES[data['measure']]
-        localcontext['name'] = patient.name.rec_name
-        localcontext['puid'] = patient.puid
-        localcontext['date'] = datetime.now().date()
-        localcontext['age'] = patient.age
-        localcontext['measure'] = data['measure']
+        context['name'] = patient.name.rec_name
+        context['puid'] = patient.puid
+        context['date'] = datetime.now().date()
+        context['age'] = patient.age
+        context['measure'] = data['measure']
 
         if data['measure'] == 'p':
-            localcontext['p3'] = '3rd'
-            localcontext['p15'] = '15th'
-            localcontext['p50'] = '50th'
-            localcontext['p85'] = '85th'
-            localcontext['p97'] = '97th'
+            context['p3'] = '3rd'
+            context['p15'] = '15th'
+            context['p50'] = '50th'
+            context['p85'] = '85th'
+            context['p97'] = '97th'
         else:
-            localcontext['p3'] = '-3'
-            localcontext['p15'] = '-2'
-            localcontext['p50'] = '0'
-            localcontext['p85'] = '2'
-            localcontext['p97'] = '3'
+            context['p3'] = '-3'
+            context['p15'] = '-2'
+            context['p50'] = '0'
+            context['p85'] = '2'
+            context['p97'] = '3'
 
         for value in growthchartswho:
             if data['measure'] == 'p':
-                localcontext[value.type.lower() + '_' + str(value.month)] = \
+                context[value.type.lower() + '_' + str(value.month)] = \
                     value.value
             else:
-                localcontext[_TYPES[value.type] + '_' + str(value.month)] = \
+                context[_TYPES[value.type] + '_' + str(value.month)] = \
                     value.value
 
         evaluations = Evaluation.search([
@@ -103,19 +105,17 @@ class PediatricsGrowthChartsWHOReport(Report):
                 ])
 
         for month in range(61):
-            localcontext['v' + str(month)] = ''
+            context['v' + str(month)] = ''
 
         for evaluation in evaluations:
             if data['indicator'] == 'l/h-f-a':
-                localcontext['v' + evaluation.age_months] = evaluation.height
+                context['v' + evaluation.age_months] = evaluation.height
             elif data['indicator'] == 'w-f-a':
-                localcontext['v' + evaluation.age_months] = evaluation.weight
+                context['v' + evaluation.age_months] = evaluation.weight
             else:
-                localcontext['v' + evaluation.age_months] = evaluation.bmi
+                context['v' + evaluation.age_months] = evaluation.bmi
 
-        return super(PediatricsGrowthChartsWHOReport, cls).parse(report,
-            objects, data, localcontext)
-
+        return context
 
 class WeightForAge(PediatricsGrowthChartsWHOReport):
     __name__ = 'gnuhealth.pediatrics.growth.charts.who.wfa.report'
