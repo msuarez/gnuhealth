@@ -26,6 +26,8 @@
                     <newline/>
                     <label name="sex"/>
                     <field name="sex"/>
+                    <label name="du"/>
+                    <field name="du"/>
                     <label name="mother"/>
                     <field name="mother"/>
                     <label name="father"/>
@@ -36,14 +38,10 @@
                     <field name="citizenship"/>
                     <label name="residence"/>
                     <field name="residence"/>
-                    <label name="du"/>
-                    <field name="du"/>
                     <label name="ethnic_group"/>
                     <field name="ethnic_group"/>
                     <label name="alternative_identification"/>
                     <field name="alternative_identification"/>
-                    <newline/>
-                    <field colspan="4" name="alternative_ids"/>
                 </group>
 
                 <group yfill="1" string="Picture" id="person_picture">
@@ -52,10 +50,11 @@
 
                 <newline/>
             </group>
-            <group col="6" colspan="2" id="other_party_specs">
-            </group>
             <newline/>
-            <field name="insurance" colspan="4"/>
+
+            <field colspan="4" name="alternative_ids"/>
+            <field colspan="4" name="insurance"/>
+                        
             <newline/>
             <group id="party_footer" colspan="4" col="12">
                 <label name="deceased"/>

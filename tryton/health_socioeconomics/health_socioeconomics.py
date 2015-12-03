@@ -40,7 +40,7 @@ class Party (ModelSQL, ModelView):
         ('3', 'Incomplete Secondary School'),
         ('4', 'Secondary School'),
         ('5', 'University'),
-        ], 'Education Level', help="Education Level", sort=False)
+        ], 'Education', help="Education Level", sort=False)
 
 
 class GnuHealthPatient(ModelSQL, ModelView):

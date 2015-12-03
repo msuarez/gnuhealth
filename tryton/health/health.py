@@ -304,7 +304,7 @@ class PartyPatient (ModelSQL, ModelView):
         ], 'Sex', states={'required': Bool(Eval('is_person'))})
 
     photo = fields.Binary('Picture')
-    ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
+    ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnicity')
 
     marital_status = fields.Selection([
         (None, ''),
@@ -319,7 +319,7 @@ class PartyPatient (ModelSQL, ModelView):
     citizenship = fields.Many2One(
         'country.country', 'Citizenship', help='Country of Citizenship')
     residence = fields.Many2One(
-        'country.country', 'Country of Residence', help='Country of Residence')
+        'country.country', 'Residence', help='Country of Residence')
     alternative_identification = fields.Boolean(
         'Alternative IDs', help='Other types of '
         'identification, not the official PUID . '
@@ -352,7 +352,7 @@ class PartyPatient (ModelSQL, ModelView):
     insurance_plan_ids = fields.One2Many(
         'gnuhealth.insurance.plan', 'company', 'Insurance Plans')
 
-    du = fields.Many2One('gnuhealth.du', 'Domiciliary Unit')
+    du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
 
     birth_certificate = fields.Many2One('gnuhealth.birth_certificate',
         'Birth Certificate', readonly=True)
