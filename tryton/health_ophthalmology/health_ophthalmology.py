@@ -74,7 +74,7 @@ class Ophthalmology(ModelSQL, ModelView):
         ('1_meter_fc', '1 Meter FC'),
         ('1_2_meter_fc', '1/2 Meter FC'),
         ('hmfc', 'HMCF'),
-        ('p_l', 'P/L'),
+        ('p_l', 'P/L'), 
         ]
     
     # Near vision chart
@@ -197,17 +197,15 @@ class Ophthalmology(ModelSQL, ModelView):
     
     
     rsyringing = fields.Selection([  
-            (None,""),
+            (None,''),
             ("False","False"),
             ("True","True"),
-           
         ],'RSYR',help="Syringing Right",sort=False)
 
     lsyringing = fields.Selection([  
-            (None,""),
+            (None,''),
             ("False","False"),
             ("True","True"),
-            
         ],'LSYR',help="Syringing Left",sort=False)
         
     #Squint
@@ -215,14 +213,12 @@ class Ophthalmology(ModelSQL, ModelView):
             (None,""),
             ("False","False"),
             ("True","True"),
-            
         ],'RSQUINT',help="Syringing Right",sort=False)
 
     lsquint = fields.Selection([  
             (None,""),
             ("False","False"),
             ("True","True"),
-            
         ],'LSQUINT',help="Syringing Left",sort=False)
         
     
