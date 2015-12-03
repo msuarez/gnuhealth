@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <form string="Optometry form">
-   <group colspan="4" col="8" id="patient_group" >
-      <label name="patient" string="Patient"/>
+   <group colspan="4" col="10" id="patient_group" >
+      <label name="patient"/>
       <field name="patient"/>
-      <label name="patient_age" string="Age"/>
-      <field name="patient_age"/>
-      <label name="health_professional" string="Health Professional"/>
+      <label name="computed_age"/>
+      <field name="computed_age"/>
+      <label name="sex"/>
+      <field name="sex"/>
+      <label name="health_professional"/>
       <field name="health_professional"/>
-      <label name="visit_date" string="Date"/>
+      <label name="visit_date"/>
       <field name="visit_date"/>
    </group>
     

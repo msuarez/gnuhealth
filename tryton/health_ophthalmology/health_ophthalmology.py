@@ -1,4 +1,5 @@
 from trytond.model import ModelView, ModelSQL, fields
+from trytond.pool import Pool
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 
@@ -14,11 +15,18 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.ophthalmology.evaluation'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    # todo placeholder for age from gnu health
-    patient_age = fields.Char('Age')
     visit_date = fields.DateTime('Date', help="Date of Consultation")
+    computed_age = fields.Function(fields.Char(
+            'Age',
+            help="Computed patient age at the moment of the evaluation"),
+            'patient_age_at_evaluation')
 
-    # toto this should be the name of the person who is entering the data
+    sex = fields.Function(fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
+
     health_professional = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Professional',
         help="Health professional / Ophthalmologist / OptoMetrist"
@@ -195,6 +203,39 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         'gnuhealth.ophthalmology.findings', 'name',
         'Findings')
 
+
+    def patient_age_at_evaluation(self, name):
+
+        if (self.patient.name.dob):
+            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
+
+            if (self.visit_date):
+                evaluation_start = datetime.strptime(
+                    str(self.visit_date), '%Y-%m-%d %H:%M:%S')
+                delta = relativedelta(self.visit_date, dob)
+
+                years_months_days = str(
+                    delta.years) + 'y ' \
+                    + str(delta.months) + 'm ' \
+                    + str(delta.days) + 'd'
+            else:
+                years_months_days = 'No evaluation Date !'
+        else:
+            years_months_days = 'No DoB !'
+
+        return years_months_days
+
+
+    def get_patient_sex(self, name):
+        return self.patient.sex
+
+    @classmethod
+    def search_patient_sex(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.sex', clause[1], value))
+        return res
+
     @fields.depends('rdva')
     def on_change_with_rbcva(self):
         return self.rdva
@@ -242,6 +283,27 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     @fields.depends('lnv')
     def on_change_with_lbcva_nv(self):
         return self.lnv
+
+    @staticmethod
+    def default_visit_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_health_professional():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        health_professional = HealthProf.get_health_professional()
+        return health_professional
+
+
+    # Show the sex and age upon entering the patient 
+    # These two are function fields (don't exist at DB level)
+    @fields.depends('patient')
+    def on_change_patient(self):
+        sex=None
+        age=''
+        self.sex = self.patient.sex
+        self.computed_age = self.patient.age
 
     @classmethod
     @ModelView.button
@@ -300,4 +362,3 @@ class OphthalmologyFindings(ModelSQL, ModelView):    #model class
         ],'Eye',help="Affected eye",sort=False)
 
     finding = fields.Char('Finding')    
-    
