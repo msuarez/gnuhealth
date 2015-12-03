@@ -1196,18 +1196,3 @@ class OphthalmologyMiscFindingsList(ModelSQL,ModelView):
     # Include code + description in result
     def get_rec_name(self, name):
         return (self.name + ' : ' + self.description)
-
-#end
-
-
-# Use the following as template and comment it after use
-# #
-# class Operation(ModelSQL, ModelView):
-#     'Operation - Surgical Procedures'
-#     __name__ = 'gnuhealth.operation'
-# 
-#     name = fields.Many2One('gnuhealth.surgery', 'Surgery')
-#     procedure = fields.Many2One(
-#         'gnuhealth.procedure', 'Code', required=True, select=True,
-#         help="Procedure Code, for example ICD-10-PCS or ICPM")
-#     notes = fields.Text('Notes')
