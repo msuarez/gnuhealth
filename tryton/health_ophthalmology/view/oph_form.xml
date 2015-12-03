@@ -100,6 +100,10 @@
          <field name="optometry_notes"  string="Notes" />
       </group>
    </group>
+   <newline/>
+   <field name="findings"/>
+   <newline/>
+
    <button name="confirmed" help="Confirm and Save" string="Confirm and Save" icon="tryton-go-next" confirm="Confirm and save"/>
    
 <!-- for future

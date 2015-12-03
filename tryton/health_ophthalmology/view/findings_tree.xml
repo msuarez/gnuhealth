@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
-<tree string="Findings View">
-    <field name="patient"/>
-    <field name="visit_date" widget="date"/>
-    <field name="health_professional"/>
+<tree string="Findings" editable="1">
+    <field name="name"/>
+    <field name="eye_structure" expand="1"/>
+    <field name="affected_eye" expand="1"/>
+    <field name="finding" expand="1"/>
 </tree>
