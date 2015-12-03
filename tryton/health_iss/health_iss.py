@@ -26,7 +26,7 @@
 # The documentation of the module goes in the "doc" directory.
 
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 
 __all__ = ['Iss']
 
@@ -267,7 +267,22 @@ class Iss (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Iss, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)', 'This ISS registration Code already exists !'),
+            ('code_uniq', Unique(t,t.code), 
+            'This ISS registration Code already exists'),
         ]
+
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="motor_vehicle_accident"]', 'states', {
+                'invisible': Not(Equal(Eval('injury_type'), 'motor_vehicle')),
+                }),
+                ('//group[@id="violent_injury"]', 'states', {
+                'invisible': Not(Equal(Eval('injury_type'), 'violence')),
+                }),
+                ('//group[@id="iss_place"]', 'states', {
+                'invisible': Equal(Eval('injury_type'), 'motor_vehicle'),
+                }),
+                ]
 
