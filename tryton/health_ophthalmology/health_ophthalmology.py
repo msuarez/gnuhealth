@@ -80,7 +80,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
                                     help="Left Eye Vision Using Pin Hole",
                                     sort=False)
     # vison testing with glasses just to assess what the patient sees with
-    # his existing aid # useful esp with vision syndroms that are not
+    # his existing aid # useful esp with vision syndromes that are not
     # happening because of the lens
     rdva_aid = fields.Selection(snellen_chart, 'RDVA AID',
                                 help="Vision with glasses or contact lens",
@@ -121,14 +121,14 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     # these values will go into final prescription of glasses or contact lens
     # by default these values should be auto populated 
     # and should be modifiable by an ophthalmologist
-    rbcva_spherical = fields.Float('Right Eye Best Corrected Spherical')
-    lbcva_spherical = fields.Float('Left Eye Best Corrected Spherical')
+    rbcva_spherical = fields.Float('SPH',help='Right Eye Best Corrected Spherical')
+    lbcva_spherical = fields.Float('SPH',help='Left Eye Best Corrected Spherical')
 
-    rbcva_cylinder = fields.Float('Right Eye Best Corrected Cylinder')
-    lbcva_cylinder = fields.Float('Left Eye Best Corrected Cylinder')
+    rbcva_cylinder = fields.Float('CYL',help='Right Eye Best Corrected Cylinder')
+    lbcva_cylinder = fields.Float('CYL',help='Left Eye Best Corrected Cylinder')
 
-    rbcva_axis = fields.Float('Right Eye Best Corrected Axis')
-    lbcva_axis = fields.Float('Left Eye Best Corrected Axis')
+    rbcva_axis = fields.Float('Axis', help='Right Eye Best Corrected Axis')
+    lbcva_axis = fields.Float('Axis', help='Left Eye Best Corrected Axis')
 
     rbcva = fields.Selection(snellen_chart, 'RBCVA', 
                 help="Right Eye Best Corrected VA", sort=False)
@@ -154,24 +154,21 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     #   GOLDMANN APPLANATION TONOMETRY
 
     #notes by the ophthalmologist or optometrist
-    optometry_notes = fields.Text ('Notes')
+    notes = fields.Text ('Notes')
+
+    #Intraocular Pressure 
+    iop_method = fields.Selection([
+        ('None',''),
+        ('nct', 'Non-contact tonometry'),
+        ('schiotz', 'Schiotz tonometry'),
+        ('goldmann', 'Goldman tonometry'),
+        ], 'Method', help='Tonometry / Intraocular pressure reading method')
     
-    #this test is done using a prism fixed on a slit lamp
-    #the reading is obtained from the slitlamp knobs
-    rschiotz_iop = fields.Float('IOP Right Schiotz ')
-    lschiotz_iop = fields.Float('IOP Left Schiotz')
-    
-    #this is a digital testing, using a machine
-    #as it suggest, it does not touch the lens
-    #it uses stream of air to get the pressure of the eye
-    rnct_iop = fields.Float('IOP Right NCT')
-    lnct_iop = fields.Float('IOP Left NCT')
-    
-    #the traditional way of using the goldmann apparatus
-    #it looks like a compass /divider in instrument box,
-    rgoldmann_iop = fields.Float('IOP Right Goldmann')
-    lgoldmann_iop = fields.Float('IOP Left Goldmann')
-    
+    riop = fields.Float('RIOP',digits=(2,1),
+        help="Right Intraocular Pressure in mmHg")
+
+    liop = fields.Float('LIOP',digits=(2,1),
+        help="Left Intraocular Pressure in mmHg")
     
     rsyringing = fields.Selection([  
             (None,''),
