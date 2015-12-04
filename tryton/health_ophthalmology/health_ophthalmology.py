@@ -34,7 +34,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     # there are two types of charts, a meter chart.. 6/.. val
     # and ft chart.. 200/...
-    snells_chart = [
+    snellen_chart = [
         (None, ''),
         ('6_6', '6/6'),
         ('6_9', '6/9'),
@@ -65,27 +65,27 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         ('N36', 'N36'),
         ('N60', 'N60'),
         ]
-    # vision test using snells chart
-    rdva = fields.Selection(snells_chart, 'RDVA',
+    # vision test using snellen chart
+    rdva = fields.Selection(snellen_chart, 'RDVA',
                             help="Right Eye Vision of Patient without aid",
                             sort=False)
-    ldva = fields.Selection(snells_chart, 'LDVA',
+    ldva = fields.Selection(snellen_chart, 'LDVA',
                             help="Left Eye Vision of Patient without aid",
                             sort=False)
     # vision test using pinhole accurate manual testing
-    rdva_pinhole = fields.Selection(snells_chart, 'RDVA',
+    rdva_pinhole = fields.Selection(snellen_chart, 'RDVA',
                                     help="Right Eye Vision Using Pin Hole",
                                     sort=False)
-    ldva_pinhole = fields.Selection(snells_chart, 'LDVA',
+    ldva_pinhole = fields.Selection(snellen_chart, 'LDVA',
                                     help="Left Eye Vision Using Pin Hole",
                                     sort=False)
     # vison testing with glasses just to assess what the patient sees with
     # his existing aid # useful esp with vision syndroms that are not
     # happening because of the lens
-    rdva_aid = fields.Selection(snells_chart, 'RDVA AID',
+    rdva_aid = fields.Selection(snellen_chart, 'RDVA AID',
                                 help="Vision with glasses or contact lens",
                                 sort=False)
-    ldva_aid = fields.Selection(snells_chart, 'LDVA AID',
+    ldva_aid = fields.Selection(snellen_chart, 'LDVA AID',
                                 help="Vision with glasses or contact lens",
                                 sort=False)
 
@@ -130,9 +130,9 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     rbcva_axis = fields.Float('Right Eye Best Corrected Axis')
     lbcva_axis = fields.Float('Left Eye Best Corrected Axis')
 
-    rbcva = fields.Selection(snells_chart, 'RBCVA', 
+    rbcva = fields.Selection(snellen_chart, 'RBCVA', 
                 help="Right Eye Best Corrected VA", sort=False)
-    lbcva = fields.Selection(snells_chart, 'LBCVA', 
+    lbcva = fields.Selection(snellen_chart, 'LBCVA', 
                 help="Left Eye Best Corrected VA", sort=False)
     
     rbcva_nv_add = fields.Float('Right Eye Best Corrected NV Add')
