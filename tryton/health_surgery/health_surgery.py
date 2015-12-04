@@ -171,38 +171,20 @@ class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
-    
+
     def surgery_duration(self, name):
 
-        duration = ''
         if (self.surgery_end_date and self.surgery_date):
-                delta = relativedelta(self.surgery_end_date, self.surgery_date)
-
-                duration = str(
-                    delta.days*24 + delta.hours) + 'h ' \
-                    + str(delta.minutes) + 'm '
-        return duration
+            return self.surgery_end_date - self.surgery_date
+        else:
+            return None
 
     def patient_age_at_surgery(self, name):
 
-        if (self.patient.name.dob):
-            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
-
-            if (self.surgery_date):
-                surgery_date = datetime.strptime(
-                    str(self.surgery_date), '%Y-%m-%d %H:%M:%S')
-                delta = relativedelta(self.surgery_date, dob)
-
-                years_months_days = str(
-                    delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd'
-            else:
-                years_months_days = 'No Surgery Date !'
+        if (self.patient.name.dob and self.surgery_date):
+            return self.surgery_date.date() - self.patient.name.dob
         else:
-            years_months_days = 'No DoB !'
-
-        return years_months_days
+            return None
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
@@ -249,7 +231,7 @@ class Surgery(ModelSQL, ModelView):
             "It is also the estimated end time when confirming the surgery.")
 
     surgery_length = fields.Function(
-        fields.Char(
+        fields.TimeDelta(
             'Duration',
             states={'invisible': And(Not(Equal(Eval('state'), 'done')),
                     Not(Equal(Eval('state'), 'signed')))},
@@ -280,7 +262,7 @@ class Surgery(ModelSQL, ModelView):
         when no date of surgery is given")
 
     computed_age = fields.Function(
-        fields.Char(
+        fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the surgery"),
         'patient_age_at_surgery')

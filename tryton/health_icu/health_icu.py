@@ -46,21 +46,11 @@ class InpatientIcu(ModelSQL, ModelView):
     __name__ = 'gnuhealth.inpatient.icu'
 
     def icu_duration(self, name):
-
-        now = datetime.now()
-        admission = datetime.strptime(str(self.icu_admission_date),
-            '%Y-%m-%d %H:%M:%S')
-
         if self.discharged_from_icu:
-            discharge = datetime.strptime(str(self.icu_discharge_date),
-                '%Y-%m-%d %H:%M:%S')
-            delta = relativedelta(discharge, admission)
+            end = self.icu_discharge_date
         else:
-            delta = relativedelta(now, admission)
-        years_months_days = str(delta.years) + 'y ' \
-                + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd'
-        return years_months_days
+            end = datetime.now()
+        return end.date() - self.icu_admission_date.date()
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
@@ -76,7 +66,7 @@ class InpatientIcu(ModelSQL, ModelView):
             'required': Bool(Eval('discharged_from_icu')),
             },
         depends=['discharged_from_icu'])
-    icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
+    icu_stay = fields.Function(fields.TimeDelta('Duration'), 'icu_duration')
 
     mv_history = fields.One2Many('gnuhealth.icu.ventilation',
         'name', "Mechanical Ventilation History")
@@ -415,26 +405,15 @@ class MechanicalVentilation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.icu.ventilation'
 
     def mv_duration(self, name):
-        # Calculate the Mechanical Ventilation time
-        now = datetime.now()
-        mv_init = now
-        mv_finnish = now
+        start = end = datetime.now()
 
         if self.mv_start:
-            mv_init = datetime.strptime(str(self.mv_start),
-                '%Y-%m-%d %H:%M:%S')
+            start = self.mv_start
 
         if self.mv_end:
-            mv_finnish = datetime.strptime(str(self.mv_end),
-                '%Y-%m-%d %H:%M:%S')
-            delta = relativedelta(mv_finnish, mv_init)
-        else:
-            delta = relativedelta(now, mv_init)
+            end = self.mv_end
 
-        years_months_days = str(delta.years) + 'y ' \
-                + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd'
-        return years_months_days
+        return end.date() - start.date()
 
     name = fields.Many2One('gnuhealth.inpatient.icu', 'Patient ICU Admission',
         required=True)
@@ -463,7 +442,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
             'required': Not(Bool(Eval('current_mv'))),
             },
         depends=['current_mv'])
-    mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
+    mv_period = fields.Function(fields.TimeDelta('Duration'), 'mv_duration')
     current_mv = fields.Boolean('Current')
     remarks = fields.Char('Remarks')
 
