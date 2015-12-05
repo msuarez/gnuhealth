@@ -58,8 +58,23 @@
         </record>
 		
         <!-- End of Ophthal Menu -->
-        
+
+        <!-- Shortcut to the Patient Ophthalmologic Evaluations -->
+        <record model="ir.action.act_window" id="act_evaluation_form1">
+            <field name="name">Ophthalmologic Evaluations</field>
+            <field name="res_model">gnuhealth.ophthalmology.evaluation</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_evaluation_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_evaluation_form1"/>
+        </record>
+
+<!--
    		<menuitem name="Ophthalmology" parent="health.gnuhealth_menu" id="gnuhealth_ophthalmology_menu" icon="gnuhealth-ophthalmology"/>
    		<menuitem name="Evaluations" parent="gnuhealth_ophthalmology_menu" id="gnuhealth_ophthalmology_evaluation_menu" action="act_ophthal_form"/>
+-->
 	</data>
 </tryton>

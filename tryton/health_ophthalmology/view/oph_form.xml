@@ -19,80 +19,76 @@
         <group colspan="4" string="Refraction" id="refraction group">
           <group id="va_group" colspan="2">
              <group  string="Right Eye " id="right_vc_group" >  
-                <label name="rdva" string="Unaided Visual Acuity"/>
+                <label name="rdva"/>
                 <field name="rdva" />
-                <label name="rdva_pinhole" string="Pin Hole"/>
+                <label name="rdva_pinhole"/>
                 <field name="rdva_pinhole"/>    
-                <label name="rdva_aid" string="With Glass"/>
+                <label name="rdva_aid"/>
                 <field name="rdva_aid"/>
-                <label name="rnv" string="Near Vision"/>
+                <label name="rnv"/>
                 <field name="rnv"/>
              </group>
              <group  string="Left Eye " id="left_vc_group">
-                <label name="ldva" string="Unaided Visual Acuity"/>
+                <label name="ldva"/>
                 <field name="ldva"/>
-                <label name="ldva_pinhole" string="Pin Hole"/>
+                <label name="ldva_pinhole"/>
                 <field name="ldva_pinhole"/>
-                <label name="ldva_aid" string="With Glass"/>
+                <label name="ldva_aid"/>
                 <field name="ldva_aid"/>
-                <label name="lnv" string="Near Vision"/>
+                <label name="lnv"/>
                 <field name="lnv"/>
              </group>
           </group>
-          <newline></newline>
+          <newline/>
           <group colspan="2" id="lens_values_ar" >
-             <group colspan="2" col="3" string="Right Eye" id="right_eye_ar">
-                <label xalign="0" name="rspherical" string="Spherical"/>
-                <label xalign="0" name="rcylinder" string="Cylinder"/>
-                <label xalign="0" name="raxis" string="Axis"/>
-                <newline></newline>
+             <group colspan="2" col="8" string="Right Eye" id="right_eye_ar">
+                <label name="rspherical"/>
                 <field name="rspherical"/>
+                <label name="rcylinder"/>
                 <field name="rcylinder"/>
+                <label name="raxis"/>
                 <field name="raxis"/>
-                <label name="rnv_add" string="Add NV"/>
+                <label name="rnv_add"/>
                 <field name="rnv_add"/>
              </group>
-             <group colspan="2" col="3" string="Left Eye" id="left_eye_ar">
-                <label xalign="0" name="lspherical" string="Spherical"/>
-                <label xalign="0" name="lcylinder" string="Cylinder"/>
-                <label xalign="0" name="laxis" string="Axis"/>
-                <newline></newline>
+             <group colspan="2" col="8" string="Left Eye" id="left_eye_ar">
+                <label name="lspherical"/>
                 <field name="lspherical"/>
+                <label name="lcylinder"/>
                 <field name="lcylinder"/>
+                <label name="laxis"/>
                 <field name="laxis"/>
-                <label name="lnv_add" string="Add NV"/>
+                <label name="lnv_add"/>
                 <field name="lnv_add"/>
              </group>
           </group>
         </group>
-        <group colspan="4" col="10" id="final_vision_correction" string="Best Corrected Visual Acuity" >
-          <group colspan="2" col="4" id="Right_Eye_BCVA" string="Right Eye" >
-             <label name="rbcva_spherical" string="Spherical" />
-             <label name="rbcva_cylinder" string="Cylinder"/>
-             <label name="rbcva_axis" string="Axis"/>
-             <label name="rbcva" string="BCVA" />
-             <newline></newline>
+        <group colspan="4" col="6" id="final_vision_correction" string="Best Corrected Visual Acuity" >
+          <group colspan="2" col="6" id="Right_Eye_BCVA" string="Right Eye" >
+             <label name="rbcva_spherical"/>
              <field name="rbcva_spherical" />
-             <field name="rbcva_cylinder" />
+             <label name="rbcva_cylinder"/>
+             <field name="rbcva_cylinder"/>
+             <label name="rbcva_axis"/>
              <field name="rbcva_axis" />
+             <newline/>
+             <label name="rbcva"/>
              <field name="rbcva" />
-             <newline></newline>
              <label name="rbcva_nv_add"/>
              <field name="rbcva_nv_add"/>
              <label name="rbcva_nv"/>
              <field name="rbcva_nv"/>
           </group>            
-          <group colspan="2" col="4" id="Left_eye_BCVA" string="Left Eye" >
+          <group colspan="2" col="6" id="Left_eye_BCVA" string="Left Eye" >
              <label name="lbcva_spherical"/>
-             <label name="lbcva_cylinder"/>
-             <label name="lbcva_axis"/>
-             <label name="lbcva"/>
-             <newline></newline>
              <field name="lbcva_spherical" />
+             <label name="lbcva_cylinder"/>
              <field name="lbcva_cylinder" />
+             <label name="lbcva_axis"/>
              <field name="lbcva_axis" />
+             <newline/>
+             <label name="lbcva"/>
              <field name="lbcva" />
-             <newline></newline>
              <label name="lbcva_nv_add"/>
              <field name="lbcva_nv_add"/>
              <label name="lbcva_nv"/>

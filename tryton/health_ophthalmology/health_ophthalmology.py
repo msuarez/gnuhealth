@@ -90,23 +90,23 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
                                 sort=False)
 
     # spherical
-    rspherical = fields.Float('Right Eye Spherical')
-    lspherical = fields.Float('Left Eye Spherical')
+    rspherical = fields.Float('SPH',help='Right Eye Spherical')
+    lspherical = fields.Float('SPH',help='Left Eye Spherical')
 
     # cylinder
-    rcylinder = fields.Float('Right Eye Cylinder')
-    lcylinder = fields.Float('Left Eye Cylinder')
+    rcylinder = fields.Float('CYL',help='Right Eye Cylinder')
+    lcylinder = fields.Float('CYL',help='Left Eye Cylinder')
     
     #axis
-    raxis = fields.Float('Right Eye Axis')
-    laxis = fields.Float('Left Eye Axis')
+    raxis = fields.Float('Axis',help='Right Eye Axis')
+    laxis = fields.Float('Axis',help='Left Eye Axis')
 
-    # near vision testing ie. long sight.. you will get it when u cross 40
+    # near vision testing .... you will get it when u cross 40 :)
     # its also thinning of the lens.. the focus falls behind the retina
     # in case of distant vision the focus does not reach retina
     
-    rnv_add = fields.Float('Right Eye Best Corrected NV Add')
-    lnv_add = fields.Float('Left Eye Best Corrected NV Add')
+    rnv_add = fields.Float('NV Add', help='Right Eye Best Corrected NV Add')
+    lnv_add = fields.Float('NV Add', help='Left Eye Best Corrected NV Add')
     
     rnv = fields.Selection(near_vision_chart, 'RNV',
                            help="Right Eye Near Vision", sort=False)
@@ -135,8 +135,8 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     lbcva = fields.Selection(snellen_chart, 'LBCVA', 
                 help="Left Eye Best Corrected VA", sort=False)
     
-    rbcva_nv_add = fields.Float('Right Eye Best Corrected NV Add')
-    lbcva_nv_add = fields.Float('Left Eye Best Corrected NV Add')
+    rbcva_nv_add = fields.Float('BCVA - Add', help='Right Eye Best Corrected NV Add')
+    lbcva_nv_add = fields.Float('BCVA - Add', help='Left Eye Best Corrected NV Add')
 
     rbcva_nv = fields.Selection(near_vision_chart, 'RBCVANV', 
                 help="Right Eye Best Corrected Near Vision", sort=False)
@@ -158,7 +158,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     #Intraocular Pressure 
     iop_method = fields.Selection([
-        ('None',''),
+        (None,''),
         ('nct', 'Non-contact tonometry'),
         ('schiotz', 'Schiotz tonometry'),
         ('goldmann', 'Goldman tonometry'),
