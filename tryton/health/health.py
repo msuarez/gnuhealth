@@ -4484,7 +4484,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         states = STATES)
     present_illness = fields.Text('Present Illness',
         states = STATES)
-    evaluation_summary = fields.Text('Evaluation Summary',
+    evaluation_summary = fields.Text('Clinical and physical',
         states = STATES)
 
     glycemia = fields.Float(
@@ -4921,6 +4921,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         if table.column_exist('evaluation_date'):
             table.column_rename('evaluation_date', 'appointment')
+
 
         # Merge "chronic" checkups visit types into followup       
         if table.column_exist('visit_type'):

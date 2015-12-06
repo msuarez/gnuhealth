@@ -33,24 +33,21 @@
             <separator string="Present Illness" colspan="4" id="separator_present_illness"/>
             <field name="present_illness" colspan="4"/>
             <newline/>
-            <label name="diagnosis"/>
-            <field name="diagnosis" colspan="4"/>
-            <newline/>
-            <field name="secondary_conditions" colspan="4"/>
-            <newline/>
-            <separator string="Information on Diagnosis" colspan="2" id="separator_evaluation_diagnosis_1"/>
-            <separator string="Treatment Plan" colspan="2" id="separator_evaluation_diagnosis_2"/>
-            <newline/>
-            <field name="info_diagnosis" colspan="2"/>
-            <field name="directions" colspan="2"/>
-            <newline/>
-            <field name="diagnostic_hypothesis" colspan="2"/>
-            <field name="actions" colspan="2"/>
-
-            <separator string="Evaluation Summary" colspan="4" id="separator_evaluation_summary"/>
-            <newline/>
+            <separator string="Clinical and Physical exam" colspan="4" id="separator_clinical_physical"/>
             <field name="evaluation_summary" colspan="4"/>
             <newline/>
+            <group string="Main Condition" colspan="4" id="group_dx">
+                <field name="diagnosis" colspan="4"/>
+            </group>
+            <newline/>
+            <field name="secondary_conditions" colspan="4"/>
+            <field name="diagnostic_hypothesis" colspan="2"/>
+            <field name="actions" colspan="2"/>
+            <newline/>
+            <group string="Treatment Plan" colspan="4" id="group_treatment_plan">
+                <field name="directions" colspan="4"/>
+            </group>
+            <newline/>    
             <group colspan="4" col="14" id="group_eval_misc">
                 <label name="evaluation_type"/>
                 <field name="evaluation_type"/>
@@ -162,7 +159,10 @@
                 <field name="praxis"/>
             </group>
         </page>
-        <page string="Diagnosis" id="page_patient_evaluation_diagnosis">
+        <page string="Extra Info" id="page_patient_evaluation_extra_info">
+            <separator string="Information on Diagnosis" colspan="2" id="separator_evaluation_diagnosis_1"/>
+            <newline/>
+            <field name="info_diagnosis" colspan="4"/>
             <newline/>
             <label name="institution"/>               
             <field name="institution" colspan="3"/>               
