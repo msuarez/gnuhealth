@@ -38,6 +38,8 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     'Ophthalmology Evaluation'
     __name__ = 'gnuhealth.ophthalmology.evaluation'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     visit_date = fields.DateTime('Date', help="Date of Consultation")
     computed_age = fields.Function(fields.Char(
@@ -92,50 +94,54 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     # vision test using snellen chart
     rdva = fields.Selection(snellen_chart, 'RDVA',
                             help="Right Eye Vision of Patient without aid",
-                            sort=False)
+                            sort=False, states = STATES)
     ldva = fields.Selection(snellen_chart, 'LDVA',
                             help="Left Eye Vision of Patient without aid",
-                            sort=False)
+                            sort=False, states = STATES)
     # vision test using pinhole accurate manual testing
     rdva_pinhole = fields.Selection(snellen_chart, 'RDVA',
                                     help="Right Eye Vision Using Pin Hole",
-                                    sort=False)
+                                    sort=False, states = STATES)
     ldva_pinhole = fields.Selection(snellen_chart, 'LDVA',
                                     help="Left Eye Vision Using Pin Hole",
-                                    sort=False)
+                                    sort=False, states = STATES)
     # vison testing with glasses just to assess what the patient sees with
     # his existing aid # useful esp with vision syndromes that are not
     # happening because of the lens
     rdva_aid = fields.Selection(snellen_chart, 'RDVA AID',
                                 help="Vision with glasses or contact lens",
-                                sort=False)
+                                sort=False, states = STATES)
     ldva_aid = fields.Selection(snellen_chart, 'LDVA AID',
                                 help="Vision with glasses or contact lens",
-                                sort=False)
+                                sort=False, states = STATES)
 
     # spherical
-    rspherical = fields.Float('SPH',help='Right Eye Spherical')
-    lspherical = fields.Float('SPH',help='Left Eye Spherical')
+    rspherical = fields.Float('SPH',help='Right Eye Spherical', states = STATES)
+    lspherical = fields.Float('SPH',help='Left Eye Spherical', states = STATES)
 
     # cylinder
-    rcylinder = fields.Float('CYL',help='Right Eye Cylinder')
-    lcylinder = fields.Float('CYL',help='Left Eye Cylinder')
+    rcylinder = fields.Float('CYL',help='Right Eye Cylinder', states = STATES)
+    lcylinder = fields.Float('CYL',help='Left Eye Cylinder', states = STATES)
     
     #axis
-    raxis = fields.Float('Axis',help='Right Eye Axis')
-    laxis = fields.Float('Axis',help='Left Eye Axis')
+    raxis = fields.Float('Axis',help='Right Eye Axis', states = STATES)
+    laxis = fields.Float('Axis',help='Left Eye Axis', states = STATES)
 
     # near vision testing .... you will get it when u cross 40 :)
     # its also thinning of the lens.. the focus falls behind the retina
     # in case of distant vision the focus does not reach retina
     
-    rnv_add = fields.Float('NV Add', help='Right Eye Best Corrected NV Add')
-    lnv_add = fields.Float('NV Add', help='Left Eye Best Corrected NV Add')
+    rnv_add = fields.Float('NV Add', help='Right Eye Best Corrected NV Add',
+        states = STATES)
+    lnv_add = fields.Float('NV Add', help='Left Eye Best Corrected NV Add'
+        , states = STATES)
     
     rnv = fields.Selection(near_vision_chart, 'RNV',
-                           help="Right Eye Near Vision", sort=False)
+                           help="Right Eye Near Vision", sort=False,
+                            states = STATES)
     lnv = fields.Selection(near_vision_chart, 'LNV',
-                           help="Left Eye Near Vision", sort=False)
+                           help="Left Eye Near Vision", sort=False,
+                            states = STATES)
 
     # after the above tests the optometrist or doctor comes to a best conclusion
     # best corrected visual acuity
@@ -145,27 +151,37 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     # these values will go into final prescription of glasses or contact lens
     # by default these values should be auto populated 
     # and should be modifiable by an ophthalmologist
-    rbcva_spherical = fields.Float('SPH',help='Right Eye Best Corrected Spherical')
-    lbcva_spherical = fields.Float('SPH',help='Left Eye Best Corrected Spherical')
+    rbcva_spherical = fields.Float('SPH',
+        help='Right Eye Best Corrected Spherical', states = STATES)
+    lbcva_spherical = fields.Float('SPH',
+        help='Left Eye Best Corrected Spherical', states = STATES)
 
-    rbcva_cylinder = fields.Float('CYL',help='Right Eye Best Corrected Cylinder')
-    lbcva_cylinder = fields.Float('CYL',help='Left Eye Best Corrected Cylinder')
+    rbcva_cylinder = fields.Float('CYL',
+        help='Right Eye Best Corrected Cylinder', states = STATES)
+    lbcva_cylinder = fields.Float('CYL',
+        help='Left Eye Best Corrected Cylinder', states = STATES)
 
-    rbcva_axis = fields.Float('Axis', help='Right Eye Best Corrected Axis')
-    lbcva_axis = fields.Float('Axis', help='Left Eye Best Corrected Axis')
+    rbcva_axis = fields.Float('Axis', 
+        help='Right Eye Best Corrected Axis', states = STATES)
+    lbcva_axis = fields.Float('Axis',
+        help='Left Eye Best Corrected Axis', states = STATES)
 
     rbcva = fields.Selection(snellen_chart, 'RBCVA', 
-                help="Right Eye Best Corrected VA", sort=False)
+                help="Right Eye Best Corrected VA", sort=False, states = STATES)
     lbcva = fields.Selection(snellen_chart, 'LBCVA', 
-                help="Left Eye Best Corrected VA", sort=False)
+                help="Left Eye Best Corrected VA", sort=False, states = STATES)
     
-    rbcva_nv_add = fields.Float('BCVA - Add', help='Right Eye Best Corrected NV Add')
-    lbcva_nv_add = fields.Float('BCVA - Add', help='Left Eye Best Corrected NV Add')
+    rbcva_nv_add = fields.Float('BCVA - Add',
+        help='Right Eye Best Corrected NV Add', states = STATES)
+    lbcva_nv_add = fields.Float('BCVA - Add',
+        help='Left Eye Best Corrected NV Add', states = STATES)
 
     rbcva_nv = fields.Selection(near_vision_chart, 'RBCVANV', 
-                help="Right Eye Best Corrected Near Vision", sort=False)
+                help="Right Eye Best Corrected Near Vision", 
+                sort=False, states = STATES)
     lbcva_nv = fields.Selection(near_vision_chart, 'LBCVANV' , 
-                help="Left Eye Best Corrected Near Vision", sort=False)        
+                help="Left Eye Best Corrected Near Vision",
+                sort=False, states = STATES)        
         
     #some other tests of the eyes
     #useful for diagnosis of glaucoma a disease that builds up
@@ -178,7 +194,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
     #   GOLDMANN APPLANATION TONOMETRY
 
     #notes by the ophthalmologist or optometrist
-    notes = fields.Text ('Notes')
+    notes = fields.Text ('Notes', states = STATES)
 
     #Intraocular Pressure 
     iop_method = fields.Selection([
@@ -186,17 +202,18 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         ('nct', 'Non-contact tonometry'),
         ('schiotz', 'Schiotz tonometry'),
         ('goldmann', 'Goldman tonometry'),
-        ], 'Method', help='Tonometry / Intraocular pressure reading method')
+        ], 'Method', help='Tonometry / Intraocular pressure reading method',
+        states = STATES)
     
     riop = fields.Float('RIOP',digits=(2,1),
-        help="Right Intraocular Pressure in mmHg")
+        help="Right Intraocular Pressure in mmHg", states = STATES)
 
     liop = fields.Float('LIOP',digits=(2,1),
-        help="Left Intraocular Pressure in mmHg")
+        help="Left Intraocular Pressure in mmHg", states = STATES)
         
     findings = fields.One2Many(
         'gnuhealth.ophthalmology.findings', 'name',
-        'Findings')
+        'Findings',  states = STATES)
 
     state = fields.Selection([
         (None, ''),
