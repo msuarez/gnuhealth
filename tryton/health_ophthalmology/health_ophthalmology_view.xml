@@ -74,7 +74,8 @@
 
 <!--
    		<menuitem name="Ophthalmology" parent="health.gnuhealth_menu" id="gnuhealth_ophthalmology_menu" icon="gnuhealth-ophthalmology"/>
-   		<menuitem name="Evaluations" parent="gnuhealth_ophthalmology_menu" id="gnuhealth_ophthalmology_evaluation_menu" action="act_ophthal_form"/>
 -->
+   		<menuitem name="Ophthalmologic evaluations" parent="health.gnuhealth_reporting_menu" id="gnuhealth_ophthalmology_evaluation_menu" action="act_ophthal_form" icon="gnuhealth-list"/>
+
 	</data>
 </tryton>

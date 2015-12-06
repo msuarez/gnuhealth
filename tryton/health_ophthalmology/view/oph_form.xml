@@ -111,5 +111,12 @@
     <group id="group_notes" string="Notes" >
      <field name="notes"/>
     </group>
-
+    <newline/>
+    <group id="group_footer" colspan="4" col="6">
+        <label name="state"/>
+        <field name="state"/>        
+        <label name="signed_by"/>
+        <field name="signed_by"/>        
+        <button name="end_evaluation" help="End this evaluation" string="Done" icon="tryton-go-next" confirm="End this evaluation ?"/>
+    </group>
 </form>

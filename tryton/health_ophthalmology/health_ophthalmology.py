@@ -1,7 +1,31 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.pool import Pool
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
+from trytond.pyson import Eval, Equal
 
 __all__ = [    
     'OphthalmologyEvaluation',
@@ -28,7 +52,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
 
     health_professional = fields.Many2One(
-        'gnuhealth.healthprofessional', 'Health Professional',
+        'gnuhealth.healthprofessional', 'Health Professional', readonly=True,
         help="Health professional / Ophthalmologist / OptoMetrist"
         )
 
@@ -169,36 +193,21 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     liop = fields.Float('LIOP',digits=(2,1),
         help="Left Intraocular Pressure in mmHg")
-    
-    rsyringing = fields.Selection([  
-            (None,''),
-            ("False","False"),
-            ("True","True"),
-        ],'RSYR',help="Syringing Right",sort=False)
-
-    lsyringing = fields.Selection([  
-            (None,''),
-            ("False","False"),
-            ("True","True"),
-        ],'LSYR',help="Syringing Left",sort=False)
         
-    #Squint
-    rsquint = fields.Selection([  
-            (None,""),
-            ("False","False"),
-            ("True","True"),
-        ],'RSQUINT',help="Syringing Right",sort=False)
-
-    lsquint = fields.Selection([  
-            (None,""),
-            ("False","False"),
-            ("True","True"),
-        ],'LSQUINT',help="Syringing Left",sort=False)
-        
-    
     findings = fields.One2Many(
         'gnuhealth.ophthalmology.findings', 'name',
         'Findings')
+
+    state = fields.Selection([
+        (None, ''),
+        ('in_progress', 'In progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True, sort=False)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that finished the patient evaluation")
 
 
     def patient_age_at_evaluation(self, name):
@@ -221,6 +230,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
             years_months_days = 'No DoB !'
 
         return years_months_days
+
 
 
     def get_patient_sex(self, name):
@@ -286,6 +296,10 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         return datetime.now()
 
     @staticmethod
+    def default_state():
+        return 'in_progress'
+
+    @staticmethod
     def default_health_professional():
         pool = Pool()
         HealthProf= pool.get('gnuhealth.healthprofessional')
@@ -302,19 +316,31 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         self.sex = self.patient.sex
         self.computed_age = self.patient.age
 
+
     @classmethod
     @ModelView.button
-    def confirmed(cls):
-        return
-    
-#end
+    def end_evaluation(cls, evaluations):
+        
+        evaluation_id = evaluations[0]
 
+        # Change the state of the evaluation to "Done"
+        HealthProf= Pool().get('gnuhealth.healthprofessional')
 
-# class OphthalmologyPatientData(ModelSQL, ModelView):
-#     __name__ = 'gnuhealth.patient'
-#     
-#end
+        signing_hp = HealthProf.get_health_professional()
 
+        cls.write(evaluations, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            })
+        
+
+    @classmethod
+    def __setup__(cls):
+        super(OphthalmologyEvaluation, cls).__setup__()
+
+        cls._buttons.update({
+            'end_evaluation': {'invisible': Equal(Eval('state'), 'done')}
+            })
 
 
 #this class model contains the detailed assesment of patient by an
