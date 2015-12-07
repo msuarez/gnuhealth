@@ -2,7 +2,329 @@
 <tryton>
 <data skiptest="1" noupdate="1">
 
-<!-- TODO: NUTRITION, SOCIAL, VIOLENCE, PEDIATRIC -->
+<!-- TODO: SOCIAL, VIOLENCE -->
+
+<!-- NUTRITIONAL DISEASE GROUP (E40-E68) -->
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E40">
+    <field name="name" ref="E40"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E41">
+    <field name="name" ref="E41"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E42">
+    <field name="name" ref="E42"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E43">
+    <field name="name" ref="E43"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E44">
+    <field name="name" ref="E44"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E440">
+    <field name="name" ref="E440"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E441">
+    <field name="name" ref="E441"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E45">
+    <field name="name" ref="E45"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E46">
+    <field name="name" ref="E46"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E50">
+    <field name="name" ref="E50"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E500">
+    <field name="name" ref="E500"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E501">
+    <field name="name" ref="E501"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E502">
+    <field name="name" ref="E502"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E503">
+    <field name="name" ref="E503"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E504">
+    <field name="name" ref="E504"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E505">
+    <field name="name" ref="E505"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E506">
+    <field name="name" ref="E506"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E507">
+    <field name="name" ref="E507"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E508">
+    <field name="name" ref="E508"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E509">
+    <field name="name" ref="E509"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E51">
+    <field name="name" ref="E51"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E511">
+    <field name="name" ref="E511"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E512">
+    <field name="name" ref="E512"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E518">
+    <field name="name" ref="E518"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E519">
+    <field name="name" ref="E519"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E52">
+    <field name="name" ref="E52"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E53">
+    <field name="name" ref="E53"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E530">
+    <field name="name" ref="E530"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E531">
+    <field name="name" ref="E531"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E538">
+    <field name="name" ref="E538"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E539">
+    <field name="name" ref="E539"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E54">
+    <field name="name" ref="E54"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E55">
+    <field name="name" ref="E55"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E550">
+    <field name="name" ref="E550"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E559">
+    <field name="name" ref="E559"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E56">
+    <field name="name" ref="E56"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E560">
+    <field name="name" ref="E560"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E561">
+    <field name="name" ref="E561"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E568">
+    <field name="name" ref="E568"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E569">
+    <field name="name" ref="E569"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E58">
+    <field name="name" ref="E58"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E59">
+    <field name="name" ref="E59"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E60">
+    <field name="name" ref="E60"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E61">
+    <field name="name" ref="E61"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E610">
+    <field name="name" ref="E610"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E611">
+    <field name="name" ref="E611"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E612">
+    <field name="name" ref="E612"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E613">
+    <field name="name" ref="E613"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E614">
+    <field name="name" ref="E614"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E615">
+    <field name="name" ref="E615"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E616">
+    <field name="name" ref="E616"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E617">
+    <field name="name" ref="E617"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E618">
+    <field name="name" ref="E618"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E619">
+    <field name="name" ref="E619"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E63">
+    <field name="name" ref="E63"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E630">
+    <field name="name" ref="E630"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E631">
+    <field name="name" ref="E631"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E638">
+    <field name="name" ref="E638"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E639">
+    <field name="name" ref="E639"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E64">
+    <field name="name" ref="E64"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E640">
+    <field name="name" ref="E640"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E641">
+    <field name="name" ref="E641"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E642">
+    <field name="name" ref="E642"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E643">
+    <field name="name" ref="E643"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E648">
+    <field name="name" ref="E648"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E649">
+    <field name="name" ref="E649"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E65">
+    <field name="name" ref="E65"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E66">
+    <field name="name" ref="E66"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E660">
+    <field name="name" ref="E660"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E661">
+    <field name="name" ref="E661"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E662">
+    <field name="name" ref="E662"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E668">
+    <field name="name" ref="E668"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E669">
+    <field name="name" ref="E669"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E67">
+    <field name="name" ref="E67"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E670">
+    <field name="name" ref="E670"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E671">
+    <field name="name" ref="E671"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E672">
+    <field name="name" ref="E672"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E673">
+    <field name="name" ref="E673"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E678">
+    <field name="name" ref="E678"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
+<record model="gnuhealth.disease_group.members" id="NUTRITION-E68">
+    <field name="name" ref="E68"></field>
+	<field name="disease_group" ref="health.NUTRITION"></field>
+</record>
 
 <!-- PEDIATRICS DISEASE GROUP -->
 <!-- Retrieved this list from a study on common pediatric codes -->
