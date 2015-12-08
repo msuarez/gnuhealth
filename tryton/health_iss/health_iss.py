@@ -66,7 +66,7 @@ class Iss (ModelSQL, ModelView):
         'get_patient_sex')
 
     patient_age = fields.Function(
-        fields.Char('Age'),
+        fields.TimeDelta('Age'),
         'get_patient_age')
 
     complaint = fields.Function(
@@ -238,7 +238,7 @@ class Iss (ModelSQL, ModelView):
         return self.name.patient.sex
 
     def get_patient_age(self, name):
-        return self.name.patient.age
+        return self.name.patient.name.age
 
     def get_patient_complaint(self, name):
         return self.name.chief_complaint

@@ -60,6 +60,47 @@ __all__ = [
     'SignsAndSymptoms', 'PatientECG']
 
 
+def compute_age_from_dates(dob, deceased, dod, sex, caller):
+    """ Get the person's age.
+
+    Calculate the current age of the patient or age at time of death.
+
+    Returns:
+    If caller == 'age': timedelta object,
+       caller == 'childbearing_age': boolean,
+       caller == 'raw_age': [Y, M, D]
+    
+    """
+
+    if dob:
+        end = datetime.now().date()
+        start = dob
+
+        if deceased:
+            end = dod.date() 
+
+        delta = end - start
+        rdelta = relativedelta(end, start)
+    else:
+        return None
+
+    if caller == 'age':
+        return delta
+
+    elif caller == 'childbearing_age':
+        if (rdelta.years >= 11
+           and rdelta.years <= 55 and sex == 'f'):
+            return True
+        else:
+            return False
+
+    elif caller == 'raw_age':
+        return [rdelta.years, rdelta.months, rdelta.days]
+
+    else:
+        return None
+        
+
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
     __name__ = 'gnuhealth.du'
@@ -205,56 +246,10 @@ class PartyPatient (ModelSQL, ModelView):
     'Party'
     __name__ = 'party.party'
 
-    # Get the person age in the following format : 'YEARS MONTHS DAYS'
-    # It will calculate the age of the patient while the person is alive.
-    # When the person dies, it will show the age at time of death.
 
     def person_age(self, name):
-
-        def compute_age_from_dates(person_dob, person_deceased,
-                                   person_dod, person_sex):
-
-            now = datetime.now()
-
-            if (person_dob):
-                dob = datetime.strptime(str(person_dob), '%Y-%m-%d')
-
-                if person_deceased:
-                    dod = datetime.strptime(
-                        str(person_dod), '%Y-%m-%d %H:%M:%S')
-                    delta = relativedelta(dod, dob)
-                    deceased = ' (deceased)'
-                else:
-                    delta = relativedelta(now, dob)
-                    deceased = ''
-                years_months_days = str(delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd' + deceased
-            else:
-                years_months_days = 'No DoB !'
-
-            # Return the age in format y m d when the caller is the field name
-            if name == 'age':
-                return years_months_days
-
-            # Return if the person is in the period of childbearing age >10 is
-            # the caller is childbearing_potential
-
-            if (name == 'childbearing_age' and person_dob):
-                if (delta.years >= 11
-                   and delta.years <= 55 and person_sex == 'f'):
-                    return True
-                else:
-                    return False
-
-            # Return the raw age in the integers array [Y,M,D]
-            # When name is called as 'raw_age'
-            if (name == 'raw_age' and person_dob):
-                return [delta.years,delta.months,delta.days]
-                
         return compute_age_from_dates(self.dob, self.deceased,
-                                      self.dod, self.sex)
-
+                              self.dod, self.sex, name)
 
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
@@ -295,7 +290,7 @@ class PartyPatient (ModelSQL, ModelView):
         states={'invisible': Not(Bool(Eval('is_person')))})
     dob = fields.Date('DoB', help='Date of Birth')
 
-    age = fields.Function(fields.Char('Age'), 'person_age')
+    age = fields.Function(fields.TimeDelta('Age'), 'person_age')
 
     sex = fields.Selection([
         (None, ''),
@@ -2511,56 +2506,6 @@ class PatientData(ModelSQL, ModelView):
 
         return allergies + other_conditions
         
-    # Get the patient age in the following format : 'YEARS MONTHS DAYS'
-    # It will calculate the age of the patient while the patient is alive.
-    # When the patient dies, it will show the age at time of death.
-
-    def patient_age(self, name):
-
-        def compute_age_from_dates(patient_dob, patient_deceased,
-                                   patient_dod, patient_sex):
-
-            now = datetime.now()
-
-            if (patient_dob):
-                dob = datetime.strptime(str(patient_dob), '%Y-%m-%d')
-
-                if patient_deceased:
-                    dod = datetime.strptime(
-                        str(patient_dod), '%Y-%m-%d %H:%M:%S')
-                    delta = relativedelta(dod, dob)
-                    deceased = ' (deceased)'
-                else:
-                    delta = relativedelta(now, dob)
-                    deceased = ''
-                years_months_days = str(delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd' + deceased
-            else:
-                years_months_days = 'No DoB !'
-
-            # Return the age in format y m d when the caller is the field name
-            if name == 'age':
-                return years_months_days
-
-            # Return if the patient is in the period of childbearing age >10 is
-            # the caller is childbearing_potential
-
-            if (name == 'childbearing_age' and patient_dob):
-                if (delta.years >= 11
-                   and delta.years <= 55 and patient_sex == 'f'):
-                    return True
-                else:
-                    return False
-
-            # Return the raw age in the integers array [Y,M,D]
-            # When name is called as 'raw_age'
-            if (name == 'raw_age' and patient_dob):
-                return [delta.years,delta.months,delta.days]
-                
-        return compute_age_from_dates(self.dob, self.deceased,
-                                      self.dod, self.sex)
-
     name = fields.Many2One(
         'party.party', 'Patient', required=True,
         domain=[
@@ -2618,7 +2563,7 @@ class PatientData(ModelSQL, ModelView):
 
     dob = fields.Function(fields.Date('DoB'), 'get_patient_dob')
 
-    age = fields.Function(fields.Char('Age'), 'patient_age')
+    age = fields.Function(fields.TimeDelta('Age'), 'get_patient_age')
 
     # Removed in 2.0 . SEX It's now a functional field
     # Retrieves the information from the party.
@@ -2717,8 +2662,9 @@ class PatientData(ModelSQL, ModelView):
             'invisible': Not(Bool(Eval('deceased'))),
             },
         depends=['deceased']),'get_cod')
+
     childbearing_age = fields.Function(
-        fields.Boolean('Potential for Childbearing'), 'patient_age')
+        fields.Boolean('Potential for Childbearing'), 'get_childbearing_age')
 
     appointments = fields.One2Many(
         'gnuhealth.appointment', 'patient', 'Appointments')
@@ -2751,6 +2697,13 @@ class PatientData(ModelSQL, ModelView):
 
     def check_is_alive(self, name):
         return self.name.deceased
+
+    def get_patient_age(self, name):
+        return self.name.age
+
+    def get_childbearing_age(self, name):
+        return compute_age_from_dates(self.dob, self.deceased,
+                              self.dod, self.sex, name)
 
     def get_dod(self, name):
         if (self.deceased):
@@ -3316,7 +3269,7 @@ class AppointmentReport(ModelSQL, ModelView):
     ref = fields.Char('PUID')
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
-    age = fields.Function(fields.Char('Age'), 'get_patient_age')
+    age = fields.Function(fields.TimeDelta('Age'), 'get_patient_age')
     sex = fields.Selection([
         (None, ''),
         ('m', 'Male'),
@@ -3396,7 +3349,7 @@ class AppointmentReport(ModelSQL, ModelView):
         return res
 
     def get_patient_age(self, name):
-        return self.patient.age
+        return self.patient.name.age
 
     @classmethod
     def view_attributes(cls):
@@ -4320,37 +4273,12 @@ class PatientEvaluation(ModelSQL, ModelView):
     STATES = {'readonly': Eval('state') == 'signed'}
 
     def patient_age_at_evaluation(self, name):
-
-        if (self.patient.name.dob):
-            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
-
-            if (self.evaluation_start):
-                evaluation_start = datetime.strptime(
-                    str(self.evaluation_start), '%Y-%m-%d %H:%M:%S')
-                delta = relativedelta(self.evaluation_start, dob)
-
-                years_months_days = str(
-                    delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd'
-            else:
-                years_months_days = 'No evaluation Date !'
-        else:
-            years_months_days = 'No DoB !'
-
-        return years_months_days
+        if (self.patient.name.dob and self.evaluation_start):
+            return self.evaluation_start.date() - self.patient.name.dob
 
     def evaluation_duration(self, name):
-
-        duration = ''
         if (self.evaluation_endtime and self.evaluation_start):
-                delta = relativedelta(
-                    self.evaluation_endtime, self.evaluation_start)
-
-                duration = str(
-                    delta.days*24 + delta.hours*60 + delta.minutes)
-
-        return duration
+            return self.evaluation_endtime - self.evaluation_start
 
     def get_wait_time(self, name):
         # Compute wait time between checked-in and start of evaluation
@@ -4382,9 +4310,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     evaluation_endtime = fields.DateTime('End', states = STATES)
 
     evaluation_length = fields.Function(
-        fields.Char(
-            'Length',
-            help="Duration of the evaluation, in minutes"),
+        fields.TimeDelta(
+            'Evaluation length',
+            help="Duration of the evaluation"),
         'evaluation_duration')
 
     wait_time = fields.Function(fields.TimeDelta('Patient wait time',
@@ -4439,7 +4367,7 @@ class PatientEvaluation(ModelSQL, ModelView):
         ], 'Urgency', sort=False,
         states = STATES)
 
-    computed_age = fields.Function(fields.Char(
+    computed_age = fields.Function(fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_evaluation')
