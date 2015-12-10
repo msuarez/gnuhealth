@@ -183,7 +183,16 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             result = serial_doc
             
         return result
-        
+ 
+    # Hide the group holding validation information when state is 
+    # draft
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="prescription_digest"]', 'states', {
+                'invisible': Eval('state') == 'draft',
+                })]
+       
 
 class BirthCertificate(ModelSQL, ModelView):
     
