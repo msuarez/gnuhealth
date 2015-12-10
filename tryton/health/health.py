@@ -41,8 +41,8 @@ import random
 import pytz
 
 __all__ = [
-    'OperationalArea', 'OperationalSector', 'Occupation', 'Ethnicity',
-    'DomiciliaryUnit','BirthCertificate','DeathCertificate',
+    'PersonName','OperationalArea', 'OperationalSector', 'Occupation',
+    'Ethnicity','DomiciliaryUnit','BirthCertificate','DeathCertificate',
     'PartyPatient', 'PartyAddress','DrugDoseUnits',
     'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
     'HealthInstitution', 'HealthInstitutionSpecialties',
@@ -106,6 +106,42 @@ def compute_age_from_dates(dob, deceased, dod, sex, caller):
         return None
         
 
+class PersonName(ModelSQL, ModelView):
+    'Person Name'
+    __name__ = 'gnuhealth.person_name'
+    
+    """ We are using the concept of HumanName on HL7 FHIR
+    http://www.hl7.org/implement/standards/fhir/datatypes.html#HumanName
+    """
+    
+    party = fields.Many2One('party.party','Person',  
+        domain=[('is_person', '=', True)], help="Related party (person)")
+        
+    use = fields.Selection([
+        (None, ''),
+        ('official', 'Official'),
+        ('usual', 'Usual'),
+        ('nickname', 'Nickname'),
+        ('maiden', 'Maiden'),
+        ('anonymous', 'Anonymous'),
+        ('temp', 'Temp'),
+        ('old', 'old'),
+        ], 'Use', sort=False, required=True)
+    family = fields.Char('Family', 
+        help="Family / Surname.")
+    given = fields.Char('Given', 
+        help="Given / First name. May include middle name")
+    prefix = fields.Selection([
+        (None, ''),
+        ('mr', 'Mr'),
+        ('mrs', 'Mrs'),
+        ('miss', 'Miss'),
+        ('dr', 'Dr'),
+        ], 'Prefix', sort=False)
+    suffix = fields.Char('Suffix')
+    date_from = fields.Date('From')
+    date_to = fields.Date('To')
+            
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
     __name__ = 'gnuhealth.du'
@@ -255,6 +291,15 @@ class PartyPatient (ModelSQL, ModelView):
     def person_age(self, name):
         return compute_age_from_dates(self.dob, self.deceased,
                               self.dod, self.sex, name)
+
+    person_names = fields.One2Many('gnuhealth.person_name','party',
+        'Person Names',
+        states={'invisible': Not(Bool(Eval('is_person')))})
+
+    name_representation = fields.Char('Name format',
+        states={'invisible': Not(Bool(Eval('is_person')))},
+        help="Name represenation format, separating the elements with commas \
+            eg : P,F,G would show Prefix, First, and Given Name")
 
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')

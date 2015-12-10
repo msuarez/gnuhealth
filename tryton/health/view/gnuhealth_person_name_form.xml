@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<form string="Person Names">
+    <label name="use"/>
+    <field name="use"/>
+    <newline/>
+    <label name="family"/>
+    <field name="family"/>
+    <label name="given"/>
+    <field name="given"/>
+    <label name="prefix"/>
+    <field name="prefix"/>
+    <label name="suffix"/>
+    <field name="suffix"/>
+    <newline/>
+    <label name="date_from"/>
+    <field name="date_to"/>
+</form>

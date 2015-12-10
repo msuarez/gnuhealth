@@ -84,4 +84,16 @@
     <xpath expr="/form/field[@name=&quot;code&quot;]" position="replace">
         <field name="ref"/>
     </xpath>
+
+    <!-- Add the person names on the party identifier section page -->
+
+    <xpath expr="//field[@name=&quot;identifiers&quot;]" position="after">
+        <newline/>
+        <field name="person_names" colspan="4"/>
+        <newline/>
+        <label name="name_representation"/>
+        <field name="name_representation"/>
+        
+    </xpath>
+
 </data>

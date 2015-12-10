@@ -111,6 +111,20 @@
             parent="gnuhealth_conf_misc" sequence="80" icon="gnuhealth-open"/>
 
 
+<!-- Person Names -->
+
+        <record model="ir.ui.view" id="gnuhealth_person_name_view">
+            <field name="model">gnuhealth.person_name</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_person_name_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_person_name_tree">
+            <field name="model">gnuhealth.person_name</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_person_name_tree</field>
+        </record>
+
 <!-- Medication Frequencies -->
 
         <record model="ir.ui.view" id="gnuhealth_dosage_view">

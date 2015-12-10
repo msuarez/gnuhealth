@@ -28,6 +28,7 @@ from report import *
 
 def register():
     Pool.register(
+        PersonName,
         OperationalArea,
         OperationalSector,
         DomiciliaryUnit,
