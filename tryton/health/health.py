@@ -4029,6 +4029,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         user = User(Transaction().user)
         return int(user.id)
 
+    @classmethod
+    def default_state(cls):
+        return 'draft'
+
     def get_report_prescription_date(self, name):
         Company = Pool().get('company.company')
 
