@@ -4,6 +4,7 @@
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2015 Cédric Krier
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -23,6 +24,8 @@
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 from sql import Literal, Join, Table
+from sql.functions import Overlay, Position
+
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
@@ -30,6 +33,8 @@ from trytond import backend
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond.pool import Pool
 from trytond.tools import grouped_slice, reduce_ids
+from trytond.backend import name as backend_name
+
 from uuid import uuid4
 import string
 import random
@@ -1004,7 +1009,8 @@ class HealthInstitutionO2M(ModelSQL, ModelView):
 
     main_specialty = fields.Many2One('gnuhealth.institution.specialties',
         'Specialty',
-        domain=[('name', '=', Eval('active_id'))], depends=['specialties'], 
+        domain=[('name', '=', Eval('id'))],
+        depends=['specialties', 'institution_type', 'id'],
         help="Choose the speciality in the case of Specialized Hospitals" \
             " or where this center excels", 
         
@@ -1101,10 +1107,12 @@ class HospitalOR(ModelSQL, ModelView):
     building = fields.Many2One(
         'gnuhealth.hospital.building', 'Building',
         domain=[('institution', '=', Eval('institution'))],
+        depends=['institution'],
         select=True)
 
     unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
-        domain=[('institution', '=', Eval('institution'))])
+        domain=[('institution', '=', Eval('institution'))],
+        depends=['institution'])
     extra_info = fields.Text('Extra Info')
 
     state = fields.Selection((
@@ -1145,10 +1153,12 @@ class HospitalWard(ModelSQL, ModelView):
         help='Health Institution')
 
     building = fields.Many2One('gnuhealth.hospital.building', 'Building',
-        domain=[('institution', '=', Eval('institution'))])
+        domain=[('institution', '=', Eval('institution'))],
+        depends=['institution'])
     floor = fields.Integer('Floor Number')
     unit = fields.Many2One('gnuhealth.hospital.unit', 'Unit',
-        domain=[('institution', '=', Eval('institution'))])
+        domain=[('institution', '=', Eval('institution'))],
+        depends=['institution'])
 
     private = fields.Boolean(
         'Private', help='Check this option for private room')
@@ -1224,6 +1234,7 @@ class HospitalBed(ModelSQL, ModelView):
     ward = fields.Many2One(
         'gnuhealth.hospital.ward', 'Ward',
         domain=[('institution', '=', Eval('institution'))],
+        depends=['institution'],
         help='Ward or room')
 
     bed_type = fields.Selection((
@@ -1428,8 +1439,9 @@ class PhysicianSP(ModelSQL, ModelView):
 
     main_specialty = fields.Many2One(
         'gnuhealth.hp_specialty', 'Main Specialty',
-        domain=[('name', '=', Eval('active_id'))],
-        states={'readonly': Eval('id', 0) < 0})
+        domain=[('name', '=', Eval('id'))],
+        states={'readonly': Eval('id', 0) < 0},
+        depends=['id'])
 
     @classmethod
     # Update to version 2.2
@@ -1522,16 +1534,21 @@ class MedicamentCategory(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        model_data = ModelData.__table__()
         cursor = Transaction().cursor
         super(MedicamentCategory, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(
-            "UPDATE ir_model_data "
-            "SET module = REPLACE(module, %s, %s) "
-            "WHERE (fs_id like 'em%%' OR fs_id = 'medicament') "
-            "  AND module = %s",
-            ('health', 'health_who_essential_medicines', module_name,))
+        cursor.execute(*model_data.update(
+                [model_data.module],
+                [Overlay(model_data.module, 'health_who_essential_medicines',
+                        Position('health', model_data.module),
+                        len('health'))],
+                where=(model_data.fs_id.like('em%%')
+                    | (model_data.fs_id == 'medicament'))
+                & (model_data.module == module_name)))
 
     @classmethod
     def __setup__(cls):
@@ -1650,15 +1667,20 @@ class Medicament(ModelSQL, ModelView):
         
     @classmethod
     def __register__(cls, module_name):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        model_data = ModelData.__table__()
         cursor = Transaction().cursor
         super(Medicament, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(
-            "UPDATE ir_model_data "
-            "SET module = REPLACE(module, %s, %s) "
-            "WHERE fs_id like 'meds_em%%' AND module = %s",
-            ('health', 'health_who_essential_medicines', module_name,))
+        cursor.execute(*model_data.update(
+                [model_data.module],
+                [Overlay(model_data.module, 'health_who_essential_medicines',
+                        Position('health', model_data.module),
+                        len('health'))],
+                where=model_data.fs_id.like('meds_em%%')
+                & (model_data.module == module_name)))
 
     def get_rec_name(self, name):
         return self.name.name
@@ -1956,10 +1978,6 @@ class BirthCertExtraInfo (ModelSQL, ModelView):
     def default_institution():
         return HealthInstitution().get_institution()
 
-    @staticmethod
-    def default_healthprof():
-        return HealthProfessional().get_health_professional()
-
     @fields.depends('institution')
     def on_change_institution(self):
         country=None
@@ -1976,14 +1994,15 @@ class BirthCertExtraInfo (ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def sign(cls, certificates):
-
-        Person = Pool().get('party.party')
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        Person = pool.get('party.party')
         party=[]
 
         # Change the state of the birth certificate to "Signed"
         # and write the name of the certifying health professional
         
-        signing_hp = HealthProfessional().get_health_professional()
+        signing_hp = HealthProfessional.get_health_professional()
         if not signing_hp:
             cls.raise_user_error(
                 "No health professional associated to this user !")
@@ -2033,10 +2052,6 @@ class DeathCertExtraInfo (ModelSQL, ModelView):
         return HealthInstitution().get_institution()
 
     @staticmethod
-    def default_healthprof():
-        return HealthProfessional().get_health_professional()
-
-    @staticmethod
     def default_state():
         return 'draft'
 
@@ -2056,16 +2071,18 @@ class DeathCertExtraInfo (ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def sign(cls, certificates):
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        Person = pool.get('party.party')
 
         # Change the state of the death certificate to "Signed"
         # and write the name of the certifying health professional
         
         # It also set the associated party attribute deceased to True.
 
-        Person = Pool().get('party.party')
         party=[]
         
-        signing_hp = HealthProfessional().get_health_professional()
+        signing_hp = HealthProfessional.get_health_professional()
         if not signing_hp:
             cls.raise_user_error(
                 "No health professional associated to this user !")
@@ -2161,7 +2178,8 @@ class Insurance(ModelSQL, ModelView):
     plan_id = fields.Many2One(
         'gnuhealth.insurance.plan', 'Plan',
         help='Insurance company plan',
-        domain=[('company', '=', Eval('company'))])
+        domain=[('company', '=', Eval('company'))],
+        depends=['company'])
 
     notes = fields.Text('Extra Info')
 
@@ -2389,15 +2407,20 @@ class ProductCategory(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        model_data = ModelData.__table__()
         cursor = Transaction().cursor
         super(ProductCategory, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(
-            "UPDATE ir_model_data "
-            "SET module = REPLACE(module, %s, %s) "
-            "WHERE fs_id like 'prod_medicament%%' AND module = %s",
-            ('health', 'health_who_essential_medicines', module_name,))
+        cursor.execute(*model_data.update(
+                [model_data.module],
+                [Overlay(model_data.module, 'health_who_essential_medicines',
+                        Position('health', model_data.module),
+                        len('health'))],
+                where=model_data.fs_id.like('prod_medicament%%')
+                & (model_data.module == module_name)))
 
 
 class ProductTemplate(ModelSQL, ModelView):
@@ -2406,18 +2429,24 @@ class ProductTemplate(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        model_data = ModelData.__table__()
         cursor = Transaction().cursor
         super(ProductTemplate, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(
-            "UPDATE ir_model_data "
-            "SET module = REPLACE(module, %s, %s), "
-            "    fs_id = REPLACE(fs_id, 'prod_em', 'templ_em') "
-            "WHERE fs_id like 'prod_em%%' AND module = %s "
-            "  AND model = %s",
-            ('health', 'health_who_essential_medicines', module_name,
-                'product.template',))
+        cursor.execute(*model_data.update(
+                [model_data.module, model_data.fs_id],
+                [Overlay(model_data.module, 'health_who_essential_medicines',
+                        Position('health', model_data.module),
+                        len('health')),
+                    Overlay(model_data.fs_id, 'templ_em',
+                        Position('prod_em', model_data.fs_id),
+                        len('prod_em'))],
+                where=model_data.fs_id.like('prod_em%%')
+                & (model_data.module == module_name)
+                & (model_data.model == 'product.template')))
 
 
 class Product(ModelSQL, ModelView):
@@ -2437,17 +2466,21 @@ class Product(ModelSQL, ModelView):
 
     @classmethod
     def __register__(cls, module_name):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        model_data = ModelData.__table__()
         cursor = Transaction().cursor
         super(Product, cls).__register__(module_name)
 
         # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(
-            "UPDATE ir_model_data "
-            "SET module = REPLACE(module, %s, %s) "
-            "WHERE fs_id like 'prod_em%%' AND module = %s "
-            "  AND model = %s",
-            ('health', 'health_who_essential_medicines', module_name,
-                'product.product',))
+        cursor.execute(*model_data.update(
+                [model_data.module],
+                [Overlay(model_data.module, 'health_who_essential_medicines',
+                        Position('health', model_data.module),
+                        len('health'))],
+                where=model_data.fs_id.like('prod_em%%')
+                & (model_data.module == module_name)
+                & (model_data.model == 'product.product')))
 
     @classmethod
     def check_xml_record(cls, records, values):
@@ -2995,7 +3028,9 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
     def get_rec_name(self, name):
         return self.pathology.rec_name
@@ -3138,7 +3173,9 @@ class Appointment(ModelSQL, ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
     @staticmethod
     def default_urgency():
@@ -3182,8 +3219,11 @@ class Appointment(ModelSQL, ModelView):
         # It will be overwritten if the health professional is modified in
         # this view, the on_change_with will take effect.
 
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+
         # Get Party ID associated to the Health Professional
-        hp_party_id = HealthProfessional().get_health_professional()
+        hp_party_id = HealthProfessional.get_health_professional()
 
         if hp_party_id:
             # Retrieve the health professional Main specialty, if assigned
@@ -3219,38 +3259,39 @@ class Appointment(ModelSQL, ModelView):
         ids
         '''
 
-        cursor.execute("select keycol.table_name \
-            from information_schema.referential_constraints referential \
-            join information_schema.key_column_usage keycol on \
-            keycol.constraint_name = referential.unique_constraint_name \
-            and referential.constraint_name = \
-            \'gnuhealth_appointment_institution_fkey\' \
-            and keycol.table_name=\'party_party\';")
+        if backend_name() == 'postgresql':
+            cursor.execute("select keycol.table_name \
+                from information_schema.referential_constraints referential \
+                join information_schema.key_column_usage keycol on \
+                keycol.constraint_name = referential.unique_constraint_name \
+                and referential.constraint_name = \
+                \'gnuhealth_appointment_institution_fkey\' \
+                and keycol.table_name=\'party_party\';")
 
-        old_reference = cursor.fetchone()
-      
-        if (old_reference):
+            old_reference = cursor.fetchone()
 
-            # Drop old foreign key from Appointment
-            
-            if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
-                try:
-                    cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
-                        CONSTRAINT IF EXISTS \
-                        gnuhealth_appointment_institution_fkey;")
-                except:
-                    pass
-                # Link Appointment with new institution model
-                
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_APPOINTMENT '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass 
+            if (old_reference):
+
+                # Drop old foreign key from Appointment
+
+                if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
+                    try:
+                        cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
+                            CONSTRAINT IF EXISTS \
+                            gnuhealth_appointment_institution_fkey;")
+                    except:
+                        pass
+                    # Link Appointment with new institution model
+
+                    try:
+                        cursor.execute(
+                            'UPDATE GNUHEALTH_APPOINTMENT '
+                            'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
+                            'FROM GNUHEALTH_INSTITUTION '
+                            'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
+                            GNUHEALTH_INSTITUTION.NAME')
+                    except:
+                        pass 
 
         # Merge "chronic" checkups visit types into followup       
         if table.column_exist('visit_type'):
@@ -3351,11 +3392,6 @@ class AppointmentReport(ModelSQL, ModelView):
     def get_patient_age(self, name):
         return self.patient.name.age
 
-    @classmethod
-    def view_attributes(cls):
-        return [('/tree', 'colors',
-                If(Equal(Eval('state'), 'confirmed'), 'blue', 'black'))]
-
 
 class OpenAppointmentReportStart(ModelView):
     'Open Appointment Report'
@@ -3375,7 +3411,9 @@ class OpenAppointmentReportStart(ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
 
 class OpenAppointmentReport(Wizard):
@@ -3539,8 +3577,10 @@ class PatientMedication(ModelSQL, ModelView):
 
     prescription = fields.Many2One(
         'gnuhealth.prescription.order', 'Prescription', readonly=True,
-        domain=[('patient', '=', Eval('name'))],help='Related prescription')
-   
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'],
+        help='Related prescription')
+
     @classmethod
     def __setup__(cls):
         super(PatientMedication, cls).__setup__()
@@ -3788,11 +3828,12 @@ class PatientVaccination(ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def sign(cls, vaccinations):
-
         # Change the state of the vaccination to "Done"
         # and write the name of the signing health professional
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
 
-        signing_hp = HealthProfessional().get_health_professional()
+        signing_hp = HealthProfessional.get_health_professional()
         if not signing_hp:
             cls.raise_user_error(
                 "No health professional associated to this user !")
@@ -3833,46 +3874,47 @@ class PatientVaccination(ModelSQL, ModelView):
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
 
-        cursor.execute("select keycol.table_name \
-            from information_schema.referential_constraints referential \
-            join information_schema.key_column_usage keycol on \
-            keycol.constraint_name = referential.unique_constraint_name \
-            and referential.constraint_name = \
-            \'gnuhealth_vaccination_vaccine_fkey\' \
-            and keycol.table_name=\'product_product\';")
+        if backend_name() == 'postgresql':
+            cursor.execute("select keycol.table_name \
+                from information_schema.referential_constraints referential \
+                join information_schema.key_column_usage keycol on \
+                keycol.constraint_name = referential.unique_constraint_name \
+                and referential.constraint_name = \
+                \'gnuhealth_vaccination_vaccine_fkey\' \
+                and keycol.table_name=\'product_product\';")
 
-        old_reference = cursor.fetchone()
+            old_reference = cursor.fetchone()
 
-        # RUN ONCE :This code block within the if statement should 
-        # be met only once.
-        # Check that the reference of the vaccine is to the product model
-        # If that is the case :
-        # - Delete the foreign key
-        # - Assign the new ids to the vaccine field, referencing the 
-        # medicament model, instead of the product.
+            # RUN ONCE :This code block within the if statement should 
+            # be met only once.
+            # Check that the reference of the vaccine is to the product model
+            # If that is the case :
+            # - Delete the foreign key
+            # - Assign the new ids to the vaccine field, referencing the 
+            # medicament model, instead of the product.
 
-        if (old_reference):
+            if (old_reference):
 
-            cursor.execute("ALTER TABLE gnuhealth_vaccination \
-                DROP CONSTRAINT IF EXISTS \
-                gnuhealth_vaccination_vaccine_fkey;")
+                cursor.execute("ALTER TABLE gnuhealth_vaccination \
+                    DROP CONSTRAINT IF EXISTS \
+                    gnuhealth_vaccination_vaccine_fkey;")
 
-            cursor.execute(
-                'UPDATE GNUHEALTH_VACCINATION '
-                'SET VACCINE = GNUHEALTH_MEDICAMENT.ID '
-                'FROM GNUHEALTH_MEDICAMENT '
-                'WHERE GNUHEALTH_VACCINATION.VACCINE = \
-                GNUHEALTH_MEDICAMENT.NAME')
+                cursor.execute(
+                    'UPDATE GNUHEALTH_VACCINATION '
+                    'SET VACCINE = GNUHEALTH_MEDICAMENT.ID '
+                    'FROM GNUHEALTH_MEDICAMENT '
+                    'WHERE GNUHEALTH_VACCINATION.VACCINE = \
+                    GNUHEALTH_MEDICAMENT.NAME')
 
-            # It didn't take it from the new model attribute definition
-            # when running the update process, so just to be safe
-            # force the FK creation once.
-            cursor.execute(
-                'alter table gnuhealth_vaccination add constraint \
-                gnuhealth_vaccination_vaccine_fkey foreign key (vaccine) \
-                references gnuhealth_medicament')
-                
-        
+                # It didn't take it from the new model attribute definition
+                # when running the update process, so just to be safe
+                # force the FK creation once.
+                cursor.execute(
+                    'alter table gnuhealth_vaccination add constraint \
+                    gnuhealth_vaccination_vaccine_fkey foreign key (vaccine) \
+                    references gnuhealth_medicament')
+
+
 class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
     __name__ = 'gnuhealth.prescription.order'
@@ -3942,7 +3984,9 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
     # Method that makes the doctor to acknowledge if there is any
     # warning in the prescription
@@ -4720,7 +4764,9 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
     @staticmethod
     def default_loc_eyes():
@@ -4903,15 +4949,17 @@ class PatientEvaluation(ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def end_evaluation(cls, evaluations):
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        Appointment = pool.get('gnuhealth.appointment')
         
         evaluation_id = evaluations[0]
 
-        Appointment = Pool().get('gnuhealth.appointment')
         patient_app=[]
         
         # Change the state of the evaluation to "Done"
 
-        signing_hp = HealthProfessional().get_health_professional()
+        signing_hp = HealthProfessional.get_health_professional()
         
         cls.write(evaluations, {
             'state': 'done',
@@ -5073,7 +5121,9 @@ class PatientECG(ModelSQL, ModelView):
 
     @staticmethod
     def default_healthprof():
-        return HealthProfessional().get_health_professional()
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        return HealthProfessional.get_health_professional()
 
     @classmethod
     def validate(cls, ecgs):
