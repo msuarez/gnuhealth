@@ -4718,8 +4718,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         ('transfer','Transferred to another institution'),
         ('death','Death'),
         ('against_advice','Left against medical advice')],
-        'Discharge Reason', 
-        states={'invisible': Equal(Eval('state'), 'in_progress'),},
+        'Discharge Reason', required=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress'),
+            'readonly': Eval('state') == 'signed'},
         help="Reason for patient discharge")
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
