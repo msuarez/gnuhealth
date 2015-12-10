@@ -3920,27 +3920,32 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     __name__ = 'gnuhealth.prescription.order'
     _rec_name = 'prescription_id'
 
+    STATES = {'readonly': Not(Eval('state') == 'draft')}
+
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Patient', required=True)
+        'gnuhealth.patient', 'Patient', required=True, states = STATES)
 
     prescription_id = fields.Char(
         'Prescription ID',
         readonly=True, help='Type in the ID of this prescription')
 
-    prescription_date = fields.DateTime('Prescription Date')
+    prescription_date = fields.DateTime('Prescription Date', states = STATES)
 # In 1.8 we associate the prescribing doctor to the physician name
 # instead to the old user_id (res.user)
     user_id = fields.Many2One('res.user', 'Prescribing Doctor', readonly=True)
 
     pharmacy = fields.Many2One(
-        'party.party', 'Pharmacy', domain=[('is_pharmacy', '=', True)])
+        'party.party', 'Pharmacy', domain=[('is_pharmacy', '=', True)],
+            states = STATES)
 
     prescription_line = fields.One2Many(
-        'gnuhealth.prescription.line', 'name', 'Prescription line')
+        'gnuhealth.prescription.line', 'name', 'Prescription line',
+            states = STATES)
 
-    notes = fields.Text('Prescription Notes')
+    notes = fields.Text('Prescription Notes', states = STATES)
     pregnancy_warning = fields.Boolean('Pregnancy Warning', readonly=True)
-    prescription_warning_ack = fields.Boolean('Prescription verified')
+    prescription_warning_ack = fields.Boolean('Prescription verified',
+        states = STATES)
 
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Prescribed by', readonly=True)
@@ -3949,6 +3954,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         'Prescription Date'), 'get_report_prescription_date')
     report_prescription_time = fields.Function(fields.Time(
         'Prescription Time'), 'get_report_prescription_time')
+
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('done', 'Done'),        
+        ], 'State', readonly=True, sort=False, states = STATES)
 
     @classmethod
     def __setup__(cls):
@@ -3966,6 +3976,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         })
 
         cls._order.insert(0, ('prescription_date', 'DESC'))
+
+        cls._buttons.update({
+            'create_prescription': {'invisible': Equal(Eval('state'), 'done')}
+            })
 
     @classmethod
     def validate(cls, prescriptions):
@@ -4080,6 +4094,17 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             table.column_rename('doctor', 'healthprof')
 
         super(PatientPrescriptionOrder, cls).__register__(module_name)
+
+    @classmethod
+    @ModelView.button
+    def create_prescription(cls, prescriptions):
+        prescription = prescriptions[0]
+
+        # Change the state of the prescription to "Done"        
+
+        cls.write(prescriptions, {
+            'state': 'done',})
+
 
 
 # PRESCRIPTION LINE

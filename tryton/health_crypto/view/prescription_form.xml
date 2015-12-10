@@ -22,9 +22,7 @@
         </group>
         <newline/>
         <group colspan="4" col="6" id="prescription_generate">
-            <label name="state"/>
-            <field name="state"/>
-            <button name="generate_prescription" help="Sign the prescription" string="Generate" icon="tryton-go-next" confirm="Generate prescription ?"/>
+            <button name="generate_prescription" help="Generate the prescription validation code" string="Generate Validation" icon="tryton-go-next" confirm="Generate Validation ?"/>
             <label name="digest_status"/>
             <field name="digest_status"/>
         </group>

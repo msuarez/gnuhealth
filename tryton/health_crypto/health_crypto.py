@@ -25,7 +25,7 @@ from trytond.transaction import Transaction
 from trytond.rpc import RPC
 from trytond.pool import Pool
 from trytond.wizard import Wizard, StateAction, StateView, Button
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 import hashlib
 import json
 
@@ -57,10 +57,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     document_digest = fields.Char('Digest', readonly=True,
         help="Original Document Digest")
-    
+
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('done', 'Done'),
+        ('done', 'Done'),        
+        ('validated', 'Validated'),        
         ], 'State', readonly=True, sort=False)
 
 
@@ -98,8 +99,13 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     def __setup__(cls):
         cls._buttons.update({
             'generate_prescription': {
-                'invisible': Equal(Eval('state'), 'done'),
+                'invisible': Equal(Eval('state'), 'validated'),
             },
+            'create_prescription': {
+                'invisible': Or(Equal(Eval('state'), 'done'),
+                    Equal(Eval('state'), 'validated'))
+            },
+
             })
         ''' Allow calling the set_signature method via RPC '''
         cls.__rpc__.update({
@@ -120,7 +126,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         cls.write(prescriptions, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
-            'state': 'done',})
+            'state': 'validated',})
 
 
     @classmethod
@@ -185,12 +191,12 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         return result
  
     # Hide the group holding validation information when state is 
-    # draft
+    # not validated
     
     @classmethod
     def view_attributes(cls):
         return [('//group[@id="prescription_digest"]', 'states', {
-                'invisible': Eval('state') == 'draft',
+                'invisible': Not(Eval('state') == 'validated'),
                 })]
        
 
