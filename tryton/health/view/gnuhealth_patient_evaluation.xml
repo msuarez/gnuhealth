@@ -48,19 +48,16 @@
                 <field name="directions" colspan="4"/>
             </group>
             <newline/>    
-            <group colspan="4" col="14" id="group_eval_misc">
-                <label name="evaluation_type"/>
-                <field name="evaluation_type"/>
-                <label name="specialty"/>
-                <field name="specialty"/>
-                <label name="urgency"/>
-                <field name="urgency"/>
+            <group colspan="4" col="10" id="group_eval_misc">
+                <label name="state"/>
+                <field name="state"/>
                 <label name="evaluation_start"/>
                 <field name="evaluation_start"/>
                 <label name="evaluation_endtime"/>
                 <field name="evaluation_endtime"/>
-                <field name="state"/>
-                <button name="end_evaluation" help="End this evaluation" string="Done" icon="tryton-go-next" confirm="End this evaluation ?"/>
+                <label name="discharge_reason"/>
+                <field name="discharge_reason"/>
+                <button name="end_evaluation" help="Discharge patient / end this evaluation" string="Discharge" icon="tryton-go-next" confirm="Discharge patient / End this evaluation ?"/>
             </group>
 
         </page>
@@ -164,9 +161,21 @@
             <newline/>
             <field name="info_diagnosis" colspan="4"/>
             <newline/>
+            <separator string="Other information related to this evaluation" colspan="4" id="separator_evaluation_diagnosis_1"/>
+            <field name="notes" colspan="4"/>               
+            <newline/>
             <label name="institution"/>               
             <field name="institution" colspan="3"/>               
             <newline/>
+
+            <label name="evaluation_type"/>
+            <field name="evaluation_type"/>
+            <label name="specialty"/>
+            <field name="specialty"/>
+            <label name="urgency"/>
+            <field name="urgency"/>
+            <newline/>
+
             <label name="appointment"/>
             <field name="appointment"/>
             <label name="wait_time"/>

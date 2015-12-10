@@ -4712,6 +4712,16 @@ class PatientEvaluation(ModelSQL, ModelView):
     notes = fields.Text('Notes',
         states = STATES)
     
+    discharge_reason = fields.Selection([
+        (None, ''),
+        ('home','Home / Selfcare'),
+        ('transfer','Transferred to another institution'),
+        ('death','Death'),
+        ('against_advice','Left against medical advice')],
+        'Discharge Reason', 
+        states={'invisible': Equal(Eval('state'), 'in_progress'),},
+        help="Reason for patient discharge")
+
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
         states = STATES)
 
@@ -4724,6 +4734,9 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_institution():
         return HealthInstitution().get_institution()
 
+    @staticmethod
+    def default_discharge_reason():
+        return 'home'
 
     def get_patient_sex(self, name):
         return self.patient.sex
@@ -4786,7 +4799,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @staticmethod
     def default_evaluation_type():
-        return 'ambulatory'
+        return 'outpatient'
 
     @staticmethod
     def default_state():

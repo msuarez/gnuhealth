@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="//field[@name=&quot;state&quot;]" position="after">
+    <xpath expr="//field[@name=&quot;discharge_reason&quot;]" position="after">
         <button name="sign_evaluation" help="Sign this patient evaluation" string="Close Evaluation" icon="tryton-go-next" confirm="Close and Sign evaluation ?"/>
     </xpath>
 
