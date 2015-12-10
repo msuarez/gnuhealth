@@ -3935,7 +3935,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     user_id = fields.Many2One('res.user', 'Prescribing Doctor', readonly=True)
 
     pharmacy = fields.Many2One(
-        'party.party', 'Pharmacy', domain=[('is_pharmacy', '=', True)])
+        'party.party', 'Pharmacy', domain=[('is_pharmacy', '=', True)],
+        states={
+            'readonly': (Eval('state') != 'draft') & Bool(Eval('pharmacy')),
+            },
+        depends=['state'])
 
     prescription_line = fields.One2Many(
         'gnuhealth.prescription.line', 'name', 'Prescription line',
