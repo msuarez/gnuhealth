@@ -51,6 +51,7 @@ class CreatePrescriptionStockMove(Wizard):
         StockMove = pool.get('stock.move')
         Prescription = pool.get('gnuhealth.prescription.order')
 
+        moves = []
         prescriptions = Prescription.browse(Transaction().context.get(
             'active_ids'))
         for prescription in prescriptions:
@@ -61,28 +62,20 @@ class CreatePrescriptionStockMove(Wizard):
             if not prescription.pharmacy:
                 self.raise_user_error('no_pharmacy_selected')
 
-            lines = []
             for line in prescription.prescription_line:
-                line_data = {}
-                line_data['origin'] = str(prescription)
-                line_data['from_location'] = \
-                    prescription.pharmacy.warehouse.storage_location.id
-                line_data['to_location'] = \
-                    prescription.patient.name.customer_location.id
-                line_data['product'] = \
-                    line.medicament.name.id
-                line_data['unit_price'] = \
-                    line.medicament.name.list_price
-                line_data['quantity'] = line.quantity
-                line_data['uom'] = \
-                    line.medicament.name.default_uom.id
-                line_data['state'] = 'draft'
-                lines.append(line_data)
-                
-            moves = StockMove.create(lines)
-            StockMove.assign(moves)
-            StockMove.do(moves)
-
+                move = StockMove()
+                move.origin = prescription
+                move.from_location = (
+                    prescription.pharmacy.warehouse.storage_location)
+                move.to_location = (
+                    prescription.patient.name.customer_location)
+                move.product = line.medicament.name
+                move.unit_price = line.medicament.name.list_price
+                move.quantity = line.quantity
+                move.uom = line.medicament.name.default_uom
+                moves.append(move)
+        StockMove.save(moves)
+        StockMove.do(moves)
         return 'end'
 
     @classmethod
