@@ -451,6 +451,12 @@ class PatientPrescriptionOrder:
     moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
 
     @classmethod
+    def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
+        cls.pharmacy.states['readonly'] &= Bool(Eval('moves'))
+        cls.pharmacy.depends.append('moves')
+
+    @classmethod
     def copy(cls, prescriptions, default=None):
         if default is None:
             default = {}
