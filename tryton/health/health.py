@@ -23,7 +23,7 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
-from sql import Literal, Join, Table
+from sql import Literal, Join, Table, Null
 from sql.functions import Overlay, Position
 
 from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
@@ -41,9 +41,9 @@ import random
 import pytz
 
 __all__ = [
-    'PersonName','OperationalArea', 'OperationalSector', 'Occupation',
+    'OperationalArea', 'OperationalSector', 'Occupation',
     'Ethnicity','DomiciliaryUnit','BirthCertificate','DeathCertificate',
-    'PartyPatient', 'PartyAddress','DrugDoseUnits',
+    'PartyPatient', 'PersonName','PartyAddress','DrugDoseUnits',
     'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
     'HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
@@ -106,42 +106,6 @@ def compute_age_from_dates(dob, deceased, dod, sex, caller):
         return None
         
 
-class PersonName(ModelSQL, ModelView):
-    'Person Name'
-    __name__ = 'gnuhealth.person_name'
-    
-    """ We are using the concept of HumanName on HL7 FHIR
-    http://www.hl7.org/implement/standards/fhir/datatypes.html#HumanName
-    """
-    
-    party = fields.Many2One('party.party','Person',  
-        domain=[('is_person', '=', True)], help="Related party (person)")
-        
-    use = fields.Selection([
-        (None, ''),
-        ('official', 'Official'),
-        ('usual', 'Usual'),
-        ('nickname', 'Nickname'),
-        ('maiden', 'Maiden'),
-        ('anonymous', 'Anonymous'),
-        ('temp', 'Temp'),
-        ('old', 'old'),
-        ], 'Use', sort=False, required=True)
-    family = fields.Char('Family', 
-        help="Family / Surname.")
-    given = fields.Char('Given', 
-        help="Given / First name. May include middle name")
-    prefix = fields.Selection([
-        (None, ''),
-        ('mr', 'Mr'),
-        ('mrs', 'Mrs'),
-        ('miss', 'Miss'),
-        ('dr', 'Dr'),
-        ], 'Prefix', sort=False)
-    suffix = fields.Char('Suffix')
-    date_from = fields.Date('From')
-    date_to = fields.Date('To')
-            
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
     __name__ = 'gnuhealth.du'
@@ -304,7 +268,6 @@ class PartyPatient (ModelSQL, ModelView):
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
 
-    alias = fields.Char('Alias', help='Common name that the Party is reffered')
     ref = fields.Char(
         'PUID',
         help='Person Unique Identifier',
@@ -571,21 +534,89 @@ class PartyPatient (ModelSQL, ModelView):
 
 
     @classmethod
-    # Update to version 2.4
-
     def __register__(cls, module_name):
 
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
+
+        super(PartyPatient, cls).__register__(module_name)
+
+        # Update to version 2.4
         # Rename is_doctor to a more general term is_healthprof
 
         if table.column_exist('is_doctor'):
             table.column_rename('is_doctor', 'is_healthprof')
 
-        super(PartyPatient, cls).__register__(module_name)
+        # Alias column was giving issues with python sql
+        if table.column_exist('alias'):
+            if not(table.column_exist('nick')):
+                table.column_rename('alias', 'nick')
 
 
+class PersonName(ModelSQL, ModelView):
+    'Person Name'
+    __name__ = 'gnuhealth.person_name'
+    
+    """ We are using the concept of HumanName on HL7 FHIR
+    http://www.hl7.org/implement/standards/fhir/datatypes.html#HumanName
+    """
+    
+    party = fields.Many2One('party.party','Person',  
+        domain=[('is_person', '=', True)], help="Related party (person)")
+        
+    use = fields.Selection([
+        (None, ''),
+        ('official', 'Official'),
+        ('usual', 'Usual'),
+        ('nickname', 'Nickname'),
+        ('maiden', 'Maiden'),
+        ('anonymous', 'Anonymous'),
+        ('temp', 'Temp'),
+        ('old', 'old'),
+        ], 'Use', sort=False, required=True)
+    family = fields.Char('Family', 
+        help="Family / Surname.")
+    given = fields.Char('Given', 
+        help="Given / First name. May include middle name")
+    prefix = fields.Selection([
+        (None, ''),
+        ('mr', 'Mr'),
+        ('mrs', 'Mrs'),
+        ('miss', 'Miss'),
+        ('dr', 'Dr'),
+        ], 'Prefix', sort=False)
+    suffix = fields.Char('Suffix')
+    date_from = fields.Date('From')
+    date_to = fields.Date('To')
+
+
+
+    @classmethod
+    def __register__(cls, module_name):
+        pool = Pool()
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        Party = pool.get('party.party')
+        party = Party.__table__()
+
+        super(PersonName, cls).__register__(module_name)
+
+        # Update to version 3.0
+        # Add the current person nick (alias) in the person names nicknames 
+
+        party_h = TableHandler(cursor, Party, module_name)
+        if (party_h.column_exist('nick')):
+            person_names = []
+            cursor.execute(*party.select(
+                    party.id, party.nick, where=(party.nick != '')))
+            
+            for party_id, party_nick in cursor.fetchall():                
+                person_names.append(
+                    cls(party=party_id, given=party_nick, use='nickname'))
+            cls.save(person_names)
+            party_h.drop_column('nick')
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
