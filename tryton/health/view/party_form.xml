@@ -87,12 +87,12 @@
 
     <!-- Add the person names on the party identifier section page -->
 
-    <xpath expr="//field[@name=&quot;identifiers&quot;]" position="after">
-        <newline/>
+    <xpath expr="//field[@name=&quot;identifiers&quot;]" position="before">
         <field name="person_names" colspan="4"/>
         <newline/>
         <label name="name_representation"/>
         <field name="name_representation"/>
+        <newline/>
         
     </xpath>
 
