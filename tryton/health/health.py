@@ -521,7 +521,9 @@ class PartyPatient (ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        """ Search for the name, lastname, PUID and any alternative IDs"""
+        """ Search for the name, lastname, PUID, any alternative IDs,
+            and any family and / or given name from the person_names
+        """
         if clause[1].startswith('!') or clause[1].startswith('not '):
             bool_op = 'AND'
         else:
@@ -529,6 +531,8 @@ class PartyPatient (ModelSQL, ModelView):
         return [bool_op,
             ('ref',) + tuple(clause[1:]),
             ('alternative_ids.code',) + tuple(clause[1:]),
+            ('person_names.family',) + tuple(clause[1:]),            
+            ('person_names.given',) + tuple(clause[1:]),            
             ('name',) + tuple(clause[1:]),
             ('lastname',) + tuple(clause[1:]),
             ]
@@ -554,6 +558,18 @@ class PartyPatient (ModelSQL, ModelView):
                 "The Person field must be set if the party is a health"
                 " professional or a patient")
 
+
+    # Hide the group holding all the demographics when the party is not
+    # a person
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="person_details"]', 'states', {
+                'invisible': ~Eval('is_person'),
+                })]
+                
+
+
     @classmethod
     # Update to version 2.4
 
@@ -570,15 +586,6 @@ class PartyPatient (ModelSQL, ModelView):
         super(PartyPatient, cls).__register__(module_name)
 
 
-    # Hide the group holding all the demographics when the party is not
-    # a person
-    
-    @classmethod
-    def view_attributes(cls):
-        return [('//group[@id="person_details"]', 'states', {
-                'invisible': ~Eval('is_person'),
-                })]
-                
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
