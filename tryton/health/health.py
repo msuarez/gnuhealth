@@ -260,10 +260,14 @@ class PartyPatient (ModelSQL, ModelView):
         'Person Names',
         states={'invisible': Not(Bool(Eval('is_person')))})
 
-    name_representation = fields.Char('Name format',
-        states={'invisible': Not(Bool(Eval('is_person')))},
-        help="Name represenation format, separating the elements with commas \
-            eg : P,F,G would show Prefix, First, and Given Name")
+    name_representation = fields.Selection([
+        (None, ''),
+        ('pgfs', 'Prefix Given Family, Suffix'),
+        ('gf', 'Given Family'),
+        ('fg', 'Family, Given'),
+        ], 'Name Representation',
+        states={'invisible': Not(Bool(Eval('is_person')))})
+
 
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
@@ -476,11 +480,33 @@ class PartyPatient (ModelSQL, ModelView):
         cls._order_name = 'lastname'
         
     def get_rec_name(self, name):
+        #Display name on the following sequence
+        # 1 - Oficial Name from PersonName with the name representation
+        # 2 - Last name, First name
+        
+        if self.person_names:            
+            for pname in self.person_names:
+                prefix = pname.prefix or ''
+                given = pname.given or ''
+                family = pname.family or ''
+                suffix  = pname.suffix or ''
+
+                # Default value
+                res = prefix + ' ' + family
+                if pname.use == 'official':
+                    if self.name_representation == 'pgfs':
+                        res = prefix + ' ' + given + ' ' + family + ', ' + \
+                            pname.suffix
+                    if self.name_representation == 'gf':
+                        res = given + ' ' + family
+                    if self.name_representation == 'fg':
+                        res = family + ', ' + given
+                    return res
+                    
         if self.lastname:
             return self.lastname + ', ' + self.name
         else:
             return self.name
-
 
     @classmethod
     def search_rec_name(cls, name, clause):
