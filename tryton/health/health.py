@@ -482,26 +482,40 @@ class PartyPatient (ModelSQL, ModelView):
     def get_rec_name(self, name):
         #Display name on the following sequence
         # 1 - Oficial Name from PersonName with the name representation
+        # If not offficial name :
         # 2 - Last name, First name
         
         if self.person_names:            
+            prefix = given = family = suffix = ''
             for pname in self.person_names:
-                prefix = pname.prefix or ''
+                if pname.prefix:
+                    prefix = pname.prefix + ' ' 
+                if pname.suffix:
+                    suffix = ', ' + pname.suffix
+
                 given = pname.given or ''
                 family = pname.family or ''
-                suffix  = pname.suffix or ''
 
-                # Default value
-                res = prefix + ' ' + family
+                res=''
                 if pname.use == 'official':
                     if self.name_representation == 'pgfs':
-                        res = prefix + ' ' + given + ' ' + family + ', ' + \
-                            pname.suffix
+                        res = prefix + given + ' ' + family + suffix
                     if self.name_representation == 'gf':
-                        res = given + ' ' + family
+                        if pname.family:
+                            family = ' ' + pname.family
+                        res = given + family
                     if self.name_representation == 'fg':
-                        res = family + ', ' + given
-                    return res
+                        if pname.family:
+                            family = pname.family + ', '
+                        res = family + given
+
+                    if not self.name_representation:
+                        # Default value
+                        if family:
+                            return family + ', ' + given
+                        else:
+                            return given
+                return res
                     
         if self.lastname:
             return self.lastname + ', ' + self.name
@@ -604,13 +618,13 @@ class PersonName(ModelSQL, ModelView):
     family = fields.Char('Family', 
         help="Family / Surname.")
     given = fields.Char('Given', 
-        help="Given / First name. May include middle name")
+        help="Given / First name. May include middle name", required=True)
     prefix = fields.Selection([
         (None, ''),
-        ('mr', 'Mr'),
-        ('mrs', 'Mrs'),
-        ('miss', 'Miss'),
-        ('dr', 'Dr'),
+        ('Mr', 'Mr'),
+        ('Mrs', 'Mrs'),
+        ('Miss', 'Miss'),
+        ('Dr', 'Dr'),
         ], 'Prefix', sort=False)
     suffix = fields.Char('Suffix')
     date_from = fields.Date('From')
