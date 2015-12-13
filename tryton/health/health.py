@@ -23,6 +23,12 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
+from io import BytesIO
+
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
 from sql import Literal, Join, Table, Null
 from sql.functions import Overlay, Position
 
@@ -424,14 +430,33 @@ class PartyPatient (ModelSQL, ModelView):
         return puid
 
     @classmethod
-    def write(cls, parties, vals):
-        # We use this method overwrite to make the fields that have a unique
-        # constraint get the NULL value at PostgreSQL level, and not the value
-        # '' coming from the client
+    def convert_photo(cls, data):
+        if data and Image:
+            image = Image.open(BytesIO(data))
+            image.thumbnail((200, 200), Image.ANTIALIAS)
+            data = BytesIO()
+            image.save(data, image.format)
+            data = fields.Binary.cast(data.getvalue())
+        return data
 
-        if vals.get('ref') == '':
-            vals['ref'] = None
-        return super(PartyPatient, cls).write(parties, vals)
+    @classmethod
+    def write(cls, *args):
+        actions = iter(args)
+        args = []
+        for parties, vals in zip(actions, actions):
+            vals = vals.copy()
+
+            # We use this method overwrite to make the fields that have a
+            # unique constraint get the NULL value at PostgreSQL level, and not
+            # the value '' coming from the client
+            if vals.get('ref') == '':
+                vals['ref'] = None
+
+            if 'photo' in vals:
+                vals['photo'] = cls.convert_photo(vals['photo'])
+            args.append(parties)
+            args.append(vals)
+        return super(PartyPatient, cls).write(*args)
 
     @classmethod
     def create(cls, vlist):
@@ -462,6 +487,9 @@ class PartyPatient (ModelSQL, ModelView):
                 values['code'] = '%s-%s' % (uuid4(), suffix)
 
             values.setdefault('addresses', None)
+
+            if 'photo' in values:
+                values['photo'] = cls.convert_photo(values['photo'])
 
         return super(PartyPatient, cls).create(vlist)
 
