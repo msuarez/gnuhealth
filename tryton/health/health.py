@@ -2761,15 +2761,16 @@ class PatientData(ModelSQL, ModelView):
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
+        ('f-m','Female -> Male'),
+        ('m-f','Male -> Female'),
         ], 'Gender'), 'get_patient_gender')
 
     biological_sex = fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', help="Biological sex. By defaults it takes the value" \
+        ], 'Biological Sex', help="Biological sex. By defaults it takes the value" \
             " from the neonatal information")
-
 
     # Removed in 2.0 . MARITAL STATUS It's now a functional field
     # Retrieves the information from the party.
@@ -2876,7 +2877,16 @@ class PatientData(ModelSQL, ModelView):
         return self.name.dob
 
     def get_patient_gender(self, name):
-        return self.name.gender
+        gender = self.name.gender
+        sex = self.biological_sex
+        if sex:
+            if (gender != sex):
+                res = sex + '-' + gender
+            else:
+                res = gender
+        else:
+            res = gender
+        return res
 
     def get_patient_photo(self, name):
         return self.name.photo
@@ -2911,9 +2921,9 @@ class PatientData(ModelSQL, ModelView):
     def on_change_name(self):
         gender=None
         age=None
-        if self.name:
-            self.gender = self.name.gender
-            self.age = self.name.age
+        self.gender = self.name.gender
+        self.age = self.name.age
+
 
     @classmethod
     def search_patient_puid(cls, name, clause):
