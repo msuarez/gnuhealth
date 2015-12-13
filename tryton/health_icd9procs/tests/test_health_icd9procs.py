@@ -5,7 +5,7 @@ from trytond.tests.test_tryton import ModuleTestCase
 
 class HealthICD9ProcsTestCase(ModuleTestCase):
     '''
-    Test Health module.
+    Test Health ICD9 Procs module.
     '''
     module = 'health_icd9procs'
 
