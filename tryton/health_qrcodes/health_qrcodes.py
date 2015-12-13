@@ -46,7 +46,7 @@ class Patient(ModelSQL, ModelView):
 
         patient_rh = self.rh or ''
 
-        patient_sex = self.sex or ''
+        patient_gender = self.gender or ''
 
         patient_dob = self.dob or ''
 
@@ -61,7 +61,7 @@ class Patient(ModelSQL, ModelView):
             + '\nName: ' + patient_lastname + ',' \
                 + self.name.name \
             + '\nPUID: ' + patient_puid \
-            + '\nSex: ' + patient_sex \
+            + '\nGender: ' + patient_gender \
             + '\nDoB: ' + str(patient_dob) \
             + '\nBlood Type: ' + patient_blood_type \
                 + ' ' + patient_rh
