@@ -3,8 +3,8 @@
     <group string="Header" colspan="4" col="16" id="evaluation_header">
         <label name="patient"/>
         <field name="patient" colspan="3"/>
-        <label name="sex"/>
-        <field name="sex"/>
+        <label name="gender"/>
+        <field name="gender"/>
         <label name="computed_age"/>
         <field name="computed_age"/>
         <label name="visit_type"/>

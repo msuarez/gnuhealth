@@ -65,7 +65,7 @@ __all__ = [
     'SignsAndSymptoms', 'PatientECG']
 
 
-def compute_age_from_dates(dob, deceased, dod, sex, caller):
+def compute_age_from_dates(dob, deceased, dod, gender, caller):
     """ Get the person's age.
 
     Calculate the current age of the patient or age at time of death.
@@ -94,7 +94,7 @@ def compute_age_from_dates(dob, deceased, dod, sex, caller):
 
     elif caller == 'childbearing_age':
         if (rdelta.years >= 11
-           and rdelta.years <= 55 and sex == 'f'):
+           and rdelta.years <= 55 and gender == 'f'):
             return True
         else:
             return False
@@ -254,7 +254,7 @@ class PartyPatient (ModelSQL, ModelView):
 
     def person_age(self, name):
         return compute_age_from_dates(self.dob, self.deceased,
-                              self.dod, self.sex, name)
+                              self.dod, self.gender, name)
 
     person_names = fields.One2Many('gnuhealth.person_name','party',
         'Person Names',
@@ -309,11 +309,11 @@ class PartyPatient (ModelSQL, ModelView):
 
     age = fields.Function(fields.TimeDelta('Age'), 'person_age')
 
-    sex = fields.Selection([
+    gender = fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex', states={'required': Bool(Eval('is_person'))})
+        ], 'Gender', states={'required': Bool(Eval('is_person'))})
 
     photo = fields.Binary('Picture')
     ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnicity')
@@ -580,7 +580,6 @@ class PartyPatient (ModelSQL, ModelView):
         TableHandler = backend.get('TableHandler')
         table = TableHandler(cursor, cls, module_name)
 
-        super(PartyPatient, cls).__register__(module_name)
 
         # Update to version 2.4
         # Rename is_doctor to a more general term is_healthprof
@@ -588,10 +587,19 @@ class PartyPatient (ModelSQL, ModelView):
         if table.column_exist('is_doctor'):
             table.column_rename('is_doctor', 'is_healthprof')
 
+        # Update to 3.0
         # Alias column was giving issues with python sql
         if table.column_exist('alias'):
             if not(table.column_exist('nick')):
                 table.column_rename('alias', 'nick')
+
+
+        # Update to 3.0
+        # Move Sex to Gender for the party demographics / legal gender
+        if table.column_exist('sex'):
+            table.column_rename('sex', 'gender')
+        
+        super(PartyPatient, cls).__register__(module_name)
 
 
 class PersonName(ModelSQL, ModelView):
@@ -2721,19 +2729,11 @@ class PatientData(ModelSQL, ModelView):
 
     age = fields.Function(fields.TimeDelta('Age'), 'get_patient_age')
 
-    # Removed in 2.0 . SEX It's now a functional field
-    # Retrieves the information from the party.
-
-    # sex = fields.Selection([
-    #    ('m', 'Male'),
-    #    ('f', 'Female'),
-    #    ], 'Sex', required=True)
-
-    sex = fields.Function(fields.Selection([
+    gender = fields.Function(fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex'), 'get_patient_sex')
+        ], 'Gender'), 'get_patient_gender')
 
     # Removed in 2.0 . MARITAL STATUS It's now a functional field
     # Retrieves the information from the party.
@@ -2839,8 +2839,8 @@ class PatientData(ModelSQL, ModelView):
     def get_patient_dob(self, name):
         return self.name.dob
 
-    def get_patient_sex(self, name):
-        return self.name.sex
+    def get_patient_gender(self, name):
+        return self.name.gender
 
     def get_patient_photo(self, name):
         return self.name.photo
@@ -2859,7 +2859,7 @@ class PatientData(ModelSQL, ModelView):
 
     def get_childbearing_age(self, name):
         return compute_age_from_dates(self.dob, self.deceased,
-                              self.dod, self.sex, name)
+                              self.dod, self.gender, name)
 
     def get_dod(self, name):
         if (self.deceased):
@@ -2870,13 +2870,13 @@ class PatientData(ModelSQL, ModelView):
             return self.name.death_certificate.cod.id
 
 
-    # Show the sex upon entering the individual 
+    # Show the gender upon entering the individual 
     @fields.depends('name')
     def on_change_name(self):
-        sex=None
+        gender=None
         age=None
         if self.name:
-            self.sex = self.name.sex
+            self.gender = self.name.gender
             self.age = self.name.age
 
     @classmethod
@@ -3434,10 +3434,10 @@ class AppointmentReport(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient')
     healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
     age = fields.Function(fields.TimeDelta('Age'), 'get_patient_age')
-    sex = fields.Selection([
+    gender = fields.Selection([
         (None, ''),
         ('m', 'Male'),
-        ('f', 'Female')], 'Sex')
+        ('f', 'Female')], 'Gender')
     address = fields.Function(fields.Char('Address'), 'get_address')
     insurance = fields.Function(fields.Char('Insurance'), 'get_insurance')
     appointment_date = fields.Date('Date')
@@ -3481,7 +3481,7 @@ class AppointmentReport(ModelSQL, ModelView):
             appointment.write_date,
             join2.right.ref,
             join1.right.id.as_('patient'),
-            join2.right.sex,
+            join2.right.gender,
             appointment.appointment_date,
             appointment.appointment_date.as_('appointment_date_time'),
             appointment.healthprof,
@@ -4571,11 +4571,11 @@ class PatientEvaluation(ModelSQL, ModelView):
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_evaluation')
             
-    sex = fields.Function(fields.Selection([
+    gender = fields.Function(fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
+        ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
     information_source = fields.Char(
         'Source', help="Source of"
@@ -4894,14 +4894,14 @@ class PatientEvaluation(ModelSQL, ModelView):
     def default_discharge_reason():
         return 'home'
 
-    def get_patient_sex(self, name):
-        return self.patient.sex
+    def get_patient_gender(self, name):
+        return self.patient.gender
 
     @classmethod
-    def search_patient_sex(cls, name, clause):
+    def search_patient_gender(cls, name, clause):
         res = []
         value = clause[2]
-        res.append(('patient.name.sex', clause[1], value))
+        res.append(('patient.name.gender', clause[1], value))
         return res
 
     @classmethod
@@ -4984,13 +4984,13 @@ class PatientEvaluation(ModelSQL, ModelView):
         return int(self.loc_motor) + int(self.loc_eyes) + int(self.loc_verbal)
 
 
-    # Show the sex and age upon entering the patient 
+    # Show the gender and age upon entering the patient 
     # These two are function fields (don't exist at DB level)
     @fields.depends('patient')
     def on_change_patient(self):
-        sex=None
+        gender=None
         age=''
-        self.sex = self.patient.sex
+        self.gender = self.patient.gender
         self.computed_age = self.patient.age
 
     

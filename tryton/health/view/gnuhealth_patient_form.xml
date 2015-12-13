@@ -5,7 +5,7 @@
         <group colspan="3" id="patient_main_info_name">
             <group colspan="3" col="9" id="patient_main_info_3">
                 <field colspan="4" name="name"/>
-                <field name="sex" width="60"/>
+                <field name="gender" width="60"/>
                 <label name="age"/>
                 <field name="age" width="80"/>
             </group>

@@ -2,7 +2,7 @@
 <tree string="Evaluations">
     <field name="code" expand="1"/>
     <field name="patient" expand="1"/>
-    <field name="sex"/>
+    <field name="gender"/>
     <field name="visit_type"/>
     <field name="evaluation_type"/>
     <field name="evaluation_start" widget="date"/>
