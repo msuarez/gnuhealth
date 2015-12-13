@@ -2763,6 +2763,14 @@ class PatientData(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Gender'), 'get_patient_gender')
 
+    biological_sex = fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Sex', help="Biological sex. By defaults it takes the value" \
+            " from the neonatal information")
+
+
     # Removed in 2.0 . MARITAL STATUS It's now a functional field
     # Retrieves the information from the party.
 

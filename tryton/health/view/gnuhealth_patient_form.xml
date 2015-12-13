@@ -66,6 +66,9 @@ code with the unique patient ID.
                 </page>
                 <page string="Misc" id="misc_info_page">
                     <group colspan="4" id="misc_info_group">
+                        <label name="biological_sex"/>
+                        <field name="biological_sex"/>
+                          
                         <label name="current_address"/>
                         <field name="current_address"/>
                     </group>

@@ -44,10 +44,6 @@ class Newborn(ModelSQL, ModelView):
     birth_date = fields.DateTime('DoB', required=True,
         help="Date and Time of birth")
     photo = fields.Binary('Picture')
-    newborn_sex = fields.Function(fields.Selection([
-        ('m', 'Male'),
-        ('f', 'Female'),
-        ], 'Sex'), 'get_newborn_sex')
 
     # Sex / Gender at birth.
 
@@ -56,7 +52,7 @@ class Newborn(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Sex',sort=False, required=True,
             help="Sex at birth. It might differ from the current patient" \
-            " sex")
+            " gender. This is the biological sex.")
 
     cephalic_perimeter = fields.Integer('CP',
         help="Cephalic Perimeter in centimeters (cm)")
@@ -136,55 +132,92 @@ class Newborn(ModelSQL, ModelView):
              'There is already a newborn record for this patient'),
             ]
 
-    # Update the birth date on the party model upon writing it on the 
-    # newborn model
     
     @classmethod
     def write(cls, newborns, values):
+        pool = Pool()
+
         cursor = Transaction().cursor
+        Patient = pool.get('gnuhealth.patient')
+        Party = pool.get('party.party')
+
+        party = []
+        patient = []
+        
+        cursor = Transaction().cursor
+
+
         for newborn in newborns:
-            newborn_party_id = newborn.patient.name.id
-            if values.get('birth_date'):
-                born_date = datetime.date(values.get('birth_date'))
-                party = Table('party_party')
-                cursor.execute(*party.update(columns=[party.dob],
-                    values=[born_date], 
-                    where=(party.id == newborn_party_id)))
-                    
-                    
+            
+            newborn_patient_id = newborn.patient.id
+            
+            person = Patient.browse([newborn_patient_id])[0].name
+            pat = Patient.browse([newborn_patient_id])[0]
+
+            # Update the birth date on the party model upon WRITING it on the 
+            # newborn model
+
+            born_date = datetime.date(newborn.birth_date)
+
+            party.append(person)
+            
+            Party.write(party, {
+            'dob': born_date })
+
+            # Update the biological sex on the patient model upon WRITING 
+            # it on the newborn model 
+
+            if values.get('sex'):
+                biological_sex = values.get('sex')
+
+                patient.append(pat)
+            
+                Patient.write(patient, {
+                'biological_sex': biological_sex })
+
         return super(Newborn, cls).write(newborns, values)
 
 
-    # Update the birth date on the party model upon CREATING the 
-    # newborn record
-
     @classmethod
     def create(cls, vlist):
+        pool = Pool()
         vlist = [x.copy() for x in vlist]
-        patient_table = Table('gnuhealth_patient')
-        cursor = Transaction().cursor
+        Patient = pool.get('gnuhealth.patient')
+        Party = pool.get('party.party')
+
+        party = []
+        patient = []
         
+        cursor = Transaction().cursor
+
         for values in vlist:
             newborn_patient_id = values['patient']
 
-        cursor.execute (*patient_table.select(patient_table.name,
-            where=(patient_table.id == newborn_patient_id)))
+            person = Patient.browse([newborn_patient_id])[0].name
+            pat = Patient.browse([newborn_patient_id])[0]
+            
+            # Update the birth date on the party model upon CREATING it on the 
+            # newborn model
 
-        newborn_party_id = cursor.fetchone()
-           
-        if values['birth_date']:
             born_date = datetime.date(values['birth_date'])
-            party = Table('party_party')
-            cursor.execute(*party.update(columns=[party.dob],
-                values=[born_date], 
-                where=(party.id == newborn_party_id[0])))
-                   
+
+            party.append(person)
+            
+            Party.write(party, {
+            'dob': born_date })
+
+            # Update the biological sex on the patient model upon CREATING 
+            # it on the newborn model 
+
+            if values.get('sex'):
+                biological_sex = values.get('sex')
+
+                patient.append(pat)
+            
+                Patient.write(patient, {
+                'biological_sex': biological_sex })
+        
         return super(Newborn, cls).create(vlist)
-
-
-    def get_newborn_sex(self, name):
-        if self.patient:
-            return self.patient.sex
 
 
 class NeonatalApgar(ModelSQL, ModelView):
