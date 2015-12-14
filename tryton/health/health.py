@@ -309,7 +309,7 @@ class PartyPatient (ModelSQL, ModelView):
     is_pharmacy = fields.Boolean(
         'Pharmacy', help='Check if the party is a Pharmacy')
 
-    lastname = fields.Char('Last Name', help='Last Name',
+    lastname = fields.Char('Family names', help='Family or last names',
         states={'invisible': Not(Bool(Eval('is_person')))})
     dob = fields.Date('DoB', help='Date of Birth')
 
@@ -579,10 +579,11 @@ class PartyPatient (ModelSQL, ModelView):
         super(PartyPatient, cls).validate(parties)
         for party in parties:
             party.check_person()
-
+            party.validate_official_name()
+            
     def check_person(self):
-    # Verify that health professional and patient
-    # are unchecked when is_person is False
+        # Verify that health professional and patient
+        # are unchecked when is_person is False
 
         if not self.is_person and (self.is_patient or self.is_healthprof):
             self.raise_user_error(
@@ -590,15 +591,35 @@ class PartyPatient (ModelSQL, ModelView):
                 " professional or a patient")
 
 
-    # Hide the group holding all the demographics when the party is not
-    # a person
+    def validate_official_name(self):
+        # Only allow one official name on the party name
+        Pname = Pool().get('gnuhealth.person_name')
+        officialnames = Pname.search_count(
+            [("party", "=", self.id), ("use", "=", 'official')],)
+    
+        if (officialnames > 1):
+                        self.raise_user_error(
+                "The person can have only one official name")
+    
     
     @classmethod
     def view_attributes(cls):
+        # Hide the group holding all the demographics when the party is not
+        # a person
         return [('//group[@id="person_details"]', 'states', {
                 'invisible': ~Eval('is_person'),
                 })]
                 
+
+
+    """
+    @classmethod
+    def write(cls, parties, values):
+
+    
+        Update the official names of the person with the 
+        Given and family names
+    """
 
 
     @classmethod
@@ -665,7 +686,6 @@ class PersonName(ModelSQL, ModelView):
     suffix = fields.Char('Suffix')
     date_from = fields.Date('From')
     date_to = fields.Date('To')
-
 
 
     @classmethod
