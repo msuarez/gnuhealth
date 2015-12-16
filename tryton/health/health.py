@@ -446,6 +446,7 @@ class PartyPatient (ModelSQL, ModelView):
         for parties, vals in zip(actions, actions):
             vals = vals.copy()
 
+            person_id = parties[0].id
             # We use this method overwrite to make the fields that have a
             # unique constraint get the NULL value at PostgreSQL level, and not
             # the value '' coming from the client
@@ -454,10 +455,63 @@ class PartyPatient (ModelSQL, ModelView):
 
             if 'photo' in vals:
                 vals['photo'] = cls.convert_photo(vals['photo'])
+            
+            if ('name' in vals) or ('lastname' in vals):
+                given_name=family_name=''
+                if 'name' in vals:
+                    given_name = vals['name']
+                if 'lastname' in vals:
+                    family_name=vals['lastname']
+                    
+                cls.update_person_official_name(person_id,given_name,
+                    family_name)
+
             args.append(parties)
             args.append(vals)
         return super(PartyPatient, cls).write(*args)
 
+    @classmethod
+    def update_person_official_name(cls,person_id,given_name,family_name):
+        # Create or update the official PersonName entry with the Given / Family
+        # names from the main entry field.
+        person=[]
+        
+        Pname = Pool().get('gnuhealth.person_name')
+        officialnames = Pname.search(
+            [("party", "=", person_id), ("use", "=", 'official')],)
+            
+        # If no official name found, create a new record
+        if not (officialnames):
+            values = {
+                'party': person_id,
+                'use': 'official',
+                }
+
+            if given_name:
+                values['given'] = given_name
+            if family_name:
+                values['family'] = family_name
+
+            person.append(values)
+            Pname.create(person)
+
+        #Found a related official name record, then 
+        #update official Person Name(s) when modified in main form
+        else:
+            official_rec=[]
+            print "Official name found. Need to update", officialnames
+            official_rec.append(officialnames[0])
+
+            values = {'use': 'official'}
+            
+            if given_name:
+                values['given'] = given_name
+            if family_name:
+                values['family'] = family_name
+            
+            Pname.write(official_rec, values)
+
+    
     @classmethod
     def create(cls, vlist):
         Configuration = Pool().get('party.configuration')
@@ -610,17 +664,6 @@ class PartyPatient (ModelSQL, ModelView):
                 'invisible': ~Eval('is_person'),
                 })]
                 
-
-
-    """
-    @classmethod
-    def write(cls, parties, values):
-
-    
-        Update the official names of the person with the 
-        Given and family names
-    """
-
 
     @classmethod
     def __register__(cls, module_name):
