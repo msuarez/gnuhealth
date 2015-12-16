@@ -499,7 +499,6 @@ class PartyPatient (ModelSQL, ModelView):
         #update official Person Name(s) when modified in main form
         else:
             official_rec=[]
-            print "Official name found. Need to update", officialnames
             official_rec.append(officialnames[0])
 
             values = {'use': 'official'}
@@ -545,6 +544,26 @@ class PartyPatient (ModelSQL, ModelView):
             if 'photo' in values:
                 values['photo'] = cls.convert_photo(values['photo'])
 
+            
+            #Add new PersonName record with the given and family name
+            #as the official name
+            if ('name' in values) or ('lastname' in values):
+                official_name = []
+                given_name = family_name= ''
+
+                if 'name' in values:
+                    given_name = values['name']
+                if 'lastname' in values:
+                    family_name=values['lastname']
+                                    
+                official_name.append(('create', [{
+                    'use': 'official',
+                    'given': given_name,
+                    'family': family_name,
+                    }]))
+
+                values['person_names'] = official_name
+                
         return super(PartyPatient, cls).create(vlist)
 
     @classmethod
