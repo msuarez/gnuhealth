@@ -63,10 +63,10 @@ class PatientSESAssessment(ModelSQL, ModelView):
 
 
     visit_date = fields.DateTime('Date', help="Assessment date")
-    computed_age = fields.Function(fields.Char(
+    computed_age = fields.Function(fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
-            'patient_age_at_evaluation')
+            'patient_age_at_assessment')
 
 
     health_professional = fields.Many2One(
@@ -258,26 +258,13 @@ class PatientSESAssessment(ModelSQL, ModelView):
             })
         
 
-    def patient_age_at_evaluation(self, name):
 
-        if (self.patient.name.dob):
-            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
+    def patient_age_at_assessment(self, name):
 
-            if (self.visit_date):
-                evaluation_start = datetime.strptime(
-                    str(self.visit_date), '%Y-%m-%d %H:%M:%S')
-                delta = relativedelta(self.visit_date, dob)
-
-                years_months_days = str(
-                    delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd'
-            else:
-                years_months_days = 'No evaluation Date !'
+        if (self.patient.name.dob and self.visit_date):
+            return self.visit_date.date() - self.patient.name.dob
         else:
-            years_months_days = 'No DoB !'
-
-        return years_months_days
+            return None
 
 
     @classmethod

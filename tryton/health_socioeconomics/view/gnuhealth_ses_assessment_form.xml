@@ -3,6 +3,8 @@
     <group colspan="4" col="10" id="patient_header_group">
       <label name="patient"/>
       <field name="patient"/>
+      <label name="computed_age"/>
+      <field name="computed_age"/>
       <label name="gender"/>
       <field name="gender"/>
       <label name="health_professional"/>
