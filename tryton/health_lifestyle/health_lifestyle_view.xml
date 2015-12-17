@@ -61,7 +61,7 @@
         <record model="ir.ui.view" id="gnuhealth_vegetarian_types_view">
             <field name="model">gnuhealth.vegetarian_types</field>
             <field name="type">form</field>
-            <field name="name">gnuhealth_vegetarian_types</field>
+            <field name="name">gnuhealth_vegetarian_types_form</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_vegetarian_types_tree">
