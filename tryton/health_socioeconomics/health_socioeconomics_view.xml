@@ -21,5 +21,31 @@
             <field name="name">gnuhealth_patient</field>
         </record>
 
+		<!--SES and Family functionality assessment -->
+        <record model="ir.ui.view" id="ses_view_list">                               
+            <field name="model">gnuhealth.ses.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_ses_assessment_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="ses_view_form">
+            <field name="model">gnuhealth.ses.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_ses_assessment_form</field>
+        </record>
+
+        <!-- Shortcut to the Patient Socioeconomics and Family Assessment -->
+        <record model="ir.action.act_window" id="act_evaluation_form1">
+            <field name="name">Socioeconomic and Family Assesment</field>
+            <field name="res_model">gnuhealth.ses.assessment</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_evaluation_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_evaluation_form1"/>
+        </record>
+
     </data>
 </tryton>

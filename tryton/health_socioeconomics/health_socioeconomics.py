@@ -20,11 +20,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta, date
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
+from trytond.pool import Pool
+
 from trytond import backend
 
-__all__ = ['Party','GnuHealthPatient']
+__all__ = ['Party','PatientSESAssessment','GnuHealthPatient']
 
 
 class Party (ModelSQL, ModelView):
@@ -43,19 +48,35 @@ class Party (ModelSQL, ModelView):
         ], 'Education', help="Education Level", sort=False)
 
 
-class GnuHealthPatient(ModelSQL, ModelView):
-    __name__ = 'gnuhealth.patient'
+class PatientSESAssessment(ModelSQL, ModelView):
+    'Socioeconomics and Family Functionality Assessment'
+    __name__ = 'gnuhealth.ses.assessment'
 
-    def get_patient_occupation(self, name):
-        if (self.name.occupation):
-            return self.name.occupation.id
+    STATES = {'readonly': Eval('state') == 'done'}
 
-    def get_patient_education(self, name):
-        return self.name.education
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    gender = fields.Function(fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
-    def get_patient_housing(self, name):
-        if (self.name.du):
-            return self.name.du.housing
+
+    visit_date = fields.DateTime('Date', help="Assessment date")
+    computed_age = fields.Function(fields.Char(
+            'Age',
+            help="Computed patient age at the moment of the evaluation"),
+            'patient_age_at_evaluation')
+
+
+    health_professional = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Professional', readonly=True,
+        help="Health professional"
+        )
+
+    du = fields.Many2One(
+        'gnuhealth.du', 'DU', help="Domiciliary Unit",
+        states = STATES)
 
     ses = fields.Selection([
         (None, ''),
@@ -66,23 +87,24 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('4', 'Higher'),
         ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
 
-    hostile_area = fields.Boolean('Hostile Area',
-        help="Check if patient lives in a zone of high hostility (eg, war)")
+    housing = fields.Function(fields.Selection([
+        (None, ''),
+        ('0', 'Shanty, deficient sanitary conditions'),
+        ('1', 'Small, crowded but with good sanitary conditions'),
+        ('2', 'Comfortable and good sanitary conditions'),
+        ('3', 'Roomy and excellent sanitary conditions'),
+        ('4', 'Luxury and excellent sanitary conditions'),
+        ], 'Housing conditions',
+         help="Housing and sanitary living conditions", sort=False),
+          'get_patient_housing')
 
-    single_parent = fields.Boolean('Single parent family')
-    domestic_violence = fields.Boolean('Domestic violence')
-    working_children = fields.Boolean('Working children')
-    teenage_pregnancy = fields.Boolean('Teenage pregnancy')
-    sexual_abuse = fields.Boolean('Sexual abuse')
-    drug_addiction = fields.Boolean('Drug addiction')
-    school_withdrawal = fields.Boolean('School withdrawal')
-    prison_past = fields.Boolean('Has been in prison')
-    prison_current = fields.Boolean('Is currently in prison')
-    relative_in_prison = fields.Boolean('Relative in prison',
-        help="Check if someone from the nuclear family - parents / " \
-        "sibblings  is or has been in prison")
+    income = fields.Selection([
+        (None, ''),
+        ('h', 'High'),
+        ('m', 'Medium / Average'),
+        ('l', 'Low'),
+        ], 'Income', sort=False)
 
-    ses_notes = fields.Text('Extra info')
 
     fam_apgar_help = fields.Selection([
         (None, ''),
@@ -135,16 +157,143 @@ class GnuHealthPatient(ModelSQL, ModelView):
         "4 - 6  : Some level of disfunction \n" \
         "0 - 3  : Severe disfunctional family \n")
 
-    income = fields.Selection([
+    education = fields.Selection([
         (None, ''),
-        ('h', 'High'),
-        ('m', 'Medium / Average'),
-        ('l', 'Low'),
-        ], 'Income', sort=False)
+        ('0', 'None'),
+        ('1', 'Incomplete Primary School'),
+        ('2', 'Primary School'),
+        ('3', 'Incomplete Secondary School'),
+        ('4', 'Secondary School'),
+        ('5', 'University'),
+        ], 'Education Level', help="Education Level", sort=False)
+
+    notes = fields.Text('Notes')
+
+    state = fields.Selection([
+        (None, ''),
+        ('in_progress', 'In progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True, sort=False)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        help="Health Professional that finished the patient evaluation")
 
 
-    # GnuHealth 2.0 . Occupation and Education are now functional fields.
-    # Retrives the information from the party model.
+    @staticmethod
+    def default_occupation():
+        if (self.name.occupation):
+            return self.name.occupation.id
+
+    @staticmethod
+    def get_patient_education():
+        return self.name.education
+
+    @staticmethod
+    def get_patient_housing():
+        if (self.name.du):
+            return self.name.du.housing
+
+
+    @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
+        'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection')
+    def on_change_with_fam_apgar_score(self):
+        fam_apgar_help = int(self.fam_apgar_help or '0')
+        fam_apgar_timesharing = int(self.fam_apgar_timesharing or '0')
+        fam_apgar_discussion = int(self.fam_apgar_discussion or '0')
+        fam_apgar_decisions = int(self.fam_apgar_decisions or '0')
+        fam_apgar_affection = int(self.fam_apgar_affection or '0')
+        total = (fam_apgar_help + fam_apgar_timesharing +
+            fam_apgar_discussion + fam_apgar_decisions +
+            fam_apgar_affection)
+
+        return total
+
+    @staticmethod
+    def default_visit_date():
+        return datetime.now()
+
+    @staticmethod
+    def default_health_professional():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        health_professional = HealthProf.get_health_professional()
+        return health_professional
+
+
+    # Show the gender and age upon entering the patient 
+    # These two are function fields (don't exist at DB level)
+    @fields.depends('patient')
+    def on_change_patient(self):
+        gender=None
+        age=''
+        self.gender = self.patient.gender
+        self.computed_age = self.patient.age
+
+    def get_patient_gender(self, name):
+        return self.patient.gender
+
+    @classmethod
+    def search_patient_gender(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.gender', clause[1], value))
+        return res
+
+    @classmethod
+    @ModelView.button
+    def end_assessment(cls, assessments):
+        
+        assessment_id = assessments[0]
+
+        # Change the state of the assessment to "Done"
+        HealthProf= Pool().get('gnuhealth.healthprofessional')
+
+        signing_hp = HealthProf.get_health_professional()
+
+        cls.write(assessments, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            })
+        
+
+    def patient_age_at_evaluation(self, name):
+
+        if (self.patient.name.dob):
+            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
+
+            if (self.visit_date):
+                evaluation_start = datetime.strptime(
+                    str(self.visit_date), '%Y-%m-%d %H:%M:%S')
+                delta = relativedelta(self.visit_date, dob)
+
+                years_months_days = str(
+                    delta.years) + 'y ' \
+                    + str(delta.months) + 'm ' \
+                    + str(delta.days) + 'd'
+            else:
+                years_months_days = 'No evaluation Date !'
+        else:
+            years_months_days = 'No DoB !'
+
+        return years_months_days
+
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientSESAssessment, cls).__setup__()
+
+        cls._buttons.update({
+            'end_assessment': {'invisible': Equal(Eval('state'), 'done')}
+            })
+
+
+
+class GnuHealthPatient(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.patient'
+
+
     occupation = fields.Function(fields.Many2One('gnuhealth.occupation','Occupation'), 'get_patient_occupation')
 
     education = fields.Function(fields.Selection([
@@ -167,52 +316,49 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ('4', 'Luxury and excellent sanitary conditions'),
         ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False), 'get_patient_housing')
 
+
+
+    hostile_area = fields.Boolean('Hostile Area',
+        help="Check if patient lives in a zone of high hostility (eg, war)")
+
+    single_parent = fields.Boolean('Single parent family')
+    domestic_violence = fields.Boolean('Domestic violence')
+    working_children = fields.Boolean('Working children')
+    teenage_pregnancy = fields.Boolean('Teenage pregnancy')
+    sexual_abuse = fields.Boolean('Sexual abuse')
+    drug_addiction = fields.Boolean('Drug addiction')
+    school_withdrawal = fields.Boolean('School withdrawal')
+    prison_past = fields.Boolean('Has been in prison')
+    prison_current = fields.Boolean('Is currently in prison')
+    relative_in_prison = fields.Boolean('Relative in prison',
+        help="Check if someone from the nuclear family - parents / " \
+        "sibblings  is or has been in prison")
+
+    ses_notes = fields.Text('Extra info')
+
+
+    # GnuHealth 2.0 . Occupation and Education are now functional fields.
+    # Retrives the information from the party model.
+    occupation = fields.Function(fields.Many2One('gnuhealth.occupation',
+        'Occupation'), 'get_patient_occupation')
+
+
     works_at_home = fields.Boolean('Works at home',
         help="Check if the patient works at his / her house")
     hours_outside = fields.Integer('Hours outside home',
         help="Number of hours a day the patient spend outside the house")
 
-    @staticmethod
-    def default_sewers():
-        return True
 
-    @staticmethod
-    def default_water():
-        return True
+    def get_patient_occupation(self, name):
+        if (self.name.occupation):
+            return self.name.occupation.id
 
-    @staticmethod
-    def default_trash():
-        return True
+    def get_patient_education(self, name):
+        return self.name.education
 
-    @staticmethod
-    def default_electricity():
-        return True
-
-    @staticmethod
-    def default_gas():
-        return True
-
-    @staticmethod
-    def default_telephone():
-        return True
-
-    @staticmethod
-    def default_television():
-        return True
-
-    @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
-        'fam_apgar_discussion', 'fam_apgar_decisions', 'fam_apgar_affection')
-    def on_change_with_fam_apgar_score(self):
-        fam_apgar_help = int(self.fam_apgar_help or '0')
-        fam_apgar_timesharing = int(self.fam_apgar_timesharing or '0')
-        fam_apgar_discussion = int(self.fam_apgar_discussion or '0')
-        fam_apgar_decisions = int(self.fam_apgar_decisions or '0')
-        fam_apgar_affection = int(self.fam_apgar_affection or '0')
-        total = (fam_apgar_help + fam_apgar_timesharing +
-            fam_apgar_discussion + fam_apgar_decisions +
-            fam_apgar_affection)
-
-        return total
+    def get_patient_housing(self, name):
+        if (self.name.du):
+            return self.name.du.housing
 
     @classmethod
     # Update to version 2.0

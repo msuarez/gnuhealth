@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<form string="Socioeconomics and Family Assessment">
+    <group colspan="4" col="10" id="patient_header_group">
+      <label name="patient"/>
+      <field name="patient"/>
+      <label name="gender"/>
+      <field name="gender"/>
+      <label name="health_professional"/>
+      <field name="health_professional"/>
+      <label name="visit_date"/>
+      <field name="visit_date"/>
+    </group>
+    
+    <newline/>
+
+    <group string="Main" id="group_main">
+      <label name="ses"/>
+      <field name="ses"/>
+      <label name="du"/>
+      <field name="du"/>
+    </group>
+    
+    <newline/>
+  
+    <group id="group_notes" string="Notes" >
+     <field name="notes"/>
+    </group>
+    <newline/>
+    <group id="group_footer" colspan="4" col="6">
+        <label name="state"/>
+        <field name="state"/>        
+        <label name="signed_by"/>
+        <field name="signed_by"/>        
+        <button name="end_assessment" help="End assessment" string="Done" icon="tryton-go-next" confirm="End this assessment ?"/>
+    </group>
+</form>

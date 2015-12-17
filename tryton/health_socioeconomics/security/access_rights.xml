@@ -7,13 +7,6 @@
     <data>
 
 <!-- BEGIN FRONTDESK ACCESS RIGHTS: RESTRICT ALL RELEVANT SOCIO FIELDS ON PATIENT MODEL -->
-
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_ses">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'ses')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
         <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_hostile_area">
             <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'hostile_area')]"/>
             <field name="group" ref="health.group_health_frontdesk"/>
@@ -98,67 +91,12 @@
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
         </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_housing">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'housing')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_education">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'education')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
         <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_occupation">
             <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'occupation')]"/>
             <field name="group" ref="health.group_health_frontdesk"/>
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
         </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_income">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'income')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_help">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_help')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_discussion">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_discussion')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_decisions">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_decisions')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_timesharing">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_timesharing')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_affection">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_affection')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_apgar_score">
-            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'fam_apgar_score')]"/>
-            <field name="group" ref="health.group_health_frontdesk"/>
-            <field name="perm_read" eval="False"/>
-            <field name="perm_write" eval="False"/>
-        </record>
-
 <!-- END FRONTDESK ACCESS RIGHTS -->
 
     </data>
