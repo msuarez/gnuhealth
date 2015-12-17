@@ -183,11 +183,9 @@ class PatientSESAssessment(ModelSQL, ModelView):
 
     @fields.depends('patient')
     def on_change_patient(self):
-        print "GOT HERE AAA!!"
 
         occupation=education=du=housing=None
         if (self.patient and self.patient.name.occupation):
-            print "GOT HERE !!"
             occupation = self.patient.name.occupation
         
         if (self.patient and self.patient.name.education):
