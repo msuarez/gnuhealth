@@ -42,16 +42,16 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     visit_date = fields.DateTime('Date', help="Date of Consultation")
-    computed_age = fields.Function(fields.Char(
+    computed_age = fields.Function(fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_evaluation')
 
-    sex = fields.Function(fields.Selection([
+    gender = fields.Function(fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
-        ], 'Sex'), 'get_patient_sex', searcher='search_patient_sex')
+        ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
     health_professional = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Professional', readonly=True,
@@ -228,36 +228,20 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
 
     def patient_age_at_evaluation(self, name):
-
-        if (self.patient.name.dob):
-            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
-
-            if (self.visit_date):
-                evaluation_start = datetime.strptime(
-                    str(self.visit_date), '%Y-%m-%d %H:%M:%S')
-                delta = relativedelta(self.visit_date, dob)
-
-                years_months_days = str(
-                    delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd'
-            else:
-                years_months_days = 'No evaluation Date !'
+        if (self.patient.name.dob and self.visit_date):
+            return self.visit_date.date() - self.patient.name.dob
         else:
-            years_months_days = 'No DoB !'
-
-        return years_months_days
+            return None
 
 
-
-    def get_patient_sex(self, name):
-        return self.patient.sex
+    def get_patient_gender(self, name):
+        return self.patient.gender
 
     @classmethod
-    def search_patient_sex(cls, name, clause):
+    def search_patient_gender(cls, name, clause):
         res = []
         value = clause[2]
-        res.append(('patient.name.sex', clause[1], value))
+        res.append(('patient.name.gender', clause[1], value))
         return res
 
     @fields.depends('rdva')
@@ -324,13 +308,13 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
         return health_professional
 
 
-    # Show the sex and age upon entering the patient 
+    # Show the gender and age upon entering the patient 
     # These two are function fields (don't exist at DB level)
     @fields.depends('patient')
     def on_change_patient(self):
-        sex=None
+        gender=None
         age=''
-        self.sex = self.patient.sex
+        self.gender = self.patient.gender
         self.computed_age = self.patient.age
 
 
