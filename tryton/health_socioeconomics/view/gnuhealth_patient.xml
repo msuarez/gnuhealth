@@ -11,13 +11,15 @@
                 <field name="housing"/>
             </group>
             <newline/>
-            <group col="6" id="group_socioecomics_work">
-                <newline/>
-                <label name="works_at_home"/>
-                <field name="works_at_home"/>
-                <label name="hours_outside"/>
-                <field name="hours_outside"/>
-            </group>
+            <!-- Deprecated info . Will be removed in 3.2
+                <group col="6" id="group_socioecomics_work">
+                    <newline/>
+                    <label name="works_at_home"/>
+                    <field name="works_at_home"/>
+                    <label name="hours_outside"/>
+                    <field name="hours_outside"/>
+                </group>
+            -->
             <newline/>
             <group colspan="4" col="8" string="Other Family and Environmental determinants" id="group_ses_other_family_issues">
                 <label name="single_parent"/>
