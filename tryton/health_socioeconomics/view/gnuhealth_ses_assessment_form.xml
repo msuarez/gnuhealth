@@ -17,6 +17,10 @@
     <group string="Socioeconomics" id="group_socioeconomics">
       <label name="ses"/>
       <field name="ses"/>
+      <label name="income"/>
+      <field name="income"/>
+      <label name="education"/>
+      <field name="education"/>
       <label name="occupation"/>
       <field name="occupation"/>
       <label name="du"/>

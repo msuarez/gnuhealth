@@ -54,7 +54,8 @@ class PatientSESAssessment(ModelSQL, ModelView):
 
     STATES = {'readonly': Eval('state') == 'done'}
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    patient = fields.Many2One('gnuhealth.patient', 'Patient',
+        required=True, states = STATES)
     gender = fields.Function(fields.Selection([
         (None, ''),
         ('m', 'Male'),
@@ -62,7 +63,8 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
 
-    assessment_date = fields.DateTime('Date', help="Assessment date")
+    assessment_date = fields.DateTime('Date', help="Assessment date",
+        states = STATES)
     computed_age = fields.Function(fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
@@ -84,7 +86,8 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Middle'),
         ('3', 'Middle-upper'),
         ('4', 'Higher'),
-        ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
+        ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False,
+            states = STATES)
 
     housing = fields.Selection([
         (None, ''),
@@ -94,16 +97,18 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('3', 'Roomy and excellent sanitary conditions'),
         ('4', 'Luxury and excellent sanitary conditions'),
         ], 'Housing conditions',
-         help="Housing and sanitary living conditions", sort=False)
+         help="Housing and sanitary living conditions", sort=False,
+            states = STATES)
 
-    occupation = fields.Many2One('gnuhealth.occupation','Occupation')
+    occupation = fields.Many2One('gnuhealth.occupation','Occupation',
+        states = STATES)
 
     income = fields.Selection([
         (None, ''),
-        ('h', 'High'),
-        ('m', 'Medium / Average'),
         ('l', 'Low'),
-        ], 'Income', sort=False)
+        ('m', 'Medium'),
+        ('h', 'High'),
+        ], 'Income', sort=False, states = STATES)
 
 
     fam_apgar_help = fields.Selection([
@@ -113,7 +118,8 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Very much'),
         ], 'Help from family',
         help="Is the patient satisfied with the level of help coming from " \
-        "the family when there is a problem ?", sort=False)
+        "the family when there is a problem ?", sort=False,
+            states = STATES)
 
     fam_apgar_discussion = fields.Selection([
         (None, ''),
@@ -122,7 +128,7 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Very much'),
         ], 'Problems discussion',
         help="Is the patient satisfied with the level talking over the " \
-        "problems as family ?", sort=False)
+        "problems as family ?", sort=False, states = STATES)
 
     fam_apgar_decisions = fields.Selection([
         (None, ''),
@@ -131,7 +137,7 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Very much'),
         ], 'Decision making',
         help="Is the patient satisfied with the level of making important " \
-        "decisions as a group ?", sort=False)
+        "decisions as a group ?", sort=False, states = STATES)
 
     fam_apgar_timesharing = fields.Selection([
         (None, ''),
@@ -140,7 +146,7 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Very much'),
         ], 'Time sharing',
         help="Is the patient satisfied with the level of time that they " \
-        "spend together ?", sort=False)
+        "spend together ?", sort=False, states = STATES)
 
     fam_apgar_affection = fields.Selection([
         (None, ''),
@@ -149,13 +155,13 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('2', 'Very much'),
         ], 'Family affection',
         help="Is the patient satisfied with the level of affection coming " \
-        "from the family ?", sort=False)
+        "from the family ?", sort=False, states = STATES)
 
     fam_apgar_score = fields.Integer('Score',
         help="Total Family APGAR \n" \
         "7 - 10 : Functional Family \n" \
         "4 - 6  : Some level of disfunction \n" \
-        "0 - 3  : Severe disfunctional family \n")
+        "0 - 3  : Severe disfunctional family \n", states = STATES)
 
     education = fields.Selection([
         (None, ''),
@@ -165,9 +171,10 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('3', 'Incomplete Secondary School'),
         ('4', 'Secondary School'),
         ('5', 'University'),
-        ], 'Education Level', help="Education Level", sort=False)
+        ], 'Education Level', help="Education Level", sort=False,
+            states = STATES)
 
-    notes = fields.Text('Notes')
+    notes = fields.Text('Notes', states = STATES)
 
     state = fields.Selection([
         (None, ''),
@@ -179,28 +186,6 @@ class PatientSESAssessment(ModelSQL, ModelView):
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
         states={'invisible': Equal(Eval('state'), 'in_progress')},
         help="Health Professional that finished the patient evaluation")
-
-
-    @fields.depends('patient')
-    def on_change_patient(self):
-
-        occupation=education=du=housing=None
-        if (self.patient and self.patient.name.occupation):
-            occupation = self.patient.name.occupation
-        
-        if (self.patient and self.patient.name.education):
-            education = self.patient.name.education
-
-        if (self.patient and self.patient.name.du):
-            du = self.patient.name.du.id
-
-        if (self.patient and self.patient.name.du):
-            housing = self.patient.name.du.housing
-
-        self.occupation = occupation
-        self.education = education
-        self.du = du
-        self.housing = housing
 
 
     @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
@@ -222,12 +207,15 @@ class PatientSESAssessment(ModelSQL, ModelView):
         return datetime.now()
 
     @staticmethod
+    def default_state():
+        return 'in_progress'
+
+    @staticmethod
     def default_health_professional():
         pool = Pool()
         HealthProf= pool.get('gnuhealth.healthprofessional')
         health_professional = HealthProf.get_health_professional()
         return health_professional
-
 
     # Show the gender and age upon entering the patient 
     # These two are function fields (don't exist at DB level)
@@ -237,6 +225,26 @@ class PatientSESAssessment(ModelSQL, ModelView):
         age=''
         self.gender = self.patient.gender
         self.computed_age = self.patient.age
+
+        occupation=education=du=housing=None
+        if (self.patient and self.patient.name.occupation):
+            occupation = self.patient.name.occupation
+        
+        if (self.patient and self.patient.name.education):
+            education = self.patient.name.education
+
+        if (self.patient and self.patient.name.du):
+            du = self.patient.name.du
+
+        if (self.patient and self.patient.name.du):
+            housing = self.patient.name.du.housing
+
+        self.occupation = occupation
+        self.education = education
+        self.du = du
+        self.housing = housing
+
+
 
     def get_patient_gender(self, name):
         return self.patient.gender
