@@ -5,23 +5,43 @@
       <field name="patient"/>
       <label name="computed_age"/>
       <field name="computed_age"/>
-      <label name="gender"/>
       <field name="gender"/>
       <label name="health_professional"/>
       <field name="health_professional"/>
-      <label name="visit_date"/>
-      <field name="visit_date"/>
+      <label name="assessment_date"/>
+      <field name="assessment_date"/>
     </group>
     
     <newline/>
 
-    <group string="Main" id="group_main">
+    <group string="Socioeconomics" id="group_socioeconomics">
       <label name="ses"/>
       <field name="ses"/>
+      <label name="occupation"/>
+      <field name="occupation"/>
       <label name="du"/>
       <field name="du"/>
+      <label name="housing"/>
+      <field name="housing"/>
     </group>
     
+    <newline/>
+
+    <group colspan="4" col="6" string="Family Functionality" id="group_ses_family_apgar">
+        <label name="fam_apgar_help"/>
+        <field name="fam_apgar_help"/>
+        <label name="fam_apgar_discussion"/>
+        <field name="fam_apgar_discussion"/>
+        <label name="fam_apgar_decisions"/>
+        <field name="fam_apgar_decisions"/>
+        <label name="fam_apgar_timesharing"/>
+        <field name="fam_apgar_timesharing"/>
+        <label name="fam_apgar_affection"/>
+        <field name="fam_apgar_affection"/>
+        <label name="fam_apgar_score"/>
+        <field name="fam_apgar_score"/>
+    </group>
+
     <newline/>
   
     <group id="group_notes" string="Notes" >

@@ -2,17 +2,24 @@
 <data>
     <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
         <page string="Socioeconomics" id="page_socioeconomics">
+            <group string="Current Status" colspan="4" col="6" id="group_ses_holder2">
+                <label name="occupation"/>
+                <field name="occupation"/>
+                <label name="education"/>
+                <field name="education"/>
+                <label name="housing"/>
+                <field name="housing"/>
+            </group>
+            <newline/>
             <group col="6" id="group_socioecomics_work">
                 <newline/>
                 <label name="works_at_home"/>
                 <field name="works_at_home"/>
                 <label name="hours_outside"/>
                 <field name="hours_outside"/>
-                <label name="hostile_area"/>
-                <field name="hostile_area"/>
             </group>
             <newline/>
-            <group colspan="4" col="8" string="Other Family Issues" id="group_ses_other_family_issues">
+            <group colspan="4" col="8" string="Other Family and Environmental determinants" id="group_ses_other_family_issues">
                 <label name="single_parent"/>
                 <field name="single_parent"/>
                 <label name="domestic_violence"/>
@@ -33,6 +40,8 @@
                 <field name="prison_current"/>
                 <label name="relative_in_prison"/>
                 <field name="relative_in_prison"/>
+                <label name="hostile_area"/>
+                <field name="hostile_area"/>
             </group>
             <newline/>
             <group string="Notes" id="group_ses_notes">

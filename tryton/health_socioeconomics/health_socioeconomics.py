@@ -62,12 +62,11 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
 
-    visit_date = fields.DateTime('Date', help="Assessment date")
+    assessment_date = fields.DateTime('Date', help="Assessment date")
     computed_age = fields.Function(fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_assessment')
-
 
     health_professional = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Professional', readonly=True,
@@ -87,7 +86,7 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('4', 'Higher'),
         ], 'Socioeconomics', help="SES - Socioeconomic Status", sort=False)
 
-    housing = fields.Function(fields.Selection([
+    housing = fields.Selection([
         (None, ''),
         ('0', 'Shanty, deficient sanitary conditions'),
         ('1', 'Small, crowded but with good sanitary conditions'),
@@ -95,8 +94,9 @@ class PatientSESAssessment(ModelSQL, ModelView):
         ('3', 'Roomy and excellent sanitary conditions'),
         ('4', 'Luxury and excellent sanitary conditions'),
         ], 'Housing conditions',
-         help="Housing and sanitary living conditions", sort=False),
-          'get_patient_housing')
+         help="Housing and sanitary living conditions", sort=False)
+
+    occupation = fields.Many2One('gnuhealth.occupation','Occupation')
 
     income = fields.Selection([
         (None, ''),
@@ -181,19 +181,28 @@ class PatientSESAssessment(ModelSQL, ModelView):
         help="Health Professional that finished the patient evaluation")
 
 
-    @staticmethod
-    def default_occupation():
-        if (self.name.occupation):
-            return self.name.occupation.id
+    @fields.depends('patient')
+    def on_change_patient(self):
+        print "GOT HERE AAA!!"
 
-    @staticmethod
-    def get_patient_education():
-        return self.name.education
+        occupation=education=du=housing=None
+        if (self.patient and self.patient.name.occupation):
+            print "GOT HERE !!"
+            occupation = self.patient.name.occupation
+        
+        if (self.patient and self.patient.name.education):
+            education = self.patient.name.education
 
-    @staticmethod
-    def get_patient_housing():
-        if (self.name.du):
-            return self.name.du.housing
+        if (self.patient and self.patient.name.du):
+            du = self.patient.name.du.id
+
+        if (self.patient and self.patient.name.du):
+            housing = self.patient.name.du.housing
+
+        self.occupation = occupation
+        self.education = education
+        self.du = du
+        self.housing = housing
 
 
     @fields.depends('fam_apgar_help', 'fam_apgar_timesharing',
@@ -211,7 +220,7 @@ class PatientSESAssessment(ModelSQL, ModelView):
         return total
 
     @staticmethod
-    def default_visit_date():
+    def default_assessment_date():
         return datetime.now()
 
     @staticmethod
@@ -260,9 +269,8 @@ class PatientSESAssessment(ModelSQL, ModelView):
 
 
     def patient_age_at_assessment(self, name):
-
-        if (self.patient.name.dob and self.visit_date):
-            return self.visit_date.date() - self.patient.name.dob
+        if (self.patient.name.dob and self.assessment_date):
+            return self.assessment_date.date() - self.patient.name.dob
         else:
             return None
 
@@ -316,7 +324,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     drug_addiction = fields.Boolean('Drug addiction')
     school_withdrawal = fields.Boolean('School withdrawal')
     prison_past = fields.Boolean('Has been in prison')
-    prison_current = fields.Boolean('Is currently in prison')
+    prison_current = fields.Boolean('Currently in prison')
     relative_in_prison = fields.Boolean('Relative in prison',
         help="Check if someone from the nuclear family - parents / " \
         "sibblings  is or has been in prison")
