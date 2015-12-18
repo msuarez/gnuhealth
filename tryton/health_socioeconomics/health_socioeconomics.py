@@ -318,6 +318,10 @@ class GnuHealthPatient(ModelSQL, ModelView):
         ], 'Housing conditions', help="Housing and sanitary living conditions", sort=False), 'get_patient_housing')
 
 
+    ses_assessments = fields.One2Many('gnuhealth.ses.assessment',
+        'patient','Assessments',
+        help="Socioeconomics and Family assessments history")
+
 
     hostile_area = fields.Boolean('Hostile Area',
         help="Check if patient lives in a zone of high hostility (eg, war)")

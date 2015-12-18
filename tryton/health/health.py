@@ -5,6 +5,7 @@
 #    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2015 Cédric Krier
+#    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
