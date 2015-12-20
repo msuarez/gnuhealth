@@ -418,3 +418,28 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
         if table.column_exist('housing'):
             table.drop_column ('housing')
+
+        # GNU Health 3.0
+        # Move SES determinants and family APGAR to new assessment model
+        # Drop ses and family apgar related columns from gnuhealth.patient
+        if table.column_exist('ses'):
+            cursor.execute(
+                "INSERT INTO GNUHEALTH_SES_ASSESSMENT \
+                (PATIENT, SES, FAM_APGAR_HELP, FAM_APGAR_DISCUSSION, \
+                FAM_APGAR_DECISIONS, FAM_APGAR_TIMESHARING, \
+                FAM_APGAR_AFFECTION, FAM_APGAR_SCORE, NOTES, STATE) \
+                SELECT ID, SES, FAM_APGAR_HELP, FAM_APGAR_DISCUSSION, \
+                FAM_APGAR_DECISIONS, FAM_APGAR_TIMESHARING, \
+                FAM_APGAR_AFFECTION, FAM_APGAR_SCORE, \
+                'Data collected from previous GNU HEALTH version. \
+                Please update if necessary.','in_progress' \
+                FROM GNUHEALTH_PATIENT WHERE SES IS NOT NULL OR \
+                FAM_APGAR_SCORE IS NOT NULL;")
+            
+            table.drop_column('ses')
+            table.drop_column('fam_apgar_help')
+            table.drop_column('fam_apgar_discussion')
+            table.drop_column('fam_apgar_decisions')
+            table.drop_column('fam_apgar_timesharing')
+            table.drop_column('fam_apgar_affection')
+            table.drop_column('fam_apgar_score')
