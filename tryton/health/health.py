@@ -762,9 +762,10 @@ class PersonName(ModelSQL, ModelView):
 
         super(PersonName, cls).__register__(module_name)
 
-        # Update to version 3.0
+        # Update to version GNU Health 3.0
         # Add the current person nick (alias) in the person names nicknames 
-
+        # remove alias column
+        
         party_h = TableHandler(cursor, Party, module_name)
         if (party_h.column_exist('nick')):
             person_names = []
@@ -776,6 +777,22 @@ class PersonName(ModelSQL, ModelView):
                     cls(party=party_id, given=party_nick, use='nickname'))
             cls.save(person_names)
             party_h.drop_column('nick')
+
+
+        # Upgrade to GNU Health 3.0
+        # RUN ONCE
+        # Copy given and family names to the official names
+        # when the party is a physical person
+        # It will be executed if the target table person_name is empty
+        cursor = Transaction().cursor
+        cursor.execute("SELECT ID FROM GNUHEALTH_PERSON_NAME LIMIT 1;")
+        records = cursor.fetchone()
+        if not records:
+            cursor.execute(
+                "INSERT INTO GNUHEALTH_PERSON_NAME \
+                (PARTY, USE, GIVEN, FAMILY) \
+                SELECT ID, 'official', NAME, LASTNAME \
+                FROM PARTY_PARTY WHERE IS_PERSON IS TRUE;")
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
