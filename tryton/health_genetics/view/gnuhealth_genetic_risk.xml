@@ -4,4 +4,7 @@
     <field name="patient"/>
     <label name="disease_gene"/>
     <field name="disease_gene"/>
+    <newline/>
+    <label name="notes" colspan="4"/>
+    <field name="notes" colspan="4"/>
 </form>
