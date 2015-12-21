@@ -108,12 +108,14 @@ class PediatricsGrowthChartsWHOReport(Report):
             context['v' + str(month)] = ''
 
         for evaluation in evaluations:
-            if data['indicator'] == 'l/h-f-a':
-                context['v' + evaluation.age_months] = evaluation.height
-            elif data['indicator'] == 'w-f-a':
-                context['v' + evaluation.age_months] = evaluation.weight
-            else:
-                context['v' + evaluation.age_months] = evaluation.bmi
+            if evaluation.age_months is not None:
+                con = ''.join(['v', str(evaluation.age_months)])
+                if data['indicator'] == 'l/h-f-a':
+                    context[con] = evaluation.height
+                elif data['indicator'] == 'w-f-a':
+                    context[con] = evaluation.weight
+                else:
+                    context[con] = evaluation.bmi
 
         return context
 

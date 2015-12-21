@@ -31,12 +31,12 @@ __metaclass__ = PoolMeta
 class PatientEvaluation:
     __name__ = 'gnuhealth.patient.evaluation'
 
-    age_months = fields.Function(fields.Char('Patient Age in Months'),
+    age_months = fields.Function(fields.Integer('Patient Age in Months'),
         'get_patient_age_months')
 
     def get_patient_age_months(self, name):
         if self.patient:
             if self.patient.dob:
                 delta = relativedelta(self.evaluation_start, self.patient.dob)
-                return str(delta.years * 12 + delta.months)
-        return "No DoB !"
+                return delta.years * 12 + delta.months
+        return None
