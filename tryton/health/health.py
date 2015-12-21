@@ -2572,7 +2572,7 @@ class DeathCertificate (ModelSQL, ModelView):
     autopsy = fields.Boolean('Autopsy', help="Check this box "
         "if autopsy has been done",
         states = STATES)
-     
+
     dod = fields.DateTime('Date', required=True,
         help="Date and time of Death",
         states = STATES)
@@ -2618,8 +2618,8 @@ class DeathCertificate (ModelSQL, ModelView):
         depends=['country'],
         states = STATES)
 
-    age = fields.Function(fields.Char('Age'),'get_age_at_death')
-        
+    age = fields.Function(fields.TimeDelta('Age'),'get_age_at_death')
+
     observations = fields.Text('Observations',
         states = STATES)
 
@@ -2651,15 +2651,11 @@ class DeathCertificate (ModelSQL, ModelView):
 
 
     def get_age_at_death(self,name):
-        if (self.name.dob):
-            delta = relativedelta(self.dod, self.name.dob)
-            years_months_days = str(delta.years) + 'y ' \
-                + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd'
+        if self.name.dob:
+            return self.dod.date() - self.name.dob
         else:
-            years_months_days = 'No DoB !'
-        return years_months_days
-        
+            return None
+
 class ProductCategory(ModelSQL, ModelView):
     'Product Category'
     __name__ = 'product.category'
