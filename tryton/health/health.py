@@ -5016,9 +5016,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         (None, ''),
         ('home','Home / Selfcare'),
         ('transfer','Transferred to another institution'),
-        ('death','Death'),
-        ('against_advice','Left against medical advice')],
-        'Discharge Reason', required=True,
+        ('against_advice','Left against medical advice'),
+        ('death','Death')],
+        'Discharge Reason', required=True, sort=False,
         states={'invisible': Equal(Eval('state'), 'in_progress'),
             'readonly': Eval('state') == 'signed'},
         help="Reason for patient discharge")
