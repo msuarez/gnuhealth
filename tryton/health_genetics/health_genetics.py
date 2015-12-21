@@ -85,7 +85,7 @@ class FamilyDiseases(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.family.diseases'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
-    name = fields.Many2One('gnuhealth.pathology', 'Disease', required=True)
+    name = fields.Many2One('gnuhealth.pathology', 'Condition', required=True)
     xory = fields.Selection([
         (None, ''),
         ('m', 'Maternal'),
@@ -106,8 +106,9 @@ class FamilyDiseases(ModelSQL, ModelView):
         ('grandmother', 'Grandmother'),
         ('cousin', 'Cousin'),
         ], 'Relative',
-        help="First degree = siblings, mother and father; second degree = "
-        "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
+        help='First degree = siblings, mother and father\n'
+            'Second degree = Uncles, nephews and Nieces\n'
+            'Third degree = Grandparents and cousins',
         required=True)
 
 
