@@ -24,6 +24,8 @@ from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from datetime import datetime
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
+from trytond import backend
 from sql import *
 
 __all__ = ['Newborn', 'NeonatalApgar', 'NeonatalMedication',
@@ -34,16 +36,18 @@ class Newborn(ModelSQL, ModelView):
     'Newborn Information'
     __name__ = 'gnuhealth.newborn'
 
-    name = fields.Char('Newborn ID')
+    STATES = {'readonly': Eval('state') == 'signed'}
+
+    name = fields.Char('Newborn ID', states = STATES)
     patient = fields.Many2One(
-        'gnuhealth.patient', 'Baby', required=True,
+        'gnuhealth.patient', 'Baby', required=True, states = STATES,
         help="Patient associated to this newborn")
 
-    mother = fields.Many2One('gnuhealth.patient', 'Mother')
-    newborn_name = fields.Char('Name at Birth')
+    mother = fields.Many2One('gnuhealth.patient', 'Mother', states = STATES)
+    newborn_name = fields.Char('Name at Birth', states = STATES)
     birth_date = fields.DateTime('DoB', required=True,
-        help="Date and Time of birth")
-    photo = fields.Binary('Picture')
+        help="Date and Time of birth", states = STATES)
+    photo = fields.Binary('Picture', states = STATES)
 
     # Sex / Gender at birth.
 
@@ -52,63 +56,88 @@ class Newborn(ModelSQL, ModelView):
         ('f', 'Female'),
         ], 'Sex',sort=False, required=True,
             help="Sex at birth. It might differ from the current patient" \
-            " gender. This is the biological sex.")
+            " gender. This is the biological sex.", states = STATES)
+
+    state = fields.Selection([
+        (None, ''),
+        ('draft', 'draft'),
+        ('signed', 'Signed'),
+        ], 'State', readonly=True, sort=False)
 
     cephalic_perimeter = fields.Integer('CP',
-        help="Cephalic Perimeter in centimeters (cm)")
-    length = fields.Integer('Length', help="Length in centimeters (cm)")
-    weight = fields.Integer('Weight', help="Weight in grams (g)")
-    apgar1 = fields.Integer('APGAR 1st minute')
-    apgar5 = fields.Integer('APGAR 5th minute')
+        help="Cephalic Perimeter in centimeters (cm)", states = STATES)
+    length = fields.Integer('Length',
+        help="Length in centimeters (cm)", states = STATES)
+    weight = fields.Integer('Weight',
+        help="Weight in grams (g)", states = STATES)
+    apgar1 = fields.Integer('APGAR 1st minute', states = STATES)
+    apgar5 = fields.Integer('APGAR 5th minute', states = STATES)
     apgar_scores = fields.One2Many('gnuhealth.neonatal.apgar', 'name',
-        'APGAR scores')
-    meconium = fields.Boolean('Meconium')
+        'APGAR scores', states = STATES)
+    meconium = fields.Boolean('Meconium', states = STATES)
 
     #Deprecated. Use Patient conditions directly
     congenital_diseases = fields.One2Many('gnuhealth.patient.disease',
-        'newborn_id', 'Congenital diseases')
+        'newborn_id', 'Congenital diseases', states = STATES)
 
-    reanimation_stimulation = fields.Boolean('Stimulation')
-    reanimation_aspiration = fields.Boolean('Aspiration')
-    reanimation_intubation = fields.Boolean('Intubation')
-    reanimation_mask = fields.Boolean('Mask')
-    reanimation_oxygen = fields.Boolean('Oxygen')
-    test_vdrl = fields.Boolean('VDRL')
-    test_toxo = fields.Boolean('Toxoplasmosis')
-    test_chagas = fields.Boolean('Chagas')
-    test_billirubin = fields.Boolean('Billirubin')
-    test_audition = fields.Boolean('Audition')
+    reanimation_stimulation = fields.Boolean('Stimulation', states = STATES)
+    reanimation_aspiration = fields.Boolean('Aspiration', states = STATES)
+    reanimation_intubation = fields.Boolean('Intubation', states = STATES)
+    reanimation_mask = fields.Boolean('Mask', states = STATES)
+    reanimation_oxygen = fields.Boolean('Oxygen', states = STATES)
+    test_vdrl = fields.Boolean('VDRL', states = STATES)
+    test_toxo = fields.Boolean('Toxoplasmosis', states = STATES)
+    test_chagas = fields.Boolean('Chagas', states = STATES)
+    test_billirubin = fields.Boolean('Billirubin', states = STATES)
+    test_audition = fields.Boolean('Audition', states = STATES)
     test_metabolic = fields.Boolean('Metabolic ("heel stick screening")',
         help="Test for Fenilketonuria, Congenital Hypothyroidism, "
-        "Quistic Fibrosis, Galactosemia")
-    neonatal_ortolani = fields.Boolean('Positive Ortolani')
-    neonatal_barlow = fields.Boolean('Positive Barlow')
-    neonatal_hernia = fields.Boolean('Hernia')
-    neonatal_ambiguous_genitalia = fields.Boolean('Ambiguous Genitalia')
-    neonatal_erbs_palsy = fields.Boolean('Erbs Palsy')
-    neonatal_hematoma = fields.Boolean('Hematomas')
-    neonatal_talipes_equinovarus = fields.Boolean('Talipes Equinovarus')
-    neonatal_polydactyly = fields.Boolean('Polydactyly')
-    neonatal_syndactyly = fields.Boolean('Syndactyly')
-    neonatal_moro_reflex = fields.Boolean('Moro Reflex')
-    neonatal_grasp_reflex = fields.Boolean('Grasp Reflex')
-    neonatal_stepping_reflex = fields.Boolean('Stepping Reflex')
-    neonatal_babinski_reflex = fields.Boolean('Babinski Reflex')
-    neonatal_blink_reflex = fields.Boolean('Blink Reflex')
-    neonatal_sucking_reflex = fields.Boolean('Sucking Reflex')
-    neonatal_swimming_reflex = fields.Boolean('Swimming Reflex')
-    neonatal_tonic_neck_reflex = fields.Boolean('Tonic Neck Reflex')
-    neonatal_rooting_reflex = fields.Boolean('Rooting Reflex')
-    neonatal_palmar_crease = fields.Boolean('Transversal Palmar Crease')
+        "Quistic Fibrosis, Galactosemia", states = STATES)
+    neonatal_ortolani = fields.Boolean('Positive Ortolani', states = STATES)
+    neonatal_barlow = fields.Boolean('Positive Barlow', states = STATES)
+    neonatal_hernia = fields.Boolean('Hernia', states = STATES)
+    neonatal_ambiguous_genitalia = fields.Boolean('Ambiguous Genitalia',
+        states = STATES)
+    neonatal_erbs_palsy = fields.Boolean('Erbs Palsy', states = STATES)
+    neonatal_hematoma = fields.Boolean('Hematomas', states = STATES)
+    neonatal_talipes_equinovarus = fields.Boolean('Talipes Equinovarus',
+        states = STATES)
+    neonatal_polydactyly = fields.Boolean('Polydactyly', states = STATES)
+    neonatal_syndactyly = fields.Boolean('Syndactyly', states = STATES)
+    neonatal_moro_reflex = fields.Boolean('Moro Reflex', states = STATES)
+    neonatal_grasp_reflex = fields.Boolean('Grasp Reflex', states = STATES)
+    neonatal_stepping_reflex = fields.Boolean('Stepping Reflex',
+        states = STATES)
+    neonatal_babinski_reflex = fields.Boolean('Babinski Reflex',
+        states = STATES)
+    neonatal_blink_reflex = fields.Boolean('Blink Reflex', states = STATES)
+    neonatal_sucking_reflex = fields.Boolean('Sucking Reflex', states = STATES)
+    neonatal_swimming_reflex = fields.Boolean('Swimming Reflex',
+        states = STATES)
+    neonatal_tonic_neck_reflex = fields.Boolean('Tonic Neck Reflex',
+        states = STATES)
+    neonatal_rooting_reflex = fields.Boolean('Rooting Reflex',
+        states = STATES)
+    neonatal_palmar_crease = fields.Boolean('Transversal Palmar Crease',
+        states = STATES)
     
     #Deprecated. Use Patient medication direcly
     medication = fields.One2Many('gnuhealth.patient.medication',
         'newborn_id', 'Medication')
     
-    responsible = fields.Many2One('gnuhealth.healthprofessional', 'Doctor in charge',
-        help="Signed by the health professional")
-    dismissed = fields.DateTime('Discharged')
-    notes = fields.Text('Notes')
+    healthprof = fields.Many2One('gnuhealth.healthprofessional',
+        'Health Professional',
+        help="Health professional", readonly=True)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={
+            'invisible': Not(Equal(Eval('state'), 'signed'))
+            },
+        help="Health Professional that signed this document")
+        
+    dismissed = fields.DateTime('Discharged', states = STATES)
+    notes = fields.Text('Notes', states = STATES)
 
     # Deprecated. the following fields will be removed in 2.8
     # Decease information on fetus / newborn are linked now in 
@@ -125,7 +154,20 @@ class Newborn(ModelSQL, ModelView):
         help="The baby died being transferred to another health institution")
     tod = fields.DateTime('Time of Death')
     cod = fields.Many2One('gnuhealth.pathology', 'Cause of death')
-   
+
+
+    @staticmethod
+    def default_healthprof():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        healthprof = HealthProf.get_health_professional()
+        return healthprof
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+
     @classmethod
     def __setup__(cls):
         super(Newborn, cls).__setup__()
@@ -138,7 +180,42 @@ class Newborn(ModelSQL, ModelView):
              'There is already a newborn record for this patient'),
             ]
 
-    
+        cls._buttons.update({
+            'sign_newborn': {'invisible': Equal(Eval('state'), 'signed')}
+            })
+
+    @classmethod
+    @ModelView.button
+    def sign_newborn(cls, newborns):
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        Appointment = pool.get('gnuhealth.appointment')
+        
+        newborn_id = newborns[0]
+
+        patient_app=[]
+        
+        # Change the state of the newborn to "Done"
+
+        signing_hp = HealthProfessional.get_health_professional()
+        
+        cls.write(newborns, {
+            'state': 'signed',
+            'signed_by': signing_hp,
+            })
+
+    @classmethod
+    def __register__(cls, module_name):
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+
+        #Rename responsible -> healthprof 
+        if table.column_exist('responsible'):        
+            table.column_rename('responsible', 'healthprof')
+
+        super(Newborn, cls).__register__(module_name)
+
     @classmethod
     def write(cls, newborns, values):
         pool = Pool()
@@ -281,13 +358,14 @@ class NeonatalApgar(ModelSQL, ModelView):
         return apgar_score
 
 
+# Deprecated in 3.0 - Use the main patient form  
 class NeonatalMedication(ModelSQL, ModelView):
     'Neonatal Medication. Inherit and Add field to Medication model'
     __name__ = 'gnuhealth.patient.medication'
 
     newborn_id = fields.Many2One('gnuhealth.newborn', 'Newborn ID')
 
-
+#Deprecated in 3.0  - Use main patient form
 class NeonatalCongenitalDiseases(ModelSQL, ModelView):
     'Congenital Diseases. Inherit Disease object for use in neonatology'
     __name__ = 'gnuhealth.patient.disease'

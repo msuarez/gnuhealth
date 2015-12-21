@@ -11,6 +11,14 @@
                         <field name="birth_date"/>
                         <label name="sex"/>
                         <field name="sex"/>
+                        <newline/>
+                        <label name="newborn_name"/>
+                        <field name="newborn_name"/>
+                        <label name="name"/>
+                        <field name="name"/>
+                        <newline/>
+                        <label name="healthprof"/>
+                        <field name="healthprof"/>
 
                     </group> 
 
@@ -51,15 +59,14 @@
                     <field colspan="3" name="notes"/>
                 </group>
                 <newline/>
-                <group col="8" id="group_newborn_identity">
-					<label name="newborn_name"/>
-					<field name="newborn_name"/>
-                    <label name="name"/>
-                    <field name="name"/>
+                <group col="6" id="group_newborn_footer">
+                    <label name="state"/>
+                    <field name="state"/>
                     <label name="dismissed"/>
                     <field name="dismissed"/>
-                    <label name="responsible"/>
-                    <field name="responsible"/>
+                    <label name="signed_by"/>
+                    <field name="signed_by"/>
+                    <button name="sign_newborn" help="Sign the process" string="Sign" icon="tryton-go-next" confirm="End the newborn document ?"/>
                 </group>
 
             </group>
