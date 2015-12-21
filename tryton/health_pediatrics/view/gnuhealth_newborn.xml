@@ -59,7 +59,7 @@
                     <field colspan="3" name="notes"/>
                 </group>
                 <newline/>
-                <group col="6" id="group_newborn_footer">
+                <group string="Status" col="7" id="group_newborn_footer">
                     <label name="state"/>
                     <field name="state"/>
                     <label name="dismissed"/>
