@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
 <form string="Surgery">
-    <group colspan="4" col="8" id="group_surgery_header">
-        <label name="patient"/>
-        <field name="patient"/>
-        <label name="surgery_date"/>
-        <field name="surgery_date"/>
+    <group string="Patient" colspan="4" col="10" id="group_surgery_patient_header">
+        <field name="patient" colspan="3"/>
+        <field name="gender"/>
         <label name="computed_age"/>
         <field name="computed_age"/>
+        <label name="surgery_date"/>
+        <field name="surgery_date"/>
         <label name="code"/>
         <field name="code"/>
-        <newline/>
+    </group>
+    <newline/>
+    <group colspan="4" col="8" id="group_surgery_header">
         <label name="description"/>
         <field name="description"/>
         <label name="pathology"/>

@@ -267,6 +267,15 @@ class Surgery(ModelSQL, ModelView):
             help="Computed patient age at the moment of the surgery"),
         'patient_age_at_surgery')
 
+    gender = fields.Function(fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ('f-m','Female -> Male'),
+        ('m-f','Male -> Female'),
+        ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
+
+
     description = fields.Char('Description')
     preop_mallampati = fields.Selection([
         (None, ''),
@@ -373,6 +382,26 @@ class Surgery(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+    def get_patient_gender(self, name):
+        return self.patient.gender
+
+    @classmethod
+    def search_patient_gender(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.gender', clause[1], value))
+        return res
+
+
+    # Show the gender and age upon entering the patient 
+    # These two are function fields (don't exist at DB level)
+    @fields.depends('patient')
+    def on_change_patient(self):
+        gender=None
+        age=''
+        self.gender = self.patient.gender
+        self.computed_age = self.patient.age
 
 
     @classmethod

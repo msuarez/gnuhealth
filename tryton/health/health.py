@@ -4713,10 +4713,13 @@ class PatientEvaluation(ModelSQL, ModelView):
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_evaluation')
             
+
     gender = fields.Function(fields.Selection([
         (None, ''),
         ('m', 'Male'),
         ('f', 'Female'),
+        ('f-m','Female -> Male'),
+        ('m-f','Male -> Female'),
         ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
 
     information_source = fields.Char(
