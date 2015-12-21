@@ -55,7 +55,7 @@
 
         <!-- Shortcut to the Patient Socioeconomics and Family Assessment -->
         <record model="ir.action.act_window" id="act_ses_assessment">
-            <field name="name">Socioeconomic and Family Assesment</field>
+            <field name="name">Socioeconomic and Family Assessment</field>
             <field name="res_model">gnuhealth.ses.assessment</field>
             <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>

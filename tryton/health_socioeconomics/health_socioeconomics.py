@@ -319,7 +319,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
 
 
     ses_assessments = fields.One2Many('gnuhealth.ses.assessment',
-        'patient','Assessments',
+        'patient','Assessments',readonly=True,
         help="Socioeconomics and Family assessments history")
 
 
