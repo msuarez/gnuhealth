@@ -63,8 +63,11 @@ class Newborn(ModelSQL, ModelView):
     apgar_scores = fields.One2Many('gnuhealth.neonatal.apgar', 'name',
         'APGAR scores')
     meconium = fields.Boolean('Meconium')
+
+    #Deprecated. Use Patient conditions directly
     congenital_diseases = fields.One2Many('gnuhealth.patient.disease',
         'newborn_id', 'Congenital diseases')
+
     reanimation_stimulation = fields.Boolean('Stimulation')
     reanimation_aspiration = fields.Boolean('Aspiration')
     reanimation_intubation = fields.Boolean('Intubation')
@@ -97,8 +100,11 @@ class Newborn(ModelSQL, ModelView):
     neonatal_tonic_neck_reflex = fields.Boolean('Tonic Neck Reflex')
     neonatal_rooting_reflex = fields.Boolean('Rooting Reflex')
     neonatal_palmar_crease = fields.Boolean('Transversal Palmar Crease')
+    
+    #Deprecated. Use Patient medication direcly
     medication = fields.One2Many('gnuhealth.patient.medication',
         'newborn_id', 'Medication')
+    
     responsible = fields.Many2One('gnuhealth.healthprofessional', 'Doctor in charge',
         help="Signed by the health professional")
     dismissed = fields.DateTime('Discharged')
