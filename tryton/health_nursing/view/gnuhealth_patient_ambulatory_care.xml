@@ -3,40 +3,20 @@
     <notebook>
         <page string="Main" id="ambulatory_care_main">
             <group colspan="4" id="ambulatory_care_main_data">
+                <label name="patient"/>
+                <field name="patient"/>
                 <label name="name"/>
                 <field name="name"/>
                 <label name="health_professional"/>
                 <field name="health_professional"/>
-                <label name="ordering_professional"/>
-                <field name="ordering_professional"/>
-                <label name="patient"/>
-                <field name="patient"/>
                 <label name="base_condition"/>
                 <field name="base_condition"/>
                 <label name="evaluation"/>
                 <field name="evaluation"/>
                 <label name="session_number"/>
                 <field name="session_number"/>
-                <label name="session_start"/>
-                <field name="session_start"/>
             </group>
             <newline/>
-            <field colspan="4" name="procedures"/>
-            <newline/>
-            <separator colspan="4" string="Summary" id="separator_round_summary"/>
-            <newline/>
-            <field colspan="4" name="session_notes"/>
-            <newline/>
-            <group colspan="4" col="6" id="ambulatory_care_finish">
-                <label name="warning"/>
-                <field name="warning"/>
-                <label name="session_end"/>
-                <field name="session_end"/>
-                <label name="next_session"/>
-                <field name="next_session"/>
-            </group>
-        </page>
-        <page string="Other" id="ambulatory_care_other_information">
             <group colspan="4" col="6" string="Vital Signs" id="group_ambulatory_care_vital_signs">
                 <label name="temperature"/>
                 <field name="temperature"/>
@@ -52,11 +32,30 @@
                 <field name="osat"/>
             </group>
             <newline/>
-            <group colspan="4" col="6" id="group_patient_care_others" string="Other">
+            <group colspan="4" col="6" id="group_patient_care_others" string="Misc">
                 <label name="glycemia"/>
                 <field name="glycemia"/>
                 <label name="evolution"/>
                 <field name="evolution"/>
+            </group>
+
+            <field colspan="4" name="procedures"/>
+            <newline/>
+            <separator colspan="4" string="Summary" id="separator_round_summary"/>
+            <newline/>
+            <field colspan="4" name="session_notes"/>
+            <newline/>
+            <group colspan="4" col="10" id="ambulatory_care_finish">
+                <label name="warning"/>
+                <field name="warning"/>
+                <label name="session_start"/>
+                <field name="session_start"/>
+                <label name="ordering_professional"/>
+                <field name="ordering_professional"/>
+                <label name="session_end"/>
+                <field name="session_end"/>
+                <label name="next_session"/>
+                <field name="next_session"/>
             </group>
         </page>
     </notebook>

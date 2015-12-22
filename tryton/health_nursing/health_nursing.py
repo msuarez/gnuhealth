@@ -226,12 +226,12 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
 
     name = fields.Char('ID', readonly=True)
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    base_condition = fields.Many2One('gnuhealth.pathology', 'Base Condition')
+    base_condition = fields.Many2One('gnuhealth.pathology', 'Condition')
     evaluation = fields.Many2One('gnuhealth.patient.evaluation',
         'Related Evaluation', domain=[('patient', '=', Eval('patient'))],
         depends=['patient'])
     ordering_professional = fields.Many2One('gnuhealth.healthprofessional',
-        'Ordering Physician')
+        'Requested by')
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name',
