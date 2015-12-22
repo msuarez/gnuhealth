@@ -12,13 +12,6 @@
                         <label name="sex"/>
                         <field name="sex"/>
                         <newline/>
-                        <label name="newborn_name"/>
-                        <field name="newborn_name"/>
-                        <label name="name"/>
-                        <field name="name"/>
-                        <newline/>
-                        <label name="healthprof"/>
-                        <field name="healthprof"/>
 
                     </group> 
 
@@ -33,9 +26,19 @@
                         <field name="cephalic_perimeter"/>
                     </group> 
                     <newline/>
+
+                    <group id="newborn_misc" col="6" >
+                        <label name="newborn_name"/>
+                        <field name="newborn_name"/>
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="healthprof"/>
+                        <field name="healthprof"/>
+                    </group> 
+
                 </group>
                 <group id="group_newborn_photo">
-                    <field name="photo" widget="image"/>
+                    <field xfill="0" xexpand="1" height="200" width="200" name="photo" widget="image"/>
                 </group>
             </group>
             <newline/>
