@@ -39,7 +39,7 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     ambulatory_care_sequence = fields.Property(fields.Many2One('ir.sequence',
         'Health Ambulatory Care', domain=[
             ('code', '=', 'gnuhealth.ambulatory_care')
-        ], required=True))
+        ]))
 
 
 # Class : PatientRounding
@@ -103,7 +103,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
-        ], 'Evolution', required=True, help="Check your judgement of current "
+        ], 'Evolution', help="Check your judgement of current "
         "patient condition", sort=False)
     round_summary = fields.Text('Round Summary')
     warning = fields.Boolean('Warning', help="Check this box to alert the "
@@ -247,7 +247,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         'Procedures',
         help="List of the procedures in this session. Please enter the first "
         "one as the main procedure")
-    session_number = fields.Integer('Session #', required=True)
+    session_number = fields.Integer('Session #')
     session_start = fields.DateTime('Start', required=True)
 
     # Vital Signs
@@ -275,11 +275,11 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
-        ], 'Evolution', required=True, help="Check your judgement of current "
+        ], 'Evolution', help="Check your judgement of current "
         "patient condition", sort=False)
     session_end = fields.DateTime('End', required=True)
     next_session = fields.DateTime('Next Session')
-    session_notes = fields.Text('Notes', required=True)
+    session_notes = fields.Text('Notes')
 
     @classmethod
     def __setup__(cls):
