@@ -756,7 +756,7 @@ class PersonName(ModelSQL, ModelView):
         pool = Pool()
         cursor = Transaction().cursor
         TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
+        table = cls.__table__()
         Party = pool.get('party.party')
         party = Party.__table__()
 
@@ -784,15 +784,16 @@ class PersonName(ModelSQL, ModelView):
         # Copy given and family names to the official names
         # when the party is a physical person
         # It will be executed if the target table person_name is empty
-        cursor = Transaction().cursor
-        cursor.execute("SELECT ID FROM GNUHEALTH_PERSON_NAME LIMIT 1;")
+        cursor.execute(*table.select(table.id, limit=1))
         records = cursor.fetchone()
         if not records:
-            cursor.execute(
-                "INSERT INTO GNUHEALTH_PERSON_NAME \
-                (PARTY, USE, GIVEN, FAMILY) \
-                SELECT ID, 'official', NAME, LASTNAME \
-                FROM PARTY_PARTY WHERE IS_PERSON IS TRUE;")
+            cursor.execute(*table.insert(
+                    [table.party, table.use, table.given, table.family],
+                    party.select(
+                        party.id, Literal('official'), party.name,
+                        party.lastname,
+                        where=party.is_person == True)))
+
 
 class PartyAddress(ModelSQL, ModelView):
     'Party Address'
