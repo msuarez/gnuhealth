@@ -603,7 +603,8 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Evaluation Date",
         required=True)
     lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
@@ -646,10 +647,6 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
         return Pool().get('ir.date').today()
 
     @staticmethod
-    def default_last_colposcopy():
-        return Pool().get('ir.date').today()
-
-    @staticmethod
     def default_evaluation_date():
         return Pool().get('ir.date').today()
 
@@ -669,7 +666,8 @@ class PatientMammographyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_mammography = fields.Date('Previous', help="Last Mammography")
     result = fields.Selection([
@@ -715,7 +713,8 @@ class PatientPAPHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_pap = fields.Date('Previous', help="Last Papanicolau")
     result = fields.Selection([
@@ -766,7 +765,8 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_colposcopy = fields.Date('Previous', help="Last colposcopy")
     result = fields.Selection([
