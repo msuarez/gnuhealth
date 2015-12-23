@@ -290,6 +290,23 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         states={'invisible': Equal(Eval('state'), 'draft')},
         help="Health Professional that signed the session")
 
+
+    @staticmethod
+    def default_health_professional():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        healthprof = HealthProf.get_health_professional()
+        return healthprof
+
+    @staticmethod
+    def default_session_start():
+        return datetime.now()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+
     @classmethod
     def __setup__(cls):
         super(PatientAmbulatoryCare, cls).__setup__()
@@ -297,7 +314,28 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
             'health_professional_warning':
                     'No health professional associated to this user',
         })
+        cls._buttons.update({
+            'end_session': {
+                'invisible': ~Eval('state').in_(['draft']),
+            }})
+
         cls._order.insert(0, ('session_start', 'DESC'))
+
+    @classmethod
+    @ModelView.button
+    def end_session(cls, sessions):
+        # End the session and discharge the patient
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+                
+        # Change the state of the session to "Done"
+        signing_hp = HealthProfessional.get_health_professional()
+        
+        cls.write(sessions, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            'session_end': datetime.now()
+            })
 
     @classmethod
     def validate(cls, records):
@@ -321,44 +359,6 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
                 values['name'] = Sequence.get_id(
                     config.ambulatory_care_sequence.id)
         return super(PatientAmbulatoryCare, cls).create(vlist)
-
-    @staticmethod
-    def default_health_professional():
-        pool = Pool()
-        HealthProf= pool.get('gnuhealth.healthprofessional')
-        healthprof = HealthProf.get_health_professional()
-        return healthprof
-
-    @staticmethod
-    def default_session_start():
-        return datetime.now()
-
-    @staticmethod
-    def default_state():
-        return 'draft'
-
-
-    @classmethod
-    @ModelView.button
-    def end_session(cls, sessions):
-        # End the session and discharge the patient
-
-        pool = Pool()
-        HealthProfessional = pool.get('gnuhealth.healthprofessional')
-        Appointment = pool.get('gnuhealth.appointment')
-        
-        session_id = sessions[0]
-        
-        # Change the state of the session to "Signed"
-
-        signing_hp = HealthProfessional.get_health_professional()
-        
-        cls.write(sessions, {
-            'state': 'done',
-            'signed_by': signing_hp,
-            'session_end': datetime.now()
-            })
-        
 
     @classmethod
     def copy(cls, ambulatorycares, default=None):
