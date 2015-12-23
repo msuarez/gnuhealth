@@ -213,7 +213,7 @@
         <!-- Environmental Factor Assessment -->
 
         <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_view">
-            <field name="model">gnuhealth.environment.assessmentt</field>
+            <field name="model">gnuhealth.environment.assessment</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_environmental_factor_assessment_form</field>
         </record>
