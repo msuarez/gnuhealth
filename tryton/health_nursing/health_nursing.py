@@ -100,6 +100,7 @@ class PatientRounding(ModelSQL, ModelView):
     depression = fields.Boolean('Depression signs', help="Check this if the "
         "patient shows signs of depression")
     evolution = fields.Selection([
+        (None, ''),    
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
@@ -262,6 +263,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
 
     evolution = fields.Selection([
+        (None, ''),
         ('initial', 'Initial'),
         ('n', 'Status Quo'),
         ('i', 'Improving'),
