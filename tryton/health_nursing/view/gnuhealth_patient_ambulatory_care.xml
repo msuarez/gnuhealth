@@ -45,7 +45,8 @@
             <newline/>
             <field colspan="4" name="session_notes"/>
             <newline/>
-            <group colspan="4" col="10" id="ambulatory_care_finish">
+            <group colspan="4" col="14" id="ambulatory_care_finish">
+                <field name="state"/>
                 <label name="warning"/>
                 <field name="warning"/>
                 <label name="session_start"/>
@@ -56,6 +57,9 @@
                 <field name="session_end"/>
                 <label name="next_session"/>
                 <field name="next_session"/>
+                <label name="signed_by"/>
+                <field name="signed_by"/>
+                <button name="end_session" help="End this session" string="End" icon="tryton-go-next" confirm="End this session ?"/>
             </group>
         </page>
     </notebook>

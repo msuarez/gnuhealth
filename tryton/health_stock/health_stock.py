@@ -124,10 +124,6 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
 
     moves = fields.One2Many('stock.move', 'origin', 'Stock Moves',
         readonly=True)
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-        ], 'State', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -139,10 +135,6 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
             'done': {
                 'invisible': ~Eval('state').in_(['draft']),
             }})
-
-    @staticmethod
-    def default_state():
-        return 'draft'
 
     @classmethod
     def copy(cls, ambulatory_cares, default=None):
@@ -159,10 +151,13 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
     def done(cls, ambulatory_cares):
         pool = Pool()
         Patient = pool.get('gnuhealth.patient')
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
 
         lines_to_ship = {}
         medicaments_to_ship = []
         supplies_to_ship = []
+
+        signing_hp = HealthProfessional.get_health_professional()
 
         for ambulatory in ambulatory_cares:
             patient = Patient(ambulatory.patient.id)
@@ -176,6 +171,11 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
         lines_to_ship['supplies'] = supplies_to_ship
 
         cls.create_stock_moves(ambulatory_cares, lines_to_ship)
+
+        cls.write(ambulatory_cares, {
+            'signed_by': signing_hp,
+            'session_end': datetime.now()
+            })
 
     @classmethod
     def create_stock_moves(cls, ambulatory_cares, lines):

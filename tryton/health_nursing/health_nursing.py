@@ -25,7 +25,7 @@ from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from datetime import datetime
 from trytond.pool import Pool
 from trytond.transaction import Transaction
-from trytond.pyson import Eval
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 
 
 __all__ = ['GnuHealthSequences', 'PatientRounding', 'RoundingProcedure',
@@ -225,42 +225,53 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     'Patient Ambulatory Care'
     __name__ = 'gnuhealth.patient.ambulatory_care'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     name = fields.Char('ID', readonly=True)
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
-    base_condition = fields.Many2One('gnuhealth.pathology', 'Condition')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient',
+     required=True, states=STATES)
+
+    state = fields.Selection([
+        ('draft', 'In Progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True)
+
+    base_condition = fields.Many2One('gnuhealth.pathology', 'Condition',
+        states=STATES)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation',
         'Related Evaluation', domain=[('patient', '=', Eval('patient'))],
-        depends=['patient'])
+        depends=['patient'], states=STATES)
     ordering_professional = fields.Many2One('gnuhealth.healthprofessional',
-        'Requested by')
+        'Requested by', states=STATES)
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     procedures = fields.One2Many('gnuhealth.ambulatory_care_procedure', 'name',
-        'Procedures',
+        'Procedures', states=STATES,
         help="List of the procedures in this session. Please enter the first "
         "one as the main procedure")
-    session_number = fields.Integer('Session #')
-    session_start = fields.DateTime('Start', required=True)
+    session_number = fields.Integer('Session #', states=STATES)
+    session_start = fields.DateTime('Start', required=True, states=STATES)
 
     # Vital Signs
-    systolic = fields.Integer('Systolic Pressure')
-    diastolic = fields.Integer('Diastolic Pressure')
-    bpm = fields.Integer('Heart Rate',
+    systolic = fields.Integer('Systolic Pressure', states=STATES)
+    diastolic = fields.Integer('Diastolic Pressure', states=STATES)
+    bpm = fields.Integer('Heart Rate',states=STATES,
         help='Heart rate expressed in beats per minute')
-    respiratory_rate = fields.Integer('Respiratory Rate',
+    respiratory_rate = fields.Integer('Respiratory Rate',states=STATES,
         help='Respiratory rate expressed in breaths per minute')
-    osat = fields.Integer('Oxygen Saturation',
+    osat = fields.Integer('Oxygen Saturation',states=STATES,
         help='Oxygen Saturation(arterial).')
-    temperature = fields.Float('Temperature',
+    temperature = fields.Float('Temperature',states=STATES,
         help='Temperature in celsius')
 
     warning = fields.Boolean('Warning', help="Check this box to alert the "
         "supervisor about this session. A warning icon will be shown in the "
-        "session list")
+        "session list",states=STATES)
     warning_icon = fields.Function(fields.Char('Warning Icon'), 'get_warn_icon')
 
     #Glycemia
-    glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
+    glycemia = fields.Integer('Glycemia', help='Blood Glucose level',
+        states=STATES)
 
     evolution = fields.Selection([
         (None, ''),
@@ -269,10 +280,15 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
         ('i', 'Improving'),
         ('w', 'Worsening'),
         ], 'Evolution', help="Check your judgement of current "
-        "patient condition", sort=False)
-    session_end = fields.DateTime('End', required=True)
-    next_session = fields.DateTime('Next Session')
-    session_notes = fields.Text('Notes')
+        "patient condition", sort=False, states=STATES)
+    session_end = fields.DateTime('End', readonly=True)
+    next_session = fields.DateTime('Next Session', states=STATES)
+    session_notes = fields.Text('Notes', states=STATES)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'draft')},
+        help="Health Professional that signed the session")
 
     @classmethod
     def __setup__(cls):
@@ -316,6 +332,33 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
     @staticmethod
     def default_session_start():
         return datetime.now()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+
+    @classmethod
+    @ModelView.button
+    def end_session(cls, sessions):
+        # End the session and discharge the patient
+
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+        Appointment = pool.get('gnuhealth.appointment')
+        
+        session_id = sessions[0]
+        
+        # Change the state of the session to "Signed"
+
+        signing_hp = HealthProfessional.get_health_professional()
+        
+        cls.write(sessions, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            'session_end': datetime.now()
+            })
+        
 
     @classmethod
     def copy(cls, ambulatorycares, default=None):
