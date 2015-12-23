@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient Genetic Risks" editable="1">
+<tree string="Patient Genetic Risks" editable="bottom">
     <field name="patient"/>
     <field name="disease_gene" expand="1"/>
     <field name="notes" expand="1"/>
