@@ -50,70 +50,89 @@ class PatientRounding(ModelSQL, ModelView):
     'Patient Rounding'
     __name__ = 'gnuhealth.patient.rounding'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     name = fields.Many2One('gnuhealth.inpatient.registration',
-        'Registration Code', required=True)
+        'Registration Code', required=True, states=STATES)
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
-    evaluation_start = fields.DateTime('Start', required=True)
-    evaluation_end = fields.DateTime('End', required=True)
-    environmental_assessment = fields.Char('Environment', help="Environment"
-        " assessment . State any disorder in the room.")
+    evaluation_start = fields.DateTime('Start', required=True, states=STATES)
+    evaluation_end = fields.DateTime('End', readonly=True)
 
-    weight = fields.Integer('Weight', help="Measured weight, in kg")
+    state = fields.Selection([
+        (None, ''),
+        ('draft', 'In Progress'),
+        ('done', 'Done'),
+        ], 'State', readonly=True)
+
+    environmental_assessment = fields.Char('Environment', help="Environment"
+        " assessment . State any disorder in the room.",states=STATES)
+
+    weight = fields.Integer('Weight',
+        help="Measured weight, in kg",states=STATES)
 
     # The 6 P's of rounding
-    pain = fields.Boolean('Pain', help="Check if the patient is in pain")
+    pain = fields.Boolean('Pain',
+        help="Check if the patient is in pain", states=STATES)
     pain_level = fields.Integer('Pain', help="Enter the pain level, from 1 to "
-            "10", states={'invisible': ~Eval('pain')})
+            "10", states={'invisible': ~Eval('pain'),
+            'readonly': Eval('state') == 'done'})
 
     potty = fields.Boolean('Potty', help="Check if the patient needs to "
-        "urinate / defecate")
+        "urinate / defecate", states=STATES)
     position = fields.Boolean('Position', help="Check if the patient needs to "
-        "be repositioned or is unconfortable")
+        "be repositioned or is unconfortable", states=STATES)
     proximity = fields.Boolean('Proximity', help="Check if personal items, "
-        "water, alarm, ... are not in easy reach")
+        "water, alarm, ... are not in easy reach",states=STATES)
     pump = fields.Boolean('Pumps', help="Check if there is any issues with "
-        "the pumps - IVs ... ")
+        "the pumps - IVs ... ", states=STATES)
     personal_needs = fields.Boolean('Personal needs', help="Check if the "
-        "patient requests anything")
+        "patient requests anything", states=STATES)
 
     # Vital Signs
-    systolic = fields.Integer('Systolic Pressure')
-    diastolic = fields.Integer('Diastolic Pressure')
+    systolic = fields.Integer('Systolic Pressure',states=STATES)
+    diastolic = fields.Integer('Diastolic Pressure', states=STATES)
     bpm = fields.Integer('Heart Rate',
-        help='Heart rate expressed in beats per minute')
+        help='Heart rate expressed in beats per minute', states=STATES)
     respiratory_rate = fields.Integer('Respiratory Rate',
-        help='Respiratory rate expressed in breaths per minute')
+        help='Respiratory rate expressed in breaths per minute', states=STATES)
     osat = fields.Integer('Oxygen Saturation',
-        help='Oxygen Saturation(arterial).')
+        help='Oxygen Saturation(arterial).', states=STATES)
     temperature = fields.Float('Temperature',
-        help='Temperature in celsius')
+        help='Temperature in celsius', states=STATES)
 
     # Diuresis
 
-    diuresis = fields.Integer('Diuresis',help="volume in ml")
-    urinary_catheter = fields.Boolean('Urinary Catheter')
+    diuresis = fields.Integer('Diuresis',help="volume in ml", states=STATES)
+    urinary_catheter = fields.Boolean('Urinary Catheter', states=STATES)
 
     #Glycemia
-    glycemia = fields.Integer('Glycemia', help='Blood Glucose level')
+    glycemia = fields.Integer('Glycemia', help='Blood Glucose level', states=STATES)
 
     depression = fields.Boolean('Depression signs', help="Check this if the "
-        "patient shows signs of depression")
+        "patient shows signs of depression", states=STATES)
     evolution = fields.Selection([
         (None, ''),    
         ('n', 'Status Quo'),
         ('i', 'Improving'),
         ('w', 'Worsening'),
         ], 'Evolution', help="Check your judgement of current "
-        "patient condition", sort=False)
-    round_summary = fields.Text('Round Summary')
+        "patient condition", sort=False, states=STATES)
+    round_summary = fields.Text('Round Summary', states=STATES)
+
+    signed_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Signed by', readonly=True,
+        states={'invisible': Equal(Eval('state'), 'draft')},
+        help="Health Professional that signed the rounding")
+
+
     warning = fields.Boolean('Warning', help="Check this box to alert the "
         "supervisor about this patient rounding. A warning icon will be shown "
-        "in the rounding list")
+        "in the rounding list", states=STATES)
     warning_icon = fields.Function(fields.Char('Warning Icon'), 'get_warn_icon')
     procedures = fields.One2Many('gnuhealth.rounding_procedure', 'name',
         'Procedures', help="List of the procedures in this rounding. Please "
-        "enter the first one as the main procedure")
+        "enter the first one as the main procedure", states=STATES)
 
     report_start_date = fields.Function(fields.Date('Start Date'), 
         'get_report_start_date')
@@ -123,24 +142,6 @@ class PatientRounding(ModelSQL, ModelView):
         'get_report_end_date')
     report_end_time = fields.Function(fields.Time('End Time'), 
         'get_report_end_time')
-
-    @classmethod
-    def __setup__(cls):
-        super(PatientRounding, cls).__setup__()
-        cls._error_messages.update({
-            'health_professional_warning':
-                    'No health professional associated to this user',
-        })
-
-    @classmethod
-    def validate(cls, roundings):
-        super(PatientRounding, cls).validate(roundings)
-        for rounding in roundings:
-            rounding.check_health_professional()
-
-    def check_health_professional(self):
-        if not self.health_professional:
-            self.raise_user_error('health_professional_warning')
 
     @staticmethod
     def default_health_professional():
@@ -152,6 +153,51 @@ class PatientRounding(ModelSQL, ModelView):
     @staticmethod
     def default_evaluation_start():
         return datetime.now()
+
+    @staticmethod
+    def default_state():
+        return 'draft'
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientRounding, cls).__setup__()
+        cls._error_messages.update({
+            'health_professional_warning':
+                    'No health professional associated to this user',
+        })
+        cls._buttons.update({
+            'end_rounding': {
+                'invisible': ~Eval('state').in_(['draft']),
+            }})
+
+        cls._order.insert(0, ('evaluation_start', 'DESC'))
+
+    @classmethod
+    @ModelView.button
+    def end_rounding(cls, roundings):
+        # End the rounding
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+                
+        # Change the state of the rounding to "Done"
+        signing_hp = HealthProfessional.get_health_professional()
+        
+        cls.write(roundings, {
+            'state': 'done',
+            'signed_by': signing_hp,
+            'evaluation_end': datetime.now()
+            })
+
+
+    @classmethod
+    def validate(cls, roundings):
+        super(PatientRounding, cls).validate(roundings)
+        for rounding in roundings:
+            rounding.check_health_professional()
+
+    def check_health_professional(self):
+        if not self.health_professional:
+            self.raise_user_error('health_professional_warning')
 
     def get_report_start_date(self, name):
         Company = Pool().get('company.company')
@@ -232,6 +278,7 @@ class PatientAmbulatoryCare(ModelSQL, ModelView):
      required=True, states=STATES)
 
     state = fields.Selection([
+        (None, ''),
         ('draft', 'In Progress'),
         ('done', 'Done'),
         ], 'State', readonly=True)

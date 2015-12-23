@@ -67,6 +67,14 @@
             <separator string="Round summary" id="separator_round_summary"/>
             <newline/>
             <field name="round_summary"/>
+            <newline/>
+            <group colspan="4" col="10" id="group_patient_rounding_footer">            
+                <field name="state"/>
+                <label name="signed_by"/>
+                <field name="signed_by"/>
+                <button name="end_rounding" help="End this rounding" string="End rounding" icon="tryton-go-next" confirm="End this rounding ?"/>
+            </group>
+
         </page>
         <page string="Procedures" id="rounding_procedures">
             <field name="procedures"/>
