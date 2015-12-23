@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Medicament" editable="bottom">
+<tree string="Medicament" editable="top">
     <field name="medicament" expand="1"/>
     <field name="quantity" expand="1"/>
     <field name="lot" expand="1"/>
