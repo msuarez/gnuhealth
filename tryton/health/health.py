@@ -3354,7 +3354,6 @@ class Appointment(ModelSQL, ModelView):
 
     appointment_type = fields.Selection([
         (None, ''),
-        ('ambulatory', 'Ambulatory'),
         ('outpatient', 'Outpatient'),
         ('inpatient', 'Inpatient'),
         ], 'Type', sort=False)
@@ -3456,7 +3455,7 @@ class Appointment(ModelSQL, ModelView):
 
     @staticmethod
     def default_appointment_type():
-        return 'ambulatory'
+        return 'outpatient'
 
     @staticmethod
     def default_state():
@@ -3509,7 +3508,6 @@ class Appointment(ModelSQL, ModelView):
         return self.name
 
 
-    # Update to version 2.4
     @classmethod
     def __register__(cls, module_name):
 
@@ -3562,10 +3560,24 @@ class Appointment(ModelSQL, ModelView):
                     except:
                         pass 
 
+
+
+        # Upgrade to 3.0
+        # Marge all ambulatory appointments to outpatient
+        
+        app_h = cls.__table__()
+        
+        if table.column_exist('appointment_type'):
+            cursor.execute(*app_h.update(columns=[app_h.appointment_type], 
+                values=[Literal('outpatient')], 
+                where=app_h.appointment_type == Literal('ambulatory')))
+
+            
         # Merge "chronic" checkups visit types into followup       
         if table.column_exist('visit_type'):
-            cursor.execute("update gnuhealth_appointment \
-                set visit_type='followup' where visit_type='chronic'")
+            cursor.execute(*app_h.update(columns=[app_h.visit_type], 
+                values=[Literal('followup')], 
+                where=app_h.visit_type == Literal('chronic')))
 
         super(Appointment, cls).__register__(module_name)
 
@@ -4748,7 +4760,6 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     evaluation_type = fields.Selection([
         (None, ''),
-        ('ambulatory', 'Ambulatory'),
         ('outpatient', 'Outpatient'),
         ('inpatient', 'Inpatient'),
         ], 'Type', sort=False,
@@ -5214,11 +5225,13 @@ class PatientEvaluation(ModelSQL, ModelView):
         if table.column_exist('evaluation_date'):
             table.column_rename('evaluation_date', 'appointment')
 
-
         # Merge "chronic" checkups visit types into followup       
+        eval_h = cls.__table__()
         if table.column_exist('visit_type'):
-            cursor.execute("update gnuhealth_patient_evaluation \
-                set visit_type='followup' where visit_type='chronic'")
+            cursor.execute(*eval_h.update(columns=[eval_h.evaluation_type], 
+                values=[Literal('outpatient')], 
+                where=eval_h.evaluation_type == Literal('ambulatory')))
+
 
         super(PatientEvaluation, cls).__register__(module_name)
 
