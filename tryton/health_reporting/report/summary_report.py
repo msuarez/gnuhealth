@@ -32,20 +32,20 @@ class InstitutionSummaryReport(Report):
 
 
     @classmethod
-    def get_population(cls,date1,date2,sex,total):
+    def get_population(cls,date1,date2,gender,total):
         """ Return Total Number of living people in the system 
-        segmented by age group and sex"""
+        segmented by age group and gender"""
         cursor = Transaction().cursor
 
         if (total):
             cursor.execute("SELECT COUNT(dob) \
-                FROM party_party WHERE sex = %s and deceased is not TRUE",(sex))
+                FROM party_party WHERE gender = %s and deceased is not TRUE",(gender))
 
         else:
             cursor.execute("SELECT COUNT(dob) \
                 FROM party_party \
                 WHERE dob BETWEEN %s and %s AND \
-                sex = %s  and deceased is not TRUE" ,(date2, date1, sex))
+                gender = %s  and deceased is not TRUE" ,(date2, date1, gender))
        
         res = cursor.fetchone()[0]
     
@@ -225,7 +225,7 @@ class InstitutionSummaryReport(Report):
             else:
                 # Increase the evaluations without Dx counter
                 non_dx_eval += 1
-            if (evaluation.sex == 'f'):
+            if (evaluation.gender == 'f'):
                 eval_f +=1
             else:
                 eval_m +=1
@@ -262,23 +262,23 @@ class InstitutionSummaryReport(Report):
                 # Age groups in this diagnostic
                 if (age < 5):
                     group_1 += 1
-                    if (unique_eval.sex == 'f'):
+                    if (unique_eval.gender == 'f'):
                         group_1f += 1
                 if (age in range(5,14)):
                     group_2 += 1
-                    if (unique_eval.sex == 'f'):
+                    if (unique_eval.gender == 'f'):
                         group_2f += 1
                 if (age in range(15,45)):
                     group_3 += 1
-                    if (unique_eval.sex == 'f'):
+                    if (unique_eval.gender == 'f'):
                         group_3f += 1
                 if (age in range(46,60)):
                     group_4 += 1
-                    if (unique_eval.sex == 'f'):
+                    if (unique_eval.gender == 'f'):
                         group_4f += 1
                 if (age > 60):
                     group_5 += 1
-                    if (unique_eval.sex == 'f'):
+                    if (unique_eval.gender == 'f'):
                         group_5f += 1
 
                 # Check for new conditions vs followup / chronic checkups 
