@@ -546,24 +546,27 @@ class PartyPatient (ModelSQL, ModelView):
                 values['photo'] = cls.convert_photo(values['photo'])
 
             
-            #Add new PersonName record with the given and family name
+            #If the party is a physical person, 
+            #add new PersonName record with the given and family name
             #as the official name
-            if ('name' in values) or ('lastname' in values):
-                official_name = []
-                given_name = family_name= ''
+            
+            if (values['is_person']):
+                if ('name' in values) or ('lastname' in values):
+                    official_name = []
+                    given_name = family_name= ''
 
-                if 'name' in values:
-                    given_name = values['name']
-                if 'lastname' in values:
-                    family_name=values['lastname']
-                                    
-                official_name.append(('create', [{
-                    'use': 'official',
-                    'given': given_name,
-                    'family': family_name,
-                    }]))
+                    if 'name' in values:
+                        given_name = values['name']
+                    if 'lastname' in values:
+                        family_name=values['lastname']
+                                        
+                    official_name.append(('create', [{
+                        'use': 'official',
+                        'given': given_name,
+                        'family': family_name,
+                        }]))
 
-                values['person_names'] = official_name
+                    values['person_names'] = official_name
                 
         return super(PartyPatient, cls).create(vlist)
 
