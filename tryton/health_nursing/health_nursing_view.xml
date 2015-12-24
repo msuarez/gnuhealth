@@ -18,7 +18,7 @@
         <record model="ir.ui.view" id="gnuhealth_rounding_view">
             <field name="model">gnuhealth.rounding_procedure</field>
             <field name="type">form</field>
-            <field name="name">gnuhealth_rounding</field>
+            <field name="name">gnuhealth_rounding_procedure</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_procedure_tree">
