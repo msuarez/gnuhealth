@@ -41,6 +41,10 @@ class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
             ('code', '=', 'gnuhealth.ambulatory_care')
         ]))
 
+    patient_rounding_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Health Rounding', domain=[
+            ('code', '=', 'gnuhealth.patient.rounding')
+        ]))
 
 # Class : PatientRounding
 # Assess the patient and evironment periodically
@@ -54,6 +58,7 @@ class PatientRounding(ModelSQL, ModelView):
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True, states=STATES)
+    code = fields.Char('Code',  states=STATES)
     health_professional = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional', readonly=True)
     evaluation_start = fields.DateTime('Start', required=True, states=STATES)
@@ -187,6 +192,19 @@ class PatientRounding(ModelSQL, ModelView):
             'signed_by': signing_hp,
             'evaluation_end': datetime.now()
             })
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('code'):
+                config = Config(1)
+                values['code'] = Sequence.get_id(
+                    config.patient_rounding_sequence.id)
+        return super(PatientRounding, cls).create(vlist)
 
 
     @classmethod

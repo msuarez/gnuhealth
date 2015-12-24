@@ -2,15 +2,19 @@
 <form string="Patient Rounding View">
     <notebook>
         <page string="Main" id="rounding_main">
-            <group colspan="2" id="group_admin_data">
+            <group colspan="2" col="8" id="group_admin_data">
                 <label name="name"/>
                 <field name="name"/>
                 <label name="health_professional"/>
                 <field name="health_professional"/>
                 <label name="evaluation_start"/>
                 <field name="evaluation_start"/>
-                <label name="evaluation_end"/>
-                <field name="evaluation_end"/>
+                <label name="code"/>
+                <field name="code"/>
+                <newline/>
+            </group>
+            <newline/>
+            <group colspan="4" id="group_environment_data">
                 <label name="environmental_assessment"/>
                 <field name="environmental_assessment"/>
                 <label name="warning"/>
@@ -60,18 +64,20 @@
                 <field name="glycemia"/>
                 <label name="depression"/>
                 <field name="depression"/>
-                <label name="evolution"/>
-                <field name="evolution"/>
             </group>
             <newline/>
             <separator string="Round summary" id="separator_round_summary"/>
             <newline/>
             <field name="round_summary"/>
             <newline/>
-            <group colspan="4" col="10" id="group_patient_rounding_footer">            
+            <group colspan="4" col="12" id="group_patient_rounding_footer">            
                 <field name="state"/>
+                <label name="evaluation_end"/>
+                <field name="evaluation_end"/>
                 <label name="signed_by"/>
                 <field name="signed_by"/>
+                <label name="evolution"/>
+                <field name="evolution"/>
                 <button name="end_rounding" help="End this rounding" string="End rounding" icon="tryton-go-next" confirm="End this rounding ?"/>
             </group>
 
