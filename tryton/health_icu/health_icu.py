@@ -509,35 +509,38 @@ class PatientRounding(ModelSQL, ModelView):
     # Nursing Rounding for ICU
     # Inherit and append to the existing model the new functionality for ICU
 
-    'Patient Rounding'
     __name__ = 'gnuhealth.patient.rounding'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
-    'an Intensive Care Unit rounding.')
+    'an Intensive Care Unit rounding.', states=STATES)
     # Neurological assesment
     gcs = fields.Many2One('gnuhealth.icu.glasgow', 'GCS',
-        domain=[('name', '=', Eval('name'))], depends=['name'],)
+        domain=[('name', '=', Eval('name'))], depends=['name'],states=STATES)
 
     pupil_dilation = fields.Selection([
         ('normal', 'Normal'),
         ('miosis', 'Miosis'),
         ('mydriasis', 'Mydriasis')],
-        'Pupil Dilation', sort=False)
+        'Pupil Dilation', sort=False, states=STATES)
 
-    left_pupil = fields.Integer('L', help="size in mm of left pupil")
-    right_pupil = fields.Integer('R', help="size in mm of right pupil")
+    left_pupil = fields.Integer('L', help="size in mm of left pupil",
+        states=STATES)
+    right_pupil = fields.Integer('R', help="size in mm of right pupil",
+        states=STATES)
 
-    anisocoria = fields.Boolean('Anisocoria')
+    anisocoria = fields.Boolean('Anisocoria', states=STATES)
 
     pupillary_reactivity = fields.Selection([
         (None, ''),
         ('brisk', 'Brisk'),
         ('sluggish', 'Sluggish'),
         ('nonreactive', 'Nonreactive')],
-        'Pupillary Reactivity', sort=False)
+        'Pupillary Reactivity', sort=False, states=STATES)
 
     pupil_consensual_resp = fields.Boolean('Consensual Response',
-        help="Pupillary Consensual Response")
+        help="Pupillary Consensual Response", states=STATES)
 
     # Respiratory assesment
     # Mechanical ventilation information is on the patient ICU general info
@@ -549,32 +552,33 @@ class PatientRounding(ModelSQL, ModelView):
         ('shallow', 'Shallow'),
         ('labored', 'Labored'),
         ('intercostal', 'Intercostal')],
-        'Respiration', sort=False)
+        'Respiration', sort=False, states=STATES)
 
-    oxygen_mask = fields.Boolean('Oxygen Mask')
-    fio2 = fields.Integer('FiO2')
+    oxygen_mask = fields.Boolean('Oxygen Mask', states=STATES)
+    fio2 = fields.Integer('FiO2', states=STATES)
 
-    peep = fields.Boolean('PEEP')
+    peep = fields.Boolean('PEEP', states=STATES)
 
     peep_pressure = fields.Integer('cm H2O', help="Pressure", states={
             'invisible': Not(Bool(Eval('peep'))),
             'required': Bool(Eval('peep')),
+            'readonly': Eval('state') == 'done',
             },
         depends=['peep'])
 
-    sce = fields.Boolean('SCE', help="Subcutaneous Emphysema")
-    lips_lesion = fields.Boolean('Lips lesion')
-    oral_mucosa_lesion = fields.Boolean('Oral mucosa lesion')
+    sce = fields.Boolean('SCE', help="Subcutaneous Emphysema",states=STATES)
+    lips_lesion = fields.Boolean('Lips lesion',states=STATES)
+    oral_mucosa_lesion = fields.Boolean('Oral mucosa lesion', states=STATES)
 
     # Chest expansion characteristics
     chest_expansion = fields.Selection([
         (None, ''),
         ('symmetric', 'Symmetrical'),
         ('asymmetric', 'Asymmetrical')],
-        'Expansion', sort=False)
+        'Expansion', sort=False, states=STATES)
     paradoxical_expansion = fields.Boolean('Paradoxical',
-        help="Paradoxical Chest Expansion")
-    tracheal_tug = fields.Boolean('Tracheal Tug')
+        help="Paradoxical Chest Expansion", states=STATES)
+    tracheal_tug = fields.Boolean('Tracheal Tug', states=STATES)
 
     # Trachea position
     trachea_alignment = fields.Selection([
@@ -582,48 +586,49 @@ class PatientRounding(ModelSQL, ModelView):
         ('midline', 'Midline'),
         ('right', 'Deviated right'),
         ('left', 'Deviated left')],
-        'Tracheal alignment', sort=False)
+        'Tracheal alignment', sort=False, states=STATES)
 
     # Chest Drainages
     chest_drainages = fields.One2Many('gnuhealth.icu.chest_drainage',
-        'name', "Drainages")
+        'name', "Drainages", states=STATES)
 
     # Chest X-Ray
-    xray = fields.Binary('Xray')
+    xray = fields.Binary('Xray', states=STATES)
 
     # Cardiovascular assessment
 
     ecg = fields.Many2One('gnuhealth.patient.ecg', 'Inpatient ECG',
         domain=[('inpatient_registration_code', '=', Eval('name'))],
-        depends=['name'],)
+        depends=['name'],states=STATES)
 
     venous_access = fields.Selection([
         (None, ''),
         ('none', 'None'),
         ('central', 'Central catheter'),
         ('peripheral', 'Peripheral')],
-        'Venous Access', sort=False)
+        'Venous Access', sort=False, states=STATES)
 
     swan_ganz = fields.Boolean('Swan Ganz',
-        help="Pulmonary Artery Catheterization - PAC -")
+        help="Pulmonary Artery Catheterization - PAC -", states=STATES)
 
-    arterial_access = fields.Boolean('Arterial Access')
+    arterial_access = fields.Boolean('Arterial Access', states=STATES)
 
-    dialysis = fields.Boolean('Dialysis')
+    dialysis = fields.Boolean('Dialysis', states=STATES)
 
     edema = fields.Selection([
         (None, ''),
         ('none', 'None'),
         ('peripheral', 'Peripheral'),
         ('anasarca', 'Anasarca')],
-        'Edema', sort=False)
+        'Edema', sort=False, states=STATES)
 
     # Blood & Skin
-    bacteremia = fields.Boolean('Bacteremia')
-    ssi = fields.Boolean('Surgery Site Infection')
-    wound_dehiscence = fields.Boolean('Wound Dehiscence')
-    cellulitis = fields.Boolean('Cellulitis')
-    necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis')
+    bacteremia = fields.Boolean('Bacteremia', states=STATES)
+    ssi = fields.Boolean('Surgery Site Infection', states=STATES)
+    wound_dehiscence = fields.Boolean('Wound Dehiscence', states=STATES)
+    cellulitis = fields.Boolean('Cellulitis', states=STATES)
+    necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis',
+        states=STATES)
 
     # Abdomen & Digestive
 
@@ -632,7 +637,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('none', 'None'),
         ('vomiting', 'Vomiting'),
         ('hematemesis', 'Hematemesis')],
-        'Vomiting', sort=False)
+        'Vomiting', sort=False, states=STATES)
 
     bowel_sounds = fields.Selection([
         (None, ''),
@@ -640,7 +645,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('increased', 'Increased'),
         ('decreased', 'Decreased'),
         ('absent', 'Absent')],
-        'Bowel Sounds', sort=False)
+        'Bowel Sounds', sort=False, states=STATES)
 
     stools = fields.Selection([
         (None, ''),
@@ -648,9 +653,9 @@ class PatientRounding(ModelSQL, ModelView):
         ('constipation', 'Constipation'),
         ('diarrhea', 'Diarrhea'),
         ('melena', 'Melena')],
-        'Stools', sort=False)
+        'Stools', sort=False, states=STATES)
 
-    peritonitis = fields.Boolean('Peritonitis signs')
+    peritonitis = fields.Boolean('Peritonitis signs', states=STATES)
 
     @fields.depends('left_pupil', 'right_pupil')
     def on_change_with_anisocoria(self):
