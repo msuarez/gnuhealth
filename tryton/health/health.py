@@ -550,7 +550,7 @@ class PartyPatient (ModelSQL, ModelView):
             #add new PersonName record with the given and family name
             #as the official name
             
-            if (values['is_person']):
+            if (values.get('is_person')):
                 if ('name' in values) or ('lastname' in values):
                     official_name = []
                     given_name = family_name= ''
