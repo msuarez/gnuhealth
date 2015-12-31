@@ -330,7 +330,7 @@ relink_mods()
     if [ ${NEED_DELETE} -eq 1 ]; then
         local TRYTON_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond_*`
         for mod in ${TRYTON_MODS}; do
-            local modname=`echo ${mod} | cut -d'-' -f1`
+            local modname=`echo ${mod} | cut -d'-' -f1 | cut -d'_' -f2-`
             cli_msg "INFO" "Relinking : ${mod}"
             ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/${modname} || exit 1
         done
