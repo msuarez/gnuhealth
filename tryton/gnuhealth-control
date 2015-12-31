@@ -186,7 +186,14 @@ do_backup()
 
 check_status()
 {
-  get_current_values
+    local TRYTOND_PIDS=`pgrep -f trytond`
+    if [ $TRYTOND_PIDS ]
+    then
+        cli_msg "INFO" "GNU Health / Tryton instance(s) with PID(s) :  ${TRYTOND_PIDS}"
+    else
+        cli_msg "INFO" "No GNU Health instance seems to be running"
+    fi
+
 }
 
 check_download_dir()
