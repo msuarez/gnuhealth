@@ -139,6 +139,7 @@ do_backup()
     local BACKDIR=""
     local DB=""
 
+
     shift # Remove the command and deal only with the options
     
     if [ $# -ne 4 ]; then
@@ -161,21 +162,28 @@ do_backup()
         exit 1
     fi
 
+
+    if [ ! -e ${BACKDIR} ]
+    then
+        cli_msg "ERROR" "Backup directory ${BACKDIR} not found !"
+        exit 1
+    fi
+
     touch $LOCKFILE
     
     # Backup start
 
     cli_msg "INFO" "START Database Backup" | tee -a $INFOFILE
     
-    pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || exit 1 
+    pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || bailout 
 
     cli_msg "INFO" "Compressing Database Backup" | tee -a $INFOFILE
 
-    gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || exit 1
+    gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || bailout
     
     cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee -a $INFOFILE
 
-    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || exit 1
+    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || bailout
 
     cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
 
@@ -374,7 +382,14 @@ do_update()
     remove_old
     relink_mods 
 }
-    
+
+bailout() {
+    cli_msg "ERROR"  "Bailing out !"
+    cli_msg "ERROR"  "Removing backup lock file"
+    rm -f $LOCKFILE
+    exit 1
+}
+
 parse_command_line()
 {
     if [ $# -eq 0 ]; then
