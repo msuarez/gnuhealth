@@ -62,9 +62,8 @@ __all__ = [
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 
     'BirthCertExtraInfo','DeathCertExtraInfo', 'DeathUnderlyingCondition',
     'InsurancePlan', 'Insurance', 'AlternativePersonID',
-    'ProductCategory', 'ProductTemplate', 'Product',
-    'GnuHealthSequences', 'PatientData', 'PatientDiseaseInfo',
-    'Appointment', 'AppointmentReport',
+    'Product', 'GnuHealthSequences', 'PatientData', 
+    'PatientDiseaseInfo','Appointment', 'AppointmentReport',
     'OpenAppointmentReportStart', 'OpenAppointmentReport',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
     'PatientVaccination','PatientEvaluation',
@@ -1795,23 +1794,6 @@ class MedicamentCategory(ModelSQL, ModelView):
     childs = fields.One2Many(
         'gnuhealth.medicament.category', 'parent', string='Children')
 
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        ModelData = pool.get('ir.model.data')
-        model_data = ModelData.__table__()
-        cursor = Transaction().cursor
-        super(MedicamentCategory, cls).__register__(module_name)
-
-        # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(*model_data.update(
-                [model_data.module],
-                [Overlay(model_data.module, 'health_who_essential_medicines',
-                        Position('health', model_data.module),
-                        len('health'))],
-                where=(model_data.fs_id.like('em%%')
-                    | (model_data.fs_id == 'medicament'))
-                & (model_data.module == module_name)))
 
     @classmethod
     def __setup__(cls):
@@ -1928,23 +1910,6 @@ class Medicament(ModelSQL, ModelView):
             return 'gnuhealth-warning'
 
         
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        ModelData = pool.get('ir.model.data')
-        model_data = ModelData.__table__()
-        cursor = Transaction().cursor
-        super(Medicament, cls).__register__(module_name)
-
-        # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(*model_data.update(
-                [model_data.module],
-                [Overlay(model_data.module, 'health_who_essential_medicines',
-                        Position('health', model_data.module),
-                        len('health'))],
-                where=model_data.fs_id.like('meds_em%%')
-                & (model_data.module == module_name)))
-
     def get_rec_name(self, name):
         return self.name.name
 
@@ -2660,53 +2625,6 @@ class DeathCertificate (ModelSQL, ModelView):
         else:
             return None
 
-class ProductCategory(ModelSQL, ModelView):
-    'Product Category'
-    __name__ = 'product.category'
-
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        ModelData = pool.get('ir.model.data')
-        model_data = ModelData.__table__()
-        cursor = Transaction().cursor
-        super(ProductCategory, cls).__register__(module_name)
-
-        # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(*model_data.update(
-                [model_data.module],
-                [Overlay(model_data.module, 'health_who_essential_medicines',
-                        Position('health', model_data.module),
-                        len('health'))],
-                where=model_data.fs_id.like('prod_medicament%%')
-                & (model_data.module == module_name)))
-
-
-class ProductTemplate(ModelSQL, ModelView):
-    'Product Template'
-    __name__ = 'product.template'
-
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        ModelData = pool.get('ir.model.data')
-        model_data = ModelData.__table__()
-        cursor = Transaction().cursor
-        super(ProductTemplate, cls).__register__(module_name)
-
-        # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(*model_data.update(
-                [model_data.module, model_data.fs_id],
-                [Overlay(model_data.module, 'health_who_essential_medicines',
-                        Position('health', model_data.module),
-                        len('health')),
-                    Overlay(model_data.fs_id, 'templ_em',
-                        Position('prod_em', model_data.fs_id),
-                        len('prod_em'))],
-                where=model_data.fs_id.like('prod_em%%')
-                & (model_data.module == module_name)
-                & (model_data.model == 'product.template')))
-
 
 class Product(ModelSQL, ModelView):
     'Product'
@@ -2722,24 +2640,6 @@ class Product(ModelSQL, ModelView):
         'Bed', help='Check if the product is a bed on the gnuhealth.center')
     is_insurance_plan = fields.Boolean(
         'Insurance Plan', help='Check if the product is an insurance plan')
-
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        ModelData = pool.get('ir.model.data')
-        model_data = ModelData.__table__()
-        cursor = Transaction().cursor
-        super(Product, cls).__register__(module_name)
-
-        # Upgrade from GNU Health 1.8.1: moved who essential medicines
-        cursor.execute(*model_data.update(
-                [model_data.module],
-                [Overlay(model_data.module, 'health_who_essential_medicines',
-                        Position('health', model_data.module),
-                        len('health'))],
-                where=model_data.fs_id.like('prod_em%%')
-                & (model_data.module == module_name)
-                & (model_data.model == 'product.product')))
 
     @classmethod
     def check_xml_record(cls, records, values):

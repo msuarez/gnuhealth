@@ -73,8 +73,6 @@ def register():
         InsurancePlan,
         Insurance,
         AlternativePersonID,
-        ProductCategory,
-        ProductTemplate,
         Product,
         GnuHealthSequences,
         PatientData,
