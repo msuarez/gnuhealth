@@ -7,8 +7,8 @@
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2015  Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2008-2015  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2016  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -30,12 +30,15 @@
 # Variables declaration
 #-----------------------------------------------------------------------------
 
+#GNU Health installer version
+VERSION="3.0.0"
+
 # Colors constants
 NONE="$(tput sgr0)"
 RED="$(tput setaf 1)"
 GREEN="$(tput setaf 2)"
 YELLOW="\n$(tput setaf 3)"
-BLUE="\n$(tput setaf 4)"
+WHITE="\n$(tput setaf 7)"
 
 # Params
 INSTDIR="$PWD"
@@ -58,10 +61,34 @@ message () {
     echo -e "${2}${NOW}${1}${NONE}"
 }
 
+help()
+{
+    cat << EOF
+
+This is GNU Health Setup ${VERSION}
+
+usage: `basename $0` command
+
+Command:
+ 
+  version : Show version
+  install  : Install a GNU Health server
+  help  : shows this message
+
+EOF
+    exit 0
+}
+
+show_version () {
+    case $1 in
+        version) message "[INFO] This is is GNU Health install v ${VERSION}" ${WHITE}; exit 0;;
+    esac
+
+}
 
 check_requirements() {
     # WGET command
-    message "[INFO] Checking requirements" ${BLUE}
+    message "[INFO] Checking requirements" ${WHITE}
     echo -n " -> Looking for wget... "
 
     if ! type wget 2>/dev/null ; then
@@ -80,7 +107,7 @@ check_requirements() {
     local PVERSION=$(python -V 2>&1 | grep 2.[7-9].[0-9])
 
     if test "${PVERSION}" ; then
-        message "[INFO] Found ${PVERSION}" ${BLUE}
+        message "[INFO] Found ${PVERSION}" ${WHITE}
     else
         python -V
         message "[ERROR] Found an Incompatible Python version." ${RED}
@@ -115,7 +142,14 @@ check_requirements() {
             message "[INFO] Running on GNU/LINUX" ${GREEN}
             OS="GNULINUX"
             # Check for GNU/Linux Distros
-            GNU_LINUX_DISTRO=$(lsb_release -i -s)
+            echo -n " -> Looking for lsb_release ... "
+            if ! type lsb_release 2>/dev/null ; then
+                message "[WARNING] lsb_release not found" ${YELLOW}
+
+            else
+                GNU_LINUX_DISTRO=$(lsb_release -i -s)
+            fi
+
             message "[INFO] GNU / Linux distro: $GNU_LINUX_DISTRO" ${GREEN}
             ;;
         *)
@@ -206,7 +240,7 @@ install_python_dependencies() {
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
     for PKG in ${PIP_PKGS}; do
-        message " >> ${PKG}" ${BLUE}
+        message " >> ${PKG}" ${WHITE}
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || bailout
         message " >> OK" ${GREEN}
     done
@@ -246,7 +280,7 @@ install_tryton_modules() {
     #
     # Download Tryton packages.
     #
-    message "[INFO] Changing to temporary directory." ${BLUE}
+    message "[INFO] Changing to temporary directory." ${WHITE}
     cd ${TMP_DIR} || bailout
 
     message "[INFO] Downloading the Tryton server..." ${YELLOW}
@@ -278,7 +312,7 @@ install_tryton_modules() {
     #
     # Links to modules.
     #
-    message "[INFO] Changing directory to <../trytond/modules>." ${BLUE}
+    message "[INFO] Changing directory to <../trytond/modules>." ${WHITE}
     local TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
     cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
 
@@ -328,7 +362,7 @@ install_tryton_modules() {
 
 bash_profile () {
 
-    message "[INFO] Creating or Updating the BASH profile for GNU Health" ${BLUE}
+    message "[INFO] Creating or Updating the BASH profile for GNU Health" ${WHITE}
 
     cd $INSTDIR
 
@@ -360,7 +394,7 @@ bash_profile () {
 
 serverpass () {
  
-    message "[INFO] Setting up your GNU Health Tryton master server password" ${BLUE}
+    message "[INFO] Setting up your GNU Health Tryton master server password" ${WHITE}
     source ${PROFILE}
     /usr/bin/env python ${UTIL_DIR}/serverpass.py || bailout
 }
@@ -369,26 +403,36 @@ serverpass () {
 cleanup() {
     message "[INFO] Cleaning Up..." ${YELLOW}
     rm -rf ${TMP_DIR} || bailout
-
     message "[INFO] OK." ${GREEN}
+
+    installation_ok
+}
+
+installation_ok() {
+    touch ${BASEDIR}/.installation_ok || bailout
+    message "[INFO] Installation of GNU Health version ${GNUHEALTH_VERSION} successful !" ${GREEN}
 }
 
 bailout() {
-    message "[INFO] Bailing out !" ${BLUE}
-    message "[INFO] Cleaning up temp directories at ${TMP_DIR}" ${BLUE}
+    message "[INFO] Bailing out !" ${WHITE}
+    message "[INFO] Cleaning up temp directories at ${TMP_DIR}" ${WHITE}
     rm -rf ${TMP_DIR}
-    message "[INFO] removind base dir at ${BASEDIR}" ${BLUE}
-    rm -rf ${BASEDIR}
- 
+    if [ -e ${BASEDIR}/.installation_ok ];then
+        message "[WARNING] Previous successful installation found. NOT removing base dir at ${BASEDIR}" ${YELLOW}
+    else
+        message "[INFO] removing base dir at ${BASEDIR}" ${WHITE}
+        rm -rf ${BASEDIR}
+    fi
     exit 1
 }
     
 #-----------------------------------------------------------------------------
-# Main
+# Install
 #-----------------------------------------------------------------------------
 
-main() {
-    message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${BLUE}
+install() {
+    
+    message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${WHITE}
 
     # (1) Check requirements.
     check_requirements
@@ -410,10 +454,26 @@ main() {
     
     # (7) Clean
     cleanup
-
-    message "[INFO] Installed successfully in ${BASEDIR}." ${BLUE}
 }
 
+#-----------------------------------------------------------------------------
+# Parse command line
+#-----------------------------------------------------------------------------
 
-main "$@"
+
+parse_command_line()
+{
+    if [ $# -eq 0 ]; then
+        help
+    fi
+    
+    case $1 in
+        version) show_version $@;;
+        install) install $@;;
+        help) help;;
+        *) echo $1: Unrecognized command; exit 1;;
+    esac
+}
+
+parse_command_line "$@"
 

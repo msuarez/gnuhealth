@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="1.0.0"
+VERSION="1.0.1"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
@@ -33,6 +33,8 @@ UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 usage()
 {
     cat << EOF
+
+This is GNU Health control center ${VERSION}
 
 usage: `basename $0` command [options]
 
@@ -59,7 +61,7 @@ help()
     The GNU Health Control Center (gnuhealth-control) is the main tool for 
     administrative tasks of the GNU Health environment.
     
-    It can perform backups and updates of the instance, ch
+    It can perform backups and updates of the instance
     
     Updates
     -------
