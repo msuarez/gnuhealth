@@ -132,10 +132,8 @@ class HealthServiceLine(ModelSQL, ModelView):
 
     @fields.depends('product', 'desc')
     def on_change_product(self, name=None):
-        res = {}
         if self.product:
-            res['desc'] = self.product.name
-        return res
+            self.desc = self.product.name
 
     @classmethod
     def write(cls, lines, vals):
