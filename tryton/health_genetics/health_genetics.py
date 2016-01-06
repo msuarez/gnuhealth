@@ -32,7 +32,7 @@ class DiseaseGene(ModelSQL, ModelView):
     __name__ = 'gnuhealth.disease.gene'
 
     name = fields.Char('Official Symbol', required=True,select=True)
-    long_name = fields.Char('Official Long Name', select=True)
+    long_name = fields.Char('Official Long Name', select=True, translate=True)
     gene_id = fields.Char('Gene ID',
         help="default code from NCBI Entrez database.", select=True)
     chromosome = fields.Char('Affected Chromosome',
