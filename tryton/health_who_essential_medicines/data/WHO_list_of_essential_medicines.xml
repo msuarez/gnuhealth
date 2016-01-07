@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
-<data skiptest="1" noupdate="1">
+<data skiptest="1" noupdate="0">
 
 <!-- Add list of products -->
 <record model="gnuhealth.medicament" id="meds_em1">
@@ -3027,6 +3027,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em353"/>
     <field name="active_component">BCG vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3035,6 +3036,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em354"/>
     <field name="active_component">cholera vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3043,6 +3045,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em355"/>
     <field name="active_component">diphtheria vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">N</field>
     <field name="notes"></field>
@@ -3051,6 +3054,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em356"/>
     <field name="active_component">hepatitis A vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3059,6 +3063,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em357"/>
     <field name="active_component">hepatitis B vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3067,6 +3072,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em358"/>
     <field name="active_component">Haemophilus influenzae type b vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3075,6 +3081,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em359"/>
     <field name="active_component">influenza vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3082,6 +3089,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
 <record model="gnuhealth.medicament" id="meds_em360">
     <field name="name" model="product.product" ref="prod_em360"/>
     <field name="active_component">Japanese encephalitis vaccine</field>
+    <field name="is_vaccine">1</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
     <field name="pregnancy_category">B</field>
     <field name="notes"></field>
@@ -3090,6 +3098,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em361"/>
     <field name="active_component">measles vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3098,6 +3107,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em362"/>
     <field name="active_component">meningococcal meningitis vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3106,6 +3116,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em363"/>
     <field name="active_component">mumps vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3114,6 +3125,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em364"/>
     <field name="active_component">pertussis vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3122,6 +3134,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em365"/>
     <field name="active_component">pneumococcal vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3130,6 +3143,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em366"/>
     <field name="active_component">poliomyelitis vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_category">B</field>
     <field name="notes"></field>
 </record>
@@ -3137,6 +3151,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em367"/>
     <field name="active_component">rabies vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3145,6 +3160,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em368"/>
     <field name="active_component">rotavirus vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3153,6 +3169,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em369"/>
     <field name="active_component">rubella vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3161,6 +3178,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em370"/>
     <field name="active_component">tetanus vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3169,6 +3187,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em371"/>
     <field name="active_component">typhoid vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3177,6 +3196,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em372"/>
     <field name="active_component">varicella vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
@@ -3185,6 +3205,7 @@ Powder for dilution in 200 ml; 500 ml; 1 L. </field>
     <field name="name" model="product.product" ref="prod_em373"/>
     <field name="active_component">yellow fever vaccine</field>
     <field name="category" model="gnuhealth.medicament.category" ref="em_19_3"/>
+    <field name="is_vaccine">1</field>
     <field name="pregnancy_warning">1</field>
     <field name="pregnancy_category">C</field>
     <field name="notes"></field>
