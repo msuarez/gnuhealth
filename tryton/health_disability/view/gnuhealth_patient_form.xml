@@ -22,7 +22,9 @@
 
     <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
         <page string="Functioning and Disability" id="patient_disability">
-            <group string="Disability Information" id="disability_barriers" colspan="4">
+            <group id="disability_barriers" colspan="4" yfill="1" yexpand="1">
+                <field name="disability_assesments" colspan="4"/>
+                <newline/>
                 <label name="amputee"/>
                 <field name="amputee"/>
                 <label name="amputee_since"/>
@@ -32,8 +34,6 @@
                 <newline/>
                 <field name="protheses" colspan="4"/>
             </group>
-            <newline/>
-            <field name="disability_assesments"/>
         </page>
     </xpath>
 
