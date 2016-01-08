@@ -1,0 +1,635 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.patient.ambulatory_care:"
+msgid "No health professional associated to this user"
+msgstr ""
+
+msgctxt "error:gnuhealth.patient.rounding:"
+msgid "No health professional associated to this user"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,comments:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Session"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.ambulatory_care_procedure,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,base_condition:"
+msgid "Condition"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,diastolic:"
+msgid "Diastolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evaluation:"
+msgid "Related Evaluation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Evolution"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Glycemia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,health_professional:"
+msgid "Health Professional"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,name:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,next_session:"
+msgid "Next Session"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,ordering_professional:"
+msgid "Requested by"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,procedures:"
+msgid "Procedures"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_end:"
+msgid "End"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_number:"
+msgid "Session #"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,session_start:"
+msgid "Start"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,signed_by:"
+msgid "Signed by"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
+msgid "State"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,systolic:"
+msgid "Systolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,warning:"
+msgid "Warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,warning_icon:"
+msgid "Warning Icon"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,bpm:"
+msgid "Heart Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,depression:"
+msgid "Depression signs"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,diastolic:"
+msgid "Diastolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,diuresis:"
+msgid "Diuresis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_end:"
+msgid "End"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,evaluation_start:"
+msgid "Start"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,evolution:"
+msgid "Evolution"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,glycemia:"
+msgid "Glycemia"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,health_professional:"
+msgid "Health Professional"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,name:"
+msgid "Registration Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,pain:"
+msgid "Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,pain_level:"
+msgid "Pain"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,personal_needs:"
+msgid "Personal needs"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,position:"
+msgid "Position"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,potty:"
+msgid "Potty"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,procedures:"
+msgid "Procedures"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,proximity:"
+msgid "Proximity"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,pump:"
+msgid "Pumps"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,report_end_date:"
+msgid "End Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,report_end_time:"
+msgid "End Time"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,report_start_date:"
+msgid "Start Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,report_start_time:"
+msgid "Start Time"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,round_summary:"
+msgid "Round Summary"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,signed_by:"
+msgid "Signed by"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,state:"
+msgid "State"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,systolic:"
+msgid "Systolic Pressure"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,urinary_catheter:"
+msgid "Urinary Catheter"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,warning:"
+msgid "Warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,warning_icon:"
+msgid "Warning Icon"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,weight:"
+msgid "Weight"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,name:"
+msgid "Rounding"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,procedure:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.rounding_procedure,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,ambulatory_care_sequence:"
+msgid "Health Ambulatory Care"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,patient_rounding_sequence:"
+msgid "Health Rounding"
+msgstr ""
+
+msgctxt "help:gnuhealth.ambulatory_care_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,glycemia:"
+msgid "Blood Glucose level"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,procedures:"
+msgid ""
+"List of the procedures in this session. Please enter the first one as the "
+"main procedure"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,signed_by:"
+msgid "Health Professional that signed the session"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,temperature:"
+msgid "Temperature in celsius"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ambulatory_care,warning:"
+msgid ""
+"Check this box to alert the supervisor about this session. A warning icon "
+"will be shown in the session list"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,bpm:"
+msgid "Heart rate expressed in beats per minute"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,depression:"
+msgid "Check this if the patient shows signs of depression"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,diuresis:"
+msgid "volume in ml"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,environmental_assessment:"
+msgid "Environment assessment . State any disorder in the room."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,evolution:"
+msgid "Check your judgement of current patient condition"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,glycemia:"
+msgid "Blood Glucose level"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,osat:"
+msgid "Oxygen Saturation(arterial)."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,pain:"
+msgid "Check if the patient is in pain"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,pain_level:"
+msgid "Enter the pain level, from 1 to 10"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,personal_needs:"
+msgid "Check if the patient requests anything"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,position:"
+msgid "Check if the patient needs to be repositioned or is unconfortable"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,potty:"
+msgid "Check if the patient needs to urinate / defecate"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,procedures:"
+msgid ""
+"List of the procedures in this rounding. Please enter the first one as the "
+"main procedure"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,proximity:"
+msgid "Check if personal items, water, alarm, ... are not in easy reach"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,pump:"
+msgid "Check if there is any issues with the pumps - IVs ... "
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,respiratory_rate:"
+msgid "Respiratory rate expressed in breaths per minute"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,signed_by:"
+msgid "Health Professional that signed the rounding"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,temperature:"
+msgid "Temperature in celsius"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,warning:"
+msgid ""
+"Check this box to alert the supervisor about this patient rounding. A "
+"warning icon will be shown in the rounding list"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.rounding,weight:"
+msgid "Measured weight, in kg"
+msgstr ""
+
+msgctxt "help:gnuhealth.rounding_procedure,procedure:"
+msgid "Procedure Code, for example ICD-10-PCS Code 7-character string"
+msgstr ""
+
+msgctxt "model:gnuhealth.ambulatory_care_procedure,name:"
+msgid "Ambulatory Care Procedure"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.ambulatory_care,name:"
+msgid "Patient Ambulatory Care"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.rounding,name:"
+msgid "Patient Rounding"
+msgstr ""
+
+msgctxt "model:gnuhealth.rounding_procedure,name:"
+msgid "Rounding - Procedure"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_ambulatory_care_view"
+msgid "Ambulatory Care"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_rounding_view"
+msgid "Roundings"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_round_nursing"
+msgid "Nursing rounds"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_patient_rounding"
+msgid "Patient Rounding"
+msgstr ""
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_ambulatory_care"
+msgid "Ambulatory Care"
+msgstr ""
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_patient_rounding"
+msgid "Patient Rounding"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_nursing_menu"
+msgid "Nursing"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_ambulatory_care_list"
+msgid "Ambulatory Care"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_rounding_list"
+msgid "Roundings"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_nursing"
+msgid "Health Nursing"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_nursing_admin"
+msgid "Health Nursing Administration"
+msgstr ""
+
+msgctxt "model:res.user,name:user_demo_nurse"
+msgid "Health Nurse"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Improving"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Initial"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Status Quo"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,evolution:"
+msgid "Worsening"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "Done"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+msgid "In Progress"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Improving"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Status Quo"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,evolution:"
+msgid "Worsening"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "Done"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,state:"
+msgid "In Progress"
+msgstr ""
