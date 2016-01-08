@@ -1,294 +1,340 @@
-# 
-# Translators:
-# Philip Li <Horatii.Lee@gmail.com>, 2014
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:57+0000\n"
-"Last-Translator: Philip Li <Horatii.Lee@gmail.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "Bug traps"
-msgstr "虫子陷阱"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_date:"
 msgid "Create Date"
-msgstr "创建日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_uid:"
 msgid "Create User"
-msgstr "创建用户"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Floor"
-msgstr "底"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri-domicilary"
-msgstr "宿养地领域"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof"
-msgstr "屋顶"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du:"
 msgid "DU"
-msgstr "脱氧尿苷"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "Fumigation"
-msgstr "熏蒸"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_paint:"
 msgid "Insecticide Paint"
-msgstr "杀虫药物涂抹"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_status:"
 msgid "Status"
-msgstr "状况"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dwall:"
 msgid "Walls"
-msgstr "壁"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Fumigation Date"
-msgstr "熏蒸日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,name:"
 msgid "Survey Code"
-msgstr "测量编码"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,next_survey_date:"
 msgid "Next survey"
-msgstr "下次测量"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Nymphs"
-msgstr "幼虫"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,observations:"
 msgid "Observations"
-msgstr "意见"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Paint Date"
-msgstr "涂抹日期 "
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,rec_name:"
 msgid "Name"
-msgstr "名字"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,survey_date:"
 msgid "Date"
-msgstr "日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Domiciliary"
-msgstr "家庭式"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Peri-Domiciliary"
-msgstr "临近家庭"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Triatomines"
-msgstr "锥虫:一种虫子"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr " 载体"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_date:"
 msgid "Write Date"
-msgstr "请您写日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_uid:"
 msgid "Write User"
-msgstr "请您写用户"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,chagas_du_survey_sequence:"
 msgid "Chagas Survey Sequence"
-msgstr "查加斯病调查序列"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "The DU has traps to detect triatomines"
-msgstr "通过脱氧尿苷有办法可以检测出 triatomines（南美锥虫病）这种病"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Current floor can host triatomines"
-msgstr "当前的地板会携带triatomines这种虫子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri domiciliary area can host triatomines"
-msgstr "宿养地领域会滋生triatomines这种虫子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof materials or state can host triatomines"
-msgstr "屋顶墙壁或者屋顶周围状况会滋生triatomines这种虫子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr "家庭单元"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
-msgstr "十二指肠已经被熏蒸"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_paint:"
 msgid "The DU has been treated with insecticide-containing paint"
-msgstr "脱氧尿苷必须做消虫处理。"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_status:"
 msgid "DU status compared to last visit"
-msgstr "脱氧尿苷与上次访问对比的状态"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dwall:"
 msgid "Wall materials or state can host triatomines"
-msgstr "墙壁材料或者墙壁周围状况会滋生triatomines这种虫子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Last Fumigation Date"
-msgstr "上次熏蒸日期"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Check this box if triatomine nymphs were found"
-msgstr "如果发现 triatomine就检查这个盒子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Last Paint Date"
-msgstr "上次涂抹日期"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Check this box if triatomines were found inside the house"
-msgstr "如果发现幼虫在房子里就检查这个盒子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Check this box if triatomines were found in the peridomiciliary area"
-msgstr "如果发现幼虫在宿养地领域的周围就检查这个盒子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Check this box if triatomines were found"
-msgstr "如果发现 triatomines就检查这个盒子"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr " 载体"
+msgstr ""
 
 msgctxt "model:gnuhealth.chagas_du_survey,name:"
 msgid "Chagas DU Entomological Survey"
-msgstr "查拉斯脱氧尿苷昆虫学的调查"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_bsmear_trypomastigotes"
+msgid "Trypomastigotes"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igg"
+msgid "Chagas ELISA Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igm"
+msgid "Chagas ELISA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ifa_igg"
+msgid "Chagas IFA Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ifa_igm"
+msgid "Chagas IFA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_parasites"
+msgid "T. cruzi in triatomine excreta"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qpcr"
+msgid "Chagas Realtime Quantitative qPCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_pcr"
+msgid "Chagas Qualitative PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_strout_trypomastigotes"
+msgid "Trypomastigotes"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_bsmear_analysis0"
+msgid "CHAGAS BLOOD SMEAR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_elisa_analysis0"
+msgid "CHAGAS ELISA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_ifa_analysis0"
+msgid "CHAGAS INDIRECT IMMUNOFLUORESCENCE - IFA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_pcr_analysis0"
+msgid "CHAGAS PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_strout_analysis0"
+msgid "CHAGAS STROUT"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_xenodiagnosis_analysis0"
+msgid "CHAGAS XENODIAGNOSIS"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_chagas_du_survey_form"
 msgid "Chagas DU Survey"
-msgstr "查拉斯脱氧尿苷调查"
+msgstr ""
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_du_survey"
 msgid "Chagas DU Survey"
-msgstr "查拉斯脱氧尿苷调查"
+msgstr ""
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_du_survey"
 msgid "Chagas DU Survey"
-msgstr "查拉斯脱氧尿苷调查"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_bsmear_analysischarges0"
 msgid "Chagas Blood Smear Charges"
-msgstr "查加斯血液图片装载"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_elisa_analysischarges0"
 msgid "Chagas ELISA Ig Charges"
-msgstr "查加斯酶联免疫吸附试验攻膜复合物免疫球蛋白装载"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_ifa_analysischarges0"
 msgid "Chagas ifa Ig Charges"
-msgstr "查加斯免疫荧光测定免疫球蛋白开始"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_pcr_analysischarges0"
 msgid "Chagas PCR Charges"
-msgstr "查拉斯聚合酶链反应装载"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_strout_analysischarges0"
 msgid "Chagas strout Charges"
-msgstr "查加斯斯特劳特开始"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_xenodiagnosis_analysischarges0"
 msgid "Chagas Xenodiagnosis Charges"
-msgstr "查加斯宿主诊断法开始"
+msgstr ""
+
+msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Improved"
-msgstr "经过改善后"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Initial"
-msgstr "最初"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Unchanged"
-msgstr "未改变的"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Worsen"
-msgstr "恶化"
+msgstr ""
+
+msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "P. megistus"
-msgstr "锥猎蝽亚科"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "R. prolixus"
-msgstr "红猎蝽 属科"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. brasilensis"
-msgstr "t型巴西原虫"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. dimidiata"
-msgstr "t型瓢虫"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. infestans"
-msgstr "t型疫病"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Areas to Improve"
-msgstr "区域改善"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Chagas Domiciliary Unit Entomological Survey"
-msgstr "查格斯宿养处单位昆虫学的调查"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Chagas Domiciliary Unit Entomological Surveys"
-msgstr "查格斯宿养处单位昆虫学的调查"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Notes"
-msgstr "注意"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Presence of triatomines"
-msgstr " triatomines虫的存在"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Preventive Measures"
-msgstr "预防措施"
+msgstr ""
