@@ -1,54 +1,38 @@
-# 
-# Translators:
-# Isabel Ruiz, 2014
-# Iván López Pérez <ioloo00@eresmas.com>, 2014
-# Joan <joansaltod@gmail.com>, 2014
-# axolotl <trad.iztacala@xoxy.net>, 2014
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2014-12-20 00:18+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-190"
 msgid "APGAR SCORING OF NEWBORN, WITHOUT OTHER INITIAL MEDICAL EVALUATION"
-msgstr "Test de APGAR para recién nacido, sin otra evaluación médica previa"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-191"
 msgid "INITIAL MEDICAL EVALUATION OF NEWBORN WITHOUT APGAR SCORING"
-msgstr "Evaluación médica inicial de recién nacido sin test de APGAR"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-192"
 msgid "APGAR SCORING WITH OTHER MEDICAL EVALUATION OF NEWBORN"
-msgstr "Test de APGAR con otra evaluación médica de recién nacido"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-193"
 msgid "RECORDING OF BIRTHWEIGHT"
-msgstr "Registro de peso al nacer"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-194"
 msgid "RECORDING OF CROWN-HEEL  LENGTH"
-msgstr "Registro de longitud craneocaudal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-195"
 msgid "RECORDING OF OTHER NEWBORN MEASUREMENTS"
-msgstr "Registro de otras medidas del recién nacido"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-198"
 msgid "SUBSEQUENT CARE OF HEALTHY NEWBORN"
-msgstr "Cuidados subsecuentes del recién nacido sano"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-199"
 msgid "NOT OTHERWISE SPECIFIED"
-msgstr "MIENTRAS NO SE ESPECIFIQUE LO CONTRARIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-200"
 msgid "SENSORY MAPPING AND TESTING (EXCLUDES AUDITORY(1-23), VISUAL (1-21)"
@@ -56,47 +40,47 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-201"
 msgid "CLINICAL REFLEX TESTING"
-msgstr "Prueba de reflejo clínico"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-202"
 msgid "TENDON REFLEX TIME RECORDING"
-msgstr "Registro de tiempo de reflejo tendinoso"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-203"
 msgid "NERVE CONDUCTION TESTING"
-msgstr "Prueba de conducción nerviosa"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-204"
 msgid "DETERMINATION OF PAIN THRESHOLD"
-msgstr "Determinación del umbral de dolor"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-205"
 msgid "MUSCLE POWER TESTING"
-msgstr "Prueba de poder muscular"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-206"
 msgid "EXAMINATION OF CEREBROSPINAL FLUID"
-msgstr "Examinación de fluido cerebrospinal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-207"
 msgid "ELECTROENCEPHALOGRAPHY"
-msgstr "Electroencefalografía"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-209"
 msgid "OTHER INSTRUMENTAL NEUROLOGICAL EXAMINATION"
-msgstr "Otro examen neurológico instrumental"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-210"
 msgid "PERIMETRY, COLOR FIELDS AND VISUAL FIELDS"
-msgstr "Perimetría, campos de color y visuales"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-211"
 msgid "VISUAL ACUITY , READING TEST"
-msgstr "Agudeza visual, prueba de lectura"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-212"
 msgid "VISUAL ACUITY OF INFANTS AND ILLITERATES"
-msgstr "Agudeza visual de infantes y analfabetas"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-213"
 msgid "EIKONOMETRIC EXAMINATION, PRESECRIPTION OF ANISEIKONIC LENSES"
@@ -108,15 +92,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-215"
 msgid "COLOR VISION TESTING"
-msgstr "Prueba de visión a color"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-216"
 msgid "OCULAR MUSCLE BALANCE TESSTING"
-msgstr "Prueba de balance de músculo ocular"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-220"
 msgid "OPTHALMOLOGY, FUNDUSCOPY"
-msgstr "BIOPSIA DE LA CONJUNTIVA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-221"
 msgid "SLIT LAMP EXAMINATION"
@@ -124,7 +108,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-224"
 msgid "MEASUREMENT OF CURVATURE OF EYE"
-msgstr "Medición de curvatura del ojo"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-232"
 msgid "CLINICAL TESTS OF HEARING, TUNING FORK TESTS, WHISPERED SPEECH"
@@ -132,7 +116,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-240"
 msgid "ROUTINE OTOSCOPY, AUROSCOPY"
-msgstr "Otoscopia de rutina, auroscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-241"
 msgid "MAGNIFYING OTOSCOPY"
@@ -140,23 +124,23 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-242"
 msgid "OTHER INSTRUMENTAL EXAMINATION OF EAR"
-msgstr "Otra examinación instrumental del oído"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-243"
 msgid "RHINOSCOPY"
-msgstr "Rinoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-244"
 msgid "TRANSILLUMINATION OF ANTRUM"
-msgstr "Transiluminación del antrum"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-245"
 msgid "OTHER EXAMINATIN OF NOSE"
-msgstr "Otra examinación de la nariz"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-246"
 msgid "OTHER INSTRUMENTAL EXAMINATION OF THROAT"
-msgstr "Otra examinación instrumental de la garganta"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-249"
 msgid ""
@@ -165,15 +149,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-270"
 msgid "JUGULAR VEIN CATHERIZATION"
-msgstr "Caterización de vena yugular"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-271"
 msgid "INFERIOR VENA CAVA CATHERIZATION"
-msgstr "Caterización de vena cava inferior"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-272"
 msgid "CENTRAL VENOUS PRESSURE (CVP) MEASUREMENT"
-msgstr "Medida de Presión Central Venosa (CVP)"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-273"
 msgid "INTRAVENOUS CATHERIZATION OF HEART, CARDIAC CATHERIZATION, UNQUALIFIED"
@@ -181,7 +165,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-274"
 msgid "TRANSEPTAL CARDIAC CATHERIZATION"
-msgstr "Caterización cardiaca transeptal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-275"
 msgid "RETROGRADE CATHERIZATION OF LEFT HEART"
@@ -189,11 +173,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-276"
 msgid "MYOCARDIAL OXYGEN CONSUMPTION"
-msgstr "Consumo de oxígeno del miocardio"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-278"
 msgid "OTHER CATHERIZATION OF HEART"
-msgstr "Otras caterizaciones cardíacas "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-279"
 msgid "OTHER DIAGNOSTIC CATHERIZATION OF VESSELS"
@@ -201,7 +185,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-300"
 msgid "DENTAL EXAMINATION"
-msgstr "Examinación dental"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-301"
 msgid "DMF (DISEASED, MISSING, FILLED) CHARTING"
@@ -213,11 +197,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-304"
 msgid "BUCCAL EXAMINATION WITH FINGER"
-msgstr "Examen bucal con dedo"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-309"
 msgid "OTHER EXAMINATION OF ORAL CAVITY"
-msgstr "Otra examinación de la cavidad oral"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-310"
 msgid "PHARYNGEAL EXAMINATION WITH FINGER"
@@ -237,11 +221,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-320"
 msgid "DIGITAL EXAMINATION OF RECTUM"
-msgstr "Examinación digital del recto"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-321"
 msgid "ELECTROGASTROGRAM"
-msgstr "Electrogastrograma"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-322"
 msgid "STOMAL CALIBRATION"
@@ -249,7 +233,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-329"
 msgid "OTHER INSTRUMENTAL EXAMINATION OF GASTROINTESTINAL TRACT"
-msgstr "Otra examinación instrumental del tracto gastrointestinal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-330"
 msgid "EVALUATION OF BLADDER SENSATION"
@@ -257,7 +241,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-331"
 msgid "RESIDUAL URINARY VOLUME"
-msgstr "Volumen residual urinario"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-332"
 msgid "DIAGNOSTIC CATHERIZATION OF BLADDER"
@@ -265,7 +249,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-333"
 msgid "CONTINUOUS FLOW CYSTOMETRY"
-msgstr "Cistometría de flujo continuo"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-334"
 msgid "OTHER CYSTOMETRY, AIR CYSTOMETRY AND CYSTOMETROGRAPHY"
@@ -273,15 +257,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-335"
 msgid "URETHRAL PRESSURE MEASUREMENT"
-msgstr "Medición de presión uretral"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-336"
 msgid "MEATAL CALIBRATION"
-msgstr "Calibración meatal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-339"
 msgid "OTHER INSTRUMENTAL EXAMINATION OF THE URINARY TRACT"
-msgstr "Otra examinación del tracto urinario"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-340"
 msgid "IN-DEPTH CLINICAL EXAMINATION OF MALE GENITAL ORGAN"
@@ -293,19 +277,19 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-349"
 msgid "OTHER INSTRUMENTAL EXAMINATION OF MALE GENITAL ORGAN"
-msgstr "Otra examinación instrumental del órgano genital masculino"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-350"
 msgid "INTERNAL CLINICAL GYNECOLOGICAL EXAMINATION "
-msgstr "Examen clínico ginecológico interno"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-351"
 msgid "ENDOCRINE ASSESSMENT, VAGINAL CYTOLOGY"
-msgstr "Valoración endocrina, citología vaginal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-352"
 msgid "ENDOCRINE ASSESSMENT, ENDOMETRIAL CYTOLOGY"
-msgstr "Valoración endocrina, citología endometrial"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-353"
 msgid "POSTCOITAL PLUG EXAMINATION FOR INFERTILITY"
@@ -313,11 +297,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-354"
 msgid "INTRAUTERINE PRESSURE MEASUREMENT"
-msgstr "Medición de presión intrauterina"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-355"
 msgid "PLACENTAL LOCALIZATION"
-msgstr "Localización placental"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-358"
 msgid ""
@@ -336,27 +320,27 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-361"
 msgid "MEASUREMENT OF LIMB LENGTHS"
-msgstr "Medición de longitud de extremidades"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-362"
 msgid "MEASUREMENT OF RANGE OF MOVEMENT"
-msgstr "Medición de rango de movimiento"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-363"
 msgid "ELECTROMYOGRAPHY"
-msgstr "Electromiografía"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-369"
 msgid "OTHER INSTRUMETNAL MUSCULOSKETAL EXAMINATION"
-msgstr "Otra examinación instrumental musculoesquelética"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-370"
 msgid "SKIN TEMPERATURES MEASUREMENT"
-msgstr "Medición de temperatura de la piel"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-379"
 msgid "OTHER INSTRUMENTAL EXAMINATION"
-msgstr "Otra examinación instrumental"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-400"
 msgid "ADRENAL, PERCUTANEOUS BIOPSY"
@@ -376,11 +360,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-410"
 msgid "EXTERNAL EAR, BIOPSY"
-msgstr "Oído externo, biopsia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-411"
 msgid "BIOPSY OF EAR BY OTOSCOPY"
-msgstr "Biopsia del oído por otoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-412"
 msgid "SKIN OF EYELID OR EYEBROW, BIOPSY"
@@ -388,7 +372,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-413"
 msgid "CONJUNCTIVA, BIOPSY"
-msgstr "BIOPSIA DE LA CONJUNTIVA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-414"
 msgid "SKIN OF NOSE BY RHINOSCOPY"
@@ -396,15 +380,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-415"
 msgid "BIOPSY OF NOSE BY RHINOSCOPY"
-msgstr "Biopsia de nariz por rinoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-420"
 msgid "BIOPSY TO LARYNX"
-msgstr "Biopsia de la laringe"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-421"
 msgid "ORAL CAVITY, BIOPSY. TONNGUE AND PALATE"
-msgstr "BIOPSIA de la CAVIDAD ORAL. LENGUA Y PALADAR"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-422"
 msgid "TONSILS, FAUCES AND ADENOIDS, BIOPSY"
@@ -416,15 +400,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-425"
 msgid "BONE MARROW BIOPSY"
-msgstr "biopsia de médula osea"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-426"
 msgid "LYMPHATIC BIOPSY"
-msgstr "biopsia linfática"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-430"
 msgid "BIOPSY OF TRACHEA BY ENDOSCOPY"
-msgstr "biopsia de traquea por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-431"
 msgid "LUNG, PERCUTANEOUS BIOPSY"
@@ -432,35 +416,35 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-432"
 msgid "BIOPSY OF BRONCHUS BY ENDOSCOPY"
-msgstr "biopsia de bronquio por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-434"
 msgid "BIOPSY OF CHEST"
-msgstr "biopsia de pecho"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-440"
 msgid "BIOPSY OF ESOPHAGUS BY ENDOSCOPY"
-msgstr "biopsia de esófago por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-441"
 msgid "BIOPSY OF STOMACH BY ENDOSCOPY"
-msgstr "biopsia de estómago por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-442"
 msgid "DUODENAL CAPSULE BIOPSY"
-msgstr "biopsia de cápsula duodenal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-450"
 msgid "BIOPSY OF COLON BY ENDOSCOPY"
-msgstr "biopsia de colon por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-451"
 msgid "BIOPSY OF SIGMOID COLON BY ENDOSCOPY"
-msgstr "biopsia de colon sigmoide por endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-453"
 msgid "BIOPSY OF ANUS AND PERINANAL REGION"
-msgstr "biopsia de ano y región perianal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-454"
 msgid "LIVER, PERCUTANEOUS BIOPSY"
@@ -472,7 +456,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-461"
 msgid "BIOPSY OF URETER"
-msgstr "biopsia de ureter"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-462"
 msgid "BIOPSY OF BLADDER"
@@ -480,11 +464,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-463"
 msgid "BIOPSY OF THE PROSTATE"
-msgstr "Biopsia de la próstata"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-464"
 msgid "BIOPSY OF URETHRA"
-msgstr "biopsia de uretra"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-465"
 msgid "BIOPSY OF TESTIS, EPIDIDYMIS AND SPERMATIC CORD"
@@ -492,7 +476,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-466"
 msgid "BIOPSY OF PENIS"
-msgstr "BIOPSIA DE PENE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-470"
 msgid "OVARY, ASPIRATION BIOPSY"
@@ -528,19 +512,19 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-480"
 msgid "LIPS, BIOPSY"
-msgstr "BIOPSIA DE LABIOS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-481"
 msgid "ABDOMINAL WALL BIOPSY"
-msgstr "BIOPSIA de la PARED ABDOMINAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-482"
 msgid "BREAST BIOPSY (NON SURGICAL)"
-msgstr "BIOPSIA DE MAMA  (NO QUIRÚRGICA)"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-483"
 msgid "BIOPSY OF SKIN"
-msgstr "BIOPSIA DE PIEL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-484"
 msgid "BONE OR JOINT BIOPSY"
@@ -548,7 +532,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-499"
 msgid "BIOPSY UNQUALIFIED"
-msgstr "BIOPSIA SIN CALIFICACIÓN"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-500"
 msgid "SKIN AND SUBCAUTANEOUS TISSUE"
@@ -556,15 +540,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-501"
 msgid "BREAST  "
-msgstr "MAMA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-502"
 msgid "SURGICAL BIOPSY OF MUSCLE"
-msgstr "BIOPSIA QUIRÚRGICA DE MÚSCULO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-503"
 msgid "BONE BIOPSY"
-msgstr "BIOPSIA de HUESO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-504"
 msgid "BIOPSY OF JOINT (ARTHROTOMY"
@@ -572,15 +556,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-510"
 msgid "BIOPSY INTRACRANIAL TISSUE"
-msgstr "BIOPSIA DE TEJIDO INTRACRANEAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-511"
 msgid "INTRASPINAL BIOPSY"
-msgstr "BIOPSIA INTRAESPINAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-519"
 msgid "SURGICAL BIOPSY OF THE NERVE"
-msgstr "BIOPSIA QUIRÚRGICA DEL NERVIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-520"
 msgid "EYELID"
@@ -588,7 +572,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-521"
 msgid "CONJUNCTIVA"
-msgstr "CONJUNTIVA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-522"
 msgid "LACRIMINAL GLAND AND SAC"
@@ -596,15 +580,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-523"
 msgid "CORNEA"
-msgstr "Cornea"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-529"
 msgid "OTHER EYE BIOPSY"
-msgstr "Otra biopsia de ojo"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-530"
 msgid "EXTERNAL EAR, BIOPSY"
-msgstr "Biopsia externa de oido"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-531"
 msgid "EXTERNAL AUDITORY CANAL"
@@ -612,11 +596,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-532"
 msgid "EAR, OTHER"
-msgstr "Oido, otro"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-537"
 msgid "BIOPSY OF NOSE, INTERNAL"
-msgstr "biopsia de nariz, interna"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-538"
 msgid "SURGICAL BIOPSY OF NOSE, OTHER"
@@ -624,15 +608,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-540"
 msgid "LIP "
-msgstr "labio"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-541"
 msgid "TONGUE"
-msgstr "lengua"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-542"
 msgid "SALIVARY GLAND"
-msgstr "glandulas salivares"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-543"
 msgid "VESTIBULE OF MOUTH"
@@ -660,11 +644,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-550"
 msgid "DIAPHRAGM"
-msgstr "DIAFRAGMA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-551"
 msgid "BIOPSY OF LIVER"
-msgstr "Biopsia del hígado"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-552"
 msgid "EXTRAHEPATIC BILIARY SYSTEM"
@@ -672,7 +656,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-553"
 msgid "PANCREAS"
-msgstr "pancreas"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-554"
 msgid "SURGICAL BIOPSY OF STOMACH"
@@ -684,39 +668,39 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-556"
 msgid "SURGICAL BIOPSY OF COLON"
-msgstr "BIOPSIA QUIRÚRGICA DE COLON"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-557"
 msgid "SURGICAL BIOPSY OF THE RECTUM"
-msgstr "BIOPSIA QUIRÚRGICA DE RECTO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-558"
 msgid "ANUS"
-msgstr "ANO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-560"
 msgid "SURGICAL BIOPSY OF KIDNEY"
-msgstr "BIOPSIA QUIRÚRGICA DE KIDNEY"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-561"
 msgid "SURGICAL BIOPSY OF URETHRA"
-msgstr "BIOPSIA QUIRÚRGICA DE URETRA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-562"
 msgid "BIOPSY URINARY ORGANS"
-msgstr "BIOPSIA de ORGANOS URINARIOS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-563"
 msgid "PROSTATE"
-msgstr "PROSTATA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-564"
 msgid "PENIS"
-msgstr "PENE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-565"
 msgid "TESTIS"
-msgstr "TESTICULO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-566"
 msgid "SURGICABIOPSY OF THE PERINEU"
@@ -732,15 +716,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-572"
 msgid "BIOPSY OF VAGINA"
-msgstr "BIOPSIA DE VAGINA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-573"
 msgid "BIOPSY OF VULVA"
-msgstr "BIOPSIA DE VULVA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-574"
 msgid "BIOPSY OF PERINEUM, FEMALE"
-msgstr "BIOPSIA DE PERINEO, MUJER"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-580"
 msgid "SURGICAL BIOPSY OF THE PERICARARDIUM"
@@ -764,99 +748,99 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-586"
 msgid "LYMPH NODE BIOPSY"
-msgstr "Biopsia de nódulo linfático "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-599"
 msgid "SURGICAL BIOPSY"
-msgstr "BIOPSIA QUIRÚRGICA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-610"
 msgid "LARYNGOSCOPY"
-msgstr "LARINGOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-611"
 msgid "INDIRECT LARYNGOSCOPY"
-msgstr "LARINGOSCOPIA INDIRECTA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-612"
 msgid "DIRECT LARYNGOSCOPY"
-msgstr "LARINGOSCOPIA DIRECTA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-613"
 msgid "MICROLARYNGOSCOPY"
-msgstr "MICROLARINGOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-615"
 msgid "PHARYNGOSCOPY"
-msgstr "FARINGOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-620"
 msgid "BRONCHOSCOPY"
-msgstr "Broncoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-621"
 msgid "TRACHEOSCOPY"
-msgstr "TRAQUEOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-630"
 msgid "ESOPHAGOSCOPY"
-msgstr "ESOFAGOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-632"
 msgid "ESOPHAGOGASTROSCOPY"
-msgstr "ESOFAGOGASTROSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-633"
 msgid "GASTROSCOPY"
-msgstr "gastroscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-636"
 msgid "DUODENOSCOPY"
-msgstr "DUODENOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-641"
 msgid "COLONOSCOPY"
-msgstr "colonoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-642"
 msgid "SIGMOIDOSCOPY"
-msgstr "SIGMOIDOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-650"
 msgid "URETOSCOPY"
-msgstr "uteroscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-652"
 msgid "CYSTOSCOPY"
-msgstr "cistoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-653"
 msgid "PANENDOSCOPY"
-msgstr "PANENDOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-655"
 msgid "URETHROSCOPY"
-msgstr "URETROSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-660"
 msgid "HYSTEROSCOPY"
-msgstr "histeroscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-663"
 msgid "COLPOSCOPY"
-msgstr "COLPOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-679"
 msgid "OTHER SPECIFIED ENDOSCOPY"
-msgstr "otra endoscopia especificada"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-689"
 msgid "ENDOSCOPY"
-msgstr "endoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-691"
 msgid "THORASCOPY"
-msgstr "TORASCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-692"
 msgid "GASTROESOPHAGEAL ENDOSCOPY BY MEANS OF GASTRONOMY"
@@ -864,15 +848,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-694"
 msgid "LAPAROSCOPY"
-msgstr "laparoscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-695"
 msgid "ENTEROSCOPY"
-msgstr "ENTEROSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-697"
 msgid "ARTHROSCOPY"
-msgstr "artroscopia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-830"
 msgid "PROBING OF LACRIMAL SYSTEM"
@@ -888,7 +872,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-901"
 msgid "EXAMINATION UNDER ANESTHESIA"
-msgstr "examen bajo anestesia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-916"
 msgid "OTHER GENITAL SPECIMEN"
@@ -904,11 +888,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_2-906"
 msgid "ELECTRON MICROSCOPY OF TISSUES"
-msgstr "Microcopia electrónica de tejidos "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-193"
 msgid "RADIOGRAPHY OF MAMMARY GLAND"
-msgstr "radiografía de glándula mamaria"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-253"
 msgid "RETROGRADE PYELOGRAPHY"
@@ -916,7 +900,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-260"
 msgid "PANCREATOGRAPHY"
-msgstr "Pancreatografía "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-262"
 msgid "OPERATIVE AND POSTOPERATIVE CHOLECYT"
@@ -928,15 +912,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-309"
 msgid "ANGIOGRAPHY (NEC)"
-msgstr "Angiografía (NEC)"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-312"
 msgid "CORONARY ARTERY"
-msgstr "ARTERIA CORONARIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-338"
 msgid "OTHER ANGIOGRAPHY"
-msgstr "OTRA ANGIOGRAFÍA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-441"
 msgid "CT SCAN"
@@ -956,7 +940,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_3-613"
 msgid "ULTRASOUND OF ABDOMEN"
-msgstr "Ecografía abdominal "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_4-251"
 msgid "PAP SMEAR"
@@ -996,7 +980,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-021"
 msgid "REPAIR OF CEREBRAL MENINGES"
-msgstr "REPARACIÓN DE MENINGES CEREBRALES"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-022"
 msgid "VENTRICULOSTOMY"
@@ -1052,7 +1036,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-046"
 msgid "REPAIR OF NERVE"
-msgstr "REPARACIÓN DEL NERVIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-060"
 msgid "INCISION OF THROID FIELD"
@@ -1154,7 +1138,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-124"
 msgid "REPAIR OF CORNEA"
-msgstr "REPARACIÓN DE LA CORNEA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-125"
 msgid "KERATOPLASTY"
@@ -1186,11 +1170,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-139"
 msgid "EXPLORATION OF SCLERA"
-msgstr "EXPLORACIÓN DE LA ESCLERÓTICA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-141"
 msgid "LENS EXTRACTION"
-msgstr "EXTRACCIÓN DE LA LENTE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-143"
 msgid "DISCISSION OF LENS AND CAPSULO"
@@ -1198,7 +1182,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-144"
 msgid "LENS EXTRACTION"
-msgstr "EXTRACCIÓN DE LA LENTE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-145"
 msgid "EXTRA CAPSULAR EXTRACT OF LENS"
@@ -1210,7 +1194,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-147"
 msgid "LENS IMPLANTATION"
-msgstr "IMPLANTACIÓN DE LA LENTE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-149"
 msgid "MEMBRANECTOMY"
@@ -1226,7 +1210,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-154"
 msgid "REPAIR OF RETINA"
-msgstr "REPARACIÓN DE LA RETINA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-155"
 msgid "DESTRUCTION OF LESION OF RETINA"
@@ -1290,7 +1274,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-194"
 msgid "MYRINGOPLASTY"
-msgstr "Miringoplastia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-200"
 msgid "PARACENTHESIS OF TYMPANUM"
@@ -1302,7 +1286,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-203"
 msgid "MASTOIDECTOMY"
-msgstr "Masteidoctomía"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-204"
 msgid "POLYPECTOMY 0F MIDDLE EAR"
@@ -1342,7 +1326,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-217"
 msgid "RHINOPLASTY"
-msgstr "Rinoplastia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-219"
 msgid "FREEING NASAL ADHESIONS"
@@ -1406,7 +1390,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-254"
 msgid "SUTURE TONGUE"
-msgstr "SUTURA EN LENGUA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-258"
 msgid "FREEING OF TONGUE TIE"
@@ -1442,7 +1426,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-275"
 msgid "RECONSTRUCTION OF PALATE"
-msgstr "RECONSTRUCCIÓN DE PALADAR"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-279"
 msgid "OPERATION ON PALATE"
@@ -1498,11 +1482,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-313"
 msgid "EXPLORATION OF LARYNX"
-msgstr "EXPLORACIÓN DE LARINGE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-315"
 msgid "REPAIR OF LARYNX"
-msgstr "REPARACIÓN DE LARINGE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-316"
 msgid "TRACHEOPLASTY"
@@ -1594,7 +1578,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-392"
 msgid "FEMORAL ARTERY BYPASS"
-msgstr "BYPASS de ARTERIA FEMORAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-393"
 msgid "SUTURING OF BLOOD VESSELS"
@@ -1602,7 +1586,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-395"
 msgid "REPAIR OF ARTERY"
-msgstr "REPARACIÓN DE ARTERIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-399"
 msgid "OTHER OPERATIONS ON VESSEL"
@@ -1658,7 +1642,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-428"
 msgid "DILATION OF ESOPHAGUS"
-msgstr "DILATACIÓN DE ESÓFAGO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-430"
 msgid "GASTROTOMY"
@@ -1714,11 +1698,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-445"
 msgid "REPAIR OF STOMACH"
-msgstr "REPARACIÓN DE ESTÓMAGO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-450"
 msgid "EXPLORATION OF INTESTINE"
-msgstr "EXPLORACIÓN DE INTESTINO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-452"
 msgid "EXCISION OF DESTRUCTION OF LESION OF SMALL INTESTINE"
@@ -1766,7 +1750,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-464"
 msgid "REPAIR OF INTESTINAL STOMACH"
-msgstr "REPARACIÓN DE ESTOMAGO INTESTINAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-465"
 msgid "REMOVAL OF COLON"
@@ -1782,7 +1766,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-470"
 msgid "APPENDECTOMY"
-msgstr "APENDICECTOMÍA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-471"
 msgid "DRAINAGE OF APPENDIX ABSCESS"
@@ -1834,7 +1818,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-499"
 msgid "EXTRACTION OF FOREIGNBODY"
-msgstr "EXTRACCIÓN DE CUERPO EXTRAÑO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-500"
 msgid "DRAINAGE OF HEPATIC ABSCESS"
@@ -1878,7 +1862,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-530"
 msgid "HERNIA REPAIR"
-msgstr "REPARACIÓN de HERNIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-531"
 msgid "REPAIR OF HERNIA WITH GRAFT/PR"
@@ -1894,15 +1878,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-534"
 msgid "REPAIR OF HERNIA"
-msgstr "REPARACIÓN DE HERNIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-535"
 msgid "REPAIR OF HERNIA ABDOMINAL WALL"
-msgstr "REPARACIÓN DE HERNIA ABDOMINAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-536"
 msgid "REPAIR OF OTHER HERNIA"
-msgstr "REPARACIÓN DE OTRAS HERNIAS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-537"
 msgid "HEMIDIAPHRAM REPAIR"
@@ -1942,7 +1926,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-549"
 msgid "REPAIR MULTIPLE ABDOMINAL ORGAN"
-msgstr "REPARACIÓN DE MULTIPLES ORGANOS ABDOMINALES"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-550"
 msgid "NEPHROLITHOTOMY"
@@ -2156,15 +2140,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-642"
 msgid "AMPUTATION OF PENIS"
-msgstr "AMPUTACIÓN DEL PENE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-643"
 msgid "REPAIR OF PENIS"
-msgstr "REPARACIÓN DEL PENE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-649"
 msgid "OPERATION ON PENIS"
-msgstr "OPERACIÓN DEL PENE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-650"
 msgid "OOPHOROTOMY"
@@ -2192,7 +2176,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-656"
 msgid "REPAIR OF OVARY"
-msgstr "REPARACIÓN DE OVARIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-657"
 msgid "FREEING OF ADHESIONS OF OVARY AND FALLOPIAN TUBE"
@@ -2200,10 +2184,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-659"
 msgid "OTHER OPERATIONS ON OVARY"
-msgstr "OTRAS OPERACIONES EN OVARIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-660"
-msgid "SALPINGOTOY"
+msgid "SALPINGOTOMY"
 msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-661"
@@ -2228,7 +2212,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-666"
 msgid "REPAIR OF FALLOPIAN TUBE"
-msgstr "REPARACIÓN DE TROMPAS DE FALOPIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-667"
 msgid "INSUFFLATION OF FALLOPIAN TUBES"
@@ -2329,7 +2313,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-713"
 msgid "OPERATION ON CLITORIS"
-msgstr "OPERACIÓN EN CLITORIS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-714"
 msgid "RADICAL VULVECTOMY"
@@ -2369,7 +2353,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-730"
 msgid "ARTIFICIAL RUPTURE OF MEMBRANE"
-msgstr "RUPTURA ARTIFICIAL DE MEMBRANA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-738"
 msgid "EPISIOTOMY"
@@ -2565,7 +2549,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-813"
 msgid "REPAIR OF LIGAMENT"
-msgstr "REPARACIÓN DE LIGAMENTOS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-814"
 msgid "ARTHROPLASTY OF KNEE & CAPSULOPLASTY OR CHRONDROPLASTY"
@@ -2609,11 +2593,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-826"
 msgid "RECONSTRUCTION OF THUMB"
-msgstr "RECONSTRUCCIÓN DE PULGAR"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-828"
 msgid "REPAIR OF TENDON OF HAND"
-msgstr "REPARACIÓN DE TENDÓN DE MANO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-830"
 msgid "FASCIOTOMY"
@@ -2635,7 +2619,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-836"
 msgid "TEND0N TRANSPLANT"
-msgstr "TRASPLANTE DE TENDÓN"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-837"
 msgid "REPAIR OF ROTATOR CUFF TEAR"
@@ -2643,11 +2627,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-840"
 msgid "AMPUTATION OF FINGER"
-msgstr "AMPUTACIÓN DE DEDO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-841"
 msgid "AMPUTATION OF THUMB"
-msgstr "AMPUTACIÓN DE PULGAR"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-842"
 msgid "AMPUTATION OF FOREARM"
@@ -2771,7 +2755,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-890"
 msgid "SUTURE"
-msgstr "SUTURA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-892"
 msgid "SKIN GRAFT TO HAND"
@@ -2791,15 +2775,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-898"
 msgid "RECONSTRUCTION OF LIP"
-msgstr "RECONSTRUCCIÓN DE LABIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-899"
 msgid "OTHER REPAIR AND RECONSTRUCTION"
-msgstr "OTRAS REPARACIONES Y RECONSTRUCCCIONES"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-909"
 msgid "REIMPLANTATION"
-msgstr "REIMPLANTACIÓN"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-910"
 msgid "CORNEAL CAUTHERIZATION"
@@ -2823,11 +2807,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-980"
 msgid "SURGICAL OPERATIONS TO PRODUCE FEMALE STERILIZATION"
-msgstr "OPERACIONES QUIRÚRGICAS PARA PRODUCIR LA ESTERILIZACIÓN FEMENINA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-982"
 msgid "OTHER SURGICAL OPERATIONS FOR PREVENTIVE PURPOSES"
-msgstr "OTRAS OPERACIONES QUIRÚRGICAS PARA PROPÓSITOS PREVENTIVOS"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-994"
 msgid "OPERATION NOT COMPLETED (ABANDONED BEFORE ONSET)"
@@ -2835,11 +2819,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_5-995"
 msgid "OPERATION NOT COMPLETED (ABANDONED DURING PROGRESS OF OPERATION)"
-msgstr "OPERACIÓN NO COMPLETADA (ABANDONADA DURANTE EL PROGRESO DE LA OPERACIÓN)"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-101"
 msgid "REMOVAL OF FOREGN BODY FROM CONJUNCTIVIA OR CORNEA"
-msgstr "RETIRADA DE CUERPO EXTRAÑO DE LA CONJUNTIVA O CORNEA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-102"
 msgid "REMOVAL OF OBJECT FROM EYELID OR ORBIT"
@@ -2855,7 +2839,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-105"
 msgid "REMOVAL OF FOREIGN BODY BY LARYNGOSCOPY"
-msgstr "RETIRADA DE CUERPO EXTRAÑO POR LARINGOSCOPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-107"
 msgid "BRONCHSCOPY FORIEGN BODY REMOVAL"
@@ -2867,7 +2851,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-111"
 msgid "OTHER REMOVAL OF FOREIGN BODY FROM RESPIRATORY TRACT"
-msgstr "OTRAS RETIRADAS DE CUERPO EXTRAÑO DEL TRACTO RESPIRATORIO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-112"
 msgid "REMOVAL OF FOREIGNBODY BY GASTROSCOPY"
@@ -2887,7 +2871,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-118"
 msgid "REMOVAL OF FORIEGN BODY FROM ANUS"
-msgstr "RETIRADA DE CUERPO EXTRAÑO DEL ANO"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-123"
 msgid "GASTRIC LAVAGE"
@@ -2999,11 +2983,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-200"
 msgid "REDUCTION OF NASAL BONE"
-msgstr "REDUCCIÓN DEL HUESO NASAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-202"
 msgid "CLOSED REDUCTION OF HUMERUS"
-msgstr "Reducción cerrada del húmero"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-203"
 msgid "REDUCTION OF WRIST FRACTURE"
@@ -3011,7 +2995,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-204"
 msgid "REDUCTION OF FRACTURE"
-msgstr "Reducción de fractura"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-205"
 msgid "CLOSED REDUCTION OF FRACTURE"
@@ -3039,7 +3023,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-217"
 msgid "MANIPULATION UNDER ANESTHESIA"
-msgstr "MANIPULACIÓN BAJO ANESTESIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-219"
 msgid "STRETCHING OF SKIN"
@@ -3123,7 +3107,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-359"
 msgid "CERVICAL COLLAR"
-msgstr "COLLAR CERVICAL"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-362"
 msgid "NAILING OF FRACTURE CLOSE"
@@ -3211,7 +3195,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-584"
 msgid "INFILTRATION"
-msgstr "INFILTRACIÓN"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-620"
 msgid "PHOTOTHERAOY"
@@ -3219,27 +3203,27 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-621"
 msgid "RADIATION"
-msgstr "Radiación"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-622"
 msgid "PHOTOCOAGULATION"
-msgstr "Fotocoagulación"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-649"
 msgid "OTHER CONVERSION OF CRADIAC RHYTHM"
-msgstr "Otra conversión del ritmo cardíaco "
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-651"
 msgid "EMERGENCY PACEMAKER"
-msgstr "Marcapasos de emergencia"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-652"
 msgid "PERMANENT PACEMAKER"
-msgstr "Marcapasos permanente"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-801"
 msgid "BLOOD TRANSFUSION"
-msgstr "TRANSFUSIÓN DE SANGRE"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-803"
 msgid "REPLACENMENT TRANSFUSION"
@@ -3255,11 +3239,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-809"
 msgid "TRANSFUSION , UNQUALIFIED"
-msgstr "Transfusión, sin clasificar"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-810"
 msgid "TRANSFUSION OF PLASMA"
-msgstr "TRANSFUSIÓN DE PLASMA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-814"
 msgid "TRANFUSION OF ANTIHEMOPHILIC FACTOR"
@@ -3279,11 +3263,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-853"
 msgid "HEMODIALYSIS"
-msgstr "Hemodiálisis"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-860"
 msgid "PERITONEAL DIALYSIS"
-msgstr "Diálisis peritoneal"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_8-881"
 msgid "REPLACEMENT OF SUBCUTANEOUS"
@@ -3303,7 +3287,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-251"
 msgid "INDUCTION BY INTRAVENOUS INJECTION"
-msgstr "Inducción por inyección intravenosa"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-259"
 msgid "URETRAL CATHERIZATION"
@@ -3319,12 +3303,12 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-472"
 msgid "DEEP BREATHING EXERCISE"
-msgstr "EJERCICIO DE RESPIRACIÓN PROFUNDA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-489"
 msgid "PHYSIOTHERAPY"
-msgstr "FISIOTERAPIA"
+msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-779"
 msgid "SPECIALIZED TREATMENT"
-msgstr "TRATAMIENTO ESPECIALIZADO"
+msgstr ""

@@ -1,23 +1,10 @@
-# 
-# Translators:
-# Selene <scordara@thymbra.com>, 2013
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-20 19:24+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Italian (http://www.transifex.com/projects/p/GNU_Health/language/it/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.evaluations.open.start,end_date:"
 msgid "End Date"
-msgstr "Data fine"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,group_by:"
 msgid "Group By"
@@ -25,175 +12,183 @@ msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,start_date:"
 msgid "Start Date"
-msgstr "Data inizio"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,create_date:"
 msgid "Create Date"
-msgstr "Creare Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,create_uid:"
 msgid "Create User"
-msgstr "Creare utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,doctor:"
 msgid "Doctor"
-msgstr "Dottore"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,evaluations:"
 msgid "Evaluations"
-msgstr "Valutazioni"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,id:"
 msgid "ID"
-msgstr "Identificazione"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,rec_name:"
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,write_date:"
 msgid "Write Date"
-msgstr "Scrivere Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,write_uid:"
 msgid "Write User"
-msgstr "Scrivere nome utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,create_date:"
 msgid "Create Date"
-msgstr "Creare Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,create_uid:"
 msgid "Create User"
-msgstr "Creare utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,evaluations:"
 msgid "Evaluations"
-msgstr "Valutazioni"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,id:"
 msgid "ID"
-msgstr "Identificazione"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,rec_name:"
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,sector:"
 msgid "Sector"
-msgstr "Settore"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,write_date:"
 msgid "Write Date"
-msgstr "Scrivere Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,write_uid:"
 msgid "Write User"
-msgstr "Scrivere nome utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,create_date:"
 msgid "Create Date"
-msgstr "Creare Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,create_uid:"
 msgid "Create User"
-msgstr "Creare utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,evaluations:"
 msgid "Evaluations"
-msgstr "Valutazioni"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,id:"
 msgid "ID"
-msgstr "Identificazione"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,rec_name:"
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,specialty:"
 msgid "Specialty"
-msgstr "Specialità"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,write_date:"
 msgid "Write Date"
-msgstr "Scrivere Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,write_uid:"
 msgid "Write User"
-msgstr "Scrivere nome utente"
+msgstr ""
+
+msgctxt "field:gnuhealth.summary.report.open.start,demographics:"
+msgid "Demographics"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,end_date:"
 msgid "End"
-msgstr "Fine"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,institution:"
 msgid "Institution"
-msgstr "Istituzione"
+msgstr ""
+
+msgctxt "field:gnuhealth.summary.report.open.start,patient_evaluations:"
+msgid "Evaluations"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,start_date:"
 msgid "Start"
-msgstr "Inizio"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,cases:"
 msgid "Cases"
-msgstr "Casi"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,create_date:"
 msgid "Create Date"
-msgstr "Creare Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,create_uid:"
 msgid "Create User"
-msgstr "Creare utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,disease:"
 msgid "Disease"
-msgstr "Malattia"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,id:"
 msgid "ID"
-msgstr "Identificazione"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,rec_name:"
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,write_date:"
 msgid "Write Date"
-msgstr "Scrivere Data"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,write_uid:"
 msgid "Write User"
-msgstr "Scrivere nome utente"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,end_date:"
 msgid "End Date"
-msgstr "Data fine"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,group:"
 msgid "Disease Group"
-msgstr "Gruppo malattia"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,id:"
 msgid "ID"
-msgstr "Identificazione"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,number_records:"
 msgid "Number of Records"
-msgstr "Numero di registrazioni"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,start_date:"
 msgid "Start Date"
-msgstr "Data inizio"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations.open.start,name:"
 msgid "Open Evaluations"
@@ -201,15 +196,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_doctor,name:"
 msgid "Evaluations per Doctor"
-msgstr "Valutazioni per Medico"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_sector,name:"
 msgid "Evaluations per Sector"
-msgstr "Valutazioni per Settore"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_specialty,name:"
 msgid "Evaluations per Specialty"
-msgstr "Valutazioni e Specialità"
+msgstr ""
 
 msgctxt "model:gnuhealth.summary.report.open.start,name:"
 msgid "Summary Report Start"
@@ -217,15 +212,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.top_diseases,name:"
 msgid "Top Diseases"
-msgstr "Malattie Principali"
+msgstr ""
 
 msgctxt "model:gnuhealth.top_diseases.open.start,name:"
 msgid "Open Top Diseases"
-msgstr "Aprire Malattie Principali"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_doctor"
 msgid "Evaluations per Doctor"
-msgstr "Valutazioni per Medico"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_open"
 msgid "Evaluations Report"
@@ -233,22 +228,22 @@ msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_sector"
 msgid "Evaluations per Sector"
-msgstr "Valutazioni per Settore"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_specialty"
 msgid "Evaluations per Specialty"
-msgstr "Valutazioni per Specialità"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_top_diseases_form"
 msgid "Top Diseases"
-msgstr "Malattie Principali"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_top_diseases_open"
 msgid "Top Diseases"
-msgstr "Malattie Principali"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_wizard_summary_report"
-msgid "Demographics Summary"
+msgid "Summary Report"
 msgstr ""
 
 msgctxt "model:ir.action,name:report_summary_information"
@@ -260,269 +255,45 @@ msgid "Evaluations Report"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_institution_summary_report"
-msgid "Demographics Summary"
+msgid "Summary Report"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_top_diseases_open"
 msgid "Top Diseases"
-msgstr "Malattie Principali"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "(living)"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "-"
-msgstr "-"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "0-4"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "10-14"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "100"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "104"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "105+ years old"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "15-19"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "20-24"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "25-29"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "30-34"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "35-39"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "40-44"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "45-49"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "5-9"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "50-54"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "55-59"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "60-64"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "65-69"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "70-74"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "75-79"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "80-84"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "85-89"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "90-94"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "95-"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "99"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Age range"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Birth"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Death"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Female"
-msgstr "Femmina"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "GNU Health Summary Report"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "In health system"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "In t"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Male"
-msgstr "Maschio"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Male stacked"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Population"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Population Pyramid"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Print Date:"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Registrations"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "at"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "certs"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "chart"
-msgstr "curva"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "his period"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Σ"
 msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Doctor"
-msgstr "Dottore"
+msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Sector"
-msgstr "Settore"
+msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Specialty"
-msgstr "Specialità"
-
-msgctxt "view:gnuhealth.evaluations.open.start:"
-msgid "Evaluations per Doctor"
-msgstr "Valutazioni per Medico"
-
-msgctxt "view:gnuhealth.evaluations_doctor:"
-msgid "Evaluations"
-msgstr "Valutazioni"
-
-msgctxt "view:gnuhealth.evaluations_doctor:"
-msgid "Evaluations per Doctor"
-msgstr "Valutazioni per Medico"
-
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations"
-msgstr "Valutazioni"
-
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations per Sector"
-msgstr "Valutazioni per Settore"
-
-msgctxt "view:gnuhealth.evaluations_specialty:"
-msgid "Evaluations"
-msgstr "Valutazioni"
-
-msgctxt "view:gnuhealth.evaluations_specialty:"
-msgid "Evaluations per Specialty"
-msgstr "Valutazioni per Specialità"
-
-msgctxt "view:gnuhealth.summary.report.open.start:"
-msgid "Institution Summary Report"
 msgstr ""
-
-msgctxt "view:gnuhealth.summary.report.open.start:"
-msgid "Main"
-msgstr "Principale"
-
-msgctxt "view:gnuhealth.top_diseases.open.start:"
-msgid "Top Diseases"
-msgstr "Malattie Principali"
-
-msgctxt "view:gnuhealth.top_diseases:"
-msgid "Cases"
-msgstr "Casi"
-
-msgctxt "view:gnuhealth.top_diseases:"
-msgid "Top Diseases"
-msgstr "Malattie Principali"
 
 msgctxt "wizard_button:gnuhealth.evaluations.open,start,end:"
 msgid "Cancel"
-msgstr "Cancellare"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.evaluations.open,start,select:"
 msgid "Open"
-msgstr "Aprire"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.summary.report.open,start,end:"
 msgid "Cancel"
-msgstr "Cancellare"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.summary.report.open,start,open_:"
 msgid "Open"
-msgstr "Aprire"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.top_diseases.open,start,end:"
 msgid "Cancel"
-msgstr "Cancellare"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.top_diseases.open,start,open_:"
 msgid "Open"
-msgstr "Aprire"
+msgstr ""
