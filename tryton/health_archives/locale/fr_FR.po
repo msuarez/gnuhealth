@@ -1,39 +1,26 @@
-# 
-# Translators:
-# Marie-Andrée Coulombe <coulombe.ma@gmail.com>, 2014
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:57+0000\n"
-"Last-Translator: Marie-Andrée Coulombe <coulombe.ma@gmail.com>\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "error:gnuhealth.paper_archive:"
-msgid "The History already exists !"
+msgid "The history already exists"
 msgstr ""
 
 msgctxt "error:gnuhealth.paper_archive:"
-msgid "The Patient History already exists !"
+msgid "The patient history already exists"
 msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
-msgstr "Commentaires"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,create_date:"
 msgid "Create Date"
-msgstr "Date de création"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,create_uid:"
 msgid "Create User"
-msgstr "Créer un utilisateur"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,current_location:"
 msgid "Current Location"
@@ -41,15 +28,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,hc_status:"
 msgid "Status"
-msgstr "Statut"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,identification_code:"
 msgid "Code"
-msgstr "Code"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,legacy:"
 msgid "Legacy Code"
@@ -57,15 +44,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,location:"
 msgid "Unit"
-msgstr "Unité"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,patient:"
 msgid "Patient"
-msgstr "Patient"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,rec_name:"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
@@ -81,11 +68,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,write_date:"
 msgid "Write Date"
-msgstr "Date d'écriture"
+msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,write_uid:"
 msgid "Write User"
-msgstr "Modifié par"
+msgstr ""
 
 msgctxt "help:gnuhealth.paper_archive,current_location:"
 msgid "Location / Unit where this clinical history document should reside."
@@ -103,7 +90,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.paper_archive,patient:"
 msgid "Patient associated to this newborn baby"
-msgstr "Personne associée au nouveau-né"
+msgstr ""
 
 msgctxt "help:gnuhealth.paper_archive,requested_by:"
 msgid "Person who last requested the document"
@@ -115,23 +102,23 @@ msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
 msgid "Medical Archives"
-msgstr "Archives médicales"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
 msgid "Archives"
-msgstr "Archives"
+msgstr ""
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Archived"
-msgstr "Archivé"
+msgstr ""
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Borrowed"
-msgstr "Emprunté"
+msgstr ""
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Lost"
-msgstr "Perdu"
+msgstr ""
 
 msgctxt "view:gnuhealth.paper_archive:"
 msgid "Patient PAPER Clinical History"

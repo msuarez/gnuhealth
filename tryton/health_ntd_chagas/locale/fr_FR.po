@@ -1,196 +1,256 @@
-# 
-# Translators:
-# Emmanuel Simond, 2014
-# Mathieu Anquetin <mathieu@anquetin.eu>, 2013
-# rootio <david@vmail.me>, 2013
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:57+0000\n"
-"Last-Translator: Emmanuel Simond\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "Bug traps"
-msgstr "Pièges à insectes"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_date:"
 msgid "Create Date"
-msgstr "Date de création"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_uid:"
 msgid "Create User"
-msgstr "Créé par"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Floor"
-msgstr "Étage"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri-domicilary"
-msgstr "Péri-domiciliaire"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof"
-msgstr "Toit"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du:"
 msgid "DU"
-msgstr "LH"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "Fumigation"
-msgstr "Fumigation"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_paint:"
 msgid "Insecticide Paint"
-msgstr "Peinture Insecticide"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_status:"
 msgid "Status"
-msgstr "Statut"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,dwall:"
 msgid "Walls"
-msgstr "Murs"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Fumigation Date"
-msgstr "Date de Fumigation"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,name:"
 msgid "Survey Code"
-msgstr "Code de l'étude"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,next_survey_date:"
 msgid "Next survey"
-msgstr "Étude suivante"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Nymphs"
-msgstr "Nymphes"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,observations:"
 msgid "Observations"
-msgstr "Observations"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Paint Date"
-msgstr "Date de Peinture"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,rec_name:"
 msgid "Name"
-msgstr "Nom"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,survey_date:"
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Domiciliary"
-msgstr "Domiciliaire"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Peri-Domiciliary"
-msgstr "Péri-domiciliaire"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Triatomines"
-msgstr "Triatomines"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr "Vecteur"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_date:"
 msgid "Write Date"
-msgstr "Date d'écriture"
+msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_uid:"
 msgid "Write User"
-msgstr "Modifié par"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,chagas_du_survey_sequence:"
 msgid "Chagas Survey Sequence"
-msgstr "Enquête de séquence de Chagas"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "The DU has traps to detect triatomines"
-msgstr "Le bâtiment dispose de pièges pour détecter des triatomines"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Current floor can host triatomines"
-msgstr "Le plancher actuel peut abriter des triatomines"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri domiciliary area can host triatomines"
-msgstr "La zone péri-domiciliaire peut abriter des triatomines"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof materials or state can host triatomines"
-msgstr "Les matériaux de la toiture ou l'état du toit peuvent abriter des triatomines"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr "Lieu d'habitation"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
-msgstr "Le bâtiment a été désinfecté par fumigation"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_paint:"
 msgid "The DU has been treated with insecticide-containing paint"
-msgstr "Le bâtiment a été traité avec de la peinture insecticide"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_status:"
 msgid "DU status compared to last visit"
-msgstr "État du LH par rapport à la dernière visite"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,dwall:"
 msgid "Wall materials or state can host triatomines"
-msgstr "Les matériaux ou l'état des murs peuvent abriter des triatomines"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Last Fumigation Date"
-msgstr "Date de la dernière fumigation"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Check this box if triatomine nymphs were found"
-msgstr "Cocher cette case si des nymphes de triatomines ont été trouvées"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Last Paint Date"
-msgstr "Date de la dernière peinture"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Check this box if triatomines were found inside the house"
-msgstr "Cocher cette case si des triatomines ont été trouvées dans l'habitation"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Check this box if triatomines were found in the peridomiciliary area"
-msgstr "Cochez cette case si des triatomines ont été trouvées dans la zone péri-domiciliaire"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Check this box if triatomines were found"
-msgstr "Cochez cette case si des triatomines ont été trouvées"
+msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr "Vecteur"
+msgstr ""
 
 msgctxt "model:gnuhealth.chagas_du_survey,name:"
 msgid "Chagas DU Entomological Survey"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_bsmear_trypomastigotes"
+msgid "Trypomastigotes"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igg"
+msgid "Chagas ELISA Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igm"
+msgid "Chagas ELISA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ifa_igg"
+msgid "Chagas IFA Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ifa_igm"
+msgid "Chagas IFA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_parasites"
+msgid "T. cruzi in triatomine excreta"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qpcr"
+msgid "Chagas Realtime Quantitative qPCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_pcr"
+msgid "Chagas Qualitative PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_strout_trypomastigotes"
+msgid "Trypomastigotes"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_bsmear_analysis0"
+msgid "CHAGAS BLOOD SMEAR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_elisa_analysis0"
+msgid "CHAGAS ELISA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_ifa_analysis0"
+msgid "CHAGAS INDIRECT IMMUNOFLUORESCENCE - IFA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_pcr_analysis0"
+msgid "CHAGAS PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_strout_analysis0"
+msgid "CHAGAS STROUT"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_chagas_xenodiagnosis_analysis0"
+msgid "CHAGAS XENODIAGNOSIS"
 msgstr ""
 
 msgctxt "model:ir.action,name:act_chagas_du_survey_form"
@@ -236,20 +296,28 @@ msgid "Chagas Xenodiagnosis Charges"
 msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Improved"
-msgstr "Amélioré"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Initial"
-msgstr "Initial"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Unchanged"
-msgstr "Inchangé"
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Worsen"
-msgstr "Aggravé"
+msgstr ""
+
+msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "P. megistus"
@@ -270,27 +338,3 @@ msgstr ""
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. infestans"
 msgstr ""
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Areas to Improve"
-msgstr "Zones à améliorer"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Chagas Domiciliary Unit Entomological Survey"
-msgstr ""
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Chagas Domiciliary Unit Entomological Surveys"
-msgstr ""
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Notes"
-msgstr "Notes"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Presence of triatomines"
-msgstr "Présence de triatomines"
-
-msgctxt "view:gnuhealth.chagas_du_survey:"
-msgid "Preventive Measures"
-msgstr "Mesures Préventives"

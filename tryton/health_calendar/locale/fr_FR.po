@@ -1,140 +1,139 @@
-# 
-# Translators:
-# Emmanuel Simond, 2014
-# Eric Vernichon <eric@vernichon.fr>, 2012
-# Mathieu Anquetin <mathieu@anquetin.eu>, 2014
-# fnonga <nonga.fabien@orange.fr>, 2014
+#
 msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid "End date before start"
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: French (France) (http://www.transifex.com/projects/p/GNU_Health/language/fr_FR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid "The schedule period should be < 31 days"
+msgstr ""
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid ""
+"You need to define a timezone for this company before creating a work schedule.\n"
+"\n"
+"Party > Configuration > Companies"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,appointment_date_end:"
 msgid "End Date and Time"
-msgstr "Date et Heure de Fin"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,event:"
 msgid "CalDAV Event"
-msgstr "Evénement CalDAV"
+msgstr ""
 
 msgctxt ""
 "field:gnuhealth.calendar.create.appointment.start,appointment_minutes:"
 msgid "Appointment Minutes"
-msgstr "Nb. Minutes du Rendez-vous"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,date_end:"
 msgid "End Date"
-msgstr "Date de fin"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,date_start:"
 msgid "Start Date"
-msgstr "Date de début"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,friday:"
 msgid "Friday"
-msgstr "Vendredi"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,healthprof:"
 msgid "Health Prof"
-msgstr "Professionnel de santé"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,institution:"
 msgid "Institution"
-msgstr "Institution"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,monday:"
 msgid "Monday"
-msgstr "Lund"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,saturday:"
 msgid "Saturday"
-msgstr "Samedi"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,specialty:"
 msgid "Specialty"
-msgstr "Spécialité"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,sunday:"
 msgid "Sunday"
-msgstr "Dimanche"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,thursday:"
 msgid "Thursday"
-msgstr "Jeudi"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,time_end:"
 msgid "End Time"
-msgstr "Heure de Fin"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,time_start:"
 msgid "Start Time"
-msgstr "Heure de Début"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,tuesday:"
 msgid "Tuesday"
-msgstr "Mardi"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,wednesday:"
 msgid "Wednesday"
-msgstr "Mercredi"
+msgstr ""
 
 msgctxt "field:res.user,calendar:"
 msgid "Calendar"
-msgstr "Calendrier"
+msgstr ""
 
 msgctxt "field:res.user,use_caldav:"
 msgid "Use CalDAV ?"
-msgstr "Utiliser CalDAV?"
+msgstr ""
 
 msgctxt "help:gnuhealth.appointment,event:"
 msgid "Calendar Event"
-msgstr "Événement du Calendrier"
+msgstr ""
 
 msgctxt "model:gnuhealth.calendar.create.appointment.start,name:"
 msgid "Create Appointments Start"
-msgstr "Plannifier un Rendez-vous"
+msgstr ""
 
 msgctxt "model:ir.action,name:action_gnuhealth_appointment_calendar"
 msgid "Appointments Calendar"
-msgstr "Calendrier des Rendez-vous"
+msgstr ""
 
 msgctxt "model:ir.action,name:wizard_create_appointments"
 msgid "New Work Schedule"
-msgstr "Nouvel emploi du temps"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_create_appointments"
 msgid "New Work Schedule"
-msgstr "Nouvel emploi du temps"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_appointment_calendar"
 msgid "Appointments Calendar"
-msgstr "Calendrier des Rendez-vous"
+msgstr ""
 
 msgctxt "view:gnuhealth.appointment:"
 msgid "Patient appointments"
-msgstr "Rendez-vous du Patient"
+msgstr ""
 
 msgctxt "view:gnuhealth.calendar.create.appointment.start:"
 msgid "New Work Schedule"
-msgstr "Nouvel emploi du temps"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,create_:"
 msgid "Create"
-msgstr "Créer"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,end:"
 msgid "Cancel"
-msgstr "Annuler "
+msgstr ""
