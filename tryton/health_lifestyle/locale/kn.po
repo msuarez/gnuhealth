@@ -1,0 +1,1221 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.diet.belief:"
+msgid "The Diet code already exists"
+msgstr ""
+
+msgctxt "error:gnuhealth.drugs_recreational:"
+msgid "The Recreational Drug CODE must be unique"
+msgstr ""
+
+msgctxt "error:gnuhealth.drugs_recreational:"
+msgid "The Recreational Drug name must be unique"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,description:"
+msgid "Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,name:"
+msgid "Belief"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.diet.belief,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,addiction_level:"
+msgid "Dependence"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,category:"
+msgid "Category"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dea_schedule_i:"
+msgid "DEA schedule I"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dea_schedule_ii:"
+msgid "II"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dea_schedule_iii:"
+msgid "III"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dea_schedule_iv:"
+msgid "IV"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dea_schedule_v:"
+msgid "V"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,dependence_level:"
+msgid "Dependence"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,info:"
+msgid "Extra Info"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,intoxication_level:"
+msgid "Intoxication"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,legal_status:"
+msgid "Legal Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,reinforcement_level:"
+msgid "Reinforcement"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,route_inhaling:"
+msgid "Smoke / Inhale"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,route_injection:"
+msgid "Injection"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,route_oral:"
+msgid "Oral"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,route_popping:"
+msgid "Skin Popping"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,route_sniffing:"
+msgid "Sniffing"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,street_name:"
+msgid "Street names"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,tolerance_level:"
+msgid "Tolerance"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,toxicity:"
+msgid "Toxicity"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,withdrawal_level:"
+msgid "Withdrawal"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.drugs_recreational,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_quit_drinking:"
+msgid "Age quit drinking "
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_quit_drugs:"
+msgid "Age quit drugs "
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_quit_smoking:"
+msgid "Age of quitting"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_start_drinking:"
+msgid "Age started to drink "
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_start_drugs:"
+msgid "Age started drugs "
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,age_start_smoking:"
+msgid "Age started to smoke"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,alcohol:"
+msgid "Drinks Alcohol"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,alcohol_beer_number:"
+msgid "Beer / day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,alcohol_liquor_number:"
+msgid "Liquor / day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,alcohol_wine_number:"
+msgid "Wine / day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,anticonceptive:"
+msgid "Contraceptive Method"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,cage:"
+msgid "CAGE"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,car_child_safety:"
+msgid "Car Child Safety"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,car_revision:"
+msgid "Car Revision"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,car_seat_belt:"
+msgid "Seat belt"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,coffee:"
+msgid "Coffee"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,coffee_cups:"
+msgid "Cups per day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,diet:"
+msgid "Currently on a diet"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,diet_belief:"
+msgid "Belief"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,diet_info:"
+msgid "Diet info"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,drug_iv:"
+msgid "IV drug user"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,drug_usage:"
+msgid "Drug Habits"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,eats_alone:"
+msgid "Eats alone"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,ex_alcoholic:"
+msgid "Ex alcoholic"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,ex_drug_addict:"
+msgid "Ex drug addict"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,ex_smoker:"
+msgid "Ex-smoker"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,exercise:"
+msgid "Exercise"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,exercise_minutes_day:"
+msgid "Minutes / day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,first_sexual_encounter:"
+msgid "Age first sexual encounter"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,helmet:"
+msgid "Uses helmet"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,home_safety:"
+msgid "Home safety"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,lifestyle_info:"
+msgid "Extra Information"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,motorcycle_rider:"
+msgid "Motorcycle Rider"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,number_of_meals:"
+msgid "Meals per day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,prostitute:"
+msgid "Prostitute"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,recreational_drugs:"
+msgid "Drugs"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,salt:"
+msgid "Salt"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,second_hand_smoker:"
+msgid "Passive smoker"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sex_anal:"
+msgid "Anal Sex"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sex_oral:"
+msgid "Oral Sex"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sex_with_prostitutes:"
+msgid "Sex with prostitutes"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sexual_partners:"
+msgid "Sexual Partners"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sexual_partners_number:"
+msgid "Number of sexual partners"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sexual_practices:"
+msgid "Sexual Practices"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sexual_preferences:"
+msgid "Sexual Preferences"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sexuality_info:"
+msgid "Extra Information"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sleep_during_daytime:"
+msgid "Sleeps at daytime"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,sleep_hours:"
+msgid "Hours of sleep"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,smoking:"
+msgid "Smokes"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,smoking_number:"
+msgid "Cigarretes a day"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,soft_drinks:"
+msgid "Soft drinks (sugar)"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,traffic_laws:"
+msgid "Obeys Traffic Laws"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,vegetarian_type:"
+msgid "Vegetarian"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_a:"
+msgid "Angry with Critics"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_c:"
+msgid "Hard to Cut down"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_e:"
+msgid "Eye-opener"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_g:"
+msgid "Guilt"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_score:"
+msgid "CAGE Score"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,cage_warning_icon:"
+msgid "Cage Warning Icon"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,evaluation_date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,name:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.cage,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,recreational_drug:"
+msgid "Recreational Drug"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.recreational_drugs,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,code:"
+msgid "Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,desc:"
+msgid "Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,name:"
+msgid "Vegetarian"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.vegetarian_types,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,code:"
+msgid "Please use CAPITAL LETTERS and no spaces"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dea_schedule_i:"
+msgid ""
+"Schedule I and II drugs have a high potential for abuse. They require "
+"greater storage security and have a quota on manufacturing, among other "
+"restrictions. Schedule I drugs are available for research only and have no "
+"approved medical use; Schedule II drugs are available only by prescription "
+"(unrefillable) and require a form for ordering. Schedule III and IV drugs "
+"are available by prescription, may have five refills in 6 months, and may be"
+" ordered orally. Some Schedule V drugs are available over the counter"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dea_schedule_ii:"
+msgid ""
+"Schedule I and II drugs have a high potential for abuse.They require greater"
+" storage security and have a quota onmanufacturing, among other "
+"restrictions. Schedule I drugs areavailable for research only and have no "
+"approved medical use; Schedule II drugs are available only by prescription "
+"(unrefillable) and require a form for ordering. Schedule III and IV drugs "
+"are available by prescription, may have fiverefills in 6 months, and may be "
+"ordered orally. Some Schedule V drugs are available over the counter"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dea_schedule_iii:"
+msgid ""
+"Schedule I and II drugs have a high potential for abuse. They require "
+"greater storage security and have a quota on manufacturing, among other "
+"restrictions. Schedule I drugs are available for research only and have no "
+"approved medical use; Schedule II drugs are available only by prescription "
+"(unrefillable) and require a form for ordering. Schedule III and IV drugs "
+"are available by prescription, may have five refills in 6 months, and may be"
+" ordered orally. Some Schedule V drugs are available over the counter"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dea_schedule_iv:"
+msgid ""
+"Schedule I and II drugs have a high potential for abuse. They require "
+"greater storage security and have a quota on manufacturing, among other "
+"restrictions. Schedule I drugs are available for research only and have no "
+"approved medical use; Schedule II drugs are available only by prescription "
+"(unrefillable) and require a form for ordering. Schedule III and IV drugs "
+"are available by prescription, may have five refills in 6 months, and may be"
+" ordered orally. Some Schedule V drugs are available over the counter"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dea_schedule_v:"
+msgid ""
+"Schedule I and II drugs have a high potential for abuse. They require "
+"greater storage security and have a quota on manufacturing, among other "
+"restrictions. Schedule I drugs are available for research only and have no "
+"approved medical use; Schedule II drugs are available only by prescription "
+"(unrefillable) and require a form for ordering. Schedule III and IV drugs "
+"are available by prescription, may have five refills in 6 months, and may be"
+" ordered orally. Some Schedule V drugs are available over the counter"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,dependence_level:"
+msgid ""
+"How difficult it is for the user to quit, the relapse rate, the percentage of people who eventually become dependent, the rating users give their own need for the substance and the degree to which the substance will be used in the face of evidence that it causes harm.\n"
+"Using Henningfield rating. 1=highest and 6=lowest"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,intoxication_level:"
+msgid ""
+"the level of intoxication is associated with addiction and increases the personal and social damage a substance may do. \n"
+"Using Henningfield rating. 1=highest and 6=lowest"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,name:"
+msgid "Name of the drug"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,reinforcement_level:"
+msgid ""
+"A measure of the substance's ability to get users to take it  again and again, and in preference to other substances.\n"
+"Using  Henningfield rating. 1=highest and 6=lowest"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,route_inhaling:"
+msgid "Insufflation, excluding nasal"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,route_injection:"
+msgid "Injection - Intravenous, Intramuscular..."
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,route_popping:"
+msgid "Subcutaneous or Intradermical administration"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,route_sniffing:"
+msgid "Also called snorting - inhaling through the nares  "
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,street_name:"
+msgid "Common name of the drug in street jargon"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,tolerance_level:"
+msgid ""
+"How much of the substance is needed to satisfy increasing cravings for it, and the level of stable need that is eventually reached.\n"
+"Using Henningfield rating. 1=highest and 6=lowest"
+msgstr ""
+
+msgctxt "help:gnuhealth.drugs_recreational,withdrawal_level:"
+msgid ""
+"Presence and severity of characteristic withdrawal symptoms.\n"
+"Using Henningfield rating. 1=highest and 6=lowest"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,age_quit_drinking:"
+msgid "Date to stop drinking"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,age_quit_drugs:"
+msgid "Date of quitting drugs"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,age_quit_smoking:"
+msgid "Age of quitting smoking"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,age_start_drinking:"
+msgid "Date to start drinking"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,age_start_drugs:"
+msgid "Age of start drugs"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,car_child_safety:"
+msgid ""
+"Safety measures when driving : child seats, proper seat belting, not seating"
+" on the front seat, ...."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,car_revision:"
+msgid "Maintain the vehicle. Do periodical checks - tires,breaks ..."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,car_seat_belt:"
+msgid "Safety measures when driving : safety belt"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,coffee_cups:"
+msgid "Number of cup of coffee a day"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,diet:"
+msgid "Check if the patient is currently on a diet"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,diet_belief:"
+msgid "Enter the patient belief or religion"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,diet_info:"
+msgid "Short description on the diet"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,drug_iv:"
+msgid "Check this option if the patient injects drugs"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,eats_alone:"
+msgid "Check this box if the patient eats by him / herself."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,exercise_minutes_day:"
+msgid "How many minutes a day the patient exercises"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,helmet:"
+msgid "The patient uses the proper motorcycle helmet"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,home_safety:"
+msgid ""
+"Keep safety measures for kids in the kitchen, correct storage of chemicals, "
+"..."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,motorcycle_rider:"
+msgid "The patient rides motorcycles"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,prostitute:"
+msgid "Check if the patient (he or she) is a prostitute"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,salt:"
+msgid "Check if patient consumes salt with the food"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,second_hand_smoker:"
+msgid "Check it the patient is a passive / second-hand smoker"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,sex_with_prostitutes:"
+msgid "Check if the patient (he or she) has sex with prostitutes"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,sleep_during_daytime:"
+msgid ""
+"Check if the patient sleep hours are during daylight rather than at night"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,sleep_hours:"
+msgid "Average hours of sleep per day"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,soft_drinks:"
+msgid "Check if the patient consumes soft drinks with sugar"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,traffic_laws:"
+msgid "Check if the patient is a safe driver"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.cage,cage_a:"
+msgid "Have people Annoyed you by criticizing your drinking ?"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.cage,cage_c:"
+msgid "Have you ever felt you needed to Cut down on your drinking ?"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.cage,cage_e:"
+msgid ""
+"Have you ever felt you needed a drink first thing in the morning (Eye-"
+"opener) to steady your nerves or to get rid of a hangover?"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.cage,cage_g:"
+msgid "Have you ever felt Guilty about drinking ?"
+msgstr ""
+
+msgctxt "help:gnuhealth.vegetarian_types,code:"
+msgid "Short description"
+msgstr ""
+
+msgctxt "help:gnuhealth.vegetarian_types,desc:"
+msgid "Short description"
+msgstr ""
+
+msgctxt "help:gnuhealth.vegetarian_types,name:"
+msgid "Vegetarian"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:BUDDHIST"
+msgid ""
+"While Buddhism does not have specific dietary rules, some buddhists practise"
+" vegetarianism based on a strict interpretation of the first of the Five "
+"Precepts"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:EDENIC"
+msgid ""
+"A diet based on what Adam and Eve are believed to have consumed in Garden of"
+" Eden. Usually either vegetarian or vegan, and based predominantly on fruit"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:HALLELUJAH"
+msgid ""
+"Hallelujah diet: A form of Christian vegetarianism developed in the 1970s. "
+"The creators interpret a verse from the Bible as suggesting that Christians "
+"should only consume seed bearing plants and fruits."
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:HINDU"
+msgid ""
+"Hindu and Jain diets: Followers of Hinduism and Jainism often follow lacto-"
+"vegetarian diets, based on the principle of Ahimsa (non-harming)"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:ITAL"
+msgid ""
+"I-tal: A set of principles which influences the diet of many members of the "
+"Rastafari movement. One principle is that natural foods should be consumed. "
+"Some Rastafarians interpret I-tal to advocate vegetarianism or veganism"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:KOSHER"
+msgid ""
+"Kosher diet: Food permissible under Kashrut, the set of Jewish dietary laws,"
+" is said to be Kosher. Some foods and food combinations are non-Kosher, and "
+"failure to prepare food in accordance with Kashrut can make otherwise "
+"permissible foods non-Kosher."
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,description:MUSLIM"
+msgid ""
+"Muslims follow a diet consisting solely of food that is halal – permissible "
+"under Islamic law. The opposite of halal is haraam, food that is Islamically"
+" Impermissible. Haraam substances include alcohol, pork, and any meat from "
+"an animal which was not killed through the Islamic method of ritual "
+"slaughter (Dhabiha)"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:"
+msgid "Diet by Belief"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:BUDDHIST"
+msgid "Buddhist"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:EDENIC"
+msgid "Edenic"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:HALLELUJAH"
+msgid "Hallelujah"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:HINDU"
+msgid "Hindu"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:ITAL"
+msgid "I-tal"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:KOSHER"
+msgid "Kosher"
+msgstr ""
+
+msgctxt "model:gnuhealth.diet.belief,name:MUSLIM"
+msgid "Muslim"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:"
+msgid "Recreational Drug"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:amphetamine"
+msgid "Amphetamine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:anabolic_steroids"
+msgid "Anabolic steroids"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:barbiturates"
+msgid "Barbiturates"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:benzodiazepines"
+msgid "Benzodiazepines"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:cocaine"
+msgid "Cocaine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:codeine"
+msgid "Codeine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:dmx"
+msgid "Dextromethorphan - DMX"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:fentanyl"
+msgid "Fentanyl"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:flunitrazepam"
+msgid "Flunitrazepam"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:ghb"
+msgid "GHB"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:hashish"
+msgid "Hashish"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:heroin"
+msgid "Heroin"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:hydrocodone_bitartrate"
+msgid "Hydrocodone bitartrate"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:inhalants"
+msgid "Inhalants"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:ketamine"
+msgid "Ketamine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:lsd"
+msgid "LSD"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:marijuana"
+msgid "Marijuana"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:mdma"
+msgid "MDMA methylenedioxy-methamphetamine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:mescaline"
+msgid "Mescaline"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:methamphetamine"
+msgid "Methamphetamine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:methaqualone"
+msgid "Methaqualone"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:methylphenidate"
+msgid "Methylphenidate"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:morphine"
+msgid "Morphine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:nicotine"
+msgid "Nicotine"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:oxycodone_hcl"
+msgid "oxycodone HCL"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:pcp"
+msgid "PCP and analogs"
+msgstr ""
+
+msgctxt "model:gnuhealth.drugs_recreational,name:psilocybin"
+msgid "Psilocybin"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.cage,name:"
+msgid "Patient CAGE Questionnaire"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.recreational_drugs,name:"
+msgid "Patient use of Recreational Drugs"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:"
+msgid "Vegetarian Types"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:lacto"
+msgid "Lacto vegetarian"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:lactoovo"
+msgid "Lacto-ovo vegetarian"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:ovo"
+msgid "Ovo vegetarian"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:pescetarian"
+msgid "Pescetarian"
+msgstr ""
+
+msgctxt "model:gnuhealth.vegetarian_types,name:vegan"
+msgid "Vegan"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_diet_belief"
+msgid "Belief diets"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_drugs_recreational"
+msgid "Recreational Drugs"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_diet_belief"
+msgid "Belief diets"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_diets"
+msgid "Diets"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_drugs_recreational"
+msgid "Recreational Drugs"
+msgstr ""
+
+msgctxt "model:res.group,name:group_health_lifestyle_admin"
+msgid "Health Lifestyle Administration"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,addiction_level:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,addiction_level:"
+msgid "Extreme"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,addiction_level:"
+msgid "High"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,addiction_level:"
+msgid "Low"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,addiction_level:"
+msgid "None"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Cannabinoids"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Depressants"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Dissociative Anesthetics"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Hallucinogens"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Opioids"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Others"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,category:"
+msgid "Stimulants"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,legal_status:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,legal_status:"
+msgid "Illegal"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,legal_status:"
+msgid "Legal"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,toxicity:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,toxicity:"
+msgid "Extreme"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,toxicity:"
+msgid "High"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,toxicity:"
+msgid "Low"
+msgstr ""
+
+msgctxt "selection:gnuhealth.drugs_recreational,toxicity:"
+msgid "None"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Contraceptive injection"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Female condom"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Female sterilisation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Fertility cycle awareness"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Intra-uterine device"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Male condom"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "None"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Pill / Minipill"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Skin Patch"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Vasectomy"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,anticonceptive:"
+msgid "Withdrawal method"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_anal:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_anal:"
+msgid "Active"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_anal:"
+msgid "Both"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_anal:"
+msgid "None"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_anal:"
+msgid "Passive"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_oral:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_oral:"
+msgid "Active"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_oral:"
+msgid "Both"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_oral:"
+msgid "None"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sex_oral:"
+msgid "Passive"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_partners:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_partners:"
+msgid "Monogamous"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_partners:"
+msgid "Polygamous"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_practices:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_practices:"
+msgid "Risky / Unprotected sex"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_practices:"
+msgid "Safe / Protected sex"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_preferences:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_preferences:"
+msgid "Bisexual"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_preferences:"
+msgid "Heterosexual"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_preferences:"
+msgid "Homosexual"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,sexual_preferences:"
+msgid "Transexual"
+msgstr ""
