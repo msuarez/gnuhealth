@@ -30,7 +30,7 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 4
+major_version, minor_version = 3, 8
 
 requires = []
 
@@ -47,7 +47,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health_disability',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Patient Disability'),
+    description=info.get('description', 'GNU Health Patient Functioning and Disability'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
