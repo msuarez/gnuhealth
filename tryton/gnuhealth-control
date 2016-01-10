@@ -385,6 +385,23 @@ do_update()
     relink_mods 
 }
 
+getlang() {
+    local lang_to_install=$2
+    local lang_file=${lang_to_install}.zip
+    source $HOME/.gnuhealthrc || exit 1
+    cli_msg "INFO" "Going to modules directory..."
+
+    cd ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
+    cli_msg "INFO" "Retrieving language pack file for ${lang_to_install}"
+    wget --no-check-certificate https://chapters.gnu.org/${lang_to_install}/health/tryton/export/zip -O /tmp/${lang_file} || exit 1
+    cli_msg "INFO" "Installing / Updating language files for ${lang_to_install} ..."
+
+    bsdtar --strip-components 1 -xvf /tmp/${lang_file} || exit 1
+    cli_msg "INFO" "Language pack ${lang_to_install} sucessfully installed / updated"
+    cli_msg "INFO" "You now need to update the database modules"
+    cd
+}
+
 bailout() {
     cli_msg "ERROR"  "Bailing out !"
     cli_msg "ERROR"  "Removing backup lock file"
@@ -403,6 +420,7 @@ parse_command_line()
         backup) do_backup $@;;
         update) do_update $@;;
         status) check_status;;
+        getlang) getlang $@;;
         help) help;;
         *) echo $1: Unrecognized command; exit 1;;
     esac
