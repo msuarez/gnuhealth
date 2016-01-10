@@ -1,0 +1,255 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:gnuhealth.dengue_du_survey,aedes_larva:"
+msgid "Larvae"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,animal_water_container:"
+msgid "Animal Water containers"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,du:"
+msgid "DU"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,du_fumigation:"
+msgid "Fumigation"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,du_status:"
+msgid "Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,flower_vase:"
+msgid "Flower vase"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,fumigation_date:"
+msgid "Fumigation Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,larva_in_house:"
+msgid "Domiciliary"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,larva_peri:"
+msgid "Peri-Domiciliary"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,name:"
+msgid "Survey Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,next_survey_date:"
+msgid "Next survey"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,observations:"
+msgid "Observations"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,old_tyres:"
+msgid "Tyres"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,ovitraps:"
+msgid "Ovitraps"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,potted_plant:"
+msgid "Potted Plants"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,rock_holes:"
+msgid "Rock holes"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,survey_date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,tree_holes:"
+msgid "Tree holes"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.dengue_du_survey,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,dengue_du_survey_sequence:"
+msgid "Dengue Survey Sequence"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,aedes_larva:"
+msgid "Check this box if Aedes aegypti larvae were found"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,animal_water_container:"
+msgid "Animal water containers not scrubbed or clean"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,du:"
+msgid "Domiciliary Unit"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,du_fumigation:"
+msgid "The DU has been fumigated"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,du_status:"
+msgid "DU status compared to last visit"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,flower_vase:"
+msgid "Flower vases without scrubbing or cleaning"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,fumigation_date:"
+msgid "Last Fumigation Date"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,larva_in_house:"
+msgid "Check this box if larvae were found inside the house"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,larva_peri:"
+msgid "Check this box if larva were found in the peridomiciliary area"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,old_tyres:"
+msgid "Old vehicle tyres found"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,ovitraps:"
+msgid "Check if ovitraps are in place"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,potted_plant:"
+msgid "Potted Plants with saucers"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,rock_holes:"
+msgid "unfilled rock holes"
+msgstr ""
+
+msgctxt "help:gnuhealth.dengue_du_survey,tree_holes:"
+msgid "unfilled tree holes"
+msgstr ""
+
+msgctxt "model:gnuhealth.dengue_du_survey,name:"
+msgid "Dengue DU Survey"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_elisa_igg"
+msgid "Dengue ELISA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igg"
+msgid "Dengue Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_pcr"
+msgid "Dengue PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_prnt"
+msgid "Dengue PRNT"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_elisa_igg_analysis0"
+msgid "DENGUE IgG"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_elisa_igm_analysis0"
+msgid "DENGUE ELISA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_pcr_analysis0"
+msgid "DENGUE PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_prnt_analysis0"
+msgid "DENGUE PRNT"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_dengue_du_survey_form"
+msgid "Dengue DU Survey"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_du_survey"
+msgid "Dengue DU Survey"
+msgstr ""
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_du_survey"
+msgid "Dengue DU Survey"
+msgstr ""
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_elisa_igg_analysischarges0"
+msgid "Dengue IgG Charges"
+msgstr ""
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_elisa_igm_analysischarges0"
+msgid "Dengue ELISA MAC Ig-M Charges"
+msgstr ""
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_pcr_analysischarges0"
+msgid "Dengue PCR Charges"
+msgstr ""
+
+msgctxt ""
+"model:product.template,name:product_template_dengue_prnt_analysischarges0"
+msgid "Dengue PRNT Charges"
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Improved"
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Initial"
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Unchanged"
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid "Worsen"
+msgstr ""
