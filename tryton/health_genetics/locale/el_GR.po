@@ -1,6 +1,14 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-10 17:02+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445353.0\n"
 
 msgctxt "error:gnuhealth.disease.gene:"
 msgid "The Official Symbol name must be unique"
@@ -8,75 +16,75 @@ msgstr ""
 
 msgctxt "field:gnuhealth.disease.gene,chromosome:"
 msgid "Affected Chromosome"
-msgstr ""
+msgstr "Εμπλεκόμενο γονίδιο"
 
 msgctxt "field:gnuhealth.disease.gene,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.disease.gene,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία Χρήστη"
 
 msgctxt "field:gnuhealth.disease.gene,dominance:"
 msgid "Dominance"
-msgstr ""
+msgstr "Κυριαρχία"
 
 msgctxt "field:gnuhealth.disease.gene,gene_id:"
 msgid "Gene ID"
-msgstr ""
+msgstr "Κωδικός ID του γονιδίου"
 
 msgctxt "field:gnuhealth.disease.gene,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.disease.gene,info:"
 msgid "Information"
-msgstr ""
+msgstr "Πληροφορίες"
 
 msgctxt "field:gnuhealth.disease.gene,location:"
 msgid "Location"
-msgstr ""
+msgstr "Τοποθεσία"
 
 msgctxt "field:gnuhealth.disease.gene,long_name:"
 msgid "Official Long Name"
-msgstr ""
+msgstr "Επίσημο πλήρες όνομα"
 
 msgctxt "field:gnuhealth.disease.gene,name:"
 msgid "Official Symbol"
-msgstr ""
+msgstr "Επίσημο σύμβολο"
 
 msgctxt "field:gnuhealth.disease.gene,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.disease.gene,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την Ημερομηνία"
 
 msgctxt "field:gnuhealth.disease.gene,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον Χρήστη"
 
 msgctxt "field:gnuhealth.patient,family_history:"
 msgid "Family History"
-msgstr ""
+msgstr "Οικογενειακό Ιστορικό"
 
 msgctxt "field:gnuhealth.patient,genetic_risks:"
 msgid "Genetic Risks"
-msgstr ""
+msgstr "Γενετικοί κίνδυνοι"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία Ημερομηνίας"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία Χρήστη"
 
 msgctxt "field:gnuhealth.patient.family.diseases,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.family.diseases,name:"
 msgid "Condition"
@@ -84,79 +92,79 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.family.diseases,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Ασθενής"
 
 msgctxt "field:gnuhealth.patient.family.diseases,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.patient.family.diseases,relative:"
 msgid "Relative"
-msgstr ""
+msgstr "Συγγενής"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την Ημερομηνία"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον Χρήστη"
 
 msgctxt "field:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal or Paternal"
-msgstr ""
+msgstr "Από τη μεριά της Μητέρας ή του Πατέρα"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία Χρήστη"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,disease_gene:"
 msgid "Disease Gene"
-msgstr ""
+msgstr "Γονίδιο της νόσου"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "Σημειώσεις"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Ασθενής"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την Ημερομηνία"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον Χρήστη"
 
 msgctxt "help:gnuhealth.disease.gene,chromosome:"
 msgid "Name of the affected chromosome"
-msgstr ""
+msgstr "Όνομα του εμπλεκόμενου γονιδίου"
 
 msgctxt "help:gnuhealth.disease.gene,gene_id:"
 msgid "default code from NCBI Entrez database."
-msgstr ""
+msgstr "Προκαθορισμένο όνομα στη βάση δεδομένων "
 
 msgctxt "help:gnuhealth.disease.gene,info:"
 msgid "Extra Information"
-msgstr ""
+msgstr "Πρόσθετες πληροφορίες"
 
 msgctxt "help:gnuhealth.disease.gene,location:"
 msgid "Locus of the chromosome"
-msgstr ""
+msgstr "Locus του χρωμοσώματος"
 
 msgctxt "help:gnuhealth.patient.family.diseases,relative:"
 msgid ""
@@ -17754,31 +17762,31 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,name:"
 msgid "Disease Genes"
-msgstr ""
+msgstr "Γονίδια της νόσου"
 
 msgctxt "model:gnuhealth.patient.family.diseases,name:"
 msgid "Family Diseases"
-msgstr ""
+msgstr "Οικογενειακά Νοσήματα"
 
 msgctxt "model:gnuhealth.patient.genetic.risk,name:"
 msgid "Patient Genetic Risks"
-msgstr ""
+msgstr "Γενετικοί κίνδυνοι του ασθενούς"
 
 msgctxt "model:ir.action,name:gnuhealth_action_disease_gene"
 msgid "Disease Genes"
-msgstr ""
+msgstr "Γονίδια ασθενειών"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_disease_genes"
 msgid "Disease Genes"
-msgstr ""
+msgstr "Γονίδια ασθενειών"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_genetics"
 msgid "Genetics"
-msgstr ""
+msgstr "Γενετική"
 
 msgctxt "model:res.group,name:group_health_genetics_admin"
 msgid "Health Genetics Administration"
-msgstr ""
+msgstr "Διαχείριση γενετικής υγείας"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid ""
@@ -17786,55 +17794,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "dominant"
-msgstr ""
+msgstr "κυρίαρχο"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "recessive"
-msgstr ""
+msgstr "υποτελές"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Aunt"
-msgstr ""
+msgstr "Θεία"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Brother"
-msgstr ""
+msgstr "Αδερφός"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Cousin"
-msgstr ""
+msgstr "Ξάδερφος"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Father"
-msgstr ""
+msgstr "Πατέρας"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandfather"
-msgstr ""
+msgstr "Παππούς"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandmother"
-msgstr ""
+msgstr "Γιαγιά"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Mother"
-msgstr ""
+msgstr "Μητέρα"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Nephew"
-msgstr ""
+msgstr "Ανηψιός"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Niece"
-msgstr ""
+msgstr "Ανηψιά"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Sister"
-msgstr ""
+msgstr "Αδελφή"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Uncle"
-msgstr ""
+msgstr "Θείος"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid ""
@@ -17842,11 +17850,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal"
-msgstr ""
+msgstr "Από τη μεριά της μητέρας"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Paternal"
-msgstr ""
+msgstr "Από τη μεριά του πατέρα"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Sibling"

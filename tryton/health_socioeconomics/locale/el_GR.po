@@ -1,34 +1,42 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445411.0\n"
 
 msgctxt "field:gnuhealth.patient,domestic_violence:"
 msgid "Domestic violence"
-msgstr ""
+msgstr "Οικιακή βία"
 
 msgctxt "field:gnuhealth.patient,drug_addiction:"
 msgid "Drug addiction"
-msgstr ""
+msgstr "Εθισμός στα ναρκωτικά"
 
 msgctxt "field:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Μορφωτικό επίπεδο"
 
 msgctxt "field:gnuhealth.patient,hostile_area:"
 msgid "Hostile Area"
-msgstr ""
+msgstr "Εχθρική περιοχή"
 
 msgctxt "field:gnuhealth.patient,hours_outside:"
 msgid "Hours outside home"
-msgstr ""
+msgstr "Ώρες εκτός σπιτιού"
 
 msgctxt "field:gnuhealth.patient,housing:"
 msgid "Housing conditions"
-msgstr ""
+msgstr "Συνθήκες κατοίκησης"
 
 msgctxt "field:gnuhealth.patient,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "Επάγγελμα"
 
 msgctxt "field:gnuhealth.patient,prison_current:"
 msgid "Currently in prison"
@@ -36,15 +44,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,prison_past:"
 msgid "Has been in prison"
-msgstr ""
+msgstr "Εξέτισε ποινή στη φυλακή"
 
 msgctxt "field:gnuhealth.patient,relative_in_prison:"
 msgid "Relative in prison"
-msgstr ""
+msgstr "Συγγενής στη φυλακή"
 
 msgctxt "field:gnuhealth.patient,school_withdrawal:"
 msgid "School withdrawal"
-msgstr ""
+msgstr "Διέκοψε το σχολείο"
 
 msgctxt "field:gnuhealth.patient,ses_assessments:"
 msgid "Assessments"
@@ -52,27 +60,27 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,ses_notes:"
 msgid "Extra info"
-msgstr ""
+msgstr "Πρόσθετες πληροφορίες"
 
 msgctxt "field:gnuhealth.patient,sexual_abuse:"
 msgid "Sexual abuse"
-msgstr ""
+msgstr "Σεξουαλική κακοποίηση"
 
 msgctxt "field:gnuhealth.patient,single_parent:"
 msgid "Single parent family"
-msgstr ""
+msgstr "Μονογονεϊκή οικογένεια"
 
 msgctxt "field:gnuhealth.patient,teenage_pregnancy:"
 msgid "Teenage pregnancy"
-msgstr ""
+msgstr "Εφηβική εγκυμοσύνη"
 
 msgctxt "field:gnuhealth.patient,working_children:"
 msgid "Working children"
-msgstr ""
+msgstr "Παιδιά που εργάζονται"
 
 msgctxt "field:gnuhealth.patient,works_at_home:"
 msgid "Works at home"
-msgstr ""
+msgstr "Δουλεύει από το σπίτι"
 
 msgctxt "field:gnuhealth.ses.assessment,assessment_date:"
 msgid "Date"
@@ -184,29 +192,33 @@ msgstr ""
 
 msgctxt "field:party.party,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "Επάγγελμα"
 
 msgctxt "help:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Μορφωτικό επίπεδο"
 
 msgctxt "help:gnuhealth.patient,hostile_area:"
 msgid "Check if patient lives in a zone of high hostility (eg, war)"
 msgstr ""
+"Ελέγξτε αν ο ασθενής ζει σε περιοχή με υψηλό βαθμό εχθροπραξιών (πχ. σε "
+"πόλεμο)"
 
 msgctxt "help:gnuhealth.patient,hours_outside:"
 msgid "Number of hours a day the patient spend outside the house"
-msgstr ""
+msgstr "Πόσες ώρες την ημέρα ο ασθενής περνάει εκτός σπιτιού"
 
 msgctxt "help:gnuhealth.patient,housing:"
 msgid "Housing and sanitary living conditions"
-msgstr ""
+msgstr "Συνθήκες υγιεινής και διαβίωσης"
 
 msgctxt "help:gnuhealth.patient,relative_in_prison:"
 msgid ""
 "Check if someone from the nuclear family - parents / sibblings  is or has "
 "been in prison"
 msgstr ""
+"Ελέγξτε αν κάποιος από την στενή οικογένεια - γονείς/αδέλφια είναι ή είχε "
+"μπει ποτέ στη φυλακή"
 
 msgctxt "help:gnuhealth.patient,ses_assessments:"
 msgid "Socioeconomics and Family assessments history"
@@ -214,7 +226,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.patient,works_at_home:"
 msgid "Check if the patient works at his / her house"
-msgstr ""
+msgstr "Ελέγξτε αν ο ασθενής εργάζεται από το σπίτι του/της"
 
 msgctxt "help:gnuhealth.ses.assessment,assessment_date:"
 msgid "Assessment date"
@@ -287,7 +299,7 @@ msgstr ""
 
 msgctxt "help:party.party,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Μορφωτικό επίπεδο"
 
 msgctxt "model:gnuhealth.ses.assessment,name:"
 msgid "Socioeconomics and Family Functionality Assessment"
@@ -311,27 +323,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "Δεν συμπλήρωσε την Πρωτοβάθμια εκπαίδευση"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "Δεν συμπλήρωσε την Δευτεροβάθμια εκπαίδευση"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "None"
-msgstr ""
+msgstr "Καμία"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "Πρωτοβάθμιο Σχολείο"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "Δημοτικό σχολείο"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "University"
-msgstr ""
+msgstr "Πανεπιστήμιο"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid ""
@@ -339,23 +351,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Comfortable and good sanitary conditions"
-msgstr ""
+msgstr "Καλές και άνετες συνθήκες διαβίωσης"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Luxury and excellent sanitary conditions"
-msgstr ""
+msgstr "Εξαιρετικές και πολυτελείς συνθήκες υγιεινής"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Roomy and excellent sanitary conditions"
-msgstr ""
+msgstr "Ευρύχωρες και εξαιρετικές συνθήκες υγιεινής"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Shanty, deficient sanitary conditions"
-msgstr ""
+msgstr "Πρόχειρες, ανεπαρκείς συνθήκες υγιεινής"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Small, crowded but with good sanitary conditions"
-msgstr ""
+msgstr "Μικροί χώροι, στενοί, αλλά με καλές συνθήκες υγιεινής"
 
 msgctxt "selection:gnuhealth.ses.assessment,education:"
 msgid ""
@@ -559,27 +571,27 @@ msgstr ""
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "Δεν συμπλήρωσε την Πρωτοβάθμια εκπαίδευση"
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "Δεν συμπλήρωσε την Δευτεροβάθμια εκπαίδευση"
 
 msgctxt "selection:party.party,education:"
 msgid "None"
-msgstr ""
+msgstr "Καμία"
 
 msgctxt "selection:party.party,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "Πρωτοβάθμιο Σχολείο"
 
 msgctxt "selection:party.party,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "Δημοτικό σχολείο"
 
 msgctxt "selection:party.party,education:"
 msgid "University"
-msgstr ""
+msgstr "Πανεπιστήμιο"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Current Status"
@@ -587,7 +599,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Notes"
-msgstr ""
+msgstr "Σημειώσεις"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Other Family and Environmental determinants"
@@ -595,7 +607,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Socioeconomics"
-msgstr ""
+msgstr "Κοινωνικο-οικονομικά"
 
 msgctxt "view:gnuhealth.ses.assessment:"
 msgid "Done"

@@ -1,182 +1,195 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445404.0\n"
 
 msgctxt "field:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "Bug traps"
-msgstr ""
+msgstr "Εντομοπαγίδες"
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Floor"
-msgstr ""
+msgstr "Δάπεδο"
 
 msgctxt "field:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri-domicilary"
-msgstr ""
+msgstr "Περιοχή γύρω από το σπίτι"
 
 msgctxt "field:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof"
-msgstr ""
+msgstr "Οροφή"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du:"
 msgid "DU"
-msgstr ""
+msgstr "Οικιακή Μονάδα DU"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "Fumigation"
-msgstr ""
+msgstr "Απολύμανση με υποκαπνισμό"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_paint:"
 msgid "Insecticide Paint"
-msgstr ""
+msgstr "Εντομοκτόνες βαφές"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_status:"
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgctxt "field:gnuhealth.chagas_du_survey,dwall:"
 msgid "Walls"
-msgstr ""
+msgstr "Τοίχοι"
 
 msgctxt "field:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Fumigation Date"
-msgstr ""
+msgstr "Ημερομηνία υποκαπνισμού"
 
 msgctxt "field:gnuhealth.chagas_du_survey,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.chagas_du_survey,name:"
 msgid "Survey Code"
-msgstr ""
+msgstr "Κωδικός έρευνας"
 
 msgctxt "field:gnuhealth.chagas_du_survey,next_survey_date:"
 msgid "Next survey"
-msgstr ""
+msgstr "Επόμενη έρευνα"
 
 msgctxt "field:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Nymphs"
-msgstr ""
+msgstr "Νύμφες"
 
 msgctxt "field:gnuhealth.chagas_du_survey,observations:"
 msgid "Observations"
-msgstr ""
+msgstr "Παρατηρήσεις"
 
 msgctxt "field:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Paint Date"
-msgstr ""
+msgstr "Ημερομηνία μπογιατίσματος"
 
 msgctxt "field:gnuhealth.chagas_du_survey,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.chagas_du_survey,survey_date:"
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Domiciliary"
-msgstr ""
+msgstr "Κατ' οίκον"
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Peri-Domiciliary"
-msgstr ""
+msgstr "Περιοχή γύρω από το σπίτι"
 
 msgctxt "field:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Triatomines"
-msgstr ""
+msgstr "Τριατομίνες"
 
 msgctxt "field:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr ""
+msgstr "Φορέας"
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την Ημερομηνία"
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον χρήστη"
 
 msgctxt "field:gnuhealth.sequences,chagas_du_survey_sequence:"
 msgid "Chagas Survey Sequence"
-msgstr ""
+msgstr "Αλληλουχία Μελέτης Chagas"
 
 msgctxt "help:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "The DU has traps to detect triatomines"
-msgstr ""
+msgstr "Η Οικιακή Μονάδα DU έχει παγίδες για τον εντοπισμό τριατομινών"
 
 msgctxt "help:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Current floor can host triatomines"
-msgstr ""
+msgstr "Το παρόν δάπεδο μπορεί να φιλοξενεί τριατομίνες"
 
 msgctxt "help:gnuhealth.chagas_du_survey,dperi:"
 msgid "Peri domiciliary area can host triatomines"
-msgstr ""
+msgstr "Η περιοχή γύρω από το σπίτι μπορεί να φιλοξενεί τριατομίνες"
 
 msgctxt "help:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof materials or state can host triatomines"
 msgstr ""
+"Τα υλικά της σκεπής, είτε η κατάστασή της, μπορεί να φιλοξενούν τριατομίνες"
 
 msgctxt "help:gnuhealth.chagas_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr ""
+msgstr "Κατοικία"
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
-msgstr ""
+msgstr "Η Οικιακή Μονάδα DU υπεβλήθη σε υποκαπνισμό"
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_paint:"
 msgid "The DU has been treated with insecticide-containing paint"
 msgstr ""
+"Η Οικιακή Μονάδα DU βάφτηκε με ειδικές μπογιές που περιέχουν εντομοκτόνο."
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_status:"
 msgid "DU status compared to last visit"
-msgstr ""
+msgstr "Κατάστση Οικιακής Μονάδας DU σε σύγκριση με την τελευταία επίσκεψη"
 
 msgctxt "help:gnuhealth.chagas_du_survey,dwall:"
 msgid "Wall materials or state can host triatomines"
 msgstr ""
+"Τα υλικά των τοίχων, είτε η κατάστασή τους, μπορεί να φιλοξενούν τριατομίνες"
 
 msgctxt "help:gnuhealth.chagas_du_survey,fumigation_date:"
 msgid "Last Fumigation Date"
-msgstr ""
+msgstr "Τελευταία ημερομηνία υποκαπνισμού"
 
 msgctxt "help:gnuhealth.chagas_du_survey,nymphs:"
 msgid "Check this box if triatomine nymphs were found"
-msgstr ""
+msgstr "Τικάρετε αυτό το κουτί αν βρέθηκαν νύμφες τριατομινών"
 
 msgctxt "help:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Last Paint Date"
-msgstr ""
+msgstr "Τελευταία ημερομηνία επίχρισης/ βαφής"
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Check this box if triatomines were found inside the house"
-msgstr ""
+msgstr "Επιλέξτε αυτό το κουτί αν βρέθηκαν τριατομίνες μέσα στο σπίτι"
 
 msgctxt "help:gnuhealth.chagas_du_survey,t_peri:"
 msgid "Check this box if triatomines were found in the peridomiciliary area"
 msgstr ""
+"Επιλέξτε αυτό το κουτί αν βρέθηκαν τριατομίνες στην περιοχή γύρω από το "
+"σπίτι"
 
 msgctxt "help:gnuhealth.chagas_du_survey,triatomines:"
 msgid "Check this box if triatomines were found"
-msgstr ""
+msgstr "Επιλέξτε αυτό το κουτί αν βρέθηκαν τριατομίνες"
 
 msgctxt "help:gnuhealth.chagas_du_survey,vector:"
 msgid "Vector"
-msgstr ""
+msgstr "Φορέας"
 
 msgctxt "model:gnuhealth.chagas_du_survey,name:"
 msgid "Chagas DU Entomological Survey"
-msgstr ""
+msgstr "Εντομολογική μελέτη Chagas DU"
 
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_bsmear_trypomastigotes"
@@ -255,45 +268,45 @@ msgstr ""
 
 msgctxt "model:ir.action,name:act_chagas_du_survey_form"
 msgid "Chagas DU Survey"
-msgstr ""
+msgstr "Mελέτη Chagas DU"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_du_survey"
 msgid "Chagas DU Survey"
-msgstr ""
+msgstr "Mελέτη Chagas DU"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_du_survey"
 msgid "Chagas DU Survey"
-msgstr ""
+msgstr "Mελέτη Chagas DU"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_bsmear_analysischarges0"
 msgid "Chagas Blood Smear Charges"
-msgstr ""
+msgstr "Χρεώσεις για λεπτό επίχρισμα περιφερικού αίματος προς εντοπισμό Chagas"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_elisa_analysischarges0"
 msgid "Chagas ELISA Ig Charges"
-msgstr ""
+msgstr "Χρεώσεις για Elisa Ig"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_ifa_analysischarges0"
 msgid "Chagas ifa Ig Charges"
-msgstr ""
+msgstr "Χρεώσεις για Chagas IFA Ig"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_pcr_analysischarges0"
 msgid "Chagas PCR Charges"
-msgstr ""
+msgstr "Χρεώσεις για Chagas PCR"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_strout_analysischarges0"
 msgid "Chagas strout Charges"
-msgstr ""
+msgstr "Χρεώσεις για Chagas strout"
 
 msgctxt ""
 "model:product.template,name:product_template_chagas_xenodiagnosis_analysischarges0"
 msgid "Chagas Xenodiagnosis Charges"
-msgstr ""
+msgstr "Χρεώσεις για Ξενοδιάγνωση Chagas"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid ""
@@ -301,19 +314,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Improved"
-msgstr ""
+msgstr "Βελτιώθηκε"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Initial"
-msgstr ""
+msgstr "Αρχική"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Unchanged"
-msgstr ""
+msgstr "Αμετάβλητη"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Worsen"
-msgstr ""
+msgstr "Σε επιδείνωση"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid ""
@@ -321,20 +334,20 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "P. megistus"
-msgstr ""
+msgstr "P. megistus"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "R. prolixus"
-msgstr ""
+msgstr "R. prolixus"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. brasilensis"
-msgstr ""
+msgstr "T. brasilensis"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. dimidiata"
-msgstr ""
+msgstr "T. dimidiata"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,vector:"
 msgid "T. infestans"
-msgstr ""
+msgstr "T. infestans"

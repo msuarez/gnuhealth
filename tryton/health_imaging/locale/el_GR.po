@@ -1,366 +1,374 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445394.0\n"
 
 msgctxt "field:gnuhealth.imaging.test,code:"
 msgid "Code"
-msgstr ""
+msgstr "Κωδικός"
 
 msgctxt "field:gnuhealth.imaging.test,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.imaging.test,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.imaging.test,name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test,product:"
 msgid "Service"
-msgstr ""
+msgstr "Υπηρεσία"
 
 msgctxt "field:gnuhealth.imaging.test,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test,test_type:"
 msgid "Type"
-msgstr ""
+msgstr "Είδος"
 
 msgctxt "field:gnuhealth.imaging.test,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.request,comment:"
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 msgctxt "field:gnuhealth.imaging.test.request,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.imaging.test.request,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.request,date:"
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test.request,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "Ιατρός"
 
 msgctxt "field:gnuhealth.imaging.test.request,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.imaging.test.request,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Ασθενής"
 
 msgctxt "field:gnuhealth.imaging.test.request,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test.request,request:"
 msgid "Request"
-msgstr ""
+msgstr "Αίτημα"
 
 msgctxt "field:gnuhealth.imaging.test.request,requested_test:"
 msgid "Test"
-msgstr ""
+msgstr "Εξέταση"
 
 msgctxt "field:gnuhealth.imaging.test.request,state:"
 msgid "State"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgctxt "field:gnuhealth.imaging.test.request,urgent:"
 msgid "Urgent"
-msgstr ""
+msgstr "Επειγόντως"
 
 msgctxt "field:gnuhealth.imaging.test.request,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test.request,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.result,comment:"
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 msgctxt "field:gnuhealth.imaging.test.result,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.imaging.test.result,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.result,date:"
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test.result,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "Ιατρός"
 
 msgctxt "field:gnuhealth.imaging.test.result,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.imaging.test.result,images:"
 msgid "Images"
-msgstr ""
+msgstr "Εικόνες"
 
 msgctxt "field:gnuhealth.imaging.test.result,number:"
 msgid "Number"
-msgstr ""
+msgstr "Αριθμός"
 
 msgctxt "field:gnuhealth.imaging.test.result,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Ασθενής"
 
 msgctxt "field:gnuhealth.imaging.test.result,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test.result,request:"
 msgid "Request"
-msgstr ""
+msgstr "Αίτημα"
 
 msgctxt "field:gnuhealth.imaging.test.result,request_date:"
 msgid "Requested Date"
-msgstr ""
+msgstr "Ημερομηνία αιτήματος"
 
 msgctxt "field:gnuhealth.imaging.test.result,requested_test:"
 msgid "Test"
-msgstr ""
+msgstr "Εξέταση"
 
 msgctxt "field:gnuhealth.imaging.test.result,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test.result,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.type,code:"
 msgid "Code"
-msgstr ""
+msgstr "Κωδικός"
 
 msgctxt "field:gnuhealth.imaging.test.type,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Δημιουργία ημερομηνίας"
 
 msgctxt "field:gnuhealth.imaging.test.type,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Δημιουργία χρήστη"
 
 msgctxt "field:gnuhealth.imaging.test.type,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.imaging.test.type,name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test.type,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgctxt "field:gnuhealth.imaging.test.type,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Γράψτε την ημερομηνία"
 
 msgctxt "field:gnuhealth.imaging.test.type,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Γράψτε τον χρήστη"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,date:"
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "Ιατρός"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Ασθενής"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,tests:"
 msgid "Tests"
-msgstr ""
+msgstr "Τεστ"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,urgent:"
 msgid "Urgent"
-msgstr ""
+msgstr "Επειγόντως"
 
 msgctxt "field:gnuhealth.request-imaging-test,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.request-imaging-test,request:"
 msgid "Request"
-msgstr ""
+msgstr "Αίτημα"
 
 msgctxt "field:gnuhealth.request-imaging-test,test:"
 msgid "Test"
-msgstr ""
+msgstr "Δοκιμή"
 
 msgctxt "field:gnuhealth.sequences,imaging_request_sequence:"
 msgid "Imaging Request Sequence"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "field:gnuhealth.sequences,imaging_sequence:"
 msgid "Imaging Sequence"
-msgstr ""
+msgstr "Απεικονιστική αλληλουχία"
 
 msgctxt "help:gnuhealth.patient.imaging.test.request.start,doctor:"
 msgid "Doctor who Request the lab tests."
-msgstr ""
+msgstr "Ιατρός που ζήτησε τις Εργαστηρ. εξετάσεις."
 
 msgctxt "model:gnuhealth.imaging.test,name:"
 msgid "Imaging Test"
-msgstr ""
+msgstr "Απεικονιστική εξέταση"
 
 msgctxt "model:gnuhealth.imaging.test.request,name:"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:gnuhealth.imaging.test.result,name:"
 msgid "Imaging Test Result"
-msgstr ""
+msgstr "Αποτέλεσμα απεικονιστικής εξέτασης"
 
 msgctxt "model:gnuhealth.imaging.test.type,name:"
 msgid "Imaging Test Type"
-msgstr ""
+msgstr "Τύπος απεικονιστικής εξέτασης"
 
 msgctxt "model:gnuhealth.patient.imaging.test.request.start,name:"
 msgid "Request Patient Imaging Test Start"
-msgstr ""
+msgstr "Αίτημα έναρξης απεικονιστικής εξέτασης ασθενούς"
 
 msgctxt "model:gnuhealth.request-imaging-test,name:"
 msgid "Request - Test"
-msgstr ""
+msgstr "Αίτημα - Εξέταση"
 
 msgctxt "model:ir.action,name:act_imaging_test_request_view"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:act_imaging_test_request_view2"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:act_imaging_test_result_view"
 msgid "Imaging Test Result"
-msgstr ""
+msgstr "Αποτέλεσμα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:act_imaging_test_result_view2"
 msgid "Imaging Test Results"
-msgstr ""
+msgstr "Αποτελέσματα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:act_imaging_test_type_view"
 msgid "Imaging Test Type"
-msgstr ""
+msgstr "Τύπος απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:act_imaging_test_view"
 msgid "Imaging Test"
-msgstr ""
+msgstr "Απεικονιστική εξέταση"
 
 msgctxt "model:ir.action,name:patient_imaging_test_request"
 msgid "Request Imaging Test"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.action,name:wizard_generate_result"
 msgid "Generate Result"
-msgstr ""
+msgstr "Δημιουργία αποτελέσματος"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_all"
 msgid "All"
-msgstr ""
+msgstr "Όλα"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_done"
 msgid "Done"
-msgstr ""
+msgstr "Έγινε"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_draft"
 msgid "Draft"
-msgstr ""
+msgstr "Πρόχειρο/ προσχέδιο"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_requested"
 msgid "Requested"
-msgstr ""
+msgstr "Ζητήθηκε"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test"
 msgid "Imaging Test"
-msgstr ""
+msgstr "Απεικονιστική εξέταση"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_imaging_test_request"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test"
 msgid "Imaging Test"
-msgstr ""
+msgstr "Απεικονιστική εξέταση"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_imaging_test_request"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging"
 msgid "Imaging"
-msgstr ""
+msgstr "Απεικόνιση"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_parent"
 msgid "Imaging"
-msgstr ""
+msgstr "Απεικόνιση"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_request_view"
 msgid "Imaging Test Request"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_result_view"
 msgid "Imaging Test Result"
-msgstr ""
+msgstr "Αποτέλεσμα απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_type"
 msgid "Imaging Test Type"
-msgstr ""
+msgstr "Τύπος απεικονιστικής εξέτασης"
 
 msgctxt "model:ir.ui.menu,name:menu_imaging_test_view"
 msgid "Imaging Test"
-msgstr ""
+msgstr "Απεικονιστική εξέταση"
 
 msgctxt "model:ir.ui.menu,name:menu_patient_imaging_test_request"
 msgid "Request Imaging Test"
-msgstr ""
+msgstr "Αίτημα απεικονιστικής εξέτασης"
 
 msgctxt "model:product.category,name:product_category_imagingservices"
 msgid "Imaging Services"
-msgstr ""
+msgstr "Υπηρεσίες απεικόνισης"
 
 msgctxt "model:product.template,name:product_template_ctscancharges"
 msgid "CT Scan charges"
@@ -384,20 +392,20 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Done"
-msgstr ""
+msgstr "Έγινε"
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Draft"
-msgstr ""
+msgstr "Πρόχειρο/ προσχέδιο"
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Requested"
-msgstr ""
+msgstr "Ζητήθηκε"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
 msgid "Cancel"
-msgstr ""
+msgstr "Διαγραφή"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,request:"
 msgid "Request"
-msgstr ""
+msgstr "Αίτημα"
