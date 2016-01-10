@@ -1,6 +1,14 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:28+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252501.0\n"
 
 msgctxt "error:gnuhealth.iss:"
 msgid "This ISS registration Code already exists"
@@ -8,23 +16,23 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,alcohol:"
 msgid "Alcohol"
-msgstr ""
+msgstr "酒精"
 
 msgctxt "field:gnuhealth.iss,code:"
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 msgctxt "field:gnuhealth.iss,complaint:"
 msgid "Chief Complaint"
-msgstr ""
+msgstr "主诉"
 
 msgctxt "field:gnuhealth.iss,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.iss,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.iss,disposition:"
 msgid "Disposition"
@@ -36,11 +44,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,healthcenter:"
 msgid "Institution"
-msgstr ""
+msgstr "机构"
 
 msgctxt "field:gnuhealth.iss,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.iss,injury_date:"
 msgid "Injury Date"
@@ -48,7 +56,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,injury_details:"
 msgid "Details"
-msgstr ""
+msgstr "细节"
 
 msgctxt "field:gnuhealth.iss,injury_method:"
 msgid "Method"
@@ -60,11 +68,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,latitude:"
 msgid "Latidude"
-msgstr ""
+msgstr "纬度，纬线"
 
 msgctxt "field:gnuhealth.iss,longitude:"
 msgid "Longitude"
-msgstr ""
+msgstr "经度，经线"
 
 msgctxt "field:gnuhealth.iss,mva_counterpart:"
 msgid "Counterpart"
@@ -80,7 +88,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,name:"
 msgid "Evaluation"
-msgstr ""
+msgstr "评价"
 
 msgctxt "field:gnuhealth.iss,operational_sector:"
 msgid "O. Sector"
@@ -88,15 +96,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.iss,patient_age:"
 msgid "Age"
-msgstr ""
+msgstr "年龄"
 
 msgctxt "field:gnuhealth.iss,patient_sex:"
 msgid "Sex"
-msgstr ""
+msgstr "性别"
 
 msgctxt "field:gnuhealth.iss,place_occurrance:"
 msgid "Place"
@@ -104,7 +112,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 msgctxt "field:gnuhealth.iss,registration_date:"
 msgid "Registration Date"
@@ -116,11 +124,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,urladdr:"
 msgid "OSM Map"
-msgstr ""
+msgstr "OSM地图"
 
 msgctxt "field:gnuhealth.iss,victim_perpetrator:"
 msgid "Relationship"
-msgstr ""
+msgstr "关系"
 
 msgctxt "field:gnuhealth.iss,violence_circumstances:"
 msgid "Context"
@@ -128,11 +136,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "请您写日期"
 
 msgctxt "field:gnuhealth.iss,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "请您写用户"
 
 msgctxt "help:gnuhealth.iss,alcohol:"
 msgid ""
@@ -308,7 +316,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Push/bodily force"
@@ -376,7 +384,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Pedestrian"
@@ -432,7 +440,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Pedestrian"
@@ -468,7 +476,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Driver"
-msgstr ""
+msgstr "司机"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Outside / on the back"
@@ -496,11 +504,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Home"
-msgstr ""
+msgstr "家"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Institution"
-msgstr ""
+msgstr "机构"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Public Building"
@@ -516,7 +524,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "School"
-msgstr ""
+msgstr "学校"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Sports event"
@@ -524,7 +532,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Street"
-msgstr ""
+msgstr "街道"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Unknown"
@@ -568,7 +576,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Parent"
-msgstr ""
+msgstr "父类"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Stranger"
@@ -604,7 +612,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Other"
-msgstr ""
+msgstr "其它"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Robbery"

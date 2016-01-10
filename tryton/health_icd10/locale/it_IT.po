@@ -1,1341 +1,1389 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:14+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452251696.0\n"
 
 msgctxt "model:gnuhealth.pathology,name:A00"
 msgid "Cholera"
-msgstr ""
+msgstr "Colera"
 
 msgctxt "model:gnuhealth.pathology,name:A000"
 msgid "Cholera due to Vibrio cholerae 01, biovar cholerae"
-msgstr ""
+msgstr "Colera dovuto a Vibrio cholerae 01, ceppo Classico"
 
 msgctxt "model:gnuhealth.pathology,name:A001"
 msgid "Cholera due to Vibrio cholerae 01, biovar el tor"
-msgstr ""
+msgstr "Colera dovuto a Vibrio cholerae 01, ceppo El Tor"
 
 msgctxt "model:gnuhealth.pathology,name:A009"
 msgid "Cholera, unspecified"
-msgstr ""
+msgstr "Colera, non specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A01"
 msgid "Typhoid and paratyphoid fevers"
-msgstr ""
+msgstr "Febbri tifoidi e paratifoidi"
 
 msgctxt "model:gnuhealth.pathology,name:A010"
 msgid "Typhoid fever"
-msgstr ""
+msgstr "Febbre tifoide"
 
 msgctxt "model:gnuhealth.pathology,name:A011"
 msgid "Paratyphoid fever A"
-msgstr ""
+msgstr "Febbre paratifoide di tipo A"
 
 msgctxt "model:gnuhealth.pathology,name:A012"
 msgid "Paratyphoid fever B"
-msgstr ""
+msgstr "Febbre paratifoide di tipo B"
 
 msgctxt "model:gnuhealth.pathology,name:A013"
 msgid "Paratyphoid fever C"
-msgstr ""
+msgstr "Febbre paratifoide di tipo C"
 
 msgctxt "model:gnuhealth.pathology,name:A014"
 msgid "Paratyphoid fever, unspecified"
-msgstr ""
+msgstr "Febbre paratifoide, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A02"
 msgid "Other Salmonella infections"
-msgstr ""
+msgstr "Altre infezioni da Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A020"
 msgid "Salmonella gastro-enteritis"
-msgstr ""
+msgstr "Gastroenteriti da Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A021"
 msgid "Salmonella septicaemia"
-msgstr ""
+msgstr "Setticemia da Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A022"
 msgid "Localised Salmonella infections"
-msgstr ""
+msgstr "Infezioni localizzate da Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A028"
 msgid "Other specified Salmonella infections"
-msgstr ""
+msgstr "Altre infezioni specificate da Salmonella"
 
 msgctxt "model:gnuhealth.pathology,name:A029"
 msgid "Salmonella infection, unspecified"
-msgstr ""
+msgstr "Infezione da Salmonella, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A03"
 msgid "Shigellosis"
-msgstr ""
+msgstr "Shigellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A030"
 msgid "Shigellosis due to Shigella dysenteriae"
-msgstr ""
+msgstr "Shigellosi dovuta a Shigella dysenteriae"
 
 msgctxt "model:gnuhealth.pathology,name:A031"
 msgid "Shigellosis due to Shigella flexneri"
-msgstr ""
+msgstr "Shigellosi dovuta a Shigella flexneri"
 
 msgctxt "model:gnuhealth.pathology,name:A032"
 msgid "Shigellosis due to Shigella boydii"
-msgstr ""
+msgstr "Shigellosi dovuta a Shigella boydii"
 
 msgctxt "model:gnuhealth.pathology,name:A033"
 msgid "Shigellosis due to Shigella sonnei"
-msgstr ""
+msgstr "Shigellosi dovuta a Shigella sonnei"
 
 msgctxt "model:gnuhealth.pathology,name:A038"
 msgid "Other shigellosis"
-msgstr ""
+msgstr "Altra shigellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A039"
 msgid "Shigellosis, unspecified"
-msgstr ""
+msgstr "Shigellosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A04"
 msgid "Other bacterial intestinal infections"
-msgstr ""
+msgstr "Altre infezioni batteriche intestinali"
 
 msgctxt "model:gnuhealth.pathology,name:A040"
 msgid "Enteropathogenic Escherichia coli infection"
-msgstr ""
+msgstr "Infezione da Escherichia coli enteropatogeno"
 
 msgctxt "model:gnuhealth.pathology,name:A041"
 msgid "Enterotoxigenic Escherichia coli infection"
-msgstr ""
+msgstr "Infezione da Escherichia coli enterotossigeno"
 
 msgctxt "model:gnuhealth.pathology,name:A042"
 msgid "Enteroinvasive Escherichia coli infection"
-msgstr ""
+msgstr "Infezione da Escherichia coli diffusamente aderenti"
 
 msgctxt "model:gnuhealth.pathology,name:A043"
 msgid "Enterohaemorrhagic Escherichia coli infection"
-msgstr ""
+msgstr "Infezione da Escherichia coli enteroemorragico"
 
 msgctxt "model:gnuhealth.pathology,name:A044"
 msgid "Other intestinal Escherichia coli infections"
-msgstr ""
+msgstr "Altre infezioni intestinali da Escherichia coli"
 
 msgctxt "model:gnuhealth.pathology,name:A045"
 msgid "Campylobacter enteritis"
-msgstr ""
+msgstr "Enterite da Campylobacter"
 
 msgctxt "model:gnuhealth.pathology,name:A046"
 msgid "Enteritis due to Yersinia enterocolitica"
-msgstr ""
+msgstr "Enterite dovuta a Yersinia enterocolitica"
 
 msgctxt "model:gnuhealth.pathology,name:A047"
 msgid "Enterocolitis due to Clostridium difficile"
-msgstr ""
+msgstr "Enterocolite dovuta a Clostridium difficile"
 
 msgctxt "model:gnuhealth.pathology,name:A048"
 msgid "Other specified bacterial intestinal infections"
-msgstr ""
+msgstr "Altre infezioni batteriche intestinali specifiche"
 
 msgctxt "model:gnuhealth.pathology,name:A049"
 msgid "Bacterial intestinal infection, unspecified"
-msgstr ""
+msgstr "Infezione batterica intestinale, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A05"
 msgid "Other bacterial foodborne intoxications"
-msgstr ""
+msgstr "Altre intossicazioni batteriche tramite alimenti"
 
 msgctxt "model:gnuhealth.pathology,name:A050"
 msgid "Foodborne staphylococcal intoxication"
-msgstr ""
+msgstr "Intossicazione staffilococcica tramite alimenti"
 
 msgctxt "model:gnuhealth.pathology,name:A051"
 msgid "Botulism"
-msgstr ""
+msgstr "Botulismo"
 
 msgctxt "model:gnuhealth.pathology,name:A052"
 msgid "Foodborne Clostridium perfringens [Clostridium welchii] intoxication"
 msgstr ""
+"Intossicazione da Clostridium perfringens [Clostridium welchii] tramiite "
+"alimenti"
 
 msgctxt "model:gnuhealth.pathology,name:A053"
 msgid "Foodborne Vibrio parahaemolyticus intoxication"
-msgstr ""
+msgstr "Intossicazione da Vibrio parahaemolyticus tramite alimenti"
 
 msgctxt "model:gnuhealth.pathology,name:A054"
 msgid "Foodborne Bacillus cereus intoxication"
-msgstr ""
+msgstr "Intossicazione da Bacillus cereus tramite alimenti"
 
 msgctxt "model:gnuhealth.pathology,name:A058"
 msgid "Other specified bacterial foodborne intoxications"
-msgstr ""
+msgstr "Altre intossicazioni batteriche tramite alimenti specifiche"
 
 msgctxt "model:gnuhealth.pathology,name:A059"
 msgid "Bacterial foodborne intoxication, unspecified"
-msgstr ""
+msgstr "Intossicazione batterica tramite alimenti, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A06"
 msgid "Amoebiasis"
-msgstr ""
+msgstr "Amebiasi"
 
 msgctxt "model:gnuhealth.pathology,name:A060"
 msgid "Acute amoebic dysentery"
-msgstr ""
+msgstr "Dissenteria amebica acuta"
 
 msgctxt "model:gnuhealth.pathology,name:A061"
 msgid "Chronic intestinal amoebiasis"
-msgstr ""
+msgstr "Amebiasi intesitnale cronica"
 
 msgctxt "model:gnuhealth.pathology,name:A062"
 msgid "Amoebic nondysenteric colitis"
-msgstr ""
+msgstr "Colite amebica non dissenterica"
 
 msgctxt "model:gnuhealth.pathology,name:A063"
 msgid "Amoeboma of intestine"
-msgstr ""
+msgstr "Ameboma intestinale"
 
 msgctxt "model:gnuhealth.pathology,name:A064"
 msgid "Amoebic liver abscess"
-msgstr ""
+msgstr "Ascesso del fegato da ameba"
 
 msgctxt "model:gnuhealth.pathology,name:A065"
 msgid "Amoebic lung abscess"
-msgstr ""
+msgstr "Ascesso del polmone da ameba"
 
 msgctxt "model:gnuhealth.pathology,name:A066"
 msgid "Amoebic brain abscess"
-msgstr ""
+msgstr "Ascesso del cervello da ameba"
 
 msgctxt "model:gnuhealth.pathology,name:A067"
 msgid "Cutaneous amoebiasis"
-msgstr ""
+msgstr "Amebiasi cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A068"
 msgid "Amoebic infection of other sites"
-msgstr ""
+msgstr "Infezione ambebica di altri siti"
 
 msgctxt "model:gnuhealth.pathology,name:A069"
 msgid "Amoebiasis, unspecified"
-msgstr ""
+msgstr "Amebiasi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A07"
 msgid "Other protozoal intestinal diseases"
-msgstr ""
+msgstr "Altre malattie intestinali da protozoi"
 
 msgctxt "model:gnuhealth.pathology,name:A070"
 msgid "Balantidiasis"
-msgstr ""
+msgstr "Balantidiasi"
 
 msgctxt "model:gnuhealth.pathology,name:A071"
 msgid "Giardiasis [lambliasis]"
-msgstr ""
+msgstr "Giardiasi [lambliasi]"
 
 msgctxt "model:gnuhealth.pathology,name:A072"
 msgid "Cryptosporidiosis"
-msgstr ""
+msgstr "Criptosporidiosi"
 
 msgctxt "model:gnuhealth.pathology,name:A073"
 msgid "Isosporiasis"
-msgstr ""
+msgstr "Isosporiasi"
 
 msgctxt "model:gnuhealth.pathology,name:A078"
 msgid "Other specified protozoal intestinal diseases"
-msgstr ""
+msgstr "Altre malattie intestinali da protozoi specifici"
 
 msgctxt "model:gnuhealth.pathology,name:A079"
 msgid "Protozoal intestinal disease, unspecified"
-msgstr ""
+msgstr "Malattia intestinale da protozoi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A08"
 msgid "Viral and other specified intestinal infections"
-msgstr ""
+msgstr "Infezioni intestinali da virus e altri agenti specifici"
 
 msgctxt "model:gnuhealth.pathology,name:A080"
 msgid "Rotaviral enteritis"
-msgstr ""
+msgstr "Enteriti da rotavirus"
 
 msgctxt "model:gnuhealth.pathology,name:A081"
 msgid "Acute gastro-enteropathy due to Norwalk agent"
-msgstr ""
+msgstr "Gastro-enteropatia acuta dovuta al virus di Norwalk"
 
 msgctxt "model:gnuhealth.pathology,name:A082"
 msgid "Adenoviral enteritis"
-msgstr ""
+msgstr "Enteriti da Adenovirus"
 
 msgctxt "model:gnuhealth.pathology,name:A083"
 msgid "Other viral enteritis"
-msgstr ""
+msgstr "Altre entità virali"
 
 msgctxt "model:gnuhealth.pathology,name:A084"
 msgid "Viral intestinal infection, unspecified"
-msgstr ""
+msgstr "Infezione intestinale virale, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A085"
 msgid "Other specified intestinal infections"
-msgstr ""
+msgstr "Altre infezioni virali intestinali specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A09"
 msgid "Diarrhoea and gastro-enteritis of presumed infectious origin"
-msgstr ""
+msgstr "Diarrea e gastroenteriti di presunta origine infettiva"
 
 msgctxt "model:gnuhealth.pathology,name:A15"
 msgid ""
 "Respiratory tuberculosis, bacteriologically and histologically confirmed"
 msgstr ""
+"Tubercolosi respiratoria, confermata batteriologicamente e istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A150"
 msgid ""
 "Tuberculosis of lung, confirmed by sputum microscopy with or without culture"
 msgstr ""
+"Tubercolosi del polmone, confermata da microscopia dell'espettorato con o "
+"senza coltura"
 
 msgctxt "model:gnuhealth.pathology,name:A151"
 msgid "Tuberculosis of lung, confirmed by culture only"
-msgstr ""
+msgstr "Tubercolosi del polmone, confermata solo dalla coltura"
 
 msgctxt "model:gnuhealth.pathology,name:A152"
 msgid "Tuberculosis of lung, confirmed histologically"
-msgstr ""
+msgstr "Tubercolosi del polmone, confermata istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A153"
 msgid "Tuberculosis of lung, confirmed by unspecified means"
-msgstr ""
+msgstr "Tubercolosi del polmone, confermata in modo non specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A154"
 msgid ""
 "Tuberculosis of intrathoracic lymph nodes, confirmed bacteriologically and "
 "histologically"
 msgstr ""
+"Tubercolosi dei nodi linfatici intratoracici, confermata batteriologicamente "
+"e istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A155"
 msgid ""
 "Tuberculosis of larynx, trachea and bronchus, confirmed bacteriologically "
 "and histologically"
 msgstr ""
+"Tubercolosi di laringe, trachea e bronchi, confermata batteriologicamente e "
+"istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A156"
 msgid "Tuberculous pleurisy, confirmed bacteriologically and histologically"
-msgstr ""
+msgstr "Pleurite tubercolare, confermata batteriologicamente e istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A157"
 msgid ""
 "Primary respiratory tuberculosis, confirmed bacteriologically and "
 "histologically"
 msgstr ""
+"Tubercolosi respiratoria primaria, confermata batteriologicamente e "
+"istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A158"
 msgid ""
 "Other respiratory tuberculosis, confirmed bacteriologically and "
 "histologically"
 msgstr ""
+"Altra tubercolosi respiratoria, confermata batteriologicamente e "
+"istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A159"
 msgid ""
 "Respiratory tuberculosis unspecified, confirmed bacteriologically and "
 "histologically"
 msgstr ""
+"Tubercolosi respiratoria non specificata, confermata batteriologicamene e "
+"istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A16"
 msgid ""
 "Respiratory tuberculosis, not confirmed bacteriologically or histologically"
 msgstr ""
+"Tubercolosi respiratoria, non confermata batteriologicamente o "
+"istologicamente"
 
 msgctxt "model:gnuhealth.pathology,name:A160"
 msgid "Tuberculosis of lung, bacteriologically and histologically negative"
-msgstr ""
+msgstr "Tubercolosi del polmone, batteriologicamente e istologicamente negativa"
 
 msgctxt "model:gnuhealth.pathology,name:A161"
 msgid ""
 "Tuberculosis of lung, bacteriological and histological examination not done"
 msgstr ""
+"Tubercolosi del polmone, esami batteriologici e istologici non effettuati"
 
 msgctxt "model:gnuhealth.pathology,name:A162"
 msgid ""
 "Tuberculosis of lung, without mention of bacteriological or histological "
 "confirmation"
 msgstr ""
+"Tubercolosi del polmone, senza menzione di conferma batteriologica o "
+"istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A163"
 msgid ""
 "Tuberculosis of intrathoracic lymph nodes, without mention of "
 "bacteriological or histological confirmation"
 msgstr ""
+"Tubercolosi dei nodi linfatici intratoracici, senza menzione di conferma "
+"batteriologica o istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A164"
 msgid ""
 "Tuberculosis of larynx, trachea and bronchus, without mention of "
 "bacteriological or histological confirmation"
 msgstr ""
+"Tubercolosi di laringe, trachea e bronchi, senza menzione di conferma "
+"batteriologica o istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A165"
 msgid ""
 "Tuberculous pleurisy, without mention of bacteriological or histological "
 "confirmation"
 msgstr ""
+"Pleurite tubercolare, senza menzione di conferma batteriologica o istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A167"
 msgid ""
 "Primary respiratory tuberculosis without mention of bacteriological or "
 "histological confirmation"
 msgstr ""
+"Tubercolosi respiratoria primaria senza menzione di conferma batteriologica "
+"o istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A168"
 msgid ""
 "Other respiratory tuberculosis, without mention of bacteriological or "
 "histological confirmation"
 msgstr ""
+"Altre tubercolosi respiratorie, senza menzione di conferma batteriologica o "
+"istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A169"
 msgid ""
 "Respiratory tuberculosis unspecified, without mention of bacteriological or "
 "histological confirmation"
 msgstr ""
+"Tubercolosi respiratoria non specificata, senza menzione di conferma "
+"batteriologica o istologica"
 
 msgctxt "model:gnuhealth.pathology,name:A17"
 msgid "Tuberculosis of nervous system"
-msgstr ""
+msgstr "Tubercolosi del sistema nervoso"
 
 msgctxt "model:gnuhealth.pathology,name:A170"
 msgid "Tuberculous meningitis"
-msgstr ""
+msgstr "Meningite tubercolare"
 
 msgctxt "model:gnuhealth.pathology,name:A171"
 msgid "Meningeal tuberculoma"
-msgstr ""
+msgstr "Tubercoloma delle meningi"
 
 msgctxt "model:gnuhealth.pathology,name:A178"
 msgid "Other tuberculosis of nervous system"
-msgstr ""
+msgstr "Altre tubercolosi del sistema nervoso"
 
 msgctxt "model:gnuhealth.pathology,name:A179"
 msgid "Tuberculosis of nervous system, unspecified"
-msgstr ""
+msgstr "Tubercolosi del sistema nervoso, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A18"
 msgid "Tuberculosis of other organs"
-msgstr ""
+msgstr "Tubercolosi di altri organi"
 
 msgctxt "model:gnuhealth.pathology,name:A180"
 msgid "Tuberculosis of bones and joints"
-msgstr ""
+msgstr "Tubercolosi di ossa e articolazioni"
 
 msgctxt "model:gnuhealth.pathology,name:A181"
 msgid "Tuberculosis of genito-urinary system"
-msgstr ""
+msgstr "Tubercolosi del sistema genitale-urinario"
 
 msgctxt "model:gnuhealth.pathology,name:A182"
 msgid "Tuberculous peripheral lymphadenopathy"
-msgstr ""
+msgstr "Linfoadenopatia periferica tubercolare"
 
 msgctxt "model:gnuhealth.pathology,name:A183"
 msgid "Tuberculosis of intestines, peritoneum and mesenteric glands"
-msgstr ""
+msgstr "Tubercolosi di intestini, peritoneo e ghiandole mesenteriche"
 
 msgctxt "model:gnuhealth.pathology,name:A184"
 msgid "Tuberculosis of skin and subcutaneous tissue"
-msgstr ""
+msgstr "Tubercolosi della pelle e del tessuto sottocutaneo"
 
 msgctxt "model:gnuhealth.pathology,name:A185"
 msgid "Tuberculosis of eye"
-msgstr ""
+msgstr "Tubercolosi dell'occhio"
 
 msgctxt "model:gnuhealth.pathology,name:A186"
 msgid "Tuberculosis of ear"
-msgstr ""
+msgstr "Tubercolosi dell'orecchio"
 
 msgctxt "model:gnuhealth.pathology,name:A187"
 msgid "Tuberculosis of adrenal glands"
-msgstr ""
+msgstr "Tubercolosi delle ghiandole surrenali"
 
 msgctxt "model:gnuhealth.pathology,name:A188"
 msgid "Tuberculosis of other specified organs"
-msgstr ""
+msgstr "Tubercolosi di altri organi specificati"
 
 msgctxt "model:gnuhealth.pathology,name:A19"
 msgid "Miliary tuberculosis"
-msgstr ""
+msgstr "Tubercolosi miliare"
 
 msgctxt "model:gnuhealth.pathology,name:A190"
 msgid "Acute miliary tuberculosis of a single specified site"
-msgstr ""
+msgstr "Tubercolosi miliare acuta di un singolo sito specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A191"
 msgid "Acute miliary tuberculosis of multiple sites"
-msgstr ""
+msgstr "Tubercolosi miliare acuta di siti multipli"
 
 msgctxt "model:gnuhealth.pathology,name:A192"
 msgid "Acute miliary tuberculosis, unspecified"
-msgstr ""
+msgstr "Tubercolosi miliare acuta, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A198"
 msgid "Other miliary tuberculosis"
-msgstr ""
+msgstr "Altra tubercolosi miliare"
 
 msgctxt "model:gnuhealth.pathology,name:A199"
 msgid "Miliary tuberculosis, unspecified"
-msgstr ""
+msgstr "Tubercolosi miliare, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A20"
 msgid "Plague"
-msgstr ""
+msgstr "Peste"
 
 msgctxt "model:gnuhealth.pathology,name:A200"
 msgid "Bubonic plague"
-msgstr ""
+msgstr "Peste bubbonica"
 
 msgctxt "model:gnuhealth.pathology,name:A201"
 msgid "Cellulocutaneous plague"
-msgstr ""
+msgstr "Peste cellulocutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A202"
 msgid "Pneumonic plague"
-msgstr ""
+msgstr "Peste polmonare"
 
 msgctxt "model:gnuhealth.pathology,name:A203"
 msgid "Plague meningitis"
-msgstr ""
+msgstr "Peste meningea"
 
 msgctxt "model:gnuhealth.pathology,name:A207"
 msgid "Septicaemic plague"
-msgstr ""
+msgstr "Peste setticemica"
 
 msgctxt "model:gnuhealth.pathology,name:A208"
 msgid "Other forms of plague"
-msgstr ""
+msgstr "Altre forme di peste"
 
 msgctxt "model:gnuhealth.pathology,name:A209"
 msgid "Plague, unspecified"
-msgstr ""
+msgstr "Peste, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A21"
 msgid "Tularaemia"
-msgstr ""
+msgstr "Tularemia"
 
 msgctxt "model:gnuhealth.pathology,name:A210"
 msgid "Ulceroglandular tularaemia"
-msgstr ""
+msgstr "Tularemia ulcero-ghiandolare"
 
 msgctxt "model:gnuhealth.pathology,name:A211"
 msgid "Oculoglandular tularaemia"
-msgstr ""
+msgstr "Tularemia oculoghiandolare"
 
 msgctxt "model:gnuhealth.pathology,name:A212"
 msgid "Pulmonary tularaemia"
-msgstr ""
+msgstr "Tularemia polmonare"
 
 msgctxt "model:gnuhealth.pathology,name:A213"
 msgid "Gastro-intestinal tularaemia"
-msgstr ""
+msgstr "Tularemia gastrointestinale"
 
 msgctxt "model:gnuhealth.pathology,name:A217"
 msgid "Generalised tularaemia"
-msgstr ""
+msgstr "Tularemia generalizzata"
 
 msgctxt "model:gnuhealth.pathology,name:A218"
 msgid "Other forms of tularaemia"
-msgstr ""
+msgstr "Altre forme di tularemia"
 
 msgctxt "model:gnuhealth.pathology,name:A219"
 msgid "Tularaemia, unspecified"
-msgstr ""
+msgstr "Tularemia, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A22"
 msgid "Anthrax"
-msgstr ""
+msgstr "Antrace"
 
 msgctxt "model:gnuhealth.pathology,name:A220"
 msgid "Cutaneous anthrax"
-msgstr ""
+msgstr "Antrace cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A221"
 msgid "Pulmonary anthrax"
-msgstr ""
+msgstr "Antrace polmonare"
 
 msgctxt "model:gnuhealth.pathology,name:A222"
 msgid "Gastro-intestinal anthrax"
-msgstr ""
+msgstr "Antrace gastrointestinale"
 
 msgctxt "model:gnuhealth.pathology,name:A227"
 msgid "Anthrax septicaemia"
-msgstr ""
+msgstr "Setticemia da antrace"
 
 msgctxt "model:gnuhealth.pathology,name:A228"
 msgid "Other forms of anthrax"
-msgstr ""
+msgstr "Altre forme di antrace"
 
 msgctxt "model:gnuhealth.pathology,name:A229"
 msgid "Anthrax, unspecified"
-msgstr ""
+msgstr "Antrace, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A23"
 msgid "Brucellosis"
-msgstr ""
+msgstr "Brucellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A230"
 msgid "Brucellosis due to Brucella melitensis"
-msgstr ""
+msgstr "Brucellosi dovuta a Brucella melitensis"
 
 msgctxt "model:gnuhealth.pathology,name:A231"
 msgid "Brucellosis due to Brucella abortus"
-msgstr ""
+msgstr "Brucellosi dovuta a Brucella abortus"
 
 msgctxt "model:gnuhealth.pathology,name:A232"
 msgid "Brucellosis due to Brucella suis"
-msgstr ""
+msgstr "Brucellosi dovuta a Brucella suis"
 
 msgctxt "model:gnuhealth.pathology,name:A233"
 msgid "Brucellosis due to Brucella canis"
-msgstr ""
+msgstr "Brucellosi dovuta a Brucella canis"
 
 msgctxt "model:gnuhealth.pathology,name:A238"
 msgid "Other brucellosis"
-msgstr ""
+msgstr "Altra brucellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A239"
 msgid "Brucellosis, unspecified"
-msgstr ""
+msgstr "Brucellosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A24"
 msgid "Glanders and melioidosis"
-msgstr ""
+msgstr "Morva e melioidosi"
 
 msgctxt "model:gnuhealth.pathology,name:A240"
 msgid "Glanders"
-msgstr ""
+msgstr "Morva"
 
 msgctxt "model:gnuhealth.pathology,name:A241"
 msgid "Acute and fulminating melioidosis"
-msgstr ""
+msgstr "Melioidosi acuta e fulminante"
 
 msgctxt "model:gnuhealth.pathology,name:A242"
 msgid "Subacute and chronic melioidosis"
-msgstr ""
+msgstr "Melioidosi subacuta e cronica"
 
 msgctxt "model:gnuhealth.pathology,name:A243"
 msgid "Other melioidosis"
-msgstr ""
+msgstr "Altra melioidosi"
 
 msgctxt "model:gnuhealth.pathology,name:A244"
 msgid "Melioidosis, unspecified"
-msgstr ""
+msgstr "Melioidosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A25"
 msgid "Rat-bite fevers"
-msgstr ""
+msgstr "Febbre da morso di ratto"
 
 msgctxt "model:gnuhealth.pathology,name:A250"
 msgid "Spirillosis"
-msgstr ""
+msgstr "Spirillosi"
 
 msgctxt "model:gnuhealth.pathology,name:A251"
 msgid "Streptobacillosis"
-msgstr ""
+msgstr "Streptobacillosi"
 
 msgctxt "model:gnuhealth.pathology,name:A259"
 msgid "Rat-bite fever, unspecified"
-msgstr ""
+msgstr "Febbre da morso di ratto, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A26"
 msgid "Erysipeloid"
-msgstr ""
+msgstr "Erisipeloide"
 
 msgctxt "model:gnuhealth.pathology,name:A260"
 msgid "Cutaneous erysipeloid"
-msgstr ""
+msgstr "Erisipeloide cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A267"
 msgid "Erysipelothrix septicaemia"
-msgstr ""
+msgstr "Setticemia da Erysipelothrix"
 
 msgctxt "model:gnuhealth.pathology,name:A268"
 msgid "Other forms of erysipeloid"
-msgstr ""
+msgstr "Altre forme di erisipeloide"
 
 msgctxt "model:gnuhealth.pathology,name:A269"
 msgid "Erysipeloid, unspecified"
-msgstr ""
+msgstr "Erisipeloide, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A27"
 msgid "Leptospirosis"
-msgstr ""
+msgstr "Leptospirosi"
 
 msgctxt "model:gnuhealth.pathology,name:A270"
 msgid "Leptospirosis icterohaemorrhagica"
-msgstr ""
+msgstr "Leptospirosi ittero-emorragica"
 
 msgctxt "model:gnuhealth.pathology,name:A278"
 msgid "Other forms of leptospirosis"
-msgstr ""
+msgstr "Altre forme di leptospirosi"
 
 msgctxt "model:gnuhealth.pathology,name:A279"
 msgid "Leptospirosis, unspecified"
-msgstr ""
+msgstr "Leptospirosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A28"
 msgid "Other zoonotic bacterial diseases, not elsewhere classified"
-msgstr ""
+msgstr "Altre malattie batterice zoonotiche, non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A280"
 msgid "Pasteurellosis"
-msgstr ""
+msgstr "Pasteurellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A281"
 msgid "Cat-scratch disease"
-msgstr ""
+msgstr "Malattia da graffio di gatto "
 
 msgctxt "model:gnuhealth.pathology,name:A282"
 msgid "Extraintestinal yersiniosis"
-msgstr ""
+msgstr "Yersiniosi extraintestinale"
 
 msgctxt "model:gnuhealth.pathology,name:A288"
 msgid "Other specified zoonotic bacterial diseases, not elsewhere classified"
 msgstr ""
+"Altre malattie batteriche zoonotiche specificate, non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A289"
 msgid "Zoonotic bacterial disease, unspecified"
-msgstr ""
+msgstr "Malattia batterica zoonotica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A30"
 msgid "Leprosy [Hansen's disease]"
-msgstr ""
+msgstr "Lebbra [Morbo di Hansen]"
 
 msgctxt "model:gnuhealth.pathology,name:A300"
 msgid "Indeterminate leprosy"
-msgstr ""
+msgstr "Lebbra indeterminata"
 
 msgctxt "model:gnuhealth.pathology,name:A301"
 msgid "Tuberculoid leprosy"
-msgstr ""
+msgstr "Lebbra tubercolare"
 
 msgctxt "model:gnuhealth.pathology,name:A302"
 msgid "Borderline tuberculoid leprosy"
-msgstr ""
+msgstr "Lebbra tubercolare borderline"
 
 msgctxt "model:gnuhealth.pathology,name:A303"
 msgid "Borderline leprosy"
-msgstr ""
+msgstr "Lebbra borderline"
 
 msgctxt "model:gnuhealth.pathology,name:A304"
 msgid "Borderline lepromatous leprosy"
-msgstr ""
+msgstr "Lebbra lepromatosa borderline"
 
 msgctxt "model:gnuhealth.pathology,name:A305"
 msgid "Lepromatous leprosy"
-msgstr ""
+msgstr "Lebbra lepromatosa"
 
 msgctxt "model:gnuhealth.pathology,name:A308"
 msgid "Other forms of leprosy"
-msgstr ""
+msgstr "Altre forme di lebbra"
 
 msgctxt "model:gnuhealth.pathology,name:A309"
 msgid "Leprosy, unspecified"
-msgstr ""
+msgstr "Lebbra, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A31"
 msgid "Infection due to other mycobacteria"
-msgstr ""
+msgstr "Infezione dovuta a altri micobatteri"
 
 msgctxt "model:gnuhealth.pathology,name:A310"
 msgid "Pulmonary mycobacterial infection"
-msgstr ""
+msgstr "Infezione polmonare micobatterica"
 
 msgctxt "model:gnuhealth.pathology,name:A311"
 msgid "Cutaneous mycobacterial infection"
-msgstr ""
+msgstr "Infezione cutanea micobatterica"
 
 msgctxt "model:gnuhealth.pathology,name:A318"
 msgid "Other mycobacterial infections"
-msgstr ""
+msgstr "Altre infezioni micobatteriche"
 
 msgctxt "model:gnuhealth.pathology,name:A319"
 msgid "Mycobacterial infection, unspecified"
-msgstr ""
+msgstr "Infezione micobatterica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A32"
 msgid "Listeriosis"
-msgstr ""
+msgstr "Listeriosi"
 
 msgctxt "model:gnuhealth.pathology,name:A320"
 msgid "Cutaneous listeriosis"
-msgstr ""
+msgstr "Listeriosi cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A321"
 msgid "Listerial meningitis and meningoencephalitis"
-msgstr ""
+msgstr "Meningiti e meningoencefaliti da listeria"
 
 msgctxt "model:gnuhealth.pathology,name:A327"
 msgid "Listerial septicaemia"
-msgstr ""
+msgstr "Setticemia da listeria"
 
 msgctxt "model:gnuhealth.pathology,name:A328"
 msgid "Other forms of listeriosis"
-msgstr ""
+msgstr "Altre forme di listeriosi"
 
 msgctxt "model:gnuhealth.pathology,name:A329"
 msgid "Listeriosis, unspecified"
-msgstr ""
+msgstr "Listeriosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A33"
 msgid "Tetanus neonatorum"
-msgstr ""
+msgstr "Tetano neonatale"
 
 msgctxt "model:gnuhealth.pathology,name:A34"
 msgid "Obstetrical tetanus"
-msgstr ""
+msgstr "Tetano ostetrico"
 
 msgctxt "model:gnuhealth.pathology,name:A35"
 msgid "Other tetanus"
-msgstr ""
+msgstr "Altro tetano"
 
 msgctxt "model:gnuhealth.pathology,name:A36"
 msgid "Diphtheria"
-msgstr ""
+msgstr "Difterite"
 
 msgctxt "model:gnuhealth.pathology,name:A360"
 msgid "Pharyngeal diphtheria"
-msgstr ""
+msgstr "Difterite faringea"
 
 msgctxt "model:gnuhealth.pathology,name:A361"
 msgid "Nasopharyngeal diphtheria"
-msgstr ""
+msgstr "Difterite nasofaringea"
 
 msgctxt "model:gnuhealth.pathology,name:A362"
 msgid "Laryngeal diphtheria"
-msgstr ""
+msgstr "Difterite laringea"
 
 msgctxt "model:gnuhealth.pathology,name:A363"
 msgid "Cutaneous diphtheria"
-msgstr ""
+msgstr "Difterite cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A368"
 msgid "Other diphtheria"
-msgstr ""
+msgstr "Altra difterite"
 
 msgctxt "model:gnuhealth.pathology,name:A369"
 msgid "Diphtheria, unspecified"
-msgstr ""
+msgstr "Difterite, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A37"
 msgid "Whooping cough"
-msgstr ""
+msgstr "Pertosse"
 
 msgctxt "model:gnuhealth.pathology,name:A370"
 msgid "Whooping cough due to Bordetella pertussis"
-msgstr ""
+msgstr "Pertosse dovuta a Bordetella pertussis"
 
 msgctxt "model:gnuhealth.pathology,name:A371"
 msgid "Whooping cough due to Bordetella parapertussis"
-msgstr ""
+msgstr "Pertosse dovuta a Bordetella parapertussis"
 
 msgctxt "model:gnuhealth.pathology,name:A378"
 msgid "Whooping cough due to other Bordetella species"
-msgstr ""
+msgstr "Pertosse dovuta a altre specie di Bordetella"
 
 msgctxt "model:gnuhealth.pathology,name:A379"
 msgid "Whooping cough, unspecified"
-msgstr ""
+msgstr "Pertosse, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A38"
 msgid "Scarlet fever"
-msgstr ""
+msgstr "Scarlattina"
 
 msgctxt "model:gnuhealth.pathology,name:A39"
 msgid "Meningococcal infection"
-msgstr ""
+msgstr "Infezione meningococcica"
 
 msgctxt "model:gnuhealth.pathology,name:A390"
 msgid "Meningococcal meningitis"
-msgstr ""
+msgstr "Meningite da meningococco"
 
 msgctxt "model:gnuhealth.pathology,name:A391"
 msgid "Waterhouse-Friderichsen syndrome"
-msgstr ""
+msgstr "Sindrome di Waterhouse-Friderichsen "
 
 msgctxt "model:gnuhealth.pathology,name:A392"
 msgid "Acute meningococcaemia"
-msgstr ""
+msgstr "Meningococcemia acuta"
 
 msgctxt "model:gnuhealth.pathology,name:A393"
 msgid "Chronic meningococcaemia"
-msgstr ""
+msgstr "Meningococcemia cronica"
 
 msgctxt "model:gnuhealth.pathology,name:A394"
 msgid "Meningococcaemia, unspecified"
-msgstr ""
+msgstr "Meningococcemia, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A395"
 msgid "Meningococcal heart disease"
-msgstr ""
+msgstr "Cardiopatia meningococcica"
 
 msgctxt "model:gnuhealth.pathology,name:A398"
 msgid "Other meningococcal infections"
-msgstr ""
+msgstr "Altre infezioni meningococciche"
 
 msgctxt "model:gnuhealth.pathology,name:A399"
 msgid "Meningococcal infection, unspecified"
-msgstr ""
+msgstr "Infezione meningococcica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A40"
 msgid "Streptococcal septicaemia"
-msgstr ""
+msgstr "Setticemia da streptococco"
 
 msgctxt "model:gnuhealth.pathology,name:A400"
 msgid "Septicaemia due to streptococcus, group A"
-msgstr ""
+msgstr "Setticemia dovuta a streptococco di gruppo A"
 
 msgctxt "model:gnuhealth.pathology,name:A401"
 msgid "Septicaemia due to streptococcus, group B"
-msgstr ""
+msgstr "Setticemia dovuta a streptococco di gruppo B"
 
 msgctxt "model:gnuhealth.pathology,name:A402"
 msgid "Septicaemia due to streptococcus, group D"
-msgstr ""
+msgstr "Setticemia dovuta a streptococco di gruppo D"
 
 msgctxt "model:gnuhealth.pathology,name:A403"
 msgid "Septicaemia due to Streptococcus pneumoniae"
-msgstr ""
+msgstr "Setticemia dovuta a Streptococcus pneumoniae"
 
 msgctxt "model:gnuhealth.pathology,name:A408"
 msgid "Other streptococcal septicaemia"
-msgstr ""
+msgstr "Altra setticemia da streptococco"
 
 msgctxt "model:gnuhealth.pathology,name:A409"
 msgid "Streptococcal septicaemia, unspecified"
-msgstr ""
+msgstr "Setticemia da streptococco, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A41"
 msgid "Other septicaemia"
-msgstr ""
+msgstr "Altra setticemia"
 
 msgctxt "model:gnuhealth.pathology,name:A410"
 msgid "Septicaemia due to Staphylococcus aureus"
-msgstr ""
+msgstr "Setticemia dovuta a Staphylococcus aureus"
 
 msgctxt "model:gnuhealth.pathology,name:A411"
 msgid "Septicaemia due to other specified staphylococcus"
-msgstr ""
+msgstr "Setticemia dovuta a altro staffilococco specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A412"
 msgid "Septicaemia due to unspecified staphylococcus"
-msgstr ""
+msgstr "Setticemia dovuta a stffilococco non precisato"
 
 msgctxt "model:gnuhealth.pathology,name:A413"
 msgid "Septicaemia due to Haemophilus influenzae"
-msgstr ""
+msgstr "Setticemia dovuta a Haemophilus influenzae"
 
 msgctxt "model:gnuhealth.pathology,name:A414"
 msgid "Septicaemia due to anaerobes"
-msgstr ""
+msgstr "Setticemia dovuta a anaerobi"
 
 msgctxt "model:gnuhealth.pathology,name:A415"
 msgid "Septicaemia due to other Gram-negative organisms"
-msgstr ""
+msgstr "Setticemia dovuta a altri organismi Gram-negativi"
 
 msgctxt "model:gnuhealth.pathology,name:A418"
 msgid "Other specified septicaemia"
-msgstr ""
+msgstr "Altra setticemia specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A419"
 msgid "Septicaemia, unspecified"
-msgstr ""
+msgstr "Setticemia, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A42"
 msgid "Actinomycosis"
-msgstr ""
+msgstr "Actinomicosi"
 
 msgctxt "model:gnuhealth.pathology,name:A420"
 msgid "Pulmonary actinomycosis"
-msgstr ""
+msgstr "Actinomicosi polmonare"
 
 msgctxt "model:gnuhealth.pathology,name:A421"
 msgid "Abdominal actinomycosis"
-msgstr ""
+msgstr "Actinomicosi addominale"
 
 msgctxt "model:gnuhealth.pathology,name:A422"
 msgid "Cervicofacial actinomycosis"
-msgstr ""
+msgstr "Actinomicosi cervico facciale"
 
 msgctxt "model:gnuhealth.pathology,name:A427"
 msgid "Actinomycotic septicaemia"
-msgstr ""
+msgstr "Setticemia actinomicotica"
 
 msgctxt "model:gnuhealth.pathology,name:A428"
 msgid "Other forms of actinomycosis"
-msgstr ""
+msgstr "Altre forme di actinomicosi"
 
 msgctxt "model:gnuhealth.pathology,name:A429"
 msgid "Actinomycosis, unspecified"
-msgstr ""
+msgstr "Actinomicosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A43"
 msgid "Nocardiosis"
-msgstr ""
+msgstr "Nocardiosi"
 
 msgctxt "model:gnuhealth.pathology,name:A430"
 msgid "Pulmonary nocardiosis"
-msgstr ""
+msgstr "Nocardiosi polmonare"
 
 msgctxt "model:gnuhealth.pathology,name:A431"
 msgid "Cutaneous nocardiosis"
-msgstr ""
+msgstr "Nocardiosi cutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A438"
 msgid "Other forms of nocardiosis"
-msgstr ""
+msgstr "Altre forme di Nocardiosi"
 
 msgctxt "model:gnuhealth.pathology,name:A439"
 msgid "Nocardiosis, unspecified"
-msgstr ""
+msgstr "Nocardiosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A44"
 msgid "Bartonellosis"
-msgstr ""
+msgstr "Bartonellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A440"
 msgid "Systemic bartonellosis"
-msgstr ""
+msgstr "Bartonellosi sistemica"
 
 msgctxt "model:gnuhealth.pathology,name:A441"
 msgid "Cutaneous and mucocutaneous bartonellosis"
-msgstr ""
+msgstr "Bartonellosi cutanea e mucocutanea"
 
 msgctxt "model:gnuhealth.pathology,name:A448"
 msgid "Other forms of bartonellosis"
-msgstr ""
+msgstr "Altre forme di bartonellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A449"
 msgid "Bartonellosis, unspecified"
-msgstr ""
+msgstr "Bartonellosi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A46"
 msgid "Erysipelas"
-msgstr ""
+msgstr "Erisipela"
 
 msgctxt "model:gnuhealth.pathology,name:A48"
 msgid "Other bacterial diseases, not elsewhere classified"
-msgstr ""
+msgstr "Altre malattie batteriche, non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A480"
 msgid "Gas gangrene"
-msgstr ""
+msgstr "Gangrena gassosa"
 
 msgctxt "model:gnuhealth.pathology,name:A481"
 msgid "Legionnaires' disease"
-msgstr ""
+msgstr "Legionellosi"
 
 msgctxt "model:gnuhealth.pathology,name:A482"
 msgid "Nonpneumonic Legionnaires' disease [Pontiac fever]"
-msgstr ""
+msgstr "Legionellosi non polmonare [febbre di Pontiac]"
 
 msgctxt "model:gnuhealth.pathology,name:A483"
 msgid "Toxic shock syndrome"
-msgstr ""
+msgstr "Sindrome da shock tossico"
 
 msgctxt "model:gnuhealth.pathology,name:A484"
 msgid "Brazilian purpuric fever"
-msgstr ""
+msgstr "Febbre purpurea brasiliana"
 
 msgctxt "model:gnuhealth.pathology,name:A488"
 msgid "Other specified bacterial diseases"
-msgstr ""
+msgstr "Altre malattie batteriche specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A49"
 msgid "Bacterial infection of unspecified site"
-msgstr ""
+msgstr "Infezione batterica di un sito non specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A490"
 msgid "Staphylococcal infection, unspecified"
-msgstr ""
+msgstr "Infezione staffilococcica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A491"
 msgid "Streptococcal infection, unspecified"
-msgstr ""
+msgstr "Infezione streptococcica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A492"
 msgid "Haemophilus influenzae infection, unspecified"
-msgstr ""
+msgstr "Infezione da Haemophilus influenzae, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A493"
 msgid "Mycoplasma infection, unspecified"
-msgstr ""
+msgstr "Infezione da Mycoplasma, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A498"
 msgid "Other bacterial infections of unspecified site"
-msgstr ""
+msgstr "Altre infezioni batteriche di un sito non specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A499"
 msgid "Bacterial infection, unspecified"
-msgstr ""
+msgstr "Infezione batterica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A50"
 msgid "Congenital syphilis"
-msgstr ""
+msgstr "Sifilide congenita"
 
 msgctxt "model:gnuhealth.pathology,name:A500"
 msgid "Early congenital syphilis, symptomatic"
-msgstr ""
+msgstr "Sifilide congenita precoce, sintomatica"
 
 msgctxt "model:gnuhealth.pathology,name:A501"
 msgid "Early congenital syphilis, latent"
-msgstr ""
+msgstr "Sifilide congenita precoce, latente"
 
 msgctxt "model:gnuhealth.pathology,name:A502"
 msgid "Early congenital syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide congenita precoce, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A503"
 msgid "Late congenital syphilitic oculopathy"
-msgstr ""
+msgstr "Sifilide congenita tarda oculare"
 
 msgctxt "model:gnuhealth.pathology,name:A504"
 msgid "Late congenital neurosyphilis [juvenile neurosyphilis]"
-msgstr ""
+msgstr "Neurosifilide congenita tarda [neurosifilide giovanile]"
 
 msgctxt "model:gnuhealth.pathology,name:A505"
 msgid "Other late congenital syphilis, symptomatic"
-msgstr ""
+msgstr "Altra sifilide congenita tarda, sintomatica"
 
 msgctxt "model:gnuhealth.pathology,name:A506"
 msgid "Late congenital syphilis, latent"
-msgstr ""
+msgstr "Altra sifilide congenita, latente"
 
 msgctxt "model:gnuhealth.pathology,name:A507"
 msgid "Late congenital syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide congenita tarda, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A509"
 msgid "Congenital syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide congenita, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A51"
 msgid "Early syphilis"
-msgstr ""
+msgstr "Sifilide precoce"
 
 msgctxt "model:gnuhealth.pathology,name:A510"
 msgid "Primary genital syphilis"
-msgstr ""
+msgstr "Sifilide primaria genitale"
 
 msgctxt "model:gnuhealth.pathology,name:A511"
 msgid "Primary anal syphilis"
-msgstr ""
+msgstr "Sifilide primaria anale"
 
 msgctxt "model:gnuhealth.pathology,name:A512"
 msgid "Primary syphilis of other sites"
-msgstr ""
+msgstr "Sifilide primaria di altri siti"
 
 msgctxt "model:gnuhealth.pathology,name:A513"
 msgid "Secondary syphilis of skin and mucous membranes"
-msgstr ""
+msgstr "Sifilide secondaria della pelle e delle membrane mucose"
 
 msgctxt "model:gnuhealth.pathology,name:A514"
 msgid "Other secondary syphilis"
-msgstr ""
+msgstr "Altra sifilide secondaria"
 
 msgctxt "model:gnuhealth.pathology,name:A515"
 msgid "Early syphilis, latent"
-msgstr ""
+msgstr "Sifilide precoce, latente"
 
 msgctxt "model:gnuhealth.pathology,name:A519"
 msgid "Early syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide precoce, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A52"
 msgid "Late syphilis"
-msgstr ""
+msgstr "Sifilide tarda"
 
 msgctxt "model:gnuhealth.pathology,name:A520"
 msgid "Cardiovascular syphilis"
-msgstr ""
+msgstr "Sifilide cardiovascolare"
 
 msgctxt "model:gnuhealth.pathology,name:A521"
 msgid "Symptomatic neurosyphilis"
-msgstr ""
+msgstr "Neurosifilide sintomatica"
 
 msgctxt "model:gnuhealth.pathology,name:A522"
 msgid "Asymptomatic neurosyphilis"
-msgstr ""
+msgstr "Neurosifilide asintomatica"
 
 msgctxt "model:gnuhealth.pathology,name:A523"
 msgid "Neurosyphilis, unspecified"
-msgstr ""
+msgstr "Neurosifilide, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A527"
 msgid "Other symptomatic late syphilis"
-msgstr ""
+msgstr "Altra sifilide tarda sintomatica"
 
 msgctxt "model:gnuhealth.pathology,name:A528"
 msgid "Late syphilis, latent"
-msgstr ""
+msgstr "Sifilide tarda, latente"
 
 msgctxt "model:gnuhealth.pathology,name:A529"
 msgid "Late syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide tarda, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A53"
 msgid "Other and unspecified syphilis"
-msgstr ""
+msgstr "Non specificate e altre sifilidi"
 
 msgctxt "model:gnuhealth.pathology,name:A530"
 msgid "Latent syphilis, unspecified as early or late"
-msgstr ""
+msgstr "Sifilide latente, non specificato se precoce o tarda"
 
 msgctxt "model:gnuhealth.pathology,name:A539"
 msgid "Syphilis, unspecified"
-msgstr ""
+msgstr "Sifilide, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A54"
 msgid "Gonococcal infection"
-msgstr ""
+msgstr "Infezione gonococcica"
 
 msgctxt "model:gnuhealth.pathology,name:A540"
 msgid ""
 "Gonococcal infection of lower genito-urinary tract without periurethral or "
 "accessory gland abscess"
 msgstr ""
+"Infezione gonococcica del tratto urogenitale inferiore senza ascesso "
+"periuretrale o accessorio del glande"
 
 msgctxt "model:gnuhealth.pathology,name:A541"
 msgid ""
 "Gonococcal infection of lower genito-urinary tract with periurethral and "
 "accessory gland abscess"
 msgstr ""
+"Infezione gonococcica del tratto urogenitale inferiore con ascesso "
+"periuretrale e accessorio del glande"
 
 msgctxt "model:gnuhealth.pathology,name:A542"
 msgid ""
 "Gonococcal pelviperitonitis and other gonococcal genito-urinary infections"
 msgstr ""
+"Pelviperitonite gonococcica e altre infezioni gonococciche genitali-urinarie"
 
 msgctxt "model:gnuhealth.pathology,name:A543"
 msgid "Gonococcal infection of eye"
-msgstr ""
+msgstr "Infezione gonococcica dell'occhio"
 
 msgctxt "model:gnuhealth.pathology,name:A544"
 msgid "Gonococcal infection of musculoskeletal system"
-msgstr ""
+msgstr "Infezione gonococcica del sistema muscolo scheletrico"
 
 msgctxt "model:gnuhealth.pathology,name:A545"
 msgid "Gonococcal pharyngitis"
-msgstr ""
+msgstr "Faringite gonococcica"
 
 msgctxt "model:gnuhealth.pathology,name:A546"
 msgid "Gonococcal infection of anus and rectum"
-msgstr ""
+msgstr "Infezione gonococcica di ano e retto"
 
 msgctxt "model:gnuhealth.pathology,name:A548"
 msgid "Other gonococcal infections"
-msgstr ""
+msgstr "Altre infezioni gonococciche"
 
 msgctxt "model:gnuhealth.pathology,name:A549"
 msgid "Gonococcal infection, unspecified"
-msgstr ""
+msgstr "Infezione gonococcica, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A55"
 msgid "Chlamydial lymphogranuloma (venereum)"
-msgstr ""
+msgstr "Linfogranuloma da clamidia (venereo)"
 
 msgctxt "model:gnuhealth.pathology,name:A56"
 msgid "Other sexually transmitted chlamydial diseases"
-msgstr ""
+msgstr "Altre malattie da clamidia a trasmissione sessuale"
 
 msgctxt "model:gnuhealth.pathology,name:A560"
 msgid "Chlamydial infection of lower genito-urinary tract"
-msgstr ""
+msgstr "Infezione da clamidia del tratto urogenitale inferiore"
 
 msgctxt "model:gnuhealth.pathology,name:A561"
 msgid ""
 "Chlamydial infection of pelviperitoneum and other genito-urinary organs"
 msgstr ""
+"Infezione da clamidia del peritoneo pelvico e di altri organi genito-urinari"
 
 msgctxt "model:gnuhealth.pathology,name:A562"
 msgid "Chlamydial infection of genito-urinary tract, unspecified"
-msgstr ""
+msgstr "Infezione da clamidia del tratto genito-urinario, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A563"
 msgid "Chlamydial infection of anus and rectum"
-msgstr ""
+msgstr "Infezione da clamidia di ano e retto"
 
 msgctxt "model:gnuhealth.pathology,name:A564"
 msgid "Chlamydial infection of pharynx"
-msgstr ""
+msgstr "Infezione da clamidia della faringe"
 
 msgctxt "model:gnuhealth.pathology,name:A568"
 msgid "Sexually transmitted chlamydial infection of other sites"
-msgstr ""
+msgstr "Infezione da clamidia trasmessa sessualmente di altri siti"
 
 msgctxt "model:gnuhealth.pathology,name:A57"
 msgid "Chancroid"
-msgstr ""
+msgstr "Cancroide"
 
 msgctxt "model:gnuhealth.pathology,name:A58"
 msgid "Granuloma inguinale"
-msgstr ""
+msgstr "Granuloma inguinale"
 
 msgctxt "model:gnuhealth.pathology,name:A59"
 msgid "Trichomoniasis"
-msgstr ""
+msgstr "Trichomoniasi"
 
 msgctxt "model:gnuhealth.pathology,name:A590"
 msgid "Urogenital trichomoniasis"
-msgstr ""
+msgstr "Trichomoniasi urogenitale"
 
 msgctxt "model:gnuhealth.pathology,name:A598"
 msgid "Trichomoniasis of other sites"
-msgstr ""
+msgstr "Trichomoniasi di altri siti"
 
 msgctxt "model:gnuhealth.pathology,name:A599"
 msgid "Trichomoniasis, unspecified"
-msgstr ""
+msgstr "Trichomoniasi, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A60"
 msgid "Anogenital herpesviral [herpes simplex] infections"
-msgstr ""
+msgstr "Infezioni anogenitali da virus herpes [herpes simplex]"
 
 msgctxt "model:gnuhealth.pathology,name:A600"
 msgid "Herpesviral infection of genitalia and urogenital tract"
-msgstr ""
+msgstr "Infezione da virus herpes dei genitali e del tratto urogenitale"
 
 msgctxt "model:gnuhealth.pathology,name:A601"
 msgid "Herpesviral infection of perianal skin and rectum"
-msgstr ""
+msgstr "Infezione da virus herpes della pelle perianale e del retto"
 
 msgctxt "model:gnuhealth.pathology,name:A609"
 msgid "Anogenital herpesviral infection, unspecified"
-msgstr ""
+msgstr "Infezione anogenitale da virus herpes, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A63"
 msgid ""
 "Other predominantly sexually transmitted diseases, not elsewhere classified"
 msgstr ""
+"Altre malattie a trasmissione prevalentemente sessuale, non classificate "
+"altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A630"
 msgid "Anogenital (venereal) warts"
-msgstr ""
+msgstr "Verruche anogenitali (veneree)"
 
 msgctxt "model:gnuhealth.pathology,name:A638"
 msgid "Other specified predominantly sexually transmitted diseases"
-msgstr ""
+msgstr "Altre malattie a trasmissione prevalentemente sessuale specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A64"
 msgid "Unspecified sexually transmitted disease"
-msgstr ""
+msgstr "Malattia trasmessa sessualmente non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A65"
 msgid "Non-venereal syphilis"
-msgstr ""
+msgstr "Sifilide non venerea"
 
 msgctxt "model:gnuhealth.pathology,name:A66"
 msgid "Yaws"
-msgstr ""
+msgstr "Framboesia"
 
 msgctxt "model:gnuhealth.pathology,name:A660"
 msgid "Initial lesions of yaws"
-msgstr ""
+msgstr "Lesioni iniziali da framboesia"
 
 msgctxt "model:gnuhealth.pathology,name:A661"
 msgid "Multiple papillomata and wet crab yaws"
-msgstr ""
+msgstr "Papillomi multipli e wet crab da framboesia "
 
 msgctxt "model:gnuhealth.pathology,name:A662"
 msgid "Other early skin lesions of yaws"
-msgstr ""
+msgstr "Altre lesioni cutanee precoci da framboesia"
 
 msgctxt "model:gnuhealth.pathology,name:A663"
 msgid "Hyperkeratosis of yaws"
-msgstr ""
+msgstr "Ipercheratosi da framboesia"
 
 msgctxt "model:gnuhealth.pathology,name:A664"
 msgid "Gummata and ulcers of yaws"
@@ -1375,127 +1423,127 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A672"
 msgid "Late lesions of pinta"
-msgstr ""
+msgstr "Lesioni tardive da pinta"
 
 msgctxt "model:gnuhealth.pathology,name:A673"
 msgid "Mixed lesions of pinta"
-msgstr ""
+msgstr "Lesioni miste da pinta"
 
 msgctxt "model:gnuhealth.pathology,name:A679"
 msgid "Pinta, unspecified"
-msgstr ""
+msgstr "Pinta non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A68"
 msgid "Relapsing fevers"
-msgstr ""
+msgstr "Febbre ricorrente"
 
 msgctxt "model:gnuhealth.pathology,name:A680"
 msgid "Louse-borne relapsing fever"
-msgstr ""
+msgstr "Febbre ricorrente da pidocchi"
 
 msgctxt "model:gnuhealth.pathology,name:A681"
 msgid "Tick-borne relapsing fever"
-msgstr ""
+msgstr "Febbre ricorrente da zecche"
 
 msgctxt "model:gnuhealth.pathology,name:A689"
 msgid "Relapsing fever, unspecified"
-msgstr ""
+msgstr "Febbre ricorrente, non specificata "
 
 msgctxt "model:gnuhealth.pathology,name:A69"
 msgid "Other spirochaetal infections"
-msgstr ""
+msgstr "Altre infezioni da spirochete"
 
 msgctxt "model:gnuhealth.pathology,name:A690"
 msgid "Necrotising ulcerative stomatitis"
-msgstr ""
+msgstr "Stomatite ulcerativa necrotizzante"
 
 msgctxt "model:gnuhealth.pathology,name:A691"
 msgid "Other Vincent's infections"
-msgstr ""
+msgstr "Altre infezioni di Vincent"
 
 msgctxt "model:gnuhealth.pathology,name:A692"
 msgid "Lyme disease"
-msgstr ""
+msgstr "Malattia di Lyme"
 
 msgctxt "model:gnuhealth.pathology,name:A698"
 msgid "Other specified spirochaetal infections"
-msgstr ""
+msgstr "Altre Spirochetosi specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A699"
 msgid "Spirochaetal infection, unspecified"
-msgstr ""
+msgstr "Spirochetosi non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A70"
 msgid "Chlamydia psittaci infection"
-msgstr ""
+msgstr "Infezione da chlamydia psittaci"
 
 msgctxt "model:gnuhealth.pathology,name:A71"
 msgid "Trachoma"
-msgstr ""
+msgstr "Tracoma"
 
 msgctxt "model:gnuhealth.pathology,name:A710"
 msgid "Initial stage of trachoma"
-msgstr ""
+msgstr "Stadio iniziale di tracoma"
 
 msgctxt "model:gnuhealth.pathology,name:A711"
 msgid "Active stage of trachoma"
-msgstr ""
+msgstr "Stadio attivo di tracoma"
 
 msgctxt "model:gnuhealth.pathology,name:A719"
 msgid "Trachoma, unspecified"
-msgstr ""
+msgstr "Tracoma non specificato"
 
 msgctxt "model:gnuhealth.pathology,name:A74"
 msgid "Other diseases caused by chlamydiae"
-msgstr ""
+msgstr "Altre malattie da Chlamydiae"
 
 msgctxt "model:gnuhealth.pathology,name:A740"
 msgid "Chlamydial conjunctivitis"
-msgstr ""
+msgstr "Congiuntivite da Chlamydiae"
 
 msgctxt "model:gnuhealth.pathology,name:A748"
 msgid "Other chlamydial diseases"
-msgstr ""
+msgstr "Altre malattie da Chlamydiae"
 
 msgctxt "model:gnuhealth.pathology,name:A749"
 msgid "Chlamydial infection, unspecified"
-msgstr ""
+msgstr "Infezione da Chlamydiae non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A75"
 msgid "Typhus fever"
-msgstr ""
+msgstr "Tifo esantematico"
 
 msgctxt "model:gnuhealth.pathology,name:A750"
 msgid "Epidemic louse-borne typhus fever due to Rickettsia prowazekii"
-msgstr ""
+msgstr "Tifo esantematico da pidocchi da Rickettsia prowazekii"
 
 msgctxt "model:gnuhealth.pathology,name:A751"
 msgid "Recrudescent typhus [Brill's disease]"
-msgstr ""
+msgstr "Tifo ricorrente [malattia di Brill]"
 
 msgctxt "model:gnuhealth.pathology,name:A752"
 msgid "Typhus fever due to Rickettsia typhi"
-msgstr ""
+msgstr "Tifo esantematico da Rickettsia typhi"
 
 msgctxt "model:gnuhealth.pathology,name:A753"
 msgid "Typhus fever due to Rickettsia tsutsugamushi"
-msgstr ""
+msgstr "Tifo esantematico da Rickettsia tsutsugamushi"
 
 msgctxt "model:gnuhealth.pathology,name:A759"
 msgid "Typhus fever, unspecified"
-msgstr ""
+msgstr "Tifo esantematico non specificato "
 
 msgctxt "model:gnuhealth.pathology,name:A77"
 msgid "Spotted fever [tick-borne rickettsioses]"
-msgstr ""
+msgstr "Febbre maculosa [rickettsiosi da zecche]"
 
 msgctxt "model:gnuhealth.pathology,name:A770"
 msgid "Spotted fever due to Rickettsia rickettsii"
-msgstr ""
+msgstr "Febbre maculosa da Rickettsia rickettsii"
 
 msgctxt "model:gnuhealth.pathology,name:A771"
 msgid "Spotted fever due to Rickettsia conorii"
-msgstr ""
+msgstr "Febbre maculosa da Rickettsia conorii"
 
 msgctxt "model:gnuhealth.pathology,name:A772"
 msgid "Spotted fever due to Rickettsia siberica"
@@ -1503,285 +1551,290 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A773"
 msgid "Spotted fever due to Rickettsia australis"
-msgstr ""
+msgstr "Febbre maculosa da Rickettsia australis"
 
 msgctxt "model:gnuhealth.pathology,name:A778"
 msgid "Other spotted fevers"
-msgstr ""
+msgstr "Altre febbri maculose"
 
 msgctxt "model:gnuhealth.pathology,name:A779"
 msgid "Spotted fever, unspecified"
-msgstr ""
+msgstr "Febbre maculosa non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A78"
 msgid "Q fever"
-msgstr ""
+msgstr "Febbre Q"
 
 msgctxt "model:gnuhealth.pathology,name:A79"
 msgid "Other rickettsioses"
-msgstr ""
+msgstr "Altre rickettsiosi"
 
 msgctxt "model:gnuhealth.pathology,name:A790"
 msgid "Trench fever"
-msgstr ""
+msgstr "Febbre delle trincee"
 
 msgctxt "model:gnuhealth.pathology,name:A791"
 msgid "Rickettsialpox due to Rickettsia akari"
-msgstr ""
+msgstr "Rickettsialpox da Rickettsia akari"
 
 msgctxt "model:gnuhealth.pathology,name:A798"
 msgid "Other specified rickettsioses"
-msgstr ""
+msgstr "Altre rickettsiosi specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A799"
 msgid "Rickettsiosis, unspecified"
-msgstr ""
+msgstr "Rickettsiosi non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A80"
 msgid "Acute poliomyelitis"
-msgstr ""
+msgstr "Poliomielite acuta"
 
 msgctxt "model:gnuhealth.pathology,name:A800"
 msgid "Acute paralytic poliomyelitis, vaccine-associated"
-msgstr ""
+msgstr "Poliomielite acuta paralitica associata a vaccinazione"
 
 msgctxt "model:gnuhealth.pathology,name:A801"
 msgid "Acute paralytic poliomyelitis, wild virus, imported"
-msgstr ""
+msgstr "Poliomielite acuta paralitica da virus selvaggio importato"
 
 msgctxt "model:gnuhealth.pathology,name:A802"
 msgid "Acute paralytic poliomyelitis, wild virus, indigenous"
-msgstr ""
+msgstr "Poliomielite acuta paralitica da virus selvaggio indigeno"
 
 msgctxt "model:gnuhealth.pathology,name:A803"
 msgid "Acute paralytic poliomyelitis, other and unspecified"
-msgstr ""
+msgstr "Altra e non specificata poliomielite acuta paralitica "
 
 msgctxt "model:gnuhealth.pathology,name:A804"
 msgid "Acute nonparalytic poliomyelitis"
-msgstr ""
+msgstr "Poliomielite acuta non paralitica"
 
 msgctxt "model:gnuhealth.pathology,name:A809"
 msgid "Acute poliomyelitis, unspecified"
-msgstr ""
+msgstr "Poliomielite acuta non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A81"
 msgid "Atypical virus infections of central nervous system"
-msgstr ""
+msgstr "Altre infezioni del sistema nervoso centrale da virus non convenzionali"
 
 msgctxt "model:gnuhealth.pathology,name:A810"
 msgid "Creutzfeldt-Jakob disease"
-msgstr ""
+msgstr "Malattia di Creutzfeldt-Jakob"
 
 msgctxt "model:gnuhealth.pathology,name:A811"
 msgid "Subacute sclerosing panencephalitis"
-msgstr ""
+msgstr "Panencefalite subacuta sclerosante"
 
 msgctxt "model:gnuhealth.pathology,name:A812"
 msgid "Progressive multifocal leukoencephalopathy"
-msgstr ""
+msgstr "Leucoencefalopatia multifocale progressiva"
 
 msgctxt "model:gnuhealth.pathology,name:A818"
 msgid "Other atypical virus infections of central nervous system"
-msgstr ""
+msgstr "Altre infezioni del sistema nervoso centrale da virus non convenzionale"
 
 msgctxt "model:gnuhealth.pathology,name:A819"
 msgid "Atypical virus infection of central nervous system, unspecified"
 msgstr ""
+"Infezione del sistema nervoso centrale da virus non convenzionale, non "
+"specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A82"
 msgid "Rabies"
-msgstr ""
+msgstr "Rabbia"
 
 msgctxt "model:gnuhealth.pathology,name:A820"
 msgid "Sylvatic rabies"
-msgstr ""
+msgstr "Rabbia silvestre"
 
 msgctxt "model:gnuhealth.pathology,name:A821"
 msgid "Urban rabies"
-msgstr ""
+msgstr "Rabbia urbana"
 
 msgctxt "model:gnuhealth.pathology,name:A829"
 msgid "Rabies, unspecified"
-msgstr ""
+msgstr "Rabbia non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A83"
 msgid "Mosquito-borne viral encephalitis"
-msgstr ""
+msgstr "Encefalite virale da zanzare"
 
 msgctxt "model:gnuhealth.pathology,name:A830"
 msgid "Japanese encephalitis"
-msgstr ""
+msgstr "Encefalite giapponese"
 
 msgctxt "model:gnuhealth.pathology,name:A831"
 msgid "Western equine encephalitis"
-msgstr ""
+msgstr "Encefalite equina dell'ovest"
 
 msgctxt "model:gnuhealth.pathology,name:A832"
 msgid "Eastern equine encephalitis"
-msgstr ""
+msgstr "Encefalite equina dell'est"
 
 msgctxt "model:gnuhealth.pathology,name:A833"
 msgid "St. Louis encephalitis"
-msgstr ""
+msgstr "Encefalite di St Louis"
 
 msgctxt "model:gnuhealth.pathology,name:A834"
 msgid "Australian encephalitis"
-msgstr ""
+msgstr "Encefalite australiana"
 
 msgctxt "model:gnuhealth.pathology,name:A835"
 msgid "California encephalitis"
-msgstr ""
+msgstr "Encefalite californiana"
 
 msgctxt "model:gnuhealth.pathology,name:A836"
 msgid "Rocio virus disease"
-msgstr ""
+msgstr "Encefalite da virus Rocio"
 
 msgctxt "model:gnuhealth.pathology,name:A838"
 msgid "Other mosquito-borne viral encephalitis"
-msgstr ""
+msgstr "Altre encefaliti virali da zanzare"
 
 msgctxt "model:gnuhealth.pathology,name:A839"
 msgid "Mosquito-borne viral encephalitis, unspecified"
-msgstr ""
+msgstr "Encefalite virale da zanzare non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A84"
 msgid "Tick-borne viral encephalitis"
-msgstr ""
+msgstr "Encefalite virale da zecche"
 
 msgctxt "model:gnuhealth.pathology,name:A840"
 msgid ""
 "Far Eastern tick-borne encephalitis [Russian spring-summer encephalitis]"
 msgstr ""
+"Encefalite da zecche dell'estremo Oriente [encefalite russa estivo-"
+"primaverile]"
 
 msgctxt "model:gnuhealth.pathology,name:A841"
 msgid "Central European tick-borne encephalitis"
-msgstr ""
+msgstr "Encefalite da zecche centroeuropea"
 
 msgctxt "model:gnuhealth.pathology,name:A848"
 msgid "Other tick-borne viral encephalitis"
-msgstr ""
+msgstr "Altre encefaliti virali da zecche"
 
 msgctxt "model:gnuhealth.pathology,name:A849"
 msgid "Tick-borne viral encephalitis, unspecified"
-msgstr ""
+msgstr "Encefalite virale da zecche non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A85"
 msgid "Other viral encephalitis, not elsewhere classified"
-msgstr ""
+msgstr "Altre encefaliti virali non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A850"
 msgid "Enteroviral encephalitis"
-msgstr ""
+msgstr "Encefalite da enterovirus"
 
 msgctxt "model:gnuhealth.pathology,name:A851"
 msgid "Adenoviral encephalitis"
-msgstr ""
+msgstr "Encefalite da adenovirus"
 
 msgctxt "model:gnuhealth.pathology,name:A852"
 msgid "Arthropod-borne viral encephalitis, unspecified"
-msgstr ""
+msgstr "Encefalite virale da artropodi non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A858"
 msgid "Other specified viral encephalitis"
-msgstr ""
+msgstr "Altre encefaliti virali specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A86"
 msgid "Unspecified viral encephalitis"
-msgstr ""
+msgstr "Encefalite virale non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A87"
 msgid "Viral meningitis"
-msgstr ""
+msgstr "Meningite virale"
 
 msgctxt "model:gnuhealth.pathology,name:A870"
 msgid "Enteroviral meningitis"
-msgstr ""
+msgstr "Meningite da enterovirus"
 
 msgctxt "model:gnuhealth.pathology,name:A871"
 msgid "Adenoviral meningitis"
-msgstr ""
+msgstr "Meningite da adenovirus"
 
 msgctxt "model:gnuhealth.pathology,name:A872"
 msgid "Lymphocytic choriomeningitis"
-msgstr ""
+msgstr "Coriomeningite linfocitaria"
 
 msgctxt "model:gnuhealth.pathology,name:A878"
 msgid "Other viral meningitis"
-msgstr ""
+msgstr "Altre meningiti virali"
 
 msgctxt "model:gnuhealth.pathology,name:A879"
 msgid "Viral meningitis, unspecified"
-msgstr ""
+msgstr "Meningite virale non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A88"
 msgid ""
 "Other viral infections of central nervous system, not elsewhere classified"
 msgstr ""
+"Altre infezioni virali del sistema nervoso centrale non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A880"
 msgid "Enteroviral exanthematous fever [Boston exanthem]"
-msgstr ""
+msgstr "Febbre esantematica da enterovirus [esantema di Boston]"
 
 msgctxt "model:gnuhealth.pathology,name:A881"
 msgid "Epidemic vertigo"
-msgstr ""
+msgstr "Vertigine epidemica"
 
 msgctxt "model:gnuhealth.pathology,name:A888"
 msgid "Other specified viral infections of central nervous system"
-msgstr ""
+msgstr "Altre infezioni virali del sistema nervoso centrale specificate"
 
 msgctxt "model:gnuhealth.pathology,name:A89"
 msgid "Unspecified viral infection of central nervous system"
-msgstr ""
+msgstr "Infezione virale del sistema nervoso centrale non specificata "
 
 msgctxt "model:gnuhealth.pathology,name:A90"
 msgid "Dengue fever [classical dengue]"
-msgstr ""
+msgstr "Febbre dengue [dengue classica]"
 
 msgctxt "model:gnuhealth.pathology,name:A91"
 msgid "Dengue haemorrhagic fever"
-msgstr ""
+msgstr "Febbre dengue emorragica"
 
 msgctxt "model:gnuhealth.pathology,name:A92"
 msgid "Other mosquito-borne viral fevers"
-msgstr ""
+msgstr "Altre febbri virali trasmesse da zanzare"
 
 msgctxt "model:gnuhealth.pathology,name:A920"
 msgid "Chikungunya virus disease"
-msgstr ""
+msgstr "Malattia da virus Chikungunya"
 
 msgctxt "model:gnuhealth.pathology,name:A921"
 msgid "O'nyong-nyong fever"
-msgstr ""
+msgstr "Febbre O'nyong-nyong"
 
 msgctxt "model:gnuhealth.pathology,name:A922"
 msgid "Venezuelan equine fever"
-msgstr ""
+msgstr "Febbre equina venezuelana"
 
 msgctxt "model:gnuhealth.pathology,name:A923"
 msgid "West Nile fever"
-msgstr ""
+msgstr "Febbre del Nilo occidentale"
 
 msgctxt "model:gnuhealth.pathology,name:A924"
 msgid "Rift Valley fever"
-msgstr ""
+msgstr "Febbre della Rift Valley"
 
 msgctxt "model:gnuhealth.pathology,name:A928"
 msgid "Other specified mosquito-borne viral fevers"
-msgstr ""
+msgstr "Altre febbri virali specificate trasmesse da zanzare"
 
 msgctxt "model:gnuhealth.pathology,name:A929"
 msgid "Mosquito-borne viral fever, unspecified"
-msgstr ""
+msgstr "Febbre virale da zanzara, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A93"
 msgid "Other arthropod-borne viral fevers, not elsewhere classified"
-msgstr ""
+msgstr "Altre febbri virali da artropodi, non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A930"
 msgid "Oropouche virus disease"
-msgstr ""
+msgstr "Malattia da virus Oropouche"
 
 msgctxt "model:gnuhealth.pathology,name:A931"
 msgid "Sandfly fever"
@@ -1789,67 +1842,67 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A932"
 msgid "Colorado tick fever"
-msgstr ""
+msgstr "Febbre da zecca del Colorado"
 
 msgctxt "model:gnuhealth.pathology,name:A938"
 msgid "Other specified arthropod-borne viral fevers"
-msgstr ""
+msgstr "Altre febbri virali specificate trasmesse da artropodi"
 
 msgctxt "model:gnuhealth.pathology,name:A94"
 msgid "Unspecified arthropod-borne viral fever"
-msgstr ""
+msgstr "Febbre virale da artropodi non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A95"
 msgid "Yellow fever"
-msgstr ""
+msgstr "Febbre gialla"
 
 msgctxt "model:gnuhealth.pathology,name:A950"
 msgid "Sylvatic yellow fever"
-msgstr ""
+msgstr "Febbre gialla silvestre"
 
 msgctxt "model:gnuhealth.pathology,name:A951"
 msgid "Urban yellow fever"
-msgstr ""
+msgstr "Febbre gialla urbana"
 
 msgctxt "model:gnuhealth.pathology,name:A959"
 msgid "Yellow fever, unspecified"
-msgstr ""
+msgstr "Febbre gialla, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A96"
 msgid "Arenaviral haemorrhagic fever"
-msgstr ""
+msgstr "Febbre emorragica da arenavirus"
 
 msgctxt "model:gnuhealth.pathology,name:A960"
 msgid "Junin haemorrhagic fever"
-msgstr ""
+msgstr "Febbre emorragica Junin"
 
 msgctxt "model:gnuhealth.pathology,name:A961"
 msgid "Machupo haemorrhagic fever"
-msgstr ""
+msgstr "Febbre emorragica Machupo"
 
 msgctxt "model:gnuhealth.pathology,name:A962"
 msgid "Lassa fever"
-msgstr ""
+msgstr "Febbre di Lassa"
 
 msgctxt "model:gnuhealth.pathology,name:A968"
 msgid "Other arenaviral haemorrhagic fevers"
-msgstr ""
+msgstr "Altre febbri emorragiche da arenavirus"
 
 msgctxt "model:gnuhealth.pathology,name:A969"
 msgid "Arenaviral haemorrhagic fever, unspecified"
-msgstr ""
+msgstr "Febbre emorragica da arenavirus, non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:A98"
 msgid "Other viral haemorrhagic fevers, not elsewhere classified"
-msgstr ""
+msgstr "Altre febbri emorragiche virali, non classificate altrove"
 
 msgctxt "model:gnuhealth.pathology,name:A980"
 msgid "Crimean-Congo haemorrhagic fever"
-msgstr ""
+msgstr "Febbre emorragica Congo-Crimea"
 
 msgctxt "model:gnuhealth.pathology,name:A981"
 msgid "Omsk haemorrhagic fever"
-msgstr ""
+msgstr "Febbre emorragica di Omsk"
 
 msgctxt "model:gnuhealth.pathology,name:A982"
 msgid "Kyasanur Forest disease"
@@ -1865,7 +1918,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A985"
 msgid "Haemorrhagic fever with renal syndrome"
-msgstr ""
+msgstr "Febbre emorragica con sindrome renale"
 
 msgctxt "model:gnuhealth.pathology,name:A988"
 msgid "Other specified viral haemorrhagic fevers"
@@ -2087,7 +2140,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B16"
 msgid "Acute hepatitis B"
-msgstr ""
+msgstr "Epatite B acuta"
 
 msgctxt "model:gnuhealth.pathology,name:B160"
 msgid "Acute hepatitis B with delta-agent (coinfection) with hepatic coma"
@@ -2115,11 +2168,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B171"
 msgid "Acute hepatitis C"
-msgstr ""
+msgstr "Epatite C acuta"
 
 msgctxt "model:gnuhealth.pathology,name:B172"
 msgid "Acute hepatitis E"
-msgstr ""
+msgstr "Epatite E acuta"
 
 msgctxt "model:gnuhealth.pathology,name:B178"
 msgid "Other specified acute viral hepatitis"
@@ -2127,7 +2180,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B18"
 msgid "Chronic viral hepatitis"
-msgstr ""
+msgstr "Epatite virale cronica"
 
 msgctxt "model:gnuhealth.pathology,name:B180"
 msgid "Chronic viral hepatitis B with delta-agent"
@@ -2139,19 +2192,19 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B182"
 msgid "Chronic viral hepatitis C"
-msgstr ""
+msgstr "Epatite C virale cronica"
 
 msgctxt "model:gnuhealth.pathology,name:B188"
 msgid "Other chronic viral hepatitis"
-msgstr ""
+msgstr "Altre epatiti virali croniche"
 
 msgctxt "model:gnuhealth.pathology,name:B189"
 msgid "Chronic viral hepatitis, unspecified"
-msgstr ""
+msgstr "Epatite virale cronica non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:B19"
 msgid "Unspecified viral hepatitis"
-msgstr ""
+msgstr "Epatite virale non specificata"
 
 msgctxt "model:gnuhealth.pathology,name:B190"
 msgid "Unspecified viral hepatitis with coma"
@@ -2969,7 +3022,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B56"
 msgid "African trypanosomiasis"
-msgstr ""
+msgstr "Tripanosomiasi africana (malattia del sonno)"
 
 msgctxt "model:gnuhealth.pathology,name:B560"
 msgid "Gambiense trypanosomiasis"
@@ -3013,7 +3066,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B58"
 msgid "Toxoplasmosis"
-msgstr ""
+msgstr "Toxoplasmosi"
 
 msgctxt "model:gnuhealth.pathology,name:B580"
 msgid "Toxoplasma oculopathy"
@@ -6081,7 +6134,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D090"
 msgid "Bladder"
-msgstr ""
+msgstr "Vescica"
 
 msgctxt "model:gnuhealth.pathology,name:D091"
 msgid "Other and unspecified urinary organs"
@@ -6281,7 +6334,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D152"
 msgid "Mediastinum"
-msgstr ""
+msgstr "mediastino"
 
 msgctxt "model:gnuhealth.pathology,name:D157"
 msgid "Other specified intrathoracic organs"
@@ -6661,7 +6714,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D303"
 msgid "Bladder"
-msgstr ""
+msgstr "Vescica"
 
 msgctxt "model:gnuhealth.pathology,name:D304"
 msgid "Urethra"
@@ -6889,7 +6942,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D383"
 msgid "Mediastinum"
-msgstr ""
+msgstr "mediastino"
 
 msgctxt "model:gnuhealth.pathology,name:D384"
 msgid "Thymus"
@@ -6917,7 +6970,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D392"
 msgid "Placenta"
-msgstr ""
+msgstr "Placenta"
 
 msgctxt "model:gnuhealth.pathology,name:D397"
 msgid "Other female genital organs"
@@ -6969,7 +7022,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D414"
 msgid "Bladder"
-msgstr ""
+msgstr "Vescica"
 
 msgctxt "model:gnuhealth.pathology,name:D417"
 msgid "Other urinary organs"
@@ -14160,7 +14213,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H532"
 msgid "Diplopia"
-msgstr ""
+msgstr "Diplopia"
 
 msgctxt "model:gnuhealth.pathology,name:H533"
 msgid "Other disorders of binocular vision"
@@ -14760,7 +14813,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H920"
 msgid "Otalgia"
-msgstr ""
+msgstr "Otalgia"
 
 msgctxt "model:gnuhealth.pathology,name:H921"
 msgid "Otorrhoea"
@@ -14780,7 +14833,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H931"
 msgid "Tinnitus"
-msgstr ""
+msgstr "Acufene"
 
 msgctxt "model:gnuhealth.pathology,name:H932"
 msgid "Other abnormal auditory perceptions"
@@ -16626,7 +16679,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:I951"
 msgid "Orthostatic hypotension"
-msgstr ""
+msgstr "Ipotensione ortostatica"
 
 msgctxt "model:gnuhealth.pathology,name:I952"
 msgid "Hypotension due to drugs"
@@ -16673,7 +16726,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:I980"
 msgid "Cardiovascular syphilis"
-msgstr ""
+msgstr "Sifilide cardiovascolare"
 
 msgctxt "model:gnuhealth.pathology,name:I981"
 msgid ""
@@ -19023,7 +19076,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:K590"
 msgid "Constipation"
-msgstr ""
+msgstr "Stipsi"
 
 msgctxt "model:gnuhealth.pathology,name:K591"
 msgid "Functional diarrhoea"
@@ -19803,7 +19856,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:L03"
 msgid "Cellulitis"
-msgstr ""
+msgstr "Cellulite"
 
 msgctxt "model:gnuhealth.pathology,name:L030"
 msgid "Cellulitis of finger and toe"
@@ -20207,7 +20260,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:L29"
 msgid "Pruritus"
-msgstr ""
+msgstr "Prurito"
 
 msgctxt "model:gnuhealth.pathology,name:L290"
 msgid "Pruritus ani"
@@ -23203,7 +23256,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:M791"
 msgid "Myalgia"
-msgstr ""
+msgstr "Mialgia"
 
 msgctxt "model:gnuhealth.pathology,name:M792"
 msgid "Neuralgia and neuritis, unspecified"
@@ -23882,7 +23935,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N008"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N009"
 msgid "Unspecified"
@@ -23926,7 +23979,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N018"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N019"
 msgid "Unspecified"
@@ -23970,7 +24023,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N028"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N029"
 msgid "Unspecified"
@@ -24014,7 +24067,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N038"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N039"
 msgid "Unspecified"
@@ -24058,7 +24111,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N048"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N049"
 msgid "Unspecified"
@@ -24102,7 +24155,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N058"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N059"
 msgid "Unspecified"
@@ -24146,7 +24199,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N068"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N069"
 msgid "Unspecified"
@@ -24190,7 +24243,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N078"
 msgid "Other"
-msgstr ""
+msgstr "Altro"
 
 msgctxt "model:gnuhealth.pathology,name:N079"
 msgid "Unspecified"
@@ -26887,7 +26940,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:O410"
 msgid "Oligohydramnios"
-msgstr ""
+msgstr "Oligoidramnios"
 
 msgctxt "model:gnuhealth.pathology,name:O411"
 msgid "Infection of amniotic sac and membranes"
@@ -31446,7 +31499,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Q69"
 msgid "Polydactyly"
-msgstr ""
+msgstr "Polidattillia"
 
 msgctxt "model:gnuhealth.pathology,name:Q690"
 msgid "Accessory finger(s)"
@@ -31466,7 +31519,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Q70"
 msgid "Syndactyly"
-msgstr ""
+msgstr "Sindattillia"
 
 msgctxt "model:gnuhealth.pathology,name:Q700"
 msgid "Fused fingers"
@@ -32480,7 +32533,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R040"
 msgid "Epistaxis"
-msgstr ""
+msgstr "Epistassi"
 
 msgctxt "model:gnuhealth.pathology,name:R041"
 msgid "Haemorrhage from throat"
@@ -32500,7 +32553,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R05"
 msgid "Cough"
-msgstr ""
+msgstr "Tosse"
 
 msgctxt "model:gnuhealth.pathology,name:R06"
 msgid "Abnormalities of breathing"
@@ -32627,7 +32680,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R13"
 msgid "Dysphagia"
-msgstr ""
+msgstr "Disfagia"
 
 msgctxt "model:gnuhealth.pathology,name:R14"
 msgid "Flatulence and related conditions"
@@ -32659,7 +32712,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R18"
 msgid "Ascites"
-msgstr ""
+msgstr "Ascite"
 
 msgctxt "model:gnuhealth.pathology,name:R19"
 msgid "Other symptoms and signs involving the digestive system and abdomen"
@@ -32765,7 +32818,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R230"
 msgid "Cyanosis"
-msgstr ""
+msgstr "Cianosi"
 
 msgctxt "model:gnuhealth.pathology,name:R231"
 msgid "Pallor"
@@ -32880,7 +32933,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R300"
 msgid "Dysuria"
-msgstr ""
+msgstr "Disuria"
 
 msgctxt "model:gnuhealth.pathology,name:R301"
 msgid "Vesical tenesmus"
@@ -32908,7 +32961,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R35"
 msgid "Polyuria"
-msgstr ""
+msgstr "Poliuria"
 
 msgctxt "model:gnuhealth.pathology,name:R36"
 msgid "Urethral discharge"
@@ -33180,7 +33233,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R51"
 msgid "Headache"
-msgstr ""
+msgstr "Cefalea"
 
 msgctxt "model:gnuhealth.pathology,name:R52"
 msgid "Pain, not elsewhere classified"
@@ -33320,15 +33373,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R630"
 msgid "Anorexia"
-msgstr ""
+msgstr "Anoressia"
 
 msgctxt "model:gnuhealth.pathology,name:R631"
 msgid "Polydipsia"
-msgstr ""
+msgstr "Polidipsia"
 
 msgctxt "model:gnuhealth.pathology,name:R632"
 msgid "Polyphagia"
-msgstr ""
+msgstr "Iperfagia"
 
 msgctxt "model:gnuhealth.pathology,name:R633"
 msgid "Feeding difficulties and mismanagement"
@@ -38115,7 +38168,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T374"
 msgid "Anthelminthics"
-msgstr ""
+msgstr "Antielmintici"
 
 msgctxt "model:gnuhealth.pathology,name:T375"
 msgid "Antiviral drugs"
@@ -38218,7 +38271,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T401"
 msgid "Heroin"
-msgstr ""
+msgstr "Eroina"
 
 msgctxt "model:gnuhealth.pathology,name:T402"
 msgid "Other opioids"
@@ -38234,7 +38287,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T405"
 msgid "Cocaine"
-msgstr ""
+msgstr "Cocaina"
 
 msgctxt "model:gnuhealth.pathology,name:T406"
 msgid "Other and unspecified narcotics"
@@ -38270,7 +38323,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T413"
 msgid "Local anaesthetics"
-msgstr ""
+msgstr "Anestetici locali"
 
 msgctxt "model:gnuhealth.pathology,name:T414"
 msgid "Anaesthetic, unspecified"
@@ -38299,11 +38352,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T423"
 msgid "Barbiturates"
-msgstr ""
+msgstr "Barbiturici"
 
 msgctxt "model:gnuhealth.pathology,name:T424"
 msgid "Benzodiazepines"
-msgstr ""
+msgstr "Benzodiazepine"
 
 msgctxt "model:gnuhealth.pathology,name:T425"
 msgid "Mixed antiepileptics, not elsewhere classified"
@@ -38672,7 +38725,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T508"
 msgid "Diagnostic agents"
-msgstr ""
+msgstr "Agenti disgnostici"
 
 msgctxt "model:gnuhealth.pathology,name:T509"
 msgid "Other and unspecified drugs, medicaments and biological substances"
@@ -39241,7 +39294,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T742"
 msgid "Sexual abuse"
-msgstr ""
+msgstr "Abuso Sessuale"
 
 msgctxt "model:gnuhealth.pathology,name:T743"
 msgid "Psychological abuse"
@@ -53707,7 +53760,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y414"
 msgid "Anthelminthics"
-msgstr ""
+msgstr "Antielmintici"
 
 msgctxt "model:gnuhealth.pathology,name:Y415"
 msgid "Antiviral drugs"
@@ -53843,7 +53896,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y447"
 msgid "Plasma substitutes"
-msgstr ""
+msgstr "Sostituti del plasma"
 
 msgctxt "model:gnuhealth.pathology,name:Y449"
 msgid "Other and unspecified agents affecting blood constituents"
@@ -53935,7 +53988,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y471"
 msgid "Benzodiazepines"
-msgstr ""
+msgstr "Benzodiazepine"
 
 msgctxt "model:gnuhealth.pathology,name:Y472"
 msgid "Chloral derivatives"
@@ -53979,7 +54032,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y483"
 msgid "Local anaesthetics"
-msgstr ""
+msgstr "Anestetici locali"
 
 msgctxt "model:gnuhealth.pathology,name:Y484"
 msgid "Anaesthetic, unspecified"
@@ -54379,7 +54432,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y580"
 msgid "BCG vaccine"
-msgstr ""
+msgstr "Vaccino BCG / Tubercolosi"
 
 msgctxt "model:gnuhealth.pathology,name:Y581"
 msgid "Typhoid and paratyphoid vaccine"
@@ -56607,7 +56660,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Z515"
 msgid "Palliative care"
-msgstr ""
+msgstr "Cure Palliative"
 
 msgctxt "model:gnuhealth.pathology,name:Z516"
 msgid "Desensitisation to allergens"

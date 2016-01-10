@@ -1,242 +1,251 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:16+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255399.0\n"
 
 msgctxt "field:gnuhealth.imaging.test,code:"
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgctxt "field:gnuhealth.imaging.test,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.imaging.test,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.imaging.test,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.imaging.test,name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test,product:"
 msgid "Service"
-msgstr ""
+msgstr "خدمة"
 
 msgctxt "field:gnuhealth.imaging.test,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test,test_type:"
 msgid "Type"
-msgstr ""
+msgstr "النوع"
 
 msgctxt "field:gnuhealth.imaging.test,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.imaging.test,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.imaging.test.request,comment:"
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 msgctxt "field:gnuhealth.imaging.test.request,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.request,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.imaging.test.request,date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.imaging.test.request,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "طبيب"
 
 msgctxt "field:gnuhealth.imaging.test.request,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.imaging.test.request,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.imaging.test.request,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test.request,request:"
 msgid "Request"
-msgstr ""
+msgstr "طلب"
 
 msgctxt "field:gnuhealth.imaging.test.request,requested_test:"
 msgid "Test"
-msgstr ""
+msgstr "الاختبار"
 
 msgctxt "field:gnuhealth.imaging.test.request,state:"
 msgid "State"
-msgstr ""
+msgstr "الحالة"
 
 msgctxt "field:gnuhealth.imaging.test.request,urgent:"
 msgid "Urgent"
-msgstr ""
+msgstr "مٌستعجل"
 
 msgctxt "field:gnuhealth.imaging.test.request,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.request,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.imaging.test.result,comment:"
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 msgctxt "field:gnuhealth.imaging.test.result,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.result,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.imaging.test.result,date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.imaging.test.result,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "طبيب"
 
 msgctxt "field:gnuhealth.imaging.test.result,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.imaging.test.result,images:"
 msgid "Images"
-msgstr ""
+msgstr "الصور"
 
 msgctxt "field:gnuhealth.imaging.test.result,number:"
 msgid "Number"
-msgstr ""
+msgstr "رقم"
 
 msgctxt "field:gnuhealth.imaging.test.result,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.imaging.test.result,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test.result,request:"
 msgid "Request"
-msgstr ""
+msgstr "طلب"
 
 msgctxt "field:gnuhealth.imaging.test.result,request_date:"
 msgid "Requested Date"
-msgstr ""
+msgstr "تاريخ الطلب"
 
 msgctxt "field:gnuhealth.imaging.test.result,requested_test:"
 msgid "Test"
-msgstr ""
+msgstr "الاختبار"
 
 msgctxt "field:gnuhealth.imaging.test.result,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.result,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.imaging.test.type,code:"
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgctxt "field:gnuhealth.imaging.test.type,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.type,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.imaging.test.type,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.imaging.test.type,name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test.type,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.imaging.test.type,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.imaging.test.type,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,doctor:"
 msgid "Doctor"
-msgstr ""
+msgstr "طبيب"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,tests:"
 msgid "Tests"
-msgstr ""
+msgstr "الاختبار"
 
 msgctxt "field:gnuhealth.patient.imaging.test.request.start,urgent:"
 msgid "Urgent"
-msgstr ""
+msgstr "مٌستعجل"
 
 msgctxt "field:gnuhealth.request-imaging-test,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.request-imaging-test,request:"
 msgid "Request"
-msgstr ""
+msgstr "طلب"
 
 msgctxt "field:gnuhealth.request-imaging-test,test:"
 msgid "Test"
-msgstr ""
+msgstr "الاختبار"
 
 msgctxt "field:gnuhealth.sequences,imaging_request_sequence:"
 msgid "Imaging Request Sequence"
-msgstr ""
+msgstr "تسلسل طلبات الصور"
 
 msgctxt "field:gnuhealth.sequences,imaging_sequence:"
 msgid "Imaging Sequence"
-msgstr ""
+msgstr "تسلسل الصور"
 
 msgctxt "help:gnuhealth.patient.imaging.test.request.start,doctor:"
 msgid "Doctor who Request the lab tests."
-msgstr ""
+msgstr "الطبيب الذي طلب الفحص المعملى."
 
 msgctxt "model:gnuhealth.imaging.test,name:"
 msgid "Imaging Test"
@@ -260,7 +269,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.request-imaging-test,name:"
 msgid "Request - Test"
-msgstr ""
+msgstr "طلب - اختبار"
 
 msgctxt "model:ir.action,name:act_imaging_test_request_view"
 msgid "Imaging Test Request"
@@ -297,17 +306,17 @@ msgstr ""
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_all"
 msgid "All"
-msgstr ""
+msgstr "الكل"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_done"
 msgid "Done"
-msgstr ""
+msgstr "تم"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_draft"
 msgid "Draft"
-msgstr ""
+msgstr "مسودة"
 
 msgctxt ""
 "model:ir.action.act_window.domain,name:act_imaging_test_request_domain_requested"
@@ -384,11 +393,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Done"
-msgstr ""
+msgstr "تم"
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Draft"
-msgstr ""
+msgstr "مسودة"
 
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Requested"
@@ -396,8 +405,8 @@ msgstr ""
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,request:"
 msgid "Request"
-msgstr ""
+msgstr "طلب"

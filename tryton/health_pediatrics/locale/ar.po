@@ -1,6 +1,15 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:27+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452256073.0\n"
 
 msgctxt "error:gnuhealth.newborn:"
 msgid "The Newborn ID must be unique"
@@ -8,119 +17,119 @@ msgstr ""
 
 msgctxt "error:gnuhealth.newborn:"
 msgid "There is already a newborn record for this patient"
-msgstr ""
+msgstr "هذا المريض لديه سجل مسبق يحتوي طفل حديث الولادة"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "Activity"
-msgstr ""
+msgstr "نشاط"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "Appearance"
-msgstr ""
+msgstr "المظهر"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "Grimace"
-msgstr ""
+msgstr "تكشيرة"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_minute:"
 msgid "Minute"
-msgstr ""
+msgstr "دقيقة"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "Pulse"
-msgstr ""
+msgstr "النبض"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "Respiration"
-msgstr ""
+msgstr "التنفس"
 
 msgctxt "field:gnuhealth.neonatal.apgar,apgar_score:"
 msgid "APGAR Score"
-msgstr ""
+msgstr " مجموع نقاط APGAR"
 
 msgctxt "field:gnuhealth.neonatal.apgar,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.neonatal.apgar,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.neonatal.apgar,id:"
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 msgctxt "field:gnuhealth.neonatal.apgar,name:"
 msgid "Newborn ID"
-msgstr ""
+msgstr " رقم الأطفال حديثي الولادة"
 
 msgctxt "field:gnuhealth.neonatal.apgar,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.neonatal.apgar,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.newborn,apgar1:"
 msgid "APGAR 1st minute"
-msgstr ""
+msgstr "طريقة سريعة لتقيم الحالة العامة للاطفال بعد1 دقيقة من الولادة "
 
 msgctxt "field:gnuhealth.newborn,apgar5:"
 msgid "APGAR 5th minute"
-msgstr ""
+msgstr "طريقة سريعة لتقيم حالة المولود بعد 5دقائق من الولادة"
 
 msgctxt "field:gnuhealth.newborn,apgar_scores:"
 msgid "APGAR scores"
-msgstr ""
+msgstr "طريقة سريعة لتقيم حالة المولود بعد الولادة مباشرة"
 
 msgctxt "field:gnuhealth.newborn,bd:"
 msgid "Stillbirth"
-msgstr ""
+msgstr "المواليد الموتى"
 
 msgctxt "field:gnuhealth.newborn,birth_date:"
 msgid "DoB"
-msgstr ""
+msgstr "تاريخ الميلاد"
 
 msgctxt "field:gnuhealth.newborn,cephalic_perimeter:"
 msgid "CP"
-msgstr ""
+msgstr "محيط الرأس"
 
 msgctxt "field:gnuhealth.newborn,cod:"
 msgid "Cause of death"
-msgstr ""
+msgstr "سبب الوفاة"
 
 msgctxt "field:gnuhealth.newborn,congenital_diseases:"
 msgid "Congenital diseases"
-msgstr ""
+msgstr "الامراض الوراثية"
 
 msgctxt "field:gnuhealth.newborn,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ تأريخ"
 
 msgctxt "field:gnuhealth.newborn,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.newborn,died_at_delivery:"
 msgid "Died at delivery room"
-msgstr ""
+msgstr "توفي في غرفة الولادة"
 
 msgctxt "field:gnuhealth.newborn,died_at_the_hospital:"
 msgid "Died at the hospital"
-msgstr ""
+msgstr "توفي في المستشفى"
 
 msgctxt "field:gnuhealth.newborn,died_being_transferred:"
 msgid "Died being transferred"
-msgstr ""
+msgstr "منعكس مورو"
 
 msgctxt "field:gnuhealth.newborn,dismissed:"
 msgid "Discharged"
-msgstr ""
+msgstr "تفريغها"
 
 msgctxt "field:gnuhealth.newborn,healthprof:"
 msgid "Health Professional"
@@ -128,147 +137,148 @@ msgstr ""
 
 msgctxt "field:gnuhealth.newborn,id:"
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 msgctxt "field:gnuhealth.newborn,length:"
 msgid "Length"
-msgstr ""
+msgstr "طول"
 
 msgctxt "field:gnuhealth.newborn,meconium:"
 msgid "Meconium"
-msgstr ""
+msgstr "العقي"
 
 msgctxt "field:gnuhealth.newborn,medication:"
 msgid "Medication"
-msgstr ""
+msgstr "الادويه"
 
 msgctxt "field:gnuhealth.newborn,mother:"
 msgid "Mother"
-msgstr ""
+msgstr "أم"
 
 msgctxt "field:gnuhealth.newborn,name:"
 msgid "Newborn ID"
-msgstr ""
+msgstr " رقم الأطفال حديثي الولادة "
 
 msgctxt "field:gnuhealth.newborn,neonatal_ambiguous_genitalia:"
 msgid "Ambiguous Genitalia"
-msgstr ""
+msgstr "الأعضاء التناسلية الغامضة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_babinski_reflex:"
 msgid "Babinski Reflex"
-msgstr ""
+msgstr "Babinski Reflex"
 
 msgctxt "field:gnuhealth.newborn,neonatal_barlow:"
 msgid "Positive Barlow"
-msgstr ""
+msgstr " إيجابية بارلو"
 
 msgctxt "field:gnuhealth.newborn,neonatal_blink_reflex:"
 msgid "Blink Reflex"
-msgstr ""
+msgstr "الطرفة العاكسة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_erbs_palsy:"
 msgid "Erbs Palsy"
 msgstr ""
+"ضعف او شلل فى الكتف واليد يسبب بواسطة اصابة فى الجزور العليا لشبكة الاعصاب"
 
 msgctxt "field:gnuhealth.newborn,neonatal_grasp_reflex:"
 msgid "Grasp Reflex"
-msgstr ""
+msgstr "منعكس القبضة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_hematoma:"
 msgid "Hematomas"
-msgstr ""
+msgstr "تراكم غير طبيعي للدم في جهاز أو أنسجة أخرى من الجسم-Hematomas"
 
 msgctxt "field:gnuhealth.newborn,neonatal_hernia:"
 msgid "Hernia"
-msgstr ""
+msgstr "الفتاق"
 
 msgctxt "field:gnuhealth.newborn,neonatal_moro_reflex:"
 msgid "Moro Reflex"
-msgstr ""
+msgstr "منعكس مورو"
 
 msgctxt "field:gnuhealth.newborn,neonatal_ortolani:"
 msgid "Positive Ortolani"
-msgstr ""
+msgstr " إيجابية أورتولاني"
 
 msgctxt "field:gnuhealth.newborn,neonatal_palmar_crease:"
 msgid "Transversal Palmar Crease"
-msgstr ""
+msgstr "طية راحة اليد المستعرضة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_polydactyly:"
 msgid "Polydactyly"
-msgstr ""
+msgstr "كثرة الأصابع"
 
 msgctxt "field:gnuhealth.newborn,neonatal_rooting_reflex:"
 msgid "Rooting Reflex"
-msgstr ""
+msgstr "تأصيل العاكسة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_stepping_reflex:"
 msgid "Stepping Reflex"
-msgstr ""
+msgstr "منعكس الخطوات"
 
 msgctxt "field:gnuhealth.newborn,neonatal_sucking_reflex:"
 msgid "Sucking Reflex"
-msgstr ""
+msgstr "المص لا ارادي "
 
 msgctxt "field:gnuhealth.newborn,neonatal_swimming_reflex:"
 msgid "Swimming Reflex"
-msgstr ""
+msgstr "منعكس السباحة"
 
 msgctxt "field:gnuhealth.newborn,neonatal_syndactyly:"
 msgid "Syndactyly"
-msgstr ""
+msgstr "ارتفاق الأصابع"
 
 msgctxt "field:gnuhealth.newborn,neonatal_talipes_equinovarus:"
 msgid "Talipes Equinovarus"
-msgstr ""
+msgstr "قدم مشوهة خلقيا"
 
 msgctxt "field:gnuhealth.newborn,neonatal_tonic_neck_reflex:"
 msgid "Tonic Neck Reflex"
-msgstr ""
+msgstr "منشط الرقبة المنعكس"
 
 msgctxt "field:gnuhealth.newborn,newborn_name:"
 msgid "Name at Birth"
-msgstr ""
+msgstr "الاسم عند الولادة"
 
 msgctxt "field:gnuhealth.newborn,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "مذكرات"
 
 msgctxt "field:gnuhealth.newborn,patient:"
 msgid "Baby"
-msgstr ""
+msgstr "الطفل"
 
 msgctxt "field:gnuhealth.newborn,photo:"
 msgid "Picture"
-msgstr ""
+msgstr "صورة"
 
 msgctxt "field:gnuhealth.newborn,reanimation_aspiration:"
 msgid "Aspiration"
-msgstr ""
+msgstr "الطموح"
 
 msgctxt "field:gnuhealth.newborn,reanimation_intubation:"
 msgid "Intubation"
-msgstr ""
+msgstr "استخدام الأنابيب"
 
 msgctxt "field:gnuhealth.newborn,reanimation_mask:"
 msgid "Mask"
-msgstr ""
+msgstr "قناع"
 
 msgctxt "field:gnuhealth.newborn,reanimation_oxygen:"
 msgid "Oxygen"
-msgstr ""
+msgstr "أكسجين"
 
 msgctxt "field:gnuhealth.newborn,reanimation_stimulation:"
 msgid "Stimulation"
-msgstr ""
+msgstr "المنشطات"
 
 msgctxt "field:gnuhealth.newborn,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.newborn,sex:"
 msgid "Sex"
-msgstr ""
+msgstr "الجنس"
 
 msgctxt "field:gnuhealth.newborn,signed_by:"
 msgid "Signed by"
@@ -280,251 +290,251 @@ msgstr ""
 
 msgctxt "field:gnuhealth.newborn,test_audition:"
 msgid "Audition"
-msgstr ""
+msgstr "تجربة الاداء"
 
 msgctxt "field:gnuhealth.newborn,test_billirubin:"
 msgid "Billirubin"
-msgstr ""
+msgstr "البليروبين"
 
 msgctxt "field:gnuhealth.newborn,test_chagas:"
 msgid "Chagas"
-msgstr ""
+msgstr "شاغاس"
 
 msgctxt "field:gnuhealth.newborn,test_metabolic:"
 msgid "Metabolic (\"heel stick screening\")"
-msgstr ""
+msgstr "الاستقلاب(\"تقصى العود العقبي\")"
 
 msgctxt "field:gnuhealth.newborn,test_toxo:"
 msgid "Toxoplasmosis"
-msgstr ""
+msgstr "داء المقوسات او داء القطط"
 
 msgctxt "field:gnuhealth.newborn,test_vdrl:"
 msgid "VDRL"
-msgstr ""
+msgstr "المعامل البحثية لدراسة مرض الزهري"
 
 msgctxt "field:gnuhealth.newborn,tod:"
 msgid "Time of Death"
-msgstr ""
+msgstr "تاريخ الوفاة"
 
 msgctxt "field:gnuhealth.newborn,weight:"
 msgid "Weight"
-msgstr ""
+msgstr "الوزن"
 
 msgctxt "field:gnuhealth.newborn,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.newborn,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.patient.disease,newborn_id:"
 msgid "Newborn ID"
-msgstr ""
+msgstr " رقم الأطفال حديثي الولادة "
 
 msgctxt "field:gnuhealth.patient.medication,newborn_id:"
 msgid "Newborn ID"
-msgstr ""
+msgstr " رقم الأطفال حديثي الولادة "
 
 msgctxt "field:gnuhealth.patient.psc,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.patient.psc,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.patient.psc,evaluation_date:"
 msgid "Appointment"
-msgstr ""
+msgstr "موعد"
 
 msgctxt "field:gnuhealth.patient.psc,evaluation_start:"
 msgid "Date"
-msgstr ""
+msgstr "تأريخ"
 
 msgctxt "field:gnuhealth.patient.psc,id:"
 msgid "ID"
-msgstr ""
+msgstr "المعرف"
 
 msgctxt "field:gnuhealth.patient.psc,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "ملاحظات"
 
 msgctxt "field:gnuhealth.patient.psc,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Absent from school"
-msgstr ""
+msgstr "غائبا عن المدرسة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Complains of aches and pains"
-msgstr ""
+msgstr "شكاوى من الأوجاع والآلام"
 
 msgctxt "field:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Acts younger than children his or her age"
-msgstr ""
+msgstr "يتصرف أصغر من أطفاله أو في عمرها"
 
 msgctxt "field:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Acts as if driven by a motor"
-msgstr ""
+msgstr "يتصرف وكأنه مدفوعا بمحرك"
 
 msgctxt "field:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Is afraid of new situations"
-msgstr ""
+msgstr "خائف من الأوضاع الجديدة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Blames others for his or her troubles"
-msgstr ""
+msgstr "يلوم الاخرين على اخطاءة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Daydreams too much"
-msgstr ""
+msgstr "أحلام اليقظة كثيرا"
 
 msgctxt "field:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Distracted easily"
-msgstr ""
+msgstr "سهولة تشتت الانتباه"
 
 msgctxt "field:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Does not get people feelings"
-msgstr ""
+msgstr "لا يحصل الناس علي مشاعرهم"
 
 msgctxt "field:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Does not listen to rules"
-msgstr ""
+msgstr "لا يستمع إلى القوانين"
 
 msgctxt "field:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Does not show feelings"
-msgstr ""
+msgstr "لا يبدي مشاعرهم"
 
 msgctxt "field:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Is down on him or herself"
-msgstr ""
+msgstr " الخناق على نفسه أو نفسها"
 
 msgctxt "field:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Feels hopeless"
-msgstr ""
+msgstr " شعور ميؤوس منه "
 
 msgctxt "field:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Feels he or she is bad"
-msgstr ""
+msgstr "يشعر هو أو هي سوء"
 
 msgctxt "field:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Fidgety, unable to sit still"
-msgstr ""
+msgstr "متململ، غير قادر على الجُلُوس بهدوء"
 
 msgctxt "field:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Fights with other children"
-msgstr ""
+msgstr "يتشاجر مع الأطفال الآخرين"
 
 msgctxt "field:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Gets hurt frequently"
-msgstr ""
+msgstr "يتأذى كثيرا"
 
 msgctxt "field:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Seems to be having less fun"
-msgstr ""
+msgstr "يبدو وجود القليل من المتعة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Is irritable, angry"
-msgstr ""
+msgstr "سريع الانفعال والغضب"
 
 msgctxt "field:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Less interested in school"
-msgstr ""
+msgstr "أقل اهتماما في المدرسة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid "Less interested in friends"
-msgstr ""
+msgstr "أقل اهتماما بالأصدقاءِ"
 
 msgctxt "field:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Refuses to share"
-msgstr ""
+msgstr "يرفض المشاركة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Feels sad, unhappy"
-msgstr ""
+msgstr "يشعر بالحزن، تعيس"
 
 msgctxt "field:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "School grades dropping"
-msgstr ""
+msgstr "انخفاض الدرجات المدرسية "
 
 msgctxt "field:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Spends more time alone"
-msgstr ""
+msgstr "يقضي معظم الوقت وحده"
 
 msgctxt "field:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Takes things that do not belong to him or her"
-msgstr ""
+msgstr "يأخذ الأشياء التي لا تنتمي له أو لها"
 
 msgctxt "field:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Takes unnecessary risks"
-msgstr ""
+msgstr "محاط بمخاطر لا داعي لها"
 
 msgctxt "field:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Teases others"
-msgstr ""
+msgstr "يثير الآخرين"
 
 msgctxt "field:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Tires easily, has little energy"
-msgstr ""
+msgstr "الاطارات البسيطة ,لديها القليل من الطاقة"
 
 msgctxt "field:gnuhealth.patient.psc,psc_total:"
 msgid "PSC Total"
-msgstr ""
+msgstr "مجموع خلايا البنكرياس النجميه"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Has trouble concentrating"
-msgstr ""
+msgstr "لديه صعوبة في التركيز"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Has trouble sleeping"
-msgstr ""
+msgstr "لديه مشكلة في النوم"
 
 msgctxt "field:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Has trouble with teacher"
-msgstr ""
+msgstr "يعاني متاعب مع المعلم"
 
 msgctxt "field:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Visits the doctor with doctor finding nothing wrong"
-msgstr ""
+msgstr "زيارة الطبيب مع طبيب اخر لاتوجد الاخطاء"
 
 msgctxt "field:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Wants to be with you more than before"
-msgstr ""
+msgstr "يريد أن يكون معك أكثر من السابق"
 
 msgctxt "field:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Worries a lot"
-msgstr ""
+msgstr "القلق الكثير"
 
 msgctxt "field:gnuhealth.patient.psc,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.patient.psc,user_id:"
 msgid "Health Professional"
-msgstr ""
+msgstr "الصحة المهنية"
 
 msgctxt "field:gnuhealth.patient.psc,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.patient.psc,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "help:gnuhealth.newborn,birth_date:"
 msgid "Date and Time of birth"
-msgstr ""
+msgstr "وقت و تاريخ الولادة "
 
 msgctxt "help:gnuhealth.newborn,cephalic_perimeter:"
 msgid "Cephalic Perimeter in centimeters (cm)"
-msgstr ""
+msgstr "محيط الرأس (بالسنتيمترات)"
 
 msgctxt "help:gnuhealth.newborn,died_being_transferred:"
 msgid "The baby died being transferred to another health institution"
-msgstr ""
+msgstr "وفاة الطفل اثناء نقله إلى مؤسسة صحية أخرى"
 
 msgctxt "help:gnuhealth.newborn,healthprof:"
 msgid "Health professional"
@@ -532,11 +542,11 @@ msgstr ""
 
 msgctxt "help:gnuhealth.newborn,length:"
 msgid "Length in centimeters (cm)"
-msgstr ""
+msgstr "الطول بالسنتيمترات"
 
 msgctxt "help:gnuhealth.newborn,patient:"
 msgid "Patient associated to this newborn"
-msgstr ""
+msgstr "المريض ذو الصلة بهذا المولود الجديد"
 
 msgctxt "help:gnuhealth.newborn,sex:"
 msgid ""
@@ -553,131 +563,133 @@ msgid ""
 "Test for Fenilketonuria, Congenital Hypothyroidism, Quistic Fibrosis, "
 "Galactosemia"
 msgstr ""
+"فحص الفنايل كيتون في البول,انخفاض وظائف الغدة الدرقية الولادي,  تليف "
+"الكويستك,ارتفاع مستوى الجلاكتوز في الدم"
 
 msgctxt "help:gnuhealth.newborn,weight:"
 msgid "Weight in grams (g)"
-msgstr ""
+msgstr "الوزن بالجرامات  (g)"
 
 msgctxt "help:gnuhealth.patient.psc,evaluation_date:"
 msgid ""
 "Enter or select the date / ID of the appointment related to this evaluation"
-msgstr ""
+msgstr "أدخل أو حدد التاريخ/المعرف للموعد المتعلق بهذا التقييم"
 
 msgctxt "model:gnuhealth.neonatal.apgar,name:"
 msgid "Neonatal APGAR Score"
-msgstr ""
+msgstr " مجموع نقاط APGAR  لحديثي الولادة"
 
 msgctxt "model:gnuhealth.newborn,name:"
 msgid "Newborn Information"
-msgstr ""
+msgstr "معلومات حديثي الولادة"
 
 msgctxt "model:gnuhealth.patient.psc,name:"
 msgid "Pediatric Symptoms Checklist"
-msgstr ""
+msgstr "قائمة تدقيق أعراض الأطفال "
 
 msgctxt "model:ir.action,name:act_newborn_form1"
 msgid "Neonatal Info"
-msgstr ""
+msgstr "معلومات العناية بالمولود الجديد في أول شهر بعد الولادة"
 
 msgctxt "model:ir.action,name:act_psc_form1"
 msgid "PSC"
-msgstr ""
+msgstr "Pediatric Symptoms Checklist  القائمة المرجعيةالاعراض الأطفال "
 
 msgctxt "model:ir.action,name:gnuhealth_action_newborn"
 msgid "Newborn"
-msgstr ""
+msgstr "حديثي الولادة"
 
 msgctxt "model:ir.action,name:gnuhealth_action_psc"
 msgid "PSC"
-msgstr ""
+msgstr "Pediatric Symptoms Checklist  القائمة المرجعيةالاعراض الأطفال "
 
 msgctxt "model:ir.action,name:report_newborn_card"
 msgid "Newborn ID"
-msgstr ""
+msgstr " رقم الأطفال حديثي الولادة"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_newborn"
 msgid "Newborn"
-msgstr ""
+msgstr "الأطفال حديثي الولادة"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_edit_psc"
 msgid "PSC"
-msgstr ""
+msgstr "Pediatric Symptoms Checklist  القائمة المرجعيةالاعراض الأطفال "
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_pediatrics"
 msgid "Pediatrics"
-msgstr ""
+msgstr "طب الأطفال"
 
 msgctxt "model:res.group,name:group_health_pediatrics_admin"
 msgid "Health Pediatrics Administration"
-msgstr ""
+msgstr "الإدارة الصحية لطب الأطفال"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "Some flexion"
-msgstr ""
+msgstr "بعض الانثناء"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "flexed arms and legs"
-msgstr ""
+msgstr "الأذرع والأرجل المَثْنية"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "acrocyanosis"
-msgstr ""
+msgstr "ازرقاق الاطراف"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "central cyanosis"
-msgstr ""
+msgstr "الازرقاق المركزي"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_appearance:"
 msgid "no cyanosis"
-msgstr ""
+msgstr "لا يوجد ازرقاق"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "No response to stimulation"
-msgstr ""
+msgstr "لا توجداستجابةعلى التحفيز"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "cry or pull away when stimulated"
-msgstr ""
+msgstr "يبكي او يبتعد عندما ينتبه"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_grimace:"
 msgid "grimace when stimulated"
-msgstr ""
+msgstr "يكشر عندما ينتبه"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "< 100"
-msgstr ""
+msgstr "< 100"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "> 100"
-msgstr ""
+msgstr "> 100 "
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_pulse:"
 msgid "Absent"
-msgstr ""
+msgstr "غائب"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "Absent"
-msgstr ""
+msgstr "غائب"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "Weak / Irregular"
-msgstr ""
+msgstr "ضعف / عدم انتظام"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "strong"
-msgstr ""
+msgstr "قوي"
 
 msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Female"
-msgstr ""
+msgstr "أنثى"
 
 msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Male"
-msgstr ""
+msgstr "ذكر"
 
 msgctxt "selection:gnuhealth.newborn,state:"
 msgid ""
@@ -697,15 +709,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Never"
-msgstr ""
+msgstr "أبدا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Often"
-msgstr ""
+msgstr "في أغلب الأحيان"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Sometimes"
-msgstr ""
+msgstr "أحيانا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid ""
@@ -713,15 +725,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Never"
-msgstr ""
+msgstr "أَبَداً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Often"
-msgstr ""
+msgstr "في أغلب الأحيان"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Sometimes"
-msgstr ""
+msgstr "أحيانا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid ""
@@ -729,15 +741,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid ""
@@ -745,15 +757,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid ""
@@ -761,15 +773,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid ""
@@ -777,15 +789,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid ""
@@ -793,15 +805,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid ""
@@ -809,15 +821,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid ""
@@ -825,15 +837,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في بعض الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid ""
@@ -841,15 +853,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Often"
-msgstr ""
+msgstr " في أغلب الأحيان"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في بعض الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid ""
@@ -857,15 +869,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid ""
@@ -873,15 +885,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Sometimes"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid ""
@@ -889,15 +901,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid ""
@@ -905,15 +917,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid ""
@@ -921,15 +933,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid ""
@@ -937,15 +949,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid ""
@@ -953,15 +965,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid ""
@@ -969,15 +981,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Sometimes"
-msgstr ""
+msgstr "أحياناً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid ""
@@ -985,15 +997,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid ""
@@ -1001,15 +1013,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Often"
-msgstr ""
+msgstr "عادةً "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Sometimes"
-msgstr ""
+msgstr "أحياناً"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid ""
@@ -1017,15 +1029,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid ""
@@ -1033,15 +1045,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid ""
@@ -1049,15 +1061,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid ""
@@ -1065,15 +1077,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid ""
@@ -1081,15 +1093,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid ""
@@ -1097,15 +1109,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid ""
@@ -1113,15 +1125,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid ""
@@ -1129,15 +1141,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid ""
@@ -1145,15 +1157,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان  "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid ""
@@ -1161,15 +1173,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid ""
@@ -1177,15 +1189,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid ""
@@ -1193,15 +1205,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid ""
@@ -1209,15 +1221,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid ""
@@ -1225,15 +1237,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا  "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid ""
@@ -1241,12 +1253,12 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Never"
-msgstr ""
+msgstr "ابدا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Often"
-msgstr ""
+msgstr "احيانا "
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Sometimes"
-msgstr ""
+msgstr "في أغلب الأحيان "

@@ -1,34 +1,43 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:35+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452256501.0\n"
 
 msgctxt "field:gnuhealth.patient,domestic_violence:"
 msgid "Domestic violence"
-msgstr ""
+msgstr "العنف المنزلي"
 
 msgctxt "field:gnuhealth.patient,drug_addiction:"
 msgid "Drug addiction"
-msgstr ""
+msgstr "إدمان المخدرات"
 
 msgctxt "field:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "المستوى التعليمي"
 
 msgctxt "field:gnuhealth.patient,hostile_area:"
 msgid "Hostile Area"
-msgstr ""
+msgstr "منطقة معادية"
 
 msgctxt "field:gnuhealth.patient,hours_outside:"
 msgid "Hours outside home"
-msgstr ""
+msgstr "ساعات خارج المنزل"
 
 msgctxt "field:gnuhealth.patient,housing:"
 msgid "Housing conditions"
-msgstr ""
+msgstr "ظروف السكن"
 
 msgctxt "field:gnuhealth.patient,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "الوظيفة"
 
 msgctxt "field:gnuhealth.patient,prison_current:"
 msgid "Currently in prison"
@@ -36,15 +45,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,prison_past:"
 msgid "Has been in prison"
-msgstr ""
+msgstr "كان في السجن"
 
 msgctxt "field:gnuhealth.patient,relative_in_prison:"
 msgid "Relative in prison"
-msgstr ""
+msgstr " ذو الصلة بالسجن"
 
 msgctxt "field:gnuhealth.patient,school_withdrawal:"
 msgid "School withdrawal"
-msgstr ""
+msgstr "انسحاب من المدرسة"
 
 msgctxt "field:gnuhealth.patient,ses_assessments:"
 msgid "Assessments"
@@ -52,27 +61,27 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,ses_notes:"
 msgid "Extra info"
-msgstr ""
+msgstr "معلومات اضافية"
 
 msgctxt "field:gnuhealth.patient,sexual_abuse:"
 msgid "Sexual abuse"
-msgstr ""
+msgstr "العنف الجنسي"
 
 msgctxt "field:gnuhealth.patient,single_parent:"
 msgid "Single parent family"
-msgstr ""
+msgstr "الأسرة وحيدة الوالد"
 
 msgctxt "field:gnuhealth.patient,teenage_pregnancy:"
 msgid "Teenage pregnancy"
-msgstr ""
+msgstr "الحمل في سن المراهقة"
 
 msgctxt "field:gnuhealth.patient,working_children:"
 msgid "Working children"
-msgstr ""
+msgstr "الأطفال العاملين"
 
 msgctxt "field:gnuhealth.patient,works_at_home:"
 msgid "Works at home"
-msgstr ""
+msgstr "الأعمال في المنزل"
 
 msgctxt "field:gnuhealth.ses.assessment,assessment_date:"
 msgid "Date"
@@ -184,29 +193,31 @@ msgstr ""
 
 msgctxt "field:party.party,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "الوظيفة"
 
 msgctxt "help:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "المستوى التعليمي"
 
 msgctxt "help:gnuhealth.patient,hostile_area:"
 msgid "Check if patient lives in a zone of high hostility (eg, war)"
 msgstr ""
+"تحقق مما إذا حياة المريض في منطقة العداوة العالية (على سبيل المثال، الحرب)"
 
 msgctxt "help:gnuhealth.patient,hours_outside:"
 msgid "Number of hours a day the patient spend outside the house"
-msgstr ""
+msgstr "عدد الساعات التي يقضيها المريض خارج المنزل في اليوم "
 
 msgctxt "help:gnuhealth.patient,housing:"
 msgid "Housing and sanitary living conditions"
-msgstr ""
+msgstr "الظروف السكنية والمعيشية الصحية"
 
 msgctxt "help:gnuhealth.patient,relative_in_prison:"
 msgid ""
 "Check if someone from the nuclear family - parents / sibblings  is or has "
 "been in prison"
 msgstr ""
+"تحقق مما إذا شخص من الأسرة النواة - الوالدين / sibblings أو كان في السجن"
 
 msgctxt "help:gnuhealth.patient,ses_assessments:"
 msgid "Socioeconomics and Family assessments history"
@@ -214,7 +225,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.patient,works_at_home:"
 msgid "Check if the patient works at his / her house"
-msgstr ""
+msgstr "تحقق مما إذا كان المريض يعمل في / منزلها"
 
 msgctxt "help:gnuhealth.ses.assessment,assessment_date:"
 msgid "Assessment date"
@@ -287,7 +298,7 @@ msgstr ""
 
 msgctxt "help:party.party,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "المستوى التعليمي"
 
 msgctxt "model:gnuhealth.ses.assessment,name:"
 msgid "Socioeconomics and Family Functionality Assessment"
@@ -311,27 +322,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "مدرسة الابتدائية غير مكتملة"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "المدرسة الثانوية غير مكتملة"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "المدرسة الابتدائية"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "المدارس الثانوية"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "University"
-msgstr ""
+msgstr "الجامعة"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid ""
@@ -339,23 +350,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Comfortable and good sanitary conditions"
-msgstr ""
+msgstr "الظروف الصحية مريحة وجيدة"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Luxury and excellent sanitary conditions"
-msgstr ""
+msgstr "الظروف الصحية الفاخرة و الممتازة"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Roomy and excellent sanitary conditions"
-msgstr ""
+msgstr "الظروف الصحية واسعة وممتازة"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Shanty, deficient sanitary conditions"
-msgstr ""
+msgstr " ظروف صحية عشوائية وناقصة"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Small, crowded but with good sanitary conditions"
-msgstr ""
+msgstr "صغيرة مكتظة بالسكان في لكن مع ظروف صحية جيدة"
 
 msgctxt "selection:gnuhealth.ses.assessment,education:"
 msgid ""
@@ -559,27 +570,27 @@ msgstr ""
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "مدرسة الابتدائية غير مكتملة"
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "المدرسة الثانوية غير مكتملة"
 
 msgctxt "selection:party.party,education:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:party.party,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "المدرسة الابتدائية"
 
 msgctxt "selection:party.party,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "المدارس الثانوية"
 
 msgctxt "selection:party.party,education:"
 msgid "University"
-msgstr ""
+msgstr "الجامعة"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Current Status"
@@ -587,7 +598,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Notes"
-msgstr ""
+msgstr "مذكرات"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Other Family and Environmental determinants"
@@ -595,7 +606,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Socioeconomics"
-msgstr ""
+msgstr "الاوضاع الاقتصادية الاجتماعية"
 
 msgctxt "view:gnuhealth.ses.assessment:"
 msgid "Done"

@@ -1,6 +1,14 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:25+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252317.0\n"
 
 msgctxt "error:gnuhealth.disease.gene:"
 msgid "The Official Symbol name must be unique"
@@ -8,75 +16,75 @@ msgstr ""
 
 msgctxt "field:gnuhealth.disease.gene,chromosome:"
 msgid "Affected Chromosome"
-msgstr ""
+msgstr "受影响的染色体"
 
 msgctxt "field:gnuhealth.disease.gene,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.disease.gene,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.disease.gene,dominance:"
 msgid "Dominance"
-msgstr ""
+msgstr "优势"
 
 msgctxt "field:gnuhealth.disease.gene,gene_id:"
 msgid "Gene ID"
-msgstr ""
+msgstr "基因编号"
 
 msgctxt "field:gnuhealth.disease.gene,id:"
 msgid "ID"
-msgstr ""
+msgstr "编号"
 
 msgctxt "field:gnuhealth.disease.gene,info:"
 msgid "Information"
-msgstr ""
+msgstr "信息"
 
 msgctxt "field:gnuhealth.disease.gene,location:"
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgctxt "field:gnuhealth.disease.gene,long_name:"
 msgid "Official Long Name"
-msgstr ""
+msgstr "官方名称"
 
 msgctxt "field:gnuhealth.disease.gene,name:"
 msgid "Official Symbol"
-msgstr ""
+msgstr "官方标志"
 
 msgctxt "field:gnuhealth.disease.gene,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 msgctxt "field:gnuhealth.disease.gene,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "请您写日期"
 
 msgctxt "field:gnuhealth.disease.gene,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "请您写用户"
 
 msgctxt "field:gnuhealth.patient,family_history:"
 msgid "Family History"
-msgstr ""
+msgstr "家族史"
 
 msgctxt "field:gnuhealth.patient,genetic_risks:"
 msgid "Genetic Risks"
-msgstr ""
+msgstr "遗传风险"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.patient.family.diseases,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.family.diseases,name:"
 msgid "Condition"
@@ -84,79 +92,79 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.family.diseases,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.family.diseases,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 msgctxt "field:gnuhealth.patient.family.diseases,relative:"
 msgid "Relative"
-msgstr ""
+msgstr "亲属"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "请您写日期"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "请您写用户"
 
 msgctxt "field:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal or Paternal"
-msgstr ""
+msgstr "母亲或父亲"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,disease_gene:"
 msgid "Disease Gene"
-msgstr ""
+msgstr "疾病基因"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "注意"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "请您写日期"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "请您写用户"
 
 msgctxt "help:gnuhealth.disease.gene,chromosome:"
 msgid "Name of the affected chromosome"
-msgstr ""
+msgstr "受感染的染色体名称"
 
 msgctxt "help:gnuhealth.disease.gene,gene_id:"
 msgid "default code from NCBI Entrez database."
-msgstr ""
+msgstr "来自NCBI Entrez数据库的默认代码"
 
 msgctxt "help:gnuhealth.disease.gene,info:"
 msgid "Extra Information"
-msgstr ""
+msgstr "其它信息"
 
 msgctxt "help:gnuhealth.disease.gene,location:"
 msgid "Locus of the chromosome"
-msgstr ""
+msgstr " 染色体轨迹"
 
 msgctxt "help:gnuhealth.patient.family.diseases,relative:"
 msgid ""
@@ -17754,31 +17762,31 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,name:"
 msgid "Disease Genes"
-msgstr ""
+msgstr "疾病基因"
 
 msgctxt "model:gnuhealth.patient.family.diseases,name:"
 msgid "Family Diseases"
-msgstr ""
+msgstr "家族遗传疾病"
 
 msgctxt "model:gnuhealth.patient.genetic.risk,name:"
 msgid "Patient Genetic Risks"
-msgstr ""
+msgstr "患者的遗传风险"
 
 msgctxt "model:ir.action,name:gnuhealth_action_disease_gene"
 msgid "Disease Genes"
-msgstr ""
+msgstr "疾病基因"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_disease_genes"
 msgid "Disease Genes"
-msgstr ""
+msgstr "疾病基因"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_genetics"
 msgid "Genetics"
-msgstr ""
+msgstr "遗传学"
 
 msgctxt "model:res.group,name:group_health_genetics_admin"
 msgid "Health Genetics Administration"
-msgstr ""
+msgstr "基因卫生管理"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid ""
@@ -17786,55 +17794,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "dominant"
-msgstr ""
+msgstr "显性基因"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "recessive"
-msgstr ""
+msgstr "隐性基因"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Aunt"
-msgstr ""
+msgstr "姨妈"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Brother"
-msgstr ""
+msgstr "兄弟"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Cousin"
-msgstr ""
+msgstr "表亲"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Father"
-msgstr ""
+msgstr "父亲"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandfather"
-msgstr ""
+msgstr "祖父"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandmother"
-msgstr ""
+msgstr "祖母"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Mother"
-msgstr ""
+msgstr "母亲"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Nephew"
-msgstr ""
+msgstr "侄儿"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Niece"
-msgstr ""
+msgstr "侄女"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Sister"
-msgstr ""
+msgstr "姐妹"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Uncle"
-msgstr ""
+msgstr "叔叔"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid ""
@@ -17842,11 +17850,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal"
-msgstr ""
+msgstr "母系"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Paternal"
-msgstr ""
+msgstr "父系"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Sibling"

@@ -1,222 +1,234 @@
-#
+# Fabyc <fabianc7@gmail.com>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 20:08+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language: es_EC\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452283728.0\n"
 
 msgctxt "error:gnuhealth.iss:"
 msgid "This ISS registration Code already exists"
-msgstr ""
+msgstr "¡Ya existe este código de registro de SVL!"
 
 msgctxt "field:gnuhealth.iss,alcohol:"
 msgid "Alcohol"
-msgstr ""
+msgstr "Alcohol"
 
 msgctxt "field:gnuhealth.iss,code:"
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 msgctxt "field:gnuhealth.iss,complaint:"
 msgid "Chief Complaint"
-msgstr ""
+msgstr "Motivo de consulta"
 
 msgctxt "field:gnuhealth.iss,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Fecha de creación"
 
 msgctxt "field:gnuhealth.iss,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Creado por usuario"
 
 msgctxt "field:gnuhealth.iss,disposition:"
 msgid "Disposition"
-msgstr ""
+msgstr "Disposición"
 
 msgctxt "field:gnuhealth.iss,drugs:"
 msgid "Other Drugs"
-msgstr ""
+msgstr "Otras Drogas"
 
 msgctxt "field:gnuhealth.iss,healthcenter:"
 msgid "Institution"
-msgstr ""
+msgstr "Institución"
 
 msgctxt "field:gnuhealth.iss,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.iss,injury_date:"
 msgid "Injury Date"
-msgstr ""
+msgstr "Fecha de Lesión"
 
 msgctxt "field:gnuhealth.iss,injury_details:"
 msgid "Details"
-msgstr ""
+msgstr "Detalles"
 
 msgctxt "field:gnuhealth.iss,injury_method:"
 msgid "Method"
-msgstr ""
+msgstr "Método"
 
 msgctxt "field:gnuhealth.iss,injury_type:"
 msgid "Injury Type"
-msgstr ""
+msgstr "Tipo de Lesión"
 
 msgctxt "field:gnuhealth.iss,latitude:"
 msgid "Latidude"
-msgstr ""
+msgstr "Latitud"
 
 msgctxt "field:gnuhealth.iss,longitude:"
 msgid "Longitude"
-msgstr ""
+msgstr "Longitud"
 
 msgctxt "field:gnuhealth.iss,mva_counterpart:"
 msgid "Counterpart"
-msgstr ""
+msgstr "Contrapartida"
 
 msgctxt "field:gnuhealth.iss,mva_mode:"
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 msgctxt "field:gnuhealth.iss,mva_position:"
 msgid "User Position"
-msgstr ""
+msgstr "Posicion del usuario"
 
 msgctxt "field:gnuhealth.iss,name:"
 msgid "Evaluation"
-msgstr ""
+msgstr "Evaluación"
 
 msgctxt "field:gnuhealth.iss,operational_sector:"
 msgid "O. Sector"
-msgstr ""
+msgstr "S. Operacional"
 
 msgctxt "field:gnuhealth.iss,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Paciente"
 
 msgctxt "field:gnuhealth.iss,patient_age:"
 msgid "Age"
-msgstr ""
+msgstr "Edad"
 
 msgctxt "field:gnuhealth.iss,patient_sex:"
 msgid "Sex"
-msgstr ""
+msgstr "Sexo"
 
 msgctxt "field:gnuhealth.iss,place_occurrance:"
 msgid "Place"
-msgstr ""
+msgstr "Lugar"
 
 msgctxt "field:gnuhealth.iss,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.iss,registration_date:"
 msgid "Registration Date"
-msgstr ""
+msgstr "Fecha de registro"
 
 msgctxt "field:gnuhealth.iss,safety_gear:"
 msgid "Safety Gear"
-msgstr ""
+msgstr "Equipo de seguridad"
 
 msgctxt "field:gnuhealth.iss,urladdr:"
 msgid "OSM Map"
-msgstr ""
+msgstr "Mapa OSM"
 
 msgctxt "field:gnuhealth.iss,victim_perpetrator:"
 msgid "Relationship"
-msgstr ""
+msgstr "Relación"
 
 msgctxt "field:gnuhealth.iss,violence_circumstances:"
 msgid "Context"
-msgstr ""
+msgstr "Contexto"
 
 msgctxt "field:gnuhealth.iss,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Fecha de modificación"
 
 msgctxt "field:gnuhealth.iss,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Modificado por usuario"
 
 msgctxt "help:gnuhealth.iss,alcohol:"
 msgid ""
 "Is there evidence of alcohol use by the injured person in the 6 hours before"
 " the accident ?"
 msgstr ""
+"¿Hay pruebas de consumo de alcohol de la persona lesionada en las 6 horas "
+"antes del accidente?"
 
 msgctxt "help:gnuhealth.iss,code:"
 msgid "Injury Code"
-msgstr ""
+msgstr "Código de Lesión"
 
 msgctxt "help:gnuhealth.iss,disposition:"
 msgid "Place of occurrance"
-msgstr ""
+msgstr "Lugar de ocurrencia"
 
 msgctxt "help:gnuhealth.iss,drugs:"
 msgid ""
 "Is there evidence of drug use by the injured person in the 6 hours before "
 "the accident ?"
 msgstr ""
+"¿Hay pruebas de consumo de drogas de la persona lesionada en las 6 horas "
+"antes del accidente?"
 
 msgctxt "help:gnuhealth.iss,injury_date:"
 msgid "Usually the same as the Evaluation"
-msgstr ""
+msgstr "Por lo general, la misma que la de Evaluación"
 
 msgctxt "help:gnuhealth.iss,injury_method:"
 msgid "Method of Injury"
-msgstr ""
+msgstr "Método de la Lesión"
 
 msgctxt "help:gnuhealth.iss,mva_counterpart:"
 msgid "Motor Vehicle Accident Counterpart"
-msgstr ""
+msgstr "Contraparte del accidente vehicular"
 
 msgctxt "help:gnuhealth.iss,mva_mode:"
 msgid "Motor Vehicle Accident Mode"
-msgstr ""
+msgstr "Modalidad del accidente vehicular"
 
 msgctxt "help:gnuhealth.iss,mva_position:"
 msgid "Motor Vehicle Accident user position"
-msgstr ""
+msgstr "Posición del usuario durante el accidente vehicular"
 
 msgctxt "help:gnuhealth.iss,name:"
 msgid "Related Patient Evaluation"
-msgstr ""
+msgstr "Evaluación del paciente relacionada"
 
 msgctxt "help:gnuhealth.iss,operational_sector:"
 msgid "Operational Sector in which happened the injury"
-msgstr ""
+msgstr "Sector Operacional en el que ocurrió la lesión"
 
 msgctxt "help:gnuhealth.iss,place_occurrance:"
 msgid "Place of occurrance"
-msgstr ""
+msgstr "Lugar de ocurrencia"
 
 msgctxt "help:gnuhealth.iss,safety_gear:"
 msgid "Use of Safety Gear - Helmet, safety belt..."
-msgstr ""
+msgstr "Uso de equipo de seguridad - Casco, cinturón de seguridad ..."
 
 msgctxt "help:gnuhealth.iss,urladdr:"
 msgid "Maps the Accident / Injury location on Open Street Map"
-msgstr ""
+msgstr "Mapas de la localización del Accidente/Lesión en Open Street Map"
 
 msgctxt "help:gnuhealth.iss,victim_perpetrator:"
 msgid "Victim - Perpetrator relationship"
-msgstr ""
+msgstr "Relación Víctima - Perpetrador"
 
 msgctxt "help:gnuhealth.iss,violence_circumstances:"
 msgid "Precipitating Factor"
-msgstr ""
+msgstr "Factor desencadenante"
 
 msgctxt "model:gnuhealth.iss,name:"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "Registro de sistema de vigilancia de lesiones"
 
 msgctxt "model:ir.action,name:act_iss_form1"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "Registro de sistema de vigilancia de lesiones"
 
 msgctxt "model:ir.action,name:gnuhealth_action_iss"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "Registro de sistema de vigilancia de lesiones"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_report_iss"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "Registro de Sistema de Vigilancia de Lesiones"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid ""
@@ -224,19 +236,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Suspected"
-msgstr ""
+msgstr "Sospecha"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid ""
@@ -244,31 +256,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Admitted to Observation"
-msgstr ""
+msgstr "Admitido a Observación"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Admitted to Ward"
-msgstr ""
+msgstr "Admitido a Sala de Espera"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Dead on Arrival"
-msgstr ""
+msgstr "Muerto al Llegar"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Died"
-msgstr ""
+msgstr "Fallecido"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Discharge Against Advise"
-msgstr ""
+msgstr "Alta voluntaria"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Transferred"
-msgstr ""
+msgstr "Transferido"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Treated and Sent Home"
-msgstr ""
+msgstr "Tratado y Enviado al hogar"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid ""
@@ -276,19 +288,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Suspected"
-msgstr ""
+msgstr "Sospecha"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid ""
@@ -296,35 +308,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Blunt object"
-msgstr ""
+msgstr "Objeto contundente"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Choking/strangulation"
-msgstr ""
+msgstr "Asfixia/estrangulamiento"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Gun shot"
-msgstr ""
+msgstr "Disparo de arma"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Push/bodily force"
-msgstr ""
+msgstr "Empujón / Fuerza corporal"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Sexual Assault"
-msgstr ""
+msgstr "Asalto Sexual"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Sharp objects"
-msgstr ""
+msgstr "Objetos cortantes"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid ""
@@ -332,19 +344,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Accidental / Unintentional"
-msgstr ""
+msgstr "Accidental / Involuntario"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Motor Vehicle"
-msgstr ""
+msgstr "Vehículo a motor"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Suicide Attempt"
-msgstr ""
+msgstr "Intento de Suicidio"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Violence"
-msgstr ""
+msgstr "Violencia"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid ""
@@ -352,55 +364,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Aircraft"
-msgstr ""
+msgstr "Avión"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Bicycle"
-msgstr ""
+msgstr "Bicicleta"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Boat / Ship"
-msgstr ""
+msgstr "Bote / Barco"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Car"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Motorbike"
-msgstr ""
+msgstr "Motocicleta"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Pedestrian"
-msgstr ""
+msgstr "Peatón"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Taxi"
-msgstr ""
+msgstr "Taxi"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Train"
-msgstr ""
+msgstr "Tren"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Truck / Heavy vehicle"
-msgstr ""
+msgstr "Camión / Vehículo pesado"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Van / Pickup / Jeep"
-msgstr ""
+msgstr "Van / Camioneta / Jeep"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid ""
@@ -408,55 +420,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Aircraft"
-msgstr ""
+msgstr "Avión"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Bicycle"
-msgstr ""
+msgstr "Bicicleta"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Boat / Ship"
-msgstr ""
+msgstr "Bote / Barco"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Bus"
-msgstr ""
+msgstr "Bus"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Car"
-msgstr ""
+msgstr "Auto"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Motorbike"
-msgstr ""
+msgstr "Motocicleta"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Pedestrian"
-msgstr ""
+msgstr "Peatón"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Taxi"
-msgstr ""
+msgstr "Taxi"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Train"
-msgstr ""
+msgstr "Tren"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Truck / Heavy vehicle"
-msgstr ""
+msgstr "Camión / Vehículo pesado"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Van / Pickup / Jeep"
-msgstr ""
+msgstr "Van / Camioneta / Jeep"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid ""
@@ -464,27 +476,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Bystander"
-msgstr ""
+msgstr "Espectador"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Driver"
-msgstr ""
+msgstr "Conductor"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Outside / on the back"
-msgstr ""
+msgstr "Exterior / en la parte trasera"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Passenger"
-msgstr ""
+msgstr "Pasajero"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Unspecified vehicle"
-msgstr ""
+msgstr "Vehículo no especificado"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid ""
@@ -492,43 +504,43 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Commercial Area"
-msgstr ""
+msgstr "Área comercial"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Home"
-msgstr ""
+msgstr "Evento no especificado, de intención no determinada, en vivienda"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Institution"
-msgstr ""
+msgstr "Institución"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Public Building"
-msgstr ""
+msgstr "Edificio Público"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Public transportation"
-msgstr ""
+msgstr "Transporte Público"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Recreational Area"
-msgstr ""
+msgstr "Área Recreativa"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "School"
-msgstr ""
+msgstr "Escuela"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Sports event"
-msgstr ""
+msgstr "Evento deportivo"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Street"
-msgstr ""
+msgstr "Calle"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid ""
@@ -536,15 +548,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid ""
@@ -552,35 +564,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Acquaintance / Friend"
-msgstr ""
+msgstr "Conocido / Amigo"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Girl / Boyfriend"
-msgstr ""
+msgstr "Novia / Novio"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Official / Legal"
-msgstr ""
+msgstr "Oficial / Legal"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Other relative"
-msgstr ""
+msgstr "Otro parentesco"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Parent"
-msgstr ""
+msgstr "Padre"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Stranger"
-msgstr ""
+msgstr "Desconocido"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Wife / Husband"
-msgstr ""
+msgstr "Esposa / Esposo"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "other"
-msgstr ""
+msgstr "otro"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid ""
@@ -588,32 +600,32 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Committing a crime (other)"
-msgstr ""
+msgstr "Cometiendo un crimen (otro)"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Drug Related"
-msgstr ""
+msgstr "Relacionado a drogas"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Fight"
-msgstr ""
+msgstr "Pelea"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Gang Activity"
-msgstr ""
+msgstr "Actividad de pandillas"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Other"
-msgstr ""
+msgstr "Otro"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Robbery"
-msgstr ""
+msgstr "Robo"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Sexual Assault"
-msgstr ""
+msgstr "Asalto Sexual"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"

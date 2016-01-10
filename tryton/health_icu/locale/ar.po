@@ -1,387 +1,396 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:12+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255168.0\n"
 
 msgctxt "error:gnuhealth.icu.ventilation:"
 msgid ""
 "Our records indicate that the patient is already on Mechanical Ventilation !"
-msgstr ""
+msgstr "سجلاتنا تُشيرُ بأنّ  المريضة حامل!"
 
 msgctxt "error:gnuhealth.inpatient.icu:"
 msgid "Our records indicate that the patient is already admitted at ICU"
-msgstr ""
+msgstr "توضح سجلاتنا ان المريض موجود  في وحدة العناية المركزة"
 
 msgctxt "field:gnuhealth.icu.apache2,aado2:"
 msgid "A-a DO2"
-msgstr ""
+msgstr "A-a DO2"
 
 msgctxt "field:gnuhealth.icu.apache2,age:"
 msgid "Age"
-msgstr ""
+msgstr "العمر"
 
 msgctxt "field:gnuhealth.icu.apache2,apache_score:"
 msgid "Score"
-msgstr ""
+msgstr "نتيجة"
 
 msgctxt "field:gnuhealth.icu.apache2,arf:"
 msgid "ARF"
-msgstr ""
+msgstr "الفشل الكلوي الحاد"
 
 msgctxt "field:gnuhealth.icu.apache2,chronic_condition:"
 msgid "Chronic condition"
-msgstr ""
+msgstr "حالة مزمنة"
 
 msgctxt "field:gnuhealth.icu.apache2,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات "
 
 msgctxt "field:gnuhealth.icu.apache2,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.icu.apache2,fio2:"
 msgid "FiO2"
-msgstr ""
+msgstr "FiO2"
 
 msgctxt "field:gnuhealth.icu.apache2,gcs:"
 msgid "GSC"
-msgstr ""
+msgstr "GSC"
 
 msgctxt "field:gnuhealth.icu.apache2,heart_rate:"
 msgid "Heart Rate"
-msgstr ""
+msgstr "معدل ضربات القلب "
 
 msgctxt "field:gnuhealth.icu.apache2,hematocrit:"
 msgid "Hematocrit"
-msgstr ""
+msgstr "الهيماتوكريت"
 
 msgctxt "field:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid "Hospital Admission Type"
-msgstr ""
+msgstr "نوع الدخول للمستشفى "
 
 msgctxt "field:gnuhealth.icu.apache2,id:"
 msgid "ID"
-msgstr ""
+msgstr "الهوية"
 
 msgctxt "field:gnuhealth.icu.apache2,mean_ap:"
 msgid "MAP"
-msgstr ""
+msgstr "MAP"
 
 msgctxt "field:gnuhealth.icu.apache2,name:"
 msgid "Registration Code"
-msgstr ""
+msgstr "رمز التسجيل "
 
 msgctxt "field:gnuhealth.icu.apache2,paco2:"
 msgid "PaCO2"
-msgstr ""
+msgstr "الضغط الجزيئي لco2"
 
 msgctxt "field:gnuhealth.icu.apache2,pao2:"
 msgid "PaO2"
-msgstr ""
+msgstr "الضغط الجزيئي لo2"
 
 msgctxt "field:gnuhealth.icu.apache2,ph:"
 msgid "pH"
-msgstr ""
+msgstr "درجة الحموضة "
 
 msgctxt "field:gnuhealth.icu.apache2,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.icu.apache2,respiratory_rate:"
 msgid "Respiratory Rate"
-msgstr ""
+msgstr "معدل المعدل التنفسيالجهاز التنفسي "
 
 msgctxt "field:gnuhealth.icu.apache2,score_date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_creatinine:"
 msgid "Creatinine"
-msgstr ""
+msgstr "الكرياتينين"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_potassium:"
 msgid "Potassium"
-msgstr ""
+msgstr " البوتاسيوم"
 
 msgctxt "field:gnuhealth.icu.apache2,serum_sodium:"
 msgid "Sodium"
-msgstr ""
+msgstr "الصوديوم"
 
 msgctxt "field:gnuhealth.icu.apache2,temperature:"
 msgid "Temperature"
-msgstr ""
+msgstr "درجة الحرارة"
 
 msgctxt "field:gnuhealth.icu.apache2,wbc:"
 msgid "WBC"
-msgstr ""
+msgstr "كريات الدم البيضاء"
 
 msgctxt "field:gnuhealth.icu.apache2,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.icu.apache2,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,air_leak:"
 msgid "Air Leak"
-msgstr ""
+msgstr "تسرب الهواء"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Aspect"
-msgstr ""
+msgstr "جوانب"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,fluid_volume:"
 msgid "Volume"
-msgstr ""
+msgstr "حدة التداول"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,location:"
 msgid "Location"
-msgstr ""
+msgstr "الموقع"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,name:"
 msgid "Rounding"
-msgstr ""
+msgstr "التقريب"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,oscillation:"
 msgid "Oscillation"
-msgstr ""
+msgstr "التذبذب"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,remarks:"
 msgid "Remarks"
-msgstr ""
+msgstr "الملاحظات"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,suction:"
 msgid "Suction"
-msgstr ""
+msgstr "الشفط اوالإمتصاص"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,suction_pressure:"
 msgid "cm H2O"
-msgstr ""
+msgstr "cm H2O"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.icu.glasgow,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.icu.glasgow,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.icu.glasgow,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow:"
 msgid "Glasgow"
-msgstr ""
+msgstr "غلاسكو"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "Eyes"
-msgstr ""
+msgstr "عيون"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "Motor"
-msgstr ""
+msgstr "المحركات"
 
 msgctxt "field:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "Verbal"
-msgstr ""
+msgstr "شفهية او اللفظية"
 
 msgctxt "field:gnuhealth.icu.glasgow,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.icu.glasgow,name:"
 msgid "Registration Code"
-msgstr ""
+msgstr "رمز التسجيل"
 
 msgctxt "field:gnuhealth.icu.glasgow,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 msgctxt "field:gnuhealth.icu.glasgow,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.icu.glasgow,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.icu.ventilation,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.icu.ventilation,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.icu.ventilation,current_mv:"
 msgid "Current"
-msgstr ""
+msgstr "جاري"
 
 msgctxt "field:gnuhealth.icu.ventilation,ett_size:"
 msgid "ETT Size"
-msgstr ""
+msgstr " حجم الانبوبة"
 
 msgctxt "field:gnuhealth.icu.ventilation,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.icu.ventilation,mv_end:"
 msgid "To"
-msgstr ""
+msgstr "إلى"
 
 msgctxt "field:gnuhealth.icu.ventilation,mv_period:"
 msgid "Duration"
-msgstr ""
+msgstr "المدة"
 
 msgctxt "field:gnuhealth.icu.ventilation,mv_start:"
 msgid "From"
-msgstr ""
+msgstr "من"
 
 msgctxt "field:gnuhealth.icu.ventilation,name:"
 msgid "Patient ICU Admission"
-msgstr ""
+msgstr "دخول المريض وحدة العناية المركزة "
 
 msgctxt "field:gnuhealth.icu.ventilation,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 msgctxt "field:gnuhealth.icu.ventilation,remarks:"
 msgid "Remarks"
-msgstr ""
+msgstr "الملاحظات"
 
 msgctxt "field:gnuhealth.icu.ventilation,tracheostomy_size:"
 msgid "Tracheostomy size"
-msgstr ""
+msgstr "حجم القصبة الهوائية"
 
 msgctxt "field:gnuhealth.icu.ventilation,ventilation:"
 msgid "Type"
-msgstr ""
+msgstr "النوع"
 
 msgctxt "field:gnuhealth.icu.ventilation,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.icu.ventilation,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.inpatient.icu,admitted:"
 msgid "Admitted"
-msgstr ""
+msgstr "المقبولين"
 
 msgctxt "field:gnuhealth.inpatient.icu,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.inpatient.icu,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.inpatient.icu,discharged_from_icu:"
 msgid "Discharged"
-msgstr ""
+msgstr "تفريغها"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_admission_date:"
 msgid "ICU Admission"
-msgstr ""
+msgstr " الدخول لوحدة العناية المركزة"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_discharge_date:"
 msgid "Discharge"
-msgstr ""
+msgstr "تخريج"
 
 msgctxt "field:gnuhealth.inpatient.icu,icu_stay:"
 msgid "Duration"
-msgstr ""
+msgstr "المدة "
 
 msgctxt "field:gnuhealth.inpatient.icu,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.inpatient.icu,mv_history:"
 msgid "Mechanical Ventilation History"
-msgstr ""
+msgstr "تاريخ التهوية الميكانيكية "
 
 msgctxt "field:gnuhealth.inpatient.icu,name:"
 msgid "Registration Code"
-msgstr ""
+msgstr "رمز التسجيل"
 
 msgctxt "field:gnuhealth.inpatient.icu,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "اسم"
 
 msgctxt "field:gnuhealth.inpatient.icu,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.inpatient.icu,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.inpatient.registration,icu:"
 msgid "ICU"
-msgstr ""
+msgstr "وحدة العناية المركزة"
 
 msgctxt "field:gnuhealth.inpatient.registration,icu_admissions:"
 msgid "ICU Admissions"
-msgstr ""
+msgstr "القبول لوحدة العناية المركزة"
 
 msgctxt "field:gnuhealth.patient.rounding,anisocoria:"
 msgid "Anisocoria"
-msgstr ""
+msgstr "تفاوت الحدقتين"
 
 msgctxt "field:gnuhealth.patient.rounding,arterial_access:"
 msgid "Arterial Access"
-msgstr ""
+msgstr "الدخول علي الشرايين"
 
 msgctxt "field:gnuhealth.patient.rounding,bacteremia:"
 msgid "Bacteremia"
-msgstr ""
+msgstr "تجرثم الدم"
 
 msgctxt "field:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Bowel Sounds"
-msgstr ""
+msgstr "اصوات الامعاء"
 
 msgctxt "field:gnuhealth.patient.rounding,cellulitis:"
 msgid "Cellulitis"
-msgstr ""
+msgstr "التهاب النسيج الخلوي"
 
 msgctxt "field:gnuhealth.patient.rounding,chest_drainages:"
 msgid "Drainages"
-msgstr ""
+msgstr "التصريفات"
 
 msgctxt "field:gnuhealth.patient.rounding,chest_expansion:"
 msgid "Expansion"
-msgstr ""
+msgstr "توسع"
 
 msgctxt "field:gnuhealth.patient.rounding,dialysis:"
 msgid "Dialysis"
-msgstr ""
+msgstr "غسيل الكلى"
 
 msgctxt "field:gnuhealth.patient.rounding,ecg:"
 msgid "Inpatient ECG"
@@ -389,244 +398,248 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.rounding,edema:"
 msgid "Edema"
-msgstr ""
+msgstr "وذمة"
 
 msgctxt "field:gnuhealth.patient.rounding,fio2:"
 msgid "FiO2"
-msgstr ""
+msgstr "FiO2"
 
 msgctxt "field:gnuhealth.patient.rounding,gcs:"
 msgid "GCS"
-msgstr ""
+msgstr "GCS"
 
 msgctxt "field:gnuhealth.patient.rounding,icu_patient:"
 msgid "ICU"
-msgstr ""
+msgstr "وحدة العناية المركزة "
 
 msgctxt "field:gnuhealth.patient.rounding,left_pupil:"
 msgid "L"
-msgstr ""
+msgstr "لتر"
 
 msgctxt "field:gnuhealth.patient.rounding,lips_lesion:"
 msgid "Lips lesion"
-msgstr ""
+msgstr " تقرح الشفتين"
 
 msgctxt "field:gnuhealth.patient.rounding,necrotizing_fasciitis:"
 msgid "Necrotizing fasciitis"
-msgstr ""
+msgstr "التهاب اللفافة الناخر"
 
 msgctxt "field:gnuhealth.patient.rounding,oral_mucosa_lesion:"
 msgid "Oral mucosa lesion"
-msgstr ""
+msgstr "إصابة الأغشية المخاطية الفموية"
 
 msgctxt "field:gnuhealth.patient.rounding,oxygen_mask:"
 msgid "Oxygen Mask"
-msgstr ""
+msgstr "قناع الأكسجين"
 
 msgctxt "field:gnuhealth.patient.rounding,paradoxical_expansion:"
 msgid "Paradoxical"
-msgstr ""
+msgstr "متناقض"
 
 msgctxt "field:gnuhealth.patient.rounding,peep:"
 msgid "PEEP"
-msgstr ""
+msgstr "PEEP"
 
 msgctxt "field:gnuhealth.patient.rounding,peep_pressure:"
 msgid "cm H2O"
-msgstr ""
+msgstr "cm H2O"
 
 msgctxt "field:gnuhealth.patient.rounding,peritonitis:"
 msgid "Peritonitis signs"
-msgstr ""
+msgstr "علامات التهاب الصفاق"
 
 msgctxt "field:gnuhealth.patient.rounding,pupil_consensual_resp:"
 msgid "Consensual Response"
-msgstr ""
+msgstr "استجابة توافقية"
 
 msgctxt "field:gnuhealth.patient.rounding,pupil_dilation:"
 msgid "Pupil Dilation"
-msgstr ""
+msgstr "اتساع حدقة العين"
 
 msgctxt "field:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Pupillary Reactivity"
-msgstr ""
+msgstr "التفاعل الحدقي"
 
 msgctxt "field:gnuhealth.patient.rounding,respiration_type:"
 msgid "Respiration"
-msgstr ""
+msgstr "التنفس"
 
 msgctxt "field:gnuhealth.patient.rounding,right_pupil:"
 msgid "R"
-msgstr ""
+msgstr "R"
 
 msgctxt "field:gnuhealth.patient.rounding,sce:"
 msgid "SCE"
-msgstr ""
+msgstr "SCE"
 
 msgctxt "field:gnuhealth.patient.rounding,ssi:"
 msgid "Surgery Site Infection"
-msgstr ""
+msgstr "جراحة موقع العدوى "
 
 msgctxt "field:gnuhealth.patient.rounding,stools:"
 msgid "Stools"
-msgstr ""
+msgstr "المقاعد"
 
 msgctxt "field:gnuhealth.patient.rounding,swan_ganz:"
 msgid "Swan Ganz"
-msgstr ""
+msgstr "Swan Ganz"
 
 msgctxt "field:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Tracheal alignment"
-msgstr ""
+msgstr "محاذاة القصبة الهوائية"
 
 msgctxt "field:gnuhealth.patient.rounding,tracheal_tug:"
 msgid "Tracheal Tug"
-msgstr ""
+msgstr "شدّة  القصبة الهوائية"
 
 msgctxt "field:gnuhealth.patient.rounding,venous_access:"
 msgid "Venous Access"
-msgstr ""
+msgstr "الوصول الوريدي"
 
 msgctxt "field:gnuhealth.patient.rounding,vomiting:"
 msgid "Vomiting"
-msgstr ""
+msgstr "قيء"
 
 msgctxt "field:gnuhealth.patient.rounding,wound_dehiscence:"
 msgid "Wound Dehiscence"
-msgstr ""
+msgstr "تفزر الجرح"
 
 msgctxt "field:gnuhealth.patient.rounding,xray:"
 msgid "Xray"
-msgstr ""
+msgstr "الأشعة السينية"
 
 msgctxt "help:gnuhealth.icu.apache2,age:"
 msgid "Patient age in years"
-msgstr ""
+msgstr "سن المريض في السنوات"
 
 msgctxt "help:gnuhealth.icu.apache2,arf:"
 msgid "Acute Renal Failure"
-msgstr ""
+msgstr "الفشل الكلوي الحاد"
 
 msgctxt "help:gnuhealth.icu.apache2,chronic_condition:"
 msgid "Organ Failure or immunocompromised patient"
-msgstr ""
+msgstr "الفشل العضوي أو  ضعف المناعة للمريض"
 
 msgctxt "help:gnuhealth.icu.apache2,gcs:"
 msgid ""
 "Last Glasgow Coma Scale You can use the GSC calculator from the Patient "
 "Evaluation Form."
-msgstr ""
+msgstr "اخر تقيم بواسطة مقياس جلاسكو للغيبوبة تقيم بة حالة المريض"
 
 msgctxt "help:gnuhealth.icu.apache2,mean_ap:"
 msgid "Mean Arterial Pressure"
-msgstr ""
+msgstr " ضغط الشرايين"
 
 msgctxt "help:gnuhealth.icu.apache2,score_date:"
 msgid "Date of the score"
-msgstr ""
+msgstr "تاريخ النتيجة"
 
 msgctxt "help:gnuhealth.icu.apache2,temperature:"
 msgid "Rectal temperature"
-msgstr ""
+msgstr "درجة حرارة الجسم "
 
 msgctxt "help:gnuhealth.icu.apache2,wbc:"
 msgid ""
 "White blood cells x 1000 - if you want to input 4500 wbc / ml, type in 4.5"
 msgstr ""
+"خلايا الدم البيضاء X 1000 - إذا كنت تريد إدخال 4500 WBC / مل، نوع في 4.5"
 
 msgctxt "help:gnuhealth.icu.glasgow,evaluation_date:"
 msgid "Date / Time"
-msgstr ""
+msgstr "التاريخ والوقت"
 
 msgctxt "help:gnuhealth.icu.glasgow,glasgow:"
 msgid ""
 "Level of Consciousness - on Glasgow Coma Scale :  < 9 severe - 9-12 "
 "Moderate, > 13 minor"
 msgstr ""
+"مستوى الوعي - على مِقياسِ غيبوبةِ غلاسكو: <9 حادّ - 9-12 معتدل،> 13 قاصر"
 
 msgctxt "help:gnuhealth.icu.ventilation,mv_end:"
 msgid "End of Mechanical Ventilation"
-msgstr ""
+msgstr "نهاية التنفس الصناعي"
 
 msgctxt "help:gnuhealth.icu.ventilation,mv_start:"
 msgid "Start of Mechanical Ventilation"
-msgstr ""
+msgstr "بداية التنفس الصناعي"
 
 msgctxt "help:gnuhealth.icu.ventilation,ventilation:"
 msgid ""
 "NPPV = Non-Invasive Positive Pressure Ventilation, BiPAP-CPAP \n"
 "ETT - Endotracheal Tube"
 msgstr ""
+"NPPV = التهوية بالضغط الإيجابي غير الغازية ، BiPAP-CPAP ⏎\n"
+"الانبوبة - أنبوب القصبة الهوائية"
 
 msgctxt "help:gnuhealth.inpatient.icu,admitted:"
 msgid "Will be set when the patient         is currently admitted at ICU"
-msgstr ""
+msgstr "سيتم تعيين المريض عند دخول وحدة العناية المركزة "
 
 msgctxt "help:gnuhealth.inpatient.icu,icu_admission_date:"
 msgid "ICU Admission Date"
-msgstr ""
+msgstr "تاريخ الدخول لوحدة  العناية المركزة "
 
 msgctxt "help:gnuhealth.inpatient.registration,icu:"
 msgid ""
 "Shows if patient was admitted to the Intensive Care Unit during the "
 "hospitalization period"
-msgstr ""
+msgstr "يظهر إذا أدخل المريض إلى وحدة العناية المركزة خلال فترة الاستشفاء"
 
 msgctxt "help:gnuhealth.patient.rounding,icu_patient:"
 msgid "Check this box if this isan Intensive Care Unit rounding."
-msgstr ""
+msgstr "حدد هذا المربع إذا كان هذا هو الراوند لوحدة العناية المركزة ."
 
 msgctxt "help:gnuhealth.patient.rounding,left_pupil:"
 msgid "size in mm of left pupil"
-msgstr ""
+msgstr "حجم حدقة العين باملم من اليسار"
 
 msgctxt "help:gnuhealth.patient.rounding,paradoxical_expansion:"
 msgid "Paradoxical Chest Expansion"
-msgstr ""
+msgstr "تناقض توسع الصدر "
 
 msgctxt "help:gnuhealth.patient.rounding,peep_pressure:"
 msgid "Pressure"
-msgstr ""
+msgstr "الضغط"
 
 msgctxt "help:gnuhealth.patient.rounding,pupil_consensual_resp:"
 msgid "Pupillary Consensual Response"
-msgstr ""
+msgstr " الاستجابة التوافقية لحدقة العين"
 
 msgctxt "help:gnuhealth.patient.rounding,right_pupil:"
 msgid "size in mm of right pupil"
-msgstr ""
+msgstr "size in mm of right pupil"
 
 msgctxt "help:gnuhealth.patient.rounding,sce:"
 msgid "Subcutaneous Emphysema"
-msgstr ""
+msgstr "انتفاخ الرئة تحت الجلد "
 
 msgctxt "help:gnuhealth.patient.rounding,swan_ganz:"
 msgid "Pulmonary Artery Catheterization - PAC -"
-msgstr ""
+msgstr "قسطرة الشريان الرئوي - PAC -"
 
 msgctxt "model:gnuhealth.icu.apache2,name:"
 msgid "Apache II scoring"
-msgstr ""
+msgstr "Apache II scoring"
 
 msgctxt "model:gnuhealth.icu.chest_drainage,name:"
 msgid "Chest Drainage Asessment"
-msgstr ""
+msgstr "تقييم تصريف الصدر"
 
 msgctxt "model:gnuhealth.icu.glasgow,name:"
 msgid "Glasgow Coma Scale"
-msgstr ""
+msgstr " مقياس غيبوبة غلاسكو "
 
 msgctxt "model:gnuhealth.icu.ventilation,name:"
 msgid "Mechanical Ventilation History"
-msgstr ""
+msgstr "تاريخ التهوية الميكانيكية "
 
 msgctxt "model:gnuhealth.inpatient.icu,name:"
 msgid "Patient ICU Information"
-msgstr ""
+msgstr "معلومات المرضى بوحدة العناية المركزة"
 
 msgctxt "model:ir.action,name:act_apache_form1"
 msgid "APACHE II"
-msgstr ""
+msgstr "APACHE II"
 
 msgctxt "model:ir.action,name:act_ecg_form1"
 msgid "Inpatient ECGs"
@@ -634,11 +647,11 @@ msgstr ""
 
 msgctxt "model:ir.action,name:act_glasgow_form1"
 msgid "Glasgow Coma Scale"
-msgstr ""
+msgstr "مِقياس غيبوبةِ غلاسكو"
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_apache2_form"
 msgid "APACHE II Score"
-msgstr ""
+msgstr "APACHE II Score"
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_ecg_form1"
 msgid "ECGs"
@@ -646,19 +659,19 @@ msgstr ""
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_glasgow_form"
 msgid "GCS"
-msgstr ""
+msgstr "GCS"
 
 msgctxt "model:ir.action,name:action_gnuhealth_inpatient_icu_form"
 msgid "Patient ICU Info"
-msgstr ""
+msgstr "معلومات المريض بوحدة العناية المركزة "
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_icu_menu"
 msgid "Intensive Care"
-msgstr ""
+msgstr "العناية المركزة"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_apache2_list"
 msgid "APACHE II Score"
-msgstr ""
+msgstr "APACHE II Score"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_ecgs_list1"
 msgid "ECGs"
@@ -666,11 +679,11 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_glasgow_list"
 msgid "GCS"
-msgstr ""
+msgstr "GCS"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_inpatient_icu_list"
 msgid "Patient ICU Info"
-msgstr ""
+msgstr "معلومات المرضى بوحدة العناية المركزة"
 
 msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid ""
@@ -678,11 +691,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid "Medical or emergency postoperative"
-msgstr ""
+msgstr "طبية  حالات الطوارئ بعد العملية الجراحية"
 
 msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid "elective postoperative"
-msgstr ""
+msgstr "بعد العملية الجراحية"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid ""
@@ -690,19 +703,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Bloody"
-msgstr ""
+msgstr "دموية"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Chylous"
-msgstr ""
+msgstr "Chylous"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Purulent"
-msgstr ""
+msgstr "صديدي"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Serous"
-msgstr ""
+msgstr "Serous"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid ""
@@ -710,76 +723,76 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid "Left Pleura"
-msgstr ""
+msgstr "غشاء الجنب الأيسر"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid "Mediastinum"
-msgstr ""
+msgstr "Mediastinum"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid "Right Pleura"
-msgstr ""
+msgstr " غشاء الجنب اليمين"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "1 : Does not Open Eyes"
-msgstr ""
+msgstr "1: لا يفتح العيون"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "2 : Opens eyes in response to painful stimuli"
-msgstr ""
+msgstr "2 : يفتح عينيه استجابة للمؤثرات المؤلمة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "3 : Opens eyes in response to voice"
-msgstr ""
+msgstr "3 : يفتح عينيه استجابة للصوت "
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "4 : Opens eyes spontaneously"
-msgstr ""
+msgstr "4 : يفتح عينيه بشكل عفوي"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "1 : Makes no movement"
-msgstr ""
+msgstr "1 : يجعل عدم الحركة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "2 : Extension to painful stimuli - decerebrate response -"
-msgstr ""
+msgstr "2 : تمديد للمحفزات المؤلمة - استجابة فصل الدماغ -"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid ""
 "3 : Abnormal flexion to painful stimuli             (decorticate response)"
-msgstr ""
+msgstr "3 :  انثناء غير طبيعي للمؤثرات المؤلمة (استجابة منزوع القشرة)"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "4 : Flexion / Withdrawal to painful stimuli"
-msgstr ""
+msgstr "4 : انثناء / السحب للمحفزات مؤلمة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "5 : localizes painful stimuli"
-msgstr ""
+msgstr "5 : يموضع المحفزات المؤلمة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "6 : Obeys commands"
-msgstr ""
+msgstr "6  : يطيع الأوامر"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "1 : Makes no sounds"
-msgstr ""
+msgstr "1 : عدم وجود أصوات"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "2 : Incomprehensible sounds"
-msgstr ""
+msgstr "2 : أصوات غير مفهومة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "3 : Utters inappropriate words"
-msgstr ""
+msgstr "3 : ينطق كلمات غير لائقة"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "4 : Confused, disoriented"
-msgstr ""
+msgstr "4 : الخلط، مشوشا"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
 msgid "5 : Oriented, converses normally"
-msgstr ""
+msgstr "5: موجهة، محادثة بشكل طبيعي"
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid ""
@@ -787,19 +800,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "ETT"
-msgstr ""
+msgstr "الأنبوب داخل الرغامي"
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "Non-Invasive Positive Pressure"
-msgstr ""
+msgstr "الضغوط الإيجابية غير الغازية "
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "None - Maintains Own"
-msgstr ""
+msgstr "لا شئ - يحافظ على ممتلكاته"
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "Tracheostomy"
-msgstr ""
+msgstr "القصبة الهوائية"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid ""
@@ -807,19 +820,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Absent"
-msgstr ""
+msgstr "غائب"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Decreased"
-msgstr ""
+msgstr "انخفضت"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Increased"
-msgstr ""
+msgstr "زاد"
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Normal"
-msgstr ""
+msgstr "طبيعى"
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid ""
@@ -827,11 +840,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid "Asymmetrical"
-msgstr ""
+msgstr "غير متكافئة"
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid "Symmetrical"
-msgstr ""
+msgstr "متماثل"
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid ""
@@ -839,27 +852,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "Anasarca"
-msgstr ""
+msgstr "تورم عام في الجسم"
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "Peripheral"
-msgstr ""
+msgstr "الوحدة الملحقة"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
 msgid "Miosis"
-msgstr ""
+msgstr "تقبض الحدقة"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
 msgid "Mydriasis"
-msgstr ""
+msgstr "توسع الحدقة"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
 msgid "Normal"
-msgstr ""
+msgstr "طبيعى"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid ""
@@ -867,15 +880,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Brisk"
-msgstr ""
+msgstr "نشط"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Nonreactive"
-msgstr ""
+msgstr "غير متفاعل"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Sluggish"
-msgstr ""
+msgstr "خامل"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid ""
@@ -883,23 +896,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Deep"
-msgstr ""
+msgstr "عميق"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Intercostal"
-msgstr ""
+msgstr "بين الضلوع"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Labored"
-msgstr ""
+msgstr "معمول"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Regular"
-msgstr ""
+msgstr "منتظم"
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Shallow"
-msgstr ""
+msgstr "سطحي"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid ""
@@ -907,19 +920,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Constipation"
-msgstr ""
+msgstr "الإمساك"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Diarrhea"
-msgstr ""
+msgstr "الإسهال"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Melena"
-msgstr ""
+msgstr "ميلينا-Melena"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Normal"
-msgstr ""
+msgstr "طبيعى"
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid ""
@@ -927,15 +940,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Deviated left"
-msgstr ""
+msgstr "اليسار المُنْحَرف"
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Deviated right"
-msgstr ""
+msgstr "اليمين المُنْحَرف"
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Midline"
-msgstr ""
+msgstr "خطّ المنتصف"
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid ""
@@ -943,15 +956,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "Central catheter"
-msgstr ""
+msgstr "القسطرة المركزية"
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "Peripheral"
-msgstr ""
+msgstr "الوحدة الملحقة"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid ""
@@ -959,12 +972,12 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "Hematemesis"
-msgstr ""
+msgstr "قيء الدم-Hematemesis"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "None"
-msgstr ""
+msgstr "لا شئ"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "Vomiting"
-msgstr ""
+msgstr "قيء"

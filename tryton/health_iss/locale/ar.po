@@ -1,6 +1,15 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:20+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255613.0\n"
 
 msgctxt "error:gnuhealth.iss:"
 msgid "This ISS registration Code already exists"
@@ -8,79 +17,79 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,alcohol:"
 msgid "Alcohol"
-msgstr ""
+msgstr "المشروبات الكحولية"
 
 msgctxt "field:gnuhealth.iss,code:"
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgctxt "field:gnuhealth.iss,complaint:"
 msgid "Chief Complaint"
-msgstr ""
+msgstr "الشكوى الاساسيه"
 
 msgctxt "field:gnuhealth.iss,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشىء التاريخ"
 
 msgctxt "field:gnuhealth.iss,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.iss,disposition:"
 msgid "Disposition"
-msgstr ""
+msgstr "الميل"
 
 msgctxt "field:gnuhealth.iss,drugs:"
 msgid "Other Drugs"
-msgstr ""
+msgstr "مخدرات أخري"
 
 msgctxt "field:gnuhealth.iss,healthcenter:"
 msgid "Institution"
-msgstr ""
+msgstr "مؤسسة"
 
 msgctxt "field:gnuhealth.iss,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.iss,injury_date:"
 msgid "Injury Date"
-msgstr ""
+msgstr "تاريخ الإصابة"
 
 msgctxt "field:gnuhealth.iss,injury_details:"
 msgid "Details"
-msgstr ""
+msgstr "تفاصيل"
 
 msgctxt "field:gnuhealth.iss,injury_method:"
 msgid "Method"
-msgstr ""
+msgstr "طريقة"
 
 msgctxt "field:gnuhealth.iss,injury_type:"
 msgid "Injury Type"
-msgstr ""
+msgstr "نوع الإصابة"
 
 msgctxt "field:gnuhealth.iss,latitude:"
 msgid "Latidude"
-msgstr ""
+msgstr "Latidude"
 
 msgctxt "field:gnuhealth.iss,longitude:"
 msgid "Longitude"
-msgstr ""
+msgstr "خط الطول"
 
 msgctxt "field:gnuhealth.iss,mva_counterpart:"
 msgid "Counterpart"
-msgstr ""
+msgstr "النظير"
 
 msgctxt "field:gnuhealth.iss,mva_mode:"
 msgid "Mode"
-msgstr ""
+msgstr "الأسلوب"
 
 msgctxt "field:gnuhealth.iss,mva_position:"
 msgid "User Position"
-msgstr ""
+msgstr "وضع المستخدم"
 
 msgctxt "field:gnuhealth.iss,name:"
 msgid "Evaluation"
-msgstr ""
+msgstr "التقييم "
 
 msgctxt "field:gnuhealth.iss,operational_sector:"
 msgid "O. Sector"
@@ -88,91 +97,95 @@ msgstr ""
 
 msgctxt "field:gnuhealth.iss,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.iss,patient_age:"
 msgid "Age"
-msgstr ""
+msgstr "العمر"
 
 msgctxt "field:gnuhealth.iss,patient_sex:"
 msgid "Sex"
-msgstr ""
+msgstr "الجنس"
 
 msgctxt "field:gnuhealth.iss,place_occurrance:"
 msgid "Place"
-msgstr ""
+msgstr "المكان"
 
 msgctxt "field:gnuhealth.iss,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.iss,registration_date:"
 msgid "Registration Date"
-msgstr ""
+msgstr "تاريخ التسجيل"
 
 msgctxt "field:gnuhealth.iss,safety_gear:"
 msgid "Safety Gear"
-msgstr ""
+msgstr "معدات السلامة"
 
 msgctxt "field:gnuhealth.iss,urladdr:"
 msgid "OSM Map"
-msgstr ""
+msgstr "خريطة OSM "
 
 msgctxt "field:gnuhealth.iss,victim_perpetrator:"
 msgid "Relationship"
-msgstr ""
+msgstr "العلاقة"
 
 msgctxt "field:gnuhealth.iss,violence_circumstances:"
 msgid "Context"
-msgstr ""
+msgstr "الحالة"
 
 msgctxt "field:gnuhealth.iss,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "اكتب التاريخ"
 
 msgctxt "field:gnuhealth.iss,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "help:gnuhealth.iss,alcohol:"
 msgid ""
 "Is there evidence of alcohol use by the injured person in the 6 hours before"
 " the accident ?"
 msgstr ""
+"هل يوجد اي دليل علي تعاطي الكحول من قبل الشخص المصاب خلال 6 ساعات قبل "
+"الحادثه؟"
 
 msgctxt "help:gnuhealth.iss,code:"
 msgid "Injury Code"
-msgstr ""
+msgstr "رمز الإصابة"
 
 msgctxt "help:gnuhealth.iss,disposition:"
 msgid "Place of occurrance"
-msgstr ""
+msgstr "مكان الحادثه"
 
 msgctxt "help:gnuhealth.iss,drugs:"
 msgid ""
 "Is there evidence of drug use by the injured person in the 6 hours before "
 "the accident ?"
 msgstr ""
+"هل يوجد اي دليل علي تعاطي المخدرات من قبل الشخص المصاب خلال 6 ساعات قبل "
+"الحادثه؟"
 
 msgctxt "help:gnuhealth.iss,injury_date:"
 msgid "Usually the same as the Evaluation"
-msgstr ""
+msgstr "بصفة عامة, كما مذكور في التشخيص"
 
 msgctxt "help:gnuhealth.iss,injury_method:"
 msgid "Method of Injury"
-msgstr ""
+msgstr "الطريقة التي اصيب به"
 
 msgctxt "help:gnuhealth.iss,mva_counterpart:"
 msgid "Motor Vehicle Accident Counterpart"
-msgstr ""
+msgstr "حادث مركبة ألية"
 
 msgctxt "help:gnuhealth.iss,mva_mode:"
 msgid "Motor Vehicle Accident Mode"
-msgstr ""
+msgstr "وضع حادث المركبة الآلية"
 
 msgctxt "help:gnuhealth.iss,mva_position:"
 msgid "Motor Vehicle Accident user position"
-msgstr ""
+msgstr "وضعية راكب المركبة الآلية"
 
 msgctxt "help:gnuhealth.iss,name:"
 msgid "Related Patient Evaluation"
@@ -180,43 +193,43 @@ msgstr ""
 
 msgctxt "help:gnuhealth.iss,operational_sector:"
 msgid "Operational Sector in which happened the injury"
-msgstr ""
+msgstr "القطاع التشغيل الذي حدث به الإصابة"
 
 msgctxt "help:gnuhealth.iss,place_occurrance:"
 msgid "Place of occurrance"
-msgstr ""
+msgstr "مكان الحادثه"
 
 msgctxt "help:gnuhealth.iss,safety_gear:"
 msgid "Use of Safety Gear - Helmet, safety belt..."
-msgstr ""
+msgstr "استعمال ادوات السلامة - خوذة, حزام الامان, الخ.."
 
 msgctxt "help:gnuhealth.iss,urladdr:"
 msgid "Maps the Accident / Injury location on Open Street Map"
-msgstr ""
+msgstr "خريطة مكان الحادثه علي Open Street Map"
 
 msgctxt "help:gnuhealth.iss,victim_perpetrator:"
 msgid "Victim - Perpetrator relationship"
-msgstr ""
+msgstr "علاقة الضحية بالجاني"
 
 msgctxt "help:gnuhealth.iss,violence_circumstances:"
 msgid "Precipitating Factor"
-msgstr ""
+msgstr "العامل المعجل"
 
 msgctxt "model:gnuhealth.iss,name:"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "سجل نظام مراقبة الإصابات"
 
 msgctxt "model:ir.action,name:act_iss_form1"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "سجل نظام مراقبة الإصابات"
 
 msgctxt "model:ir.action,name:gnuhealth_action_iss"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "سجل نظام مراقبة الإصابات"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_report_iss"
 msgid "Injury Surveillance System Registration"
-msgstr ""
+msgstr "سجل نظام مراقبة الإصابات"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid ""
@@ -224,19 +237,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Suspected"
-msgstr ""
+msgstr "يشتبه"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,alcohol:"
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid ""
@@ -244,31 +257,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Admitted to Observation"
-msgstr ""
+msgstr "تحت المراقبة"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Admitted to Ward"
-msgstr ""
+msgstr "قوبل في الجناح"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Dead on Arrival"
-msgstr ""
+msgstr "توفي عند الوصول"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Died"
-msgstr ""
+msgstr "توفي"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Discharge Against Advise"
-msgstr ""
+msgstr "خرج ضد النصيحة"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Transferred"
-msgstr ""
+msgstr "نقل"
 
 msgctxt "selection:gnuhealth.iss,disposition:"
 msgid "Treated and Sent Home"
-msgstr ""
+msgstr "عولج و ارسل إلي البيت"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid ""
@@ -276,19 +289,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Suspected"
-msgstr ""
+msgstr "يشتبه"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,drugs:"
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid ""
@@ -296,35 +309,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Blunt object"
-msgstr ""
+msgstr "أداة غير حادة"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Choking/strangulation"
-msgstr ""
+msgstr "مختنق/اختناق"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Gun shot"
-msgstr ""
+msgstr "عيار ناري"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Push/bodily force"
-msgstr ""
+msgstr "دفع/قوة جسدية"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Sexual Assault"
-msgstr ""
+msgstr "إعتداء جنسي"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Sharp objects"
-msgstr ""
+msgstr "أداة حادة"
 
 msgctxt "selection:gnuhealth.iss,injury_method:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid ""
@@ -332,19 +345,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Accidental / Unintentional"
-msgstr ""
+msgstr "حادثة / غير مقصودة"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Motor Vehicle"
-msgstr ""
+msgstr "مركبة ألية"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Suicide Attempt"
-msgstr ""
+msgstr "محاولة إنتحار"
 
 msgctxt "selection:gnuhealth.iss,injury_type:"
 msgid "Violence"
-msgstr ""
+msgstr "عنف"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid ""
@@ -352,55 +365,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Aircraft"
-msgstr ""
+msgstr "طائرة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Bicycle"
-msgstr ""
+msgstr "دراجة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Boat / Ship"
-msgstr ""
+msgstr "قارب / سفينة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Bus"
-msgstr ""
+msgstr "حافلة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Car"
-msgstr ""
+msgstr "سيارة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Motorbike"
-msgstr ""
+msgstr "دراجة نارية"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Pedestrian"
-msgstr ""
+msgstr "مشاة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Taxi"
-msgstr ""
+msgstr "سيارة أجرة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Train"
-msgstr ""
+msgstr "قطار"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Truck / Heavy vehicle"
-msgstr ""
+msgstr "شاحنة / مركبة ثقيلة"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,mva_counterpart:"
 msgid "Van / Pickup / Jeep"
-msgstr ""
+msgstr "سيارة عالية / شاحنة صغير / سيارة بضائع"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid ""
@@ -408,55 +421,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Aircraft"
-msgstr ""
+msgstr "طائرة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Bicycle"
-msgstr ""
+msgstr "دراجة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Boat / Ship"
-msgstr ""
+msgstr "قارب / سفينة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Bus"
-msgstr ""
+msgstr "حافلة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Car"
-msgstr ""
+msgstr "سيارة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Motorbike"
-msgstr ""
+msgstr "دراجة نارية"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Pedestrian"
-msgstr ""
+msgstr "مشاة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Taxi"
-msgstr ""
+msgstr "سيارة أجرة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Train"
-msgstr ""
+msgstr "قطار"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Truck / Heavy vehicle"
-msgstr ""
+msgstr "شاحنة / مركبة ثقيلة"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,mva_mode:"
 msgid "Van / Pickup / Jeep"
-msgstr ""
+msgstr "سيارة عالية / شاحنة صغير / سيارة بضائع"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid ""
@@ -464,27 +477,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Bystander"
-msgstr ""
+msgstr "احد من المارة"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Driver"
-msgstr ""
+msgstr "سائق"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Outside / on the back"
-msgstr ""
+msgstr "الخارج / من الخلف"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Passenger"
-msgstr ""
+msgstr "راكب"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,mva_position:"
 msgid "Unspecified vehicle"
-msgstr ""
+msgstr "مركبة غير معلومة"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid ""
@@ -492,43 +505,43 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Commercial Area"
-msgstr ""
+msgstr "منطقة تجارية"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Institution"
-msgstr ""
+msgstr "مؤسسة"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Public Building"
-msgstr ""
+msgstr "مبني عام"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Public transportation"
-msgstr ""
+msgstr "نقل عام"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Recreational Area"
-msgstr ""
+msgstr "منطقة ترفيهية"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "School"
-msgstr ""
+msgstr "المدرسة "
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Sports event"
-msgstr ""
+msgstr "حدث رياضي"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Street"
-msgstr ""
+msgstr "الشارع"
 
 msgctxt "selection:gnuhealth.iss,place_occurrance:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid ""
@@ -536,15 +549,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"
 
 msgctxt "selection:gnuhealth.iss,safety_gear:"
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid ""
@@ -552,35 +565,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Acquaintance / Friend"
-msgstr ""
+msgstr "صديق / ذات صلة"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Girl / Boyfriend"
-msgstr ""
+msgstr "صديق / صديقة"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Official / Legal"
-msgstr ""
+msgstr "مسؤول"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Other relative"
-msgstr ""
+msgstr "قريب من نوع اخر"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Parent"
-msgstr ""
+msgstr "والد / والدة"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Stranger"
-msgstr ""
+msgstr "غريب"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "Wife / Husband"
-msgstr ""
+msgstr "زوج / زوجة"
 
 msgctxt "selection:gnuhealth.iss,victim_perpetrator:"
 msgid "other"
-msgstr ""
+msgstr "اخري"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid ""
@@ -588,32 +601,32 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Committing a crime (other)"
-msgstr ""
+msgstr "يقوم بإرتكاب جريمة (اخري)"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Drug Related"
-msgstr ""
+msgstr "له علاقة بالمخدرات"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Fight"
-msgstr ""
+msgstr "عراك"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Gang Activity"
-msgstr ""
+msgstr "انشطة ذو علاقة بالعصابات"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Robbery"
-msgstr ""
+msgstr "سرقة"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Sexual Assault"
-msgstr ""
+msgstr "إعتداء جنسي"
 
 msgctxt "selection:gnuhealth.iss,violence_circumstances:"
 msgid "Unknown"
-msgstr ""
+msgstr "غير معروف"

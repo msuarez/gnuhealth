@@ -1,6 +1,15 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:25+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255953.0\n"
 
 msgctxt "field:gnuhealth.chagas_du_survey,bugtraps:"
 msgid "Bug traps"
@@ -8,11 +17,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات "
 
 msgctxt "field:gnuhealth.chagas_du_survey,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.chagas_du_survey,dfloor:"
 msgid "Floor"
@@ -24,11 +33,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,droof:"
 msgid "Roof"
-msgstr ""
+msgstr "سقف"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du:"
 msgid "DU"
-msgstr ""
+msgstr "إدخال سائل"
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "Fumigation"
@@ -40,7 +49,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,du_status:"
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 msgctxt "field:gnuhealth.chagas_du_survey,dwall:"
 msgid "Walls"
@@ -52,7 +61,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,id:"
 msgid "ID"
-msgstr ""
+msgstr "الهوية"
 
 msgctxt "field:gnuhealth.chagas_du_survey,name:"
 msgid "Survey Code"
@@ -68,7 +77,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,observations:"
 msgid "Observations"
-msgstr ""
+msgstr "ملاحظات"
 
 msgctxt "field:gnuhealth.chagas_du_survey,paint_date:"
 msgid "Paint Date"
@@ -76,11 +85,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.chagas_du_survey,survey_date:"
 msgid "Date"
-msgstr ""
+msgstr "تاريخ"
 
 msgctxt "field:gnuhealth.chagas_du_survey,t_in_house:"
 msgid "Domiciliary"
@@ -100,11 +109,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.chagas_du_survey,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.sequences,chagas_du_survey_sequence:"
 msgid "Chagas Survey Sequence"
@@ -128,7 +137,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.chagas_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr ""
+msgstr "وحدة الرعاية المنزلية"
 
 msgctxt "help:gnuhealth.chagas_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
@@ -305,7 +314,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Initial"
-msgstr ""
+msgstr "البداية"
 
 msgctxt "selection:gnuhealth.chagas_du_survey,du_status:"
 msgid "Unchanged"

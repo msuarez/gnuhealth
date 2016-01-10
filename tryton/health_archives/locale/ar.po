@@ -1,6 +1,15 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:58+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452254287.0\n"
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The history already exists"
@@ -12,114 +21,114 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
-msgstr ""
+msgstr "تعليقات"
 
 msgctxt "field:gnuhealth.paper_archive,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "إنشاء تاريخ"
 
 msgctxt "field:gnuhealth.paper_archive,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم "
 
 msgctxt "field:gnuhealth.paper_archive,current_location:"
 msgid "Current Location"
-msgstr ""
+msgstr "المكان الحالي"
 
 msgctxt "field:gnuhealth.paper_archive,hc_status:"
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 msgctxt "field:gnuhealth.paper_archive,id:"
 msgid "ID"
-msgstr ""
+msgstr "الهوية"
 
 msgctxt "field:gnuhealth.paper_archive,identification_code:"
 msgid "Code"
-msgstr ""
+msgstr "الرمز"
 
 msgctxt "field:gnuhealth.paper_archive,legacy:"
 msgid "Legacy Code"
-msgstr ""
+msgstr "الرمز القديم"
 
 msgctxt "field:gnuhealth.paper_archive,location:"
 msgid "Unit"
-msgstr ""
+msgstr "الوحدة"
 
 msgctxt "field:gnuhealth.paper_archive,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.paper_archive,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الإسم"
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
-msgstr ""
+msgstr "تاريخ الطلب"
 
 msgctxt "field:gnuhealth.paper_archive,requested_by:"
 msgid "Requested by"
-msgstr ""
+msgstr "مطلوب بواسطة"
 
 msgctxt "field:gnuhealth.paper_archive,return_date:"
 msgid "Returned Date"
-msgstr ""
+msgstr "تاريخ العودة"
 
 msgctxt "field:gnuhealth.paper_archive,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "اكتب تاريخ"
 
 msgctxt "field:gnuhealth.paper_archive,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "اكتب مستخدم"
 
 msgctxt "help:gnuhealth.paper_archive,current_location:"
 msgid "Location / Unit where this clinical history document should reside."
-msgstr ""
+msgstr "المكان / الوحدة التي يجب أن يحفظ بها مستند السجل السريري"
 
 msgctxt "help:gnuhealth.paper_archive,legacy:"
 msgid ""
 "If existing, please enter the old / legacy code associated to this Clinical "
 "History"
-msgstr ""
+msgstr "إذا كان موجود، الرجاء إدخال الرمزالقديم المرتبط بهذا السجل السريري"
 
 msgctxt "help:gnuhealth.paper_archive,location:"
 msgid "Location / Unit where this clinical history document should reside."
-msgstr ""
+msgstr "المكان / الوحدة التي يجب أن يحفظ بها مستند السجل السريري"
 
 msgctxt "help:gnuhealth.paper_archive,patient:"
 msgid "Patient associated to this newborn baby"
-msgstr ""
+msgstr "المريض أو الأم المرتبطة بالمولود الجديد"
 
 msgctxt "help:gnuhealth.paper_archive,requested_by:"
 msgid "Person who last requested the document"
-msgstr ""
+msgstr "آخر شخص طلب المستند"
 
 msgctxt "model:gnuhealth.paper_archive,name:"
 msgid "Location of PAPER Patient Clinical History"
-msgstr ""
+msgstr "مكان أوراق السجل السريري للمريض"
 
 msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
 msgid "Medical Archives"
-msgstr ""
+msgstr "الأرشيف الطبي"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
 msgid "Archives"
-msgstr ""
+msgstr "الأرشيف "
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Archived"
-msgstr ""
+msgstr "مؤرشف"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Borrowed"
-msgstr ""
+msgstr "مُعار"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Lost"
-msgstr ""
+msgstr "مفقود"
 
 msgctxt "view:gnuhealth.paper_archive:"
 msgid "Patient PAPER Clinical History"
-msgstr ""
+msgstr "أوراق التاريخ السريري المريض"

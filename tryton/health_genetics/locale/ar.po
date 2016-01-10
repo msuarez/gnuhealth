@@ -1,82 +1,91 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:53+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452253999.0\n"
 
 msgctxt "error:gnuhealth.disease.gene:"
 msgid "The Official Symbol name must be unique"
-msgstr ""
+msgstr "يجب أن يكون اسم الرمز الرسمي فريداً!"
 
 msgctxt "field:gnuhealth.disease.gene,chromosome:"
 msgid "Affected Chromosome"
-msgstr ""
+msgstr "الكروموسوم المتأثرة"
 
 msgctxt "field:gnuhealth.disease.gene,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.disease.gene,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.disease.gene,dominance:"
 msgid "Dominance"
-msgstr ""
+msgstr "المسيطرة"
 
 msgctxt "field:gnuhealth.disease.gene,gene_id:"
 msgid "Gene ID"
-msgstr ""
+msgstr "معرف الجينات"
 
 msgctxt "field:gnuhealth.disease.gene,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.disease.gene,info:"
 msgid "Information"
-msgstr ""
+msgstr "معلومات"
 
 msgctxt "field:gnuhealth.disease.gene,location:"
 msgid "Location"
-msgstr ""
+msgstr "الموقع"
 
 msgctxt "field:gnuhealth.disease.gene,long_name:"
 msgid "Official Long Name"
-msgstr ""
+msgstr "الاسم الرسمي الطويل"
 
 msgctxt "field:gnuhealth.disease.gene,name:"
 msgid "Official Symbol"
-msgstr ""
+msgstr "الرمز الرسمي"
 
 msgctxt "field:gnuhealth.disease.gene,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.disease.gene,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "اكتب معلومات"
 
 msgctxt "field:gnuhealth.disease.gene,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.patient,family_history:"
 msgid "Family History"
-msgstr ""
+msgstr "تاريخ الأسرة"
 
 msgctxt "field:gnuhealth.patient,genetic_risks:"
 msgid "Genetic Risks"
-msgstr ""
+msgstr "المخاطر الوراثية"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.patient.family.diseases,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.patient.family.diseases,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.patient.family.diseases,name:"
 msgid "Condition"
@@ -84,79 +93,79 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.family.diseases,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.patient.family.diseases,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.patient.family.diseases,relative:"
 msgid "Relative"
-msgstr ""
+msgstr "النسبة"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.patient.family.diseases,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "field:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal or Paternal"
-msgstr ""
+msgstr "الأم أو الأب"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "أنشئ معلومات"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "إنشاء مستخدم"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,disease_gene:"
 msgid "Disease Gene"
-msgstr ""
+msgstr "مورثة المرض"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,id:"
 msgid "ID"
-msgstr ""
+msgstr "المُعرّف"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "ملاحظات"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "المريض"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "كتابة معلومات"
 
 msgctxt "field:gnuhealth.patient.genetic.risk,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "كتابة مستخدم"
 
 msgctxt "help:gnuhealth.disease.gene,chromosome:"
 msgid "Name of the affected chromosome"
-msgstr ""
+msgstr "اسم الكروموسوم المتأثر"
 
 msgctxt "help:gnuhealth.disease.gene,gene_id:"
 msgid "default code from NCBI Entrez database."
-msgstr ""
+msgstr "الرمز الافتراضي من قاعدة بيانات NCBI Entrez."
 
 msgctxt "help:gnuhealth.disease.gene,info:"
 msgid "Extra Information"
-msgstr ""
+msgstr "معلومات اضافية "
 
 msgctxt "help:gnuhealth.disease.gene,location:"
 msgid "Locus of the chromosome"
-msgstr ""
+msgstr "محور الكروموسوم"
 
 msgctxt "help:gnuhealth.patient.family.diseases,relative:"
 msgid ""
@@ -17754,31 +17763,31 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,name:"
 msgid "Disease Genes"
-msgstr ""
+msgstr "مورثات المرض"
 
 msgctxt "model:gnuhealth.patient.family.diseases,name:"
 msgid "Family Diseases"
-msgstr ""
+msgstr "أمراض الأسرة"
 
 msgctxt "model:gnuhealth.patient.genetic.risk,name:"
 msgid "Patient Genetic Risks"
-msgstr ""
+msgstr "مخاطر المرض الوراثية"
 
 msgctxt "model:ir.action,name:gnuhealth_action_disease_gene"
 msgid "Disease Genes"
-msgstr ""
+msgstr "مورثات المرض"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_disease_genes"
 msgid "Disease Genes"
-msgstr ""
+msgstr "مورثات المرض"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_genetics"
 msgid "Genetics"
-msgstr ""
+msgstr "علم الوراثة"
 
 msgctxt "model:res.group,name:group_health_genetics_admin"
 msgid "Health Genetics Administration"
-msgstr ""
+msgstr "الإدارة الصحية لعلم الوراثة"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid ""
@@ -17786,55 +17795,55 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "dominant"
-msgstr ""
+msgstr "المسيطر"
 
 msgctxt "selection:gnuhealth.disease.gene,dominance:"
 msgid "recessive"
-msgstr ""
+msgstr "المتنحية"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Aunt"
-msgstr ""
+msgstr "عمة"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Brother"
-msgstr ""
+msgstr "أخ"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Cousin"
-msgstr ""
+msgstr "ابن عم"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Father"
-msgstr ""
+msgstr "أب"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandfather"
-msgstr ""
+msgstr "جد"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Grandmother"
-msgstr ""
+msgstr "جدة"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Mother"
-msgstr ""
+msgstr "أم"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Nephew"
-msgstr ""
+msgstr "ابن الأخ"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Niece"
-msgstr ""
+msgstr "ابنه"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Sister"
-msgstr ""
+msgstr "أخت"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,relative:"
 msgid "Uncle"
-msgstr ""
+msgstr "عم"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid ""
@@ -17842,12 +17851,12 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Maternal"
-msgstr ""
+msgstr "أموميّ"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Paternal"
-msgstr ""
+msgstr "أبويّ"
 
 msgctxt "selection:gnuhealth.patient.family.diseases,xory:"
 msgid "Sibling"
-msgstr ""
+msgstr "شَقيق"

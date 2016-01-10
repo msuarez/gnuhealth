@@ -1,130 +1,139 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:09+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452254984.0\n"
 
 msgctxt "model:gnuhealth.pathology,name:A00"
 msgid "Cholera"
-msgstr ""
+msgstr "الكوليرا"
 
 msgctxt "model:gnuhealth.pathology,name:A000"
 msgid "Cholera due to Vibrio cholerae 01, biovar cholerae"
-msgstr ""
+msgstr "اثنين من الكوليرا بكتيريا Vibrio الكوليرا 01، كوليرا النوع الحيوي "
 
 msgctxt "model:gnuhealth.pathology,name:A001"
 msgid "Cholera due to Vibrio cholerae 01, biovar el tor"
-msgstr ""
+msgstr "اثنين من الكوليرا بكتيريا Vibrio الكوليرية 01، طور النوع الحيوي "
 
 msgctxt "model:gnuhealth.pathology,name:A009"
 msgid "Cholera, unspecified"
-msgstr ""
+msgstr "كوليرا، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A01"
 msgid "Typhoid and paratyphoid fevers"
-msgstr ""
+msgstr "حمّى البارا تيفوئيدَ والتيفوئيدَ"
 
 msgctxt "model:gnuhealth.pathology,name:A010"
 msgid "Typhoid fever"
-msgstr ""
+msgstr "حمى التيفويد"
 
 msgctxt "model:gnuhealth.pathology,name:A011"
 msgid "Paratyphoid fever A"
-msgstr ""
+msgstr "الحمى شبيه التيفوئيد A"
 
 msgctxt "model:gnuhealth.pathology,name:A012"
 msgid "Paratyphoid fever B"
-msgstr ""
+msgstr "الحمى شبيه التيفوئيد B"
 
 msgctxt "model:gnuhealth.pathology,name:A013"
 msgid "Paratyphoid fever C"
-msgstr ""
+msgstr "الحمى شبيه التيفوئيد C "
 
 msgctxt "model:gnuhealth.pathology,name:A014"
 msgid "Paratyphoid fever, unspecified"
-msgstr ""
+msgstr "الحمى شبيه التيفوئيد، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A02"
 msgid "Other Salmonella infections"
-msgstr ""
+msgstr "عدوى السالمونيلا الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A020"
 msgid "Salmonella gastro-enteritis"
-msgstr ""
+msgstr "إلتهاب السالمونيلا المعوي"
 
 msgctxt "model:gnuhealth.pathology,name:A021"
 msgid "Salmonella septicaemia"
-msgstr ""
+msgstr "تسمم الدم السالمونيلا "
 
 msgctxt "model:gnuhealth.pathology,name:A022"
 msgid "Localised Salmonella infections"
-msgstr ""
+msgstr "عدوى السالمونيلا الموضعية"
 
 msgctxt "model:gnuhealth.pathology,name:A028"
 msgid "Other specified Salmonella infections"
-msgstr ""
+msgstr "إصابات السالمونيلا المحدّدةِ الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A029"
 msgid "Salmonella infection, unspecified"
-msgstr ""
+msgstr "عدوى السالمونيلا، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A03"
 msgid "Shigellosis"
-msgstr ""
+msgstr "داء الشيغيلات"
 
 msgctxt "model:gnuhealth.pathology,name:A030"
 msgid "Shigellosis due to Shigella dysenteriae"
-msgstr ""
+msgstr "داء الشيغيلات نتيجة الشيجلا الزحارية"
 
 msgctxt "model:gnuhealth.pathology,name:A031"
 msgid "Shigellosis due to Shigella flexneri"
-msgstr ""
+msgstr "داء الشيغيلات نتيجة الشيجلا الفلكسنرية"
 
 msgctxt "model:gnuhealth.pathology,name:A032"
 msgid "Shigellosis due to Shigella boydii"
-msgstr ""
+msgstr "داء الشيغيلات بسبب الشيجلا البويدية"
 
 msgctxt "model:gnuhealth.pathology,name:A033"
 msgid "Shigellosis due to Shigella sonnei"
-msgstr ""
+msgstr "داء الشيغيلات نتيجة الشيجلا الفلكسنرية"
 
 msgctxt "model:gnuhealth.pathology,name:A038"
 msgid "Other shigellosis"
-msgstr ""
+msgstr "داء الشيغيلات الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A039"
 msgid "Shigellosis, unspecified"
-msgstr ""
+msgstr "داء الشيغيلات، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A04"
 msgid "Other bacterial intestinal infections"
-msgstr ""
+msgstr "الالتهابات المعوية البكتيرية الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A040"
 msgid "Enteropathogenic Escherichia coli infection"
-msgstr ""
+msgstr "ممرض للأمعاء القولونية عدوى القولونية"
 
 msgctxt "model:gnuhealth.pathology,name:A041"
 msgid "Enterotoxigenic Escherichia coli infection"
-msgstr ""
+msgstr "عدوى الإشريكية القولونية عدوى ببكتيريا إي كولاي"
 
 msgctxt "model:gnuhealth.pathology,name:A042"
 msgid "Enteroinvasive Escherichia coli infection"
-msgstr ""
+msgstr "عدوى الإشريكية القولونية عدوى ببكتيريا إي كولاي"
 
 msgctxt "model:gnuhealth.pathology,name:A043"
 msgid "Enterohaemorrhagic Escherichia coli infection"
-msgstr ""
+msgstr "عدوى الإشريكية القولونية عدوى ببكتيريا إي كولاي"
 
 msgctxt "model:gnuhealth.pathology,name:A044"
 msgid "Other intestinal Escherichia coli infections"
-msgstr ""
+msgstr "عدوى القولونية المعوية  الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A045"
 msgid "Campylobacter enteritis"
-msgstr ""
+msgstr "التهاب الأمعاء كامبيلوباكتر "
 
 msgctxt "model:gnuhealth.pathology,name:A046"
 msgid "Enteritis due to Yersinia enterocolitica"
-msgstr ""
+msgstr "التهاب الأمعاء بسبب يرسينيا القولون"
 
 msgctxt "model:gnuhealth.pathology,name:A047"
 msgid "Enterocolitis due to Clostridium difficile"
@@ -132,23 +141,23 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A048"
 msgid "Other specified bacterial intestinal infections"
-msgstr ""
+msgstr "الإصابات المعوية الجرثومية المحدّدة الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A049"
 msgid "Bacterial intestinal infection, unspecified"
-msgstr ""
+msgstr "عدوى معوية بكتيرية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A05"
 msgid "Other bacterial foodborne intoxications"
-msgstr ""
+msgstr "التسمم الجرثومي الأخر  المنقول عن طريق الأغذية "
 
 msgctxt "model:gnuhealth.pathology,name:A050"
 msgid "Foodborne staphylococcal intoxication"
-msgstr ""
+msgstr "تسمم العنقوديات المنقول عن طريق الأغذية "
 
 msgctxt "model:gnuhealth.pathology,name:A051"
 msgid "Botulism"
-msgstr ""
+msgstr "تسمم من أكل اللحم"
 
 msgctxt "model:gnuhealth.pathology,name:A052"
 msgid "Foodborne Clostridium perfringens [Clostridium welchii] intoxication"
@@ -156,99 +165,99 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A053"
 msgid "Foodborne Vibrio parahaemolyticus intoxication"
-msgstr ""
+msgstr "بكتيريا Vibrio لتسمم الدم  المنقولة عن طريق الأغذية "
 
 msgctxt "model:gnuhealth.pathology,name:A054"
 msgid "Foodborne Bacillus cereus intoxication"
-msgstr ""
+msgstr "تسمم العصوية الشمعية  المنقولة بالأغذية "
 
 msgctxt "model:gnuhealth.pathology,name:A058"
 msgid "Other specified bacterial foodborne intoxications"
-msgstr ""
+msgstr " حالات اخرى محددة للتسمم الجرثومي المنقول بالأغذية"
 
 msgctxt "model:gnuhealth.pathology,name:A059"
 msgid "Bacterial foodborne intoxication, unspecified"
-msgstr ""
+msgstr "التسمم البكتيري المنقول بالأغذية، غير المحدد"
 
 msgctxt "model:gnuhealth.pathology,name:A06"
 msgid "Amoebiasis"
-msgstr ""
+msgstr "داء الأميبا"
 
 msgctxt "model:gnuhealth.pathology,name:A060"
 msgid "Acute amoebic dysentery"
-msgstr ""
+msgstr "الدوسنتاريا الأميبية الحادة"
 
 msgctxt "model:gnuhealth.pathology,name:A061"
 msgid "Chronic intestinal amoebiasis"
-msgstr ""
+msgstr "الأميبية المعوية المزمنة"
 
 msgctxt "model:gnuhealth.pathology,name:A062"
 msgid "Amoebic nondysenteric colitis"
-msgstr ""
+msgstr "إلتهاب القولون الأميبي غير الزحاري "
 
 msgctxt "model:gnuhealth.pathology,name:A063"
 msgid "Amoeboma of intestine"
-msgstr ""
+msgstr "Amoeboma الأمعاء"
 
 msgctxt "model:gnuhealth.pathology,name:A064"
 msgid "Amoebic liver abscess"
-msgstr ""
+msgstr "خراج الكبد الأميبي"
 
 msgctxt "model:gnuhealth.pathology,name:A065"
 msgid "Amoebic lung abscess"
-msgstr ""
+msgstr "خراج الرئة الأميبي"
 
 msgctxt "model:gnuhealth.pathology,name:A066"
 msgid "Amoebic brain abscess"
-msgstr ""
+msgstr "خراج الدماغ الأميبي"
 
 msgctxt "model:gnuhealth.pathology,name:A067"
 msgid "Cutaneous amoebiasis"
-msgstr ""
+msgstr "داء الأميبا الجلدي"
 
 msgctxt "model:gnuhealth.pathology,name:A068"
 msgid "Amoebic infection of other sites"
-msgstr ""
+msgstr "العدوى الأميبية في مواقع أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A069"
 msgid "Amoebiasis, unspecified"
-msgstr ""
+msgstr "داء الأميبا، الغير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A07"
 msgid "Other protozoal intestinal diseases"
-msgstr ""
+msgstr "الأمراض المعوية الطفيلية الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A070"
 msgid "Balantidiasis"
-msgstr ""
+msgstr "داء القربيات"
 
 msgctxt "model:gnuhealth.pathology,name:A071"
 msgid "Giardiasis [lambliasis]"
-msgstr ""
+msgstr "الجيارديا  [lambliasis]"
 
 msgctxt "model:gnuhealth.pathology,name:A072"
 msgid "Cryptosporidiosis"
-msgstr ""
+msgstr "داء خفيات الأبواغ "
 
 msgctxt "model:gnuhealth.pathology,name:A073"
 msgid "Isosporiasis"
-msgstr ""
+msgstr "داء متماثلات البوائغ"
 
 msgctxt "model:gnuhealth.pathology,name:A078"
 msgid "Other specified protozoal intestinal diseases"
-msgstr ""
+msgstr "الأمراض المعوية الطفيلية الأخرى المحددة"
 
 msgctxt "model:gnuhealth.pathology,name:A079"
 msgid "Protozoal intestinal disease, unspecified"
-msgstr ""
+msgstr "الأمراض المعوية الطفيلية الأخرى غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A08"
 msgid "Viral and other specified intestinal infections"
-msgstr ""
+msgstr "الالتهابات المعوية الفيروسية المحددة وغيرها "
 
 msgctxt "model:gnuhealth.pathology,name:A080"
 msgid "Rotaviral enteritis"
-msgstr ""
+msgstr "التهاب امعاء Rotaviral"
 
 msgctxt "model:gnuhealth.pathology,name:A081"
 msgid "Acute gastro-enteropathy due to Norwalk agent"
@@ -256,93 +265,93 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A082"
 msgid "Adenoviral enteritis"
-msgstr ""
+msgstr "التهاب الأمعاء الفيروسة الغدانية"
 
 msgctxt "model:gnuhealth.pathology,name:A083"
 msgid "Other viral enteritis"
-msgstr ""
+msgstr "التهابات الأمعاء الفيروسية الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A084"
 msgid "Viral intestinal infection, unspecified"
-msgstr ""
+msgstr "عدوى معوية فيروسية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A085"
 msgid "Other specified intestinal infections"
-msgstr ""
+msgstr "الإصابات المعوية الجرثومية المحدّدة الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A09"
 msgid "Diarrhoea and gastro-enteritis of presumed infectious origin"
-msgstr ""
+msgstr "الإسهال والتهاب المعدة والأمعاء من  أصل معدي"
 
 msgctxt "model:gnuhealth.pathology,name:A15"
 msgid ""
 "Respiratory tuberculosis, bacteriologically and histologically confirmed"
-msgstr ""
+msgstr "السل الرئوى، جرثوميا وأكد تشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A150"
 msgid ""
 "Tuberculosis of lung, confirmed by sputum microscopy with or without culture"
-msgstr ""
+msgstr "سُلّ الرئةِ، أَكّدَ بإستعمالِ مجهر اللعابِ مَع أَو بدون ثقافةِ"
 
 msgctxt "model:gnuhealth.pathology,name:A151"
 msgid "Tuberculosis of lung, confirmed by culture only"
-msgstr ""
+msgstr "سُلّ الرئةِ، أَكّدَ بالثقافةِ فقط"
 
 msgctxt "model:gnuhealth.pathology,name:A152"
 msgid "Tuberculosis of lung, confirmed histologically"
-msgstr ""
+msgstr "سل الرئة، أكد تشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A153"
 msgid "Tuberculosis of lung, confirmed by unspecified means"
-msgstr ""
+msgstr "سُلّ الرئةِ، أَكّدَ بوسائلِ غير محدّدةِ"
 
 msgctxt "model:gnuhealth.pathology,name:A154"
 msgid ""
 "Tuberculosis of intrathoracic lymph nodes, confirmed bacteriologically and "
 "histologically"
-msgstr ""
+msgstr "سل الغدد الليمفاوية داخل الصدر، أكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A155"
 msgid ""
 "Tuberculosis of larynx, trachea and bronchus, confirmed bacteriologically "
 "and histologically"
-msgstr ""
+msgstr "سل الحنجرة والقصبة الهوائية والقصبات الهوائية أكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A156"
 msgid "Tuberculous pleurisy, confirmed bacteriologically and histologically"
-msgstr ""
+msgstr "التهاب الجنب السلي، أكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A157"
 msgid ""
 "Primary respiratory tuberculosis, confirmed bacteriologically and "
 "histologically"
-msgstr ""
+msgstr "السل الرئوى الابتدائي، أكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A158"
 msgid ""
 "Other respiratory tuberculosis, confirmed bacteriologically and "
 "histologically"
-msgstr ""
+msgstr "سل الجهاز التنفسي وغيرها وأكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A159"
 msgid ""
 "Respiratory tuberculosis unspecified, confirmed bacteriologically and "
 "histologically"
-msgstr ""
+msgstr "السل الرئوى غير محدد أكد جرثوميا وتشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A16"
 msgid ""
 "Respiratory tuberculosis, not confirmed bacteriologically or histologically"
-msgstr ""
+msgstr "السل الرئوى ليس جرثوميا و تأكد تشريحيا"
 
 msgctxt "model:gnuhealth.pathology,name:A160"
 msgid "Tuberculosis of lung, bacteriologically and histologically negative"
-msgstr ""
+msgstr "سل الرئة بشكل  جرثومي وتشريحي سلبي"
 
 msgctxt "model:gnuhealth.pathology,name:A161"
 msgid ""
 "Tuberculosis of lung, bacteriological and histological examination not done"
-msgstr ""
+msgstr " الفحص البكتيري والنسيجي لسل الرئة لم تفعل"
 
 msgctxt "model:gnuhealth.pathology,name:A162"
 msgid ""
@@ -388,39 +397,39 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A17"
 msgid "Tuberculosis of nervous system"
-msgstr ""
+msgstr "سل الجهاز العصبي"
 
 msgctxt "model:gnuhealth.pathology,name:A170"
 msgid "Tuberculous meningitis"
-msgstr ""
+msgstr "التهاب السحايا السلي"
 
 msgctxt "model:gnuhealth.pathology,name:A171"
 msgid "Meningeal tuberculoma"
-msgstr ""
+msgstr "سل السحائي"
 
 msgctxt "model:gnuhealth.pathology,name:A178"
 msgid "Other tuberculosis of nervous system"
-msgstr ""
+msgstr "السل الأخر للجهاز العصبي"
 
 msgctxt "model:gnuhealth.pathology,name:A179"
 msgid "Tuberculosis of nervous system, unspecified"
-msgstr ""
+msgstr "سل الجهاز العصبي غير المحدد"
 
 msgctxt "model:gnuhealth.pathology,name:A18"
 msgid "Tuberculosis of other organs"
-msgstr ""
+msgstr "سُلّ الأعضاء الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A180"
 msgid "Tuberculosis of bones and joints"
-msgstr ""
+msgstr "سل  العظام والمفاصل"
 
 msgctxt "model:gnuhealth.pathology,name:A181"
 msgid "Tuberculosis of genito-urinary system"
-msgstr ""
+msgstr "سل في الجهاز البولي التناسلي"
 
 msgctxt "model:gnuhealth.pathology,name:A182"
 msgid "Tuberculous peripheral lymphadenopathy"
-msgstr ""
+msgstr "تضخم العقد اللمفية الطرفية السلية"
 
 msgctxt "model:gnuhealth.pathology,name:A183"
 msgid "Tuberculosis of intestines, peritoneum and mesenteric glands"
@@ -428,23 +437,23 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A184"
 msgid "Tuberculosis of skin and subcutaneous tissue"
-msgstr ""
+msgstr "سل  الجلد والأنسجة تحت الجلد"
 
 msgctxt "model:gnuhealth.pathology,name:A185"
 msgid "Tuberculosis of eye"
-msgstr ""
+msgstr "سل العين"
 
 msgctxt "model:gnuhealth.pathology,name:A186"
 msgid "Tuberculosis of ear"
-msgstr ""
+msgstr "سل الأذن"
 
 msgctxt "model:gnuhealth.pathology,name:A187"
 msgid "Tuberculosis of adrenal glands"
-msgstr ""
+msgstr "سل الغدد الكظرية"
 
 msgctxt "model:gnuhealth.pathology,name:A188"
 msgid "Tuberculosis of other specified organs"
-msgstr ""
+msgstr "سُلّ الأعضاء المحدّدةِ الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A19"
 msgid "Miliary tuberculosis"
@@ -472,39 +481,39 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A20"
 msgid "Plague"
-msgstr ""
+msgstr "الطاعون"
 
 msgctxt "model:gnuhealth.pathology,name:A200"
 msgid "Bubonic plague"
-msgstr ""
+msgstr "يعاني من الطاعون"
 
 msgctxt "model:gnuhealth.pathology,name:A201"
 msgid "Cellulocutaneous plague"
-msgstr ""
+msgstr "الطاعون الخلوي"
 
 msgctxt "model:gnuhealth.pathology,name:A202"
 msgid "Pneumonic plague"
-msgstr ""
+msgstr "الطاعون الرئوي"
 
 msgctxt "model:gnuhealth.pathology,name:A203"
 msgid "Plague meningitis"
-msgstr ""
+msgstr "يعاني من مرض التهاب السحايا"
 
 msgctxt "model:gnuhealth.pathology,name:A207"
 msgid "Septicaemic plague"
-msgstr ""
+msgstr "يعاني من Septicaemic "
 
 msgctxt "model:gnuhealth.pathology,name:A208"
 msgid "Other forms of plague"
-msgstr ""
+msgstr "الأشكال الأخرى من الطاعون"
 
 msgctxt "model:gnuhealth.pathology,name:A209"
 msgid "Plague, unspecified"
-msgstr ""
+msgstr "الطاعون، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A21"
 msgid "Tularaemia"
-msgstr ""
+msgstr "Tularaemia"
 
 msgctxt "model:gnuhealth.pathology,name:A210"
 msgid "Ulceroglandular tularaemia"
@@ -536,59 +545,59 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A22"
 msgid "Anthrax"
-msgstr ""
+msgstr "مرض الجمرة الخبيثة"
 
 msgctxt "model:gnuhealth.pathology,name:A220"
 msgid "Cutaneous anthrax"
-msgstr ""
+msgstr "الجمرة الخبيثة الجلدية"
 
 msgctxt "model:gnuhealth.pathology,name:A221"
 msgid "Pulmonary anthrax"
-msgstr ""
+msgstr "الجمرة الخبيثة الرئوية"
 
 msgctxt "model:gnuhealth.pathology,name:A222"
 msgid "Gastro-intestinal anthrax"
-msgstr ""
+msgstr "الجمرة الخبيثة المعوية"
 
 msgctxt "model:gnuhealth.pathology,name:A227"
 msgid "Anthrax septicaemia"
-msgstr ""
+msgstr "تسمم الدم بسبب الجمرة الخبيثة"
 
 msgctxt "model:gnuhealth.pathology,name:A228"
 msgid "Other forms of anthrax"
-msgstr ""
+msgstr "الأشكال الأخرى للجمرة الخبيثةِ"
 
 msgctxt "model:gnuhealth.pathology,name:A229"
 msgid "Anthrax, unspecified"
-msgstr ""
+msgstr "مرض الجمرة الخبيثة، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A23"
 msgid "Brucellosis"
-msgstr ""
+msgstr "حمى البحر الأبيض المتوسط"
 
 msgctxt "model:gnuhealth.pathology,name:A230"
 msgid "Brucellosis due to Brucella melitensis"
-msgstr ""
+msgstr "الحمى المالطية بسبب جرثومة البروسيلا "
 
 msgctxt "model:gnuhealth.pathology,name:A231"
 msgid "Brucellosis due to Brucella abortus"
-msgstr ""
+msgstr "الحمى المالطية بسبب جرثومة البروسيلا أبورتس"
 
 msgctxt "model:gnuhealth.pathology,name:A232"
 msgid "Brucellosis due to Brucella suis"
-msgstr ""
+msgstr "مرض البروسيلا بسبب البروسيلا الخنزيرية"
 
 msgctxt "model:gnuhealth.pathology,name:A233"
 msgid "Brucellosis due to Brucella canis"
-msgstr ""
+msgstr "الحمى المالطية بسبب البروسيلا الكلبية"
 
 msgctxt "model:gnuhealth.pathology,name:A238"
 msgid "Other brucellosis"
-msgstr ""
+msgstr "داء البروسيلات الاخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A239"
 msgid "Brucellosis, unspecified"
-msgstr ""
+msgstr "الحمى المالطية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A24"
 msgid "Glanders and melioidosis"
@@ -616,19 +625,19 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A25"
 msgid "Rat-bite fevers"
-msgstr ""
+msgstr "حمى عضة الجرذ"
 
 msgctxt "model:gnuhealth.pathology,name:A250"
 msgid "Spirillosis"
-msgstr ""
+msgstr "داء الحليزنات"
 
 msgctxt "model:gnuhealth.pathology,name:A251"
 msgid "Streptobacillosis"
-msgstr ""
+msgstr "Streptobacillosis"
 
 msgctxt "model:gnuhealth.pathology,name:A259"
 msgid "Rat-bite fever, unspecified"
-msgstr ""
+msgstr "حمى عضة الجرذ، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A26"
 msgid "Erysipeloid"
@@ -636,71 +645,72 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A260"
 msgid "Cutaneous erysipeloid"
-msgstr ""
+msgstr "شبيه الحمرة الجلدية"
 
 msgctxt "model:gnuhealth.pathology,name:A267"
 msgid "Erysipelothrix septicaemia"
-msgstr ""
+msgstr "الشعرية الحمرانية بسبب تسمم الدم"
 
 msgctxt "model:gnuhealth.pathology,name:A268"
 msgid "Other forms of erysipeloid"
-msgstr ""
+msgstr "أشكال أخرى من شبيه الحمرة"
 
 msgctxt "model:gnuhealth.pathology,name:A269"
 msgid "Erysipeloid, unspecified"
-msgstr ""
+msgstr "شبيه الحمرة، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A27"
 msgid "Leptospirosis"
-msgstr ""
+msgstr "داء اللولبية النحيفة"
 
 msgctxt "model:gnuhealth.pathology,name:A270"
 msgid "Leptospirosis icterohaemorrhagica"
-msgstr ""
+msgstr "داء اللولبية النحيفة icterohaemorrhagica"
 
 msgctxt "model:gnuhealth.pathology,name:A278"
 msgid "Other forms of leptospirosis"
-msgstr ""
+msgstr "أشكال أخرى من داء اللولبية النحيفة"
 
 msgctxt "model:gnuhealth.pathology,name:A279"
 msgid "Leptospirosis, unspecified"
-msgstr ""
+msgstr "داء اللولبية النحيفة، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A28"
 msgid "Other zoonotic bacterial diseases, not elsewhere classified"
-msgstr ""
+msgstr "الأمراض البكتيرية الاخرى الحيوانية المصدر، غير مصنفة في مكان آخر"
 
 msgctxt "model:gnuhealth.pathology,name:A280"
 msgid "Pasteurellosis"
-msgstr ""
+msgstr "الباستريلا"
 
 msgctxt "model:gnuhealth.pathology,name:A281"
 msgid "Cat-scratch disease"
-msgstr ""
+msgstr "أمراض خدش القطط"
 
 msgctxt "model:gnuhealth.pathology,name:A282"
 msgid "Extraintestinal yersiniosis"
-msgstr ""
+msgstr "يرسينات خارج الأمعاء"
 
 msgctxt "model:gnuhealth.pathology,name:A288"
 msgid "Other specified zoonotic bacterial diseases, not elsewhere classified"
 msgstr ""
+" الأمراض البكتيرية المحددة الاخرى الحيوانية المصدر، غير المصنفة في مكان آخر"
 
 msgctxt "model:gnuhealth.pathology,name:A289"
 msgid "Zoonotic bacterial disease, unspecified"
-msgstr ""
+msgstr "مرض بكتيري حيواني المصدر، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A30"
 msgid "Leprosy [Hansen's disease]"
-msgstr ""
+msgstr "مرض الجذام [مرض هانسن]"
 
 msgctxt "model:gnuhealth.pathology,name:A300"
 msgid "Indeterminate leprosy"
-msgstr ""
+msgstr "مرض الجذام غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A301"
 msgid "Tuberculoid leprosy"
-msgstr ""
+msgstr "جذام درني"
 
 msgctxt "model:gnuhealth.pathology,name:A302"
 msgid "Borderline tuberculoid leprosy"
@@ -724,31 +734,31 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A309"
 msgid "Leprosy, unspecified"
-msgstr ""
+msgstr "مرض الجذام، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A31"
 msgid "Infection due to other mycobacteria"
-msgstr ""
+msgstr "العدوى بسبب المتفطرات الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A310"
 msgid "Pulmonary mycobacterial infection"
-msgstr ""
+msgstr "العدوى الفطرية الرئوية"
 
 msgctxt "model:gnuhealth.pathology,name:A311"
 msgid "Cutaneous mycobacterial infection"
-msgstr ""
+msgstr "العدوى الفطرية الجلدية"
 
 msgctxt "model:gnuhealth.pathology,name:A318"
 msgid "Other mycobacterial infections"
-msgstr ""
+msgstr "الالتهابات الفطرية الاخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A319"
 msgid "Mycobacterial infection, unspecified"
-msgstr ""
+msgstr "العدوى الفطرية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A32"
 msgid "Listeriosis"
-msgstr ""
+msgstr "الليستريات"
 
 msgctxt "model:gnuhealth.pathology,name:A320"
 msgid "Cutaneous listeriosis"
@@ -776,239 +786,239 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A34"
 msgid "Obstetrical tetanus"
-msgstr ""
+msgstr "تيتانوس الولادة"
 
 msgctxt "model:gnuhealth.pathology,name:A35"
 msgid "Other tetanus"
-msgstr ""
+msgstr "التيتانوس او مرض الكزاز الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A36"
 msgid "Diphtheria"
-msgstr ""
+msgstr "الدفتيريا"
 
 msgctxt "model:gnuhealth.pathology,name:A360"
 msgid "Pharyngeal diphtheria"
-msgstr ""
+msgstr "الدفتريا البلعومية"
 
 msgctxt "model:gnuhealth.pathology,name:A361"
 msgid "Nasopharyngeal diphtheria"
-msgstr ""
+msgstr "دفتريا أنفية بلعومية"
 
 msgctxt "model:gnuhealth.pathology,name:A362"
 msgid "Laryngeal diphtheria"
-msgstr ""
+msgstr "الخناق الحنجري"
 
 msgctxt "model:gnuhealth.pathology,name:A363"
 msgid "Cutaneous diphtheria"
-msgstr ""
+msgstr "الدفتيريا الجلدية"
 
 msgctxt "model:gnuhealth.pathology,name:A368"
 msgid "Other diphtheria"
-msgstr ""
+msgstr "الدفتيريا الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A369"
 msgid "Diphtheria, unspecified"
-msgstr ""
+msgstr "الدفتيريا، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A37"
 msgid "Whooping cough"
-msgstr ""
+msgstr "السعال الديكي"
 
 msgctxt "model:gnuhealth.pathology,name:A370"
 msgid "Whooping cough due to Bordetella pertussis"
-msgstr ""
+msgstr " السعال الديكي بسبب البورديتيلة"
 
 msgctxt "model:gnuhealth.pathology,name:A371"
 msgid "Whooping cough due to Bordetella parapertussis"
-msgstr ""
+msgstr "السعال الديكي بسبب البورديتيلة نظيرة الشاهوقية"
 
 msgctxt "model:gnuhealth.pathology,name:A378"
 msgid "Whooping cough due to other Bordetella species"
-msgstr ""
+msgstr "السعال الديكي بسبب الأنواع الأخرى البورديتيلة"
 
 msgctxt "model:gnuhealth.pathology,name:A379"
 msgid "Whooping cough, unspecified"
-msgstr ""
+msgstr "السعال الديكي، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A38"
 msgid "Scarlet fever"
-msgstr ""
+msgstr "الحمى القرمزية "
 
 msgctxt "model:gnuhealth.pathology,name:A39"
 msgid "Meningococcal infection"
-msgstr ""
+msgstr "التهاب السحايا"
 
 msgctxt "model:gnuhealth.pathology,name:A390"
 msgid "Meningococcal meningitis"
-msgstr ""
+msgstr "التهاب السحايا بالمكورات السحائية"
 
 msgctxt "model:gnuhealth.pathology,name:A391"
 msgid "Waterhouse-Friderichsen syndrome"
-msgstr ""
+msgstr "متلازمة ووترهاوس-فريدريكسن"
 
 msgctxt "model:gnuhealth.pathology,name:A392"
 msgid "Acute meningococcaemia"
-msgstr ""
+msgstr "meningococcaemia الحاد"
 
 msgctxt "model:gnuhealth.pathology,name:A393"
 msgid "Chronic meningococcaemia"
-msgstr ""
+msgstr "meningococcaemia المزمنة"
 
 msgctxt "model:gnuhealth.pathology,name:A394"
 msgid "Meningococcaemia, unspecified"
-msgstr ""
+msgstr "Meningococcaemia الغير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A395"
 msgid "Meningococcal heart disease"
-msgstr ""
+msgstr " لسحايا أمراض القلب"
 
 msgctxt "model:gnuhealth.pathology,name:A398"
 msgid "Other meningococcal infections"
-msgstr ""
+msgstr "السائيات أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A399"
 msgid "Meningococcal infection, unspecified"
-msgstr ""
+msgstr "التهاب السحايا، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A40"
 msgid "Streptococcal septicaemia"
-msgstr ""
+msgstr "تسمم الدم بالعقديات "
 
 msgctxt "model:gnuhealth.pathology,name:A400"
 msgid "Septicaemia due to streptococcus, group A"
-msgstr ""
+msgstr "تعفن الدم بسبب العقدية، المجموعة A"
 
 msgctxt "model:gnuhealth.pathology,name:A401"
 msgid "Septicaemia due to streptococcus, group B"
-msgstr ""
+msgstr "تعفن الدم بسبب العقدية، المجموعة B"
 
 msgctxt "model:gnuhealth.pathology,name:A402"
 msgid "Septicaemia due to streptococcus, group D"
-msgstr ""
+msgstr "تعفن الدم بسبب العقدية، المجموعة D"
 
 msgctxt "model:gnuhealth.pathology,name:A403"
 msgid "Septicaemia due to Streptococcus pneumoniae"
-msgstr ""
+msgstr "تعفن الدم بسبب العقدية الرئوية"
 
 msgctxt "model:gnuhealth.pathology,name:A408"
 msgid "Other streptococcal septicaemia"
-msgstr ""
+msgstr "غيرها من عقديات تسمم الدم"
 
 msgctxt "model:gnuhealth.pathology,name:A409"
 msgid "Streptococcal septicaemia, unspecified"
-msgstr ""
+msgstr " تسمم الدم بالعقديات، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A41"
 msgid "Other septicaemia"
-msgstr ""
+msgstr "تسمم الدم الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A410"
 msgid "Septicaemia due to Staphylococcus aureus"
-msgstr ""
+msgstr "تعفن الدم بسبب المكورات العنقودية"
 
 msgctxt "model:gnuhealth.pathology,name:A411"
 msgid "Septicaemia due to other specified staphylococcus"
-msgstr ""
+msgstr "تعفن الدم بسبب المكورات العنقودية الأخرى المحددة"
 
 msgctxt "model:gnuhealth.pathology,name:A412"
 msgid "Septicaemia due to unspecified staphylococcus"
-msgstr ""
+msgstr "تعفن الدم بسبب المكورات العنقودية غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A413"
 msgid "Septicaemia due to Haemophilus influenzae"
-msgstr ""
+msgstr "تعفن الدم بسبب النزلة النزفية"
 
 msgctxt "model:gnuhealth.pathology,name:A414"
 msgid "Septicaemia due to anaerobes"
-msgstr ""
+msgstr "تعفن الدم بسبب اللاهوائيات"
 
 msgctxt "model:gnuhealth.pathology,name:A415"
 msgid "Septicaemia due to other Gram-negative organisms"
-msgstr ""
+msgstr "تعفن الدم بسبب الكائنات سلبية الجرام الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A418"
 msgid "Other specified septicaemia"
-msgstr ""
+msgstr "تسمم الدم الأخرى المحددة"
 
 msgctxt "model:gnuhealth.pathology,name:A419"
 msgid "Septicaemia, unspecified"
-msgstr ""
+msgstr "تعفن الدم، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A42"
 msgid "Actinomycosis"
-msgstr ""
+msgstr "داء الشعيات"
 
 msgctxt "model:gnuhealth.pathology,name:A420"
 msgid "Pulmonary actinomycosis"
-msgstr ""
+msgstr "داء الشعيات الرئوي"
 
 msgctxt "model:gnuhealth.pathology,name:A421"
 msgid "Abdominal actinomycosis"
-msgstr ""
+msgstr "داء الشعيات البطني"
 
 msgctxt "model:gnuhealth.pathology,name:A422"
 msgid "Cervicofacial actinomycosis"
-msgstr ""
+msgstr "داء الشعيات العنقي"
 
 msgctxt "model:gnuhealth.pathology,name:A427"
 msgid "Actinomycotic septicaemia"
-msgstr ""
+msgstr "تسمم دم الشعيات"
 
 msgctxt "model:gnuhealth.pathology,name:A428"
 msgid "Other forms of actinomycosis"
-msgstr ""
+msgstr "أشكال أخرى من داء الشعيات"
 
 msgctxt "model:gnuhealth.pathology,name:A429"
 msgid "Actinomycosis, unspecified"
-msgstr ""
+msgstr "داء الشعيات، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A43"
 msgid "Nocardiosis"
-msgstr ""
+msgstr "داء النوكارديات"
 
 msgctxt "model:gnuhealth.pathology,name:A430"
 msgid "Pulmonary nocardiosis"
-msgstr ""
+msgstr "داء النوكارديات الرئة"
 
 msgctxt "model:gnuhealth.pathology,name:A431"
 msgid "Cutaneous nocardiosis"
-msgstr ""
+msgstr "داء النوكارديات الجلدي"
 
 msgctxt "model:gnuhealth.pathology,name:A438"
 msgid "Other forms of nocardiosis"
-msgstr ""
+msgstr "أشكال أخرى من داء النوكارديات"
 
 msgctxt "model:gnuhealth.pathology,name:A439"
 msgid "Nocardiosis, unspecified"
-msgstr ""
+msgstr "داء النوكارديات، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A44"
 msgid "Bartonellosis"
-msgstr ""
+msgstr "داء البرتونيلات"
 
 msgctxt "model:gnuhealth.pathology,name:A440"
 msgid "Systemic bartonellosis"
-msgstr ""
+msgstr "داء البرتونيلات النظامية"
 
 msgctxt "model:gnuhealth.pathology,name:A441"
 msgid "Cutaneous and mucocutaneous bartonellosis"
-msgstr ""
+msgstr "داء البرتونيلات الجلدي والجلدي المخاطي"
 
 msgctxt "model:gnuhealth.pathology,name:A448"
 msgid "Other forms of bartonellosis"
-msgstr ""
+msgstr "أشكال أخرى من داء البرتونيلات"
 
 msgctxt "model:gnuhealth.pathology,name:A449"
 msgid "Bartonellosis, unspecified"
-msgstr ""
+msgstr "داء البرتونيلات، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A46"
 msgid "Erysipelas"
-msgstr ""
+msgstr "التهاب حمرة  الجلد"
 
 msgctxt "model:gnuhealth.pathology,name:A48"
 msgid "Other bacterial diseases, not elsewhere classified"
-msgstr ""
+msgstr "الأمراض البكتيرية الأخرى، غير المصنفة في مكان آخر"
 
 msgctxt "model:gnuhealth.pathology,name:A480"
 msgid "Gas gangrene"
@@ -1016,67 +1026,67 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A481"
 msgid "Legionnaires' disease"
-msgstr ""
+msgstr "مرض المحاربين القدماء"
 
 msgctxt "model:gnuhealth.pathology,name:A482"
 msgid "Nonpneumonic Legionnaires' disease [Pontiac fever]"
-msgstr ""
+msgstr "مرض [حمى بونتياك] الالتهاب الرئوي غير النمطي"
 
 msgctxt "model:gnuhealth.pathology,name:A483"
 msgid "Toxic shock syndrome"
-msgstr ""
+msgstr "متلازمة الصدمة السامة"
 
 msgctxt "model:gnuhealth.pathology,name:A484"
 msgid "Brazilian purpuric fever"
-msgstr ""
+msgstr "الحُمَّى الفرفيرية البرازيلية"
 
 msgctxt "model:gnuhealth.pathology,name:A488"
 msgid "Other specified bacterial diseases"
-msgstr ""
+msgstr "الأمراض الجرثومية المحدّدة الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A49"
 msgid "Bacterial infection of unspecified site"
-msgstr ""
+msgstr "العدوى البكتيرية من موقع غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A490"
 msgid "Staphylococcal infection, unspecified"
-msgstr ""
+msgstr "التهاب العنقوديات، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A491"
 msgid "Streptococcal infection, unspecified"
-msgstr ""
+msgstr "التهاب العقديات، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A492"
 msgid "Haemophilus influenzae infection, unspecified"
-msgstr ""
+msgstr "التهاب المستدمية النزلية ، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A493"
 msgid "Mycoplasma infection, unspecified"
-msgstr ""
+msgstr "التهاب الميكوبلازما، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A498"
 msgid "Other bacterial infections of unspecified site"
-msgstr ""
+msgstr "الالتهابات البكتيرية الأخرى من موقع غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A499"
 msgid "Bacterial infection, unspecified"
-msgstr ""
+msgstr "عدوى بكتيرية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A50"
 msgid "Congenital syphilis"
-msgstr ""
+msgstr "داء الزهري الخلقي"
 
 msgctxt "model:gnuhealth.pathology,name:A500"
 msgid "Early congenital syphilis, symptomatic"
-msgstr ""
+msgstr " أعراض الزهري الخلقي المبكر"
 
 msgctxt "model:gnuhealth.pathology,name:A501"
 msgid "Early congenital syphilis, latent"
-msgstr ""
+msgstr "الزهري الخلقي المبكرالكامن"
 
 msgctxt "model:gnuhealth.pathology,name:A502"
 msgid "Early congenital syphilis, unspecified"
-msgstr ""
+msgstr "الزهري الخلقي المبكر، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A503"
 msgid "Late congenital syphilitic oculopathy"
@@ -1100,47 +1110,47 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A509"
 msgid "Congenital syphilis, unspecified"
-msgstr ""
+msgstr "الزهري الخلقي، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A51"
 msgid "Early syphilis"
-msgstr ""
+msgstr "مرض الزهري المبكّر"
 
 msgctxt "model:gnuhealth.pathology,name:A510"
 msgid "Primary genital syphilis"
-msgstr ""
+msgstr "مرض الزهري التناسلي الابتدائي"
 
 msgctxt "model:gnuhealth.pathology,name:A511"
 msgid "Primary anal syphilis"
-msgstr ""
+msgstr "مرض الزهري الشرجي الأولي"
 
 msgctxt "model:gnuhealth.pathology,name:A512"
 msgid "Primary syphilis of other sites"
-msgstr ""
+msgstr "مرض الزهري الأساسي للمواقعِ الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A513"
 msgid "Secondary syphilis of skin and mucous membranes"
-msgstr ""
+msgstr "مرض الزهري الثانوي للجلدِ والأغشيةِ المخاطيةِ"
 
 msgctxt "model:gnuhealth.pathology,name:A514"
 msgid "Other secondary syphilis"
-msgstr ""
+msgstr "مرض الزهري الثانوي الآخر"
 
 msgctxt "model:gnuhealth.pathology,name:A515"
 msgid "Early syphilis, latent"
-msgstr ""
+msgstr "المبكر من الزهري، كامنة"
 
 msgctxt "model:gnuhealth.pathology,name:A519"
 msgid "Early syphilis, unspecified"
-msgstr ""
+msgstr "مرض الزهري المبكّر، غير محدّد"
 
 msgctxt "model:gnuhealth.pathology,name:A52"
 msgid "Late syphilis"
-msgstr ""
+msgstr "مرض الزهري المتأخر"
 
 msgctxt "model:gnuhealth.pathology,name:A520"
 msgid "Cardiovascular syphilis"
-msgstr ""
+msgstr "مرض الزهري القلبي الوعائي"
 
 msgctxt "model:gnuhealth.pathology,name:A521"
 msgid "Symptomatic neurosyphilis"
@@ -1148,23 +1158,23 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A522"
 msgid "Asymptomatic neurosyphilis"
-msgstr ""
+msgstr "الزهري العصبي عديم الأعراض"
 
 msgctxt "model:gnuhealth.pathology,name:A523"
 msgid "Neurosyphilis, unspecified"
-msgstr ""
+msgstr "الزهري العصبي، غير محدد"
 
 msgctxt "model:gnuhealth.pathology,name:A527"
 msgid "Other symptomatic late syphilis"
-msgstr ""
+msgstr "أعراض أخرى  متأخرة  للزهري"
 
 msgctxt "model:gnuhealth.pathology,name:A528"
 msgid "Late syphilis, latent"
-msgstr ""
+msgstr "الزهري في وقت متأخر، كامنة"
 
 msgctxt "model:gnuhealth.pathology,name:A529"
 msgid "Late syphilis, unspecified"
-msgstr ""
+msgstr "مرض الزهري المتأخّر، غير محدّد "
 
 msgctxt "model:gnuhealth.pathology,name:A53"
 msgid "Other and unspecified syphilis"
@@ -1172,68 +1182,72 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A530"
 msgid "Latent syphilis, unspecified as early or late"
-msgstr ""
+msgstr "الزهري الخفي، غير محدد في وقت مبكر أو متأخر"
 
 msgctxt "model:gnuhealth.pathology,name:A539"
 msgid "Syphilis, unspecified"
-msgstr ""
+msgstr "داء الشيغيلات، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A54"
 msgid "Gonococcal infection"
-msgstr ""
+msgstr "العدوى بالمكورات البنية"
 
 msgctxt "model:gnuhealth.pathology,name:A540"
 msgid ""
 "Gonococcal infection of lower genito-urinary tract without periurethral or "
 "accessory gland abscess"
 msgstr ""
+"العدوى بالمكورات البنية من أدنى المسالك البولية والتناسلية دون  الإحليل أو "
+"خراج الغدة"
 
 msgctxt "model:gnuhealth.pathology,name:A541"
 msgid ""
 "Gonococcal infection of lower genito-urinary tract with periurethral and "
 "accessory gland abscess"
 msgstr ""
+"العدوى بالمكورات البنية من أدنى المسالك البولية والتناسلية مع الإحليل "
+"والملحقات خراج الغدة"
 
 msgctxt "model:gnuhealth.pathology,name:A542"
 msgid ""
 "Gonococcal pelviperitonitis and other gonococcal genito-urinary infections"
-msgstr ""
+msgstr "سيلان الالتهابات البولية والتناسلية وسيلان التهاب صفاق الحوض وغيرها"
 
 msgctxt "model:gnuhealth.pathology,name:A543"
 msgid "Gonococcal infection of eye"
-msgstr ""
+msgstr "عدوى السيلان  للعين"
 
 msgctxt "model:gnuhealth.pathology,name:A544"
 msgid "Gonococcal infection of musculoskeletal system"
-msgstr ""
+msgstr "عدوى السيلان  لنظام العضلي الهيكلي"
 
 msgctxt "model:gnuhealth.pathology,name:A545"
 msgid "Gonococcal pharyngitis"
-msgstr ""
+msgstr "التهاب البلعوم بالسيلان"
 
 msgctxt "model:gnuhealth.pathology,name:A546"
 msgid "Gonococcal infection of anus and rectum"
-msgstr ""
+msgstr "عدوى السيلان في فتحة الشرج والمستقيم"
 
 msgctxt "model:gnuhealth.pathology,name:A548"
 msgid "Other gonococcal infections"
-msgstr ""
+msgstr "عدوى السيلان الأخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A549"
 msgid "Gonococcal infection, unspecified"
-msgstr ""
+msgstr "عدوى السيلان، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A55"
 msgid "Chlamydial lymphogranuloma (venereum)"
-msgstr ""
+msgstr "ورم حبيبي لمفي الكلاميديا (منقول جنسيا)"
 
 msgctxt "model:gnuhealth.pathology,name:A56"
 msgid "Other sexually transmitted chlamydial diseases"
-msgstr ""
+msgstr "أمراض الكلاميديا الأخرى المنقولة جنسيا"
 
 msgctxt "model:gnuhealth.pathology,name:A560"
 msgid "Chlamydial infection of lower genito-urinary tract"
-msgstr ""
+msgstr " عدوى  الالتهابات المتدثرة من أدنى المسالك البولية والتناسلية"
 
 msgctxt "model:gnuhealth.pathology,name:A561"
 msgid ""
@@ -1242,23 +1256,23 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:A562"
 msgid "Chlamydial infection of genito-urinary tract, unspecified"
-msgstr ""
+msgstr "عدوي الكلاميديا للمسالك البولية والتناسلية، غير محددة"
 
 msgctxt "model:gnuhealth.pathology,name:A563"
 msgid "Chlamydial infection of anus and rectum"
-msgstr ""
+msgstr "عدوي الكلاميديا من فتحة الشرج والمستقيم"
 
 msgctxt "model:gnuhealth.pathology,name:A564"
 msgid "Chlamydial infection of pharynx"
-msgstr ""
+msgstr "عدوى الكلاميديا  للبلعوم"
 
 msgctxt "model:gnuhealth.pathology,name:A568"
 msgid "Sexually transmitted chlamydial infection of other sites"
-msgstr ""
+msgstr "عدوي الكلاميديا المنقولة عن طريق الاتصال الجنسي من مواقع أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:A57"
 msgid "Chancroid"
-msgstr ""
+msgstr "قرحة لينة"
 
 msgctxt "model:gnuhealth.pathology,name:A58"
 msgid "Granuloma inguinale"
@@ -2969,7 +2983,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B56"
 msgid "African trypanosomiasis"
-msgstr ""
+msgstr "مرض التريبانوزوما الأفريقي"
 
 msgctxt "model:gnuhealth.pathology,name:B560"
 msgid "Gambiense trypanosomiasis"
@@ -3013,7 +3027,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:B58"
 msgid "Toxoplasmosis"
-msgstr ""
+msgstr "داء المقوسات او داء القطط"
 
 msgctxt "model:gnuhealth.pathology,name:B580"
 msgid "Toxoplasma oculopathy"
@@ -6081,7 +6095,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D090"
 msgid "Bladder"
-msgstr ""
+msgstr "المثانه"
 
 msgctxt "model:gnuhealth.pathology,name:D091"
 msgid "Other and unspecified urinary organs"
@@ -6281,7 +6295,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D152"
 msgid "Mediastinum"
-msgstr ""
+msgstr "Mediastinum"
 
 msgctxt "model:gnuhealth.pathology,name:D157"
 msgid "Other specified intrathoracic organs"
@@ -6661,7 +6675,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D303"
 msgid "Bladder"
-msgstr ""
+msgstr "المثانه"
 
 msgctxt "model:gnuhealth.pathology,name:D304"
 msgid "Urethra"
@@ -6889,7 +6903,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D383"
 msgid "Mediastinum"
-msgstr ""
+msgstr "Mediastinum"
 
 msgctxt "model:gnuhealth.pathology,name:D384"
 msgid "Thymus"
@@ -6917,7 +6931,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D392"
 msgid "Placenta"
-msgstr ""
+msgstr "المشيمة"
 
 msgctxt "model:gnuhealth.pathology,name:D397"
 msgid "Other female genital organs"
@@ -6969,7 +6983,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:D414"
 msgid "Bladder"
-msgstr ""
+msgstr "المثانه"
 
 msgctxt "model:gnuhealth.pathology,name:D417"
 msgid "Other urinary organs"
@@ -14160,7 +14174,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H532"
 msgid "Diplopia"
-msgstr ""
+msgstr "شفع-Diplopia"
 
 msgctxt "model:gnuhealth.pathology,name:H533"
 msgid "Other disorders of binocular vision"
@@ -14760,7 +14774,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H920"
 msgid "Otalgia"
-msgstr ""
+msgstr "ألم أذني-Otalgia"
 
 msgctxt "model:gnuhealth.pathology,name:H921"
 msgid "Otorrhoea"
@@ -14780,7 +14794,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:H931"
 msgid "Tinnitus"
-msgstr ""
+msgstr "طنين-Tinnitus"
 
 msgctxt "model:gnuhealth.pathology,name:H932"
 msgid "Other abnormal auditory perceptions"
@@ -16626,7 +16640,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:I951"
 msgid "Orthostatic hypotension"
-msgstr ""
+msgstr "نقص ضغط الدم الانتصابي-Orthostatic hypotension"
 
 msgctxt "model:gnuhealth.pathology,name:I952"
 msgid "Hypotension due to drugs"
@@ -16673,7 +16687,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:I980"
 msgid "Cardiovascular syphilis"
-msgstr ""
+msgstr "مرض الزهري القلبي الوعائي"
 
 msgctxt "model:gnuhealth.pathology,name:I981"
 msgid ""
@@ -19023,7 +19037,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:K590"
 msgid "Constipation"
-msgstr ""
+msgstr "الإمساك"
 
 msgctxt "model:gnuhealth.pathology,name:K591"
 msgid "Functional diarrhoea"
@@ -19803,7 +19817,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:L03"
 msgid "Cellulitis"
-msgstr ""
+msgstr "التهاب النسيج الخلوي"
 
 msgctxt "model:gnuhealth.pathology,name:L030"
 msgid "Cellulitis of finger and toe"
@@ -20207,7 +20221,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:L29"
 msgid "Pruritus"
-msgstr ""
+msgstr "حكة-Pruritus"
 
 msgctxt "model:gnuhealth.pathology,name:L290"
 msgid "Pruritus ani"
@@ -23203,7 +23217,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:M791"
 msgid "Myalgia"
-msgstr ""
+msgstr "ألم عضلي"
 
 msgctxt "model:gnuhealth.pathology,name:M792"
 msgid "Neuralgia and neuritis, unspecified"
@@ -23882,7 +23896,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N008"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N009"
 msgid "Unspecified"
@@ -23926,7 +23940,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N018"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N019"
 msgid "Unspecified"
@@ -23970,7 +23984,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N028"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N029"
 msgid "Unspecified"
@@ -24014,7 +24028,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N038"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N039"
 msgid "Unspecified"
@@ -24058,7 +24072,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N048"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N049"
 msgid "Unspecified"
@@ -24102,7 +24116,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N058"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N059"
 msgid "Unspecified"
@@ -24146,7 +24160,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N068"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N069"
 msgid "Unspecified"
@@ -24190,7 +24204,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:N078"
 msgid "Other"
-msgstr ""
+msgstr "أخرى"
 
 msgctxt "model:gnuhealth.pathology,name:N079"
 msgid "Unspecified"
@@ -26887,7 +26901,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:O410"
 msgid "Oligohydramnios"
-msgstr ""
+msgstr "نقصان السائل الامنيوني"
 
 msgctxt "model:gnuhealth.pathology,name:O411"
 msgid "Infection of amniotic sac and membranes"
@@ -31446,7 +31460,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Q69"
 msgid "Polydactyly"
-msgstr ""
+msgstr "كثرة الأصابع"
 
 msgctxt "model:gnuhealth.pathology,name:Q690"
 msgid "Accessory finger(s)"
@@ -31466,7 +31480,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Q70"
 msgid "Syndactyly"
-msgstr ""
+msgstr "ارتفاق الأصابع"
 
 msgctxt "model:gnuhealth.pathology,name:Q700"
 msgid "Fused fingers"
@@ -32480,7 +32494,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R040"
 msgid "Epistaxis"
-msgstr ""
+msgstr "رعاف"
 
 msgctxt "model:gnuhealth.pathology,name:R041"
 msgid "Haemorrhage from throat"
@@ -32500,7 +32514,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R05"
 msgid "Cough"
-msgstr ""
+msgstr "سعال"
 
 msgctxt "model:gnuhealth.pathology,name:R06"
 msgid "Abnormalities of breathing"
@@ -32627,7 +32641,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R13"
 msgid "Dysphagia"
-msgstr ""
+msgstr "عسر البلع"
 
 msgctxt "model:gnuhealth.pathology,name:R14"
 msgid "Flatulence and related conditions"
@@ -32659,7 +32673,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R18"
 msgid "Ascites"
-msgstr ""
+msgstr "Ascites"
 
 msgctxt "model:gnuhealth.pathology,name:R19"
 msgid "Other symptoms and signs involving the digestive system and abdomen"
@@ -32765,7 +32779,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R230"
 msgid "Cyanosis"
-msgstr ""
+msgstr "الازرقاق"
 
 msgctxt "model:gnuhealth.pathology,name:R231"
 msgid "Pallor"
@@ -32880,7 +32894,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R300"
 msgid "Dysuria"
-msgstr ""
+msgstr "عسر-Dysuria"
 
 msgctxt "model:gnuhealth.pathology,name:R301"
 msgid "Vesical tenesmus"
@@ -32908,7 +32922,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R35"
 msgid "Polyuria"
-msgstr ""
+msgstr "بوال-Polyuria"
 
 msgctxt "model:gnuhealth.pathology,name:R36"
 msgid "Urethral discharge"
@@ -33180,7 +33194,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R51"
 msgid "Headache"
-msgstr ""
+msgstr "صداع"
 
 msgctxt "model:gnuhealth.pathology,name:R52"
 msgid "Pain, not elsewhere classified"
@@ -33320,15 +33334,15 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:R630"
 msgid "Anorexia"
-msgstr ""
+msgstr "فقدان الشهية"
 
 msgctxt "model:gnuhealth.pathology,name:R631"
 msgid "Polydipsia"
-msgstr ""
+msgstr "عطاش-Polydipsia"
 
 msgctxt "model:gnuhealth.pathology,name:R632"
 msgid "Polyphagia"
-msgstr ""
+msgstr "نهام-Polyphagia"
 
 msgctxt "model:gnuhealth.pathology,name:R633"
 msgid "Feeding difficulties and mismanagement"
@@ -38115,7 +38129,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T374"
 msgid "Anthelminthics"
-msgstr ""
+msgstr "مضادات الديدان"
 
 msgctxt "model:gnuhealth.pathology,name:T375"
 msgid "Antiviral drugs"
@@ -38270,7 +38284,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T413"
 msgid "Local anaesthetics"
-msgstr ""
+msgstr "التخدير المحلي"
 
 msgctxt "model:gnuhealth.pathology,name:T414"
 msgid "Anaesthetic, unspecified"
@@ -38672,7 +38686,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T508"
 msgid "Diagnostic agents"
-msgstr ""
+msgstr "عوامل تشخيص"
 
 msgctxt "model:gnuhealth.pathology,name:T509"
 msgid "Other and unspecified drugs, medicaments and biological substances"
@@ -39241,7 +39255,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:T742"
 msgid "Sexual abuse"
-msgstr ""
+msgstr "العنف الجنسي"
 
 msgctxt "model:gnuhealth.pathology,name:T743"
 msgid "Psychological abuse"
@@ -43909,7 +43923,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W000"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W001"
 msgid "Residential institution"
@@ -43953,7 +43967,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W010"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W011"
 msgid "Residential institution"
@@ -43997,7 +44011,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W020"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W021"
 msgid "Residential institution"
@@ -44043,7 +44057,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W030"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W031"
 msgid "Residential institution"
@@ -44087,7 +44101,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W040"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W041"
 msgid "Residential institution"
@@ -44131,7 +44145,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W050"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W051"
 msgid "Residential institution"
@@ -44175,7 +44189,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W060"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W061"
 msgid "Residential institution"
@@ -44219,7 +44233,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W070"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W071"
 msgid "Residential institution"
@@ -44263,7 +44277,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W080"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W081"
 msgid "Residential institution"
@@ -44307,7 +44321,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W090"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W091"
 msgid "Residential institution"
@@ -44351,7 +44365,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W100"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W101"
 msgid "Residential institution"
@@ -44395,7 +44409,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W110"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W111"
 msgid "Residential institution"
@@ -44439,7 +44453,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W120"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W121"
 msgid "Residential institution"
@@ -44483,7 +44497,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W130"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W131"
 msgid "Residential institution"
@@ -44527,7 +44541,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W140"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W141"
 msgid "Residential institution"
@@ -44571,7 +44585,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W150"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W151"
 msgid "Residential institution"
@@ -44617,7 +44631,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W160"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W161"
 msgid "Residential institution"
@@ -44661,7 +44675,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W170"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W171"
 msgid "Residential institution"
@@ -44705,7 +44719,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W180"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W181"
 msgid "Residential institution"
@@ -44749,7 +44763,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W190"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W191"
 msgid "Residential institution"
@@ -44793,7 +44807,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W200"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W201"
 msgid "Residential institution"
@@ -44837,7 +44851,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W210"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W211"
 msgid "Residential institution"
@@ -44881,7 +44895,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W220"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W221"
 msgid "Residential institution"
@@ -44925,7 +44939,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W230"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W231"
 msgid "Residential institution"
@@ -44970,7 +44984,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W240"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W241"
 msgid "Residential institution"
@@ -45014,7 +45028,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W250"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W251"
 msgid "Residential institution"
@@ -45058,7 +45072,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W260"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W261"
 msgid "Residential institution"
@@ -45102,7 +45116,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W270"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W271"
 msgid "Residential institution"
@@ -45146,7 +45160,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W280"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W281"
 msgid "Residential institution"
@@ -45190,7 +45204,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W290"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W291"
 msgid "Residential institution"
@@ -45234,7 +45248,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W300"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W301"
 msgid "Residential institution"
@@ -45278,7 +45292,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W310"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W311"
 msgid "Residential institution"
@@ -45322,7 +45336,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W320"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W321"
 msgid "Residential institution"
@@ -45366,7 +45380,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W330"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W331"
 msgid "Residential institution"
@@ -45410,7 +45424,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W340"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W341"
 msgid "Residential institution"
@@ -45454,7 +45468,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W350"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W351"
 msgid "Residential institution"
@@ -45498,7 +45512,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W360"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W361"
 msgid "Residential institution"
@@ -45542,7 +45556,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W370"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W371"
 msgid "Residential institution"
@@ -45586,7 +45600,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W380"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W381"
 msgid "Residential institution"
@@ -45630,7 +45644,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W390"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W391"
 msgid "Residential institution"
@@ -45674,7 +45688,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W400"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W401"
 msgid "Residential institution"
@@ -45718,7 +45732,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W410"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W411"
 msgid "Residential institution"
@@ -45762,7 +45776,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W420"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W421"
 msgid "Residential institution"
@@ -45806,7 +45820,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W430"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W431"
 msgid "Residential institution"
@@ -45850,7 +45864,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W440"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W441"
 msgid "Residential institution"
@@ -45894,7 +45908,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W450"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W451"
 msgid "Residential institution"
@@ -45938,7 +45952,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W490"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W491"
 msgid "Residential institution"
@@ -45982,7 +45996,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W500"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W501"
 msgid "Residential institution"
@@ -46026,7 +46040,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W510"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W511"
 msgid "Residential institution"
@@ -46070,7 +46084,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W520"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W521"
 msgid "Residential institution"
@@ -46114,7 +46128,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W530"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W531"
 msgid "Residential institution"
@@ -46158,7 +46172,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W540"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W541"
 msgid "Residential institution"
@@ -46202,7 +46216,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W550"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W551"
 msgid "Residential institution"
@@ -46246,7 +46260,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W560"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W561"
 msgid "Residential institution"
@@ -46291,7 +46305,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W570"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W571"
 msgid "Residential institution"
@@ -46335,7 +46349,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W580"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W581"
 msgid "Residential institution"
@@ -46379,7 +46393,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W590"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W591"
 msgid "Residential institution"
@@ -46423,7 +46437,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W600"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W601"
 msgid "Residential institution"
@@ -46467,7 +46481,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W640"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W641"
 msgid "Residential institution"
@@ -46511,7 +46525,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W650"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W651"
 msgid "Residential institution"
@@ -46555,7 +46569,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W660"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W661"
 msgid "Residential institution"
@@ -46599,7 +46613,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W670"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W671"
 msgid "Residential institution"
@@ -46643,7 +46657,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W680"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W681"
 msgid "Residential institution"
@@ -46687,7 +46701,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W690"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W691"
 msgid "Residential institution"
@@ -46731,7 +46745,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W700"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W701"
 msgid "Residential institution"
@@ -46775,7 +46789,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W730"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W731"
 msgid "Residential institution"
@@ -46819,7 +46833,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W740"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W741"
 msgid "Residential institution"
@@ -46863,7 +46877,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W750"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W751"
 msgid "Residential institution"
@@ -46907,7 +46921,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W760"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W761"
 msgid "Residential institution"
@@ -46951,7 +46965,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W770"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W771"
 msgid "Residential institution"
@@ -46995,7 +47009,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W780"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W781"
 msgid "Residential institution"
@@ -47040,7 +47054,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W790"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W791"
 msgid "Residential institution"
@@ -47086,7 +47100,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W800"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W801"
 msgid "Residential institution"
@@ -47130,7 +47144,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W810"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W811"
 msgid "Residential institution"
@@ -47174,7 +47188,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W830"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W831"
 msgid "Residential institution"
@@ -47218,7 +47232,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W840"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W841"
 msgid "Residential institution"
@@ -47262,7 +47276,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W850"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W851"
 msgid "Residential institution"
@@ -47306,7 +47320,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W860"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W861"
 msgid "Residential institution"
@@ -47350,7 +47364,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W870"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W871"
 msgid "Residential institution"
@@ -47394,7 +47408,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W880"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W881"
 msgid "Residential institution"
@@ -47438,7 +47452,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W890"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W891"
 msgid "Residential institution"
@@ -47482,7 +47496,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W900"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W901"
 msgid "Residential institution"
@@ -47526,7 +47540,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W910"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W911"
 msgid "Residential institution"
@@ -47570,7 +47584,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W920"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W921"
 msgid "Residential institution"
@@ -47614,7 +47628,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W930"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W931"
 msgid "Residential institution"
@@ -47658,7 +47672,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W940"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W941"
 msgid "Residential institution"
@@ -47702,7 +47716,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:W990"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:W991"
 msgid "Residential institution"
@@ -47746,7 +47760,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X000"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X001"
 msgid "Residential institution"
@@ -47790,7 +47804,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X010"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X011"
 msgid "Residential institution"
@@ -47834,7 +47848,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X020"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X021"
 msgid "Residential institution"
@@ -47878,7 +47892,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X030"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X031"
 msgid "Residential institution"
@@ -47922,7 +47936,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X040"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X041"
 msgid "Residential institution"
@@ -47966,7 +47980,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X050"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X051"
 msgid "Residential institution"
@@ -48010,7 +48024,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X060"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X061"
 msgid "Residential institution"
@@ -48054,7 +48068,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X080"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X081"
 msgid "Residential institution"
@@ -48098,7 +48112,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X090"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X091"
 msgid "Residential institution"
@@ -48142,7 +48156,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X100"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X101"
 msgid "Residential institution"
@@ -48186,7 +48200,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X110"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X111"
 msgid "Residential institution"
@@ -48230,7 +48244,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X120"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X121"
 msgid "Residential institution"
@@ -48274,7 +48288,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X130"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X131"
 msgid "Residential institution"
@@ -48318,7 +48332,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X140"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X141"
 msgid "Residential institution"
@@ -48362,7 +48376,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X150"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X151"
 msgid "Residential institution"
@@ -48406,7 +48420,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X160"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X161"
 msgid "Residential institution"
@@ -48450,7 +48464,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X170"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X171"
 msgid "Residential institution"
@@ -48494,7 +48508,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X180"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X181"
 msgid "Residential institution"
@@ -48538,7 +48552,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X190"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X191"
 msgid "Residential institution"
@@ -48582,7 +48596,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X200"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X201"
 msgid "Residential institution"
@@ -48626,7 +48640,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X210"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X211"
 msgid "Residential institution"
@@ -48670,7 +48684,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X220"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X221"
 msgid "Residential institution"
@@ -48714,7 +48728,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X230"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X231"
 msgid "Residential institution"
@@ -48758,7 +48772,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X240"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X241"
 msgid "Residential institution"
@@ -48802,7 +48816,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X250"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X251"
 msgid "Residential institution"
@@ -48846,7 +48860,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X260"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X261"
 msgid "Residential institution"
@@ -48890,7 +48904,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X270"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X271"
 msgid "Residential institution"
@@ -48934,7 +48948,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X280"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X281"
 msgid "Residential institution"
@@ -48978,7 +48992,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X290"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X291"
 msgid "Residential institution"
@@ -49022,7 +49036,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X300"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X301"
 msgid "Residential institution"
@@ -49066,7 +49080,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X310"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X311"
 msgid "Residential institution"
@@ -49110,7 +49124,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X320"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X321"
 msgid "Residential institution"
@@ -49154,7 +49168,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X330"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X331"
 msgid "Residential institution"
@@ -49198,7 +49212,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X340"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X341"
 msgid "Residential institution"
@@ -49242,7 +49256,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X350"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X351"
 msgid "Residential institution"
@@ -49286,7 +49300,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X360"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X361"
 msgid "Residential institution"
@@ -49330,7 +49344,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X370"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X371"
 msgid "Residential institution"
@@ -49374,7 +49388,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X380"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X381"
 msgid "Residential institution"
@@ -49418,7 +49432,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X390"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X391"
 msgid "Residential institution"
@@ -49464,7 +49478,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X400"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X401"
 msgid "Residential institution"
@@ -49510,7 +49524,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X410"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X411"
 msgid "Residential institution"
@@ -49556,7 +49570,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X420"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X421"
 msgid "Residential institution"
@@ -49602,7 +49616,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X430"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X431"
 msgid "Residential institution"
@@ -49648,7 +49662,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X440"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X441"
 msgid "Residential institution"
@@ -49692,7 +49706,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X450"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X451"
 msgid "Residential institution"
@@ -49738,7 +49752,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X460"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X461"
 msgid "Residential institution"
@@ -49782,7 +49796,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X470"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X471"
 msgid "Residential institution"
@@ -49826,7 +49840,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X480"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X481"
 msgid "Residential institution"
@@ -49872,7 +49886,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X490"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X491"
 msgid "Residential institution"
@@ -49916,7 +49930,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X500"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X501"
 msgid "Residential institution"
@@ -49960,7 +49974,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X510"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X511"
 msgid "Residential institution"
@@ -50004,7 +50018,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X520"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X521"
 msgid "Residential institution"
@@ -50048,7 +50062,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X530"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X531"
 msgid "Residential institution"
@@ -50092,7 +50106,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X540"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X541"
 msgid "Residential institution"
@@ -50136,7 +50150,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X570"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X571"
 msgid "Residential institution"
@@ -50180,7 +50194,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X580"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X581"
 msgid "Residential institution"
@@ -50224,7 +50238,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X590"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X591"
 msgid "Residential institution"
@@ -50270,7 +50284,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X600"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X601"
 msgid "Residential institution"
@@ -50316,7 +50330,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X610"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X611"
 msgid "Residential institution"
@@ -50362,7 +50376,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X620"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X621"
 msgid "Residential institution"
@@ -50408,7 +50422,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X630"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X631"
 msgid "Residential institution"
@@ -50454,7 +50468,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X640"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X641"
 msgid "Residential institution"
@@ -50498,7 +50512,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X650"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X651"
 msgid "Residential institution"
@@ -50544,7 +50558,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X660"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X661"
 msgid "Residential institution"
@@ -50588,7 +50602,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X670"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X671"
 msgid "Residential institution"
@@ -50632,7 +50646,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X680"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X681"
 msgid "Residential institution"
@@ -50678,7 +50692,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X690"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X691"
 msgid "Residential institution"
@@ -50722,7 +50736,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X700"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X701"
 msgid "Residential institution"
@@ -50766,7 +50780,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X710"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X711"
 msgid "Residential institution"
@@ -50810,7 +50824,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X720"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X721"
 msgid "Residential institution"
@@ -50854,7 +50868,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X730"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X731"
 msgid "Residential institution"
@@ -50898,7 +50912,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X740"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X741"
 msgid "Residential institution"
@@ -50942,7 +50956,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X750"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X751"
 msgid "Residential institution"
@@ -50986,7 +51000,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X760"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X761"
 msgid "Residential institution"
@@ -51030,7 +51044,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X770"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X771"
 msgid "Residential institution"
@@ -51074,7 +51088,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X780"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X781"
 msgid "Residential institution"
@@ -51118,7 +51132,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X790"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X791"
 msgid "Residential institution"
@@ -51162,7 +51176,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X800"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X801"
 msgid "Residential institution"
@@ -51206,7 +51220,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X810"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X811"
 msgid "Residential institution"
@@ -51250,7 +51264,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X820"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X821"
 msgid "Residential institution"
@@ -51294,7 +51308,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X830"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X831"
 msgid "Residential institution"
@@ -51338,7 +51352,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X840"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X841"
 msgid "Residential institution"
@@ -51382,7 +51396,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X850"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X851"
 msgid "Residential institution"
@@ -51426,7 +51440,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X860"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X861"
 msgid "Residential institution"
@@ -51470,7 +51484,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X870"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X871"
 msgid "Residential institution"
@@ -51514,7 +51528,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X880"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X881"
 msgid "Residential institution"
@@ -51558,7 +51572,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X890"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X891"
 msgid "Residential institution"
@@ -51602,7 +51616,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X900"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X901"
 msgid "Residential institution"
@@ -51646,7 +51660,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X910"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X911"
 msgid "Residential institution"
@@ -51690,7 +51704,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X920"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X921"
 msgid "Residential institution"
@@ -51734,7 +51748,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X930"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X931"
 msgid "Residential institution"
@@ -51778,7 +51792,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X940"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X941"
 msgid "Residential institution"
@@ -51822,7 +51836,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X950"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X951"
 msgid "Residential institution"
@@ -51866,7 +51880,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X960"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X961"
 msgid "Residential institution"
@@ -51910,7 +51924,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X970"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X971"
 msgid "Residential institution"
@@ -51954,7 +51968,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X980"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X981"
 msgid "Residential institution"
@@ -51998,7 +52012,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:X990"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:X991"
 msgid "Residential institution"
@@ -52042,7 +52056,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y000"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y001"
 msgid "Residential institution"
@@ -52086,7 +52100,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y010"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y011"
 msgid "Residential institution"
@@ -52130,7 +52144,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y020"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y021"
 msgid "Residential institution"
@@ -52174,7 +52188,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y030"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y031"
 msgid "Residential institution"
@@ -52218,7 +52232,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y040"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y041"
 msgid "Residential institution"
@@ -52262,7 +52276,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y050"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y051"
 msgid "Residential institution"
@@ -52358,7 +52372,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y080"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y081"
 msgid "Residential institution"
@@ -52402,7 +52416,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y090"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y091"
 msgid "Residential institution"
@@ -52448,7 +52462,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y100"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y101"
 msgid "Residential institution"
@@ -52495,7 +52509,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y110"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y111"
 msgid "Residential institution"
@@ -52541,7 +52555,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y120"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y121"
 msgid "Residential institution"
@@ -52587,7 +52601,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y130"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y131"
 msgid "Residential institution"
@@ -52633,7 +52647,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y140"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y141"
 msgid "Residential institution"
@@ -52677,7 +52691,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y150"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y151"
 msgid "Residential institution"
@@ -52723,7 +52737,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y160"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y161"
 msgid "Residential institution"
@@ -52768,7 +52782,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y170"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y171"
 msgid "Residential institution"
@@ -52812,7 +52826,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y180"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y181"
 msgid "Residential institution"
@@ -52858,7 +52872,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y190"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y191"
 msgid "Residential institution"
@@ -52902,7 +52916,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y200"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y201"
 msgid "Residential institution"
@@ -52946,7 +52960,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y210"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y211"
 msgid "Residential institution"
@@ -52990,7 +53004,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y220"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y221"
 msgid "Residential institution"
@@ -53034,7 +53048,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y230"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y231"
 msgid "Residential institution"
@@ -53078,7 +53092,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y240"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y241"
 msgid "Residential institution"
@@ -53122,7 +53136,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y250"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y251"
 msgid "Residential institution"
@@ -53166,7 +53180,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y260"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y261"
 msgid "Residential institution"
@@ -53210,7 +53224,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y270"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y271"
 msgid "Residential institution"
@@ -53254,7 +53268,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y280"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y281"
 msgid "Residential institution"
@@ -53298,7 +53312,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y290"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y291"
 msgid "Residential institution"
@@ -53342,7 +53356,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y300"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y301"
 msgid "Residential institution"
@@ -53387,7 +53401,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y310"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y311"
 msgid "Residential institution"
@@ -53431,7 +53445,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y320"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y321"
 msgid "Residential institution"
@@ -53475,7 +53489,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y330"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y331"
 msgid "Residential institution"
@@ -53519,7 +53533,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y340"
 msgid "Home"
-msgstr ""
+msgstr "البيت"
 
 msgctxt "model:gnuhealth.pathology,name:Y341"
 msgid "Residential institution"
@@ -53707,7 +53721,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y414"
 msgid "Anthelminthics"
-msgstr ""
+msgstr "مضادات الديدان"
 
 msgctxt "model:gnuhealth.pathology,name:Y415"
 msgid "Antiviral drugs"
@@ -53843,7 +53857,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y447"
 msgid "Plasma substitutes"
-msgstr ""
+msgstr "بدائل البلازما"
 
 msgctxt "model:gnuhealth.pathology,name:Y449"
 msgid "Other and unspecified agents affecting blood constituents"
@@ -53979,7 +53993,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y483"
 msgid "Local anaesthetics"
-msgstr ""
+msgstr "التخدير المحلي"
 
 msgctxt "model:gnuhealth.pathology,name:Y484"
 msgid "Anaesthetic, unspecified"
@@ -54379,7 +54393,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Y580"
 msgid "BCG vaccine"
-msgstr ""
+msgstr "لقاح البي سي جي"
 
 msgctxt "model:gnuhealth.pathology,name:Y581"
 msgid "Typhoid and paratyphoid vaccine"
@@ -56607,7 +56621,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.pathology,name:Z515"
 msgid "Palliative care"
-msgstr ""
+msgstr "الرعاية التسكينية"
 
 msgctxt "model:gnuhealth.pathology,name:Z516"
 msgid "Desensitisation to allergens"

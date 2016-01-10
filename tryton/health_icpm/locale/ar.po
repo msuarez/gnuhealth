@@ -1,6 +1,15 @@
-#
+# Nab3a <asn09@aub.edu.lb>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:10+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255057.0\n"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-190"
 msgid "APGAR SCORING OF NEWBORN, WITHOUT OTHER INITIAL MEDICAL EVALUATION"
@@ -16,7 +25,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-193"
 msgid "RECORDING OF BIRTHWEIGHT"
-msgstr ""
+msgstr "تسجيل وزن المولود"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-194"
 msgid "RECORDING OF CROWN-HEEL  LENGTH"
@@ -24,7 +33,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-195"
 msgid "RECORDING OF OTHER NEWBORN MEASUREMENTS"
-msgstr ""
+msgstr "تسجيل قياسات المولود الأخرى"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-198"
 msgid "SUBSEQUENT CARE OF HEALTHY NEWBORN"
@@ -32,7 +41,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-199"
 msgid "NOT OTHERWISE SPECIFIED"
-msgstr ""
+msgstr "غير مذكورة"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-200"
 msgid "SENSORY MAPPING AND TESTING (EXCLUDES AUDITORY(1-23), VISUAL (1-21)"
@@ -40,7 +49,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-201"
 msgid "CLINICAL REFLEX TESTING"
-msgstr ""
+msgstr "اختبار ردود الأفعال"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-202"
 msgid "TENDON REFLEX TIME RECORDING"
@@ -56,7 +65,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-205"
 msgid "MUSCLE POWER TESTING"
-msgstr ""
+msgstr "اختبار القوة العضلية"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_1-206"
 msgid "EXAMINATION OF CEREBROSPINAL FLUID"
@@ -3287,7 +3296,7 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-251"
 msgid "INDUCTION BY INTRAVENOUS INJECTION"
-msgstr ""
+msgstr "الاستقراء عن طريق الحق في الوريد"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-259"
 msgid "URETRAL CATHERIZATION"
@@ -3295,20 +3304,20 @@ msgstr ""
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-360"
 msgid "CATHETERIZATION"
-msgstr ""
+msgstr "قسطرة"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-442"
 msgid "FITTING OR ADJUSTMEMNT OF CRUTCHES"
-msgstr ""
+msgstr "تركيب او ضبط العكازات"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-472"
 msgid "DEEP BREATHING EXERCISE"
-msgstr ""
+msgstr "تمرين التنفس العميق"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-489"
 msgid "PHYSIOTHERAPY"
-msgstr ""
+msgstr "العلاج الطبيعي"
 
 msgctxt "model:gnuhealth.procedure,description:icpm_9-779"
 msgid "SPECIALIZED TREATMENT"
-msgstr ""
+msgstr "العلاج المتخصص"

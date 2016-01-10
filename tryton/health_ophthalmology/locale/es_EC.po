@@ -1,18 +1,26 @@
-#
+# Fabyc <fabianc7@gmail.com>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 20:09+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language: es_EC\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452283741.0\n"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,computed_age:"
 msgid "Age"
-msgstr ""
+msgstr "Edad"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Fecha de creación"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Creado por usuario"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,findings:"
 msgid "Findings"
@@ -20,19 +28,19 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,gender:"
 msgid "Gender"
-msgstr ""
+msgstr "Género"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,health_professional:"
 msgid "Health Professional"
-msgstr ""
+msgstr "Profesional de la salud"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid "Method"
-msgstr ""
+msgstr "Método"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,laxis:"
 msgid "Axis"
@@ -96,11 +104,11 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "Notas"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Paciente"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,raxis:"
 msgid "Axis"
@@ -148,7 +156,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,riop:"
 msgid "RIOP"
@@ -168,39 +176,39 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,signed_by:"
 msgid "Signed by"
-msgstr ""
+msgstr "Firmado por"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,state:"
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,visit_date:"
 msgid "Date"
-msgstr ""
+msgstr "Fecha"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Fecha de modificación"
 
 msgctxt "field:gnuhealth.ophthalmology.evaluation,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Modificado por usuario"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid "Eye"
-msgstr ""
+msgstr "Ojo"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Fecha de creación"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Creado por usuario"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Structure"
-msgstr ""
+msgstr "Estructura"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,finding:"
 msgid "Finding"
@@ -208,31 +216,31 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ophthalmology.findings,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,name:"
 msgid "Evaluation"
-msgstr ""
+msgstr "Evaluación"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Fecha de modificación"
 
 msgctxt "field:gnuhealth.ophthalmology.findings,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Modificado por usuario"
 
 msgctxt "help:gnuhealth.ophthalmology.evaluation,computed_age:"
 msgid "Computed patient age at the moment of the evaluation"
-msgstr ""
+msgstr "Edad del paciente calculada al momento de la evaluación"
 
 msgctxt "help:gnuhealth.ophthalmology.evaluation,health_professional:"
 msgid "Health professional / Ophthalmologist / OptoMetrist"
-msgstr ""
+msgstr "Profesional de la salud / Oftalmólogo / Optometrista"
 
 msgctxt "help:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid "Tonometry / Intraocular pressure reading method"
@@ -360,15 +368,15 @@ msgstr ""
 
 msgctxt "help:gnuhealth.ophthalmology.evaluation,signed_by:"
 msgid "Health Professional that finished the patient evaluation"
-msgstr ""
+msgstr "Profesional de la salud que finalizó la evaluación del paciente"
 
 msgctxt "help:gnuhealth.ophthalmology.evaluation,visit_date:"
 msgid "Date of Consultation"
-msgstr ""
+msgstr "Fecha de consulta"
 
 msgctxt "help:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid "Affected eye"
-msgstr ""
+msgstr "Ojo afectado"
 
 msgctxt "help:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Affected eye structure"
@@ -396,7 +404,7 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_ophthalmology_evaluation_menu"
 msgid "Ophthalmologic evaluations"
-msgstr ""
+msgstr "Evaluaciones oftalmológicas"
 
 msgctxt "odt:ophthalmology.card:"
 msgid "ADD"
@@ -492,11 +500,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,gender:"
 msgid "Female"
-msgstr ""
+msgstr "Femenino"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,gender:"
 msgid "Male"
-msgstr ""
+msgstr "Masculino"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid ""
@@ -504,15 +512,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid "Goldman tonometry"
-msgstr ""
+msgstr "Tonometría de Goldman"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid "Non-contact tonometry"
-msgstr ""
+msgstr "Tonometría de no contacto"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,iop_method:"
 msgid "Schiotz tonometry"
-msgstr ""
+msgstr "Tonometría Schiotz"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid ""
@@ -528,51 +536,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva:"
 msgid "HMCF"
@@ -588,31 +596,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N12"
-msgstr ""
+msgstr "N12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N18"
-msgstr ""
+msgstr "N18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N24"
-msgstr ""
+msgstr "N24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N36"
-msgstr ""
+msgstr "N36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N6"
-msgstr ""
+msgstr "N6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N60"
-msgstr ""
+msgstr "N60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lbcva_nv:"
 msgid "N8"
-msgstr ""
+msgstr "N8"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid ""
@@ -628,51 +636,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva:"
 msgid "HMCF"
@@ -696,51 +704,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_aid:"
 msgid "HMCF"
@@ -764,51 +772,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/12"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,ldva_pinhole:"
 msgid "HMCF"
@@ -824,31 +832,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N12"
-msgstr ""
+msgstr "N12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N18"
-msgstr ""
+msgstr "N18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N24"
-msgstr ""
+msgstr "N24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N36"
-msgstr ""
+msgstr "N36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N6"
-msgstr ""
+msgstr "N6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N60"
-msgstr ""
+msgstr "N60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,lnv:"
 msgid "N8"
-msgstr ""
+msgstr "N8"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid ""
@@ -864,51 +872,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva:"
 msgid "HMCF"
@@ -924,31 +932,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N12"
-msgstr ""
+msgstr "N12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N18"
-msgstr ""
+msgstr "N18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N24"
-msgstr ""
+msgstr "N24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N36"
-msgstr ""
+msgstr "N36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N6"
-msgstr ""
+msgstr "N6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N60"
-msgstr ""
+msgstr "N60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rbcva_nv:"
 msgid "N8"
-msgstr ""
+msgstr "N8"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid ""
@@ -964,51 +972,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva:"
 msgid "HMCF"
@@ -1032,51 +1040,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_aid:"
 msgid "HMCF"
@@ -1100,51 +1108,51 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "1/60"
-msgstr ""
+msgstr "1/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "2/60"
-msgstr ""
+msgstr "2/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "3/60"
-msgstr ""
+msgstr "3/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "4/60"
-msgstr ""
+msgstr "4/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "5/60"
-msgstr ""
+msgstr "5/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/12"
-msgstr ""
+msgstr "6/12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/18"
-msgstr ""
+msgstr "6/18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/24"
-msgstr ""
+msgstr "6/24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/36"
-msgstr ""
+msgstr "6/36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/6"
-msgstr ""
+msgstr "6/6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/60"
-msgstr ""
+msgstr "6/60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "6/9"
-msgstr ""
+msgstr "6/9"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rdva_pinhole:"
 msgid "HMCF"
@@ -1160,31 +1168,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N12"
-msgstr ""
+msgstr "N12"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N18"
-msgstr ""
+msgstr "N18"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N24"
-msgstr ""
+msgstr "N24"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N36"
-msgstr ""
+msgstr "N36"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N6"
-msgstr ""
+msgstr "N6"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N60"
-msgstr ""
+msgstr "N60"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,rnv:"
 msgid "N8"
-msgstr ""
+msgstr "N8"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,state:"
 msgid ""
@@ -1192,11 +1200,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,state:"
 msgid "Done"
-msgstr ""
+msgstr "Realizado"
 
 msgctxt "selection:gnuhealth.ophthalmology.evaluation,state:"
 msgid "In progress"
-msgstr ""
+msgstr "En progreso"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid ""
@@ -1204,15 +1212,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid "both"
-msgstr ""
+msgstr "ambos"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid "left"
-msgstr ""
+msgstr "izquierdo"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,affected_eye:"
 msgid "right"
-msgstr ""
+msgstr "derecho"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid ""
@@ -1228,7 +1236,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Cornea"
-msgstr ""
+msgstr "Córnea"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Fundus Disc"
@@ -1256,7 +1264,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Macula"
-msgstr ""
+msgstr "Mancha"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Naso-lacrimal system"
@@ -1268,7 +1276,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Pupil"
-msgstr ""
+msgstr "Pupila"
 
 msgctxt "selection:gnuhealth.ophthalmology.findings,eye_structure:"
 msgid "Vitreous"

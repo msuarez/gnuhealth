@@ -1,6 +1,14 @@
-#
+# Anonymous Pootle User, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 11:13+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452251638.0\n"
 
 msgctxt "error:gnuhealth.paper_archive:"
 msgid "The history already exists"
@@ -12,114 +20,120 @@ msgstr ""
 
 msgctxt "field:gnuhealth.paper_archive,comments:"
 msgid "Comments"
-msgstr ""
+msgstr "Commenti"
 
 msgctxt "field:gnuhealth.paper_archive,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "Creare Data"
 
 msgctxt "field:gnuhealth.paper_archive,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "Creare utente"
 
 msgctxt "field:gnuhealth.paper_archive,current_location:"
 msgid "Current Location"
-msgstr ""
+msgstr "Posizione Attuale"
 
 msgctxt "field:gnuhealth.paper_archive,hc_status:"
 msgid "Status"
-msgstr ""
+msgstr "Stato"
 
 msgctxt "field:gnuhealth.paper_archive,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.paper_archive,identification_code:"
 msgid "Code"
-msgstr ""
+msgstr "Codice"
 
 msgctxt "field:gnuhealth.paper_archive,legacy:"
 msgid "Legacy Code"
-msgstr ""
+msgstr "Codice obsoleto"
 
 msgctxt "field:gnuhealth.paper_archive,location:"
 msgid "Unit"
-msgstr ""
+msgstr "Unità"
 
 msgctxt "field:gnuhealth.paper_archive,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "Paziente"
 
 msgctxt "field:gnuhealth.paper_archive,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgctxt "field:gnuhealth.paper_archive,request_date:"
 msgid "Request Date"
-msgstr ""
+msgstr "Data Richiesta"
 
 msgctxt "field:gnuhealth.paper_archive,requested_by:"
 msgid "Requested by"
-msgstr ""
+msgstr "Richiesto da"
 
 msgctxt "field:gnuhealth.paper_archive,return_date:"
 msgid "Returned Date"
-msgstr ""
+msgstr "Data Restituzione"
 
 msgctxt "field:gnuhealth.paper_archive,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "Scrivere Data"
 
 msgctxt "field:gnuhealth.paper_archive,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "Scrivere nome utente"
 
 msgctxt "help:gnuhealth.paper_archive,current_location:"
 msgid "Location / Unit where this clinical history document should reside."
 msgstr ""
+"Ubicazione / Unità dove dovrebbe trovarsi questo documento della storia "
+"clinica."
 
 msgctxt "help:gnuhealth.paper_archive,legacy:"
 msgid ""
 "If existing, please enter the old / legacy code associated to this Clinical "
 "History"
 msgstr ""
+"Se esistente, per favore introdurre il vecchio codice (obsoleto) associato a "
+"questa Storia Clinica"
 
 msgctxt "help:gnuhealth.paper_archive,location:"
 msgid "Location / Unit where this clinical history document should reside."
 msgstr ""
+"Ubicazione / Unità dove dovrebbe trovarsi questo documento della storia "
+"clinica."
 
 msgctxt "help:gnuhealth.paper_archive,patient:"
 msgid "Patient associated to this newborn baby"
-msgstr ""
+msgstr "Paziente associato a questo neonato"
 
 msgctxt "help:gnuhealth.paper_archive,requested_by:"
 msgid "Person who last requested the document"
-msgstr ""
+msgstr "Persona che ha richiesto il documento"
 
 msgctxt "model:gnuhealth.paper_archive,name:"
 msgid "Location of PAPER Patient Clinical History"
-msgstr ""
+msgstr "Ubicazione della Storia Clinica CARTACEA del Paziente"
 
 msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
 msgid "Medical Archives"
-msgstr ""
+msgstr "Archivi Medici"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
 msgid "Archives"
-msgstr ""
+msgstr "Archivi"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Archived"
-msgstr ""
+msgstr "Archiviato"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Borrowed"
-msgstr ""
+msgstr "Prestato"
 
 msgctxt "selection:gnuhealth.paper_archive,hc_status:"
 msgid "Lost"
-msgstr ""
+msgstr "Perso"
 
 msgctxt "view:gnuhealth.paper_archive:"
 msgid "Patient PAPER Clinical History"
-msgstr ""
+msgstr "Storia Clinica CARTACEA del Paziente"

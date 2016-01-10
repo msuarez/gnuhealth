@@ -1,10 +1,30 @@
-#
+# 
+# Translators:
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Hisahiro Ohmura, 2014
+# Kazuki Omo <kazuki.omo@gmail.com>, 2014
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014
+# Shigeomi Shibata, 2014
+# Shinji KOBAYASHI <skoba@moss.gr.jp>, 2014
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"Project-Id-Version: GNU Health\n"
+"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
+"POT-Creation-Date: 2016-01-07 20:09+0000\n"
+"PO-Revision-Date: 2015-01-27 05:00+0000\n"
+"Last-Translator: Shinji KOBAYASHI <skoba@moss.gr.jp>\n"
+"Language-Team: Japanese "
+"(http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Translate Toolkit 1.10.0\n"
 
 msgctxt "error:gnuhealth.patient.pregnancy:"
 msgid "Our records indicate that the patient is already pregnant !"
-msgstr ""
+msgstr "この患者はすでに妊娠しています！"
 
 msgctxt "error:gnuhealth.patient.pregnancy:"
 msgid "This pregnancy code for this patient already exists"
@@ -12,427 +32,427 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,abortions:"
 msgid "Abortions"
-msgstr ""
+msgstr "中絶"
 
 msgctxt "field:gnuhealth.patient,breast_self_examination:"
 msgid "Breast self-examination"
-msgstr ""
+msgstr "乳がん自己検診"
 
 msgctxt "field:gnuhealth.patient,colposcopy:"
 msgid "Colposcopy"
-msgstr ""
+msgstr "コルポスコピー"
 
 msgctxt "field:gnuhealth.patient,colposcopy_history:"
 msgid "Colposcopy History"
-msgstr ""
+msgstr "コルポスコピー履歴"
 
 msgctxt "field:gnuhealth.patient,colposcopy_last:"
 msgid "Last colposcopy"
-msgstr ""
+msgstr "前回のコルポスコピー"
 
 msgctxt "field:gnuhealth.patient,currently_pregnant:"
 msgid "Pregnant"
-msgstr ""
+msgstr "妊娠"
 
 msgctxt "field:gnuhealth.patient,fertile:"
 msgid "Fertile"
-msgstr ""
+msgstr "受精"
 
 msgctxt "field:gnuhealth.patient,full_term:"
 msgid "Full Term"
-msgstr ""
+msgstr "妊娠満期"
 
 msgctxt "field:gnuhealth.patient,gravida:"
 msgid "Pregnancies"
-msgstr ""
+msgstr "妊娠"
 
 msgctxt "field:gnuhealth.patient,mammography:"
 msgid "Mammography"
-msgstr ""
+msgstr "マンモグラフィー"
 
 msgctxt "field:gnuhealth.patient,mammography_history:"
 msgid "Mammography History"
-msgstr ""
+msgstr "マンモグラフィー履歴"
 
 msgctxt "field:gnuhealth.patient,mammography_last:"
 msgid "Last mammography"
-msgstr ""
+msgstr "前回のマンモグラフィー"
 
 msgctxt "field:gnuhealth.patient,menarche:"
 msgid "Menarche age"
-msgstr ""
+msgstr "初経年齢"
 
 msgctxt "field:gnuhealth.patient,menopausal:"
 msgid "Menopausal"
-msgstr ""
+msgstr "閉経"
 
 msgctxt "field:gnuhealth.patient,menopause:"
 msgid "Menopause age"
-msgstr ""
+msgstr "閉経年齢"
 
 msgctxt "field:gnuhealth.patient,menstrual_history:"
 msgid "Menstrual History"
-msgstr ""
+msgstr "月経歴"
 
 msgctxt "field:gnuhealth.patient,pap_history:"
 msgid "PAP smear History"
-msgstr ""
+msgstr "PAP塗抹標本履歴"
 
 msgctxt "field:gnuhealth.patient,pap_test:"
 msgid "PAP test"
-msgstr ""
+msgstr "パパニコロウ検査"
 
 msgctxt "field:gnuhealth.patient,pap_test_last:"
 msgid "Last PAP test"
-msgstr ""
+msgstr "最後のパパニコロウ検査"
 
 msgctxt "field:gnuhealth.patient,pregnancy_history:"
 msgid "Pregnancies"
-msgstr ""
+msgstr "妊娠"
 
 msgctxt "field:gnuhealth.patient,premature:"
 msgid "Premature"
-msgstr ""
+msgstr "早産"
 
 msgctxt "field:gnuhealth.patient,stillbirths:"
 msgid "Stillbirths"
-msgstr ""
+msgstr "死産"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,comments:"
 msgid "Remarks"
-msgstr ""
+msgstr "注意点"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation:"
 msgid "Evaluation"
-msgstr ""
+msgstr "判定"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "審査"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,last_colposcopy:"
 msgid "Previous"
-msgstr ""
+msgstr "前回"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,name:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,result:"
 msgid "result"
-msgstr ""
+msgstr "結果"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.colposcopy_history,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.patient.mammography_history,comments:"
 msgid "Remarks"
-msgstr ""
+msgstr "注意点"
 
 msgctxt "field:gnuhealth.patient.mammography_history,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.mammography_history,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.mammography_history,evaluation:"
 msgid "Evaluation"
-msgstr ""
+msgstr "判定"
 
 msgctxt "field:gnuhealth.patient.mammography_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.patient.mammography_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "審査"
 
 msgctxt "field:gnuhealth.patient.mammography_history,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.mammography_history,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.mammography_history,last_mammography:"
 msgid "Previous"
-msgstr ""
+msgstr "前回"
 
 msgctxt "field:gnuhealth.patient.mammography_history,name:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.mammography_history,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.mammography_history,result:"
 msgid "result"
-msgstr ""
+msgstr "結果"
 
 msgctxt "field:gnuhealth.patient.mammography_history,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.mammography_history,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,dysmenorrhea:"
 msgid "Dysmenorrhea"
-msgstr ""
+msgstr "月経痛"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,evaluation:"
 msgid "Evaluation"
-msgstr ""
+msgstr "判定"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,frequency:"
 msgid "frequency"
-msgstr ""
+msgstr "頻度"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "審査"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,is_regular:"
 msgid "Regular"
-msgstr ""
+msgstr "通常"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,lmp:"
 msgid "LMP"
-msgstr ""
+msgstr "最終月経"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,lmp_length:"
 msgid "Length"
-msgstr ""
+msgstr "長さ"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,name:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,volume:"
 msgid "volume"
-msgstr ""
+msgstr "容積"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.menstrual_history,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.patient.pap_history,comments:"
 msgid "Remarks"
-msgstr ""
+msgstr "注意点"
 
 msgctxt "field:gnuhealth.patient.pap_history,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.pap_history,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.pap_history,evaluation:"
 msgid "Evaluation"
-msgstr ""
+msgstr "判定"
 
 msgctxt "field:gnuhealth.patient.pap_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.patient.pap_history,healthprof:"
 msgid "Reviewed"
-msgstr ""
+msgstr "審査"
 
 msgctxt "field:gnuhealth.patient.pap_history,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.pap_history,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.pap_history,last_pap:"
 msgid "Previous"
-msgstr ""
+msgstr "前回"
 
 msgctxt "field:gnuhealth.patient.pap_history,name:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.pap_history,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.pap_history,result:"
 msgid "result"
-msgstr ""
+msgstr "結果"
 
 msgctxt "field:gnuhealth.patient.pap_history,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.pap_history,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.patient.pregnancy,bba:"
 msgid "BBA"
-msgstr ""
+msgstr "予算均衡法"
 
 msgctxt "field:gnuhealth.patient.pregnancy,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.pregnancy,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.pregnancy,current_pregnancy:"
 msgid "Current Pregnancy"
-msgstr ""
+msgstr "現在の妊娠"
 
 msgctxt "field:gnuhealth.patient.pregnancy,fetuses:"
 msgid "Fetuses"
-msgstr ""
+msgstr "胎児"
 
 msgctxt "field:gnuhealth.patient.pregnancy,gravida:"
 msgid "Pregnancy #"
-msgstr ""
+msgstr "妊娠 #"
 
 msgctxt "field:gnuhealth.patient.pregnancy,healthprof:"
 msgid "Health Prof"
-msgstr ""
+msgstr "健康教授"
 
 msgctxt "field:gnuhealth.patient.pregnancy,home_birth:"
 msgid "Home Birth"
-msgstr ""
+msgstr "家庭分娩"
 
 msgctxt "field:gnuhealth.patient.pregnancy,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.pregnancy,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.pregnancy,iugr:"
 msgid "IUGR"
-msgstr ""
+msgstr "IUGR"
 
 msgctxt "field:gnuhealth.patient.pregnancy,lmp:"
 msgid "LMP"
-msgstr ""
+msgstr "最終月経"
 
 msgctxt "field:gnuhealth.patient.pregnancy,monozygotic:"
 msgid "Monozygotic"
-msgstr ""
+msgstr "一卵性双生児"
 
 msgctxt "field:gnuhealth.patient.pregnancy,name:"
 msgid "Patient ID"
-msgstr ""
+msgstr "患者ID"
 
 msgctxt "field:gnuhealth.patient.pregnancy,pdd:"
 msgid "Pregnancy Due Date"
-msgstr ""
+msgstr "妊娠期日"
 
 msgctxt "field:gnuhealth.patient.pregnancy,perinatal:"
 msgid "Perinatal Info"
-msgstr ""
+msgstr "周産期情報"
 
 msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_age:"
 msgid "Weeks"
-msgstr ""
+msgstr "週"
 
 msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_date:"
 msgid "End of Pregnancy"
-msgstr ""
+msgstr "妊娠終了"
 
 msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Result"
-msgstr ""
+msgstr "結果"
 
 msgctxt "field:gnuhealth.patient.pregnancy,prenatal_evaluations:"
 msgid "Prenatal Evaluations"
-msgstr ""
+msgstr "出生前評価"
 
 msgctxt "field:gnuhealth.patient.pregnancy,puerperium_monitor:"
 msgid "Puerperium monitor"
-msgstr ""
+msgstr "産じょく期モニタ"
 
 msgctxt "field:gnuhealth.patient.pregnancy,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.pregnancy,reverse:"
 msgid "Reverse"
-msgstr ""
+msgstr "回復"
 
 msgctxt "field:gnuhealth.patient.pregnancy,reverse_weeks:"
 msgid "Pr. Weeks"
-msgstr ""
+msgstr "妊娠週数"
 
 msgctxt "field:gnuhealth.patient.pregnancy,warning:"
 msgid "Warn"
-msgstr ""
+msgstr "警告"
 
 msgctxt "field:gnuhealth.patient.pregnancy,warning_icon:"
 msgid "Pregnancy warning icon"
@@ -440,682 +460,682 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.pregnancy,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.pregnancy,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,diabetes:"
 msgid "Diabetes"
-msgstr ""
+msgstr "糖尿病"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,efw:"
 msgid "EFW"
-msgstr ""
+msgstr "EFW"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation:"
 msgid "Patient Evaluation"
-msgstr ""
+msgstr "患者評価"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
 msgid "AC"
-msgstr ""
+msgstr "急性期医療"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
 msgid "BPD"
-msgstr ""
+msgstr "BPD"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
 msgid "FL"
-msgstr ""
+msgstr "FL"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
 msgid "HC"
-msgstr ""
+msgstr "HC"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
 msgid "Fetus heart rate"
-msgstr ""
+msgstr "胎児心拍数"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,fundal_height:"
 msgid "Fundal Height"
-msgstr ""
+msgstr "子宮底長"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_days:"
 msgid "Gestational days"
-msgstr ""
+msgstr "妊娠日齢"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_weeks:"
 msgid "Gestational Weeks"
-msgstr ""
+msgstr "妊娠週数"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,healthprof:"
 msgid "Health Prof"
-msgstr ""
+msgstr "健康教授"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,hypertension:"
 msgid "Hypertension"
-msgstr ""
+msgstr "高血圧症"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
 msgid "Placentation"
-msgstr ""
+msgstr "胎盤"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,iugr:"
 msgid "IUGR"
-msgstr ""
+msgstr "IUGR"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,name:"
 msgid "Patient Pregnancy"
-msgstr ""
+msgstr "患者の妊娠"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,oligohydramnios:"
 msgid "Oligohydramnios"
-msgstr ""
+msgstr "羊水過少症"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,overweight:"
 msgid "Overweight"
-msgstr ""
+msgstr "巨大児"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,placenta_previa:"
 msgid "Placenta Previa"
-msgstr ""
+msgstr "前置胎盤"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,polihydramnios:"
 msgid "Polihydramnios"
-msgstr ""
+msgstr "羊水過多症"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
 msgid "Preeclampsia"
-msgstr ""
+msgstr "子癇"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,vasa_previa:"
 msgid "Vasa Previa"
-msgstr ""
+msgstr "前置血管"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.perinatal,abortion:"
 msgid "Abortion"
-msgstr ""
+msgstr "妊娠中絶"
 
 msgctxt "field:gnuhealth.perinatal,abruptio_placentae:"
 msgid "Abruptio Placentae"
-msgstr ""
+msgstr "常位胎盤早期剥離"
 
 msgctxt "field:gnuhealth.perinatal,admission_code:"
 msgid "Code"
-msgstr ""
+msgstr "コード"
 
 msgctxt "field:gnuhealth.perinatal,admission_date:"
 msgid "Admission"
-msgstr ""
+msgstr "入院"
 
 msgctxt "field:gnuhealth.perinatal,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.perinatal,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.perinatal,dystocia:"
 msgid "Dystocia"
-msgstr ""
+msgstr "難産"
 
 msgctxt "field:gnuhealth.perinatal,episiotomy:"
 msgid "Episiotomy"
-msgstr ""
+msgstr "帝王切開"
 
 msgctxt "field:gnuhealth.perinatal,fetus_presentation:"
 msgid "Fetus Presentation"
-msgstr ""
+msgstr "胎位"
 
 msgctxt "field:gnuhealth.perinatal,forceps:"
 msgid "Forceps"
-msgstr ""
+msgstr "鉗子"
 
 msgctxt "field:gnuhealth.perinatal,gestational_days:"
 msgid "Days"
-msgstr ""
+msgstr "日"
 
 msgctxt "field:gnuhealth.perinatal,gestational_weeks:"
 msgid "Gestational wks"
-msgstr ""
+msgstr "妊娠週数"
 
 msgctxt "field:gnuhealth.perinatal,gravida_number:"
 msgid "Gravida #"
-msgstr ""
+msgstr "妊婦 #"
 
 msgctxt "field:gnuhealth.perinatal,healthprof:"
 msgid "Health Prof"
-msgstr ""
+msgstr "健康教授"
 
 msgctxt "field:gnuhealth.perinatal,hematoma:"
 msgid "Hematoma"
-msgstr ""
+msgstr "血腫"
 
 msgctxt "field:gnuhealth.perinatal,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.perinatal,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.perinatal,laceration:"
 msgid "Lacerations"
-msgstr ""
+msgstr "裂創"
 
 msgctxt "field:gnuhealth.perinatal,monitoring:"
 msgid "Monitors"
-msgstr ""
+msgstr "モニター"
 
 msgctxt "field:gnuhealth.perinatal,name:"
 msgid "Patient Pregnancy"
-msgstr ""
+msgstr "患者の妊娠"
 
 msgctxt "field:gnuhealth.perinatal,notes:"
 msgid "Notes"
-msgstr ""
+msgstr "備考"
 
 msgctxt "field:gnuhealth.perinatal,placenta_incomplete:"
 msgid "Incomplete"
-msgstr ""
+msgstr "不完全"
 
 msgctxt "field:gnuhealth.perinatal,placenta_retained:"
 msgid "Retained"
-msgstr ""
+msgstr "保留"
 
 msgctxt "field:gnuhealth.perinatal,prenatal_evaluations:"
 msgid "Prenatal evaluations"
-msgstr ""
+msgstr "出生前評価"
 
 msgctxt "field:gnuhealth.perinatal,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.perinatal,start_labor_mode:"
 msgid "Delivery mode"
-msgstr ""
+msgstr "分娩様式"
 
 msgctxt "field:gnuhealth.perinatal,stillbirth:"
 msgid "Stillbirth"
-msgstr ""
+msgstr "死産"
 
 msgctxt "field:gnuhealth.perinatal,vaginal_tearing:"
 msgid "Vaginal tearing"
-msgstr ""
+msgstr "膣裂傷"
 
 msgctxt "field:gnuhealth.perinatal,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.perinatal,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.perinatal.monitor,bleeding:"
 msgid "Bleeding"
-msgstr ""
+msgstr "呼吸"
 
 msgctxt "field:gnuhealth.perinatal.monitor,contractions:"
 msgid "Contractions"
-msgstr ""
+msgstr "陣痛"
 
 msgctxt "field:gnuhealth.perinatal.monitor,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.perinatal.monitor,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.perinatal.monitor,date:"
 msgid "Date and Time"
-msgstr ""
+msgstr "日時"
 
 msgctxt "field:gnuhealth.perinatal.monitor,diastolic:"
 msgid "Diastolic Pressure"
-msgstr ""
+msgstr "最低血圧"
 
 msgctxt "field:gnuhealth.perinatal.monitor,dilation:"
 msgid "Cervix dilation"
-msgstr ""
+msgstr "子宮口開大"
 
 msgctxt "field:gnuhealth.perinatal.monitor,f_frequency:"
 msgid "Fetus Heart Frequency"
-msgstr ""
+msgstr "胎児心拍数"
 
 msgctxt "field:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Fetus Position"
-msgstr ""
+msgstr "胎位"
 
 msgctxt "field:gnuhealth.perinatal.monitor,frequency:"
 msgid "Mother's Heart Frequency"
-msgstr ""
+msgstr "母体心拍数"
 
 msgctxt "field:gnuhealth.perinatal.monitor,fundal_height:"
 msgid "Fundal Height"
-msgstr ""
+msgstr "子宮底長"
 
 msgctxt "field:gnuhealth.perinatal.monitor,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.perinatal.monitor,meconium:"
 msgid "Meconium"
-msgstr ""
+msgstr "胎便"
 
 msgctxt "field:gnuhealth.perinatal.monitor,name:"
 msgid "Patient Perinatal Evaluation"
-msgstr ""
+msgstr "患者の周産期評価"
 
 msgctxt "field:gnuhealth.perinatal.monitor,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.perinatal.monitor,systolic:"
 msgid "Systolic Pressure"
-msgstr ""
+msgstr "最高血圧"
 
 msgctxt "field:gnuhealth.perinatal.monitor,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.perinatal.monitor,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "field:gnuhealth.puerperium.monitor,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "作成日"
 
 msgctxt "field:gnuhealth.puerperium.monitor,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "作成者"
 
 msgctxt "field:gnuhealth.puerperium.monitor,date:"
 msgid "Date and Time"
-msgstr ""
+msgstr "日時"
 
 msgctxt "field:gnuhealth.puerperium.monitor,diastolic:"
 msgid "Diastolic Pressure"
-msgstr ""
+msgstr "最低血圧"
 
 msgctxt "field:gnuhealth.puerperium.monitor,frequency:"
 msgid "Heart Frequency"
-msgstr ""
+msgstr "心拍数"
 
 msgctxt "field:gnuhealth.puerperium.monitor,healthprof:"
 msgid "Health Prof"
-msgstr ""
+msgstr "健康教授"
 
 msgctxt "field:gnuhealth.puerperium.monitor,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.puerperium.monitor,institution:"
 msgid "Institution"
-msgstr ""
+msgstr "施設"
 
 msgctxt "field:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "Lochia amount"
-msgstr ""
+msgstr "悪露量"
 
 msgctxt "field:gnuhealth.puerperium.monitor,lochia_color:"
 msgid "Lochia color"
-msgstr ""
+msgstr "悪露色"
 
 msgctxt "field:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid "Lochia odor"
-msgstr ""
+msgstr "悪露臭"
 
 msgctxt "field:gnuhealth.puerperium.monitor,name:"
 msgid "Patient Pregnancy"
-msgstr ""
+msgstr "患者の妊娠"
 
 msgctxt "field:gnuhealth.puerperium.monitor,rec_name:"
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgctxt "field:gnuhealth.puerperium.monitor,systolic:"
 msgid "Systolic Pressure"
-msgstr ""
+msgstr "最高血圧"
 
 msgctxt "field:gnuhealth.puerperium.monitor,temperature:"
 msgid "Temperature"
-msgstr ""
+msgstr "体温"
 
 msgctxt "field:gnuhealth.puerperium.monitor,uterus_involution:"
 msgid "Fundal Height"
-msgstr ""
+msgstr "子宮底長"
 
 msgctxt "field:gnuhealth.puerperium.monitor,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "記載日"
 
 msgctxt "field:gnuhealth.puerperium.monitor,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "記載者"
 
 msgctxt "help:gnuhealth.patient,breast_self_examination:"
 msgid "Check if patient does and knows how to self examine her breasts"
-msgstr ""
+msgstr "患者が自分自身での乳房の検査方法を行うかおよび知っているかを確認"
 
 msgctxt "help:gnuhealth.patient,colposcopy:"
 msgid "Check if the patient has done a colposcopy exam"
-msgstr ""
+msgstr "患者はコルポスコピー検査を行っているかの確認"
 
 msgctxt "help:gnuhealth.patient,colposcopy_last:"
 msgid "Enter the date of the last colposcopy"
-msgstr ""
+msgstr "最後のコルポスコピー検査の日付を入力"
 
 msgctxt "help:gnuhealth.patient,fertile:"
 msgid "Check if patient is in fertile age"
-msgstr ""
+msgstr "患者が受胎年齢であることを確認"
 
 msgctxt "help:gnuhealth.patient,full_term:"
 msgid "Full term pregnancies"
-msgstr ""
+msgstr "臨月"
 
 msgctxt "help:gnuhealth.patient,gravida:"
 msgid "Number of pregnancies, computed from Obstetric history"
-msgstr ""
+msgstr "分娩歴から計算される妊娠回数"
 
 msgctxt "help:gnuhealth.patient,mammography:"
 msgid "Check if the patient does periodic mammographys"
-msgstr ""
+msgstr "患者が定期的なマンモグラフィー検査をしているかを確認"
 
 msgctxt "help:gnuhealth.patient,mammography_last:"
 msgid "Enter the date of the last mammography"
-msgstr ""
+msgstr "最後のマンモグラフィー検査の日付を入力"
 
 msgctxt "help:gnuhealth.patient,pap_test:"
 msgid "Check if patient does periodic cytologic pelvic smear screening"
-msgstr ""
+msgstr "患者が定期的な細胞学骨盤スミア検査を行っていることを確認"
 
 msgctxt "help:gnuhealth.patient,pap_test_last:"
 msgid "Enter the date of the last Papanicolau test"
-msgstr ""
+msgstr "最後のパパニコロウ検査の日付を入力"
 
 msgctxt "help:gnuhealth.patient,premature:"
 msgid "Preterm < 37 wks live births"
-msgstr ""
+msgstr "早産 <  37週での出生"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "最後にテストを見直した保健士"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,last_colposcopy:"
 msgid "Last colposcopy"
-msgstr ""
+msgstr "前回のコルポスコピー"
 
 msgctxt "help:gnuhealth.patient.colposcopy_history,result:"
 msgid ""
 "Please check the lab test results if the module is             installed"
-msgstr ""
+msgstr "モジュールがインストールされている場合、ラボの検査結果を確認してください"
 
 msgctxt "help:gnuhealth.patient.mammography_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "help:gnuhealth.patient.mammography_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "最後にテストを見直した保健士"
 
 msgctxt "help:gnuhealth.patient.mammography_history,last_mammography:"
 msgid "Last Mammography"
-msgstr ""
+msgstr "最後のマンモグラフィー検査"
 
 msgctxt "help:gnuhealth.patient.mammography_history,result:"
 msgid ""
 "Please check the lab test results if the module is             installed"
-msgstr ""
+msgstr "モジュールがインストールされている場合、ラボの検査結果を確認してください"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,evaluation_date:"
 msgid "Evaluation Date"
-msgstr ""
+msgstr "評価日付"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,healthprof:"
 msgid "Health Professional who reviewed the information"
-msgstr ""
+msgstr "情報を見なおした保健士"
 
 msgctxt "help:gnuhealth.patient.menstrual_history,lmp:"
 msgid "Last Menstrual Period"
-msgstr ""
+msgstr "最終月経"
 
 msgctxt "help:gnuhealth.patient.pap_history,evaluation_date:"
 msgid "Date"
-msgstr ""
+msgstr "日"
 
 msgctxt "help:gnuhealth.patient.pap_history,healthprof:"
 msgid "Health Professional who last reviewed the test"
-msgstr ""
+msgstr "最後にテストを見直した保健士"
 
 msgctxt "help:gnuhealth.patient.pap_history,last_pap:"
 msgid "Last Papanicolau"
-msgstr ""
+msgstr "最後のパパニコロウ検査"
 
 msgctxt "help:gnuhealth.patient.pap_history,result:"
 msgid "Please check the lab results if the module is             installed"
-msgstr ""
+msgstr "モジュールがインストールされている場合、検査結果を確認してください"
 
 msgctxt "help:gnuhealth.patient.pregnancy,bba:"
 msgid "Born Before Arrival"
-msgstr ""
+msgstr "到着前の出生"
 
 msgctxt "help:gnuhealth.patient.pregnancy,current_pregnancy:"
 msgid "This field marks the current pregnancy"
-msgstr ""
+msgstr "この範囲は現在の妊娠を記録"
 
 msgctxt "help:gnuhealth.patient.pregnancy,healthprof:"
 msgid "Health Professional who created this initial obstetric record"
-msgstr ""
+msgstr "この最初の産科記録を作成した保健士"
 
 msgctxt "help:gnuhealth.patient.pregnancy,home_birth:"
 msgid "Home Birth"
-msgstr ""
+msgstr "家庭分娩"
 
 msgctxt "help:gnuhealth.patient.pregnancy,institution:"
 msgid "Health center where this initial obstetric record was created"
-msgstr ""
+msgstr "この最初の参加記録が作成された保健所"
 
 msgctxt "help:gnuhealth.patient.pregnancy,lmp:"
 msgid "Last Menstrual Period"
-msgstr ""
+msgstr "最終月経"
 
 msgctxt "help:gnuhealth.patient.pregnancy,pregnancy_end_age:"
 msgid "Weeks at the end of pregnancy"
-msgstr ""
+msgstr "妊娠終了時の週数"
 
 msgctxt "help:gnuhealth.patient.pregnancy,reverse:"
 msgid ""
 "Use this method *only* when the         pregnancy information is referred by"
 " the patient, as a history taking         procedure. Please keep in mind "
 "that the reverse pregnancy data is         subjective"
-msgstr ""
+msgstr "妊娠情報が問診手順として、患者からの言及があるとき*のみ*この方法を使用すること。妊娠の回復データが主観的であることを覚えておいてください。"
 
 msgctxt "help:gnuhealth.patient.pregnancy,reverse_weeks:"
 msgid ""
 "Number of weeks at         the end of pregnancy. Used only with the reverse "
 "input method."
-msgstr ""
+msgstr "妊娠終了時の週数。回復の入力方法とともにのみ使われる。"
 
 msgctxt "help:gnuhealth.patient.pregnancy,warning:"
 msgid "Check this box if this is pregancy is or was NOT normal"
-msgstr ""
+msgstr "妊娠か正常で*ない*場合のみ、このボックスをチェック"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,diabetes:"
 msgid "Check this box if the mother has glucose intolerance or diabetes"
-msgstr ""
+msgstr "母親が耐糖能障害または糖尿病の場合、このボックスをチェック"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,efw:"
 msgid "Estimated Fetal Weight"
-msgstr ""
+msgstr "推定胎児体重"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
 msgid "Fetal Abdominal Circumference"
-msgstr ""
+msgstr "胎児の腹囲"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
 msgid "Fetal Biparietal Diameter"
-msgstr ""
+msgstr "胎児の大横径"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
 msgid "Fetal Femur Length"
-msgstr ""
+msgstr "胎児大腿骨長"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
 msgid "Fetal Head Circumference"
-msgstr ""
+msgstr "胎児頭囲"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
 msgid "Fetus heart rate"
-msgstr ""
+msgstr "胎児心拍数"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,fundal_height:"
 msgid ""
 "Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
-msgstr ""
+msgstr "恥骨結合と子宮底間(S-FD)のcm単位の長さ"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "担当の保健士またはシステムに情報を入力した保健士"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,hypertension:"
 msgid "Check this box if the mother has hypertension"
-msgstr ""
+msgstr "母親が高血圧の場合、このボックスをチェック"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,iugr:"
 msgid "Intra Uterine Growth Restriction"
-msgstr ""
+msgstr "子宮内胎児発育遅延"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,overweight:"
 msgid "Check this box if the mother is overweight or obesity"
-msgstr ""
+msgstr "母親が過体重または肥満である場合、このボックスをチェック"
 
 msgctxt "help:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
 msgid "Check this box if the mother has pre-eclampsia"
-msgstr ""
+msgstr "母親が子癇前症の場合、このボックスをチェック"
 
 msgctxt "help:gnuhealth.perinatal,abruptio_placentae:"
 msgid "Abruptio Placentae"
-msgstr ""
+msgstr "常位胎盤早期剥離"
 
 msgctxt "help:gnuhealth.perinatal,admission_date:"
 msgid "Date when she was admitted to give birth"
-msgstr ""
+msgstr "出産のための入院日"
 
 msgctxt "help:gnuhealth.perinatal,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "担当の保健士またはシステムに情報を入力した保健士"
 
 msgctxt "help:gnuhealth.perinatal,placenta_incomplete:"
 msgid "Incomplete Placenta"
-msgstr ""
+msgstr "不完全な胎盤娩出"
 
 msgctxt "help:gnuhealth.perinatal,placenta_retained:"
 msgid "Retained Placenta"
-msgstr ""
+msgstr "遺残胎盤"
 
 msgctxt "help:gnuhealth.perinatal,prenatal_evaluations:"
 msgid "Number of visits to the doctor during pregnancy"
-msgstr ""
+msgstr "妊娠中の医師への訪問回数"
 
 msgctxt "help:gnuhealth.puerperium.monitor,healthprof:"
 msgid ""
 "Health Professional in charge, or that who entered the             "
 "information in the system"
-msgstr ""
+msgstr "担当の保健士またはシステムに情報を入力した保健士"
 
 msgctxt "help:gnuhealth.puerperium.monitor,uterus_involution:"
 msgid ""
 "Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
-msgstr ""
+msgstr "恥骨結合と子宮底間(S-FD)のcm単位の長さ"
 
 msgctxt "model:gnuhealth.patient.colposcopy_history,name:"
 msgid "Colposcopy History"
-msgstr ""
+msgstr "コルポスコピー履歴"
 
 msgctxt "model:gnuhealth.patient.mammography_history,name:"
 msgid "Mammography History"
-msgstr ""
+msgstr "マンモグラフィー履歴"
 
 msgctxt "model:gnuhealth.patient.menstrual_history,name:"
 msgid "Menstrual History"
-msgstr ""
+msgstr "月経歴"
 
 msgctxt "model:gnuhealth.patient.pap_history,name:"
 msgid "PAP Test History"
-msgstr ""
+msgstr "パパニコロウ検査履歴"
 
 msgctxt "model:gnuhealth.patient.pregnancy,name:"
 msgid "Patient Pregnancy"
-msgstr ""
+msgstr "患者の妊娠"
 
 msgctxt "model:gnuhealth.patient.prenatal.evaluation,name:"
 msgid "Prenatal and Antenatal Evaluations"
-msgstr ""
+msgstr "胎内および出生前評価"
 
 msgctxt "model:gnuhealth.perinatal,name:"
 msgid "Perinatal Information"
-msgstr ""
+msgstr "周産期の情報"
 
 msgctxt "model:gnuhealth.perinatal.monitor,name:"
 msgid "Perinatal Monitor"
-msgstr ""
+msgstr "周産期モニタ"
 
 msgctxt "model:gnuhealth.puerperium.monitor,name:"
 msgid "Puerperium Monitor"
-msgstr ""
+msgstr "産じょく期モニタ"
 
 msgctxt "model:ir.action,name:act_pregnancy_form1"
 msgid "Obstetric History"
-msgstr ""
+msgstr "産歴"
 
 msgctxt "model:res.group,name:group_health_gyneco_admin"
 msgid "Health Gynecology and Obstetrics Administration"
-msgstr ""
+msgstr "健康産婦人科管理"
 
 msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
 msgid ""
@@ -1123,11 +1143,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
 msgid "abnormal"
-msgstr ""
+msgstr "異常"
 
 msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
 msgid "normal"
-msgstr ""
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.mammography_history,result:"
 msgid ""
@@ -1135,39 +1155,39 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.mammography_history,result:"
 msgid "abnormal"
-msgstr ""
+msgstr "異常"
 
 msgctxt "selection:gnuhealth.patient.mammography_history,result:"
 msgid "normal"
-msgstr ""
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
 msgid "amenorrhea"
-msgstr ""
+msgstr "無月経"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
 msgid "eumenorrhea"
-msgstr ""
+msgstr "正常な月経"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
 msgid "oligomenorrhea"
-msgstr ""
+msgstr "希発月経"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
 msgid "polymenorrhea"
-msgstr ""
+msgstr "頻発月経"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
 msgid "hypomenorrhea"
-msgstr ""
+msgstr "月経過少症"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
 msgid "menorrhagia"
-msgstr ""
+msgstr "月経過多症"
 
 msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
 msgid "normal"
-msgstr ""
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid ""
@@ -1175,31 +1195,31 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "AIS"
-msgstr ""
+msgstr "アンドロゲン不感性症候群"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "ASC-H"
-msgstr ""
+msgstr "ASC-H(高度病変を除外できない異型扁平上皮)"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "ASC-US"
-msgstr ""
+msgstr "ASC-US(意義不明な異型扁平上皮)"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "ASG"
-msgstr ""
+msgstr "ASG"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "HSIL"
-msgstr ""
+msgstr "HSIL"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "LSIL"
-msgstr ""
+msgstr "LSIL"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "Negative"
-msgstr ""
+msgstr "否定"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
 msgid ""
@@ -1211,7 +1231,7 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
 msgid "Symmetric"
-msgstr ""
+msgstr "対称"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid ""
@@ -1219,19 +1239,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Abortion"
-msgstr ""
+msgstr "妊娠中絶"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Live birth"
-msgstr ""
+msgstr "生児出生"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Status unknown"
-msgstr ""
+msgstr "未確認状態"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Stillbirth"
-msgstr ""
+msgstr "死産"
 
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
@@ -1241,22 +1261,22 @@ msgstr ""
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
 msgid "Accreta"
-msgstr ""
+msgstr "癒着"
 
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
 msgid "Increta"
-msgstr ""
+msgstr "嵌入"
 
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
 msgid "Normal decidua"
-msgstr ""
+msgstr "正常な脱落膜"
 
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
 msgid "Percreta"
-msgstr ""
+msgstr "穿孔"
 
 msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
 msgid ""
@@ -1264,15 +1284,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
 msgid "Breech"
-msgstr ""
+msgstr "臀部"
 
 msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
 msgid "Cephalic"
-msgstr ""
+msgstr "頭部"
 
 msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
 msgid "Shoulder"
-msgstr ""
+msgstr "肩"
 
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid ""
@@ -1280,15 +1300,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid "Retroperitoneal"
-msgstr ""
+msgstr "腹膜後方の"
 
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid "Vaginal"
-msgstr ""
+msgstr "膣の"
 
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid "Vulvar"
-msgstr ""
+msgstr "外陰部"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid ""
@@ -1296,35 +1316,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Bladder"
-msgstr ""
+msgstr "膀胱"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Broad Ligament"
-msgstr ""
+msgstr "子宮広靱帯"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Cervical"
-msgstr ""
+msgstr "頸部"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Perineal"
-msgstr ""
+msgstr "会陰"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Rectal"
-msgstr ""
+msgstr "直腸"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Urethral"
-msgstr ""
+msgstr "尿道"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Vaginal"
-msgstr ""
+msgstr "膣の"
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Vulvar"
-msgstr ""
+msgstr "外陰部"
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid ""
@@ -1332,19 +1352,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid "C-section"
-msgstr ""
+msgstr "帝王切開"
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid "Vaginal - Forceps Extraction"
-msgstr ""
+msgstr "膣 - 鉗子抽出"
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid "Vaginal - Spontaneous"
-msgstr ""
+msgstr "膣 - 自発性"
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid "Vaginal - Vacuum Extraction"
-msgstr ""
+msgstr "膣 -  吸引分娩"
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid ""
@@ -1352,19 +1372,19 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Complete Breech"
-msgstr ""
+msgstr "骨胎位"
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Footling Breech"
-msgstr ""
+msgstr "足位殿位"
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Frank Breech"
-msgstr ""
+msgstr "単臀位"
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Occiput / Cephalic Posterior"
-msgstr ""
+msgstr "後頭部/頭部の後部"
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Transverse Lie"
@@ -1376,15 +1396,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "abundant"
-msgstr ""
+msgstr "大量"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "hemorrhage"
-msgstr ""
+msgstr "出血"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "normal"
-msgstr ""
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
 msgid ""
@@ -1392,15 +1412,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
 msgid "alba"
-msgstr ""
+msgstr "白色"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
 msgid "rubra"
-msgstr ""
+msgstr "赤色"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
 msgid "serosa"
-msgstr ""
+msgstr "漿膜"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid ""
@@ -1408,8 +1428,184 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid "normal"
-msgstr ""
+msgstr "正常"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid "offensive"
-msgstr ""
+msgstr "先制"
+
+#~ msgctxt "error:gnuhealth.patient.pregnancy:"
+#~ msgid "The pregancy number must be unique for this patient !"
+#~ msgstr "この患者の妊娠番号は重複禁止です !"
+
+#~ msgctxt "field:gnuhealth.perinatal,dismissed:"
+#~ msgid "Discharged"
+#~ msgstr "退院"
+
+#~ msgctxt "field:gnuhealth.perinatal,medication:"
+#~ msgid "Medication and anesthesics"
+#~ msgstr "薬物および麻酔薬"
+
+#~ msgctxt "field:gnuhealth.perinatal,mother_deceased:"
+#~ msgid "Maternal death"
+#~ msgstr "母体死亡"
+
+#~ msgctxt "field:gnuhealth.perinatal,place_of_death:"
+#~ msgid "Place of Death"
+#~ msgstr "死亡場所"
+
+#~ msgctxt "help:gnuhealth.perinatal,mother_deceased:"
+#~ msgid "Mother died in the process"
+#~ msgstr "出産中に母親が死亡"
+
+#~ msgctxt "help:gnuhealth.perinatal,place_of_death:"
+#~ msgid "Place where the mother died"
+#~ msgstr "母親が死亡した場所"
+
+#~ msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+#~ msgid "Assymetric"
+#~ msgstr "非対称"
+
+#~ msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+#~ msgid "At the delivery room"
+#~ msgstr "分娩室で"
+
+#~ msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+#~ msgid "Being transferred to other hospital"
+#~ msgstr "他の病院に転送されている"
+
+#~ msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+#~ msgid "Hospital"
+#~ msgstr "病院"
+
+#~ msgctxt "selection:gnuhealth.perinatal,place_of_death:"
+#~ msgid "in transit to the hospital"
+#~ msgstr "病院への輸送中"
+
+#~ msgctxt "view:gnuhealth.patient.colposcopy_history:"
+#~ msgid "Colposcopy Tests"
+#~ msgstr "膣鏡検査"
+
+#~ msgctxt "view:gnuhealth.patient.colposcopy_history:"
+#~ msgid "Patient colposcopy History"
+#~ msgstr "患者の膣鏡検査履歴"
+
+#~ msgctxt "view:gnuhealth.patient.mammography_history:"
+#~ msgid "Mammography Tests"
+#~ msgstr "マンモグラフィー検査"
+
+#~ msgctxt "view:gnuhealth.patient.mammography_history:"
+#~ msgid "Patient mammography History"
+#~ msgstr "患者のマンモグラフィー検査履歴"
+
+#~ msgctxt "view:gnuhealth.patient.menstrual_history:"
+#~ msgid "Menstrual History"
+#~ msgstr "月経歴"
+
+#~ msgctxt "view:gnuhealth.patient.menstrual_history:"
+#~ msgid "Patient Menstrual History"
+#~ msgstr "患者の月経歴"
+
+#~ msgctxt "view:gnuhealth.patient.pap_history:"
+#~ msgid "PAP Tests"
+#~ msgstr "パパニコロウ検査"
+
+#~ msgctxt "view:gnuhealth.patient.pap_history:"
+#~ msgid "Patient pap History"
+#~ msgstr "パパニコロウ検査履歴"
+
+#~ msgctxt "view:gnuhealth.patient.pregnancy:"
+#~ msgid "Pregnancies"
+#~ msgstr "妊娠"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Fetal Biometry"
+#~ msgstr "胎児生体計測"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Fetus Information"
+#~ msgstr "胎児情報"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Mother Information"
+#~ msgstr "母体情報"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Placenta"
+#~ msgstr "胎盤"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Prenatal Evaluation"
+#~ msgstr "出生前評価"
+
+#~ msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
+#~ msgid "Prenatal Evaluations"
+#~ msgstr "出生前評価"
+
+#~ msgctxt "view:gnuhealth.patient:"
+#~ msgid "General"
+#~ msgstr "一般"
+
+#~ msgctxt "view:gnuhealth.patient:"
+#~ msgid "OB summary"
+#~ msgstr "産婦人科概要"
+
+#~ msgctxt "view:gnuhealth.patient:"
+#~ msgid "OB/GYN"
+#~ msgstr "産科婦人科"
+
+#~ msgctxt "view:gnuhealth.patient:"
+#~ msgid "Screening"
+#~ msgstr "スクリーニング"
+
+#~ msgctxt "view:gnuhealth.perinatal.monitor:"
+#~ msgid "Complications"
+#~ msgstr "合併症"
+
+#~ msgctxt "view:gnuhealth.perinatal.monitor:"
+#~ msgid "Fetus"
+#~ msgstr "胎児"
+
+#~ msgctxt "view:gnuhealth.perinatal.monitor:"
+#~ msgid "Mother"
+#~ msgstr "母"
+
+#~ msgctxt "view:gnuhealth.perinatal.monitor:"
+#~ msgid "Perinatal Monitor"
+#~ msgstr "周産期モニタ"
+
+#~ msgctxt "view:gnuhealth.perinatal:"
+#~ msgid "Additional Info"
+#~ msgstr "追加情報"
+
+#~ msgctxt "view:gnuhealth.perinatal:"
+#~ msgid "Main"
+#~ msgstr "メイン"
+
+#~ msgctxt "view:gnuhealth.perinatal:"
+#~ msgid "Notes"
+#~ msgstr "備考"
+
+#~ msgctxt "view:gnuhealth.perinatal:"
+#~ msgid "Perinatal and Intrapartum Information"
+#~ msgstr "周産期と分娩時の情報"
+
+#~ msgctxt "view:gnuhealth.perinatal:"
+#~ msgid "Placenta anomalies"
+#~ msgstr "胎盤異常"
+
+#~ msgctxt "view:gnuhealth.puerperium.monitor:"
+#~ msgid "Institution"
+#~ msgstr "施設"
+
+#~ msgctxt "view:gnuhealth.puerperium.monitor:"
+#~ msgid "Lochia"
+#~ msgstr "悪露"
+
+#~ msgctxt "view:gnuhealth.puerperium.monitor:"
+#~ msgid "Main"
+#~ msgstr "メイン"
+
+#~ msgctxt "view:gnuhealth.puerperium.monitor:"
+#~ msgid "Puerperium Monitor"
+#~ msgstr "産じょく期モニタ"

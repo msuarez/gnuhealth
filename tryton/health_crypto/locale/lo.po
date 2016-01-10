@@ -1,6 +1,14 @@
-#
+# anousak <anousak@gmail.com>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2016-01-08 02:56+0000\n"
+"Last-Translator: anousak <anousak@gmail.com>\n"
+"Language: lo\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452221812.0\n"
 
 msgctxt "field:gnuhealth.birth_certificate,digest_current:"
 msgid "Current Hash"
@@ -8,7 +16,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.birth_certificate,digest_status:"
 msgid "Altered"
-msgstr ""
+msgstr "ປ່ຽນແປງ"
 
 msgctxt "field:gnuhealth.birth_certificate,digital_signature:"
 msgid "Digital Signature"
@@ -32,7 +40,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.death_certificate,digest_status:"
 msgid "Altered"
-msgstr ""
+msgstr "ປ່ຽນແປງ"
 
 msgctxt "field:gnuhealth.death_certificate,digital_signature:"
 msgid "Digital Signature"
@@ -56,7 +64,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,digest_status:"
 msgid "Altered"
-msgstr ""
+msgstr "ປ່ຽນແປງ"
 
 msgctxt "field:gnuhealth.patient.evaluation,digital_signature:"
 msgid "Digital Signature"
@@ -80,7 +88,7 @@ msgstr ""
 
 msgctxt "field:gnuhealth.prescription.order,digest_status:"
 msgid "Altered"
-msgstr ""
+msgstr "ປ່ຽນແປງ"
 
 msgctxt "field:gnuhealth.prescription.order,digital_signature:"
 msgid "Digital Signature"
@@ -156,7 +164,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.birth_certificate:"
 msgid "Generate"
-msgstr ""
+msgstr "ສ້າງ"
 
 msgctxt "view:gnuhealth.birth_certificate:"
 msgid "Generate certificate ?"
@@ -188,7 +196,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.death_certificate:"
 msgid "Generate"
-msgstr ""
+msgstr "ສ້າງ"
 
 msgctxt "view:gnuhealth.death_certificate:"
 msgid "Generate certificate ?"
