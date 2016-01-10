@@ -1,34 +1,42 @@
-#
+# rvnovaes <rvnovaes@gmail.com>, 2016.
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"PO-Revision-Date: 2015-12-28 00:01+0000\n"
+"Last-Translator: rvnovaes <rvnovaes@gmail.com>\n"
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1451260884.0\n"
 
 msgctxt "field:gnuhealth.patient,domestic_violence:"
 msgid "Domestic violence"
-msgstr ""
+msgstr "Violência doméstica"
 
 msgctxt "field:gnuhealth.patient,drug_addiction:"
 msgid "Drug addiction"
-msgstr ""
+msgstr "Viciado em drogas"
 
 msgctxt "field:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Nível de educação"
 
 msgctxt "field:gnuhealth.patient,hostile_area:"
 msgid "Hostile Area"
-msgstr ""
+msgstr "Área Hostil"
 
 msgctxt "field:gnuhealth.patient,hours_outside:"
 msgid "Hours outside home"
-msgstr ""
+msgstr "Horas fora de casa"
 
 msgctxt "field:gnuhealth.patient,housing:"
 msgid "Housing conditions"
-msgstr ""
+msgstr "Condições de moradia"
 
 msgctxt "field:gnuhealth.patient,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "Ocupação"
 
 msgctxt "field:gnuhealth.patient,prison_current:"
 msgid "Currently in prison"
@@ -36,15 +44,15 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,prison_past:"
 msgid "Has been in prison"
-msgstr ""
+msgstr "Já foi preso"
 
 msgctxt "field:gnuhealth.patient,relative_in_prison:"
 msgid "Relative in prison"
-msgstr ""
+msgstr "Familiar preso"
 
 msgctxt "field:gnuhealth.patient,school_withdrawal:"
 msgid "School withdrawal"
-msgstr ""
+msgstr "Abandono escolar"
 
 msgctxt "field:gnuhealth.patient,ses_assessments:"
 msgid "Assessments"
@@ -52,27 +60,27 @@ msgstr ""
 
 msgctxt "field:gnuhealth.patient,ses_notes:"
 msgid "Extra info"
-msgstr ""
+msgstr "Informações extras"
 
 msgctxt "field:gnuhealth.patient,sexual_abuse:"
 msgid "Sexual abuse"
-msgstr ""
+msgstr "Abuso sexual"
 
 msgctxt "field:gnuhealth.patient,single_parent:"
 msgid "Single parent family"
-msgstr ""
+msgstr "Família monoparental"
 
 msgctxt "field:gnuhealth.patient,teenage_pregnancy:"
 msgid "Teenage pregnancy"
-msgstr ""
+msgstr "Gravidez na adolescência"
 
 msgctxt "field:gnuhealth.patient,working_children:"
 msgid "Working children"
-msgstr ""
+msgstr "Trabalho infantil"
 
 msgctxt "field:gnuhealth.patient,works_at_home:"
 msgid "Works at home"
-msgstr ""
+msgstr "Trabalha em casa"
 
 msgctxt "field:gnuhealth.ses.assessment,assessment_date:"
 msgid "Date"
@@ -184,29 +192,31 @@ msgstr ""
 
 msgctxt "field:party.party,occupation:"
 msgid "Occupation"
-msgstr ""
+msgstr "Ocupação"
 
 msgctxt "help:gnuhealth.patient,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Nível de educação"
 
 msgctxt "help:gnuhealth.patient,hostile_area:"
 msgid "Check if patient lives in a zone of high hostility (eg, war)"
-msgstr ""
+msgstr "Marque se o paciente morar em zonas de hostilidade alta (ex.: guerra)"
 
 msgctxt "help:gnuhealth.patient,hours_outside:"
 msgid "Number of hours a day the patient spend outside the house"
-msgstr ""
+msgstr "Número de horas por dia que o paciente fica fora de casa"
 
 msgctxt "help:gnuhealth.patient,housing:"
 msgid "Housing and sanitary living conditions"
-msgstr ""
+msgstr "Condições sanitárias e de moradia"
 
 msgctxt "help:gnuhealth.patient,relative_in_prison:"
 msgid ""
 "Check if someone from the nuclear family - parents / sibblings  is or has "
 "been in prison"
 msgstr ""
+"Marque se algum parente do núcleo familiar esteve na prisão (ex. pais, "
+"irmãos, filhos)"
 
 msgctxt "help:gnuhealth.patient,ses_assessments:"
 msgid "Socioeconomics and Family assessments history"
@@ -214,7 +224,7 @@ msgstr ""
 
 msgctxt "help:gnuhealth.patient,works_at_home:"
 msgid "Check if the patient works at his / her house"
-msgstr ""
+msgstr "Marque se o paciente trabalha em casa"
 
 msgctxt "help:gnuhealth.ses.assessment,assessment_date:"
 msgid "Assessment date"
@@ -287,7 +297,7 @@ msgstr ""
 
 msgctxt "help:party.party,education:"
 msgid "Education Level"
-msgstr ""
+msgstr "Nível de educação"
 
 msgctxt "model:gnuhealth.ses.assessment,name:"
 msgid "Socioeconomics and Family Functionality Assessment"
@@ -311,27 +321,27 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "Ensino Fundamental incompleto"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "Ensino Médio incompleto"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "Ensino Fundamental"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "Ensino Médio"
 
 msgctxt "selection:gnuhealth.patient,education:"
 msgid "University"
-msgstr ""
+msgstr "Universidade"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid ""
@@ -339,23 +349,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Comfortable and good sanitary conditions"
-msgstr ""
+msgstr "Confortável e com boas condições sanitárias"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Luxury and excellent sanitary conditions"
-msgstr ""
+msgstr "Luxuoso com excelentes condições sanitárias"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Roomy and excellent sanitary conditions"
-msgstr ""
+msgstr "Espaçosa e com condições sanitárias excelentes"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Shanty, deficient sanitary conditions"
-msgstr ""
+msgstr "Casebre, condições sanitárias precárias"
 
 msgctxt "selection:gnuhealth.patient,housing:"
 msgid "Small, crowded but with good sanitary conditions"
-msgstr ""
+msgstr "Pequeno, muitos moradores, mas com boas condições sanitárias"
 
 msgctxt "selection:gnuhealth.ses.assessment,education:"
 msgid ""
@@ -559,27 +569,27 @@ msgstr ""
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Primary School"
-msgstr ""
+msgstr "Ensino Fundamental incompleto"
 
 msgctxt "selection:party.party,education:"
 msgid "Incomplete Secondary School"
-msgstr ""
+msgstr "Ensino Médio incompleto"
 
 msgctxt "selection:party.party,education:"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "selection:party.party,education:"
 msgid "Primary School"
-msgstr ""
+msgstr "Ensino Fundamental"
 
 msgctxt "selection:party.party,education:"
 msgid "Secondary School"
-msgstr ""
+msgstr "Ensino Médio"
 
 msgctxt "selection:party.party,education:"
 msgid "University"
-msgstr ""
+msgstr "Universidade"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Current Status"
@@ -587,7 +597,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Notes"
-msgstr ""
+msgstr "Observações"
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Other Family and Environmental determinants"
@@ -595,7 +605,7 @@ msgstr ""
 
 msgctxt "view:gnuhealth.patient:"
 msgid "Socioeconomics"
-msgstr ""
+msgstr "Socioeconômico"
 
 msgctxt "view:gnuhealth.ses.assessment:"
 msgid "Done"
