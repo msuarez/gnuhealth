@@ -1,47 +1,34 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2014
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:57+0000\n"
-"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.dengue_du_survey,aedes_larva:"
 msgid "Larvae"
-msgstr "Νύμφες"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,animal_water_container:"
 msgid "Animal Water containers"
-msgstr "Δοχεία με νερό για ζώα"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,create_date:"
 msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,create_uid:"
 msgid "Create User"
-msgstr "Δημιουργία χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,du:"
 msgid "DU"
-msgstr "Οικιακή Μονάδα DU"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,du_fumigation:"
 msgid "Fumigation"
-msgstr "Απολύμανση με υποκαπνισμό"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,du_status:"
 msgid "Status"
-msgstr "Κατάσταση"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,flower_vase:"
 msgid "Flower vase"
@@ -49,35 +36,35 @@ msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,fumigation_date:"
 msgid "Fumigation Date"
-msgstr "Ημερομηνία υποκαπνισμού"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,larva_in_house:"
 msgid "Domiciliary"
-msgstr "Κατ' οίκον"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,larva_peri:"
 msgid "Peri-Domiciliary"
-msgstr "Περιοχή γύρω από το σπίτι"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,name:"
 msgid "Survey Code"
-msgstr "Κωδικός έρευνας"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,next_survey_date:"
 msgid "Next survey"
-msgstr "Επόμενη έρευνα"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,observations:"
 msgid "Observations"
-msgstr "Παρατηρήσεις"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,old_tyres:"
 msgid "Tyres"
-msgstr "Λάστιχα"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,ovitraps:"
 msgid "Ovitraps"
@@ -85,75 +72,75 @@ msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,potted_plant:"
 msgid "Potted Plants"
-msgstr "Φυτά σε γλάστρες"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,rec_name:"
 msgid "Name"
-msgstr "Όνομα"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,rock_holes:"
 msgid "Rock holes"
-msgstr "Οπές βράχων"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,survey_date:"
 msgid "Date"
-msgstr "Ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,tree_holes:"
 msgid "Tree holes"
-msgstr "Οπές δένδρων"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_date:"
 msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.dengue_du_survey,write_uid:"
 msgid "Write User"
-msgstr "Γράψτε χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,dengue_du_survey_sequence:"
 msgid "Dengue Survey Sequence"
-msgstr "Αλληλουχία εποπτείας Δάγγειου πυρετού"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,aedes_larva:"
 msgid "Check this box if Aedes aegypti larvae were found"
-msgstr "Τσεκάρετε αυτό το κουτάκι αν βρέθηκαν νύμφες κουνουπιού Aedes aegypti"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,animal_water_container:"
 msgid "Animal water containers not scrubbed or clean"
-msgstr "Δοχεία με νερό για ζώα που δεν πλύθηκαν ή δεν είναι καθαρά"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,du:"
 msgid "Domiciliary Unit"
-msgstr "Κατοικία"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,du_fumigation:"
 msgid "The DU has been fumigated"
-msgstr "Η Οικιακή Μονάδα DU υπεβλήθη σε υποκαπνισμό"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,du_status:"
 msgid "DU status compared to last visit"
-msgstr "Κατάστση Οικιακής Μονάδας DU σε σύγκριση με την τελευταία επίσκεψη"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,flower_vase:"
 msgid "Flower vases without scrubbing or cleaning"
-msgstr "Γλάστρες  λουλουδιών που δεν πλύθηκαν ή δεν είναι καθαρές"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,fumigation_date:"
 msgid "Last Fumigation Date"
-msgstr "Τελευταία ημερομηνία υποκαπνισμού"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_in_house:"
 msgid "Check this box if larvae were found inside the house"
-msgstr "Τσεκάρετε αυτό το κουτάκι αν βρέθηκαν νύμφες μέσα στο σπίτι"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,larva_peri:"
 msgid "Check this box if larva were found in the peridomiciliary area"
-msgstr "Τσεκάρετε αυτό το κουτάκι αν βρέθηκαν νύμφες στην άμεση περιοχή γύρω από το σπίτι"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,old_tyres:"
 msgid "Old vehicle tyres found"
-msgstr "Βρέθηκαν παλιά ελαστικά"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,ovitraps:"
 msgid "Check if ovitraps are in place"
@@ -165,84 +152,104 @@ msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,rock_holes:"
 msgid "unfilled rock holes"
-msgstr "μη γεμισμένες οπές βράχων"
+msgstr ""
 
 msgctxt "help:gnuhealth.dengue_du_survey,tree_holes:"
 msgid "unfilled tree holes"
-msgstr "μη γεμισμένες οπές δένδρων"
+msgstr ""
 
 msgctxt "model:gnuhealth.dengue_du_survey,name:"
 msgid "Dengue DU Survey"
-msgstr "Επίβλεψη DU Δάγγειου πυρετού"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_elisa_igg"
+msgid "Dengue ELISA Ig-M"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_igg"
+msgid "Dengue Ig-G"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_pcr"
+msgid "Dengue PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_qualitative_prnt"
+msgid "Dengue PRNT"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_elisa_igg_analysis0"
+msgid "DENGUE IgG"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_elisa_igm_analysis0"
+msgid "DENGUE ELISA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_pcr_analysis0"
+msgid "DENGUE PCR"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_dengue_prnt_analysis0"
+msgid "DENGUE PRNT"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_dengue_du_survey_form"
 msgid "Dengue DU Survey"
-msgstr "Επίβλεψη DU Δάγγειου πυρετού"
+msgstr ""
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_du_survey"
 msgid "Dengue DU Survey"
-msgstr "Επίβλεψη DU Δάγγειου πυρετού"
+msgstr ""
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_du_survey"
 msgid "Dengue DU Survey"
-msgstr "Επίβλεψη DU Δάγγειου πυρετού"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_dengue_elisa_igg_analysischarges0"
 msgid "Dengue IgG Charges"
-msgstr "Τίτλοι IgG Δάγγειου πυρετού"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_dengue_elisa_igm_analysischarges0"
 msgid "Dengue ELISA MAC Ig-M Charges"
-msgstr "Τίτλοι Δάγγειου πυρετού ELISA MAC Ig-M"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_dengue_pcr_analysischarges0"
 msgid "Dengue PCR Charges"
-msgstr "Τίτλοι PCR για Δάγγειο πυρετό"
+msgstr ""
 
 msgctxt ""
 "model:product.template,name:product_template_dengue_prnt_analysischarges0"
 msgid "Dengue PRNT Charges"
-msgstr "Τίτλοι PRNT για Δάγγειο πυρετό"
+msgstr ""
+
+msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Improved"
-msgstr "Βελτιώθηκε"
+msgstr ""
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Initial"
-msgstr "Αρχική"
+msgstr ""
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Unchanged"
-msgstr "Αμετάβλητη"
+msgstr ""
 
 msgctxt "selection:gnuhealth.dengue_du_survey,du_status:"
 msgid "Worsen"
-msgstr "Σε επιδείνωση"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Areas to Improve"
-msgstr "Περιοχές προς βελτίωση"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Dengue Domiciliary Unit Entomological Survey"
-msgstr "Εντομολογική εποπτεία Οικιακής μονάδας για Δάγγειο πυρετό"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Dengue Domiciliary Unit Entomological Surveys"
-msgstr "Εντομολογική εποπτεία Οικιακών μονάδων για Δάγγειο πυρετό"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Notes"
-msgstr "Σημειώσεις"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Presence of larvae"
-msgstr "Παρουσία νυμφών"
-
-msgctxt "view:gnuhealth.dengue_du_survey:"
-msgid "Preventive Measures"
-msgstr "Προληπτικά μέτρα"
+msgstr ""

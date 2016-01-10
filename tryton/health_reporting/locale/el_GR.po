@@ -1,528 +1,299 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2013-2015
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-20 19:24+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.evaluations.open.start,end_date:"
 msgid "End Date"
-msgstr "Ημερομηνία τέλους"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,group_by:"
 msgid "Group By"
-msgstr "Ομαδοποίηση ανά"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations.open.start,start_date:"
 msgid "Start Date"
-msgstr "Ημερομηνία έναρξης"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,create_date:"
 msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,create_uid:"
 msgid "Create User"
-msgstr "Δημιουργία χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,doctor:"
 msgid "Doctor"
-msgstr "Ιατρός"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,evaluations:"
 msgid "Evaluations"
-msgstr "Εκτιμήσεις"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,rec_name:"
 msgid "Name"
-msgstr "Όνομα"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,write_date:"
 msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_doctor,write_uid:"
 msgid "Write User"
-msgstr "Γράψτε τον χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,create_date:"
 msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,create_uid:"
 msgid "Create User"
-msgstr "Δημιουργία χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,evaluations:"
 msgid "Evaluations"
-msgstr "Εκτιμήσεις"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,rec_name:"
 msgid "Name"
-msgstr "Όνομα"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,sector:"
 msgid "Sector"
-msgstr "Τομ,έας"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,write_date:"
 msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_sector,write_uid:"
 msgid "Write User"
-msgstr "Γράψτε τον χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,create_date:"
 msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,create_uid:"
 msgid "Create User"
-msgstr "Δημιουργία χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,evaluations:"
 msgid "Evaluations"
-msgstr "Εκτιμήσεις"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,rec_name:"
 msgid "Name"
-msgstr "Όνομα"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,specialty:"
 msgid "Specialty"
-msgstr "Ειδικότητα"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,write_date:"
 msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.evaluations_specialty,write_uid:"
 msgid "Write User"
-msgstr "Γράψτε τον χρήστη"
+msgstr ""
+
+msgctxt "field:gnuhealth.summary.report.open.start,demographics:"
+msgid "Demographics"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,end_date:"
 msgid "End"
-msgstr "Τέλος"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,institution:"
 msgid "Institution"
-msgstr "Ίδρυμα"
+msgstr ""
+
+msgctxt "field:gnuhealth.summary.report.open.start,patient_evaluations:"
+msgid "Evaluations"
+msgstr ""
 
 msgctxt "field:gnuhealth.summary.report.open.start,start_date:"
 msgid "Start"
-msgstr "Αρχή"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,cases:"
 msgid "Cases"
-msgstr "Περιπτώσεις"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,create_date:"
 msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,create_uid:"
 msgid "Create User"
-msgstr "Δημιουργία χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,disease:"
 msgid "Disease"
-msgstr "Νόσος"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,rec_name:"
 msgid "Name"
-msgstr "Όνομα"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,write_date:"
 msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases,write_uid:"
 msgid "Write User"
-msgstr "Γράψτε τον χρήστη"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,end_date:"
 msgid "End Date"
-msgstr "Ημερομηνία τέλους"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,group:"
 msgid "Disease Group"
-msgstr "Ομάδα ασθενειών"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,number_records:"
 msgid "Number of Records"
-msgstr "Αριθμός φακέλων"
+msgstr ""
 
 msgctxt "field:gnuhealth.top_diseases.open.start,start_date:"
 msgid "Start Date"
-msgstr "Ημερομηνία έναρξης"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations.open.start,name:"
 msgid "Open Evaluations"
-msgstr "Άνοιγμα εκτιμήσεων"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_doctor,name:"
 msgid "Evaluations per Doctor"
-msgstr "Εκτιμήσεις ανά Ιατρό"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_sector,name:"
 msgid "Evaluations per Sector"
-msgstr "Εκτιμήσεις ανά Τομέα"
+msgstr ""
 
 msgctxt "model:gnuhealth.evaluations_specialty,name:"
 msgid "Evaluations per Specialty"
-msgstr "Εκτιμήσεις ανά Ειδικότητα"
+msgstr ""
 
 msgctxt "model:gnuhealth.summary.report.open.start,name:"
 msgid "Summary Report Start"
-msgstr "Έναρξη περιληπτικής αναφοράς"
+msgstr ""
 
 msgctxt "model:gnuhealth.top_diseases,name:"
 msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
+msgstr ""
 
 msgctxt "model:gnuhealth.top_diseases.open.start,name:"
 msgid "Open Top Diseases"
-msgstr "Ανοικτές κορυφαίες ασθένειες"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_doctor"
 msgid "Evaluations per Doctor"
-msgstr "Εκτιμήσεις ανά Ιατρό"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_open"
 msgid "Evaluations Report"
-msgstr "Αναφορά εκτιμήσεων"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_sector"
 msgid "Evaluations per Sector"
-msgstr "Εκτιμήσεις ανά Τομέα"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluations_specialty"
 msgid "Evaluations per Specialty"
-msgstr "Εκτιμήσεις ανά Ειδικότητα"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_top_diseases_form"
 msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_top_diseases_open"
 msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_wizard_summary_report"
-msgid "Demographics Summary"
+msgid "Summary Report"
 msgstr ""
 
 msgctxt "model:ir.action,name:report_summary_information"
 msgid "Summary Report"
-msgstr "Περιληπτική αναφορά"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_evaluations_open"
 msgid "Evaluations Report"
-msgstr "Αναφορά εκτιμήσεων"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_institution_summary_report"
-msgid "Demographics Summary"
+msgid "Summary Report"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_top_diseases_open"
 msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "(living)"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "-"
-msgstr "-"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "0-4"
-msgstr "0-4"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "10-14"
-msgstr "10-14"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "100"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "104"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "105+ years old"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "15-19"
-msgstr "15-19"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "20-24"
-msgstr "20-24"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "25-29"
-msgstr "25-29"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "30-34"
-msgstr "30-34"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "35-39"
-msgstr "35-39"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "40-44"
-msgstr "40-44"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "45-49"
-msgstr "45-49"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "5-9"
-msgstr "5-9"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "50-54"
-msgstr "50-54"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "55-59"
-msgstr "55-59"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "60-64"
-msgstr "60-64"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "65-69"
-msgstr "65-69"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "70-74"
-msgstr "70-74"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "75-79"
-msgstr "75-79"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "80-84"
-msgstr "80-84"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "85-89"
-msgstr "85-89"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "90-94"
-msgstr "90-94"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "95-"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "99"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Age range"
-msgstr "Κατηγορία ηλικίας"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Birth"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Death"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Female"
-msgstr "Θήλυ"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "GNU Health Summary Report"
-msgstr "Περιληπτική αναφορά GNU Heath"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "In health system"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "In t"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Male"
-msgstr "Άρρην"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Male stacked"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Population"
-msgstr "Πληθυσμός"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Population Pyramid"
-msgstr "Πληθυσμιακή πυραμίδα"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Print Date:"
-msgstr "Ημερομ. εκτύπωσης"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Registrations"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "at"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "certs"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "chart"
-msgstr "γραφική παράσταση"
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "his period"
-msgstr ""
-
-msgctxt "odt:gnuhealth.summary.report:"
-msgid "Σ"
 msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Doctor"
-msgstr "Ιατρός"
+msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Sector"
-msgstr "Τομέας"
+msgstr ""
 
 msgctxt "selection:gnuhealth.evaluations.open.start,group_by:"
 msgid "Specialty"
-msgstr "Ειδικότητα"
-
-msgctxt "view:gnuhealth.evaluations.open.start:"
-msgid "Evaluations per Doctor"
-msgstr "Εκτιμήσεις ανά Ιατρό"
-
-msgctxt "view:gnuhealth.evaluations_doctor:"
-msgid "Evaluations"
-msgstr "Εκτιμήσεις"
-
-msgctxt "view:gnuhealth.evaluations_doctor:"
-msgid "Evaluations per Doctor"
-msgstr "Εκτιμήσεις ανά Ιατρό"
-
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations"
-msgstr "Εκτιμήσεις"
-
-msgctxt "view:gnuhealth.evaluations_sector:"
-msgid "Evaluations per Sector"
-msgstr "Εκτιμήσεις ανά Τομέα"
-
-msgctxt "view:gnuhealth.evaluations_specialty:"
-msgid "Evaluations"
-msgstr "Εκτιμήσεις"
-
-msgctxt "view:gnuhealth.evaluations_specialty:"
-msgid "Evaluations per Specialty"
-msgstr "Εκτιμήσεις ανά Ειδικότητα"
-
-msgctxt "view:gnuhealth.summary.report.open.start:"
-msgid "Institution Summary Report"
 msgstr ""
-
-msgctxt "view:gnuhealth.summary.report.open.start:"
-msgid "Main"
-msgstr "Κύρια"
-
-msgctxt "view:gnuhealth.top_diseases.open.start:"
-msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
-
-msgctxt "view:gnuhealth.top_diseases:"
-msgid "Cases"
-msgstr "Περιπτώσεις"
-
-msgctxt "view:gnuhealth.top_diseases:"
-msgid "Top Diseases"
-msgstr "Κορυφαίες ασθένειες"
 
 msgctxt "wizard_button:gnuhealth.evaluations.open,start,end:"
 msgid "Cancel"
-msgstr "Διαγραφή"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.evaluations.open,start,select:"
 msgid "Open"
-msgstr "Ανοικτό"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.summary.report.open,start,end:"
 msgid "Cancel"
-msgstr "Διαγραφή"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.summary.report.open,start,open_:"
 msgid "Open"
-msgstr "Ανοικτό"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.top_diseases.open,start,end:"
 msgid "Cancel"
-msgstr "Διαγραφή"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.top_diseases.open,start,open_:"
 msgid "Open"
-msgstr "Ανοικτό"
+msgstr ""

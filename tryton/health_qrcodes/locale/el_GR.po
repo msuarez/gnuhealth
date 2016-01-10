@@ -1,112 +1,19 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2012
+#
 msgid ""
-msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.newborn,qr:"
 msgid "QR Code"
-msgstr "Γραμμωτός Κώδικας QR δύο διαστάσεων"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient,qr:"
 msgid "QR Code"
-msgstr "Γραμμωτός Κώδικας QR δύο διαστάσεων"
+msgstr ""
 
 msgctxt "model:ir.action,name:report_newborn_qrcard"
 msgid "Newborn ID - QR"
-msgstr "Νεογνικός κωδικός ID - Γραμμωτός Κώδικας QR δύο διαστάσεων"
+msgstr ""
 
 msgctxt "model:ir.action,name:report_patient_qrcard"
 msgid "ID Cards - QR"
-msgstr "Κάρτες ταυτοποίησης ID - "
-
-msgctxt "odt:newborn.qrcard:"
-msgid ","
-msgstr ","
-
-msgctxt "odt:newborn.qrcard:"
-msgid ":"
-msgstr ":"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "DoB"
-msgstr "Ημερομ. γενν."
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Female"
-msgstr "Θήλυ"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Male"
-msgstr "Άρρην"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Mother"
-msgstr "Μητέρα"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Mother's"
 msgstr ""
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Name"
-msgstr "Όνομα"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "PU"
-msgstr "ID"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "and"
-msgstr "και"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "cm"
-msgstr "εκ"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "gr"
-msgstr "γρ"
-
-msgctxt "odt:patient.qrcard:"
-msgid ","
-msgstr ","
-
-msgctxt "odt:patient.qrcard:"
-msgid ":"
-msgstr ":"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Blood Type"
-msgstr "Ομάδα αίματος"
-
-msgctxt "odt:patient.qrcard:"
-msgid "DoB"
-msgstr "Ημερομ. γενν."
-
-msgctxt "odt:patient.qrcard:"
-msgid "Female"
-msgstr "Θήλυ"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Male"
-msgstr "Άρρην"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Name"
-msgstr "Όνομα"
