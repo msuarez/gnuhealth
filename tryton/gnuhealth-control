@@ -43,6 +43,7 @@ Command:
   version : Show version
   backup  : Backup he gnuhealth kernel, attach dir and database
   update  : Download and install the patches
+  getlang : Get and install / update the language pack code
   status  : Show environment and GNU Health Tryton server status
 
 Options:
@@ -386,6 +387,10 @@ do_update()
 }
 
 getlang() {
+    if [ $# -eq 1 ]; then
+        usage
+    fi
+    
     local lang_to_install=$2
     local lang_file=${lang_to_install}.zip
     source $HOME/.gnuhealthrc || exit 1
