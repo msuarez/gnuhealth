@@ -1,3 +1,19 @@
+changeset:   2350:05b820a94cb0
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 23:56:04 2016 +0000
+summary:     all : Fix reports timedelta issue that was showing age in days. Now use a mutually exclusive format
+
+changeset:   2349:bb306b2f49b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 17:51:22 2016 +0000
+summary:     gnuhealth-control : Update documentation
+
+changeset:   2348:f8103be475ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 17:25:11 2016 +0000
+summary:     localization : Sync Greek language with Pootle
+
 changeset:   2347:a21056de0a3c
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jan 10 17:00:48 2016 +0000
