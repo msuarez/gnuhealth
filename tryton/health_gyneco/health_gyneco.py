@@ -593,7 +593,7 @@ class GnuHealthPatient(ModelSQL, ModelView):
     @classmethod
     def view_attributes(cls):
         return [('//page[@id="page_gyneco_obs"]', 'states', {
-                'invisible': Equal(Eval('sex'), 'm'),
+                'invisible': Equal(Eval('biological_sex'), 'm'),
                 })]
 
 class PatientMenstrualHistory(ModelSQL, ModelView):
