@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form string="Inpatient Meal">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="institution"/>
+    <field name="institution"/>
+    <newline/>
+    <group colspan="4" col="6" id="meal_diet_types">
+        <label name="diet_therapeutic"/>
+        <field name="diet_therapeutic"/>
+        <label name="diet_belief"/>
+        <field name="diet_belief"/>
+        <label name="diet_vegetarian"/>
+        <field name="diet_vegetarian"/>
+    </group>
+</form>

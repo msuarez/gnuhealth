@@ -1,0 +1,1498 @@
+# Fabyc <fabianc7@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-08 15:35+0000\n"
+"PO-Revision-Date: 2016-01-07 22:42+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es_EC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452206526.0\n"
+
+msgctxt "error:gnuhealth.activity_and_participation.category:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.activity_and_participation:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.body_function.category:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.body_function:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.body_structure.category:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.body_structure:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.environmental_factor.category:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "error:gnuhealth.environmental_factor:"
+msgid "The code must be unique !"
+msgstr "¡El código debe ser único!"
+
+msgctxt "field:gnuhealth.activity.assessment,activity_and_participation:"
+msgid "Activity"
+msgstr "Actividad"
+
+msgctxt "field:gnuhealth.activity.assessment,assessment:"
+msgid "Assessment"
+msgstr ""
+
+msgctxt "field:gnuhealth.activity.assessment,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.activity.assessment,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.activity.assessment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.activity.assessment,qualifier1:"
+msgid "Performance"
+msgstr ""
+
+msgctxt "field:gnuhealth.activity.assessment,qualifier2:"
+msgid "Capacity"
+msgstr "Capacidad"
+
+msgctxt "field:gnuhealth.activity.assessment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.activity.assessment,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.activity.assessment,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.activity_and_participation,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:gnuhealth.activity_and_participation,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.activity_and_participation,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.activity_and_participation,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.activity_and_participation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.activity_and_participation,name:"
+msgid "A & P"
+msgstr ""
+
+msgctxt "field:gnuhealth.activity_and_participation,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.activity_and_participation,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.activity_and_participation,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.activity_and_participation.category,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_function,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:gnuhealth.body_function,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.body_function,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_function,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_function,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_function,name:"
+msgid "Function"
+msgstr "Función"
+
+msgctxt "field:gnuhealth.body_function,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_function,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_function,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_function.assessment,assessment:"
+msgid "Assessment"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_function.assessment,body_function:"
+msgid "Body Function"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_function.assessment,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_function.assessment,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_function.assessment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_function.assessment,qualifier:"
+msgid "Qualifier"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_function.assessment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_function.assessment,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_function.assessment,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_function.category,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.body_function.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_function.category,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_function.category,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_function.category,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_function.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_function.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_function.category,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_structure,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:gnuhealth.body_structure,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.body_structure,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_structure,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_structure,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_structure,name:"
+msgid "Structure"
+msgstr "Estructura"
+
+msgctxt "field:gnuhealth.body_structure,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_structure,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_structure,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_structure.assessment,assessment:"
+msgid "Assessment"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_structure.assessment,body_side:"
+msgid "Side"
+msgstr "Lado"
+
+msgctxt "field:gnuhealth.body_structure.assessment,body_structure:"
+msgid "Body Structure"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_structure.assessment,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_structure.assessment,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_structure.assessment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Extent"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Nature"
+msgstr ""
+
+msgctxt "field:gnuhealth.body_structure.assessment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_structure.assessment,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_structure.assessment,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.body_structure.category,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.body_structure.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.body_structure.category,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.body_structure.category,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.body_structure.category,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_structure.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.body_structure.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.body_structure.category,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,assessment:"
+msgid "Assessment"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,environmental_factor:"
+msgid "Environment"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.environment.assessment,qualifier:"
+msgid "Barriers"
+msgstr ""
+
+msgctxt "field:gnuhealth.environment.assessment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.environment.assessment,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.environment.assessment,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.environmental_factor,category:"
+msgid "Category"
+msgstr "Categoría"
+
+msgctxt "field:gnuhealth.environmental_factor,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.environmental_factor,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.environmental_factor,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.environmental_factor,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.environmental_factor,name:"
+msgid "Environment"
+msgstr ""
+
+msgctxt "field:gnuhealth.environmental_factor,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.environmental_factor,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.environmental_factor,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.environmental_factor.category,code:"
+msgid "code"
+msgstr "código"
+
+msgctxt "field:gnuhealth.environmental_factor.category,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.environmental_factor.category,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.environmental_factor.category,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.environmental_factor.category,name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.environmental_factor.category,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.environmental_factor.category,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.environmental_factor.category,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.patient,amputations:"
+msgid "Amputations"
+msgstr "Amputaciones"
+
+msgctxt "field:gnuhealth.patient,amputee:"
+msgid "Amputee"
+msgstr "Amputado"
+
+msgctxt "field:gnuhealth.patient,amputee_since:"
+msgid "Since"
+msgstr "Desde"
+
+msgctxt "field:gnuhealth.patient,disability:"
+msgid "Disabilities / Barriers"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,disability_assesments:"
+msgid "Assessment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,protheses:"
+msgid "Protheses"
+msgstr "Prótesis"
+
+msgctxt "field:gnuhealth.patient,uxo:"
+msgid "UXO"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.amputation,amputation_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.patient.amputation,amputation_level:"
+msgid "Level"
+msgstr "Nivel"
+
+msgctxt "field:gnuhealth.patient.amputation,body_structure:"
+msgid "Structure"
+msgstr "Estructura"
+
+msgctxt "field:gnuhealth.patient.amputation,comments:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.amputation,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.amputation,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.amputation,etiology:"
+msgid "Etiology"
+msgstr "Etiología"
+
+msgctxt "field:gnuhealth.patient.amputation,healthprof:"
+msgid "Health Prof"
+msgstr "Prof. de la salud"
+
+msgctxt "field:gnuhealth.patient.amputation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.amputation,limb:"
+msgid "Limb"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.amputation,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.patient.amputation,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.amputation,side:"
+msgid "Side"
+msgstr "Lado"
+
+msgctxt "field:gnuhealth.patient.amputation,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.amputation,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt ""
+"field:gnuhealth.patient.disability_assessment,activity_and_participation:"
+msgid "Activities and Participation Impairments"
+msgstr ""
+
+msgctxt ""
+"field:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "A & P"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,amputee:"
+msgid "Amputee"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,amputee_since:"
+msgid "Since"
+msgstr "Desde"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,assessment:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,assessment_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,body_functions:"
+msgid "Body Functions Impairments"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,body_structures:"
+msgid "Body Structures Impairments"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "Cognitive"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,crutches:"
+msgid "Crutches"
+msgstr "Muletas"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,environmental_factor:"
+msgid "Environmental Factors Barriers"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "Hand"
+msgstr "Mano"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,healthprof:"
+msgid "Health Prof"
+msgstr "Prof. de la salud"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "Hearing"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "Mobility"
+msgstr "Movilidad"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,notes:"
+msgid "Notes"
+msgstr "Notas"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "Speech"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,uxo:"
+msgid "UXO"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "Visual"
+msgstr "Visual"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,wheelchair:"
+msgid "Wheelchair"
+msgstr "Silla de ruedas"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.disability_assessment,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.patient.prothesis,comments:"
+msgid "Comments"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.prothesis,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.prothesis,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.prothesis,healthprof:"
+msgid "Health Prof"
+msgstr "Prof. de la salud"
+
+msgctxt "field:gnuhealth.patient.prothesis,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.prothesis,issue_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.patient.prothesis,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.patient.prothesis,prothesis:"
+msgid "Prothesis"
+msgstr "Prótesis"
+
+msgctxt "field:gnuhealth.patient.prothesis,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.prothesis,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.prothesis,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:product.product,is_prothesis:"
+msgid "Prothesis"
+msgstr "Prótesis"
+
+msgctxt "help:gnuhealth.activity.assessment,qualifier1:"
+msgid "Extent of the difficulty"
+msgstr ""
+
+msgctxt "help:gnuhealth.activity.assessment,qualifier2:"
+msgid "Extent of the dificulty"
+msgstr ""
+
+msgctxt "help:gnuhealth.body_structure.assessment,body_side:"
+msgid "Side of the body, if applies"
+msgstr ""
+
+msgctxt "help:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Extent of the impairment"
+msgstr ""
+
+msgctxt "help:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Nature of the change"
+msgstr ""
+
+msgctxt "help:gnuhealth.environment.assessment,qualifier:"
+msgid "Extent of the barriers or facilitators"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,amputee:"
+msgid ""
+"Person has had one or more limbs removed by amputation. Includes congenital "
+"conditions"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,amputee_since:"
+msgid "Date of amputee status"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,disability:"
+msgid ""
+"Mark this box if the patient has history of significant disabilities and/or "
+"barriers. Review the Disability Assessments, socioeconomic info,  diseases "
+"and surgeries for more details"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient,uxo:"
+msgid "UXO casualty"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.amputation,healthprof:"
+msgid "Authorized health professional"
+msgstr "Profesional de la salud autorizado"
+
+msgctxt "help:gnuhealth.patient.disability_assessment,healthprof:"
+msgid "Authorized health professional"
+msgstr "Profesional de la salud autorizado"
+
+msgctxt "help:gnuhealth.patient.disability_assessment,notes:"
+msgid "Extra Information"
+msgstr "Información extra"
+
+msgctxt "help:gnuhealth.patient.prothesis,healthprof:"
+msgid "Prosthetist or authorized health professional"
+msgstr "Protesista o profesional de la salud autorizado"
+
+msgctxt "help:gnuhealth.patient.prothesis,prothesis:"
+msgid "Prosthetic device"
+msgstr ""
+
+msgctxt "help:product.product,is_prothesis:"
+msgid "Check if the product is a prothesis"
+msgstr "Marque si el producto es una prótesis"
+
+msgctxt "model:gnuhealth.activity.assessment,name:"
+msgid "Activity and Participation Assessment"
+msgstr ""
+
+msgctxt "model:gnuhealth.activity_and_participation,name:"
+msgid "Activity limitations and participation restrictions"
+msgstr ""
+
+msgctxt "model:gnuhealth.activity_and_participation.category,name:"
+msgid "Activity and Participation Category"
+msgstr "Actividad y categoría de participación"
+
+msgctxt "model:gnuhealth.body_function,name:"
+msgid "Body Functions"
+msgstr ""
+
+msgctxt "model:gnuhealth.body_function.assessment,name:"
+msgid "Body Functions Assessment"
+msgstr ""
+
+msgctxt "model:gnuhealth.body_function.category,name:"
+msgid "Body Function Category"
+msgstr ""
+
+msgctxt "model:gnuhealth.body_structure,name:"
+msgid "Body Functions"
+msgstr ""
+
+msgctxt "model:gnuhealth.body_structure.assessment,name:"
+msgid "Body Functions Assessment"
+msgstr ""
+
+msgctxt "model:gnuhealth.body_structure.category,name:"
+msgid "Body Structure Category"
+msgstr ""
+
+msgctxt "model:gnuhealth.environment.assessment,name:"
+msgid "Environmental Factors Assessment"
+msgstr ""
+
+msgctxt "model:gnuhealth.environmental_factor,name:"
+msgid "Environmental factors restrictions"
+msgstr ""
+
+msgctxt "model:gnuhealth.environmental_factor.category,name:"
+msgid "Environmental Factor Category"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.amputation,name:"
+msgid "Amputation"
+msgstr "Amputación"
+
+msgctxt "model:gnuhealth.patient.disability_assessment,name:"
+msgid "Patient Disability Information"
+msgstr "Información de discapacidad del paciente"
+
+msgctxt "model:gnuhealth.patient.prothesis,name:"
+msgid "Amputation"
+msgstr "Amputación"
+
+msgctxt "model:ir.action,name:act_patient_disability_assessment_form"
+msgid "Disability Assessment"
+msgstr ""
+
+msgctxt ""
+"model:ir.action,name:action_gnuhealth_activity_and_participation_view"
+msgid "Activities and Participation"
+msgstr "Actividades y participación"
+
+msgctxt "model:ir.action,name:action_gnuhealth_body_function_view"
+msgid "Body Functions"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_body_structure_view"
+msgid "Body Structures"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_environmental_factor_view"
+msgid "Environmental Factors"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_amputation_view"
+msgid "Amputations"
+msgstr "Amputaciones"
+
+msgctxt "model:ir.action,name:action_gnuhealth_patient_prothesis_view"
+msgid "Protheses"
+msgstr "Prótesis"
+
+msgctxt "model:ir.ui.menu,name:disability_conf_menu"
+msgid "Functioning and Disability"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_activity_and_participation_list"
+msgid "Activities and Participation"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_body_function_list"
+msgid "Body Functions"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_body_structure_list"
+msgid "Body Structures"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_environmental_factor_list"
+msgid "Environmental Factors"
+msgstr "Factores Ambientales"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_amputation_list"
+msgid "Amputations"
+msgstr "Amputaciones"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_prothesis_list"
+msgid "Protheses"
+msgstr "Prótesis"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Complete difficulty"
+msgstr "Dificultad completa"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Mild difficulty"
+msgstr "Dificultad leve"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Moderate difficulty"
+msgstr "Dificultad moderada"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "No difficulty"
+msgstr "Ninguna dificultad"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Not applicable"
+msgstr "No aplica"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Not specified"
+msgstr "No especificado"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier1:"
+msgid "Severe difficulty"
+msgstr "Dificultad severa"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Complete difficulty"
+msgstr "Dificultad completa"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Mild difficulty"
+msgstr "Dificultad leve"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Moderate difficulty"
+msgstr "Dificultad moderada"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "No difficulty"
+msgstr "Ninguna dificultad"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Not applicable"
+msgstr "No aplica"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Not specified"
+msgstr "No especificado"
+
+msgctxt "selection:gnuhealth.activity.assessment,qualifier2:"
+msgid "Severe difficulty"
+msgstr "Dificultad severa"
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "Not applicable"
+msgstr "No aplica"
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "Not specified"
+msgstr "No especificado"
+
+msgctxt "selection:gnuhealth.body_function.assessment,qualifier:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,body_side:"
+msgid ""
+msgstr "Ambos"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,body_side:"
+msgid "Both"
+msgstr "Ambos"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,body_side:"
+msgid "Left"
+msgstr "Izquierdo"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,body_side:"
+msgid "Right"
+msgstr "Derecho"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Not applicable"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Not specified"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier1:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "8 - Not specified"
+msgstr "8 - No especificado"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "9 - Not applicable"
+msgstr "9 - No aplica"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Aberrant dimensions"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Additional part"
+msgstr "Parte adicional"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Deviating position"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Discontinuity"
+msgstr "Discontinuidad"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "No change in structure"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Partial absence"
+msgstr "Ausencia parcial"
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Qualitative changes in structure, including accumulation of fluid"
+msgstr ""
+
+msgctxt "selection:gnuhealth.body_structure.assessment,qualifier2:"
+msgid "Total absence"
+msgstr "Ausencia total"
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Complete barriers"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Complete facilitator"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Mild barriers"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Mild facilitator"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Moderate barriers"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Moderate facilitator"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "No barriers"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "No facilitator"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Severe barriers"
+msgstr ""
+
+msgctxt "selection:gnuhealth.environment.assessment,qualifier:"
+msgid "Severe facilitator"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "ED - Elbow disarticulation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "HD - Hemipelvectomy"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "PFFD"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "PH"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "SD - Shoulder disarticulation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "Symes"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "TF - Transfemoral"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "TH - Transhumeral"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "TR - Transradial"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "TT - Transtibial"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,amputation_level:"
+msgid "WD - Wrist disarticulation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid "Congenital"
+msgstr "Congénito"
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid "Infection"
+msgstr "Infección"
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid "Neoplasia"
+msgstr "Neoplasia"
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid "Peripherial Vascular Disease"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,etiology:"
+msgid "Trauma"
+msgstr "Trauma"
+
+msgctxt "selection:gnuhealth.patient.amputation,limb:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,limb:"
+msgid "lower limb"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,limb:"
+msgid "upper limb"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,side:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.amputation,side:"
+msgid "both"
+msgstr "ambos"
+
+msgctxt "selection:gnuhealth.patient.amputation,side:"
+msgid "left"
+msgstr "izquierdo"
+
+msgctxt "selection:gnuhealth.patient.amputation,side:"
+msgid "right"
+msgstr "derecho"
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid ""
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,activity_participation:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid ""
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,cognitive_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hand_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,hearing_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid ""
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.disability_assessment,locomotor_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,speech_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "Complete impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "Mild impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "Moderate impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "No impairment"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disability_assessment,visual_function:"
+msgid "Severe impairment"
+msgstr ""
+
+msgctxt "view:gnuhealth.activity.assessment:"
+msgid "Activity and Participation Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.activity_and_participation:"
+msgid "Activity and Participation"
+msgstr "Actividad y participación"
+
+msgctxt "view:gnuhealth.activity_and_participation:"
+msgid "Actuvuty and Participation"
+msgstr "Actividad y participación"
+
+msgctxt "view:gnuhealth.body_function.assessment:"
+msgid "Body Function Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.body_function:"
+msgid "Body Function"
+msgstr ""
+
+msgctxt "view:gnuhealth.body_structure.assessment:"
+msgid "Body Structure Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.body_structure:"
+msgid "Body Structure"
+msgstr ""
+
+msgctxt "view:gnuhealth.environment.assessment:"
+msgid "Environmental Factors Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.environmental_factor:"
+msgid "Environmental Factor"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.amputation:"
+msgid "Patient Amputations"
+msgstr "Amputaciones del paciente"
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Amputee Status"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Detailed Functioning and Disability Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Extra Info"
+msgstr "Información extra"
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Header"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Patient Disability Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.disability_assessment:"
+msgid "Summary - Brief Assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.prothesis:"
+msgid "Patient Protheses"
+msgstr "Prótesis del paciente"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Disability Information"
+msgstr "Información de discapacidad"
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Functioning and Disability"
+msgstr ""

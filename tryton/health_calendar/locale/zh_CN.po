@@ -1,139 +1,139 @@
-# 
-# Translators:
-# Jovana Savic <joa.uniq@gmail.com>, 2012
-# Philip Li <Horatii.Lee@gmail.com>, 2014
-# Zenith Zhao <>, 2012
+#
 msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid "End date before start"
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid "The schedule period should be < 31 days"
+msgstr ""
+
+msgctxt "error:gnuhealth.calendar.create.appointment:"
+msgid ""
+"You need to define a timezone for this company before creating a work schedule.\n"
+"\n"
+"Party > Configuration > Companies"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,appointment_date_end:"
 msgid "End Date and Time"
-msgstr "结束日期时间"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,event:"
 msgid "CalDAV Event"
-msgstr "行事历概览"
+msgstr ""
 
 msgctxt ""
 "field:gnuhealth.calendar.create.appointment.start,appointment_minutes:"
 msgid "Appointment Minutes"
-msgstr "约定分钟数"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,date_end:"
 msgid "End Date"
-msgstr "结束日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,date_start:"
 msgid "Start Date"
-msgstr "开始日期"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,friday:"
 msgid "Friday"
-msgstr "星期五"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,healthprof:"
 msgid "Health Prof"
-msgstr "健康证明"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,id:"
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,institution:"
 msgid "Institution"
-msgstr "机构"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,monday:"
 msgid "Monday"
-msgstr "星期一"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,saturday:"
 msgid "Saturday"
-msgstr "星期六"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,specialty:"
 msgid "Specialty"
-msgstr "专业"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,sunday:"
 msgid "Sunday"
-msgstr "星期天"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,thursday:"
 msgid "Thursday"
-msgstr "星期四"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,time_end:"
 msgid "End Time"
-msgstr "截止时间"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,time_start:"
 msgid "Start Time"
-msgstr "开始时间"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,tuesday:"
 msgid "Tuesday"
-msgstr "星期二"
+msgstr ""
 
 msgctxt "field:gnuhealth.calendar.create.appointment.start,wednesday:"
 msgid "Wednesday"
-msgstr "星期三"
+msgstr ""
 
 msgctxt "field:res.user,calendar:"
 msgid "Calendar"
-msgstr "日历"
+msgstr ""
 
 msgctxt "field:res.user,use_caldav:"
 msgid "Use CalDAV ?"
-msgstr "使用行事历？"
+msgstr ""
 
 msgctxt "help:gnuhealth.appointment,event:"
 msgid "Calendar Event"
-msgstr "日期的事件"
+msgstr ""
 
 msgctxt "model:gnuhealth.calendar.create.appointment.start,name:"
 msgid "Create Appointments Start"
-msgstr "开始创建预约"
+msgstr ""
 
 msgctxt "model:ir.action,name:action_gnuhealth_appointment_calendar"
 msgid "Appointments Calendar"
-msgstr "预约日历表"
+msgstr ""
 
 msgctxt "model:ir.action,name:wizard_create_appointments"
 msgid "New Work Schedule"
-msgstr "新的工作安排"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_create_appointments"
 msgid "New Work Schedule"
-msgstr "新的工作安排"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_appointment_calendar"
 msgid "Appointments Calendar"
-msgstr "预约日历表"
+msgstr ""
 
 msgctxt "view:gnuhealth.appointment:"
 msgid "Patient appointments"
-msgstr "患者预约信息"
+msgstr ""
 
 msgctxt "view:gnuhealth.calendar.create.appointment.start:"
 msgid "New Work Schedule"
-msgstr "新的工作安排"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,create_:"
 msgid "Create"
-msgstr "创建"
+msgstr ""
 
 msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,end:"
 msgid "Cancel"
-msgstr "取消"
+msgstr ""

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="//field[@name=&quot;sex&quot;]" position="after">
+    <xpath expr="//field[@name=&quot;ethnic_group&quot;]" position="after">
         <label name="occupation"/>
         <field name="occupation"/>
         <label name="education"/>

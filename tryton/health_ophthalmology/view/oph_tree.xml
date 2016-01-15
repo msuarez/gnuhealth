@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<tree string="Ophthalmology Evaluation">
+    <field name="patient"/>
+    <field name="visit_date" widget="date"/>
+    <field name="health_professional"/>
+</tree>

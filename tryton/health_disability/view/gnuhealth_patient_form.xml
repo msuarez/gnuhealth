@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<data>
+    <!-- Include disability / barriers field on main patient form -->
+    
+    <xpath expr="//field[@name=&quot;critical_info&quot;]" position="after">
+        <newline/>
+        <group id="disability_status" colspan="2">
+            <label name="disability"/>
+            <field name="disability"/>
+        </group>
+    </xpath>
+
+    <!-- Include UXO victim field on Socioeconomics form, after Hostile area -->
+
+    <xpath expr="//field[@name=&quot;hostile_area&quot;]" position="after">
+        <label name="uxo"/>
+        <field name="uxo"/>
+
+    </xpath>
+
+    <!-- Include Disability information on the patient form-->
+
+    <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
+        <page string="Functioning and Disability" id="patient_disability">
+            <group id="disability_barriers" colspan="4" yfill="1" yexpand="1">
+                <field name="disability_assesments" colspan="4"/>
+                <newline/>
+                <label name="amputee"/>
+                <field name="amputee"/>
+                <label name="amputee_since"/>
+                <field name="amputee_since"/>
+                <newline/>
+                <field name="amputations" colspan="4"/>
+                <newline/>
+                <field name="protheses" colspan="4"/>
+            </group>
+        </page>
+    </xpath>
+
+</data>

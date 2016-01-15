@@ -1,19 +1,14 @@
-# 
-# Translators:
-# Philip Li <Horatii.Lee@gmail.com>, 2014
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-08 11:28+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252499.0\n"
 
 msgctxt "error:gnuhealth.bed.transfer.create:"
 msgid "Destination bed is unavailable"
@@ -23,17 +18,39 @@ msgctxt "error:gnuhealth.bed.transfer.create:"
 msgid "You have chosen more than 1 records. Please choose only one"
 msgstr "你选择看不止1条记录。请只选择1条。"
 
-msgctxt "error:gnuhealth.diet.belief:"
-msgid "The Diet code already exists"
-msgstr "饮食编号已经存在"
-
 msgctxt "error:gnuhealth.diet.therapeutic:"
 msgid "The Diet code already exists"
 msgstr "饮食编号已经存在"
 
+msgctxt "error:gnuhealth.inpatient.meal.order:"
+msgid ""
+"===== MEAL WARNING ! =====\n"
+"\n"
+"\n"
+"This patient has special meal needs \n"
+"\n"
+"Check and acknowledge that\n"
+"the meal items in this order are correct \n"
+"\n"
+msgstr ""
+
+msgctxt "error:gnuhealth.inpatient.meal.order:"
+msgid "No health professional associated to this user"
+msgstr ""
+
+msgctxt "error:gnuhealth.inpatient.meal.order:"
+msgid "The Meal Order code already exists"
+msgstr ""
+
 msgctxt "error:gnuhealth.inpatient.medication.log:"
 msgid "No health professional associated to this user"
 msgstr "没有为用户指定健康专家"
+
+msgctxt "error:gnuhealth.inpatient.registration:"
+msgid ""
+"Admission and Discharge reasons \n"
+"as well as Discharge Dx are needed"
+msgstr ""
 
 msgctxt "error:gnuhealth.inpatient.registration:"
 msgid "Bed is not available"
@@ -46,6 +63,10 @@ msgstr "目标床位不可用"
 msgctxt "error:gnuhealth.inpatient.registration:"
 msgid "The Registration code already exists"
 msgstr "注册代码已经存在了"
+
+msgctxt "error:wizard.gnuhealth.inpatient.evaluation:"
+msgid "You need to select an inpatient registration record"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,inpatient_registration_code:"
 msgid "Inpatient Registration"
@@ -103,45 +124,13 @@ msgctxt "field:gnuhealth.bed.transfer.init,newbed:"
 msgid "New Bed"
 msgstr "新床位"
 
+msgctxt "field:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Bed of origin Status"
+msgstr ""
+
 msgctxt "field:gnuhealth.bed.transfer.init,reason:"
 msgid "Reason"
 msgstr "原因 "
-
-msgctxt "field:gnuhealth.diet.belief,code:"
-msgid "Code"
-msgstr "代码"
-
-msgctxt "field:gnuhealth.diet.belief,create_date:"
-msgid "Create Date"
-msgstr "创建日期"
-
-msgctxt "field:gnuhealth.diet.belief,create_uid:"
-msgid "Create User"
-msgstr "创建用户"
-
-msgctxt "field:gnuhealth.diet.belief,description:"
-msgid "Description"
-msgstr "描写"
-
-msgctxt "field:gnuhealth.diet.belief,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.diet.belief,name:"
-msgid "Belief"
-msgstr "信仰"
-
-msgctxt "field:gnuhealth.diet.belief,rec_name:"
-msgid "Name"
-msgstr "名字"
-
-msgctxt "field:gnuhealth.diet.belief,write_date:"
-msgid "Write Date"
-msgstr "请您写日期"
-
-msgctxt "field:gnuhealth.diet.belief,write_uid:"
-msgid "Write User"
-msgstr "请您写用户"
 
 msgctxt "field:gnuhealth.diet.therapeutic,code:"
 msgid "Code"
@@ -214,6 +203,150 @@ msgstr "请您写日期"
 msgctxt "field:gnuhealth.inpatient.diet,write_uid:"
 msgid "Write User"
 msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.inpatient.meal,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,diet_belief:"
+msgid "Belief"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,diet_therapeutic:"
+msgid "Diet"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,diet_vegetarian:"
+msgid "Vegetarian"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,name:"
+msgid "Food"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,health_professional:"
+msgid "Health Professional"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,meal_item:"
+msgid "Items"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,meal_order:"
+msgid "Order"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,meal_warning:"
+msgid "Warning"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,meal_warning_ack:"
+msgid "Ack"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Meal time"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,name:"
+msgid "Registration Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,order_date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,remarks:"
+msgid "Remarks"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,state:"
+msgid "Status"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,meal:"
+msgid "Meal"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,name:"
+msgid "Meal Order"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,remarks:"
+msgid "Remarks"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.inpatient.meal.order.item,write_uid:"
+msgid "Write User"
+msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.medication,admin_times:"
 msgid "Admin times"
@@ -443,21 +576,21 @@ msgctxt "field:gnuhealth.inpatient.registration,create_uid:"
 msgid "Create User"
 msgstr "创建用户"
 
-msgctxt "field:gnuhealth.inpatient.registration,diet_belief:"
-msgid "Belief"
-msgstr "信仰"
-
-msgctxt "field:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Vegetarian"
-msgstr "素食主义者"
-
 msgctxt "field:gnuhealth.inpatient.registration,discharge_date:"
 msgid "Expected Discharge Date"
 msgstr "预计出院日期"
 
+msgctxt "field:gnuhealth.inpatient.registration,discharge_dx:"
+msgid "Discharge Dx"
+msgstr ""
+
 msgctxt "field:gnuhealth.inpatient.registration,discharge_plan:"
 msgid "Discharge Plan"
 msgstr "出院计划"
+
+msgctxt "field:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Discharge Reason"
+msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.registration,discharged_by:"
 msgid "Discharged by"
@@ -472,8 +605,8 @@ msgid "ID"
 msgstr "ID"
 
 msgctxt "field:gnuhealth.inpatient.registration,info:"
-msgid "Extra Info"
-msgstr "额外信息"
+msgid "Notes"
+msgstr ""
 
 msgctxt "field:gnuhealth.inpatient.registration,institution:"
 msgid "Institution"
@@ -503,6 +636,10 @@ msgctxt "field:gnuhealth.inpatient.registration,patient:"
 msgid "Patient"
 msgstr "患者"
 
+msgctxt "field:gnuhealth.inpatient.registration,puid:"
+msgid "PUID"
+msgstr ""
+
 msgctxt "field:gnuhealth.inpatient.registration,rec_name:"
 msgid "Name"
 msgstr "名字"
@@ -527,6 +664,18 @@ msgctxt "field:gnuhealth.patient,patient_status:"
 msgid "Hospitalized"
 msgstr ""
 
+msgctxt "field:gnuhealth.patient.ecg,inpatient_registration_code:"
+msgid "Inpatient Registration"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,inpatient_registration_code:"
+msgid "IPC"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,inpatient_meal_order_sequence:"
+msgid "Inpatient Meal Sequence"
+msgstr ""
+
 msgctxt "field:gnuhealth.sequences,inpatient_registration_sequence:"
 msgid "Inpatient Sequence"
 msgstr "住院序列"
@@ -538,6 +687,22 @@ msgstr "输入病人的住院编号"
 msgctxt "help:gnuhealth.inpatient.diet,remarks:"
 msgid "specific remarks for this diet / patient"
 msgstr "该饮食/病人的详细记录"
+
+msgctxt "help:gnuhealth.inpatient.meal,name:"
+msgid "Food"
+msgstr ""
+
+msgctxt "help:gnuhealth.inpatient.meal.order,meal_warning:"
+msgid "The patient has special needs on meals"
+msgstr ""
+
+msgctxt "help:gnuhealth.inpatient.meal.order,meal_warning_ack:"
+msgid "Check if you have verified the warnings on the patient meal items"
+msgstr ""
+
+msgctxt "help:gnuhealth.inpatient.meal.order,order_date:"
+msgid "Order date"
+msgstr ""
 
 msgctxt "help:gnuhealth.inpatient.medication,adverse_reaction:"
 msgid "Side effects or adverse reactions that the patient experienced"
@@ -631,17 +796,32 @@ msgctxt "help:gnuhealth.inpatient.registration,admission_reason:"
 msgid "Reason for Admission"
 msgstr "入院原因"
 
-msgctxt "help:gnuhealth.inpatient.registration,diet_belief:"
-msgid ""
-"Enter the patient belief or religion to choose the             proper diet"
-msgstr "输入病人的信仰或宗教选择适当的饮食"
+msgctxt "help:gnuhealth.inpatient.registration,discharge_dx:"
+msgid "Code for Discharge Diagnosis"
+msgstr ""
+
+msgctxt "help:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Reason for patient discharge"
+msgstr ""
 
 msgctxt "help:gnuhealth.inpatient.registration,discharged_by:"
 msgid "Health Professional that discharged the patient"
 msgstr "健康专家允许病人出院"
 
+msgctxt "help:gnuhealth.inpatient.registration,puid:"
+msgid "Person Unique Identifier"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient,patient_status:"
 msgid "Show the hospitalization status of the patient"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ecg,inpatient_registration_code:"
+msgid "Enter the patient hospitalization code"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,inpatient_registration_code:"
+msgid "Enter the patient hospitalization code"
 msgstr ""
 
 msgctxt "model:gnuhealth.bed.transfer,name:"
@@ -651,88 +831,6 @@ msgstr "病床转移"
 msgctxt "model:gnuhealth.bed.transfer.init,name:"
 msgid "Create Bed Transfer Init"
 msgstr "创建病床转移初始化"
-
-msgctxt "model:gnuhealth.diet.belief,description:BUDDHIST"
-msgid ""
-"While Buddhism does not have specific dietary rules, some buddhists practise"
-" vegetarianism based on a strict interpretation of the first of the Five "
-"Precepts"
-msgstr "虽然佛教徒没有什么特别的饮食规定，一些佛教徒"
-
-msgctxt "model:gnuhealth.diet.belief,description:EDENIC"
-msgid ""
-"A diet based on what Adam and Eve are believed to have consumed in Garden of"
-" Eden. Usually either vegetarian or vegan, and based predominantly on fruit"
-msgstr "一种食谱是基于据说是亚当和夏娃在伊甸园时的饮食。通常是素食或纯素，并主要是水果。"
-
-msgctxt "model:gnuhealth.diet.belief,description:HALLELUJAH"
-msgid ""
-"Hallelujah diet: A form of Christian vegetarianism developed in the 1970s. "
-"The creators interpret a verse from the Bible as suggesting that Christians "
-"should only consume seed bearing plants and fruits."
-msgstr "哈利路亚食谱：1970由一个素食主义基督教徒发展起来的一种。创造者从圣经上翻译了一个诗篇揭示出基督教徒应该只能吃作物和水果。"
-
-msgctxt "model:gnuhealth.diet.belief,description:HINDU"
-msgid ""
-"Hindu and Jain diets: Followers of Hinduism and Jainism often follow lacto-"
-"vegetarian diets, based on the principle of Ahimsa (non-harming)"
-msgstr "印度教徒和耆那教徒食谱：印度教徒和耆那教徒基于不杀生(无害)的原则，饮食方式通常和乳素食者饮食方式相同."
-
-msgctxt "model:gnuhealth.diet.belief,description:ISLAMIC"
-msgid ""
-"Muslims follow a diet consisting solely of food that is halal – permissible "
-"under Islamic law. The opposite of halal is haraam, food that is Islamically"
-" Impermissible. Haraam substances include alcohol, pork, and any meat from "
-"an animal which was not killed through the Islamic method of ritual "
-"slaughter (Dhabiha)"
-msgstr "穆斯林只吃清真食物-所谓的清真食物即伊斯兰教义允许吃的食物。与清真食物不同，不可食食物即伊斯兰教义不允许吃的食物。不可食食物包括酒精、猪肉、或者是任何未经伊斯兰屠宰仪式屠宰的动物的肉.(屠宰动物的方法)"
-
-msgctxt "model:gnuhealth.diet.belief,description:ITAL"
-msgid ""
-"I-tal: A set of principles which influences the diet of many members of the "
-"Rastafari movement. One principle is that natural foods should be consumed. "
-"Some Rastafarians interpret I-tal to advocate vegetarianism or veganism"
-msgstr "I-tal：制约拉斯塔法里教运动的成员的饮食一系列准则。具体是说必须吃自然的食物。一些拉斯塔法里教成员认为 I-tal就是主张 素食"
-
-msgctxt "model:gnuhealth.diet.belief,description:KOSHER"
-msgid ""
-"Kosher diet: Food permissible under Kashrut, the set of Jewish dietary laws,"
-" is said to be Kosher. Some foods and food combinations are non-Kosher, and "
-"failure to prepare food in accordance with Kashrut can make otherwise "
-"permissible foods non-Kosher."
-msgstr "犹太教徒的食谱：犹太教的饮食教规允许吃的食物，这是在犹太饮食准则规定下的是合适的。一些食物和食物中包含的东西是不适合犹太教徒食用的，同时如果不按照犹太教的饮食教规规定制作食物会使一些本来允许食用的食物变成不适合犹太教徒食用。"
-
-msgctxt "model:gnuhealth.diet.belief,name:"
-msgid "Diet by Belief"
-msgstr "由信仰决定的饮食"
-
-msgctxt "model:gnuhealth.diet.belief,name:BUDDHIST"
-msgid "Buddhist"
-msgstr "佛教徒"
-
-msgctxt "model:gnuhealth.diet.belief,name:EDENIC"
-msgid "Edenic"
-msgstr "宗教学"
-
-msgctxt "model:gnuhealth.diet.belief,name:HALLELUJAH"
-msgid "Hallelujah"
-msgstr "哈利路亚"
-
-msgctxt "model:gnuhealth.diet.belief,name:HINDU"
-msgid "Hindu"
-msgstr "印度教徒"
-
-msgctxt "model:gnuhealth.diet.belief,name:ISLAMIC"
-msgid "Islamic"
-msgstr "穆斯林"
-
-msgctxt "model:gnuhealth.diet.belief,name:ITAL"
-msgid "I-tal"
-msgstr "制约拉斯塔法里教运动的成员的饮食一系列准则。"
-
-msgctxt "model:gnuhealth.diet.belief,name:KOSHER"
-msgid "Kosher"
-msgstr "犹太教徒"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:2GS"
 msgid ""
@@ -757,7 +855,9 @@ msgid ""
 " on caloric level to allow for optimal blood glucose control. The diet "
 "provides a Bedtime snack for all calorie levels. (45% CHO, 25% protein, 30% "
 "fat)"
-msgstr "每天1200-3000卡路里。根据热量水平，饮食提供一致的碳水化合物以允许最佳的血糖控制。饮食提供所有热量水平的睡前点心(45%胆固醇,25%蛋白质，30%脂肪)"
+msgstr ""
+"每天1200-3000卡路里。根据热量水平，饮食提供一致的碳水化合物以允许最佳的血糖控制。饮食提供所有热量水平的睡前点心(45%胆固醇,25%"
+"蛋白质，30%脂肪)"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:CDD"
 msgid ""
@@ -803,7 +903,9 @@ msgid ""
 "solids and liquids. Patients on this diet may request additional foods they "
 "feel can be tolerated. Patients are encouraged to separate their intake of "
 "food and drink"
-msgstr "该食谱提供清淡的、室温的食物或者被分离成固态部分和液态部分的冷淡食物。使用这个食谱病人会因为无法忍受而要求另外的食物。病人最好把食用食物和饮用（水）分开进行"
+msgstr ""
+"该食谱提供清淡的、室温的食物或者被分离成固态部分和液态部分的冷淡食物。使用这个食谱病人会因为无法忍受而要求另外的食物。病人最好把食用食物和饮用（水）分开"
+"进行"
 
 msgctxt "model:gnuhealth.diet.therapeutic,description:FINGERFOOD"
 msgid ""
@@ -1038,6 +1140,18 @@ msgctxt "model:gnuhealth.inpatient.diet,name:"
 msgid "Inpatient Diet"
 msgstr "住院饮食"
 
+msgctxt "model:gnuhealth.inpatient.meal,name:"
+msgid "Inpatient Meal"
+msgstr ""
+
+msgctxt "model:gnuhealth.inpatient.meal.order,name:"
+msgid "Inpatient Meal Order"
+msgstr ""
+
+msgctxt "model:gnuhealth.inpatient.meal.order.item,name:"
+msgid "Inpatient Meal Item"
+msgstr ""
+
 msgctxt "model:gnuhealth.inpatient.medication,name:"
 msgid "Inpatient Medication"
 msgstr "住院药物治疗"
@@ -1054,22 +1168,113 @@ msgctxt "model:gnuhealth.inpatient.registration,name:"
 msgid "Patient admission History"
 msgstr "病人入院历史"
 
+msgctxt "model:ir.action,name:act_create_inpatient_evaluation"
+msgid "Create Patient Evaluation"
+msgstr ""
+
 msgctxt "model:ir.action,name:act_create_patient_bed_transfer"
 msgid "Bed Transfer"
 msgstr "病床转移"
+
+msgctxt "model:ir.action,name:act_evaluation_form1"
+msgid "Inpatient Evaluations"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_inpatient_evaluation"
+msgid "Inpatient Evaluation"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_diet_therapeutic"
+msgid "Therapeutic diets"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_inpatient_meal"
+msgid "Inpatient Meal"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_inpatient_meal_order"
+msgid "Meal Orders"
+msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_inpatient_registration"
 msgid "Hospitalizations"
 msgstr "住院治疗"
 
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_inpatient_meal_order_domain_all"
+msgid "All"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_inpatient_meal_order_domain_done"
+msgid "Done"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_inpatient_meal_order_domain_draft"
+msgid "Draft"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_inpatient_meal_order_domain_ordered"
+msgid "Ordered"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_registration_domain_all"
+msgid "All"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_registration_domain_confirmed"
+msgid "Confirmed"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_registration_domain_done"
+msgid "To clean"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_registration_domain_draft"
+msgid "Cancelled"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_registration_domain_finished"
+msgid "Finished"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_registration_domain_hospitalized"
+msgid "Hospitalized"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_inpatient_meal_order"
+msgid "Inpatient Meal Order"
+msgstr ""
+
 msgctxt "model:ir.sequence,name:seq_gnuhealth_inpatient_registration"
 msgid "Inpatient Registration"
 msgstr "住院登记"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_meal_order"
+msgid "Inpatient Meal Order"
+msgstr ""
 
 msgctxt ""
 "model:ir.sequence.type,name:seq_type_gnuhealth_inpatient_registration"
 msgid "Inpatient Registration"
 msgstr "住院登记"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_diet_therapeutic"
+msgid "Therapeutic diets"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_inpatient_meal"
+msgid "Inpatient Meals"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_meal_order"
+msgid "Meal Orders"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_inpatient_menu"
 msgid "Hospitalizations"
@@ -1078,6 +1283,82 @@ msgstr "住院治疗"
 msgctxt "model:res.group,name:group_health_inpatient_admin"
 msgid "Health Inpatient Administration"
 msgstr "住院健康管理"
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Free"
+msgstr ""
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Needs cleaning"
+msgstr ""
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Not available"
+msgstr ""
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Occupied"
+msgstr ""
+
+msgctxt "selection:gnuhealth.bed.transfer.init,orig_bed_state:"
+msgid "Reserved"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Breakfast"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Dinner"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Lunch"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Snack"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,mealtime:"
+msgid "Special order"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid "Cancelled"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid "Done"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid "Draft"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid "Ordered"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.meal.order,state:"
+msgid "Processing"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.inpatient.medication,frequency_unit:"
 msgid "days"
@@ -1104,6 +1385,10 @@ msgid "when required"
 msgstr "必要时"
 
 msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
 msgid "Elective"
 msgstr "非急需的"
 
@@ -1123,33 +1408,37 @@ msgctxt "selection:gnuhealth.inpatient.registration,admission_type:"
 msgid "Urgent"
 msgstr "紧急的"
 
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Lacto vegetarian"
-msgstr "乳类素食者"
+msgctxt "selection:gnuhealth.inpatient.registration,discharge_reason:"
+msgid ""
+msgstr ""
 
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Lacto-ovo vegetarian"
-msgstr "蛋奶素食者"
+msgctxt "selection:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Death"
+msgstr ""
 
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "None"
-msgstr "毫无"
+msgctxt "selection:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Home / Selfcare"
+msgstr ""
 
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Pescetarian"
-msgstr "鱼素者"
+msgctxt "selection:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Left against medical advice"
+msgstr ""
 
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Vegan"
-msgstr "素食主义者"
-
-msgctxt "selection:gnuhealth.inpatient.registration,diet_vegetarian:"
-msgid "Vegetarian"
-msgstr "素食主义者"
+msgctxt "selection:gnuhealth.inpatient.registration,discharge_reason:"
+msgid "Transferred to another institution"
+msgstr ""
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
-msgid "Done"
-msgstr "完成"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "Discharged - needs cleaning"
+msgstr ""
+
+msgctxt "selection:gnuhealth.inpatient.registration,state:"
+msgid "Finished"
+msgstr ""
 
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "cancelled"
@@ -1166,156 +1455,6 @@ msgstr "免费"
 msgctxt "selection:gnuhealth.inpatient.registration,state:"
 msgid "hospitalized"
 msgstr "入院"
-
-msgctxt "view:gnuhealth.bed.transfer.init:"
-msgid "Patient Bed Transfer"
-msgstr "病人病床转移"
-
-msgctxt "view:gnuhealth.bed.transfer:"
-msgid "Bed Transfer History"
-msgstr "换床位历史"
-
-msgctxt "view:gnuhealth.diet.belief:"
-msgid "Diet Description"
-msgstr "饮食描述"
-
-msgctxt "view:gnuhealth.diet.belief:"
-msgid "Diet related to beliefs"
-msgstr "与信仰有关的饮食"
-
-msgctxt "view:gnuhealth.diet.belief:"
-msgid "Therapeutic Diet"
-msgstr "食疗"
-
-msgctxt "view:gnuhealth.diet.therapeutic:"
-msgid "Diet Description and Indications"
-msgstr "饮食描述和指示"
-
-msgctxt "view:gnuhealth.diet.therapeutic:"
-msgid "Therapeutic Diet"
-msgstr "食疗"
-
-msgctxt "view:gnuhealth.inpatient.diet:"
-msgid "Inpatient Diet"
-msgstr "住院饮食"
-
-msgctxt "view:gnuhealth.inpatient.medication.admin_time:"
-msgid "Inpatient Medication Admin Times"
-msgstr "住院药物治疗注射时间"
-
-msgctxt "view:gnuhealth.inpatient.medication.log:"
-msgid "Inpatient Medication Log"
-msgstr "住院病人药物治疗日志"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Admnistration"
-msgstr "管理"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Adverse Reactions and Notes"
-msgstr "不良反应及附注"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Dosage"
-msgstr "剂量"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Extra Info"
-msgstr "额外信息"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "General Info"
-msgstr "一般信息"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Inpatient Medication"
-msgstr "住院病人药物治疗"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Medication"
-msgstr "药物"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Status"
-msgstr "状况"
-
-msgctxt "view:gnuhealth.inpatient.medication:"
-msgid "Treatment period"
-msgstr "治疗期"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Administrative data"
-msgstr "行政数据"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Admission"
-msgstr "准许"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Admit the patient in the health institution and assign the bed"
-msgstr "允许医疗机构为病人分配床位"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Cancel"
-msgstr "取消"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Cancel Registration"
-msgstr "取消登记"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Cancel the patient registration process ?"
-msgstr "取消病人登记过程"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Care Plan"
-msgstr "护理计划"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Confirm"
-msgstr "确认"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Confirm Registration / Make the reservation"
-msgstr "确认登记/预定"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Discharge"
-msgstr "出院"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Discharge Patient"
-msgstr "出院病人"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Inpatient Registration Info"
-msgstr "住院登记信息"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Inpatient Registration Information"
-msgstr "住院登记信息"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Medication Plan"
-msgstr "治疗计划"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Nutrition"
-msgstr "营养"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Other nutrition notes / directions"
-msgstr "其他的饮食建议/指导"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid "Patient Admission"
-msgstr "病人入院"
-
-msgctxt "view:gnuhealth.inpatient.registration:"
-msgid ""
-"You are about to SIGN the discharge the patient from the health institution."
-" This record will become READ ONLY "
-msgstr "你将让病人出院.这条记录将变得只可读。"
 
 msgctxt ""
 "wizard_button:gnuhealth.bed.transfer.create,start,create_bed_transfer:"

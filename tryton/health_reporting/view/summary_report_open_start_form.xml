@@ -9,4 +9,11 @@
         <label name="end_date"/>
         <field name="end_date"/>
     </group>
+    <group colspan="4" string="Sections" id="report_summary_sections">
+        <label name="demographics"/>
+        <field name="demographics"/>
+        <label name="patient_evaluations"/>
+        <field name="patient_evaluations"/>
+    </group>
+
 </form>

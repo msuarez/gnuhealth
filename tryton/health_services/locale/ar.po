@@ -1,0 +1,254 @@
+# Nab3a <asn09@aub.edu.lb>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:33+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452256434.0\n"
+
+msgctxt "error:gnuhealth.health_service:"
+msgid "The Service ID must be unique"
+msgstr "يجب أن يكون رقم هوية الخدمة مميّز"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No Payment Term associated to the Patient"
+msgstr "لا توجد خطة دفع آجل للمريض"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "No invoice address associated"
+msgstr "لا يوجد عنوان للفاتورة"
+
+msgctxt "error:gnuhealth.service.invoice.create:"
+msgid "Service already invoiced"
+msgstr "تم فوترة الخدمة"
+
+msgctxt "field:account.invoice,health_service:"
+msgid "Health Service"
+msgstr "الخدمة الصحية"
+
+msgctxt "field:account.invoice,patient:"
+msgid "Patient"
+msgstr "المريض"
+
+msgctxt "field:gnuhealth.health_service,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ"
+
+msgctxt "field:gnuhealth.health_service,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم"
+
+msgctxt "field:gnuhealth.health_service,desc:"
+msgid "Description"
+msgstr "الوصف"
+
+msgctxt "field:gnuhealth.health_service,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.health_service,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.health_service,invoice_to:"
+msgid "Invoice to"
+msgstr "فاتورة بإسم"
+
+msgctxt "field:gnuhealth.health_service,name:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.health_service,patient:"
+msgid "Patient"
+msgstr "المريض"
+
+msgctxt "field:gnuhealth.health_service,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt "field:gnuhealth.health_service,service_date:"
+msgid "Date"
+msgstr "تاريخ"
+
+msgctxt "field:gnuhealth.health_service,service_line:"
+msgid "Service Line"
+msgstr "نوع الخدمة"
+
+msgctxt "field:gnuhealth.health_service,state:"
+msgid "State"
+msgstr "الحالة"
+
+msgctxt "field:gnuhealth.health_service,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.health_service,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.health_service.line,appointment:"
+msgid "Appointment"
+msgstr "موعد"
+
+msgctxt "field:gnuhealth.health_service.line,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ"
+
+msgctxt "field:gnuhealth.health_service.line,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم"
+
+msgctxt "field:gnuhealth.health_service.line,desc:"
+msgid "Description"
+msgstr "الوصف"
+
+msgctxt "field:gnuhealth.health_service.line,from_date:"
+msgid "From"
+msgstr "من"
+
+msgctxt "field:gnuhealth.health_service.line,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.health_service.line,name:"
+msgid "Service"
+msgstr "الخدمة"
+
+msgctxt "field:gnuhealth.health_service.line,product:"
+msgid "Product"
+msgstr "المنتج"
+
+msgctxt "field:gnuhealth.health_service.line,qty:"
+msgid "Qty"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.health_service.line,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt "field:gnuhealth.health_service.line,to_date:"
+msgid "To"
+msgstr "إلى"
+
+msgctxt "field:gnuhealth.health_service.line,to_invoice:"
+msgid "Invoice"
+msgstr "فاتورة"
+
+msgctxt "field:gnuhealth.health_service.line,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.health_service.line,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.prescription.order,service:"
+msgid "Service"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequences,health_service_sequence:"
+msgid "Health Service Sequence"
+msgstr "تسلسل الخدمة الصحية"
+
+msgctxt "field:gnuhealth.service.invoice.init,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "help:account.invoice,health_service:"
+msgid "The service entry"
+msgstr ""
+
+msgctxt "help:account.invoice,patient:"
+msgid "Patient in the invoice"
+msgstr ""
+
+msgctxt "help:gnuhealth.health_service,service_line:"
+msgid "Service Line"
+msgstr "نوع الخدمة"
+
+msgctxt "help:gnuhealth.health_service.line,appointment:"
+msgid ""
+"Enter or select the date / ID of the appointment related to this evaluation"
+msgstr "أدخل أو حدّد التاريخ/الهوية للموعد المتعلق بهذا التقييم"
+
+msgctxt "help:gnuhealth.prescription.order,service:"
+msgid "Service document associated to this prescription"
+msgstr ""
+
+msgctxt "model:gnuhealth.health_service,name:"
+msgid "Health Service"
+msgstr "الخدمة الصحية"
+
+msgctxt "model:gnuhealth.health_service.line,name:"
+msgid "Health Service"
+msgstr "الخدمة الصحية"
+
+msgctxt "model:gnuhealth.service.invoice.init,name:"
+msgid "Create Service Invoice Init"
+msgstr "إنشاء فاتورة أولية للخدمة"
+
+msgctxt "model:ir.action,name:act_create_health_service_invoice"
+msgid "Create Health Service Invoice"
+msgstr "إنشاء فاتورة الخدمة الصحية"
+
+msgctxt "model:ir.action,name:act_invoice_related_form1"
+msgid "Related Invoice"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_health_service"
+msgid "Health services"
+msgstr "الخدمات الصحية"
+
+msgctxt "model:ir.action,name:gnuhealth_action_health_service_invoices"
+msgid "Created invoices"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_health_services_report"
+msgid "Services Report"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_health_service"
+msgid "Health Service"
+msgstr "الخدمة الصحية"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_health_service"
+msgid "Health Service"
+msgstr "الخدمة الصحية"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_health_service_invoices_menu"
+msgid "Created invoices"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_health_service_menu"
+msgid "Health services"
+msgstr "الخدمات الصحية"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_services_menu"
+msgid "Health Services"
+msgstr "الخدمات الصحية"
+
+msgctxt "model:res.group,name:group_health_services_admin"
+msgid "Health Services Administration"
+msgstr "إدارة الخدمات الصحية"
+
+msgctxt "selection:gnuhealth.health_service,state:"
+msgid "Draft"
+msgstr "مسودة"
+
+msgctxt "selection:gnuhealth.health_service,state:"
+msgid "Invoiced"
+msgstr "مفوترة"
+
+msgctxt ""
+"wizard_button:gnuhealth.service.invoice.create,start,create_service_invoice:"
+msgid "Create Invoice"
+msgstr "إنشاء فاتورة"
+
+msgctxt "wizard_button:gnuhealth.service.invoice.create,start,end:"
+msgid "Cancel"
+msgstr "إلغاء"

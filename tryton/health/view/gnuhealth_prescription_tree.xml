@@ -3,5 +3,5 @@
     <field name="prescription_id" expand="1"/>
     <field name="patient" expand="1"/>
     <field name="healthprof"/>
-    <field name="prescription_date" expand="1"/>
+    <field name="prescription_date" widget="date" expand="1"/>
 </tree>

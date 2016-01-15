@@ -96,19 +96,19 @@
         <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_draft">
             <field name="name">Draft</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'draft')]</field>
+            <field name="domain" eval="[('state', '=', 'draft')]" pyson="1"/>
             <field name="act_window" ref="act_imaging_test_request_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_requested">
             <field name="name">Requested</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'requested')]</field>
+            <field name="domain" eval="[('state', '=', 'requested')]" pyson="1"/>
             <field name="act_window" ref="act_imaging_test_request_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_done">
             <field name="name">Done</field>
             <field name="sequence" eval="10"/>
-            <field name="domain">[('state', '=', 'done')]</field>
+            <field name="domain" eval="[('state', '=', 'done')]" pyson="1"/>
             <field name="act_window" ref="act_imaging_test_request_view"/>
         </record>
         <record model="ir.action.act_window.domain" id="act_imaging_test_request_domain_all">
@@ -153,7 +153,7 @@
         <record model="ir.action.act_window" id="act_imaging_test_request_view2">
             <field name="name">Imaging Test Request</field>
             <field name="res_model">gnuhealth.imaging.test.request</field>
-            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_patient_image_request_keyword1">
             <field name="keyword">form_relate</field>
@@ -164,7 +164,7 @@
         <record model="ir.action.act_window" id="act_imaging_test_result_view2">
             <field name="name">Imaging Test Results</field>
             <field name="res_model">gnuhealth.imaging.test.result</field>
-            <field name="domain">[('patient', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword" id="act_open_patient_image_result_keyword2">
             <field name="keyword">form_relate</field>

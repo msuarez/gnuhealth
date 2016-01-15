@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 
 
 __all__ = ['DiseaseGene', 'PatientGeneticRisk', 'FamilyDiseases',
@@ -32,7 +32,7 @@ class DiseaseGene(ModelSQL, ModelView):
     __name__ = 'gnuhealth.disease.gene'
 
     name = fields.Char('Official Symbol', required=True,select=True)
-    long_name = fields.Char('Official Long Name', select=True)
+    long_name = fields.Char('Official Long Name', select=True, translate=True)
     gene_id = fields.Char('Gene ID',
         help="default code from NCBI Entrez database.", select=True)
     chromosome = fields.Char('Affected Chromosome',
@@ -48,10 +48,12 @@ class DiseaseGene(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DiseaseGene, cls).__setup__()
+
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'UNIQUE(name)', 
-            'The Official Symbol name must be unique !'),
-        ]
+            ('name_unique', Unique(t,t.name),
+                'The Official Symbol name must be unique'),
+            ]
 
     def get_rec_name(self, name):
         return self.name + ':' + self.long_name
@@ -83,7 +85,7 @@ class FamilyDiseases(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.family.diseases'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
-    name = fields.Many2One('gnuhealth.pathology', 'Disease', required=True)
+    name = fields.Many2One('gnuhealth.pathology', 'Condition', required=True)
     xory = fields.Selection([
         (None, ''),
         ('m', 'Maternal'),
@@ -104,8 +106,9 @@ class FamilyDiseases(ModelSQL, ModelView):
         ('grandmother', 'Grandmother'),
         ('cousin', 'Cousin'),
         ], 'Relative',
-        help="First degree = siblings, mother and father; second degree = "
-        "Uncles, nephews and Nieces; third degree = Grandparents and cousins",
+        help='First degree = siblings, mother and father\n'
+            'Second degree = Uncles, nephews and Nieces\n'
+            'Third degree = Grandparents and cousins',
         required=True)
 
 

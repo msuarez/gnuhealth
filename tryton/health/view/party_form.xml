@@ -17,12 +17,17 @@
                 <field name="is_pharmacy"/>
             </group>
             <newline/>
-            <group colspan="4" id="person_details" states="{'invisible': Not(Bool(Eval('is_person')))}">
+            <group colspan="4" id="person_details">
                 <group yfill="1" id="person_demographics" string="Demographics">
                     <label name="dob"/>
                     <field name="dob"/>
-                    <label name="sex"/>
-                    <field name="sex"/>
+                    <label name="age"/>
+                    <field name="age"/>
+                    <newline/>
+                    <label name="gender"/>
+                    <field name="gender"/>
+                    <label name="du"/>
+                    <field name="du"/>
                     <label name="mother"/>
                     <field name="mother"/>
                     <label name="father"/>
@@ -33,34 +38,29 @@
                     <field name="citizenship"/>
                     <label name="residence"/>
                     <field name="residence"/>
-                    <label name="du"/>
-                    <field name="du"/>
                     <label name="ethnic_group"/>
                     <field name="ethnic_group"/>
                     <label name="alternative_identification"/>
                     <field name="alternative_identification"/>
-                    <newline/>
-                    <field colspan="4" name="alternative_ids"/>
                 </group>
 
                 <group yfill="1" string="Picture" id="person_picture">
-                    <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+                    <field xfill="0" xexpand="1" name="photo" height="200" width="200" widget="image"/>
                 </group>
 
                 <newline/>
             </group>
-            <group col="6" colspan="2" id="other_party_specs">
-            </group>
             <newline/>
-            <field name="insurance" colspan="4"/>
+
+            <field colspan="4" name="alternative_ids"/>
+            <field colspan="4" name="insurance"/>
+                        
             <newline/>
             <group id="party_footer" colspan="4" col="12">
                 <label name="deceased"/>
                 <field name="deceased"/>
                 <label name="unidentified"/>
                 <field name="unidentified"/>
-                <label name="alias"/>
-                <field name="alias"/>
                 <label name="code"/>
                 <field name="code"/>
                 <label name="activation_date"/>
@@ -82,4 +82,16 @@
     <xpath expr="/form/field[@name=&quot;code&quot;]" position="replace">
         <field name="ref"/>
     </xpath>
+
+    <!-- Add the person names on the party identifier section page -->
+
+    <xpath expr="//field[@name=&quot;identifiers&quot;]" position="before">
+        <field name="person_names" colspan="4"/>
+        <newline/>
+        <label name="name_representation"/>
+        <field name="name_representation"/>
+        <newline/>
+        
+    </xpath>
+
 </data>

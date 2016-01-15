@@ -1,6 +1,8 @@
 import server.fhir as supermod
+from server.common import safe_attrgetter
 from StringIO import StringIO
 from operator import attrgetter
+from .health_mixin import ExportXMLMixin
 
 try:
     from flask import url_for
@@ -13,6 +15,12 @@ class DiagnosticReport_Map:
     """
     The model mapping for the DiagnosticReport Resource
     """
+    # Must be completed (i.e., have date)
+    root_search=[('date_analysis', '!=', None)]
+
+    # No other models, just use row id
+    url_prefixes={}
+
     model_mapping={
             'gnuhealth.lab': {
                 'subject': 'patient',
@@ -21,44 +29,61 @@ class DiagnosticReport_Map:
                 'codedDiagnosis': 'diagnosis',
                 'result': 'critearea',
                 'date': 'date_analysis',
+                'test': 'test',
                 'code': 'test.code',
                 'name': 'test.name'}
                 }
-    url_prefixes={'gnuhealth.lab': 'labreport'}
-    search_mapping={'gnuhealth.lab':
-                {
-                    '_id': (['id'], 'token'),
+    resource_search_params={
+                    '_id': 'token',
                     '_language': None,
                     'date': None,
                     'diagnosis': None, 
                     'identifier': None,
                     'image': None,
-                    'issued': (['date_analysis'], 'date'),
-                    'name': (['test.code'], 'token'),
-                    'name:text': (['test.name'], 'string'),
-                    'performer': (['pathologist'], 'reference'),
+                    'issued': 'date',
+                    'name': 'token',
+                    'performer': 'reference',
                     'request': None,
-                    'result': (['critearea'], 'reference'),
+                    'result': 'reference',
                     'service': None,
                     'specimen': None,
                     'status': None,
-                    'subject': (['subject'], 'reference')}}
+                    'subject': 'reference'}
 
-class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
+    # Reference parameters to resource type
+    chain_map={
+            'subject': 'Patient',
+            'result': 'Observation',
+            'performer': 'Practitioner'}
+
+    search_mapping={
+                    '_id': ['id'],
+                    'issued': ['date_analysis'],
+                    'name': ['test.code'],
+                    'name:text': ['test.name'],
+                    'performer': ['pathologist'],
+                    'result': ['critearea'],
+                    'subject': ['patient']}
+
+class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map, ExportXMLMixin):
     """
     Class that manages the interface between FHIR Resource DiagnosticReport
-        and GNU Health
+    and GNU Health
     """
     def __init__(self, *args, **kwargs):
         rec = kwargs.pop('gnu_record', None)
-        field = kwargs.pop('field', None)
         super(health_DiagnosticReport, self).__init__(*args, **kwargs)
         if rec:
-            self.set_gnu_diagnostic_report(rec, field)
+            self.set_gnu_diagnostic_report(rec)
 
-    def set_gnu_diagnostic_report(self, diagnostic_report, field):
+    def set_gnu_diagnostic_report(self, diagnostic_report):
+        """Set the GNU Health model
+
+        Keyword arguments:
+        diagnostic_report -- the Health model
+        """
+
         self.diagnostic_report = diagnostic_report
-        self.field = field
         self.model_type = self.diagnostic_report.__name__
 
         # Only certain models
@@ -66,151 +91,171 @@ class health_DiagnosticReport(supermod.DiagnosticReport, DiagnosticReport_Map):
             raise ValueError('Not a valid model')
 
         self.map = self.model_mapping[self.model_type]
-        self.search_prefix=self.url_prefixes[self.model_type]
 
         self.__import_from_gnu_diagnostic_report()
+        self.__set_feed_info()
 
     def __import_from_gnu_diagnostic_report(self):
+        """Import data from the model"""
         if self.diagnostic_report:
-            self.__set_gnu_identifier()
-            self.__set_gnu_result()
-            self.__set_gnu_performer()
-            self.__set_gnu_subject()
-            self.__set_gnu_name()
-            self.__set_gnu_issued()
-            self.__set_gnu_conclusion()
-            self.__set_feed_info()
+            self.set_conclusion(safe_attrgetter(self.diagnostic_report, self.map['conclusion']))
+            self.set_subject(safe_attrgetter(self.diagnostic_report, self.map['subject']))
+            self.set_performer(safe_attrgetter(self.diagnostic_report, self.map['performer']))
+            self.set_issued(safe_attrgetter(self.diagnostic_report, self.map['date']))
+            self.set_result(safe_attrgetter(self.diagnostic_report, self.map['result']))
+            self.set_name(safe_attrgetter(self.diagnostic_report, self.map['test']))
+            self.set_identifier(
+                    safe_attrgetter(self.diagnostic_report, self.map['test']),
+                    safe_attrgetter(self.diagnostic_report, 'patient.rec_name'),
+                    safe_attrgetter(self.diagnostic_report, self.map['date']))
 
-    def __set_gnu_identifier(self):
-        if self.diagnostic_report:
-            obj, patient, time = attrgetter(self.map['name'], self.map['subject'], self.map['date'])(self.diagnostic_report)
+    def set_identifier(self, report, patient, date):
+        """Extends superclass for convenience
 
-            if obj and patient and time:
-                label = '{0} for {1} on {2}'.format(obj, patient.name.rec_name, time.strftime('%Y/%m/%d'))
-                if RUN_FLASK:
-                    value = url_for('dr_record', log_id=(self.search_prefix, self.diagnostic_report.id, self.field))
-                else:
-                    value = dumb_url_generate(['DiagnosticReport',
-                                                self.search_prefix,
-                                                self.diagnostic_report.id,
-                                                self.field])
-                ident = supermod.Identifier(
-                            label=supermod.string(value=label),
-                            value=supermod.string(value=value))
-                self.set_identifier(ident)
+        Keyword arguments:
+        report -- the report (Health model)
+        patient -- patient name
+        date -- the date (datetime object)
+        """
+
+        if report and patient and date:
+            label = '{0} for {1} on {2}'.format(report.name, patient, date.strftime('%Y/%m/%d'))
+            if RUN_FLASK:
+                value = url_for('dr_record', log_id=report.id)
+            else:
+                value = dumb_url_generate(['DiagnosticReport', report.id])
+            ident = supermod.Identifier(
+                        label=supermod.string(value=label),
+                        value=supermod.string(value=value))
+            super(health_DiagnosticReport, self).set_identifier(ident)
 
     def __set_feed_info(self):
-        ''' Sets the feed-relevant info
-        '''
+        """Sets the feed-relevant data"""
         if self.diagnostic_report:
-            self.feed={'id': self.diagnostic_report.id,
+            if RUN_FLASK:
+                uri = url_for('dr_record',
+                                log_id=self.diagnostic_report.id,
+                                _external=True)
+            else:
+                uri = dumb_url_generate(['DiagnosticReport',
+                                self.diagnostic_report.id])
+            self.feed={'id': uri,
                     'published': self.diagnostic_report.create_date,
                     'updated': self.diagnostic_report.write_date or self.diagnostic_report.create_date,
                     'title': self.diagnostic_report.rec_name
                         }
 
-    def __set_gnu_name(self):
-        if self.diagnostic_report:
-            try:
-                conc = supermod.CodeableConcept()
-                conc.coding=[supermod.Coding()]
-                conc.coding[0].display=supermod.string(value=attrgetter(self.map['name'])(self.diagnostic_report))
-                conc.coding[0].code = supermod.code(value=attrgetter(self.map['code'])(self.diagnostic_report))
-                self.set_name(conc)
-            except:
-                # If you don't know what is being tested,
-                #   the data is useless
-                raise ValueError('No test coding info')
+    def set_name(self, name):
+        """Extends superclass for convenience
 
-    def __set_gnu_issued(self):
-        if self.diagnostic_report:
-            try:
-                time=attrgetter(self.map['date'])(self.diagnostic_report)
-                instant = supermod.instant(value=time.strftime("%Y-%m-%dT%H:%M:%S"))
-                self.set_issued(instant)
-            except:
-                # If there is no date attached, this report is either not done
-                #  or useless
-                raise ValueError('No date')
+        Keyword arguments:
+        name -- the test (Health model)
+        """
 
-    def __set_gnu_result(self):
-        if self.diagnostic_report:
-            try:
-                for test in attrgetter(self.map['result'])(self.diagnostic_report):
-                    if RUN_FLASK:
-                        uri = url_for('obs_record', log_id=('lab', test.id))
-                    else:
-                        uri = dumb_url_generate(['Observation', 'lab', test.id])
-                    display = test.rec_name
-                    ref=supermod.ResourceReference()
-                    ref.display = supermod.string(value=display)
-                    ref.reference = supermod.string(value=uri)
-                    self.add_result(ref)
-            except:
-                # No data = useless
+        if name:
+            conc = supermod.CodeableConcept()
+            conc.coding=[supermod.Coding()]
+            conc.coding[0].display=supermod.string(value=name.name)
+            conc.coding[0].code = supermod.code(value=name.code)
+            super(health_DiagnosticReport, self).set_name(conc)
+
+        else:
+            # If you don't know what is being tested,
+            #   the data is useless
+            raise ValueError('No test coding info')
+
+    def set_issued(self, issued):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        issued -- the date issued (datetime object)
+        """
+
+        if issued is not None:
+            instant = supermod.instant(value=issued.strftime("%Y-%m-%dT%H:%M:%S"))
+            super(health_DiagnosticReport, self).set_issued(instant)
+        else:
+            # If there is no date attached, this report is either not done
+            #  or useless
+            raise ValueError('No date')
+
+    def set_result(self, result):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        result -- the results
+        """
+
+        if result:
+            for test in result:
+                if RUN_FLASK:
+                    uri = url_for('obs_record', log_id=test.id)
+                else:
+                    uri = dumb_url_generate(['Observation', test.id])
+                display = test.rec_name
+                ref=supermod.ResourceReference()
+                ref.display = supermod.string(value=display)
+                ref.reference = supermod.string(value=uri)
+                super(health_DiagnosticReport, self).add_result(ref)
+
+            # No data = useless
+            if len(self.get_result()) == 0:
                 raise ValueError('No data')
-            finally:
-                # No data = useless
-                if len(self.get_result()) == 0:
-                    raise ValueError('No data')
 
-    def __set_gnu_performer(self):
-        if self.diagnostic_report:
-            try:
-                p = attrgetter(self.map['performer'])(self.diagnostic_report)
-                if RUN_FLASK:
-                    uri = url_for('hp_record', log_id=p.id)
-                else:
-                    uri = dumb_url_generate(['Practitioner', p.id])
-                display = p.name.rec_name
-                ref=supermod.ResourceReference()
-                ref.display = supermod.string(value=display)
-                ref.reference = supermod.string(value=uri)
-            except:
-                # Not absolutely needed, so continue execution
-                pass
+        else:
+            # No data = useless
+            raise ValueError('No data')
+
+    def set_performer(self, performer):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        performer -- the lab performer (Health model)
+        """
+
+        if performer:
+            if RUN_FLASK:
+                uri = url_for('hp_record', log_id=performer.id)
             else:
-                self.set_performer(ref)
+                uri = dumb_url_generate(['Practitioner', performer.id])
+            display = performer.name.rec_name
+            ref=supermod.ResourceReference()
+            ref.display = supermod.string(value=display)
+            ref.reference = supermod.string(value=uri)
+            super(health_DiagnosticReport, self).set_performer(ref)
 
-    def __set_gnu_subject(self):
-        if self.diagnostic_report:
-            try:
-                patient = attrgetter(self.map['subject'])(self.diagnostic_report)
-                if RUN_FLASK:
-                    uri = url_for('pat_record', log_id=patient.id)
-                else:
-                    uri = dumb_url_generate(['Patient', patient.id])
-                display = patient.rec_name
-                ref=supermod.ResourceReference()
-                ref.display = supermod.string(value=display)
-                ref.reference = supermod.string(value=uri)
-                self.set_subject(ref)
-            except:
-                # Without subject, useless information
-                raise ValueError('No subject')
+    def set_subject(self, subject):
+        """Extends superclass for convenience
 
-    def __set_gnu_conclusion(self):
-        if self.diagnostic_report:
-            try:
-                text = attrgetter(self.map['conclusion'])(self.diagnostic_report)
-                if text:
-                    conclusion = supermod.string(value=text)
-                    self.set_conclusion(conclusion)
-            except:
-                # Not absolutely necessary
-                pass
+        Keyword arguments:
+        subject -- the patient (Health model)
+        """
 
-    def export_to_xml_string(self):
-        """Export"""
-        output = StringIO()
-        self.export(outfile=output, namespacedef_='xmlns="http://hl7.org/fhir"', pretty_print=False, level=4)
-        content = output.getvalue()
-        output.close()
-        return content
+        if subject:
+            patient = attrgetter(self.map['subject'])(self.diagnostic_report)
+            if RUN_FLASK:
+                uri = url_for('pat_record', log_id=subject.id)
+            else:
+                uri = dumb_url_generate(['Patient', subject.id])
+            display = subject.rec_name
+            ref=supermod.ResourceReference()
+            ref.display = supermod.string(value=display)
+            ref.reference = supermod.string(value=uri)
+            super(health_DiagnosticReport, self).set_subject(ref)
+
+        else:
+            # Without subject, useless information
+            raise ValueError('No subject')
+
+    def set_conclusion(self, conclusion):
+        """Extends superclass for convenience
+
+        Keyword arguments:
+        conclusion -- the report's conclusion
+        """
+
+        if conclusion:
+            c = supermod.string(value=conclusion)
+            super(health_DiagnosticReport, self).set_conclusion(c)
+
 supermod.DiagnosticReport.subclass=health_DiagnosticReport
-
-class health_DiagnosticReport_Image(supermod.DiagnosticReport_Image):
-    pass
-
-class health_DiagnosticReportStatus(supermod.DiagnosticReportStatus):
-    pass

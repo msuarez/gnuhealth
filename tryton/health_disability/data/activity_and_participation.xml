@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <!--  LEARNING AND APPLYING KNOWLEDGE -->
+        
+        <record model="gnuhealth.activity_and_participation" id="d110">
+            <field name="name">Watching</field>
+            <field name="code">d110</field>
+            <field name="category" ref="d1"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d115">
+            <field name="name">Listening</field>
+            <field name="code">d115</field>
+            <field name="category" ref="d1"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d140">
+            <field name="name">Learning to read</field>
+            <field name="code">d140</field>
+            <field name="category" ref="d1"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d150">
+            <field name="name">Learning to calculate</field>
+            <field name="code">d150</field>
+            <field name="category" ref="d1"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d175">
+            <field name="name">Solving problems -arithmetic-</field>
+            <field name="code">d175</field>
+            <field name="category" ref="d1"></field>
+        </record>
+
+        <!--  GENERAL TASKS AND DEMANDS -->
+
+        <record model="gnuhealth.activity_and_participation" id="d210">
+            <field name="name">Undertaking a single task</field>
+            <field name="code">d210</field>
+            <field name="category" ref="d2"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d220">
+            <field name="name">Undertaking multiple tasks</field>
+            <field name="code">d220</field>
+            <field name="category" ref="d2"></field>
+        </record>
+
+        <!--  COMMUNICATION -->
+
+        <record model="gnuhealth.activity_and_participation" id="d310">
+            <field name="name">Communicating with -- receiving -- spoken messages</field>
+            <field name="code">d310</field>
+            <field name="category" ref="d3"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d315">
+            <field name="name">Communicating with -- receiving -- non-verbal messages</field>
+            <field name="code">d315</field>
+            <field name="category" ref="d3"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d320">
+            <field name="name">Speaking</field>
+            <field name="code">d320</field>
+            <field name="category" ref="d3"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d335">
+            <field name="name">Producing non-verbal messages</field>
+            <field name="code">d335</field>
+            <field name="category" ref="d3"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d350">
+            <field name="name">Conversation</field>
+            <field name="code">d350</field>
+            <field name="category" ref="d3"></field>
+        </record>
+
+        <!--  MOBILITY -->
+
+        <record model="gnuhealth.activity_and_participation" id="d430">
+            <field name="name">Lifting and carrying objects</field>
+            <field name="code">d430</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d440">
+            <field name="name">Fine hand use (picking up, grasping)</field>
+            <field name="code">d440</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d450">
+            <field name="name">Walking</field>
+            <field name="code">d450</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d465">
+            <field name="name">Moving around using equipment (wheelchair, skates, etc.)</field>
+            <field name="code">d465</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d470">
+            <field name="name">Using transportation (car, bus, train, plane, etc.)</field>
+            <field name="code">d470</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d475">
+            <field name="name">Driving (riding bicycle and motorbike, driving car, etc.)</field>
+            <field name="code">d475</field>
+            <field name="category" ref="d4"></field>
+        </record>
+
+        <!--   SELF CARE -->
+
+        <record model="gnuhealth.activity_and_participation" id="d510">
+            <field name="name">Washing oneself (bathing, drying, washing hands, etc)</field>
+            <field name="code">d510</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d520">
+            <field name="name">Caring for body parts (brushing teeth, shaving, grooming, etc.)</field>
+            <field name="code">d520</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d530">
+            <field name="name">Toileting</field>
+            <field name="code">d530</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d540">
+            <field name="name">Dressing</field>
+            <field name="code">d540</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d550">
+            <field name="name">Eating</field>
+            <field name="code">d550</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d560">
+            <field name="name">Drinking</field>
+            <field name="code">d560</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d570">
+            <field name="name">Looking after ones health</field>
+            <field name="code">d570</field>
+            <field name="category" ref="d5"></field>
+        </record>
+
+        <!-- DOMESTIC LIFE -->
+
+        <record model="gnuhealth.activity_and_participation" id="d620">
+            <field name="name">Acquisition of goods and services (shopping, etc.)</field>
+            <field name="code">d620</field>
+            <field name="category" ref="d6"></field>
+        </record>
+        
+        <record model="gnuhealth.activity_and_participation" id="d630">
+            <field name="name">Preparation of meals (Cooking, etc.)</field>
+            <field name="code">d630</field>
+            <field name="category" ref="d6"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d640">
+            <field name="name">Doing housework (cleaning house, washing dishes laundry, ironing, etc)</field>
+            <field name="code">d640</field>
+            <field name="category" ref="d6"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d660">
+            <field name="name">Assisting others</field>
+            <field name="code">d660</field>
+            <field name="category" ref="d6"></field>
+        </record>
+
+        <!--  INTERPERSONAL INTERACTIONS AND RELATIONSHIPS -->
+
+        <record model="gnuhealth.activity_and_participation" id="d710">
+            <field name="name">Basic interpersonal interactions</field>
+            <field name="code">d710</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d720">
+            <field name="name">Complex interpersonal interactions</field>
+            <field name="code">d720</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d730">
+            <field name="name">Relating with strangers</field>
+            <field name="code">d730</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d740">
+            <field name="name">Formal relationships</field>
+            <field name="code">d740</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d750">
+            <field name="name">Informal relationships</field>
+            <field name="code">d750</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d760">
+            <field name="name">Family relationships</field>
+            <field name="code">d760</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d770">
+            <field name="name">Intimate relationships</field>
+            <field name="code">d770</field>
+            <field name="category" ref="d7"></field>
+        </record>
+
+        <!--  MAJOR LIFE AREAS -->
+
+        <record model="gnuhealth.activity_and_participation" id="d810">
+            <field name="name">Informal education</field>
+            <field name="code">d810</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d820">
+            <field name="name">School education</field>
+            <field name="code">d820</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d830">
+            <field name="name">Higher education</field>
+            <field name="code">d830</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d850">
+            <field name="name">Remunerative employment</field>
+            <field name="code">d850</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d860">
+            <field name="name">Basic economic transactions</field>
+            <field name="code">d860</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d870">
+            <field name="name">Economic self-sufficiency</field>
+            <field name="code">d870</field>
+            <field name="category" ref="d8"></field>
+        </record>
+
+        <!--  COMMUNITY, SOCIAL AND CIVIC LIFE -->
+
+        <record model="gnuhealth.activity_and_participation" id="d910">
+            <field name="name">Community Life</field>
+            <field name="code">d910</field>
+            <field name="category" ref="d9"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d920">
+            <field name="name">Recreation and leisure</field>
+            <field name="code">d920</field>
+            <field name="category" ref="d9"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d930">
+            <field name="name">Religion and Spirituality</field>
+            <field name="code">d930</field>
+            <field name="category" ref="d9"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d940">
+            <field name="name">Human Rights</field>
+            <field name="code">d940</field>
+            <field name="category" ref="d9"></field>
+        </record>
+
+        <record model="gnuhealth.activity_and_participation" id="d950">
+            <field name="name">Political life and citizenship</field>
+            <field name="code">d950</field>
+            <field name="category" ref="d9"></field>
+        </record>
+        
+    </data>
+</tryton>

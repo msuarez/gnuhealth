@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+        <!-- STRUCTURES OF THE NERVOUS SYSTEM -->
+        <record model="gnuhealth.body_structure" id="s110">
+            <field name="name">Brain</field>
+            <field name="code">s110</field>
+            <field name="category" ref="s1"></field>
+        </record>
+
+        
+        <record model="gnuhealth.body_structure" id="s120">
+            <field name="name">Spinal cord and peripheral nerves</field>
+            <field name="code">s120</field>
+            <field name="category" ref="s1"></field>
+        </record>
+
+        <!-- THE EYE, EAR AND RELATED STRUCTURES -->
+        
+        <!-- STRUCTURES INVOLVED IN VOICE AND SPEECH -->
+        
+        <!-- STRUCTURE OF THE CARDIOVASCULAR, IMMUNOLOGICAL  AND RESPIRATORY SYSTEMS -->
+        
+        <record model="gnuhealth.body_structure" id="s410">
+            <field name="name">Cardiovascular system</field>
+            <field name="code">s410</field>
+            <field name="category" ref="s4"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s430">
+            <field name="name">Respiratory system</field>
+            <field name="code">s430</field>
+            <field name="category" ref="s4"></field>
+        </record>
+         
+       <!-- STRUCTURES RELATED TO THE DIGESTIVE, METABOLISM  AND ENDOCRINE SYSTEMS -->
+       
+       <!--  STRUCTURE RELATED TO GENITOURINARY AND REPRODUCTIVE SYSTEM -->
+
+        <record model="gnuhealth.body_structure" id="s610">
+            <field name="name">Urinary System</field>
+            <field name="code">s610</field>
+            <field name="category" ref="s6"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s630">
+            <field name="name">Resproductive system</field>
+            <field name="code">s630</field>
+            <field name="category" ref="s6"></field>
+        </record>
+
+       <!-- STRUCTURES RELATED TO MOVEMENT -->
+
+        <record model="gnuhealth.body_structure" id="s710">
+            <field name="name">Head and neck region</field>
+            <field name="code">s710</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7100">
+            <field name="name">Bones of cranium</field>
+            <field name="code">s7100</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7101">
+            <field name="name">Bones of the face</field>
+            <field name="code">s7101</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7102">
+            <field name="name">Bones of neck region</field>
+            <field name="code">s7102</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7103">
+            <field name="name">Joints of head and neck region</field>
+            <field name="code">s7103</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7104">
+            <field name="name">Muscles of head and neck region</field>
+            <field name="code">s7104</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7105">
+            <field name="name">Ligaments and fasciae of head and neck region</field>
+            <field name="code">s7105</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7108">
+            <field name="name">Structure of head and neck region, other specified</field>
+            <field name="code">s7108</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7109">
+            <field name="name">Structure of head and neck region, unspecified</field>
+            <field name="code">s7109</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+
+        <record model="gnuhealth.body_structure" id="s720">
+            <field name="name">Shoulder region</field>
+            <field name="code">s720</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7200">
+            <field name="name">Bones of shoulder region</field>
+            <field name="code">s7200</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7201">
+            <field name="name">Joints of shoulder region</field>
+            <field name="code">s7201</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7202">
+            <field name="name">Muscles of shoulder region</field>
+            <field name="code">s7202</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7203">
+            <field name="name">Ligaments and fasciae of shoulder region</field>
+            <field name="code">s7203</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7208">
+            <field name="name">Structure of shoulder region, other specified</field>
+            <field name="code">s7208</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7209">
+            <field name="name">Structure of shoulder region, unspecified</field>
+            <field name="code">s7209</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+
+        <record model="gnuhealth.body_structure" id="s730">
+            <field name="name">Upper extremity</field>
+            <field name="code">s730</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7300">
+            <field name="name">Structure of upper arm</field>
+            <field name="code">s7300</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73000">
+            <field name="name">Bones of upper arm</field>
+            <field name="code">s73000</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73001">
+            <field name="name">Elbow joint</field>
+            <field name="code">s73001</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73002">
+            <field name="name">Muscles of upper arm</field>
+            <field name="code">s73002</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73003">
+            <field name="name">Ligaments and fasciae of upper arm</field>
+            <field name="code">s73003</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73008">
+            <field name="name">Structure of upper arm, other specified</field>
+            <field name="code">s73008</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73009">
+            <field name="name">Structure of upper arm, unspecified</field>
+            <field name="code">s73009</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7301">
+            <field name="name">Structure of forearm</field>
+            <field name="code">s7301</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73010">
+            <field name="name">Bones of forearm</field>
+            <field name="code">s73010</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73011">
+            <field name="name">Wrist joint</field>
+            <field name="code">s73011</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73012">
+            <field name="name">Muscles of forearm</field>
+            <field name="code">s73012</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73013">
+            <field name="name">Ligaments and fasciae of forearm</field>
+            <field name="code">s73013</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73018">
+            <field name="name">Structure of forearm, other specified</field>
+            <field name="code">s73018</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73019">
+            <field name="name">Structure of forearm, unspecified</field>
+            <field name="code">s73019</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7302">
+            <field name="name">Structure of hand</field>
+            <field name="code">s7302</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73020">
+            <field name="name">Bones of hand</field>
+            <field name="code">s73020</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73021">
+            <field name="name">Joints of hand and fingers</field>
+            <field name="code">s73021</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73022">
+            <field name="name">Muscles of hand</field>
+            <field name="code">s73022</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73023">
+            <field name="name">Ligaments and fasciae of hand</field>
+            <field name="code">s73023</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73028">
+            <field name="name">Structure of hand, other specified</field>
+            <field name="code">s73028</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s73029">
+            <field name="name">Structure of hand, unspecified</field>
+            <field name="code">s73029</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7308">
+            <field name="name">Structure of upper extremity, other specified</field>
+            <field name="code">s7308</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7309">
+            <field name="name">Structure of upper extremity, unspecified</field>
+            <field name="code">s7309</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s740">
+            <field name="name">Structure of pelvic region</field>
+            <field name="code">s740</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7400">
+            <field name="name">Bones of pelvic region</field>
+            <field name="code">s7400</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7401">
+            <field name="name">Joints of pelvic region</field>
+            <field name="code">s7401</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7402">
+            <field name="name">Muscles of pelvic region</field>
+            <field name="code">s7402</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7403">
+            <field name="name">Ligaments and fasciae of pelvic region</field>
+            <field name="code">s7403</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7408">
+            <field name="name">Structure of pelvic region, other specified</field>
+            <field name="code">s7408</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7409">
+            <field name="name">Structure of pelvic region, unspecified</field>
+            <field name="code">s7409</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s750">
+            <field name="name">Structure of lower extremity</field>
+            <field name="code">s750</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7500">
+            <field name="name">Structure of thigh</field>
+            <field name="code">s7500</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75000">
+            <field name="name">Bones of thigh</field>
+            <field name="code">s75000</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75001">
+            <field name="name">Hip joint</field>
+            <field name="code">s75001</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75002">
+            <field name="name">Muscles of thigh</field>
+            <field name="code">s75002</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75003">
+            <field name="name">Ligaments and fasciae of thigh</field>
+            <field name="code">s75003</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75008">
+            <field name="name">Structure of thigh, other specified</field>
+            <field name="code">s75008</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75009">
+            <field name="name">Structure of thigh, unspecified</field>
+            <field name="code">s75009</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7501">
+            <field name="name">Structure of lower leg</field>
+            <field name="code">s7501</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75010">
+            <field name="name">Bones of lower leg</field>
+            <field name="code">s75010</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75011">
+            <field name="name">Knee joint</field>
+            <field name="code">s75011</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75012">
+            <field name="name">Muscles of lower leg</field>
+            <field name="code">s75012</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75013">
+            <field name="name">Ligaments and fasciae of lower leg</field>
+            <field name="code">s75013</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75018">
+            <field name="name">Structure of lower leg, other specified</field>
+            <field name="code">s75018</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75019">
+            <field name="name">Structure of lower leg, unspecified</field>
+            <field name="code">s75019</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7502">
+            <field name="name">Structure of ankle and foot</field>
+            <field name="code">s7502</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75020">
+            <field name="name">Bones of ankle and foot</field>
+            <field name="code">s75020</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75021">
+            <field name="name">Ankle joint and joints of foot and toes</field>
+            <field name="code">s75021</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75022">
+            <field name="name">Muscles of ankle and foot</field>
+            <field name="code">s75022</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75023">
+            <field name="name">Ligaments and fasciae of ankle and foot</field>
+            <field name="code">s75023</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75028">
+            <field name="name">Structure of ankle and foot, other specified</field>
+            <field name="code">s75028</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s75029">
+            <field name="name">Structure of ankle and foot, unspecified</field>
+            <field name="code">s75029</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7508">
+            <field name="name">Structure of lower extremity, other specified</field>
+            <field name="code">s7508</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7509">
+            <field name="name">Structure of lower extremity, unspecified</field>
+            <field name="code">s7509</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s760">
+            <field name="name">Structure of trunk</field>
+            <field name="code">s760</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7600">
+            <field name="name">Structure of vertebral column</field>
+            <field name="code">s7600</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76000">
+            <field name="name">Cervical vertebral column</field>
+            <field name="code">s76000</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76001">
+            <field name="name">Thoracic vertebral column</field>
+            <field name="code">s76001</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76002">
+            <field name="name">Lumbar vertebral column</field>
+            <field name="code">s76002</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76003">
+            <field name="name">Sacral vertebral column</field>
+            <field name="code">s76003</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76004">
+            <field name="name">Coccyx</field>
+            <field name="code">s76004</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76008">
+            <field name="name">Structure of vertebral column, other specified</field>
+            <field name="code">s76008</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s76009">
+            <field name="name">Structure of vertebral column, unspecified</field>
+            <field name="code">s76009</field>
+            <field name="category" ref="s7"></field>
+        </record>
+ 
+        <record model="gnuhealth.body_structure" id="s7601">
+            <field name="name">Muscles of trunk</field>
+            <field name="code">s7601</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7602">
+            <field name="name">Ligaments and fasciae of trunk</field>
+            <field name="code">s7602</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7608">
+            <field name="name">Structure of trunk, other specified</field>
+            <field name="code">s7608</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7609">
+            <field name="name">Structure of trunk, unspecified</field>
+            <field name="code">s7609</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s770">
+            <field name="name">Additional musculoskeletal structures related to movement</field>
+            <field name="code">s770</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7700">
+            <field name="name">Bones</field>
+            <field name="code">s7700</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7701">
+            <field name="name">Joints</field>
+            <field name="code">s7701</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7702">
+            <field name="name">Muscles</field>
+            <field name="code">s7702</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7703">
+            <field name="name">Extra-articular ligaments, fasciae, extramuscular aponeuroses, retinacula, septa, bursae, unspecified</field>
+            <field name="code">s7703</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7708">
+            <field name="name">Additional musculoskeletal structures related to movement, other specified</field>
+            <field name="code">s7708</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s7709">
+            <field name="name">Additional musculoskeletal structures related to movement, unspecified</field>
+            <field name="code">s7709</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s798">
+            <field name="name">Structures related to movement, other specified</field>
+            <field name="code">s798</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+        <record model="gnuhealth.body_structure" id="s799">
+            <field name="name">Structures related to movement, unspecified</field>
+            <field name="code">s799</field>
+            <field name="category" ref="s7"></field>
+        </record>
+
+    </data>
+</tryton>

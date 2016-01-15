@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<tree string="Patient ECG Assesment">
+    <field name="ecg_date" widget="date"/>
+    <field name="name"/>
+    <field name="lead"/>
+    <field name="axis"/>
+    <field name="rhythm"/>
+    <field name="pacemaker"/>
+    <field name="rate"/>
+    <field name="pr"/>
+    <field name="qrs"/>
+    <field name="qt"/>
+    <field name="st_segment"/>
+    <field name="twave_inversion"/>
+    <field name="interpretation" expand="1"/>
+</tree>

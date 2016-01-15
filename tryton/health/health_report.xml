@@ -38,10 +38,10 @@
         </record>
 
         <record model="ir.action.report" id="report_patient_disease">
-            <field name="name">Diseases</field>
+            <field name="name">Health Conditions</field>
             <field name="model">gnuhealth.patient</field>
-            <field name="report_name">patient.disease</field>
-            <field name="report">health/report/patient_diseases_history.odt</field>
+            <field name="report_name">patient.conditions_history</field>
+            <field name="report">health/report/patient_conditions_history.odt</field>
         </record>
 
         <record model="ir.action.keyword" id="report_disease_patient">
@@ -81,6 +81,19 @@
             <field name="report_name">gnuhealth.immunization_status_report</field>
             <field name="report">health/report/immunization_status_report.odt</field>
         </record>
+
+        <record model="ir.action.report" id="report_patient_evaluation">
+            <field name="name">Patient Evaluation Summary</field>
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="report_name">gnuhealth.patient_evaluation</field>
+            <field name="report">health/report/patient_evaluation.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_evaluation_patient">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.patient.evaluation,-1</field>
+            <field name="action" ref="report_patient_evaluation"/>
+        </record>
+
         
     </data>
 </tryton>

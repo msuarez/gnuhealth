@@ -1,19 +1,14 @@
-# 
-# Translators:
-# Sandro Regis Cardoso <projetaty@gmail.com>, 2013
+# rvnovaes <rvnovaes@gmail.com>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-12-28 00:01+0000\n"
+"Last-Translator: rvnovaes <rvnovaes@gmail.com>\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1451260884.0\n"
 
 msgctxt "error:gnuhealth.prescription.stock.move.create:"
 msgid "Stock moves already exists!."
@@ -31,7 +26,9 @@ msgctxt "error:gnuhealth.vaccination:"
 msgid ""
 "EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
 "IT !!!"
-msgstr "VACINA VENCIDA. Por favor, informe as autoridades de saúde locais e NÃO USE!!"
+msgstr ""
+"VACINA VENCIDA. Por favor, informe as autoridades de saúde locais e NÃO "
+"USE!!"
 
 msgctxt "field:gnuhealth.medicament,quantity:"
 msgid "Quantity"
@@ -52,10 +49,6 @@ msgstr "Medicamentos"
 msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
 msgid "Stock Moves"
 msgstr "Baixa em Estoque"
-
-msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
-msgid "State"
-msgstr "Estado"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
 msgid "Create Date"
@@ -165,10 +158,6 @@ msgstr "Medicamentos"
 msgctxt "field:gnuhealth.patient.rounding,moves:"
 msgid "Stock Moves"
 msgstr "Baixa em Estoque"
-
-msgctxt "field:gnuhealth.patient.rounding,state:"
-msgid "State"
-msgstr "Estado"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
 msgid "Create Date"
@@ -351,92 +340,12 @@ msgid "Create Vaccination Stock Move"
 msgstr ""
 
 msgctxt "model:ir.action,name:act_prescription_move_form1"
-msgid "Stock Moves"
-msgstr "Baixa em Estoque"
-
-msgctxt "model:ir.action,name:act_vaccination_move_form1"
-msgid "Stock Moves"
-msgstr "Baixa em Estoque"
-
-msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
-msgid "Done"
-msgstr "Feito"
-
-msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
-msgid "Draft"
-msgstr "Rascunho"
-
-msgctxt "selection:gnuhealth.patient.rounding,state:"
-msgid "Done"
-msgstr "Feito"
-
-msgctxt "selection:gnuhealth.patient.rounding,state:"
-msgid "Draft"
-msgstr "Rascunho"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care.medical_supply:"
-msgid "Medical Supplies"
-msgstr "Suprimentos Médicos"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care.medicament:"
-msgid "Medicament"
-msgstr "Medicamento"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Done"
-msgstr "Feito"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Medication"
-msgstr "Medicação"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Stock Moves"
-msgstr "Baixa em Estoque"
-
-msgctxt "view:gnuhealth.patient.rounding.medical_supply:"
-msgid "Medical Supplies"
-msgstr "Suprimentos Médicos"
-
-msgctxt "view:gnuhealth.patient.rounding.medicament:"
-msgid "Medicament"
-msgstr "Medicamento"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Done"
-msgstr "Feito"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Medication"
-msgstr "Medicação"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Six P's"
-msgstr "Seis P's"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Stock Moves"
-msgstr "Baixa em Estoque"
-
-msgctxt "view:gnuhealth.prescription.stock.move.init:"
-msgid "Create Prescription Stock Move"
-msgstr "Criar baixa de estoque com prescrição"
-
-msgctxt "view:gnuhealth.prescription.stock.move.init:"
-msgid "Create Stock Move?"
-msgstr "Criar baixa de Estoque?"
-
-msgctxt "view:gnuhealth.vaccination.stock.move.init:"
-msgid "Create Stock Move?"
-msgstr "Criar baixa de Estoque?"
-
-msgctxt "view:gnuhealth.vaccination.stock.move.init:"
-msgid "Create Vaccination Stock Move"
+msgid "Stock Moves [readonly]"
 msgstr ""
 
-msgctxt "view:gnuhealth.vaccination:"
-msgid "Stock"
-msgstr "Estoque"
+msgctxt "model:ir.action,name:act_vaccination_move_form1"
+msgid "Stock Moves [readonly]"
+msgstr ""
 
 msgctxt ""
 "wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"

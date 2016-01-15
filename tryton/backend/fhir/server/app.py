@@ -16,6 +16,9 @@ def create_app(config=None):
     app.config.from_envvar('FHIR_SERVER_CONFIG', silent=True)
 
     with app.app_context():
+        import logging
+        logging.basicConfig(filename='flask.log', level=logging.INFO,
+                format='%(asctime)s:::%(levelname)s:::%(name)s: %(message)s')
 
         # Initialize tryton
         tryton.init_app(app)
@@ -42,77 +45,51 @@ def create_app(config=None):
         # Store current user in g.user
         app.before_request(before_request)
 
-
         #### ADD THE ROUTES ####
         from server.resources.system import Conformance
         api.add_resource(Conformance, '/', '/metadata')
 
+        def add_fhir_routes(resource):
+            """Adds complex FHIR routes"""
 
-        from server.resources.patient import (PAT_Create, PAT_Search,
-                        PAT_Validate, PAT_Record, PAT_Version)
-        api.add_resource(PAT_Create, '/Patient')
-        api.add_resource(PAT_Search, '/Patient', '/Patient/_search')
-        api.add_resource(PAT_Record, '/Patient/<int:log_id>')
-        api.add_resource(PAT_Validate,
-                        '/Patient/_validate',
-                        '/Patient/_validate/<int:log_id>')
-        api.add_resource(PAT_Version,
-                        '/Patient/<int:log_id>/_history',
-                        '/Patient/<int:log_id>/_history/<string:v_id>')
+            for _, route in resource.routing_table.items():
+                api.add_resource(route['handler'], *route['uri'])
 
-        from server.resources.diagnostic_report import (DR_Create, DR_Search,
-                                        DR_Validate, DR_Record, DR_Version)
-        api.add_resource(DR_Create, '/DiagnosticReport')
-        api.add_resource(DR_Record, '/DiagnosticReport/<item:log_id>')
-        api.add_resource(DR_Search,
-                        '/DiagnosticReport',
-                        '/DiagnosticReport/_search')
-        api.add_resource(DR_Validate,
-                        '/DiagnosticReport/_validate',
-                        '/DiagnosticReport/_validate/<item:log_id>')
-        api.add_resource(DR_Version,
-                        '/DiagnosticReport/<item:log_id>/_history',
-                        '/DiagnosticReport/<item:log_id>/_history/<string:v_id>')
+        from server.resources.patient import routing as pat
+        add_fhir_routes(pat)
 
-        from server.resources.observation import (OBS_Create, OBS_Search,
-                                        OBS_Validate, OBS_Record, OBS_Version)
-        api.add_resource(OBS_Create, '/Observation')
-        api.add_resource(OBS_Search, '/Observation', '/Observation/_search')
-        api.add_resource(OBS_Record, '/Observation/<item:log_id>')
-        api.add_resource(OBS_Validate,
-                        '/Observation/_validate',
-                        '/Observation/_validate/<item:log_id>')
-        api.add_resource(OBS_Version,
-                        '/Observation/<item:log_id>/_history',
-                        '/Observation/<item:log_id>/_history/<string:v_id>')
+        from server.resources.diagnostic_report import routing as dr
+        add_fhir_routes(dr)
 
-        from server.resources.practitioner import (HP_Create, HP_Search,
-                                        HP_Validate, HP_Record, HP_Version)
-        api.add_resource(HP_Create, '/Practitioner')
-        api.add_resource(HP_Search, '/Practitioner', '/Practitioner/_search')
-        api.add_resource(HP_Record, '/Practitioner/<int:log_id>')
-        api.add_resource(HP_Validate,
-                        '/Practitioner/_validate',
-                        '/Practitioner/_validate/<int:log_id>')
-        api.add_resource(HP_Version,
-                        '/Practitioner/<int:log_id>/_history',
-                        '/Practitioner/<int:log_id>/_history/<string:v_id>')
+        from server.resources.observation import routing as obs
+        add_fhir_routes(obs)
 
+        from server.resources.practitioner import routing as hp
+        add_fhir_routes(hp)
 
-        from server.resources.procedure import (OP_Create, OP_Search,
-                                        OP_Validate, OP_Record, OP_Version)
-        api.add_resource(OP_Create, '/Procedure')
-        api.add_resource(OP_Record, '/Procedure/<item:log_id>')
-        api.add_resource(OP_Search, '/Procedure', '/Procedure/_search')
-        api.add_resource(OP_Validate,
-                        '/Procedure/_validate',
-                        '/Procedure/_validate/<item:log_id>')
-        api.add_resource(OP_Version,
-                        '/Procedure/<item:log_id>/_history',
-                        '/Procedure/<item:log_id>/_history/<string:v_id>')
+        from server.resources.procedure import routing as op
+        add_fhir_routes(op)
+
+        from server.resources.condition import routing as condition
+        add_fhir_routes(condition)
+
+        from server.resources.family_history import routing as fh
+        add_fhir_routes(fh)
+
+        from server.resources.medication import routing as med
+        add_fhir_routes(med)
+
+        from server.resources.medication_statement import routing as ms
+        add_fhir_routes(ms)
+
+        from server.resources.immunization import routing as imm
+        add_fhir_routes(imm)
+
+        from server.resources.organization import routing as org
+        add_fhir_routes(org)
 
         # Handle the authentication blueprint
-        #   NOT PART OF THE FHIR STANDARD
+        #   TODO: Use OAuth or something robust
         from server.resources.auth import auth_endpoint
         app.register_blueprint(auth_endpoint, url_prefix='/auth')
 

@@ -1,19 +1,14 @@
-# 
-# Translators:
-# Daniel Linhares <danielinhares@gmail.com>, 2012
+# rvnovaes <rvnovaes@gmail.com>, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/GNU_Health/language/pt_BR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-12-28 00:01+0000\n"
+"Last-Translator: rvnovaes <rvnovaes@gmail.com>\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1451260884.0\n"
 
 msgctxt "field:gnuhealth.newborn,qr:"
 msgid "QR Code"
@@ -30,83 +25,3 @@ msgstr "Código Recém-nascido - RR"
 msgctxt "model:ir.action,name:report_patient_qrcard"
 msgid "ID Cards - QR"
 msgstr "Código  Cartões - RR"
-
-msgctxt "odt:newborn.qrcard:"
-msgid ","
-msgstr ","
-
-msgctxt "odt:newborn.qrcard:"
-msgid ":"
-msgstr ":"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "DoB"
-msgstr "DoB"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Female"
-msgstr "Feminino"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "ID"
-msgstr "Identificação"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Male"
-msgstr "Masculino"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Mother"
-msgstr "Mãe"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Mother's"
-msgstr "Mãe"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "Name"
-msgstr "Nome"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "PU"
-msgstr "PU"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "and"
-msgstr "e"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "cm"
-msgstr "cm"
-
-msgctxt "odt:newborn.qrcard:"
-msgid "gr"
-msgstr "gr"
-
-msgctxt "odt:patient.qrcard:"
-msgid ","
-msgstr ","
-
-msgctxt "odt:patient.qrcard:"
-msgid ":"
-msgstr ":"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Blood Type"
-msgstr "Tipo Sanguíneo"
-
-msgctxt "odt:patient.qrcard:"
-msgid "DoB"
-msgstr "DoB"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Female"
-msgstr "Feminino"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Male"
-msgstr "Masculino"
-
-msgctxt "odt:patient.qrcard:"
-msgid "Name"
-msgstr "Nome"

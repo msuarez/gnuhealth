@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<form string="Socioeconomics and Family Assessment">
+    <group colspan="4" col="10" id="patient_header_group">
+      <label name="patient"/>
+      <field name="patient"/>
+      <label name="computed_age"/>
+      <field name="computed_age"/>
+      <field name="gender"/>
+      <label name="health_professional"/>
+      <field name="health_professional"/>
+      <label name="assessment_date"/>
+      <field name="assessment_date"/>
+    </group>
+    
+    <newline/>
+
+    <group string="Socioeconomics" id="group_socioeconomics">
+      <label name="ses"/>
+      <field name="ses"/>
+      <label name="income"/>
+      <field name="income"/>
+      <label name="education"/>
+      <field name="education"/>
+      <label name="occupation"/>
+      <field name="occupation"/>
+      <label name="du"/>
+      <field name="du"/>
+      <label name="housing"/>
+      <field name="housing"/>
+    </group>
+    
+    <newline/>
+
+    <group colspan="4" col="6" string="Family Functionality" id="group_ses_family_apgar">
+        <label name="fam_apgar_help"/>
+        <field name="fam_apgar_help"/>
+        <label name="fam_apgar_discussion"/>
+        <field name="fam_apgar_discussion"/>
+        <label name="fam_apgar_decisions"/>
+        <field name="fam_apgar_decisions"/>
+        <label name="fam_apgar_timesharing"/>
+        <field name="fam_apgar_timesharing"/>
+        <label name="fam_apgar_affection"/>
+        <field name="fam_apgar_affection"/>
+        <label name="fam_apgar_score"/>
+        <field name="fam_apgar_score"/>
+    </group>
+
+    <newline/>
+  
+    <group id="group_notes" string="Notes" >
+     <field name="notes"/>
+    </group>
+    <newline/>
+    <group id="group_footer" colspan="4" col="6">
+        <label name="state"/>
+        <field name="state"/>        
+        <label name="signed_by"/>
+        <field name="signed_by"/>        
+        <button name="end_assessment" help="End assessment" string="Done" icon="tryton-go-next" confirm="End this assessment ?"/>
+    </group>
+</form>

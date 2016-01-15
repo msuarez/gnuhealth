@@ -1,26 +1,22 @@
-# 
-# Translators:
-# Jovana Savic <joa.uniq@gmail.com>, 2012
-# casely, 2013
-# Philip Li <Horatii.Lee@gmail.com>, 2014
-# Zenith Zhao <>, 2012
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-08 11:28+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252519.0\n"
 
 msgctxt "error:gnuhealth.surgery:"
 msgid "End time \"%(end_date)s\" BEFORE surgery date \"%(surgery_date)s\""
 msgstr "结束时间\"(end_date) %s\"前手术日期\"(surgery_date) %s\""
+
+msgctxt "error:gnuhealth.surgery:"
+msgid "Operating Room is not available"
+msgstr ""
 
 msgctxt "field:gnuhealth.operation,create_date:"
 msgid "Create Date"
@@ -130,6 +126,10 @@ msgctxt "field:gnuhealth.rcri,write_uid:"
 msgid "Write User"
 msgstr "请您写用户"
 
+msgctxt "field:gnuhealth.sequences,surgery_code_sequence:"
+msgid "Surgery Sequence"
+msgstr ""
+
 msgctxt "field:gnuhealth.surgery,admission:"
 msgid "Admission"
 msgstr "入院"
@@ -174,6 +174,10 @@ msgctxt "field:gnuhealth.surgery,extra_info:"
 msgid "Extra Info"
 msgstr "额外信息"
 
+msgctxt "field:gnuhealth.surgery,gender:"
+msgid "Gender"
+msgstr ""
+
 msgctxt "field:gnuhealth.surgery,id:"
 msgid "ID"
 msgstr "ID"
@@ -187,12 +191,16 @@ msgid "Operating Room"
 msgstr "手术室"
 
 msgctxt "field:gnuhealth.surgery,pathology:"
-msgid "Base condition"
-msgstr "基本状况"
+msgid "Condition"
+msgstr ""
 
 msgctxt "field:gnuhealth.surgery,patient:"
 msgid "Patient"
 msgstr "患者"
+
+msgctxt "field:gnuhealth.surgery,postoperative_dx:"
+msgid "Post-op dx"
+msgstr ""
 
 msgctxt "field:gnuhealth.surgery,preop_antibiotics:"
 msgid "Antibiotic Prophylaxis"
@@ -250,6 +258,10 @@ msgctxt "field:gnuhealth.surgery,state:"
 msgid "State"
 msgstr "声明"
 
+msgctxt "field:gnuhealth.surgery,supplies:"
+msgid "Supplies"
+msgstr ""
+
 msgctxt "field:gnuhealth.surgery,surgeon:"
 msgid "Surgeon"
 msgstr "外科医生"
@@ -266,6 +278,14 @@ msgctxt "field:gnuhealth.surgery,surgery_length:"
 msgid "Duration"
 msgstr "持续时间"
 
+msgctxt "field:gnuhealth.surgery,surgery_team:"
+msgid "Team Members"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery,surgical_wound:"
+msgid "Surgical wound"
+msgstr ""
+
 msgctxt "field:gnuhealth.surgery,write_date:"
 msgid "Write Date"
 msgstr "请您写日期"
@@ -273,6 +293,90 @@ msgstr "请您写日期"
 msgctxt "field:gnuhealth.surgery,write_uid:"
 msgid "Write User"
 msgstr "请您写用户"
+
+msgctxt "field:gnuhealth.surgery_supply,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,name:"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,qty:"
+msgid "Qty"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,qty_used:"
+msgid "Used"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,supply:"
+msgid "Supply"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_supply,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,name:"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,notes:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,rec_name:"
+msgid "Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,role:"
+msgid "Role"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,team_member:"
+msgid "Member"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.surgery_team,write_uid:"
+msgid "Write User"
+msgstr ""
 
 msgctxt "help:gnuhealth.operation,procedure:"
 msgid "Procedure Code, for example ICD-10-PCS or ICPM"
@@ -299,7 +403,9 @@ msgid ""
 " nitrate therapy, or ECG with pathological         Q waves; do not count "
 "prior coronary revascularization procedure         unless one of the other "
 "criteria for ischemic heart disease is         present"
-msgstr "心肌梗死的病历或者一次阳性运动试验，当前投诉的被认为是继发于心肌缺血的胸部疼痛，使用硝酸疗法，或者病理 Q 波心电图；除非存在缺血性心脏病的其他准则之一时不计数事先冠状动脉血运重建过程"
+msgstr ""
+"心肌梗死的病历或者一次阳性运动试验，当前投诉的被认为是继发于心肌缺血的胸部疼痛，使用硝酸疗法，或者病理 Q "
+"波心电图；除非存在缺血性心脏病的其他准则之一时不计数事先冠状动脉血运重建过程"
 
 msgctxt "help:gnuhealth.rcri,rcri_kidney_history:"
 msgid "Preoperative serum creatinine >2.0 mg/dL (177 mol/L)"
@@ -311,7 +417,11 @@ msgid ""
 "Points 1: Class II Low (0.9% complications)\n"
 "Points 2: Class III Moderate (6.6% complications)\n"
 "Points 3 or more : Class IV High (>11% complications)"
-msgstr "0 点： 第一类非常低 (0.4%并发症)\n1  点： 第二类低 (0.9%并发症)\n2 点：第三类中等(6.6%并发症)\n3 点或以上： 第四类四高 (大于11%并发症)"
+msgstr ""
+"0 点： 第一类非常低 (0.4%并发症)\n"
+"1  点： 第二类低 (0.9%并发症)\n"
+"2 点：第三类中等(6.6%并发症)\n"
+"3 点或以上： 第四类四高 (大于11%并发症)"
 
 msgctxt "help:gnuhealth.surgery,age:"
 msgid ""
@@ -328,8 +438,8 @@ msgid "Urgency level for this surgery"
 msgstr "这种手术的紧迫级别"
 
 msgctxt "help:gnuhealth.surgery,code:"
-msgid "Health Center Unique code"
-msgstr "康复中心代码"
+msgid "Health Center code / sequence"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,computed_age:"
 msgid "Computed patient age at the moment of the surgery"
@@ -338,6 +448,10 @@ msgstr "患者手术推算年龄"
 msgctxt "help:gnuhealth.surgery,pathology:"
 msgid "Base Condition / Reason"
 msgstr "基本状况/原因"
+
+msgctxt "help:gnuhealth.surgery,postoperative_dx:"
+msgid "Post-operative diagnosis"
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,preop_antibiotics:"
 msgid "Prophylactic antibiotic treatment within the last 60 minutes"
@@ -364,7 +478,12 @@ msgid ""
 "Points 1: Class II Low (0.9% complications)\n"
 "Points 2: Class III Moderate (6.6% complications)\n"
 "Points 3 or more : Class IV High (>11% complications)"
-msgstr "修订病人心脏风险 指数\n0 点： 第一类非常低 (0.4%并发症)\n1  点： 第二类低 (0.9%并发症)\n2 点：第三类中等(6.6%并发症)\n3 点或以上： 第四类四高 (大于11%并发症)"
+msgstr ""
+"修订病人心脏风险 指数\n"
+"0 点： 第一类非常低 (0.4%并发症)\n"
+"1  点： 第二类低 (0.9%并发症)\n"
+"2 点：第三类中等(6.6%并发症)\n"
+"3 点或以上： 第四类四高 (大于11%并发症)"
 
 msgctxt "help:gnuhealth.surgery,preop_site_marking:"
 msgid "The surgeon has marked the surgical incision"
@@ -384,6 +503,10 @@ msgctxt "help:gnuhealth.surgery,signed_by:"
 msgid "Health Professional that signed this surgery document"
 msgstr "此手术文档签名的卫生专业人员"
 
+msgctxt "help:gnuhealth.surgery,supplies:"
+msgid "List of the supplies required for the surgery"
+msgstr ""
+
 msgctxt "help:gnuhealth.surgery,surgeon:"
 msgid "Surgeon who did the procedure"
 msgstr "完成该流程的手术师"
@@ -393,12 +516,34 @@ msgid "Start of the Surgery"
 msgstr "手术的开始"
 
 msgctxt "help:gnuhealth.surgery,surgery_end_date:"
-msgid "End of the Surgery"
-msgstr "手术的结束"
+msgid ""
+"Automatically set when the surgery is done.It is also the estimated end time"
+" when confirming the surgery."
+msgstr ""
 
 msgctxt "help:gnuhealth.surgery,surgery_length:"
 msgid "Length of the surgery"
 msgstr "手术的程度"
+
+msgctxt "help:gnuhealth.surgery,surgery_team:"
+msgid "Professionals Involved in the surgery"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery_supply,qty:"
+msgid "Initial required quantity"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery_supply,qty_used:"
+msgid "Actual amount used"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery_supply,supply:"
+msgid "Supply to be used in this surgery"
+msgstr ""
+
+msgctxt "help:gnuhealth.surgery_team,team_member:"
+msgid "Health professional that participated on this surgery"
+msgstr ""
 
 msgctxt "model:gnuhealth.operation,name:"
 msgid "Operation - Surgical Procedures"
@@ -411,6 +556,14 @@ msgstr "改良心脏风险指数"
 msgctxt "model:gnuhealth.surgery,name:"
 msgid "Surgery"
 msgstr "手术"
+
+msgctxt "model:gnuhealth.surgery_supply,name:"
+msgid "Supplies related to the surgery"
+msgstr ""
+
+msgctxt "model:gnuhealth.surgery_team,name:"
+msgid "Team Involved in the surgery"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_rcri_form1"
 msgid "RCRI"
@@ -428,6 +581,39 @@ msgctxt "model:ir.action,name:report_surgery_report"
 msgid "Surgery Report"
 msgstr "手术报告"
 
+msgctxt "model:ir.action.act_window.domain,name:act_surgery_domain_all"
+msgid "All"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_surgery_domain_confirmed"
+msgid "Confirmed"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_surgery_domain_done"
+msgid "Done"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_surgery_domain_draft"
+msgid "Draft"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_surgery_domain_in_progress"
+msgid "In Progress"
+msgstr ""
+
+msgctxt "model:ir.action.act_window.domain,name:act_surgery_domain_signed"
+msgid "Signed"
+msgstr ""
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_surgery_code"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_surgery_code"
+msgid "Surgery"
+msgstr ""
+
 msgctxt "model:ir.ui.menu,name:gnuhealth_surgery_menu"
 msgid "Surgeries"
 msgstr "手术"
@@ -436,235 +622,9 @@ msgctxt "model:res.group,name:group_health_surgery_admin"
 msgid "Health Surgery Administration"
 msgstr "卫生外科管理"
 
-msgctxt "odt:surgery:"
-msgid "( Class"
-msgstr "(类"
-
-msgctxt "odt:surgery:"
-msgid "(ID"
-msgstr "(标识号"
-
-msgctxt "odt:surgery:"
-msgid ")"
-msgstr ")"
-
-msgctxt "odt:surgery:"
-msgid ","
-msgstr "。"
-
-msgctxt "odt:surgery:"
-msgid "1 : Normal healthy patient"
-msgstr "1:正常健康的病人"
-
-msgctxt "odt:surgery:"
-msgid "2 : Patients with mild systemic disease"
-msgstr "2:轻度系统性疾病患者"
-
-msgctxt "odt:surgery:"
-msgid "3 : Patients with severe systemic disease"
-msgstr "3:严重系统性疾病患者"
-
-msgctxt "odt:surgery:"
+msgctxt "selection:gnuhealth.rcri,rcri_class:"
 msgid ""
-"4 : Patients with severe systemic disease that is a constant threat to life"
-msgstr "4:不断威胁生命的严重系统性疾病患者"
-
-msgctxt "odt:surgery:"
-msgid ""
-"5 : Moribund patients who are not expected to survive without the operation"
-msgstr "5：不手术就没有希望幸存的垂死的病人"
-
-msgctxt "odt:surgery:"
-msgid ""
-"6 : A declared brain-dead patient who organs are being removed for donor "
-"purposes"
-msgstr "6：一个已声明的脑死亡病人，他的器官被捐赠"
-
-msgctxt "odt:surgery:"
-msgid ":"
-msgstr "："
-
-msgctxt "odt:surgery:"
-msgid "ASA"
-msgstr "乙酰水杨酸"
-
-msgctxt "odt:surgery:"
-msgid "Age"
-msgstr "年龄"
-
-msgctxt "odt:surgery:"
-msgid "Anesthesia Report"
-msgstr "麻醉报告"
-
-msgctxt "odt:surgery:"
-msgid "Anesthetist"
-msgstr "麻醉师"
-
-msgctxt "odt:surgery:"
-msgid "Antibiotic Prophylaxis :"
-msgstr "预防性应用抗生素"
-
-msgctxt "odt:surgery:"
-msgid "Base Condition"
-msgstr "基本条件"
-
-msgctxt "odt:surgery:"
-msgid "Class 1:"
-msgstr "第1类："
-
-msgctxt "odt:surgery:"
-msgid ""
-"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
-"uvula"
-msgstr "第二类：能见度的硬软腭，扁桃腺和小舌的上部"
-
-msgctxt "odt:surgery:"
-msgid "Class 3: Soft and hard palate and base of the uvula are visible"
-msgstr "第三类：能见度的硬软腭和小舌"
-
-msgctxt "odt:surgery:"
-msgid "Class 4: Only Hard Palate visible"
-msgstr "第四类：只有硬腭可见"
-
-msgctxt "odt:surgery:"
-msgid "Classification"
-msgstr "分类"
-
-msgctxt "odt:surgery:"
-msgid "Date"
-msgstr "日期"
-
-msgctxt "odt:surgery:"
-msgid "Description"
-msgstr "描写"
-
-msgctxt "odt:surgery:"
-msgid "Emergency"
-msgstr "紧急的"
-
-msgctxt "odt:surgery:"
-msgid "Female"
-msgstr "女"
-
-msgctxt "odt:surgery:"
-msgid "Full visibility of tonsils, uvula and soft palate"
-msgstr "扁挑腺，悬雍垂（小舌）和软腭完完全可见"
-
-msgctxt "odt:surgery:"
-msgid "Institution"
-msgstr "机构"
-
-msgctxt "odt:surgery:"
-msgid "Main Surgeon"
-msgstr "主要的外科医生"
-
-msgctxt "odt:surgery:"
-msgid "Male"
-msgstr "男"
-
-msgctxt "odt:surgery:"
-msgid "Mallampati Score"
-msgstr "气道分级"
-
-msgctxt "odt:surgery:"
-msgid "Notes"
-msgstr "注意"
-
-msgctxt "odt:surgery:"
-msgid "Operating Room"
-msgstr "手术室"
-
-msgctxt "odt:surgery:"
-msgid "Optional"
-msgstr "可选"
-
-msgctxt "odt:surgery:"
-msgid "Patient"
-msgstr "患者"
-
-msgctxt "odt:surgery:"
-msgid "Physical Status"
-msgstr "身体状态"
-
-msgctxt "odt:surgery:"
-msgid "Pre-operation Checklist"
-msgstr "术前检查表"
-
-msgctxt "odt:surgery:"
-msgid "Pre-operation Information"
 msgstr ""
-
-msgctxt "odt:surgery:"
-msgid "Pre-operative"
-msgstr "术前"
-
-msgctxt "odt:surgery:"
-msgid "Print Date"
-msgstr "打印日期"
-
-msgctxt "odt:surgery:"
-msgid "Procedure Code"
-msgstr "过程代码"
-
-msgctxt "odt:surgery:"
-msgid "Pulse Oximeter in place :"
-msgstr "脉搏血氧仪中的地方"
-
-msgctxt "odt:surgery:"
-msgid "Required"
-msgstr "必须"
-
-msgctxt "odt:surgery:"
-msgid "Revised Cardiac Risk Index (RCRI)"
-msgstr "经修订的心脏危险指数 (RCRI)"
-
-msgctxt "odt:surgery:"
-msgid "Risk of Massive bleeding,"
-msgstr "大量出血的危险"
-
-msgctxt "odt:surgery:"
-msgid "Sex"
-msgstr "性别"
-
-msgctxt "odt:surgery:"
-msgid "Sterility confirmed :"
-msgstr "证实不育："
-
-msgctxt "odt:surgery:"
-msgid "Surgery Details / Incidents"
-msgstr "手术细节 / 事件"
-
-msgctxt "odt:surgery:"
-msgid "Surgery Report :"
-msgstr "手术报告"
-
-msgctxt "odt:surgery:"
-msgid "Surgery Time"
-msgstr "手术时间"
-
-msgctxt "odt:surgery:"
-msgid "Surgical Site Marking :"
-msgstr "外科手术部位标记："
-
-msgctxt "odt:surgery:"
-msgid "Urgent"
-msgstr "紧急的"
-
-msgctxt "odt:surgery:"
-msgid "at surgery"
-msgstr "在外科手术"
-
-msgctxt "odt:surgery:"
-msgid "e :"
-msgstr "e："
-
-msgctxt "odt:surgery:"
-msgid "i"
-msgstr "i"
-
-msgctxt "odt:surgery:"
-msgid "ntravenous access and fluids availabl"
-msgstr "静脉访问和流体可用"
 
 msgctxt "selection:gnuhealth.rcri,rcri_class:"
 msgid "I"
@@ -683,6 +643,10 @@ msgid "IV"
 msgstr "IV"
 
 msgctxt "selection:gnuhealth.surgery,classification:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,classification:"
 msgid "Emergency"
 msgstr "紧急的"
 
@@ -697,6 +661,30 @@ msgstr "必须"
 msgctxt "selection:gnuhealth.surgery,classification:"
 msgid "Urgent"
 msgstr "紧急的"
+
+msgctxt "selection:gnuhealth.surgery,gender:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,gender:"
+msgid "Female"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,gender:"
+msgid "Female -> Male"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,gender:"
+msgid "Male"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,gender:"
+msgid "Male -> Female"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_asa:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.surgery,preop_asa:"
 msgid "PS 1 : Normal healthy patient"
@@ -729,6 +717,10 @@ msgid ""
 msgstr "等级6：脑死亡患者，器官可被移除，用于捐助"
 
 msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,preop_mallampati:"
 msgid "Class 1: Full visibility of tonsils, uvula and soft palate"
 msgstr "第一类：完整的能见度扁桃体，悬雍垂和软腭"
 
@@ -747,69 +739,45 @@ msgid "Class 4: Only Hard Palate visible"
 msgstr "第四类：只有硬腭可见"
 
 msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Cancelled"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Confirmed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.surgery,state:"
 msgid "Done"
 msgstr "完成"
 
 msgctxt "selection:gnuhealth.surgery,state:"
-msgid "In progress"
-msgstr "进行中"
+msgid "Draft"
+msgstr ""
 
-msgctxt "view:gnuhealth.operation:"
-msgid "Operation"
-msgstr "手术"
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "In Progress"
+msgstr ""
 
-msgctxt "view:gnuhealth.operation:"
-msgid "Procedure"
-msgstr "程序"
+msgctxt "selection:gnuhealth.surgery,state:"
+msgid "Signed"
+msgstr ""
 
-msgctxt "view:gnuhealth.operation:"
-msgid "Procedure Details / Incidents"
-msgstr "手续细节"
+msgctxt "selection:gnuhealth.surgery,surgical_wound:"
+msgid ""
+msgstr ""
 
-msgctxt "view:gnuhealth.patient:"
-msgid "Surgeries"
-msgstr "手术"
+msgctxt "selection:gnuhealth.surgery,surgical_wound:"
+msgid "Clean . Class I"
+msgstr ""
 
-msgctxt "view:gnuhealth.procedure:"
-msgid "Procedure"
-msgstr "流程"
+msgctxt "selection:gnuhealth.surgery,surgical_wound:"
+msgid "Clean-Contaminated . Class II"
+msgstr ""
 
-msgctxt "view:gnuhealth.rcri:"
-msgid "RCRI"
-msgstr "改良心脏风险指数"
+msgctxt "selection:gnuhealth.surgery,surgical_wound:"
+msgid "Contaminated . Class III"
+msgstr ""
 
-msgctxt "view:gnuhealth.rcri:"
-msgid "RCRI : Revised Cardiac Risk Index"
-msgstr "RCRI： 修订心脏风险指数"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Anesthesia"
-msgstr "麻醉"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Details / Incidents"
-msgstr "细节/事件"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Finish and sign this surgery ? Itwill become read-only !"
-msgstr "完成并签署这种手术吗？它将变成只读！"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Patient Surgical Risk assessment"
-msgstr "患者手术风险评估"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Preoperative checklist"
-msgstr "术前核对清单"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Sign"
-msgstr "签订"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Sign this surgery"
-msgstr "签署这种手术"
-
-msgctxt "view:gnuhealth.surgery:"
-msgid "Surgery"
-msgstr "手术"
+msgctxt "selection:gnuhealth.surgery,surgical_wound:"
+msgid "Dirty-Infected . Class IV"
+msgstr ""

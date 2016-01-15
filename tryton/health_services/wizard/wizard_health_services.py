@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #
@@ -65,7 +65,7 @@ class CreateServiceInvoice(Wizard):
         Journal = pool.get('account.journal')
 
         currency_id = Transaction().context.get('currency')
-        
+
         services = HealthService.browse(Transaction().context.get(
             'active_ids'))
         invoices = []
@@ -84,8 +84,6 @@ class CreateServiceInvoice(Wizard):
             invoice_data['type'] = 'out_invoice'
             invoice_data['invoice_date'] = datetime.date.today()
             invoice_data['account'] = party.account_receivable.id
-            invoice_data['patient'] = service.patient.id
-            invoice_data['health_service'] = service.id
 
             ctx = {}
             sale_price_list = None
@@ -119,7 +117,7 @@ class CreateServiceInvoice(Wizard):
                 self.raise_user_error('no_payment_term')
 
             invoice_data['payment_term'] = party.customer_payment_term.id
-            
+
             #Invoice Lines
             seq = 0
             invoice_lines = []
@@ -130,13 +128,14 @@ class CreateServiceInvoice(Wizard):
                 if sale_price_list:
                     with Transaction().set_context(ctx):
                         unit_price = sale_price_list.compute(party,
-                        line.product, line.product.list_price,
-                        line.qty, line.product.default_uom)
+                            line.product, line.product.list_price,
+                            line.qty, line.product.default_uom)
                 else:
                     unit_price = line.product.list_price
 
                 if line.to_invoice:
                     invoice_lines.append(('create', [{
+                            'origin': str(line),
                             'product': line.product.id,
                             'description': line.desc,
                             'quantity': line.qty,

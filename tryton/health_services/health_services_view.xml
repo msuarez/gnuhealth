@@ -72,6 +72,41 @@
             action="gnuhealth_action_health_service"
             id="gnuhealth_health_service_menu" icon="gnuhealth-list"/>
 
+<!-- Simple view of created health service invoices -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_health_service_invoices">
+            <field name="name">Created invoices</field>
+            <field name="res_model">account.invoice</field>
+            <field name="domain" eval="[('health_service', '!=', None)]" pyson="1"/>
+        </record>
+
+        <menuitem parent="gnuhealth_services_menu"
+            action="gnuhealth_action_health_service_invoices"
+            id="gnuhealth_health_service_invoices_menu" icon="gnuhealth-list"/>
+
+<!-- Shortcut to created invoice from health services -->
+
+        <record model="ir.action.act_window" id="act_invoice_related_form1">
+            <field name="name">Related Invoice</field>
+            <field name="res_model">account.invoice</field>
+            <field name="domain" eval="[('health_service', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_invoice_related_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.health_service,-1</field>
+            <field name="action" ref="act_invoice_related_form1"/>
+        </record>
+
+
+<!-- Extend prescription view to include the service -->
+
+        <record model="ir.ui.view" id="view_prescription_form">
+            <field name="model">gnuhealth.prescription.order</field>
+            <field name="inherit" ref="health.gnuhealth_prescription_view" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_prescription</field>
+        </record> 
 
     </data>
 </tryton>

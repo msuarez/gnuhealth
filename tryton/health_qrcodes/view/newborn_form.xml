@@ -2,7 +2,7 @@
 <data>
     <xpath expr="//group[@id=&quot;group_newborn_notes&quot;]" position="after">
         <group id="group_qr">
-            <field name="qr" widget="image"/>
+            <field xfill="0" xexpand="1" name="qr" widget="image"/>
         </group>
     </xpath>
 </data>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data>
+	<xpath expr="//field[@name=&quot;prescription_line&quot;]" position="after">
+        <group id="group_prescription_services" colspan="4">
+            <label name="service"/>
+            <field name="service"/>
+            <button name="update_service" help="Update Service document with this prescription lines" string="Update Services" icon="tryton-go-next" confirm="Transfer medicaments to services ?"/>
+        </group>
+    </xpath>
+</data>

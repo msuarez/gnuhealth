@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        
+        
+        <!-- Menu entries -->
+        <menuitem name="Functioning and Disability" id="disability_conf_menu"
+            parent="health.gnuhealth_conf_menu" icon="gnuhealth-preferences"/>
+
+
+        <!-- Include Disability information in the Patient History -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_view">
+            <field name="model">gnuhealth.patient</field>
+            <field name="inherit" ref="health.gnuhealth_patient_view_form" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_form</field>
+        </record>
+
+        <!-- Include prothesis attribute in the product -->
+
+        <record model="ir.ui.view" id="gnuhealth_product_view">
+            <field name="model">product.product</field>
+            <field name="inherit" ref="product.product_view_form" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_product_form</field>
+        </record>
+
+        <!-- Body Function -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_view">
+            <field name="model">gnuhealth.body_function</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_function_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_tree">
+            <field name="model">gnuhealth.body_function</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_function_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_body_function_view">
+            <field name="name">Body Functions</field>
+            <field name="res_model">gnuhealth.body_function</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_function_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_body_function_tree"/>
+            <field name="act_window" ref="action_gnuhealth_body_function_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_function_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_body_function_view"/>
+            <field name="act_window" ref="action_gnuhealth_body_function_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_body_function_view"
+            id="menu_gnuhealth_body_function_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
+
+
+        <!-- Body Function Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_assessment_view">
+            <field name="model">gnuhealth.body_function.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_function_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_function_assessment_tree">
+            <field name="model">gnuhealth.body_function.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_function_assessment_tree</field>
+        </record>
+
+
+        <!-- Body Structure -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_view">
+            <field name="model">gnuhealth.body_structure</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_structure_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_tree">
+            <field name="model">gnuhealth.body_structure</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_structure_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_body_structure_view">
+            <field name="name">Body Structures</field>
+            <field name="res_model">gnuhealth.body_structure</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_structure_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_body_structure_tree"/>
+            <field name="act_window" ref="action_gnuhealth_body_structure_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_body_structure_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_body_structure_view"/>
+            <field name="act_window" ref="action_gnuhealth_body_structure_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_body_structure_view"
+            id="menu_gnuhealth_body_structure_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
+        <!-- Body Structure Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_assessment_view">
+            <field name="model">gnuhealth.body_structure.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_body_structure_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_body_structure_assessment_tree">
+            <field name="model">gnuhealth.body_structure.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_body_structure_assessment_tree</field>
+        </record>
+
+
+        <!-- Activity and Participation -->
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_view">
+            <field name="model">gnuhealth.activity_and_participation</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_activity_and_participation_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_tree">
+            <field name="model">gnuhealth.activity_and_participation</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_activity_and_participation_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_activity_and_participation_view">
+            <field name="name">Activities and Participation</field>
+            <field name="res_model">gnuhealth.activity_and_participation</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_activity_and_participation_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_activity_and_participation_tree"/>
+            <field name="act_window" ref="action_gnuhealth_activity_and_participation_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_activity_and_participation_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_activity_and_participation_view"/>
+            <field name="act_window" ref="action_gnuhealth_activity_and_participation_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_activity_and_participation_view"
+            id="menu_gnuhealth_activity_and_participation_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
+
+        <!-- Activity and Participation Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_assessment_view">
+            <field name="model">gnuhealth.activity.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_activity_and_participation_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_activity_and_participation_assessment_tree">
+            <field name="model">gnuhealth.activity.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_activity_and_participation_assessment_tree</field>
+        </record>
+        
+
+        <!-- Environmental Factor -->
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_view">
+            <field name="model">gnuhealth.environmental_factor</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_environmental_factor_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_tree">
+            <field name="model">gnuhealth.environmental_factor</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_environmental_factor_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_environmental_factor_view">
+            <field name="name">Environmental Factors</field>
+            <field name="res_model">gnuhealth.environmental_factor</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_environmental_factor_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_environmental_factor_tree"/>
+            <field name="act_window" ref="action_gnuhealth_environmental_factor_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_environmental_factor_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_environmental_factor_view"/>
+            <field name="act_window" ref="action_gnuhealth_environmental_factor_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_environmental_factor_view"
+            id="menu_gnuhealth_environmental_factor_list" icon="gnuhealth-list"
+            parent="disability_conf_menu"/>
+
+        <!-- Environmental Factor Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_view">
+            <field name="model">gnuhealth.environment.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_environmental_factor_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_environmental_factor_assessment_tree">
+            <field name="model">gnuhealth.environment.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_environmental_factor_assessment_tree</field>
+        </record>
+
+
+
+
+        
+        <!-- Patient Disability Assessment -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_view">
+            <field name="model">gnuhealth.patient.disability_assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_disability_assessment_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_disability_assessment_tree">
+            <field name="model">gnuhealth.patient.disability_assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_patient_disability_assessment_tree</field>
+        </record>
+
+        <!-- Shortcut to Disability assessment / history from the Patient -->
+
+        <record model="ir.action.act_window" id="act_patient_disability_assessment_form">
+            <field name="name">Disability Assessment</field>
+            <field name="res_model">gnuhealth.patient.disability_assessment</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+
+        <record model="ir.action.keyword" id="act_open_patient_disability_assessment_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_patient_disability_assessment_form"/>
+        </record>
+
+        <!-- Patient Amputations -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_amputation_view">
+            <field name="model">gnuhealth.patient.amputation</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_amputation_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_amputation_tree">
+            <field name="model">gnuhealth.patient.amputation</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_patient_amputation_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_patient_amputation_view">
+            <field name="name">Amputations</field>
+            <field name="res_model">gnuhealth.patient.amputation</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_patient_amputation_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_patient_amputation_tree"/>
+            <field name="act_window" ref="action_gnuhealth_patient_amputation_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_patient_amputation_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_patient_amputation_view"/>
+            <field name="act_window" ref="action_gnuhealth_patient_amputation_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_patient_amputation_view"
+            id="menu_gnuhealth_patient_amputation_list" icon="gnuhealth-list"
+            parent="health.gnuhealth_reporting_menu"/>
+
+
+
+        <!-- Patient Protheses -->
+
+        <record model="ir.ui.view" id="gnuhealth_patient_prothesis_view">
+            <field name="model">gnuhealth.patient.prothesis</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_prothesis_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_patient_prothesis_tree">
+            <field name="model">gnuhealth.patient.prothesis</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_patient_prothesis_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_patient_prothesis_view">
+            <field name="name">Protheses</field>
+            <field name="res_model">gnuhealth.patient.prothesis</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_patient_prothesis_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_patient_prothesis_tree"/>
+            <field name="act_window" ref="action_gnuhealth_patient_prothesis_view"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_patient_prothesis_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_patient_prothesis_view"/>
+            <field name="act_window" ref="action_gnuhealth_patient_prothesis_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_patient_prothesis_view"
+            id="menu_gnuhealth_patient_prothesis_list" icon="gnuhealth-list"
+            parent="health.gnuhealth_reporting_menu"/>
+
+
+    </data>
+</tryton>

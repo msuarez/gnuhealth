@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
+    <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
         <page string="Lifestyle" id="patient_lifestyle">
             <notebook>
                 <page string="Diet and Exersice" id="diet_and_exercise">
@@ -18,7 +18,12 @@
                             <field name="sleep_during_daytime"/>
                         </group>
                         <newline/>
-                        <group colspan="4" col="8" id="group_diet">
+                        <group string="Diet" colspan="4" col="8" id="group_diet">
+                            <label name="vegetarian_type"/>
+                            <field name="vegetarian_type"/>
+                            <label name="diet_belief"/>
+                            <field name="diet_belief"/>
+                            <newline/>
                             <label name="number_of_meals"/>
                             <field name="number_of_meals"/>
                             <label name="eats_alone"/>
@@ -71,7 +76,7 @@
                             </group>
                         </page>
                         <page string="Alcohol" id="page_alchohol">
-                            <group colspan="2" id="group_alcohol">
+                            <group colspan="4" id="group_alcohol">
                                 <label name="alcohol"/>
                                 <field name="alcohol"/>
                                 <label name="ex_alcoholic"/>
@@ -87,6 +92,7 @@
                                 <label name="alcohol_liquor_number"/>
                                 <field name="alcohol_liquor_number"/>
                             </group>
+                            <newline/>
                             <field name="cage"/>
                         </page>
                         <page string="Recreational Drugs" id="page_recreational_drugs">

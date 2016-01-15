@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.action.report" id="report_health_services_report">
+            <field name="name">Services Report</field>
+            <field name="model">gnuhealth.health_service</field>
+            <field name="report_name">health_services.report</field>
+            <field name="report">health_services/report/health_services_report.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_health_service_report_keyword">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.health_service,-1</field>
+            <field name="action" ref="report_health_services_report"/>
+        </record>
+
+    </data>
+</tryton>

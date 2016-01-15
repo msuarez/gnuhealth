@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -43,9 +43,6 @@ class SurgeryReport(Report):
                 timezone = pytz.timezone(company.timezone)
 
         dt = datetime.now()
-        localcontext['print_date'] = datetime.astimezone(dt.replace(
-            tzinfo=pytz.utc), timezone)
-        localcontext['print_time'] = localcontext['print_date'].time()
 
         return super(SurgeryReport, cls).parse(report, objects, data, 
             localcontext)

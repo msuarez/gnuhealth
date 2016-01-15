@@ -55,7 +55,7 @@
         <record model="ir.action.act_window" id="act_glasgow_form1">
             <field name="name">Glasgow Coma Scale</field>
             <field name="res_model">gnuhealth.icu.glasgow</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_glasgow_keyword1">
@@ -108,7 +108,7 @@
         <record model="ir.action.act_window" id="act_apache_form1">
             <field name="name">APACHE II</field>
             <field name="res_model">gnuhealth.icu.apache2</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_apache_keyword1">
@@ -167,51 +167,24 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_icu_chest_drainage_tree</field>
         </record>
-                
 
-<!-- ECG -->
 
-        <record model="ir.ui.view" id="gnuhealth_icu_ecg_form">
-            <field name="model">gnuhealth.icu.ecg</field>
-            <field name="type">form</field>
-            <field name="name">gnuhealth_icu_ecg_form</field>
+<!-- Add explicit ECG menu item to ICU -->
+
+        <record model="ir.action.act_window" id="action_gnuhealth_icu_ecg_form1">
+            <field name="name">ECGs</field>
+            <field name="res_model">gnuhealth.patient.ecg</field>
         </record>
 
-
-        <record model="ir.ui.view" id="gnuhealth_icu_ecg_tree">
-            <field name="model">gnuhealth.icu.ecg</field>
-            <field name="type">tree</field>
-            <field name="name">gnuhealth_icu_ecg_tree</field>
-        </record>
-                
-
-        <record model="ir.action.act_window" id="action_gnuhealth_icu_ecg_form">
-            <field name="name">ECG</field>
-            <field name="res_model">gnuhealth.icu.ecg</field>
-        </record>
-
-        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_ecg_tree">
-            <field name="sequence" eval="10"/>
-            <field name="view" ref="gnuhealth_icu_ecg_tree"/>
-            <field name="act_window" ref="action_gnuhealth_icu_ecg_form"/>
-        </record>
-
-        <record model="ir.action.act_window.view" id="act_gnuhealth_icu_ecg_form">
-            <field name="sequence" eval="20"/>
-            <field name="view" ref="gnuhealth_icu_ecg_form"/>
-            <field name="act_window" ref="action_gnuhealth_icu_ecg_form"/>
-        </record>
-
-        <menuitem action="action_gnuhealth_icu_ecg_form"
-            id="menu_gnuhealth_icu_ecg_list" icon="gnuhealth-list"
+        <menuitem action="action_gnuhealth_icu_ecg_form1"
+            id="menu_gnuhealth_icu_ecgs_list1" icon="gnuhealth-list"
             parent="gnuhealth_icu_menu"/>
-					
 
-<!-- Shortcut to the ECG from the Inpatient ICU section -->
+<!-- Shortcut to the inpatient ECG from the inpatient ICU section -->
         <record model="ir.action.act_window" id="act_ecg_form1">
-            <field name="name">ECG</field>
-            <field name="res_model">gnuhealth.icu.ecg</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="name">Inpatient ECGs</field>
+            <field name="res_model">gnuhealth.patient.ecg</field>
+            <field name="domain" eval="[('inpatient_registration_code.icu_admissions', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_ecg_keyword1">

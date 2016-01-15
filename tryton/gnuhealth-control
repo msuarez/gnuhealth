@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="1.0.0"
+VERSION="3.0.0"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
@@ -34,6 +34,8 @@ usage()
 {
     cat << EOF
 
+This is GNU Health control center ${VERSION}
+
 usage: `basename $0` command [options]
 
 Command:
@@ -41,6 +43,7 @@ Command:
   version : Show version
   backup  : Backup he gnuhealth kernel, attach dir and database
   update  : Download and install the patches
+  getlang : Get and install / update the language pack code
   status  : Show environment and GNU Health Tryton server status
 
 Options:
@@ -59,7 +62,7 @@ help()
     The GNU Health Control Center (gnuhealth-control) is the main tool for 
     administrative tasks of the GNU Health environment.
     
-    It can perform backups and updates of the instance, ch
+    It can perform backups and updates of the instance
     
     Updates
     -------
@@ -139,6 +142,7 @@ do_backup()
     local BACKDIR=""
     local DB=""
 
+
     shift # Remove the command and deal only with the options
     
     if [ $# -ne 4 ]; then
@@ -161,21 +165,28 @@ do_backup()
         exit 1
     fi
 
+
+    if [ ! -e ${BACKDIR} ]
+    then
+        cli_msg "ERROR" "Backup directory ${BACKDIR} not found !"
+        exit 1
+    fi
+
     touch $LOCKFILE
     
     # Backup start
 
     cli_msg "INFO" "START Database Backup" | tee -a $INFOFILE
     
-    pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || exit 1 
+    pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || bailout 
 
     cli_msg "INFO" "Compressing Database Backup" | tee -a $INFOFILE
 
-    gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || exit 1
+    gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || bailout
     
     cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee -a $INFOFILE
 
-    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || exit 1
+    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || bailout
 
     cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
 
@@ -186,7 +197,14 @@ do_backup()
 
 check_status()
 {
-  get_current_values
+    local TRYTOND_PIDS=`pgrep -f trytond`
+    if [ $TRYTOND_PIDS ]
+    then
+        cli_msg "INFO" "GNU Health / Tryton instance(s) with PID(s) :  ${TRYTOND_PIDS}"
+    else
+        cli_msg "INFO" "No GNU Health instance seems to be running"
+    fi
+
 }
 
 check_download_dir()
@@ -323,7 +341,7 @@ relink_mods()
     if [ ${NEED_DELETE} -eq 1 ]; then
         local TRYTON_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond_*`
         for mod in ${TRYTON_MODS}; do
-            local modname=`echo ${mod} | cut -d'-' -f1`
+            local modname=`echo ${mod} | cut -d'-' -f1 | cut -d'_' -f2-`
             cli_msg "INFO" "Relinking : ${mod}"
             ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/${modname} || exit 1
         done
@@ -367,7 +385,35 @@ do_update()
     remove_old
     relink_mods 
 }
+
+getlang() {
+    if [ $# -eq 1 ]; then
+        usage
+    fi
     
+    local lang_to_install=$2
+    local lang_file=${lang_to_install}.zip
+    source $HOME/.gnuhealthrc || exit 1
+    cli_msg "INFO" "Going to modules directory..."
+
+    cd ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
+    cli_msg "INFO" "Retrieving language pack file for ${lang_to_install}"
+    wget --no-check-certificate https://chapters.gnu.org/${lang_to_install}/health/tryton/export/zip -O /tmp/${lang_file} || exit 1
+    cli_msg "INFO" "Installing / Updating language files for ${lang_to_install} ..."
+
+    bsdtar --strip-components 1 -xvf /tmp/${lang_file} || exit 1
+    cli_msg "INFO" "Language pack ${lang_to_install} sucessfully installed / updated"
+    cli_msg "INFO" "You now need to update the database modules"
+    cd
+}
+
+bailout() {
+    cli_msg "ERROR"  "Bailing out !"
+    cli_msg "ERROR"  "Removing backup lock file"
+    rm -f $LOCKFILE
+    exit 1
+}
+
 parse_command_line()
 {
     if [ $# -eq 0 ]; then
@@ -379,6 +425,7 @@ parse_command_line()
         backup) do_backup $@;;
         update) do_update $@;;
         status) check_status;;
+        getlang) getlang $@;;
         help) help;;
         *) echo $1: Unrecognized command; exit 1;;
     esac

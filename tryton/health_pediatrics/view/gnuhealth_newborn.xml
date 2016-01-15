@@ -11,6 +11,7 @@
                         <field name="birth_date"/>
                         <label name="sex"/>
                         <field name="sex"/>
+                        <newline/>
 
                     </group> 
 
@@ -25,9 +26,19 @@
                         <field name="cephalic_perimeter"/>
                     </group> 
                     <newline/>
+
+                    <group id="newborn_misc" col="6" >
+                        <label name="newborn_name"/>
+                        <field name="newborn_name"/>
+                        <label name="name"/>
+                        <field name="name"/>
+                        <label name="healthprof"/>
+                        <field name="healthprof"/>
+                    </group> 
+
                 </group>
                 <group id="group_newborn_photo">
-                    <field name="photo" widget="image"/>
+                    <field xfill="0" xexpand="1" height="200" width="200" name="photo" widget="image"/>
                 </group>
             </group>
             <newline/>
@@ -51,15 +62,14 @@
                     <field colspan="3" name="notes"/>
                 </group>
                 <newline/>
-                <group col="8" id="group_newborn_identity">
-					<label name="newborn_name"/>
-					<field name="newborn_name"/>
-                    <label name="name"/>
-                    <field name="name"/>
+                <group string="Status" col="7" id="group_newborn_footer">
+                    <label name="state"/>
+                    <field name="state"/>
                     <label name="dismissed"/>
                     <field name="dismissed"/>
-                    <label name="responsible"/>
-                    <field name="responsible"/>
+                    <label name="signed_by"/>
+                    <field name="signed_by"/>
+                    <button name="sign_newborn" help="Sign the process" string="Sign" icon="tryton-go-next" confirm="End the newborn document ?"/>
                 </group>
 
             </group>
@@ -108,10 +118,6 @@
                 <label name="neonatal_tonic_neck_reflex"/>
                 <field name="neonatal_tonic_neck_reflex"/>
             </group>
-            <newline/>
-            <field name="congenital_diseases"/>
-            <field name="medication"/>
-            <newline/>
             <group colspan="4" col="6" string="Tests" id="group_newborn_tests">
                 <label name="test_vdrl"/>
                 <field name="test_vdrl"/>

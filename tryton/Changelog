@@ -1,6 +1,2576 @@
+changeset:   2350:05b820a94cb0
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 23:56:04 2016 +0000
+summary:     all : Fix reports timedelta issue that was showing age in days. Now use a mutually exclusive format
+
+changeset:   2349:bb306b2f49b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 17:51:22 2016 +0000
+summary:     gnuhealth-control : Update documentation
+
+changeset:   2348:f8103be475ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 17:25:11 2016 +0000
+summary:     localization : Sync Greek language with Pootle
+
+changeset:   2347:a21056de0a3c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 17:00:48 2016 +0000
+summary:     localization : Include Greek language files for new modules
+
+changeset:   2346:7ed6ae35dd68
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 16:53:42 2016 +0000
+summary:     localization : Update Greek / Greece language pack
+
+changeset:   2345:61f542fca88b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 16:43:23 2016 +0000
+summary:     localization : Update Portuguese / Brazil language pack
+
+changeset:   2344:92279589b5d3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 16:33:54 2016 +0000
+summary:     localization : Update language files
+
+changeset:   2343:bce4826cfad8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 15:50:06 2016 +0000
+summary:     gnuhealth-control : Add getlang function to retrieve, install / update  the language pack
+
+changeset:   2342:45fb25aedd82
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 13:23:26 2016 +0000
+summary:     pypi : Update setup.py to be compatible with Tryton 3.8
+
+changeset:   2341:1a3343883139
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 10 11:25:23 2016 +0000
+summary:     localization : Add English - United Kingdom translation templates
+
+changeset:   2340:8d64bc2fa508
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 13:49:13 2016 +0000
+summary:     localization : Add German/Austria language
+
+changeset:   2339:f01c7bcd3da2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 13:30:59 2016 +0000
+summary:     localization : Add Kannada language
+
+changeset:   2338:053f35854ec9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 11:50:46 2016 +0000
+summary:     localization : reset French/France to latest template files
+
+changeset:   2337:cb5e79aa399c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 11:23:28 2016 +0000
+summary:     localization : reset Chinese/China and Japanese/Japan to latest template files
+
+changeset:   2336:f918cd924e6a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 11:12:10 2016 +0000
+summary:     localization : reset Spanish/Spain and Italian/Italy to latest template files
+
+changeset:   2335:85d39e0687d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 08 10:56:08 2016 +0000
+summary:     localization : Add translation templates for Lao, Spanish (Ecuador, Peru, Mexico, Argentina) and Arabic
+
+changeset:   2334:6d5dcd0e1b54
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 20:43:17 2016 +0000
+summary:     localization : remove python FHIR empty locale files
+
+changeset:   2333:8971ea7286bb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 18:56:59 2016 +0000
+summary:     localization : remove icd10-pcs template file since it is normally used in US only. Kept in original tarball
+
+changeset:   2332:11304996419d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 18:52:42 2016 +0000
+summary:     localization : initial Lao language placeholder for module translation files
+
+changeset:   2331:8cee97a5d564
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 15:43:40 2016 +0000
+summary:     all : Update credits
+
+changeset:   2330:d8dc15c13f0b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 13:03:00 2016 +0000
+summary:     health_who_essential_medicines : Update datafile with the vaccine property on selected meds
+
+changeset:   2329:3e36dce65f3b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 12:34:34 2016 +0000
+summary:     health_disability : Expand disability assessment / amputee information / prothesis info group
+
+changeset:   2328:803264e8ddcc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 11:55:08 2016 +0000
+summary:     health : Editable tree on evaluation procedures / directions / Secondary conditions
+
+changeset:   2327:1de9160b3917
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 07 11:24:31 2016 +0000
+summary:     health_pediatrics : Use widget date on Pediatric Psychosocial Evaluation - PSC
+
+changeset:   2326:59db85671222
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 06 13:13:56 2016 +0000
+summary:     localization : Add missing language template files. Update module template files - pot
+
+changeset:   2325:9a5da6dae2b8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 06 11:30:20 2016 +0000
+summary:     health_genetics : Make translatable disease gene long name
+
+changeset:   2324:ce929f1f3887
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 05 19:51:56 2016 +0000
+summary:     localization : Add empty translation files based on template for ophthalmology module
+
+changeset:   2323:0783655085e0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 05 19:27:04 2016 +0000
+summary:     localization : Update health template file. Include template for ophthalmology module
+
+changeset:   2322:d50b64c01850
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Jan 05 18:22:15 2016 +0100
+summary:     health_services: Update HealthServiceLine.on_change_product to new API
+
+changeset:   2321:b460cc65cb85
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 05 12:28:01 2016 +0000
+summary:     config : default loglevel set to WARNING
+
+changeset:   2320:3f29d04099ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 03 20:56:27 2016 +0000
+summary:     All : Update to version 30RC2 . Remove obsolete 1.8.1 registers that are creating issues with sqlite backend
+
+changeset:   2319:83bdab7781c8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 03 19:20:12 2016 +0000
+summary:     gnuhealth-control : Update version
+
+changeset:   2318:bd270050dcf4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 03 19:17:31 2016 +0000
+summary:     gnuhealth-setup : Move gnuhealth_install.sh to gnuhealth-setup
+
+changeset:   2317:66b73cc1d191
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 03 19:16:14 2016 +0000
+summary:     gnuhealth-installer : Stronger error checks. Improve message colors. Add command options
+
+changeset:   2316:571668e94427
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 31 20:05:00 2015 +0000
+summary:     gnuhealth-control : check for existance of backup target dir . Happy new 2016 !
+
+changeset:   2315:44d15d66abdf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 31 17:50:59 2015 +0000
+summary:     gnuhealth-control : Fix name on module name symlink
+
+changeset:   2314:08c3c4c7cf4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 31 10:40:28 2015 +0000
+summary:     gnuhealth-control : Show PID(s) of GNU Health / Tryton instances with check_status command
+
+changeset:   2313:29f84ba15b82
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 25 18:29:10 2015 +0000
+summary:     health_icd10 : Include Zika virus codes. Thanks Dr. Roofe / Marc from Jamaica Min of Health
+
+changeset:   2312:9fbecb9ed35e
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 25 17:25:36 2015 +0100
+summary:     health: Fix is_person test in Party create
+
+changeset:   2311:63519a67d226
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 25 12:53:35 2015 +0100
+summary:     health_icu: Fix unittest and use ModuleTestCase
+
+changeset:   2310:c24a17896643
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 25 12:41:22 2015 +0100
+summary:     health_profile: Add unittest
+
+changeset:   2309:898911211c4c
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 25 12:31:30 2015 +0100
+summary:     health_nursing: Fix unittest and use ModuleTestCase
+
+changeset:   2308:125df8dc5358
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 25 12:18:33 2015 +0100
+summary:     health_ntd_dengue: Add unittest
+
+changeset:   2307:cecc673b2cde
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 12:33:38 2015 +0000
+summary:     Added tag 3.0 RC1 for changeset a30f4f841bb1
+
+changeset:   2306:a30f4f841bb1
+tag:         3.0 RC1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 11:18:56 2015 +0000
+summary:     health_reporting : Update gender demographics
+
+changeset:   2305:ce77f4cf9527
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 11:02:17 2015 +0000
+summary:     health : Pyton-sql. Merge ambulatory appointments and evaluations to outpatient, and chronic to followup
+
+changeset:   2304:33fb319e14e1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 08:09:43 2015 +0000
+summary:     health_icu : Add STATES to ICU patient roundings
+
+changeset:   2303:cf2d9e6efe64
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 07:55:47 2015 +0000
+summary:     health_nursing : rename rounding procedure view file
+
+changeset:   2302:03f151cda956
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 07:47:22 2015 +0000
+summary:     health_nursing : Add rounding code and its sequence. Update view and report
+
+changeset:   2301:bb8a9d38d5aa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 24 06:59:01 2015 +0000
+summary:     health : Create Person offical name when the party is a physical person
+
+changeset:   2300:772510a7f50a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 23 19:55:42 2015 +0000
+summary:     health_nursing / stock : Add states in rounding model and move states from stock. Add signing health professional.O optimize view
+
+changeset:   2299:499e58ce40a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 23 19:17:41 2015 +0000
+summary:     health_nursing : Invisible end session button when state is done
+
+changeset:   2298:bab6e874986c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 23 18:47:50 2015 +0000
+summary:     health_nursing / stock : Add states in main mmbulatory care model and move states from stock. Add signing health professional.O ptimize view
+
+changeset:   2297:e5f50b77ce5f
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 18:33:02 2015 +0100
+summary:     health_services: Fix unittest and use ModuleTestCase
+
+changeset:   2296:8186fe66944b
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 17:03:41 2015 +0100
+summary:     health_ntd_chagas: Add unittest
+
+changeset:   2295:fa5d2fa47c16
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 16:44:27 2015 +0100
+summary:     health_pediatrics_growth_charts_who: Fix unittest and use ModuleTestCase
+
+changeset:   2294:342e7eb6fe52
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 14:51:02 2015 +0100
+summary:     health_inpatient_calendar: Fix unittest and use ModuleTestCase
+
+changeset:   2293:ab615ffbe86a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 23 13:44:38 2015 +0000
+summary:     health_nursing : Add None entry to selection fields
+
+changeset:   2292:1b17f1df1a0b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 23 13:28:34 2015 +0000
+summary:     all : Unify editable tree to top
+
+changeset:   2291:0815dc9f9e1e
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 12:20:30 2015 +0100
+summary:     health_ntd: Add unittest
+
+changeset:   2290:7a38837a2a1d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 09:55:51 2015 +0100
+summary:     health_history: Add unittest
+
+changeset:   2289:ab4ee53a5823
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 09:55:28 2015 +0100
+summary:     health_genetics: Fix usage of editable view attribute
+
+changeset:   2288:47b79c9e84c2
+user:        Cédric Krier <ced@b2ck.com>
+date:        Wed Dec 23 01:08:22 2015 +0100
+summary:     health_disability: Fix unittest and use ModuleTestCase
+
+changeset:   2287:44cb009e1034
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 19:43:24 2015 +0100
+summary:     health_mdg6: Add unittest
+
+changeset:   2286:2dc06b5623d7
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 18:22:51 2015 +0100
+summary:     health_inpatient: Fix unittest and use ModuleTestCase
+
+changeset:   2285:890cea9d4152
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 18:14:51 2015 +0100
+summary:     health_pediatrics_growth_charts: Fix unittest and use ModuleTestCase
+
+changeset:   2284:48e2089b0b7d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 17:40:29 2015 +0100
+summary:     health_qrcodes: Fix unittest and use ModuleTestCase
+
+changeset:   2283:824b6f141aea
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 15:28:09 2015 +0100
+summary:     health_reporting: Fix unittest and use ModuleTestCase
+
+changeset:   2282:f4274f208bd5
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 15:14:21 2015 +0100
+summary:     health_who_essential_medicines: Add unittest
+
+changeset:   2281:180dfd74e6a1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 22 13:36:19 2015 +0000
+summary:     health_nursing : Improve views and terms
+
+changeset:   2280:f8ff46fe0c5d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 14:35:03 2015 +0100
+summary:     health_icd10pcs: Add unittest
+
+changeset:   2279:065229843fa5
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 14:27:40 2015 +0100
+summary:     health_icpm: Add unittest
+
+changeset:   2278:4bebd8801f06
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 14:05:51 2015 +0100
+summary:     health_gyneco: Fix unittest and use ModuleTestCase
+
+changeset:   2277:0546c5aec668
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 13:21:57 2015 +0100
+summary:     health_socioeconomics: Fix unittest and use ModuleTestCase
+
+changeset:   2276:dcb2513ece38
+user:        Cédric Krier <ced@b2ck.com>
+date:        Tue Dec 22 13:10:56 2015 +0100
+summary:     Fix PartyName migration to use python-sql
+
+changeset:   2275:651bbaca22a1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 22 11:57:40 2015 +0000
+summary:     health_nursing : Update method to retrieve default health proffessional
+
+changeset:   2274:f5299cdf1208
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 22 11:00:12 2015 +0000
+summary:     health_nursing : remove unnecessary required field properties
+
+changeset:   2273:c9718d2c9576
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 22 10:38:03 2015 +0000
+summary:     health, health_qrcodes : Improve reports
+
+changeset:   2272:b85aa6417211
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 22 09:16:28 2015 +0000
+summary:     health_pediatrics : Improve newborn view
+
+changeset:   2271:00a13e70a560
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 21:09:44 2015 +0000
+summary:     health_pediatrics : Improve newborn form view
+
+changeset:   2270:40d36cbf63bb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 21:06:33 2015 +0000
+summary:     health_pediatrics : Allow to end / sign newborn document
+
+changeset:   2269:736db2d2fbf5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 19:41:19 2015 +0000
+summary:     health_pediatrics : Remove medication and conditions from newborn view. Use the main patient form
+
+changeset:   2268:f220d148f6cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 19:25:29 2015 +0000
+summary:     health : Reorder the patient discharge reason, and do not sort the selection options
+
+changeset:   2267:cd9480da4574
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 19:07:08 2015 +0000
+summary:     health_socioeconomics : make readonly socioeconomics / family assessment history. Fix typo
+
+changeset:   2266:4a19ca5ab226
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 19:01:17 2015 +0000
+summary:     health_genetics : Change disease -> condition . Use editable tree in family conditions
+
+changeset:   2265:b03b9e730aa4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 14:08:06 2015 +0000
+summary:     health_surgery : Add patient gender, update info upon entering the patient. Improve view
+
+changeset:   2264:3b37c8b44a24
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 13:27:19 2015 +0000
+summary:     health_genetics : Add notes to the form . Make editable the patient genetic load
+
+changeset:   2263:ecabd9e3fb2a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 12:59:03 2015 +0000
+summary:     health_icd9procs : Fix Spanish translation typo
+
+changeset:   2262:1fb8e9b43804
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 21 11:17:01 2015 +0000
+summary:     health_icd9procs : Include spanish (MX and ES) translation for ICD9 procedure codes
+
+changeset:   2261:87ce1a975a25
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Dec 20 17:10:31 2015 -0800
+summary:     health: Use TimeDelta type instead of Char
+
+changeset:   2260:b8636f5be02d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Dec 20 16:47:50 2015 -0800
+summary:     health_pediatrics_growth_charts: Use Integer instead of Char for age in months
+
+changeset:   2259:8665a21223e2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 20 18:54:39 2015 +0000
+summary:     health : copy given and family names to the official names during upgrade
+
+changeset:   2258:90f81af29be6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 20 13:41:59 2015 +0000
+summary:     health_socioeconomics : Move relevant SES and family functionality info from the patient to the SES assessement model
+
+changeset:   2257:af4ec49d0b3e
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sat Dec 19 00:53:26 2015 +0100
+summary:     health_crypto: Fix unittest and use ModuleTestCase
+
+changeset:   2256:8d1482a41f3d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 18 16:28:27 2015 +0100
+summary:     health_calendar: Fix unittest and use ModuleTestCase
+
+changeset:   2255:c6bda871e589
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 18 13:00:22 2015 +0000
+summary:     health_socioeconomics : Add history of social and family assessments
+
+changeset:   2254:82bd6dc73e35
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 18 12:58:27 2015 +0100
+summary:     health_lab: Fix unittest and use ModuleTestCase
+
+changeset:   2253:8c645af9b265
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 20:37:31 2015 +0000
+summary:     health_socioeconomics : Hide deprecated fields in socioeconomics
+
+changeset:   2252:2a60d33380d7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 20:34:38 2015 +0000
+summary:     health_socioeconomics : Fix dup on_change. Include STATES and update form and tree
+
+changeset:   2251:0ef868a3589a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 19:35:03 2015 +0000
+summary:     health_socioeconomics : Remove debugging info
+
+changeset:   2250:ab0698683fb9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 19:33:17 2015 +0000
+summary:     health_socioeconomics : task #13680: History in Socioeconomics . Include actions and menu entries for reporting. Update main assessment form fields
+
+changeset:   2249:896458314047
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 17:32:53 2015 +0000
+summary:     health_surgery : Update gender on surgery report
+
+changeset:   2248:00c9d79fbbda
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 17:31:24 2015 +0000
+summary:     health_ophthalmo: Use TimeDelta on patient age at the moment of the evaluation
+
+changeset:   2247:a900ce8d0e93
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 18:25:31 2015 +0100
+summary:     health_iss: Add unittest
+
+changeset:   2246:988ece76d4da
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 18:10:31 2015 +0100
+summary:     health_surgery: Fix unittest and use ModuleTestCase
+
+changeset:   2245:1e003fcad290
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 18:00:26 2015 +0100
+summary:     health_imaging: Fix unittest and use ModuleTestCase
+
+changeset:   2244:ceb62a12d194
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 16:51:34 2015 +0000
+summary:     health_socioeconomics : task #13680: History in Socioeconomics . Use TimeDelta for patient age at the moment of the assessment
+
+changeset:   2243:3a8728f20c50
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 17:48:18 2015 +0100
+summary:     health_lifestyle: Fix unittest and use ModuleTestCase
+
+changeset:   2242:824c69bce91e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 17 14:30:26 2015 +0000
+summary:     health_socioeconomics : task #13680: History in Socioeconomics . Initial PatientSESAssessment model and views
+
+changeset:   2241:2bf59f0ca054
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 13:05:17 2015 +0100
+summary:     health_pediatrics: Fix unittest and use ModuleTestCase
+
+changeset:   2240:b1d132ba73cd
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 17 12:27:44 2015 +0100
+summary:     health_ophthalmology: Add unittest
+
+changeset:   2239:2fbe31ce553e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 16 19:14:36 2015 +0000
+summary:     health : task #13769: Flexible name on party (person). Add the official name when the new person is created
+
+changeset:   2238:8250e2cce023
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 16 13:04:33 2015 +0000
+summary:     health : task #13769: Flexible name on party (person). Create / Update person official name when updating given or family in main party form
+
+changeset:   2237:8b63b18ff34e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 14 20:23:38 2015 +0000
+summary:     health: task #13769: Flexible name on party (person). Allow one official name per person
+
+changeset:   2236:25f47f213fe6
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Dec 13 23:18:44 2015 +0100
+summary:     health_archives: Add unittest
+
+changeset:   2235:8062bc5dbeb1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 13 22:17:31 2015 +0000
+summary:     health : task #13841: Automatic write of biological sex from neonatal info
+
+changeset:   2234:16409837588a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 13 20:12:11 2015 +0000
+summary:     task #13841: Automatic write of biological sex from neonatal info
+
+changeset:   2233:911e36408807
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Dec 13 18:43:17 2015 +0100
+summary:     health_icd10: Add unittest
+
+changeset:   2232:3e5688770e40
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Dec 13 18:42:59 2015 +0100
+summary:     health_icd9procs: Fix docstring of test case
+
+changeset:   2231:06a05e0039c9
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Dec 13 18:32:31 2015 +0100
+summary:     Limit CAGE access to doctor
+
+changeset:   2230:614c5c7ac0d1
+user:        Cédric Krier <ced@b2ck.com>
+date:        Sun Dec 13 15:51:18 2015 +0700
+summary:     Resize photo of party
+
+changeset:   2229:fa61caa027e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 13 14:06:14 2015 +0000
+summary:     health_qrcodes: task #13840: Change sex to gender at party level
+
+changeset:   2228:57513f734378
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 13 13:55:35 2015 +0000
+summary:     health: task #13840: Change sex to gender at party level
+
+changeset:   2227:abe994c68dd2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 12 13:13:23 2015 +0000
+summary:     health: task #13769: Flexible name on party (person). Improve name formatting
+
+changeset:   2226:6c01efd232c6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 11 18:53:56 2015 +0000
+summary:     task #13769: Flexible name on party (person). Use the name format representation of the official name
+
+changeset:   2225:9ef173db3cff
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 11 16:48:31 2015 +0000
+summary:     health : task #13769: Flexible name on party (person) . Move alias to PersonName nickname
+
+changeset:   2224:6993f32d7154
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 11 13:23:57 2015 +0000
+summary:     health : Allow searching for any alias(nickname), temporal, official person name
+
+changeset:   2223:e1b232197c1d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 11 12:23:10 2015 +0000
+summary:     health : Put person names on top of other identifiers
+
+changeset:   2222:e8f1272f461f
+user:        Cédric Krier <ced@b2ck.com>
+date:        Fri Dec 11 11:18:29 2015 +0700
+summary:     health_stock: Keep pharmacy editable as far as there is no stock moves
+
+changeset:   2221:4eabcf6cbf1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 20:02:04 2015 +0000
+summary:     task #13769: Flexible name on party (person). Add initial PersonName model and views
+
+changeset:   2220:49e72f94c6e9
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 23:06:59 2015 +0700
+summary:     health: Better fix bug #46657: keep the pharmacy readonly when filled and done
+
+changeset:   2219:ace5eb41dda4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 15:53:22 2015 +0000
+summary:     Fix bug #46657: Readonly pharmacy when prescription state is done
+
+changeset:   2218:28ab387d0b06
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 22:48:53 2015 +0700
+summary:     health_icd9procs: Add unittest
+
+changeset:   2217:3d2ff7fbf6ad
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 22:23:18 2015 +0700
+summary:     health_genetics: Use ModuleTestCase
+
+changeset:   2216:10e9dcd18812
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 22:15:48 2015 +0700
+summary:     health_stock: Improve stock move creation
+
+changeset:   2215:87ff2c4e985c
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 22:14:06 2015 +0700
+summary:     health: Add missing default state on prescription
+
+changeset:   2214:8cfdb2c4016d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 21:23:48 2015 +0700
+summary:     health_stock: Fix unittest and use ModuleTestCase
+
+changeset:   2213:dd561c11f9e4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 12:56:31 2015 +0000
+summary:     health / health crypto : task #13838: Update states on prescription and new create and validate buttons
+
+changeset:   2212:f03be8a58d92
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 11:44:19 2015 +0000
+summary:     health_crypto : Hide validation and digital signature when prescription is in draft state
+
+changeset:   2211:4a1ad102cb43
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 10:47:02 2015 +0000
+summary:     health : discharge reason required in patient evaluation, defaults to voluntary-home care. Add readonly state when signed
+
+changeset:   2210:565af72c4c65
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 10 09:33:18 2015 +0000
+summary:     health: task #13800: Improve view for patient evaluation.
+
+changeset:   2209:223ed51ce65d
+user:        Cédric Krier <ced@b2ck.com>
+date:        Thu Dec 10 12:23:34 2015 +0700
+summary:     health: Fix unittest, use ModuleTestCase and use HealthProfessional from Pool
+
+changeset:   2208:e738fc15352f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Dec 08 12:56:35 2015 -0600
+summary:     health, health_iss: Continue to convert durations to TimeDelta data types
+
+changeset:   2207:3174249891e6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 08 12:15:36 2015 +0000
+summary:     health_history : Reorder - optimize history report
+
+changeset:   2206:7b0170676b35
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 08 12:11:30 2015 +0000
+summary:     health_history : Update evaluation report including Clinical and Physical examination summary
+
+changeset:   2205:a99e12b121d5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Dec 08 11:30:44 2015 +0000
+summary:     health : Update evaluation report including Clinical and Physical examination summary
+
+changeset:   2204:effc8c594683
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Dec 06 20:57:24 2015 -0600
+summary:     task #13615: Add nutritional disorders to NUTRITION pathology group
+
+changeset:   2203:d131592c4b4b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 06 22:50:13 2015 +0000
+summary:     health : task #13800: Improve view for patient evaluation
+
+changeset:   2202:16d2a81f1063
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 06 21:18:21 2015 +0000
+summary:     health_ophthalmology : readonly when the evaluation is done
+
+changeset:   2201:2fef172ad7b6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 06 10:47:21 2015 +0000
+summary:     health_ophthalmology : add readme file
+
+changeset:   2200:ad35f96a0951
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 06 10:46:57 2015 +0000
+summary:     health_ophthalmology : add signing health professional and evaluation status
+
+changeset:   2199:4b08ab094efd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 05 12:12:00 2015 +0000
+summary:     health_ophthalmology : Add shortcut action from patient form. Optimize view
+
+changeset:   2198:d14873a7c8fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 04 20:51:52 2015 +0000
+summary:     health_ophthalmo : add tonometry method and IOP values. Start view layout optimization
+
+changeset:   2197:a217d2a9c5c4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 04 19:52:51 2015 +0000
+summary:     health_ophthalmology : Fix typo in snellen chart
+
+changeset:   2196:239a058efa89
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Dec 04 13:27:58 2015 -0600
+summary:     health_icu, health_surgery: Use TimeDelta fields for durations
+
+changeset:   2195:303a2a6c862a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 19:33:32 2015 +0000
+summary:     health_ophthalmology : add functions to show age and sex of patient
+
+changeset:   2194:82d29212249c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 18:47:58 2015 +0000
+summary:     health_ophthalmology : Consolidate eye structures findings on a Selection field and associate them in a O2M sield on the ophthalmological evaluation
+
+changeset:   2193:7e8aece656f8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 13:33:43 2015 +0000
+summary:     health_ophthalmology : remove unused temp directory
+
+changeset:   2192:e8f479cff320
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 13:24:29 2015 +0000
+summary:     health_ophthalmology : add date widgets for tree views
+
+changeset:   2191:a90902683188
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 12:52:40 2015 +0000
+summary:     health_ophthalmology : Adapt file naming
+
+changeset:   2190:814c071a49d1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 11:37:16 2015 +0000
+summary:     health : improve view layout at person (party level)
+
+changeset:   2189:ae25ea0e807a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 10:54:51 2015 +0000
+summary:     health_qrcodes : Update report
+
+changeset:   2188:9a3a89ec5ae6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 10:54:32 2015 +0000
+summary:     health_lifestyle : add string on patient diet
+
+changeset:   2187:5f1c5d3b2f5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 10:53:53 2015 +0000
+summary:     health : change color on patient card
+
+changeset:   2186:422644d6a5e0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 09:59:44 2015 +0000
+summary:     health: rename patient health conditions history report file
+
+changeset:   2185:749023c97c7c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 03 09:58:30 2015 +0000
+summary:     health_iss : task #13709: Migration to Tryton 3.8
+
+changeset:   2184:a2ce08920e48
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 02 19:44:16 2015 +0000
+summary:     health_imaging : task #13709: Migration to Tryton 3.8
+
+changeset:   2183:a6b8580f9c53
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 02 19:33:50 2015 +0000
+summary:     health: add missing None entries in fields.Selection
+
+changeset:   2182:0be627c3a139
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 02 19:31:47 2015 +0000
+summary:     health_pediatrics_growth_charts_who : task #13709: Migration to Tryton 3.8
+
+changeset:   2181:f3a48b8b2d74
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 02 19:30:37 2015 +0000
+summary:     health_stock : task #13709: Migration to Tryton 3.8
+
+changeset:   2180:08bb648edf58
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 02 12:47:07 2015 +0000
+summary:     health_reporting : task #13709: Migration to Tryton 3.8
+
+changeset:   2179:c73a76b6e2d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 30 22:52:50 2015 +0000
+summary:     health_qrcodes : task #13709: Migration to Tryton 3.8
+
+changeset:   2178:ae3856808279
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 30 11:46:42 2015 +0000
+summary:     health_pediatrics : task #13709: Migration to Tryton 3.8
+
+changeset:   2177:f144a49f0c5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 28 09:51:23 2015 +0000
+summary:     health_icu : task #13709: Migration to Tryton 3.8
+
+changeset:   2176:011ce8f80fb3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 26 18:58:43 2015 +0000
+summary:     health_nursing : Remove view attributes for pain level field and include the states at field level
+
+changeset:   2175:7bb4ed7fe6de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 26 18:57:37 2015 +0000
+summary:     health_nursing : task #13709: Migration to Tryton 3.8
+
+changeset:   2174:4ef2b5f25280
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 26 12:16:59 2015 +0000
+summary:     health_history : task #13709: Migration to Tryton 3.8
+
+changeset:   2173:e2cc5ebc9638
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 26 11:52:49 2015 +0000
+summary:     health_surgery : task #13709: Migration to Tryton 3.8
+
+changeset:   2172:80cf3c9fb8f5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 26 11:25:50 2015 +0000
+summary:     health_gyneco : task #13709: Migration to Tryton 3.8
+
+changeset:   2171:9c3f76173f74
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 25 22:06:33 2015 +0000
+summary:     health_inpatient : task #13727: Create inpatient evaluation shortcut. Add wizard files
+
+changeset:   2170:d3237df5546c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 25 22:05:49 2015 +0000
+summary:     health_inpatient : task #13709: Migration to Tryton 3.8 & task #13727: Create inpatient evaluation shortcut
+
+changeset:   2169:19b0ae9b8e49
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 25 18:48:01 2015 +0000
+summary:     health_lifestyle : task #13709: Migration to Tryton 3.8
+
+changeset:   2168:b8d5aa5465ab
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 25 11:20:40 2015 +0000
+summary:     remove lock file
+
+changeset:   2167:bdb6f68cfee7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 25 11:19:48 2015 +0000
+summary:     health_disability : Add functioning and disability assessments history on the patient main form
+
+changeset:   2166:937f0b8dd923
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 23 16:49:38 2015 +0000
+summary:     health_disability : Add functioning and disability information on its own page within the patient main form
+
+changeset:   2165:733ee1cd8f2f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 23 14:02:46 2015 +0000
+summary:     health_genetics : task #13709: Migration to Tryton 3.8
+
+changeset:   2164:eb53abc85eb7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 23 13:36:34 2015 +0000
+summary:     health_calendar : Migration to 3.8 . Add validation for work calendar period and to period length < 31 days
+
+changeset:   2163:c3d922cea7fb
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Nov 22 11:19:30 2015 -0600
+summary:     task #13615: Fix GYNOBS imports; Add PEDIATRIC group
+
+changeset:   2162:3c4bdd7900c6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 22 16:19:53 2015 +0000
+summary:     health_archives : task #13709, Migration to Tryton 3.8
+
+changeset:   2161:44e2ea2d9e89
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Nov 21 01:26:52 2015 -0300
+summary:     Fix bug #46488: Invalid attribute editable for element tree "gnuhealth.signs_and_symptoms".
+
+changeset:   2160:d80068c2b7fb
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Sat Nov 21 00:57:31 2015 -0300
+summary:     Fix bug #46487: Error column "visit_type" does not exist, installing health module.
+
+changeset:   2159:83e90e1237dd
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Nov 20 23:18:47 2015 -0300
+summary:     installer : fix bug #44182 (missing patch from stable changeset 1837:689a171ee5af)
+
+changeset:   2158:81dd3274975b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 18 01:01:26 2015 +0000
+summary:     health: Migration to 3.0 . Merge chronic conditions visits and appointment into followups
+
+changeset:   2157:2aa32f2c5f8d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 17 18:10:54 2015 +0000
+summary:     health : allow to edit signs / symptoms section on evaluation from the tree view
+
+changeset:   2156:6881ac9ea058
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 17 18:04:19 2015 +0000
+summary:     health : use digits (3,1) in waist and hip perimeter
+
+changeset:   2155:73ac2880fd93
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 17 13:48:55 2015 +0000
+summary:     health : round BMI and WHR values to 2 decimals. Update WHR tooltip
+
+changeset:   2154:21226169f793
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 16 19:31:27 2015 +0000
+summary:     health : use 2 digits both for the integer and decimal part on patient BMI
+
+changeset:   2153:ffe0a8299e8b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 16 18:53:45 2015 +0000
+summary:     gnuhealth_installer : Improve clean up process. Update to the latest python packages version
+
+changeset:   2152:93ce56126b36
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 16 16:31:07 2015 +0000
+summary:     health : Improve patient evaluation summary report
+
+changeset:   2151:c2cb388466df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 15 06:12:44 2015 +0000
+summary:     health : Include initial patient evaluation report
+
+changeset:   2150:c476f10dd8af
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 14 23:37:35 2015 +0000
+summary:     health : task #13803: Create evaluation basic evaluation report
+
+changeset:   2149:2284ab3e6d63
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 13 20:43:29 2015 +0000
+summary:     health_icd9procs: Add translation templates for French - France and Portuguese - Brazil
+
+changeset:   2148:03a2c04c779f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 13 20:03:40 2015 +0000
+summary:     health: use rec_name for patient name
+
+changeset:   2147:394547aceeea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 13 20:01:19 2015 +0000
+summary:     health_icd9procs : Include translations tremplate for Spanish - Spain and Mexico
+
+changeset:   2146:91781420d72c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 11 14:19:15 2015 +0000
+summary:     health_icd9procs : Initial commit for ICD9 Procedure codes. Task #13799
+
+changeset:   2145:624b2073a43e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 10 15:56:57 2015 +0000
+summary:     health_lab : task #13709, Migration to Tryton 3.8. Update constraints to Python SQL
+
+changeset:   2144:ac730334e5fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 10 14:42:15 2015 +0000
+summary:     health : remove the R% domain in signs and symptoms, so it's valid to any coding system
+
+changeset:   2143:2db18b11a7fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 10 14:34:11 2015 +0000
+summary:     health: rename evaluation presumptive dx to main condition and other conditions
+
+changeset:   2142:f7f62c3f776e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 09 23:25:05 2015 +0000
+summary:     health_lab: Include diagnosis / result fields on report. Thanx Cuernavaca !
+
+changeset:   2141:df5b4f6a1a63
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 09 18:27:48 2015 +0000
+summary:     health : Add Spanish-Mexico language for health core module
+
+changeset:   2140:11263a0ec961
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 09 14:33:20 2015 +0000
+summary:     health : The date on end of evaluation will be computed when clicking end evaluation button
+
+changeset:   2139:641129e0b785
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 08 11:53:37 2015 +0000
+summary:     health : Add buttons in tree view for patient check-in and no-show actions
+
+changeset:   2138:fed1c7b0eb88
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 07 12:57:06 2015 +0000
+summary:     health : Optimize appointment tree view
+
+changeset:   2137:7b0b111f4fb2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 07 12:25:48 2015 +0000
+summary:     health : Merge chronic checkups with followups.
+
+changeset:   2136:156c6db786b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 07 12:24:24 2015 +0000
+summary:     health : on appointments and evaluations, use followups for exisiting conditions. merge chronic checkups with followups. Show the related condition when the visit if a followup
+
+changeset:   2135:066c83982491
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 07 12:00:00 2015 +0000
+summary:     health : remove legacy method to calculate patient wait time
+
+changeset:   2134:dbe70b6116c2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 07 11:53:00 2015 +0000
+summary:     health : use pathology rec_name for patient related condition on followups
+
+changeset:   2133:6ad8fee24a18
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 03 10:43:36 2015 +0000
+summary:     task #13794: Move the age from patient to individual (party)
+
+changeset:   2132:1a65ef84c444
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 18:12:22 2015 +0000
+summary:     health: Automatically show the patient demographics without the need of saving the record
+
+changeset:   2131:00376fe555d7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 17:15:17 2015 +0000
+summary:     health: Move health contidions to patient main page.
+
+changeset:   2130:bf3496960e75
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 15:52:29 2015 +0000
+summary:     health: Move health contidions to patient main page
+
+changeset:   2129:205a75fa5ea8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 15:44:23 2015 +0000
+summary:     health : Reorder classes registration
+
+changeset:   2128:ee30406600ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 15:24:54 2015 +0000
+summary:     health : Add evaluations related to a patient specific condition
+
+changeset:   2127:3f64a10d1116
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 02 13:49:02 2015 +0000
+summary:     health : Add health professional to the patient condition info
+
+changeset:   2126:e63bd802ff3a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 31 21:53:07 2015 +0000
+summary:     task #13793: Allow encoding appointments from the tree view :: DONE
+
+changeset:   2125:51f78c1935b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 31 21:31:43 2015 +0000
+summary:     task #13709: Migration to Tryton 3.8. Migrated health services
+
+changeset:   2124:7155dc084de5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 31 21:22:26 2015 +0000
+summary:     task #13791: Add patient condition shortcut and associate followup evaluations to existing conditions. Create related condition field on patient evaluation
+
+changeset:   2123:9cee9edd08de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 31 17:56:13 2015 +0000
+summary:     health : rename field name evaluation_date by appointment
+
+changeset:   2122:3d48cc4b6bde
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 29 12:27:50 2015 +0000
+summary:     task #13483: Compute the patient waiting time before the evaluation. Pushed Chris changes
+
+changeset:   2121:0a4351e058f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 29 12:03:05 2015 +0000
+summary:     task #13792: Extend prescription model to include the lines in the service document. add remaining view file on prescription
+
+changeset:   2120:8636a781d095
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 29 11:42:49 2015 +0000
+summary:     task #13791: Add patient condition shortcut and associate followup evaluations to existing conditions
+
+changeset:   2119:d48cc30f08f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 27 12:44:27 2015 +0000
+summary:     health_services : Extend prescription model to include the lines in the service document
+
+changeset:   2118:76c627904c54
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 27 12:08:07 2015 +0000
+summary:     health : Reorder the tree view for prescription line. Add validity date on tree
+
+changeset:   2117:6d2960837a1e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 25 19:02:28 2015 +0000
+summary:     task #13095: Auto complete default values on prescription
+
+changeset:   2116:a3368db2afd2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 25 14:47:57 2015 +0000
+summary:     health : task #13502: Add drug concentration / strength . Include administration route in the view
+
+changeset:   2115:c23f3853632a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 25 14:26:03 2015 +0000
+summary:     task #13502: Add drug concentration / strength and link to medicament
+
+changeset:   2114:1b2fe7899f86
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 24 19:01:04 2015 +0100
+summary:     health : Task  #13772 Including a prescription in the medicament list
+
+changeset:   2113:618f5eaec153
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 23 20:23:29 2015 +0100
+summary:     health : Update  task #13772 : Including a prescription in the medicament list
+
+changeset:   2112:a9edd091bfd9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 22 13:04:09 2015 +0100
+summary:     health : Preparation for storing in chronic or important patient medication from the prescription model
+
+changeset:   2111:218a4cd5257c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 20 11:32:05 2015 +0100
+summary:     health: Change the term disease by the more abarcative health condition
+
+changeset:   2110:a6509e9e7fe1
+parent:      2108:e2f2f735c4f4
+parent:      2109:adae8b2861ac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 20 10:30:33 2015 +0100
+summary:     Merge Chris commit on GYNOBS disease groups
+
+changeset:   2109:adae8b2861ac
+parent:      2107:3310e8c59314
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Oct 19 15:31:54 2015 -0700
+summary:     task #13615: Add pregnancy related disorders to GYNOBS pathology group
+
+changeset:   2108:e2f2f735c4f4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 20 10:28:19 2015 +0100
+summary:     health: rename code -> code_uniq as the constraint name in PatientEvaluation
+
+changeset:   2107:3310e8c59314
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 19 19:51:23 2015 +0100
+summary:     health_disability: update O2M fields to reflect the name change on the model
+
+changeset:   2106:30187dc96152
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 19 19:42:35 2015 +0100
+summary:     health_disability: rename models activity_and_participation -> activity and environmental_factors -> environment to avoid issue with updates and constraints
+
+changeset:   2105:b4c1f1785a10
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Oct 17 16:06:36 2015 -0500
+summary:     task #13615: Added diseases to HEART pathology group; updated data import configuration
+
+changeset:   2104:c9750c947733
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 17 18:46:37 2015 +0100
+summary:     health_disability : Migrate to Python-SQL unique constraints
+
+changeset:   2103:97ad76c30a76
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 17 18:30:50 2015 +0100
+summary:     health : Migrate to Python-SQL unique constraints
+
+changeset:   2102:8dad77c8ab89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 17 12:37:33 2015 +0100
+summary:     task #13772: Including a prescription in the medicament list. Add fields to prescription line
+
+changeset:   2101:e9a1e135a0e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 14 17:03:11 2015 +0100
+summary:     health : Update diseases report to be Tryton 3.8 compatible
+
+changeset:   2100:e5e2814263de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 14 16:42:15 2015 +0100
+summary:     health : Update prescription report to be Tryton 3.8 compatible
+
+changeset:   2099:cae7b3782e3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 13 20:25:12 2015 +0100
+summary:     health_surgery : Migrate to Tryton 3.8
+
+changeset:   2098:5a070ea7596c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 12 19:21:39 2015 +0100
+summary:     health_lab : Update to make it Tryton 3.8 compatible
+
+changeset:   2097:26c0de1652b3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 12 18:42:07 2015 +0100
+summary:     health_lifestyle : Improve Alcoholism CAGE score view
+
+changeset:   2096:0875b1a2c5b5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 12 18:33:50 2015 +0100
+summary:     health_inpatient: remove colors from tree views for tryton 3.8 compatibility
+
+changeset:   2095:3348b6441f58
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 11 19:54:46 2015 +0100
+summary:     crypto plugin : Update code documentation on signature verification
+
+changeset:   2094:b22c580888e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 11 18:37:31 2015 +0100
+summary:     crypto plugin : Check for exising document digest before signing
+
+changeset:   2093:5fc3a547d32f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 11 18:04:59 2015 +0100
+summary:     health_lifestyle : Update to Tryton 3.8
+
+changeset:   2092:9e8526082f86
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Sep 30 09:32:43 2015 -0500
+summary:     bug #45970: Add requirements file with specific Flask-Login version
+
+changeset:   2091:0de60b516b76
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Sep 30 09:29:42 2015 -0500
+summary:     task #13615: Fix two imports
+
+changeset:   2090:7b12a675d9fd
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Sep 29 19:11:56 2015 -0700
+summary:     task 13615: Add the missing disease subdivisions to the NOTIFIABLE group
+
+changeset:   2089:2c2f8920f1e7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Sep 29 20:25:23 2015 -0500
+summary:     task #13615: Start adding diseases to NOTIFIABLE group
+
+changeset:   2088:0c61f1c4e6ba
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 20 10:40:40 2015 +0100
+summary:     health : Fix setup method on patient evaluation
+
+changeset:   2087:ad975430a4b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 20 08:24:03 2015 +0100
+summary:     health_crypto : Initial migration to Tryton 3.8
+
+changeset:   2086:fd10a4435440
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Sep 18 12:41:01 2015 -0500
+summary:     move more colors to icons and safe_eval to eval
+
+changeset:   2085:ddb41cbf4856
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Sep 18 11:48:51 2015 -0500
+summary:     FHIR: Add routes file
+
+changeset:   2084:c5b58a961792
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 19:01:55 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add prefix uniq to the sql constraint for unique codes
+
+changeset:   2083:5dfa6c1ddd37
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 18:33:01 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add health professional to patient functioning and disability assessment
+
+changeset:   2082:6ddbaae9964b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 18:27:58 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add patient function and disability assessment date
+
+changeset:   2081:0b07542d72ea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 17:39:28 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Fix dup codes in activity and participation codes
+
+changeset:   2080:a5c46ea6bfd4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 17:35:35 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add patient protesis views and include health professionals
+
+changeset:   2079:c80c580c25c8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 15:43:12 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Change etiology term for amputation : tumor -> neoplasia
+
+changeset:   2078:13016dcc7d3f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 12:07:21 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include group elements for amputation. Add Amputation list in reporting
+
+changeset:   2077:83498c58b998
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 15 07:13:51 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add Patient amputation model . Create disability group on patient form
+
+changeset:   2076:f6a2d53b9a9c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 14 18:42:49 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health. Add missing view files. Include remaining config menu entries
+
+changeset:   2075:ea0044cb3e21
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 14 12:23:45 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health. Change to M2O the category fields of each ICF chapter
+
+changeset:   2074:b808d000b694
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 14 10:35:02 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health. Fix form view
+
+changeset:   2073:06a9595efeed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 14 09:20:31 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add prothesis attribute in product model. Add initial configuration menu for body functions
+
+changeset:   2072:a0ff71f51213
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 13 18:16:11 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add prothesis attribute in product model. TODO : Change health product related attributes to CATEGORIES
+
+changeset:   2071:f298f59b5a9b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 13 17:09:19 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include date of first amputation
+
+changeset:   2070:280497ddf147
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 13 16:47:39 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include amputee and UXO victim status on Disability Assessment
+
+changeset:   2069:a18017c612af
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 13 12:20:02 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include Patient form extension
+
+changeset:   2068:e4f3fd527f84
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 13 12:19:32 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include significant disabilities and barriers status in main patient view
+
+changeset:   2067:2aa59801ff89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 12 19:06:46 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add UXO casualty and notes. Improve form view
+
+changeset:   2066:b17494e5248b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 12 17:50:31 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add environmental factors views
+
+changeset:   2065:4c904c086806
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 12 17:50:06 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add environmental factors assessment
+
+changeset:   2064:b884c8f0a56b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 12 13:33:47 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add activity and participation assessment
+
+changeset:   2063:de5f54eb8fd5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 11 15:00:12 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add body structure assessment
+
+changeset:   2062:92f451570a7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 10 18:02:02 2015 +0100
+summary:     health_disability : rework body function model and views
+
+changeset:   2061:afc5c2053472
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 10 13:47:27 2015 +0100
+summary:     health_disability : Add initial body function assessment
+
+changeset:   2060:a6cbf1eb1555
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 07 13:06:20 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Update Environmental factors datafile
+
+changeset:   2059:880d42c4728e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 07 12:33:56 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include Environmental factors and category models and initial datafile
+
+changeset:   2058:0f3c4b650cd6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 13:28:42 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add activity and participation data file
+
+changeset:   2057:0bc04b051694
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 13:27:54 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include Activity and Participation models and data
+
+changeset:   2056:d9b5afdc48de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 12:35:50 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include Activity and Participation categories
+
+changeset:   2055:5a516aa1ef39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 12:11:10 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include chapter for structures related to movement
+
+changeset:   2054:f3323b8de18f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 10:50:35 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add Body structure datafile
+
+changeset:   2053:f4b84a16deb7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 06 09:38:27 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Update Body structure datafile
+
+changeset:   2052:5cfd13c605b7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 05 09:35:07 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Include Body Structure and category models. Add category data
+
+changeset:   2051:7ce97f3d5774
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 05 08:55:47 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Completed Part 1a : Impairments of Body Functions
+
+changeset:   2050:e8a605679f0e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 02 17:01:05 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Add body functions and its categories
+
+changeset:   2049:054a0aebb5ae
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Aug 31 18:18:58 2015 -0500
+summary:     FHIR: Prune and consolidate repeated code
+
+changeset:   2048:4dfc03c7b0e4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 31 21:19:01 2015 +0100
+summary:     task #13710: Module for International Classification of Functioning, Disability and Health - Initial commit
+
+changeset:   2047:ea49b2ae102d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 22 09:45:24 2015 +0100
+summary:     Fix bug #45809: Fix FDA category for magnesium sulfate
+
+changeset:   2046:4728c08fad57
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Aug 21 22:17:57 2015 -0500
+summary:     task #13615: easy, bulk categories and AUTOIMMUNE
+
+changeset:   2045:1e4f0372b743
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 21 12:38:22 2015 +0100
+summary:     health : Include infectious disease icon warning on patient medical history
+
+changeset:   2044:4802fd983c71
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 21 12:35:33 2015 +0100
+summary:     Fix bug #45786: Party search doesn't work when a last name is the same of another party's name. Use update search_rec_name with multiple fields to the Tryton way
+
+changeset:   2043:9d96cf96c5fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 18 20:41:07 2015 +0100
+summary:     health : add warning and danger icons
+
+changeset:   2042:7c6986207cf9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 18 20:40:26 2015 +0100
+summary:     health : Start migration from colors to icons in visual aids
+
+changeset:   2041:5da870dab0f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 14 14:06:24 2015 +0100
+summary:     health : Fix format_date and use rec_name on health professional in medication report
+
+changeset:   2040:7dee25fe9aa6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 14 13:54:19 2015 +0100
+summary:     health : Remove FormatLang and use format_date in patient vaccination history report
+
+changeset:   2039:3063f21767c5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 14 13:49:46 2015 +0100
+summary:     health : Remove FormatLang and use Format_Date in patient medication history report
+
+changeset:   2038:9458b325728a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 14 13:38:38 2015 +0100
+summary:     health : Migrate localcontext -> context on patient vaccination status
+
+changeset:   2037:4115eb969a57
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 14 12:53:24 2015 +0100
+summary:     health : Remove FormatLang and use Format_Date in patient disease history report
+
+changeset:   2036:6b170c95eca8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 08 15:05:07 2015 +0100
+summary:     work on task #13712: Reorganize menu entries - Reporting
+
+changeset:   2035:637c55d505ce
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 08 13:52:42 2015 +0100
+summary:     health : Move health professionals menu to gnu health top menu
+
+changeset:   2034:1e9149bc7b2d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 08 13:34:17 2015 +0100
+summary:     health : ECGs now from patient form. Use the shortcut only. Thanks Chris !
+
+changeset:   2033:bf6b695b9c34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 08 13:11:06 2015 +0100
+summary:     health: migrate datetime tree widgets to tryton 3.8
+
+changeset:   2032:f5f2bed8d605
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 07 09:26:06 2015 +0100
+summary:     health: migration of domains eval and states in views for Tryton 3.8
+
+changeset:   2031:acd783f2cdd1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 06 21:27:58 2015 +0100
+summary:     health: initial migration of domains eval and states in views for Tryton 3.8
+
+changeset:   2030:33bd824da528
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 06 18:34:41 2015 +0100
+summary:     health : migrate on_change methods to tryton 3.8
+
+changeset:   2029:7715c8456f14
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 06 13:05:20 2015 +0100
+summary:     task #13709: Migration to Tryton 3.8 . Remove img_[width|height] from views
+
+changeset:   2028:cf6d76ac6f12
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 06 12:15:48 2015 +0100
+summary:     health : Fix wrong sequence code
+
+changeset:   2027:d9fffe581263
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 05 09:59:35 2015 +0100
+summary:     health_ophthalmology : Initial module inclusion. Thanks Sivadas !
+
+changeset:   2026:799617bbcf40
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 30 12:25:23 2015 +0100
+summary:     health : Add code to patient evaluation model
+
+changeset:   2025:32f26b083ef3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 28 22:42:06 2015 +0700
+summary:     health_reporting : Include new condition vs followup and others in patient evaluation report
+
+changeset:   2024:d6433b42d916
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 28 00:02:31 2015 +0700
+summary:     health_reporting : Include evaluation dx totals in summary report
+
+changeset:   2023:7b7b3c9a70db
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 23:35:12 2015 +0700
+summary:     health_reporting : totals in dx age groups for summary report
+
+changeset:   2022:61aeca678ecb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 21:26:41 2015 +0700
+summary:     health_reporting : initialize age groups for dx grouping
+
+changeset:   2021:580db03183d6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 20:13:30 2015 +0700
+summary:     health_reporting : Default value to true for the summary report evaluation wizard field
+
+changeset:   2020:3d2fd70956bb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 20:08:07 2015 +0700
+summary:     health_reporting : Add global cout of evaluations by patient sex
+
+changeset:   2019:b811c4c54a30
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 19:09:11 2015 +0700
+summary:     health_reporting : Add total number of evaluations and those without dx
+
+changeset:   2018:ab96b98fee8a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 17:54:50 2015 +0700
+summary:     health_reporting : update on summary report
+
+changeset:   2017:34b90c11046d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 16:18:55 2015 +0700
+summary:     health_reporting : Include summary report sections
+
+changeset:   2016:543c46551aa4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 15:16:32 2015 +0700
+summary:     health : Add sex and computed age at evaluation time function fields
+
+changeset:   2015:aafed00396f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 13:20:07 2015 +0700
+summary:     health : use patient header in evaluation visible across all sections
+
+changeset:   2014:c7ecfce7ae4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 27 01:09:01 2015 +0700
+summary:     health_reporting : task #13378 Global summary report. Add initial evaluation info
+
+changeset:   2013:2fa30742e8a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 26 23:10:05 2015 +0700
+summary:     health : task #13700: Improve sorting order on people and calling models
+
+changeset:   2012:60a03201200c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 26 17:36:28 2015 +0700
+summary:     health_services : Remove the register method to remove the required attribute. Not needed
+
+changeset:   2011:75e78e5e5960
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 26 17:11:13 2015 +0700
+summary:     health_services : document the version upgrade on description field attribute
+
+changeset:   2010:244c522f60b7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 26 17:00:41 2015 +0700
+summary:     health_services :  #45615 Remove required attibute from description field
+
+changeset:   2009:93b6f65028ce
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jul 23 16:35:05 2015 +0100
+summary:     health_lifestyle : Anticonceptive -> Contraceptive . Thanks Marc !
+
+changeset:   2008:f1707c2c2130
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 22 15:58:59 2015 +0100
+summary:     health : bug #45350 - check for mother / father in the birth certificate before returning the ID
+
+changeset:   2007:9514e91fcc23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 22 11:04:46 2015 +0100
+summary:     health: Field internal user now visible for any party with attribute of physical person
+
+changeset:   2006:f29c0290667b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jul 09 16:00:47 2015 -0700
+summary:     FHIR: Empty search results should return status 200; TODO: Handle search exceptions
+
+changeset:   2005:7ae720d95d84
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jul 09 15:52:05 2015 -0700
+summary:     FHIR: Use mixin to export xml string
+
+changeset:   2004:199b5640c250
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 04 20:38:28 2015 +0100
+summary:     health_inpatient : Add action button to tree view in for hospital meal orders
+
+changeset:   2003:e86473e15655
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 04 15:57:24 2015 +0100
+summary:     health : Add OK and Cancel icons, transferred from health_inpatient
+
+changeset:   2002:0bca9ccbccae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 04 09:51:07 2015 +0100
+summary:     health : Allow bed cleaning / fixing outside the main hospitalization workflow
+
+changeset:   2001:ad9a1de8e263
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Jul 03 19:16:07 2015 -0700
+summary:     FHIR: Add Organization endpoint
+
+changeset:   2000:0eba79abbaa6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 03 19:58:24 2015 +0100
+summary:     health_inpatient : Add searcher to PUID in registration model
+
+changeset:   1999:881ea4cfb949
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 03 16:20:31 2015 +0100
+summary:     health_inpatient: Include Patient PUID in the inpatient registration model
+
+changeset:   1998:8f3333dc52da
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jun 29 23:05:05 2015 -0700
+summary:     FHIR: Pass correct value to functions
+
+changeset:   1997:3ddcb3703ef0
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jun 29 23:01:14 2015 -0700
+summary:     FHIR: Display value of test
+
+changeset:   1996:4bd7eaca9db1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jun 29 22:57:18 2015 -0700
+summary:     FHIR: Allow unknown dates for tests
+
+changeset:   1995:ad707dd48abf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 29 13:43:05 2015 +0100
+summary:     health_inpatient : Allow to set a status in the bed of origin during patient bed transfer
+
+changeset:   1994:3d9ccec6d0bd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 28 20:18:59 2015 +0100
+summary:     health_inpatient : Add action window domain for hospitalization status
+
+changeset:   1993:9f811ac0cf0f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 28 20:02:44 2015 +0100
+summary:     health_inpatient : Verify that bed / room has been clean when making the reservation
+
+changeset:   1992:07f822ec8c64
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 28 19:40:37 2015 +0100
+summary:     health_inpatient : Include patient discharge Dx and extra validations. Improve view
+
+changeset:   1991:2c303a296173
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 28 13:19:48 2015 +0100
+summary:     health_inpatient : Include bed/room cleaning process and status. Remove write method overwrite in favor of STATES. Improve view for patient hospitalization form
+
+changeset:   1990:b45482609845
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 28 10:55:53 2015 +0100
+summary:     health_surgery : Code is now a sequence and readonly . Make description not required
+
+changeset:   1989:ab2fae0550f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 27 20:55:30 2015 +0100
+summary:     health, health_icu : Include shortcut for ECG from patient model. Add institution and health professional . Verify healthprofessional at record creation
+
+changeset:   1988:82eeb56c07d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 27 14:12:28 2015 +0100
+summary:     health_inpatient : Fix typo in comment
+
+changeset:   1987:17572de1382f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 27 14:11:02 2015 +0100
+summary:     health : Move data from the old ICU ECG table to the new generic patient ECG model
+
+changeset:   1986:47447906feed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 26 11:09:05 2015 +0100
+summary:     health_surgery : Add sequences and remove required attribute from the code
+
+changeset:   1985:896eba2b75dc
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jun 21 22:22:22 2015 -0700
+summary:     health: use != instead of <>
+
+changeset:   1984:a2e0d91ad7f2
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jun 21 22:16:01 2015 -0700
+summary:     bug #45350: return None values for unknown mother and father entries
+
+changeset:   1983:cb7da3ca693c
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jun 21 21:51:52 2015 -0700
+summary:     health: fix add_raw_column call and table query
+
+changeset:   1982:9c590f49f5b6
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jun 20 16:48:07 2015 -0700
+summary:     health_inpatient: remove raw sql and make get_patient_status a classmethod
+
+changeset:   1981:4f620063e9a9
+parent:      1979:2d4c69f341cd
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 19 16:04:53 2015 -0300
+summary:     health: fix bug #45360: Wrong Spanish translations.
+
+changeset:   1980:fd60943f630e
+branch:      stable
+parent:      1969:0eb22a7debff
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 19 16:04:53 2015 -0300
+summary:     health: fix bug #45360: Wrong Spanish translations.
+
+changeset:   1979:2d4c69f341cd
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Jun 12 23:48:27 2015 -0700
+summary:     bug #45307: Fix searcher to validate values and support negations
+
+changeset:   1978:f49b62f22358
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Jun 11 21:12:36 2015 -0700
+summary:     bug #45307: Add searcher to patient_status field
+
+changeset:   1977:9e886b48a6b0
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Jun 09 16:47:09 2015 -0700
+summary:     task #13334: Correct table name retrieval
+
+changeset:   1976:df5a68e1a4db
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jun 08 21:37:54 2015 -0700
+summary:     task #13334: Correct key name
+
+changeset:   1975:5975bdb2ad4b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Jun 08 21:30:00 2015 -0700
+summary:     task #13334: Use backend-independent code
+
+changeset:   1974:bb56988563bd
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jun 07 20:55:25 2015 -0700
+summary:     task #13334: Add related invoice, separate view of created invoices
+
+changeset:   1973:87be956933f9
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Jun 07 15:58:02 2015 -0700
+summary:     task #12878: Move ECG class to core
+
+changeset:   1972:640138ebba3b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jun 06 17:38:15 2015 -0700
+summary:     health_nursing: revert pain_level restriction
+
+changeset:   1971:b22c5d0a43b6
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Jun 06 15:22:43 2015 -0700
+summary:     task #12747: Added rounding report; Added weight field to rounding model; Added pain_level to the view and added restriction
+
+changeset:   1970:a6872c1af4a6
+parent:      1968:bf771b49946c
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 05 17:49:39 2015 -0300
+summary:     health: fix bug #45262: Wrong Spanish translation.
+
+changeset:   1969:0eb22a7debff
+branch:      stable
+parent:      1858:2f5ccfefccca
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Fri Jun 05 17:49:39 2015 -0300
+summary:     health: fix bug #45262: Wrong Spanish translation.
+
+changeset:   1968:bf771b49946c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 18:29:46 2015 +0100
+summary:     health_inpatient : Remove extra selection from mealtimes and avoid sorting the items
+
+changeset:   1967:70b251d0b8df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 18:25:45 2015 +0100
+summary:     health_inpatient : Update diet belief definition in ir.model.data to health_lifestyle
+
+changeset:   1966:78b61641bef2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 15:35:13 2015 +0100
+summary:     health_inpatient : Add None to Selection fields
+
+changeset:   1965:5359894ed234
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 13:27:37 2015 +0100
+summary:     health_inpatient : Add meal order contraint. Validate health professional
+
+changeset:   1964:52661d2f6f7d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 12:52:16 2015 +0100
+summary:     health_inpatient : Add mealtime to orders. Make meal order read only
+
+changeset:   1963:4ae96da8c822
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 11:37:38 2015 +0100
+summary:     health_inpatient : Allow to search by hospital bed . Improve display of hospitalization code - ID:BED:PATIENT
+
+changeset:   1962:98daaa2abdef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 04 11:01:50 2015 +0100
+summary:     health_inpatient : Restrict the meal orders to only hospitalized patients
+
+changeset:   1961:f7d677ccadfb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 01 12:44:05 2015 +0100
+summary:     health_inpatient : Include vegetarian options in meals
+
+changeset:   1960:1896c5fa376e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 31 18:50:41 2015 +0100
+summary:     health_inpatient : Remove old files migrated to lifestyle : vegetarian and religion based diets
+
+changeset:   1959:e1b8c6ea8735
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 31 18:26:51 2015 +0100
+summary:     task #13623 : Check patient special meal needs before ordering.
+
+changeset:   1958:596f1f1b51c2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 31 12:46:38 2015 +0100
+summary:     Task #13623: Include action window domains for draft, ordered and done orders
+
+changeset:   1957:c36997b66e8f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat May 30 11:45:12 2015 -0700
+summary:     bug #45217: Correct URI - Thanks Ari
+
+changeset:   1956:dc19c79327af
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat May 30 11:16:37 2015 -0700
+summary:     task #13483: Only set checked_in_date once
+
+changeset:   1955:a13197c4d428
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri May 29 16:22:55 2015 -0700
+summary:     task #13483: Save checked-in time, compute the wait time, display on patient eval
+
+changeset:   1954:64e1ee26c949
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 26 20:11:04 2015 +0100
+summary:     health_inpatient : Fix states for buttons in meal order form
+
+changeset:   1953:28f9ec2355f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 26 14:01:39 2015 +0100
+summary:     health_inpatient : Add buttons and actions for the different states in the meal order
+
+changeset:   1952:4d71e8470378
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 19:58:07 2015 +0100
+summary:     health_inpatient : Update task #13623: Add order status and date
+
+changeset:   1951:188e2f984e04
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 19:37:32 2015 +0100
+summary:     health_inpatient : Update task #13623: Add functionality for hospitalization meal orders
+
+changeset:   1950:7f357e04e5fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 19:30:03 2015 +0100
+summary:     health_inpatient : Update task #13623: Add functionality for hospitalization meal orders
+
+changeset:   1949:877d605d3106
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 19:17:55 2015 +0100
+summary:     health_inpatient : Update task #13623: Add functionality for hospitalization meal orders
+
+changeset:   1948:ba1fd64e39fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 13:53:06 2015 +0100
+summary:     health_inpatient : Add inpatient meal icon
+
+changeset:   1947:a4df78e9f6c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 13:23:54 2015 +0100
+summary:     health : Add immunization icon . Thanks, Leo !
+
+changeset:   1946:4f14279661d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 25 12:57:32 2015 +0100
+summary:     health_inpatient : Complete task #13632: Add hospitalization discharge reason
+
+changeset:   1945:290fa9d96b07
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 22 19:18:28 2015 +0100
+summary:     health_inpatient : task #13625, Reorganization of diets / meals
+
+changeset:   1944:82cdef694648
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 22 18:11:38 2015 +0100
+summary:     Update task task #13625, Reorganization of diets / meals
+
+changeset:   1943:2f208410ca30
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 22 12:50:45 2015 +0100
+summary:     health_lifestyle : Include view definitions for patient vegetarian diets
+
+changeset:   1942:1406fa2cf63d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 21 16:43:21 2015 +0100
+summary:     health_lifestyle : Ref task #13625 . Add vegetarian type model
+
+changeset:   1941:8686cb66583e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 21 15:48:03 2015 +0100
+summary:     health_inpatient : Add basic hospitalization meal views
+
+changeset:   1940:8c8b8f5e0c93
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 19 20:48:45 2015 +0100
+summary:     health_inpatient : task #13623, add initial models for meal and meal orders
+
+changeset:   1939:22d052f3537d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 18 12:56:22 2015 +0100
+summary:     health : task #13620: Close the appointment when the related evaluation has been done
+
+changeset:   1938:e138a6a2858c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 18 12:01:46 2015 +0100
+summary:     health : Task https://savannah.gnu.org/task/index.php?13483  Add Checked in status for appointment.
+
+changeset:   1937:01767614e83e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 16 19:28:40 2015 +0100
+summary:     health_surgery : Improve field states
+
+changeset:   1936:4bfb3bc513b6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 15 19:16:31 2015 +0100
+summary:     health_surgery : Add cancelled state to surgery
+
+changeset:   1935:0ab1a3fea961
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu May 14 17:08:18 2015 -0700
+summary:     bug #41431: shorter title
+
+changeset:   1934:dae878427eed
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed May 13 19:28:09 2015 -0700
+summary:     FHIR: Add basic logging to Flask
+
+changeset:   1933:56c46cd8412f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue May 12 18:42:52 2015 -0700
+summary:     bug #41382: Rename views as readonly to discourage new record creation
+
+changeset:   1932:7a094c665c89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 11 18:29:57 2015 +0100
+summary:     health_surgery : Include hospital operating room instance in the start surgery method
+
+changeset:   1931:c947df842450
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 11 13:53:19 2015 +0100
+summary:     health_surgery : Change the state of the OR associated to the when the surgery is in progress, not when is confirmed
+
+changeset:   1930:598e75bc5164
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 11 12:46:52 2015 +0100
+summary:     health_surgery : Add colors to surgeries in progress and confirmed
+
+changeset:   1929:ca424b560ffc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 10 11:35:30 2015 +0100
+summary:     health_surgery : view domains for the different states of the surgery
+
+changeset:   1928:01ac9bdcaf3f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat May 09 22:49:35 2015 -0700
+summary:     bug #41431: Rename title to clarify readonly view
+
+changeset:   1927:a39429d96143
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat May 09 13:48:12 2015 -0700
+summary:     Fix bug #45009: Raise user error if company timezone is not defined
+
+changeset:   1926:9f43ee0dabda
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri May 08 17:54:46 2015 -0700
+summary:     FHIR: Default to the debug config
+
+changeset:   1925:bd55ceec4aa1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu May 07 23:34:31 2015 -0700
+summary:     bug #43317: no delete restrictions for now
+
+changeset:   1924:904f2096c53b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu May 07 16:59:57 2015 -0700
+summary:     Fix bug #43317: Disallow service line changes for invoiced items
+
+changeset:   1923:bceca8f3c6cf
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue May 05 15:58:01 2015 -0700
+summary:     FHIR: Cleanup Patient code; Fix safe_attrgetter; other cosmetic changes
+
+changeset:   1922:716706f6b95d
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon May 04 17:49:19 2015 -0700
+summary:     bug #43317: patient read-only when item is invoiced
+
+changeset:   1921:79ce84610cf7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 04 13:26:57 2015 +0100
+summary:     health_surgery : Add surgery state to the tree view
+
+changeset:   1920:42025b6979f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 04 11:40:13 2015 +0100
+summary:     health_services : Add Institution field in report
+
+changeset:   1919:b66126ca1d45
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 04 11:24:39 2015 +0100
+summary:     health_services : Add institution field to service document
+
+changeset:   1918:2e9fc3ba3de5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 03 13:50:25 2015 +0100
+summary:     health_services : Add initial service report
+
+changeset:   1917:90bb965857f4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 02 18:58:55 2015 +0100
+summary:     bug #43317: Use origin on InvoiceLine . Add Transaction and backend
+
+changeset:   1916:4cd33dd94bce
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri May 01 00:12:11 2015 -0700
+summary:     bug #43317: Use origin on InvoiceLine, patient and health_service as Functions
+
+changeset:   1915:9eb53e2a29d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 30 12:53:33 2015 +0100
+summary:     health_surgery : Improve surgery report and add new fields - surgery team, supplies, post-operative dx
+
+changeset:   1914:bd551a605055
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 30 12:10:37 2015 +0100
+summary:     health_surgery : Improve views. Reset to start the surgery end time when changing to state start
+
+changeset:   1913:8702f0d98604
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 30 11:17:40 2015 +0100
+summary:     health_surgery : Add supply quantities - required and used - . Include views
+
+changeset:   1912:42f5ca16b597
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 29 13:14:57 2015 +0100
+summary:     health_surgery : Add list of supplies required for the surgery
+
+changeset:   1911:1b6b5de77dae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 29 12:31:31 2015 +0100
+summary:     health_surgery : Check operating room and estimated end time before the confirmation of the surgery
+
+changeset:   1910:4791123cea61
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 29 10:44:16 2015 +0100
+summary:     Update states for surgery : draft, confirmed, cancel, start, finnish, signed
+
+changeset:   1909:5153ab847140
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Apr 28 20:32:40 2015 -0700
+summary:     Work on bug #35461: Prohibit frontdesk from viewing/writing lifestyle fields by default
+
+changeset:   1908:f3f8244b0f7b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Apr 28 20:01:53 2015 -0700
+summary:     Work on bug #35461: Prohibit frontdesk from viewing/writing socio fields by default
+
+changeset:   1907:0de6032ea1b9
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Apr 28 19:33:50 2015 -0700
+summary:     Work on bug #35461: Prohibit frontdesk from viewing/writing gyneco fields by default
+
+changeset:   1906:8124b2044fca
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Apr 26 21:18:31 2015 -0700
+summary:     Fix bug #35462: Order by lastname on party.party; hide redundant lastname column
+
+changeset:   1905:e00fd2bc8d65
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 26 19:47:56 2015 +0100
+summary:     health_surgery : Include initial Operating Room confirmation process
+
+changeset:   1904:9955214a8790
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 26 17:35:13 2015 +0100
+summary:     health : Add state to the Operating Room model
+
+changeset:   1903:4efb7bca2b81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 26 17:10:57 2015 +0100
+summary:     health_surgery : Include in progress status
+
+changeset:   1902:cd2e0a905425
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 25 12:27:31 2015 +0100
+summary:     health_surgery : Fix wrong state in_progess by draft on signed_by field
+
+changeset:   1901:8f9c37ee881c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 25 12:20:28 2015 +0100
+summary:     health_surgery : Rename separator string in surgery to Details
+
+changeset:   1900:b3dcf532b8b5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 25 12:14:43 2015 +0100
+summary:     health_surgery : hide surgery length and Post-op Dx if document is in draft state
+
+changeset:   1899:61a0abdadcac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 24 13:37:21 2015 +0100
+summary:     health_surgery : Allow to save the draft surgery document - No end-date required
+
+changeset:   1898:8e2e4b4ca2cd
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Apr 23 12:23:03 2015 -0700
+summary:     Fix bug #44374: Use Lang.strftime
+
+changeset:   1897:5bd26b1401bf
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Apr 22 23:48:26 2015 -0700
+summary:     Fix bug #43542: Check for indication before displaying
+
+changeset:   1896:0250e0db9414
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Apr 22 14:26:39 2015 -0700
+summary:     Fix bug #40763: health: Add missing units and descriptions to PatientEvaluation
+
+changeset:   1895:3c6d46ced860
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Apr 21 15:30:26 2015 -0700
+summary:     Fix bug #44893: removed second __setup__ call
+
+changeset:   1894:47274194d1c4
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 20 17:26:22 2015 -0700
+summary:     task #13495: health_inpatient: Add therapeutic and belief diets to configuration menu
+
+changeset:   1893:381feabe508f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 20 15:54:28 2015 -0700
+summary:     health_lab: Search for the name and the code
+
+changeset:   1892:d7b122fd294d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 20 19:35:18 2015 +0100
+summary:     health_surgery : Include Institution on the surgery view
+
+changeset:   1891:6f359e288f3c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 20 18:26:34 2015 +0100
+summary:     health_surgery : Simplify label base condition -> condition
+
+changeset:   1890:dbd29d99f2dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 20 18:21:09 2015 +0100
+summary:     health_surgery : Add Draft and Confirmed states to surgery
+
+changeset:   1889:cb32dea15dbe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 17 18:58:39 2015 +0100
+summary:     health_surgery : Add surgical wound classes
+
+changeset:   1888:45b6da9aee9b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 17 17:45:44 2015 +0100
+summary:     health_surgery : Add post-operative dx
+
+changeset:   1887:ae1cfb1506c5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 16 16:51:34 2015 +0100
+summary:     health_surgery : Add team member role from the list of the health professional specialties
+
+changeset:   1886:33df18ca78fa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 16 16:18:38 2015 +0100
+summary:     health_surgery : Make tree view editable
+
+changeset:   1885:9135ac1ca85e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 16 16:14:38 2015 +0100
+summary:     health_surgery : Include initial surgery team
+
+changeset:   1884:9121219d00d3
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Apr 10 13:53:03 2015 -0700
+summary:     FHIR: Fix typos
+
+changeset:   1883:2e377775e56a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Apr 10 13:43:38 2015 -0700
+summary:     FHIR: Cleanup
+
+changeset:   1882:f4ca95d324d7
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 06 16:22:55 2015 -0700
+summary:     FHIR: Fix typo
+
+changeset:   1881:0386683c6672
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 06 16:17:22 2015 -0700
+summary:     FHIR: Enable reference range for labs
+
+changeset:   1880:793372792f81
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 06 15:51:54 2015 -0700
+summary:     FHIR: Some better error handling
+
+changeset:   1879:5c560038b353
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Apr 04 16:46:45 2015 -0700
+summary:     Fix bug 44724: Display value-less tests and return errors properly
+
+changeset:   1878:9fed013c9e55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 03 18:27:41 2015 +0100
+summary:     health_lab : Make test types and their analytes translatable
+
+changeset:   1877:a920ef06959c
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Apr 02 20:12:30 2015 -0700
+summary:     FHIR: Bug fixes; add date info to procedure
+
+changeset:   1876:94d812162014
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Apr 02 19:17:23 2015 -0700
+summary:     FHIR: Lots of cleanup
+
+changeset:   1875:a9fff230080d
+user:        Vittorio Meloni <vmeloni@crs4.it>
+date:        Tue Mar 31 12:29:27 2015 +0200
+summary:     First HL7 and PDQ modules implementation
+
+changeset:   1874:37911518dc7b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Mar 30 22:25:14 2015 -0700
+summary:     FHIR: Remove bad mimetype
+
+changeset:   1873:330958bd7545
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Mar 20 16:47:33 2015 -0700
+summary:     FHIR: Update tests
+
+changeset:   1872:0351985411ba
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Mar 20 16:32:30 2015 -0700
+summary:     FHIR: Add Immunization endpoint - TODO: vaccination protocol; other small fixes
+
+changeset:   1871:0d807ea3d511
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Mar 20 15:22:18 2015 -0700
+summary:     FHIR: Re-add medication_statememnt imports
+
+changeset:   1870:e0c371357e1b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Mar 18 16:33:49 2015 -0700
+summary:     FHIR: Add feed info, vaccine name, and correct search mapping
+
+changeset:   1869:41b6b261a035
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Mar 18 15:45:23 2015 -0700
+summary:     FHIR: Add route and site valuesets; More work on Immunization resource
+
+changeset:   1868:66acf65498c5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Mar 17 19:54:56 2015 -0700
+summary:     FHIR: Define search params and other values for Immunization resource
+
+changeset:   1867:8d469499e2b0
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Mar 16 20:57:47 2015 -0700
+summary:     FHIR: Start Immunization resource
+
+changeset:   1866:1564b560234a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Mar 16 20:54:51 2015 -0700
+summary:     FHIR: Better docstrings
+
+changeset:   1865:c51d070ca5a9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 15 18:18:42 2015 -0300
+summary:     all : Update version in development (default) branch to 2.9
+
+changeset:   1864:ed508db74a5a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 15 18:12:57 2015 -0300
+summary:     health_inpatient : Update Muslim diet. Thaks Abdul !
+
+changeset:   1863:f9ab47b0c643
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Mar 14 21:14:02 2015 -0700
+summary:     FHIR: Add MedicationStatement endpoint - sparse, waiting for dosage handling updates
+
+changeset:   1862:5032460d3f71
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 25 14:37:58 2015 -0800
+summary:     FHIR: Cleanup Bundle class
+
+changeset:   1861:24e58da8d314
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Feb 21 21:47:31 2015 -0800
+summary:     FHIR: Add Medication endpoint
+
+changeset:   1860:61eed5003c73
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Feb 21 21:47:10 2015 -0800
+summary:     FHIR: Fix environment bug
+
+changeset:   1859:bfb7b87aa278
+parent:      1857:04d56fc0287a
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Feb 19 12:22:50 2015 -0300
+summary:     Fix bug 44311: No module named pytz after of pip installation
+
+changeset:   1858:2f5ccfefccca
+branch:      stable
+parent:      1840:dca8742da7f8
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Thu Feb 19 12:22:50 2015 -0300
+summary:     Fix bug 44311: No module named pytz after of pip installation
+
+changeset:   1857:04d56fc0287a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 15:18:32 2015 -0800
+summary:     FHIR: Move datetime formatting function
+
+changeset:   1856:22932e209ec4
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 14:07:11 2015 -0800
+summary:     FHIR: Entry id should be valid url
+
+changeset:   1855:3591b71ff8d1
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 12:41:52 2015 -0800
+summary:     FHIR: Fix namespace definition
+
+changeset:   1854:043958322758
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 12:25:25 2015 -0800
+summary:     FHIR: Add namespace to totalResults
+
+changeset:   1853:22004712f265
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 01:14:44 2015 -0800
+summary:     FHIR: Paging fix
+
+changeset:   1852:7bdfc481af69
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 01:01:24 2015 -0800
+summary:     FHIR: Use FHIR classes for atom feed, remove werkzeug atom class
+
+changeset:   1851:ffa65cff792b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 18 00:59:03 2015 -0800
+summary:     FHIR: Fix formatting
+
+changeset:   1850:2e7195df9833
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Feb 17 16:43:11 2015 -0800
+summary:     FHIR: Fix name collisions
+
+changeset:   1849:53f5e9efb0ee
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Feb 17 16:42:03 2015 -0800
+summary:     FHIR: Cleanup the atom code, fix content exports
+
+changeset:   1848:00a43ca29c03
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Feb 17 16:40:32 2015 -0800
+summary:     FHIR: Fix keyword error
+
+changeset:   1847:9124dea15377
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Feb 15 00:53:03 2015 -0800
+summary:     FHIR: Remove implicit relative import
+
+changeset:   1846:db70d618dc13
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Feb 15 00:30:59 2015 -0800
+summary:     FHIR: Separate client and server code into respective folders
+
+changeset:   1845:f066ef761353
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Feb 14 21:08:49 2015 -0800
+summary:     FHIR: Add atom and xmldsig classes; TODO: Use atom class for bundles
+
+changeset:   1844:eb05c787e82b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Feb 14 21:07:36 2015 -0800
+summary:     FHIR: Non-overlapping page links
+
+changeset:   1843:4ddcbedc5d11
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sat Feb 14 21:06:54 2015 -0800
+summary:     FHIR: Remove some clutter
+
+changeset:   1842:e61d4a006941
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Feb 09 19:01:53 2015 -0800
+summary:     health, health_inpatient: Fix two misspellings
+
+changeset:   1841:6ccac608354f
+parent:      1836:629fa2c4deef
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Feb 08 21:37:39 2015 -0800
+summary:     FHIR: Add gender and marital status value sets; order records by id; other misc. cleanup
+
+changeset:   1840:dca8742da7f8
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 08 19:54:34 2015 +0000
+summary:     Update Changelog
+
 changeset:   1839:d636c42033f4
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 08 19:48:41 2015 +0000
 summary:     Update version to patchset 2.8.1
@@ -18,12 +2588,64 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 08 19:29:39 2015 +0000
 summary:     installer : fix bug #44182: 2.8 installer fails with TRYTOND_CONFIG variable not set
 
+changeset:   1836:629fa2c4deef
+parent:      1834:00f262d55f69
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 07 21:11:24 2015 +0000
+summary:     health : fix bug #44189: Ascii code Error when trying to create Institution
+
 changeset:   1835:c81a9b23b105
 branch:      stable
 parent:      1825:20e41412f220
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Feb 07 21:11:24 2015 +0000
 summary:     health : fix bug #44189: Ascii code Error when trying to create Institution
+
+changeset:   1834:00f262d55f69
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Feb 05 17:21:37 2015 -0800
+summary:     FHIR: Add FamilyHistory resource
+
+changeset:   1833:7dfa02661b4a
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Feb 05 17:14:09 2015 -0800
+summary:     FHIR: Add family_member code values for FHIR standard
+
+changeset:   1832:fda8f7d3c330
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Thu Feb 05 12:50:14 2015 -0800
+summary:     FHIR: Cleanup URL mapping for better readibility
+
+changeset:   1831:39a3edc70969
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 04 23:02:33 2015 -0800
+summary:     FHIR: Add Condition resource
+
+changeset:   1830:2483eb16509b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 04 23:01:59 2015 -0800
+summary:     Remove flask-testing; add __init__ file
+
+changeset:   1829:4e311ea75e2f
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 04 23:00:32 2015 -0800
+summary:     Add ICD-10-PCS uri
+
+changeset:   1828:69f78fc3b6ae
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Wed Feb 04 17:07:21 2015 -0300
+summary:     health_lab : Fix bug #44165: Typo in default date analysis.
+
+changeset:   1827:88ec41ec964c
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Feb 04 11:48:05 2015 -0800
+summary:     scripts: Update demo database install script for 2.8.0 postgres dump
+
+changeset:   1826:cbf879cfa3de
+parent:      1824:4c9ffc7ed22a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 19 20:21:36 2014 +0100
+summary:     health_icpm : Fix typo in salpingotomy procedure. Thanks Tiago Silva for reporting !
 
 changeset:   1825:20e41412f220
 branch:      stable
@@ -33,8 +2655,33 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Feb 04 18:42:40 2015 +0000
 summary:     Merge default (development) branch at release 1820 tag 2.8.0 to stable
 
+changeset:   1824:4c9ffc7ed22a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 04 13:30:48 2015 +0000
+summary:     Added tag 2.8.0 for changeset 9073b042c9f0
+
+changeset:   1823:2631ab7d87fc
+user:        Bruno M. Villasanti <bvillasanti@thymbra.com>
+date:        Tue Feb 03 11:34:02 2015 -0300
+summary:     Fix bug #44172: Vagrant not successfully provisioning
+
+changeset:   1822:4c960400dab8
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Feb 02 11:42:40 2015 -0800
+summary:     FHIR: Fix mapping error
+
+changeset:   1821:bba052fd8395
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Feb 02 11:07:49 2015 -0800
+summary:     FHIR: Added better search - chaining parameters and paging; rewrote a lot of the search code; Remove multi-model support for now
+
+changeset:   1820:9073b042c9f0
+tag:         2.8.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 01 22:59:59 2015 +0000
+summary:     Update Changelog
+
 changeset:   1819:6610646ea829
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 01 22:22:56 2015 +0000
 summary:     add README to Injury Surveillance System module

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<form string="Optometry form">
+    <group colspan="4" col="10" id="patient_group">
+      <label name="patient"/>
+      <field name="patient"/>
+      <label name="computed_age"/>
+      <field name="computed_age"/>
+      <field name="gender"/>
+      <label name="health_professional"/>
+      <field name="health_professional"/>
+      <label name="visit_date"/>
+      <field name="visit_date"/>
+    </group>
+    
+    <newline/>
+
+    <group string="Optometry" id="group_optometry">
+        <group colspan="4" string="Refraction" id="refraction group">
+          <group id="va_group" colspan="2">
+             <group  string="Right Eye " id="right_vc_group" >  
+                <label name="rdva"/>
+                <field name="rdva" />
+                <label name="rdva_pinhole"/>
+                <field name="rdva_pinhole"/>    
+                <label name="rdva_aid"/>
+                <field name="rdva_aid"/>
+                <label name="rnv"/>
+                <field name="rnv"/>
+             </group>
+             <group  string="Left Eye " id="left_vc_group">
+                <label name="ldva"/>
+                <field name="ldva"/>
+                <label name="ldva_pinhole"/>
+                <field name="ldva_pinhole"/>
+                <label name="ldva_aid"/>
+                <field name="ldva_aid"/>
+                <label name="lnv"/>
+                <field name="lnv"/>
+             </group>
+          </group>
+          <newline/>
+          <group colspan="2" id="lens_values_ar" >
+             <group colspan="2" col="8" string="Right Eye" id="right_eye_ar">
+                <label name="rspherical"/>
+                <field name="rspherical"/>
+                <label name="rcylinder"/>
+                <field name="rcylinder"/>
+                <label name="raxis"/>
+                <field name="raxis"/>
+                <label name="rnv_add"/>
+                <field name="rnv_add"/>
+             </group>
+             <group colspan="2" col="8" string="Left Eye" id="left_eye_ar">
+                <label name="lspherical"/>
+                <field name="lspherical"/>
+                <label name="lcylinder"/>
+                <field name="lcylinder"/>
+                <label name="laxis"/>
+                <field name="laxis"/>
+                <label name="lnv_add"/>
+                <field name="lnv_add"/>
+             </group>
+          </group>
+        </group>
+        <group colspan="4" col="6" id="final_vision_correction" string="Best Corrected Visual Acuity" >
+          <group colspan="2" col="6" id="Right_Eye_BCVA" string="Right Eye" >
+             <label name="rbcva_spherical"/>
+             <field name="rbcva_spherical" />
+             <label name="rbcva_cylinder"/>
+             <field name="rbcva_cylinder"/>
+             <label name="rbcva_axis"/>
+             <field name="rbcva_axis" />
+             <newline/>
+             <label name="rbcva"/>
+             <field name="rbcva" />
+             <label name="rbcva_nv_add"/>
+             <field name="rbcva_nv_add"/>
+             <label name="rbcva_nv"/>
+             <field name="rbcva_nv"/>
+          </group>            
+          <group colspan="2" col="6" id="Left_eye_BCVA" string="Left Eye" >
+             <label name="lbcva_spherical"/>
+             <field name="lbcva_spherical" />
+             <label name="lbcva_cylinder"/>
+             <field name="lbcva_cylinder" />
+             <label name="lbcva_axis"/>
+             <field name="lbcva_axis" />
+             <newline/>
+             <label name="lbcva"/>
+             <field name="lbcva" />
+             <label name="lbcva_nv_add"/>
+             <field name="lbcva_nv_add"/>
+             <label name="lbcva_nv"/>
+             <field name="lbcva_nv"/>
+          </group>
+        </group>
+    </group>
+    <newline/>
+    <group id="group_iop" colspan="4" col="6" string="Tonometry">
+        <label name="iop_method"/>
+        <field name="iop_method"/>
+        <label name="riop"/>
+        <field name="riop"/>
+        <label name="liop"/>
+        <field name="liop"/>
+    </group>
+    <newline/>
+    <field name="findings"/>
+    <newline/>
+    <group id="group_notes" string="Notes" >
+     <field name="notes"/>
+    </group>
+    <newline/>
+    <group id="group_footer" colspan="4" col="6">
+        <label name="state"/>
+        <field name="state"/>        
+        <label name="signed_by"/>
+        <field name="signed_by"/>        
+        <button name="end_evaluation" help="End this evaluation" string="Done" icon="tryton-go-next" confirm="End this evaluation ?"/>
+    </group>
+</form>

@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 
@@ -57,7 +57,7 @@ class TestType(ModelSQL, ModelView):
 
     name = fields.Char('Test',
         help="Test type, eg X-Ray, hemogram,biopsy...", required=True,
-        select=True)
+        select=True, translate=True)
     code = fields.Char('Code',
         help="Short name - code for the test", required=True, select=True)
     info = fields.Text('Description')
@@ -68,13 +68,28 @@ class TestType(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(TestType, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'unique(name)', 'The Lab Test code must be unique'),
+            ('code_uniq', Unique(t, t.name),
+             'The Lab Test code must be unique')
         ]
 
     @classmethod
     def check_xml_record(cls, records, values):
         return True
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        """ Search for the full name and the code """
+        field = None
+        for field in ('name', 'code'):
+            tests = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if tests:
+                break
+        if tests:
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
+
 
 
 class Lab(ModelSQL, ModelView):
@@ -101,8 +116,10 @@ class Lab(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Lab, cls).__setup__()
-        cls._sql_constraints += [
-            ('id_uniq', 'unique (name)', 'The test ID code must be unique'),
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('id_uniq', Unique(t, t.name),
+             'The test ID code must be unique')
         ]
 
     @staticmethod
@@ -138,9 +155,12 @@ class GnuHealthLabTestUnits(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(GnuHealthLabTestUnits, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('name_uniq', 'unique(name)', 'The Unit name must be unique'),
+            ('name_uniq', Unique(t, t.name),
+             'The Unit name must be unique')
         ]
+
 
     @classmethod
     def check_xml_record(cls, records, values):
@@ -151,7 +171,8 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     'Lab Test Critearea'
     __name__ = 'gnuhealth.lab.test.critearea'
 
-    name = fields.Char('Analyte', required=True, select=True)
+    name = fields.Char('Analyte', required=True, select=True,
+        translate=True)
     excluded = fields.Boolean('Excluded', help='Select this option when'
         ' this analyte is excluded from the test')
     result = fields.Float('Value')
@@ -171,6 +192,15 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
     gnuhealth_lab_id = fields.Many2One('gnuhealth.lab', 'Test Cases',
         select=True)
     sequence = fields.Integer('Sequence')
+
+    # Show the warning icon if warning is active on the analyte line
+    lab_warning_icon = \
+        fields.Function(fields.Char('Lab Warning Icon'),
+         'get_lab_warning_icon')
+    
+    def get_lab_warning_icon(self, name):
+        if (self.warning):
+            return 'gnuhealth-warning'
 
     @classmethod
     def __setup__(cls):

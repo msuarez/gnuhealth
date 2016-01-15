@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data>
-    <xpath expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]" position="after">
-        <page string="OB/GYN" id="page_gyneco_obs" states="{'invisible': Equal(Eval('sex'), 'm')}">
+    <xpath expr="/form/notebook/page[@id=&quot;general_info&quot;]" position="after">
+        <page string="OB/GYN" id="page_gyneco_obs">
             <notebook>
                 <page string="General" id="page_gyneco">
 

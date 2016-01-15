@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -27,12 +27,11 @@ from .health_icu import *
 
 def register():
     Pool.register(
-		InpatientRegistration,
-		InpatientIcu,
-		Glasgow,
-		ApacheII,
-		MechanicalVentilation,
+        InpatientRegistration,
+        InpatientIcu,
+        Glasgow,
+        ApacheII,
+        MechanicalVentilation,
         ChestDrainageAssessment,
-        ECG,
-		PatientRounding,
+        PatientRounding,
         module='health_icu', type_='model')

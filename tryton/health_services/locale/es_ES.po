@@ -1,22 +1,14 @@
-# 
-# Translators:
-# Bruno Villasanti <bvillasanti@thymbra.com>, 2014
-# Luis Falcon <lfalcon@gnusolidario.org>, 2013
-# Luis Falcon <lfalcon@gnusolidario.org>, 2012
-# Sebastián Marró <smarro@thymbra.com>, 2014
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-30 17:11+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/GNU_Health/language/es/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-08 11:19+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: es_ES\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452251941.0\n"
 
 msgctxt "error:gnuhealth.health_service:"
 msgid "The Service ID must be unique"
@@ -57,6 +49,10 @@ msgstr "Descripción"
 msgctxt "field:gnuhealth.health_service,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:gnuhealth.health_service,institution:"
+msgid "Institution"
+msgstr ""
 
 msgctxt "field:gnuhealth.health_service,invoice_to:"
 msgid "Invoice to"
@@ -150,6 +146,10 @@ msgctxt "field:gnuhealth.health_service.line,write_uid:"
 msgid "Write User"
 msgstr "Usuario modificación"
 
+msgctxt "field:gnuhealth.prescription.order,service:"
+msgid "Service"
+msgstr ""
+
 msgctxt "field:gnuhealth.sequences,health_service_sequence:"
 msgid "Health Service Sequence"
 msgstr "Secuencia para Servicio de Salud"
@@ -158,6 +158,14 @@ msgctxt "field:gnuhealth.service.invoice.init,id:"
 msgid "ID"
 msgstr "ID"
 
+msgctxt "help:account.invoice,health_service:"
+msgid "The service entry"
+msgstr ""
+
+msgctxt "help:account.invoice,patient:"
+msgid "Patient in the invoice"
+msgstr ""
+
 msgctxt "help:gnuhealth.health_service,service_line:"
 msgid "Service Line"
 msgstr "Línea de Servicio"
@@ -165,7 +173,13 @@ msgstr "Línea de Servicio"
 msgctxt "help:gnuhealth.health_service.line,appointment:"
 msgid ""
 "Enter or select the date / ID of the appointment related to this evaluation"
-msgstr "Introduzca o elija la fecha y la identificación de la cita relacionado con esta evaluación"
+msgstr ""
+"Introduzca o elija la fecha y la identificación de la cita relacionado con "
+"esta evaluación"
+
+msgctxt "help:gnuhealth.prescription.order,service:"
+msgid "Service document associated to this prescription"
+msgstr ""
 
 msgctxt "model:gnuhealth.health_service,name:"
 msgid "Health Service"
@@ -183,9 +197,21 @@ msgctxt "model:ir.action,name:act_create_health_service_invoice"
 msgid "Create Health Service Invoice"
 msgstr "Crear Factura desde Servicios"
 
+msgctxt "model:ir.action,name:act_invoice_related_form1"
+msgid "Related Invoice"
+msgstr ""
+
 msgctxt "model:ir.action,name:gnuhealth_action_health_service"
 msgid "Health services"
 msgstr "Servicios de Salud"
+
+msgctxt "model:ir.action,name:gnuhealth_action_health_service_invoices"
+msgid "Created invoices"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_health_services_report"
+msgid "Services Report"
+msgstr ""
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_health_service"
 msgid "Health Service"
@@ -194,6 +220,10 @@ msgstr "Servicio de Salud"
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_health_service"
 msgid "Health Service"
 msgstr "Servicio de Salud"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_health_service_invoices_menu"
+msgid "Created invoices"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_health_service_menu"
 msgid "Health services"
@@ -214,42 +244,6 @@ msgstr "Borrador"
 msgctxt "selection:gnuhealth.health_service,state:"
 msgid "Invoiced"
 msgstr "Facturado"
-
-msgctxt "view:account.invoice:"
-msgid "Health"
-msgstr "Salud"
-
-msgctxt "view:gnuhealth.health_service.line:"
-msgid "Health Service Line"
-msgstr "Línea de Servicio de Salud"
-
-msgctxt "view:gnuhealth.health_service.line:"
-msgid "Service Line"
-msgstr "Línea de Servicio"
-
-msgctxt "view:gnuhealth.health_service:"
-msgid "Health service "
-msgstr "Servicio de Salud"
-
-msgctxt "view:gnuhealth.health_service:"
-msgid "Set to Draft"
-msgstr "Pasar a Borrador"
-
-msgctxt "view:gnuhealth.health_service:"
-msgid "service "
-msgstr "servicio"
-
-msgctxt "view:gnuhealth.service.invoice.init:"
-msgid "Create Invoices"
-msgstr "Crear Facturas"
-
-msgctxt "view:gnuhealth.service.invoice.init:"
-msgid "Do you want to generate the Invoice(s) ?"
-msgstr "¿Quiere generar la Factura(s)?"
-
-msgctxt "view:gnuhealth.service.invoice.init:"
-msgid "Health Services Invoices"
-msgstr "Facturas de servicios de salud"
 
 msgctxt ""
 "wizard_button:gnuhealth.service.invoice.create,start,create_service_invoice:"

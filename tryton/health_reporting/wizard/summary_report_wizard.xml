@@ -9,7 +9,7 @@
         </record>
 
         <record model="ir.action.wizard" id="act_wizard_summary_report">
-            <field name="name">Demographics Summary</field>
+            <field name="name">Summary Report</field>
             <field name="wiz_name">gnuhealth.summary.report.open</field>
         </record>
         

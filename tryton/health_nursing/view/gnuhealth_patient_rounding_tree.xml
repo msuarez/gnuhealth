@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<tree string="Roundings" colors="If(Bool(Eval('warning')),'red','black')">
-    <field name="warning"/>
+<tree string="Roundings">
+    <field name="warning" icon="warning_icon" expand="1"/>
     <field name="name" expand="1"/>
-    <field name="evaluation_start" expand="1"/>
+    <field name="evaluation_start" widget="date"/>
+    <field string="Time" name="evaluation_start" widget="time"/>
     <field name="health_professional" expand="1"/>
     <field name="evolution" expand="1"/>
 </tree>

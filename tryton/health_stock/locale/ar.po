@@ -1,0 +1,365 @@
+# Nab3a <asn09@aub.edu.lb>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:35+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452256551.0\n"
+
+msgctxt "error:gnuhealth.prescription.stock.move.create:"
+msgid "Stock moves already exists!."
+msgstr "تحركات البضاعة موجودة سابقاً!"
+
+msgctxt "error:gnuhealth.prescription.stock.move.create:"
+msgid "You need to select a pharmacy."
+msgstr "تحتاج لإختيار الصيدلية"
+
+msgctxt "error:gnuhealth.vaccination.stock.move.create:"
+msgid "Stock moves already exists!."
+msgstr "تحركات البضاعة موجودة سابقاً!"
+
+msgctxt "error:gnuhealth.vaccination:"
+msgid ""
+"EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
+"IT !!!"
+msgstr "اللقاح منتهي الصلاحية، من فضلك أخبر مسؤول الصحة ولا تستخدمه "
+
+msgctxt "field:gnuhealth.medicament,quantity:"
+msgid "Quantity"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,care_location:"
+msgid "Care Location"
+msgstr "موقع الرعاية "
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "اللوازم الطبية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medicaments:"
+msgid "Medicaments"
+msgstr "الأدوية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
+msgid "Stock Moves"
+msgstr "تحركات المخزون"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم "
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,lot:"
+msgid "Lot"
+msgstr "الشحنة"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "الهوية الإسعافية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "التموين الطبي"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt ""
+"field:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "تعليق"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم "
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,lot:"
+msgid "Lot"
+msgstr "الشحنة"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,medicament:"
+msgid "Medicament"
+msgstr "الأدوية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "الهوية الإسعافية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,product:"
+msgid "Product"
+msgstr "المنتج"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,quantity:"
+msgid "Quantity"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Comment"
+msgstr "تعليق"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.patient.rounding,hospitalization_location:"
+msgid "Hospitalization Location"
+msgstr "موقع التنويم "
+
+msgctxt "field:gnuhealth.patient.rounding,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "اللوازم الطبية"
+
+msgctxt "field:gnuhealth.patient.rounding,medicaments:"
+msgid "Medicaments"
+msgstr "الأدوية"
+
+msgctxt "field:gnuhealth.patient.rounding,moves:"
+msgid "Stock Moves"
+msgstr "تحركات المخزون"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم "
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,lot:"
+msgid "Lot"
+msgstr "الكثير"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "المعرف الإسعافي"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "التموين الطبي"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "تعليق"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_date:"
+msgid "Create Date"
+msgstr "إنشاء تاريخ "
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم "
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,lot:"
+msgid "Lot"
+msgstr "الشحنة"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,medicament:"
+msgid "Medicament"
+msgstr "الأدوية"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "الهوية الإسعافية"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,product:"
+msgid "Product"
+msgstr "المنتج"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,quantity:"
+msgid "Quantity"
+msgstr "الكمية"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,rec_name:"
+msgid "Name"
+msgstr "الإسم"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Comment"
+msgstr "تعليق"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_date:"
+msgid "Write Date"
+msgstr "اكتب تاريخ"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_uid:"
+msgid "Write User"
+msgstr "اكتب مستخدم"
+
+msgctxt "field:gnuhealth.prescription.order,moves:"
+msgid "Moves"
+msgstr "تحركات"
+
+msgctxt "field:gnuhealth.prescription.stock.move.init,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:gnuhealth.vaccination,location:"
+msgid "Stock Location"
+msgstr "موقع المخزون "
+
+msgctxt "field:gnuhealth.vaccination,lot:"
+msgid "Lot"
+msgstr "الشحنة"
+
+msgctxt "field:gnuhealth.vaccination,moves:"
+msgid "Moves"
+msgstr "تحركات"
+
+msgctxt "field:gnuhealth.vaccination,product:"
+msgid "Product"
+msgstr "المنتج"
+
+msgctxt "field:gnuhealth.vaccination.stock.move.init,id:"
+msgid "ID"
+msgstr "الهوية"
+
+msgctxt "field:party.party,warehouse:"
+msgid "Warehouse"
+msgstr "المستودع"
+
+msgctxt "field:stock.lot,expiration_date:"
+msgid "Expiration Date"
+msgstr "تاريخ الإنتهاء"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "تعليق مختصر على الدواء المحدد"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "تعليق مختصر على الدواء المحدد"
+
+msgctxt "help:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "تعليق مختصر على الدواء المحدد"
+
+msgctxt "help:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "تعليق مختصر على الدواء المحدد"
+
+msgctxt "help:gnuhealth.vaccination,lot:"
+msgid "This field includes the lot number and expiration date"
+msgstr "هذا الحقل يتضمن رقم الشحنة وتاريخ الإنتهاء"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Patient Ambulatory Care Medical Supply"
+msgstr "التموين الطبي لعناية المريض الإسعافية"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Patient Ambulatory Care Medicament"
+msgstr "أدوية عناية المريض الإسعافية"
+
+msgctxt "model:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Patient Rounding Medical Supply"
+msgstr "التموين الطبي لجولات التمريض"
+
+msgctxt "model:gnuhealth.patient.rounding.medicament,name:"
+msgid "Patient Rounding Medicament"
+msgstr "أدوية جولات التمريض"
+
+msgctxt "model:gnuhealth.prescription.stock.move.init,name:"
+msgid "Create Prescription Stock Move Init"
+msgstr "إنشاء التحركات المبدأية لمخزون الوصفة"
+
+msgctxt "model:gnuhealth.vaccination.stock.move.init,name:"
+msgid "Create Vaccination Stock Move Init"
+msgstr "إنشاء التحركات المبدأية لمخزون اللقاح"
+
+msgctxt "model:ir.action,name:act_create_prescription_stock_move"
+msgid "Create Prescription Stock Move"
+msgstr "إنشاء تحركات مخزون الوصفة"
+
+msgctxt "model:ir.action,name:act_create_vaccination_stock_move"
+msgid "Create Vaccination Stock Move"
+msgstr "إنشاء تحركات مخزون اللقاح"
+
+msgctxt "model:ir.action,name:act_prescription_move_form1"
+msgid "Stock Moves [readonly]"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_vaccination_move_form1"
+msgid "Stock Moves [readonly]"
+msgstr ""
+
+msgctxt ""
+"wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "إنشاء تحركات المخزون"
+
+msgctxt "wizard_button:gnuhealth.prescription.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgctxt ""
+"wizard_button:gnuhealth.vaccination.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "إنشاء تحركات المخزون"
+
+msgctxt "wizard_button:gnuhealth.vaccination.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "إلغاء"

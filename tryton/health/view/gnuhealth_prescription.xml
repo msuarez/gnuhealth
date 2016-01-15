@@ -24,4 +24,11 @@
     <group string="Notes" id="group_prescription_notes">
         <field name="notes" colspan="4"/>
     </group>
+    <newline/>
+    <group id="group_prescription_footer">
+        <label name="state"/>
+        <field name="state"/>
+        <button name="create_prescription" help="Create the prescription" string="Create" icon="tryton-go-next" confirm="Create prescription ?"/>
+    </group>
+
 </form>

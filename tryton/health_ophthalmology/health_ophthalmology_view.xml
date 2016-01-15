@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+    
+		<!-- Create the GNU OPHTHALMOLOGY icon -->
+        <record model="ir.ui.icon" id="gnuhealth_ophthalmology_icon">
+            <field name="name">gnuhealth-ophthalmology</field>
+            <field name="path">icons/ophthalmology.svg</field>
+        </record>
+
+        <!-- Ophthalmology -->  
+
+		<!--gnuhealth.ophthalmology -->
+        <record model="ir.ui.view" id="ophthal_view_list">                               
+            <field name="model">gnuhealth.ophthalmology.evaluation</field>
+            <field name="type">tree</field>
+            <field name="name">oph_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="ophthal_view_form">
+            <field name="model">gnuhealth.ophthalmology.evaluation</field>
+            <field name="type">form</field>
+            <field name="name">oph_form</field>
+        </record>
+		
+		
+		
+		<!--- Findings -->
+		<record model="ir.ui.view" id="ophthal_view_list1">                               
+            <field name="model">gnuhealth.ophthalmology.findings</field>
+            <field name="type">tree</field>
+            <field name="name">findings_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="ophthal_view_form1">
+            <field name="model">gnuhealth.ophthalmology.findings</field>
+            <field name="type">form</field>
+            <field name="name">findings_form</field>
+        </record>
+		<!-- -->
+
+        <!-- Ophthal Menu -->
+        <record model="ir.action.act_window" id="act_ophthal_form">
+            <field name="name">Ophthalmology Evaluation</field>
+            <field name="res_model">gnuhealth.ophthalmology.evaluation</field>
+        </record>
+		
+		<record model="ir.action.act_window.view" id="act_ophthal_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="ophthal_view_list"/>
+            <field name="act_window" ref="act_ophthal_form"/>
+        </record>
+		
+		<record model="ir.action.act_window.view" id="act_ophthal_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="ophthal_view_form"/>
+            <field name="act_window" ref="act_ophthal_form"/>
+        </record>
+		
+        <!-- End of Ophthal Menu -->
+
+        <!-- Shortcut to the Patient Ophthalmologic Evaluations -->
+        <record model="ir.action.act_window" id="act_evaluation_form1">
+            <field name="name">Ophthalmologic Evaluations</field>
+            <field name="res_model">gnuhealth.ophthalmology.evaluation</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_evaluation_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_evaluation_form1"/>
+        </record>
+
+<!--
+   		<menuitem name="Ophthalmology" parent="health.gnuhealth_menu" id="gnuhealth_ophthalmology_menu" icon="gnuhealth-ophthalmology"/>
+-->
+   		<menuitem name="Ophthalmologic evaluations" parent="health.gnuhealth_reporting_menu" id="gnuhealth_ophthalmology_evaluation_menu" action="act_ophthal_form" icon="gnuhealth-list"/>
+
+	</data>
+</tryton>

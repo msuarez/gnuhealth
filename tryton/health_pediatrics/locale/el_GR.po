@@ -1,25 +1,18 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2014
-# kvisitor <kvisitor@gnugr.org>, 2011, 2012
-# Vassilis Perantzakis <vaspervnp@yahoo.gr>, 2013
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-13 14:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445409.0\n"
 
 msgctxt "error:gnuhealth.newborn:"
-msgid "The Newborn ID must be unique !"
-msgstr "Ο κωδικός Νεογνού πρέπει να είναι μοναδικός !"
+msgid "The Newborn ID must be unique"
+msgstr ""
 
 msgctxt "error:gnuhealth.newborn:"
 msgid "There is already a newborn record for this patient"
@@ -137,6 +130,10 @@ msgctxt "field:gnuhealth.newborn,dismissed:"
 msgid "Discharged"
 msgstr "Εξιτήριο"
 
+msgctxt "field:gnuhealth.newborn,healthprof:"
+msgid "Health Professional"
+msgstr ""
+
 msgctxt "field:gnuhealth.newborn,id:"
 msgid "ID"
 msgstr "ID"
@@ -241,10 +238,6 @@ msgctxt "field:gnuhealth.newborn,newborn_name:"
 msgid "Name at Birth"
 msgstr "Όνομα κατά τη γέννηση"
 
-msgctxt "field:gnuhealth.newborn,newborn_sex:"
-msgid "Sex"
-msgstr "Σεξ"
-
 msgctxt "field:gnuhealth.newborn,notes:"
 msgid "Notes"
 msgstr "Σημειώσεις"
@@ -281,13 +274,17 @@ msgctxt "field:gnuhealth.newborn,rec_name:"
 msgid "Name"
 msgstr "Όνομα"
 
-msgctxt "field:gnuhealth.newborn,responsible:"
-msgid "Doctor in charge"
-msgstr "Υπεύθυνος Ιατρός"
-
 msgctxt "field:gnuhealth.newborn,sex:"
 msgid "Sex"
 msgstr "Σεξ"
+
+msgctxt "field:gnuhealth.newborn,signed_by:"
+msgid "Signed by"
+msgstr ""
+
+msgctxt "field:gnuhealth.newborn,state:"
+msgid "State"
+msgstr ""
 
 msgctxt "field:gnuhealth.newborn,test_audition:"
 msgid "Audition"
@@ -537,6 +534,10 @@ msgctxt "help:gnuhealth.newborn,died_being_transferred:"
 msgid "The baby died being transferred to another health institution"
 msgstr "Το βρέφος απεβίωσε κατά τη διακομιδή σε άλλο νοσηλευτ. ίδρυμα"
 
+msgctxt "help:gnuhealth.newborn,healthprof:"
+msgid "Health professional"
+msgstr ""
+
 msgctxt "help:gnuhealth.newborn,length:"
 msgid "Length in centimeters (cm)"
 msgstr ""
@@ -545,12 +546,14 @@ msgctxt "help:gnuhealth.newborn,patient:"
 msgid "Patient associated to this newborn"
 msgstr ""
 
-msgctxt "help:gnuhealth.newborn,responsible:"
-msgid "Signed by the health professional"
-msgstr "Υπογραφή από τον Υγειονομικό"
-
 msgctxt "help:gnuhealth.newborn,sex:"
-msgid "Sex at birth. It might differ from the current patient sex"
+msgid ""
+"Sex at birth. It might differ from the current patient gender. This is the "
+"biological sex."
+msgstr ""
+
+msgctxt "help:gnuhealth.newborn,signed_by:"
+msgid "Health Professional that signed this document"
 msgstr ""
 
 msgctxt "help:gnuhealth.newborn,test_metabolic:"
@@ -566,7 +569,9 @@ msgstr "Βάρος Σώματος (gr)"
 msgctxt "help:gnuhealth.patient.psc,evaluation_date:"
 msgid ""
 "Enter or select the date / ID of the appointment related to this evaluation"
-msgstr "Βάλτε ή επιλέξτε την ημερομηνία/ Κωδ. ραντεβού που σχετίζεται με αυτή την εκτίμηση"
+msgstr ""
+"Βάλτε ή επιλέξτε την ημερομηνία/ Κωδ. ραντεβού που σχετίζεται με αυτή την "
+"εκτίμηση"
 
 msgctxt "model:gnuhealth.neonatal.apgar,name:"
 msgid "Neonatal APGAR Score"
@@ -615,58 +620,6 @@ msgstr "Παιδιατρική"
 msgctxt "model:res.group,name:group_health_pediatrics_admin"
 msgid "Health Pediatrics Administration"
 msgstr "Διαχείριση Παιδιατρικής υγείας"
-
-msgctxt "odt:newborn.card:"
-msgid ","
-msgstr ","
-
-msgctxt "odt:newborn.card:"
-msgid ":"
-msgstr ":"
-
-msgctxt "odt:newborn.card:"
-msgid "DoB"
-msgstr "Ημερομ. γενν."
-
-msgctxt "odt:newborn.card:"
-msgid "Female"
-msgstr "Θήλυ"
-
-msgctxt "odt:newborn.card:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "odt:newborn.card:"
-msgid "Male"
-msgstr "Άρρην"
-
-msgctxt "odt:newborn.card:"
-msgid "Mother"
-msgstr "Μητέρα"
-
-msgctxt "odt:newborn.card:"
-msgid "Mother's"
-msgstr ""
-
-msgctxt "odt:newborn.card:"
-msgid "Name"
-msgstr "Όνομα"
-
-msgctxt "odt:newborn.card:"
-msgid "PU"
-msgstr "ID"
-
-msgctxt "odt:newborn.card:"
-msgid "and"
-msgstr "και"
-
-msgctxt "odt:newborn.card:"
-msgid "cm"
-msgstr "εκ"
-
-msgctxt "odt:newborn.card:"
-msgid "gr"
-msgstr "γρ"
 
 msgctxt "selection:gnuhealth.neonatal.apgar,apgar_activity:"
 msgid "None"
@@ -728,14 +681,6 @@ msgctxt "selection:gnuhealth.neonatal.apgar,apgar_respiration:"
 msgid "strong"
 msgstr "ισχυρός/ή"
 
-msgctxt "selection:gnuhealth.newborn,newborn_sex:"
-msgid "Female"
-msgstr "Θήλυ"
-
-msgctxt "selection:gnuhealth.newborn,newborn_sex:"
-msgid "Male"
-msgstr "Άρρην"
-
 msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Female"
 msgstr "Θήλυ"
@@ -744,6 +689,22 @@ msgctxt "selection:gnuhealth.newborn,sex:"
 msgid "Male"
 msgstr "Άρρεν"
 
+msgctxt "selection:gnuhealth.newborn,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.newborn,state:"
+msgid "Signed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.newborn,state:"
+msgid "draft"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
+msgid ""
+msgstr ""
+
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Never"
 msgstr "Ποτέ"
@@ -755,6 +716,10 @@ msgstr "Συχνά"
 msgctxt "selection:gnuhealth.patient.psc,psc_absent_from_school:"
 msgid "Sometimes"
 msgstr "Ενίοτε"
+
+msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.psc,psc_aches_pains:"
 msgid "Never"
@@ -769,6 +734,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_act_as_younger:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -781,6 +750,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_acts_as_driven_by_motor:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -793,6 +766,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_afraid_of_new_situations:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -805,6 +782,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_blames_others:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -817,6 +798,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_daydreams_too_much:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -829,6 +814,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_distracted_easily:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -841,6 +830,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_get_people_feelings:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -853,6 +846,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_listen_to_rules:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -865,6 +862,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_does_not_show_feelings:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -877,6 +878,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_down_on_self:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -889,6 +894,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_hopeless:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -901,6 +910,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_feels_is_bad_child:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -913,6 +926,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fidgety:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -925,6 +942,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_fights_with_others:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -937,6 +958,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_gets_hurt_often:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -949,6 +974,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_having_less_fun:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -961,6 +990,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_irritable_angry:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -973,6 +1006,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interest_in_school:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -985,6 +1022,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_less_interested_in_friends:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -997,6 +1038,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_refuses_to_share:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1009,6 +1054,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_sad_unhappy:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1021,6 +1070,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_school_grades_dropping:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1033,6 +1086,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_spend_time_alone:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1045,6 +1102,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_things_from_others:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1057,6 +1118,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_takes_unnecesary_risks:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1069,6 +1134,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_teases_others:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1081,6 +1150,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_tires_easily:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1093,6 +1166,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_concentrating:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1105,6 +1182,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_sleeping:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1117,6 +1198,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_trouble_with_teacher:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1129,6 +1214,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_visit_doctor_finds_ok:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1141,6 +1230,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_wants_to_be_with_parents:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1153,6 +1246,10 @@ msgid "Sometimes"
 msgstr "Ενίοτε"
 
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -1163,51 +1260,3 @@ msgstr "Συχνά"
 msgctxt "selection:gnuhealth.patient.psc,psc_worries_a_lot:"
 msgid "Sometimes"
 msgstr "Ενίοτε"
-
-msgctxt "view:gnuhealth.neonatal.apgar:"
-msgid "APGAR"
-msgstr "APGAR"
-
-msgctxt "view:gnuhealth.neonatal.apgar:"
-msgid "APGAR Score"
-msgstr "Βαθμολ. APGAR"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Findings and Tests"
-msgstr "Ευρήματα και Τεστ"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Main"
-msgstr "Κύριος/α"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Neonatal Reflex Check"
-msgstr "Έλεγχος Νεογν. αντανακλαστικών"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Neonatal Signs and Symptoms"
-msgstr "Νεογνικά Σημεία και Συμπτώματα"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Newborn Info"
-msgstr "Πληροφ. Νεογνού"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Newborn Information"
-msgstr "Πληροφ. για το Νεογνό"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Notes"
-msgstr "Σημειώσεις"
-
-msgctxt "view:gnuhealth.newborn:"
-msgid "Tests"
-msgstr "Τεστ"
-
-msgctxt "view:gnuhealth.patient.psc:"
-msgid "PSC - Pediatric Symptoms Checklist History"
-msgstr "PSC - Pediatric Symptoms Checklist History"
-
-msgctxt "view:gnuhealth.patient.psc:"
-msgid "Pediatric Symptoms Checklist - PSC"
-msgstr "Pediatric Symptoms Checklist - PSC"

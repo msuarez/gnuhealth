@@ -1,19 +1,14 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2013-2014
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-20 19:24+0000\n"
-"Last-Translator: kvisitor <kvisitor@gnugr.org>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445393.0\n"
 
 msgctxt "error:gnuhealth.icu.ventilation:"
 msgid ""
@@ -193,86 +188,6 @@ msgid "Write Date"
 msgstr "Γράψτε την ημερομηνία"
 
 msgctxt "field:gnuhealth.icu.chest_drainage,write_uid:"
-msgid "Write User"
-msgstr "Γράψτε τον χρήστη"
-
-msgctxt "field:gnuhealth.icu.ecg,axis:"
-msgid "Axis"
-msgstr "Άξονας"
-
-msgctxt "field:gnuhealth.icu.ecg,create_date:"
-msgid "Create Date"
-msgstr "Δημιουργία ημερομηνίας"
-
-msgctxt "field:gnuhealth.icu.ecg,create_uid:"
-msgid "Create User"
-msgstr "Δημιουργία χρήστη"
-
-msgctxt "field:gnuhealth.icu.ecg,ecg_date:"
-msgid "Date"
-msgstr "Ημερομηνία"
-
-msgctxt "field:gnuhealth.icu.ecg,ecg_strip:"
-msgid "ECG Strip"
-msgstr "Λωρίδα ΗΚΓ"
-
-msgctxt "field:gnuhealth.icu.ecg,id:"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "field:gnuhealth.icu.ecg,interpretation:"
-msgid "Interpretation"
-msgstr "Ερμηνεία"
-
-msgctxt "field:gnuhealth.icu.ecg,lead:"
-msgid "Lead"
-msgstr "Απαγωγή"
-
-msgctxt "field:gnuhealth.icu.ecg,name:"
-msgid "Registration Code"
-msgstr "Κωδικός εγγραφής"
-
-msgctxt "field:gnuhealth.icu.ecg,pacemaker:"
-msgid "Pacemaker"
-msgstr "Βηματοδότης"
-
-msgctxt "field:gnuhealth.icu.ecg,pr:"
-msgid "PR"
-msgstr "PR"
-
-msgctxt "field:gnuhealth.icu.ecg,qrs:"
-msgid "QRS"
-msgstr "QRS"
-
-msgctxt "field:gnuhealth.icu.ecg,qt:"
-msgid "QT"
-msgstr "QT"
-
-msgctxt "field:gnuhealth.icu.ecg,rate:"
-msgid "Rate"
-msgstr "Συχνότητα"
-
-msgctxt "field:gnuhealth.icu.ecg,rec_name:"
-msgid "Name"
-msgstr "Όνομα"
-
-msgctxt "field:gnuhealth.icu.ecg,rhythm:"
-msgid "Rhythm"
-msgstr "Ρυθμός"
-
-msgctxt "field:gnuhealth.icu.ecg,st_segment:"
-msgid "ST Segment"
-msgstr "Τμήμα ST"
-
-msgctxt "field:gnuhealth.icu.ecg,twave_inversion:"
-msgid "T wave inversion"
-msgstr "Αναστροφή κύματος Τ"
-
-msgctxt "field:gnuhealth.icu.ecg,write_date:"
-msgid "Write Date"
-msgstr "Γράψτε την ημερομηνία"
-
-msgctxt "field:gnuhealth.icu.ecg,write_uid:"
 msgid "Write User"
 msgstr "Γράψτε τον χρήστη"
 
@@ -477,8 +392,8 @@ msgid "Dialysis"
 msgstr "Διάλυση"
 
 msgctxt "field:gnuhealth.patient.rounding,ecg:"
-msgid "ECG"
-msgstr "ΗΚΓ"
+msgid "Inpatient ECG"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.rounding,edema:"
 msgid "Edema"
@@ -608,7 +523,9 @@ msgctxt "help:gnuhealth.icu.apache2,gcs:"
 msgid ""
 "Last Glasgow Coma Scale You can use the GSC calculator from the Patient "
 "Evaluation Form."
-msgstr "Τελευταίο GCS Μπορείτε να χρησιμοποιήσετε το σύστημα υπολογισμού GCS από τη Φόρμα Εκτίμησης Ασθενούς"
+msgstr ""
+"Τελευταίο GCS Μπορείτε να χρησιμοποιήσετε το σύστημα υπολογισμού GCS από τη "
+"Φόρμα Εκτίμησης Ασθενούς"
 
 msgctxt "help:gnuhealth.icu.apache2,mean_ap:"
 msgid "Mean Arterial Pressure"
@@ -625,19 +542,9 @@ msgstr "Πρωκτική θερμοκρασία"
 msgctxt "help:gnuhealth.icu.apache2,wbc:"
 msgid ""
 "White blood cells x 1000 - if you want to input 4500 wbc / ml, type in 4.5"
-msgstr "Λευκά αιμοσφαίρια x 1000 - Αν θέλετε να εισάγετε 4500 wbc/ml, πληκτρολογείστε 4.5"
-
-msgctxt "help:gnuhealth.icu.ecg,pr:"
-msgid "Duration of PR interval in milliseconds"
-msgstr "Διάρκεια του τμήματος PR σε msec"
-
-msgctxt "help:gnuhealth.icu.ecg,qrs:"
-msgid "Duration of QRS interval in milliseconds"
-msgstr "Διάρκεια του τμήματος QRS σε msec"
-
-msgctxt "help:gnuhealth.icu.ecg,qt:"
-msgid "Duration of QT interval in milliseconds"
-msgstr "Διάρκεια του τμήματος QT σε msec"
+msgstr ""
+"Λευκά αιμοσφαίρια x 1000 - Αν θέλετε να εισάγετε 4500 wbc/ml, "
+"πληκτρολογείστε 4.5"
 
 msgctxt "help:gnuhealth.icu.glasgow,evaluation_date:"
 msgid "Date / Time"
@@ -647,7 +554,9 @@ msgctxt "help:gnuhealth.icu.glasgow,glasgow:"
 msgid ""
 "Level of Consciousness - on Glasgow Coma Scale :  < 9 severe - 9-12 "
 "Moderate, > 13 minor"
-msgstr "Επίπεδο συνείδησης - στη βαθμολογία Κλίμακος Γλασκώβης: < 9 Σοβαρό- 9-12 Μέτριο, > 13 ήπιο"
+msgstr ""
+"Επίπεδο συνείδησης - στη βαθμολογία Κλίμακος Γλασκώβης: < 9 Σοβαρό- 9-12 "
+"Μέτριο, > 13 ήπιο"
 
 msgctxt "help:gnuhealth.icu.ventilation,mv_end:"
 msgid "End of Mechanical Ventilation"
@@ -661,7 +570,9 @@ msgctxt "help:gnuhealth.icu.ventilation,ventilation:"
 msgid ""
 "NPPV = Non-Invasive Positive Pressure Ventilation, BiPAP-CPAP \n"
 "ETT - Endotracheal Tube"
-msgstr "NPPV = Non-Invasive Positive Pressure Ventilation, BiPAP-CPAP \nETT - Endotracheal Tube"
+msgstr ""
+"NPPV = Non-Invasive Positive Pressure Ventilation, BiPAP-CPAP \n"
+"ETT - Endotracheal Tube"
 
 msgctxt "help:gnuhealth.inpatient.icu,admitted:"
 msgid "Will be set when the patient         is currently admitted at ICU"
@@ -717,10 +628,6 @@ msgctxt "model:gnuhealth.icu.chest_drainage,name:"
 msgid "Chest Drainage Asessment"
 msgstr "Εκτίμηση θωρακικής παροχέτευσης"
 
-msgctxt "model:gnuhealth.icu.ecg,name:"
-msgid "ECG"
-msgstr "ΗΚΓ"
-
 msgctxt "model:gnuhealth.icu.glasgow,name:"
 msgid "Glasgow Coma Scale"
 msgstr "Glasgow Coma Scale"
@@ -738,8 +645,8 @@ msgid "APACHE II"
 msgstr "APACHE II"
 
 msgctxt "model:ir.action,name:act_ecg_form1"
-msgid "ECG"
-msgstr "ΗΚΓ"
+msgid "Inpatient ECGs"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_glasgow_form1"
 msgid "Glasgow Coma Scale"
@@ -749,9 +656,9 @@ msgctxt "model:ir.action,name:action_gnuhealth_icu_apache2_form"
 msgid "APACHE II Score"
 msgstr "Βαθμολογία APACHE II"
 
-msgctxt "model:ir.action,name:action_gnuhealth_icu_ecg_form"
-msgid "ECG"
-msgstr "ΗΚΓ"
+msgctxt "model:ir.action,name:action_gnuhealth_icu_ecg_form1"
+msgid "ECGs"
+msgstr ""
 
 msgctxt "model:ir.action,name:action_gnuhealth_icu_glasgow_form"
 msgid "GCS"
@@ -769,9 +676,9 @@ msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_apache2_list"
 msgid "APACHE II Score"
 msgstr "Βαθμολογία APACHE II"
 
-msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_ecg_list"
-msgid "ECG"
-msgstr "ΗΚΓ"
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_ecgs_list1"
+msgid "ECGs"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_glasgow_list"
 msgid "GCS"
@@ -782,12 +689,20 @@ msgid "Patient ICU Info"
 msgstr "Πληροφορίες ασθενούς ΜΕΘ"
 
 msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid "Medical or emergency postoperative"
 msgstr "Μετεγχειρητικό ιατρικό ή επείγον"
 
 msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
 msgid "elective postoperative"
 msgstr "επιλεκτική μετεγχειρητικά"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
 msgid "Bloody"
@@ -806,6 +721,10 @@ msgid "Serous"
 msgstr "Ορώδης"
 
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid "Left Pleura"
 msgstr "Αριστερός Υπεζωκώς"
 
@@ -816,102 +735,6 @@ msgstr "Μεσοπνευμόνιο"
 msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
 msgid "Right Pleura"
 msgstr "Δεξιός Υπεζωκώς"
-
-msgctxt "selection:gnuhealth.icu.ecg,axis:"
-msgid "Extreme right deviation"
-msgstr "Ακραία δεξιά παρεκτόπιση"
-
-msgctxt "selection:gnuhealth.icu.ecg,axis:"
-msgid "Left deviation"
-msgstr "Αριστερά παρεκτόπιση"
-
-msgctxt "selection:gnuhealth.icu.ecg,axis:"
-msgid "Normal Axis"
-msgstr "Φυσιολογικός άξονας"
-
-msgctxt "selection:gnuhealth.icu.ecg,axis:"
-msgid "Right deviation"
-msgstr "Δεξιά παρεκτόπιση"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "I"
-msgstr "I"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "II"
-msgstr "II"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "III"
-msgstr "III"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V1"
-msgstr "V1"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V2"
-msgstr "V2"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V3"
-msgstr "V3"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V4"
-msgstr "V4"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V5"
-msgstr "V5"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "V6"
-msgstr "V6"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "aVF"
-msgstr "aVF"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "aVL"
-msgstr "aVL"
-
-msgctxt "selection:gnuhealth.icu.ecg,lead:"
-msgid "aVR"
-msgstr "aVR"
-
-msgctxt "selection:gnuhealth.icu.ecg,pacemaker:"
-msgid "Atrioventricular"
-msgstr "Κολπο-κοιλιακός"
-
-msgctxt "selection:gnuhealth.icu.ecg,pacemaker:"
-msgid "Purkinje"
-msgstr "Purkinje"
-
-msgctxt "selection:gnuhealth.icu.ecg,pacemaker:"
-msgid "Sinus Node"
-msgstr "Φλεβόκομβος"
-
-msgctxt "selection:gnuhealth.icu.ecg,rhythm:"
-msgid "Irregular"
-msgstr "Ακανόνιστα"
-
-msgctxt "selection:gnuhealth.icu.ecg,rhythm:"
-msgid "Regular"
-msgstr "Κανονική"
-
-msgctxt "selection:gnuhealth.icu.ecg,st_segment:"
-msgid "Depressed"
-msgstr "Σε καταστολή"
-
-msgctxt "selection:gnuhealth.icu.ecg,st_segment:"
-msgid "Elevated"
-msgstr "Ηυξημένη"
-
-msgctxt "selection:gnuhealth.icu.ecg,st_segment:"
-msgid "Normal"
-msgstr "Φυσιολογικός"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
 msgid "1 : Does not Open Eyes"
@@ -940,7 +763,9 @@ msgstr "2 : Έκταση μετά από επώδυνα ερεθίσματα - �
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid ""
 "3 : Abnormal flexion to painful stimuli             (decorticate response)"
-msgstr "3 : Παθολογκή κάμψη στα επώδυνα ερεθίσματα             (απάντηση αποφλοίωσης)"
+msgstr ""
+"3 : Παθολογκή κάμψη στα επώδυνα ερεθίσματα             (απάντηση "
+"αποφλοίωσης)"
 
 msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
 msgid "4 : Flexion / Withdrawal to painful stimuli"
@@ -975,6 +800,10 @@ msgid "5 : Oriented, converses normally"
 msgstr "5 : Προσανατολισμένος, συνομιλεί κανονικά"
 
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "ETT"
 msgstr "ETT"
 
@@ -989,6 +818,10 @@ msgstr "Καμία - Εμφανίζει δική του δραστηριότητ
 msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
 msgid "Tracheostomy"
 msgstr "Τραχειοστομία"
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
 msgid "Absent"
@@ -1007,12 +840,20 @@ msgid "Normal"
 msgstr "Φυσιολογικός"
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid "Asymmetrical"
 msgstr "Ασύμμετρος"
 
 msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
 msgid "Symmetrical"
 msgstr "Συμμετρικός"
+
+msgctxt "selection:gnuhealth.patient.rounding,edema:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,edema:"
 msgid "Anasarca"
@@ -1039,6 +880,10 @@ msgid "Normal"
 msgstr "Φυσιολογικός"
 
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Brisk"
 msgstr "Ζωηρό"
 
@@ -1049,6 +894,10 @@ msgstr "Δεν παράγεται"
 msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
 msgid "Sluggish"
 msgstr "Βραδύ"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
 msgid "Deep"
@@ -1071,6 +920,10 @@ msgid "Shallow"
 msgstr "Ρηχή"
 
 msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
 msgid "Constipation"
 msgstr "Δυσκοιλιότητα"
 
@@ -1087,6 +940,10 @@ msgid "Normal"
 msgstr "Φυσιολογική"
 
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Deviated left"
 msgstr "Με αριστερά παρεκτόπιση"
 
@@ -1097,6 +954,10 @@ msgstr "Με δεξιά παρεκτόπιση"
 msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
 msgid "Midline"
 msgstr "Μέση γραμμή"
+
+msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
 msgid "Central catheter"
@@ -1111,6 +972,10 @@ msgid "Peripheral"
 msgstr "Περιφερικός"
 
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "Hematemesis"
 msgstr "Αιματέμεση"
 
@@ -1121,83 +986,3 @@ msgstr "Καμία"
 msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
 msgid "Vomiting"
 msgstr "Έμμετος"
-
-msgctxt "view:gnuhealth.icu.apache2:"
-msgid "APACHE II Score"
-msgstr "Βαθμολογία APACHE II"
-
-msgctxt "view:gnuhealth.icu.apache2:"
-msgid "Apache II Scores"
-msgstr "Βαθμολογίες Apache II"
-
-msgctxt "view:gnuhealth.icu.apache2:"
-msgid "Chronic"
-msgstr "Χρόνιος"
-
-msgctxt "view:gnuhealth.icu.apache2:"
-msgid "Physiological"
-msgstr "Φυσιολογικός"
-
-msgctxt "view:gnuhealth.icu.chest_drainage:"
-msgid "Patient Chest Drainage Assesment"
-msgstr "Εκτίμηση θωρακικής παροχέτευσης ασθενούς"
-
-msgctxt "view:gnuhealth.icu.ecg:"
-msgid "Patient ECG Assesment"
-msgstr "Εκτίμηση ΗΕΓ ασθενούς"
-
-msgctxt "view:gnuhealth.icu.glasgow:"
-msgid "Glasgow Scores"
-msgstr "Βαθμολογίες Γλασκώβης"
-
-msgctxt "view:gnuhealth.icu.glasgow:"
-msgid "Patient Glasgow Scores"
-msgstr "Βαθμολογίες του ασθενούς στην κλίμακα Γλασκώβης "
-
-msgctxt "view:gnuhealth.icu.ventilation:"
-msgid "Mechanical Ventilation"
-msgstr "Μηχανική αναπνοή"
-
-msgctxt "view:gnuhealth.icu.ventilation:"
-msgid "Patient Mechanical Ventilation"
-msgstr "Ασθενής σε Μηχανική αναπνοή"
-
-msgctxt "view:gnuhealth.inpatient.icu:"
-msgid "Intensive Care Unit"
-msgstr "Μονάδα Εντατικής Θεαραπείας"
-
-msgctxt "view:gnuhealth.inpatient.icu:"
-msgid "Period"
-msgstr "Περίοδος"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Blood and Skin"
-msgstr "Αίμα και Δέρμα"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Cardiovascular"
-msgstr "Καρδιο-αγγειακό"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Chest Expansion"
-msgstr "Έκπτυξη θώρακος"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Digestive and Abdomen"
-msgstr "Γστρεντερικό και Κοιλία"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "ICU"
-msgstr "ΜΕΘ"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Neurologic"
-msgstr "Νευρολογικό"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Respiratory"
-msgstr "Αναπνευστικό"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Xray"
-msgstr "Ακτινογραφία"

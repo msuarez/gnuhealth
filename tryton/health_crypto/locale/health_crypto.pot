@@ -1,0 +1,259 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:gnuhealth.birth_certificate,digest_current:"
+msgid "Current Hash"
+msgstr ""
+
+msgctxt "field:gnuhealth.birth_certificate,digest_status:"
+msgid "Altered"
+msgstr ""
+
+msgctxt "field:gnuhealth.birth_certificate,digital_signature:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "field:gnuhealth.birth_certificate,document_digest:"
+msgid "Digest"
+msgstr ""
+
+msgctxt "field:gnuhealth.birth_certificate,serializer:"
+msgid "Doc String"
+msgstr ""
+
+msgctxt "field:gnuhealth.birth_certificate,serializer_current:"
+msgid "Current Doc"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,digest_current:"
+msgid "Current Hash"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,digest_status:"
+msgid "Altered"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,digital_signature:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,document_digest:"
+msgid "Digest"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,serializer:"
+msgid "Doc String"
+msgstr ""
+
+msgctxt "field:gnuhealth.death_certificate,serializer_current:"
+msgid "Current Doc"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,digest_current:"
+msgid "Current Hash"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,digest_status:"
+msgid "Altered"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,digital_signature:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,document_digest:"
+msgid "Digest"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,serializer:"
+msgid "Doc String"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.evaluation,serializer_current:"
+msgid "Current Doc"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,digest_current:"
+msgid "Current Hash"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,digest_status:"
+msgid "Altered"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,digital_signature:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,document_digest:"
+msgid "Digest"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,serializer:"
+msgid "Doc String"
+msgstr ""
+
+msgctxt "field:gnuhealth.prescription.order,serializer_current:"
+msgid "Current Doc"
+msgstr ""
+
+msgctxt "help:gnuhealth.birth_certificate,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr ""
+
+msgctxt "help:gnuhealth.birth_certificate,document_digest:"
+msgid "Original Document Digest"
+msgstr ""
+
+msgctxt "help:gnuhealth.death_certificate,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr ""
+
+msgctxt "help:gnuhealth.death_certificate,document_digest:"
+msgid "Original Document Digest"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,document_digest:"
+msgid "Original Document Digest"
+msgstr ""
+
+msgctxt "help:gnuhealth.prescription.order,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr ""
+
+msgctxt "help:gnuhealth.prescription.order,document_digest:"
+msgid "Original Document Digest"
+msgstr ""
+
+msgctxt "selection:gnuhealth.prescription.order,state:"
+msgid "Validated"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Altered / current String"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Document validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate certificate ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Generate the certificate"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Hashes"
+msgstr ""
+
+msgctxt "view:gnuhealth.birth_certificate:"
+msgid "Original String"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Altered / current String"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Document validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate certificate ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Generate the certificate"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Hashes"
+msgstr ""
+
+msgctxt "view:gnuhealth.death_certificate:"
+msgid "Original String"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Altered / current String"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Close Evaluation"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Close and Sign evaluation ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Document validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Hashes"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Original String"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Sign this patient evaluation"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Document validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Generate Validation"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Generate Validation ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Generate the prescription validation code"
+msgstr ""

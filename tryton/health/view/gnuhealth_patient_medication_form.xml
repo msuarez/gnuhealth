@@ -7,6 +7,8 @@
                 <field name="medicament"/>
                 <label name="indication"/>
                 <field name="indication"/>
+                <label name="prescription"/>
+                <field name="prescription"/>
             </group>
             <newline/>
             <newline/>
@@ -39,7 +41,7 @@
         </page>
         <page id="medication_misc" string="Extra Info">
             <group id="medicament_dosage_main">
-                <group id="medicament_form" col="6" string="Admnistration">
+                <group id="medicament_form" col="6" string="Administration">
                     <label name="form"/>
                     <field name="form"/>
                     <label name="route"/>

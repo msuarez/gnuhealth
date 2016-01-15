@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<tree string="Patient Amputations" editable="top">
+    <field name="patient"/>
+    <field name="amputation_date"/>
+    <field name="etiology"/>
+    <field name="body_structure"/>
+    <field name="limb"/>
+    <field name="side"/>
+    <field name="amputation_level"/>
+    <field name="healthprof"/>
+    <field name="comments"/>
+</tree>

@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,13 +20,62 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 from datetime import datetime
+from trytond.transaction import Transaction
+from trytond import backend
 
 
-__all__ = ['DrugsRecreational', 'PatientRecreationalDrugs', 'PatientCAGE',
-        'MedicalPatient']
+__all__ = ['VegetarianTypes','DietBelief','DrugsRecreational', 
+            'PatientRecreationalDrugs', 'PatientCAGE','MedicalPatient']
 
+class VegetarianTypes(ModelSQL, ModelView):
+    'Vegetarian Types'
+    __name__ = 'gnuhealth.vegetarian_types'
+
+    name = fields.Char('Vegetarian', translate=True, required=True,
+        help="Vegetarian")
+    code = fields.Char('Code', required=True,
+        help="Short description")
+    desc = fields.Char('Description', required=True,
+        help="Short description")
+
+# Diet by belief / religion
+
+class DietBelief (ModelSQL, ModelView):
+    'Diet by Belief'
+    __name__="gnuhealth.diet.belief"
+
+    name = fields.Char('Belief', required=True, translate=True)
+    code = fields.Char('Code', required=True)
+    description = fields.Text('Description', required=True, translate=True)
+
+
+    @classmethod
+    # Update to version 3.0
+    # Move datafile from health_hospitalization to health_lifestyle
+    def __register__(cls, module_name):
+        super(DietBelief, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+
+        cursor.execute(
+            'UPDATE IR_MODEL_DATA '
+            'SET MODULE = \'health_lifestyle\' '
+            'WHERE MODEL = \'gnuhealth.diet.belief\' and '
+            'MODULE = \'health_inpatient\' ' )
+
+    @classmethod
+    def __setup__(cls):
+        super(DietBelief, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('code_unique', Unique(t,t.code),
+                'The Diet code already exists'),
+            ]
 
 class DrugsRecreational(ModelSQL, ModelView):
     'Recreational Drug'
@@ -173,14 +222,14 @@ class DrugsRecreational(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(DrugsRecreational, cls).__setup__()
+
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('NAME_uniq', 'UNIQUE(name)',
-                'The Recreational Drug NAME must be unique'),
-            ('code_uniq', 'UNIQUE(code)',
+            ('name_unique', Unique(t,t.name),
+                'The Recreational Drug name must be unique'),
+            ('code_unique', Unique(t,t.code),
                 'The Recreational Drug CODE must be unique'),
-
-        ]
-
+            ]
 
 class PatientRecreationalDrugs(ModelSQL, ModelView):
     'Patient use of Recreational Drugs'
@@ -212,6 +261,16 @@ class PatientCAGE(ModelSQL, ModelView):
         'your nerves or to get rid of a hangover?')
 
     cage_score = fields.Integer('CAGE Score')
+
+    # Show the icon depending on the CAGE Score
+    cage_warning_icon = \
+        fields.Function(fields.Char('Cage Warning Icon'),
+         'get_cage_warning_icon')
+    
+    def get_cage_warning_icon(self, name):
+        if (self.cage_score > 1):
+            return 'gnuhealth-warning'
+
 
     @fields.depends('cage_c', 'cage_a', 'cage_g', 'cage_e')
     def on_change_with_cage_score(self):
@@ -249,6 +308,10 @@ class MedicalPatient(ModelSQL, ModelView):
         help="Check if the patient sleep hours are during daylight rather "
         "than at night")
     number_of_meals = fields.Integer('Meals per day')
+    vegetarian_type = fields.Many2One('gnuhealth.vegetarian_types','Vegetarian')
+    diet_belief = fields.Many2One('gnuhealth.diet.belief',
+        'Belief', help="Enter the patient belief or religion")
+
     eats_alone = fields.Boolean('Eats alone',
         help="Check this box if the patient eats by him / herself.")
     salt = fields.Boolean('Salt',
@@ -345,7 +408,7 @@ class MedicalPatient(ModelSQL, ModelView):
         ('8', 'Contraceptive injection'),
         ('9', 'Skin Patch'),
         ('10', 'Female condom'),
-        ], 'Anticonceptive Method', sort=False)
+        ], 'Contraceptive Method', sort=False)
 
     sex_oral = fields.Selection([
         (None, ''),

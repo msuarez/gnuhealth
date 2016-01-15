@@ -2,7 +2,8 @@
 <tree string="Newborn Information">
     <field name="patient"/>
     <field name="mother"/>
-    <field name="birth_date"/>
+    <field name="birth_date" widget="date"/>
+    <field name="birth_date" string="Time" widget="time"/>
     <field name="sex"/>
     <field name="length"/>
     <field name="weight"/>

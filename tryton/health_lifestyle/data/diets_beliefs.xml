@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <record model="gnuhealth.diet.belief" id="BUDDHIST">
+            <field name="name">Buddhist</field>
+            <field name="code">BUDDHIST</field>
+            <field name="description">While Buddhism does not have specific dietary rules, some buddhists practise vegetarianism based on a strict interpretation of the first of the Five Precepts</field>
+        </record>
+
+        <record model="gnuhealth.diet.belief" id="EDENIC">
+            <field name="name">Edenic</field>
+            <field name="code">EDENIC</field>
+            <field name="description">A diet based on what Adam and Eve are believed to have consumed in Garden of Eden. Usually either vegetarian or vegan, and based predominantly on fruit</field>
+        </record>
+
+        <record model="gnuhealth.diet.belief" id="HALLELUJAH">
+            <field name="name">Hallelujah</field>
+            <field name="code">HALLELUJAH</field>
+            <field name="description">Hallelujah diet: A form of Christian vegetarianism developed in the 1970s. The creators interpret a verse from the Bible as suggesting that Christians should only consume seed bearing plants and fruits.</field>
+        </record>
+ 
+        <record model="gnuhealth.diet.belief" id="HINDU">
+            <field name="name">Hindu</field>
+            <field name="code">HINDU</field>
+            <field name="description">Hindu and Jain diets: Followers of Hinduism and Jainism often follow lacto-vegetarian diets, based on the principle of Ahimsa (non-harming)</field>
+        </record>
+
+        <record model="gnuhealth.diet.belief" id="MUSLIM">
+            <field name="name">Muslim</field>
+            <field name="code">MUSLIM</field>
+            <field name="description">Muslims follow a diet consisting solely of food that is halal – permissible under Islamic law. The opposite of halal is haraam, food that is Islamically Impermissible. Haraam substances include alcohol, pork, and any meat from an animal which was not killed through the Islamic method of ritual slaughter (Dhabiha)</field>
+        </record>
+
+        <record model="gnuhealth.diet.belief" id="ITAL">
+            <field name="name">I-tal</field>
+            <field name="code">ITAL</field>
+            <field name="description">I-tal: A set of principles which influences the diet of many members of the Rastafari movement. One principle is that natural foods should be consumed. Some Rastafarians interpret I-tal to advocate vegetarianism or veganism</field>
+        </record>
+
+        <record model="gnuhealth.diet.belief" id="KOSHER">
+            <field name="name">Kosher</field>
+            <field name="code">KOSHER</field>
+            <field name="description">Kosher diet: Food permissible under Kashrut, the set of Jewish dietary laws, is said to be Kosher. Some foods and food combinations are non-Kosher, and failure to prepare food in accordance with Kashrut can make otherwise permissible foods non-Kosher.</field>
+        </record>
+
+    </data>
+</tryton>

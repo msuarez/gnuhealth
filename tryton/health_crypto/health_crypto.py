@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -25,7 +25,7 @@ from trytond.transaction import Transaction
 from trytond.rpc import RPC
 from trytond.pool import Pool
 from trytond.wizard import Wizard, StateAction, StateView, Button
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 import hashlib
 import json
 
@@ -57,10 +57,11 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     document_digest = fields.Char('Digest', readonly=True,
         help="Original Document Digest")
-    
+
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('done', 'Done'),
+        ('done', 'Done'),        
+        ('validated', 'Validated'),        
         ], 'State', readonly=True, sort=False)
 
 
@@ -98,8 +99,13 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     def __setup__(cls):
         cls._buttons.update({
             'generate_prescription': {
-                'invisible': Equal(Eval('state'), 'done'),
+                'invisible': Equal(Eval('state'), 'validated'),
             },
+            'create_prescription': {
+                'invisible': Or(Equal(Eval('state'), 'done'),
+                    Equal(Eval('state'), 'validated'))
+            },
+
             })
         ''' Allow calling the set_signature method via RPC '''
         cls.__rpc__.update({
@@ -120,7 +126,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         cls.write(prescriptions, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
-            'state': 'done',})
+            'state': 'validated',})
 
 
     @classmethod
@@ -183,7 +189,16 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             result = serial_doc
             
         return result
-        
+ 
+    # Hide the group holding validation information when state is 
+    # not validated
+    
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="prescription_digest"]', 'states', {
+                'invisible': Not(Eval('state') == 'validated'),
+                })]
+       
 
 class BirthCertificate(ModelSQL, ModelView):
     
@@ -304,6 +319,13 @@ class BirthCertificate(ModelSQL, ModelView):
             
         return result
 
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]
 
 class DeathCertificate(ModelSQL, ModelView):
     
@@ -435,6 +457,14 @@ class DeathCertificate(ModelSQL, ModelView):
             result = serial_doc
             
         return result
+
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]
 
 class PatientEvaluation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient.evaluation'
@@ -645,3 +675,12 @@ class PatientEvaluation(ModelSQL, ModelView):
             result = serial_doc
             
         return result
+    # Hide the group holding all the digital signature until signed
+        
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="group_digital_signature"]', 'states', {
+                'invisible': ~Eval('digital_signature')}),
+                ('//group[@id="group_current_string"]', 'states', {
+                'invisible': ~Eval('digest_status'),
+                })]

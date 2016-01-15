@@ -1,19 +1,14 @@
-# 
-# Translators:
-# Philip Li <Horatii.Lee@gmail.com>, 2014
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Philip Li <Horatii.Lee@gmail.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-08 11:28+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252496.0\n"
 
 msgctxt "field:gnuhealth.imaging.test,code:"
 msgid "Code"
@@ -406,42 +401,6 @@ msgstr "草稿"
 msgctxt "selection:gnuhealth.imaging.test.request,state:"
 msgid "Requested"
 msgstr "请求"
-
-msgctxt "view:gnuhealth.imaging.test.request:"
-msgid "Generate Results"
-msgstr "产生结果"
-
-msgctxt "view:gnuhealth.imaging.test.request:"
-msgid "Imaging Test Request"
-msgstr "成像实验请求"
-
-msgctxt "view:gnuhealth.imaging.test.request:"
-msgid "Request"
-msgstr "要求"
-
-msgctxt "view:gnuhealth.imaging.test.result:"
-msgid "Comment"
-msgstr "评论"
-
-msgctxt "view:gnuhealth.imaging.test.result:"
-msgid "Images"
-msgstr "图像"
-
-msgctxt "view:gnuhealth.imaging.test.result:"
-msgid "Imaging Test Result"
-msgstr "成像实验结果"
-
-msgctxt "view:gnuhealth.imaging.test.type:"
-msgid "Imaging Test Type"
-msgstr "成像实验类型"
-
-msgctxt "view:gnuhealth.imaging.test:"
-msgid "Imaging Test"
-msgstr "成像实验"
-
-msgctxt "view:gnuhealth.patient.imaging.test.request.start:"
-msgid "Request Imaging Test"
-msgstr "请求成像实验"
 
 msgctxt "wizard_button:gnuhealth.patient.imaging.test.request,start,end:"
 msgid "Cancel"

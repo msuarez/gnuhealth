@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<tree string="Patient Disability Assessment">
+    <field name="patient"/>
+    <field name="assessment_date"/>
+    <field name="cognitive_function"/>
+    <field name="visual_function"/>
+    <field name="hearing_function"/>
+    <field name="speech_function"/>
+    <field name="hand_function"/>
+    <field name="locomotor_function"/>
+    <field name="uxo"/>
+    <field name="assessment"/>
+    <field name="healthprof"/>
+</tree>

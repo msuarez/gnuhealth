@@ -5,7 +5,7 @@
         <group colspan="3" id="patient_main_info_name">
             <group colspan="3" col="9" id="patient_main_info_3">
                 <field colspan="4" name="name"/>
-                <field name="sex" width="60"/>
+                <field name="gender" width="60"/>
                 <label name="age"/>
                 <field name="age" width="80"/>
             </group>
@@ -16,7 +16,7 @@
             </group>
         </group>
         <group id="patient__pic">
-            <field xfill="0" xexpand="1" name="photo" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+            <field xfill="0" xexpand="1" name="photo" height="200" width="200" widget="image"/>
         </group>
     </group>
     <newline/>
@@ -34,6 +34,8 @@
                         <field name="current_insurance"/>
                     </group>
                     <newline/>
+                    <field name="diseases" colspan="4" yfill="1"/>
+                    
                     <group string="Notepad" id="patient_notepad">
                         <field height="100" name="general_info"/>
                     </group>
@@ -64,6 +66,9 @@ code with the unique patient ID.
                 </page>
                 <page string="Misc" id="misc_info_page">
                     <group colspan="4" id="misc_info_group">
+                        <label name="biological_sex"/>
+                        <field name="biological_sex"/>
+                          
                         <label name="current_address"/>
                         <field name="current_address"/>
                     </group>
@@ -79,19 +84,17 @@ code with the unique patient ID.
                 </page>
             </notebook>
         </page>
+
         <!-- Patient Medication and Vaccinations -->
         <page string="Medication" id="patient_medication">
             <field name="medications"/>
             <field name="vaccinations"/>
         </page>
-        <!-- Patient Diseases -->
-        <page string="Diseases" id="patient_diseases">
-            <field name="diseases" colspan="4"/>
-        </page>
-        <!-- Patient Evaluations NOW as a shortcut
-        <page string="Evaluations" id="patient_evaluations">
-            <field name="evaluation_ids" colspan="4"/>
+
+        <!-- Patient Health Conditions 
+        <page string="Conditions" id="patient_diseases">
         </page>
         -->
+        
     </notebook>
 </form>

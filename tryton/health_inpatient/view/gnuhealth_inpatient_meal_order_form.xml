@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<form string="Inpatient Meal Order">
+    <group id="inpatient_meal_order_header" col="10" colspan="4">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="meal_order"/>
+        <field name="meal_order"/>
+        <label name="mealtime"/>
+        <field name="mealtime"/>
+        <label name="meal_warning"/>
+        <field name="meal_warning"/>
+        <label name="meal_warning_ack"/>
+        <field name="meal_warning_ack"/>
+    </group>
+    <newline/>
+    <field colspan="4" name="meal_item"/>
+    <newline/>
+    <field colspan="4" name="remarks"/>
+    <newline/>
+    <group id="inpatient_meal_order_footer" col="10" colspan="4">
+        <label name="state"/>
+        <field name="state"/>
+        <label name="order_date"/>
+        <field name="order_date"/>
+        <button name="cancel" help="Cancel order" string="Cancel" icon="icon-cancel" confirm="Cancel the this meal order ?"/>
+        <button name="generate" help="Create order" string="Generate" icon="icon-ok" confirm="Generate the meal order ?"/>
+        <button name="done" help="The meal order is done" string="Done" icon="icon-home" confirm="The meal order will be closed"/>
+        <label name="health_professional"/>
+        <field name="health_professional"/>
+    </group>
+</form>

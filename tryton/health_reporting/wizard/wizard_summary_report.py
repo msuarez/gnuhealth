@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -39,6 +39,9 @@ class SummaryReportStart(ModelView):
     start_date = fields.Date("Start")
     end_date = fields.Date("End")
 
+    demographics = fields.Boolean("Demographics")
+    patient_evaluations = fields.Boolean("Evaluations")
+
     @staticmethod
     def default_start_date():
         return date.today()
@@ -46,6 +49,10 @@ class SummaryReportStart(ModelView):
     @staticmethod
     def default_end_date():
         return date.today()
+
+    @staticmethod
+    def default_demographics():
+        return True
 
 class SummaryReport(Wizard):
     'Open Institution Summary Report'
@@ -65,6 +72,8 @@ class SummaryReport(Wizard):
                     if self.start.institution else None),
             'start_date': self.start.start_date,
             'end_date': self.start.end_date,
+            'demographics': self.start.demographics,
+            'patient_evaluations': self.start.patient_evaluations,
         }
     
     def do_open_(self, action):

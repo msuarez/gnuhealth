@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<tree string="Socioeconomics and Family assessment">
+    <field name="patient"/>
+    <field name="assessment_date" widget="date"/>
+    <field name="ses" expand="1"/>
+    <field name="education" expand="1"/>
+    <field name="occupation" expand="1"/>
+    <field name="housing" expand="1"/>
+    <field name="income" expand="1"/>
+    <field string="Family functionality" name="fam_apgar_score" expand="1"/>
+    <field name="health_professional" tree_invisible="1"/>
+    <field name="state"/>
+</tree>

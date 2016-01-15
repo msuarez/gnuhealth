@@ -1,0 +1,24 @@
+# Nab3a <asn09@aub.edu.lb>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:19+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255567.0\n"
+
+msgctxt "field:gnuhealth.hospital.bed,calendar:"
+msgid "Calendar"
+msgstr "تقويم "
+
+msgctxt "field:gnuhealth.inpatient.registration,event:"
+msgid "Calendar Event"
+msgstr "حدث التقويم"
+
+msgctxt "help:gnuhealth.inpatient.registration,event:"
+msgid "Calendar Event"
+msgstr "أحداث التقويم"

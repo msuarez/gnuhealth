@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="0" skiptest="1">
+ 
+        <record model="gnuhealth.vegetarian_types" id="ovo">
+            <field name="name">Ovo vegetarian</field>
+            <field name="code">OVO</field>
+            <field name="desc">Includes eggs but not dairy products</field>
+        </record>
+ 
+        <record model="gnuhealth.vegetarian_types" id="lacto">
+            <field name="name">Lacto vegetarian</field>
+            <field name="code">LACTO</field>
+            <field name="desc">Includes dairy products but not eggs</field>
+        </record>
+
+        <record model="gnuhealth.vegetarian_types" id="lactoovo">
+            <field name="name">Lacto-ovo vegetarian</field>
+            <field name="code">LACTO-OVO</field>
+            <field name="desc">Includes dairy products and eggs</field>
+        </record>
+
+        <record model="gnuhealth.vegetarian_types" id="pescetarian">
+            <field name="name">Pescetarian</field>
+            <field name="code">PESCETARIAN</field>
+            <field name="desc">Includes fish or other seafood, but not other animal products</field>
+        </record>
+
+        <record model="gnuhealth.vegetarian_types" id="vegan">
+            <field name="name">Vegan</field>
+            <field name="code">VEGAN</field>
+            <field name="desc">Excludes all animal flesh and products</field>
+        </record>
+ 
+    </data>
+</tryton>

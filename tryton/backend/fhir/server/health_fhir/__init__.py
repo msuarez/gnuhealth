@@ -1,6 +1,6 @@
 import server.fhir as supermod
 from .health_fhir_patient import *
-from .health_fhir_bundle import *
+from .health_fhir_atom import *
 from .health_fhir_search import health_Search
 from .health_fhir_practitioner import *
 from .health_fhir_operation_outcome import *
@@ -8,6 +8,12 @@ from .health_fhir_observation import *
 from .health_fhir_procedure import *
 from .health_fhir_diagnostic_report import *
 from .health_fhir_conformance import *
+from .health_fhir_condition import *
+from .health_fhir_family_history import *
+from .health_fhir_medication import *
+from .health_fhir_medication_statement import *
+from .health_fhir_immunization import *
+from .health_fhir_organization import *
 from .datastore import *
 from lxml import etree as etree_
 

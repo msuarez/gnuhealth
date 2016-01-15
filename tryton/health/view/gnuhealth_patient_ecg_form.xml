@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<form string="Patient ECG Assesment">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="lead"/>
+    <field name="lead"/>
+    <label name="axis"/>
+    <field name="axis"/>
+    <label name="rate"/>
+    <field name="rate"/>
+    <label name="pacemaker"/>
+    <field name="pacemaker"/>
+    <label name="rhythm"/>
+    <field name="rhythm"/>
+    <newline/>
+    <group id="ecg_intervals" colspan="4" col="6">
+        <label name="pr"/>
+        <field name="pr"/>
+        <label name="qrs"/>
+        <field name="qrs"/>
+        <label name="qt"/>
+        <field name="qt"/>
+    </group>
+    <newline/>
+    <label name="st_segment"/>
+    <field name="st_segment"/>
+    <label name="twave_inversion"/>
+    <field name="twave_inversion"/>
+    <newline/>
+    <label name="interpretation"/>
+    <field name="interpretation" colspan="3"/>
+    <newline/>
+    <field colspan="4" name="ecg_strip" widget="image"/>
+    <newline/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="institution"/>
+    <field name="institution"/>
+</form>

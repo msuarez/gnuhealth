@@ -41,7 +41,7 @@
         <field name="injury_type"/>
     </group>
     <newline/>
-    <group colspan="4" col="8" id="motor_vehicle_accident" string="Motor Vehicle Accident" states="{'invisible': Not(Equal(Eval('injury_type'), 'motor_vehicle'))}">
+    <group colspan="4" col="8" id="motor_vehicle_accident" string="Motor Vehicle Accident">
         <label name="mva_mode"/>
         <field name="mva_mode"/>
         <label name="mva_position"/>
@@ -51,7 +51,7 @@
         <label name="safety_gear"/>
         <field name="safety_gear"/>
     </group>
-    <group colspan="4" col="8" id="violent_injury" string="Violence" states="{'invisible': Not(Equal(Eval('injury_type'), 'violence'))}">
+    <group colspan="4" col="8" id="violent_injury" string="Violence">
         <label name="victim_perpetrator"/>
         <field name="victim_perpetrator"/>
         <label name="violence_circumstances"/>
@@ -61,7 +61,7 @@
     </group>
 
     <newline/>
-    <group id="iss_place" string="Place of occurrance" states="{'invisible': Equal(Eval('injury_type'), 'motor_vehicle')}">
+    <group id="iss_place" string="Place of occurrance">
         <label name="place_occurrance"/>
         <field name="place_occurrance"/>
     </group>

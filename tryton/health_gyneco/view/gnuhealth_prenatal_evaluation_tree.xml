@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tree string="Prenatal Evaluations">
-    <field name="evaluation_date" expand="1"/>
+    <field name="evaluation_date" widget="date"/>
     <field name="gestational_weeks" expand="1"/>
     <field name="fundal_height" expand="1"/>
     <field name="fetus_heart_rate" expand="1"/>

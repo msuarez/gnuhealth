@@ -1,28 +1,22 @@
-# 
-# Translators:
-# Jovana Savic <joa.uniq@gmail.com>, 2012
-# Philip Li <Horatii.Lee@gmail.com>, 2013-2014
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-26 16:55+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Chinese (http://www.transifex.com/projects/p/GNU_Health/language/zh/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-08 11:25+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452252321.0\n"
 
 msgctxt "error:gnuhealth.patient.pregnancy:"
 msgid "Our records indicate that the patient is already pregnant !"
 msgstr "我们的记录表明病人已怀孕！"
 
 msgctxt "error:gnuhealth.patient.pregnancy:"
-msgid "The pregancy number must be unique for this patient !"
-msgstr "妊娠号必须是这个病人 唯一的！"
+msgid "This pregnancy code for this patient already exists"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient,abortions:"
 msgid "Abortions"
@@ -448,6 +442,10 @@ msgctxt "field:gnuhealth.patient.pregnancy,warning:"
 msgid "Warn"
 msgstr "警告"
 
+msgctxt "field:gnuhealth.patient.pregnancy,warning_icon:"
+msgid "Pregnancy warning icon"
+msgstr ""
+
 msgctxt "field:gnuhealth.patient.pregnancy,write_date:"
 msgid "Write Date"
 msgstr "请您写日期"
@@ -600,10 +598,6 @@ msgctxt "field:gnuhealth.perinatal,create_uid:"
 msgid "Create User"
 msgstr "创建用户"
 
-msgctxt "field:gnuhealth.perinatal,dismissed:"
-msgid "Discharged"
-msgstr "放出"
-
 msgctxt "field:gnuhealth.perinatal,dystocia:"
 msgid "Dystocia"
 msgstr "难产"
@@ -652,17 +646,9 @@ msgctxt "field:gnuhealth.perinatal,laceration:"
 msgid "Lacerations"
 msgstr "裂伤"
 
-msgctxt "field:gnuhealth.perinatal,medication:"
-msgid "Medication and anesthesics"
-msgstr "药物和麻醉剂"
-
 msgctxt "field:gnuhealth.perinatal,monitoring:"
 msgid "Monitors"
 msgstr "显示器"
-
-msgctxt "field:gnuhealth.perinatal,mother_deceased:"
-msgid "Maternal death"
-msgstr "产妇死亡"
 
 msgctxt "field:gnuhealth.perinatal,name:"
 msgid "Patient Pregnancy"
@@ -671,10 +657,6 @@ msgstr "病人怀孕"
 msgctxt "field:gnuhealth.perinatal,notes:"
 msgid "Notes"
 msgstr "笔记"
-
-msgctxt "field:gnuhealth.perinatal,place_of_death:"
-msgid "Place of Death"
-msgstr "死亡的地方"
 
 msgctxt "field:gnuhealth.perinatal,placenta_incomplete:"
 msgid "Incomplete"
@@ -1076,14 +1058,6 @@ msgid ""
 "information in the system"
 msgstr ""
 
-msgctxt "help:gnuhealth.perinatal,mother_deceased:"
-msgid "Mother died in the process"
-msgstr "生产过程死亡"
-
-msgctxt "help:gnuhealth.perinatal,place_of_death:"
-msgid "Place where the mother died"
-msgstr "母亲去世的地点"
-
 msgctxt "help:gnuhealth.perinatal,placenta_incomplete:"
 msgid "Incomplete Placenta"
 msgstr "不完整的胎盘"
@@ -1152,12 +1126,20 @@ msgid "Health Gynecology and Obstetrics Administration"
 msgstr "妇产科健康学管理"
 
 msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
 msgid "abnormal"
 msgstr "异常"
 
 msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
 msgid "normal"
 msgstr "正常"
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.mammography_history,result:"
 msgid "abnormal"
@@ -1196,6 +1178,10 @@ msgid "normal"
 msgstr "正常"
 
 msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
 msgid "AIS"
 msgstr "腺癌在原处"
 
@@ -1224,12 +1210,20 @@ msgid "Negative"
 msgstr "阴性"
 
 msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
-msgid "Assymetric"
-msgstr "不对称"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid "Asymmetric"
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
 msgid "Symmetric"
 msgstr "对称"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Abortion"
@@ -1246,6 +1240,11 @@ msgstr "状态未知"
 msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
 msgid "Stillbirth"
 msgstr "死产"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid ""
+msgstr ""
 
 msgctxt ""
 "selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
@@ -1268,6 +1267,10 @@ msgid "Percreta"
 msgstr "胎盘"
 
 msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
 msgid "Breech"
 msgstr "臀位"
 
@@ -1280,6 +1283,10 @@ msgid "Shoulder"
 msgstr "肩位"
 
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid "Retroperitoneal"
 msgstr "腹膜后"
 
@@ -1290,6 +1297,10 @@ msgstr "阴道"
 msgctxt "selection:gnuhealth.perinatal,hematoma:"
 msgid "Vulvar"
 msgstr "外阴"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Bladder"
@@ -1323,21 +1334,9 @@ msgctxt "selection:gnuhealth.perinatal,laceration:"
 msgid "Vulvar"
 msgstr "外阴"
 
-msgctxt "selection:gnuhealth.perinatal,place_of_death:"
-msgid "At the delivery room"
-msgstr "在产房"
-
-msgctxt "selection:gnuhealth.perinatal,place_of_death:"
-msgid "Being transferred to other hospital"
-msgstr "正在被转送到其它医院"
-
-msgctxt "selection:gnuhealth.perinatal,place_of_death:"
-msgid "Hospital"
-msgstr "医院"
-
-msgctxt "selection:gnuhealth.perinatal,place_of_death:"
-msgid "in transit to the hospital"
-msgstr "在运输到医院"
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
 msgid "C-section"
@@ -1356,6 +1355,10 @@ msgid "Vaginal - Vacuum Extraction"
 msgstr "阴道真空抽提 "
 
 msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Complete Breech"
 msgstr "完全臀位"
 
@@ -1371,6 +1374,14 @@ msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
 msgid "Occiput / Cephalic Posterior"
 msgstr "枕/头颅后部"
 
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Transverse Lie"
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid ""
+msgstr ""
+
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "abundant"
 msgstr "充足的"
@@ -1382,6 +1393,10 @@ msgstr "失血"
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
 msgid "normal"
 msgstr "正常"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
 msgid "alba"
@@ -1396,137 +1411,13 @@ msgid "serosa"
 msgstr "浆膜"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid "normal"
 msgstr "正常"
 
 msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
 msgid "offensive"
 msgstr "进攻"
-
-msgctxt "view:gnuhealth.patient.colposcopy_history:"
-msgid "Colposcopy Tests"
-msgstr "阴道镜检查测试"
-
-msgctxt "view:gnuhealth.patient.colposcopy_history:"
-msgid "Patient colposcopy History"
-msgstr "患者阴道镜病历"
-
-msgctxt "view:gnuhealth.patient.mammography_history:"
-msgid "Mammography Tests"
-msgstr "乳腺放射成像测试"
-
-msgctxt "view:gnuhealth.patient.mammography_history:"
-msgid "Patient mammography History"
-msgstr "患者乳腺成像病历"
-
-msgctxt "view:gnuhealth.patient.menstrual_history:"
-msgid "Menstrual History"
-msgstr "绝经期的历史"
-
-msgctxt "view:gnuhealth.patient.menstrual_history:"
-msgid "Patient Menstrual History"
-msgstr "病人月经史"
-
-msgctxt "view:gnuhealth.patient.pap_history:"
-msgid "PAP Tests"
-msgstr "巴氏涂片检查"
-
-msgctxt "view:gnuhealth.patient.pap_history:"
-msgid "Patient pap History"
-msgstr "患者巴氏涂片病历"
-
-msgctxt "view:gnuhealth.patient.pregnancy:"
-msgid "Pregnancies"
-msgstr "怀孕"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Fetal Biometry"
-msgstr "胎儿生物统计学"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Fetus Information"
-msgstr "胎儿的信息"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Mother Information"
-msgstr "母亲的信息"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Placenta"
-msgstr "胎盘"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Prenatal Evaluation"
-msgstr "产前评估"
-
-msgctxt "view:gnuhealth.patient.prenatal.evaluation:"
-msgid "Prenatal Evaluations"
-msgstr "产前的评估"
-
-msgctxt "view:gnuhealth.patient:"
-msgid "General"
-msgstr "全身的"
-
-msgctxt "view:gnuhealth.patient:"
-msgid "OB summary"
-msgstr ""
-
-msgctxt "view:gnuhealth.patient:"
-msgid "OB/GYN"
-msgstr ""
-
-msgctxt "view:gnuhealth.patient:"
-msgid "Screening"
-msgstr "筛查"
-
-msgctxt "view:gnuhealth.perinatal.monitor:"
-msgid "Complications"
-msgstr "并发症"
-
-msgctxt "view:gnuhealth.perinatal.monitor:"
-msgid "Fetus"
-msgstr "胎儿"
-
-msgctxt "view:gnuhealth.perinatal.monitor:"
-msgid "Mother"
-msgstr "母亲"
-
-msgctxt "view:gnuhealth.perinatal.monitor:"
-msgid "Perinatal Monitor"
-msgstr "产褥期监测"
-
-msgctxt "view:gnuhealth.perinatal:"
-msgid "Additional Info"
-msgstr "附加信息"
-
-msgctxt "view:gnuhealth.perinatal:"
-msgid "Main"
-msgstr "主要"
-
-msgctxt "view:gnuhealth.perinatal:"
-msgid "Notes"
-msgstr "注意"
-
-msgctxt "view:gnuhealth.perinatal:"
-msgid "Perinatal and Intrapartum Information"
-msgstr "围产期和分娩期的信息"
-
-msgctxt "view:gnuhealth.perinatal:"
-msgid "Placenta anomalies"
-msgstr "胎盘异常"
-
-msgctxt "view:gnuhealth.puerperium.monitor:"
-msgid "Institution"
-msgstr "机构"
-
-msgctxt "view:gnuhealth.puerperium.monitor:"
-msgid "Lochia"
-msgstr "恶露"
-
-msgctxt "view:gnuhealth.puerperium.monitor:"
-msgid "Main"
-msgstr "重点"
-
-msgctxt "view:gnuhealth.puerperium.monitor:"
-msgid "Puerperium Monitor"
-msgstr "产褥期监测"

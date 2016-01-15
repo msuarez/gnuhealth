@@ -1,0 +1,989 @@
+# Fabyc <fabianc7@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 20:08+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language: es_EC\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452283722.0\n"
+
+msgctxt "error:gnuhealth.icu.ventilation:"
+msgid ""
+"Our records indicate that the patient is already on Mechanical Ventilation !"
+msgstr ""
+"¡Nuestros registros indican que el paciente ya cuenta con ventilación "
+"mecánica!"
+
+msgctxt "error:gnuhealth.inpatient.icu:"
+msgid "Our records indicate that the patient is already admitted at ICU"
+msgstr "Nuestros registros indican que el paciente ya está ingresado en la UCI"
+
+msgctxt "field:gnuhealth.icu.apache2,aado2:"
+msgid "A-a DO2"
+msgstr "A-a DO2"
+
+msgctxt "field:gnuhealth.icu.apache2,age:"
+msgid "Age"
+msgstr "Edad"
+
+msgctxt "field:gnuhealth.icu.apache2,apache_score:"
+msgid "Score"
+msgstr "Puntuación"
+
+msgctxt "field:gnuhealth.icu.apache2,arf:"
+msgid "ARF"
+msgstr "ARF"
+
+msgctxt "field:gnuhealth.icu.apache2,chronic_condition:"
+msgid "Chronic condition"
+msgstr "Condición crónica"
+
+msgctxt "field:gnuhealth.icu.apache2,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.icu.apache2,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.icu.apache2,fio2:"
+msgid "FiO2"
+msgstr "FiO2"
+
+msgctxt "field:gnuhealth.icu.apache2,gcs:"
+msgid "GSC"
+msgstr "GSC"
+
+msgctxt "field:gnuhealth.icu.apache2,heart_rate:"
+msgid "Heart Rate"
+msgstr "Frecuencia Cardíaca"
+
+msgctxt "field:gnuhealth.icu.apache2,hematocrit:"
+msgid "Hematocrit"
+msgstr "Hematocrito"
+
+msgctxt "field:gnuhealth.icu.apache2,hospital_admission_type:"
+msgid "Hospital Admission Type"
+msgstr "Tipo de Hospitalización"
+
+msgctxt "field:gnuhealth.icu.apache2,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.icu.apache2,mean_ap:"
+msgid "MAP"
+msgstr "MAP"
+
+msgctxt "field:gnuhealth.icu.apache2,name:"
+msgid "Registration Code"
+msgstr "Código de Registro"
+
+msgctxt "field:gnuhealth.icu.apache2,paco2:"
+msgid "PaCO2"
+msgstr "PaCO2"
+
+msgctxt "field:gnuhealth.icu.apache2,pao2:"
+msgid "PaO2"
+msgstr "PaO2"
+
+msgctxt "field:gnuhealth.icu.apache2,ph:"
+msgid "pH"
+msgstr "pH"
+
+msgctxt "field:gnuhealth.icu.apache2,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.icu.apache2,respiratory_rate:"
+msgid "Respiratory Rate"
+msgstr "Frecuencia Respiratoria"
+
+msgctxt "field:gnuhealth.icu.apache2,score_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.icu.apache2,serum_creatinine:"
+msgid "Creatinine"
+msgstr "Creatinina"
+
+msgctxt "field:gnuhealth.icu.apache2,serum_potassium:"
+msgid "Potassium"
+msgstr "Potasio"
+
+msgctxt "field:gnuhealth.icu.apache2,serum_sodium:"
+msgid "Sodium"
+msgstr "Sodio"
+
+msgctxt "field:gnuhealth.icu.apache2,temperature:"
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgctxt "field:gnuhealth.icu.apache2,wbc:"
+msgid "WBC"
+msgstr "WBC"
+
+msgctxt "field:gnuhealth.icu.apache2,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.icu.apache2,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,air_leak:"
+msgid "Air Leak"
+msgstr "Fuga de Aire"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,create_uid:"
+msgid "Create User"
+msgstr "Creación por usuario"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid "Aspect"
+msgstr "Aspecto"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,fluid_volume:"
+msgid "Volume"
+msgstr "Volumen"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,location:"
+msgid "Location"
+msgstr "Ubicación"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,name:"
+msgid "Rounding"
+msgstr "Rondas de enfermería"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,oscillation:"
+msgid "Oscillation"
+msgstr "Oscilación"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,remarks:"
+msgid "Remarks"
+msgstr "Observaciones"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,suction:"
+msgid "Suction"
+msgstr "Succión"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,suction_pressure:"
+msgid "cm H2O"
+msgstr "cm H2O"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.icu.chest_drainage,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.icu.glasgow,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.icu.glasgow,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.icu.glasgow,evaluation_date:"
+msgid "Date"
+msgstr "Fecha"
+
+msgctxt "field:gnuhealth.icu.glasgow,glasgow:"
+msgid "Glasgow"
+msgstr "Glasgow"
+
+msgctxt "field:gnuhealth.icu.glasgow,glasgow_eyes:"
+msgid "Eyes"
+msgstr "Ojos"
+
+msgctxt "field:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "Motor"
+msgstr "Motor"
+
+msgctxt "field:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "Verbal"
+msgstr "Oral"
+
+msgctxt "field:gnuhealth.icu.glasgow,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.icu.glasgow,name:"
+msgid "Registration Code"
+msgstr "Código de Registro"
+
+msgctxt "field:gnuhealth.icu.glasgow,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.icu.glasgow,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.icu.glasgow,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.icu.ventilation,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.icu.ventilation,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.icu.ventilation,current_mv:"
+msgid "Current"
+msgstr "Actual"
+
+msgctxt "field:gnuhealth.icu.ventilation,ett_size:"
+msgid "ETT Size"
+msgstr "Tamaño ETT"
+
+msgctxt "field:gnuhealth.icu.ventilation,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.icu.ventilation,mv_end:"
+msgid "To"
+msgstr "A"
+
+msgctxt "field:gnuhealth.icu.ventilation,mv_period:"
+msgid "Duration"
+msgstr "Duración"
+
+msgctxt "field:gnuhealth.icu.ventilation,mv_start:"
+msgid "From"
+msgstr "Desde"
+
+msgctxt "field:gnuhealth.icu.ventilation,name:"
+msgid "Patient ICU Admission"
+msgstr "Ingreso en UCI del Paciente"
+
+msgctxt "field:gnuhealth.icu.ventilation,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.icu.ventilation,remarks:"
+msgid "Remarks"
+msgstr "Observaciones"
+
+msgctxt "field:gnuhealth.icu.ventilation,tracheostomy_size:"
+msgid "Tracheostomy size"
+msgstr "Tamaño de la traqueotomía"
+
+msgctxt "field:gnuhealth.icu.ventilation,ventilation:"
+msgid "Type"
+msgstr "Tipo"
+
+msgctxt "field:gnuhealth.icu.ventilation,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.icu.ventilation,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.inpatient.icu,admitted:"
+msgid "Admitted"
+msgstr "Admitido"
+
+msgctxt "field:gnuhealth.inpatient.icu,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.inpatient.icu,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.inpatient.icu,discharged_from_icu:"
+msgid "Discharged"
+msgstr "Alta"
+
+msgctxt "field:gnuhealth.inpatient.icu,icu_admission_date:"
+msgid "ICU Admission"
+msgstr "Ingreso en UCI"
+
+msgctxt "field:gnuhealth.inpatient.icu,icu_discharge_date:"
+msgid "Discharge"
+msgstr "Alta"
+
+msgctxt "field:gnuhealth.inpatient.icu,icu_stay:"
+msgid "Duration"
+msgstr "Duración"
+
+msgctxt "field:gnuhealth.inpatient.icu,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.inpatient.icu,mv_history:"
+msgid "Mechanical Ventilation History"
+msgstr "Historia de Ventilación Mecánica"
+
+msgctxt "field:gnuhealth.inpatient.icu,name:"
+msgid "Registration Code"
+msgstr "Código de Registro"
+
+msgctxt "field:gnuhealth.inpatient.icu,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.inpatient.icu,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.inpatient.icu,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.inpatient.registration,icu:"
+msgid "ICU"
+msgstr "UCI"
+
+msgctxt "field:gnuhealth.inpatient.registration,icu_admissions:"
+msgid "ICU Admissions"
+msgstr "Ingresos en UCI"
+
+msgctxt "field:gnuhealth.patient.rounding,anisocoria:"
+msgid "Anisocoria"
+msgstr "Anisocoria"
+
+msgctxt "field:gnuhealth.patient.rounding,arterial_access:"
+msgid "Arterial Access"
+msgstr "Acceso Arterial"
+
+msgctxt "field:gnuhealth.patient.rounding,bacteremia:"
+msgid "Bacteremia"
+msgstr "Bacteriemia"
+
+msgctxt "field:gnuhealth.patient.rounding,bowel_sounds:"
+msgid "Bowel Sounds"
+msgstr "Sonidos intestinales"
+
+msgctxt "field:gnuhealth.patient.rounding,cellulitis:"
+msgid "Cellulitis"
+msgstr "Celulitis"
+
+msgctxt "field:gnuhealth.patient.rounding,chest_drainages:"
+msgid "Drainages"
+msgstr "Drenajes"
+
+msgctxt "field:gnuhealth.patient.rounding,chest_expansion:"
+msgid "Expansion"
+msgstr "Expansión"
+
+msgctxt "field:gnuhealth.patient.rounding,dialysis:"
+msgid "Dialysis"
+msgstr "Dialisis"
+
+msgctxt "field:gnuhealth.patient.rounding,ecg:"
+msgid "Inpatient ECG"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.rounding,edema:"
+msgid "Edema"
+msgstr "Edema"
+
+msgctxt "field:gnuhealth.patient.rounding,fio2:"
+msgid "FiO2"
+msgstr "FiO2"
+
+msgctxt "field:gnuhealth.patient.rounding,gcs:"
+msgid "GCS"
+msgstr "GCS"
+
+msgctxt "field:gnuhealth.patient.rounding,icu_patient:"
+msgid "ICU"
+msgstr "UCI"
+
+msgctxt "field:gnuhealth.patient.rounding,left_pupil:"
+msgid "L"
+msgstr "L"
+
+msgctxt "field:gnuhealth.patient.rounding,lips_lesion:"
+msgid "Lips lesion"
+msgstr "Lesión en labios"
+
+msgctxt "field:gnuhealth.patient.rounding,necrotizing_fasciitis:"
+msgid "Necrotizing fasciitis"
+msgstr "Fascitis necrosante"
+
+msgctxt "field:gnuhealth.patient.rounding,oral_mucosa_lesion:"
+msgid "Oral mucosa lesion"
+msgstr "Lesión en mucosa bucal"
+
+msgctxt "field:gnuhealth.patient.rounding,oxygen_mask:"
+msgid "Oxygen Mask"
+msgstr "Máscara de Oxígeno"
+
+msgctxt "field:gnuhealth.patient.rounding,paradoxical_expansion:"
+msgid "Paradoxical"
+msgstr "Paradójico"
+
+msgctxt "field:gnuhealth.patient.rounding,peep:"
+msgid "PEEP"
+msgstr "PEEP"
+
+msgctxt "field:gnuhealth.patient.rounding,peep_pressure:"
+msgid "cm H2O"
+msgstr "cm H2O"
+
+msgctxt "field:gnuhealth.patient.rounding,peritonitis:"
+msgid "Peritonitis signs"
+msgstr "Signos de peritonitis"
+
+msgctxt "field:gnuhealth.patient.rounding,pupil_consensual_resp:"
+msgid "Consensual Response"
+msgstr "Respuesta Consensuada"
+
+msgctxt "field:gnuhealth.patient.rounding,pupil_dilation:"
+msgid "Pupil Dilation"
+msgstr "Dilatación de Pupilas"
+
+msgctxt "field:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid "Pupillary Reactivity"
+msgstr "Reacción Pupilar"
+
+msgctxt "field:gnuhealth.patient.rounding,respiration_type:"
+msgid "Respiration"
+msgstr "Respiración"
+
+msgctxt "field:gnuhealth.patient.rounding,right_pupil:"
+msgid "R"
+msgstr "R"
+
+msgctxt "field:gnuhealth.patient.rounding,sce:"
+msgid "SCE"
+msgstr "SCE"
+
+msgctxt "field:gnuhealth.patient.rounding,ssi:"
+msgid "Surgery Site Infection"
+msgstr "Infección del Sitio Quirúrgico"
+
+msgctxt "field:gnuhealth.patient.rounding,stools:"
+msgid "Stools"
+msgstr "Heces"
+
+msgctxt "field:gnuhealth.patient.rounding,swan_ganz:"
+msgid "Swan Ganz"
+msgstr "Swan Ganz"
+
+msgctxt "field:gnuhealth.patient.rounding,trachea_alignment:"
+msgid "Tracheal alignment"
+msgstr "Alineación traqueal"
+
+msgctxt "field:gnuhealth.patient.rounding,tracheal_tug:"
+msgid "Tracheal Tug"
+msgstr "Signo de Oliver"
+
+msgctxt "field:gnuhealth.patient.rounding,venous_access:"
+msgid "Venous Access"
+msgstr "Acceso Venoso"
+
+msgctxt "field:gnuhealth.patient.rounding,vomiting:"
+msgid "Vomiting"
+msgstr "Vómitos"
+
+msgctxt "field:gnuhealth.patient.rounding,wound_dehiscence:"
+msgid "Wound Dehiscence"
+msgstr "Herida dehiscente"
+
+msgctxt "field:gnuhealth.patient.rounding,xray:"
+msgid "Xray"
+msgstr "Rayos X"
+
+msgctxt "help:gnuhealth.icu.apache2,age:"
+msgid "Patient age in years"
+msgstr "Edad del paciente en años"
+
+msgctxt "help:gnuhealth.icu.apache2,arf:"
+msgid "Acute Renal Failure"
+msgstr "Insuficiencia Renal Aguda"
+
+msgctxt "help:gnuhealth.icu.apache2,chronic_condition:"
+msgid "Organ Failure or immunocompromised patient"
+msgstr "Fallo orgánico o paciente inmunocomprometido"
+
+msgctxt "help:gnuhealth.icu.apache2,gcs:"
+msgid ""
+"Last Glasgow Coma Scale You can use the GSC calculator from the Patient "
+"Evaluation Form."
+msgstr ""
+"Última Escala de Glasgow Puede usar la calculadora de GSC del formulario de "
+"Evaluación del Paciente"
+
+msgctxt "help:gnuhealth.icu.apache2,mean_ap:"
+msgid "Mean Arterial Pressure"
+msgstr "Presión Arterial Media"
+
+msgctxt "help:gnuhealth.icu.apache2,score_date:"
+msgid "Date of the score"
+msgstr "Fecha de puntuación"
+
+msgctxt "help:gnuhealth.icu.apache2,temperature:"
+msgid "Rectal temperature"
+msgstr "Temperatura rectal"
+
+msgctxt "help:gnuhealth.icu.apache2,wbc:"
+msgid ""
+"White blood cells x 1000 - if you want to input 4500 wbc / ml, type in 4.5"
+msgstr "Glóbulos blancos x 1000 - si quiere registrar 4500 gb / ml, tipee 4.5"
+
+msgctxt "help:gnuhealth.icu.glasgow,evaluation_date:"
+msgid "Date / Time"
+msgstr "Fecha / Hora"
+
+msgctxt "help:gnuhealth.icu.glasgow,glasgow:"
+msgid ""
+"Level of Consciousness - on Glasgow Coma Scale :  < 9 severe - 9-12 "
+"Moderate, > 13 minor"
+msgstr ""
+"Nivel de consciencia - en escala de Glasgow: < 9 severo - 9-12 Moderado, > "
+"13 menor"
+
+msgctxt "help:gnuhealth.icu.ventilation,mv_end:"
+msgid "End of Mechanical Ventilation"
+msgstr "Fin de la Ventilación Mecánica"
+
+msgctxt "help:gnuhealth.icu.ventilation,mv_start:"
+msgid "Start of Mechanical Ventilation"
+msgstr "Inicio de la Ventilación Mecánica"
+
+msgctxt "help:gnuhealth.icu.ventilation,ventilation:"
+msgid ""
+"NPPV = Non-Invasive Positive Pressure Ventilation, BiPAP-CPAP \n"
+"ETT - Endotracheal Tube"
+msgstr ""
+"VPPNI = Ventilación con Presión Positiva no Invasiva \n"
+"TE - Tubo endotraqueal"
+
+msgctxt "help:gnuhealth.inpatient.icu,admitted:"
+msgid "Will be set when the patient         is currently admitted at ICU"
+msgstr "Se activará al admitir al paciente en UCI"
+
+msgctxt "help:gnuhealth.inpatient.icu,icu_admission_date:"
+msgid "ICU Admission Date"
+msgstr "Fecha de Ingreso en UCI"
+
+msgctxt "help:gnuhealth.inpatient.registration,icu:"
+msgid ""
+"Shows if patient was admitted to the Intensive Care Unit during the "
+"hospitalization period"
+msgstr ""
+"Muestra si el paciente fue ingresado en la Unidad de Cuidados Intensivos "
+"durante el periodo de hospitalización"
+
+msgctxt "help:gnuhealth.patient.rounding,icu_patient:"
+msgid "Check this box if this isan Intensive Care Unit rounding."
+msgstr ""
+"Tilde esta casilla si se trata de una ronda de Unidad de Cuidados Intensivos"
+
+msgctxt "help:gnuhealth.patient.rounding,left_pupil:"
+msgid "size in mm of left pupil"
+msgstr "tamaño en mm de la pupila izquierda"
+
+msgctxt "help:gnuhealth.patient.rounding,paradoxical_expansion:"
+msgid "Paradoxical Chest Expansion"
+msgstr "Respiración Paradójica"
+
+msgctxt "help:gnuhealth.patient.rounding,peep_pressure:"
+msgid "Pressure"
+msgstr "Presión"
+
+msgctxt "help:gnuhealth.patient.rounding,pupil_consensual_resp:"
+msgid "Pupillary Consensual Response"
+msgstr "Respuesta Pupilar Consensada"
+
+msgctxt "help:gnuhealth.patient.rounding,right_pupil:"
+msgid "size in mm of right pupil"
+msgstr "tamaño en mm de la pupila derecha"
+
+msgctxt "help:gnuhealth.patient.rounding,sce:"
+msgid "Subcutaneous Emphysema"
+msgstr "Enfisema Subcutáneo"
+
+msgctxt "help:gnuhealth.patient.rounding,swan_ganz:"
+msgid "Pulmonary Artery Catheterization - PAC -"
+msgstr "Cateterización de la Arteria Pulmonar -PAC-"
+
+msgctxt "model:gnuhealth.icu.apache2,name:"
+msgid "Apache II scoring"
+msgstr "Score de Apache II"
+
+msgctxt "model:gnuhealth.icu.chest_drainage,name:"
+msgid "Chest Drainage Asessment"
+msgstr "Valoración del drenaje torácico"
+
+msgctxt "model:gnuhealth.icu.glasgow,name:"
+msgid "Glasgow Coma Scale"
+msgstr "Nivel de Coma de Glasgow"
+
+msgctxt "model:gnuhealth.icu.ventilation,name:"
+msgid "Mechanical Ventilation History"
+msgstr "Historia de Ventilación Mecánica"
+
+msgctxt "model:gnuhealth.inpatient.icu,name:"
+msgid "Patient ICU Information"
+msgstr "Información de UCI del paciente"
+
+msgctxt "model:ir.action,name:act_apache_form1"
+msgid "APACHE II"
+msgstr "APACHE II"
+
+msgctxt "model:ir.action,name:act_ecg_form1"
+msgid "Inpatient ECGs"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_glasgow_form1"
+msgid "Glasgow Coma Scale"
+msgstr "Nivel de Coma de Glasgow"
+
+msgctxt "model:ir.action,name:action_gnuhealth_icu_apache2_form"
+msgid "APACHE II Score"
+msgstr "Score de APACHE II"
+
+msgctxt "model:ir.action,name:action_gnuhealth_icu_ecg_form1"
+msgid "ECGs"
+msgstr ""
+
+msgctxt "model:ir.action,name:action_gnuhealth_icu_glasgow_form"
+msgid "GCS"
+msgstr "GCS"
+
+msgctxt "model:ir.action,name:action_gnuhealth_inpatient_icu_form"
+msgid "Patient ICU Info"
+msgstr "Información del paciente de Unidad de Cuidados Intensivos"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_icu_menu"
+msgid "Intensive Care"
+msgstr "Cuidados Intensivos"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_apache2_list"
+msgid "APACHE II Score"
+msgstr "Score de APACHE II"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_ecgs_list1"
+msgid "ECGs"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_icu_glasgow_list"
+msgid "GCS"
+msgstr "GCS"
+
+msgctxt "model:ir.ui.menu,name:menu_gnuhealth_inpatient_icu_list"
+msgid "Patient ICU Info"
+msgstr "Información del paciente de Unidad de Cuidados Intensivos"
+
+msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
+msgid "Medical or emergency postoperative"
+msgstr "Postoperatorio médico o de emergencia"
+
+msgctxt "selection:gnuhealth.icu.apache2,hospital_admission_type:"
+msgid "elective postoperative"
+msgstr "Postoperatorio electivo"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid "Bloody"
+msgstr "Sangriento"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid "Chylous"
+msgstr "Quiloso"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid "Purulent"
+msgstr "Purulento"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,fluid_aspect:"
+msgid "Serous"
+msgstr "Seroso"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
+msgid "Left Pleura"
+msgstr "Pleura Izquierda"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
+msgid "Mediastinum"
+msgstr "Tumor de comportamiento incierto o desconocido del mediastino"
+
+msgctxt "selection:gnuhealth.icu.chest_drainage,location:"
+msgid "Right Pleura"
+msgstr "Pleura Derecha"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
+msgid "1 : Does not Open Eyes"
+msgstr "1 : Sin Apertura Ocular"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
+msgid "2 : Opens eyes in response to painful stimuli"
+msgstr "2 : Apertura ocular por estímulo doloroso"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
+msgid "3 : Opens eyes in response to voice"
+msgstr "3 : Apertura ocular por estímulo verbal"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_eyes:"
+msgid "4 : Opens eyes spontaneously"
+msgstr "4 : Apertura ocular espontánea"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "1 : Makes no movement"
+msgstr "1 : No se mueve"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "2 : Extension to painful stimuli - decerebrate response -"
+msgstr "2 : Extensión por estímulo doloroso -postura de descerebración- "
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid ""
+"3 : Abnormal flexion to painful stimuli             (decorticate response)"
+msgstr "3 : Flexión anormal a estímulos dolorosos (decorticación)"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "4 : Flexion / Withdrawal to painful stimuli"
+msgstr "4 : Flexión /Retiro por estímulo doloroso"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "5 : localizes painful stimuli"
+msgstr "5 : Localiza el estímulo doloroso"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_motor:"
+msgid "6 : Obeys commands"
+msgstr "6 : Obecede órdenes"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "1 : Makes no sounds"
+msgstr "1 : No emite sonidos"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "2 : Incomprehensible sounds"
+msgstr "2 : Sonidos incomprensibles"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "3 : Utters inappropriate words"
+msgstr "3 : Pronuncia palabras inapropiadas"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "4 : Confused, disoriented"
+msgstr "4 : Confundido, desorientado"
+
+msgctxt "selection:gnuhealth.icu.glasgow,glasgow_verbal:"
+msgid "5 : Oriented, converses normally"
+msgstr "5 : Orientado, conversa normalmente"
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid "ETT"
+msgstr "ETT"
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid "Non-Invasive Positive Pressure"
+msgstr "Presión positiva no invasiva"
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid "None - Maintains Own"
+msgstr "Ninguna - matiene la propia"
+
+msgctxt "selection:gnuhealth.icu.ventilation,ventilation:"
+msgid "Tracheostomy"
+msgstr "Traqueotomía"
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid "Absent"
+msgstr "Ausente"
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid "Decreased"
+msgstr "Disminuido"
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid "Increased"
+msgstr "Incrementado"
+
+msgctxt "selection:gnuhealth.patient.rounding,bowel_sounds:"
+msgid "Normal"
+msgstr "Normal"
+
+msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
+msgid "Asymmetrical"
+msgstr "Asimétrico"
+
+msgctxt "selection:gnuhealth.patient.rounding,chest_expansion:"
+msgid "Symmetrical"
+msgstr "Simétrico"
+
+msgctxt "selection:gnuhealth.patient.rounding,edema:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,edema:"
+msgid "Anasarca"
+msgstr "Anasarca"
+
+msgctxt "selection:gnuhealth.patient.rounding,edema:"
+msgid "None"
+msgstr "Ninguno"
+
+msgctxt "selection:gnuhealth.patient.rounding,edema:"
+msgid "Peripheral"
+msgstr "Periférico"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
+msgid "Miosis"
+msgstr "Miosis"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
+msgid "Mydriasis"
+msgstr "Midriasis"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupil_dilation:"
+msgid "Normal"
+msgstr "Normal"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid "Brisk"
+msgstr "Enérgico"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid "Nonreactive"
+msgstr "No reactivo"
+
+msgctxt "selection:gnuhealth.patient.rounding,pupillary_reactivity:"
+msgid "Sluggish"
+msgstr "Enlentecido"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid "Deep"
+msgstr "Profundo"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid "Intercostal"
+msgstr "Intercostal"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid "Labored"
+msgstr "Dificultosa"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid "Regular"
+msgstr "Normal"
+
+msgctxt "selection:gnuhealth.patient.rounding,respiration_type:"
+msgid "Shallow"
+msgstr "Superficial"
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid "Constipation"
+msgstr "Constipación"
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid "Diarrhea"
+msgstr "Diarrea"
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid "Melena"
+msgstr "Melena"
+
+msgctxt "selection:gnuhealth.patient.rounding,stools:"
+msgid "Normal"
+msgstr "Normal"
+
+msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
+msgid "Deviated left"
+msgstr "Desviación a la izquierda"
+
+msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
+msgid "Deviated right"
+msgstr "Desviación a la derecha"
+
+msgctxt "selection:gnuhealth.patient.rounding,trachea_alignment:"
+msgid "Midline"
+msgstr "Centrado"
+
+msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
+msgid "Central catheter"
+msgstr "Cateter central"
+
+msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
+msgid "None"
+msgstr "Ninguno"
+
+msgctxt "selection:gnuhealth.patient.rounding,venous_access:"
+msgid "Peripheral"
+msgstr "Periférico"
+
+msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
+msgid "Hematemesis"
+msgstr "Hematemesis"
+
+msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
+msgid "None"
+msgstr "Ninguno"
+
+msgctxt "selection:gnuhealth.patient.rounding,vomiting:"
+msgid "Vomiting"
+msgstr "Vómitos"

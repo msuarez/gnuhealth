@@ -3,5 +3,6 @@
     <field name="name"/>
     <field name="institution"/>
     <field name="building"/>
-    <field name="unit" expand="1"/>
+    <field name="unit"/>
+    <field name="state"/>
 </tree>

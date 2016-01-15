@@ -1,0 +1,169 @@
+# Nab3a <asn09@aub.edu.lb>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:29+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452256150.0\n"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,create_date:"
+msgid "Create Date"
+msgstr "أنشىء التاريخ"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,create_uid:"
+msgid "Create User"
+msgstr "إنشاء مستخدم "
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,id:"
+msgid "ID"
+msgstr "المُعرّف"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Indicator"
+msgstr "مؤشر"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "Measure"
+msgstr "قياس"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,month:"
+msgid "Month"
+msgstr "شهر"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,rec_name:"
+msgid "Name"
+msgstr "الاسم"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Sex"
+msgstr "الجنس"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,type:"
+msgid "Type"
+msgstr "النوع"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,value:"
+msgid "Value"
+msgstr "قيمة"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,write_date:"
+msgid "Write Date"
+msgstr "اكتب التاريخ"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who,write_uid:"
+msgid "Write User"
+msgstr "كتابة مستخدم"
+
+msgctxt "field:gnuhealth.pediatrics.growth.charts.who.report.open.start,id:"
+msgid "ID"
+msgstr "المُعرّف"
+
+msgctxt ""
+"field:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Indicator"
+msgstr "مؤشر"
+
+msgctxt ""
+"field:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "Measure"
+msgstr "قياس"
+
+msgctxt "model:gnuhealth.pediatrics.growth.charts.who,name:"
+msgid "Pediatrics Growth Chart WHO"
+msgstr ""
+
+msgctxt "model:gnuhealth.pediatrics.growth.charts.who.report.open.start,name:"
+msgid "Open Pediatrics Growth Charts WHO Report Start"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_bmifa"
+msgid "Pediatrics Growth Charts WHO - BMI for age"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_lhfa"
+msgid "Pediatrics Growth Charts WHO - Length/Height for age"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_pediatrics_growth_charts_who_wfa"
+msgid "Pediatrics Growth Charts WHO - Weight for age"
+msgstr ""
+
+msgctxt "model:ir.action,name:wizard_pediatrics_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_conf_growth_charts_who"
+msgid "Pediatrics Growth Charts WHO"
+msgstr ""
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Body mass index for age (BMI for age)"
+msgstr ""
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Length/height for age"
+msgstr ""
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,indicator:"
+msgid "Weight for age"
+msgstr "الوزن بالنسبة للعمر"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "percentiles"
+msgstr "النسب المئوية"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,measure:"
+msgid "z-scores"
+msgstr ""
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Female"
+msgstr "أنثى"
+
+msgctxt "selection:gnuhealth.pediatrics.growth.charts.who,sex:"
+msgid "Male"
+msgstr "ذكر"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Body mass index for age (BMI for age)"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Length/height for age"
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,indicator:"
+msgid "Weight for age"
+msgstr "الوزن بالنسبة للعمر"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "percentiles"
+msgstr "النسب المئوية"
+
+msgctxt ""
+"selection:gnuhealth.pediatrics.growth.charts.who.report.open.start,measure:"
+msgid "z-scores"
+msgstr ""
+
+msgctxt ""
+"wizard_button:gnuhealth.pediatrics.growth.charts.who.report.open,start,choose:"
+msgid "Open"
+msgstr "فتح"
+
+msgctxt ""
+"wizard_button:gnuhealth.pediatrics.growth.charts.who.report.open,start,end:"
+msgid "Cancel"
+msgstr "إلغاء"

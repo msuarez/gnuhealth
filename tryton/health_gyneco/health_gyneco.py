@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,9 +21,10 @@
 #
 ##############################################################################
 import datetime
-from trytond.model import ModelView, ModelSQL, fields
-from trytond.pyson import Eval, Not, Bool
+from trytond.model import ModelView, ModelSQL, fields, Unique
+from trytond.pyson import Eval, Not, Bool, Equal
 from trytond.pool import Pool
+from trytond import backend
 from trytond.transaction import Transaction
 from sql import *
 from sql.aggregate import *
@@ -43,6 +44,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     gravida = fields.Integer('Pregnancy #', required=True)
     warning = fields.Boolean('Warn', help='Check this box if this is pregancy'
         ' is or was NOT normal')
+    warning_icon = fields.Function(fields.Char('Pregnancy warning icon'), 'get_warn_icon')
     reverse = fields.Boolean ('Reverse', help="Use this method *only* when the \
         pregnancy information is referred by the patient, as a history taking \
         procedure. Please keep in mind that the reverse pregnancy data is \
@@ -103,7 +105,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     iugr = fields.Selection([
         (None, ''),
         ('symmetric', 'Symmetric'),
-        ('assymetric', 'Assymetric'),
+        ('assymetric', 'Asymmetric'),
         ], 'IUGR', sort=False)
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution',
@@ -116,10 +118,12 @@ class PatientPregnancy(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(PatientPregnancy, cls).__setup__()
-        cls._sql_constraints = [
-            ('gravida_uniq', 'UNIQUE(name,gravida)', 'The pregancy number must'
-                ' be unique for this patient !'),
+        t = cls.__table__()
+        cls._sql_constraints += [
+            ('gravida_uniq', Unique(t,t.name, t.gravida),
+                'This pregnancy code for this patient already exists'),
         ]
+
         cls._error_messages.update({
             'patient_already_pregnant': 'Our records indicate that the patient'
                 ' is already pregnant !'})
@@ -189,6 +193,9 @@ class PatientPregnancy(ModelSQL, ModelView):
             else:
                 return 0
 
+    def get_warn_icon(self, name):
+        if self.warning:
+            return 'gnuhealth-warning'
 
 class PrenatalEvaluation(ModelSQL, ModelView):
     'Prenatal and Antenatal Evaluations'
@@ -383,28 +390,6 @@ class Perinatal(ModelSQL, ModelView):
         ('vulvar', 'Vulvar'),
         ('retroperitoneal', 'Retroperitoneal'),
         ], 'Hematoma', sort=False)
-    # Deprecated in 1.6.4. Puerperium is now a separate entity from perinatal
-    # and is included in the obstetric evaluation history
-    # puerperium_monitor = fields.One2Many('gnuhealth.puerperium.monitor',
-    #     'name', 'Puerperium monitor')
-    # Deprecated in 1.6.4. The medication and procedures will be done in the
-    # nursing and surgery modules
-    medication = fields.One2Many('gnuhealth.patient.medication', 'name',
-        'Medication and anesthesics')
-    dismissed = fields.DateTime('Discharged')
-    # Deprecated in 1.6.4 . Use the death information in the patient model
-    # Date and cause of death
-    place_of_death = fields.Selection([
-        (None, ''),
-        ('ho', 'Hospital'),
-        ('dr', 'At the delivery room'),
-        ('hh', 'in transit to the hospital'),
-        ('th', 'Being transferred to other hospital'),
-        ], 'Place of Death', help="Place where the mother died",
-        states={'invisible': Not(Bool(Eval('mother_deceased')))},
-        depends=['mother_deceased'], sort=False)
-    mother_deceased = fields.Boolean('Maternal death',
-        help="Mother died in the process")
     notes = fields.Text('Notes')
 
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
@@ -435,6 +420,24 @@ class Perinatal(ModelSQL, ModelView):
                 self.name.lmp
             return (gestational_age.days) / 7
 
+
+
+    @classmethod
+    def __register__(cls, module_name):
+        super(Perinatal, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Upgrade to GNU Health 3.0
+        # Remove deprecated fields since 1.6.4
+
+        if table.column_exist('dismissed'):
+            table.drop_column('dismissed')
+        if table.column_exist('place_of_death'):
+            table.drop_column('place_of_death')
+        if table.column_exist('mother_deceased'):
+            table.drop_column('mother_deceased')
 
 
 class PerinatalMonitor(ModelSQL, ModelView):
@@ -587,6 +590,12 @@ class GnuHealthPatient(ModelSQL, ModelView):
             return stillbirths
 
 
+    @classmethod
+    def view_attributes(cls):
+        return [('//page[@id="page_gyneco_obs"]', 'states', {
+                'invisible': Equal(Eval('sex'), 'm'),
+                })]
+
 class PatientMenstrualHistory(ModelSQL, ModelView):
     'Menstrual History'
     __name__ = 'gnuhealth.patient.menstrual_history'
@@ -594,7 +603,8 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Evaluation Date",
         required=True)
     lmp = fields.Date('LMP', help="Last Menstrual Period", required=True)
@@ -637,10 +647,6 @@ class PatientMenstrualHistory(ModelSQL, ModelView):
         return Pool().get('ir.date').today()
 
     @staticmethod
-    def default_last_colposcopy():
-        return Pool().get('ir.date').today()
-
-    @staticmethod
     def default_evaluation_date():
         return Pool().get('ir.date').today()
 
@@ -660,7 +666,8 @@ class PatientMammographyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_mammography = fields.Date('Previous', help="Last Mammography")
     result = fields.Selection([
@@ -706,7 +713,8 @@ class PatientPAPHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_pap = fields.Date('Previous', help="Last Papanicolau")
     result = fields.Selection([
@@ -757,7 +765,8 @@ class PatientColposcopyHistory(ModelSQL, ModelView):
     name = fields.Many2One('gnuhealth.patient', 'Patient', readonly=True,
         required=True)
     evaluation = fields.Many2One('gnuhealth.patient.evaluation', 'Evaluation',
-        domain=[('patient', '=', Eval('name'))])
+        domain=[('patient', '=', Eval('name'))],
+        depends=['name'])
     evaluation_date = fields.Date('Date', help="Date", required=True)
     last_colposcopy = fields.Date('Previous', help="Last colposcopy")
     result = fields.Selection([

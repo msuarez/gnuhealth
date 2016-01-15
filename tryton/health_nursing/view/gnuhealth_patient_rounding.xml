@@ -2,28 +2,34 @@
 <form string="Patient Rounding View">
     <notebook>
         <page string="Main" id="rounding_main">
-            <group colspan="2" id="group_admin_data">
+            <group colspan="2" col="8" id="group_admin_data">
                 <label name="name"/>
                 <field name="name"/>
                 <label name="health_professional"/>
                 <field name="health_professional"/>
                 <label name="evaluation_start"/>
                 <field name="evaluation_start"/>
-                <label name="evaluation_end"/>
-                <field name="evaluation_end"/>
+                <label name="code"/>
+                <field name="code"/>
+                <newline/>
+            </group>
+            <newline/>
+            <group colspan="4" id="group_environment_data">
                 <label name="environmental_assessment"/>
                 <field name="environmental_assessment"/>
                 <label name="warning"/>
                 <field name="warning"/>
             </group>
             <newline/>
-            <group colspan="4" col="6" id="the_six_p_wiew" string="Six P's">
+            <group colspan="4" col="7" id="the_six_p_wiew" string="Six P's">
                 <label name="pain"/>
                 <field name="pain"/>
+                <field name="pain_level"/>
                 <label name="potty"/>
                 <field name="potty"/>
                 <label name="position"/>
                 <field name="position"/>
+                <newline/>
                 <label name="proximity"/>
                 <field name="proximity"/>
                 <label name="pump"/>
@@ -48,6 +54,8 @@
             </group>
             <newline/>
             <group colspan="4" col="10" id="group_patient_rounding_others" string="Other">
+                <label name="weight"/>
+                <field name="weight"/>
                 <label name="diuresis"/>
                 <field name="diuresis"/>
                 <label name="urinary_catheter"/>
@@ -56,13 +64,23 @@
                 <field name="glycemia"/>
                 <label name="depression"/>
                 <field name="depression"/>
-                <label name="evolution"/>
-                <field name="evolution"/>
             </group>
             <newline/>
             <separator string="Round summary" id="separator_round_summary"/>
             <newline/>
             <field name="round_summary"/>
+            <newline/>
+            <group colspan="4" col="12" id="group_patient_rounding_footer">            
+                <field name="state"/>
+                <label name="evaluation_end"/>
+                <field name="evaluation_end"/>
+                <label name="signed_by"/>
+                <field name="signed_by"/>
+                <label name="evolution"/>
+                <field name="evolution"/>
+                <button name="end_rounding" help="End this rounding" string="End rounding" icon="tryton-go-next" confirm="End this rounding ?"/>
+            </group>
+
         </page>
         <page string="Procedures" id="rounding_procedures">
             <field name="procedures"/>

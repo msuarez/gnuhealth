@@ -25,6 +25,11 @@
             <field name="path">icons/go-home.svg</field>
         </record>
 
+        <record model="ir.ui.icon" id="gnuhealth_meal_icon">
+            <field name="name">icon-meals</field>
+            <field name="path">icons/meals.svg</field>
+        </record>
+
         <record model="ir.ui.icon" id="gnuhealth_list_icon">
             <field name="name">gnuhealth-list</field>
             <field name="path">../health/icons/tryton-list.svg</field>
@@ -44,6 +49,7 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_inpatient_registration_tree</field>
         </record>
+
 
 <!-- Create the Action -->
 
@@ -69,6 +75,49 @@
             id="gnuhealth_inpatient_menu" sequence="50"
             icon="icon-hospital-patient"/>
 
+<!-- Domain Action Windows -->
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="10"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_draft">
+            <field name="name">Cancelled</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'cancelled')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_confirmed">
+            <field name="name">Confirmed</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'confirmed')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_hospitalized">
+            <field name="name">Hospitalized</field>
+            <field name="sequence" eval="40"/>
+            <field name="domain" eval="[('state', '=', 'hospitalized')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_done">
+            <field name="name">To clean</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain" eval="[('state', '=', 'done')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_registration_domain_finished">
+            <field name="name">Finished</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain" eval="[('state', '=', 'finished')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_registration"/>
+        </record>
+
 <!-- Add the patient hospitalization registration code to the appointment view -->
 
         <record model="ir.ui.view" id="view_partner_form">
@@ -77,6 +126,29 @@
             <field name="type">form</field>
             <field name="name">partner_form</field>
         </record>
+
+<!-- Add the patient hospitalization registration code to the evaluation view -->
+
+        <record model="ir.ui.view" id="view_patient_evaluation_form">
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="inherit" ref="health.gnuhealth_patient_evaluation_view" />
+            <field name="type">form</field>
+            <field name="name">gnuhealth_patient_evaluation_form</field>
+        </record>
+
+<!-- Shortcut to the Hospitalized Patient Evaluations -->
+        <record model="ir.action.act_window" id="act_evaluation_form1">
+            <field name="name">Inpatient Evaluations</field>
+            <field name="res_model">gnuhealth.patient.evaluation</field>
+            <field name="domain" eval="[('inpatient_registration_code', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_evaluation_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.inpatient.registration,-1</field>
+            <field name="action" ref="act_evaluation_form1"/>
+        </record>
+
 
 <!-- Add the patient Hospitalization Status to the partner form -->
 
@@ -92,6 +164,15 @@
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_tree"/>
             <field name="name">gnuhealth_patient_extd_tree</field>
+        </record>
+
+<!-- Add the patient hospitalization registration code to the ecg view -->
+
+        <record model="ir.ui.view" id="view_ecg_registration_form1">
+            <field name="model">gnuhealth.patient.ecg</field>
+            <field name="inherit" ref="health.gnuhealth_patient_ecg_form" />
+            <field name="type">form</field>
+            <field name="name">ecg_registration</field>
         </record>
 
 <!-- Inpatient Medication -->
@@ -141,21 +222,7 @@
             <field name="name">gnuhealth_inpatient_med_log_tree</field>
         </record>
 
-<!-- Form view for diets related to beliefs / religions -->
 
-        <record id="gnuhealth_inpatient_diet_belief_form" model="ir.ui.view">
-            <field name="model">gnuhealth.diet.belief</field>
-            <field name="type">form</field>
-            <field name="name">gnuhealth_inpatient_diet_belief_form</field>
-        </record>
-
-<!-- Tree view for the Beliefs and religon related diets -->
-
-        <record id="gnuhealth_inpatient_diet_belief_tree" model="ir.ui.view">
-            <field name="model">gnuhealth.diet.belief</field>
-            <field name="type">tree</field>
-            <field name="name">gnuhealth_inpatient_diet_belief_tree</field>
-        </record>
 
 <!-- Form view for the Therapeutic diet -->
 
@@ -170,8 +237,30 @@
         <record id="gnuhealth_inpatient_diet_therapeutic_tree" model="ir.ui.view">
             <field name="model">gnuhealth.diet.therapeutic</field>
             <field name="type">tree</field>
-            <field name="name">gnuhealth_inpatient_diet_belief_tree</field>
+            <field name="name">gnuhealth_inpatient_diet_therapeutic_tree</field>
         </record>
+
+<!-- Add Therapeutic Diets to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_diet_therapeutic">
+            <field name="name">Therapeutic diets</field>
+            <field name="res_model">gnuhealth.diet.therapeutic</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_diet_therapeutic_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_diet_therapeutic_tree"/>
+            <field name="act_window" ref="gnuhealth_action_diet_therapeutic"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_diet_therapeutic_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_diet_therapeutic_form"/>
+            <field name="act_window" ref="gnuhealth_action_diet_therapeutic"/>
+        </record>
+
+        <menuitem name="Therapeutic diets" action="gnuhealth_action_diet_therapeutic"
+            id="gnuhealth_conf_diet_therapeutic" parent="health_lifestyle.gnuhealth_conf_diets"
+            icon="gnuhealth-list"/>
 
 <!-- Form view for the Inpatient diet -->
 
@@ -189,6 +278,146 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_inpatient_diet_tree</field>
         </record>
+
+
+
+<!-- SECTION FOR HOSPITALIZATION MEALS-->
+
+
+<!-- Form view related to meals -->
+
+        <record id="gnuhealth_inpatient_meal_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_form</field>
+        </record>
+
+<!-- Tree view for the meals -->
+
+        <record id="gnuhealth_inpatient_meal_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_tree</field>
+        </record>
+
+<!-- Add Inpatient Meal to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_inpatient_meal">
+            <field name="name">Inpatient Meal</field>
+            <field name="res_model">gnuhealth.inpatient.meal</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_tree"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_form"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal"/>
+        </record>
+
+        <menuitem name="Inpatient Meals" action="gnuhealth_action_inpatient_meal"
+            id="gnuhealth_conf_inpatient_meal" parent="health.gnuhealth_conf_misc"
+            icon="icon-meals"/>
+
+
+
+<!-- MEAL ORDERS -->
+
+<!-- Form view related to meal orders-->
+
+        <record id="gnuhealth_inpatient_meal_order_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_order_form</field>
+        </record>
+
+<!-- Tree view for the meal orders -->
+
+        <record id="gnuhealth_inpatient_meal_order_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_order_tree</field>
+        </record>
+
+<!-- Add Inpatient Meal Orders to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_inpatient_meal_order">
+            <field name="name">Meal Orders</field>
+            <field name="res_model">gnuhealth.inpatient.meal.order</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_order_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_order_tree"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_inpatient_meal_order_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_inpatient_meal_order_form"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+
+<!-- DOMAIN WINDOWS -->
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="10"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'draft')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_ordered">
+            <field name="name">Ordered</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'ordered')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_inpatient_meal_order_domain_done">
+            <field name="name">Done</field>
+            <field name="sequence" eval="50"/>
+            <field name="domain" eval="[('state', '=', 'done')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_inpatient_meal_order"/>
+        </record>
+
+
+        <menuitem name="Meal Orders" action="gnuhealth_action_inpatient_meal_order"
+            id="gnuhealth_inpatient_meal_order" parent="gnuhealth_inpatient_menu"
+            icon="icon-meals"/>
+
+
+
+<!-- MEAL ORDERS ITEMS -->
+
+<!-- Form view related to meal order item -->
+
+        <record id="gnuhealth_inpatient_meal_order_item_form" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order.item</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_inpatient_meal_order_item_form</field>
+        </record>
+
+<!-- Tree view for the meal order item -->
+
+        <record id="gnuhealth_inpatient_meal_order_item_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.inpatient.meal.order.item</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_inpatient_meal_order_item_tree</field>
+        </record>
+
+
+
+
 
 
 <!-- Bed transfer history -->

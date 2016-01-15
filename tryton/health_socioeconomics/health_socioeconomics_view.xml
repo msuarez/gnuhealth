@@ -21,5 +21,52 @@
             <field name="name">gnuhealth_patient</field>
         </record>
 
+		<!--SES and Family functionality assessment -->
+        <record model="ir.ui.view" id="ses_view_list">                               
+            <field name="model">gnuhealth.ses.assessment</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_ses_assessment_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="ses_view_form">
+            <field name="model">gnuhealth.ses.assessment</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_ses_assessment_form</field>
+        </record>
+
+		<!--SES and Family functionality assessment action windows -->
+
+        <record model="ir.action.act_window" id="act_ses_family_assessment">
+            <field name="name">Socioeconomics and Family Assessment</field>
+            <field name="res_model">gnuhealth.ses.assessment</field>
+        </record>
+		
+		<record model="ir.action.act_window.view" id="act_ses_family_assessment_tree">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="ses_view_list"/>
+            <field name="act_window" ref="act_ses_family_assessment"/>
+        </record>
+		
+		<record model="ir.action.act_window.view" id="act_ses_family_assessment_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="ses_view_form"/>
+            <field name="act_window" ref="act_ses_family_assessment"/>
+        </record>
+
+        <!-- Shortcut to the Patient Socioeconomics and Family Assessment -->
+        <record model="ir.action.act_window" id="act_ses_assessment">
+            <field name="name">Socioeconomic and Family Assessment</field>
+            <field name="res_model">gnuhealth.ses.assessment</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_ses_assessment_keyword">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_ses_assessment"/>
+        </record>
+
+   		<menuitem name="Socioeconomic Assessments" parent="health.gnuhealth_reporting_menu" id="gnuhealth_ses_assessment_menu" action="act_ses_family_assessment" icon="gnuhealth-list"/>
+
     </data>
 </tryton>

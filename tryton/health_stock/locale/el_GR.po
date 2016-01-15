@@ -1,20 +1,14 @@
-# 
-# Translators:
-# kvisitor <kvisitor@gnugr.org>, 2013-2015
-# Vassilis Perantzakis <vaspervnp@yahoo.gr>, 2015
+# Anonymous Pootle User, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: GNU Health\n"
-"Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-27 11:17+0000\n"
-"PO-Revision-Date: 2015-01-29 17:01+0000\n"
-"Last-Translator: Vassilis Perantzakis <vaspervnp@yahoo.gr>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/GNU_Health/language/el/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"PO-Revision-Date: 2016-01-10 17:03+0000\n"
+"Last-Translator: Anonymous Pootle User\n"
+"Language: el_GR\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452445414.0\n"
 
 msgctxt "error:gnuhealth.prescription.stock.move.create:"
 msgid "Stock moves already exists!."
@@ -32,7 +26,9 @@ msgctxt "error:gnuhealth.vaccination:"
 msgid ""
 "EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
 "IT !!!"
-msgstr "ΛΗΓΜΕΝΟ ΕΜΒΟΛΙΟ. ΠΑΡΑΚΑΛΩ ΕΝΗΜΕΡΩΣΤΕ  ΤΙΣ ΤΟΠΙΚΕΣ ΥΓΕΙΟΝΟΜΙΚΕΣ ΑΡΧΕΣ ΚΑΙ ΜΗ ΤΟ ΧΡΗΣΙΜΟΠΟΙΕΙΤΕ !!!"
+msgstr ""
+"ΛΗΓΜΕΝΟ ΕΜΒΟΛΙΟ. ΠΑΡΑΚΑΛΩ ΕΝΗΜΕΡΩΣΤΕ  ΤΙΣ ΤΟΠΙΚΕΣ ΥΓΕΙΟΝΟΜΙΚΕΣ ΑΡΧΕΣ ΚΑΙ ΜΗ "
+"ΤΟ ΧΡΗΣΙΜΟΠΟΙΕΙΤΕ !!!"
 
 msgctxt "field:gnuhealth.medicament,quantity:"
 msgid "Quantity"
@@ -53,10 +49,6 @@ msgstr "Φάρμακα"
 msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
 msgid "Stock Moves"
 msgstr "Μετακινήσεις υλικού"
-
-msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
-msgid "State"
-msgstr "Περιοχή"
 
 msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
 msgid "Create Date"
@@ -166,10 +158,6 @@ msgstr "Φάρμακα"
 msgctxt "field:gnuhealth.patient.rounding,moves:"
 msgid "Stock Moves"
 msgstr "Μετακινήσεις υλικού"
-
-msgctxt "field:gnuhealth.patient.rounding,state:"
-msgid "State"
-msgstr "Περιοχή"
 
 msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
 msgid "Create Date"
@@ -317,7 +305,8 @@ msgstr "Σύντομο σχόλιο για το συγκεκριμμένο φά�
 
 msgctxt "help:gnuhealth.vaccination,lot:"
 msgid "This field includes the lot number and expiration date"
-msgstr "Αυτό το πεδίο περιλαμβάνει τον αριθμό παρτίδας/Lot και την Ημερομ. λήξης"
+msgstr ""
+"Αυτό το πεδίο περιλαμβάνει τον αριθμό παρτίδας/Lot και την Ημερομ. λήξης"
 
 msgctxt "model:gnuhealth.patient.ambulatory_care.medical_supply,name:"
 msgid "Patient Ambulatory Care Medical Supply"
@@ -352,92 +341,12 @@ msgid "Create Vaccination Stock Move"
 msgstr "Δημιουργία κίνησης Αποθεμάτων Εμβολίων"
 
 msgctxt "model:ir.action,name:act_prescription_move_form1"
-msgid "Stock Moves"
-msgstr "Μετακινήσεις υλικού"
+msgid "Stock Moves [readonly]"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_vaccination_move_form1"
-msgid "Stock Moves"
-msgstr "Μετακινήσεις υλικού"
-
-msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
-msgid "Done"
-msgstr "Έγινε"
-
-msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
-msgid "Draft"
-msgstr "Πρόχειρο/ προσχέδιο"
-
-msgctxt "selection:gnuhealth.patient.rounding,state:"
-msgid "Done"
-msgstr "Έγινε"
-
-msgctxt "selection:gnuhealth.patient.rounding,state:"
-msgid "Draft"
-msgstr "Πρόχειρο/ προσχέδιο"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care.medical_supply:"
-msgid "Medical Supplies"
-msgstr "Ιατρικές προμήθειες"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care.medicament:"
-msgid "Medicament"
-msgstr "Φάρμακο"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Done"
-msgstr "Έγινε"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Medication"
-msgstr "Φάρμακα"
-
-msgctxt "view:gnuhealth.patient.ambulatory_care:"
-msgid "Stock Moves"
-msgstr "Μετακινήσεις υλικού"
-
-msgctxt "view:gnuhealth.patient.rounding.medical_supply:"
-msgid "Medical Supplies"
-msgstr "Ιατρικές προμήθειες"
-
-msgctxt "view:gnuhealth.patient.rounding.medicament:"
-msgid "Medicament"
-msgstr "Φάρμακο"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Done"
-msgstr "Έγινε"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Medication"
-msgstr "Φάρμακα"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Six P's"
-msgstr "Σχέδιο ετοιμότητας"
-
-msgctxt "view:gnuhealth.patient.rounding:"
-msgid "Stock Moves"
-msgstr "Μετακινήσεις υλικού"
-
-msgctxt "view:gnuhealth.prescription.stock.move.init:"
-msgid "Create Prescription Stock Move"
-msgstr "Δημιουργία Μετακίνησης συνταγογραφικού υλικού αποθήκης"
-
-msgctxt "view:gnuhealth.prescription.stock.move.init:"
-msgid "Create Stock Move?"
-msgstr "Να δημιουργηθεί Μετακίνηση υλικού;"
-
-msgctxt "view:gnuhealth.vaccination.stock.move.init:"
-msgid "Create Stock Move?"
-msgstr "Να δημιουργηθεί Μετακίνηση υλικού;"
-
-msgctxt "view:gnuhealth.vaccination.stock.move.init:"
-msgid "Create Vaccination Stock Move"
-msgstr "Δημιουργία κίνησης Αποθεμάτων Εμβολίων"
-
-msgctxt "view:gnuhealth.vaccination:"
-msgid "Stock"
-msgstr "Υλικό"
+msgid "Stock Moves [readonly]"
+msgstr ""
 
 msgctxt ""
 "wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"

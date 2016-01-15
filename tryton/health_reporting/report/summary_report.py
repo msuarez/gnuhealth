@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from datetime import date
+from datetime import date, datetime
 from trytond.report import Report
 from trytond.pool import Pool
 from trytond.transaction import Transaction
@@ -32,20 +32,20 @@ class InstitutionSummaryReport(Report):
 
 
     @classmethod
-    def get_population(cls,date1,date2,sex,total):
+    def get_population(cls,date1,date2,gender,total):
         """ Return Total Number of living people in the system 
-        segmented by age group and sex"""
+        segmented by age group and gender"""
         cursor = Transaction().cursor
 
         if (total):
             cursor.execute("SELECT COUNT(dob) \
-                FROM party_party WHERE sex = %s and deceased is not TRUE",(sex))
+                FROM party_party WHERE gender = %s and deceased is not TRUE",(gender))
 
         else:
             cursor.execute("SELECT COUNT(dob) \
                 FROM party_party \
                 WHERE dob BETWEEN %s and %s AND \
-                sex = %s  and deceased is not TRUE" ,(date2, date1, sex))
+                gender = %s  and deceased is not TRUE" ,(date2, date1, gender))
        
         res = cursor.fetchone()[0]
     
@@ -101,23 +101,72 @@ class InstitutionSummaryReport(Report):
         return(res)
 
     @classmethod
-    def parse(cls, report, objects, data, localcontext):
+    def get_evaluations(cls, start_date, end_date, dx):
+        """ Return evaluation info """
+        
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+        start_date = datetime.strptime(str(start_date), '%Y-%m-%d')
+        end_date = datetime.strptime(str(end_date), '%Y-%m-%d')
+        end_date += relativedelta(hours=+23,minutes=+59,seconds=+59)
+        
+        clause = [
+            ('evaluation_start', '>=', start_date),
+            ('evaluation_start', '<=', end_date),
+            ]
+                
+        if dx:
+            clause.append(('diagnosis', '=', dx))
+            
+        res = Evaluation.search(clause)
+        
+        return(res)
+
+    @classmethod
+    def count_evaluations(cls, start_date, end_date, dx):
+        """ count diagnoses by groups """
+        
+        Evaluation = Pool().get('gnuhealth.patient.evaluation')
+        start_date = datetime.strptime(str(start_date), '%Y-%m-%d')
+        end_date = datetime.strptime(str(end_date), '%Y-%m-%d')
+        end_date += relativedelta(hours=+23,minutes=+59,seconds=+59)
+        
+        clause = [
+            ('evaluation_start', '>=', start_date),
+            ('evaluation_start', '<=', end_date),
+            ('diagnosis', '=', dx),
+            ]
+
+        res = Evaluation.search_count(clause)
+        
+        return(res)
+
+
+    @classmethod
+    def get_context(cls, records, data):
         Patient = Pool().get('gnuhealth.patient')
         Evaluation = Pool().get('gnuhealth.patient.evaluation')
+
+        context = super(InstitutionSummaryReport, cls).get_context(records, data)
 
         start_date = data['start_date']
         end_date = data['end_date']
 
-        localcontext['start_date'] = data['start_date']
-        localcontext['end_date'] = data['end_date']
+        demographics = data['demographics']
+        context['demographics'] = data['demographics']
+
+        patient_evaluations = data['patient_evaluations']
+        context['patient_evaluations'] = data['patient_evaluations']
+        
+        context['start_date'] = data['start_date']
+        context['end_date'] = data['end_date']
 
         # Demographics
         today = date.today()
 
-        localcontext[''.join(['p','total_','f'])] = \
+        context[''.join(['p','total_','f'])] = \
             cls.get_population (None,None,'f', total=True)
 
-        localcontext[''.join(['p','total_','m'])] = \
+        context[''.join(['p','total_','m'])] = \
             cls.get_population (None,None,'m', total=True)
         
         # Build the Population Pyramid for registered people
@@ -126,9 +175,9 @@ class InstitutionSummaryReport(Report):
             date1 = today - relativedelta(years=(age_group*5))
             date2 = today - relativedelta(years=((age_group*5)+5), days=-1)
             
-            localcontext[''.join(['p',str(age_group),'f'])] = \
+            context[''.join(['p',str(age_group),'f'])] = \
                 cls.get_population (date1,date2,'f', total=False)
-            localcontext[''.join(['p',str(age_group),'m'])] = \
+            context[''.join(['p',str(age_group),'m'])] = \
                 cls.get_population (date1,date2,'m', total=False)
 
 
@@ -136,26 +185,122 @@ class InstitutionSummaryReport(Report):
         date1 = today - relativedelta(years=105)
         date2 = today - relativedelta(years=200)
 
-        localcontext['over105f'] = \
+        context['over105f'] = \
             cls.get_population (date1,date2,'f', total=False)
-        localcontext['over105m'] = \
+        context['over105m'] = \
             cls.get_population (date1,date2,'m', total=False)
 
         
         # Count registered people, and those within the system of health
-        localcontext['new_people'] = \
+        context['new_people'] = \
             cls.get_new_people(start_date, end_date, False)
-        localcontext['new_in_health_system'] = \
+        context['new_in_health_system'] = \
             cls.get_new_people(start_date, end_date, in_health_system=True)
 
         # New births
-        localcontext['new_births'] = \
+        context['new_births'] = \
             cls.get_new_births(start_date, end_date)
         
         # New deaths
-        localcontext['new_deaths'] = \
+        context['new_deaths'] = \
             cls.get_new_deaths(start_date, end_date)
 
-        return super(InstitutionSummaryReport, cls).parse(report,
-            objects, data, localcontext)
 
+        # Get evaluations within the specified date range
+        
+        context['evaluations'] = \
+            cls.get_evaluations(start_date, end_date, None)
+        
+        evaluations = cls.get_evaluations(start_date, end_date, None)
+        
+        eval_dx =[]
+        non_dx_eval = 0
+        eval_f = 0
+        eval_m = 0
+        
+        # Global Evaluation info
+        for evaluation in evaluations:
+            if evaluation.diagnosis:
+                eval_dx.append(evaluation.diagnosis)
+            else:
+                # Increase the evaluations without Dx counter
+                non_dx_eval += 1
+            if (evaluation.gender == 'f'):
+                eval_f +=1
+            else:
+                eval_m +=1
+        
+        context['non_dx_eval'] = non_dx_eval
+        context['eval_num'] = len(evaluations)
+        context['eval_f'] = eval_f
+        context['eval_m'] = eval_m
+        
+        # Create a set to work with single diagnoses
+        # removing duplicate entries from eval_dx
+        
+        unique_dx = set(eval_dx)
+        
+        summary_dx = []
+        # Traverse the evaluations with Dx to get the key values
+        for dx in unique_dx:
+            # unique_evaluations holds the evaluations with
+            # the same diagnostic
+            unique_evaluations = cls.get_evaluations(start_date, end_date, dx)
+
+            group_1 = group_2 = group_3 = group_4 = group_5 = 0
+            group_1f = group_2f = group_3f = group_4f = group_5f = 0
+
+            total_evals = len(unique_evaluations)
+            
+            new_conditions = 0
+            
+            for unique_eval in unique_evaluations:
+                #Strip to get the raw year
+                age = int(unique_eval.computed_age.split(' ')[0][:-1])
+                
+                
+                # Age groups in this diagnostic
+                if (age < 5):
+                    group_1 += 1
+                    if (unique_eval.gender == 'f'):
+                        group_1f += 1
+                if (age in range(5,14)):
+                    group_2 += 1
+                    if (unique_eval.gender == 'f'):
+                        group_2f += 1
+                if (age in range(15,45)):
+                    group_3 += 1
+                    if (unique_eval.gender == 'f'):
+                        group_3f += 1
+                if (age in range(46,60)):
+                    group_4 += 1
+                    if (unique_eval.gender == 'f'):
+                        group_4f += 1
+                if (age > 60):
+                    group_5 += 1
+                    if (unique_eval.gender == 'f'):
+                        group_5f += 1
+
+                # Check for new conditions vs followup / chronic checkups 
+                # in the evaluation with a particular diagnosis
+                
+                if (unique_eval.visit_type == 'new'):
+                    new_conditions += 1
+                    
+            eval_dx = {'diagnosis': unique_eval.diagnosis.rec_name,
+                'age_group_1': group_1, 'age_group_1f': group_1f,
+                'age_group_2': group_2, 'age_group_2f': group_2f,
+                'age_group_3': group_3, 'age_group_3f': group_3f,
+                'age_group_4': group_4, 'age_group_4f': group_4f,
+                'age_group_5': group_5, 'age_group_5f': group_5f,
+                'total': total_evals, 'new_conditions' : new_conditions,
+                }
+                
+            # Append into the report list the resulting
+            # dictionary entry
+            
+            summary_dx.append(eval_dx)
+        
+        context['summary_dx'] = summary_dx
+
+        return context

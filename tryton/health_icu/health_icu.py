@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ from trytond.pyson import Eval, Not, Bool, Equal
 
 
 __all__ = ['InpatientRegistration', 'InpatientIcu', 'Glasgow', 'ApacheII',
-            'MechanicalVentilation', 'ChestDrainageAssessment', 'ECG',
+            'MechanicalVentilation', 'ChestDrainageAssessment',
             'PatientRounding']
 
 
@@ -46,21 +46,11 @@ class InpatientIcu(ModelSQL, ModelView):
     __name__ = 'gnuhealth.inpatient.icu'
 
     def icu_duration(self, name):
-
-        now = datetime.now()
-        admission = datetime.strptime(str(self.icu_admission_date),
-            '%Y-%m-%d %H:%M:%S')
-
         if self.discharged_from_icu:
-            discharge = datetime.strptime(str(self.icu_discharge_date),
-                '%Y-%m-%d %H:%M:%S')
-            delta = relativedelta(discharge, admission)
+            end = self.icu_discharge_date
         else:
-            delta = relativedelta(now, admission)
-        years_months_days = str(delta.years) + 'y ' \
-                + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd'
-        return years_months_days
+            end = datetime.now()
+        return end.date() - self.icu_admission_date.date()
 
     name = fields.Many2One('gnuhealth.inpatient.registration',
         'Registration Code', required=True)
@@ -76,7 +66,7 @@ class InpatientIcu(ModelSQL, ModelView):
             'required': Bool(Eval('discharged_from_icu')),
             },
         depends=['discharged_from_icu'])
-    icu_stay = fields.Function(fields.Char('Duration'), 'icu_duration')
+    icu_stay = fields.Function(fields.TimeDelta('Duration'), 'icu_duration')
 
     mv_history = fields.One2Many('gnuhealth.icu.ventilation',
         'name', "Mechanical Ventilation History")
@@ -415,26 +405,15 @@ class MechanicalVentilation(ModelSQL, ModelView):
     __name__ = 'gnuhealth.icu.ventilation'
 
     def mv_duration(self, name):
-        # Calculate the Mechanical Ventilation time
-        now = datetime.now()
-        mv_init = now
-        mv_finnish = now
+        start = end = datetime.now()
 
         if self.mv_start:
-            mv_init = datetime.strptime(str(self.mv_start),
-                '%Y-%m-%d %H:%M:%S')
+            start = self.mv_start
 
         if self.mv_end:
-            mv_finnish = datetime.strptime(str(self.mv_end),
-                '%Y-%m-%d %H:%M:%S')
-            delta = relativedelta(mv_finnish, mv_init)
-        else:
-            delta = relativedelta(now, mv_init)
+            end = self.mv_end
 
-        years_months_days = str(delta.years) + 'y ' \
-                + str(delta.months) + 'm ' \
-                + str(delta.days) + 'd'
-        return years_months_days
+        return end.date() - start.date()
 
     name = fields.Many2One('gnuhealth.inpatient.icu', 'Patient ICU Admission',
         required=True)
@@ -463,7 +442,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
             'required': Not(Bool(Eval('current_mv'))),
             },
         depends=['current_mv'])
-    mv_period = fields.Function(fields.Char('Duration'), 'mv_duration')
+    mv_period = fields.Function(fields.TimeDelta('Duration'), 'mv_duration')
     current_mv = fields.Boolean('Current')
     remarks = fields.Char('Remarks')
 
@@ -526,111 +505,42 @@ class ChestDrainageAssessment(ModelSQL, ModelView):
     remarks = fields.Char('Remarks')
 
 
-class ECG(ModelSQL, ModelView):
-    'ECG'
-    __name__ = 'gnuhealth.icu.ecg'
-
-    name = fields.Many2One('gnuhealth.inpatient.registration',
-        'Registration Code', required=True)
-
-    ecg_date = fields.DateTime('Date', required=True)
-    lead = fields.Selection([
-        (None, ''),
-        ('i', 'I'),
-        ('ii', 'II'),
-        ('iii', 'III'),
-        ('avf', 'aVF'),
-        ('avr', 'aVR'),
-        ('avl', 'aVL'),
-        ('v1', 'V1'),
-        ('v2', 'V2'),
-        ('v3', 'V3'),
-        ('v4', 'V4'),
-        ('v5', 'V5'),
-        ('v6', 'V6')],
-        'Lead', sort=False)
-
-    axis = fields.Selection([
-        ('normal', 'Normal Axis'),
-        ('left', 'Left deviation'),
-        ('right', 'Right deviation'),
-        ('extreme_right', 'Extreme right deviation')],
-        'Axis', sort=False, required=True)
-
-    rate = fields.Integer('Rate', required=True)
-
-    rhythm = fields.Selection([
-        ('regular', 'Regular'),
-        ('irregular', 'Irregular')],
-        'Rhythm', sort=False, required=True)
-
-    pacemaker = fields.Selection([
-        ('sa', 'Sinus Node'),
-        ('av', 'Atrioventricular'),
-        ('pk', 'Purkinje')
-        ],
-        'Pacemaker', sort=False, required=True)
-
-    pr = fields.Integer('PR', help="Duration of PR interval in milliseconds")
-    qrs = fields.Integer('QRS',
-        help="Duration of QRS interval in milliseconds")
-    qt = fields.Integer('QT', help="Duration of QT interval in milliseconds")
-    st_segment = fields.Selection([
-        ('normal', 'Normal'),
-        ('depressed', 'Depressed'),
-        ('elevated', 'Elevated')],
-        'ST Segment', sort=False, required=True)
-
-    twave_inversion = fields.Boolean('T wave inversion')
-
-    interpretation = fields.Char('Interpretation', required=True)
-    ecg_strip = fields.Binary('ECG Strip')
-
-    # Default ECG date
-    @staticmethod
-    def default_ecg_date():
-        return datetime.now()
-
-    # Return the ECG Interpretation with main components
-    def get_rec_name(self, name):
-        if self.name:
-            res = str(self.interpretation) + ' // Rate ' + str(self.rate)
-        return res
-
-
 class PatientRounding(ModelSQL, ModelView):
     # Nursing Rounding for ICU
     # Inherit and append to the existing model the new functionality for ICU
 
-    'Patient Rounding'
     __name__ = 'gnuhealth.patient.rounding'
 
+    STATES = {'readonly': Eval('state') == 'done'}
+
     icu_patient = fields.Boolean('ICU', help='Check this box if this is'
-    'an Intensive Care Unit rounding.')
+    'an Intensive Care Unit rounding.', states=STATES)
     # Neurological assesment
     gcs = fields.Many2One('gnuhealth.icu.glasgow', 'GCS',
-        domain=[('name', '=', Eval('name'))], depends=['name'],)
+        domain=[('name', '=', Eval('name'))], depends=['name'],states=STATES)
 
     pupil_dilation = fields.Selection([
         ('normal', 'Normal'),
         ('miosis', 'Miosis'),
         ('mydriasis', 'Mydriasis')],
-        'Pupil Dilation', sort=False)
+        'Pupil Dilation', sort=False, states=STATES)
 
-    left_pupil = fields.Integer('L', help="size in mm of left pupil")
-    right_pupil = fields.Integer('R', help="size in mm of right pupil")
+    left_pupil = fields.Integer('L', help="size in mm of left pupil",
+        states=STATES)
+    right_pupil = fields.Integer('R', help="size in mm of right pupil",
+        states=STATES)
 
-    anisocoria = fields.Boolean('Anisocoria')
+    anisocoria = fields.Boolean('Anisocoria', states=STATES)
 
     pupillary_reactivity = fields.Selection([
         (None, ''),
         ('brisk', 'Brisk'),
         ('sluggish', 'Sluggish'),
         ('nonreactive', 'Nonreactive')],
-        'Pupillary Reactivity', sort=False)
+        'Pupillary Reactivity', sort=False, states=STATES)
 
     pupil_consensual_resp = fields.Boolean('Consensual Response',
-        help="Pupillary Consensual Response")
+        help="Pupillary Consensual Response", states=STATES)
 
     # Respiratory assesment
     # Mechanical ventilation information is on the patient ICU general info
@@ -642,32 +552,33 @@ class PatientRounding(ModelSQL, ModelView):
         ('shallow', 'Shallow'),
         ('labored', 'Labored'),
         ('intercostal', 'Intercostal')],
-        'Respiration', sort=False)
+        'Respiration', sort=False, states=STATES)
 
-    oxygen_mask = fields.Boolean('Oxygen Mask')
-    fio2 = fields.Integer('FiO2')
+    oxygen_mask = fields.Boolean('Oxygen Mask', states=STATES)
+    fio2 = fields.Integer('FiO2', states=STATES)
 
-    peep = fields.Boolean('PEEP')
+    peep = fields.Boolean('PEEP', states=STATES)
 
     peep_pressure = fields.Integer('cm H2O', help="Pressure", states={
             'invisible': Not(Bool(Eval('peep'))),
             'required': Bool(Eval('peep')),
+            'readonly': Eval('state') == 'done',
             },
         depends=['peep'])
 
-    sce = fields.Boolean('SCE', help="Subcutaneous Emphysema")
-    lips_lesion = fields.Boolean('Lips lesion')
-    oral_mucosa_lesion = fields.Boolean('Oral mucosa lesion')
+    sce = fields.Boolean('SCE', help="Subcutaneous Emphysema",states=STATES)
+    lips_lesion = fields.Boolean('Lips lesion',states=STATES)
+    oral_mucosa_lesion = fields.Boolean('Oral mucosa lesion', states=STATES)
 
     # Chest expansion characteristics
     chest_expansion = fields.Selection([
         (None, ''),
         ('symmetric', 'Symmetrical'),
         ('asymmetric', 'Asymmetrical')],
-        'Expansion', sort=False)
+        'Expansion', sort=False, states=STATES)
     paradoxical_expansion = fields.Boolean('Paradoxical',
-        help="Paradoxical Chest Expansion")
-    tracheal_tug = fields.Boolean('Tracheal Tug')
+        help="Paradoxical Chest Expansion", states=STATES)
+    tracheal_tug = fields.Boolean('Tracheal Tug', states=STATES)
 
     # Trachea position
     trachea_alignment = fields.Selection([
@@ -675,47 +586,49 @@ class PatientRounding(ModelSQL, ModelView):
         ('midline', 'Midline'),
         ('right', 'Deviated right'),
         ('left', 'Deviated left')],
-        'Tracheal alignment', sort=False)
+        'Tracheal alignment', sort=False, states=STATES)
 
     # Chest Drainages
     chest_drainages = fields.One2Many('gnuhealth.icu.chest_drainage',
-        'name', "Drainages")
+        'name', "Drainages", states=STATES)
 
     # Chest X-Ray
-    xray = fields.Binary('Xray')
+    xray = fields.Binary('Xray', states=STATES)
 
     # Cardiovascular assessment
 
-    ecg = fields.Many2One('gnuhealth.icu.ecg', 'ECG',
-        domain=[('name', '=', Eval('name'))], depends=['name'],)
+    ecg = fields.Many2One('gnuhealth.patient.ecg', 'Inpatient ECG',
+        domain=[('inpatient_registration_code', '=', Eval('name'))],
+        depends=['name'],states=STATES)
 
     venous_access = fields.Selection([
         (None, ''),
         ('none', 'None'),
         ('central', 'Central catheter'),
         ('peripheral', 'Peripheral')],
-        'Venous Access', sort=False)
+        'Venous Access', sort=False, states=STATES)
 
     swan_ganz = fields.Boolean('Swan Ganz',
-        help="Pulmonary Artery Catheterization - PAC -")
+        help="Pulmonary Artery Catheterization - PAC -", states=STATES)
 
-    arterial_access = fields.Boolean('Arterial Access')
+    arterial_access = fields.Boolean('Arterial Access', states=STATES)
 
-    dialysis = fields.Boolean('Dialysis')
+    dialysis = fields.Boolean('Dialysis', states=STATES)
 
     edema = fields.Selection([
         (None, ''),
         ('none', 'None'),
         ('peripheral', 'Peripheral'),
         ('anasarca', 'Anasarca')],
-        'Edema', sort=False)
+        'Edema', sort=False, states=STATES)
 
     # Blood & Skin
-    bacteremia = fields.Boolean('Bacteremia')
-    ssi = fields.Boolean('Surgery Site Infection')
-    wound_dehiscence = fields.Boolean('Wound Dehiscence')
-    cellulitis = fields.Boolean('Cellulitis')
-    necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis')
+    bacteremia = fields.Boolean('Bacteremia', states=STATES)
+    ssi = fields.Boolean('Surgery Site Infection', states=STATES)
+    wound_dehiscence = fields.Boolean('Wound Dehiscence', states=STATES)
+    cellulitis = fields.Boolean('Cellulitis', states=STATES)
+    necrotizing_fasciitis = fields.Boolean('Necrotizing fasciitis',
+        states=STATES)
 
     # Abdomen & Digestive
 
@@ -724,7 +637,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('none', 'None'),
         ('vomiting', 'Vomiting'),
         ('hematemesis', 'Hematemesis')],
-        'Vomiting', sort=False)
+        'Vomiting', sort=False, states=STATES)
 
     bowel_sounds = fields.Selection([
         (None, ''),
@@ -732,7 +645,7 @@ class PatientRounding(ModelSQL, ModelView):
         ('increased', 'Increased'),
         ('decreased', 'Decreased'),
         ('absent', 'Absent')],
-        'Bowel Sounds', sort=False)
+        'Bowel Sounds', sort=False, states=STATES)
 
     stools = fields.Selection([
         (None, ''),
@@ -740,9 +653,9 @@ class PatientRounding(ModelSQL, ModelView):
         ('constipation', 'Constipation'),
         ('diarrhea', 'Diarrhea'),
         ('melena', 'Melena')],
-        'Stools', sort=False)
+        'Stools', sort=False, states=STATES)
 
-    peritonitis = fields.Boolean('Peritonitis signs')
+    peritonitis = fields.Boolean('Peritonitis signs', states=STATES)
 
     @fields.depends('left_pupil', 'right_pupil')
     def on_change_with_anisocoria(self):

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="ir.action.report" id="report_ophthalmology">
+            <field name="name">Optometry Report</field>
+            <field name="model">gnuhealth.ophthalmology.evaluation</field>
+            <field name="report_name">ophthalmology.card</field>
+            <field name="report">health_ophthalmology/report/ophthalmology.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_ophthalmology_card">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.ophthalmology.evaluation,-1</field>
+            <field name="action" ref="report_ophthalmology"/>
+        </record>
+
+    </data>
+</tryton>

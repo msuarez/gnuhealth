@@ -3,7 +3,7 @@
 # Bruno Villasanti <bvillasanti@thymbra.com>, 2015
 # Hisahiro Ohmura, 2014
 # Kazuki Omo <kazuki.omo@gmail.com>, 2014
-# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014-2015
+# Kentaro Hatori <hatori@hatochan.dyndns.org>, 2014-2015, 2016.
 # nabaua <kazsan@bk2.so-net.ne.jp>, 2014
 # NARUHIKO OGASAWARA <naruoga@gmail.com>, 2014
 # Shigeomi Shibata, 2014
@@ -13,15 +13,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GNU Health\n"
 "Report-Msgid-Bugs-To: https://savannah.gnu.org/bugs/?group=health\n"
-"POT-Creation-Date: 2015-01-30 17:00+0000\n"
-"PO-Revision-Date: 2015-01-30 20:21+0000\n"
-"Last-Translator: Bruno Villasanti <bvillasanti@thymbra.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"POT-Creation-Date: 2016-01-07 20:09+0000\n"
+"PO-Revision-Date: 2016-01-10 13:16+0000\n"
+"Last-Translator: hatochan <hatori@hatochan.dyndns.org>\n"
+"Language-Team: Japanese "
+"(http://www.transifex.com/projects/p/GNU_Health/language/ja/)\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452431765.0\n"
 
 msgctxt "error:gnuhealth.birth_certificate:"
 msgid "Certificate already exists !"
@@ -68,12 +71,21 @@ msgid "The Family Code must be unique !"
 msgstr "家族コードは重複禁止です !"
 
 msgctxt "error:gnuhealth.healthprofessional:"
-msgid "The Health Professional already exists"
-msgstr "医療従事者はすでに割りあてられています"
+msgid "The LICENSE ID must be unique"
+msgstr "ライセンスIDは重複禁止です"
+
+msgctxt "error:gnuhealth.healthprofessional:"
+msgid "The health professional must be unique"
+msgstr ""
 
 msgctxt "error:gnuhealth.hospital.bed:"
 msgid "The Bed must be unique per Health Center"
 msgstr "医療拠点ごとのベッドは重複禁止です"
+
+#, fuzzy
+msgctxt "error:gnuhealth.hospital.building:"
+msgid "The Building code must be unique per Health Center"
+msgstr "医療拠点ごとの建物名は重複禁止です"
 
 msgctxt "error:gnuhealth.hospital.building:"
 msgid "The Building name must be unique per Health Center"
@@ -169,7 +181,12 @@ msgctxt "error:gnuhealth.patient.disease:"
 msgid ""
 "The Treatment END DATE \"%(date_stop_treatment)s\" is BEFORE the start date "
 "\"%(date_start_treatment)s\"!"
-msgstr "治療終了日 \"%(date_stop_treatment)s\" が治療開始日 \"%(date_start_treatment)s\" 以前になっています！"
+msgstr ""
+"治療終了日 \"%(date_stop_treatment)s\" が治療開始日 \"%(date_start_treatment)s\" 以前になっています！"
+
+msgctxt "error:gnuhealth.patient.ecg:"
+msgid "No health professional associated to this user"
+msgstr "主治医が割り当てられていません"
 
 msgctxt "error:gnuhealth.patient.evaluation:"
 msgid ""
@@ -180,6 +197,11 @@ msgstr "終了時刻 \"%(evaluation_endtime)s\" が開始時間 \"%(evaluation_s
 msgctxt "error:gnuhealth.patient.evaluation:"
 msgid "No health professional associated to this user"
 msgstr "主治医が割り当てられていません"
+
+#, fuzzy
+msgctxt "error:gnuhealth.patient.evaluation:"
+msgid "The evaluation code must be unique !"
+msgstr "家族コードは重複禁止です !"
 
 msgctxt "error:gnuhealth.patient.medication:"
 msgid ""
@@ -202,17 +224,20 @@ msgid ""
 "- IS THE PATIENT BREASTFEEDING \n"
 "\n"
 "Verify and check for safety the prescribed drugs\n"
-msgstr "== 妊娠に関する薬剤処方の確認 ==\n\n- 患者さんは妊娠していますか ? \n- 妊娠する予定はありますか ?\n- 妊娠第何週ですか？ \n\n- 患者さんは授乳を行っていますか？ \n\n薬剤処方のために確認し、安全を確保してください\n"
+msgstr ""
+"== 妊娠に関する薬剤処方の確認 ==\n"
+"\n"
+"- 患者さんは妊娠していますか ? \n"
+"- 妊娠する予定はありますか ?\n"
+"- 妊娠第何週ですか？ \n"
+"\n"
+"- 患者さんは授乳を行っていますか？ \n"
+"\n"
+"薬剤処方のために確認し、安全を確保してください\n"
 
 msgctxt "error:gnuhealth.prescription.order:"
 msgid "No health professional associated to this user"
 msgstr "主治医が割り当てられていません"
-
-msgctxt "error:gnuhealth.vaccination:"
-msgid ""
-"EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
-"IT !!!"
-msgstr "期限切れのワクチン。地域の医療統括機関に連絡し、使わないでください !!!"
 
 msgctxt "error:gnuhealth.vaccination:"
 msgid "The Vaccine next dose is BEFORE the first one !"
@@ -227,8 +252,8 @@ msgid "The PUID must be unique"
 msgstr "PUID（患者のユーザーID）は重複禁止です"
 
 msgctxt "error:party.party:"
-msgid "This health professional is already assigned to a party"
-msgstr "医療担当者はこの対象にすでに割りあてられています"
+msgid "This internal user is already assigned to a party"
+msgstr ""
 
 msgctxt "error:wizard.gnuhealth.appointment.evaluation:"
 msgid "You need to select one Appointment record"
@@ -241,6 +266,10 @@ msgstr "日時"
 msgctxt "field:gnuhealth.appointment,appointment_type:"
 msgid "Type"
 msgstr "タイプ"
+
+msgctxt "field:gnuhealth.appointment,checked_in_date:"
+msgid "Checked-in Time"
+msgstr ""
 
 msgctxt "field:gnuhealth.appointment,comments:"
 msgid "Comments"
@@ -331,8 +360,12 @@ msgid "Create User"
 msgstr "作成者"
 
 msgctxt "field:gnuhealth.appointment.report,diagnosis:"
-msgid "Presumptive Diagnosis"
-msgstr "仮診断"
+msgid "Main Codition"
+msgstr ""
+
+msgctxt "field:gnuhealth.appointment.report,gender:"
+msgid "Gender"
+msgstr "性別"
 
 msgctxt "field:gnuhealth.appointment.report,healthprof:"
 msgid "Health Prof"
@@ -357,10 +390,6 @@ msgstr "名前"
 msgctxt "field:gnuhealth.appointment.report,ref:"
 msgid "PUID"
 msgstr "PUID（患者のユーザーID）"
-
-msgctxt "field:gnuhealth.appointment.report,sex:"
-msgid "Sex"
-msgstr "性別"
 
 msgctxt "field:gnuhealth.appointment.report,write_date:"
 msgid "Write Date"
@@ -696,8 +725,8 @@ msgid "ID"
 msgstr "ID"
 
 msgctxt "field:gnuhealth.disease_group.members,name:"
-msgid "Disease"
-msgstr "疾患"
+msgid "Condition"
+msgstr "状態"
 
 msgctxt "field:gnuhealth.disease_group.members,rec_name:"
 msgid "Name"
@@ -1242,6 +1271,10 @@ msgstr "名前"
 msgctxt "field:gnuhealth.hospital.or,rec_name:"
 msgid "Name"
 msgstr "名前"
+
+msgctxt "field:gnuhealth.hospital.or,state:"
+msgid "Status"
+msgstr "状態"
 
 msgctxt "field:gnuhealth.hospital.or,unit:"
 msgid "Unit"
@@ -1847,6 +1880,10 @@ msgctxt "field:gnuhealth.medicament,dosage:"
 msgid "Dosage Instructions"
 msgstr "服用指示"
 
+msgctxt "field:gnuhealth.medicament,form:"
+msgid "Form"
+msgstr "フォーム"
+
 msgctxt "field:gnuhealth.medicament,id:"
 msgid "ID"
 msgstr "ID"
@@ -1875,6 +1912,10 @@ msgctxt "field:gnuhealth.medicament,pregnancy:"
 msgid "Pregnancy and Lactancy"
 msgstr "妊娠と授乳"
 
+msgctxt "field:gnuhealth.medicament,pregnancy_cat_icon:"
+msgid "Preg. Cat. Icon"
+msgstr ""
+
 msgctxt "field:gnuhealth.medicament,pregnancy_category:"
 msgid "Pregnancy Category"
 msgstr "妊娠分類"
@@ -1891,13 +1932,25 @@ msgctxt "field:gnuhealth.medicament,rec_name:"
 msgid "Name"
 msgstr "名前"
 
+msgctxt "field:gnuhealth.medicament,route:"
+msgid "Administration Route"
+msgstr "投与ルート"
+
 msgctxt "field:gnuhealth.medicament,storage:"
 msgid "Storage Conditions"
 msgstr "収納状況"
 
+msgctxt "field:gnuhealth.medicament,strength:"
+msgid "Strength"
+msgstr ""
+
 msgctxt "field:gnuhealth.medicament,therapeutic_action:"
 msgid "Therapeutic effect"
 msgstr "治療効果"
+
+msgctxt "field:gnuhealth.medicament,unit:"
+msgid "dose unit"
+msgstr "服薬単位"
 
 msgctxt "field:gnuhealth.medicament,write_date:"
 msgid "Write Date"
@@ -2227,6 +2280,10 @@ msgctxt "field:gnuhealth.patient,appointments:"
 msgid "Appointments"
 msgstr "受診"
 
+msgctxt "field:gnuhealth.patient,biological_sex:"
+msgid "Biological Sex"
+msgstr ""
+
 msgctxt "field:gnuhealth.patient,blood_type:"
 msgid "Blood Type"
 msgstr "血液型"
@@ -2252,8 +2309,8 @@ msgid "Free text information not included in the automatic summary"
 msgstr "自動要約には含まれない文章情報"
 
 msgctxt "field:gnuhealth.patient,critical_summary:"
-msgid "Important disease about patient allergies or procedures"
-msgstr "重要な両親のアレルギー疾患および処置"
+msgid "Important health conditions related to this patient"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient,current_address:"
 msgid "Temp. Addr"
@@ -2268,8 +2325,8 @@ msgid "Deceased"
 msgstr "故人"
 
 msgctxt "field:gnuhealth.patient,diseases:"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Conditions"
+msgstr "状態"
 
 msgctxt "field:gnuhealth.patient,dob:"
 msgid "DoB"
@@ -2282,6 +2339,10 @@ msgstr "死亡日"
 msgctxt "field:gnuhealth.patient,family:"
 msgid "Family"
 msgstr "家族"
+
+msgctxt "field:gnuhealth.patient,gender:"
+msgid "Gender"
+msgstr "性別"
 
 msgctxt "field:gnuhealth.patient,general_info:"
 msgid "General Information"
@@ -2326,10 +2387,6 @@ msgstr "名前"
 msgctxt "field:gnuhealth.patient,rh:"
 msgid "Rh"
 msgstr "Rh"
-
-msgctxt "field:gnuhealth.patient,sex:"
-msgid "Sex"
-msgstr "性別"
 
 msgctxt "field:gnuhealth.patient,vaccinations:"
 msgid "Vaccinations"
@@ -2391,6 +2448,10 @@ msgctxt "field:gnuhealth.patient.disease,id:"
 msgid "ID"
 msgstr "ID"
 
+msgctxt "field:gnuhealth.patient.disease,infectious_disease_icon:"
+msgid "Infect"
+msgstr ""
+
 msgctxt "field:gnuhealth.patient.disease,is_active:"
 msgid "Active disease"
 msgstr "現在患っている疾患"
@@ -2412,8 +2473,8 @@ msgid "Patient"
 msgstr "患者"
 
 msgctxt "field:gnuhealth.patient.disease,pathology:"
-msgid "Disease"
-msgstr "疾患"
+msgid "Condition"
+msgstr "状態"
 
 msgctxt "field:gnuhealth.patient.disease,pcs_code:"
 msgid "Code"
@@ -2427,13 +2488,17 @@ msgctxt "field:gnuhealth.patient.disease,rec_name:"
 msgid "Name"
 msgstr "名前"
 
+msgctxt "field:gnuhealth.patient.disease,related_evaluations:"
+msgid "Related Evaluations"
+msgstr ""
+
 msgctxt "field:gnuhealth.patient.disease,short_comment:"
 msgid "Remarks"
 msgstr "注意点"
 
 msgctxt "field:gnuhealth.patient.disease,status:"
-msgid "Status of the disease"
-msgstr "病気の状態"
+msgid "Status"
+msgstr "状態"
 
 msgctxt "field:gnuhealth.patient.disease,treatment_description:"
 msgid "Treatment Description"
@@ -2451,6 +2516,95 @@ msgctxt "field:gnuhealth.patient.disease,write_uid:"
 msgid "Write User"
 msgstr "記載者"
 
+msgctxt "field:gnuhealth.patient.ecg,axis:"
+msgid "Axis"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.patient.ecg,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.patient.ecg,ecg_date:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "field:gnuhealth.patient.ecg,ecg_strip:"
+msgid "ECG Strip"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,healthprof:"
+msgid "Health Prof"
+msgstr "健康教授"
+
+msgctxt "field:gnuhealth.patient.ecg,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ecg,institution:"
+msgid "Institution"
+msgstr "施設"
+
+msgctxt "field:gnuhealth.patient.ecg,interpretation:"
+msgid "Interpretation"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:gnuhealth.patient.ecg,lead:"
+msgid "Lead"
+msgstr "ビーズ"
+
+msgctxt "field:gnuhealth.patient.ecg,name:"
+msgid "Patient"
+msgstr "患者"
+
+msgctxt "field:gnuhealth.patient.ecg,pacemaker:"
+msgid "Pacemaker"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,pr:"
+msgid "PR"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,qrs:"
+msgid "QRS"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,qt:"
+msgid "QT"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,rate:"
+msgid "Rate"
+msgstr "脈拍数"
+
+msgctxt "field:gnuhealth.patient.ecg,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.patient.ecg,rhythm:"
+msgid "Rhythm"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,st_segment:"
+msgid "ST Segment"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,twave_inversion:"
+msgid "T wave inversion"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.ecg,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.patient.ecg,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
 msgctxt "field:gnuhealth.patient.evaluation,abdominal_circ:"
 msgid "Waist"
 msgstr "ウエスト"
@@ -2463,9 +2617,13 @@ msgctxt "field:gnuhealth.patient.evaluation,actions:"
 msgid "Procedures"
 msgstr "手続き"
 
+msgctxt "field:gnuhealth.patient.evaluation,appointment:"
+msgid "Appointment"
+msgstr "予約"
+
 msgctxt "field:gnuhealth.patient.evaluation,bmi:"
-msgid "Body Mass Index"
-msgstr "肥満指数"
+msgid "BMI"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,bpm:"
 msgid "Heart Rate"
@@ -2482,6 +2640,14 @@ msgstr "主訴"
 msgctxt "field:gnuhealth.patient.evaluation,cholesterol_total:"
 msgid "Last Cholesterol"
 msgstr "最後のコルステロール値"
+
+msgctxt "field:gnuhealth.patient.evaluation,code:"
+msgid "Code"
+msgstr "コード"
+
+msgctxt "field:gnuhealth.patient.evaluation,computed_age:"
+msgid "Age"
+msgstr "年齢"
 
 msgctxt "field:gnuhealth.patient.evaluation,create_date:"
 msgid "Create Date"
@@ -2504,8 +2670,8 @@ msgid "Derived to"
 msgstr "導かれた結果"
 
 msgctxt "field:gnuhealth.patient.evaluation,diagnosis:"
-msgid "Presumptive Diagnosis"
-msgstr "仮診断"
+msgid "Main Condition"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,diagnostic_hypothesis:"
 msgid "Hypotheses / DDx"
@@ -2519,29 +2685,33 @@ msgctxt "field:gnuhealth.patient.evaluation,directions:"
 msgid "Plan"
 msgstr "計画"
 
-msgctxt "field:gnuhealth.patient.evaluation,evaluation_date:"
-msgid "Appointment"
-msgstr "予約"
+msgctxt "field:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Discharge Reason"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_endtime:"
 msgid "End"
 msgstr "終了"
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_length:"
-msgid "Length"
-msgstr "全長"
+msgid "Evaluation length"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_start:"
 msgid "Start"
 msgstr "開始"
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_summary:"
-msgid "Evaluation Summary"
-msgstr "評価の要約"
+msgid "Clinical and physical"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Type"
 msgstr "タイプ"
+
+msgctxt "field:gnuhealth.patient.evaluation,gender:"
+msgid "Gender"
+msgstr "性別"
 
 msgctxt "field:gnuhealth.patient.evaluation,glycemia:"
 msgid "Glycemia"
@@ -2555,9 +2725,10 @@ msgctxt "field:gnuhealth.patient.evaluation,hdl:"
 msgid "Last HDL"
 msgstr "最後のHDL値"
 
+#, fuzzy
 msgctxt "field:gnuhealth.patient.evaluation,head_circumference:"
-msgid "Head Circumference"
-msgstr "頭囲"
+msgid "Head"
+msgstr "ビーズ"
 
 msgctxt "field:gnuhealth.patient.evaluation,healthprof:"
 msgid "Health Prof"
@@ -2667,6 +2838,10 @@ msgctxt "field:gnuhealth.patient.evaluation,rec_name:"
 msgid "Name"
 msgstr "名前"
 
+msgctxt "field:gnuhealth.patient.evaluation,related_condition:"
+msgid "Related condition"
+msgstr ""
+
 msgctxt "field:gnuhealth.patient.evaluation,reliable_info:"
 msgid "Reliable"
 msgstr "信用可能"
@@ -2684,8 +2859,8 @@ msgid "Respiratory Rate"
 msgstr "呼吸数"
 
 msgctxt "field:gnuhealth.patient.evaluation,secondary_conditions:"
-msgid "Secondary Conditions"
-msgstr "付随する状態"
+msgid "Other Conditions"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,signed_by:"
 msgid "Health Prof"
@@ -2738,6 +2913,10 @@ msgstr "受診"
 msgctxt "field:gnuhealth.patient.evaluation,vocabulary:"
 msgid "Vocabulary"
 msgstr "語彙"
+
+msgctxt "field:gnuhealth.patient.evaluation,wait_time:"
+msgid "Patient wait time"
+msgstr ""
 
 msgctxt "field:gnuhealth.patient.evaluation,weight:"
 msgid "Weight"
@@ -2867,6 +3046,10 @@ msgctxt "field:gnuhealth.patient.medication,notes:"
 msgid "Extra Info"
 msgstr "特記事項"
 
+msgctxt "field:gnuhealth.patient.medication,prescription:"
+msgid "Prescription"
+msgstr "処方"
+
 msgctxt "field:gnuhealth.patient.medication,qty:"
 msgid "x"
 msgstr "x"
@@ -2932,6 +3115,66 @@ msgctxt "field:gnuhealth.person_alternative_identification,write_uid:"
 msgid "Write User"
 msgstr "記載者"
 
+msgctxt "field:gnuhealth.person_name,create_date:"
+msgid "Create Date"
+msgstr "作成日"
+
+msgctxt "field:gnuhealth.person_name,create_uid:"
+msgid "Create User"
+msgstr "作成者"
+
+msgctxt "field:gnuhealth.person_name,date_from:"
+msgid "From"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,date_to:"
+msgid "To"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,family:"
+msgid "Family"
+msgstr "家族"
+
+msgctxt "field:gnuhealth.person_name,given:"
+msgid "Given"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.person_name,party:"
+msgid "Person"
+msgstr "人"
+
+msgctxt "field:gnuhealth.person_name,prefix:"
+msgid "Prefix"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,rec_name:"
+msgid "Name"
+msgstr "名前"
+
+msgctxt "field:gnuhealth.person_name,suffix:"
+msgid "Suffix"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,use:"
+msgid "Use"
+msgstr ""
+
+msgctxt "field:gnuhealth.person_name,write_date:"
+msgid "Write Date"
+msgstr "記載日"
+
+msgctxt "field:gnuhealth.person_name,write_uid:"
+msgid "Write User"
+msgstr "記載者"
+
+msgctxt "field:gnuhealth.prescription.line,add_to_history:"
+msgid "Hist"
+msgstr ""
+
 msgctxt "field:gnuhealth.prescription.line,admin_times:"
 msgid "Admin hours"
 msgstr "管理時間"
@@ -2996,6 +3239,18 @@ msgctxt "field:gnuhealth.prescription.line,indication:"
 msgid "Indication"
 msgstr "適応"
 
+msgctxt "field:gnuhealth.prescription.line,infusion:"
+msgid "Infusion"
+msgstr "点滴"
+
+msgctxt "field:gnuhealth.prescription.line,infusion_rate:"
+msgid "Rate"
+msgstr "脈拍数"
+
+msgctxt "field:gnuhealth.prescription.line,infusion_rate_units:"
+msgid "Unit Rate"
+msgstr "単位レート"
+
 msgctxt "field:gnuhealth.prescription.line,medicament:"
 msgid "Medicament"
 msgstr "薬剤治療"
@@ -3025,8 +3280,8 @@ msgid "Refills #"
 msgstr "追加 #"
 
 msgctxt "field:gnuhealth.prescription.line,review:"
-msgid "Review"
-msgstr "審査"
+msgid "Valid Until"
+msgstr ""
 
 msgctxt "field:gnuhealth.prescription.line,route:"
 msgid "Administration Route"
@@ -3107,6 +3362,10 @@ msgstr "処方箋作成日"
 msgctxt "field:gnuhealth.prescription.order,report_prescription_time:"
 msgid "Prescription Time"
 msgstr "処方時間"
+
+msgctxt "field:gnuhealth.prescription.order,state:"
+msgid "State"
+msgstr "州"
 
 msgctxt "field:gnuhealth.prescription.order,user_id:"
 msgid "Prescribing Doctor"
@@ -3203,6 +3462,10 @@ msgstr "作成者"
 msgctxt "field:gnuhealth.sequences,id:"
 msgid "ID"
 msgstr "ID"
+
+msgctxt "field:gnuhealth.sequences,patient_evaluation_sequence:"
+msgid "Patient Evaluation Sequence"
+msgstr ""
 
 msgctxt "field:gnuhealth.sequences,patient_sequence:"
 msgid "Patient Sequence"
@@ -3404,9 +3667,9 @@ msgctxt "field:party.party,activation_date:"
 msgid "Activation date"
 msgstr "有効になった日"
 
-msgctxt "field:party.party,alias:"
-msgid "Alias"
-msgstr "別名"
+msgctxt "field:party.party,age:"
+msgid "Age"
+msgstr "年齢"
 
 msgctxt "field:party.party,alternative_identification:"
 msgid "Alternative IDs"
@@ -3436,17 +3699,25 @@ msgctxt "field:party.party,dob:"
 msgid "DoB"
 msgstr "生年月日"
 
+msgctxt "field:party.party,dod:"
+msgid "Date of Death"
+msgstr "死亡日"
+
 msgctxt "field:party.party,du:"
-msgid "Domiciliary Unit"
+msgid "DU"
 msgstr "住居単位"
 
 msgctxt "field:party.party,ethnic_group:"
-msgid "Ethnic group"
+msgid "Ethnicity"
 msgstr "人種"
 
 msgctxt "field:party.party,father:"
 msgid "Father"
 msgstr "父"
+
+msgctxt "field:party.party,gender:"
+msgid "Gender"
+msgstr "性別"
 
 msgctxt "field:party.party,insurance:"
 msgid "Insurances"
@@ -3489,8 +3760,8 @@ msgid "Pharmacy"
 msgstr "薬局"
 
 msgctxt "field:party.party,lastname:"
-msgid "Last Name"
-msgstr "姓"
+msgid "Family names"
+msgstr ""
 
 msgctxt "field:party.party,marital_status:"
 msgid "Marital Status"
@@ -3499,6 +3770,14 @@ msgstr "婚姻状況"
 msgctxt "field:party.party,mother:"
 msgid "Mother"
 msgstr "母"
+
+msgctxt "field:party.party,name_representation:"
+msgid "Name Representation"
+msgstr ""
+
+msgctxt "field:party.party,person_names:"
+msgid "Person Names"
+msgstr ""
 
 msgctxt "field:party.party,photo:"
 msgid "Picture"
@@ -3509,12 +3788,8 @@ msgid "PUID"
 msgstr "PUID（患者のユーザID）"
 
 msgctxt "field:party.party,residence:"
-msgid "Country of Residence"
-msgstr "居住国"
-
-msgctxt "field:party.party,sex:"
-msgid "Sex"
-msgstr "性別"
+msgid "Residence"
+msgstr ""
 
 msgctxt "field:party.party,unidentified:"
 msgid "Unidentified"
@@ -3806,6 +4081,10 @@ msgctxt "help:gnuhealth.medicament,dosage:"
 msgid "Dosage / Indications"
 msgstr "服用 / 指示"
 
+msgctxt "help:gnuhealth.medicament,form:"
+msgid "Drug form, such as tablet, suspension, liquid .."
+msgstr ""
+
 msgctxt "help:gnuhealth.medicament,indications:"
 msgid "Indications"
 msgstr "適応"
@@ -3836,7 +4115,24 @@ msgid ""
 "CATEGORY X : Studies in animals or humans have demonstrated fetal abnormalities and/or there is positive evidence of human fetal risk based on adverse reaction data from investigational or marketing experience, and the risks involved in use of the drug in pregnant women clearly outweigh potential benefits.\n"
 "\n"
 "CATEGORY N : Not yet classified"
-msgstr "** FDA　胎児危険度分類 (医薬品) ***\nカテゴリー A :適切な、かつ対照のある研究で、妊娠第一期の胎児に対するリスクがあることが証明されておらず、かつそれ以降についてもリスクの証拠が無いもの。\n\nカテゴリー B : 動物実験では胎児に対するリスクが確認されていないが、妊婦に対する適切な、対照のある研究が存在しないもの。または、動物実験で有害な作用が確認されているが、妊婦による対照のある研究では、リスクの存在が確認されていないもの。\n\nカテゴリー C : 動物実験では胎児への有害作用が証明されていて、適切で対照のある妊婦への研究が存在しないもの。しかし、その薬物の潜在的な利益によって、潜在的なリスクがあるにもかかわらず妊婦への使用が正当化されることがありうる。\n\n カテゴリー D : 使用・市販後の調査、あるいは人間を用いた研究によってヒト胎児のリスクを示唆する明らかなエビデンスがあるが、潜在的な利益によって、潜在的なリスクがあるにもかかわらず妊婦への使用が正当化されることがありうる。\n\nカテゴリー X : 動物・人間による研究で明らかに胎児奇形を発生させる、かつ/または使用・市販による副作用の明らかなエビデンスがあり、いかなる場合でもその潜在的なリスクは、その薬物の妊婦に対する利用に伴う、潜在的な利益よりも大きい。（事実上の禁忌である）\n\nカテゴリー N : まだ、分類されていない"
+msgstr ""
+"** FDA　胎児危険度分類 (医薬品) ***\n"
+"カテゴリー A "
+":適切な、かつ対照のある研究で、妊娠第一期の胎児に対するリスクがあることが証明されておらず、かつそれ以降についてもリスクの証拠が無いもの。\n"
+"\n"
+"カテゴリー B : 動物実験では胎児に対するリスクが確認されていないが、妊婦に対する適切な、対照のある研究が存在しないもの。または、動物実験で有害な作用"
+"が確認されているが、妊婦による対照のある研究では、リスクの存在が確認されていないもの。\n"
+"\n"
+"カテゴリー C : 動物実験では胎児への有害作用が証明されていて、適切で対照のある妊婦への研究が存在しないもの。しかし、その薬物の潜在的な利益によって、"
+"潜在的なリスクがあるにもかかわらず妊婦への使用が正当化されることがありうる。\n"
+"\n"
+" カテゴリー D : 使用・市販後の調査、あるいは人間を用いた研究によってヒト胎児のリスクを示唆する明らかなエビデンスがあるが、潜在的な利益によって、潜"
+"在的なリスクがあるにもかかわらず妊婦への使用が正当化されることがありうる。\n"
+"\n"
+"カテゴリー X : 動物・人間による研究で明らかに胎児奇形を発生させる、かつ/または使用・市販による副作用の明らかなエビデンスがあり、いかなる場合でもそ"
+"の潜在的なリスクは、その薬物の妊婦に対する利用に伴う、潜在的な利益よりも大きい。（事実上の禁忌である）\n"
+"\n"
+"カテゴリー N : まだ、分類されていない"
 
 msgctxt "help:gnuhealth.medicament,pregnancy_warning:"
 msgid "The drug represents risk to pregnancy or lactancy"
@@ -3846,9 +4142,21 @@ msgctxt "help:gnuhealth.medicament,presentation:"
 msgid "Packaging"
 msgstr "パッケージ"
 
+msgctxt "help:gnuhealth.medicament,route:"
+msgid "Drug administration route code."
+msgstr "薬剤投与ルートコード"
+
+msgctxt "help:gnuhealth.medicament,strength:"
+msgid "Amount of medication (eg, 250 mg) per dose"
+msgstr "服用ごとの薬量 (例　250 mg)"
+
 msgctxt "help:gnuhealth.medicament,therapeutic_action:"
 msgid "Therapeutic action"
 msgstr "治療行為"
+
+msgctxt "help:gnuhealth.medicament,unit:"
+msgid "Unit of measure for the medication to be taken"
+msgstr "摂取する薬剤の薬量単位"
 
 msgctxt "help:gnuhealth.medication.dosage,abbreviation:"
 msgid "Dosage abbreviation, such as tid in the US or tds in the UK"
@@ -3919,15 +4227,22 @@ msgctxt "help:gnuhealth.pathology.group,name:"
 msgid "Group name"
 msgstr "分類名"
 
+msgctxt "help:gnuhealth.patient,biological_sex:"
+msgid ""
+"Biological sex. By defaults it takes the value from the neonatal information"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient,critical_info:"
 msgid ""
-"Write any important information on the patient's disease, surgeries, "
+"Write any important information on the patient's condition, surgeries, "
 "allergies, ..."
-msgstr "患者の疾病、手術、アレルギー等について重要な情報をここに記してください"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient,critical_summary:"
-msgid "Automated summary of patient allergies and other critical information"
-msgstr "患者のアレルギーおよび他の重要な情報についての自動要約"
+msgid ""
+"Automated summary of patient important health conditions other critical "
+"information"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient,current_address:"
 msgid ""
@@ -3935,7 +4250,9 @@ msgid ""
 "the patient is on vacation, you can put the hotel address.         In the "
 "case of a Domiciliary Unit, just link it to the name of the         contact "
 "in the address form."
-msgstr "臨時連絡先としてこの住所を利用してください。例、患者が旅行中の場合、ホテルの住所となります。居所の場合は、単に住所フォームにある連絡先名リンクとなります。"
+msgstr ""
+"臨時連絡先としてこの住所を利用してください。例、患者が旅行中の場合、ホテルの住所となります。居所の場合は、単に住所フォームにある連絡先名リンクとなります"
+"。"
 
 msgctxt "help:gnuhealth.patient,current_insurance:"
 msgid ""
@@ -3980,16 +4297,16 @@ msgid "End of treatment date"
 msgstr "治療終了日"
 
 msgctxt "help:gnuhealth.patient.disease,healthprof:"
-msgid "Health Professional who treated or diagnosed the patient"
-msgstr "患者を検査・治療した医療従事者"
+msgid "Health Professional"
+msgstr "医療従事者"
 
 msgctxt "help:gnuhealth.patient.disease,is_infectious:"
 msgid "Check if the patient has an infectious / transmissible disease"
 msgstr "患者が感染している / 伝染性の病気の場合、チェック"
 
 msgctxt "help:gnuhealth.patient.disease,pathology:"
-msgid "Disease"
-msgstr "疾患"
+msgid "Condition"
+msgstr "状態"
 
 msgctxt "help:gnuhealth.patient.disease,pcs_code:"
 msgid "Procedure code, for example, ICD-10-PCS Code 7-character string"
@@ -4001,6 +4318,27 @@ msgid ""
 "Extra info field"
 msgstr "簡潔な疾病についての一行概要。詳細な説明については追加情報領域へ記述"
 
+#, fuzzy
+msgctxt "help:gnuhealth.patient.ecg,healthprof:"
+msgid "Health Professional who performed the ECG"
+msgstr "症例を引き出した医療従事者"
+
+msgctxt "help:gnuhealth.patient.ecg,pr:"
+msgid "Duration of PR interval in milliseconds"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ecg,qrs:"
+msgid "Duration of QRS interval in milliseconds"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.ecg,qt:"
+msgid "Duration of QT interval in milliseconds"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,abdominal_circ:"
+msgid "Waist circumference in centimeters"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient.evaluation,abstraction:"
 msgid ""
 "Check this box if the patient presents abnormalities in abstract reasoning"
@@ -4009,6 +4347,16 @@ msgstr "患者が抽象的推論の異常を示した場合にチェックして
 msgctxt "help:gnuhealth.patient.evaluation,actions:"
 msgid "Procedures / Actions to take"
 msgstr "手順 / 取るべき措置"
+
+msgctxt "help:gnuhealth.patient.evaluation,appointment:"
+msgid ""
+"Enter or select the date / ID of the appointment related to this evaluation"
+msgstr ""
+
+#, fuzzy
+msgctxt "help:gnuhealth.patient.evaluation,bmi:"
+msgid "Body mass index"
+msgstr "肥満指数"
 
 msgctxt "help:gnuhealth.patient.evaluation,bpm:"
 msgid "Heart rate expressed in beats per minute"
@@ -4023,15 +4371,27 @@ msgid "Chief Complaint"
 msgstr "主訴"
 
 msgctxt "help:gnuhealth.patient.evaluation,cholesterol_total:"
-msgid "Last cholesterol reading. Can be approximative"
-msgstr "最後のコレステロール値。おおよそでも良い"
+msgid ""
+"Last cholesterol reading. Can be approximative. Expressed in mg/dL or "
+"mmol/L."
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,code:"
+msgid "Unique code that         identifies the evaluation"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,computed_age:"
+msgid "Computed patient age at the moment of the evaluation"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,dehydration:"
 msgid ""
 "Check this box if the patient show signs of dehydration. If associated  to a"
 " disease, please encode the  correspondent disease on the patient disease "
 "history. For example, Volume Depletion, E86 in ICD-10 encoding"
-msgstr "患者が脱水の徴候を示す場合にチェックしてください。疾患に関連する場合は、患者の疾患の病歴上関連する疾患のコードを入力してください。例えば、ICD-10コードで体液量の減少は E86 です"
+msgstr ""
+"患者が脱水の徴候を示す場合にチェックしてください。疾患に関連する場合は、患者の疾患の病歴上関連する疾患のコードを入力してください。例えば、ICD-10コ"
+"ードで体液量の減少は E86 です"
 
 msgctxt "help:gnuhealth.patient.evaluation,derived_from:"
 msgid "Health Professional who derived the case"
@@ -4051,30 +4411,37 @@ msgctxt "help:gnuhealth.patient.evaluation,diagnostic_hypothesis:"
 msgid "Other Diagnostic Hypotheses / Differential Diagnosis (DDx)"
 msgstr "他の診断仮説 / 他の診断 (DDx)"
 
-msgctxt "help:gnuhealth.patient.evaluation,evaluation_date:"
-msgid ""
-"Enter or select the date / ID of the appointment related to this evaluation"
-msgstr "この評価に関連する予約の日時 / IDを選ぶもしくは入力してください"
+msgctxt "help:gnuhealth.patient.evaluation,diastolic:"
+msgid "Diastolic pressure expressed in mmHg"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Reason for patient discharge"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,evaluation_length:"
-msgid "Duration of the evaluation, in minutes"
-msgstr "分であらわした評価時間"
+msgid "Duration of the evaluation"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,glycemia:"
-msgid "Last blood glucose level. Can be approximative."
-msgstr "最新の血糖値レベル、だいたいでも良い"
+msgid ""
+"Last blood glucose level. Can be approximative. Expressed in mg/dL or "
+"mmol/L."
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,hba1c:"
-msgid "Last Glycated Hb level. Can be approximative."
-msgstr "糖化ヘモグロビン濃度。おおよそでも良い"
+msgid "Last Glycated Hb level. Can be approximative. Expressed in mmol/mol."
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,hdl:"
-msgid "Last HDL Cholesterol reading. Can be approximative"
-msgstr "最新のHDLコレステロール値、おおよそでも良い"
+msgid ""
+"Last HDL Cholesterol reading. Can be approximative. Expressed in mg/dL or "
+"mmol/L."
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,head_circumference:"
-msgid "Head circumference"
-msgstr "頭囲"
+msgid "Head circumference in centimeters"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,healthprof:"
 msgid ""
@@ -4082,14 +4449,17 @@ msgid ""
 "might or might not be the same that signs and finishes the evaluation.The "
 "evaluation remains in progress state until it is signed, when it becomes "
 "read-only"
-msgstr "医療事業者が評価を開始する。この医療事業者はおそらく評価完了時にサインする人間とは異なるかもしれない。評価はサインされるまで継続中の状態となり、read-onlyとなる。"
+msgstr ""
+"医療事業者が評価を開始する。この医療事業者はおそらく評価完了時にサインする人間とは異なるかもしれない。評価はサインされるまで継続中の状態となり、read"
+"-onlyとなる。"
 
 msgctxt "help:gnuhealth.patient.evaluation,height:"
-msgid "Height in centimeters, eg 175"
-msgstr "センチメートルでの身長、例　175"
+msgid "Height in centimeters"
+msgstr ""
 
+#, fuzzy
 msgctxt "help:gnuhealth.patient.evaluation,hip:"
-msgid "Hip circumference in centimeters, eg 100"
+msgid "Hip circumference in centimeters"
 msgstr "センチメートルであらわした尻囲、例　100"
 
 msgctxt "help:gnuhealth.patient.evaluation,information_source:"
@@ -4107,8 +4477,10 @@ msgid ""
 msgstr "患者が国民一般の悪名高い事件に応答できない場合にチェックしてください"
 
 msgctxt "help:gnuhealth.patient.evaluation,ldl:"
-msgid "Last LDL Cholesterol reading. Can be approximative"
-msgstr "最新のLDLコレステロール値、おおよそでも良い"
+msgid ""
+"Last LDL Cholesterol reading. Can be approximative. Expressed in mg/dL or "
+"mmol/L."
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,loc:"
 msgid ""
@@ -4122,7 +4494,9 @@ msgid ""
 "a disease, please encode the correspondent disease on the patient disease "
 "history. For example, Moderate protein-energy malnutrition, E44.0 in ICD-10 "
 "encoding"
-msgstr "患者が栄養失調の徴候を示す場合にチェックしてください。疾患に関連する場合は、患者の疾患の病歴上関連する疾患のコードを入力してください。例えば、ICD-10コードで適度なタンパク質-エネルギー栄養失調は E44.0 です"
+msgstr ""
+"患者が栄養失調の徴候を示す場合にチェックしてください。疾患に関連する場合は、患者の疾患の病歴上関連する疾患のコードを入力してください。例えば、ICD-1"
+"0コードで適度なタンパク質-エネルギー栄養失調は E44.0 です"
 
 msgctxt "help:gnuhealth.patient.evaluation,memory:"
 msgid ""
@@ -4140,12 +4514,16 @@ msgid "Check this box if the patient is disoriented in time and/or space"
 msgstr "患者が時間および/または空間について混乱している場合にチェックしてください"
 
 msgctxt "help:gnuhealth.patient.evaluation,osat:"
-msgid "Oxygen Saturation(arterial)."
-msgstr "動脈血酸素飽和度"
+msgid "Arterial oxygen saturation expressed as a percentage"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,praxis:"
 msgid "Check this box if the patient is unable to make voluntarymovements"
 msgstr "患者の自発的運動が可能でない場合にチェックしてください"
+
+msgctxt "help:gnuhealth.patient.evaluation,related_condition:"
+msgid "Related condition related to this follow-up evaluation"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,reliable_info:"
 msgid ""
@@ -4157,8 +4535,9 @@ msgctxt "help:gnuhealth.patient.evaluation,respiratory_rate:"
 msgid "Respiratory rate expressed in breaths per minute"
 msgstr "呼吸数（分あたりの呼吸回数）"
 
+#, fuzzy
 msgctxt "help:gnuhealth.patient.evaluation,secondary_conditions:"
-msgid "Other, Secondary conditions found on the patient"
+msgid "Other  conditions found on the patient"
 msgstr "患者の他の、第二症状"
 
 msgctxt "help:gnuhealth.patient.evaluation,signed_by:"
@@ -4169,9 +4548,15 @@ msgctxt "help:gnuhealth.patient.evaluation,signs_and_symptoms:"
 msgid "Enter the Signs and Symptoms for the patient in this evaluation."
 msgstr "患者の兆候と症状をこの評価に入力してください"
 
+msgctxt "help:gnuhealth.patient.evaluation,systolic:"
+msgid "Systolic pressure expressed in mmHg"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient.evaluation,tag:"
-msgid "Triacylglycerol(triglicerides) level. Can be approximative"
-msgstr "トリアシルグリセロール(トリグリセリド類)濃度。おおよそでも良い"
+msgid ""
+"Triacylglycerol(triglicerides) level. Can be approximative. Expressed in "
+"mg/dL or mmol/L."
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.evaluation,temperature:"
 msgid "Temperature in celcius"
@@ -4192,13 +4577,21 @@ msgid ""
 "can not describe elementary objects"
 msgstr "患者が基本的な知的能力を保持していない場合、簡単なものの形が判別できない場合にチェックしてください"
 
+msgctxt "help:gnuhealth.patient.evaluation,wait_time:"
+msgid "How long the patient waited"
+msgstr ""
+
+#, fuzzy
 msgctxt "help:gnuhealth.patient.evaluation,weight:"
-msgid "Weight in Kilos"
+msgid "Weight in kilos"
 msgstr "キロで示した体重"
 
 msgctxt "help:gnuhealth.patient.evaluation,whr:"
-msgid "Waist to hip ratio"
-msgstr "腹囲と尻囲の比"
+msgid ""
+"Waist to hip ratio . Reference values:\n"
+"Men : < 0.9 Normal // 0.9 - 0.99 Overweight // > 1 Obesity \n"
+"Women : < 0.8 Normal // 0.8 - 0.84 Overweight // > 0.85 Obesity"
+msgstr ""
 
 msgctxt "help:gnuhealth.patient.medication,admin_times:"
 msgid ""
@@ -4280,6 +4673,10 @@ msgctxt "help:gnuhealth.patient.medication,medicament:"
 msgid "Prescribed Medicament"
 msgstr "処方された薬剤"
 
+msgctxt "help:gnuhealth.patient.medication,prescription:"
+msgid "Related prescription"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient.medication,qty:"
 msgid "Quantity of units (eg, 2 capsules) of the medicament"
 msgstr "薬の量(例　2カプセル)"
@@ -4291,6 +4688,22 @@ msgstr "薬剤投与ルートコード"
 msgctxt "help:gnuhealth.patient.medication,start_treatment:"
 msgid "Date of start of Treatment"
 msgstr "治療開始日"
+
+msgctxt "help:gnuhealth.person_name,family:"
+msgid "Family / Surname."
+msgstr ""
+
+msgctxt "help:gnuhealth.person_name,given:"
+msgid "Given / First name. May include middle name"
+msgstr ""
+
+msgctxt "help:gnuhealth.person_name,party:"
+msgid "Related party (person)"
+msgstr ""
+
+msgctxt "help:gnuhealth.prescription.line,add_to_history:"
+msgid "Include this medication in the patient medication history"
+msgstr ""
 
 msgctxt "help:gnuhealth.prescription.line,admin_times:"
 msgid ""
@@ -4346,6 +4759,12 @@ msgid ""
 "existing disease of the patient or a prophylactic."
 msgstr "疾患リストからこの薬剤に適用される疾患を選択してください。患者の罹患している疾患もしくは感染予防になります。"
 
+msgctxt "help:gnuhealth.prescription.line,infusion:"
+msgid ""
+"Mark if the medication is in the form of infusion Intravenous, Gastrostomy "
+"tube, nasogastric, etc..."
+msgstr ""
+
 msgctxt "help:gnuhealth.prescription.line,medicament:"
 msgid "Prescribed Medicament"
 msgstr "処方された薬剤"
@@ -4362,6 +4781,12 @@ msgctxt "help:gnuhealth.prescription.line,quantity:"
 msgid ""
 "Number of units of the medicament. Example : 30 capsules of amoxicillin"
 msgstr "薬剤の単位数。例：アモキシシリン30カプセル"
+
+msgctxt "help:gnuhealth.prescription.line,review:"
+msgid ""
+"Until this date, the patient         usually can ask for a refill / reorder "
+"of this medicament"
+msgstr ""
 
 msgctxt "help:gnuhealth.prescription.line,route:"
 msgid "Drug administration route code."
@@ -4409,7 +4834,9 @@ msgid ""
 "product level. Information such as provider, supplier code, tracking number,"
 " etc.. This  information must always be present. If available, please copy /"
 " scan the vaccine leaflet and attach it to this record"
-msgstr "ワクチンの名称。ワクチン（製品）が製品レベルで完全な情報を持っていることを確認すること。情報とは提供者、サプライヤーコード、トラッキング番号など。この情報がつねに存在しなくてはならない。もしあれば、ワクチンの説明書をコピー／スキャンして添付し記録として保存すること。"
+msgstr ""
+"ワクチンの名称。ワクチン（製品）が製品レベルで完全な情報を持っていることを確認すること。情報とは提供者、サプライヤーコード、トラッキング番号など。この情"
+"報がつねに存在しなくてはならない。もしあれば、ワクチンの説明書をコピー／スキャンして添付し記録として保存すること。"
 
 msgctxt "help:gnuhealth.vaccination,vaccine_lot:"
 msgid ""
@@ -4438,10 +4865,6 @@ msgctxt "help:party.party,activation_date:"
 msgid "Date of activation of the party"
 msgstr "この対象を利用開始した日付"
 
-msgctxt "help:party.party,alias:"
-msgid "Common name that the Party is reffered"
-msgstr "この対象を呼ぶ共通名"
-
 msgctxt "help:party.party,alternative_identification:"
 msgid ""
 "Other types of identification, not the official PUID . Examples : Passport, "
@@ -4460,6 +4883,10 @@ msgctxt "help:party.party,dob:"
 msgid "Date of Birth"
 msgstr "生年月日"
 
+msgctxt "help:party.party,du:"
+msgid "Domiciliary Unit"
+msgstr "住居単位"
+
 msgctxt "help:party.party,father:"
 msgid "Father from the Birth Certificate"
 msgstr "出生証明書上の父親"
@@ -4470,10 +4897,9 @@ msgstr "この対象に付随する保険プラン"
 
 msgctxt "help:party.party,internal_user:"
 msgid ""
-"In GNU Health is the user (doctor, nurse, ...) that logins.When the party is"
-" a health professional, it will be the user that maps the health "
-"professional party. It must be present."
-msgstr "GNUヘルスないではログインにたいしてユーザ(doctor, nurse等)が存在する。使用者が医療関係者の場合には、ユーザを医療関係者にマップされる。これが存在しなくてはならない"
+"In GNU Health is the user (person) that logins. When the party is a person, "
+"it will be the user that maps the party."
+msgstr ""
 
 msgctxt "help:party.party,is_healthprof:"
 msgid "Check if the party is a health professional"
@@ -4500,8 +4926,8 @@ msgid "Check if the party is a Pharmacy"
 msgstr "対象が薬局ならチェック"
 
 msgctxt "help:party.party,lastname:"
-msgid "Last Name"
-msgstr "姓"
+msgid "Family or last names"
+msgstr ""
 
 msgctxt "help:party.party,mother:"
 msgid "Mother from the Birth Certificate"
@@ -7968,8 +8394,8 @@ msgid "Operational Sector"
 msgstr "カバーしている区域"
 
 msgctxt "model:gnuhealth.pathology,name:"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Health Conditions"
+msgstr ""
 
 msgctxt "model:gnuhealth.pathology.category,name:"
 msgid "Disease Categories"
@@ -8060,8 +8486,12 @@ msgid "Patient related information"
 msgstr "患者関連情報"
 
 msgctxt "model:gnuhealth.patient.disease,name:"
-msgid "Patient Disease History"
-msgstr "患者病歴"
+msgid "Patient Conditions History"
+msgstr ""
+
+msgctxt "model:gnuhealth.patient.ecg,name:"
+msgid "Patient ECG"
+msgstr ""
 
 msgctxt "model:gnuhealth.patient.evaluation,name:"
 msgid "Patient Evaluation"
@@ -8074,6 +8504,10 @@ msgstr "患者への投薬"
 msgctxt "model:gnuhealth.person_alternative_identification,name:"
 msgid "Alternative person ID"
 msgstr "代理人ID"
+
+msgctxt "model:gnuhealth.person_name,name:"
+msgid "Person Name"
+msgstr ""
 
 msgctxt "model:gnuhealth.prescription.line,name:"
 msgid "Prescription Line"
@@ -8399,10 +8833,6 @@ msgctxt "model:gnuhealth.vaccination,name:"
 msgid "Patient Vaccination information"
 msgstr "患者のワクチン接種情報"
 
-msgctxt "model:ir.action,name:"
-msgid "Evaluation"
-msgstr "判定"
-
 msgctxt "model:ir.action,name:act_app_evaluation"
 msgid "Patient Evaluation"
 msgstr "患者評価"
@@ -8439,6 +8869,10 @@ msgctxt "model:ir.action,name:act_check_immunization_status"
 msgid "Immunization Status Report"
 msgstr "予防接種スケジュールレポート"
 
+msgctxt "model:ir.action,name:act_condition_form1"
+msgid "Conditions"
+msgstr "状態"
+
 msgctxt "model:ir.action,name:act_create_patient_evaluation"
 msgid "Create Patient Evaluation"
 msgstr "患者査定の生成"
@@ -8450,6 +8884,10 @@ msgstr "死亡証明"
 msgctxt "model:ir.action,name:act_death_cert_form1"
 msgid "Death Certificate"
 msgstr "死亡証明"
+
+msgctxt "model:ir.action,name:act_ecg_view"
+msgid "ECGs"
+msgstr ""
 
 msgctxt "model:ir.action,name:act_evaluation_form1"
 msgid "Evaluations"
@@ -8511,8 +8949,9 @@ msgctxt "model:ir.action,name:action_gnuhealth_institution"
 msgid "Institutions"
 msgstr "施設"
 
+#, fuzzy
 msgctxt "model:ir.action,name:action_gnuhealth_institution_operationalsector"
-msgid "operational sectors by institution"
+msgid "Operational sectors by institution"
 msgstr "医療機関がカバーする区域"
 
 msgctxt "model:ir.action,name:action_gnuhealth_institution_specialties"
@@ -8528,8 +8967,8 @@ msgid "Disease categories"
 msgstr "疾患カテゴリー"
 
 msgctxt "model:ir.action,name:action_gnuhealth_patient_evaluation_view"
-msgid "Patient Evaluations"
-msgstr "患者評価"
+msgid "Patient Evaluations [readonly]"
+msgstr ""
 
 msgctxt "model:ir.action,name:action_gnuhealth_patient_view"
 msgid "Patients"
@@ -8580,8 +9019,8 @@ msgid "Family Members"
 msgstr "家族構成員"
 
 msgctxt "model:ir.action,name:gnuhealth_action_form_pathology"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Conditions"
+msgstr "状態"
 
 msgctxt "model:ir.action,name:gnuhealth_action_healthprofessional"
 msgid "Health Professionals"
@@ -8648,8 +9087,12 @@ msgid "ID Cards"
 msgstr "IDカード"
 
 msgctxt "model:ir.action,name:report_patient_disease"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Health Conditions"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_patient_evaluation"
+msgid "Patient Evaluation Summary"
+msgstr ""
 
 msgctxt "model:ir.action,name:report_patient_medication"
 msgid "Medications"
@@ -8669,6 +9112,11 @@ msgid "All"
 msgstr "全て"
 
 msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_appointment_domain_checkedin"
+msgid "Checked in"
+msgstr ""
+
+msgctxt ""
 "model:ir.action.act_window.domain,name:act_gnuhealth_appointment_domain_confirmed"
 msgid "Confirmed"
 msgstr "承認"
@@ -8678,6 +9126,12 @@ msgctxt ""
 msgid "Free"
 msgstr "空き"
 
+#, fuzzy
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_appointment_domain_noshow"
+msgid "No Shows"
+msgstr "不参客"
+
 msgctxt "model:ir.sequence,name:seq_gnuhealth_appointment"
 msgid "Appointment"
 msgstr "予約"
@@ -8685,6 +9139,10 @@ msgstr "予約"
 msgctxt "model:ir.sequence,name:seq_gnuhealth_patient"
 msgid "Patient"
 msgstr "患者"
+
+msgctxt "model:ir.sequence,name:seq_gnuhealth_patient_evaluation"
+msgid "Patient Evaluation"
+msgstr "患者評価"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_prescription"
 msgid "Prescription"
@@ -8697,6 +9155,10 @@ msgstr "予約"
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_patient"
 msgid "Patient"
 msgstr "患者"
+
+msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_patient_evaluation"
+msgid "Patient Evaluation"
+msgstr "患者評価"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_prescription"
 msgid "Prescription"
@@ -8807,8 +9269,8 @@ msgid "Occupations"
 msgstr "職業"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Conditions"
+msgstr "状態"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_categories"
 msgid "Categories"
@@ -8823,8 +9285,8 @@ msgid "Pathology Groups"
 msgstr "病理学グループ"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_pathology"
-msgid "Diseases"
-msgstr "疾患"
+msgid "Conditions"
+msgstr "状態"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_procedure"
 msgid "Procedures"
@@ -8850,10 +9312,6 @@ msgctxt "model:ir.ui.menu,name:gnuhealth_edit_family_member"
 msgid "Family Members"
 msgstr "家族構成員"
 
-msgctxt "model:ir.ui.menu,name:gnuhealth_edit_healthprofessional"
-msgid "Health Professionals"
-msgstr "医療従事者"
-
 msgctxt "model:ir.ui.menu,name:gnuhealth_edit_hp_specialty"
 msgid "Specialties by health professionals"
 msgstr "この医療従事者の専門診察科目"
@@ -8862,8 +9320,9 @@ msgctxt "model:ir.ui.menu,name:gnuhealth_edit_medicament"
 msgid "Medicaments"
 msgstr "医薬品"
 
+#, fuzzy
 msgctxt "model:ir.ui.menu,name:gnuhealth_institution_operationalsector"
-msgid "operational sectors by institution"
+msgid "Operational sectors by institution"
 msgstr "医療機関がカバーする区域"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_institution_specialties"
@@ -8907,8 +9366,8 @@ msgid "Death certificates"
 msgstr "死亡証明"
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_evaluation_list"
-msgid "Patient Evaluations"
-msgstr "患者評価"
+msgid "Patient Evaluations [readonly]"
+msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_procedure_list"
 msgid "Procedures"
@@ -9113,143 +9572,355 @@ msgctxt "odt:gnuhealth.immunization_status_report:"
 msgid "the i"
 msgstr "その i"
 
-msgctxt "odt:patient.card:"
-msgid "Blood :"
-msgstr "血液型 :"
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ","
+msgstr ""
 
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "/"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "/ Reliability :"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "15"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ":"
+msgstr ""
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Female"
+msgstr "女性"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Male"
+msgstr ""
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Married"
+msgstr "既婚"
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Separated"
+msgstr "別居"
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Single"
+msgstr "独身"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid ": Widow"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Age"
+msgstr "年齢"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Allergies and other relevant information"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "BMI"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "BP : (Sys / dias)"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Chief Complaint"
+msgstr "主訴"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Clinical and Physical examination"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Clinical finding"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Code :"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Comments"
+msgstr "コメント"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "D"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Differential Diagnoses"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Discharge Reason"
+msgstr ""
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "DoB:"
+msgstr "生年月日 :"
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Ethnicity:"
+msgstr "人種"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Evaluation Digital Signature"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "GCS"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Heart Rate"
+msgstr "心拍数"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "History of Present Illness"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Information Source:"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Initiated by"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Main Condition :"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Marital Status"
+msgstr "婚姻状況"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "OSAT"
+msgstr ""
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Occupation :"
+msgstr "職業"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Other Conditions"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "P"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "PUID"
+msgstr "PUID（患者のユーザーID）"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Patient :"
+msgstr "患者 :"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Plan"
+msgstr "保険プラン"
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Print Date:"
+msgstr "印刷日："
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Resp Rate"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Sex"
+msgstr "性別"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Signs and Symptoms"
+msgstr "徴候と症状"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Temperature"
+msgstr "体温"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Treatment"
+msgstr ""
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "Type"
+msgstr "タイプ"
+
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "ate:"
+msgstr ""
+
+#, fuzzy
+msgctxt "odt:gnuhealth.patient_evaluation:"
+msgid "rocedures"
+msgstr "手続き"
+
+#, fuzzy
 msgctxt "odt:patient.card:"
-msgid "DoB :"
+msgid "Blood type :"
+msgstr "血液型"
+
+#, fuzzy
+msgctxt "odt:patient.card:"
+msgid "DoB:"
 msgstr "生年月日 :"
 
 msgctxt "odt:patient.card:"
 msgid "ID:"
 msgstr "ID :"
 
+#, fuzzy
 msgctxt "odt:patient.card:"
-msgid "Name :"
+msgid "Name:"
 msgstr "名前 :"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "& history"
 msgstr "& 病歴"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "*"
-msgstr "*"
+msgstr ""
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid ","
-msgstr "'"
+msgstr ""
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid ":"
-msgstr "："
+msgstr ""
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Active"
 msgstr "活動的"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Age :"
 msgstr "年齢 :"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Annotations about the patient condition"
 msgstr "患者状態への注釈"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Automated"
 msgstr "自動化された"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Diagnosed"
 msgstr "診断ずみ"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Disease"
 msgstr "疾患"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Female"
 msgstr "女性"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
+msgid "HEALTH CONDITIONS"
+msgstr ""
+
+msgctxt "odt:patient.conditions_history:"
 msgid "ID"
 msgstr "ID"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Infectious"
 msgstr "感染性"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Male"
 msgstr "男性"
 
-msgctxt "odt:patient.disease:"
-msgid "PATIENT DISEASES HISTORY"
-msgstr "患者の病歴"
+msgctxt "odt:patient.conditions_history:"
+msgid "PATIENT"
+msgstr "患者"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "PU"
 msgstr "PU"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Patient"
 msgstr "患者"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Print Date :"
 msgstr "印刷日："
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Remarks"
 msgstr "注意点"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Severity"
 msgstr "重症度"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "Status"
 msgstr "状態"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "chronic"
 msgstr "慢性的"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "healed"
 msgstr "治癒"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "improving"
 msgstr "改善している"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "mild"
 msgstr "高"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "moderate"
 msgstr "中等度"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "report about patient important conditions"
 msgstr "重要な状態の患者についての報告"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "s"
-msgstr "s"
+msgstr ""
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "severe"
 msgstr "重症"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "unchanged"
 msgstr "不変"
 
-msgctxt "odt:patient.disease:"
+msgctxt "odt:patient.conditions_history:"
 msgid "worsening"
 msgstr "悪化"
 
@@ -9422,10 +10093,6 @@ msgid "Age :"
 msgstr "年齢 :"
 
 msgctxt "odt:prescription.order:"
-msgid "Allowed"
-msgstr "許可された"
-
-msgctxt "odt:prescription.order:"
 msgid "Directions"
 msgstr "指示"
 
@@ -9526,8 +10193,8 @@ msgid "Start"
 msgstr "開始"
 
 msgctxt "odt:prescription.order:"
-msgid "Substitution"
-msgstr "置換"
+msgid "Substitution Allowed"
+msgstr ""
 
 msgctxt "odt:prescription.order:"
 msgid "Tel"
@@ -9554,8 +10221,8 @@ msgid "s"
 msgstr "s"
 
 msgctxt "selection:gnuhealth.appointment,appointment_type:"
-msgid "Ambulatory"
-msgstr "外来"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.appointment,appointment_type:"
 msgid "Inpatient"
@@ -9566,12 +10233,20 @@ msgid "Outpatient"
 msgstr "外来患者"
 
 msgctxt "selection:gnuhealth.appointment,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.appointment,state:"
 msgid "Cancelled by Health Center"
 msgstr "医療拠点によりキャンセルされました"
 
 msgctxt "selection:gnuhealth.appointment,state:"
 msgid "Cancelled by patient"
 msgstr "患者によるキャンセル"
+
+msgctxt "selection:gnuhealth.appointment,state:"
+msgid "Checked in"
+msgstr ""
 
 msgctxt "selection:gnuhealth.appointment,state:"
 msgid "Confirmed"
@@ -9590,6 +10265,10 @@ msgid "No show"
 msgstr "不参客"
 
 msgctxt "selection:gnuhealth.appointment,urgency:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.appointment,urgency:"
 msgid "Medical Emergency"
 msgstr "内科救急"
 
@@ -9602,8 +10281,8 @@ msgid "Urgent"
 msgstr "緊急"
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
-msgid "Chronic condition checkup"
-msgstr "慢性状態の検査"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Followup"
@@ -9625,13 +10304,21 @@ msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Well Woman visit"
 msgstr "成人女性の健診"
 
-msgctxt "selection:gnuhealth.appointment.report,sex:"
+msgctxt "selection:gnuhealth.appointment.report,gender:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.appointment.report,gender:"
 msgid "Female"
 msgstr "女性"
 
-msgctxt "selection:gnuhealth.appointment.report,sex:"
+msgctxt "selection:gnuhealth.appointment.report,gender:"
 msgid "Male"
 msgstr "男性"
+
+msgctxt "selection:gnuhealth.birth_certificate,state:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.birth_certificate,state:"
 msgid "Done"
@@ -9644,6 +10331,10 @@ msgstr "ドラフト"
 msgctxt "selection:gnuhealth.birth_certificate,state:"
 msgid "Signed"
 msgstr "サイン"
+
+msgctxt "selection:gnuhealth.death_certificate,place_of_death:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.death_certificate,place_of_death:"
 msgid "Health Center"
@@ -9662,6 +10353,10 @@ msgid "Work"
 msgstr "仕事"
 
 msgctxt "selection:gnuhealth.death_certificate,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.death_certificate,state:"
 msgid "Done"
 msgstr "実施済み"
 
@@ -9672,6 +10367,10 @@ msgstr "ドラフト"
 msgctxt "selection:gnuhealth.death_certificate,state:"
 msgid "Signed"
 msgstr "サイン"
+
+msgctxt "selection:gnuhealth.death_certificate,type_of_death:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.death_certificate,type_of_death:"
 msgid "Homicide"
@@ -9694,6 +10393,10 @@ msgid "Undetermined"
 msgstr "不確定の"
 
 msgctxt "selection:gnuhealth.death_underlying_condition,unit_of_time:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.death_underlying_condition,unit_of_time:"
 msgid "days"
 msgstr "日"
 
@@ -9712,6 +10415,10 @@ msgstr "月"
 msgctxt "selection:gnuhealth.death_underlying_condition,unit_of_time:"
 msgid "years"
 msgstr "年"
+
+msgctxt "selection:gnuhealth.du,dwelling:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.du,dwelling:"
 msgid "Apartment"
@@ -9738,6 +10445,10 @@ msgid "Townhouse"
 msgstr "タウンハウス"
 
 msgctxt "selection:gnuhealth.du,housing:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.du,housing:"
 msgid "Comfortable and good sanitary conditions"
 msgstr "快適で衛生的な状況"
 
@@ -9758,6 +10469,10 @@ msgid "Small, crowded but with good sanitary conditions"
 msgstr "狭く混雑せいているが衛生的には良好な状況"
 
 msgctxt "selection:gnuhealth.du,materials:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.du,materials:"
 msgid "Adobe"
 msgstr "天日瓦"
 
@@ -9776,6 +10491,10 @@ msgstr "石"
 msgctxt "selection:gnuhealth.du,materials:"
 msgid "Wood"
 msgstr "木"
+
+msgctxt "selection:gnuhealth.du,roof_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.du,roof_type:"
 msgid "Adobe"
@@ -9800,6 +10519,10 @@ msgstr "茅葺き"
 msgctxt "selection:gnuhealth.du,roof_type:"
 msgid "Wood"
 msgstr "木"
+
+msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.hospital.bed,bed_type:"
 msgid "Circo Electric"
@@ -9830,8 +10553,16 @@ msgid "Stretcher"
 msgstr "ストレッチャー"
 
 msgctxt "selection:gnuhealth.hospital.bed,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Free"
 msgstr "空き"
+
+msgctxt "selection:gnuhealth.hospital.bed,state:"
+msgid "Needs cleaning"
+msgstr ""
 
 msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Not available"
@@ -9844,6 +10575,30 @@ msgstr "占有されている"
 msgctxt "selection:gnuhealth.hospital.bed,state:"
 msgid "Reserved"
 msgstr "予約済み"
+
+msgctxt "selection:gnuhealth.hospital.or,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.hospital.or,state:"
+msgid "Confirmed"
+msgstr "承認"
+
+msgctxt "selection:gnuhealth.hospital.or,state:"
+msgid "Free"
+msgstr "空き"
+
+msgctxt "selection:gnuhealth.hospital.or,state:"
+msgid "Not available"
+msgstr "利用不可"
+
+msgctxt "selection:gnuhealth.hospital.or,state:"
+msgid "Occupied"
+msgstr "占有されている"
+
+msgctxt "selection:gnuhealth.hospital.ward,gender:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.hospital.ward,gender:"
 msgid "Men Ward"
@@ -9858,6 +10613,10 @@ msgid "Women Ward"
 msgstr "女性病棟"
 
 msgctxt "selection:gnuhealth.hospital.ward,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.hospital.ward,state:"
 msgid "Beds available"
 msgstr "ベッド利用可能"
 
@@ -9868,6 +10627,10 @@ msgstr "満室"
 msgctxt "selection:gnuhealth.hospital.ward,state:"
 msgid "Not available"
 msgstr "利用不可能"
+
+msgctxt "selection:gnuhealth.immunization_schedule_dose,age_unit:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.immunization_schedule_dose,age_unit:"
 msgid "days"
@@ -9886,6 +10649,10 @@ msgid "years"
 msgstr "年"
 
 msgctxt "selection:gnuhealth.immunization_schedule_line,scope:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.immunization_schedule_line,scope:"
 msgid "Recommended"
 msgstr "お勧めの"
 
@@ -9896,6 +10663,10 @@ msgstr "リスクグループ"
 msgctxt "selection:gnuhealth.immunization_schedule_line,scope:"
 msgid "Systematic"
 msgstr "システマティック"
+
+msgctxt "selection:gnuhealth.institution,institution_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.institution,institution_type:"
 msgid "Clinic"
@@ -9930,6 +10701,10 @@ msgid "Specialized Hospital"
 msgstr "専門病院"
 
 msgctxt "selection:gnuhealth.institution,public_level:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.institution,public_level:"
 msgid "Private"
 msgstr "個室"
 
@@ -9940,6 +10715,10 @@ msgstr "プライベート - 提示"
 msgctxt "selection:gnuhealth.institution,public_level:"
 msgid "Public"
 msgstr "公開"
+
+msgctxt "selection:gnuhealth.institution,trauma_level:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.institution,trauma_level:"
 msgid "Level I"
@@ -9962,6 +10741,10 @@ msgid "Level V"
 msgstr "レベル５"
 
 msgctxt "selection:gnuhealth.insurance,insurance_type:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.insurance,insurance_type:"
 msgid "Labour Union / Syndical"
 msgstr "労働組合 / 職業組合"
 
@@ -9972,6 +10755,10 @@ msgstr "個室"
 msgctxt "selection:gnuhealth.insurance,insurance_type:"
 msgid "State"
 msgstr "州"
+
+msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "A"
@@ -9997,6 +10784,22 @@ msgctxt "selection:gnuhealth.medicament,pregnancy_category:"
 msgid "X"
 msgstr "X"
 
+msgctxt "selection:gnuhealth.patient,biological_sex:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,biological_sex:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "selection:gnuhealth.patient,biological_sex:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "selection:gnuhealth.patient,blood_type:"
+msgid ""
+msgstr ""
+
 msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "A"
 msgstr "A"
@@ -10012,6 +10815,30 @@ msgstr "B"
 msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "O"
 msgstr "O"
+
+msgctxt "selection:gnuhealth.patient,gender:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,gender:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "selection:gnuhealth.patient,gender:"
+msgid "Female -> Male"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,gender:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "selection:gnuhealth.patient,gender:"
+msgid "Male -> Female"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,marital_status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient,marital_status:"
 msgid "Concubinage"
@@ -10038,6 +10865,10 @@ msgid "Widowed"
 msgstr "死別"
 
 msgctxt "selection:gnuhealth.patient,rh:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient,rh:"
 msgid "+"
 msgstr "+"
 
@@ -10045,13 +10876,9 @@ msgctxt "selection:gnuhealth.patient,rh:"
 msgid "-"
 msgstr "-"
 
-msgctxt "selection:gnuhealth.patient,sex:"
-msgid "Female"
-msgstr "女性"
-
-msgctxt "selection:gnuhealth.patient,sex:"
-msgid "Male"
-msgstr "男性"
+msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.disease,allergy_type:"
 msgid "Drug Allergy"
@@ -10070,6 +10897,10 @@ msgid "Misc Contraindication"
 msgstr "その他禁忌"
 
 msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
 msgid "Mild"
 msgstr "軽度"
 
@@ -10080,6 +10911,10 @@ msgstr "中度"
 msgctxt "selection:gnuhealth.patient.disease,disease_severity:"
 msgid "Severe"
 msgstr "重度"
+
+msgctxt "selection:gnuhealth.patient.disease,status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "acute"
@@ -10105,9 +10940,145 @@ msgctxt "selection:gnuhealth.patient.disease,status:"
 msgid "worsening"
 msgstr "悪化"
 
+msgctxt "selection:gnuhealth.patient.ecg,axis:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,axis:"
+msgid "Extreme right deviation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,axis:"
+msgid "Left deviation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,axis:"
+msgid "Normal Axis"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,axis:"
+msgid "Right deviation"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "I"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "II"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "III"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V1"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V2"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V3"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V4"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V5"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "V6"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "aVF"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "aVL"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,lead:"
+msgid "aVR"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,pacemaker:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,pacemaker:"
+msgid "Atrioventricular"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,pacemaker:"
+msgid "Purkinje"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,pacemaker:"
+msgid "Sinus Node"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,rhythm:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,rhythm:"
+msgid "Irregular"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,rhythm:"
+msgid "Regular"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,st_segment:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,st_segment:"
+msgid "Depressed"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,st_segment:"
+msgid "Elevated"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.ecg,st_segment:"
+msgid "Normal"
+msgstr "正常"
+
+msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Death"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Home / Selfcare"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Left against medical advice"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
+msgid "Transferred to another institution"
+msgstr ""
+
 msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
-msgid "Ambulatory"
-msgstr "外来"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Inpatient"
@@ -10116,6 +11087,26 @@ msgstr "入院患者"
 msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
 msgid "Outpatient"
 msgstr "外来患者"
+
+msgctxt "selection:gnuhealth.patient.evaluation,gender:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,gender:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "selection:gnuhealth.patient.evaluation,gender:"
+msgid "Female -> Male"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,gender:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "selection:gnuhealth.patient.evaluation,gender:"
+msgid "Male -> Female"
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.evaluation,loc_eyes:"
 msgid "Does not Open Eyes"
@@ -10178,6 +11169,10 @@ msgid "Utters inappropriate words"
 msgstr "不穏当な単語を口に出す"
 
 msgctxt "selection:gnuhealth.patient.evaluation,mood:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,mood:"
 msgid "Disgust"
 msgstr "嫌悪感を起こさせる"
 
@@ -10210,6 +11205,10 @@ msgid "Sad"
 msgstr "悲しい"
 
 msgctxt "selection:gnuhealth.patient.evaluation,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.evaluation,state:"
 msgid "Done"
 msgstr "実施済み"
 
@@ -10220,6 +11219,10 @@ msgstr "進行中"
 msgctxt "selection:gnuhealth.patient.evaluation,state:"
 msgid "Signed"
 msgstr "サイン"
+
+msgctxt "selection:gnuhealth.patient.evaluation,urgency:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.evaluation,urgency:"
 msgid "Medical Emergency"
@@ -10234,8 +11237,8 @@ msgid "Urgent"
 msgstr "緊急"
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
-msgid "Chronic condition checkup"
-msgstr "慢性状態の検査"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Followup"
@@ -10256,6 +11259,10 @@ msgstr "成人男性の健診"
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Well Woman visit"
 msgstr "成人女性の健診"
+
+msgctxt "selection:gnuhealth.patient.medication,duration_period:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.medication,duration_period:"
 msgid "days"
@@ -10280,6 +11287,10 @@ msgstr "月"
 msgctxt "selection:gnuhealth.patient.medication,duration_period:"
 msgid "years"
 msgstr "年"
+
+msgctxt "selection:gnuhealth.patient.medication,frequency_unit:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.patient.medication,frequency_unit:"
 msgid "days"
@@ -10306,8 +11317,17 @@ msgid "when required"
 msgstr "必要時に"
 
 msgctxt "selection:gnuhealth.patient.medication,infusion_rate_units:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.medication,infusion_rate_units:"
 msgid "mL/hour"
 msgstr "mL/時"
+
+msgctxt ""
+"selection:gnuhealth.person_alternative_identification,alternative_id_type:"
+msgid ""
+msgstr ""
 
 msgctxt ""
 "selection:gnuhealth.person_alternative_identification,alternative_id_type:"
@@ -10328,6 +11348,63 @@ msgctxt ""
 "selection:gnuhealth.person_alternative_identification,alternative_id_type:"
 msgid "Passport"
 msgstr "パスポート"
+
+msgctxt "selection:gnuhealth.person_name,prefix:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,prefix:"
+msgid "Dr"
+msgstr ""
+
+#, fuzzy
+msgctxt "selection:gnuhealth.person_name,prefix:"
+msgid "Miss"
+msgstr "その他"
+
+msgctxt "selection:gnuhealth.person_name,prefix:"
+msgid "Mr"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,prefix:"
+msgid "Mrs"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Anonymous"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Maiden"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Nickname"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Official"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Temp"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "Usual"
+msgstr ""
+
+msgctxt "selection:gnuhealth.person_name,use:"
+msgid "old"
+msgstr ""
+
+msgctxt "selection:gnuhealth.prescription.line,duration_period:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.prescription.line,duration_period:"
 msgid "days"
@@ -10354,6 +11431,10 @@ msgid "years"
 msgstr "年"
 
 msgctxt "selection:gnuhealth.prescription.line,frequency_unit:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.prescription.line,frequency_unit:"
 msgid "days"
 msgstr "日"
 
@@ -10377,6 +11458,26 @@ msgctxt "selection:gnuhealth.prescription.line,frequency_unit:"
 msgid "when required"
 msgstr "必要時に"
 
+msgctxt "selection:gnuhealth.prescription.line,infusion_rate_units:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.prescription.line,infusion_rate_units:"
+msgid "mL/hour"
+msgstr "mL/時"
+
+msgctxt "selection:gnuhealth.prescription.order,state:"
+msgid "Done"
+msgstr "実施済み"
+
+msgctxt "selection:gnuhealth.prescription.order,state:"
+msgid "Draft"
+msgstr "ドラフト"
+
+msgctxt "selection:gnuhealth.signs_and_symptoms,sign_or_symptom:"
+msgid ""
+msgstr ""
+
 msgctxt "selection:gnuhealth.signs_and_symptoms,sign_or_symptom:"
 msgid "Sign"
 msgstr "サイン"
@@ -10384,6 +11485,10 @@ msgstr "サイン"
 msgctxt "selection:gnuhealth.signs_and_symptoms,sign_or_symptom:"
 msgid "Symptom"
 msgstr "症状"
+
+msgctxt "selection:gnuhealth.vaccination,admin_route:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.vaccination,admin_route:"
 msgid "Intradermal"
@@ -10404,6 +11509,10 @@ msgstr "経口"
 msgctxt "selection:gnuhealth.vaccination,admin_route:"
 msgid "Subcutaneous"
 msgstr "皮下"
+
+msgctxt "selection:gnuhealth.vaccination,admin_site:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:gnuhealth.vaccination,admin_site:"
 msgid "left anterolateral fat of thigh"
@@ -10446,12 +11555,32 @@ msgid "right vastus lateralis"
 msgstr "右外側広筋"
 
 msgctxt "selection:gnuhealth.vaccination,state:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.vaccination,state:"
 msgid "Done"
 msgstr "実施済み"
 
 msgctxt "selection:gnuhealth.vaccination,state:"
 msgid "In Progress"
 msgstr "進行中"
+
+msgctxt "selection:party.party,gender:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:party.party,gender:"
+msgid "Female"
+msgstr "女性"
+
+msgctxt "selection:party.party,gender:"
+msgid "Male"
+msgstr "男性"
+
+msgctxt "selection:party.party,insurance_company_type:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:party.party,insurance_company_type:"
 msgid "Labour Union / Syndical"
@@ -10464,6 +11593,10 @@ msgstr "個室"
 msgctxt "selection:party.party,insurance_company_type:"
 msgid "State"
 msgstr "州"
+
+msgctxt "selection:party.party,marital_status:"
+msgid ""
+msgstr ""
 
 msgctxt "selection:party.party,marital_status:"
 msgid "Concubinage"
@@ -10489,13 +11622,21 @@ msgctxt "selection:party.party,marital_status:"
 msgid "Widowed"
 msgstr "死別"
 
-msgctxt "selection:party.party,sex:"
-msgid "Female"
-msgstr "女性"
+msgctxt "selection:party.party,name_representation:"
+msgid ""
+msgstr ""
 
-msgctxt "selection:party.party,sex:"
-msgid "Male"
-msgstr "男性"
+msgctxt "selection:party.party,name_representation:"
+msgid "Family, Given"
+msgstr ""
+
+msgctxt "selection:party.party,name_representation:"
+msgid "Given Family"
+msgstr ""
+
+msgctxt "selection:party.party,name_representation:"
+msgid "Prefix Given Family, Suffix"
+msgstr ""
 
 msgctxt "view:gnuhealth.appointment.report.open.start:"
 msgid "Appointment Report"
@@ -10510,12 +11651,36 @@ msgid "Appointment"
 msgstr "予約"
 
 msgctxt "view:gnuhealth.appointment:"
+msgid "Checked in"
+msgstr ""
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "Date"
+msgstr "日"
+
+msgctxt "view:gnuhealth.appointment:"
 msgid "Information"
 msgstr "情報"
 
 msgctxt "view:gnuhealth.appointment:"
+msgid "No show"
+msgstr "不参客"
+
+msgctxt "view:gnuhealth.appointment:"
 msgid "Patient appointment"
 msgstr "患者面接"
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "The patient did not show up"
+msgstr ""
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "The patient has arrived and is waiting"
+msgstr ""
+
+msgctxt "view:gnuhealth.appointment:"
+msgid "Time"
+msgstr ""
 
 msgctxt "view:gnuhealth.birth_certificate:"
 msgid "Birh Certificate"
@@ -10706,6 +11871,18 @@ msgid "Bed"
 msgstr "病床"
 
 msgctxt "view:gnuhealth.hospital.bed:"
+msgid "Click when Bed has been fixed / cleaned"
+msgstr ""
+
+msgctxt "view:gnuhealth.hospital.bed:"
+msgid "Confirm that the bed has been cleaned / fixed and is now ready to use"
+msgstr ""
+
+msgctxt "view:gnuhealth.hospital.bed:"
+msgid "Fix Bed"
+msgstr ""
+
+msgctxt "view:gnuhealth.hospital.bed:"
 msgid "Health Center Bed Info"
 msgstr "医療拠点の病床情報"
 
@@ -10810,8 +11987,16 @@ msgid "Extra Info"
 msgstr "特記事項"
 
 msgctxt "view:gnuhealth.medicament:"
+msgid "Form"
+msgstr "フォーム"
+
+msgctxt "view:gnuhealth.medicament:"
 msgid "Indications"
 msgstr "適応"
+
+msgctxt "view:gnuhealth.medicament:"
+msgid "Main"
+msgstr "メイン"
 
 msgctxt "view:gnuhealth.medicament:"
 msgid "Main Info"
@@ -10821,6 +12006,11 @@ msgctxt "view:gnuhealth.medicament:"
 msgid "Notes"
 msgstr "備考"
 
+#, fuzzy
+msgctxt "view:gnuhealth.medicament:"
+msgid "Overdose"
+msgstr "過剰服用"
+
 msgctxt "view:gnuhealth.medicament:"
 msgid "Pregnancy"
 msgstr "妊娠"
@@ -10828,6 +12018,14 @@ msgstr "妊娠"
 msgctxt "view:gnuhealth.medicament:"
 msgid "Presentation"
 msgstr "分娩時の胎位"
+
+msgctxt "view:gnuhealth.medicament:"
+msgid "Product"
+msgstr "製品"
+
+msgctxt "view:gnuhealth.medicament:"
+msgid "Route"
+msgstr "経路"
 
 msgctxt "view:gnuhealth.medicament:"
 msgid "Storage"
@@ -10840,6 +12038,10 @@ msgstr "薬剤"
 msgctxt "view:gnuhealth.medicament:"
 msgid "medicaments"
 msgstr "医薬品"
+
+msgctxt "view:gnuhealth.medicament:"
+msgid "strength"
+msgstr ""
 
 msgctxt "view:gnuhealth.medication.dosage:"
 msgid "Dosage"
@@ -10926,16 +12128,24 @@ msgid "Patient Diseases"
 msgstr "患者の疾患"
 
 msgctxt "view:gnuhealth.patient.disease:"
-msgid "Patient diseases"
-msgstr "患者の疾患"
+msgid "Patient conditions"
+msgstr ""
 
 msgctxt "view:gnuhealth.patient.disease:"
 msgid "Pregnancy"
 msgstr "妊娠"
 
 msgctxt "view:gnuhealth.patient.disease:"
+msgid "Related Evaluations"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.disease:"
 msgid "Therapy"
 msgstr "治療"
+
+msgctxt "view:gnuhealth.patient.ecg:"
+msgid "Patient ECG Assesment"
+msgstr ""
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Anthropometry"
@@ -10950,28 +12160,28 @@ msgid "Clinical"
 msgstr "臨床"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
-msgid "Diagnosis"
-msgstr "診断"
-
-msgctxt "view:gnuhealth.patient.evaluation:"
-msgid "Done"
-msgstr "実施済み"
-
-msgctxt "view:gnuhealth.patient.evaluation:"
-msgid "End this evaluation"
+msgid "Clinical and Physical exam"
 msgstr ""
 
 msgctxt "view:gnuhealth.patient.evaluation:"
-msgid "End this evaluation ?"
+msgid "Discharge"
 msgstr ""
 
 msgctxt "view:gnuhealth.patient.evaluation:"
-msgid "Evaluation Summary"
-msgstr "評価の要約"
+msgid "Discharge patient / End this evaluation ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Discharge patient / end this evaluation"
+msgstr ""
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Evaluations"
 msgstr "判定"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Extra Info"
+msgstr "特記事項"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Glasgow Coma Scale"
@@ -10981,9 +12191,18 @@ msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Glucose and Lipids Profile"
 msgstr "グルコースおよび脂質プロフィール"
 
+#, fuzzy
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Header"
+msgstr "牛飼い・羊飼い"
+
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Information on Diagnosis"
 msgstr "診断情報"
+
+msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Main Condition"
+msgstr ""
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Main Info"
@@ -11002,6 +12221,10 @@ msgid "Nutrition"
 msgstr "栄養状態"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
+msgid "Other information related to this evaluation"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Patient Evaluation"
 msgstr "患者評価"
 
@@ -11018,7 +12241,7 @@ msgid "Vital Signs"
 msgstr "バイタルサイン"
 
 msgctxt "view:gnuhealth.patient.medication:"
-msgid "Admnistration"
+msgid "Administration"
 msgstr "管理"
 
 msgctxt "view:gnuhealth.patient.medication:"
@@ -11078,10 +12301,6 @@ msgid "Critical Information"
 msgstr "重要な情報"
 
 msgctxt "view:gnuhealth.patient:"
-msgid "Diseases"
-msgstr "疾患"
-
-msgctxt "view:gnuhealth.patient:"
 msgid "General Info"
 msgstr "概要"
 
@@ -11117,6 +12336,10 @@ msgctxt "view:gnuhealth.person_alternative_identification:"
 msgid "Person alternative IDs"
 msgstr "個人の代理ID"
 
+msgctxt "view:gnuhealth.person_name:"
+msgid "Person Names"
+msgstr ""
+
 msgctxt "view:gnuhealth.prescription.line:"
 msgid "Common Dosage"
 msgstr "一般の適用量"
@@ -11124,6 +12347,19 @@ msgstr "一般の適用量"
 msgctxt "view:gnuhealth.prescription.line:"
 msgid "Dosage"
 msgstr "適用量"
+
+#, fuzzy
+msgctxt "view:gnuhealth.prescription.line:"
+msgid "Form and Administration Route"
+msgstr "薬物投与経路"
+
+msgctxt "view:gnuhealth.prescription.line:"
+msgid "Medication and Condition"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.line:"
+msgid "Misc"
+msgstr "その他"
 
 msgctxt "view:gnuhealth.prescription.line:"
 msgid "Prescription Line"
@@ -11136,6 +12372,22 @@ msgstr "処方された薬品"
 msgctxt "view:gnuhealth.prescription.line:"
 msgid "Specific Dosage"
 msgstr "特定の適用量"
+
+msgctxt "view:gnuhealth.prescription.line:"
+msgid "Treatment time"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Create"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Create prescription ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.prescription.order:"
+msgid "Create the prescription"
+msgstr ""
 
 msgctxt "view:gnuhealth.prescription.order:"
 msgid "Notes"
@@ -11249,3 +12501,407 @@ msgstr "予防接種状況"
 msgctxt "wizard_button:gnuhealth.check_immunization_status,start,end:"
 msgid "Cancel"
 msgstr "キャンセル"
+
+#~ msgctxt "error:gnuhealth.healthprofessional:"
+#~ msgid "The Health Professional already exists"
+#~ msgstr "医療従事者はすでに割りあてられています"
+
+#~ msgctxt "error:gnuhealth.vaccination:"
+#~ msgid ""
+#~ "EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
+#~ "IT !!!"
+#~ msgstr "期限切れのワクチン。地域の医療統括機関に連絡し、使わないでください !!!"
+
+#~ msgctxt "error:party.party:"
+#~ msgid "This health professional is already assigned to a party"
+#~ msgstr "医療担当者はこの対象にすでに割りあてられています"
+
+#~ msgctxt "field:gnuhealth.appointment.report,diagnosis:"
+#~ msgid "Presumptive Diagnosis"
+#~ msgstr "仮診断"
+
+#~ msgctxt "field:gnuhealth.appointment.report,sex:"
+#~ msgid "Sex"
+#~ msgstr "性別"
+
+#~ msgctxt "field:gnuhealth.disease_group.members,name:"
+#~ msgid "Disease"
+#~ msgstr "疾患"
+
+#~ msgctxt "field:gnuhealth.patient,critical_summary:"
+#~ msgid "Important disease about patient allergies or procedures"
+#~ msgstr "重要な両親のアレルギー疾患および処置"
+
+#~ msgctxt "field:gnuhealth.patient,diseases:"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "field:gnuhealth.patient,sex:"
+#~ msgid "Sex"
+#~ msgstr "性別"
+
+#~ msgctxt "field:gnuhealth.patient.disease,pathology:"
+#~ msgid "Disease"
+#~ msgstr "疾患"
+
+#~ msgctxt "field:gnuhealth.patient.disease,status:"
+#~ msgid "Status of the disease"
+#~ msgstr "病気の状態"
+
+#~ msgctxt "field:gnuhealth.patient.evaluation,bmi:"
+#~ msgid "Body Mass Index"
+#~ msgstr "肥満指数"
+
+#~ msgctxt "field:gnuhealth.patient.evaluation,diagnosis:"
+#~ msgid "Presumptive Diagnosis"
+#~ msgstr "仮診断"
+
+#~ msgctxt "field:gnuhealth.patient.evaluation,evaluation_length:"
+#~ msgid "Length"
+#~ msgstr "全長"
+
+#~ msgctxt "field:gnuhealth.patient.evaluation,evaluation_summary:"
+#~ msgid "Evaluation Summary"
+#~ msgstr "評価の要約"
+
+#~ msgctxt "field:gnuhealth.patient.evaluation,head_circumference:"
+#~ msgid "Head Circumference"
+#~ msgstr "頭囲"
+
+#~ msgctxt "field:party.party,alias:"
+#~ msgid "Alias"
+#~ msgstr "別名"
+
+#~ msgctxt "field:party.party,ethnic_group:"
+#~ msgid "Ethnic group"
+#~ msgstr "人種"
+
+#~ msgctxt "field:party.party,lastname:"
+#~ msgid "Last Name"
+#~ msgstr "姓"
+
+#~ msgctxt "field:party.party,sex:"
+#~ msgid "Sex"
+#~ msgstr "性別"
+
+#~ msgctxt "help:gnuhealth.patient,critical_info:"
+#~ msgid ""
+#~ "Write any important information on the patient's disease, surgeries, "
+#~ "allergies, ..."
+#~ msgstr "患者の疾病、手術、アレルギー等について重要な情報をここに記してください"
+
+#~ msgctxt "help:gnuhealth.patient,critical_summary:"
+#~ msgid "Automated summary of patient allergies and other critical information"
+#~ msgstr "患者のアレルギーおよび他の重要な情報についての自動要約"
+
+#~ msgctxt "help:gnuhealth.patient.disease,healthprof:"
+#~ msgid "Health Professional who treated or diagnosed the patient"
+#~ msgstr "患者を検査・治療した医療従事者"
+
+#~ msgctxt "help:gnuhealth.patient.disease,pathology:"
+#~ msgid "Disease"
+#~ msgstr "疾患"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,cholesterol_total:"
+#~ msgid "Last cholesterol reading. Can be approximative"
+#~ msgstr "最後のコレステロール値。おおよそでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,evaluation_date:"
+#~ msgid ""
+#~ "Enter or select the date / ID of the appointment related to this evaluation"
+#~ msgstr "この評価に関連する予約の日時 / IDを選ぶもしくは入力してください"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,evaluation_length:"
+#~ msgid "Duration of the evaluation, in minutes"
+#~ msgstr "分であらわした評価時間"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,glycemia:"
+#~ msgid "Last blood glucose level. Can be approximative."
+#~ msgstr "最新の血糖値レベル、だいたいでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,hba1c:"
+#~ msgid "Last Glycated Hb level. Can be approximative."
+#~ msgstr "糖化ヘモグロビン濃度。おおよそでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,hdl:"
+#~ msgid "Last HDL Cholesterol reading. Can be approximative"
+#~ msgstr "最新のHDLコレステロール値、おおよそでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,head_circumference:"
+#~ msgid "Head circumference"
+#~ msgstr "頭囲"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,height:"
+#~ msgid "Height in centimeters, eg 175"
+#~ msgstr "センチメートルでの身長、例　175"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,hip:"
+#~ msgid "Hip circumference in centimeters, eg 100"
+#~ msgstr "センチメートルであらわした尻囲、例　100"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,ldl:"
+#~ msgid "Last LDL Cholesterol reading. Can be approximative"
+#~ msgstr "最新のLDLコレステロール値、おおよそでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,osat:"
+#~ msgid "Oxygen Saturation(arterial)."
+#~ msgstr "動脈血酸素飽和度"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,secondary_conditions:"
+#~ msgid "Other, Secondary conditions found on the patient"
+#~ msgstr "患者の他の、第二症状"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,tag:"
+#~ msgid "Triacylglycerol(triglicerides) level. Can be approximative"
+#~ msgstr "トリアシルグリセロール(トリグリセリド類)濃度。おおよそでも良い"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,weight:"
+#~ msgid "Weight in Kilos"
+#~ msgstr "キロで示した体重"
+
+#~ msgctxt "help:gnuhealth.patient.evaluation,whr:"
+#~ msgid "Waist to hip ratio"
+#~ msgstr "腹囲と尻囲の比"
+
+#~ msgctxt "help:party.party,alias:"
+#~ msgid "Common name that the Party is reffered"
+#~ msgstr "この対象を呼ぶ共通名"
+
+#~ msgctxt "help:party.party,internal_user:"
+#~ msgid ""
+#~ "In GNU Health is the user (doctor, nurse, ...) that logins.When the party is"
+#~ " a health professional, it will be the user that maps the health "
+#~ "professional party. It must be present."
+#~ msgstr "GNUヘルスないではログインにたいしてユーザ(doctor, nurse等)が存在する。使用者が医療関係者の場合には、ユーザを医療関係者にマップされる。これが存在しなくてはならない"
+
+#~ msgctxt "help:party.party,lastname:"
+#~ msgid "Last Name"
+#~ msgstr "姓"
+
+#~ msgctxt "model:gnuhealth.pathology,name:"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "model:gnuhealth.patient.disease,name:"
+#~ msgid "Patient Disease History"
+#~ msgstr "患者病歴"
+
+#~ msgctxt "model:ir.action,name:"
+#~ msgid "Evaluation"
+#~ msgstr "判定"
+
+#~ msgctxt "model:ir.action,name:action_gnuhealth_institution_operationalsector"
+#~ msgid "operational sectors by institution"
+#~ msgstr "医療機関がカバーする区域"
+
+#~ msgctxt "model:ir.action,name:action_gnuhealth_patient_evaluation_view"
+#~ msgid "Patient Evaluations"
+#~ msgstr "患者評価"
+
+#~ msgctxt "model:ir.action,name:gnuhealth_action_form_pathology"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "model:ir.action,name:report_patient_disease"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "model:ir.ui.menu,name:gnuhealth_conf_pathology_pathology"
+#~ msgid "Diseases"
+#~ msgstr "疾患"
+
+#~ msgctxt "model:ir.ui.menu,name:gnuhealth_edit_healthprofessional"
+#~ msgid "Health Professionals"
+#~ msgstr "医療従事者"
+
+#~ msgctxt "model:ir.ui.menu,name:gnuhealth_institution_operationalsector"
+#~ msgid "operational sectors by institution"
+#~ msgstr "医療機関がカバーする区域"
+
+#~ msgctxt "model:ir.ui.menu,name:menu_gnuhealth_patient_evaluation_list"
+#~ msgid "Patient Evaluations"
+#~ msgstr "患者評価"
+
+#~ msgctxt "odt:patient.card:"
+#~ msgid "Blood :"
+#~ msgstr "血液型 :"
+
+#~ msgctxt "odt:patient.card:"
+#~ msgid "Name :"
+#~ msgstr "名前 :"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "& history"
+#~ msgstr "& 病歴"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "*"
+#~ msgstr "*"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid ","
+#~ msgstr "'"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid ":"
+#~ msgstr "："
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Active"
+#~ msgstr "活動的"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Age :"
+#~ msgstr "年齢 :"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Annotations about the patient condition"
+#~ msgstr "患者状態への注釈"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Automated"
+#~ msgstr "自動化された"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Diagnosed"
+#~ msgstr "診断ずみ"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Disease"
+#~ msgstr "疾患"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Infectious"
+#~ msgstr "感染性"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "PATIENT DISEASES HISTORY"
+#~ msgstr "患者の病歴"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "PU"
+#~ msgstr "PU"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Patient"
+#~ msgstr "患者"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Print Date :"
+#~ msgstr "印刷日："
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Remarks"
+#~ msgstr "注意点"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Severity"
+#~ msgstr "重症度"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "Status"
+#~ msgstr "状態"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "mild"
+#~ msgstr "高"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "moderate"
+#~ msgstr "中等度"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "report about patient important conditions"
+#~ msgstr "重要な状態の患者についての報告"
+
+#~ msgctxt "odt:patient.disease:"
+#~ msgid "severe"
+#~ msgstr "重症"
+
+#~ msgctxt "odt:prescription.order:"
+#~ msgid "Allowed"
+#~ msgstr "許可された"
+
+#~ msgctxt "odt:prescription.order:"
+#~ msgid "Substitution"
+#~ msgstr "置換"
+
+#~ msgctxt "selection:gnuhealth.appointment,appointment_type:"
+#~ msgid "Ambulatory"
+#~ msgstr "外来"
+
+#~ msgctxt "selection:gnuhealth.appointment,visit_type:"
+#~ msgid "Chronic condition checkup"
+#~ msgstr "慢性状態の検査"
+
+#~ msgctxt "selection:gnuhealth.appointment.report,sex:"
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#~ msgctxt "selection:gnuhealth.appointment.report,sex:"
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#~ msgctxt "selection:gnuhealth.patient,sex:"
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#~ msgctxt "selection:gnuhealth.patient,sex:"
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#~ msgctxt "selection:gnuhealth.patient.evaluation,evaluation_type:"
+#~ msgid "Ambulatory"
+#~ msgstr "外来"
+
+#~ msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
+#~ msgid "Chronic condition checkup"
+#~ msgstr "慢性状態の検査"
+
+#~ msgctxt "selection:party.party,sex:"
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#~ msgctxt "selection:party.party,sex:"
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#~ msgctxt "view:gnuhealth.patient.disease:"
+#~ msgid "Patient diseases"
+#~ msgstr "患者の疾患"
+
+#~ msgctxt "view:gnuhealth.patient.evaluation:"
+#~ msgid "Diagnosis"
+#~ msgstr "診断"
+
+#~ msgctxt "view:gnuhealth.patient.evaluation:"
+#~ msgid "Done"
+#~ msgstr "実施済み"
+
+#~ msgctxt "view:gnuhealth.patient.evaluation:"
+#~ msgid "Evaluation Summary"
+#~ msgstr "評価の要約"
+
+#~ msgctxt "view:gnuhealth.patient.medication:"
+#~ msgid "Admnistration"
+#~ msgstr "管理"
+
+#~ msgctxt "view:gnuhealth.patient:"
+#~ msgid "Diseases"
+#~ msgstr "疾患"

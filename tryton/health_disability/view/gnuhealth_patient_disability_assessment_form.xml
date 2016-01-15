@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<form string="Patient Disability Assessment">
+    <group string="Header" colspan="4" col="8" id="patient_disability_header">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="assessment_date"/>
+        <field name="assessment_date"/>
+        <label name="assessment"/>
+        <field name="assessment"/>
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+    </group>
+    <newline/>
+    <group string="Summary - Brief Assessment" id="disability_main_info" colspan="4" col="8">
+        <label name="cognitive_function"/>
+        <field name="cognitive_function"/>
+        <label name="visual_function"/>
+        <field name="visual_function"/>
+        <label name="hearing_function"/>
+        <field name="hearing_function"/>
+        <label name="speech_function"/>
+        <field name="speech_function"/>
+        <newline/>
+        <label name="hand_function"/>
+        <field name="hand_function"/>
+        <label name="locomotor_function"/>
+        <field name="locomotor_function"/>
+        <label name="activity_participation"/>
+        <field name="activity_participation"/>
+        <newline/>
+        <separator colspan="10" id="disability_main_info_separator"/>
+        <newline/>
+        <label name="crutches"/>
+        <field name="crutches"/>
+        <label name="wheelchair"/>
+        <field name="wheelchair"/>
+        <label name="uxo"/>
+        <field name="uxo"/>
+        <group string="Amputee Status" id="amputee_status_group" col="4" colspan="2">
+            <label name="amputee"/>
+            <field name="amputee"/>
+            <label name="amputee_since"/>
+            <field name="amputee_since"/>
+        </group>
+    </group>
+
+    <newline/>
+    <group string="Detailed Functioning and Disability Assessment" id="disability_icf_info" colspan="4" yexpand="1" yfill="1">
+        <field name="body_functions"/>
+        <field name="body_structures"/>
+        <newline/>
+        <field name="activity_and_participation"/>        
+        <field name="environmental_factor"/>        
+    </group>
+
+    <newline/>
+    
+    <group string="Extra Info" id="disability_extra_info" colspan="4">
+        <field name="notes"/>
+    </group>
+    
+
+</form>

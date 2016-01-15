@@ -1,0 +1,467 @@
+# Fabyc <fabianc7@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-06 20:11+0000\n"
+"PO-Revision-Date: 2016-01-07 23:58+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es_EC\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452211105.0\n"
+
+msgctxt "error:gnuhealth.prescription.stock.move.create:"
+msgid "Stock moves already exists!."
+msgstr "¡El movimiento de stock ya existe!"
+
+msgctxt "error:gnuhealth.prescription.stock.move.create:"
+msgid "You need to select a pharmacy."
+msgstr "Es necesario seleccionar una farmacia."
+
+msgctxt "error:gnuhealth.vaccination.stock.move.create:"
+msgid "Stock moves already exists!."
+msgstr "¡El movimiento de stock ya existe!"
+
+msgctxt "error:gnuhealth.vaccination:"
+msgid ""
+"EXPIRED VACCINE. PLEASE INFORM  THE LOCAL HEALTH AUTHORITIES AND DO NOT USE "
+"IT !!!"
+msgstr ""
+"LA VACUNA ESTÁ VENCIDA. ¡¡¡ POR FAVOR NO LA USE E INFORME A LAS AUTORIDADES "
+"LOCALES DE SALUD !!!"
+
+msgctxt "field:gnuhealth.medicament,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,care_location:"
+msgid "Care Location"
+msgstr "Ubicación de atención"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "Suministros Médicos"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,medicaments:"
+msgid "Medicaments"
+msgstr "Medicamentos"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care,moves:"
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "ID de Ambulatorio"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "Suministro médico"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt ""
+"field:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,medicament:"
+msgid "Medicament"
+msgstr "Medicamento"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "ID de Ambulatorio"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.ambulatory_care.medicament,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.patient.rounding,hospitalization_location:"
+msgid "Hospitalization Location"
+msgstr "Bodega de Hospitalización"
+
+msgctxt "field:gnuhealth.patient.rounding,medical_supplies:"
+msgid "Medical Supplies"
+msgstr "Suministros Médicos"
+
+msgctxt "field:gnuhealth.patient.rounding,medicaments:"
+msgid "Medicaments"
+msgstr "Medicamentos"
+
+msgctxt "field:gnuhealth.patient.rounding,moves:"
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Ambulatory ID"
+msgstr "ID de Ambulatorio"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,product:"
+msgid "Medical Supply"
+msgstr "Suministro Médico"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.rounding.medical_supply,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,medicament:"
+msgid "Medicament"
+msgstr "Medicamento"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,name:"
+msgid "Ambulatory ID"
+msgstr "ID de Ambulatorio"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,quantity:"
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Comment"
+msgstr "Comentario"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.patient.rounding.medicament,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "field:gnuhealth.prescription.order,moves:"
+msgid "Moves"
+msgstr "Movimientos"
+
+msgctxt "field:gnuhealth.prescription.stock.move.init,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.vaccination,location:"
+msgid "Stock Location"
+msgstr "Ubicación de stock"
+
+msgctxt "field:gnuhealth.vaccination,lot:"
+msgid "Lot"
+msgstr "Lote"
+
+msgctxt "field:gnuhealth.vaccination,moves:"
+msgid "Moves"
+msgstr "Movimientos"
+
+msgctxt "field:gnuhealth.vaccination,product:"
+msgid "Product"
+msgstr "Producto"
+
+msgctxt "field:gnuhealth.vaccination.stock.move.init,id:"
+msgid "ID"
+msgstr "Id"
+
+msgctxt "field:party.party,warehouse:"
+msgid "Warehouse"
+msgstr "Almacén"
+
+msgctxt "field:stock.lot,expiration_date:"
+msgid "Expiration Date"
+msgstr "Fecha de Vencimiento"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Breve comentario sobre el fármaco específico"
+
+msgctxt "help:gnuhealth.patient.ambulatory_care.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Breve comentario sobre el fármaco específico"
+
+msgctxt "help:gnuhealth.patient.rounding.medical_supply,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Breve comentario sobre el fármaco específico"
+
+msgctxt "help:gnuhealth.patient.rounding.medicament,short_comment:"
+msgid "Short comment on the specific drug"
+msgstr "Breve comentario sobre el fármaco específico"
+
+msgctxt "help:gnuhealth.vaccination,lot:"
+msgid "This field includes the lot number and expiration date"
+msgstr "Este campo incluye el número de lote y fecha de vencimiento"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medical_supply,name:"
+msgid "Patient Ambulatory Care Medical Supply"
+msgstr "Suministro Médico para la Atención Ambulatoria del Paciente"
+
+msgctxt "model:gnuhealth.patient.ambulatory_care.medicament,name:"
+msgid "Patient Ambulatory Care Medicament"
+msgstr "Medicamento para la Atención Ambulatoria del Paciente"
+
+msgctxt "model:gnuhealth.patient.rounding.medical_supply,name:"
+msgid "Patient Rounding Medical Supply"
+msgstr "Suministro Médico para Rondas de enfermería del Paciente"
+
+msgctxt "model:gnuhealth.patient.rounding.medicament,name:"
+msgid "Patient Rounding Medicament"
+msgstr "Medicamento en rondas al paciente"
+
+msgctxt "model:gnuhealth.prescription.stock.move.init,name:"
+msgid "Create Prescription Stock Move Init"
+msgstr "Crear movimiento de stock asociado a la receta - Inicio"
+
+msgctxt "model:gnuhealth.vaccination.stock.move.init,name:"
+msgid "Create Vaccination Stock Move Init"
+msgstr "Crear movimiento de stock asociado a la vacuna - Inicio"
+
+msgctxt "model:ir.action,name:act_create_prescription_stock_move"
+msgid "Create Prescription Stock Move"
+msgstr "Crear movimiento de stock asociado a la receta"
+
+msgctxt "model:ir.action,name:act_create_vaccination_stock_move"
+msgid "Create Vaccination Stock Move"
+msgstr "Crear movimiento de stock asociado a la vacuna"
+
+msgctxt "model:ir.action,name:act_prescription_move_form1"
+msgid "Stock Moves [readonly]"
+msgstr "Movimientos de stock [sólo lectura]"
+
+msgctxt "model:ir.action,name:act_vaccination_move_form1"
+msgid "Stock Moves [readonly]"
+msgstr "Movimientos de stock [sólo lectura]"
+
+msgctxt ""
+"wizard_button:gnuhealth.prescription.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "Crear movimiento de stock"
+
+msgctxt "wizard_button:gnuhealth.prescription.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgctxt ""
+"wizard_button:gnuhealth.vaccination.stock.move.create,start,create_stock_move:"
+msgid "Create Stock Move"
+msgstr "Crear movimiento de stock"
+
+msgctxt "wizard_button:gnuhealth.vaccination.stock.move.create,start,end:"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#~ msgctxt "field:gnuhealth.patient.ambulatory_care,state:"
+#~ msgid "State"
+#~ msgstr "Estado"
+
+#~ msgctxt "field:gnuhealth.patient.rounding,state:"
+#~ msgid "State"
+#~ msgstr "Estado"
+
+#~ msgctxt "model:ir.action,name:act_prescription_move_form1"
+#~ msgid "Stock Moves"
+#~ msgstr "Movimientos de stock"
+
+#~ msgctxt "model:ir.action,name:act_vaccination_move_form1"
+#~ msgid "Stock Moves"
+#~ msgstr "Movimientos de stock"
+
+#~ msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+#~ msgid "Done"
+#~ msgstr "Realizado"
+
+#~ msgctxt "selection:gnuhealth.patient.ambulatory_care,state:"
+#~ msgid "Draft"
+#~ msgstr "Borrador"
+
+#~ msgctxt "selection:gnuhealth.patient.rounding,state:"
+#~ msgid "Done"
+#~ msgstr "Realizado"
+
+#~ msgctxt "selection:gnuhealth.patient.rounding,state:"
+#~ msgid "Draft"
+#~ msgstr "Borrador"
+
+#~ msgctxt "view:gnuhealth.patient.ambulatory_care.medical_supply:"
+#~ msgid "Medical Supplies"
+#~ msgstr "Suministors Médicos"
+
+#~ msgctxt "view:gnuhealth.patient.ambulatory_care.medicament:"
+#~ msgid "Medicament"
+#~ msgstr "Medicamento"
+
+#~ msgctxt "view:gnuhealth.patient.ambulatory_care:"
+#~ msgid "Done"
+#~ msgstr "Realizado"
+
+#~ msgctxt "view:gnuhealth.patient.ambulatory_care:"
+#~ msgid "Medication"
+#~ msgstr "Medicación"
+
+#~ msgctxt "view:gnuhealth.patient.ambulatory_care:"
+#~ msgid "Stock Moves"
+#~ msgstr "Movimientos de stock"
+
+#~ msgctxt "view:gnuhealth.patient.rounding.medical_supply:"
+#~ msgid "Medical Supplies"
+#~ msgstr "Suministros Médicos"
+
+#~ msgctxt "view:gnuhealth.patient.rounding.medicament:"
+#~ msgid "Medicament"
+#~ msgstr "Medicamento"
+
+#~ msgctxt "view:gnuhealth.patient.rounding:"
+#~ msgid "Done"
+#~ msgstr "Realizado"
+
+#~ msgctxt "view:gnuhealth.patient.rounding:"
+#~ msgid "Medication"
+#~ msgstr "Medicación"
+
+#~ msgctxt "view:gnuhealth.patient.rounding:"
+#~ msgid "Six P's"
+#~ msgstr "Seis P's"
+
+#~ msgctxt "view:gnuhealth.patient.rounding:"
+#~ msgid "Stock Moves"
+#~ msgstr "Movimientos de stock"
+
+#~ msgctxt "view:gnuhealth.prescription.stock.move.init:"
+#~ msgid "Create Prescription Stock Move"
+#~ msgstr "Crear movimiento de stock asociado a la receta"
+
+#~ msgctxt "view:gnuhealth.prescription.stock.move.init:"
+#~ msgid "Create Stock Move?"
+#~ msgstr "¿Crear movimiento de stock?"
+
+#~ msgctxt "view:gnuhealth.vaccination.stock.move.init:"
+#~ msgid "Create Stock Move?"
+#~ msgstr "¿Crear movimiento de stock?"
+
+#~ msgctxt "view:gnuhealth.vaccination.stock.move.init:"
+#~ msgid "Create Vaccination Stock Move"
+#~ msgstr "Crear movimiento de stock asociado a la vacuna"
+
+#~ msgctxt "view:gnuhealth.vaccination:"
+#~ msgid "Stock"
+#~ msgstr "Stock"

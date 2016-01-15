@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tree string="Inpatient Meal Order">
+    <field name="name" expand="1"/>
+    <field name="meal_order" expand="1"/>
+    <field name="mealtime" widget="date"/>
+    <field name="mealtime" widget="time"/>
+    <field name="meal_item" expand="1"/>
+    <button name="done" help="The meal order is done" string="Done" confirm="The meal order will be closed"/>
+    <field name="state" expand="1"/>
+</tree>

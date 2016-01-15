@@ -1,23 +1,27 @@
 <?xml version="1.0"?>
 <form string="Prescription Line">
-    <label name="medicament"/>
-    <field name="medicament"/>
-    <label name="indication"/>
-    <field name="indication"/>
-    <label name="allow_substitution"/>
-    <field name="allow_substitution"/>
-    <label name="prnt"/>
-    <field name="prnt"/>
+    <group colspan="4" string="Medication and Condition" id="prescription_medication">
+        <label name="medicament"/>
+        <field name="medicament"/>
+        <label name="indication"/>
+        <field name="indication"/>
+    </group>
     <newline/>
-    <label name="form"/>
-    <field name="form"/>
-    <label name="route"/>
-    <field name="route"/>
-    <label name="start_treatment"/>
-    <field name="start_treatment"/>
-    <label name="end_treatment"/>
-    <field name="end_treatment"/>
+    <group colspan="4" string="Form and Administration Route" id="prescription_admin_route">
+        <label name="form"/>
+        <field name="form"/>
+        <label name="route"/>
+        <field name="route"/>
+        <newline/>
+        <label name="infusion"/>
+        <field name="infusion"/>                    
+        <label name="infusion_rate"/>
+        <field name="infusion_rate"/>                    
+        <label name="infusion_rate_units"/>
+        <field name="infusion_rate_units"/>
+    </group>
     <newline/>
+
     <group colspan="4" string="Dosage" id="group_dosage">
         <group colspan="2" id="group_dose">
             <label name="dose"/>
@@ -46,17 +50,37 @@
             <field name="frequency_prn"/>
         </group>
     </group>
+
     <newline/>
-    <label name="duration"/>
-    <field name="duration"/>
-    <label name="duration_period"/>
-    <field name="duration_period"/>
-    <label name="review"/>
-    <field name="review"/>
-    <label name="quantity"/>
-    <field name="quantity"/>
-    <label name="refills"/>
-    <field name="refills"/>
-    <label name="short_comment"/>
-    <field name="short_comment"/>
+
+    <group colspan="4" string="Misc" id="prescription_misc">
+        <label name="allow_substitution"/>
+        <field name="allow_substitution"/>
+        <label name="prnt"/>
+        <field name="prnt"/>
+        <label name="add_to_history"/>
+        <field name="add_to_history"/>
+        <label name="review"/>
+        <field name="review"/>
+        <label name="refills"/>
+        <field name="refills"/>
+        <label name="short_comment"/>
+        <field name="short_comment"/>
+    </group>
+    <newline/>
+
+    <group colspan="4" string="Treatment time" id="prescription_times">
+        <label name="start_treatment"/>
+        <field name="start_treatment"/>
+        <label name="end_treatment"/>
+        <field name="end_treatment"/>
+        <newline/>
+        <label name="duration"/>
+        <field name="duration"/>
+        <label name="duration_period"/>
+        <field name="duration_period"/>
+        <label name="quantity"/>
+        <field name="quantity"/>
+    </group>
+
 </form>

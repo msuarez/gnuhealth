@@ -1,15 +1,6 @@
 #
 msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: Luis Falcon <falcon@gnu.org>\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+msgstr "Content-Type: text/plain; charset=utf-8\n"
 
 msgctxt "field:gnuhealth.imaging.test,code:"
 msgid "Code"
@@ -319,8 +310,7 @@ msgid "Draft"
 msgstr ""
 
 msgctxt ""
-"model:ir.action.act_window.domain,name:"
-"act_imaging_test_request_domain_requested"
+"model:ir.action.act_window.domain,name:act_imaging_test_request_domain_requested"
 msgid "Requested"
 msgstr ""
 

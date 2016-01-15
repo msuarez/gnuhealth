@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,15 +22,25 @@
 ##############################################################################
 import pytz
 from dateutil.relativedelta import relativedelta
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
 from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
-from trytond.tools import datetime_strftime
-from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 
-__all__ = ['RCRI', 'Surgery', 'Operation', 'PatientData']
+__all__ = ['SurgerySequences', 'RCRI', 'Surgery', 'Operation',
+    'SurgerySupply', 'PatientData', 'SurgeryTeam']
+
+
+
+class SurgerySequences(ModelSingleton, ModelSQL, ModelView):
+    "Inpatient Registration Sequences for GNU Health"
+    __name__ = "gnuhealth.sequences"
+
+    surgery_code_sequence = fields.Property(fields.Many2One(
+        'ir.sequence', 'Surgery Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.surgery')]))
 
 
 class RCRI(ModelSQL, ModelView):
@@ -161,50 +171,37 @@ class Surgery(ModelSQL, ModelView):
     'Surgery'
     __name__ = 'gnuhealth.surgery'
 
+
     def surgery_duration(self, name):
 
-        duration = ''
         if (self.surgery_end_date and self.surgery_date):
-                delta = relativedelta(self.surgery_end_date, self.surgery_date)
-
-                duration = str(
-                    delta.days*24 + delta.hours) + 'h ' \
-                    + str(delta.minutes) + 'm '
-        return duration
+            return self.surgery_end_date - self.surgery_date
+        else:
+            return None
 
     def patient_age_at_surgery(self, name):
 
-        if (self.patient.name.dob):
-            dob = datetime.strptime(str(self.patient.name.dob), '%Y-%m-%d')
-
-            if (self.surgery_date):
-                surgery_date = datetime.strptime(
-                    str(self.surgery_date), '%Y-%m-%d %H:%M:%S')
-                delta = relativedelta(self.surgery_date, dob)
-
-                years_months_days = str(
-                    delta.years) + 'y ' \
-                    + str(delta.months) + 'm ' \
-                    + str(delta.days) + 'd'
-            else:
-                years_months_days = 'No Surgery Date !'
+        if (self.patient.name.dob and self.surgery_date):
+            return self.surgery_date.date() - self.patient.name.dob
         else:
-            years_months_days = 'No DoB !'
-
-        return years_months_days
+            return None
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     admission = fields.Many2One('gnuhealth.appointment', 'Admission')
     operating_room = fields.Many2One('gnuhealth.hospital.or', 'Operating Room')
-    code = fields.Char('Code', required=True, help="Health Center Unique code")
+    code = fields.Char('Code', readonly=True, help="Health Center code / sequence")
 
     procedures = fields.One2Many(
         'gnuhealth.operation', 'name', 'Procedures',
         help="List of the procedures in the surgery. Please enter the first "
         "one as the main procedure")
 
+    supplies = fields.One2Many(
+        'gnuhealth.surgery_supply', 'name', 'Supplies',
+        help="List of the supplies required for the surgery")
+
     pathology = fields.Many2One(
-        'gnuhealth.pathology', 'Base condition',
+        'gnuhealth.pathology', 'Condition',
         help="Base Condition / Reason")
 
     classification = fields.Selection([
@@ -226,22 +223,36 @@ class Surgery(ModelSQL, ModelView):
         'Date', help="Start of the Surgery")
 
     surgery_end_date = fields.DateTime(
-        'End', required=True, help="End of the Surgery")
+        'End',
+        states={
+            'required': Equal(Eval('state'), 'done'),
+            },
+        help="Automatically set when the surgery is done."
+            "It is also the estimated end time when confirming the surgery.")
 
     surgery_length = fields.Function(
-        fields.Char(
+        fields.TimeDelta(
             'Duration',
+            states={'invisible': And(Not(Equal(Eval('state'), 'done')),
+                    Not(Equal(Eval('state'), 'signed')))},
             help="Length of the surgery"),
         'surgery_duration')
 
     state = fields.Selection([
-        ('in_progress', 'In progress'),
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed'),
+        ('cancelled', 'Cancelled'),
+        ('in_progress', 'In Progress'),
         ('done', 'Done'),
+        ('signed', 'Signed'),
         ], 'State', readonly=True, sort=False)
 
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Signed by', readonly=True,
-        states={'invisible': Equal(Eval('state'), 'in_progress')},
+        states={
+            'invisible': Not(Equal(Eval('state'), 'signed'))
+            },
+
         help="Health Professional that signed this surgery document")
 
     # age is deprecated in GNU Health 2.0
@@ -251,12 +262,21 @@ class Surgery(ModelSQL, ModelView):
         when no date of surgery is given")
 
     computed_age = fields.Function(
-        fields.Char(
+        fields.TimeDelta(
             'Age',
             help="Computed patient age at the moment of the surgery"),
         'patient_age_at_surgery')
 
-    description = fields.Char('Description', required=True)
+    gender = fields.Function(fields.Selection([
+        (None, ''),
+        ('m', 'Male'),
+        ('f', 'Female'),
+        ('f-m','Female -> Male'),
+        ('m-f','Male -> Female'),
+        ], 'Gender'), 'get_patient_gender', searcher='search_patient_gender')
+
+
+    description = fields.Char('Description')
     preop_mallampati = fields.Selection([
         (None, ''),
         ('Class 1', 'Class 1: Full visibility of tonsils, uvula and soft '
@@ -312,6 +332,15 @@ class Surgery(ModelSQL, ModelView):
         'Points 2: Class III Moderate (6.6% complications)\n'
         'Points 3 or more : Class IV High (>11% complications)')
 
+    surgical_wound = fields.Selection([
+        (None, ''),
+        ('I', 'Clean . Class I'),
+        ('II', 'Clean-Contaminated . Class II'),
+        ('III', 'Contaminated . Class III'),
+        ('IV', 'Dirty-Infected . Class IV'),
+        ], 'Surgical wound', sort=False)
+
+
     extra_info = fields.Text('Extra Info')
 
     anesthesia_report = fields.Text('Anesthesia Report')
@@ -322,6 +351,16 @@ class Surgery(ModelSQL, ModelView):
         'get_report_surgery_date')
     report_surgery_time = fields.Function(fields.Time('Surgery Time'), 
         'get_report_surgery_time')
+
+    surgery_team = fields.One2Many(
+        'gnuhealth.surgery_team', 'name', 'Team Members',
+        help="Professionals Involved in the surgery")
+
+    postoperative_dx = fields.Many2One(
+        'gnuhealth.pathology', 'Post-op dx',
+        states={'invisible': And(Not(Equal(Eval('state'), 'done')),
+                    Not(Equal(Eval('state'), 'signed')))},
+        help="Post-operative diagnosis")
 
     @staticmethod
     def default_institution():
@@ -342,7 +381,42 @@ class Surgery(ModelSQL, ModelView):
 
     @staticmethod
     def default_state():
-        return 'in_progress'
+        return 'draft'
+
+    def get_patient_gender(self, name):
+        return self.patient.gender
+
+    @classmethod
+    def search_patient_gender(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('patient.name.gender', clause[1], value))
+        return res
+
+
+    # Show the gender and age upon entering the patient 
+    # These two are function fields (don't exist at DB level)
+    @fields.depends('patient')
+    def on_change_patient(self):
+        gender=None
+        age=''
+        self.gender = self.patient.gender
+        self.computed_age = self.patient.age
+
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('code'):
+                config = Config(1)
+                values['code'] = Sequence.get_id(
+                    config.surgery_code_sequence.id)
+        return super(Surgery, cls).create(vlist)
+
 
     @classmethod
     # Update to version 2.0
@@ -361,13 +435,28 @@ class Surgery(ModelSQL, ModelView):
         super(Surgery, cls).__setup__()
         cls._error_messages.update({
             'end_date_before_start': 'End time "%(end_date)s" BEFORE '
-                'surgery date "%(surgery_date)s"'})
+                'surgery date "%(surgery_date)s"',
+            'or_is_not_available': 'Operating Room is not available'})
 
         cls._buttons.update({
+            'confirmed': {
+                'invisible': And(Not(Equal(Eval('state'), 'draft')),
+                    Not(Equal(Eval('state'), 'cancelled'))),
+                },
+            'cancel': {
+                'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                },
+            'start': {
+                'invisible': Not(Equal(Eval('state'), 'confirmed')),
+                },
+            'done': {
+                'invisible': Not(Equal(Eval('state'), 'in_progress')),
+                },
             'signsurgery': {
-                'invisible': Equal(Eval('state'), 'done'),
-            },
-        })
+                'invisible': Not(Equal(Eval('state'), 'done')),
+                },
+
+            })
         
     @classmethod
     def validate(cls, surgeries):
@@ -378,36 +467,114 @@ class Surgery(ModelSQL, ModelView):
     def validate_surgery_period(self):
         Lang = Pool().get('ir.lang')
 
-        languages = Lang.search([
+        language, = Lang.search([
             ('code', '=', Transaction().language),
             ])
         if (self.surgery_end_date and self.surgery_date):
             if (self.surgery_end_date < self.surgery_date):
                 self.raise_user_error('end_date_before_start', {
-                        'surgery_date': datetime_strftime(self.surgery_date,
-                            str(languages[0].date)),
-                        'end_date': datetime_strftime(self.surgery_end_date,
-                            str(languages[0].date)),
+                        'surgery_date': Lang.strftime(self.surgery_date,
+                            language.code,
+                            language.date),
+                        'end_date': Lang.strftime(self.surgery_end_date,
+                            language.code,
+                            language.date),
                         })
 
 
     @classmethod
     def write(cls, surgeries, vals):
         # Don't allow to write the record if the surgery has been signed
-        if surgeries[0].state == 'done':
+        if surgeries[0].state == 'signed':
             cls.raise_user_error(
                 "This surgery is at state Done and has been signed\n"
                 "You can no longer modify it.")
         return super(Surgery, cls).write(surgeries, vals)
 
- # Finish and sign the surgery document, and the surgical act.
+    ## Method to check for availability and make the Operating Room reservation
+     # for the associated surgery
+     
+    @classmethod
+    @ModelView.button
+    def confirmed(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        cursor = Transaction().cursor
+
+        # Operating Room and end surgery time check
+        if (not surgery_id.operating_room or not surgery_id.surgery_end_date):
+            cls.raise_user_error("Operating Room and estimated end time  "
+            "are needed in order to confirm the surgery")
+
+        or_id = surgery_id.operating_room.id
+        cursor.execute("SELECT COUNT(*) \
+            FROM gnuhealth_surgery \
+            WHERE (surgery_date::timestamp,surgery_end_date::timestamp) \
+                OVERLAPS (timestamp %s, timestamp %s) \
+              AND (state = %s or state = %s) \
+              AND operating_room = CAST(%s AS INTEGER) ",
+            (surgery_id.surgery_date,
+            surgery_id.surgery_end_date,
+            'confirmed', 'in_progress', str(or_id)))
+        res = cursor.fetchone()
+        if (surgery_id.surgery_end_date <
+            surgery_id.surgery_date):
+            cls.raise_user_error("The Surgery end date must later than the \
+                Start")
+        if res[0] > 0:
+            cls.raise_user_error('or_is_not_available')
+        else:
+            cls.write(surgeries, {'state': 'confirmed'})
+ 
+    # Cancel the surgery and set it to draft state
+    # Free the related Operating Room
+    
+    @classmethod
+    @ModelView.button
+    def cancel(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        
+        cls.write(surgeries, {'state': 'cancelled'})
+
+    # Start the surgery
+    
+    @classmethod
+    @ModelView.button
+    def start(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+
+        cls.write(surgeries, 
+            {'state': 'in_progress',
+             'surgery_date': datetime.now(),
+             'surgery_end_date': datetime.now()})
+        Operating_room.write([surgery_id.operating_room], {'state': 'occupied'})
+
+
+    # Finnish the surgery
+    # Free the related Operating Room
+    
+    @classmethod
+    @ModelView.button
+    def done(cls, surgeries):
+        surgery_id = surgeries[0]
+        Operating_room = Pool().get('gnuhealth.hospital.or')
+        
+        cls.write(surgeries, {'state': 'done',
+                              'surgery_end_date': datetime.now()})
+                              
+        Operating_room.write([surgery_id.operating_room], {'state': 'free'})
+
+
+    # Sign the surgery document, and the surgical act.
 
     @classmethod
     @ModelView.button
     def signsurgery(cls, surgeries):
         surgery_id = surgeries[0]
 
-        # Sign, change the state of the Surgery to "Done"
+        # Sign, change the state of the Surgery to "Signed"
         # and write the name of the signing health professional
 
         signing_hp = Pool().get('gnuhealth.healthprofessional').get_health_professional()
@@ -416,7 +583,7 @@ class Surgery(ModelSQL, ModelView):
                 "No health professional associated to this user !")
 
         cls.write(surgeries, {
-            'state': 'done',
+            'state': 'signed',
             'signed_by': signing_hp})
 
     def get_report_surgery_date(self, name):
@@ -446,6 +613,8 @@ class Surgery(ModelSQL, ModelView):
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
 
+
+
 class Operation(ModelSQL, ModelView):
     'Operation - Surgical Procedures'
     __name__ = 'gnuhealth.operation'
@@ -456,6 +625,38 @@ class Operation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
+
+class SurgerySupply(ModelSQL, ModelView):
+    'Supplies related to the surgery'
+    __name__ = 'gnuhealth.surgery_supply'
+
+    name = fields.Many2One('gnuhealth.surgery', 'Surgery')
+    qty = fields.Numeric('Qty',required=True,
+        help="Initial required quantity")
+    supply = fields.Many2One(
+        'product.product', 'Supply', required=True,
+        domain=[('is_medical_supply', '=', True)],
+        help="Supply to be used in this surgery")
+   
+    notes = fields.Char('Notes')
+    qty_used = fields.Numeric('Used', required=True,
+        help="Actual amount used")
+    
+class SurgeryTeam(ModelSQL, ModelView):
+    'Team Involved in the surgery'
+    __name__ = 'gnuhealth.surgery_team'
+
+    name = fields.Many2One('gnuhealth.surgery', 'Surgery')
+    team_member = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Member', required=True, select=True,
+        help="Health professional that participated on this surgery")
+
+    role = fields.Many2One(
+        'gnuhealth.hp_specialty', 'Role',
+        domain=[('name', '=', Eval('team_member'))],
+        depends=['team_member'])
+    
+    notes = fields.Char('Notes')
 
 class PatientData(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'

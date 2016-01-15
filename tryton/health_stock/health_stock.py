@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    Copyright (C) 2013  Sebastian Marro <smarro@gnusolidario.org>
 #
@@ -124,10 +124,6 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
 
     moves = fields.One2Many('stock.move', 'origin', 'Stock Moves',
         readonly=True)
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-        ], 'State', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -139,10 +135,6 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
             'done': {
                 'invisible': ~Eval('state').in_(['draft']),
             }})
-
-    @staticmethod
-    def default_state():
-        return 'draft'
 
     @classmethod
     def copy(cls, ambulatory_cares, default=None):
@@ -159,10 +151,13 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
     def done(cls, ambulatory_cares):
         pool = Pool()
         Patient = pool.get('gnuhealth.patient')
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
 
         lines_to_ship = {}
         medicaments_to_ship = []
         supplies_to_ship = []
+
+        signing_hp = HealthProfessional.get_health_professional()
 
         for ambulatory in ambulatory_cares:
             patient = Patient(ambulatory.patient.id)
@@ -176,6 +171,11 @@ class PatientAmbulatoryCare(Workflow, ModelSQL, ModelView):
         lines_to_ship['supplies'] = supplies_to_ship
 
         cls.create_stock_moves(ambulatory_cares, lines_to_ship)
+
+        cls.write(ambulatory_cares, {
+            'signed_by': signing_hp,
+            'session_end': datetime.now()
+            })
 
     @classmethod
     def create_stock_moves(cls, ambulatory_cares, lines):
@@ -247,14 +247,13 @@ class PatientAmbulatoryCareMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
-    @fields.depends('medicament', 'product')
+    @fields.depends('medicament')
     def on_change_medicament(self):
-        res = {}
         if self.medicament:
-            res = {'product': self.medicament.name.id}
+            self.product = self.medicament.name.id
+
         else:
-            res = {'product': None}
-        return res
+            self.product = None
 
 
 class PatientAmbulatoryCareMedicalSupply(ModelSQL, ModelView):
@@ -296,10 +295,6 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
         states=_STATES, depends=_DEPENDS)
     moves = fields.One2Many('stock.move', 'origin', 'Stock Moves',
         readonly=True)
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),
-        ], 'State', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -311,10 +306,6 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
             'done': {
             'invisible': ~Eval('state').in_(['draft']),
             }})
-
-    @staticmethod
-    def default_state():
-        return 'draft'
 
     @classmethod
     def copy(cls, roundings, default=None):
@@ -330,6 +321,9 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
     def done(cls, roundings):
         pool = Pool()
         Patient = pool.get('gnuhealth.patient')
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+
+        signing_hp = HealthProfessional.get_health_professional()
 
         lines_to_ship = {}
         medicaments_to_ship = []
@@ -349,6 +343,11 @@ class PatientRounding(Workflow, ModelSQL, ModelView):
         
 
         cls.create_stock_moves(roundings, lines_to_ship)
+
+        cls.write(roundings, {
+            'signed_by': signing_hp,
+            'evaluation_end': datetime.now()
+            })
 
     @classmethod
     def create_stock_moves(cls, roundings, lines):
@@ -418,14 +417,13 @@ class PatientRoundingMedicament(ModelSQL, ModelView):
     def default_quantity():
         return 1
 
-    @fields.depends('medicament', 'product')
+    @fields.depends('medicament')
     def on_change_medicament(self):
-        res = {}
         if self.medicament:
-            res = {'product': self.medicament.name.id}
+            self.product = self.medicament.name.id
+
         else:
-            res = {'product': None}
-        return res
+            self.product = None
 
 
 class PatientRoundingMedicalSupply(ModelSQL, ModelView):
@@ -451,6 +449,12 @@ class PatientRoundingMedicalSupply(ModelSQL, ModelView):
 class PatientPrescriptionOrder:
     __name__ = 'gnuhealth.prescription.order'
     moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
+        cls.pharmacy.states['readonly'] &= Bool(Eval('moves'))
+        cls.pharmacy.depends.append('moves')
 
     @classmethod
     def copy(cls, prescriptions, default=None):
@@ -499,11 +503,9 @@ class PatientVaccination:
                 'HEALTH AUTHORITIES AND DO NOT USE IT !!!',
         })
 
-    @fields.depends('vaccine', 'product')
+    @fields.depends('vaccine')
     def on_change_vaccine(self):
-        res = {}
         if self.vaccine:
-            res = {'product': self.vaccine.name.id}
+            self.product = self.vaccine.name.id
         else:
-            res = {'product': None}
-        return res
+            self.product =  None

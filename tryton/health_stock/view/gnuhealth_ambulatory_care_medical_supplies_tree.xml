@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<tree string="Medical Supplies">
-    <field name="product"/>
-    <field name="quantity"/>
-    <field name="lot"/>
+<tree string="Medical Supplies" editable="top">
+    <field name="product" expand="1"/>
+    <field name="quantity" expand="1"/>
+    <field name="lot" expand="1"/>
 </tree>

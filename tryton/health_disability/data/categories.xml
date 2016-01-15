@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<tryton>
+<data skiptest="1" noupdate="1">
+
+    <!-- Body Functions Categories, based on ICF -->
+
+	<record model="gnuhealth.body_function.category" id="b1">
+		<field name="name">MENTAL FUNCTIONS</field>
+		<field name="code">b1</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b2">
+		<field name="name">SENSORY FUNCTIONS AND PAIN</field>
+		<field name="code">b2</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b3">
+		<field name="name">VOICE AND SPEECH FUNCTIONS</field>
+		<field name="code">b3</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b4">
+		<field name="name">FUNCTIONS OF THE CARDIOVASCULAR, HEMATOLOGICAL, IMMUNOLOGICAL AND RESPIRATORY SYSTEMS</field>
+		<field name="code">b4</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b5">
+		<field name="name">FUNCTIONS OF THE DIGESTIVE, METABOLIC AND ENDOCRINE SYSTEMS</field>
+		<field name="code">b5</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b6">
+		<field name="name">GENITOURINARY AND REPRODUCTIVE FUNCTIONS</field>
+		<field name="code">b6</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b7">
+		<field name="name">NEUROMUSCULOSKELETAL AND MOVEMENT RELATED FUNCTIONS</field>
+		<field name="code">b7</field>
+	</record>
+
+	<record model="gnuhealth.body_function.category" id="b8">
+		<field name="name">FUNCTIONS OF THE SKIN AND RELATED STRUCTURES</field>
+		<field name="code">b8</field>
+	</record>
+
+
+	<record model="gnuhealth.body_function.category" id="b0">
+		<field name="name">ANY OTHER BODY FUNCTIONS</field>
+		<field name="code">b0</field>
+	</record>
+
+    <!-- Body Structures Categories -->
+
+
+	<record model="gnuhealth.body_structure.category" id="s1">
+		<field name="name">STRUCTURES OF THE NERVOUS SYSTEM</field>
+		<field name="code">s1</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s2">
+		<field name="name">THE EYE, EAR AND RELATED STRUCTURES</field>
+		<field name="code">s2</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s3">
+		<field name="name">STRUCTURES INVOLVED IN VOICE AND SPEECH</field>
+		<field name="code">s3</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s4">
+		<field name="name">STRUCTURES OF THE CARDIOVASCULAR, IMMUNOLOGICAL AND RESPIRATORY SYSTEMS</field>
+		<field name="code">s4</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s5">
+		<field name="name">STRUCTURES RELATED TO THE DIGESTIVE, METABOLIC AND ENDOCRINE SYSTEMS</field>
+		<field name="code">s5</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s6">
+		<field name="name">STRUCTURES RELATED TO THE GENITOURINARY AND REPRODUCTIVE SYSTEMS</field>
+		<field name="code">s6</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s7">
+		<field name="name">STRUCTURES RELATED TO MOVEMENT</field>
+		<field name="code">s7</field>
+	</record>
+
+	<record model="gnuhealth.body_structure.category" id="s8">
+		<field name="name">SKIN AND RELATED STRUCTURES</field>
+		<field name="code">s8</field>
+	</record>
+
+    <!-- Activity and Participation Categories -->
+
+	<record model="gnuhealth.activity_and_participation.category" id="d1">
+		<field name="name">LEARNING AND APPLYING KNOWLEDGE</field>
+		<field name="code">d1</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d2">
+		<field name="name">GENERAL TASKS AND DEMANDS</field>
+		<field name="code">d2</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d3">
+		<field name="name">COMMUNICATION</field>
+		<field name="code">d3</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d4">
+		<field name="name">MOBILITY</field>
+		<field name="code">d4</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d5">
+		<field name="name">SELF CARE</field>
+		<field name="code">d5</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d6">
+		<field name="name">DOMESTIC LIFE</field>
+		<field name="code">d6</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d7">
+		<field name="name">INTERPERSONAL INTERACTIONS AND RELATIONSHIPS</field>
+		<field name="code">d7</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d8">
+		<field name="name">MAJOR LIFE AREAS</field>
+		<field name="code">d8</field>
+	</record>
+
+	<record model="gnuhealth.activity_and_participation.category" id="d9">
+		<field name="name">COMMUNITY, SOCIAL AND CIVIC LIFE</field>
+		<field name="code">d9</field>
+	</record>
+
+
+    <!-- Environmental Factors Categories -->
+
+	<record model="gnuhealth.environmental_factor.category" id="e1">
+		<field name="name">PRODUCTS AND TECHNOLOGY</field>
+		<field name="code">e1</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e2">
+		<field name="name">NATURAL ENVIRONMENT AND HUMAN MADE CHANGES TO ENVIRONMENT</field>
+		<field name="code">e2</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e3">
+		<field name="name">SUPPORT AND RELATIONSHIPS</field>
+		<field name="code">e3</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e4">
+		<field name="name">ATTITUDES</field>
+		<field name="code">e4</field>
+	</record>
+
+	<record model="gnuhealth.environmental_factor.category" id="e5">
+		<field name="name">SERVICES, SYSTEMS AND POLICIES</field>
+		<field name="code">e5</field>
+	</record>
+
+</data>
+</tryton>

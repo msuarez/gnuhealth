@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+
+        <!-- PRODUCTS AND TECHNOLOGY -->
+        
+        <record model="gnuhealth.environmental_factor" id="e110">
+            <field name="name">For personal consumption (food, medicines)</field>
+            <field name="code">e110</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e115">
+            <field name="name">For personal use in daily living</field>
+            <field name="code">e115</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e120">
+            <field name="name">For personal indoor and outdoor mobility and transportation</field>
+            <field name="code">e120</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e125">
+            <field name="name">Products for communication</field>
+            <field name="code">e125</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e150">
+            <field name="name">Design, construction and building products and technology of buildings for public use</field>
+            <field name="code">e150</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e155">
+            <field name="name">Design, construction and building products and technology of buildings for private use</field>
+            <field name="code">e155</field>
+            <field name="category" ref="e1"></field>
+        </record>
+
+        <!-- NATURAL ENVIRONMENT AND HUMAN MADE CHANGES TO ENVIRONMENT -->
+
+        <record model="gnuhealth.environmental_factor" id="e225">
+            <field name="name">Climate</field>
+            <field name="code">e225</field>
+            <field name="category" ref="e2"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e240">
+            <field name="name">Light</field>
+            <field name="code">e240</field>
+            <field name="category" ref="e2"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e250">
+            <field name="name">Sound</field>
+            <field name="code">e250</field>
+            <field name="category" ref="e2"></field>
+        </record>
+
+        <!-- SUPPORT AND RELATIONSHIPS -->
+
+        <record model="gnuhealth.environmental_factor" id="e310">
+            <field name="name">Immediate family</field>
+            <field name="code">e310</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e320">
+            <field name="name">Friends</field>
+            <field name="code">e320</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e325">
+            <field name="name">Acquaintances, peers, colleagues, neighbours and community members</field>
+            <field name="code">e325</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e330">
+            <field name="name">People in position of authority</field>
+            <field name="code">e330</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e340">
+            <field name="name">Personal care providers and personal assistants</field>
+            <field name="code">e340</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e355">
+            <field name="name">Health professionals</field>
+            <field name="code">e355</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e360">
+            <field name="name">Health related professionals</field>
+            <field name="code">e360</field>
+            <field name="category" ref="e3"></field>
+        </record>
+
+        <!-- ATTITUDES -->
+
+        <record model="gnuhealth.environmental_factor" id="e410">
+            <field name="name">Individual attitudes of immediate family members</field>
+            <field name="code">e410</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e420">
+            <field name="name">Individual attitudes of friends</field>
+            <field name="code">e420</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e440">
+            <field name="name">Individual attitudes of personal care providers and personal assistants</field>
+            <field name="code">e440</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e450">
+            <field name="name">Individual attitudes of health professionals</field>
+            <field name="code">e450</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e455">
+            <field name="name">Individual attitudes of health related professionals</field>
+            <field name="code">e455</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e460">
+            <field name="name">Societal attitudes</field>
+            <field name="code">e460</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e465">
+            <field name="name">Social norms, practices and ideologies</field>
+            <field name="code">e465</field>
+            <field name="category" ref="e4"></field>
+        </record>
+
+        <!--  SERVICES, SYSTEMS AND POLICIES -->
+
+        <record model="gnuhealth.environmental_factor" id="e525">
+            <field name="name">Housing services, systems and policies</field>
+            <field name="code">e525</field>
+            <field name="category" ref="e5"></field>
+        </record>
+        
+        <record model="gnuhealth.environmental_factor" id="e535">
+            <field name="name">Communication services, systems and policies</field>
+            <field name="code">e535</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e540">
+            <field name="name">Transportation services, systems and policies</field>
+            <field name="code">e540</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e550">
+            <field name="name">Legal services, systems and policies</field>
+            <field name="code">e550</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e570">
+            <field name="name">Social security, services, systems and policies</field>
+            <field name="code">e570</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e575">
+            <field name="name">General social support services, systems and policies</field>
+            <field name="code">e575</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e580">
+            <field name="name">Health services, systems and policies</field>
+            <field name="code">e580</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e585">
+            <field name="name">Education and training services, systems and policies</field>
+            <field name="code">e585</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+        <record model="gnuhealth.environmental_factor" id="e590">
+            <field name="name">Labour and employment services, systems and policies</field>
+            <field name="code">e590</field>
+            <field name="category" ref="e5"></field>
+        </record>
+
+    </data>
+</tryton>

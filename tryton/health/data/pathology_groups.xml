@@ -5,7 +5,7 @@
         <record model="gnuhealth.pathology.group" id="INFECTIOUS">
             <field name="name">INFECTIOUS</field>
             <field name="code">INFECTIOUS</field>
-            <field name="desc">Infectious disesases</field>
+            <field name="desc">Infectious diseases</field>
         </record>
         <record model="gnuhealth.pathology.group" id="RESP">
             <field name="name">RESPIRATORY</field>

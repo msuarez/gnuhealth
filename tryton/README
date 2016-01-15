@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    Copyright (C) 2006-2015 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -81,9 +81,9 @@ It follows the access control and security model of Tryton
 Internationalization
 ----
 
-The main language will be English, but it can be easily translated to any other language using the Transifex or other translation portal.
+The main language will be English, but it can be easily translated to any other language using the Pootle or other translation portal.
 You can also use your favorite PO tool, such as poedit.
-The GNU Health project in Transifex is: https://www.transifex.com/projects/p/GNU_Health/
+The GNU Health translation project is now at GNU Pootle server https://chapters.gnu.org/projects/health/
 
 
 Download

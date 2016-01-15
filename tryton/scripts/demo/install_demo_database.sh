@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script to download/unpack and locally install the GNU Health demo database
 
-URL="http://health.gnu.org/downloads/postgres_dumps/gnuhealth-2.6.0-demo.sql.gz"
+URL="http://health.gnu.org/downloads/postgres_dumps/gnuhealth-2.8.0-demo.sql.gz"
 DB="gnuhealth_demo"
 
 if [[ $USER != "gnuhealth" ]]; then

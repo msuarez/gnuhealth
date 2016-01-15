@@ -149,7 +149,7 @@
         <record model="ir.action.act_window" id="act_pregnancy_form1">
             <field name="name">Obstetric History</field>
             <field name="res_model">gnuhealth.patient.pregnancy</field>
-            <field name="domain">[('name', '=', Eval('active_id'))]</field>
+            <field name="domain" eval="[('name', '=', Eval('active_id'))]" pyson="1"/>
         </record>
         <record model="ir.action.keyword"
                 id="act_open_pregnancy_keyword1">

@@ -56,6 +56,71 @@
             <field name="name">gnuhealth_recreational_drugs_tree</field>
         </record>
 
+<!-- Person vegetarian diet -->
+
+        <record model="ir.ui.view" id="gnuhealth_vegetarian_types_view">
+            <field name="model">gnuhealth.vegetarian_types</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_vegetarian_types_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_vegetarian_types_tree">
+            <field name="model">gnuhealth.vegetarian_types</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_vegetarian_types_tree</field>
+        </record>
+
+
+
+
+<!-- Form view for diets related to beliefs / religions -->
+
+        <record id="gnuhealth_diet_belief_form" model="ir.ui.view">
+            <field name="model">gnuhealth.diet.belief</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_diet_belief_form</field>
+        </record>
+
+<!-- Tree view for the Beliefs and religon related diets -->
+
+        <record id="gnuhealth_diet_belief_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.diet.belief</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_diet_belief_tree</field>
+        </record>
+
+
+<!-- Add diets to the configuration menu -->
+
+        <menuitem name="Diets" id="gnuhealth_conf_diets"
+            parent="health.gnuhealth_conf_misc" sequence="90" icon="gnuhealth-open"/>
+
+
+<!-- Add Belief Diets to configuration menu -->
+
+        <record model="ir.action.act_window" id="gnuhealth_action_diet_belief">
+            <field name="name">Belief diets</field>
+            <field name="res_model">gnuhealth.diet.belief</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_diet_belief_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_diet_belief_tree"/>
+            <field name="act_window" ref="gnuhealth_action_diet_belief"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_diet_belief_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_diet_belief_form"/>
+            <field name="act_window" ref="gnuhealth_action_diet_belief"/>
+        </record>
+
+        <menuitem name="Belief diets" action="gnuhealth_action_diet_belief"
+            id="gnuhealth_conf_diet_belief" parent="gnuhealth_conf_diets"
+            icon="gnuhealth-list"/>
+
+
+
+
 <!-- PATIENT CAGE -->
 
         <record model="ir.ui.view" id="gnuhealth_patient_cage_view">

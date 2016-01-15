@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -45,6 +45,8 @@ def sign_document(data):
 
     gpg = gnupg.GPG()
 
+    gpg.encoding = 'utf-8'
+    
     document_model = data['model']
 
     """ Don't allow signing more than one document at a time
@@ -84,15 +86,30 @@ def sign_document(data):
         )
         return
 
-    try:
-        gpg_signature = gpg.sign(digest, clearsign=True)
+   
 
-    except:
-        warning(
-            _('Error when signing the document'),
-            _('Please check your encryption settings'),
-        )
+    # Check that the document has the digest before trying to
+    # to sign it.
+    if digest:
+        
+        try:
+            gpg_signature = gpg.sign(digest, clearsign=True)
 
+
+        except:
+            warning(
+                _('Error when signing the document'),
+                _('Please check your encryption settings'),
+            )
+
+    else:
+            warning(
+                _('No Digest found for this document'),
+                _('You need generate the digest'),
+
+            )
+            return
+        
     """
     Set the clearsigned digest
     """
@@ -122,6 +139,7 @@ def verify_document(data):
     """ Verify the digital signature of the document """
 
     gpg = gnupg.GPG()
+    gpg.encoding = 'utf-8'
 
     document_model = data['model']
 
@@ -141,17 +159,19 @@ def verify_document(data):
         return
 
 
-    """ Verify signature """
+    # Verify signature
     digital_signature = record_vals[0]['digital_signature']
-
-    """ Check that the document has been signed """
+    
+    # Check that the document has a digital signature associated to it
+    
     if not digital_signature:
         warning(
             _('Unsigned document'),
             _('This document has not been signed yet'),
             )
         return
-    
+
+    # Signature verification
     try:
         verify_signature = gpg.verify(digital_signature)
 
@@ -162,7 +182,7 @@ def verify_document(data):
         )
 
     else:
-        """ Show message of warning boxes depending on the verification """
+        # Show message of warning boxes depending on the verification
         if (verify_signature.valid):
             message(_("Valid Signature !\n\n" + verify_signature.stderr))
         else:
@@ -170,7 +190,6 @@ def verify_document(data):
                 _(str(verify_signature.stderr)),
                 _(str("Error !")),
             )
-
 
 def get_plugins(model):
     return [

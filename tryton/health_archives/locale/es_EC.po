@@ -1,0 +1,139 @@
+# Fabyc <fabianc7@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 20:07+0000\n"
+"Last-Translator: Fabyc <fabianc7@gmail.com>\n"
+"Language: es_EC\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n !=1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452283642.0\n"
+
+msgctxt "error:gnuhealth.paper_archive:"
+msgid "The history already exists"
+msgstr "¡El historial ya existe!"
+
+msgctxt "error:gnuhealth.paper_archive:"
+msgid "The patient history already exists"
+msgstr "¡El historial del paciente ya existe!"
+
+msgctxt "field:gnuhealth.paper_archive,comments:"
+msgid "Comments"
+msgstr "Comentarios"
+
+msgctxt "field:gnuhealth.paper_archive,create_date:"
+msgid "Create Date"
+msgstr "Fecha de creación"
+
+msgctxt "field:gnuhealth.paper_archive,create_uid:"
+msgid "Create User"
+msgstr "Creado por usuario"
+
+msgctxt "field:gnuhealth.paper_archive,current_location:"
+msgid "Current Location"
+msgstr "Ubicación actual"
+
+msgctxt "field:gnuhealth.paper_archive,hc_status:"
+msgid "Status"
+msgstr "Estado"
+
+msgctxt "field:gnuhealth.paper_archive,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:gnuhealth.paper_archive,identification_code:"
+msgid "Code"
+msgstr "Código"
+
+msgctxt "field:gnuhealth.paper_archive,legacy:"
+msgid "Legacy Code"
+msgstr "Código heredado"
+
+msgctxt "field:gnuhealth.paper_archive,location:"
+msgid "Unit"
+msgstr "Unidad"
+
+msgctxt "field:gnuhealth.paper_archive,patient:"
+msgid "Patient"
+msgstr "Paciente"
+
+msgctxt "field:gnuhealth.paper_archive,rec_name:"
+msgid "Name"
+msgstr "Nombre"
+
+msgctxt "field:gnuhealth.paper_archive,request_date:"
+msgid "Request Date"
+msgstr "Fecha de Solicitud"
+
+msgctxt "field:gnuhealth.paper_archive,requested_by:"
+msgid "Requested by"
+msgstr "Solicitado por"
+
+msgctxt "field:gnuhealth.paper_archive,return_date:"
+msgid "Returned Date"
+msgstr "Fecha de Devolución"
+
+msgctxt "field:gnuhealth.paper_archive,write_date:"
+msgid "Write Date"
+msgstr "Fecha de modificación"
+
+msgctxt "field:gnuhealth.paper_archive,write_uid:"
+msgid "Write User"
+msgstr "Modificado por usuario"
+
+msgctxt "help:gnuhealth.paper_archive,current_location:"
+msgid "Location / Unit where this clinical history document should reside."
+msgstr ""
+"Ubicación / Dependencia donde este documento de historia clínica debería "
+"residir."
+
+msgctxt "help:gnuhealth.paper_archive,legacy:"
+msgid ""
+"If existing, please enter the old / legacy code associated to this Clinical "
+"History"
+msgstr ""
+"Si existe, por favor ingrese el código antiguo/legado asociado a ésta "
+"Historia Clínica"
+
+msgctxt "help:gnuhealth.paper_archive,location:"
+msgid "Location / Unit where this clinical history document should reside."
+msgstr ""
+"Ubicación / Dependencia donde éste documento de historia clínica debería "
+"residir."
+
+msgctxt "help:gnuhealth.paper_archive,patient:"
+msgid "Patient associated to this newborn baby"
+msgstr "Paciente asociado a este bebé recién nacido"
+
+msgctxt "help:gnuhealth.paper_archive,requested_by:"
+msgid "Person who last requested the document"
+msgstr "Última persona que solicitó el documento"
+
+msgctxt "model:gnuhealth.paper_archive,name:"
+msgid "Location of PAPER Patient Clinical History"
+msgstr "Ubicación de la Historia Clínica del Paciente EN PAPEL"
+
+msgctxt "model:ir.action,name:gnuhealth_action_paper_archive"
+msgid "Medical Archives"
+msgstr "Archivos Médicos"
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_archives"
+msgid "Archives"
+msgstr "Archivos"
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Archived"
+msgstr "Archivado"
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Borrowed"
+msgstr "Prestado"
+
+msgctxt "selection:gnuhealth.paper_archive,hc_status:"
+msgid "Lost"
+msgstr "Perdida"
+
+msgctxt "view:gnuhealth.paper_archive:"
+msgid "Patient PAPER Clinical History"
+msgstr "Historia Clínica del Paciente EN PAPEL"

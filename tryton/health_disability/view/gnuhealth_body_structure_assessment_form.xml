@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<form string="Body Structure Assessment">
+    <label name="assessment"/>
+    <field name="assessment"/>
+    <label name="body_structure"/>
+    <field name="body_structure"/>
+    <label name="qualifier1"/>
+    <field name="qualifier1"/>
+    <label name="qualifier2"/>
+    <field name="qualifier2"/>
+    <label name="body_side"/>
+    <field name="body_side"/>
+</form>

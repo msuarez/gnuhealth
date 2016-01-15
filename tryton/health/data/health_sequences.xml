@@ -2,6 +2,26 @@
 <tryton>
     <data skiptest="1">
 
+<!-- Sequences for Patient Evaluation -->
+
+        <record id="seq_type_gnuhealth_patient_evaluation" model="ir.sequence.type">
+            <field name="name">Patient Evaluation</field>
+            <field name="code">gnuhealth.patient.evaluation</field>
+        </record>
+        <record id="seq_gnuhealth_patient_evaluation" model="ir.sequence">
+            <field name="name">Patient Evaluation</field>
+            <field name="code">gnuhealth.patient.evaluation</field>
+            <field name="prefix">EVAL ${year}/</field>
+            <field name="padding">6</field>
+            <field name="number_increment" eval="1"/>
+        </record>
+
+        <record model="ir.property" id="property_patient_evaluation_sequence">
+            <field name="field"
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'patient_evaluation_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_patient_evaluation'))"/>
+        </record>
+
 <!-- Sequences for Prescriptions -->
 
         <record id="seq_type_gnuhealth_prescription" model="ir.sequence.type">

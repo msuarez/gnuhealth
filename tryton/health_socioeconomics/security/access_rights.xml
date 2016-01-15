@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is part of GNU Health. GPL v3+ -->
+<!-- Luis Falcon . GNU Solidario -->
+<!-- Default template for permission groups -->
+
+<tryton>
+    <data>
+
+<!-- BEGIN FRONTDESK ACCESS RIGHTS: RESTRICT ALL RELEVANT SOCIO FIELDS ON PATIENT MODEL -->
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_hostile_area">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'hostile_area')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_single_parent">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'single_parent')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_domestic_violence">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'domestic_violence')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_working_children">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'working_children')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_teenage_pregnancy">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'teenage_pregnancy')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_sexual_abuse">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'sexual_abuse')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_drug_addiction">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'drug_addiction')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_school_withdrawal">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'school_withdrawal')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_prison_past">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'prison_past')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_prison_current">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'prison_current')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_relative_prison">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'relative_in_prison')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_ses_notes">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'ses_notes')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_hours_outside">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'hours_outside')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_works_at_home">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'works_at_home')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+        <record model="ir.model.field.access" id="access_health_patient_frontdesk_field_occupation">
+            <field name="field" search="[('model.model', '=', 'gnuhealth.patient'), ('name', '=', 'occupation')]"/>
+            <field name="group" ref="health.group_health_frontdesk"/>
+            <field name="perm_read" eval="False"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+<!-- END FRONTDESK ACCESS RIGHTS -->
+
+    </data>
+</tryton>

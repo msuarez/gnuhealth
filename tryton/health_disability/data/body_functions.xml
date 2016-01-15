@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1" noupdate="1">
+        <!-- MENTAL FUNCTIONS -->
+        <record model="gnuhealth.body_function" id="b110">
+            <field name="name">Consciousness</field>
+            <field name="code">b110</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b114">
+            <field name="name">Orientation</field>
+            <field name="code">b114</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b117">
+            <field name="name">Intellectual</field>
+            <field name="code">b117</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b130">
+            <field name="name">Energy and drive functions</field>
+            <field name="code">b130</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b134">
+            <field name="name">Sleep</field>
+            <field name="code">b134</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b140">
+            <field name="name">Attention</field>
+            <field name="code">b140</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b144">
+            <field name="name">Memory</field>
+            <field name="code">b144</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b152">
+            <field name="name">Emotional Functions</field>
+            <field name="code">b152</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b156">
+            <field name="name">Perceptual Functions</field>
+            <field name="code">b156</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b164">
+            <field name="name">Higher level cognitive functions</field>
+            <field name="code">b164</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b167">
+            <field name="name">Language</field>
+            <field name="code">b167</field>
+            <field name="category" ref="b1"></field>
+        </record>
+
+        <!-- SENSORY FUNCTIONS -->
+
+        <record model="gnuhealth.body_function" id="b210">
+            <field name="name">Seeing</field>
+            <field name="code">b210</field>
+            <field name="category" ref="b2"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b230">
+            <field name="name">Hearing</field>
+            <field name="code">b230</field>
+            <field name="category" ref="b2"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b235">
+            <field name="name">Vestibular</field>
+            <field name="code">b235</field>
+            <field name="category" ref="b2"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b280">
+            <field name="name">Pain</field>
+            <field name="code">b280</field>
+            <field name="category" ref="b2"></field>
+        </record>
+
+        <!-- VOICE AND SPEECH FUNCTIONS -->
+
+        <record model="gnuhealth.body_function" id="b310">
+            <field name="name">Voice</field>
+            <field name="code">b310</field>
+            <field name="category" ref="b3"></field>
+        </record>
+
+        <!-- FUNCTIONS OF THE CARDIOVASCULAR,  HAEMATOLOGICAL, IMMUNOLOGICAL AND RESPIRATORY SYSTEMS -->
+        
+        <record model="gnuhealth.body_function" id="b410">
+            <field name="name">Heart</field>
+            <field name="code">b410</field>
+            <field name="category" ref="b4"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b420">
+            <field name="name">Blood Pressure</field>
+            <field name="code">b420</field>
+            <field name="category" ref="b4"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b430">
+            <field name="name">Hematological</field>
+            <field name="code">b430</field>
+            <field name="category" ref="b4"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b435">
+            <field name="name">Immunological</field>
+            <field name="code">b435</field>
+            <field name="category" ref="b4"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b440">
+            <field name="name">Respiration</field>
+            <field name="code">b440</field>
+            <field name="category" ref="b4"></field>
+        </record>
+        
+        <!-- FUNCTIONS OF THE DIGESTIVE, METABOLIC AND ENDOCRINE SYSTEMS -->
+
+        <record model="gnuhealth.body_function" id="b515">
+            <field name="name">Digestive</field>
+            <field name="code">b515</field>
+            <field name="category" ref="b5"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b525">
+            <field name="name">Defecation</field>
+            <field name="code">b525</field>
+            <field name="category" ref="b5"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b530">
+            <field name="name">Weight Maintenance</field>
+            <field name="code">b530</field>
+            <field name="category" ref="b5"></field>
+        </record>
+        
+        <!-- GENITOURINARY AND REPRODUCTIVE FUNCTIONS -->
+
+        <record model="gnuhealth.body_function" id="b620">
+            <field name="name">Urination</field>
+            <field name="code">b620</field>
+            <field name="category" ref="b6"></field>
+        </record>
+
+        <record model="gnuhealth.body_function" id="b640">
+            <field name="name">Sexual functions</field>
+            <field name="code">b640</field>
+            <field name="category" ref="b6"></field>
+        </record>
+         
+    </data>
+</tryton>

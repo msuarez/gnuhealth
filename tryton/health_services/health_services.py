@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    Copyright (C) 2011  Adrián Bernardi, Mario Puntin (health_invoice)
 #
@@ -22,12 +22,13 @@
 #
 ##############################################################################
 import datetime
-from trytond.model import ModelView, ModelSQL, fields, ModelSingleton
+from trytond.model import ModelView, ModelSQL, fields, ModelSingleton, Unique
 from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine']
+__all__ = ['GnuHealthSequences', 'HealthService', 'HealthServiceLine',
+    'PatientPrescriptionOrder']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
@@ -44,9 +45,15 @@ class HealthService(ModelSQL, ModelView):
     'Health Service'
     __name__ = 'gnuhealth.health_service'
 
+    STATES = {'readonly': Eval('state') == 'invoiced'}
+
     name = fields.Char('ID', readonly=True)
-    desc = fields.Char('Description', required=True)
-    patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
+    desc = fields.Char('Description')
+    patient = fields.Many2One('gnuhealth.patient',
+            'Patient', required=True,
+            states=STATES)
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
     service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
         'name', 'Service Line', help="Service Line")
@@ -59,8 +66,12 @@ class HealthService(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(HealthService, cls).__setup__()
-        cls._sql_constraints += [
-            ('name_uniq', 'UNIQUE(name)', 'The Service ID must be unique')]
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_unique', Unique(t,t.name),
+                'The Service ID must be unique'),
+            ]
         cls._buttons.update({
             'button_set_to_draft': {'invisible': Equal(Eval('state'),
                 'draft')}
@@ -73,6 +84,12 @@ class HealthService(ModelSQL, ModelView):
     @staticmethod
     def default_service_date():
         return datetime.date.today()
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
 
     @classmethod
     @ModelView.button
@@ -115,7 +132,80 @@ class HealthServiceLine(ModelSQL, ModelView):
 
     @fields.depends('product', 'desc')
     def on_change_product(self, name=None):
-        res = {}
         if self.product:
-            res['desc'] = self.product.name
-        return res
+            self.desc = self.product.name
+
+    @classmethod
+    def write(cls, lines, vals):
+        """Do not allow new service lines for invoiced items"""
+        if lines[0].name.state == 'invoiced':
+            cls.raise_user_error(
+                "This service has been invoiced.\n"
+                "You can no longer modify service lines.")
+        return super(HealthServiceLine, cls).write(lines, vals)
+
+    #@classmethod
+    #def delete(cls, lines):
+        #"""Prohibit deleting service lines for invoiced items """
+        #if lines[0].name.state == 'invoiced':
+            #cls.raise_user_error(
+                #"This service has been invoiced.\n"
+                #"You can no longer modify service lines.")
+        #return super(HealthServiceLine, cls).delete(lines)
+
+
+""" Add Prescription order charges to service model """
+
+class PatientPrescriptionOrder(ModelSQL, ModelView):
+    'Prescription Order'
+    __name__ = 'gnuhealth.prescription.order'
+
+    service = fields.Many2One(
+        'gnuhealth.health_service', 'Service',
+        domain=[('patient', '=', Eval('patient'))], depends=['patient'],
+        states = {'readonly': Equal(Eval('state'), 'done')},
+        help="Service document associated to this prescription")
+
+    @classmethod
+    def __setup__(cls):
+        cls._buttons.update({
+            'update_service': {
+                'readonly': Equal(Eval('state'), 'done'),
+            },
+            })
+
+
+    @classmethod
+    @ModelView.button
+    def update_service(cls, prescriptions):
+        pool = Pool()
+        HealthService = pool.get('gnuhealth.health_service')
+
+        hservice = []
+        prescription = prescriptions[0]
+
+        if not prescription.service:
+            cls.raise_user_error("Need to associate a service !")
+
+        service_data = {}
+        service_lines = []
+
+        # Add the prescription lines to the service document
+
+        for line in prescription.prescription_line:
+            service_lines.append(('create', [{
+                'product': line.medicament.name.id,
+                'desc': 'Prescription Line',
+                'qty': line.quantity
+                }]))
+
+            
+        hservice.append(prescription.service)
+        
+        description = "Services including " + \
+            prescription.prescription_id
+        
+        service_data ['desc'] =  description
+        service_data ['service_line'] = service_lines
+                
+        HealthService.write(hservice, service_data)

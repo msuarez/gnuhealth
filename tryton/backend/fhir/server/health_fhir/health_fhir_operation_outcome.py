@@ -1,10 +1,11 @@
 from StringIO import StringIO
 from datetime import datetime
 import server.fhir as supermod
+from .health_mixin import ExportXMLMixin
 
 # Sub-class OperationOutcome
 
-class health_OperationOutcome(supermod.OperationOutcome):
+class health_OperationOutcome(supermod.OperationOutcome, ExportXMLMixin):
     '''This provides an easy sub-class to operation outcomes'''
 
     def add_issue(self, severity=None, location=None, details=None):
@@ -13,6 +14,7 @@ class health_OperationOutcome(supermod.OperationOutcome):
         issue.set_details(details)
         issue.add_location(location)
         super(health_OperationOutcome, self).add_issue(issue)
+
 supermod.OperationOutcome.subclass=health_OperationOutcome
 
 class health_OperationOutcome_Issue(supermod.OperationOutcome_Issue):
@@ -31,4 +33,5 @@ class health_OperationOutcome_Issue(supermod.OperationOutcome_Issue):
         if severity:
             sev=supermod.misc.IssueSeverity(value=severity)
             super(health_OperationOutcome_Issue, self).set_severity(sev)
+
 supermod.OperationOutcome_Issue.subclass=health_OperationOutcome_Issue

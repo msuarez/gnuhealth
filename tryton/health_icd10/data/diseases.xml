@@ -2946,6 +2946,11 @@
 	<field name="code">B33.3</field>
 	<field name="category" ref="icdcat1-14"></field>
 </record>
+<record model="gnuhealth.pathology" id="B334">
+	<field name="name">Hantavirus (cardio-)pulmonary syndrome</field>
+	<field name="code">B33.4</field>
+	<field name="category" ref="icdcat1-14"></field>
+</record>
 <record model="gnuhealth.pathology" id="B338">
 	<field name="name">Other specified viral diseases</field>
 	<field name="code">B33.8</field>
@@ -7024,6 +7029,11 @@
 <record model="gnuhealth.pathology" id="C932">
 	<field name="name">Subacute monocytic leukaemia</field>
 	<field name="code">C93.2</field>
+	<field name="category" ref="icdcat2-14"></field>
+</record>
+<record model="gnuhealth.pathology" id="C933">
+	<field name="name">Juvenile monocytic leukaemia</field>
+	<field name="code">C93.3</field>
 	<field name="category" ref="icdcat2-14"></field>
 </record>
 <record model="gnuhealth.pathology" id="C937">
@@ -48956,6 +48966,20 @@
 	<field name="code">U04.9</field>
 	<field name="category" ref="icdcat22-1"></field>
 </record>
+
+<!-- Codes Added for Zika Virus 2015-12-21 -->
+<record id="U06" model="gnuhealth.pathology">
+    <field name="name">Zika Virus Disease</field>
+    <field name="code">U06</field>
+    <field name="category" ref="health_icd10.icdcat22" />
+</record>
+<record id="U069" model="gnuhealth.pathology">
+    <field name="name">Zika Virus Disease, unspecified</field>
+    <field name="code">U06.9</field>
+    <field name="category" ref="health_icd10.icdcat22" />
+</record>
+<!-- End Zika codes -->
+
 <record model="gnuhealth.pathology" id="V01">
 	<field name="name">Pedestrian injured in collision with pedal cycle</field>
 	<field name="code">V01</field>

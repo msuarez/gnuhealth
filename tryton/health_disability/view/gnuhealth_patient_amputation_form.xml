@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<form string="Patient Amputations">
+    <label name="patient"/>
+    <field name="patient"/>
+    <label name="amputation_date"/>
+    <field name="amputation_date"/>
+    <label name="body_structure"/>
+    <field name="body_structure"/>
+    <label name="limb"/>
+    <field name="limb"/>
+    <label name="side"/>
+    <field name="side"/>
+    <label name="amputation_level"/>
+    <field name="amputation_level"/>
+    <label name="etiology"/>
+    <field name="etiology"/>
+    <label name="healthprof"/>
+    <field name="healthprof"/>
+    <label name="comments"/>
+    <field name="comments"/>
+</form>

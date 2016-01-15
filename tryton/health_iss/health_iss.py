@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    MODULE : INJURY SURVEILLANCE SYSTEM
 # 
@@ -26,7 +26,7 @@
 # The documentation of the module goes in the "doc" directory.
 
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
-from trytond.model import ModelView, ModelSQL, fields
+from trytond.model import ModelView, ModelSQL, fields, Unique
 
 __all__ = ['Iss']
 
@@ -66,7 +66,7 @@ class Iss (ModelSQL, ModelView):
         'get_patient_sex')
 
     patient_age = fields.Function(
-        fields.Char('Age'),
+        fields.TimeDelta('Age'),
         'get_patient_age')
 
     complaint = fields.Function(
@@ -238,7 +238,7 @@ class Iss (ModelSQL, ModelView):
         return self.name.patient.sex
 
     def get_patient_age(self, name):
-        return self.name.patient.age
+        return self.name.patient.name.age
 
     def get_patient_complaint(self, name):
         return self.name.chief_complaint
@@ -267,7 +267,22 @@ class Iss (ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Iss, cls).__setup__()
+        t = cls.__table__()
         cls._sql_constraints = [
-            ('code_uniq', 'UNIQUE(code)', 'This ISS registration Code already exists !'),
+            ('code_uniq', Unique(t,t.code), 
+            'This ISS registration Code already exists'),
         ]
+
+    @classmethod
+    def view_attributes(cls):
+        return [('//group[@id="motor_vehicle_accident"]', 'states', {
+                'invisible': Not(Equal(Eval('injury_type'), 'motor_vehicle')),
+                }),
+                ('//group[@id="violent_injury"]', 'states', {
+                'invisible': Not(Equal(Eval('injury_type'), 'violence')),
+                }),
+                ('//group[@id="iss_place"]', 'states', {
+                'invisible': Equal(Eval('injury_type'), 'motor_vehicle'),
+                }),
+                ]
 

@@ -3,8 +3,8 @@
     <field name="name" expand="1"/>
     <field name="vaccine" expand="1"/>
     <field name="dose" expand="1"/>
-    <field name="date"/>
-    <field name="next_dose_date"/>
+    <field name="date" widget="date"/>
+    <field name="next_dose_date" widget="date"/>
     <field name="observations"/>
     <field name="healthprof" tree_invisible="1"/>
     <field name="signed_by"/>

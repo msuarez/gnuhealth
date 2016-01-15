@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <tree string="Appointments Report" keyword_open="1">
-    <field name="appointment_date_time"/>
+    <field name="appointment_date_time" widget="date"/>
+    <field name="appointment_date_time" widget="time"/>
     <field name="ref"/>
     <field name="patient"/>
     <field name="age"/>
-    <field name="sex"/>
+    <field name="gender"/>
     <field name="address"/>
     <field name="insurance"/>
     <field name="diagnosis"/>

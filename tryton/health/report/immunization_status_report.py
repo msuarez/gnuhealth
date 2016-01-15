@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2015 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -32,15 +32,18 @@ class ImmunizationStatusReport(Report):
 
 
     @classmethod
-    def parse(cls, report, objects, data, localcontext):
-
+    def get_context(cls, records, data):
         Sched = Pool().get('gnuhealth.immunization_schedule')
         Patient = Pool().get('gnuhealth.patient')
         patient = Patient(data['patient_id'])
-        localcontext['patient'] = patient
+        
+        context = super(ImmunizationStatusReport, cls).get_context(records,
+            data)
+            
+        context['patient'] = patient
         sched = Sched(data['immunization_schedule_id'])
         
-        localcontext['immunization_schedule']=sched
+        context['immunization_schedule'] = sched
 
         immunizations_to_check = \
             cls.get_immunizations_for_age(patient, sched)
@@ -48,10 +51,9 @@ class ImmunizationStatusReport(Report):
         immunization_status = \
             cls.verify_status(immunizations_to_check)
         
-        localcontext['immunization_status'] = immunization_status
+        context['immunization_status'] = immunization_status
         
-        return super(ImmunizationStatusReport, cls).parse(report,
-            objects, data, localcontext)
+        return context 
 
     @classmethod
     def get_immunizations_for_age(cls,patient,immunization_schedule):

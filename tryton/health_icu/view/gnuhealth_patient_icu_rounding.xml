@@ -63,7 +63,7 @@
                     </group>
                 </group>
                 <group string="Xray" id="patient_xray">
-                    <field name="xray" img_width="200" img_height="200" height="200" width="200" widget="image"/>
+                    <field name="xray" height="200" width="200" widget="image"/>
                 </group>
                 <newline/>
             </group>

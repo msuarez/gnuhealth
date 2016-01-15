@@ -1,0 +1,172 @@
+# Nab3a <asn09@aub.edu.lb>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 12:24+0000\n"
+"Last-Translator: Nab3a <asn09@aub.edu.lb>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452255875.0\n"
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_afb_per_100_fields"
+msgid "AFB number per 100 fields"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_afb_per_100_fields1"
+msgid "AFB number per 100 fields"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_afb_per_field"
+msgid "AFB number per field"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_afb_per_field1"
+msgid "AFB number per field"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_appearance"
+msgid "Macroscopic appearance"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_appearance1"
+msgid "Macroscopic appearance"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_culture"
+msgid "Result"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_CMIA_HIV1_sco"
+msgid "HIV-1"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_elisa_CMIA_HIV2_sco"
+msgid "HIV-2"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_gp120"
+msgid "GP120"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_gp160"
+msgid "GP160"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_gp41"
+msgid "GP41"
+msgstr ""
+
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_p24"
+msgid "P24"
+msgstr ""
+
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_p31"
+msgid "P31"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ppd0"
+msgid "Induration Size"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_volume"
+msgid "Volume"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_volume1"
+msgid "Volume"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_ELISA_CMIA_analysis0"
+msgid "HIV ELISA ASSAY - CMIA"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_bacilloscopy_FL_analysis0"
+msgid "FLUORESCENT BACILLOSCOPY"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_bacilloscopy_ZN_analysis0"
+msgid "ZIEHL NEELSEN BACILLOSCOPY"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_culture_bactec_analysis0"
+msgid "BACTEC CULTURE ANALYSIS"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_culture_lj_analysis0"
+msgid "LOWENSTEIN-JENSEN CULTURE ANALYSIS"
+msgstr ""
+
+msgctxt "model:gnuhealth.lab.test_type,name:gnuhealth_test_ppd_analysis0"
+msgid "PPD TEST"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_western_blot_analysis0"
+msgid "WESTERN BLOT ASSAY"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test_type,name:gnuhealth_test_xpert_mtb_rif_analysis0"
+msgid "Xpert MTB/RIF"
+msgstr ""
+
+msgctxt "model:product.template,name:product_template_ELISA_analysischarges0"
+msgid "HIV ELISA Analysis Charges"
+msgstr "رسوم تحليل الايدز"
+
+msgctxt ""
+"model:product.template,name:product_template_bacilloscopy_FL_analysischarges0"
+msgid "Fluorescent Bacilloscopy Analysis Charges"
+msgstr "رسوم تحليل Bacilloscopy"
+
+msgctxt ""
+"model:product.template,name:product_template_bacilloscopy_ZN_analysischarges0"
+msgid "Ziehl Neelsen Bacilloscopy Analysis Charges"
+msgstr " رسوم التحليل Neelsen Bacilloscopy"
+
+msgctxt ""
+"model:product.template,name:product_template_bactec_culture_analysischarges0"
+msgid "BACTEC Culture Analysis Charges"
+msgstr "رسوم التحليل BACTEC "
+
+msgctxt ""
+"model:product.template,name:product_template_culture_lj_analysischarges0"
+msgid "Lowenstein-Jensen Culture Analysis Charges"
+msgstr "لوفينشتاين-جنسن الثقافة رسوم التحليل"
+
+msgctxt "model:product.template,name:product_template_ppd_analysischarges0"
+msgid "Purified Protein Derivative - PPD Analysis Charges"
+msgstr "المشتق البروتيني المنقى - رسوم تحليل PPD"
+
+msgctxt ""
+"model:product.template,name:product_template_western_blot_analysischarges0"
+msgid "Western Blot Analysis Charges"
+msgstr "رسوم التحليل Western Blot "
+
+msgctxt ""
+"model:product.template,name:product_template_xpert_mtb_rif_analysischarges0"
+msgid "Xpert MTB-RIF Analysis Charges"
+msgstr " رسوم تحليل Xpert MTB-RIF"

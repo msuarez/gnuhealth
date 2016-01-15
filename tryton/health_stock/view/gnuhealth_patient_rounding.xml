@@ -11,13 +11,11 @@
             <field name="moves" colspan="4"/>
         </page>
     </xpath>
-    <xpath expr="/form/notebook" position="after">
-        <group col="5" colspan="4" id="buttons">
-            <label name="state"/>
-            <field name="state"/>
-            <button name="done" string="Done" icon="tryton-go-next"/>
-        </group>
+
+    <xpath expr="//button[@name=&quot;end_rounding&quot;]" position="replace">
+        <button name="done" string="Done / Create Stock moves" icon="tryton-go-next"/>
     </xpath>
+
     <xpath expr="/form/notebook/page[@id=&quot;rounding_main&quot;]/field[@name=&quot;round_summary&quot;]" position="replace_attributes">
         <field name="round_summary" height="50"/>
     </xpath>

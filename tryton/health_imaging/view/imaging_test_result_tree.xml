@@ -2,8 +2,8 @@
 <tree string="Imaging Test Result">
     <field name="patient"/>
     <field name="number"/>
-    <field name="date"/>
+    <field name="date" widget="date"/>
     <field name="requested_test"/>
-    <field name="request_date"/>
+    <field name="request_date" widget="date"/>
     <field name="doctor"/>
 </tree>

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<tree>
-    <field name="apgar_minute"/>
-    <field name="apgar_score"/>
-    <field name="apgar_appearance"/>
-    <field name="apgar_pulse"/>
-    <field name="apgar_grimace"/>
-    <field name="apgar_activity"/>
-    <field name="apgar_respiration"/>
+<tree string="APGAR score" editable="top">
+    <field name="apgar_minute" expand="1"/>
+    <field name="apgar_appearance" expand="1"/>
+    <field name="apgar_pulse" expand="1"/>
+    <field name="apgar_grimace" expand="1"/>
+    <field name="apgar_activity" expand="1"/>
+    <field name="apgar_respiration" expand="1"/>
+    <field name="apgar_score" expand="1"/>
 </tree>
