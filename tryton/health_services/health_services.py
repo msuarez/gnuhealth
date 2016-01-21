@@ -135,23 +135,19 @@ class HealthServiceLine(ModelSQL, ModelView):
         if self.product:
             self.desc = self.product.name
 
-    @classmethod
-    def write(cls, lines, vals):
-        """Do not allow new service lines for invoiced items"""
-        if lines[0].name.state == 'invoiced':
-            cls.raise_user_error(
-                "This service has been invoiced.\n"
-                "You can no longer modify service lines.")
-        return super(HealthServiceLine, cls).write(lines, vals)
 
-    #@classmethod
-    #def delete(cls, lines):
-        #"""Prohibit deleting service lines for invoiced items """
-        #if lines[0].name.state == 'invoiced':
-            #cls.raise_user_error(
-                #"This service has been invoiced.\n"
-                #"You can no longer modify service lines.")
-        #return super(HealthServiceLine, cls).delete(lines)
+    @classmethod
+    def validate(cls, services):
+        super(HealthServiceLine, cls).validate(services)
+        for service in services:
+            service.validate_invoice_status()
+
+    def validate_invoice_status(self):
+        if (self.name):
+            if (self.name.state == 'invoiced'):
+                self.raise_user_error(
+                    "This service has been invoiced.\n"
+                    "You can no longer modify service lines.")
 
 
 """ Add Prescription order charges to service model """
