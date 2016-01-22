@@ -255,9 +255,8 @@ class InstitutionSummaryReport(Report):
             new_conditions = 0
             
             for unique_eval in unique_evaluations:
-                #Strip to get the raw year
-                age = int(unique_eval.computed_age.split(' ')[0][:-1])
-                
+                age_timedelta = unique_eval.computed_age
+                age = int(age_timedelta.days/365.25)
                 
                 # Age groups in this diagnostic
                 if (age < 5):
