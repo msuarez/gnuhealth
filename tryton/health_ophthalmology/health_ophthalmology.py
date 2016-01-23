@@ -42,7 +42,7 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', required=True)
     visit_date = fields.DateTime('Date', help="Date of Consultation")
-    computed_age = fields.Function(fields.TimeDelta(
+    computed_age = fields.Function(fields.Char(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_evaluation')
@@ -229,10 +229,14 @@ class OphthalmologyEvaluation(ModelSQL, ModelView):
 
     def patient_age_at_evaluation(self, name):
         if (self.patient.name.dob and self.visit_date):
-            return self.visit_date.date() - self.patient.name.dob
+            rdelta = relativedelta(self.visit_date.date(),
+                self.patient.name.dob)
+            years_months_days = str(rdelta.years) + 'y ' \
+                + str(rdelta.months) + 'm ' \
+                + str(rdelta.days) + 'd'
+            return years_months_days
         else:
             return None
-
 
     def get_patient_gender(self, name):
         return self.patient.gender
