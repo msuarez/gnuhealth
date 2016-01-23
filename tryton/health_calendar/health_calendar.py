@@ -59,7 +59,8 @@ class Appointment:
             if values['state'] == 'confirmed':
                 if values['healthprof']:
                     healthprof = Healthprof(values['healthprof'])
-                    if healthprof.name.internal_user.calendar:
+                    if (healthprof.name.internal_user and
+                            healthprof.name.internal_user.calendar):
                         patient = Patient(values['patient'])
                         appointment_date_end = None
                         if values.get('appointment_date_end'):
