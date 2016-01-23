@@ -180,9 +180,13 @@ class Surgery(ModelSQL, ModelView):
             return None
 
     def patient_age_at_surgery(self, name):
-
         if (self.patient.name.dob and self.surgery_date):
-            return self.surgery_date.date() - self.patient.name.dob
+            rdelta = relativedelta (self.surgery_date.date(),
+                self.patient.name.dob)
+            years_months_days = str(rdelta.years) + 'y ' \
+                + str(rdelta.months) + 'm ' \
+                + str(rdelta.days) + 'd'
+            return years_months_days
         else:
             return None
 
@@ -262,7 +266,7 @@ class Surgery(ModelSQL, ModelView):
         when no date of surgery is given")
 
     computed_age = fields.Function(
-        fields.TimeDelta(
+        fields.Char(
             'Age',
             help="Computed patient age at the moment of the surgery"),
         'patient_age_at_surgery')
