@@ -82,12 +82,12 @@ def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
        caller == 'raw_age': [Y, M, D]
     
     """
-    now = datetime.now()
+    today = datetime.today().date()
            
     if dob:
         start = datetime.strptime(str(dob), '%Y-%m-%d')
-        end = now
-        
+        end = datetime.strptime(str(today),'%Y-%m-%d')
+            
         if extra_date:
             end = datetime.strptime(str(extra_date), '%Y-%m-%d')
             
@@ -96,7 +96,8 @@ def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
                         str(dod), '%Y-%m-%d %H:%M:%S')
 
         rdelta = relativedelta(end, start)
-
+        
+            
         years_months_days = str(rdelta.years) + 'y ' \
             + str(rdelta.months) + 'm ' \
             + str(rdelta.days) + 'd'
