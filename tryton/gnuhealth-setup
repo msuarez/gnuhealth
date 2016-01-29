@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health installer version
-VERSION="3.0.1"
+VERSION="3.0.2"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -214,13 +214,12 @@ install_python_dependencies() {
 
     # Python packages
     local PIP_LXML="lxml==3.5.0"
-    local PIP_RELATORIO="relatorio==0.6.1"
+    local PIP_RELATORIO="relatorio==0.6.2"
     local PIP_DATEUTIL="python-dateutil==2.4.2"
     local PIP_PSYCOPG2="psycopg2==2.6.1"
     local PIP_PYTZ="pytz==2015.7"
     local PIP_LDAP="python-ldap==2.4.20"
-    local PIP_EZSETUP="ez_setup==0.9"
-    local PIP_VOBJECT="vobject==0.8.1c-dist"
+    local PIP_VOBJECT="vobject==0.8.2"
     local PIP_PYWEBDAV="PyWebDAV==0.9.8"
     local PIP_QRCODE="qrcode==5.1"
     local PIP_SIX="six==1.10.0"
@@ -236,7 +235,7 @@ install_python_dependencies() {
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_EZSETUP $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL"
+    local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
