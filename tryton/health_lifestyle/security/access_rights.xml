@@ -47,6 +47,15 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
+        <record model="ir.model.access" id="access_health_patient_cage_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.patient.cage')]"/>
+            <field name="group" ref="group_health_lifestyle_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
 <!-- END OF lifestyle ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
