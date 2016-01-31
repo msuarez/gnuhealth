@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.0.0"
+VERSION="3.0.1"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
@@ -197,10 +197,11 @@ do_backup()
 
 check_status()
 {
-    local TRYTOND_PIDS=`pgrep -f trytond`
-    if [ $TRYTOND_PIDS ]
+    TRYTOND_PIDS=`pgrep -f "^.*python.*trytond.*$"`
+    if [ $? = 0 ]
     then
-        cli_msg "INFO" "GNU Health / Tryton instance(s) with PID(s) :  ${TRYTOND_PIDS}"
+        cli_msg "INFO" "GNU Health / Tryton instance(s) with PID(s) :"
+        echo $TRYTOND_PIDS
     else
         cli_msg "INFO" "No GNU Health instance seems to be running"
     fi
