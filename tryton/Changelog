@@ -1,3 +1,95 @@
+changeset:   2380:6bd21991ba27
+branch:      stable
+parent:      2378:0058c39312cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 30 11:25:50 2016 +0000
+summary:     health_lifestyle: Fix bug #47023: Patient CAGE score not available to admin group
+
+changeset:   2378:0058c39312cb
+branch:      stable
+parent:      2376:6e74c0945df7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 29 07:04:02 2016 +0000
+summary:     gnuhealth-setup : Updated vobject and relatorio packages . See bug https://savannah.gnu.org/bugs/index.php?46996
+
+changeset:   2376:6e74c0945df7
+branch:      stable
+parent:      2372:e8045a607405
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 28 12:07:00 2016 +0000
+summary:     Fix bug #46996: vobject version name changed
+
+changeset:   2372:e8045a607405
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 27 10:55:14 2016 +0000
+summary:     health : Fix health : gnuhealth.patient has no attribute patient_age at immunization status report
+
+changeset:   2371:498daeb1e6a7
+branch:      stable
+parent:      2369:21316ff1da75
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 25 13:47:22 2016 +0700
+summary:     health_history, health_nursing : Fix timedelta related issues in reports. bug #46961: Use relative delta for age
+
+changeset:   2369:21316ff1da75
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 23:53:26 2016 +0700
+summary:     health : optimize date precision for ages
+
+changeset:   2368:acae145d4381
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 07:26:38 2016 +0700
+summary:     health_reporting : change to original method to strip relativedelta value from str age
+
+changeset:   2367:72dd3e8e2dd3
+branch:      stable
+parent:      2364:d4404b5bec91
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 06:58:00 2016 +0700
+summary:     all: Use relativedelta for person ages
+
+changeset:   2364:d4404b5bec91
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 01:55:58 2016 +0700
+summary:     health_calendar : Fix bug #46953: Error on creating appointment if healthprof.name.internal_user == None
+
+changeset:   2363:11dbd8f7bf62
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 22 18:12:49 2016 +0700
+summary:     health_reporting : fix bug #46950: Error when generating the summary report
+
+changeset:   2362:02863bf346c9
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 21 21:23:07 2016 +0700
+summary:     health_services : Fix bug bug #46947: Traceback when generating the invoice associated to a prescription service
+
+changeset:   2361:522540a3f74f
+branch:      stable
+parent:      2358:1b2026fba224
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 21 07:15:59 2016 +0700
+summary:     health: Remove patient age from prescription . Use rec_name for patient and health professional
+
+changeset:   2358:1b2026fba224
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 15 11:07:35 2016 +0000
+summary:     health_gyneco : Look for biological sex and hide GYN/OB page if biological sex is male
+
+changeset:   2357:a65f4f507233
+branch:      stable
+parent:      1980:fd60943f630e
+parent:      2354:c1c0a7204143
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 15 14:28:07 2016 +0000
+summary:     Merge version 3.0.0 in stable branch
+
 changeset:   2350:05b820a94cb0
 tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
