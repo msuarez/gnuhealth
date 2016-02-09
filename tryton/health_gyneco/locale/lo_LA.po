@@ -1,0 +1,1427 @@
+# anousak <anousak@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-01-08 02:56+0000\n"
+"Last-Translator: anousak <anousak@gmail.com>\n"
+"Language: lo\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1452221812.0\n"
+
+msgctxt "error:gnuhealth.patient.pregnancy:"
+msgid "Our records indicate that the patient is already pregnant !"
+msgstr "ການບັນທຶກຂອງພວກເຮົາຊີ້ໃຫ້ເຫັນວ່າຄົນເຈັບຖືພາແລ້ວ!"
+
+msgctxt "error:gnuhealth.patient.pregnancy:"
+msgid "This pregnancy code for this patient already exists"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,abortions:"
+msgid "Abortions"
+msgstr "ການທໍາແທ້ງ"
+
+msgctxt "field:gnuhealth.patient,breast_self_examination:"
+msgid "Breast self-examination"
+msgstr "ການກວດສອບເຕົ້ານົມຕົນເອງ"
+
+msgctxt "field:gnuhealth.patient,colposcopy:"
+msgid "Colposcopy"
+msgstr "ການກວດສ່ອງຊ່ອງຄອດ"
+
+msgctxt "field:gnuhealth.patient,colposcopy_history:"
+msgid "Colposcopy History"
+msgstr "ປະຫວັດການກວດສ່ອງຊ່ອງຄອດ"
+
+msgctxt "field:gnuhealth.patient,colposcopy_last:"
+msgid "Last colposcopy"
+msgstr "ກວດສ່ອງຊ່ອງຄອດເທື່ອລ້າສຸດ"
+
+msgctxt "field:gnuhealth.patient,currently_pregnant:"
+msgid "Pregnant"
+msgstr "ຖືພາ"
+
+msgctxt "field:gnuhealth.patient,fertile:"
+msgid "Fertile"
+msgstr "ທີ່ສາມາດຕັ້ງທ້ອງໄດ້"
+
+msgctxt "field:gnuhealth.patient,full_term:"
+msgid "Full Term"
+msgstr "ຄົບກຳນົດ"
+
+msgctxt "field:gnuhealth.patient,gravida:"
+msgid "Pregnancies"
+msgstr "ການຖືພາ"
+
+msgctxt "field:gnuhealth.patient,mammography:"
+msgid "Mammography"
+msgstr "ການກວດເຕົ້ານົມ"
+
+msgctxt "field:gnuhealth.patient,mammography_history:"
+msgid "Mammography History"
+msgstr "ປະວັດການກວດນົມ"
+
+msgctxt "field:gnuhealth.patient,mammography_last:"
+msgid "Last mammography"
+msgstr "ການກວດນົມຄັ້ງລ້າສຸດ"
+
+msgctxt "field:gnuhealth.patient,menarche:"
+msgid "Menarche age"
+msgstr "ອາຍຸທີ່ມີປະຈຳເດືອນ"
+
+msgctxt "field:gnuhealth.patient,menopausal:"
+msgid "Menopausal"
+msgstr "ໝົດປະຈໍາເດືອນ"
+
+msgctxt "field:gnuhealth.patient,menopause:"
+msgid "Menopause age"
+msgstr "ອາຍຸໄວໝົດປະຈໍາເດືອນ"
+
+msgctxt "field:gnuhealth.patient,menstrual_history:"
+msgid "Menstrual History"
+msgstr "ປະຫວັດປະຈໍາເດືອນ"
+
+msgctxt "field:gnuhealth.patient,pap_history:"
+msgid "PAP smear History"
+msgstr "ປະຫວັດກວດມົດລູກ (PAP)"
+
+msgctxt "field:gnuhealth.patient,pap_test:"
+msgid "PAP test"
+msgstr "ການກວດທົດສອບ PAP"
+
+msgctxt "field:gnuhealth.patient,pap_test_last:"
+msgid "Last PAP test"
+msgstr "ການກວດມົດລູກຄັ້ງລ້າສຸດ"
+
+msgctxt "field:gnuhealth.patient,pregnancy_history:"
+msgid "Pregnancies"
+msgstr "ການຖືພາ"
+
+msgctxt "field:gnuhealth.patient,premature:"
+msgid "Premature"
+msgstr "ໄວເກີນຄວນ"
+
+msgctxt "field:gnuhealth.patient,stillbirths:"
+msgid "Stillbirths"
+msgstr "ເດັກຕາຍໃນທ້ອງແມ່"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,comments:"
+msgid "Remarks"
+msgstr "ຂໍ້ສັງເກດ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation:"
+msgid "Evaluation"
+msgstr "ການປະເມີນຜົນ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,healthprof:"
+msgid "Reviewed"
+msgstr "ກວດສອບຄືນແລ້ວ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,id:"
+msgid "ID"
+msgstr "ເລກທີບັດ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,last_colposcopy:"
+msgid "Previous"
+msgstr "ກ່ອນໜ້ານີ້"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,name:"
+msgid "Patient"
+msgstr "ຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,result:"
+msgid "result"
+msgstr "ຜົນ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.colposcopy_history,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.mammography_history,comments:"
+msgid "Remarks"
+msgstr "ຂໍ້ສັງເກດ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.mammography_history,evaluation:"
+msgid "Evaluation"
+msgstr "ການປະເມີນຜົນ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,healthprof:"
+msgid "Reviewed"
+msgstr "ກວດສອບຄືນແລ້ວ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,id:"
+msgid "ID"
+msgstr "ເລກທີບັດ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,last_mammography:"
+msgid "Previous"
+msgstr "ກ່ອນໜ້ານີ້"
+
+msgctxt "field:gnuhealth.patient.mammography_history,name:"
+msgid "Patient"
+msgstr "ຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.mammography_history,result:"
+msgid "result"
+msgstr "ຜົນກວດ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.mammography_history,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,dysmenorrhea:"
+msgid "Dysmenorrhea"
+msgstr "ການປວດໄລຍະປະຈໍາເດືອນ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,evaluation:"
+msgid "Evaluation"
+msgstr "ການປະເມີນຜົນ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,frequency:"
+msgid "frequency"
+msgstr "ໄລຍະການເປັນປະຈໍາເດືອນ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,healthprof:"
+msgid "Reviewed"
+msgstr "ກວດສອບຄືນແລ້ວ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,id:"
+msgid "ID"
+msgstr "ນັດນໍ້າເບີ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,is_regular:"
+msgid "Regular"
+msgstr "ປົກກະຕິ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,lmp:"
+msgid "LMP"
+msgstr "ໄລຍະປະຈໍາເດືອນລ້າສຸດ - LMP"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,lmp_length:"
+msgid "Length"
+msgstr "ຄວາມຍາວ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,name:"
+msgid "Patient"
+msgstr "ຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,volume:"
+msgid "volume"
+msgstr "ບໍລິມາດ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.menstrual_history,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.pap_history,comments:"
+msgid "Remarks"
+msgstr "ຂໍ້ສັງເກດ"
+
+msgctxt "field:gnuhealth.patient.pap_history,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.pap_history,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.pap_history,evaluation:"
+msgid "Evaluation"
+msgstr "ການປະເມີນຜົນ"
+
+msgctxt "field:gnuhealth.patient.pap_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "field:gnuhealth.patient.pap_history,healthprof:"
+msgid "Reviewed"
+msgstr "ກວດສອບຄືນແລ້ວ"
+
+msgctxt "field:gnuhealth.patient.pap_history,id:"
+msgid "ID"
+msgstr "ເລກທີບັດ"
+
+msgctxt "field:gnuhealth.patient.pap_history,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.pap_history,last_pap:"
+msgid "Previous"
+msgstr "ກ່ອນໜ້ານີ້"
+
+msgctxt "field:gnuhealth.patient.pap_history,name:"
+msgid "Patient"
+msgstr "ຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.pap_history,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.pap_history,result:"
+msgid "result"
+msgstr "ຜົນກວດ"
+
+msgctxt "field:gnuhealth.patient.pap_history,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.pap_history,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.pregnancy,bba:"
+msgid "BBA"
+msgstr "ເກີດກ່ອນມາຮອດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.pregnancy,current_pregnancy:"
+msgid "Current Pregnancy"
+msgstr "ການຖືພາປັດຈຸບັນ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,fetuses:"
+msgid "Fetuses"
+msgstr "ເດັກອ່ອນ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,gravida:"
+msgid "Pregnancy #"
+msgstr "ການຖືພາທີ #"
+
+msgctxt "field:gnuhealth.patient.pregnancy,healthprof:"
+msgid "Health Prof"
+msgstr "ທ່ານໝໍ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,home_birth:"
+msgid "Home Birth"
+msgstr "ເກີດຢູ່ເຮືອນ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,id:"
+msgid "ID"
+msgstr "ເລກທີບັດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,iugr:"
+msgid "IUGR"
+msgstr "IUGR (ເດັກໃນທ້ອງຂະຫຽາຍໂຕຊ້າ)"
+
+msgctxt "field:gnuhealth.patient.pregnancy,lmp:"
+msgid "LMP"
+msgstr "ໄລຍະປະຈໍາເດືອນລ້າສຸດ - LMP"
+
+msgctxt "field:gnuhealth.patient.pregnancy,monozygotic:"
+msgid "Monozygotic"
+msgstr "ແຝດຈາກໄຂ່ໜ່ວຍດຽວ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,name:"
+msgid "Patient ID"
+msgstr "ເລກທີຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pdd:"
+msgid "Pregnancy Due Date"
+msgstr "ການຖືພາຕາມກຳນົດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,perinatal:"
+msgid "Perinatal Info"
+msgstr "ຂໍ້ມູນກ່ອນແລະຫຼັງເກີດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_age:"
+msgid "Weeks"
+msgstr "ອາທິດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_date:"
+msgid "End of Pregnancy"
+msgstr "ຕອນທ້າຍຂອງການຖືພາ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Result"
+msgstr "ຜົນກວດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,prenatal_evaluations:"
+msgid "Prenatal Evaluations"
+msgstr "ການປະເມີນຜົນກ່ອນເກີດ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,puerperium_monitor:"
+msgid "Puerperium monitor"
+msgstr "ການຕິດຕາມກວດກາຫຼັງເກີດລູກ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.pregnancy,reverse:"
+msgid "Reverse"
+msgstr "ຢ້ອນກັບ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,reverse_weeks:"
+msgid "Pr. Weeks"
+msgstr "ອາທິດທີ່ຜ່ານມາ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,warning:"
+msgid "Warn"
+msgstr "ເຕືອນ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,warning_icon:"
+msgid "Pregnancy warning icon"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.pregnancy,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.pregnancy,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,diabetes:"
+msgid "Diabetes"
+msgstr "ພະຍາດເບົາຫວານ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,efw:"
+msgid "EFW"
+msgstr "ນໍ້າໜັກເດັກອ່ອນໂດຍປະມານ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation:"
+msgid "Patient Evaluation"
+msgstr "ການປະເມີນຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
+msgid "AC"
+msgstr "ເກນທີ່ເໝາະສົມແກ່ການດຳເນີນການແລ້ວ - Appropriateness criteria"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
+msgid "BPD"
+msgstr "ເສັ້ນຜ່າສູນກາງຂະໝ່ອມທັງສອງລວງ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
+msgid "FL"
+msgstr "ຄວາມຍາວຂາ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
+msgid "HC"
+msgstr "ລວງຮອບຫົວ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
+msgid "Fetus heart rate"
+msgstr "ການເຕັ້ນຫົວໃຈຂອງເດັກອ່ອນ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,fundal_height:"
+msgid "Fundal Height"
+msgstr "ຄວາມສູງດ້ານຫຼັງ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_days:"
+msgid "Gestational days"
+msgstr "ບັນດາມື້ຖືພາ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,gestational_weeks:"
+msgid "Gestational Weeks"
+msgstr "ອາທິດຂະນະຖືພາ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,healthprof:"
+msgid "Health Prof"
+msgstr "ທ່ານໝໍ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,hypertension:"
+msgid "Hypertension"
+msgstr "ຄວາມດັນເລືອດສູງ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,id:"
+msgid "ID"
+msgstr "ເລກທີບັດ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Placentation"
+msgstr "ການຈັບຕົວຂອງແຮ່"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,iugr:"
+msgid "IUGR"
+msgstr "IUGR (ເດັກໃນທ້ອງຂະຫຽາຍໂຕຊ້າ)"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,name:"
+msgid "Patient Pregnancy"
+msgstr "ການຖືພາຂອງຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,oligohydramnios:"
+msgid "Oligohydramnios"
+msgstr "ນໍ້າຄາວປາມີໜ້ອຍ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,overweight:"
+msgid "Overweight"
+msgstr "ນໍ້າໜັກເກີນ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,placenta_previa:"
+msgid "Placenta Previa"
+msgstr "ແຮ່ຈັບຕໍ່າ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,polihydramnios:"
+msgid "Polihydramnios"
+msgstr "ນໍ້າຄາວປາຫຼາຍໂພດ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
+msgid "Preeclampsia"
+msgstr "ກຽມຊັກກະຕຸກ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,vasa_previa:"
+msgid "Vasa Previa"
+msgstr "ສາຍແຮ່ອອກກ່ອນ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.patient.prenatal.evaluation,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.perinatal,abortion:"
+msgid "Abortion"
+msgstr "ການທໍາແທ້ງ"
+
+msgctxt "field:gnuhealth.perinatal,abruptio_placentae:"
+msgid "Abruptio Placentae"
+msgstr "ແຮ່ໂຂະກ່ອນ"
+
+msgctxt "field:gnuhealth.perinatal,admission_code:"
+msgid "Code"
+msgstr "ລະຫັດ"
+
+msgctxt "field:gnuhealth.perinatal,admission_date:"
+msgid "Admission"
+msgstr "ການຮັບຄົນເຈັບປິ່ນປົວ"
+
+msgctxt "field:gnuhealth.perinatal,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.perinatal,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.perinatal,dystocia:"
+msgid "Dystocia"
+msgstr "ການເກີດລູກຍາກ"
+
+msgctxt "field:gnuhealth.perinatal,episiotomy:"
+msgid "Episiotomy"
+msgstr "ການແຫກປາກຊ່ອງຄອດ"
+
+msgctxt "field:gnuhealth.perinatal,fetus_presentation:"
+msgid "Fetus Presentation"
+msgstr "ການສະເໜີທ່າເດັກອ່ອນ"
+
+msgctxt "field:gnuhealth.perinatal,forceps:"
+msgid "Forceps"
+msgstr "ຄີມຊ່ວຍເກີດລູກ"
+
+msgctxt "field:gnuhealth.perinatal,gestational_days:"
+msgid "Days"
+msgstr "ມື້"
+
+msgctxt "field:gnuhealth.perinatal,gestational_weeks:"
+msgid "Gestational wks"
+msgstr "ອາທິດການຖືພາ"
+
+msgctxt "field:gnuhealth.perinatal,gravida_number:"
+msgid "Gravida #"
+msgstr "ຖືພາຄັ້ງທີ #"
+
+msgctxt "field:gnuhealth.perinatal,healthprof:"
+msgid "Health Prof"
+msgstr "ທ່ານໝໍ"
+
+msgctxt "field:gnuhealth.perinatal,hematoma:"
+msgid "Hematoma"
+msgstr "ເລືອດຫົ້ງ"
+
+msgctxt "field:gnuhealth.perinatal,id:"
+msgid "ID"
+msgstr "ເລກທີ"
+
+msgctxt "field:gnuhealth.perinatal,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.perinatal,laceration:"
+msgid "Lacerations"
+msgstr "ການຈີກຂາດ"
+
+msgctxt "field:gnuhealth.perinatal,monitoring:"
+msgid "Monitors"
+msgstr "ຕິດຕາມກວດກາ"
+
+msgctxt "field:gnuhealth.perinatal,name:"
+msgid "Patient Pregnancy"
+msgstr "ການຖືພາຂອງຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.perinatal,notes:"
+msgid "Notes"
+msgstr "ໝາຍເຫດ"
+
+msgctxt "field:gnuhealth.perinatal,placenta_incomplete:"
+msgid "Incomplete"
+msgstr "ບໍ່ຄົບຖ້ວນ"
+
+msgctxt "field:gnuhealth.perinatal,placenta_retained:"
+msgid "Retained"
+msgstr "ເດັກຕາຍຄ້າງໃນທ້ອງ"
+
+msgctxt "field:gnuhealth.perinatal,prenatal_evaluations:"
+msgid "Prenatal evaluations"
+msgstr "ການປະເມີນຜົນກ່ອນເກີດ"
+
+msgctxt "field:gnuhealth.perinatal,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.perinatal,start_labor_mode:"
+msgid "Delivery mode"
+msgstr "ວິທີການເກີດລູກ"
+
+msgctxt "field:gnuhealth.perinatal,stillbirth:"
+msgid "Stillbirth"
+msgstr "ເດັກຕາຍເກີດ"
+
+msgctxt "field:gnuhealth.perinatal,vaginal_tearing:"
+msgid "Vaginal tearing"
+msgstr "ຊ່ອງຄອດສິກຂາດ"
+
+msgctxt "field:gnuhealth.perinatal,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.perinatal,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.perinatal.monitor,bleeding:"
+msgid "Bleeding"
+msgstr "ເລືອດອອກ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,contractions:"
+msgid "Contractions"
+msgstr "ອາການປັ້ນມົດລູກ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.perinatal.monitor,date:"
+msgid "Date and Time"
+msgstr "ວັນແລະເວລາ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "ຄວາມກົດດັນຂອງເລືອດໃນຫົວໃຈ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,dilation:"
+msgid "Cervix dilation"
+msgstr "ຄໍມົດລູກຂະຫຍາຍໂຕ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,f_frequency:"
+msgid "Fetus Heart Frequency"
+msgstr "ຄວາມທີ່ການເຕັ້ນຂອງຫົວໃຈເດັກອ່ອນ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Fetus Position"
+msgstr "ທ່າຂອງເດັກອ່ອນ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,frequency:"
+msgid "Mother's Heart Frequency"
+msgstr "ຄວາມທີ່ຫົວໃຈເຕັ້ນຂອງແມ່"
+
+msgctxt "field:gnuhealth.perinatal.monitor,fundal_height:"
+msgid "Fundal Height"
+msgstr "ຄວາມສູງດ້ານຫຼັງ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,id:"
+msgid "ID"
+msgstr "ເລກທີ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,meconium:"
+msgid "Meconium"
+msgstr "ຂີ້ເທົາ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,name:"
+msgid "Patient Perinatal Evaluation"
+msgstr "ການປະເມີນຜົນຄົນເຈັບກ່ອນແລະຫຼັງເກີດ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.perinatal.monitor,systolic:"
+msgid "Systolic Pressure"
+msgstr "ຄວາມດັນເລືອດເທິງ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.perinatal.monitor,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.puerperium.monitor,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີເດືອນປີ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "field:gnuhealth.puerperium.monitor,date:"
+msgid "Date and Time"
+msgstr "ວັນແລະເວລາ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,diastolic:"
+msgid "Diastolic Pressure"
+msgstr "ຄວາມດັນເລືອດລຸ່ມ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,frequency:"
+msgid "Heart Frequency"
+msgstr "ຄວາມທີ່ການເຕັ້ນຂອງຫົວໃຈ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,healthprof:"
+msgid "Health Prof"
+msgstr "ທ່ານໝໍ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,id:"
+msgid "ID"
+msgstr "ເລກທີ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,institution:"
+msgid "Institution"
+msgstr "ສະຖາບັນ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "Lochia amount"
+msgstr "ປະລິມານນໍ້າຄາວປາ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "Lochia color"
+msgstr "ສີ ນໍ້າຄາວປາ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "Lochia odor"
+msgstr "ກິ່ນ ນໍ້າຄາວປາ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,name:"
+msgid "Patient Pregnancy"
+msgstr "ການຖືພາຂອງຄົນເຈັບ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+msgctxt "field:gnuhealth.puerperium.monitor,systolic:"
+msgid "Systolic Pressure"
+msgstr "ຄວາມດັນເລຶອດ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,temperature:"
+msgid "Temperature"
+msgstr "ອຸນຫະພູມ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,uterus_involution:"
+msgid "Fundal Height"
+msgstr "ຄວາມສູງດ້ານຫຼັງ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,write_date:"
+msgid "Write Date"
+msgstr "ຂຽນວັນທີ"
+
+msgctxt "field:gnuhealth.puerperium.monitor,write_uid:"
+msgid "Write User"
+msgstr "ຂຽນຊື່ຜູ້ໃຊ້"
+
+msgctxt "help:gnuhealth.patient,breast_self_examination:"
+msgid "Check if patient does and knows how to self examine her breasts"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ ຖ້າຫາກວ່າຄົນເຈັບຮູ້ແລະກວດເຕົ້ານົມເອັງໄດ້."
+
+msgctxt "help:gnuhealth.patient,colposcopy:"
+msgid "Check if the patient has done a colposcopy exam"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ ຖ້າຫາກວ່າໄດ້ຮັບການກວດຊ່ອງຄອດ."
+
+msgctxt "help:gnuhealth.patient,colposcopy_last:"
+msgid "Enter the date of the last colposcopy"
+msgstr "ລົງວັນທີຂອງການກວດຊ່ອງຄອດເທື່ອລ້າສຸດ."
+
+msgctxt "help:gnuhealth.patient,fertile:"
+msgid "Check if patient is in fertile age"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ ຖ້າວ່າຄົນເຈັບຍັງຢູ່ໃນໄວຈະເລີນພັນ"
+
+msgctxt "help:gnuhealth.patient,full_term:"
+msgid "Full term pregnancies"
+msgstr "ການຖືພາເຕັມກຳນົດ"
+
+msgctxt "help:gnuhealth.patient,gravida:"
+msgid "Number of pregnancies, computed from Obstetric history"
+msgstr "ຈຳນວນເທື່ອຖືພາ, ຄິດໄລ່ຈາກປະຫວັດການເກີດລູກ"
+
+msgctxt "help:gnuhealth.patient,mammography:"
+msgid "Check if the patient does periodic mammographys"
+msgstr "ໝາຍເອົາ ຖ້າຫາກວ່າຄົນເຈັບໄດ້ກວດເຕົ້ານົມເປັນໄລຍະຕະຫຼອດມາ"
+
+msgctxt "help:gnuhealth.patient,mammography_last:"
+msgid "Enter the date of the last mammography"
+msgstr "ລົງວັນທີທີ່ຄົນເຈັບໄດ້ກວດເບີ່ງນົມຕອນລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient,pap_test:"
+msgid "Check if patient does periodic cytologic pelvic smear screening"
+msgstr "ໝາຍເອົາຖ້າວ່າຄົນເຈັບໄດ້ຮັບການກວດວິເຄາະ smear ຈຸລັງ ອ່າງຊາມ"
+
+msgctxt "help:gnuhealth.patient,pap_test_last:"
+msgid "Enter the date of the last Papanicolau test"
+msgstr "ໃສ່ ວັນທີ ລ້າສຸດ ຂອງ  ການກວດສອບຫາ ເຊື້ອມະເຮັງ"
+
+msgctxt "help:gnuhealth.patient,premature:"
+msgid "Preterm < 37 wks live births"
+msgstr "ເກີດກ່ອນກຳນົດ < 37 ອາທິດ ເດັກເກີດມີຊີວິດ"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr "ທ່ານໝໍຜູ້ກວດເບິ່ງຜູ້ລ້າສຸດຜົນກວດ"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,last_colposcopy:"
+msgid "Last colposcopy"
+msgstr "ການກວດຊ່ອງຄອດເທື່ອລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient.colposcopy_history,result:"
+msgid ""
+"Please check the lab test results if the module is             installed"
+msgstr "ກະລຸນາໝາຍເອົາຜົນກວດທາງຫ້ອງວິເຄາະ ຖ້າຫາກວ່າໂມດູນນີ້ໄດ້ຮັບການຕິດຕັ້ງ."
+
+msgctxt "help:gnuhealth.patient.mammography_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "help:gnuhealth.patient.mammography_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr "ທ່ານໝໍຜູ້ກວດເບິ່ງຜູ້ລ້າສຸດຜົນກວດ"
+
+msgctxt "help:gnuhealth.patient.mammography_history,last_mammography:"
+msgid "Last Mammography"
+msgstr "ການກວດເຕົ້ານົມຄັ້ງລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient.mammography_history,result:"
+msgid ""
+"Please check the lab test results if the module is             installed"
+msgstr "ກະລຸນາໝາຍເອົາຜົນກວດທາງຫ້ອງວິເຄາະ ຖ້າຫາກວ່າໂມດູນນີ້ໄດ້ຮັບການຕິດຕັ້ງ."
+
+msgctxt "help:gnuhealth.patient.menstrual_history,evaluation_date:"
+msgid "Evaluation Date"
+msgstr "ວັນທີການປະເມີນຜົນ"
+
+msgctxt "help:gnuhealth.patient.menstrual_history,healthprof:"
+msgid "Health Professional who reviewed the information"
+msgstr "ທ່ານໝໍຜູ້ກວດເບິ່ງຂໍ້ມູນຄົນເຈັບ"
+
+msgctxt "help:gnuhealth.patient.menstrual_history,lmp:"
+msgid "Last Menstrual Period"
+msgstr "ໄລຍະມີປະຈໍາເດືອນເທື່ອລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient.pap_history,evaluation_date:"
+msgid "Date"
+msgstr "ວັນທີ"
+
+msgctxt "help:gnuhealth.patient.pap_history,healthprof:"
+msgid "Health Professional who last reviewed the test"
+msgstr "ທ່ານໝໍຜູ້ກວດເບິ່ງຜູ້ລ້າສຸດຜົນກວດ"
+
+msgctxt "help:gnuhealth.patient.pap_history,last_pap:"
+msgid "Last Papanicolau"
+msgstr "ການກວດສອບຫາເຊື້ອມະເຮັງເທື່ອລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient.pap_history,result:"
+msgid "Please check the lab results if the module is             installed"
+msgstr "ໝາຍເອົາຫ້ອງ ຜົນກວດວິເຄາະ ຖ້າວ່າໂມດູນນີ້ໄດ້ຕິດຕັ້ງແລ້ວ."
+
+msgctxt "help:gnuhealth.patient.pregnancy,bba:"
+msgid "Born Before Arrival"
+msgstr "ເກີດກ່ອນມາຮອດ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,current_pregnancy:"
+msgid "This field marks the current pregnancy"
+msgstr "ປ່ອງນີ້ໝາຍບອກການຖືພາໃນປັດຈຸບັນ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,healthprof:"
+msgid "Health Professional who created this initial obstetric record"
+msgstr "ທ່ານໝໍຜູ້ບັນຂໍ້ມູນການເກີດລູກເທື່ອທຳອິດ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,home_birth:"
+msgid "Home Birth"
+msgstr "ເກີດຢູ່ເຮືອນ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,institution:"
+msgid "Health center where this initial obstetric record was created"
+msgstr "ຊື່ສູນການແພດບ່ອນທີ່ບັນທຶກຂໍ້ມູນເທື່ອທຳອິດຂອງການເກີດລູກ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,lmp:"
+msgid "Last Menstrual Period"
+msgstr "ໄລຍະມີປະຈໍາເດືອນເທື່ອລ້າສຸດ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,pregnancy_end_age:"
+msgid "Weeks at the end of pregnancy"
+msgstr "ອາທິດຕອນທ້າຍຂອງການຖືພາ"
+
+msgctxt "help:gnuhealth.patient.pregnancy,reverse:"
+msgid ""
+"Use this method *only* when the         pregnancy information is referred by"
+" the patient, as a history taking         procedure. Please keep in mind "
+"that the reverse pregnancy data is         subjective"
+msgstr ""
+"ໃຫ້ໃຊ້ວິທີການນີ້ *ພຽງ* "
+"ເມື່ອໄດ້ຮັບຂໍ້ມູນຂ່າວສານການຖືພາທີ່ບອກເລົ່າໂດຍຄົນເຈັບເອງເທົ່ານັ້ນ "
+"ເພື່ອເປັນວິທີການໃນການເກັບກຳປະຫວັດການຖືພາ. ຈົ່ງຈື່ສະເໝີວ່າ "
+"ຂໍ້ມູນໃນທາງກົງກັນຂ້າມຂອງການຖືພາກໍເປັນຂໍ້ມູນທີ່ຄວນຄໍານຶງ."
+
+msgctxt "help:gnuhealth.patient.pregnancy,reverse_weeks:"
+msgid ""
+"Number of weeks at         the end of pregnancy. Used only with the reverse "
+"input method."
+msgstr "ຈຳນວນອາທິດໃນຕອນທ້າຍຂອງການຖືພາ. ໃຊ້ສຳລັບການປ້ອນຂໍ້ມູນຍ້ອນກັບເທົ່ານັ້ນ."
+
+msgctxt "help:gnuhealth.patient.pregnancy,warning:"
+msgid "Check this box if this is pregancy is or was NOT normal"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ຖ້າວ່າການຖືພານີ້ຜິດປົກກະຕິ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,diabetes:"
+msgid "Check this box if the mother has glucose intolerance or diabetes"
+msgstr "ກວດເບີ່ງວ່າຜູ້ເປັນແມ່ມີລະດັບທາດນໍ້າຕານ ຫຼື ໂລກເບົາຫວານ."
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,efw:"
+msgid "Estimated Fetal Weight"
+msgstr "ຄາດຄະເນນໍ້າໜັກເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_ac:"
+msgid "Fetal Abdominal Circumference"
+msgstr "ເສັ້ນຮອບວົງທ້ອງຂອງເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_bpd:"
+msgid "Fetal Biparietal Diameter"
+msgstr "ເສັ້ນຜ່າສູນກາງຂະໝ່ອມທັງສອງລວງຂອງເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_fl:"
+msgid "Fetal Femur Length"
+msgstr "ຄວາມຍາວຂາໂຕ້ເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetal_hc:"
+msgid "Fetal Head Circumference"
+msgstr "ລວງຮອບຫົວເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fetus_heart_rate:"
+msgid "Fetus heart rate"
+msgstr "ອັດຕາການເຕັ້ນຫົວໃຈຂອງເດັກອ່ອນ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,fundal_height:"
+msgid ""
+"Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
+msgstr "ໄລຍະຫ່າງລະຫວ່າງຮອຍຕໍ່ດູກຫົວເນົ່າອ່າງຊາມແລະກົ້ນມົດລູກ (S-FD) ເປັນ ຊມ."
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr "ທ່ານໝໍຜູ້ຮັບຜິດຊອບ, ຫຼື ຜູ້ທີ່ປ້ອນຂໍ້ມູນເຂົ້າລະບົບ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,hypertension:"
+msgid "Check this box if the mother has hypertension"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ຖ້າວ່າແມ່ມີຄວາມດັນສູງ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,iugr:"
+msgid "Intra Uterine Growth Restriction"
+msgstr "ຂໍ້ຈຳກັດການຈະເລີນເຕີບໂຕພາຍໃນມົດລູກ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,overweight:"
+msgid "Check this box if the mother is overweight or obesity"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ຖ້າວ່າແມ່ຕຸ້ຍໂພດ"
+
+msgctxt "help:gnuhealth.patient.prenatal.evaluation,preeclampsia:"
+msgid "Check this box if the mother has pre-eclampsia"
+msgstr "ໝາຍເອົາຫ້ອງນີ້ຖ້າວ່າແມ່ມີອາການກຽມຊັກກະຕຸກ"
+
+msgctxt "help:gnuhealth.perinatal,abruptio_placentae:"
+msgid "Abruptio Placentae"
+msgstr "ແຮ່ໂຂະກ່ອນ"
+
+msgctxt "help:gnuhealth.perinatal,admission_date:"
+msgid "Date when she was admitted to give birth"
+msgstr "ວັນທີທີ່ເຂົ້າໂຮງໝໍເພື່ອເກີດລູກ"
+
+msgctxt "help:gnuhealth.perinatal,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr "ທ່ານໝໍຜູ້ຮັບຜິດຊອບ, ຫຼື ຜູ້ທີ່ປ້ອນຂໍ້ມູນເຂົ້າລະບົບ"
+
+msgctxt "help:gnuhealth.perinatal,placenta_incomplete:"
+msgid "Incomplete Placenta"
+msgstr "ແຮ່ບໍ່ສົມບູນ"
+
+msgctxt "help:gnuhealth.perinatal,placenta_retained:"
+msgid "Retained Placenta"
+msgstr "ແຮ່ຄ້າງ"
+
+msgctxt "help:gnuhealth.perinatal,prenatal_evaluations:"
+msgid "Number of visits to the doctor during pregnancy"
+msgstr "ຈໍານວນເທື່ອໄປກວດທ້ອງຕະຫຼອດໄລຍະການຖືພາ."
+
+msgctxt "help:gnuhealth.puerperium.monitor,healthprof:"
+msgid ""
+"Health Professional in charge, or that who entered the             "
+"information in the system"
+msgstr "ທ່ານໝໍຜູ້ຮັບຜິດຊອບ, ຫຼື ຜູ້ທີ່ປ້ອນຂໍ້ມູນເຂົ້າລະບົບ"
+
+msgctxt "help:gnuhealth.puerperium.monitor,uterus_involution:"
+msgid ""
+"Distance between the symphysis pubis and the uterine fundus (S-FD) in cm"
+msgstr "ໄລຍະຫ່າງລະຫວ່າງຮອຍຕໍ່ດູກຫົວເນົ່າແລະກົ້ນມົດລູກ (S-FD) ເປັນ ຊມ."
+
+msgctxt "model:gnuhealth.patient.colposcopy_history,name:"
+msgid "Colposcopy History"
+msgstr "ປະຫວັດການກວດຊ່ອງຄອດ"
+
+msgctxt "model:gnuhealth.patient.mammography_history,name:"
+msgid "Mammography History"
+msgstr "ປະຫວັດການກວດເຕົ້ານົມ"
+
+msgctxt "model:gnuhealth.patient.menstrual_history,name:"
+msgid "Menstrual History"
+msgstr "ປະຫວັດປະຈໍາເດືອນ"
+
+msgctxt "model:gnuhealth.patient.pap_history,name:"
+msgid "PAP Test History"
+msgstr "ປະຫວັດກວດມົດລູກ"
+
+msgctxt "model:gnuhealth.patient.pregnancy,name:"
+msgid "Patient Pregnancy"
+msgstr "ການຖືພາຂອງຄົນເຈັບ"
+
+msgctxt "model:gnuhealth.patient.prenatal.evaluation,name:"
+msgid "Prenatal and Antenatal Evaluations"
+msgstr "ການປະເມີນກ່ອນເກີດແລະການຝາກທ້ອງ"
+
+msgctxt "model:gnuhealth.perinatal,name:"
+msgid "Perinatal Information"
+msgstr "ຂໍ້ມູນກ່ອນແລະຫຼັງເກີດ"
+
+msgctxt "model:gnuhealth.perinatal.monitor,name:"
+msgid "Perinatal Monitor"
+msgstr "ການຕິດຕາມກວດກາກ່ອນແລະຫຼັງເກີດ"
+
+msgctxt "model:gnuhealth.puerperium.monitor,name:"
+msgid "Puerperium Monitor"
+msgstr "ການຕິດຕາມກວດກາຫຼັງເກີດລູກ"
+
+msgctxt "model:ir.action,name:act_pregnancy_form1"
+msgid "Obstetric History"
+msgstr "ປະຫວັດການເກີດລູກ"
+
+msgctxt "model:res.group,name:group_health_gyneco_admin"
+msgid "Health Gynecology and Obstetrics Administration"
+msgstr "ການບໍລິຫານສຸຂະພາບພະຍາດຍິງແລະປະສູດ"
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid "abnormal"
+msgstr "ຜິດປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.colposcopy_history,result:"
+msgid "normal"
+msgstr "ປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid "abnormal"
+msgstr "ຜິດປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.mammography_history,result:"
+msgid "normal"
+msgstr "ປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "amenorrhea"
+msgstr "ຂາດປະຈໍາເດືອນ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "eumenorrhea"
+msgstr "ປະຈຳເດືອນປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "oligomenorrhea"
+msgstr "ພາວະມີປະຈໍາເດືອນໜ້ອຍລົງ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,frequency:"
+msgid "polymenorrhea"
+msgstr "ພາວະມີປະຈຳເດືອນຖີ່ເກີນໄປ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "hypomenorrhea"
+msgstr "ພາວະມີປະຈຳເດືອນໜ້ອຍເກີດໄປ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "menorrhagia"
+msgstr "ປະຈຳເດືອນມາແຮງ"
+
+msgctxt "selection:gnuhealth.patient.menstrual_history,volume:"
+msgid "normal"
+msgstr "ປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "AIS"
+msgstr "ມະເຮັງສະເພາະທີ່ - Adenocarcinoma in situ"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASC-H"
+msgstr "ຈຸລັງສະເກັດທີ່ຜິດປົກກະຕິຂັ້ນສູງ ASC-H"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASC-US"
+msgstr "ຈຸລັງສະເກັດຜິດປົກກະຕິທີ່ບໍ່ຮູ້ແນ່ນອນ ASC-US"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "ASG"
+msgstr "Aspermiogenesis"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "HSIL"
+msgstr "ບາດແຜສະເກັດຂັ້ນຮ້າຍແຮງໃນເຍື່ອບຸຜິວປາກມົດລູກ - HSIL"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "LSIL"
+msgstr "ບາດແຜສະເກັດຂັ້ນຕໍ່າໃນເຍື່ອບຸຜິວປາກມົດລູກ - LSIL"
+
+msgctxt "selection:gnuhealth.patient.pap_history,result:"
+msgid "Negative"
+msgstr "ລົບ"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid "Asymmetric"
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pregnancy,iugr:"
+msgid "Symmetric"
+msgstr "ສົມສ່ວນກັນ"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Abortion"
+msgstr "ການທໍາແທ້ງ"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Live birth"
+msgstr "ເດັກເກີດມີຊີວິດ"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Status unknown"
+msgstr "ສະຖານະບໍ່ຮູ້"
+
+msgctxt "selection:gnuhealth.patient.pregnancy,pregnancy_end_result:"
+msgid "Stillbirth"
+msgstr "ເດັກຕາຍເກີດ"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid ""
+msgstr ""
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Accreta"
+msgstr "ພົກແຮ່ປົ່ງຕິດ - Accreta"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Increta"
+msgstr "ພົກແຮ່ປົ່ງຕິດແຕ່ບໍ່ຫລຸຊັ້ນເນື້ອເຍື່ອ - Increta"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Normal decidua"
+msgstr "ຜະນັງມົດລູກປົກກະຕິ"
+
+msgctxt ""
+"selection:gnuhealth.patient.prenatal.evaluation,invasive_placentation:"
+msgid "Percreta"
+msgstr "ພົກແຮ່ປົ່ງຕິດຫຼຸຊັ້ນເນື້ອເຍື່ອໂພງມົດລູກ - Percreta"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Breech"
+msgstr "ຂະນວນກົ້ນ"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Cephalic"
+msgstr "ທີ່ກ່ຽວກັບຫົວ"
+
+msgctxt "selection:gnuhealth.perinatal,fetus_presentation:"
+msgid "Shoulder"
+msgstr "ບ່າ"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Retroperitoneal"
+msgstr "ທາງຫຼັງຜົ້ງທ້ອງ"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Vaginal"
+msgstr "ທາງຊ່ອງຄອດ"
+
+msgctxt "selection:gnuhealth.perinatal,hematoma:"
+msgid "Vulvar"
+msgstr "ປາກຊ່ອງຄອດ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Bladder"
+msgstr "ພົກຍ່ຽວ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Broad Ligament"
+msgstr "ເສັ້ນເອັນກວ້າງ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Cervical"
+msgstr "ປາກມົດລູກ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Perineal"
+msgstr "ທີ່ກ່ຽວກັບເອັນຈ່ອງຮິມລຸ່ມ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Rectal"
+msgstr "ທາງຮູທະວານ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Urethral"
+msgstr "ທາງທໍ່ປັດສະວະ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Vaginal"
+msgstr "ທາງຊ່ອງຄອດ"
+
+msgctxt "selection:gnuhealth.perinatal,laceration:"
+msgid "Vulvar"
+msgstr "ປາກຊ່ອງຄອດ"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "C-section"
+msgstr "ການຜ່າຕັດເອົາລູກອອກ"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Forceps Extraction"
+msgstr "ຊ່ອງຄອດ - ຄີມຖ່າງ "
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Spontaneous"
+msgstr "ຊ່ອງຄອດ - ຢ່າງທຳມະຊາດ"
+
+msgctxt "selection:gnuhealth.perinatal,start_labor_mode:"
+msgid "Vaginal - Vacuum Extraction"
+msgstr "ຊ່ອງຄອດ - ໂຖດູດສູນຍາກາດ"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Complete Breech"
+msgstr "ທ່າກົ້ນເຕັມ"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Footling Breech"
+msgstr "ທ່າຕີນ ກົ້ນ"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Frank Breech"
+msgstr "ທ່າກົ້ນຍົກຂາ"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Occiput / Cephalic Posterior"
+msgstr "ທ່າງ່ອນ / ຫົວດ້ານຫຼັງ"
+
+msgctxt "selection:gnuhealth.perinatal.monitor,fetus_position:"
+msgid "Transverse Lie"
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "abundant"
+msgstr "ຫຼາຍໆ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "hemorrhage"
+msgstr "ເລືອດອອກ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_amount:"
+msgid "normal"
+msgstr "ປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "alba"
+msgstr "ສີຂາວ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "rubra"
+msgstr "ສີແດງ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_color:"
+msgid "serosa"
+msgstr "ເຍື່ອຫຸ້ມຊັ້ນນອກສຸດພາຍໃນຮ່າງກາຍ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid ""
+msgstr ""
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "normal"
+msgstr "ປົກກະຕິ"
+
+msgctxt "selection:gnuhealth.puerperium.monitor,lochia_odor:"
+msgid "offensive"
+msgstr "ອາການຕ້ານ"
