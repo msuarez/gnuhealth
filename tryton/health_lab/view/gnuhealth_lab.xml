@@ -18,6 +18,8 @@
             <field name="date_requested"/>
             <label name="requestor"/>
             <field name="requestor"/>
+            <label name="request_order"/>
+            <field name="request_order"/>
             <field name="critearea" colspan="4" view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
         </page>
         <page string="Extra Info" id="lab_extra_info">

@@ -112,6 +112,7 @@ class Lab(ModelSQL, ModelView):
     date_requested = fields.DateTime('Date requested', required=True,
         select=True)
     date_analysis = fields.DateTime('Date of the Analysis', select=True)
+    request_order = fields.Integer('Request', readonly=True)
 
     @classmethod
     def __setup__(cls):
