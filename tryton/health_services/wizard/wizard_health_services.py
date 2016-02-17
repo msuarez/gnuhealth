@@ -154,7 +154,7 @@ class CreateServiceInvoice(Wizard):
 
             invoices.append(invoice_data)
 
-        Invoice.create(invoices)
+        Invoice.update_taxes(Invoice.create(invoices))
 
         # Change to invoiced the status on the service document.
         HealthService.write(services, {'state': 'invoiced'})
