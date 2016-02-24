@@ -23,7 +23,6 @@
 
 import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message
-from tryton.gui.window.form import Form
 import gettext
 import numpy as np
 import cv2
@@ -31,9 +30,19 @@ import cv2
 _ = gettext.gettext
 
 
-def take_pic(data):
 
+def set_media(data, frame):
+    #Store the frame in a container
+    rc, container = cv2.imencode(".png",frame)
+    container = bytearray(container)
     document_model = data['model']
+    rpc.execute(
+        'model', document_model, 'write',
+        data['ids'],
+        {'photo':container}, rpc.CONTEXT)
+
+
+def take_pic(data):
 
     """ Allow only one record
     """
@@ -58,13 +67,16 @@ def take_pic(data):
         # Display the resulting frame
         cv2.imshow('== GNU Health Camera ==',frame)
 
-        if cv2.waitKey(1) == ord('q'):
-            #Store the frame in a container
-            rc, container = cv2.imencode(".png",frame)
-            
-            #Save a backup copy
-            cv2.imwrite('/tmp/gnuhealth_snapshot.png',frame)
+        keypressed = cv2.waitKey(1)
+        if  keypressed == ord(' '):
 
+            # Make a backup copy  
+            cv2.imwrite('/tmp/gnuhealth_snapshot.png',frame)              
+
+            # call set media   
+            set_media(data, frame)            
+
+        if keypressed == ord('q'):
             break        
 
 
