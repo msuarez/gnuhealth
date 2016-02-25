@@ -26,7 +26,12 @@ from tryton.common import RPCExecute, warning, message
 from tryton.gui.window.form import Form
 import gettext
 import numpy as np
+import pygtk
+pygtk.require('2.0')
+import gtk
+
 import cv2
+
 
 _ = gettext.gettext
 
@@ -37,10 +42,18 @@ def set_media(data, frame):
     rc, container = cv2.imencode(".png",frame)
     container = bytearray(container)
     document_model = data['model']
-    rpc.execute(
-        'model', document_model, 'write',
-        data['ids'],
-        {'photo':container}, rpc.CONTEXT)
+
+    target_field = None
+    
+    # Photo in person registration
+    if (document_model == 'party.party'):
+        target_field = 'photo'
+        
+    if (target_field):
+        rpc.execute(
+            'model', document_model, 'write',
+            data['ids'],
+            {target_field:container}, rpc.CONTEXT)
 
 def take_pic(data):
 
@@ -61,9 +74,10 @@ def take_pic(data):
         )
         return
 
+    document_model = data['model']
+
     # Open the webcam device
     cap = cv2.VideoCapture(0)
-    document_model = data['model']
 
     while(True):
         # Grab the frames
@@ -77,9 +91,11 @@ def take_pic(data):
 
         keypressed = cv2.waitKey(1)
         if  keypressed == ord(' '):
-
+            
+            cv2.imshow("Preview",frame)
+           
             # Make a backup copy  
-            cv2.imwrite('/tmp/gnuhealth_snapshot.png',frame)              
+            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
 
             # call set media   
             set_media(data, frame)            
@@ -93,7 +109,7 @@ def take_pic(data):
     cv2.destroyAllWindows()
 
     # Reload the form
-    a = Form(document_model, res_id=data['ids'][0], mode=['form'])
+    a = Form(document_model, res_id=data['ids'][0])
     a.sig_reload(test_modified=False)
 
 def get_plugins(model):
