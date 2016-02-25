@@ -23,6 +23,7 @@
 
 import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message
+from tryton.gui.window.form import Form
 import gettext
 import numpy as np
 import cv2
@@ -41,21 +42,28 @@ def set_media(data, frame):
         data['ids'],
         {'photo':container}, rpc.CONTEXT)
 
-
 def take_pic(data):
 
     """ Allow only one record
     """
 
+    if (len(data['ids']) == 0):
+        warning(
+            _('Please choose one record associated to this picture / video'),
+            _('You need to select a record !'),
+        )
+        return
+
     if (len(data['ids']) > 1):
         warning(
-            _('Please choose only one record associated to this picture'),
-            _('Multiple records selected !'),
+            _('Please choose only one record for this picture / video'),
+            _('Multiple records selectd !'),
         )
         return
 
     # Open the webcam device
     cap = cv2.VideoCapture(0)
+    document_model = data['model']
 
     while(True):
         # Grab the frames
@@ -83,6 +91,10 @@ def take_pic(data):
     #Cleanup 
     cap.release()
     cv2.destroyAllWindows()
+
+    # Reload the form
+    a = Form(document_model, res_id=data['ids'][0], mode=['form'])
+    a.sig_reload(test_modified=False)
 
 def get_plugins(model):
     return [
