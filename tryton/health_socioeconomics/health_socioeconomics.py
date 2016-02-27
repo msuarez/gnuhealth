@@ -65,11 +65,12 @@ class PatientSESAssessment(ModelSQL, ModelView):
 
     assessment_date = fields.DateTime('Date', help="Assessment date",
         states = STATES)
-    computed_age = fields.Function(fields.TimeDelta(
+        
+    computed_age = fields.Function(fields.Char(
             'Age',
             help="Computed patient age at the moment of the evaluation"),
             'patient_age_at_assessment')
-
+            
     health_professional = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Professional', readonly=True,
         help="Health professional"
@@ -273,10 +274,14 @@ class PatientSESAssessment(ModelSQL, ModelView):
             })
         
 
-
     def patient_age_at_assessment(self, name):
         if (self.patient.name.dob and self.assessment_date):
-            return self.assessment_date.date() - self.patient.name.dob
+            rdelta = relativedelta (self.assessment_date.date(),
+                self.patient.name.dob)
+            years_months_days = str(rdelta.years) + 'y ' \
+                + str(rdelta.months) + 'm ' \
+                + str(rdelta.days) + 'd'
+            return years_months_days
         else:
             return None
 
