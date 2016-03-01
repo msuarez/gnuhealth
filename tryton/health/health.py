@@ -143,7 +143,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'country.country', 'Country', help='Country')
 
     address_subdivision = fields.Many2One(
-        'country.subdivision', 'Province',
+        'country.subdivision', 'Subdivision',
         domain=[('country', '=', Eval('address_country'))],
         depends=['address_country'])
 
