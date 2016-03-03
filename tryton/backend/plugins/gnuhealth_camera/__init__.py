@@ -37,6 +37,23 @@ _ = gettext.gettext
 
 
 
+def set_attachment(data, frame):
+    #Store the frame in a container
+    rc, container = cv2.imencode(".png",frame)
+    container = bytearray(container)
+    document_model = data['model']
+    ref=document_model + ',' + str(data['ids'][0])
+            
+    #Store the attachment
+    rpc.execute(
+        'model', 'ir.attachment', 'create',
+        [{'name': 'Camera attachment',
+         'type': 'data',
+         'resource': ref,
+         'description':'From GNU Health camera',
+         'data':container,
+        }], rpc.CONTEXT)
+
 def set_media(data, frame):
     #Store the frame in a container
     rc, container = cv2.imencode(".png",frame)
@@ -99,6 +116,16 @@ def take_pic(data):
 
             # call set media   
             set_media(data, frame)            
+
+        if  keypressed == ord('a'):
+            
+            cv2.imshow("Preview",frame)
+           
+            # Make a backup copy  
+            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
+
+            # call set media   
+            set_attachment(data, frame)            
 
         if keypressed == ord('q'):
             break        
