@@ -45,7 +45,7 @@ def set_attachment(data, frame):
     ref=document_model + ',' + str(data['ids'][0])
             
     #Store the attachment
-    rpc.execute(
+    save_attach = rpc.execute(
         'model', 'ir.attachment', 'create',
         [{'name': 'Camera attachment',
          'type': 'data',
@@ -53,6 +53,12 @@ def set_attachment(data, frame):
          'description':'From GNU Health camera',
          'data':container,
         }], rpc.CONTEXT)
+    
+    if save_attach:
+        message(
+            _('Attachment correctly saved !'),
+        )
+        return True
 
 def set_media(data, frame):
     #Store the frame in a container
@@ -71,11 +77,14 @@ def set_media(data, frame):
             'model', document_model, 'write',
             data['ids'],
             {target_field:container}, rpc.CONTEXT)
+        
+        return True
+    else:
+        return False
+    
+def main (data):
 
-def take_pic(data):
-
-    """ Allow only one record
-    """
+    # Allow only one record
 
     if (len(data['ids']) == 0):
         warning(
@@ -96,17 +105,21 @@ def take_pic(data):
     # Open the webcam device
     cap = cv2.VideoCapture(0)
 
+    preview = False
+    
     while(True):
         # Grab the frames
         try:
             rc, frame = cap.read()
         except:
-            break
+            cleanup()
             
         # Display the resulting frame
+        
         cv2.imshow('== GNU Health Camera ==',frame)
 
         keypressed = cv2.waitKey(1)
+
         if  keypressed == ord(' '):
             
             cv2.imshow("Preview",frame)
@@ -115,25 +128,25 @@ def take_pic(data):
             cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
 
             # call set media   
-            set_media(data, frame)            
+            set_media(data, frame)
+            
+            preview = True
 
         if  keypressed == ord('a'):
             
             cv2.imshow("Preview",frame)
-           
+            
             # Make a backup copy  
             cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
 
             # call set media   
-            set_attachment(data, frame)            
+            set_attachment(data, frame)
+            break            
 
         if keypressed == ord('q'):
-            break        
+            break
 
-
-    #Cleanup 
-    cap.release()
-    cv2.destroyAllWindows()
+    cleanup(cap)
 
     # Reload the form
     a = Form(document_model, res_id=data['ids'][0])
@@ -141,5 +154,10 @@ def take_pic(data):
 
 def get_plugins(model):
     return [
-        (_('Take a picture'), take_pic),
+        (_('GNU Health camera'), main),
         ]
+
+def cleanup(cap):
+    #Cleanup 
+    cap.release()
+    cv2.destroyAllWindows()
