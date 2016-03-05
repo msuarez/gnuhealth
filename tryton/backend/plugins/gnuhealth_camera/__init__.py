@@ -29,7 +29,7 @@ import numpy as np
 import pygtk
 pygtk.require('2.0')
 import gtk
-
+from datetime import datetime
 import cv2
 
 
@@ -43,11 +43,13 @@ def set_attachment(data, frame):
     container = bytearray(container)
     document_model = data['model']
     ref=document_model + ',' + str(data['ids'][0])
-            
+    timestamp = str(datetime.now())
+    attach_name = "GNU Health media " + timestamp
+
     #Store the attachment
     save_attach = rpc.execute(
         'model', 'ir.attachment', 'create',
-        [{'name': 'Camera attachment',
+        [{'name': attach_name,
          'type': 'data',
          'resource': ref,
          'description':'From GNU Health camera',
@@ -55,8 +57,10 @@ def set_attachment(data, frame):
         }], rpc.CONTEXT)
     
     if save_attach:
+        msg = "Attachment saved correctly !\n\n" \
+            "Please refresh the view"
         message(
-            _('Attachment correctly saved !'),
+            _(msg),
         )
         return True
 
