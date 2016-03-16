@@ -6,7 +6,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2015 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.0.2"
+VERSION="3.0.3"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
@@ -220,10 +220,17 @@ check_download_dir()
 check_updates()
 {
     source $HOME/.gnuhealthrc
+    UTIL_DIR="${GNUHEALTH_DIR}/tryton/server/util"
+    
     local TRYTOND_PATCHLEVEL=`echo ${TRYTON_VERSION} | cut -d'.' -f3`
     
     local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
     TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
+
+    GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
+    GNUHEALTH_PATCHSET=`echo $GNUHEALTH_VERSION | cut -d'.' -f3`
+
+    GCONTROL_PATCHSET=`echo $VERSION | cut -d'.' -f3`
 
     NEED_UPDATE_TRYTOND=0
     NEED_UPDATE_MODULES=0
@@ -231,6 +238,20 @@ check_updates()
     MOD_UPDATES=""
     NEED_DELETE=0
     TO_DELETE=""
+
+    cli_msg "INFO" "GNUHEALTH-CONTROL VERSION : ${VERSION}"
+
+    # Retrieve the latest control center that is compatible with the current GNU Health version
+    LATEST_GHCONTROL=`wget --quiet -O - ${GNUHEALTH_URL} | egrep -o gnuhealth-control-${GNUHEALTH_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
+    local LATEST_GHCONTROL_PATCHSET=`echo ${LATEST_GHCONTROL} | cut -d'.' -f3`
+    local GHCONTROL_PATCHSET=`echo $VERSION | cut -d'.' -f3`
+    
+    if (( ${GHCONTROL_PATCHSET} < ${LATEST_GHCONTROL_PATCHSET} )); then
+        cli_msg "WARNING" "Current version ${VERSION} is outdated. A new version (${LATEST_GHCONTROL}) is available"
+        NEED_UPDATE_GCONTROL=1
+    else
+        cli_msg "INFO" "GNU Health control center is at the latest version ${VERSION}"
+    fi
 
     cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
@@ -267,9 +288,6 @@ check_updates()
     # Check latest GNU HEALTH PATCHSETS against local version
     cli_msg "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
     
-    GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
-    GNUHEALTH_PATCHSET=`echo $GNUHEALTH_VERSION | cut -d'.' -f3`
-
     PATCHSETS_NUM=`wget --quiet -O - ${GNUHEALTH_URL}/ | egrep -o gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}\.[0-9\.]+.tar.gz | uniq | wc -l | tr -d ' '`
     
     if (( ${PATCHSETS_NUM} > 0 )); then
@@ -299,6 +317,19 @@ check_updates()
 
 install_updates()
 {
+    if [ $NEED_UPDATE_GCONTROL -eq 1 ]; then
+        cli_msg "INFO" "Downloading ${LATEST_GHCONTROL} ..."
+        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/${LATEST_GHCONTROL} || exit 1
+        cli_msg "INFO" "Uncompressing ${LATEST_GHCONTROL} ..."        
+        tar -xzf ${UPDATE_DOWNLOAD_DIR}/${LATEST_GHCONTROL} --directory ${UTIL_DIR}|| exit 1
+        cli_msg "INFO" "Sucessfully installed ${LATEST_GHCONTROL} "
+        cli_msg "INFO" "Removing temporary download directory "
+        rm -rf ${UPDATE_DOWNLOAD_DIR} || exit 1
+        cli_msg "INFO" "Please restart now the update with the new control center"
+        exit 0
+
+    fi
+
     if [ $NEED_UPDATE_TRYTOND -eq 1 ]; then
         cli_msg "INFO" "Downloading TRYTON SERVER $LATEST_TRYTOND"
         wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || exit 1
