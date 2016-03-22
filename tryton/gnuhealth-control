@@ -26,10 +26,14 @@
 VERSION="3.0.3"
 
 TRYTON_URL="http://downloads.tryton.org"
-GNUHEALTH_URL="http://ftp.gnu.org/gnu/health"
+GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
+
+PATCH_TRYTON=1
+
+TRYTON_PATCHES="GNUHEALTH-SA-2016-1.tryton.patch.asc"
 
 usage()
 {
@@ -116,11 +120,11 @@ get_current_values()
         exit 1
     fi
 
-    # Stop if current GNU Health version < 2.8.0
+    # Stop if current GNU Health version < 3.0.0
     local raw_ver=`echo $GNUHEALTH_VERSION | tr -d '.'`
-    if [ $raw_ver -lt 280 ]
+    if [ $raw_ver -lt 300 ]
     then
-        cli_msg "ERROR" "GNU Health version must be at least 2.8"
+        cli_msg "ERROR" "GNU Health version must be at least 3.0"
         exit 1
     fi
     
@@ -232,9 +236,11 @@ check_updates()
 
     GCONTROL_PATCHSET=`echo $VERSION | cut -d'.' -f3`
 
+    NEED_UPDATE_GCONTROL=0
     NEED_UPDATE_TRYTOND=0
     NEED_UPDATE_MODULES=0
     NEED_UPDATE_PATCHSETS=0
+    NEED_PATCH_TRYTON=0
     MOD_UPDATES=""
     NEED_DELETE=0
     TO_DELETE=""
@@ -313,6 +319,32 @@ check_updates()
         cli_msg "INFO" "** NO GNU HEALTH PATCHSETS FOUND FOR THIS VERSION **"
     fi
 
+    # CHECK SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL   
+    
+    if (( ${PATCH_TRYTON} == 1 )); then
+        cli_msg "INFO" "Checking Security Advisories and other patches not present in the standard tryton kernel"
+
+            for n in ${TRYTON_PATCHES}
+            do
+                cli_msg "INFO" "Downloading patch for Tryton server : ${n}"
+                wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/security/${n} || exit 1
+                cli_msg "INFO" "Checking elegibility of the patch"                
+                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
+                
+                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                if [ $? -eq 0 ]; then
+                    cli_msg "WARNING" "Patch ${n} needs to be applied"
+                    NEED_PATCH_TRYTON=1
+                else
+                    cli_msg "INFO" "Patch ${n} already applied or not elegible"
+                fi
+                
+            done
+            
+    else
+        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
+    fi
+
 }
 
 install_updates()
@@ -355,6 +387,31 @@ install_updates()
             cli_msg "INFO" "--> Applying PATCHSET $patchset"
             tar -xzf ${UPDATE_DOWNLOAD_DIR}/patchsets/${patchset} --directory ${HOME} || exit 1
         done
+    fi
+
+    # APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL   
+    
+    if (( ${PATCH_TRYTON} == 1 )); then
+        if (( ${NEED_PATCH_TRYTON} == 1 )); then
+            cli_msg "INFO" "APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL"
+            for n in ${TRYTON_PATCHES}
+            do
+                cli_msg "INFO" "Checking elegibility of the patch"                
+                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
+                
+                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                if [ $? -eq 0 ]; then
+                    cli_msg "WARNING" "Applying patch ${n} to Tryton kernel"
+                    patch -p1 < /tmp/${n} || exit 1
+                    cli_msg "INFO" "Tryton kernel sucessfully patched"
+                else
+                    cli_msg "INFO" "Patch ${n} already applied or not elegible"
+                fi
+                
+            done
+        fi
+    else
+        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
     fi
 
 }
@@ -411,12 +468,14 @@ do_update()
     check_updates
     if [ $# -gt 1 ];then
         if [ $2 == "--dry-run" ];then
+            cleanup
             exit 0
         fi
     fi
     install_updates
     remove_old
     relink_mods 
+    cleanup
 }
 
 getlang() {
@@ -445,6 +504,13 @@ bailout() {
     cli_msg "ERROR"  "Removing backup lock file"
     rm -f $LOCKFILE
     exit 1
+}
+
+cleanup()
+{
+    # Delete temporary download directory
+    rm -rf ${UPDATE_DOWNLOAD_DIR} || exit 1
+    exit 0
 }
 
 parse_command_line()
