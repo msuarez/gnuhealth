@@ -36,6 +36,7 @@ def register():
         BirthCertificate,
         DeathCertificate,
         PartyPatient,
+        ContactMechanism,
         PersonName,
         PartyAddress,
         DrugDoseUnits,

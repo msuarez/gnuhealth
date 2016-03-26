@@ -50,9 +50,9 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation',
     'Ethnicity','DomiciliaryUnit','BirthCertificate','DeathCertificate',
-    'PartyPatient', 'PersonName','PartyAddress','DrugDoseUnits',
-    'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
-    'HealthInstitution', 'HealthInstitutionSpecialties',
+    'PartyPatient','ContactMechanism', 'PersonName','PartyAddress',
+    'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute', 
+    'MedicalSpecialty','HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
     'HospitalBuilding', 'HospitalUnit','HospitalOR', 'HospitalWard',
     'HospitalBed', 'HealthProfessional','HealthProfessionalSpecialties',
@@ -724,6 +724,12 @@ class PartyPatient (ModelSQL, ModelView):
             table.column_rename('sex', 'gender')
         
         super(PartyPatient, cls).__register__(module_name)
+
+
+class ContactMechanism (ModelSQL, ModelView):
+    __name__ = 'party.contact_mechanism'
+
+    emergency = fields.Boolean('Emergency', select=True)
 
 
 class PersonName(ModelSQL, ModelView):

@@ -1094,6 +1094,14 @@
         </record>
 
 
+<!-- Add Emergency type for contact mechanism -->
+
+        <record model="ir.ui.view" id="contact_mechanism_view_tree">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_tree"/>
+            <field name="name">contact_mechanism_tree</field>
+        </record>
+
 <!-- BIRTH CERTIFICATE -->
 
         <record model="ir.ui.view" id="gnuhealth_birth_cert_form">
