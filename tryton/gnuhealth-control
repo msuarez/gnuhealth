@@ -402,7 +402,7 @@ install_updates()
                 patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
                     cli_msg "WARNING" "Applying patch ${n} to Tryton kernel"
-                    patch -p1 < /tmp/${n} || exit 1
+                    patch -p1 < ${UPDATE_DOWNLOAD_DIR}/${n} || exit 1
                     cli_msg "INFO" "Tryton kernel sucessfully patched"
                 else
                     cli_msg "INFO" "Patch ${n} already applied or not elegible"
