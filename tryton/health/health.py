@@ -648,6 +648,7 @@ class PartyPatient (ModelSQL, ModelView):
         return [bool_op,
             ('ref',) + tuple(clause[1:]),
             ('alternative_ids.code',) + tuple(clause[1:]),
+            ('contact_mechanisms.value',) + tuple(clause[1:]),
             ('person_names.family',) + tuple(clause[1:]),            
             ('person_names.given',) + tuple(clause[1:]),            
             ('name',) + tuple(clause[1:]),
