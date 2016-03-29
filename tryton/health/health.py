@@ -472,7 +472,8 @@ class PartyPatient (ModelSQL, ModelView):
                     given_name = vals['name']
                 if 'lastname' in vals:
                     family_name=vals['lastname']
-                    
+
+            if (vals.get('is_person')):
                 cls.update_person_official_name(person_id,given_name,
                     family_name)
 
