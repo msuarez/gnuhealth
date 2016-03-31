@@ -64,6 +64,18 @@ def set_attachment(data, frame):
         )
         return True
 
+def get_help():
+    msg = "========== GNU Health Camera Help ==========\n\n" \
+        "a = Attach media file in the current model\n\n" \
+        "[space] = Set the picture in model (when available)\n\n" \
+        "h = This help message\n\n" \
+        "q = Quit the camera application\n\n" 
+        
+    message(
+        _(msg),
+    )
+    return True
+
 def set_media(data, frame):
     #Store the frame in a container
     rc, container = cv2.imencode(".png",frame)
@@ -150,6 +162,9 @@ def main (data):
         if keypressed == ord('q'):
             break
 
+        if  keypressed == ord('h'):
+            get_help()
+            
     cleanup(cap)
 
     # Reload the form
