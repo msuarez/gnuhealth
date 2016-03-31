@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg
     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -16,83 +16,28 @@
     version="1.1"
     inkscape:version="0.48.0 r9654"
   >
-  <sodipodi:namedview
-      id="base"
-      fit-margin-left="0"
-      inkscape:snap-center="true"
-      inkscape:zoom="4.0561525"
-      borderopacity="1.0"
-      inkscape:current-layer="svg1609"
-      inkscape:cx="86.544262"
-      inkscape:cy="62.751906"
-      inkscape:object-paths="true"
-      inkscape:window-maximized="1"
-      showgrid="true"
-      fit-margin-right="0"
-      inkscape:snap-midpoints="true"
-      bordercolor="#666666"
-      inkscape:window-x="-8"
-      inkscape:window-y="-8"
-      inkscape:snap-smooth-nodes="true"
-      inkscape:object-nodes="true"
-      fit-margin-bottom="0"
-      inkscape:window-width="1680"
-      inkscape:pageopacity="0.0"
-      inkscape:pageshadow="2"
-      pagecolor="#ffffff"
-      inkscape:snap-object-midpoints="true"
-      inkscape:window-height="988"
-      fit-margin-top="0"
+  <linearGradient
+      id="linearGradient3799"
+      y2="115.22"
+      gradientUnits="userSpaceOnUse"
+      x2="120"
+      gradientTransform="translate(.84950 3.3271)"
+      y1="57.222"
+      x1="58"
+      inkscape:collect="always"
     >
-    <inkscape:grid
-        id="grid2994"
-        enabled="true"
-        visible="true"
-        snapvisiblegridlinesonly="true"
-        type="xygrid"
-        empspacing="10"
+    <stop
+        id="stop3795"
+        style="stop-color:#ffcc00"
+        offset="0"
     />
-  </sodipodi:namedview
-  >
-  <defs
-      id="defs1610"
+    <stop
+        id="stop3797"
+        style="stop-color:#ff9000"
+        offset="1"
+    />
+  </linearGradient
     >
-    <filter
-        id="filter3789"
-        inkscape:collect="always"
-        color-interpolation-filters="sRGB"
-      >
-      <feGaussianBlur
-          id="feGaussianBlur3791"
-          stdDeviation="1.3360687"
-          inkscape:collect="always"
-      />
-    </filter
-    >
-    <linearGradient
-        id="linearGradient3799"
-        y2="115.22"
-        gradientUnits="userSpaceOnUse"
-        x2="120"
-        gradientTransform="translate(.84950 3.3271)"
-        y1="57.222"
-        x1="58"
-        inkscape:collect="always"
-      >
-      <stop
-          id="stop3795"
-          style="stop-color:#ffcc00"
-          offset="0"
-      />
-      <stop
-          id="stop3797"
-          style="stop-color:#ff9000"
-          offset="1"
-      />
-    </linearGradient
-    >
-  </defs
-  >
   <path
       id="path4153-1-1"
       style="filter:url(#filter3789);stroke:#000000;stroke-width:3;fill:none"
@@ -134,120 +79,6 @@
         sodipodi:cx="11"
     />
   </g
-  >
-  <metadata
-    >
-    <rdf:RDF
-      >
-      <cc:Work
-        >
-        <dc:format
-          >image/svg+xml</dc:format
-        >
-        <dc:type
-            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
-        />
-        <cc:license
-            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
-        />
-        <dc:publisher
-          >
-          <cc:Agent
-              rdf:about="http://openclipart.org/"
-            >
-            <dc:title
-              >Openclipart</dc:title
-            >
-          </cc:Agent
-          >
-        </dc:publisher
-        >
-        <dc:title
-          >Warning Sign</dc:title
-        >
-        <dc:date
-          >2011-01-10T06:09:42</dc:date
-        >
-        <dc:description
-          >Just another Warning sigh with exclamation mark. I made it symmetric with some gradient. The file in wiki (http://commons.wikimedia.org/wiki/File:Warning.svg) is not so symmetric.</dc:description
-        >
-        <dc:source
-          >https://openclipart.org/detail/104263/warning-sign-by-kg</dc:source
-        >
-        <dc:creator
-          >
-          <cc:Agent
-            >
-            <dc:title
-              >kg</dc:title
-            >
-          </cc:Agent
-          >
-        </dc:creator
-        >
-        <dc:subject
-          >
-          <rdf:Bag
-            >
-            <rdf:li
-              >Caution</rdf:li
-            >
-            <rdf:li
-              >Hazard</rdf:li
-            >
-            <rdf:li
-              >Sign</rdf:li
-            >
-            <rdf:li
-              >Warning</rdf:li
-            >
-            <rdf:li
-              >Warning Sign</rdf:li
-            >
-            <rdf:li
-              >alert</rdf:li
-            >
-            <rdf:li
-              >carefulness</rdf:li
-            >
-            <rdf:li
-              >danger</rdf:li
-            >
-            <rdf:li
-              >exclamation mark</rdf:li
-            >
-            <rdf:li
-              >protection</rdf:li
-            >
-            <rdf:li
-              >safeguard</rdf:li
-            >
-            <rdf:li
-              >safety</rdf:li
-            >
-          </rdf:Bag
-          >
-        </dc:subject
-        >
-      </cc:Work
-      >
-      <cc:License
-          rdf:about="http://creativecommons.org/licenses/publicdomain/"
-        >
-        <cc:permits
-            rdf:resource="http://creativecommons.org/ns#Reproduction"
-        />
-        <cc:permits
-            rdf:resource="http://creativecommons.org/ns#Distribution"
-        />
-        <cc:permits
-            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
-        />
-      </cc:License
-      >
-    </rdf:RDF
-    >
-  </metadata
   >
 </svg
 >
