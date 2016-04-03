@@ -57,7 +57,7 @@ class User(UserMixin):
 @auth_endpoint.route("/login", methods=["GET", "POST"])
 def login():
     """Login view"""
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         return redirect(url_for('auth_endpoint.home'))
     form = LoginForm()
     if form.validate_on_submit():
