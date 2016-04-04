@@ -126,6 +126,33 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
     __name__ = 'gnuhealth.du'
 
+    def get_parent(self, subdivision):
+        # Recursively get the parent subdivisions
+        if (subdivision.parent):
+            return str(subdivision.rec_name) +'\n'+ str(self.get_parent(subdivision.parent))
+        else:
+            return subdivision.rec_name
+        
+    def get_du_address(self, name):
+        du_addr=''
+        # Street
+        if (self.address_street):
+            du_addr = str(self.address_street) + ' ' + str(self.address_street_number) + "\n"
+            
+        # Grab the parent subdivisions
+        if (self.address_subdivision):
+            du_addr = du_addr + str(self.get_parent(subdivision=self.address_subdivision))
+        
+        # Zip Code
+        if (self.address_zip):
+            du_addr = du_addr +" - "+ self.address_zip
+
+        # Country
+        if (self.address_country):
+            du_addr = du_addr +"\n"+ self.address_country.rec_name
+
+        return du_addr
+        
     name = fields.Char('Code', required=True)
     desc = fields.Char('Desc')
     address_street = fields.Char('Street')
@@ -143,7 +170,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'country.country', 'Country', help='Country')
 
     address_subdivision = fields.Many2One(
-        'country.subdivision', 'Province',
+        'country.subdivision', 'Subdivision',
         domain=[('country', '=', Eval('address_country'))],
         depends=['address_country'])
 
@@ -159,6 +186,10 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'OSM Map',
         help="Locates the DU on the Open Street Map by default")
 
+    # Text Representation
+    address_repr = fields.Function(fields.Text("DU Address"),
+        'get_du_address')
+        
     # Infrastructure
 
     dwelling = fields.Selection([

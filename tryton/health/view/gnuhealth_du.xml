@@ -25,7 +25,7 @@
             <field name="address_country"/>
             <label name="address_subdivision"/>
             <field name="address_subdivision"/>
-        </group>
+        </group>       
         <group id="du_picture">
             <field xfill="0" xexpand="1" name="picture" height="200" width="200" widget="image"/>
         </group>
@@ -39,6 +39,11 @@
             <field name="urladdr" widget="url"/>
         </group>
         <newline/>
+        <group colspan="4" id="du_repr">
+            <field name="address_repr"/>
+        </group>
+        <newline/>
+            
         <group colspan="4" col="6" id="du_living_conditions">
             <label name="housing"/>
             <field name="housing"/>
