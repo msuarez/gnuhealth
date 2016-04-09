@@ -13,10 +13,7 @@ Setup the environment (as the gnuhealth user):
 
 Now install the packages:
 
-    $ pip install Flask Flask-Login Flask-Tryton Flask-Restful Flask-WTF        # Flask, and the addons
-    $ pip install Tornado psycopg2                                              # HTTP server and database driver
-    $ pip install pywebdav vobject qrcode                                       # Various packages required by Tryton
-    $ pip install defusedxml                                                    # Safer XML parsing
+    $ pip install -r requirements.txt
 
 Some of these packages (like pywebdav) are already installed on the system. However, it's usually easier to administrate and debug the Flask server when working in a virtual environment.
 
@@ -66,3 +63,7 @@ Flask-Tryton should automatically find and parse the Tryton config file. If it i
     server/config.py
     ----------------
     TRYTON_CONFIG = ''      # Set this to the path of the Tryton configuration file (e.g., '/weird/tryton/weird-tryton.conf')
+
+#### No database with that name
+
+This is related to the previous error, and occurs when Flask-Tryton cannot find the Tryton config file. Following the previous procedure should hopefully fix it.
