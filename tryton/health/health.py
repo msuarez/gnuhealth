@@ -129,19 +129,22 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     def get_parent(self, subdivision):
         # Recursively get the parent subdivisions
         if (subdivision.parent):
-            return str(subdivision.rec_name) +'\n'+ str(self.get_parent(subdivision.parent))
+            return unicode(subdivision.rec_name) +'\n'+ \
+                unicode(self.get_parent(subdivision.parent))
         else:
             return subdivision.rec_name
         
     def get_du_address(self, name):
         du_addr=''
         # Street
-        if (self.address_street):
-            du_addr = str(self.address_street) + ' ' + str(self.address_street_number) + "\n"
+        if (self.address_unicodeeet):
+            du_addr = unicode(self.address_unicodeeet) + ' ' + \
+                unicode(self.address_unicodeeet_number) + "\n"
             
         # Grab the parent subdivisions
         if (self.address_subdivision):
-            du_addr = du_addr + str(self.get_parent(subdivision=self.address_subdivision))
+            du_addr = du_addr + \
+                unicode(self.get_parent(subdivision=self.address_subdivision))
         
         # Zip Code
         if (self.address_zip):
