@@ -266,13 +266,14 @@ class DomiciliaryUnit(ModelSQL, ModelView):
                 str(self.latitude) + '&mlon=' + str(self.longitude)
 
         else:
-            state = ''
-            country = ''
+            state = municipality = country = city = ''
             street_number = str(self.address_street_number).encode('utf-8') \
                 or ''
             street = (self.address_street).encode('utf-8') or ''
-            municipality = (self.address_municipality).encode('utf-8') or ''
-            city = (self.address_city).encode('utf-8') or ''
+            if (self.address_municipality):
+                municipality = (self.address_municipality).encode('utf-8') or ''
+            if (self.address_city):
+                city = (self.address_city).encode('utf-8') or ''
             if (self.address_subdivision):
                 state = (self.address_subdivision.name).encode('utf-8') or ''
             postalcode = (self.address_zip).encode('utf-8') or ''
