@@ -25,7 +25,7 @@ import StringIO
 from trytond.model import ModelView, ModelSQL, fields
 
 
-__all__ = ['Patient', 'Newborn']
+__all__ = ['Patient', 'Newborn','LabTest']
 
 
 # Add the QR field and QR image in the patient model
@@ -131,3 +131,36 @@ class Newborn(ModelSQL, ModelView):
         return bytearray(qr_png)
 
         
+class LabTest(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.lab'
+
+    # Add the QR Code to the Lab Test
+    qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
+
+    def make_qrcode(self, name):
+    # Create the QR code
+
+        labtest_id = self.name or ''
+        labtest_type = self.test or ''
+
+        patient_puid = self.patient.puid or ''
+        patient_name = self.patient.rec_name or ''
+
+        requestor_name = self.requestor.rec_name or ''
+
+        qr_string = 'Test ID' + labtest_id \
+            + 'Test: ' + labtest_type \
+            + 'Patient ID: ' + patient_puid \
+            + '\nPatient: ' + patient_name \
+            + '\nRequestor: ' + requestor_name 
+        
+        qr_image = qrcode.make(qr_string)
+         
+        # Make a PNG image from PIL without the need to create a temp file
+
+        holder = StringIO.StringIO()
+        qr_image.save(holder)
+        qr_png = holder.getvalue()
+        holder.close()
+
+        return bytearray(qr_png)

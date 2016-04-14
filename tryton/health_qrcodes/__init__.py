@@ -29,4 +29,5 @@ def register():
     Pool.register(
         Patient,
         Newborn,
+        LabTest,
         module='health_qrcodes', type_='model')

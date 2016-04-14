@@ -25,5 +25,17 @@
             <field name="action" ref="report_newborn_qrcard"/>
         </record>
 
+       <record model="ir.action.report" id="report_labtest_qrcode">
+            <field name="name">Test Labels</field>
+            <field name="model">gnuhealth.lab</field>
+            <field name="report_name">labtest.qrlabel</field>
+            <field name="report">health_qrcodes/report/labtest_qrcode.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_qrcode_labtest">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.lab,-1</field>
+            <field name="action" ref="report_labtest_qrcode"/>
+        </record>
+
     </data>
 </tryton>
