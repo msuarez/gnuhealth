@@ -137,9 +137,9 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     def get_du_address(self, name):
         du_addr=''
         # Street
-        if (self.address_unicodeeet):
-            du_addr = unicode(self.address_unicodeeet) + ' ' + \
-                unicode(self.address_unicodeeet_number) + "\n"
+        if (self.address_street):
+            du_addr = unicode(self.address_street) + ' ' + \
+                unicode(self.address_street_number) + "\n"
             
         # Grab the parent subdivisions
         if (self.address_subdivision):
@@ -288,6 +288,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
                 + '&postalcode=' + postalcode + '&country=' + country
 
         return ret_url
+
+    # Show the resulting Address representation in realtime
+    @fields.depends('address_street', 'address_subdivision', 
+        'address_street_number', 'address_country')
+    def on_change_with_address_repr(self):
+        return self.get_du_address(name=None)
 
     @classmethod
     def __setup__(cls):
