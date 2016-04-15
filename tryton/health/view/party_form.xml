@@ -40,8 +40,11 @@
                     <field name="residence"/>
                     <label name="ethnic_group"/>
                     <field name="ethnic_group"/>
+                    <newline/>
                     <label name="alternative_identification"/>
                     <field name="alternative_identification"/>
+                    <label name="du_address"/>
+                    <field name="du_address"/>
                 </group>
 
                 <group yfill="1" string="Picture" id="person_picture">

@@ -155,7 +155,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
             du_addr = du_addr +"\n"+ self.address_country.rec_name
 
         return du_addr
-        
+
     name = fields.Char('Code', required=True)
     desc = fields.Char('Desc')
     address_street = fields.Char('Street')
@@ -313,6 +313,11 @@ class PartyPatient (ModelSQL, ModelView):
         return compute_age_from_dates(self.dob, self.deceased,
                               self.dod, self.gender, name, None)
 
+
+    def get_du_address(self, name):
+        if (self.du):
+            return self.du.address_repr
+
     person_names = fields.One2Many('gnuhealth.person_name','party',
         'Person Names',
         states={'invisible': Not(Bool(Eval('is_person')))})
@@ -422,6 +427,10 @@ class PartyPatient (ModelSQL, ModelView):
         'gnuhealth.insurance.plan', 'company', 'Insurance Plans')
 
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
+
+    du_address = fields.Function(
+        fields.Text('Main address', 
+        help="Main Address, based on the associated DU"),'get_du_address')
 
     birth_certificate = fields.Many2One('gnuhealth.birth_certificate',
         'Birth Certificate', readonly=True)
