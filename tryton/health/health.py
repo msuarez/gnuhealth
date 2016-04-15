@@ -712,6 +712,11 @@ class PartyPatient (ModelSQL, ModelView):
         if (self.is_healthprof or self.is_patient or self.is_person):
             return True
 
+    @fields.depends('du')
+    def on_change_with_du_address(self):
+        if (self.du):
+            return self.get_du_address(name=None)
+
     @classmethod
     def validate(cls, parties):
         super(PartyPatient, cls).validate(parties)
