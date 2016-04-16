@@ -149,7 +149,7 @@ class LabTest(ModelSQL, ModelView):
         requestor_name = self.requestor.rec_name or ''
 
         qr_string = 'Test ID' + labtest_id \
-            + 'Test: ' + labtest_type \
+            + 'Test: ' + labtest_type.rec_name \
             + 'Patient ID: ' + patient_puid \
             + '\nPatient: ' + patient_name \
             + '\nRequestor: ' + requestor_name 
