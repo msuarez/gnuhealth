@@ -1986,6 +1986,19 @@ class Medicament(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return self.name.name
 
+    # Allow to search by name, active component or category
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('active_component',) + tuple(clause[1:]),
+            ('category',) + tuple(clause[1:]),
+            ]
+
     @classmethod
     def check_xml_record(cls, records, values):
         return True
