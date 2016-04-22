@@ -37,5 +37,17 @@
             <field name="action" ref="report_labtest_qrcode"/>
         </record>
 
+       <record model="ir.action.report" id="report_appointment_qrcode">
+            <field name="name">Appointment QRCODE</field>
+            <field name="model">gnuhealth.appointment</field>
+            <field name="report_name">appointment.qrcodel</field>
+            <field name="report">health_qrcodes/report/appointment_qrcode.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="report_qrcode_appointment_qrcode">
+            <field name="keyword">form_print</field>
+            <field name="model">gnuhealth.appointment,-1</field>
+            <field name="action" ref="report_appointment_qrcode"/>
+        </record>
+
     </data>
 </tryton>
