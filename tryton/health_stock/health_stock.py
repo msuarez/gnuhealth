@@ -72,7 +72,7 @@ class Medicament:
 class Party:
     __name__ = 'party.party'
     warehouse = fields.Many2One('stock.location', 'Warehouse',
-        domain=[('type', '=', 'warehouse')],
+        domain=[('type', 'in', ['warehouse', 'storage'])],
         states={
             'invisible': Not(Bool(Eval('is_pharmacy'))),
             'required': Bool(Eval('is_pharmacy')),
