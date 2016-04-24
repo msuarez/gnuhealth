@@ -62,13 +62,16 @@ class CreatePrescriptionStockMove(Wizard):
             if not prescription.pharmacy:
                 self.raise_user_error('no_pharmacy_selected')
 
+            from_location = prescription.pharmacy.warehouse
+            if from_location.type == 'warehouse':
+                from_location = from_location.storage_location
+            to_location = prescription.patient.name.customer_location
+
             for line in prescription.prescription_line:
                 move = StockMove()
                 move.origin = prescription
-                move.from_location = (
-                    prescription.pharmacy.warehouse.storage_location)
-                move.to_location = (
-                    prescription.patient.name.customer_location)
+                move.from_location = from_location
+                move.to_location = to_location
                 move.product = line.medicament.name
                 move.unit_price = line.medicament.name.list_price
                 move.quantity = line.quantity
