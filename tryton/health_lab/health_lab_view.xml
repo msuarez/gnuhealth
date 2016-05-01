@@ -183,7 +183,7 @@
 <!-- Shortcut to the Lab Reports from the Patient -->
 
         <record model="ir.action.act_window" id="act_patient_lab_history_form1">
-            <field name="name">Lab Reports</field>
+            <field name="name">Lab: Reports</field>
             <field name="res_model">gnuhealth.lab</field>
             <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
         </record>
