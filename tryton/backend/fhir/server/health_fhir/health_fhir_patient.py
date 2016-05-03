@@ -27,9 +27,7 @@ class Patient_Map:
                 'phone': 'name.phone',
                 'email': 'name.email',
                 'mobile': 'name.mobile',
-                'given': 'name.name',
-                'family': 'name.lastname',
-                'nickname': 'name.alias',
+                'person_name': 'name.person_names',
                 'maritalStatus': 'name.marital_status',
                 'careProvider': 'primary_care_doctor',
                 'communication': 'name.lang',
@@ -108,7 +106,7 @@ class health_Patient(supermod.Patient, Patient_Map, ExportXMLMixin):
                         self.patient, self.map_['alternative']))
             self.set_name(
                     safe_attrgetter(
-                        self.patient, 'name'))
+                        self.patient, self.map_['person_name']))
             self.set_telecom(
                     safe_attrgetter(
                         self.patient, self.map_['contacts']))
@@ -290,38 +288,25 @@ class health_Patient(supermod.Patient, Patient_Map, ExportXMLMixin):
         if self.identifier:
             return self.identifier[0].value.value
 
-    def set_name(self, name):
+    def set_name(self, names):
         """Extends superclass for convenience
 
         Set patient's name and nickname
 
         Keyword arguments:
-        name -- patient party model
+        names -- person names
         """
 
-        if name:
-            names=[]
-            family=[]
-            full_given_name = name.name
-            full_family_name = name.lastname
-            nickname = name.alias
-            given=[supermod.string(value=x) for x in full_given_name.split()]
-            after_names=[supermod.string(value=x) for x in full_family_name.split()]
-            if len(after_names) > 1:
-                family=after_names[-1:]
-                given.extend(after_names[:-1])
-            else:
-                family=after_names
-            names.append(supermod.HumanName(
-                        use=supermod.NameUse(value='usual'),
+        coded_names=[]
+        for name in names:
+            given=[supermod.string(value=x) for x in name.given.split()]
+            family=[supermod.string(value=x) for x in name.family.split()]
+            coded_names.append(supermod.HumanName(
+                        use=supermod.NameUse(value=name.use),
                         family=family,
                         given=given))
-            if nickname:
-                names.append(supermod.HumanName(
-                            use=supermod.NameUse(value='nickname'),
-                            given=[supermod.string(value=nickname)]))
 
-            super(health_Patient, self).set_name(names)
+        super(health_Patient, self).set_name(coded_names)
 
     def __get_alias(self):
         if getattr(self, 'name', None):
