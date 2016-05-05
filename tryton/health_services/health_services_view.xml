@@ -99,6 +99,19 @@
         </record>
 
 
+<!-- Shortcut to services from the appointment -->
+
+        <record model="ir.action.act_window" id="act_service_form1">
+            <field name="name">Services</field>
+            <field name="res_model">gnuhealth.health_service</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword" id="act_open_service_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_service_form1"/>
+        </record>
+
 <!-- Extend prescription view to include the service -->
 
         <record model="ir.ui.view" id="view_prescription_form">
