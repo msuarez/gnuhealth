@@ -184,6 +184,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
     latitude = fields.Numeric('Latitude', digits=(3, 14))
     longitude = fields.Numeric('Longitude', digits=(4, 14))
+    altitude = fields.Integer('Altitude', help="Altitude in meters")
 
     urladdr = fields.Char(
         'OSM Map',

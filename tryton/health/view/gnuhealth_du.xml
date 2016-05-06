@@ -29,6 +29,8 @@
             <field name="latitude"/>
             <label name="longitude"/>
             <field name="longitude"/>
+            <label name="altitude"/>
+            <field name="altitude"/>
             <label name="urladdr"/>
             <field name="urladdr" widget="url"/>
         </group>
