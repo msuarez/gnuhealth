@@ -14,4 +14,11 @@
         <label name="is_school"/>
         <field name="is_school"/>
     </xpath>
+    <xpath expr="/form/field[@name=&quot;country&quot;]" position="replace_attributes">
+        <field name="country" widget="many2one"/>
+    </xpath>
+    <xpath expr="/form/field[@name=&quot;subdivision&quot;]" position="replace_attributes">
+        <field name="subdivision" widget="many2one"/>
+    </xpath>
+
 </data>
