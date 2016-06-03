@@ -1,6 +1,6 @@
-from flask.ext.tryton import Tryton
-from flask.ext import restful
-from flask.ext.login import LoginManager, login_required
+from flask_tryton import Tryton
+import flask_restful as restful
+from flask_login import LoginManager, login_required
 from .utils import output_xml
 
 #### Extensions
