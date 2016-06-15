@@ -98,8 +98,31 @@
             <field name="action" ref="act_invoice_related_form1"/>
         </record>
 
+        
+<!-- Window domains for Draft and Invoiced Documents -->
 
-<!-- Shortcut to services from the appointment -->
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'draft')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_invoiced">
+            <field name="name">Invoiced</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'invoiced')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="100"/>
+            <field name="domain"></field>/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+<!-- Shortcut to services from the patient -->
 
         <record model="ir.action.act_window" id="act_service_form1">
             <field name="name">Services</field>
@@ -111,6 +134,7 @@
             <field name="model">gnuhealth.patient,-1</field>
             <field name="action" ref="act_service_form1"/>
         </record>
+
 
 <!-- Extend prescription view to include the service -->
 

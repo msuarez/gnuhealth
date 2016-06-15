@@ -77,6 +77,9 @@ class HealthService(ModelSQL, ModelView):
                 'draft')}
             })
 
+        cls._order.insert(0, ('state', 'ASC'))
+        cls._order.insert(1, ('name', 'DESC'))
+
     @staticmethod
     def default_state():
         return 'draft'
