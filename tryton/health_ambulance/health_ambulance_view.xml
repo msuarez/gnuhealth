@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Health Support Request Registration -->
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_form">
+            <field name="model">gnuhealth.support_request</field>
+            <field name="type">form</field>
+            <field name="name">support_request_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_tree">
+            <field name="model">gnuhealth.support_request</field>
+            <field name="type">tree</field>
+            <field name="name">support_request_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_support_request">
+            <field name="name">Support Center</field>
+            <field name="res_model">gnuhealth.support_request</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_support_request_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_support_request_tree"/>
+            <field name="act_window" ref="gnuhealth_action_support_request"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_support_request_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_support_request_form"/>
+            <field name="act_window" ref="gnuhealth_action_support_request"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_support_request" icon="gnuhealth-list"
+            id="gnuhealth_support_request" parent="health.gnuhealth_menu"/>
+
+    </data>
+</tryton>
