@@ -2,6 +2,17 @@
 <tryton>
     <data>
 
+<!-- Icons  -->
+        <record model="ir.ui.icon" id="gnuhealth_ambulance_icon">
+            <field name="name">gnuhealth-ambulance</field>
+            <field name="path">icons/ambulance.svg</field>
+        </record>
+
+        <record model="ir.ui.icon" id="gnuhealth_operator_icon">
+            <field name="name">gnuhealth-operator</field>
+            <field name="path">icons/operator.svg</field>
+        </record>
+
 <!-- Health Support Request Registration -->
 
         <record model="ir.ui.view" id="gnuhealth_support_request_form">
@@ -33,7 +44,7 @@
             <field name="act_window" ref="gnuhealth_action_support_request"/>
         </record>
 
-        <menuitem action="gnuhealth_action_support_request" icon="gnuhealth-list"
+        <menuitem action="gnuhealth_action_support_request" icon="gnuhealth-operator"
             id="gnuhealth_support_request" parent="health.gnuhealth_menu"/>
 
     </data>
