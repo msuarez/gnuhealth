@@ -27,6 +27,8 @@
 
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.model import ModelView, ModelSQL, fields, Unique
+from trytond.pool import Pool
+
 
 __all__ = ['SupportRequest']
 
@@ -36,6 +38,10 @@ class SupportRequest (ModelSQL, ModelView):
     __name__ = 'gnuhealth.support_request'
 
     code = fields.Char('Code',help='Request Code', required=True)
+
+    operator = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Operator',
+        help="Operator who took the call / support request")
 
     requestor = fields.Many2One('party.party', 'Requestor',
     domain=[('is_person', '=', True)], help="Related party (person)")
@@ -48,7 +54,6 @@ class SupportRequest (ModelSQL, ModelView):
         help='Related Patient Evaluation')
 
     request_date = fields.DateTime('Date', required=True)
-
     
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'O. Sector',help="Operational Sector")
@@ -74,10 +79,8 @@ class SupportRequest (ModelSQL, ModelView):
         fields.Char('Chief Complaint'),
         'get_patient_complaint')
 
-
     request_extra_info = fields.Text('Details')
-    
-    
+       
     place_occurrance = fields.Selection([
         (None, ''),
         ('home', 'Home'),
@@ -101,6 +104,14 @@ class SupportRequest (ModelSQL, ModelView):
 
     def get_patient_complaint(self, name):
         return self.evaluation.chief_complaint
+
+    @staticmethod
+    def default_operator():
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        operator = HealthProf.get_health_professional()
+        return operator
+
 
     @fields.depends('latitude', 'longitude')
     def on_change_with_urladdr(self):

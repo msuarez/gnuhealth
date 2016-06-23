@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <form string="Health Support Request">
     <group colspan="4" col="8" id="request_header">
-        <label name="code"/>
-        <field name="code"/>
         <label name="requestor"/>
         <field name="requestor"/>
         <label name="request_date"/>
@@ -48,5 +46,8 @@
     <separator id="sep_details" colspan="4" string="Details"/>
     <newline/>
     <field colspan="4" name="request_extra_info"/>
+    <newline/>
+    <label name="operator"/>
+    <field colspan="2" name="operator"/>
 
 </form>
