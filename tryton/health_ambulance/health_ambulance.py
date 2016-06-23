@@ -72,7 +72,7 @@ class SupportRequest (ModelSQL, ModelView):
         'get_patient_sex')
 
     patient_age = fields.Function(
-        fields.TimeDelta('Age'),
+        fields.Char('Age'),
         'get_patient_age')
 
     complaint = fields.Function(
@@ -97,13 +97,17 @@ class SupportRequest (ModelSQL, ModelView):
 
     
     def get_patient_sex(self, name):
-        return self.patient.gender
+        if self.patient:
+            return self.patient.gender
 
     def get_patient_age(self, name):
-        return self.patient.name.age
+        if self.patient:
+            return self.patient.name.age
 
     def get_patient_complaint(self, name):
-        return self.evaluation.chief_complaint
+        if self.evaluation:
+            if self.evaluation.chief_complaint:
+                return self.evaluation.chief_complaint
 
     @staticmethod
     def default_operator():
