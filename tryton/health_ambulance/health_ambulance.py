@@ -25,6 +25,9 @@
 #
 # The documentation of the module goes in the "doc" directory.
 
+from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta, date
+
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
 from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pool import Pool
@@ -53,7 +56,8 @@ class SupportRequest (ModelSQL, ModelView):
         domain=[('patient', '=', Eval('patient'))], depends=['patient'],
         help='Related Patient Evaluation')
 
-    request_date = fields.DateTime('Date', required=True)
+    request_date = fields.DateTime('Date', required=True,
+        help="Date and time of the call for help")
     
     operational_sector = fields.Many2One('gnuhealth.operational_sector',
         'O. Sector',help="Operational Sector")
@@ -65,7 +69,7 @@ class SupportRequest (ModelSQL, ModelView):
         'OSM Map',
         help="Maps the location on Open Street Map")
 
-    healthcenter = fields.Many2One('gnuhealth.institution','Institution')
+    healthcenter = fields.Many2One('gnuhealth.institution','Calling Institution')
 
     patient_sex = fields.Function(
         fields.Char('Sex'),
@@ -115,6 +119,10 @@ class SupportRequest (ModelSQL, ModelView):
         HealthProf= pool.get('gnuhealth.healthprofessional')
         operator = HealthProf.get_health_professional()
         return operator
+
+    @staticmethod
+    def default_request_date():
+        return datetime.now()
 
 
     @fields.depends('latitude', 'longitude')

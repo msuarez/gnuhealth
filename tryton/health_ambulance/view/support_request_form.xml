@@ -1,5 +1,14 @@
 <?xml version="1.0"?>
 <form string="Health Support Request">
+    <group colspan="4" col="6" id="patient_demographics" string="Patient Demographics">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="patient_sex"/>
+        <field name="patient_sex"/>
+        <label name="patient_age"/>
+        <field name="patient_age"/>
+    </group>
+    <newline/>
     <group colspan="4" col="8" id="request_header">
         <label name="requestor"/>
         <field name="requestor"/>
@@ -7,9 +16,6 @@
         <field name="request_date"/>
         <label name="code"/>
         <field name="code"/>
-        <newline/>
-        <label name="healthcenter"/>
-        <field name="healthcenter"/>
     </group>
     <newline/>
     <group id="request_location" colspan="4" col="8" string="Location">
@@ -23,16 +29,9 @@
         <field name="urladdr" widget="url"/>
     </group>
     <newline/>
-    <group colspan="4" col="6" id="patient_demographics" string="Patient Demographics">
-        <label name="patient"/>
-        <field name="patient"/>
-        <label name="patient_sex"/>
-        <field name="patient_sex"/>
-        <label name="patient_age"/>
-        <field name="patient_age"/>
-    </group>
-    <newline/>
-    <group id="request_deatils" string="Specifics">
+    <group id="request_deatils" string="Evaluation Specifics">
+        <label name="evaluation"/>
+        <field name="evaluation"/>
         <label name="complaint"/>
         <field name="complaint"/>
     </group>
@@ -47,7 +46,10 @@
     <newline/>
     <field colspan="4" name="request_extra_info"/>
     <newline/>
-    <label name="operator"/>
-    <field colspan="2" name="operator"/>
-
+    <group id="request_footer">
+        <label name="healthcenter"/>
+        <field name="healthcenter"/>
+        <label name="operator"/>
+        <field name="operator"/>
+    </group>
 </form>
