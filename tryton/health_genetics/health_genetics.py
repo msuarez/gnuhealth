@@ -31,8 +31,10 @@ class DiseaseGene(ModelSQL, ModelView):
     'Disease Genes'
     __name__ = 'gnuhealth.disease.gene'
 
-    name = fields.Char('Official Symbol', required=True,select=True)
-    long_name = fields.Char('Official Long Name', select=True, translate=True)
+    name = fields.Char('Gene Name', required=True,select=True)
+    protein_name = fields.Char('Protein Name', 
+        help="Encoding Protein Code, such as UniProt protein name",select=True)
+    long_name = fields.Char('Official Long Name', translate=True)
     gene_id = fields.Char('Gene ID',
         help="default code from NCBI Entrez database.", select=True)
     chromosome = fields.Char('Affected Chromosome',
@@ -43,7 +45,18 @@ class DiseaseGene(ModelSQL, ModelView):
         ('d', 'dominant'),
         ('r', 'recessive'),
         ], 'Dominance', select=True)
+
+    protein_uri = fields.Char("UniProt URI")
     info = fields.Text('Information', help="Extra Information")
+
+    @fields.depends('protein_name')
+    def on_change_with_protein_uri(self):
+        # Generates the URL to be used in UniProt Portal
+
+        if (self.protein_name):
+            ret_url = 'http://www.uniprot.org/uniprot/' + \
+                str(self.protein_name)
+        return ret_url
 
     @classmethod
     def __setup__(cls):
