@@ -296,7 +296,7 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
             parts['netloc'] = 'nominatim.openstreetmap.org'
             parts['path'] = 'search'
-            parts['query'] = urlencode({'street': ' '.join([number, street]),
+            parts['query'] = urlencode({'street': ' '.join([number, street]).strip(),
                                         'county': municipality,
                                         'city': city,
                                         'state': state,
