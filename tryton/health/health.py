@@ -24,6 +24,9 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
+from urllib import urlencode
+from urlparse import urlunparse
+from collections import OrderedDict
 from io import BytesIO
 
 try:
@@ -256,39 +259,51 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'address_country')
     def on_change_with_urladdr(self):
         # Generates the URL to be used in OpenStreetMap
-        # The address will be mapped to the URL in the following way
-        # If the latitud and longitude of the DU are given, then those
-        # parameters will be used.
-        # Otherwise, it will try to find the address by the
-        # Street, municipality, city, postalcode, state and country.
+        #   If latitude and longitude are known, use them.
+        #   Otherwise, use street, municipality, city, and so on.
+
+
+        parts = OrderedDict()
+        parts['scheme'] = 'http'
+        parts['netloc'] = ''
+        parts['path'] = ''
+        parts['params'] = ''
+        parts['query'] = ''
+        parts['fragment'] = ''
 
         if (self.latitude and self.longitude):
-            ret_url = 'http://openstreetmap.org/?mlat=' + \
-                str(self.latitude) + '&mlon=' + str(self.longitude)
+            parts['netloc'] = 'openstreetmap.org'
+            parts['path'] = '/'
+            parts['query'] = urlencode({'mlat': self.latitude,
+                                        'mlon': self.longitude})
 
         else:
-            state = municipality = country = city = ''
-            street_number = str(self.address_street_number).encode('utf-8') \
-                or ''
-            street = (self.address_street).encode('utf-8') or ''
-            if (self.address_municipality):
-                municipality = (self.address_municipality).encode('utf-8') or ''
-            if (self.address_city):
-                city = (self.address_city).encode('utf-8') or ''
-            if (self.address_subdivision):
-                state = (self.address_subdivision.name).encode('utf-8') or ''
-            postalcode = (self.address_zip).encode('utf-8') or ''
+            state = country = postalcode = city = municipality = street = number = ''
+            if self.address_street_number is not None:
+                number = str(self.address_street_number)
+            if self.address_street:
+                street = self.address_street
+            if self.address_municipality:
+                municipality = self.address_municipality
+            if self.address_city:
+                city = self.address_city
+            if self.address_zip:
+                postalcode = self.address_zip
+            if self.address_subdivision:
+                state = self.address_subdivision.name
+            if self.address_country:
+                country = self.address_country.code
 
-            if (self.address_country):
-                country = (self.address_country.code).encode('utf-8') or ''
+            parts['netloc'] = 'nominatim.openstreetmap.org'
+            parts['path'] = 'search'
+            parts['query'] = urlencode({'street': ' '.join([number, street]),
+                                        'county': municipality,
+                                        'city': city,
+                                        'state': state,
+                                        'postalcode': postalcode,
+                                        'country': country})
 
-            ret_url = 'http://nominatim.openstreetmap.org/search?' + \
-                'street=' + street_number + ' ' + \
-                street + '&county=' + municipality \
-                + '&city=' + city + '&state=' + state \
-                + '&postalcode=' + postalcode + '&country=' + country
-
-        return ret_url
+        return urlunparse(parts.values())
 
     # Show the resulting Address representation in realtime
     @fields.depends('address_street', 'address_subdivision', 
