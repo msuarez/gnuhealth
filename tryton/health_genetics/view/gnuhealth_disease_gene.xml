@@ -19,5 +19,7 @@
     <label name="gene_id"/>
     <field name="gene_id"/>
     <newline/>
+    <field colspan="4" name="variants"/>
+    <newline/>
     <field colspan="4" name="info"/>
 </form>

@@ -19,7 +19,7 @@
             <field name="path">../health/icons/tryton-list.svg</field>
         </record>
 
-<!-- Genetic Risks -->
+<!-- Genetic conditions -->
 
         <record model="ir.ui.view" id="gnuhealth_disease_gene_view">
             <field name="model">gnuhealth.disease.gene</field>
@@ -52,6 +52,41 @@
         <menuitem parent="gnuhealth_conf_genetics"
             action="gnuhealth_action_disease_gene"
             id="gnuhealth_conf_disease_genes" icon="gnuhealth-list"/>
+
+<!-- Gene Variants-->
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_view">
+            <field name="model">gnuhealth.gene_variant</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_gene_variant</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_gene_variant_tree">
+            <field name="model">gnuhealth.gene_variant</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_gene_variant_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_gene_variant">
+            <field name="name">Gene Variants</field>
+            <field name="res_model">gnuhealth.gene_variant</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gene_variant_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_gene_variant_tree"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gene_variant_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_gene_variant_view"/>
+            <field name="act_window" ref="gnuhealth_action_gene_variant"/>
+        </record>
+
+        <menuitem parent="gnuhealth_conf_genetics"
+            action="gnuhealth_action_gene_variant"
+            id="gnuhealth_conf_gene_variants" icon="gnuhealth-list"/>
+
 
 <!-- Patient Genetic Risk -->
 

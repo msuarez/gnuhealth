@@ -23,8 +23,8 @@
 from trytond.model import ModelView, ModelSQL, fields, Unique
 
 
-__all__ = ['DiseaseGene', 'PatientGeneticRisk', 'FamilyDiseases',
-    'GnuHealthPatient']
+__all__ = ['DiseaseGene', 'GeneVariant', 'PatientGeneticRisk', 
+            'FamilyDiseases', 'GnuHealthPatient']
 
 
 class DiseaseGene(ModelSQL, ModelView):
@@ -32,12 +32,13 @@ class DiseaseGene(ModelSQL, ModelView):
     __name__ = 'gnuhealth.disease.gene'
 
     name = fields.Char('Gene Name', required=True,select=True)
-    protein_name = fields.Char('Protein Name', 
-        help="Encoding Protein Code, such as UniProt protein name",select=True)
+    protein_name = fields.Char('Protein Code', 
+        help="Encoding Protein Code, such as UniProt protein name", 
+        select=True)
     long_name = fields.Char('Official Long Name', translate=True)
     gene_id = fields.Char('Gene ID',
         help="default code from NCBI Entrez database.", select=True)
-    chromosome = fields.Char('Affected Chromosome',
+    chromosome = fields.Char('Chromosome',
         help="Name of the affected chromosome", select=True)
     location = fields.Char('Location', help="Locus of the chromosome")
     dominance = fields.Selection([
@@ -46,13 +47,15 @@ class DiseaseGene(ModelSQL, ModelView):
         ('r', 'recessive'),
         ], 'Dominance', select=True)
 
-    protein_uri = fields.Char("UniProt URI")
+    protein_uri = fields.Function(fields.Char("Protein URI"),
+     'get_protein_uri')
     info = fields.Text('Information', help="Extra Information")
-
-    @fields.depends('protein_name')
-    def on_change_with_protein_uri(self):
-        # Generates the URL to be used in UniProt Portal
-
+    variants = fields.One2Many('gnuhealth.gene_variant', 'name',
+     'Variants')
+        
+    
+    def get_protein_uri(self, name):
+        ret_url=''
         if (self.protein_name):
             ret_url = 'http://www.uniprot.org/uniprot/' + \
                 str(self.protein_name)
@@ -73,7 +76,7 @@ class DiseaseGene(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        """ Search for the official and long name"""
+        # Search for the official and long name
         field = None
         for field in ('name', 'long_name'):
             parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
@@ -84,6 +87,29 @@ class DiseaseGene(ModelSQL, ModelView):
         return [(cls._rec_name,) + tuple(clause[1:])]
 
 
+class GeneVariant(ModelSQL, ModelView):
+    'Gene Sequence Variant'
+    __name__ = 'gnuhealth.gene_variant'
+
+    name = fields.Many2One('gnuhealth.disease.gene', 'Gene',
+        required=True)
+    variant = fields.Char("Variant", required=True, select=True)
+    aa_change = fields.Char('Change', help="Resulting amino acid change")
+    phenotype = fields.Char('Phenotype',
+        help="Phenotype / condition")
+
+    @classmethod
+    def __setup__(cls):
+        super(GeneVariant, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('variant_unique', Unique(t,t.variant),
+                'The variant ID must be unique'),
+            ('aa_unique', Unique(t,t.name,t.aa_change),
+                'The resulting AA change for this gene already exists'),
+            ]
+    
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'
     __name__ = 'gnuhealth.patient.genetic.risk'
