@@ -23,8 +23,8 @@
 from trytond.model import ModelView, ModelSQL, fields, Unique
 
 
-__all__ = ['DiseaseGene', 'GeneVariant', 'PatientGeneticRisk', 
-            'FamilyDiseases', 'GnuHealthPatient']
+__all__ = ['DiseaseGene', 'GeneVariant', 'GeneVariantPhenotype','ProteinDisease',
+            'PatientGeneticRisk', 'FamilyDiseases', 'GnuHealthPatient']
 
 
 class DiseaseGene(ModelSQL, ModelView):
@@ -52,7 +52,12 @@ class DiseaseGene(ModelSQL, ModelView):
     info = fields.Text('Information', help="Extra Information")
     variants = fields.One2Many('gnuhealth.gene_variant', 'name',
      'Variants')
+
+    diseases = fields.One2Many('gnuhealth.protein.disease', 'gene',
+     'Diseases')
         
+    protein_uri = fields.Function(fields.Char("Protein URI"),
+     'get_protein_uri')
     
     def get_protein_uri(self, name):
         ret_url=''
@@ -95,9 +100,9 @@ class GeneVariant(ModelSQL, ModelView):
         required=True)
     variant = fields.Char("Variant", required=True, select=True)
     aa_change = fields.Char('Change', help="Resulting amino acid change")
-    phenotype = fields.Char('Phenotype',
-        help="Phenotype / condition")
-
+    phenotypes = fields.One2Many('gnuhealth.gene_variant_phenotype', 'variant',
+     'Phenotypes')
+        
     @classmethod
     def __setup__(cls):
         super(GeneVariant, cls).__setup__()
@@ -109,6 +114,93 @@ class GeneVariant(ModelSQL, ModelView):
             ('aa_unique', Unique(t,t.name,t.aa_change),
                 'The resulting AA change for this gene already exists'),
             ]
+
+class GeneVariantPhenotype(ModelSQL, ModelView):
+    'Gene Sequence Variant Phenotypes'
+    __name__ = 'gnuhealth.gene_variant_phenotype'
+
+    name = fields.Char('Phenotype Code', required=True,
+        help="Phenotype / condition")
+
+    variant = fields.Many2One('gnuhealth.gene_variant', 'Variant',
+        required=True)
+    phenotype = fields.Char('Phenotype',
+        help="Phenotype / condition")
+
+    @classmethod
+    def __setup__(cls):
+        super(GeneVariantPhenotype, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_unique', Unique(t,t.variant),
+                'The variant ID must be unique'),
+            ]
+
+class ProteinDisease(ModelSQL, ModelView):
+    'Protein related diseases'
+    __name__ = 'gnuhealth.protein.disease'
+
+    name = fields.Char('Disease', required=True,select=True)
+    gene = fields.Many2One('gnuhealth.disease.gene', 'Gene',
+        required=True)
+
+    protein_code = fields.Char('Protein Code', 
+        help="UniProt disease code", 
+        select=True)
+
+    long_name = fields.Char('Protein name', translate=True)
+        
+    disease_name = fields.Char('Disease name', translate=True)
+
+    disease_uri = fields.Function(fields.Char("Disease URI"),
+     'get_disease_uri')
+
+    mim_reference = fields.Char('MIM', translate=True)
+
+    dominance = fields.Selection([
+        (None, ''),
+        ('d', 'dominant'),
+        ('r', 'recessive'),
+        ('c', 'codominance'),
+        ], 'Dominance', select=True)
+
+
+    description = fields.Text('Description')        
+    
+
+    def get_disease_uri(self, name):
+        ret_url=''
+        if (self.name):
+            ret_url = 'http://www.uniprot.org/diseases/' + \
+                str(self.name)
+        return ret_url
+
+    @classmethod
+    def __setup__(cls):
+        super(ProteinDisease, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_unique', Unique(t,t.name),
+                'The Disease Code  name must be unique'),
+            ]
+
+    def get_rec_name(self, name):
+        return self.name + ':' + self.disease_name
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        # Search for the disease code, protein name, gene and disease name
+        field = None
+        for field in ('name', 'protein_name', 'gene', 'disease_name'):
+            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if parties:
+                break
+        if parties:
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
+
     
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'

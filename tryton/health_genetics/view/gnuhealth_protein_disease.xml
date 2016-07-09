@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<form string="Protein related diseases">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="gene"/>
+    <field name="gene"/>
+    <newline/>
+    <label name="protein_code"/>
+    <field name="protein_code"/>
+    <label name="long_name"/>
+    <field name="long_name"/>
+    <newline/>
+    <label name="disease_name"/>
+    <field name="disease_name"/>
+    <label name="disease_uri" widget="url"/>
+    <field name="disease_uri" widget="url"/>
+    <newline/>
+    <label name="dominance"/>
+    <field name="dominance"/>
+    <label name="mim_reference"/>
+    <field name="mim_reference"/>
+    
+    <newline/>
+    <field colspan="4" name="description"/>
+
+</form>

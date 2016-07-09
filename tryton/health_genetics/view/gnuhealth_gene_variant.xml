@@ -7,6 +7,6 @@
     <newline/>
     <label name="aa_change"/>
     <field name="aa_change"/>
-    <label name="phenotype"/>
-    <field name="phenotype"/>
+    <newline/>
+    <field colspan="4" name="phenotypes"/>
 </form>

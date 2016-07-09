@@ -29,6 +29,8 @@ def register():
     Pool.register(
         DiseaseGene,
         GeneVariant,
+        GeneVariantPhenotype,
+        ProteinDisease,
         PatientGeneticRisk,
         FamilyDiseases,
         GnuHealthPatient,
