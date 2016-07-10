@@ -1,26 +1,25 @@
 <?xml version="1.0"?>
 <form string="Protein related diseases">
-    <label name="name"/>
-    <field name="name"/>
-    <label name="gene"/>
-    <field name="gene"/>
+    <group string="Disease" id="disease_header" colspan="4" col="6">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="disease_name"/>
+        <field name="disease_name"/>
+        <label name="acronym"/>
+        <field name="acronym"/>
+    </group>
     <newline/>
-    <label name="protein_code"/>
-    <field name="protein_code"/>
-    <label name="long_name"/>
-    <field name="long_name"/>
-    <newline/>
-    <label name="disease_name"/>
-    <field name="disease_name"/>
-    <label name="disease_uri" widget="url"/>
-    <field name="disease_uri" widget="url"/>
-    <newline/>
-    <label name="dominance"/>
-    <field name="dominance"/>
-    <label name="mim_reference"/>
-    <field name="mim_reference"/>
-    
+    <group string="Protein and Gene" id="misc_info" colspan="4" col="6">
+        <label name="disease_uri"/>
+        <field name="disease_uri" widget="url"/>
+        <label name="dominance"/>
+        <field name="dominance"/>
+        <label name="mim_reference"/>
+        <field name="mim_reference"/>
+    </group>
     <newline/>
     <field colspan="4" name="description"/>
+    <newline/>
+    <field colspan="4" name="gene_variant"/>
 
 </form>

@@ -23,7 +23,7 @@
 from trytond.model import ModelView, ModelSQL, fields, Unique
 
 
-__all__ = ['DiseaseGene', 'GeneVariant', 'GeneVariantPhenotype','ProteinDisease',
+__all__ = ['DiseaseGene', 'ProteinDisease', 'GeneVariant','GeneVariantPhenotype',
             'PatientGeneticRisk', 'FamilyDiseases', 'GnuHealthPatient']
 
 
@@ -92,72 +92,25 @@ class DiseaseGene(ModelSQL, ModelView):
         return [(cls._rec_name,) + tuple(clause[1:])]
 
 
-class GeneVariant(ModelSQL, ModelView):
-    'Gene Sequence Variant'
-    __name__ = 'gnuhealth.gene_variant'
-
-    name = fields.Many2One('gnuhealth.disease.gene', 'Gene',
-        required=True)
-    variant = fields.Char("Variant", required=True, select=True)
-    aa_change = fields.Char('Change', help="Resulting amino acid change")
-    phenotypes = fields.One2Many('gnuhealth.gene_variant_phenotype', 'variant',
-     'Phenotypes')
-        
-    @classmethod
-    def __setup__(cls):
-        super(GeneVariant, cls).__setup__()
-
-        t = cls.__table__()
-        cls._sql_constraints = [
-            ('variant_unique', Unique(t,t.variant),
-                'The variant ID must be unique'),
-            ('aa_unique', Unique(t,t.name,t.aa_change),
-                'The resulting AA change for this gene already exists'),
-            ]
-
-class GeneVariantPhenotype(ModelSQL, ModelView):
-    'Gene Sequence Variant Phenotypes'
-    __name__ = 'gnuhealth.gene_variant_phenotype'
-
-    name = fields.Char('Phenotype Code', required=True,
-        help="Phenotype / condition")
-
-    variant = fields.Many2One('gnuhealth.gene_variant', 'Variant',
-        required=True)
-    phenotype = fields.Char('Phenotype',
-        help="Phenotype / condition")
-
-    @classmethod
-    def __setup__(cls):
-        super(GeneVariantPhenotype, cls).__setup__()
-
-        t = cls.__table__()
-        cls._sql_constraints = [
-            ('name_unique', Unique(t,t.variant),
-                'The variant ID must be unique'),
-            ]
-
 class ProteinDisease(ModelSQL, ModelView):
     'Protein related diseases'
     __name__ = 'gnuhealth.protein.disease'
 
-    name = fields.Char('Disease', required=True,select=True)
-    gene = fields.Many2One('gnuhealth.disease.gene', 'Gene',
-        required=True)
-
-    protein_code = fields.Char('Protein Code', 
-        help="UniProt disease code", 
-        select=True)
-
-    long_name = fields.Char('Protein name', translate=True)
+    name = fields.Char('Disease', required=True,select=True,
+        help="Uniprot Disease Code")
         
     disease_name = fields.Char('Disease name', translate=True)
+    acronym = fields.Char('Acronym', required=True,select=True,
+        help="Disease acronym / mnemonics")
 
     disease_uri = fields.Function(fields.Char("Disease URI"),
      'get_disease_uri')
 
-    mim_reference = fields.Char('MIM', translate=True)
+    mim_reference = fields.Char('MIM', help="MIM -Mendelian Inheritance in Man- DB reference)")
 
+    gene_variant = fields.One2Many('gnuhealth.gene_variant_phenotype', 'phenotype',
+        'Gene Variants', help="Gene variants involved in this condition")
+        
     dominance = fields.Selection([
         (None, ''),
         ('d', 'dominant'),
@@ -191,9 +144,9 @@ class ProteinDisease(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        # Search for the disease code, protein name, gene and disease name
+        # Search for the disease code or disease name
         field = None
-        for field in ('name', 'protein_name', 'gene', 'disease_name'):
+        for field in ('name', 'disease_name'):
             parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
             if parties:
                 break
@@ -201,7 +154,53 @@ class ProteinDisease(ModelSQL, ModelView):
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
-    
+class GeneVariant(ModelSQL, ModelView):
+    'Gene Sequence Variant'
+    __name__ = 'gnuhealth.gene_variant'
+
+    name = fields.Many2One('gnuhealth.disease.gene', 'Gene',
+        required=True)
+    variant = fields.Char("Variant", required=True, select=True)
+    aa_change = fields.Char('Change', help="Resulting amino acid change")
+    phenotypes = fields.One2Many('gnuhealth.gene_variant_phenotype', 'variant',
+     'Phenotypes')
+        
+    @classmethod
+    def __setup__(cls):
+        super(GeneVariant, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('variant_unique', Unique(t,t.variant),
+                'The variant ID must be unique'),
+            ('aa_unique', Unique(t,t.name,t.aa_change),
+                'The resulting AA change for this gene already exists'),
+            ]
+
+    def get_rec_name(self, name):
+        return self.name.rec_name + " : " + self.variant + " : " + self.aa_change
+
+
+class GeneVariantPhenotype(ModelSQL, ModelView):
+    'Gene Sequence Variant Phenotypes'
+    __name__ = 'gnuhealth.gene_variant_phenotype'
+
+    variant = fields.Many2One('gnuhealth.gene_variant', 'Variant',
+        required=True)
+    phenotype = fields.Many2One('gnuhealth.protein.disease', 'Phenotype',
+        required=True)
+
+    @classmethod
+    def __setup__(cls):
+        super(GeneVariantPhenotype, cls).__setup__()
+
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('aa_unique', Unique(t,t.variant,t.phenotype),
+                'This variant / phenotype combination already exists'),
+            ]
+
+
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Risks'
     __name__ = 'gnuhealth.patient.genetic.risk'
