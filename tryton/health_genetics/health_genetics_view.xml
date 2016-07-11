@@ -56,20 +56,20 @@
 <!-- Gene Variants-->
 
         <record model="ir.ui.view" id="gnuhealth_gene_variant_view">
-            <field name="model">gnuhealth.gene_variant</field>
+            <field name="model">gnuhealth.gene.variant</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_gene_variant</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_gene_variant_tree">
-            <field name="model">gnuhealth.gene_variant</field>
+            <field name="model">gnuhealth.gene.variant</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_gene_variant_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_gene_variant">
             <field name="name">Gene Variants</field>
-            <field name="res_model">gnuhealth.gene_variant</field>
+            <field name="res_model">gnuhealth.gene.variant</field>
         </record>
 
         <record model="ir.action.act_window.view" id="act_gene_variant_list_view">
@@ -90,20 +90,20 @@
 <!-- Gene Variant Phenotypes-->
 
         <record model="ir.ui.view" id="gnuhealth_gene_variant_phenotype_view">
-            <field name="model">gnuhealth.gene_variant_phenotype</field>
+            <field name="model">gnuhealth.gene.variant.phenotype</field>
             <field name="type">form</field>
             <field name="name">gnuhealth_gene_variant_phenotype</field>
         </record>
 
         <record model="ir.ui.view" id="gnuhealth_gene_variant_phenotype_tree">
-            <field name="model">gnuhealth.gene_variant_phenotype</field>
+            <field name="model">gnuhealth.gene.variant.phenotype</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_gene_variant_phenotype_tree</field>
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_gene_variant_phenotype">
             <field name="name">Gene Variant Phenotypes</field>
-            <field name="res_model">gnuhealth.gene_variant_phenotype</field>
+            <field name="res_model">gnuhealth.gene.variant.phenotype</field>
         </record>
 
         <record model="ir.action.act_window.view" id="act_gene_variant_phenotype_list_view">
