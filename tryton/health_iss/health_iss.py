@@ -62,12 +62,11 @@ class Iss (ModelSQL, ModelView):
         'get_patient', searcher='search_patient')
 
     patient_sex = fields.Function(
-        fields.Char('Sex'),
+        fields.Char('Gender'),
         'get_patient_sex')
 
-    patient_age = fields.Function(
-        fields.TimeDelta('Age'),
-        'get_patient_age')
+    patient_age = fields.Function(fields.Char('Age'), 'get_patient_age')
+
 
     complaint = fields.Function(
         fields.Char('Chief Complaint'),
@@ -235,7 +234,7 @@ class Iss (ModelSQL, ModelView):
         return self.name.patient.rec_name
 
     def get_patient_sex(self, name):
-        return self.name.patient.sex
+        return self.name.patient.name.gender
 
     def get_patient_age(self, name):
         return self.name.patient.name.age
