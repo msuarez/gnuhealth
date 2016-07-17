@@ -30,7 +30,7 @@ from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 
 __all__ = ['SurgerySequences', 'RCRI', 'Surgery', 'Operation',
-    'SurgerySupply', 'PatientData', 'SurgeryTeam']
+    'SurgeryMainProcedure','SurgerySupply', 'PatientData', 'SurgeryTeam']
 
 
 
@@ -629,6 +629,17 @@ class Operation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
+    def get_rec_name(self, name):
+        return self.procedure.rec_name
+
+
+class SurgeryMainProcedure(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.surgery'
+
+    main_procedure = fields.Many2One('gnuhealth.operation','Main Proc',
+        domain=[('name', '=', Eval('active_id'))],
+        states={'readonly': Or(~Eval('procedures'), Eval('id', 0) < 0)},
+        depends=['procedures'])
 
 class SurgerySupply(ModelSQL, ModelView):
     'Supplies related to the surgery'

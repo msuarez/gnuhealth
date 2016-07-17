@@ -31,6 +31,7 @@ def register():
         RCRI,
         Surgery,
         Operation,
+        SurgeryMainProcedure,
         SurgerySupply,
         PatientData,
         SurgeryTeam,

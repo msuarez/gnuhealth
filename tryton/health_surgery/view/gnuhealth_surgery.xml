@@ -58,6 +58,10 @@
     <field name="procedures" colspan="2"/>
     <field name="supplies" colspan="2"/>
     <newline/>
+    <group string="Main Procedure" id="main_procedure_group" colspan="4">
+        <field name="main_procedure"/>
+    </group>
+    <newline/>
     <separator string="Details" id="separator_surgery_details" colspan="2"/>
     <separator string="Anesthesia" id="separator_anesthesia_details" colspan="2"/>
     <newline/>

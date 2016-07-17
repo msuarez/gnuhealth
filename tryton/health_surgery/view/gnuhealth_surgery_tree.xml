@@ -6,6 +6,7 @@
     <field name="classification"/>
     <field name="surgery_date" widget="date"/>
     <field name="surgery_date" string="Time" widget="time"/>
+    <field name="main_procedure" expand="1"/>
     <field name="state"/>
     <field name="surgery_length"/>
     <field name="operating_room"/>
