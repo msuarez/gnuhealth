@@ -20,6 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from datetime import datetime
 from trytond.model import ModelView, ModelSQL, fields
 from trytond.transaction import Transaction
 from trytond.rpc import RPC
@@ -81,10 +82,16 @@ class LabTest(ModelSQL, ModelView):
         ' lab test',
         states = STATES )
 
+    done_date = fields.DateTime('Finished on', readonly=True,
+        states = STATES )
+
     validated_by = fields.Many2One(
         'gnuhealth.healthprofessional', 
         'Validated by', readonly=True, help='Professional who validates this'
         ' lab test',
+        states = STATES )
+
+    validation_date = fields.DateTime('Validated on', readonly=True,
         states = STATES )
         
     @staticmethod
@@ -130,6 +137,7 @@ class LabTest(ModelSQL, ModelView):
 
         cls.write(documents, {
             'done_by': hp,
+            'done_date': datetime.now(),
             'state': 'done',})
 
     @classmethod
@@ -162,6 +170,7 @@ class LabTest(ModelSQL, ModelView):
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
             'validated_by': hp,
+            'validation_date': datetime.now(),
             'state': 'validated',})
 
 
