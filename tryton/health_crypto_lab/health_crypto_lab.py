@@ -105,7 +105,7 @@ class LabTest(ModelSQL, ModelView):
                 'invisible': Not(Equal(Eval('state'), 'draft')),
                 },
             'set_to_draft': {
-                'invisible': Not(Equal(Eval('state'), 'draft')),
+                'invisible': Not(Equal(Eval('state'), 'done')),
                 },
             'sign_document': {
                 'invisible': Not(Equal(Eval('state'), 'done')),
