@@ -36,6 +36,8 @@ class LabTest(ModelSQL, ModelView):
     'Lab Test'
     __name__ = 'gnuhealth.lab'
 
+    STATES = {'readonly': Eval('state') == 'validated'}
+
     serializer = fields.Text('Doc String', readonly=True)
 
     document_digest = fields.Char('Digest', readonly=True,
@@ -73,6 +75,17 @@ class LabTest(ModelSQL, ModelView):
 
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
+    done_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 
+        'Done by', readonly=True, help='Professional who processes this'
+        ' lab test',
+        states = STATES )
+
+    validated_by = fields.Many2One(
+        'gnuhealth.healthprofessional', 
+        'Validated by', readonly=True, help='Professional who validates this'
+        ' lab test',
+        states = STATES )
         
     @staticmethod
     def default_state():
@@ -82,6 +95,9 @@ class LabTest(ModelSQL, ModelView):
     def __setup__(cls):
         cls._buttons.update({
             'generate_document': {
+                'invisible': Not(Equal(Eval('state'), 'draft')),
+                },
+            'set_to_draft': {
                 'invisible': Not(Equal(Eval('state'), 'draft')),
                 },
             'sign_document': {
@@ -96,17 +112,56 @@ class LabTest(ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def generate_document(cls, documents):
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+
         document = documents[0]
 
-        # Change the state of the evaluation to "Done"
+
+        # Set the document to "Done"
         # and write the name of the signing health professional
+
+        hp = HealthProfessional.get_health_professional()
+        if not hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
+
+        serial_doc=cls.get_serial(document)
+
+        cls.write(documents, {
+            'done_by': hp,
+            'state': 'done',})
+
+    @classmethod
+    @ModelView.button
+    def set_to_draft(cls, documents):
+        document = documents[0]
+
+        cls.write(documents, {
+            'state': 'draft',})
+
+    @classmethod
+    @ModelView.button
+    def sign_document(cls, documents):
+        pool = Pool()
+        HealthProfessional = pool.get('gnuhealth.healthprofessional')
+
+        document = documents[0]
+
+        # Validate / generate digest for the document
+        # and write the name of the signing health professional
+
+        hp = HealthProfessional.get_health_professional()
+        if not hp:
+            cls.raise_user_error(
+                "No health professional associated to this user !")
 
         serial_doc=cls.get_serial(document)
         
-
         cls.write(documents, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
+            'validated_by': hp,
             'state': 'validated',})
 
 

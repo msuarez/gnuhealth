@@ -6,8 +6,17 @@
             <label name="state"/>
             <field name="state"/>            
             <button name="generate_document" help="The lab test is done and results are waiting to be validated" string="Done" icon="tryton-go-next" confirm="Are the results ready ?"/>
+            <button name="set_to_draft" help="Reverse the document to draft state." string="Draft" icon="tryton-go-next" confirm="Set to Draft ?"/>
             <button name="sign_document" help="Validate and Sign the lab test" string="Validate" icon="tryton-go-next" confirm="Are you sure to sign this lab results ?"/>
         </group>
+        <newline/>
+        <group colspan="4" col="6" id="document_professionals">
+            <label name="done_by"/>
+            <field name="done_by"/>            
+            <label name="validated_by"/>
+            <field name="validated_by"/>            
+        </group>
+        
 
     </xpath>
 
