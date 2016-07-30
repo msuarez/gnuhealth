@@ -2,5 +2,6 @@
 <data>
     <xpath expr="/tree/field[@name=&quot;type&quot;]" position="after">
         <field name="emergency"/>
+        <field name="remarks" expand="1"/>
     </xpath>
 </data>

@@ -803,6 +803,8 @@ class ContactMechanism (ModelSQL, ModelView):
     __name__ = 'party.contact_mechanism'
 
     emergency = fields.Boolean('Emergency', select=True)
+    remarks = fields.Char('Remarks',help="Enter the name of the contact"
+        " or other remarks")
 
 
 class PersonName(ModelSQL, ModelView):
