@@ -52,9 +52,6 @@ class DiseaseGene(ModelSQL, ModelView):
     info = fields.Text('Information', help="Extra Information")
     variants = fields.One2Many('gnuhealth.gene.variant', 'name',
      'Variants')
-
-    diseases = fields.One2Many('gnuhealth.protein.disease', 'gene',
-     'Diseases')
         
     protein_uri = fields.Function(fields.Char("Protein URI"),
      'get_protein_uri')
@@ -188,8 +185,26 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
     name = fields.Char('Code', required=True)
     variant = fields.Many2One('gnuhealth.gene.variant', 'Variant',
         required=True)
+ 
+    gene = fields.Function(fields.Many2One(
+        'gnuhealth.disease.gene', 'Gene',
+        depends=['variant']),'get_gene',
+        searcher='search_gene')
+
     phenotype = fields.Many2One('gnuhealth.protein.disease', 'Phenotype',
         required=True)
+
+
+    def get_gene(self, name):
+        if (self.variant):
+            return self.variant.name.id
+
+    @classmethod
+    def search_gene(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('variant.name', clause[1], value))
+        return res
 
     @classmethod
     def __setup__(cls):

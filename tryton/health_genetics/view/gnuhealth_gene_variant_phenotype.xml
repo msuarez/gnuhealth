@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <form string="Gene Variant Phenotypes">
+    <label name="gene"/>
+    <field name="gene"/>
     <label name="variant"/>
     <field name="variant"/>
     <newline/>
