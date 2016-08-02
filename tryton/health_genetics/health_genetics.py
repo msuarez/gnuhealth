@@ -21,6 +21,8 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields, Unique
+from trytond.transaction import Transaction
+from trytond import backend
 
 
 __all__ = ['DiseaseGene', 'ProteinDisease', 'GeneVariant','GeneVariantPhenotype',
@@ -41,11 +43,6 @@ class DiseaseGene(ModelSQL, ModelView):
     chromosome = fields.Char('Chromosome',
         help="Name of the affected chromosome", select=True)
     location = fields.Char('Location', help="Locus of the chromosome")
-    dominance = fields.Selection([
-        (None, ''),
-        ('d', 'dominant'),
-        ('r', 'recessive'),
-        ], 'Dominance', select=True)
 
     protein_uri = fields.Function(fields.Char("Protein URI"),
      'get_protein_uri')
@@ -87,6 +84,24 @@ class DiseaseGene(ModelSQL, ModelView):
         if parties:
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
+
+    @classmethod
+    # Update to version 3.2
+    def __register__(cls, module_name):
+        super(DiseaseGene, cls).__register__(module_name)
+
+        cursor = Transaction().cursor
+        TableHandler = backend.get('TableHandler')
+        table = TableHandler(cursor, cls, module_name)
+        # Insert the current "specialty" associated to the HP in the
+        # table that keeps the specialties associated to different health
+        # professionals, gnuhealth.hp_specialty
+
+        if table.column_exist('dominance'):
+            # Drop old specialty column
+            # which is now part of the gene variant phenotype
+            table.drop_column('dominance')
+
 
 
 class ProteinDisease(ModelSQL, ModelView):
