@@ -454,8 +454,8 @@ class PartyPatient (ModelSQL, ModelView):
         actions = iter(args)
         args = []
         for parties, vals in zip(actions, actions):
+            given_name=family_name=''
             vals = vals.copy()
-
             person_id = parties[0].id
             # We use this method overwrite to make the fields that have a
             # unique constraint get the NULL value at PostgreSQL level, and not
