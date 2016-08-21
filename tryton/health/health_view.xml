@@ -1351,7 +1351,7 @@
         </record>
         <record model="ir.action.act_window"
             id="act_appointments_report_view_tree">
-            <field name="name">Appointments Report</field>
+            <field name="name">Appointments with Dx Report</field>
             <field name="res_model">gnuhealth.appointment.report</field>
         </record>
         <record model="ir.action.act_window.view"
@@ -1367,7 +1367,7 @@
             <field name="name">appointments_report_open_start_form</field>
         </record>
         <record model="ir.action.wizard" id="appointments_report_open">
-            <field name="name">Appointments Report</field>
+            <field name="name">Appointments with Dx Report</field>
             <field name="wiz_name">gnuhealth.appointment.report.open</field>
         </record>
 

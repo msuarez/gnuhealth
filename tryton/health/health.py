@@ -3687,8 +3687,7 @@ class OpenAppointmentReportStart(ModelView):
     __name__ = 'gnuhealth.appointment.report.open.start'
     date_start = fields.Date('Date Start', required=True)
     date_end = fields.Date('Date End', required=True)
-    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof',
-        required=True)
+    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
 
     @staticmethod
     def default_date_start():
@@ -3718,13 +3717,24 @@ class OpenAppointmentReport(Wizard):
     open_ = StateAction('health.act_appointments_report_view_tree')
 
     def do_open_(self, action):
+        health_prof = ''
+        if self.start.healthprof:
+            health_prof = self.start.healthprof.id
+            
         action['pyson_context'] = PYSONEncoder().encode({
             'date_start': self.start.date_start,
             'date_end': self.start.date_end,
-            'healthprof': self.start.healthprof.id,
+            'healthprof': health_prof,
             })
-        action['name'] += ' - %s, %s' % (self.start.healthprof.name.lastname,
-                                         self.start.healthprof.name.name)
+
+        # Show action name depending on whether is an specific hp
+        # or for all professionals
+        
+        if health_prof:
+            action['name'] += ' - %s' % (self.start.healthprof.rec_name)
+        else:
+            action['name'] += ' - %s' % "All Health Professionals"
+        
         return action, {}
 
     def transition_open_(self):
