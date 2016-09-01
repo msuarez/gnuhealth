@@ -25,5 +25,6 @@ from .health_ambulance import *
 
 def register():
     Pool.register(
+        Ambulance,
         SupportRequest,
         module='health_ambulance', type_='model')

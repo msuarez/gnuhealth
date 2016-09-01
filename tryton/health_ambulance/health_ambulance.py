@@ -5,7 +5,7 @@
 #    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
-#    MODULE : INJURY SURVEILLANCE SYSTEM
+#    MODULE : AMBULANCE / EMS MANAGEMENT
 # 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -33,8 +33,48 @@ from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pool import Pool
 
 
-__all__ = ['SupportRequest']
+__all__ = ['Ambulance','SupportRequest']
 
+
+class Ambulance (ModelSQL, ModelView):
+    'Ambulance'
+    __name__ = 'gnuhealth.ambulance'
+
+    vehicle_identifier = fields.Char('ID', required=True,
+        help="Ambulance license number or other type of ID")
+
+    vehicle_brand = fields.Char('Brand', help="Ambulance maker")
+    vehicle_model = fields.Char('Model', help="Ambulance model")
+
+    vehicle_type = fields.Selection([
+        (None, ''),
+        ('van', 'Van'),
+        ('car', 'Car'),
+        ('boat', 'Boat'),
+        ('helicopter', 'Helicopter'),
+        ('airplane', 'Airplane'),
+        ('motorcycle', 'Motorcycle'),
+        ('bicycle', 'Bicycle'),
+        ('drone', 'Drone'),
+        ], 'Type', help="Type of vehicle",sort=False)
+
+    vehicle_function = fields.Selection([
+        ('patient_transport', 'Patient Transport'),
+        ('emergency', 'Emergency'),
+        ('icu', 'Mobile ICU'),
+        ], 'Function',sort=False, help="Vehicle main functionality")
+    
+    vehicle_station = fields.Many2One(
+        'gnuhealth.institution', 'Station',
+        help="Station / Base of the vehicle")
+
+    vehicle_status = fields.Selection([
+        ('available', 'Available'),
+        ('on_incident', 'On incident'),
+        ('out_of_service', 'Out of service'),
+        ], 'Function',sort=False, help="Vehicle status")
+
+    vehicle_remarks = fields.Text('Remarks')
 
 class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'
