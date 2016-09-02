@@ -46,6 +46,9 @@ class Ambulance (ModelSQL, ModelView):
     vehicle_brand = fields.Char('Brand', help="Ambulance maker")
     vehicle_model = fields.Char('Model', help="Ambulance model")
 
+    vehicle_odometer = fields.Integer('Odometer',
+        help="Current odometer reading")
+
     vehicle_type = fields.Selection([
         (None, ''),
         ('van', 'Van'),
@@ -56,25 +59,38 @@ class Ambulance (ModelSQL, ModelView):
         ('motorcycle', 'Motorcycle'),
         ('bicycle', 'Bicycle'),
         ('drone', 'Drone'),
-        ], 'Type', help="Type of vehicle",sort=False)
+        ], 'Type', required=True,
+        help="Type of vehicle",sort=False)
 
     vehicle_function = fields.Selection([
-        ('patient_transport', 'Patient Transport'),
-        ('emergency', 'Emergency'),
-        ('icu', 'Mobile ICU'),
-        ], 'Function',sort=False, help="Vehicle main functionality")
+        (None, ''),
+        ('patient_transport', 'Type A - Patient Transport'),
+        ('emergency', 'Type B - Emergency'),
+        ('icu', 'Type C - Mobile ICU'),
+        ], 'Function',sort=False, required=True, 
+        help="Vehicle main functionality")
     
     vehicle_station = fields.Many2One(
         'gnuhealth.institution', 'Station',
         help="Station / Base of the vehicle")
 
     vehicle_status = fields.Selection([
+        (None, ''),
         ('available', 'Available'),
         ('on_incident', 'On incident'),
         ('out_of_service', 'Out of service'),
-        ], 'Function',sort=False, help="Vehicle status")
+        ], 'Status',sort=False, required=True, help="Vehicle status")
 
     vehicle_remarks = fields.Text('Remarks')
+
+    @classmethod
+    def __setup__(cls):
+        super(Ambulance, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('vehicle_uniq', Unique(t,t.vehicle_identifier), 
+            'This vehicle ID already exists'),
+        ]
 
 class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'

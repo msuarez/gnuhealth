@@ -44,8 +44,43 @@
             <field name="act_window" ref="gnuhealth_action_support_request"/>
         </record>
 
-        <menuitem action="gnuhealth_action_support_request" icon="gnuhealth-operator"
+        <menuitem action="gnuhealth_action_support_request" sequence="900" icon="gnuhealth-operator"
             id="gnuhealth_support_request" parent="health.gnuhealth_menu"/>
+
+
+<!-- Ambulance configuration Registration -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_form">
+            <field name="model">gnuhealth.ambulance</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_tree">
+            <field name="model">gnuhealth.ambulance</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_ambulance">
+            <field name="name">Ambulances</field>
+            <field name="res_model">gnuhealth.ambulance</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_ambulance_tree"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_ambulance_form"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_ambulance" sequence="910" icon="gnuhealth-ambulance"
+            id="gnuhealth_ambulance" parent="health.gnuhealth_menu"/>
 
     </data>
 </tryton>
