@@ -29,12 +29,20 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal
-from trytond.model import ModelView, ModelSQL, fields, Unique
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.pool import Pool
 
 
-__all__ = ['Ambulance','SupportRequest']
+__all__ = ['GnuHealthSequences','Ambulance','SupportRequest']
 
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
+    "Standard Sequences for GNU Health"
+    __name__ = "gnuhealth.sequences"
+
+    support_request_code_sequence = fields.Property(fields.Many2One('ir.sequence',
+        'Support Request Sequence', 
+        domain=[('code', '=', 'gnuhealth.support_request')],
+        required=True))
 
 class Ambulance (ModelSQL, ModelView):
     'Ambulance'
@@ -96,7 +104,7 @@ class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'
     __name__ = 'gnuhealth.support_request'
 
-    code = fields.Char('Code',help='Request Code', required=True)
+    code = fields.Char('Code',help='Request Code')
 
     operator = fields.Many2One(
         'gnuhealth.healthprofessional', 'Operator',
@@ -194,6 +202,21 @@ class SupportRequest (ModelSQL, ModelView):
                 str(self.latitude) + '&mlon=' + str(self.longitude)
 
         return ret_url
+
+    @classmethod
+    def create(cls, vlist):
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if not values.get('code'):
+                config = Config(1)
+                values['code'] = Sequence.get_id(
+                    config.support_request_code_sequence.id)
+
+        return super(SupportRequest, cls).create(vlist)
+
 
     @classmethod
     def __setup__(cls):

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data skiptest="1">
+
+<!-- Sequences for Support Requests Codes -->
+
+        <record id="seq_type_gnuhealth_support_request_code" model="ir.sequence.type">
+            <field name="name">Support Request</field>
+            <field name="code">gnuhealth.support_request</field>
+        </record>
+
+        <record id="seq_gnuhealth_support_request_code" model="ir.sequence">
+            <field name="name">Support Request</field>
+            <field name="code">gnuhealth.support_request</field>
+            <field name="prefix">SR-${year}-</field>
+            <field name="padding">5</field>
+        </record>
+
+        <record model="ir.property" id="property_support_request_code_sequence">
+            <field name="field" 
+                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'support_request_code_sequence')]"/>
+            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_support_request_code'))"/>
+        </record>
+
+    </data>
+</tryton>
