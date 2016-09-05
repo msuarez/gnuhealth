@@ -104,7 +104,7 @@ class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'
     __name__ = 'gnuhealth.support_request'
 
-    code = fields.Char('Code',help='Request Code')
+    code = fields.Char('Code',help='Request Code', readonly=True)
 
     operator = fields.Many2One(
         'gnuhealth.healthprofessional', 'Operator',
@@ -147,7 +147,12 @@ class SupportRequest (ModelSQL, ModelView):
         fields.Char('Chief Complaint'),
         'get_patient_complaint')
 
-    request_extra_info = fields.Text('Details')
+    urgency = fields.Selection([
+        (None, ''),
+        ('low', 'Low'),
+        ('urgent', 'Urgent'),
+        ('emergency', 'Emergency'),
+        ], 'Urgency', sort=False)
        
     place_occurrance = fields.Selection([
         (None, ''),
@@ -163,6 +168,19 @@ class SupportRequest (ModelSQL, ModelView):
         ('unknown', 'Unknown'),
         ], 'Origin', help="Place of occurrance",sort=False)
 
+    event_type = fields.Selection([
+        (None, ''),
+        ('motor_vehicle', 'Motor Vehicle'),
+        ('accidental', 'Accidental / Unintentional'),
+        ('violence', 'Violence'),
+        ('attempt_suicide', 'Suicide Attempt'),
+        ('natural_disaster', 'Natural disaster'),
+        ], 'Incident', sort=False)
+
+
+    multiple_casualties = fields.Boolean('Multiple Casualties')
+
+    request_extra_info = fields.Text('Details')
     
     def get_patient_sex(self, name):
         if self.patient:
