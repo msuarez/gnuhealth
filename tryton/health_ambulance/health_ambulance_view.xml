@@ -82,5 +82,20 @@
         <menuitem action="gnuhealth_action_ambulance" sequence="910" icon="gnuhealth-ambulance"
             id="gnuhealth_ambulance" parent="health.gnuhealth_menu"/>
 
+<!-- Ambulances in Support Request -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_support_form">
+            <field name="model">gnuhealth.ambulance.support</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_support_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_support_tree">
+            <field name="model">gnuhealth.ambulance.support</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_support_tree</field>
+        </record>
+
+
     </data>
 </tryton>

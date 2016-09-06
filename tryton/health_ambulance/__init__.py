@@ -28,4 +28,5 @@ def register():
         GnuHealthSequences,
         Ambulance,
         SupportRequest,
+        AmbulanceSupport,
         module='health_ambulance', type_='model')

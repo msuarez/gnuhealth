@@ -33,7 +33,8 @@ from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
 from trytond.pool import Pool
 
 
-__all__ = ['GnuHealthSequences','Ambulance','SupportRequest']
+__all__ = [
+    'GnuHealthSequences','Ambulance','SupportRequest', 'AmbulanceSupport']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
@@ -100,6 +101,9 @@ class Ambulance (ModelSQL, ModelView):
             'This vehicle ID already exists'),
         ]
 
+    def get_rec_name(self, name):
+        return (self.vehicle_identifier + ' : ' + self.vehicle_type)
+
 class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'
     __name__ = 'gnuhealth.support_request'
@@ -161,10 +165,10 @@ class SupportRequest (ModelSQL, ModelView):
         ('institution', 'Institution'),
         ('school', 'School'),
         ('commerce', 'Commercial Area'),
-        ('publicbuilding', 'Public Building'),
         ('recreational', 'Recreational Area'),
         ('transportation', 'Public transportation'),
         ('sports', 'Sports event'),
+        ('publicbuilding', 'Public Building'),
         ('unknown', 'Unknown'),
         ], 'Origin', help="Place of occurrance",sort=False)
 
@@ -202,6 +206,10 @@ class SupportRequest (ModelSQL, ModelView):
     event_specific = fields.Many2One ('gnuhealth.pathology','Incident')
 
     multiple_casualties = fields.Boolean('Multiple Casualties')
+
+    ambulances = fields.One2Many(
+        'gnuhealth.ambulance.support', 'sr',
+        'Ambulances', help='Ambulances requested in this Support Request')
 
     request_extra_info = fields.Text('Details')
     
@@ -268,3 +276,13 @@ class SupportRequest (ModelSQL, ModelView):
             'This Request Code already exists'),
         ]
 
+
+class AmbulanceSupport (ModelSQL, ModelView):
+    'Ambulance associated to a Support Request'
+    __name__ = 'gnuhealth.ambulance.support'
+
+    sr = fields.Many2One('gnuhealth.support_request',
+        'SR', help="Support Request")
+
+    ambulance = fields.Many2One('gnuhealth.ambulance','Ambulance')
+    
