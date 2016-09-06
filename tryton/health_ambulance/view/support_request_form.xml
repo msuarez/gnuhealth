@@ -12,6 +12,8 @@
     <group id="request_place" string="Specifics">
         <label name="event_type"/>
         <field name="event_type"/>
+        <label name="event_specific"/>
+        <field name="event_specific"/>
         <label name="multiple_casualties"/>
         <field name="multiple_casualties"/>
         <label name="place_occurrance"/>

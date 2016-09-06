@@ -170,13 +170,36 @@ class SupportRequest (ModelSQL, ModelView):
 
     event_type = fields.Selection([
         (None, ''),
-        ('motor_vehicle', 'Motor Vehicle'),
-        ('accidental', 'Accidental / Unintentional'),
-        ('violence', 'Violence'),
-        ('attempt_suicide', 'Suicide Attempt'),
-        ('natural_disaster', 'Natural disaster'),
-        ], 'Incident', sort=False)
+        ('event1', 'Acute Coronary Syndrome'),
+        ('event2', 'Acute pain'),
+        ('event3', 'Acute illness'),
+        ('event4', 'Allergic reaction'),
+        ('event5', 'Bullying, battering'),
+        ('event6', 'Gastrointestinal event'),
+        ('event7', 'Endocrine event (diabetes, adrenal crisis, ..)'),
+        ('event8', 'Choke'),
+        ('event9', 'Domestic violence'),
+        ('event10', 'Environmental event (weather, animals, ...)'),
+        ('event11', 'Sexual assault'),
+        ('event12', 'Drug intoxication'),
+        ('event13', 'Robbery, violent assault'),
+        ('event14', 'Respiratory distress'),
+        ('event15', 'Pregnancy related event'),
+        ('event16', 'Gas intoxication'),
+        ('event17', 'Food intoxication'),
+        ('event18', 'Neurological event (stroke, TIA, seizure, ...)'),
+        ('event19', 'Chronic illness'),
+        ('event20', 'Near drowning'),
+        ('event21', 'Eye, Ear and Nose event'),
+        ('event22', 'Fall'),
+        ('event23', 'Deceased person'),
+        ('event24', 'Psychiatric event'),
+        ('event25', 'Transportation accident'),
+        ('event26', 'Traumatic Injuries'),
+        ('event27', 'Other specified'),
+        ], 'Event type')
 
+    event_specific = fields.Many2One ('gnuhealth.pathology','Incident')
 
     multiple_casualties = fields.Boolean('Multiple Casualties')
 
