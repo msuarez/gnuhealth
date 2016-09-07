@@ -34,7 +34,8 @@ from trytond.pool import Pool
 
 
 __all__ = [
-    'GnuHealthSequences','Ambulance','SupportRequest', 'AmbulanceSupport']
+    'GnuHealthSequences','Ambulance','SupportRequest', 'AmbulanceSupport',
+    'AmbulanceHealthProfessional']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
@@ -277,6 +278,7 @@ class SupportRequest (ModelSQL, ModelView):
         ]
 
 
+
 class AmbulanceSupport (ModelSQL, ModelView):
     'Ambulance associated to a Support Request'
     __name__ = 'gnuhealth.ambulance.support'
@@ -286,3 +288,16 @@ class AmbulanceSupport (ModelSQL, ModelView):
 
     ambulance = fields.Many2One('gnuhealth.ambulance','Ambulance')
     
+    healthprofs = fields.One2Many('gnuhealth.ambulance_hp','name',
+        'Health Professionals')
+
+class AmbulanceHealthProfessional(ModelSQL, ModelView):
+    'Ambulance Health Professionals'
+    __name__ = 'gnuhealth.ambulance_hp'
+
+    name = fields.Many2One('gnuhealth.ambulance.support', 'SR')
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health Prof',
+        help='Health Professional for this ambulance and support request')
+

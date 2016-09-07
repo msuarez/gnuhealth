@@ -4,4 +4,6 @@
     <field name="sr"/>
     <label name="ambulance"/>
     <field name="ambulance"/>
+    <newline/>
+    <field colspan="4" name="healthprofs"/>
 </form>

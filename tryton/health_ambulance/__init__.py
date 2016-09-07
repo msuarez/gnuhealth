@@ -29,4 +29,5 @@ def register():
         Ambulance,
         SupportRequest,
         AmbulanceSupport,
+        AmbulanceHealthProfessional,
         module='health_ambulance', type_='model')

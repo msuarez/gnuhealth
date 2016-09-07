@@ -96,6 +96,19 @@
             <field name="name">ambulance_support_tree</field>
         </record>
 
+<!-- Health Professionals involved in Ambulances in Support Request -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_healthprofessional_form">
+            <field name="model">gnuhealth.ambulance_hp</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_healthprofessional_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_healthprofessional_tree">
+            <field name="model">gnuhealth.ambulance_hp</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_healthprofessional_tree</field>
+        </record>
 
     </data>
 </tryton>
