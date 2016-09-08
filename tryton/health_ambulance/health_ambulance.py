@@ -86,8 +86,13 @@ class Ambulance (ModelSQL, ModelView):
 
     vehicle_status = fields.Selection([
         (None, ''),
-        ('available', 'Available'),
-        ('on_incident', 'On incident'),
+        ('available', 'Available / At Station'),
+        ('dispatched', 'Dispatched'),
+        ('en_route', 'En Route'),
+        ('on_location', 'On Location'),
+        ('to_hospital', 'To Hospital'),
+        ('at_hospital', 'At Hospital'),
+        ('at_hospital', 'Returning'),
         ('out_of_service', 'Out of service'),
         ], 'Status',sort=False, required=True, help="Vehicle status")
 
