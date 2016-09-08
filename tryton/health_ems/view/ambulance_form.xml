@@ -19,8 +19,8 @@
     <group id="vehicle_base" colspan="6" col="8" string="Station and Status">
         <label name="vehicle_station"/>
         <field name="vehicle_station"/>
-        <label name="vehicle_status"/>
-        <field name="vehicle_status"/>
+        <label name="state"/>
+        <field name="state"/>
         <label name="vehicle_odometer"/>
         <field name="vehicle_odometer"/>
     </group>

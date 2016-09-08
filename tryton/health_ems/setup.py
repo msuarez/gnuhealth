@@ -45,7 +45,7 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_health_ambulance',
+setup(name='trytond_health_ems',
     version=info.get('version', '0.0.1'),
     description=info.get('description',
         'GNU Health Ambulance dispaching and management'),
@@ -53,12 +53,12 @@ setup(name='trytond_health_ambulance',
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
     download_url='http://ftp.gnu.org/gnu/health/',
-    package_dir={'trytond.modules.health_ambulance': '.'},
+    package_dir={'trytond.modules.health_ems': '.'},
     packages=[
-        'trytond.modules.health_ambulance',
+        'trytond.modules.health_ems',
         ],
     package_data={
-        'trytond.modules.health_ambulance': info.get('xml', []) \
+        'trytond.modules.health_ems': info.get('xml', []) \
             + info.get('translation', []) \
             + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
                'report/*.odt', 'icons/*.svg'],
@@ -83,7 +83,7 @@ setup(name='trytond_health_ambulance',
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    health_ambulance = trytond.modules.health_ambulance
+    health_ems = trytond.modules.health_ems
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',

@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2013  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2016  Luis Falcon <falcon@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from .health_ambulance import *
+from .health_ems import *
 
 
 def register():
@@ -30,4 +30,4 @@ def register():
         SupportRequest,
         AmbulanceSupport,
         AmbulanceHealthProfessional,
-        module='health_ambulance', type_='model')
+        module='health_ems', type_='model')

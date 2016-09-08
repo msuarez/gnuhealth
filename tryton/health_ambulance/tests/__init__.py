@@ -1,1 +1,0 @@
-from test_health_ambulance import suite
