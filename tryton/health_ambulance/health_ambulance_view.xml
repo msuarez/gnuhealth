@@ -96,6 +96,26 @@
             <field name="name">ambulance_support_tree</field>
         </record>
 
+        <record model="ir.action.act_window" id="gnuhealth_action_ambulance_support">
+            <field name="name">Ambulance in Support Requests</field>
+            <field name="res_model">gnuhealth.ambulance.support</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_support_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_ambulance_support_tree"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance_support"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_support_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_ambulance_support_form"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance_support"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_ambulance_support" sequence="920"
+            id="gnuhealth_ambulance_sr" parent="health.gnuhealth_menu"/>
+
 <!-- Health Professionals involved in Ambulances in Support Request -->
 
         <record model="ir.ui.view" id="gnuhealth_ambulance_healthprofessional_form">

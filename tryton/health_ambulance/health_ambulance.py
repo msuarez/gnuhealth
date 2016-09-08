@@ -5,7 +5,7 @@
 #    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
-#    MODULE : AMBULANCE / EMS MANAGEMENT
+#    MODULE : Emergency Management
 # 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -84,7 +84,7 @@ class Ambulance (ModelSQL, ModelView):
         'gnuhealth.institution', 'Station',
         help="Station / Base of the vehicle")
 
-    vehicle_status = fields.Selection([
+    state = fields.Selection([
         (None, ''),
         ('available', 'Available / At Station'),
         ('dispatched', 'Dispatched'),
@@ -92,9 +92,9 @@ class Ambulance (ModelSQL, ModelView):
         ('on_location', 'On Location'),
         ('to_hospital', 'To Hospital'),
         ('at_hospital', 'At Hospital'),
-        ('at_hospital', 'Returning'),
+        ('returning', 'Returning'),
         ('out_of_service', 'Out of service'),
-        ], 'Status',sort=False, required=True, help="Vehicle status")
+        ], 'Status',sort=False, readonly=True, help="Vehicle status")
 
     vehicle_remarks = fields.Text('Remarks')
 
@@ -204,9 +204,11 @@ class SupportRequest (ModelSQL, ModelView):
         ('event22', 'Fall'),
         ('event23', 'Deceased person'),
         ('event24', 'Psychiatric event'),
-        ('event25', 'Transportation accident'),
-        ('event26', 'Traumatic Injuries'),
-        ('event27', 'Other specified'),
+        ('event25', 'Suicide attempt'),
+        ('event26', 'Dead person'),
+        ('event27', 'Transportation accident'),
+        ('event28', 'Traumatic Injuries'),
+        ('event29', 'Other specified'),
         ], 'Event type')
 
     event_specific = fields.Many2One ('gnuhealth.pathology','Incident')
@@ -295,6 +297,84 @@ class AmbulanceSupport (ModelSQL, ModelView):
     
     healthprofs = fields.One2Many('gnuhealth.ambulance_hp','name',
         'Health Professionals')
+
+    state = fields.Selection([
+        (None, ''),
+        ('available', 'Available / At Station'),
+        ('dispatched', 'Dispatched'),
+        ('en_route', 'En Route'),
+        ('on_location', 'On Location'),
+        ('to_hospital', 'To Hospital'),
+        ('at_hospital', 'At Hospital'),
+        ('returning', 'Returning'),
+        ('out_of_service', 'Out of service'),
+        ], 'Status',sort=False, readonly=True, help="Vehicle status")
+
+
+    @classmethod
+    def __setup__(cls):
+        super(AmbulanceSupport, cls).__setup__()
+        cls._buttons.update({
+            'available': {'invisible': Equal(Eval('state'), 'available')},
+            'dispatched': {'invisible': Equal(Eval('state'), 'dispatched')},
+            'en_route': {'invisible': Equal(Eval('state'), 'en_route')},
+            'on_location': {'invisible': Equal(Eval('state'), 'on_location')},
+            'to_hospital': {'invisible': Equal(Eval('state'), 'to_hospital')},
+            'at_hospital': {'invisible': Equal(Eval('state'), 'at_hospital')},
+            'returning': {'invisible': Equal(Eval('state'), 'returning')},
+            'out_of_service': {'invisible': Equal(Eval('state'), 'out_of_service')},
+                
+
+            })
+
+    @classmethod
+    @ModelView.button
+    def available(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'available'})
+
+    @classmethod
+    @ModelView.button
+    def dispatched(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'dispatched'})
+
+    @classmethod
+    @ModelView.button
+    def en_route(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'en_route'})
+
+    @classmethod
+    @ModelView.button
+    def on_location(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'on_location'})
+
+    @classmethod
+    @ModelView.button
+    def to_hospital(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'to_hospital'})
+
+    @classmethod
+    @ModelView.button
+    def at_hospital(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'at_hospital'})
+
+    @classmethod
+    @ModelView.button
+    def returning(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'returning'})
+
+    @classmethod
+    @ModelView.button
+    def out_of_service(cls, ambulances):
+        cls.write(ambulances, {
+            'state': 'out_of_service'})
+
 
 class AmbulanceHealthProfessional(ModelSQL, ModelView):
     'Ambulance Health Professionals'
