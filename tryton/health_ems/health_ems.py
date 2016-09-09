@@ -220,6 +220,11 @@ class SupportRequest (ModelSQL, ModelView):
         'Ambulances', help='Ambulances requested in this Support Request')
 
     request_extra_info = fields.Text('Details')
+ 
+    @staticmethod
+    def default_request_date():
+        return datetime.now()
+
     
     def get_patient_sex(self, name):
         if self.patient:
