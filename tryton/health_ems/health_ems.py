@@ -220,6 +220,7 @@ class SupportRequest (ModelSQL, ModelView):
         'Ambulances', help='Ambulances requested in this Support Request')
 
     request_extra_info = fields.Text('Details')
+
  
     @staticmethod
     def default_request_date():
@@ -332,53 +333,64 @@ class AmbulanceSupport (ModelSQL, ModelView):
 
             })
 
+
+
     @classmethod
     @ModelView.button
     def available(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'available'})
+        cls.update_ambulance_status(ambulances, status='available')
 
     @classmethod
     @ModelView.button
     def dispatched(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'dispatched'})
+        cls.update_ambulance_status(ambulances, status='dispatched')
 
     @classmethod
     @ModelView.button
     def en_route(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'en_route'})
+         cls.update_ambulance_status(ambulances, status='en_route')
 
     @classmethod
     @ModelView.button
     def on_location(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'on_location'})
+        cls.update_ambulance_status(ambulances, status='on_location')
 
     @classmethod
     @ModelView.button
     def to_hospital(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'to_hospital'})
+        cls.update_ambulance_status(ambulances, status='to_hospital')
 
     @classmethod
     @ModelView.button
     def at_hospital(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'at_hospital'})
+        cls.update_ambulance_status(ambulances, status='at_hospital')
 
     @classmethod
     @ModelView.button
     def returning(cls, ambulances):
-        cls.write(ambulances, {
-            'state': 'returning'})
+        cls.update_ambulance_status(ambulances, status='returning')
 
     @classmethod
     @ModelView.button
     def out_of_service(cls, ambulances):
+        cls.update_ambulance_status(ambulances, status='out_of_service')
+
+
+    @classmethod
+    def update_ambulance_status(cls, ambulances, status):
+        # Update status on local support model for this ambulance
         cls.write(ambulances, {
-            'state': 'out_of_service'})
+            'state': status})
+            
+        # Write current status on ambulance model
+        Ambulance = Pool().get('gnuhealth.ambulance')
+        vehicle = []
+        
+        vehicle.append(ambulances[0].ambulance)
+        
+        Ambulance.write(vehicle, {
+            'state': status })
+
 
 
 class AmbulanceHealthProfessional(ModelSQL, ModelView):
