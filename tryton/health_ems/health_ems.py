@@ -143,6 +143,7 @@ class SupportRequest (ModelSQL, ModelView):
     latitude = fields.Numeric('Latidude', digits=(3, 14))
     longitude = fields.Numeric('Longitude', digits=(4, 14))
 
+    address = fields.Text("Address", help="Free text address / location")
     urladdr = fields.Char(
         'OSM Map',
         help="Maps the location on Open Street Map")

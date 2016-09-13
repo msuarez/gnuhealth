@@ -9,17 +9,17 @@
         <field name="urgency"/>
         <label name="state"/>
         <field name="state"/>
-    </group>
-    <newline/>
-    <group id="request_place" string="Specifics">
         <label name="event_type"/>
         <field name="event_type"/>
         <label name="event_specific"/>
         <field name="event_specific"/>
-        <label name="multiple_casualties"/>
-        <field name="multiple_casualties"/>
         <label name="place_occurrance"/>
         <field name="place_occurrance"/>
+        <label name="multiple_casualties"/>
+        <field name="multiple_casualties"/>
+    </group>
+    <newline/>
+    <group id="request_place" string="Location">
         <label name="operational_sector"/>
         <field name="operational_sector"/>
         <newline/>
@@ -30,6 +30,10 @@
         <label name="urladdr"/>
         <field name="urladdr" widget="url"/>
     </group>
+    <group id="request_address" string="Address">
+        <field name="address"/>
+    </group>
+
     <newline/>
     <group colspan="4" col="6" id="patient_demographics" string="Patient Demographics">
         <label name="patient"/>
@@ -47,13 +51,12 @@
         <field name="complaint"/>
     </group>
     <newline/>
-    <field colspan="4" name="request_actions"/>
-    <newline/>
-    <field colspan="4" name="ambulances"/>
-    <newline/>
     <separator id="sep_details" colspan="4" string="Details"/>
     <newline/>
     <field colspan="4" name="request_extra_info"/>
+    <newline/>
+    <field colspan="4" name="request_actions"/>
+    <field colspan="4" name="ambulances"/>
     <newline/>
     <group id="request_footer" colspan="4" col="8">
         <label name="requestor"/>
