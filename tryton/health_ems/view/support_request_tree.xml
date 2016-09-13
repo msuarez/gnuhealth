@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <tree string="Health Support Request">
     <field name="code"/>
-    <field name="state"/>
+    <field name="event_type" expand="1"/>
+    <field name="urgency" expand="1"/>
+    <field name="state" expand="1"/>
     <field name="patient"/>
     <field name="requestor"/>
     <field name="healthcenter"/>
