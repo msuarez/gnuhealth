@@ -130,5 +130,19 @@
             <field name="name">ambulance_healthprofessional_tree</field>
         </record>
 
+<!-- Health Support Request Log -->
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_log_form">
+            <field name="model">gnuhealth.support_request.log</field>
+            <field name="type">form</field>
+            <field name="name">support_request_log_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_log_tree">
+            <field name="model">gnuhealth.support_request.log</field>
+            <field name="type">tree</field>
+            <field name="name">support_request_log_tree</field>
+        </record>
+
     </data>
 </tryton>

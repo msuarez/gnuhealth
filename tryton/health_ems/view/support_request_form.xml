@@ -47,6 +47,8 @@
         <field name="complaint"/>
     </group>
     <newline/>
+    <field colspan="4" name="request_actions"/>
+    <newline/>
     <field colspan="4" name="ambulances"/>
     <newline/>
     <separator id="sep_details" colspan="4" string="Details"/>

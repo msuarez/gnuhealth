@@ -35,7 +35,7 @@ from trytond.pool import Pool
 
 __all__ = [
     'GnuHealthSequences','Ambulance','SupportRequest', 'AmbulanceSupport',
-    'AmbulanceHealthProfessional']
+    'AmbulanceHealthProfessional','SupportRequestLog']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
@@ -220,6 +220,10 @@ class SupportRequest (ModelSQL, ModelView):
 
     multiple_casualties = fields.Boolean('Multiple Casualties')
 
+    request_actions = fields.One2Many(
+        'gnuhealth.support_request.log', 'sr',
+        'Activities', help='Support request activity log')
+
     ambulances = fields.One2Many(
         'gnuhealth.ambulance.support', 'sr',
         'Ambulances', help='Ambulances requested in this Support Request')
@@ -306,7 +310,6 @@ class SupportRequest (ModelSQL, ModelView):
             })
 
 
-
     @classmethod
     @ModelView.button
     def open_support(cls, srs):
@@ -361,11 +364,9 @@ class AmbulanceSupport (ModelSQL, ModelView):
             'to_hospital': {'invisible': Equal(Eval('state'), 'to_hospital')},
             'at_hospital': {'invisible': Equal(Eval('state'), 'at_hospital')},
             'returning': {'invisible': Equal(Eval('state'), 'returning')},
-            'out_of_service': {'invisible': Equal(Eval('state'), 'out_of_service')},
-                
-
+            'out_of_service': {'invisible': Equal(Eval('state'),
+            'out_of_service')},
             })
-
 
 
     @classmethod
@@ -436,3 +437,29 @@ class AmbulanceHealthProfessional(ModelSQL, ModelView):
         'gnuhealth.healthprofessional', 'Health Prof',
         help='Health Professional for this ambulance and support request')
 
+class SupportRequestLog (ModelSQL, ModelView):
+    'Ambulance associated to a Support Request'
+    __name__ = 'gnuhealth.support_request.log'
+
+    sr = fields.Many2One('gnuhealth.support_request',
+        'SR', help="Support Request", required=True)
+
+    timestamp = fields.DateTime('Time', required=True,
+        help="Date and time of activity")
+
+    action = fields.Selection([
+        (None, ''),
+        ('ambulance_dispatched', 'Ambulance dispatched'),
+        ('general', 'General'),
+        ], 'Activity',sort=False, help="Activity log")
+
+    remarks = fields.Char('Remarks', help="Remarks for this item")
+    
+
+    @staticmethod
+    def default_timestamp():
+        return datetime.now()
+
+    @staticmethod
+    def default_action():
+        return 'general'
