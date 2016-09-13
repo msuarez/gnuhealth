@@ -205,10 +205,11 @@ class SupportRequest (ModelSQL, ModelView):
         ('event23', 'Deceased person'),
         ('event24', 'Psychiatric event'),
         ('event25', 'Suicide attempt'),
-        ('event26', 'Dead person'),
+        ('event26', 'Fire'),
         ('event27', 'Transportation accident'),
         ('event28', 'Traumatic Injuries'),
-        ('event29', 'Other specified'),
+        ('event29', 'Explosion'),
+        ('event30', 'Other specified'),
         ], 'Event type')
 
     event_specific = fields.Many2One ('gnuhealth.pathology','Incident')
@@ -221,6 +222,11 @@ class SupportRequest (ModelSQL, ModelView):
 
     request_extra_info = fields.Text('Details')
 
+    state = fields.Selection([
+        (None, ''),
+        ('open', 'Open'),
+        ('closed', 'Closed'),
+        ], 'State', sort=False, readonly=True)
  
     @staticmethod
     def default_request_date():
@@ -248,8 +254,8 @@ class SupportRequest (ModelSQL, ModelView):
         return operator
 
     @staticmethod
-    def default_request_date():
-        return datetime.now()
+    def default_state():
+        return 'open'
 
 
     @fields.depends('latitude', 'longitude')
@@ -290,6 +296,24 @@ class SupportRequest (ModelSQL, ModelView):
             'This Request Code already exists'),
         ]
 
+        cls._buttons.update({
+            'open_support': {'invisible': Equal(Eval('state'), 'open')},
+            'close_support': {'invisible': Equal(Eval('state'), 'closed')},
+            })
+
+
+
+    @classmethod
+    @ModelView.button
+    def open_support(cls, srs):
+        cls.write(srs, {
+            'state': 'open'})
+
+    @classmethod
+    @ModelView.button
+    def close_support(cls, srs):
+        cls.write(srs, {
+            'state': 'closed'})
 
 
 class AmbulanceSupport (ModelSQL, ModelView):

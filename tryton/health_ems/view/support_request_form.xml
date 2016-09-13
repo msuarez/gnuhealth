@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <form string="Health Support Request">
-    <group colspan="4" col="6" id="request_header">
+    <group colspan="4" col="8" id="request_header">
         <label name="request_date"/>
         <field name="request_date"/>
         <label name="code"/>
         <field name="code"/>
         <label name="urgency"/>
         <field name="urgency"/>
+        <label name="state"/>
+        <field name="state"/>
     </group>
     <newline/>
     <group id="request_place" string="Specifics">
@@ -51,12 +53,14 @@
     <newline/>
     <field colspan="4" name="request_extra_info"/>
     <newline/>
-    <group id="request_footer" colspan="4" col="6">
+    <group id="request_footer" colspan="4" col="8">
         <label name="requestor"/>
         <field name="requestor"/>
         <label name="healthcenter"/>
         <field name="healthcenter"/>
         <label name="operator"/>
         <field name="operator"/>
+        <button name="open_support" help="Set this support request to open" string="Open" confirm="Open the request ?"/>
+        <button name="close_support" help="Set this support request to closed" string="Close" confirm="Close the request ?"/>
     </group>
 </form>
