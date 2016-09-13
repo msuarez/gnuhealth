@@ -425,6 +425,20 @@ class AmbulanceSupport (ModelSQL, ModelView):
         Ambulance.write(vehicle, {
             'state': status })
 
+        # Create a new current ambulance status on support request log
+        Activity = Pool().get('gnuhealth.support_request.log')
+        log = []
+        timestamp = datetime.now()
+        values = {
+            'sr': 'ambulance',
+            'action': 'ambulance',
+            'remarks': status,
+            'timestamp': timestamp,
+            }
+        values['sr'] = ambulances[0].sr
+        
+        log.append(values)
+        Activity.create(log)
 
 
 class AmbulanceHealthProfessional(ModelSQL, ModelView):
@@ -449,7 +463,7 @@ class SupportRequestLog (ModelSQL, ModelView):
 
     action = fields.Selection([
         (None, ''),
-        ('ambulance_dispatched', 'Ambulance dispatched'),
+        ('ambulance', 'Ambulance'),
         ('general', 'General'),
         ], 'Activity',sort=False, help="Activity log")
 
