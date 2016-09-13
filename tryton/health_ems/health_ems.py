@@ -117,6 +117,7 @@ class Ambulance (ModelSQL, ModelView):
 class SupportRequest (ModelSQL, ModelView):
     'Support Request Registration'
     __name__ = 'gnuhealth.support_request'
+    _rec_name = 'code'
 
     code = fields.Char('Code',help='Request Code', readonly=True)
 
