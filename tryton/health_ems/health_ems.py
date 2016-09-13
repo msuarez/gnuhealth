@@ -98,6 +98,10 @@ class Ambulance (ModelSQL, ModelView):
 
     vehicle_remarks = fields.Text('Remarks')
 
+    @staticmethod
+    def default_state():
+        return 'available'
+
     @classmethod
     def __setup__(cls):
         super(Ambulance, cls).__setup__()
@@ -321,9 +325,10 @@ class AmbulanceSupport (ModelSQL, ModelView):
     __name__ = 'gnuhealth.ambulance.support'
 
     sr = fields.Many2One('gnuhealth.support_request',
-        'SR', help="Support Request")
+        'SR', help="Support Request", required=True)
 
-    ambulance = fields.Many2One('gnuhealth.ambulance','Ambulance')
+    ambulance = fields.Many2One('gnuhealth.ambulance','Ambulance',
+        domain=[('state', '=', 'available')],)
     
     healthprofs = fields.One2Many('gnuhealth.ambulance_hp','name',
         'Health Professionals')
@@ -339,6 +344,10 @@ class AmbulanceSupport (ModelSQL, ModelView):
         ('returning', 'Returning'),
         ('out_of_service', 'Out of service'),
         ], 'Status',sort=False, readonly=True, help="Vehicle status")
+
+    @staticmethod
+    def default_state():
+        return 'available'
 
 
     @classmethod
