@@ -28,6 +28,7 @@ from sql import Literal, Table
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal, Or
 from trytond import backend
+import pytz
 
 
 __all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
@@ -206,7 +207,8 @@ class InpatientRegistration(ModelSQL, ModelView):
                 'bed_is_not_available': 'Bed is not available',
                 'discharge_reason_needed': 'Admission and Discharge reasons \n'
                 'as well as Discharge Dx are needed',
-                'destination_bed_unavailable': 'Destination bed unavailable'})
+                'destination_bed_unavailable': 'Destination bed unavailable',
+                'need_timezone':'You need to set up the company timezone'})
         cls._buttons.update({
                 'confirmed': {
                     'invisible': And(Not(Equal(Eval('state'), 'free')),
@@ -297,12 +299,28 @@ class InpatientRegistration(ModelSQL, ModelView):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
 
-        if (registration_id.hospitalization_date.date() !=
-            datetime.today().date()):
-            cls.raise_user_error("The Admission date must be today")
-        else:
-            cls.write(registrations, {'state': 'hospitalized'})
-            Bed.write([registration_id.bed], {'state': 'occupied'})
+        Company = Pool().get('company.company')
+
+        timezone = None
+        company_id = Transaction().context.get('company')
+        if company_id:
+            company = Company(company_id)
+            if company.timezone:
+                timezone = pytz.timezone(company.timezone)
+                
+                dt = datetime.today()
+                dt_local = datetime.astimezone(dt.replace(tzinfo=pytz.utc),
+                 timezone)        
+
+                if (registration_id.hospitalization_date.date() !=
+                    dt_local.date()):
+                    cls.raise_user_error("The Admission date must be today")
+                else:
+                    cls.write(registrations, {'state': 'hospitalized'})
+                    Bed.write([registration_id.bed], {'state': 'occupied'})
+
+            else:
+               cls.raise_user_error('need_timezone')
 
     @classmethod
     def create(cls, vlist):
