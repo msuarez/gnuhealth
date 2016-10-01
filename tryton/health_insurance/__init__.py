@@ -32,4 +32,5 @@ def register():
     Pool.register(
         InsurancePlanProductPolicy,
         InsurancePlan,
+        HealthService,
         module='health_insurance', type_='model')

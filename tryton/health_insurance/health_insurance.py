@@ -28,7 +28,7 @@ from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 
 
-__all__ = ['InsurancePlanProductPolicy','InsurancePlan']
+__all__ = ['InsurancePlanProductPolicy','InsurancePlan','HealthService']
 
 
 class InsurancePlanProductPolicy(ModelSQL, ModelView):
@@ -49,3 +49,22 @@ class InsurancePlan(ModelSQL, ModelView):
 
     product_policy = fields.One2Many('gnuhealth.insurance.plan.product.policy',
         'plan','Policy')
+
+class HealthService(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.health_service'
+
+    insurance_holder = fields.Many2One('party.party','Insurance Holder',
+        help="Insurance Policy Holder")
+
+    insurance_plan = fields.Many2One('gnuhealth.insurance',
+            'Plan', 
+            domain=[('name', '=', Eval('insurance_holder'))],
+            depends=['insurance_holder'])
+
+ 
+    # Set the insurance holder upon entering the 
+    @fields.depends('patient')
+    def on_change_patient(self):
+        insurance_holder=None
+        if self.patient:
+            self.insurance_holder = self.patient.name

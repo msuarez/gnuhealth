@@ -38,5 +38,14 @@
             parent="health.gnuhealth_conf_insurances"/>
 
 
+<!-- Health Service -->
+
+        <record model="ir.ui.view" id="view_gnuhealth_service_form">
+            <field name="model">gnuhealth.health_service</field>
+            <field name="inherit" ref="health_services.gnuhealth_health_service_view"/>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_health_service</field>
+        </record>
+
     </data>
 </tryton>
