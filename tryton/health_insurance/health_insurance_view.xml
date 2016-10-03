@@ -37,6 +37,15 @@
             id="menu_gnuhealth_insurance_plan_product_policy_list" icon="gnuhealth-list"
             parent="health.gnuhealth_conf_insurances"/>
 
+<!-- Insurances plan -->
+
+        <record model="ir.ui.view" id="gnuhealth_insurance_plan_view">
+            <field name="model">gnuhealth.insurance.plan</field>
+            <field name="inherit" ref="health.gnuhealth_insurance_plan_view"/>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_insurance_plan</field>
+        </record>
+
 
 <!-- Health Service -->
 

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/field[@name=&quot;is_default&quot;]" position="after">
+        <newline/>
+        <field colspan="4" name="product_policy"/>
+    </xpath>
+</data>
+ 
