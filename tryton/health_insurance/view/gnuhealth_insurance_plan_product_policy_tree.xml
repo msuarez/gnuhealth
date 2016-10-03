@@ -2,5 +2,6 @@
 <tree string="Insurance Plan Product Policies" editable="top">
     <field name="plan" expand="1"/>
     <field name="product" expand="1"/>
+    <field name="product_category" expand="1"/>
     <field name="discount" expand="1"/>
 </tree>

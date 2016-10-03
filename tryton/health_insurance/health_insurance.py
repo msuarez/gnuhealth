@@ -40,6 +40,9 @@ class InsurancePlanProductPolicy(ModelSQL, ModelView):
 
     product = fields.Many2One('product.product',
         'Product', )
+
+    product_category = fields.Many2One('product.category',
+        'Category', )
         
     discount = fields.Integer('Discount', )
 
