@@ -2,9 +2,6 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#
-#    INSURANCE MODULE
-#
 #    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
 #
@@ -24,17 +21,4 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
-from .health_insurance import *
-from wizard import *
-
-
-def register():
-    Pool.register(
-        InsurancePlanProductPolicy,
-        InsurancePlan,
-        HealthService,
-        module='health_insurance', type_='model')
-    Pool.register(
-        CreateServiceInvoice,
-        module='health_services', type_='wizard')
+from wizard_health_insurance import *
