@@ -44,14 +44,27 @@ class CreateServiceInvoice(Wizard):
         # Check that there is a plan associated to the insurance
         if insurance.plan_id:
             # Traverse the product policies within the plan
+            # In terms of applying discount, category and product are
+            # mutually exclusive.
+            
             discount = {}
             if insurance.plan_id.product_policy:
                 for policy in insurance.plan_id.product_policy:
-                    if (product == policy.product):
+
+                    # Check first for category
+                    if (product.category == policy.product_category):
                         if policy.discount:
                             discount['value'] = policy.discount
                             discount['type'] = 'pct' 
-                            break
+                            return discount
+                    
+                    # Then, if there's no category, check for the product
+                    if (product == policy.product):
+                        if policy.discount:
+                            discount['value'] = policy.discount
+                            discount['type'] = 'pct'
+                            return discount
+
             return discount
     
     def transition_create_service_invoice(self):
