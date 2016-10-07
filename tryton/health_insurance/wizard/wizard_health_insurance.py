@@ -50,19 +50,19 @@ class CreateServiceInvoice(Wizard):
             discount = {}
             if insurance.plan_id.product_policy:
                 for policy in insurance.plan_id.product_policy:
-
-                    # Check first for category
-                    if (product.category == policy.product_category):
-                        if policy.discount:
-                            discount['value'] = policy.discount
-                            discount['type'] = 'pct' 
-                            return discount
-                    
-                    # Then, if there's no category, check for the product
+                    # Check first for product
                     if (product == policy.product):
                         if policy.discount:
                             discount['value'] = policy.discount
                             discount['type'] = 'pct'
+                            return discount
+                    
+                for policy in insurance.plan_id.product_policy:
+                    # Then, if there's no product, check for the category
+                    if (product.category == policy.product_category):
+                        if policy.discount:
+                            discount['value'] = policy.discount
+                            discount['type'] = 'pct' 
                             return discount
 
             return discount
