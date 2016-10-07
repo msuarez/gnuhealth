@@ -22,6 +22,7 @@
 #
 ##############################################################################
 import datetime
+import decimal
 from trytond.model import ModelView
 from trytond.wizard import Wizard, StateTransition, StateView, Button
 from trytond.transaction import Transaction
@@ -43,12 +44,15 @@ class CreateServiceInvoice(Wizard):
         # Check that there is a plan associated to the insurance
         if insurance.plan_id:
             # Traverse the product policies within the plan
+            discount = {}
             if insurance.plan_id.product_policy:
                 for policy in insurance.plan_id.product_policy:
                     if (product == policy.product):
-                        print "Match ! Applying policy rule"
-                    else:
-                        print "No policy for this service"
+                        if policy.discount:
+                            discount['value'] = policy.discount
+                            discount['type'] = 'pct' 
+                            break
+            return discount
     
     def transition_create_service_invoice(self):
         pool = Pool()
@@ -128,6 +132,8 @@ class CreateServiceInvoice(Wizard):
                     
                 if line.to_invoice:
                     taxes = []
+                    desc = line.desc
+                    
                     #Include taxes related to the product on the invoice line
                     for product_tax_line in line.product.customer_taxes_used:
                         taxes.append(product_tax_line.id)
@@ -138,10 +144,21 @@ class CreateServiceInvoice(Wizard):
                             self.discount_policy(service.insurance_plan, \
                                 line.product)
                         
+                        if discount['value']:
+                            if (discount['type'] == 'pct'):
+                                unit_price *= (1 - 
+                                    decimal.Decimal(discount['value'])/100)
+                                
+                                # Add a remark on the description discount
+                                str_disc = str(discount['value']) + '%'
+                                desc = line.desc + " (Discnt " + \
+                                  unicode (str_disc) + ")"
+                                
+                            
                     invoice_lines.append(('create', [{
                             'origin': str(line),
                             'product': line.product.id,
-                            'description': line.desc,
+                            'description': desc,
                             'quantity': line.qty,
                             'account': account,
                             'unit': line.product.default_uom.id,
