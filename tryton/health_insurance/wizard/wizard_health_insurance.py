@@ -157,16 +157,16 @@ class CreateServiceInvoice(Wizard):
                             self.discount_policy(service.insurance_plan, \
                                 line.product)
                         
-                        if discount['value']:
-                            if (discount['type'] == 'pct'):
-                                unit_price *= (1 - 
-                                    decimal.Decimal(discount['value'])/100)
-                                
-                                # Add a remark on the description discount
-                                str_disc = str(discount['value']) + '%'
-                                desc = line.desc + " (Discnt " + \
-                                  unicode (str_disc) + ")"
-                                
+                        if 'value' in discount.keys():
+                            if discount['value']:
+                                if (discount['type'] == 'pct'):
+                                    unit_price *= (1 - 
+                                        decimal.Decimal(discount['value'])/100)
+                                    
+                                    # Add a remark on the description discount
+                                    str_disc = str(discount['value']) + '%'
+                                    desc = line.desc + " (Discnt " + \
+                                      unicode (str_disc) + ")"
                             
                     invoice_lines.append(('create', [{
                             'origin': str(line),
