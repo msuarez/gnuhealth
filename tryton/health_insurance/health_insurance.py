@@ -76,6 +76,7 @@ class InsurancePlanProductPolicy(ModelSQL, ModelView):
 
 class InsurancePlan(ModelSQL, ModelView):
     __name__ = "gnuhealth.insurance.plan"
+    _rec_name = 'name'
 
     product_policy = fields.One2Many('gnuhealth.insurance.plan.product.policy',
         'plan','Policy')
