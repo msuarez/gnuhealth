@@ -36,7 +36,7 @@ class InsurancePlanProductPolicy(ModelSQL, ModelView):
     __name__ = "gnuhealth.insurance.plan.product.policy"
 
     plan = fields.Many2One('gnuhealth.insurance.plan',
-        'Plan', )
+        'Plan', required=True)
 
     product = fields.Many2One('product.product',
         'Product', )
@@ -45,17 +45,22 @@ class InsurancePlanProductPolicy(ModelSQL, ModelView):
         'Category', )
         
     discount = fields.Float('Discount', digits=(3,2), 
-        help="Discount in Percentage")
+        help="Discount in Percentage", required=True)
 
     @classmethod
     def validate(cls, policies):
         super(InsurancePlanProductPolicy, cls).validate(policies)
         for policy in policies:
             policy.validate_discount()
+            policy.validate_policy_elements()
 
     def validate_discount(self):
         if (self.discount < 0 or self.discount > 100):
             self.raise_user_error('discount_pct_out_of_range')
+
+    def validate_policy_elements(self):
+        if (not self.product and not self.product_category):
+            self.raise_user_error('discount_need_and_element')
 
     @classmethod
     def __setup__(cls):
@@ -64,6 +69,8 @@ class InsurancePlanProductPolicy(ModelSQL, ModelView):
         cls._error_messages.update({
             'discount_pct_out_of_range':
                 'Percentage out of range [0-100]',
+                    'discount_need_and_element':
+                'You need a product or category',
         })
 
 
