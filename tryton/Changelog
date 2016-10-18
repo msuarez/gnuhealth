@@ -1,3 +1,17 @@
+changeset:   2521:23c296b94193
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 18 12:21:51 2016 +0100
+summary:     Update version to 3.0.4
+
+changeset:   2520:308c001c7b40
+branch:      stable
+parent:      2482:f424359039d2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 25 14:46:25 2016 +0000
+summary:     health_inpatient: Fix #49181, Check admission date with UTC
+
 changeset:   2480:c48e969ae425
 branch:      stable
 tag:         tip
