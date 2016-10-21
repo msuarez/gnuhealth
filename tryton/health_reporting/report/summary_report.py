@@ -32,20 +32,38 @@ class InstitutionSummaryReport(Report):
 
 
     @classmethod
+    def get_population_with_no_dob(cls):
+        """ Return Total Number of living people in the system 
+        without a date of birth"""
+        cursor = Transaction().cursor
+
+        # Check for entries without date of birth
+        cursor.execute("SELECT COUNT(id) \
+            FROM party_party WHERE is_person is TRUE and \
+            deceased is not TRUE and dob is null")
+
+        res = cursor.fetchone()[0]
+    
+        return(res)
+
+    @classmethod
     def get_population(cls,date1,date2,gender,total):
         """ Return Total Number of living people in the system 
         segmented by age group and gender"""
         cursor = Transaction().cursor
 
         if (total):
-            cursor.execute("SELECT COUNT(dob) \
-                FROM party_party WHERE gender = %s and deceased is not TRUE",(gender))
+            cursor.execute("SELECT COUNT(id) \
+                FROM party_party WHERE \
+                gender = %s and deceased is not TRUE",(gender))
 
         else:
-            cursor.execute("SELECT COUNT(dob) \
+            cursor.execute("SELECT COUNT(id) \
                 FROM party_party \
                 WHERE dob BETWEEN %s and %s AND \
-                gender = %s  and deceased is not TRUE" ,(date2, date1, gender))
+                gender = %s  \
+                and deceased is not TRUE" ,(date2, date1, gender))
+
        
         res = cursor.fetchone()[0]
     
@@ -169,6 +187,10 @@ class InstitutionSummaryReport(Report):
         context[''.join(['p','total_','m'])] = \
             cls.get_population (None,None,'m', total=True)
         
+        # Living people with NO date of birth
+        context['no_dob'] = \
+            cls.get_population_with_no_dob()
+
         # Build the Population Pyramid for registered people
 
         for age_group in range (0,21):
@@ -205,7 +227,6 @@ class InstitutionSummaryReport(Report):
         context['new_deaths'] = \
             cls.get_new_deaths(start_date, end_date)
 
-
         # Get evaluations within the specified date range
         
         context['evaluations'] = \
@@ -215,6 +236,7 @@ class InstitutionSummaryReport(Report):
         
         eval_dx =[]
         non_dx_eval = 0
+        non_age_eval = 0
         eval_f = 0
         eval_m = 0
         
@@ -229,11 +251,15 @@ class InstitutionSummaryReport(Report):
                 eval_f +=1
             else:
                 eval_m +=1
+
+            if not evaluation.computed_age:
+                non_age_eval +=1
         
         context['non_dx_eval'] = non_dx_eval
         context['eval_num'] = len(evaluations)
         context['eval_f'] = eval_f
         context['eval_m'] = eval_m
+        context['non_age_eval'] = non_age_eval
         
         # Create a set to work with single diagnoses
         # removing duplicate entries from eval_dx
@@ -255,31 +281,34 @@ class InstitutionSummaryReport(Report):
             new_conditions = 0
             
             for unique_eval in unique_evaluations:
-                #Strip to get the raw year
-                age = int(unique_eval.computed_age.split(' ')[0][:-1])
                 
-                
-                # Age groups in this diagnostic
-                if (age < 5):
-                    group_1 += 1
-                    if (unique_eval.gender == 'f'):
-                        group_1f += 1
-                if (age in range(5,14)):
-                    group_2 += 1
-                    if (unique_eval.gender == 'f'):
-                        group_2f += 1
-                if (age in range(15,45)):
-                    group_3 += 1
-                    if (unique_eval.gender == 'f'):
-                        group_3f += 1
-                if (age in range(46,60)):
-                    group_4 += 1
-                    if (unique_eval.gender == 'f'):
-                        group_4f += 1
-                if (age > 60):
-                    group_5 += 1
-                    if (unique_eval.gender == 'f'):
-                        group_5f += 1
+                if (unique_eval.computed_age):
+                    
+                    #Strip to get the raw year
+                    age = int(unique_eval.computed_age.split(' ')[0][:-1])
+                    
+                    
+                    # Age groups in this diagnostic
+                    if (age < 5):
+                        group_1 += 1
+                        if (unique_eval.gender == 'f'):
+                            group_1f += 1
+                    if (age in range(5,14)):
+                        group_2 += 1
+                        if (unique_eval.gender == 'f'):
+                            group_2f += 1
+                    if (age in range(15,45)):
+                        group_3 += 1
+                        if (unique_eval.gender == 'f'):
+                            group_3f += 1
+                    if (age in range(46,60)):
+                        group_4 += 1
+                        if (unique_eval.gender == 'f'):
+                            group_4f += 1
+                    if (age > 60):
+                        group_5 += 1
+                        if (unique_eval.gender == 'f'):
+                            group_5f += 1
 
                 # Check for new conditions vs followup / chronic checkups 
                 # in the evaluation with a particular diagnosis
