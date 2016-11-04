@@ -21,6 +21,7 @@
 #
 ##############################################################################
 import qrcode
+import barcode
 import StringIO
 from trytond.model import ModelView, ModelSQL, fields
 
@@ -181,7 +182,8 @@ class LabTest(ModelSQL, ModelView):
 
     # Add the QR Code to the Lab Test
     qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
-
+    bar = fields.Function(fields.Binary('Bar Code39'), 'make_barcode')
+    
     def make_qrcode(self, name):
     # Create the QR code
 
@@ -209,3 +211,22 @@ class LabTest(ModelSQL, ModelView):
         holder.close()
 
         return bytearray(qr_png)
+
+
+    def make_barcode(self, name):
+    # Create the Code39 bar code to encode the TEST ID 
+    
+        labtest_id = self.name or ''
+        
+        CODE39 = barcode.get_barcode_class('code39')
+        
+        code39 = CODE39(labtest_id, add_checksum=False)
+        
+        # Make a PNG image from PIL without the need to create a temp file
+
+        holder = StringIO.StringIO()
+        code39.write(holder)
+        code39_png = holder.getvalue()
+        holder.close()
+
+        return bytearray(code39_png)
