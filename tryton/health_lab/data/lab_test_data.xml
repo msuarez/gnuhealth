@@ -690,7 +690,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_rdwcv0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;RDW-CV&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;RDWcv&quot;&quot;&quot;" name="name"/>
             <field eval="7" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;11.5-14.5&quot;&quot;&quot;" name="normal_range"/>
@@ -751,7 +751,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_rdwsd0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;RDW-SD&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;RDWsd&quot;&quot;&quot;" name="name"/>
             <field eval="8" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;35-56&quot;&quot;&quot;" name="normal_range"/>
