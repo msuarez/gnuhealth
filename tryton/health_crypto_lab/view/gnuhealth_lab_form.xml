@@ -30,9 +30,11 @@
 
         <separator colspan="4" string="Document validation" id="separator_docvalidation"/>
         <newline/>
-        <group colspan="4" id="prescription_digest">
+        <group colspan="4" id="labtest_digest">
             <label name="document_digest"/>
-            <field colspan="3" name="document_digest"/>
+            <field name="document_digest"/>
+            <label name="digest_status"/>
+            <field name="digest_status"/>
             <newline/>
             <label name="serializer"/>
             <field name="serializer"/>
@@ -42,8 +44,9 @@
             <label name="digest_current"/>
             <field colspan="3" name="digest_current"/>
             <newline/>
-            <label name="digital_signature"/>
-            <field name="digital_signature"/>
+            <separator colspan="4" string="Digital Signature" id="digital_signature"/>
+            <newline/>            
+            <field name="digital_signature" colspan="4"/>
             
         </group>
         </page>

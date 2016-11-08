@@ -52,9 +52,6 @@ class LabTest(ModelSQL, ModelView):
 
 
     digest_status = fields.Function(fields.Boolean('Altered',
-        states={
-        'invisible': Not(Equal(Eval('state'),'done')),
-        },
         help="This field will be set whenever parts of" \
         " the main original document has been changed." \
         " Please note that the verification is done only on selected" \
