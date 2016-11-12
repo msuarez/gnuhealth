@@ -230,7 +230,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
     'Patient Lab Test'
     __name__ = 'gnuhealth.patient.lab.test'
-
+    
     name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type',
         required=True, select=True)
     date = fields.DateTime('Date', select=True)
@@ -244,7 +244,7 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
      select=True)
     doctor_id = fields.Many2One('gnuhealth.healthprofessional', 'Doctor',
         help="Doctor who Request the lab test.", select=True)
-    request = fields.Integer('Request', readonly=True)
+    request = fields.Integer('Order', readonly=True)
     urgent = fields.Boolean('Urgent')
 
     @classmethod
