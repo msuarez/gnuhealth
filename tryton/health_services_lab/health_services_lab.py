@@ -79,8 +79,7 @@ class PatientLabTestRequest(ModelSQL, ModelView):
             
         hservice.append(laborder.service)
         
-        description = "Services including " + \
-            laborder.rec_name
+        description = "Services and Lab"
         
         service_data ['desc'] =  description
         service_data ['service_line'] = service_lines

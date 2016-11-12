@@ -65,7 +65,10 @@ class RequestPatientLabTest(Wizard):
                 lab_test['doctor_id'] = self.start.doctor.id
             lab_test['date'] = self.start.date
             lab_test['urgent'] = self.start.urgent
-            lab_test['service'] = self.start.service.id
+            
+            if self.start.service:
+                lab_test['service'] = self.start.service.id
+            
             lab_tests.append(lab_test)
 
         PatientLabTest.create(lab_tests)
