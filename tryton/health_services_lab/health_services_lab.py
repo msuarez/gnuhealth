@@ -71,8 +71,8 @@ class PatientLabTestRequest(ModelSQL, ModelView):
         # Add the laborder to the service document
 
         service_lines.append(('create', [{
-            'product': name.name.id,
-            'desc': name.rec_name,
+            'product': laborder.name.product_id.id,
+            'desc': laborder.name.product_id.rec_name,
             'qty': 1
             }]))
 
@@ -80,7 +80,7 @@ class PatientLabTestRequest(ModelSQL, ModelView):
         hservice.append(laborder.service)
         
         description = "Services including " + \
-            laborder.laborder_id
+            laborder.rec_name
         
         service_data ['desc'] =  description
         service_data ['service_line'] = service_lines

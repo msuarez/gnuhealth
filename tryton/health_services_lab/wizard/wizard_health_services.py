@@ -29,7 +29,7 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
-__all__ = ['RequestPatientLabTestStart']
+__all__ = ['RequestPatientLabTestStart', 'RequestPatientLabTest']
 
 
 # Include services in the wizard
@@ -42,3 +42,32 @@ class RequestPatientLabTestStart(ModelView):
         domain=[('patient', '=', Eval('patient'))], depends=['patient'],
         states = {'readonly': Equal(Eval('state'), 'done')},
         help="Service document associated to this Lab Request")
+
+
+class RequestPatientLabTest(Wizard):
+    'Request Patient Lab Test'
+    __name__ = 'gnuhealth.patient.lab.test.request'
+
+    def transition_request(self):
+        PatientLabTest = Pool().get('gnuhealth.patient.lab.test')
+        Sequence = Pool().get('ir.sequence')
+        Config = Pool().get('gnuhealth.sequences')
+
+        config = Config(1)
+        request_number = Sequence.get_id(config.lab_request_sequence.id)
+        lab_tests = []
+        for test in self.start.tests:
+            lab_test = {}
+            lab_test['request'] = request_number
+            lab_test['name'] = test.id
+            lab_test['patient_id'] = self.start.patient.id
+            if self.start.doctor:
+                lab_test['doctor_id'] = self.start.doctor.id
+            lab_test['date'] = self.start.date
+            lab_test['urgent'] = self.start.urgent
+            lab_test['service'] = self.start.service.id
+            lab_tests.append(lab_test)
+
+        PatientLabTest.create(lab_tests)
+
+        return 'end'
