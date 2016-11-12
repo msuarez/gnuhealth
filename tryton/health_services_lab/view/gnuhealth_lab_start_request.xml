@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data>
+	<xpath expr="//field[@name=&quot;tests&quot;]" position="after">
+        <newline/>
+        <group id="group_lab_services" colspan="4">
+            <label name="service"/>
+            <field name="service"/>
+        </group>
+    </xpath>
+</data>

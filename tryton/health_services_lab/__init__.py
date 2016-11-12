@@ -28,5 +28,5 @@ from wizard import *
 
 def register():
     Pool.register(
-	PatientLabTestRequest,
+	RequestPatientLabTestStart,
         module='health_services_lab', type_='model')
