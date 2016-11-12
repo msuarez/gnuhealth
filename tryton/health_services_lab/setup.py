@@ -45,22 +45,22 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_health_services',
+setup(name='trytond_health_services_lab',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Services Module'),
+    description=info.get('description', 'GNU Health Lab Services Module'),
     author=info.get('author', 'GNU Solidario'),
     author_email=info.get('email', 'health@gnusolidario.org'),
     url=info.get('website', 'http://health.gnu.org/'),
     download_url='http://ftp.gnu.org/gnu/health/',
-    package_dir={'trytond.modules.health_services': '.'},
+    package_dir={'trytond.modules.health_services_lab': '.'},
     packages=[
-        'trytond.modules.health_services',
-        'trytond.modules.health_services.wizard',
-        'trytond.modules.health_services.tests',
+        'trytond.modules.health_services_lab',
+        'trytond.modules.health_services_lab.wizard',
+        'trytond.modules.health_services_lab.tests',
 
         ],
     package_data={
-        'trytond.modules.health_services': info.get('xml', []) \
+        'trytond.modules.health_services_lab': info.get('xml', []) \
             + info.get('translation', []) \
             + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
                'report/*.odt', 'icons/*.svg'],
@@ -85,7 +85,7 @@ setup(name='trytond_health_services',
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    health_services = trytond.modules.health_services
+    health_services_lab = trytond.modules.health_services_lab
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
