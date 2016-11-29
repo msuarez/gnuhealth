@@ -22,6 +22,7 @@
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond import backend
 
 
@@ -238,9 +239,13 @@ class PatientGeneticRisk(ModelSQL, ModelView):
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
         'Disease Gene', required=True)
-    natural_variant = fields.Many2One('gnuhealth.gene.variant', 'Variant')
+    natural_variant = fields.Many2One('gnuhealth.gene.variant', 'Variant',
+        domain=[('name', '=', Eval('disease_gene'))],
+        depends=['disease_gene'])
     variant_phenotype = fields.Many2One('gnuhealth.gene.variant.phenotype',\
-        'Phenotype')
+        'Phenotype',
+        domain=[('variant', '=', Eval('natural_variant'))],
+        depends=['natural_variant'])
     onset = fields.Integer('Onset', help="Age in years")
     
     notes = fields.Char("Notes")
