@@ -215,6 +215,15 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
         if (self.variant):
             return self.variant.name.id
 
+
+    def get_rec_name(self, name):
+        if self.phenotype:
+            return self.phenotype.rec_name
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        return [('phenotype',) + tuple(clause[1:])]
+
     @classmethod
     def search_gene(cls, name, clause):
         res = []
