@@ -232,12 +232,17 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
             ]
 
 class PatientGeneticRisk(ModelSQL, ModelView):
-    'Patient Genetic Risks'
+    'Patient Genetic Information'
     __name__ = 'gnuhealth.patient.genetic.risk'
 
     patient = fields.Many2One('gnuhealth.patient', 'Patient', select=True)
     disease_gene = fields.Many2One('gnuhealth.disease.gene',
         'Disease Gene', required=True)
+    natural_variant = fields.Many2One('gnuhealth.gene.variant', 'Variant')
+    variant_phenotype = fields.Many2One('gnuhealth.gene.variant.phenotype',\
+        'Phenotype')
+    onset = fields.Integer('Onset', help="Age in years")
+    
     notes = fields.Char("Notes")
 
 class FamilyDiseases(ModelSQL, ModelView):
@@ -278,6 +283,6 @@ class GnuHealthPatient (ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'
 
     genetic_risks = fields.One2Many('gnuhealth.patient.genetic.risk',
-        'patient', 'Genetic Risks')
+        'patient', 'Genetic Information')
     family_history = fields.One2Many('gnuhealth.patient.family.diseases',
         'patient', 'Family History')
