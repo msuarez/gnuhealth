@@ -29,12 +29,12 @@ import sys
 import crypt
 import random
 import string
-import ConfigParser
+import configparser
 
 try:
     import cracklib
 except ImportError:
-    print "Cracklib not installed. Please install the library and try again"
+    print ("Cracklib not installed. Please install the library and try again")
     sys.exit(-1)
 
 config_file = ""
@@ -55,33 +55,33 @@ if args.config:
     config_file = args.config
 
 if not config_file:
-    print "TRYTOND_CONFIG variable not set and No configuration file specified"
+    print ("TRYTOND_CONFIG variable not set and No configuration file specified")
     sys.exit(-1)
 
 
 
     
-print "Using Tryton configuration file ", config_file
+print ("Using Tryton configuration file "), config_file
         
 def validate_password():
     passwd = getpass.getpass()
-    print "Again"
+    print ("Again")
     passwd2 = getpass.getpass()
     
     if (passwd != passwd2):
-        print "Password mismatch"
+        print ("Password mismatch")
         return validate_password()
         
     """Check against cracklib to avoid simple passwords"""
     try: 
         cracklib.VeryFascistCheck (passwd)
     except ValueError as msg:
-        print msg
+        print (msg)
         return validate_password()
       
     return passwd    
 
-config = ConfigParser.RawConfigParser()
+config = configparser.RawConfigParser()
 config.read(config_file)
 
 if not 'session' in config.sections():
@@ -98,4 +98,4 @@ config.set ('session','super_pwd',encrypted_passwd)
 output_file = open(config_file,'w')
 config.write(output_file)
 
-print "Configuration file updated with new password !"
+print ("Configuration file updated with new password !")

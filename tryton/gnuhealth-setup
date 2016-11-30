@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health installer version
-VERSION="3.0.2"
+VERSION="3.1.0"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -44,7 +44,7 @@ WHITE="\n$(tput setaf 7)"
 INSTDIR="$PWD"
 GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
-TRYTON_VERSION="3.8"
+TRYTON_VERSION="4.2"
 TRYTON_BASE_URL="http://downloads.tryton.org"
 
 
@@ -96,7 +96,7 @@ check_requirements() {
         bailout
     fi
 
-    # PYTHON version [2.7.x < 3.x]
+    # PYTHON version [3.x]
     echo -n " -> Looking for the Python Interpreter command... "
 
     if ! type python 2>/dev/null ; then
@@ -104,7 +104,7 @@ check_requirements() {
         bailout
     fi
 
-    local PVERSION=$(python -V 2>&1 | grep 2.[7-9].[0-9])
+    local PVERSION=$(python -V 2>&1 | grep 3.[4-9].[0-9])
 
     if test "${PVERSION}" ; then
         message "[INFO] Found ${PVERSION}" ${WHITE}
@@ -118,7 +118,7 @@ check_requirements() {
     echo " -> Looking for PIP command..."
 
     # Alternative pip names on Debian/ArchLinux/RedHat based distros:
-    local PIP_NAMES="pip pip2 pip-python"
+    local PIP_NAMES="pip pip3 pip-python"
     PIP_NAME=""
     for NAME in ${PIP_NAMES}; do
         if [[ $(which ${NAME} 2>/dev/null) ]]; then
@@ -213,29 +213,33 @@ install_python_dependencies() {
     local PIP_ARGS="install --upgrade --user"
 
     # Python packages
-    local PIP_LXML="lxml==3.5.0"
-    local PIP_RELATORIO="relatorio==0.6.2"
-    local PIP_DATEUTIL="python-dateutil==2.4.2"
-    local PIP_PSYCOPG2="psycopg2==2.6.1"
-    local PIP_PYTZ="pytz==2015.7"
-    local PIP_LDAP="python-ldap==2.4.20"
-    local PIP_VOBJECT="vobject==0.8.2"
-    local PIP_PYWEBDAV="PyWebDAV==0.9.8"
-    local PIP_QRCODE="qrcode==5.1"
+    local PIP_LXML="lxml==3.6.4"
+    local PIP_RELATORIO="relatorio==0.6.3"
+    local PIP_WRAPT="wrapt==1.10.8"
+    local PIP_WERKZEUG="werkzeug==0.11.11"
+    local PIP_DATEUTIL="python-dateutil==2.6.0"
+    local PIP_PSYCOPG2="psycopg2==2.6.2"
+    local PIP_PYTZ="pytz==2016.7"
+    local PIP_LDAP="python-ldap==2.4.28"
+    local PIP_VOBJECT="vobject==0.9.3"
+    local PIP_PYWEBDAV3="PyWebDAV3==0.9.11"
+    local PIP_QRCODE="qrcode==5.3"
     local PIP_SIX="six==1.10.0"
-    local PIP_PILLOW="Pillow==3.0.0"
+    local PIP_PILLOW="Pillow==3.4.2"
     local PIP_CALDAV="caldav==0.4.0"
-    local PIP_POLIB="polib==1.0.7"
+    local PIP_POLIB="polib==1.0.8"
     local PIP_SQL="python-sql==0.8"
-    local PIP_STDNUM="python-stdnum==1.2"
-    local PIP_SIMPLEEVAL="simpleeval==0.8.7"
+    local PIP_STDNUM="python-stdnum==1.5"
+    local PIP_SIMPLEEVAL="simpleeval==0.9.1"
+    local PIP_CRACKLIB="cracklib==2.9.3"
+    local PIP_CONFIGPARSER="configparser==3.5.0"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL"
+    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CRACKLIB $PIP_CONFIGPARSER"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
@@ -263,7 +267,7 @@ install_tryton_modules() {
     local TRYTOND_URL=$(get_url trytond)
     local TRYTOND_FILE=$(basename ${TRYTOND_URL})
 
-    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot purchase account_invoice_stock stock_supply"
+    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
 
     local TRYTON_MODULES_FILE=""
     local TRYTON_MODULES_URL=""
@@ -323,10 +327,11 @@ install_tryton_modules() {
     done
     message "[INFO] OK." ${GREEN}
 
-    message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
-    cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
 
-    ln -si ${MODULES_DIR}/health* .
+    # UNCOMMENT WHEN GNU HEALTH MODULES HAVE BEEN PORTED TO 3.2
+    # message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
+    # cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
+    # ln -si ${MODULES_DIR}/health* .
 
     # Copy LICENSE README and version files
     
