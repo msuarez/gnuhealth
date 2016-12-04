@@ -18,19 +18,19 @@
 from setuptools import setup
 import re
 import os
-import ConfigParser
+import configparser
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 8
+major_version, minor_version = 4, 2
 
 requires = ['pytz']
 
@@ -78,7 +78,9 @@ setup(name='trytond_health',
         'Natural Language :: English',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
@@ -94,4 +96,5 @@ setup(name='trytond_health',
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
+    use_2to3=True,
     )

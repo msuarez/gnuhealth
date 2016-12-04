@@ -23,8 +23,8 @@
 
 from trytond.pool import Pool
 from .health import *
-from wizard import *
-from report import *
+from .wizard import *
+from .report import *
 
 def register():
     Pool.register(
@@ -35,7 +35,7 @@ def register():
         Ethnicity,
         BirthCertificate,
         DeathCertificate,
-        PartyPatient,
+        Party,
         ContactMechanism,
         PersonName,
         PartyAddress,
