@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient appointment" editable="top">
+<tree>
     <button name="checked_in" help="The patient has arrived and is waiting" string="Checked in"/>
     <field name="appointment_date" string="Date" widget="date"/>
     <field name="appointment_date" string="Time" widget="time"/>

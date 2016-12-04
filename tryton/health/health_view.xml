@@ -786,12 +786,14 @@
             <field name="name">gnuhealth_medicament_category_form</field>
         </record>
 
+        <!--
         <record model="ir.ui.view" id="gnuhealth_medicament_category_list">
             <field name="model">gnuhealth.medicament.category</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_medicament_category_list</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_medicament_category_tree">
             <field name="model">gnuhealth.medicament.category</field>
             <field name="type">tree</field>
@@ -918,12 +920,14 @@
             <field name="type">form</field>
             <field name="name">gnuhealth_pathology_category_form</field>
         </record>
+        <!--
         <record model="ir.ui.view" id="gnuhealth_pathology_category_list">
             <field name="model">gnuhealth.pathology.category</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_pathology_category_list</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_pathology_category_tree">
             <field name="model">gnuhealth.pathology.category</field>
             <field name="type">tree</field>
@@ -1052,7 +1056,6 @@
         <record model="ir.ui.view" id="view_party_form">
             <field name="model">party.party</field>
             <field name="inherit" ref="party.party_view_form"/>
-            <field name="type">form</field>
             <field name="name">party_form</field>
         </record>
         
@@ -1083,7 +1086,6 @@
         <record model="ir.ui.view" id="view_party_address_form">
             <field name="model">party.address</field>
             <field name="inherit" ref="party.address_view_form"/>
-            <field name="type">form</field>
             <field name="name">party_address_form</field>
         </record>
 
@@ -1205,7 +1207,6 @@
         <record model="ir.ui.view" id="view_gnuhealth_product_form">
             <field name="model">product.product</field>
             <field name="inherit" ref="product.product_view_form"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_product_form</field>
         </record>
         <record model="ir.ui.view" id="view_gnuhealth_product_tree">

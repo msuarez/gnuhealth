@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="medicaments">
+<form>
     <group colspan="4" col="10" string="Main" id="medicament_presentation">
         <group col="7" string="Product" id="medicament_product">
             <field name="name"/>

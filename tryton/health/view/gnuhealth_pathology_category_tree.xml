@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Disease Categories" keyword_open="1">
+<tree>
     <field name="name" expand="1"/>
     <field name="parent" tree_invisible="1"/>
     <field name="childs" tree_invisible="1"/>

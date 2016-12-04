@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Patient Diseases">
+<form>
     <group string="Main" id="group_diseases_main">
         <label name="pathology"/>
         <field name="pathology"/>
