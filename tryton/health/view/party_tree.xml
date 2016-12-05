@@ -17,8 +17,8 @@
         <field name="code" tree_invisible="1"/>
     </xpath>
 
-    <xpath expr="/tree/field[@name=&quot;vat_code&quot;]" position="replace_attributes">
-        <field name="vat_code" tree_invisible="1"/>
+    <xpath expr="/tree/field[@name=&quot;tax_identifier&quot;]" position="replace_attributes">
+        <field name="tax_identifier" tree_invisible="1"/>
     </xpath>
 
     <xpath expr="/tree/field[@name=&quot;lang&quot;]" position="replace_attributes">
