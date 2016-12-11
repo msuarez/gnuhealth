@@ -1,3 +1,24 @@
+changeset:   2553:e63d83a97100
+branch:      stable
+tag:         tip
+parent:      2526:ab2fca5748ea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 11 22:28:05 2016 +0000
+summary:     Update to ICD10 version 2016
+
+changeset:   2526:ab2fca5748ea
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 23 16:29:55 2016 +0100
+summary:     Update Changelog
+
+
+changeset:   2524:7eb479318d68
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 22 11:16:51 2016 +0100
+summary:     health: fix bug #49414: Error when printing prescription using review dates
+
 changeset:   2523:a160745168a2
 branch:      stable
 tag:         tip
