@@ -2,13 +2,15 @@
 <form string="Pathology Info">
     <notebook>
         <page string="Main" id="disease_main">
-            <group colspan="4" col="6" id="pathology_header">
+            <group colspan="4" col="8" id="pathology_header">
                 <label name="name"/>
                 <field name="name"/>
                 <label name="code"/>
                 <field name="code"/>
                 <label name="category"/>
                 <field name="category"/>
+                <label name="active"/>
+                <field name="active"/>
             </group>
             <newline/>
             <field name="groups"/>

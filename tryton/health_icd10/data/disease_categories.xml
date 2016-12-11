@@ -170,7 +170,7 @@
 	<field name="parent" ref="icdcat1"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat1-20">
-	<field name="name">(B95-B97) Bacterial</field>
+	<field name="name">(B95-B98) Bacterial</field>
 	<field name="parent" ref="icdcat1"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat1-21">
@@ -354,7 +354,7 @@
 	<field name="parent" ref="icdcat6"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat6-2">
-	<field name="name">(G10-G13) Systemic atrophies primarily affecting the central nervous system</field>
+	<field name="name">(G10-G14) Systemic atrophies primarily affecting the central nervous system</field>
 	<field name="parent" ref="icdcat6"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat6-3">
@@ -554,7 +554,7 @@
 	<field name="parent" ref="icdcat11"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat11-6">
-	<field name="name">(K55-K63) Other diseases of intestines</field>
+	<field name="name">(K55-K64) Other diseases of intestines</field>
 	<field name="parent" ref="icdcat11"></field>
 </record>
 <record model="gnuhealth.pathology.category" id="icdcat11-7">

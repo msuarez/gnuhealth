@@ -2149,6 +2149,12 @@ class Pathology(ModelSQL, ModelView):
     gene = fields.Char('Gene', help='Name of the gene(s) affected')
     info = fields.Text('Extra Info')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(Pathology, cls).__setup__()
