@@ -5,8 +5,8 @@
     <field name="gender"/>
     <field name="visit_type"/>
     <field name="evaluation_type"/>
-    <field name="evaluation_start" widget="date"/>
-    <field name="evaluation_start" widget="time"/>
+    <field name="evaluation_start" widget="date" string="Date"/>
+    <field name="evaluation_start" widget="time" string="Time"/>
     <field name="evaluation_length"/>
     <field name="specialty"/>
     <field name="healthprof" expand="1"/>
