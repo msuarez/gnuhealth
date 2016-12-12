@@ -1929,7 +1929,7 @@ class Pathology(ModelSQL, ModelView):
     __name__ = 'gnuhealth.pathology'
 
     name = fields.Char(
-        'Name', required=True, translate=True, help='Disease name')
+        'Name', required=True, translate=True, help='Health condition name')
     code = fields.Char(
         'Code', required=True,
         help='Specific Code for the Disease (eg, ICD-10)')
@@ -1955,6 +1955,22 @@ class Pathology(ModelSQL, ModelView):
     @staticmethod
     def default_active():
         return True
+
+    # Include code + description in result
+    def get_rec_name(self, name):
+        return (self.code + ' : ' + self.name)
+
+    # Search by the health condition code or the description
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('code',) + tuple(clause[1:]),
+            ('name',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def __setup__(cls):
