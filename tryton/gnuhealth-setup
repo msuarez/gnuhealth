@@ -233,13 +233,14 @@ install_python_dependencies() {
     local PIP_SIMPLEEVAL="simpleeval==0.9.1"
     local PIP_CRACKLIB="cracklib==2.9.3"
     local PIP_CONFIGPARSER="configparser==3.5.0"
-
+    local PIP_PYMONGO="pymongo==3.4.0"
+    
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CRACKLIB $PIP_CONFIGPARSER"
+    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CRACKLIB $PIP_CONFIGPARSER $PIP_PYMONGO"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
