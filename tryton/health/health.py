@@ -2269,6 +2269,7 @@ class AlternativePersonID (ModelSQL, ModelView):
             ('country_id', 'Country of origin ID'),
             ('passport', 'Passport'),
             ('medical_record', 'Medical Record'),
+            ('ghealth_federation', 'GNU Health Federation'),
             ('other', 'Other'),
         ], 'ID type', required=True, sort=False,)
 
