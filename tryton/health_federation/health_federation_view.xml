@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- Configuration Menu -->
+        <menuitem name="Federation" id="gnuhealth_conf_federation"
+            parent="health.gnuhealth_conf_menu"/>
+
+
+<!-- Medication Frequencies -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_config_view">
+            <field name="model">gnuhealth.federation.config</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_config</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_config_tree">
+            <field name="model">gnuhealth.federation.config</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_config_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_config">
+            <field name="name">Federation Config</field>
+            <field name="res_model">gnuhealth.federation.config</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_config_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_config_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_config"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_config_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_config_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_config"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_federation_config" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_config" parent="gnuhealth_conf_federation"/>
+
+
+    </data>
+</tryton>

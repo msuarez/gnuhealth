@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<form>
+    <group id="federation_config_header" colspan="4" col="6">
+        <label name="host" col="4"/>
+        <field name="host"/>
+        <label name="port"/>
+        <field name="port"/>
+        <newline/>
+        <label name="database"/>
+        <field name="database"/>
+        <label name="user"/>
+        <field name="user"/>
+        <label name="password"/>
+        <field name="password" widget="password"/>
+    </group>
+</form>
