@@ -3,12 +3,18 @@
     <data>
 
 
-<!-- Configuration Menu -->
+<!-- Create the GNU HEALTH Federation icon -->
+        <record model="ir.ui.icon" id="gnuhealth_federation_icon">
+            <field name="name">health-federation</field>
+            <field name="path">icons/federation.svg</field>
+        </record>
+
         <menuitem name="Federation" id="gnuhealth_conf_federation"
-            parent="health.gnuhealth_conf_menu"/>
+            sequence="990" parent="health.gnuhealth_conf_menu" 
+            icon="health-federation"/>
 
 
-<!-- Medication Frequencies -->
+<!-- GNU Health Federation Config -->
 
         <record model="ir.ui.view" id="gnuhealth_federation_config_view">
             <field name="model">gnuhealth.federation.config</field>

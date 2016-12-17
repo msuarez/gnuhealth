@@ -106,9 +106,9 @@
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
-            parent="gnuhealth_conf_menu" sequence="70" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_menu" sequence="999" icon="gnuhealth-open"/>
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
-            parent="gnuhealth_conf_misc" sequence="80" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_misc" icon="gnuhealth-open"/>
 
 
 <!-- Person Names -->
