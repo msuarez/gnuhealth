@@ -36,6 +36,7 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     database = fields.Char('DB',required=True, help="database name")
     user = fields.Char('User',required=True, help="User")
     password = fields.Char('Password', required=True, help="Password")
+    ssl = fields.Boolean('SSL', help="Use encrypted communication via SSL")
     
     @staticmethod
     def default_host():

@@ -5,6 +5,8 @@
         <field name="host"/>
         <label name="port"/>
         <field name="port"/>
+        <label name="ssl"/>
+        <field name="ssl"/>
         <newline/>
         <label name="database"/>
         <field name="database"/>
