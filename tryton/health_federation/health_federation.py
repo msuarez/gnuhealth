@@ -23,6 +23,8 @@
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from pymongo import MongoClient
+from pymongo.errors import ConnectionFailure
 
 
 __all__ = ['FederationNodeConfig']
@@ -53,3 +55,32 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     @staticmethod
     def default_user():
         return 'gnuhealth'
+
+    @classmethod
+    def __setup__(cls):
+        super(FederationNodeConfig, cls).__setup__()
+
+        cls._buttons.update({
+                'test_connection': {}
+                    }),
+    
+    @classmethod
+    @ModelView.button
+    def test_connection(cls, argvs):
+        
+        host, port, database, user, password, ssl = \
+            argvs[0].host, argvs[0].port, argvs[0].database, \
+            argvs[0].user, argvs[0].password, argvs[0].ssl
+        
+
+        dbconn = MongoClient(host, port)
+        db = dbconn[database]
+        
+        try:
+            auth = db.authenticate(user, password)
+  
+        except:
+            cls.raise_user_error("ERROR authenticating to Server")
+        
+        if auth:
+            cls.raise_user_error("Connection OK")

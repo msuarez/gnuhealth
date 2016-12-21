@@ -15,4 +15,7 @@
         <label name="password"/>
         <field name="password" widget="password"/>
     </group>
+    <newline/>
+    <button string="Test Connection" name="test_connection" icon="tryton-ok"/>
+
 </form>
