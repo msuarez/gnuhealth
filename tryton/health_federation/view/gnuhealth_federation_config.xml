@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <form>
     <group id="federation_config_header" colspan="4" col="6">
-        <label name="host" col="4"/>
+        <label name="host" colspan="4"/>
         <field name="host"/>
         <label name="port"/>
         <field name="port"/>
