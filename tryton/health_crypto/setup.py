@@ -18,21 +18,21 @@
 from setuptools import setup
 import re
 import os
-import ConfigParser
+import configparser
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 8
+major_version, minor_version = 4, 2
 
-requires = []
+requires = ['pytz']
 
 for dep in info.get('depends', []):
     if dep.startswith('health'):
@@ -47,15 +47,20 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health_crypto',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Cryptography Module'),
-    author=info.get('author', 'GNU Solidario'),
-    author_email=info.get('email', 'health@gnusolidario.org'),
-    url=info.get('website', 'http://health.gnu.org/'),
+    description=info.get('description', 'GNU Health Crypto Module'),
+    long_description=read('README'),
+    author='GNU Solidario',
+    author_email='health@gnusolidario.org',
+    url='http://health.gnu.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'trytond.modules.health_crypto': '.'},
     packages=[
         'trytond.modules.health_crypto',
+        'trytond.modules.health_crypto.tests',
+        'trytond.modules.health_crypto.wizard',
+        'trytond.modules.health_crypto.report',
         ],
+
     package_data={
         'trytond.modules.health_crypto': info.get('xml', []) \
             + info.get('translation', []) \
@@ -73,12 +78,17 @@ setup(name='trytond_health_crypto',
         'Natural Language :: English',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
     license='GPL-3',
     install_requires=requires,
+    extras_require={
+        'Pillow': ['Pillow'],
+        },
     zip_safe=False,
     entry_points="""
     [trytond.modules]
@@ -86,4 +96,5 @@ setup(name='trytond_health_crypto',
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
+    use_2to3=True,
     )
