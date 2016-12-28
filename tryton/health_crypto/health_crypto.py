@@ -97,6 +97,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
         cls._buttons.update({
             'generate_prescription': {
                 'invisible': Equal(Eval('state'), 'validated'),
@@ -235,7 +236,9 @@ class BirthCertificate(ModelSQL, ModelView):
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
     @classmethod
+
     def __setup__(cls):
+        super(BirthCertificate, cls).__setup__()
         cls._buttons.update({
             'generate_birth_certificate': {
                 'invisible': Not(Equal(Eval('state'), 'signed'))},
@@ -363,6 +366,7 @@ class DeathCertificate(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(DeathCertificate, cls).__setup__()
         cls._buttons.update({
             'generate_death_certificate': {
                 'invisible': Not(Equal(Eval('state'), 'signed')),
@@ -501,6 +505,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(PatientEvaluation, cls).__setup__()
         cls._buttons.update({
             'sign_evaluation': {
                 'invisible': Not(Equal(Eval('state'), 'done')),
