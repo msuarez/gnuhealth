@@ -30,7 +30,6 @@ import gtk
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
-
 _ = gettext.gettext
 
 class FederationResourceLocator():
@@ -47,6 +46,35 @@ class FederationResourceLocator():
                 ['host','port','database','user','password','ssl'],
                 rpc.CONTEXT)
             fconn = fconn[0]
+        
+            host, port, database, user, password, ssl = fconn['host'],\
+                fconn['port'], fconn['database'], fconn['user'], \
+                fconn['password'], fconn['ssl']
+                
+            dbconn = MongoClient(host, port)
+            db = dbconn[database]
+            
+            # Use the Demographics collection
+            demographics = db.demographics
+            
+            try:
+                auth = db.authenticate(user, password)
+      
+            except:
+                warning("ERROR authenticating to Server")
+            
+            # Find the federation ID using deterministic algorithm
+            # (exact match, return at most one record)
+            record = demographics.find_one({'_id':resource})
+            
+            if not record:
+                not_found_msg = "The ID "+ resource +\
+                    " does not exist on Federation"
+                message(_(not_found_msg))
+            
+            else:
+                print record
+            
         return
         
     def delete_event(self, widget, event, data=None):
@@ -97,7 +125,6 @@ class FederationResourceLocator():
 
 
 def frl_main(tdata):
-    print (tdata)
     
     frl = FederationResourceLocator()
     args = frl.main()
