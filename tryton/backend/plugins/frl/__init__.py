@@ -26,6 +26,7 @@ from tryton.common import RPCExecute, warning, message
 from tryton.gui.window.form import Form
 import gettext
 import gtk
+import os
 
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
@@ -35,8 +36,9 @@ _ = gettext.gettext
 class FederationResourceLocator():
 
     # Callback method to access MongoDB and retrieve the records
-    def search_resource(self, widget, data):
-        resource = data.get_text()
+    def search_resource(self, widget, *data):
+        resource, fuzzy_search = data[0].get_text(), data[1].get_active()
+        
         if resource:
             model='gnuhealth.federation.config'
             # Retrieve the connection params for MongoDB
@@ -65,18 +67,30 @@ class FederationResourceLocator():
             
             # Find the federation ID using deterministic algorithm
             # (exact match, return at most one record)
-            record = demographics.find_one({'_id':resource})
-            
-            if not record:
-                not_found_msg = "The ID "+ resource +\
-                    " does not exist on Federation"
-                message(_(not_found_msg))
-            
+            if fuzzy_search:
+                msg = "Coming up"
+                message(_(msg))
+                
             else:
-                print record
+                # Find the federation ID using deterministic algorithm
+                # (exact match, return at most one record)
+
+                record = demographics.find_one({'_id':resource})
             
-        return
-        
+                if not record:
+                    not_found_msg = "The ID "+ resource +\
+                        " does not exist on Federation"
+                    message(_(not_found_msg))
+                
+                else:
+                    fed_id, name, gender, dob, phone, address = \
+                        record["_id"], \
+                        record["name"], record["gender"], record["dob"], \
+                        record["phone"], record["address"]
+                        
+                    self.results.append([fed_id,name,gender,dob,phone,address])
+            
+
     def delete_event(self, widget, event, data=None):
         # Generate an destroy signal when closing the window
         return False
@@ -86,40 +100,78 @@ class FederationResourceLocator():
         gtk.main_quit()
         
     def __init__(self):
+		
+        self.columns = ["ID","Name","Gender","DoB","Phone","Address"]
+
+        icon = os.path.expanduser("~") + \
+            '/gnuhealth_plugins/frl/icons/gnuhealth_icon.svg'
 
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
-    
+        self.window.set_icon_from_file(icon)
+
         self.window.connect("delete_event", self.delete_event)
-    
         self.window.connect("destroy", self.destroy)
     
         # Border and title
         self.window.set_border_width(10)
         self.window.set_title("GNU Health Federation Resource Locator")
     
-        # Entry to find Federation ID
-        self.person_id = gtk.Entry(max=30)
+        # Entry to find Federation ID or other info when using fuzzy srch
+        self.resource = gtk.Entry(max=100)
         
         # Search Button
         self.search_button = gtk.Button(label=None, stock=gtk.STOCK_FIND)
+
+        # Fuzzy search
+        self.fuzzy_search = gtk.CheckButton(label="Fuzzy")
     
         # Call method search_resource upon receiving the clicked signal
-        self.search_button.connect("clicked", self.search_resource, self.person_id)
+        self.search_button.connect("clicked", self.search_resource,
+            self.resource, self.fuzzy_search)
     
+        
         self.hbox = gtk.HBox (True, 10)
         
-        self.hbox.pack_start (self.person_id)
+        self.hbox.pack_start (self.resource)
         self.hbox.pack_start (self.search_button)
+        self.hbox.pack_start (self.fuzzy_search)
 
-        self.person_id.show()
+        self.resource.show()
         self.search_button.show()
-    
-        self.window.add (self.hbox)
+        self.fuzzy_search.show()
+
+        self.search_frame = gtk.Frame()
+        self.search_frame.add (self.hbox)
+        
+        
+        self.main_table = gtk.Table(rows=2, columns=2, homogeneous=False)
+
+        # Create the main tree view for the results
+        self.results = gtk.ListStore(str, str, str, str, str, str)
+        self.treeview = gtk.TreeView(self.results)
+
+        # Add and render the columns
+        for n in range(len(self.columns)):
+            self.cell = gtk.CellRendererText()
+            self.col = gtk.TreeViewColumn(self.columns[n], self.cell, text=n)
+            self.treeview.append_column(self.col)
+
+        
+        # attach the query box on the table
+        self.main_table.attach(self.search_frame,0,1,0,1)
+
+        # attach the query box on the table
+        self.main_table.attach(self.treeview,0,1,1,2)
+        
+        self.window.add (self.main_table)
         
         # Display the objects
         self.hbox.show()
+        self.search_frame.show()
+        self.treeview.show()
+        self.main_table.show()
         self.window.show()
-
+        
     def main(self):
         gtk.main()
 
