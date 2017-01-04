@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2017 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2015 Cédric Krier
 #    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
 #

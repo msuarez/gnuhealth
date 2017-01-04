@@ -5,8 +5,8 @@
 #
 #    INSURANCE MODULE
 #
-#    Copyright (C) 2008-2016 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2016 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2017 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify

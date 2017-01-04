@@ -2,6 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#    Copyright (C) 2011-2017  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
