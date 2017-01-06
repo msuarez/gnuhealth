@@ -1668,6 +1668,23 @@ class Medicament(ModelSQL, ModelView):
         'gnuhealth.drug.form', 'Form',
         help='Drug form, such as tablet, suspension, liquid ..')
 
+    sol_conc = fields.Float(
+        'Concentration',
+        help='Solution drug concentration')
+
+    sol_conc_unit = fields.Many2One(
+        'gnuhealth.dose.unit', 'Unit',
+        help='Unit of the drug concentration')
+    
+    sol_vol = fields.Float(
+        'Volume',
+        help='Solution concentration volume')
+
+    sol_vol_unit = fields.Many2One(
+        'gnuhealth.dose.unit', 'Unit',
+        help='Unit of the solution volume')
+
+
     dosage = fields.Text('Dosage Instructions', help='Dosage / Indications')
     overdosage = fields.Text('Overdosage', help='Overdosage')
     pregnancy_warning = fields.Boolean(
@@ -1728,7 +1745,7 @@ class Medicament(ModelSQL, ModelView):
         if (self.pregnancy_category == 'D' or self.pregnancy_category == "C"):
             return 'gnuhealth-warning'
 
-        
+      
     def get_rec_name(self, name):
         return self.name.name
 
@@ -1748,6 +1765,7 @@ class Medicament(ModelSQL, ModelView):
     @classmethod
     def check_xml_record(cls, records, values):
         return True
+
 
 
 class ImmunizationScheduleDose(ModelSQL, ModelView):

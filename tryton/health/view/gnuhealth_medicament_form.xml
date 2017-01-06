@@ -25,6 +25,19 @@
             <field name="category"/>
         </group>
 
+        <newline/>
+
+        <group colspan="4" col="8" string="Solution" id="medicament_concentration">
+            <label name="sol_conc"/>
+            <field name="sol_conc"/>
+            <label name="sol_conc_unit"/>
+            <field name="sol_conc_unit"/>
+            <label name="sol_vol"/>
+            <field name="sol_vol"/>
+            <label name="sol_vol_unit"/>
+            <field name="sol_vol_unit"/>
+        </group>
+
     </group>
     <newline/>
 
