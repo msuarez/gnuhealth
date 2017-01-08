@@ -27,6 +27,7 @@ from tryton.gui.window.form import Form
 import gettext
 import gtk
 import os
+import ssl
 
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
@@ -49,11 +50,14 @@ class FederationResourceLocator():
                 rpc.CONTEXT)
             fconn = fconn[0]
         
-            host, port, database, user, password, ssl = fconn['host'],\
+            host, port, database, user, password, ssl_conn = fconn['host'],\
                 fconn['port'], fconn['database'], fconn['user'], \
                 fconn['password'], fconn['ssl']
-                
-            dbconn = MongoClient(host, port)
+            
+            
+            dbconn = MongoClient(host, port, ssl=ssl_conn, \
+                ssl_cert_reqs=ssl.CERT_NONE)
+            
             db = dbconn[database]
             
             # Use the Demographics collection
@@ -65,9 +69,8 @@ class FederationResourceLocator():
             except:
                 warning("ERROR authenticating to Server")
             
-            # Find the federation ID using deterministic algorithm
-            # (exact match, return at most one record)
             if fuzzy_search:
+                # Find the federation ID using fuzzy search
                 msg = "Coming up"
                 message(_(msg))
                 
@@ -100,7 +103,7 @@ class FederationResourceLocator():
         gtk.main_quit()
         
     def __init__(self):
-		
+        
         self.columns = ["ID","Name","Gender","DoB","Phone","Address"]
 
         icon = os.path.expanduser("~") + \

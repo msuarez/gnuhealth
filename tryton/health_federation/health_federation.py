@@ -20,6 +20,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import ssl
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
 from trytond.transaction import Transaction
 from trytond.pool import Pool
@@ -68,14 +69,16 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     @ModelView.button
     def test_connection(cls, argvs):
         
-        host, port, database, user, password, ssl = \
+        host, port, database, user, password, ssl_conn = \
             argvs[0].host, argvs[0].port, argvs[0].database, \
             argvs[0].user, argvs[0].password, argvs[0].ssl
         
 
-        dbconn = MongoClient(host, port)
+        dbconn = MongoClient(host, port, ssl=ssl_conn, \
+            ssl_cert_reqs=ssl.CERT_NONE)
+
         db = dbconn[database]
-        
+
         try:
             auth = db.authenticate(user, password)
   
