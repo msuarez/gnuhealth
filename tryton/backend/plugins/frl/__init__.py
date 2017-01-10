@@ -153,6 +153,9 @@ class FederationResourceLocator():
         self.results = gtk.ListStore(str, str, str, str, str, str)
         self.treeview = gtk.TreeView(self.results)
 
+        # Let pick at most one row
+        self.treeselection = self.treeview.get_selection ().set_mode (gtk.SELECTION_SINGLE)
+        
         # Add and render the columns
         for n in range(len(self.columns)):
             self.cell = gtk.CellRendererText()
