@@ -102,6 +102,13 @@ class FederationResourceLocator():
     def destroy(self, widget, data=None):
         gtk.main_quit()
         
+    # Get the values from the selection
+    def get_values(self, treeview, row, column):
+        model = treeview.get_model()
+        tree_iter = model.get_iter(row)
+        # Get GNU Health Federation ID (column 0)
+        federation_id = model.get_value(tree_iter,0)
+        
     def __init__(self):
         
         self.columns = ["ID","Name","Gender","DoB","Phone","Address"]
@@ -154,7 +161,13 @@ class FederationResourceLocator():
         self.treeview = gtk.TreeView(self.results)
 
         # Let pick at most one row
-        self.treeselection = self.treeview.get_selection ().set_mode (gtk.SELECTION_SINGLE)
+        self.treeselection = self.treeview.get_selection ()
+        self.treeselection.set_mode (gtk.SELECTION_SINGLE)
+        
+        # Process once the row is activated (double-click or enter)
+        self.treeview.connect('row-activated', self.get_values)
+        
+        
         
         # Add and render the columns
         for n in range(len(self.columns)):
@@ -162,7 +175,6 @@ class FederationResourceLocator():
             self.col = gtk.TreeViewColumn(self.columns[n], self.cell, text=n)
             self.treeview.append_column(self.col)
 
-        
         # attach the query box on the table
         self.main_table.attach(self.search_frame,0,1,0,1)
 
@@ -177,6 +189,7 @@ class FederationResourceLocator():
         self.treeview.show()
         self.main_table.show()
         self.window.show()
+
         
     def main(self):
         gtk.main()
