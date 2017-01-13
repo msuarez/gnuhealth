@@ -102,12 +102,33 @@ class FederationResourceLocator():
     def destroy(self, widget, data=None):
         gtk.main_quit()
         
+    # Check if the Federation ID exists in the local Tryton node
+    # Looks for any ID (both the PUID and the alternative IDs)
+    def check_local_record(self, federation_id):
+        model = 'party.party'
+        get_record=rpc.execute(
+            'model', model , 'search',
+            ['OR',[("alternative_ids", "=", federation_id)],
+             ("ref", "=", federation_id)],
+            rpc.CONTEXT)
+        res = get_record
+        return res
+        
+        
     # Get the values from the selection
     def get_values(self, treeview, row, column):
         model = treeview.get_model()
         tree_iter = model.get_iter(row)
         # Get GNU Health Federation ID (column 0)
         federation_id = model.get_value(tree_iter,0)
+        if (self.check_local_record (federation_id)):
+            already_exists_msg="At least one record exists LOCALLY " \
+                "with this ID"
+            message(_(already_exists_msg))
+        else:
+            not_found_locally_msg="The person exists on the Federation" \
+                "but not locally...  \nWould you like to transfer it ?"
+            message (_(not_found_locally_msg))
         
     def __init__(self):
         
