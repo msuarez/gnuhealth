@@ -21,14 +21,27 @@
 #
 ##############################################################################
 import ssl
-from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
+from trytond.model import ModelView, ModelSQL, ModelSingleton, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 
 
-__all__ = ['FederationNodeConfig']
+__all__ = ['Party','FederationNodeConfig']
+
+class Party(ModelSQL, ModelView):
+    __name__ = 'party.party'
+    federation_account = fields.Char('Federation Account')
+
+    @classmethod
+    def __setup__(cls):
+        super(Party, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints += [
+            ('federation_account_uniq', 
+                Unique(t,t.federation_account),
+                'The Federation Account must be unique'),]
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
