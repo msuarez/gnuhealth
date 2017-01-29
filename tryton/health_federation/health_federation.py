@@ -35,6 +35,27 @@ class Party(ModelSQL, ModelView):
     federation_account = fields.Char('Federation Account')
 
     @classmethod
+    def search_rec_name(cls, name, clause):
+        """ Search for the name, lastname, PUID, any alternative IDs,
+            Federation account, and any family and / or 
+            given name from the person_names
+        """
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('ref',) + tuple(clause[1:]),
+            ('federation_account',) + tuple(clause[1:]),
+            ('alternative_ids.code',) + tuple(clause[1:]),
+            ('contact_mechanisms.value',) + tuple(clause[1:]),
+            ('person_names.family',) + tuple(clause[1:]),            
+            ('person_names.given',) + tuple(clause[1:]),            
+            ('name',) + tuple(clause[1:]),
+            ('lastname',) + tuple(clause[1:]),
+            ]
+
+    @classmethod
     def __setup__(cls):
         super(Party, cls).__setup__()
         t = cls.__table__()
