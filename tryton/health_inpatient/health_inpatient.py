@@ -821,12 +821,9 @@ class InpatientMealOrder (ModelSQL, ModelView):
             # has special needs on meals (religion / philosophy )
             if (self.name.patient.vegetarian_type or 
                 self.name.patient.diet_belief):
-                meal_warning = True
-                meal_warning_ack = False
-        return {
-            'meal_warning': meal_warning,
-            'meal_warning_ack': meal_warning_ack,
-        }
+                self.meal_warning = True
+                self.meal_warning_ack = False
+
 
     @classmethod
     def __setup__(cls):
