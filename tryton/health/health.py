@@ -2707,15 +2707,15 @@ class PatientData(ModelSQL, ModelView):
                 '''Retrieve patient allergies'''
                 if (member.disease_group.name == "ALLERGIC"):
                     if disease.pathology.name not in conditions:
-                        allergies=allergies + str(disease.pathology.name) + "\n"
-                        conditions.append (disease.pathology.name)
+                        allergies=allergies + disease.pathology.rec_name + "\n"
+                        conditions.append (disease.pathology.rec_name)
 
             '''Retrieve patient other relevant conditions '''
             '''Chronic and active'''        
             if (disease.status == "c" or disease.is_active):
                 if disease.pathology.name not in conditions:
                             other_conditions=other_conditions + \
-                             disease.pathology.name + "\n"
+                             disease.pathology.rec_name + "\n"
 
         return allergies + other_conditions
         
