@@ -804,7 +804,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
             meal_order.check_health_professional()
             
     def check_meal_order_warning(self):
-        if not self.meal_warning_ack:
+        if not self.meal_warning_ack and self.meal_warning:
             self.raise_user_error('meal_order_warning')
 
     def check_health_professional(self):
@@ -814,8 +814,6 @@ class InpatientMealOrder (ModelSQL, ModelView):
 
     @fields.depends('name')
     def on_change_name(self):
-        meal_warning = False
-        meal_warning_ack = True
         if self.name:
             # Trigger the warning if the patient 
             # has special needs on meals (religion / philosophy )
