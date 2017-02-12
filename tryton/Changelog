@@ -1,3 +1,35 @@
+changeset:   2589:d003cfcd2132
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 12 19:55:10 2017 +0000
+summary:     Remove readonly from patient meal order warning, to correctly
+save state of the field
+
+changeset:   2588:d1087e220fc0
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 12 18:20:25 2017 +0000
+summary:     Fix bug #50288: Wrong widget for mealtime field. // Fix
+validation for meal order warning
+
+
+changeset:   2587:d1547dcfc868
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 11 21:30:39 2017 +0000
+summary:     Fix bug #50281: Traceback when displaying patient critical info
+in non-english languages
+
+changeset:   2586:be122a734730
+branch:      stable
+parent:      2555:7ab93f4847aa
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 09 21:58:55 2017 +0000
+summary:     health_inpatient : Fix bug #50269: Traceback when assigning a new
+meal order
+
 changeset:   2553:e63d83a97100
 branch:      stable
 tag:         tip
