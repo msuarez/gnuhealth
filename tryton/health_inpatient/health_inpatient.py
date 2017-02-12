@@ -751,7 +751,7 @@ class InpatientMealOrder (ModelSQL, ModelView):
 
     remarks = fields.Text('Remarks')
 
-    meal_warning = fields.Boolean('Warning',readonly=True,
+    meal_warning = fields.Boolean('Warning',
         help="The patient has special needs on meals")
 
     meal_warning_ack = fields.Boolean('Ack',
