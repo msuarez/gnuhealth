@@ -45,8 +45,6 @@ class DiseaseGene(ModelSQL, ModelView):
         help="Name of the affected chromosome", select=True)
     location = fields.Char('Location', help="Locus of the chromosome")
 
-    protein_uri = fields.Function(fields.Char("Protein URI"),
-     'get_protein_uri')
     info = fields.Text('Information', help="Extra Information")
     variants = fields.One2Many('gnuhealth.gene.variant', 'name',
      'Variants')
