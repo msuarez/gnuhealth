@@ -89,9 +89,9 @@ class DiseaseGene(ModelSQL, ModelView):
     def __register__(cls, module_name):
         super(DiseaseGene, cls).__register__(module_name)
 
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
+        table = TableHandler(cls, module_name)
         # Insert the current "specialty" associated to the HP in the
         # table that keeps the specialties associated to different health
         # professionals, gnuhealth.hp_specialty
@@ -100,7 +100,6 @@ class DiseaseGene(ModelSQL, ModelView):
             # Drop old specialty column
             # which is now part of the gene variant phenotype
             table.drop_column('dominance')
-
 
 
 class ProteinDisease(ModelSQL, ModelView):
@@ -238,6 +237,7 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
             ('code', Unique(t,t.name),
                 'This code already exists'),
             ]
+
 
 class PatientGeneticRisk(ModelSQL, ModelView):
     'Patient Genetic Information'
