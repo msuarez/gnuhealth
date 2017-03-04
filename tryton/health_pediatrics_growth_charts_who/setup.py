@@ -62,7 +62,8 @@ setup(name='trytond_health_pediatrics_growth_charts_who',
     package_data={
         'trytond.modules.health_pediatrics_growth_charts_who': info.get(
             'xml', []) + info.get('translation', []) + ['tryton.cfg',
-            'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            'view/*.xml','doc/*.rst', 'locale/*.po', 'report/*.odt', 
+            'icons/*.svg'],
         },
 
     classifiers=[
