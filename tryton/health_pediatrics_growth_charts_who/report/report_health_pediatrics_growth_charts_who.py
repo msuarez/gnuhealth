@@ -65,12 +65,12 @@ class PediatricsGrowthChartsWHOReport(Report):
         growthchartswho = GrowthChartsWHO.search([
                 ('indicator', '=', data['indicator']),
                 ('measure', '=', data['measure']),
-                ('sex', '=', patient.gender),
+                ('sex', '=', patient.name.gender),
                 ], order=[('month', 'ASC')],
                 )
 
         context['title'] = _INDICATORS[data['indicator']] + ' ' + \
-            _GENDERS[patient.gender]
+            _GENDERS[patient.name.gender]
         context['subtitle'] = 'Birth to 5 years (%s)' % \
             _MEASURES[data['measure']]
         context['name'] = patient.name.rec_name
