@@ -1,6 +1,38 @@
-changeset:   2589:d003cfcd2132
+changeset:   2605:d8994d4f7870
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 12 12:56:41 2017 +0000
+summary:     Update version on modules
+
+changeset:   2604:d1d5003647f5
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 12 12:40:25 2017 +0000
+summary:     Keep pdq and hl7 on default / dev branch
+
+changeset:   2603:18ce994d28d6
+branch:      stable
+parent:      2601:6762f6dd00b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 12 11:55:52 2017 +0000
+summary:     Update GPL headers
+
+changeset:   2601:6762f6dd00b4
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 04 19:47:28 2017 +0000
+summary:     Fix bug #50460: Use of gender when using growth charts in transgender population
+
+changeset:   2600:07b305bacd17
+branch:      stable
+parent:      2591:3fa71e15925b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 04 17:57:14 2017 +0000
+summary:     Fix bug #50437: Missing declaration of view directory on setup.py
+
+changeset:   2589:d003cfcd2132
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 12 19:55:10 2017 +0000
 summary:     Remove readonly from patient meal order warning, to correctly
