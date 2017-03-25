@@ -56,10 +56,12 @@ setup(name='trytond_health_disability',
     packages=[
         'trytond.modules.health_disability',
         ],
+
     package_data={
-        'trytond.modules.health_disability': info.get('xml', []) \
+        'trytond.modules.health': info.get('xml', []) \
             + info.get('translation', []) \
-            + ['tryton.cfg', 'doc/*.rst', 'locale/*.po', 'report/*.odt', 'icons/*.svg'],
+            + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
+               'report/*.odt', 'icons/*.svg'],
         },
 
     classifiers=[
