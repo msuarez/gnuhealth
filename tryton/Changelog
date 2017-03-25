@@ -1,3 +1,23 @@
+changeset:   2612:92ab8d5a13ca
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 25 18:42:48 2017 +0000
+summary:     Update to version 3.0.8
+
+changeset:   2611:d9fc469ecf5b
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 25 18:33:01 2017 +0000
+summary:     health_disability : Fix bug bug #50635: Missing declaration of view directory and correct previous patch with module name
+
+changeset:   2610:6cd8de9da9d7
+branch:      stable
+parent:      2607:c4a186a5837e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 25 18:04:04 2017 +0000
+summary:     health_disability : Fix bug bug #50635: Missing declaration of view directory on setup.py
+
 changeset:   2605:d8994d4f7870
 branch:      stable
 tag:         tip
