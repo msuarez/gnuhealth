@@ -1,0 +1,30 @@
+{
+"_id": "ESLPA555EZE", 
+"lastname": "House", 
+"name": "Greg", 
+"gender": "male",
+"biological_sex": "male",
+"dob": ISODate("1960-12-15T14:10:00Z"),
+"marital_status":"divorced",
+"ethnicity":"white",
+"education":"tertiary",
+"profession":"doctor",
+"password": "$2y$10$Vblo.CFR02WXuKnzl4X3aONczhE1RPxf.pCUvEe3vj8gPtu.fKehC",
+"roles":["end_user","health_professional"],
+"active": true
+}
+{
+"_id": "ITPYT999HON", 
+"lastname": "Cordara", 
+"name": "Cameron", 
+"gender": "female",
+"biological_sex": "female",
+"dob": ISODate("1984-10-05T09:00:00Z"),
+"marital_status":"married",
+"ethnicity":"latino",
+"education":"tertiary",
+"profession":"teacher",
+"password": "$2b$12$oupVTc9lqeGIcDM6Hgtn3e7H.Xf/utILZ8zv4lovyzeFKb0Bpczrq",
+"roles":["end_user"],
+"active": true
+}
