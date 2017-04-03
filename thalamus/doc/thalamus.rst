@@ -55,6 +55,19 @@ Events (/events)
 PersonalDocs (/personal-documents)
 
 
+Running Thalamus from a WSGI Container
+--------------------------------------
+In production settings, for performance reasons you should use a HTTP server.
+We have chosen gunicorn_ , but you can use any WSGI server.
+Gunicorn supports WSGI natively and it comes as Python package. We have 
+included a very simple config file (etc/gunicorn.cfg) to run Thalamus from 
+Gunicorn with SSL enabled.
+
+For example, you can run the Thalamus application from Gunicorn as follows
+
+gunicorn --config etc/gunicorn.cfg thalamus:app
+
+
 Development
 -----------
 Thalamus is part of the GNU Health project. 
