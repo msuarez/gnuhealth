@@ -40,7 +40,7 @@ class People(Resource):
         """
         Retrieves all the people on the person collection
         """
-        people = list(mongo.db.person.find())
+        people = list(mongo.db.people.find())
 
         return jsonify(people)
 
@@ -56,7 +56,7 @@ class PersonalDocs(Resource):
 
 api.add_resource(PersonalDocs, '/personal-documents')
 
-# Personal Documents resource
+# Domiciliary Units resource
 class DomiciliaryUnits(Resource):
     "Domiciliary Units"
     def get(self):
