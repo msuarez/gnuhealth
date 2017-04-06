@@ -73,7 +73,23 @@ class People(Resource):
 
         return jsonify(people)
 
-api.add_resource(People, '/people')
+# Person 
+class Person(Resource):
+    "Holds the person demographics information"
+    
+    decorators = [auth.login_required] # Use the decorator from httpauth
+    def get(self, person_id):
+        """
+        Retrieves the person instance
+        """
+        person = mongo.db.people.find_one({'_id' : person_id})
+
+        return jsonify(person)
+
+
+api.add_resource(People, '/people') #Add resource for People
+
+api.add_resource(Person, '/people/<person_id>') #Add person instance
 
 
 # Personal Documents resource
