@@ -28,6 +28,8 @@ import gettext
 import gtk
 import os
 import ssl
+import requests
+
 
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
@@ -60,8 +62,8 @@ class FederationResourceLocator():
             
             db = dbconn[database]
             
-            # Use the Demographics collection
-            demographics = db.demographics
+            # Use the people collection
+            people = db.people
             
             try:
                 auth = db.authenticate(user, password)
@@ -78,7 +80,7 @@ class FederationResourceLocator():
                 # Find the federation ID using deterministic algorithm
                 # (exact match, return at most one record)
 
-                record = demographics.find_one({'_id':resource})
+                record = people.find_one({'_id':resource})
             
                 if not record:
                     not_found_msg = "The ID "+ resource +\
