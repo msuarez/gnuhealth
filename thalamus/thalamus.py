@@ -22,10 +22,12 @@
 from flask import Flask, request, jsonify, render_template
 from flask_restful import Resource, Api
 from flask_pymongo import PyMongo
-from flask_httpauth import HTTPBasicAuth
 
-import bcrypt
+import security
+
 import logging
+
+__all__ = ["People","Person"]
 
 app = Flask(__name__)
 app.config.from_pyfile('thalamus.cfg')
@@ -34,37 +36,13 @@ api = Api(app)
 
 mongo = PyMongo(app)
 
-auth = HTTPBasicAuth()
-
-""" Authentication """
-
-@auth.verify_password
-def verify_password(username, password):
-    """
-    Takes the username and password from the client
-    and checks them against the entry on the people db collection
-    The password is bcrypt hashed
-    """
-    user = mongo.db.people.find_one({'_id' : username})
-    if (user):
-        account = mongo.db.people.find_one({'_id' : username})
-        person = account['_id']
-        hashed_password = account['password']
-        if bcrypt.checkpw(password.encode('utf-8'), 
-            hashed_password.encode('utf-8')):
-            return True
-        else:
-            return False
-        
-    else:
-       return False
 
 
 # People Resource
 class People(Resource):
     "Holds the person demographics information"
     
-    decorators = [auth.login_required] # Use the decorator from httpauth
+    decorators = [security.auth.login_required] # Use the decorator from httpauth
     def get(self):
         """
         Retrieves all the people on the person collection
@@ -77,7 +55,7 @@ class People(Resource):
 class Person(Resource):
     "Holds the person demographics information"
     
-    decorators = [auth.login_required] # Use the decorator from httpauth
+    decorators = [security.auth.login_required] # Use the decorator from httpauth
     def get(self, person_id):
         """
         Retrieves the person instance
