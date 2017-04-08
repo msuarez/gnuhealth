@@ -9,7 +9,9 @@ nodes. The main functions will be:
  Information System (MongoDB). Some of the participating nodes include 
  the GNU Health HMIS (Tryton based), MyGNUHealth mobile PHR application,
  laboratories, research institutions and civil offices, to name a few
- possibilities.
+ possibilities. Although Thalamus is part of the GNU Health project, 
+ it is a self contained, independent server from the GNU Health HMIS.
+
 
  # Authentication Server : Thalamus will provide an authentication server
  to interact with the GNUHealth Information System
@@ -20,6 +22,7 @@ Current connected nodes, type of nodes, workload, logs, ...
 Thalamus will provides a common way to interconnect the heterogeneous
 - both from the technical and functional aspects -, nodes within the 
 GNU Health federation. 
+
 
 Technology
 ----------
@@ -86,5 +89,5 @@ Thalamus will follow its own release process, independent from GNU Health HMIS.
 
 Packaging
 ---------
-There will be a tarball, as well as a Python package.
+There will be a tarball, as well as a Python package (pypi)
 
