@@ -116,38 +116,6 @@ class Hospitalizations(Resource):
 
 api.add_resource(Hospitalizations, '/hospitalizations')
 
-
-@app.route('/login', methods=['GET','POST'])
-def login():  
-    """
-    Login method that takes the user credentials
-    and checks against a bcrypt hashed password
-
-    TODO: Needs work to get the roles and avoid passing the
-    credentials as arguments
-    """
-    
-    if request.method == 'POST':
-        federation_account = request.form['fedaccount']
-    
-        # Do validation first...
-        # id_ : Holds the unique federation account code :
-        user = mongo.db.people.find_one({'_id' : federation_account})
-        if (user):
-            form_password = request.form['password']
-            account = mongo.db.people.find_one({'_id' : federation_account})
-            person = account['_id']
-            hashed_password = account['password']
-            if bcrypt.checkpw(form_password.encode('utf-8'), 
-                hashed_password.encode('utf-8')):
-                msg = "User logged in correctly"
-            else:
-                msg = "Wrong user or password"
-            
-            return msg
-        else:
-           return "Wrong user or password" 
-    return render_template('login.html')
     
 if __name__ == '__main__':
     app.run()
