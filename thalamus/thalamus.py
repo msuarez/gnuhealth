@@ -30,7 +30,7 @@ import logging
 __all__ = ["People","Person"]
 
 app = Flask(__name__)
-app.config.from_pyfile('thalamus.cfg')
+app.config.from_pyfile('etc/thalamus.cfg')
 
 api = Api(app)
 
