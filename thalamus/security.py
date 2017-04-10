@@ -25,5 +25,3 @@ def verify_password(username, password):
     else:
        return False
 
-class AccessControl:
-    "Check the access level from a user to a resource"
