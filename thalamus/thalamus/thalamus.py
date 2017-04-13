@@ -23,6 +23,7 @@ from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
+import json
 import bcrypt
 
 import logging
@@ -38,6 +39,8 @@ mongo = PyMongo(app)
 
 auth = HTTPBasicAuth()
 
+ACL = json.load(open(app.config['ACL'],'r'))
+
 # Authentication
 
 @auth.verify_password
@@ -52,9 +55,16 @@ def verify_password(username, password):
         account = mongo.db.people.find_one({'_id' : username})
         person = account['_id']
         hashed_password = account['password']
+        roles = account['roles']
         if bcrypt.checkpw(password.encode('utf-8'), 
             hashed_password.encode('utf-8')):
-            return True
+            """ Authentication OK
+            Now check the access level for the resource
+            """
+            method = request.method
+            endpoint = request.endpoint
+            return access_control(roles, method, endpoint)
+                
         else:
             return False
         
@@ -62,6 +72,15 @@ def verify_password(username, password):
        return False
 
 
+
+# Authorization
+def access_control(roles, method, endpoint):
+    """
+    Takes the logged in user roles, method and endpoint as arguments
+    Verifies them against the ACL and returns either True or False
+    """
+    return True
+        
 # People Resource
 class People(Resource):
     "Holds the person demographics information"
@@ -71,6 +90,7 @@ class People(Resource):
         """
         Retrieves all the people on the person collection
         """
+        
         people = list(mongo.db.people.find())
 
         return jsonify(people)
@@ -82,7 +102,7 @@ class Person(Resource):
     decorators = [auth.login_required] # Use the decorator from httpauth
     def get(self, person_id):
         """
-        Retrieves the person instance
+        Retrieves the person instance 
         """
         person = mongo.db.people.find_one({'_id' : person_id})
 
