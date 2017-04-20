@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
+#    Thalamus, the GNU Health Message and Authentication Server
+#
+#           Thalamus is part of the GNU Health project
+#
+##############################################################################
+#
 #    GNU Health: The Free Health and Hospital Information System
 #    Copyright (C) 2008-2017 Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
@@ -79,7 +85,13 @@ def access_control(roles, method, endpoint):
     Takes the logged in user roles, method and endpoint as arguments
     Verifies them against the ACL and returns either True or False
     """
-    return True
+    for user_role in roles:
+        for acl_entry in ACL:
+            if (acl_entry["role"] == user_role):
+                actions = acl_entry["permissions"]
+                if (endpoint in actions[method]):
+                    return True
+    return False
         
 # People Resource
 class People(Resource):
