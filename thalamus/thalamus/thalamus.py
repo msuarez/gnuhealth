@@ -69,7 +69,8 @@ def verify_password(username, password):
             """
             method = request.method
             endpoint = request.endpoint
-            return access_control(roles, method, endpoint)
+            view_args = request.view_args
+            return access_control(username,roles, method, endpoint, view_args)
                 
         else:
             return False
@@ -80,7 +81,7 @@ def verify_password(username, password):
 
 
 # Authorization
-def access_control(roles, method, endpoint):
+def access_control(username, roles, method, endpoint, view_args):
     """
     Takes the logged in user roles, method and endpoint as arguments
     Verifies them against the ACL and returns either True or False
@@ -90,7 +91,15 @@ def access_control(roles, method, endpoint):
             if (acl_entry["role"] == user_role):
                 actions = acl_entry["permissions"]
                 if (endpoint in actions[method]):
-                    return True
+                    """Check if the method allows to access the endpoint"""
+                    if view_args:
+                        """If there are arguments (eg, person_id), check 
+                            whether the user role has global access
+                            or just can see his/her records"""
+                        if (username == view_args["person_id"] or
+                            actions["global"] == "True"):
+                                return True
+
     return False
         
 # People Resource
