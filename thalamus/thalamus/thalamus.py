@@ -99,7 +99,8 @@ def access_control(username, roles, method, endpoint, view_args):
                         if (username == view_args["person_id"] or
                             actions["global"] == "True"):
                                 return True
-
+                    else:
+                        return True
     return False
         
 # People Resource
