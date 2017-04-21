@@ -72,9 +72,127 @@ Gunicorn supports WSGI natively and it comes as Python package. We have
 included a very simple config file (etc/gunicorn.cfg) to run Thalamus from 
 Gunicorn with SSL enabled.
 
-For example, you can run the Thalamus application from Gunicorn as follows
+For example, you can run the Thalamus application from Gunicorn as follows.
+The default configuration file uses secure (SSL) connections
 
-    >>> gunicorn --config etc/gunicorn.cfg thalamus:app
+    gunicorn --config etc/gunicorn.cfg thalamus:app
+
+
+If you want to run it directly from the Flask Werkzeug server,
+
+    python ./thalamus.py
+
+
+Examples
+--------
+**Command-line, using httpie**
+
+Retrieve the demographic information of person.
+
+    http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people/ESGNU777ORG
+
+
+    HTTP/1.1 200 OK
+    Connection: close
+    Content-Length: 411
+    Content-Type: application/json
+    Date: Fri, 21 Apr 2017 16:22:38 GMT
+    Server: gunicorn/19.7.1
+
+    {
+        "_id": "ESGNU777ORG",
+        "active": true,
+        "biological_sex": "female",
+        "dob": "Fri, 04 Oct 1985 13:05:00 GMT",
+        "education": "tertiary",
+        "ethnicity": "latino",
+        "gender": "female",
+        "lastname": "Betz",
+        "marital_status": "married",
+        "name": "Ana",
+        "password": "$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW",
+        "profession": "teacher",
+        "roles": [
+        "end_user"
+        ]
+        
+    }
+
+**Retrieve the demographics information globally**
+
+    http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people
+
+
+    HTTP/1.1 200 OK
+    Connection: close
+    Content-Length: 933
+    Content-Type: application/json
+    Date: Fri, 21 Apr 2017 16:31:23 GMT
+    Server: gunicorn/19.7.1
+
+    [
+        {
+            "_id": "ITPYT999HON",
+            "active": true,
+            "biological_sex": "female",
+            "dob": "Fri, 05 Oct 1984 09:00:00 GMT",
+            "education": "tertiary",
+            "ethnicity": "latino",
+            "gender": "female",
+            "lastname": "Cordara",
+            "marital_status": "married",
+            "name": "Cameron",
+            "password": "$2b$12$Y9rX7PoTHRXhTO1H78Tan.8mVmyayGAUIveiYxu2Qeo0ZDRvJQ8/2",
+            "profession": "teacher",
+            "roles": [
+            "end_user",
+            "health_professional"
+            ]
+            
+        },
+        
+        {
+            "_id": "ESGNU777ORG",
+            "active": true,
+            "biological_sex": "female",
+            "dob": "Fri, 04 Oct 1985 13:05:00 GMT",
+            "education": "tertiary",
+            "ethnicity": "latino",
+            "gender": "female",
+            "lastname": "Betz",
+            "marital_status": "married",
+            "name": "Ana",
+            "password": "$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW",
+            "profession": "teacher",
+            "roles": [
+            "end_user"
+            ]
+            
+        }
+        
+    ]
+    
+
+
+
+
+**Using Python requests**
+
+    python3
+
+    >>> import requests
+    >>> person = requests.get('https://localhost:8443/people/ESGNU777ORG', auth=('ITPYT999HON', 'gnusolidario'), verify=False)
+    >>> person.json()
+    {'_id': 'ESGNU777ORG', 'active': True, 'biological_sex': 'female','dob': 'Fri, 04 Oct 1985 13:05:00 GMT',
+    'education': 'tertiary', 'ethnicity': 'latino', 'gender': 'female', 'lastname': 'Betz', 'marital_status': 'married',
+    'name': 'Ana', 'password': '$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW', 'profession': 'teacher',
+    'roles': ['end_user']}
+
+
+
+*Note*: The user "ITPYT999HON" is a health professional (health_professional role),
+so she has global access to demographic information. Check the roles.cfg file fo
+examples information about roles and ACLs
 
 
 Development
