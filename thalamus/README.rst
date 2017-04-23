@@ -4,26 +4,25 @@ Thalamus: The GNU Health Message and Authentication Server
 The Thalamus project provides a RESTful API hub to all the GNU Health 
 Federation nodes. The main functions are:
 
- # Message server: A concentrator and message relay from and to 
- the participating nodes in the GNU Health Federation and the GNU Health
- Information System (MongoDB). Some of the participating nodes include 
- the GNU Health HMIS (Tryton based), MyGNUHealth mobile PHR application,
- laboratories, research institutions and civil offices.
- 
- # Authentication Server : Thalamus also serves as an authentication and
- authorization server to interact with the GNUHealth Information System
+#. **Message server**: A concentrator and message relay from and to  
+   the participating nodes in the GNU Health Federation and the GNU Health
+   Information System (MongoDB). Some of the participating nodes include 
+   the GNU Health HMIS, MyGNUHealth mobile PHR application,
+   laboratories, research institutions and civil offices.
+
+#. **Authentication Server**: Thalamus also serves as an authentication and
+   authorization server to interact with the GNUHealth Information System
+
 
 Thalamus is part of the GNU Health project, but it is a self contained, 
 independent server that can be used in different health related scenarios.
 
-
 Installation
 ------------
-Thalamus is pip-installable.
+Thalamus is pip-installable::
 
-    >>> pip install thalamus
+  $ pip install --user thalamus 
  
-
 Technology
 ----------
 RESTful API: Thalamus uses a REST (Representional State Transfer) 
@@ -33,34 +32,33 @@ architectural style, powered by
 Thalamus will perform CRUD (Create, Read, Update, Delete) operations. They
 will be achived via the following methods upon resources and their instances.
 
- # GET : Read
+* **GET** : Read
  
- # POST : Create
+* **POST** : Create
  
- # PUT / PATCH : Update
-  
- # DELETE : Minimal (or even none)
+* **PUT / PATCH** : Update
+ 
+* **DELETE** : Minimal (or even none)
   
 
 JSON: The information will be encoded in `JSON <https://en.wikipedia.org/wiki/JSON>`_ format.
 
-
 Resources
 ---------
 
-Some examples of resources and end-points are:
+Some resources and end-points are:
 
-People (/people)
+* People (/people)
 
-DomiciliaryUnits (/domiciliary-units)
+* DomiciliaryUnits (/domiciliary-units)
 
-Institutions (/institutions)
+* Institutions (/institutions)
 
-Encounters (/encounters)
+* Encounters (/encounters)
 
-Events (/events)
+* Events (/events)
 
-PersonalDocs (/personal-documents)
+* PersonalDocs (/personal-documents)
 
 
 Running Thalamus from a WSGI Container
@@ -69,28 +67,29 @@ In production settings, for performance reasons you should use a HTTP server.
 We have chosen `Gunicorn <http://gunicorn.org>`_ , but you can use any WSGI server.
 
 Gunicorn supports WSGI natively and it comes as Python package. We have 
-included a very simple config file (etc/gunicorn.cfg) to run Thalamus from 
+included a simple, default config file (``etc/gunicorn.cfg``) to run Thalamus from 
 Gunicorn with SSL enabled.
 
 For example, you can run the Thalamus application from Gunicorn as follows.
-The default configuration file uses secure (SSL) connections
+The default configuration file uses secure (SSL) connections::
 
-    gunicorn --config etc/gunicorn.cfg thalamus:app
+  $ gunicorn --config etc/gunicorn.cfg thalamus:app
 
 
-If you want to run it directly from the Flask Werkzeug server,
+If you want to run it directly from the Flask Werkzeug server,::
 
-    python ./thalamus.py
+  $ python ./thalamus.py
 
 
 Examples
 --------
 **Command-line, using httpie**
 
-Retrieve the demographic information of person.
+Retrieve the demographic information of person::
 
-    http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people/ESGNU777ORG
+  $ http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people/ESGNU777ORG
 
+Yields to::
 
     HTTP/1.1 200 OK
     Connection: close
@@ -118,10 +117,11 @@ Retrieve the demographic information of person.
         
     }
 
-**Retrieve the demographics information globally**
+**Retrieve the demographics information globally**::
 
-    http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people
+  $ http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people
 
+Yields to::
 
     HTTP/1.1 200 OK
     Connection: close
@@ -173,26 +173,19 @@ Retrieve the demographic information of person.
     ]
     
 
+**Using Python requests**::
 
-
-
-**Using Python requests**
-
-    python3
-
-    >>> import requests
-    >>> person = requests.get('https://localhost:8443/people/ESGNU777ORG', auth=('ITPYT999HON', 'gnusolidario'), verify=False)
-    >>> person.json()
+  >>> import requests
+  >>> person = requests.get('https://localhost:8443/people/ESGNU777ORG', auth=('ITPYT999HON', 'gnusolidario'), verify=False)
+  >>> person.json()
     {'_id': 'ESGNU777ORG', 'active': True, 'biological_sex': 'female','dob': 'Fri, 04 Oct 1985 13:05:00 GMT',
     'education': 'tertiary', 'ethnicity': 'latino', 'gender': 'female', 'lastname': 'Betz', 'marital_status': 'married',
     'name': 'Ana', 'password': '$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW', 'profession': 'teacher',
     'roles': ['end_user']}
 
-
-
-*Note*: The user "ITPYT999HON" is a health professional (health_professional role),
-so she has global access to demographic information. Check the roles.cfg file fo
-examples information about roles and ACLs
+*Note*: The demo user "ITPYT999HON" is a health professional (health_professional role),
+so she has global access to demographic information. Check the ``roles.cfg`` file for
+examples information about roles and ACLs.
 
 Development
 -----------
@@ -204,18 +197,21 @@ Tasks, bugs and mailing lists will be on health-dev@gnu.org , for development.
 
 General questions can be done on health@gnu.org mailing list.
 
-You can visit http://health.gnu.org
+Homepage
+--------
+http://health.gnu.org
 
 
 Release Cycle
 -------------
-Thalamus will follow its own release process, independent from GNU Health HMIS.
+Thalamus, as other GNU Health components, will follow its own release process.
 
 
-Packaging
----------
-There will be a tarball, as well as a Python package (pypi)
+Documentation
+-------------
+The Thalamus documentation will be at the corresponding
+chapter in the GNU Health Wikibook
 
-
+https://en.wikibooks.org/wiki/GNU_Health
 
 :Author: Luis Falcon <lfalcon@gnusolidario.org>
