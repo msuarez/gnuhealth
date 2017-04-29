@@ -38,7 +38,9 @@ will be achived via the following methods upon resources and their instances.
  
 * **PUT / PATCH** : Update
  
-* **DELETE** : Minimal (or even none)
+* **DELETE** : Delete.
+
+The DELETE operations will be minimal.
   
 
 JSON: The information will be encoded in `JSON <https://en.wikipedia.org/wiki/JSON>`_ format.
