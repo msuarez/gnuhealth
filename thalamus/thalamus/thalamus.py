@@ -26,7 +26,7 @@
 #
 ##############################################################################
 from flask import Flask, request, jsonify
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, abort
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
 import json
@@ -122,6 +122,8 @@ class Person(Resource):
     "Holds the person demographics information"
     
     decorators = [auth.login_required] # Use the decorator from httpauth
+
+
     def get(self, person_id):
         """
         Retrieves the person instance 
@@ -130,6 +132,37 @@ class Person(Resource):
 
         return jsonify(person)
 
+    def post(self, person_id):
+        """
+        Create a new instance on the Person resource 
+        Initially just the Federation ID and the bcrypted
+        hashed password
+        """
+        person = mongo.db.people.find_one({'_id' : person_id})
+
+        if person:
+            abort (422, errors="User already exists")
+
+        pw = request.args.get('password',type=str)
+        active = request.args.get('active')
+        roles = request.args.getlist('roles')
+
+        print ("PARAMS :",pw, active,roles)
+
+        if len(pw) > 64:
+            abort (422, error="Password is too long")
+
+        if (pw):
+            hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
+                    bcrypt.gensalt())
+            person = mongo.db.people.insert({'_id' : person_id,
+                'password' : hashed_pw.decode('utf-8'),
+                'roles' : roles,
+                'active' : active})
+            return jsonify(person)
+
+        else:
+            abort (422, "No password provided")
 
 api.add_resource(People, '/people') #Add resource for People
 
