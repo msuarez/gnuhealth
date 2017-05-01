@@ -147,10 +147,11 @@ class Person(Resource):
         active = request.args.get('active')
         roles = request.args.getlist('roles')
 
-        if len(pw) > 64:
-            abort (422, error="Password is too long")
 
         if (pw):
+            if len(pw) > 64:
+                abort (422, error="Password is too long")
+
             hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
                     bcrypt.gensalt())
             person = mongo.db.people.insert({'_id' : person_id,
