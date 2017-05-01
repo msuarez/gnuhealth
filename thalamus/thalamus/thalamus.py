@@ -147,8 +147,6 @@ class Person(Resource):
         active = request.args.get('active')
         roles = request.args.getlist('roles')
 
-        print ("PARAMS :",pw, active,roles)
-
         if len(pw) > 64:
             abort (422, error="Password is too long")
 
@@ -162,7 +160,7 @@ class Person(Resource):
             return jsonify(person)
 
         else:
-            abort (422, "No password provided")
+            abort (422, error="No password provided")
 
 api.add_resource(People, '/people') #Add resource for People
 
