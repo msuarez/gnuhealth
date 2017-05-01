@@ -47,6 +47,19 @@ auth = HTTPBasicAuth()
 
 ACL = json.load(open(app.config['ACL'],'r'))
 
+
+
+def check_person(person_id):
+    """
+    Checks if the Federation ID exists on the GNU Health HIS
+    """
+    person = mongo.db.people.find_one({'_id' : person_id})
+
+    if person:
+        return True
+    else:
+        return False
+
 # Authentication
 
 @auth.verify_password
@@ -138,18 +151,15 @@ class Person(Resource):
         Initially just the Federation ID and the bcrypted
         hashed password
         """
-        person = mongo.db.people.find_one({'_id' : person_id})
-
-        if person:
-            abort (422, errors="User already exists")
+        if check_person(person_id):
+            abort (422, error="User already exists")
 
         pw = request.args.get('password',type=str)
         active = request.args.get('active')
         roles = request.args.getlist('roles')
 
-
         if (pw):
-            if len(pw) > 64:
+            if (len(pw) > 64):
                 abort (422, error="Password is too long")
 
             hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
@@ -162,6 +172,42 @@ class Person(Resource):
 
         else:
             abort (422, error="No password provided")
+
+    def patch(self, person_id):
+        """
+        Updates the person instance 
+        """
+        parameters = request.args
+
+        if '_id' in parameters:
+            # Avoid changing the user ID
+            abort(422, error="Not allowed to change the person ID")
+        
+        """
+        Create a dictionary with the values from the params
+        since the initial object is an ImmutableDict
+        We need to parse the keys, to manipulate and
+        convert them when needed
+        """
+
+        args = {}
+        for param in parameters:
+            args[param]= parameters[param]
+
+
+        if check_person(person_id): 
+            if 'password' in args:
+                """ make a brcypted hash from the password """
+                pw = args['password']
+                hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
+                    bcrypt.gensalt()).decode('utf-8')
+                args['password']= hashed_pw 
+
+            update_person = mongo.db.people.update_one({"_id":person_id},
+                {"$set": args})
+        else:
+            abort (404, error="User not found")
+            
 
 api.add_resource(People, '/people') #Add resource for People
 
