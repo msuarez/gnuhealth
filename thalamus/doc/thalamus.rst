@@ -36,7 +36,7 @@ will be achived via the following methods upon resources and their instances.
  
 * **POST** : Create
  
-* **PUT / PATCH** : Update
+* **PATCH** : Update
  
 * **DELETE** : Delete.
 
