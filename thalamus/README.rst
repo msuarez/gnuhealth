@@ -1,5 +1,5 @@
-Thalamus: The GNU Health Message and Authentication Server
-==========================================================
+Thalamus: The GNU Health Federation Message and Authentication Server
+=====================================================================
 
 The Thalamus project provides a RESTful API hub to all the GNU Health 
 Federation nodes. The main functions are:

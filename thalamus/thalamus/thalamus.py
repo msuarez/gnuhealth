@@ -31,7 +31,6 @@ from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
 import json
 import bcrypt
-
 import logging
 
 __all__ = ["People","Person"]
@@ -47,18 +46,14 @@ auth = HTTPBasicAuth()
 
 ACL = json.load(open(app.config['ACL'],'r'))
 
-
-
 def check_person(person_id):
     """
     Checks if the Federation ID exists on the GNU Health HIS
+    Returns the instance or null
     """
     person = mongo.db.people.find_one({'_id' : person_id})
 
-    if person:
-        return True
-    else:
-        return False
+    return person
 
 # Authentication
 
@@ -71,10 +66,10 @@ def verify_password(username, password):
     """ 
     user = mongo.db.people.find_one({'_id' : username})
     if (user):
-        account = mongo.db.people.find_one({'_id' : username})
-        person = account['_id']
-        hashed_password = account['password']
-        roles = account['roles']
+        # account = mongo.db.people.find_one({'_id' : username})
+        person = user['_id']
+        hashed_password = user['password']
+        roles = user['roles']
         if bcrypt.checkpw(password.encode('utf-8'), 
             hashed_password.encode('utf-8')):
             """ Authentication OK
@@ -125,7 +120,6 @@ class People(Resource):
         """
         Retrieves all the people on the person collection
         """
-        
         people = list(mongo.db.people.find())
 
         return jsonify(people)
@@ -135,7 +129,6 @@ class Person(Resource):
     "Holds the person demographics information"
     
     decorators = [auth.login_required] # Use the decorator from httpauth
-
 
     def get(self, person_id):
         """
@@ -155,7 +148,11 @@ class Person(Resource):
             abort (422, error="User already exists")
 
         pw = request.args.get('password',type=str)
-        active = request.args.get('active')
+        if (request.args.get('active') == "True"):
+            active= True
+        else:
+            active= False
+
         roles = request.args.getlist('roles')
 
         if (pw):
@@ -191,24 +188,50 @@ class Person(Resource):
         """
 
         args = {}
+        """
+        TODO: use raw arguments directly in the update command
+              instead of args{}
+        """
+
         for param in parameters:
-            args[param]= parameters[param]
+            args[param]=request.args.get(param)
 
+            if (param == 'roles'):
+                args['roles']= request.args.getlist('roles')
 
-        if check_person(person_id): 
+            if (param == 'active'):
+                if (request.args.get('active') == "True"):
+                    args['active']= True
+                else:
+                    args['active']= False
+
             if 'password' in args:
-                """ make a brcypted hash from the password """
-                pw = args['password']
-                hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
-                    bcrypt.gensalt()).decode('utf-8')
-                args['password']= hashed_pw 
-
+                # TODO: Verify that the password has been bcrypted 
+                pass
+            
+ 
+        if check_person(person_id): 
             update_person = mongo.db.people.update_one({"_id":person_id},
                 {"$set": args})
         else:
             abort (404, error="User not found")
             
+    def delete(self, person_id):
+        """
+        Delete the user instance. This will be 
+        used in exceptional cases only, and the 
+        instance must be inactive.
+        """
+        person = check_person(person_id)
+        if not person:
+            abort (404, error="User does not exist")
 
+        else:
+           if person['active']:
+            abort (422, error="The user is active.") 
+
+        delete_person = mongo.db.people.delete_one({"_id":person_id})
+ 
 api.add_resource(People, '/people') #Add resource for People
 
 api.add_resource(Person, '/people/<person_id>') #Add person instance

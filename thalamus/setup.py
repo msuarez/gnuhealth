@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Thalamus, the GNU Health Message and Authentication Server
+#    Thalamus, the GNU Health Federation Message and Authentication Server
 #
-#           Thalamus is part of the GNU Health project
+#                  Thalamus is part of the GNU Health project
 #
 ##############################################################################
 #
@@ -34,10 +34,9 @@ lic = open('LICENSE').read()
 
 version = open('version').read().strip()
 
-
 setup(name='thalamus',
     version=version,
-    description = 'The GNU Health Message and Authentication Server',
+    description = 'The GNU Health Federation Message and Authentication Server',
     keywords='health API REST',
     long_description = long_desc,
     platforms='any',
