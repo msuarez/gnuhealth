@@ -7,8 +7,8 @@
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2016  Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2008-2016  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2017  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2017  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -207,6 +207,9 @@ install_directories() {
 
 
 install_python_dependencies() {
+    message "[INFO] Updating Python dependencies..." ${YELLOW}
+    check_requirements
+
     local PIP_CMD=$(which $PIP_NAME)
     local PIP_VERSION="$(${PIP_CMD} --version | awk '{print $2}')"
 
@@ -475,6 +478,7 @@ parse_command_line()
     
     case $1 in
         version) show_version $@;;
+        update-deps) install_python_dependencies $@;;
         install) install $@;;
         help) help;;
         *) echo $1: Unrecognized command; exit 1;;
@@ -482,4 +486,3 @@ parse_command_line()
 }
 
 parse_command_line "$@"
-
