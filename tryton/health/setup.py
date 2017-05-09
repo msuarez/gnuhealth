@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#    Copyright (C) 2011-2017 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify
@@ -47,7 +48,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health core module'),
+    description=info.get('description', 'GNU Health - The Free/Libre Hospital and Health Information System core package for Tryton'),
     long_description=read('README'),
     author='GNU Solidario',
     author_email='health@gnusolidario.org',
@@ -78,9 +79,7 @@ setup(name='trytond_health',
         'Natural Language :: English',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
