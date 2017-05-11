@@ -6,7 +6,6 @@
         <record model="ir.ui.view" id="view_lab_form">
             <field name="model">gnuhealth.lab</field>
             <field name="inherit" ref="health_lab.gnuhealth_lab_view"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_lab_form</field>
         </record>
 

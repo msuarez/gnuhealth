@@ -97,6 +97,7 @@ class LabTest(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(LabTest, cls).__setup__()
         cls._buttons.update({
             'generate_document': {
                 'invisible': Not(Equal(Eval('state'), 'draft')),
@@ -188,12 +189,12 @@ class LabTest(ModelSQL, ModelView):
             'Lab_test': str(document.name) or '',
             'Test': str(document.test.rec_name) or '',
             'HP': str(document.requestor.rec_name),
-            'Patient': document.patient.rec_name,
+            'Patient': str(document.patient.rec_name),
             'Patient_ID': str(document.patient.name.ref) or '',
-            'Analyte_line': analyte_line,
+            'Analyte_line': str(analyte_line),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -208,7 +209,6 @@ class LabTest(ModelSQL, ModelView):
         cls.write([cls(doc_id)], {
             'digital_signature': signature,
             })
-
 
 
     def check_digest (self,name):
@@ -246,11 +246,12 @@ class HealthCrypto:
 
     def serialize(self,data_to_serialize):
         """ Format to JSON """
+
         json_output = \
-            json.dumps(data_to_serialize, ensure_ascii=False).encode('utf-8')
+            json.dumps(data_to_serialize,ensure_ascii=False)
         return json_output
 
     def gen_hash(self, serialized_doc):
-        return hashlib.sha512(serialized_doc).hexdigest()
+        return hashlib.sha512(serialized_doc.encode('utf-8')).hexdigest()
 
 
