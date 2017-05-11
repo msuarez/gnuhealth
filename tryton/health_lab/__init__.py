@@ -23,8 +23,8 @@
 
 from trytond.pool import Pool
 from .health_lab import *
-from report import *
-from wizard import *
+from .report import *
+from .wizard import *
 
 
 def register():

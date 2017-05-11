@@ -1,1 +1,1 @@
-from test_health_crypto import suite
+from .test_health_crypto import suite

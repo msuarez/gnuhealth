@@ -12,7 +12,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_bloodcounttestcharges0" model="product.template">
@@ -21,7 +20,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_liverfunctiontestcharges0" model="product.template">
@@ -30,7 +28,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_stoolexaminationcharges0" model="product.template">
@@ -39,7 +36,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_renalfunctiontestcharges0" model="product.template">
@@ -48,7 +44,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_haematologycharges0" model="product.template">
@@ -57,7 +52,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_peripheralsmearexaminationcharges0" model="product.template">
@@ -66,7 +60,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_urineanalysischarges0" model="product.template">
@@ -75,7 +68,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_endocrinology0" model="product.template">
@@ -84,8 +76,49 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
+
+        <!-- Categories : New format in GNU Health 3.2 to be compatible with 
+             Tryton 4.2 and allow multiple categories per product 
+        -->
+        <record model="product.template-product.category" id="cat_product_template_semenanalysischarges0">
+                <field name="template" ref="product_template_semenanalysischarges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_bloodcounttestcharges0">
+                <field name="template" ref="product_template_bloodcounttestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_liverfunctiontestcharges0">
+                <field name="template" ref="product_template_liverfunctiontestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_stoolexaminationcharges0">
+                <field name="template" ref="product_template_stoolexaminationcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_renalfunctiontestcharges0">
+                <field name="template" ref="product_template_renalfunctiontestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_haematologycharges0">
+                <field name="template" ref="product_template_haematologycharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_peripheralsmearexaminationcharges0">
+                <field name="template" ref="product_template_peripheralsmearexaminationcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_urineanalysischarges0">
+                <field name="template" ref="product_template_urineanalysischarges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_endocrinology0">
+                <field name="template" ref="product_template_endocrinology0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+
+        <!-- Link products with template -->
 
         <record id="product_product_semenanalysischarges0" model="product.product">
             <field name="template" model="product.template" ref="product_template_semenanalysischarges0"/>
@@ -1109,6 +1142,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field eval="22" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_urineanalysis0"/>
         </record>
+
 
     </data>
 </tryton>

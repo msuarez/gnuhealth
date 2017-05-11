@@ -185,11 +185,11 @@ class LabTest(ModelSQL, ModelView):
             analyte_line.append(line_elements)
 
         data_to_serialize = { 
-            'Lab_test': unicode(document.name) or '',
-            'Test': unicode(document.test.rec_name) or '',
-            'HP': unicode(document.requestor.rec_name),
+            'Lab_test': str(document.name) or '',
+            'Test': str(document.test.rec_name) or '',
+            'HP': str(document.requestor.rec_name),
             'Patient': document.patient.rec_name,
-            'Patient_ID': unicode(document.patient.name.ref) or '',
+            'Patient_ID': str(document.patient.name.ref) or '',
             'Analyte_line': analyte_line,
              }
 

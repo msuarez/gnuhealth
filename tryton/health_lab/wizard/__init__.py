@@ -21,4 +21,4 @@
 #
 ##############################################################################
 
-from wizard_create_lab_test import *
+from .wizard_create_lab_test import *
