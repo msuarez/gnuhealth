@@ -40,11 +40,11 @@ class HealthCrypto:
     def serialize(self,data_to_serialize):
         """ Format to JSON """
         json_output = \
-            json.dumps(data_to_serialize, ensure_ascii=False).encode('utf-8')
+            json.dumps(data_to_serialize, ensure_ascii=False)
         return json_output
 
     def gen_hash(self, serialized_doc):
-        return hashlib.sha512(serialized_doc).hexdigest()
+        return str(hashlib.sha512(serialized_doc.encode('utf-8')).hexdigest())
 
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
@@ -57,13 +57,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     document_digest = fields.Char('Digest', readonly=True,
         help="Original Document Digest")
-
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),        
-        ('validated', 'Validated'),        
-        ], 'State', readonly=True, sort=False)
-
 
     digest_status = fields.Function(fields.Boolean('Altered',
         states={
@@ -90,7 +83,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
-        
+
     @staticmethod
     def default_state():
         return 'draft'
@@ -118,12 +111,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     def generate_prescription(cls, prescriptions):
         prescription = prescriptions[0]
 
-        # Change the state of the evaluation to "Done"
-        # and write the name of the signing health professional
+        # Change the state of the prescription to "Validated"
 
         serial_doc=cls.get_serial(prescription)
         
-
         cls.write(prescriptions, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
@@ -149,13 +140,13 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             'Prescription': str(prescription.prescription_id) or '',
             'Date': str(prescription.prescription_date) or '',
             'HP': str(prescription.healthprof.rec_name),
-            'Patient': prescription.patient.rec_name,
+            'Patient': str(prescription.patient.rec_name),
             'Patient_ID': str(prescription.patient.name.ref) or '',
-            'Prescription_line': presc_line,
+            'Prescription_line': str(presc_line),
             'Notes': str(prescription.notes),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -290,7 +281,7 @@ class BirthCertificate(ModelSQL, ModelView):
             'Observations': str(certificate.observations),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -405,7 +396,7 @@ class DeathCertificate(ModelSQL, ModelView):
         
         for condition in certificate.underlying_conditions:
             cond = []
-            cond = [condition.condition.rec_name,
+            cond = [str(condition.condition.rec_name),
                 condition.interval,
                 condition.unit_of_time]
                 
@@ -422,15 +413,15 @@ class DeathCertificate(ModelSQL, ModelView):
             'Cod': str(certificate.cod.rec_name),
             'Underlying_conditions': underlying_conds or '',    
             'Autopsy': certificate.autopsy,
-            'Type_of_death': certificate.type_of_death,
-            'Place_of_death': certificate.place_of_death,
+            'Type_of_death': str(certificate.type_of_death),
+            'Place_of_death': str(certificate.place_of_death),
             'Country': str(certificate.country.rec_name) or '',
             'Country_subdivision': certificate.country_subdivision \
                 and str(certificate.country_subdivision.rec_name) or '',
             'Observations': str(certificate.observations),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -455,7 +446,7 @@ class DeathCertificate(ModelSQL, ModelView):
                 ''' Return true if the document has been altered'''
                 result = True
         if (name=='digest_current'):
-            result = HealthCrypto().gen_hash(serial_doc)
+            result = HealthCrypto().gen_hash(serial_doc.encode('uft-8'))
 
         if (name=='serializer_current'):
             result = serial_doc
@@ -649,7 +640,7 @@ class PatientEvaluation(ModelSQL, ModelView):
                 str(evaluation.derived_to.rec_name) or '',
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -666,7 +657,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def check_digest (self,name):
         result=''
-        serial_doc=self.get_serial(self)
+        serial_doc=str(self.get_serial(self))
         if (name == 'digest_status' and self.document_digest):
             if (HealthCrypto().gen_hash(serial_doc) == self.document_digest):
                 result = False

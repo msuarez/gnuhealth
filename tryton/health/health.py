@@ -3749,6 +3749,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),        
+        ('validated', 'Validated'),        
         ], 'State', readonly=True, sort=False, states = STATES)
 
     @classmethod
