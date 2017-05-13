@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Health Support Request">
+<form>
     <group colspan="4" col="8" id="request_header">
         <label name="request_date"/>
         <field name="request_date"/>
