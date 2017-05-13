@@ -8,7 +8,6 @@
         <record model="ir.ui.view" id="view_party_form">
             <field name="model">party.party</field>
             <field name="inherit" ref="party.party_view_form"/>
-            <field name="type">form</field>
             <field name="name">party_form</field>
         </record>
         
@@ -17,7 +16,6 @@
         <record model="ir.ui.view" id="gnuhealth_patient_view">
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form" />
-            <field name="type">form</field>
             <field name="name">gnuhealth_patient</field>
         </record>
 
