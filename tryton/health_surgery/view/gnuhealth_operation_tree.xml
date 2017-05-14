@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Operation">
+<tree editable="top">
     <field name="procedure" expand="1"/>
-    <field name="notes"/>
+    <field name="notes" expand="1"/>
 </tree>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="RCRI : Revised Cardiac Risk Index">
+<form>
     <group id="rcri_header" col="6">
         <label name="patient"/>
         <field name="patient"/>

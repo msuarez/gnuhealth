@@ -50,23 +50,6 @@ class DietBelief (ModelSQL, ModelView):
     code = fields.Char('Code', required=True)
     description = fields.Text('Description', required=True, translate=True)
 
-
-    @classmethod
-    # Update to version 3.0
-    # Move datafile from health_hospitalization to health_lifestyle
-    def __register__(cls, module_name):
-        super(DietBelief, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        cursor.execute(
-            'UPDATE IR_MODEL_DATA '
-            'SET MODULE = \'health_lifestyle\' '
-            'WHERE MODEL = \'gnuhealth.diet.belief\' and '
-            'MODULE = \'health_inpatient\' ' )
-
     @classmethod
     def __setup__(cls):
         super(DietBelief, cls).__setup__()

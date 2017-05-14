@@ -423,18 +423,6 @@ class Surgery(ModelSQL, ModelView):
 
 
     @classmethod
-    # Update to version 2.0
-    def __register__(cls, module_name):
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename the date column to surgery_surgery_date
-        if table.column_exist('date'):
-            table.column_rename('date', 'surgery_date')
-
-        super(Surgery, cls).__register__(module_name)
-
-    @classmethod
     def __setup__(cls):
         super(Surgery, cls).__setup__()
         cls._error_messages.update({
@@ -503,7 +491,7 @@ class Surgery(ModelSQL, ModelView):
     def confirmed(cls, surgeries):
         surgery_id = surgeries[0]
         Operating_room = Pool().get('gnuhealth.hospital.or')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         # Operating Room and end surgery time check
         if (not surgery_id.operating_room or not surgery_id.surgery_end_date):

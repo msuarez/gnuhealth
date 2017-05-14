@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Surgery">
+<form>
     <group string="Patient" colspan="4" col="10" id="group_surgery_patient_header">
         <field name="patient" colspan="3"/>
         <field name="gender"/>
