@@ -21,4 +21,4 @@
 #
 ##############################################################################
 
-import health_icd9procs
+from . import health_icd9procs
