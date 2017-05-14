@@ -167,6 +167,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
         cls._buttons.update({
             'update_service': {
                 'readonly': Equal(Eval('state'), 'done'),

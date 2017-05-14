@@ -21,4 +21,4 @@
 #
 ##############################################################################
 
-from wizard_health_insurance import *
+from .wizard_health_insurance import *

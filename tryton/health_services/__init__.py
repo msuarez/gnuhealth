@@ -23,8 +23,8 @@
 
 from trytond.pool import Pool
 from .health_services import *
-from wizard import *
-from invoice import *
+from .wizard import *
+from .invoice import *
 
 
 def register():

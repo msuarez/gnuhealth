@@ -133,7 +133,6 @@
         <record model="ir.ui.view" id="gnuhealth_vaccination_stock_form">
             <field name="model">gnuhealth.vaccination</field>
             <field name="inherit" ref="health.gnuhealth_vaccination_form"/>
-            <field name="type">form</field>
             <field name="name">vaccination_form</field>
         </record>
 

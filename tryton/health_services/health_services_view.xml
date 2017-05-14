@@ -141,7 +141,6 @@
         <record model="ir.ui.view" id="view_prescription_form">
             <field name="model">gnuhealth.prescription.order</field>
             <field name="inherit" ref="health.gnuhealth_prescription_view" />
-            <field name="type">form</field>
             <field name="name">gnuhealth_prescription</field>
         </record> 
 

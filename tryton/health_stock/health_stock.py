@@ -28,6 +28,7 @@ from trytond.pyson import If, Or, Eval, Not, Bool
 from trytond.exceptions import UserError
 from trytond.transaction import Transaction
 from trytond.pool import Pool, PoolMeta
+from functools import reduce
 
 __all__ = ['Medicament', 'Party', 'Lot', 'Move',
     'PatientAmbulatoryCare', 'PatientAmbulatoryCareMedicament',
@@ -36,15 +37,13 @@ __all__ = ['Medicament', 'Party', 'Lot', 'Move',
     'PatientRoundingMedicalSupply',
     'PatientPrescriptionOrder', 'PatientVaccination']
     
-__metaclass__ = PoolMeta
-
 _STATES = {
     'readonly': Eval('state') == 'done',
     }
 _DEPENDS = ['state']
 
 
-class Medicament:
+class Medicament(metaclass=PoolMeta):
     __name__ = 'gnuhealth.medicament'
     quantity = fields.Function(fields.Float('Quantity'), 'get_quantity')
 
@@ -64,12 +63,12 @@ class Medicament:
                 location_ids=Transaction().context['locations'],
                 product_ids=[self.name.id], with_childs=True)
         quantity = 0.00
-        if pbl.values():
-            quantity = reduce(lambda x, y: x + y, pbl.values())
+        if list(pbl.values()):
+            quantity = reduce(lambda x, y: x + y, list(pbl.values()))
         return quantity
 
 
-class Party:
+class Party(metaclass=PoolMeta):
     __name__ = 'party.party'
     warehouse = fields.Many2One('stock.location', 'Warehouse',
         domain=[('type', 'in', ['warehouse', 'storage'])],
@@ -87,11 +86,11 @@ class Party:
             return locations[0].id
 
 
-class Lot:
+class Lot(metaclass=PoolMeta):
     __name__ = 'stock.lot'
     expiration_date = fields.Date('Expiration Date')
    
-class Move:
+class Move(metaclass=PoolMeta):
     __name__ = 'stock.move'
 
     @classmethod
@@ -446,7 +445,7 @@ class PatientRoundingMedicalSupply(ModelSQL, ModelView):
         return 1
 
 
-class PatientPrescriptionOrder:
+class PatientPrescriptionOrder(metaclass=PoolMeta):
     __name__ = 'gnuhealth.prescription.order'
     moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
 
@@ -466,7 +465,7 @@ class PatientPrescriptionOrder:
             prescriptions, default=default)
 
 
-class PatientVaccination:
+class PatientVaccination(metaclass=PoolMeta):
     __name__ = 'gnuhealth.vaccination'
     moves = fields.One2Many('stock.move', 'origin', 'Moves', readonly=True)
     location = fields.Many2One('stock.location',

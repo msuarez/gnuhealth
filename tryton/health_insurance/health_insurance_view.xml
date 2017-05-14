@@ -42,7 +42,6 @@
         <record model="ir.ui.view" id="gnuhealth_insurance_plan_view">
             <field name="model">gnuhealth.insurance.plan</field>
             <field name="inherit" ref="health.gnuhealth_insurance_plan_view"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_insurance_plan</field>
         </record>
 
@@ -52,7 +51,6 @@
         <record model="ir.ui.view" id="view_gnuhealth_service_form">
             <field name="model">gnuhealth.health_service</field>
             <field name="inherit" ref="health_services.gnuhealth_health_service_view"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_health_service</field>
         </record>
 

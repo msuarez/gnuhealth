@@ -21,4 +21,4 @@
 #
 ##############################################################################
 
-from wizard_health_services import *
+from .wizard_health_services import *
