@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Perinatal and Intrapartum Information">
+<tree>
     <field name="admission_date" widget="date"/>
     <field name="gestational_weeks" expand="1"/>
     <field name="institution" expand="1"/>
