@@ -21,4 +21,4 @@
 #
 ##############################################################################
 
-from wizard_health_imaging import *
+from .wizard_health_imaging import *
