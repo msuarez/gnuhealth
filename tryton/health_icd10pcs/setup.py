@@ -57,9 +57,9 @@ setup(name='trytond_health_icd10pcs',
     package_dir={'trytond.modules.health_icd10pcs': '.'},
     packages=[
         'trytond.modules.health_icd10pcs',
-        'trytond.modules.health.tests',
-        'trytond.modules.health.wizard',
-        'trytond.modules.health.report',
+        'trytond.modules.health_icd10pcs.tests',
+        'trytond.modules.health_icd10pcs.wizard',
+        'trytond.modules.health_icd10pcs.report',
         ],
 
     package_data={

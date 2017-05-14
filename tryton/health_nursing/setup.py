@@ -57,9 +57,9 @@ setup(name='trytond_health_nursing',
     package_dir={'trytond.modules.health_nursing': '.'},
     packages=[
         'trytond.modules.health_nursing',
-        'trytond.modules.health.tests',
-        'trytond.modules.health.wizard',
-        'trytond.modules.health.report',
+        'trytond.modules.health_nursing.tests',
+        'trytond.modules.health_nursing.wizard',
+        'trytond.modules.health_nursing.report',
         ],
 
     package_data={

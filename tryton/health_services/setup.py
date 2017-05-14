@@ -57,9 +57,9 @@ setup(name='trytond_health_services',
     package_dir={'trytond.modules.health_services': '.'},
     packages=[
         'trytond.modules.health_services',
-        'trytond.modules.health.tests',
-        'trytond.modules.health.wizard',
-        'trytond.modules.health.report',
+        'trytond.modules.health_services.tests',
+        'trytond.modules.health_services.wizard',
+        'trytond.modules.health_services.report',
         ],
 
     package_data={

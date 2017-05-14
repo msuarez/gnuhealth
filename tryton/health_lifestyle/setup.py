@@ -57,9 +57,9 @@ setup(name='trytond_health_lifestyle',
     package_dir={'trytond.modules.health_lifestyle': '.'},
     packages=[
         'trytond.modules.health_lifestyle',
-        'trytond.modules.health.tests',
-        'trytond.modules.health.wizard',
-        'trytond.modules.health.report',
+        'trytond.modules.health_lifestyle.tests',
+        'trytond.modules.health_lifestyle.wizard',
+        'trytond.modules.health_lifestyle.report',
         ],
 
     package_data={
