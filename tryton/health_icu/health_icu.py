@@ -86,7 +86,7 @@ class InpatientIcu(ModelSQL, ModelView):
 
     def check_patient_admitted_at_icu(self):
         # Verify that the patient is not at ICU already
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         cursor.execute("SELECT count(name) "
             "FROM " + self._table + "  \
             WHERE (name = %s AND admitted)",
@@ -461,7 +461,7 @@ class MechanicalVentilation(ModelSQL, ModelView):
 
     def check_patient_current_mv(self):
         # Check for only one current mechanical ventilation on patient
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         cursor.execute("SELECT count(name) "
             "FROM " + self._table + "  \
             WHERE (name = %s AND current_mv)",

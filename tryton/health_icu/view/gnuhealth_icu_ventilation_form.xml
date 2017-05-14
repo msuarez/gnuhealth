@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Patient Mechanical Ventilation">
+<form>
     <group id="group_icu_ventilation" colspan="4" col="8" string="Mechanical Ventilation">
         <label name="current_mv"/>
         <field name="current_mv"/>

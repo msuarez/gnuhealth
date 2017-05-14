@@ -21,5 +21,5 @@
 #
 ##############################################################################
 
-from wizard_health_inpatient import *
-from wizard_inpatient_evaluation import *
+from .wizard_health_inpatient import *
+from .wizard_inpatient_evaluation import *

@@ -23,7 +23,7 @@
 
 from trytond.pool import Pool
 from .health_inpatient import *
-from wizard import *
+from .wizard import *
 
 
 def register():

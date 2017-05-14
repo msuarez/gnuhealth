@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree editable="top" string="Inpatient Medication Log">
+<tree editable="top">
     <field name="admin_time" widget="date"/>
     <field name="admin_time" widget="time"/>
     <field name="health_professional" expand="1"/>

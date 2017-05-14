@@ -123,7 +123,6 @@
         <record model="ir.ui.view" id="view_partner_form">
             <field name="model">gnuhealth.appointment</field>
             <field name="inherit" ref="health.gnuhealth_appointment_form" />
-            <field name="type">form</field>
             <field name="name">partner_form</field>
         </record>
 
@@ -132,7 +131,6 @@
         <record model="ir.ui.view" id="view_patient_evaluation_form">
             <field name="model">gnuhealth.patient.evaluation</field>
             <field name="inherit" ref="health.gnuhealth_patient_evaluation_view" />
-            <field name="type">form</field>
             <field name="name">gnuhealth_patient_evaluation_form</field>
         </record>
 
@@ -171,7 +169,6 @@
         <record model="ir.ui.view" id="view_ecg_registration_form1">
             <field name="model">gnuhealth.patient.ecg</field>
             <field name="inherit" ref="health.gnuhealth_patient_ecg_form" />
-            <field name="type">form</field>
             <field name="name">ecg_registration</field>
         </record>
 
