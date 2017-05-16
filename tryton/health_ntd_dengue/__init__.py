@@ -22,7 +22,7 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from health_ntd_dengue import *
+from .health_ntd_dengue import *
 
 def register():
     Pool.register(

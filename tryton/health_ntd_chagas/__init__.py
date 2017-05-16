@@ -22,7 +22,7 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from health_ntd_chagas import *
+from .health_ntd_chagas import *
 
 def register():
     Pool.register(
