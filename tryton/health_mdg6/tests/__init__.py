@@ -1,1 +1,1 @@
-from test_health_mdg6 import suite
+from .test_health_mdg6 import suite
