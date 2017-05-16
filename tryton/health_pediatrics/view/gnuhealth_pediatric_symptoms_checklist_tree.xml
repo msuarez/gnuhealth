@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="PSC - Pediatric Symptoms Checklist History">
+<tree>
     <field name="patient"/>
     <field name="evaluation_start" widget="date"/>
     <field name="psc_total"/>

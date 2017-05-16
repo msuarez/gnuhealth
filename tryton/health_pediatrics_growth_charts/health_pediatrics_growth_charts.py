@@ -28,7 +28,7 @@ __all__ = ['PatientEvaluation']
 __metaclass__ = PoolMeta
 
 
-class PatientEvaluation:
+class PatientEvaluation(metaclass=PoolMeta):
     __name__ = 'gnuhealth.patient.evaluation'
 
     age_months = fields.Function(fields.Integer('Patient Age in Months'),

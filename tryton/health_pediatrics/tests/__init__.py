@@ -1,1 +1,1 @@
-from test_health_pediatrics import suite
+from .test_health_pediatrics import suite

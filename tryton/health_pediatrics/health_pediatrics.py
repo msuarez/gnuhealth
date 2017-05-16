@@ -204,30 +204,19 @@ class Newborn(ModelSQL, ModelView):
             'signed_by': signing_hp,
             })
 
-    @classmethod
-    def __register__(cls, module_name):
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        #Rename responsible -> healthprof 
-        if table.column_exist('responsible'):        
-            table.column_rename('responsible', 'healthprof')
-
-        super(Newborn, cls).__register__(module_name)
 
     @classmethod
     def write(cls, newborns, values):
         pool = Pool()
 
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor() 
         Patient = pool.get('gnuhealth.patient')
         Party = pool.get('party.party')
 
         party = []
         patient = []
         
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor() 
 
 
         for newborn in newborns:
@@ -271,7 +260,7 @@ class Newborn(ModelSQL, ModelView):
         party = []
         patient = []
         
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         for values in vlist:
             newborn_patient_id = values['patient']
