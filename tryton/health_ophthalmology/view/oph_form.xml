@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Optometry form">
+<form>
     <group colspan="4" col="10" id="patient_group">
       <label name="patient"/>
       <field name="patient"/>
