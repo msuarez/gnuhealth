@@ -22,7 +22,7 @@
 ##############################################################################
 import qrcode
 import barcode
-import StringIO
+import io
 from trytond.model import ModelView, ModelSQL, fields
 
 
@@ -72,7 +72,7 @@ class Patient(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
@@ -97,14 +97,14 @@ class Appointment(ModelSQL, ModelView):
         appointment = self.name or ''
 
         if (self.healthprof):
-            appointment_healthprof = unicode(self.healthprof.rec_name) or ''
+            appointment_healthprof = str(self.healthprof.rec_name) or ''
 
         appointment_patient = self.patient.rec_name or ''
 
-        appointment_date = unicode(self.appointment_date) or ''
+        appointment_date = str(self.appointment_date) or ''
 
         if (self.speciality):
-            appointment_speciality = unicode(self.speciality.rec_name) or ''
+            appointment_speciality = str(self.speciality.rec_name) or ''
 
         qr_string = 'ID: ' + appointment \
             + '\nName: ' + appointment_patient \
@@ -117,7 +117,7 @@ class Appointment(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
@@ -169,7 +169,7 @@ class Newborn(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
@@ -205,7 +205,7 @@ class LabTest(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
@@ -224,7 +224,7 @@ class LabTest(ModelSQL, ModelView):
         
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         code39.write(holder)
         code39_png = holder.getvalue()
         holder.close()

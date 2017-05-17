@@ -6,7 +6,6 @@
         <record model="ir.ui.view" id="gnuhealth_patient_view_form">
             <field name="model">gnuhealth.patient</field>
             <field name="inherit" ref="health.gnuhealth_patient_view_form"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_patient_form</field>
         </record>
 
@@ -14,8 +13,14 @@
         <record model="ir.ui.view" id="view_newborn_form">
             <field name="model">gnuhealth.newborn</field>
             <field name="inherit" ref="health_pediatrics.gnuhealth_newborn_view"/>
-            <field name="type">form</field>
             <field name="name">newborn_form</field>
+        </record>
+
+<!-- LAB -->
+        <record model="ir.ui.view" id="view_lab_form">
+            <field name="model">gnuhealth.lab</field>
+            <field name="inherit" ref="health_lab.gnuhealth_lab_view"/>
+            <field name="name">lab_form</field>
         </record>
 
     </data>

@@ -23,11 +23,13 @@
             <field name="critearea" colspan="4" view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
         </page>
         <page string="Extra Info" id="lab_extra_info">
-            <label name="results"/>
-            <field name="results"/>
-            <newline/>
-            <label name="diagnosis"/>
-            <field name="diagnosis"/>
+            <group id="lab_result_extra_info" colspan="4">
+                <separator colspan="4" string="Notes"/>
+                <field name="results"/>
+                <newline/>
+                <separator colspan="4" string="Diagnosis"/>
+                <field name="diagnosis"/>
+        </group>
         </page>
     </notebook>
 </form>

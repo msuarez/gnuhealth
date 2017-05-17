@@ -1,1 +1,1 @@
-from test_health_qrcodes import suite
+from .test_health_qrcodes import suite
