@@ -2,6 +2,10 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#                           
+#                            CALENDAR PACKAGE
+#
+#    Copyright (C) 2008-2017  Luis Falcon <lfalcon@gnusolidario.org>
 #    Copyright (C) 2011-2017  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
 #
@@ -25,10 +29,9 @@ from trytond.pool import Pool, PoolMeta
 
 
 __all__ = ['User', 'Appointment']
-__metaclass__ = PoolMeta
 
 
-class User:
+class User(metaclass=PoolMeta):
     __name__ = "res.user"
 
     use_caldav = fields.Boolean('Use CalDAV ?')
@@ -39,7 +42,7 @@ class User:
             })
 
 
-class Appointment:
+class Appointment(metaclass=PoolMeta):
     __name__ = 'gnuhealth.appointment'
 
     event = fields.Many2One(
