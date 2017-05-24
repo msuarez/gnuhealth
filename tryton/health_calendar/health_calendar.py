@@ -34,7 +34,7 @@ __all__ = ['User', 'Appointment']
 class User(metaclass=PoolMeta):
     __name__ = "res.user"
 
-    use_caldav = fields.Boolean('Use CalDAV ?')
+    use_caldav = fields.Boolean('CalDAV', help="The user has a CalDav account")
     calendar = fields.Many2One('calendar.calendar', 'Calendar',
         states={
             'invisible': Not(Bool(Eval('use_caldav'))),
@@ -75,8 +75,8 @@ class Appointment(metaclass=PoolMeta):
                             'dtend': appointment_date_end,
                             'calendar':
                                 healthprof.name.internal_user.calendar.id,
-                            'summary': patient.name.lastname + ', ' +
-                            patient.name.name,
+                            'summary': patient.name.rec_name,
+                            'description': values['comments'],
                             }])
                         values['event'] = events[0].id
         return super(Appointment, cls).create(vlist)
@@ -107,7 +107,7 @@ class Appointment(metaclass=PoolMeta):
                     if 'patient' in values:
                         patient = Patient(values['patient'])
                         Event.write([appointment.event], {
-                            'summary': patient.name.name,
+                            'summary': patient.name.rec_name,
                             })
                 else:
                     if appointment.healthprof:
@@ -119,8 +119,8 @@ class Appointment(metaclass=PoolMeta):
                                 'calendar':
                                     appointment.healthprof.name.internal_user.calendar.id,
                                 'summary':
-                                    patient.name.lastname + ', '
-                                    + patient.name.name,
+                                    patient.name.rec_name,
+                                'description': values['comments'],
                                 }])
                             values['event'] = events[0].id
         return super(Appointment, cls).write(appointments, values)
