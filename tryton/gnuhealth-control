@@ -6,7 +6,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2016 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2017 Luis Falcon <falcon@gnu.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.0.3"
+VERSION="3.0.4"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
@@ -189,9 +189,15 @@ do_backup()
 
     gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || bailout
     
-    cli_msg "INFO" "Creating compressed tarball with DB and GNU Health home directory" | tee -a $INFOFILE
+    cli_msg "INFO" "Compressing GNU Health home / Kernel directory" | tee -a $INFOFILE
 
-    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar.gz" $HOME || bailout
+    tar -cvzf "${BACKDIR}/gnuhealth_${DB}_fs_backup_${BACKDATE}.tar.gz" $HOME || bailout
+
+    cli_msg "INFO" "Creating tarball with compressed DB and GNU Health home directory" | tee -a $INFOFILE
+
+    tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar" \
+        ${BACKDIR}/backup_${DB}_${BACKDATE}.gz ${BACKDIR}/gnuhealth_${DB}_fs_backup_${BACKDATE}.tar.gz \
+        || bailout
 
     cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
 
