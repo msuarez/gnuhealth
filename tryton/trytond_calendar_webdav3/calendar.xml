@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_calendar_admin">
+            <field name="name">Calendar Administration</field>
+        </record>
+        <record model="res.user-res.group"
+            id="user_admin_group_calendar_admin">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_calendar_admin"/>
+        </record>
+        <record model="res.user-res.group"
+            id="user_trigger_group_calendar_admin">
+            <field name="user" ref="res.user_trigger"/>
+            <field name="group" ref="group_calendar_admin"/>
+        </record>
+
+        <menuitem name="Calendar" sequence="8" id="menu_calendar"
+            icon="tryton-calendar"/>
+
+        <record model="ir.ui.view" id="calendar_view_tree">
+            <field name="model">calendar.calendar</field>
+            <field name="type">tree</field>
+            <field name="name">calendar_tree</field>
+        </record>
+        <record model="ir.ui.view" id="calendar_view_form">
+            <field name="model">calendar.calendar</field>
+            <field name="type">form</field>
+            <field name="name">calendar_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_calendar_form">
+            <field name="name">Calendars</field>
+            <field name="res_model">calendar.calendar</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_calendar_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="calendar_view_tree"/>
+            <field name="act_window" ref="act_calendar_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_calendar_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="calendar_view_form"/>
+            <field name="act_window" ref="act_calendar_form"/>
+        </record>
+        <menuitem parent="menu_calendar" sequence="1"
+            action="act_calendar_form" id="menu_calendar_form"/>
+
+        <record model="ir.rule.group" id="rule_group_calendar_admin">
+            <field name="model" search="[('model', '=', 'calendar.calendar')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="False"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_group_calendar_admin_line1">
+            <field name="domain">[]</field>
+            <field name="rule_group" ref="rule_group_calendar_admin"/>
+        </record>
+        <record model="ir.rule.group-res.group"
+            id="rule_group_calendar_admin-calendar_admin">
+            <field name="rule_group" ref="rule_group_calendar_admin"/>
+            <field name="group" ref="group_calendar_admin"/>
+        </record>
+
+        <record model="ir.rule.group" id="rule_group_read_calendar">
+            <field name="model" search="[('model', '=', 'calendar.calendar')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.rule" id="rule_group_read_calendar_line1">
+            <field name="domain"
+                eval="[('owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_read_calendar"/>
+        </record>
+        <record model="ir.rule" id="rule_group_read_calendar_line2">
+            <field name="domain"
+                eval="[('read_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_read_calendar"/>
+        </record>
+
+        <record model="ir.rule.group" id="rule_group_write_calendar">
+            <field name="model" search="[('model', '=', 'calendar.calendar')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_group_write_calendar_line1">
+            <field name="domain"
+                eval="[('owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_write_calendar"/>
+        </record>
+        <record model="ir.rule" id="rule_group_write_calendar_line2">
+            <field name="domain"
+                eval="[('write_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_write_calendar"/>
+        </record>
+
+        <record model="ir.ui.view" id="category_view_tree">
+            <field name="model">calendar.category</field>
+            <field name="type">tree</field>
+            <field name="name">category_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="category_view_form">
+            <field name="model">calendar.category</field>
+            <field name="type">form</field>
+            <field name="name">category_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="location_view_tree">
+            <field name="model">calendar.location</field>
+            <field name="type">tree</field>
+            <field name="name">location_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="location_view_form">
+            <field name="model">calendar.location</field>
+            <field name="type">form</field>
+            <field name="name">location_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="event_view_tree">
+            <field name="model">calendar.event</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="10"/>
+            <field name="name">event_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="event_view_tree_occurence">
+            <field name="model">calendar.event</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="20"/>
+            <field name="name">event_tree_occurence</field>
+        </record>
+
+        <record model="ir.ui.view" id="event_view_form">
+            <field name="model">calendar.event</field>
+            <field name="type">form</field>
+            <field name="name">event_form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_event_form">
+            <field name="name">Events</field>
+            <field name="res_model">calendar.event</field>
+            <field name="domain" eval="[('parent', '=', None)]" pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_event_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="event_view_tree"/>
+            <field name="act_window" ref="act_event_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_event_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="event_view_form"/>
+            <field name="act_window" ref="act_event_form"/>
+        </record>
+        <menuitem parent="menu_calendar_form" sequence="20"
+            action="act_event_form" id="menu_event_form"/>
+
+        <record model="ir.rule.group" id="rule_group_event_admin">
+            <field name="model" search="[('model', '=', 'calendar.event')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="False"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_group_event_admin_line1">
+            <field name="domain" eval="[]" pyson="1"/>
+            <field name="rule_group" ref="rule_group_event_admin"/>
+        </record>
+        <record model="ir.rule.group-res.group"
+            id="rule_group_event_admin-calendar_admin">
+            <field name="rule_group" ref="rule_group_event_admin"/>
+            <field name="group" ref="group_calendar_admin"/>
+        </record>
+
+        <record model="ir.rule.group" id="rule_group_read_event">
+            <field name="model" search="[('model', '=', 'calendar.event')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.rule" id="rule_group_read_event_line1">
+            <field name="domain"
+                eval="[('calendar.owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_read_event"/>
+        </record>
+        <record model="ir.rule" id="rule_group_read_event_line2">
+            <field name="domain"
+                eval="[('calendar.read_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_read_event"/>
+        </record>
+
+        <record model="ir.rule.group" id="rule_group_write_event">
+            <field name="model" search="[('model', '=', 'calendar.event')]"/>
+            <field name="global_p" eval="False"/>
+            <field name="default_p" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.rule" id="rule_group_write_event_line1">
+            <field name="domain"
+                eval="[('calendar.owner', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_write_event"/>
+        </record>
+        <record model="ir.rule" id="rule_group_write_event_line2">
+            <field name="domain"
+                eval="[('calendar.write_users', '=', Eval('user', {}).get('id', -1))]"
+                pyson="1"/>
+            <field name="rule_group" ref="rule_group_write_event"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_event_form3">
+            <field name="name">Events</field>
+            <field name="res_model">calendar.event</field>
+            <field name="domain"
+                eval="[('parent', '=', None), ('calendar', 'in', Eval('active_ids'))]"
+                pyson="1"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_event_form3_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="event_view_tree"/>
+            <field name="act_window" ref="act_event_form3"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_event_form3_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="event_view_form"/>
+            <field name="act_window" ref="act_event_form3"/>
+        </record>
+        <record model="ir.action.keyword"
+                id="act_open_event_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">calendar.calendar,-1</field>
+            <field name="action" ref="act_event_form3"/>
+        </record>
+
+        <record model="ir.ui.view" id="attendee_view_tree">
+            <field name="model">calendar.event.attendee</field>
+            <field name="type">tree</field>
+            <field name="name">attendee_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="attendee_view_form">
+            <field name="model">calendar.event.attendee</field>
+            <field name="type">form</field>
+            <field name="name">attendee_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="rdate_view_tree">
+            <field name="model">calendar.event.rdate</field>
+            <field name="type">tree</field>
+            <field name="name">rdate_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="rdate_view_form">
+            <field name="model">calendar.event.rdate</field>
+            <field name="type">form</field>
+            <field name="name">rdate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="exdate_view_tree">
+            <field name="model">calendar.event.exdate</field>
+            <field name="type">tree</field>
+            <field name="name">exdate_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="exdate_view_form">
+            <field name="model">calendar.event.exdate</field>
+            <field name="type">form</field>
+            <field name="name">exdate_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="rrule_view_tree">
+            <field name="model">calendar.event.rrule</field>
+            <field name="type">tree</field>
+            <field name="name">rrule_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="rrule_view_form">
+            <field name="model">calendar.event.rrule</field>
+            <field name="type">form</field>
+            <field name="name">rrule_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="exrule_view_tree">
+            <field name="model">calendar.event.exrule</field>
+            <field name="type">tree</field>
+            <field name="name">exrule_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="exrule_view_form">
+            <field name="model">calendar.event.exrule</field>
+            <field name="type">form</field>
+            <field name="name">exrule_form</field>
+        </record>
+
+    </data>
+</tryton>

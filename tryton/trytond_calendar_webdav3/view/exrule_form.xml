@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<form>
+    <label name="event"/>
+    <field name="event" colspan="3"/>
+    <label name="freq"/>
+    <field name="freq" colspan="3"/>
+    <label name="until"/>
+    <field name="until"/>
+    <label name="until_date"/>
+    <field name="until_date"/>
+    <label name="count"/>
+    <field name="count" colspan="3"/>
+    <label name="interval"/>
+    <field name="interval" colspan="3"/>
+    <label name="bysecond"/>
+    <field name="bysecond" colspan="3"/>
+    <label name="byminute"/>
+    <field name="byminute" colspan="3"/>
+    <label name="byhour"/>
+    <field name="byhour" colspan="3"/>
+    <label name="byday"/>
+    <field name="byday" colspan="3"/>
+    <label name="bymonthday"/>
+    <field name="bymonthday" colspan="3"/>
+    <label name="byyearday"/>
+    <field name="byyearday" colspan="3"/>
+    <label name="byweekno"/>
+    <field name="byweekno" colspan="3"/>
+    <label name="bymonth"/>
+    <field name="bymonth" colspan="3"/>
+    <label name="bysetpos"/>
+    <field name="bysetpos" colspan="3"/>
+    <label name="wkst"/>
+    <field name="wkst" colspan="3"/>
+</form>
