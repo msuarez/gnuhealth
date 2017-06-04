@@ -1,1 +1,1 @@
-from test_health_reporting import suite
+from .test_health_reporting import suite

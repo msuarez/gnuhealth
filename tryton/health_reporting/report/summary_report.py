@@ -35,7 +35,7 @@ class InstitutionSummaryReport(Report):
     def get_population_with_no_dob(cls):
         """ Return Total Number of living people in the system 
         without a date of birth"""
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         # Check for entries without date of birth
         cursor.execute("SELECT COUNT(id) \
@@ -50,7 +50,7 @@ class InstitutionSummaryReport(Report):
     def get_population(cls,date1,date2,gender,total):
         """ Return Total Number of living people in the system 
         segmented by age group and gender"""
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         if (total):
             cursor.execute("SELECT COUNT(id) \
@@ -81,7 +81,7 @@ class InstitutionSummaryReport(Report):
         if (in_health_system):
             query = query + " and is_patient=True"
             
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         cursor.execute(query,(start_date, end_date))
        
         res = cursor.fetchone()
@@ -96,7 +96,7 @@ class InstitutionSummaryReport(Report):
             WHERE dob BETWEEN \
             %s AND %s"
             
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         cursor.execute(query,(start_date, end_date))
        
         res = cursor.fetchone()
@@ -112,7 +112,7 @@ class InstitutionSummaryReport(Report):
             WHERE date_trunc('day', dod) BETWEEN \
             %s AND %s"
             
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor() 
         cursor.execute(query,(start_date, end_date))
        
         res = cursor.fetchone()

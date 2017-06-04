@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Institution Summary Report">
+<form>
     <group colspan="4" string="Main" id="report_summary_header">
         <label name="institution"/>
         <field name="institution"/>
