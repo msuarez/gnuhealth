@@ -2,7 +2,10 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#    # Package : Health Inpatient Calendar
+#    Copyright (C) 2008-2017  Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
+#    Copyright (C) 2011-2017  GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -48,11 +51,12 @@ class InpatientRegistration(ModelSQL, ModelView):
         for inpatient_registration in registrations:
             if inpatient_registration.bed.calendar:
                 if not inpatient_registration.event:
+                    bed = inpatient_registration.bed.name.code + ": "
                     events = Event.create([{
                         'dtstart': inpatient_registration.hospitalization_date,
                         'dtend': inpatient_registration.discharge_date,
                         'calendar': inpatient_registration.bed.calendar.id,
-                        'summary': inpatient_registration.patient.name.name
+                        'summary': bed + inpatient_registration.patient.name.rec_name
                         }])
                     cls.write([inpatient_registration],
                         {'event': events[0].id})
@@ -90,9 +94,11 @@ class InpatientRegistration(ModelSQL, ModelView):
                         })
                 if 'patient' in values:
                     patient = Patient(values['patient'])
+                    bed = inpatient_registration.bed.name.code + ": "
                     Event.write([inpatient_registration.event], {
-                        'summary': patient.name.name,
+                        'summary': bed + patient.name.rec_name,
                         })
+
         return super(InpatientRegistration, cls).write(registrations, values)
 
     @classmethod

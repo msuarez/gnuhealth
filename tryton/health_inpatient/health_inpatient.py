@@ -231,8 +231,8 @@ class InpatientRegistration(ModelSQL, ModelView):
         res = cursor.fetchone()
         if (registration_id.discharge_date.date() <
             registration_id.hospitalization_date.date()):
-            cls.raise_user_error("The Discharge date must later than the \
-                Admission")
+            cls.raise_user_error("The Discharge date must later than the " \
+                "Admission")
         if res[0] > 0:
             cls.raise_user_error('bed_is_not_available')
         else:
