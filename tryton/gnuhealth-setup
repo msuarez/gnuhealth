@@ -414,6 +414,7 @@ convert_to_python3 () {
         find ./trytond_${module}-.*[0-9] -name "*.py" -exec 2to3 -wn {} \; || bailout
         done
     message "INFO" "Conversion of standard Tryton modules done"
+}
 
 bash_profile () {
 
