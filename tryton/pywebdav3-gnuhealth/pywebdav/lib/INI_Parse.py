@@ -1,4 +1,4 @@
-import SafeConfigParser
+from configparser import SafeConfigParser
 
 class Configuration:
     def __init__(self, fileName):

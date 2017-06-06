@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # GNU Health installer
-# Version for 3.0 series
+# Version for 3.2 series
 
 ##############################################################################
 #
@@ -46,6 +46,12 @@ GNUHEALTH_INST_DIR="$PWD"
 GNUHEALTH_VERSION=$(cat version)
 TRYTON_VERSION="4.2"
 TRYTON_BASE_URL="http://downloads.tryton.org"
+
+GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
+TRANSLATE_URL="http://translate.gnusolidario.org"
+UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
+PATCH_TRYTON=1
+TRYTON_PATCHES="GNUHEALTH-SA-2016-1.tryton.patch.asc"
 
 
 #-----------------------------------------------------------------------------
@@ -225,7 +231,6 @@ install_python_dependencies() {
     local PIP_PYTZ="pytz"
     local PIP_LDAP="python-ldap"
     local PIP_VOBJECT="vobject"
-    local PIP_PYWEBDAV3="PyWebDAV3"
     local PIP_QRCODE="qrcode"
     local PIP_SIX="six"
     local PIP_PILLOW="Pillow"
@@ -234,16 +239,15 @@ install_python_dependencies() {
     local PIP_SQL="python-sql"
     local PIP_STDNUM="python-stdnum"
     local PIP_SIMPLEEVAL="simpleeval"
-    local PIP_CRACKLIB="cracklib"
     local PIP_CONFIGPARSER="configparser"
     local PIP_PYMONGO="pymongo"
-    
+
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CRACKLIB $PIP_CONFIGPARSER $PIP_PYMONGO"
+    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER $PIP_PYMONGO"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
@@ -271,11 +275,12 @@ install_tryton_modules() {
     local TRYTOND_URL=$(get_url trytond)
     local TRYTOND_FILE=$(basename ${TRYTOND_URL})
 
-    local TRYTON_MODULES="account account_invoice account_product calendar company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
+    local TRYTON_MODULES="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
 
     local TRYTON_MODULES_FILE=""
     local TRYTON_MODULES_URL=""
-    local AUX="" MODULE=""
+    local AUX="" 
+    local MODULE=""
     for MODULE in ${TRYTON_MODULES}
     do
         AUX=$(get_url trytond_${MODULE})
@@ -332,10 +337,9 @@ install_tryton_modules() {
     message "[INFO] OK." ${GREEN}
 
 
-    # UNCOMMENT WHEN GNU HEALTH MODULES HAVE BEEN PORTED TO 3.2
-    # message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
-    # cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
-    # ln -si ${MODULES_DIR}/health* .
+    message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
+    cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
+    ln -si ${MODULES_DIR}/health* .
 
     # Copy LICENSE README and version files
     
@@ -347,10 +351,6 @@ install_tryton_modules() {
     # Copy Tryton configuration files
     
     cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || bailout
-
-    # Copy serverpass
-    
-    cp ${GNUHEALTH_INST_DIR}/scripts/security/serverpass.py ${UTIL_DIR} || bailout
 
     message "[INFO] OK." ${GREEN}
 
@@ -368,6 +368,46 @@ install_tryton_modules() {
 
 }
 
+# Apply Security Patches
+
+apply_security_patches() {
+
+    # APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL
+
+    if (( ${PATCH_TRYTON} == 1 )); then
+        cli_msg "INFO" "APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL"
+        for n in ${TRYTON_PATCHES}
+        do
+            cli_msg "INFO" "Checking elegibility of the patch"
+            cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
+
+            patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+            if [ $? -eq 0 ]; then
+                cli_msg "WARNING" "Applying patch ${n} to Tryton kernel"
+                patch -p1 < ${UPDATE_DOWNLOAD_DIR}/${n} || exit 1
+                cli_msg "INFO" "Tryton kernel sucessfully patched"
+            else
+                cli_msg "INFO" "Patch ${n} already applied or not elegible"
+            fi
+
+            done
+    else
+        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
+    fi
+
+}
+
+convert_to_python3 () {
+    local MODULES_PYTHON2="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
+    message "[INFO] Converting to Python3 the Tryton Modules" ${WHITE}
+
+    cd ${MODULES_DIR} || bailout
+    for module in ${MODULES_PYTHON2}
+        do
+        message "INFO" "Converting module : ${module}" ${WHITE}
+        find ./trytond_${module}-.*[0-9] -name "*.py" -exec 2to3 -wn {} \; || bailout
+        done
+    message "INFO" "Conversion of standard Tryton modules done"
 
 bash_profile () {
 
@@ -400,14 +440,6 @@ bash_profile () {
     fi
 
 }
-
-serverpass () {
- 
-    message "[INFO] Setting up your GNU Health Tryton master server password" ${WHITE}
-    source ${PROFILE}
-    /usr/bin/env python ${UTIL_DIR}/serverpass.py || bailout
-}
- 
 
 cleanup() {
     message "[INFO] Cleaning Up..." ${YELLOW}
@@ -455,13 +487,16 @@ install() {
     # (4) Download Tryton modules.
     install_tryton_modules
 
-    # (5) BASH Profile
-    bash_profile
+    # (5) Apply Security Patches to Tryton Kernel
+    apply_security_patches
 
-    # (5) Server Password
-    serverpass
+    # (6) Convert to Python 3
+    convert_to_python3
+
+    # (7) BASH Profile
+    bash_profile
     
-    # (7) Clean
+    # (8) Clean
     cleanup
 }
 

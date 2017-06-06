@@ -1,10 +1,10 @@
 Metadata-Version: 1.1
 Name: PyWebDAV3
-Version: 0.9.11
-Summary: WebDAV library including a standalone server for python3
-Home-page: https://github.com/andrewleech/PyWebDAV3
-Author: Andrew Leech
-Author-email: andrew@alelec.net
+Version: 0.10.1
+Summary: WebDAV library for python3 - GNU Health version
+Home-page: http://health.gnu.org
+Author: GNU Health team
+Author-email: health@gnusolidario.org
 License: LGPL v2
 Description: 
         WebDAV library for python3.
@@ -50,10 +50,15 @@ Description:
             python setup.py develop
             davserver -D /tmp -n
         
-        For more information: https://github.com/andrewleech/PyWebDAV3
         
         Changes
         =======
+        
+        0.10.1 (June 6 2017)
+        ---------------------
+        Fix encoding / decoding issues
+        Remove Six
+        Tested on Tryton 4.2 webdav server
         
         
         0.9.11 (August 3 2016)
@@ -322,10 +327,9 @@ Description:
         millenium bugfixes ;-)
         
         
-Keywords: webdav,server,dav,standalone,library,gpl,http,rfc2518,rfc 2518
+Keywords: webdav,GNUHealth,server,dav,standalone,library,gpl,http,rfc2518,rfc 2518
 Platform: Unix
-Platform: Windows
-Classifier: Development Status :: 5 - Production/Stable
+Classifier: Development Status :: 4 - Beta
 Classifier: Environment :: Console
 Classifier: Environment :: Web Environment
 Classifier: Intended Audience :: Developers

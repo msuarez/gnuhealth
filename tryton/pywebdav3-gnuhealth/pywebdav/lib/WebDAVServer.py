@@ -171,7 +171,6 @@ class DAVRequestHandler(AuthServer.AuthRequestHandler, LockManager):
         self.end_headers()
 
         if DATA:
-            DATA = DATA.encode()
             if isinstance(DATA, (bytes, bytearray)):
                 self.wfile.write(b"%s\r\n" % hex(len(DATA))[2:].encode())
                 self.wfile.write(DATA)
@@ -182,7 +181,7 @@ class DAVRequestHandler(AuthServer.AuthRequestHandler, LockManager):
                 if self._config.DAV.getboolean('http_response_use_iterator'):
                     # Use iterator to reduce using memory
                     for buf in DATA:
-                        buf = buf.encode() if isinstance(buf, unicode) else buf
+                        buf = buf.encode() if isinstance(buf, str) else buf
                         self.wfile.write((hex(len(buf))[2:] + "\r\n").encode())
                         self.wfile.write(buf)
                         self.wfile.write(b"\r\n")

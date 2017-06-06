@@ -15,7 +15,8 @@ import logging
 logging.basicConfig(level=logging.WARNING)
 log = logging.getLogger('pywebdav')
 
-import HTTPServer
+from http.server import BaseHTTPRequestHandler,HTTPServer
+#import HTTPServer
 from socketserver import ThreadingMixIn
 
 try:

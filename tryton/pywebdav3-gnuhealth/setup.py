@@ -53,7 +53,6 @@ Example (unpacking file locally)::
     python setup.py develop
     davserver -D /tmp -n
 
-For more information: https://github.com/andrewleech/PyWebDAV3
 
 Changes
 =======
@@ -62,18 +61,17 @@ Changes
 """ % CHANGES
 
 setup(name='PyWebDAV3',
-      description='WebDAV library including a standalone server for python3',
-      author='Simon Pamies (porting to 3 by Andrew Leech)',
-      author_email='spamsch@gmail.com (andrew@alelec.net)',
-      maintainer='Andrew Leech',
-      maintainer_email='andrew@alelec.net',
-      url='https://github.com/andrewleech/PyWebDAV3',
-      platforms=['Unix', 'Windows'],
+      description='WebDAV library for python3 - GNU Health version',
+      author='Andrew Leech (Ported to GNU Health by Luis Falcon)',
+      maintainer='GNU Health team',
+      maintainer_email='health@gnusolidario.org',
+      url='http://health.gnu.org',
+      platforms=['Unix'],
       license='LGPL v2',
       version=VERSION,
       long_description=DOC,
       classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 4 - Beta',
         'Environment :: Console',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -85,6 +83,7 @@ setup(name='PyWebDAV3',
         'Topic :: Software Development :: Libraries',
         ],
       keywords=['webdav',
+                'GNUHealth',
                 'server',
                 'dav',
                 'standalone',
