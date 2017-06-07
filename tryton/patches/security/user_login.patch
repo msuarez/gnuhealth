@@ -1,0 +1,25 @@
+diff -ruN a/user.py b/user.py
+--- trytond/res/user.py	2017-06-07 11:24:56.101578719 +0100
++++ trytond/res/user.py	2017-06-07 11:24:15.136154818 +0100
+@@ -495,7 +495,6 @@
+         Return user id if password matches
+         '''
+         LoginAttempt = Pool().get('res.user.login.attempt')
+-        time.sleep(2 ** LoginAttempt.count(login) - 1)
+         for method in config.get(
+                 'session', 'authentications', default='password').split(','):
+             try:
+@@ -505,9 +504,11 @@
+                 continue
+             user_id = func(login, parameters)
+             if user_id:
+-                LoginAttempt.remove(login)
+                 return user_id
+-        LoginAttempt.add(login)
++            else:
++                logger.info('Invalid login from : %s', login)
++                time.sleep(3)
++
+ 
+     @classmethod
+     def _login_password(cls, login, parameters):
