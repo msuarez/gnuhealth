@@ -50,8 +50,7 @@ TRYTON_BASE_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
-PATCH_TRYTON=1
-TRYTON_PATCHES="GNUHEALTH-SA-2016-1.tryton.patch.asc"
+TRYTON_PATCHES="security/user_login.patch"
 
 
 #-----------------------------------------------------------------------------
@@ -232,6 +231,7 @@ install_python_dependencies() {
     local PIP_LDAP="python-ldap"
     local PIP_VOBJECT="vobject"
     local PIP_QRCODE="qrcode"
+    local PIP_PYBARCODE="pybarcode"
     local PIP_SIX="six"
     local PIP_PILLOW="Pillow"
     local PIP_CALDAV="caldav"
@@ -247,7 +247,8 @@ install_python_dependencies() {
     
     message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
 
-    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT $PIP_PYWEBDAV $PIP_QRCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER $PIP_PYMONGO"
+    local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
+        $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER $PIP_PYMONGO"
     
     message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
 
@@ -279,8 +280,7 @@ install_tryton_modules() {
 
     local TRYTON_MODULES_FILE=""
     local TRYTON_MODULES_URL=""
-    local AUX="" 
-    local MODULE=""
+    local AUX="" MODULE=""
     for MODULE in ${TRYTON_MODULES}
     do
         AUX=$(get_url trytond_${MODULE})
@@ -342,10 +342,13 @@ install_tryton_modules() {
 
     message "[INFO] Installing WebDAV packages..." ${YELLOW}
     cp -a ${GNUHEALTH_INST_DIR}/trytond_*webdav3* ${MODULES_DIR} || bailout
-    ln -si ${MODULES_DIR}/trytond_*webdav3* .
+    ln -si ${MODULES_DIR}/trytond_webdav3 ./webdav
+    ln -si ${MODULES_DIR}/trytond_calendar_webdav3 ./calendar
 
     message "[INFO] Setting up GNU Health PyWebDAV3 library..." ${YELLOW}
-    python3 ${GNUHEALTH_INST_DIR}/pywebdav3-gnuhealth/setup.py install --user || bailout
+    cd ${GNUHEALTH_INST_DIR}/pywebdav3-gnuhealth || bailout
+    python3 setup.py install --user || bailout
+    cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
 
     # Copy LICENSE README and version files
     
@@ -374,35 +377,6 @@ install_tryton_modules() {
 
 }
 
-# Apply Security Patches
-
-apply_security_patches() {
-
-    # APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL
-
-    if (( ${PATCH_TRYTON} == 1 )); then
-        cli_msg "INFO" "APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL"
-        for n in ${TRYTON_PATCHES}
-        do
-            cli_msg "INFO" "Checking elegibility of the patch"
-            cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
-
-            patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
-            if [ $? -eq 0 ]; then
-                cli_msg "WARNING" "Applying patch ${n} to Tryton kernel"
-                patch -p1 < ${UPDATE_DOWNLOAD_DIR}/${n} || exit 1
-                cli_msg "INFO" "Tryton kernel sucessfully patched"
-            else
-                cli_msg "INFO" "Patch ${n} already applied or not elegible"
-            fi
-
-            done
-    else
-        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
-    fi
-
-}
-
 convert_to_python3 () {
     local MODULES_PYTHON2="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
     message "[INFO] Converting to Python3 the Tryton Modules" ${WHITE}
@@ -410,10 +384,37 @@ convert_to_python3 () {
     cd ${MODULES_DIR} || bailout
     for module in ${MODULES_PYTHON2}
         do
+        mod="./trytond_${module}-*" 
         message "INFO" "Converting module : ${module}" ${WHITE}
-        find ./trytond_${module}-.*[0-9] -name "*.py" -exec 2to3 -wn {} \; || bailout
+        find ${mod} -name "*.py" -exec 2to3 -wn {} \; || bailout
         done
-    message "INFO" "Conversion of standard Tryton modules done"
+    message "INFO" "Conversion of standard Tryton modules done" ${WHITE}
+
+    message "INFO" "Converting to Python3 the Tryton Kernel" ${WHITE}
+    cd .. 
+    find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || bailout
+
+}
+
+# Apply Security and other Tryton Kernel Patches
+
+apply_patches() {
+
+        message "[INFO] APPLY SECURITY AND OTHER PATCHES TO THE STANDARD TRYTON KERNEL" ${WHITE}
+        for n in ${TRYTON_PATCHES}
+        do
+            cd ${BASEDIR}/tryton/server/trytond-${TRYTON_VERSION}*
+            patch --dry-run --silent -N -p0 < ${GNUHEALTH_INST_DIR}/patches/${n}
+            if [ $? -eq 0 ]; then
+                message "[WARNING] Applying patch ${n} to Tryton kernel" ${YELLOW}
+                patch -p0 < ${GNUHEALTH_INST_DIR}/patches/${n} || exit 1
+                message "[INFO] Tryton kernel sucessfully patched" ${GREEN}
+            else
+                message "[INFO] Patch ${n} already applied or not elegible" ${YELLOW}
+            fi
+
+            done
+
 }
 
 bash_profile () {
@@ -494,11 +495,11 @@ install() {
     # (4) Download Tryton modules.
     install_tryton_modules
 
-    # (5) Apply Security Patches to Tryton Kernel
-    apply_security_patches
-
-    # (6) Convert to Python 3
+    # (5) Convert to Python 3
     convert_to_python3
+
+    # (6) Apply Patches to Tryton Kernel
+    apply_patches
 
     # (7) BASH Profile
     bash_profile
