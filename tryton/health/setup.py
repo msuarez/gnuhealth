@@ -95,5 +95,4 @@ setup(name='trytond_health',
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
-    use_2to3=True,
     )
