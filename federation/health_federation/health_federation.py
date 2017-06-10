@@ -32,7 +32,6 @@ __all__ = ['Party','FederationNodeConfig']
 
 class Party(ModelSQL, ModelView):
     __name__ = 'party.party'
-    federation_account = fields.Char('Federation Account')
 
     @classmethod
     def search_rec_name(cls, name, clause):
@@ -54,15 +53,6 @@ class Party(ModelSQL, ModelView):
             ('name',) + tuple(clause[1:]),
             ('lastname',) + tuple(clause[1:]),
             ]
-
-    @classmethod
-    def __setup__(cls):
-        super(Party, cls).__setup__()
-        t = cls.__table__()
-        cls._sql_constraints += [
-            ('federation_account_uniq', 
-                Unique(t,t.federation_account),
-                'The Federation Account must be unique'),]
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'

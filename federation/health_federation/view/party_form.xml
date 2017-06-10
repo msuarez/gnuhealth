@@ -1,11 +1,1 @@
-<?xml version="1.0"?>
-<data>
 
-    <!-- Include the federation account  -->
-
-    <xpath expr="//label[@name=&quot;code&quot;]" position="before">
-        <label name="federation_account"/>
-        <field name="federation_account"/>
-    </xpath>
-
-</data>

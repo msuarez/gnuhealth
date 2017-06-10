@@ -47,14 +47,5 @@
         <menuitem action="gnuhealth_action_federation_config" icon="gnuhealth-list"
             id="gnuhealth_conf_federation_config" parent="gnuhealth_conf_federation"/>
 
-<!-- Inherit the party form -->
-
-        <record model="ir.ui.view" id="view_party_form">
-            <field name="model">party.party</field>
-            <field name="inherit" ref="party.party_view_form"/>
-            <field name="name">party_form</field>
-        </record>
-
-
     </data>
 </tryton>

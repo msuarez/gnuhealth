@@ -64,6 +64,8 @@
                 <field name="deceased"/>
                 <label name="unidentified"/>
                 <field name="unidentified"/>
+                <label name="federation_account"/>
+                <field name="federation_account"/>
                 <label name="code"/>
                 <field name="code"/>
                 <label name="activation_date"/>

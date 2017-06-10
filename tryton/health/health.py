@@ -348,6 +348,8 @@ class Party(ModelSQL, ModelView):
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
 
+    federation_account = fields.Char('Federation ID')
+
     ref = fields.Char(
         'PUID',
         help='Person Unique Identifier',
@@ -527,6 +529,9 @@ class Party(ModelSQL, ModelView):
             if vals.get('ref') == '':
                 vals['ref'] = None
 
+            if vals.get('federation_account') == '':
+                vals['federation_account'] = None
+
             if 'photo' in vals:
                 vals['photo'] = cls.convert_photo(vals['photo'])
             
@@ -614,6 +619,10 @@ class Party(ModelSQL, ModelView):
                 # a country / region
                 values['code'] = '%s-%s' % (uuid4(), suffix)
 
+            if not 'federation_account' in values or \
+                values['federation_account'] == '':
+                    values['federation_account'] = None
+            
             values.setdefault('addresses', None)
 
             if 'photo' in values:
@@ -651,7 +660,10 @@ class Party(ModelSQL, ModelView):
         cls._sql_constraints += [
             ('ref_uniq', Unique(t,t.ref), 'The PUID must be unique'),
             ('internal_user_uniq', Unique(t,t.internal_user),
-                'This internal user is already assigned to a party')]
+                'This internal user is already assigned to a party'),
+            ('federation_account_uniq', 
+                Unique(t,t.federation_account),
+                'The Federation Account must be unique'),]
 
         cls._order.insert(0, ('lastname', 'ASC'))
         cls._order.insert(1, ('name', 'ASC'))
@@ -713,6 +725,7 @@ class Party(ModelSQL, ModelView):
         return [bool_op,
             ('ref',) + tuple(clause[1:]),
             ('alternative_ids.code',) + tuple(clause[1:]),
+            ('federation_account',) + tuple(clause[1:]),
             ('contact_mechanisms.value',) + tuple(clause[1:]),
             ('person_names.family',) + tuple(clause[1:]),            
             ('person_names.given',) + tuple(clause[1:]),            
