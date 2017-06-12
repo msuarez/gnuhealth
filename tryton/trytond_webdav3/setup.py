@@ -9,7 +9,7 @@ import configparser
 
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(os.path.dirname(__file__), fname), encoding="UTF-8").read()
 
 
 def get_require_version(name):
