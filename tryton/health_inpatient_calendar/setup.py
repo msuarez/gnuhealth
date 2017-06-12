@@ -58,8 +58,6 @@ setup(name='trytond_health_inpatient_calendar',
     packages=[
         'trytond.modules.health_inpatient_calendar',
         'trytond.modules.health_inpatient_calendar.tests',
-        'trytond.modules.health_inpatient_calendar.wizard',
-        'trytond.modules.health_inpatient_calendar.report',
         ],
 
     package_data={

@@ -58,7 +58,6 @@ setup(name='trytond_health_ophthalmology',
     packages=[
         'trytond.modules.health_ophthalmology',
         'trytond.modules.health_ophthalmology.tests',
-        'trytond.modules.health_ophthalmology.wizard',
         'trytond.modules.health_ophthalmology.report',
         ],
 

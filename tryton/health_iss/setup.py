@@ -58,8 +58,6 @@ setup(name='trytond_health_iss',
     packages=[
         'trytond.modules.health_iss',
         'trytond.modules.health_iss.tests',
-        'trytond.modules.health_iss.wizard',
-        'trytond.modules.health_iss.report',
         ],
 
     package_data={

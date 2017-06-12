@@ -58,7 +58,6 @@ setup(name='trytond_health_history',
     packages=[
         'trytond.modules.health_history',
         'trytond.modules.health_history.tests',
-        'trytond.modules.health_history.wizard',
         'trytond.modules.health_history.report',
         ],
 

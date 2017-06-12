@@ -58,8 +58,6 @@ setup(name='trytond_health_pediatrics_growth_charts',
     packages=[
         'trytond.modules.health_pediatrics_growth_charts',
         'trytond.modules.health_pediatrics_growth_charts.tests',
-        'trytond.modules.health_pediatrics_growth_charts.wizard',
-        'trytond.modules.health_pediatrics_growth_charts.report',
         ],
 
     package_data={

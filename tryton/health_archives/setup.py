@@ -58,8 +58,6 @@ setup(name='trytond_health_archives',
     packages=[
         'trytond.modules.health_archives',
         'trytond.modules.health_archives.tests',
-        'trytond.modules.health_archives.wizard',
-        'trytond.modules.health_archives.report',
         ],
 
     package_data={

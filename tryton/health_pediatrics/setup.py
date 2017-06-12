@@ -58,7 +58,6 @@ setup(name='trytond_health_pediatrics',
     packages=[
         'trytond.modules.health_pediatrics',
         'trytond.modules.health_pediatrics.tests',
-        'trytond.modules.health_pediatrics.wizard',
         'trytond.modules.health_pediatrics.report',
         ],
 

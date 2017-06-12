@@ -58,8 +58,6 @@ setup(name='trytond_health_ntd_dengue',
     packages=[
         'trytond.modules.health_ntd_dengue',
         'trytond.modules.health_ntd_dengue.tests',
-        'trytond.modules.health_ntd_dengue.wizard',
-        'trytond.modules.health_ntd_dengue.report',
         ],
 
     package_data={

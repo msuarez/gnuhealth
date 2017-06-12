@@ -58,8 +58,6 @@ setup(name='trytond_health_icpm',
     packages=[
         'trytond.modules.health_icpm',
         'trytond.modules.health_icpm.tests',
-        'trytond.modules.health_icpm.wizard',
-        'trytond.modules.health_icpm.report',
         ],
 
     package_data={

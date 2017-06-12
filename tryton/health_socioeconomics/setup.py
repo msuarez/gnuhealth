@@ -58,8 +58,6 @@ setup(name='trytond_health_socioeconomics',
     packages=[
         'trytond.modules.health_socioeconomics',
         'trytond.modules.health_socioeconomics.tests',
-        'trytond.modules.health_socioeconomics.wizard',
-        'trytond.modules.health_socioeconomics.report',
         ],
 
     package_data={

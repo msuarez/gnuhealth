@@ -58,8 +58,6 @@ setup(name='trytond_health_profile',
     packages=[
         'trytond.modules.health_profile',
         'trytond.modules.health_profile.tests',
-        'trytond.modules.health_profile.wizard',
-        'trytond.modules.health_profile.report',
         ],
 
     package_data={

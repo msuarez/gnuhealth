@@ -57,8 +57,6 @@ setup(name='trytond_health_crypto',
     packages=[
         'trytond.modules.health_crypto',
         'trytond.modules.health_crypto.tests',
-        'trytond.modules.health_crypto.wizard',
-        'trytond.modules.health_crypto.report',
         ],
 
     package_data={

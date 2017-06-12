@@ -59,7 +59,6 @@ setup(name='trytond_health_inpatient',
         'trytond.modules.health_inpatient',
         'trytond.modules.health_inpatient.tests',
         'trytond.modules.health_inpatient.wizard',
-        'trytond.modules.health_inpatient.report',
         ],
 
     package_data={

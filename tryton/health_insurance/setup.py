@@ -59,7 +59,6 @@ setup(name='trytond_health_insurance',
         'trytond.modules.health_insurance',
         'trytond.modules.health_insurance.tests',
         'trytond.modules.health_insurance.wizard',
-        'trytond.modules.health_insurance.report',
         ],
 
     package_data={

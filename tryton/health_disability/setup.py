@@ -58,8 +58,6 @@ setup(name='trytond_health_disability',
     packages=[
         'trytond.modules.health_disability',
         'trytond.modules.health_disability.tests',
-        'trytond.modules.health_disability.wizard',
-        'trytond.modules.health_disability.report',
         ],
 
     package_data={

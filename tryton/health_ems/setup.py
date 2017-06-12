@@ -58,8 +58,6 @@ setup(name='trytond_health_ems',
     packages=[
         'trytond.modules.health_ems',
         'trytond.modules.health_ems.tests',
-        'trytond.modules.health_ems.wizard',
-        'trytond.modules.health_ems.report',
         ],
 
     package_data={

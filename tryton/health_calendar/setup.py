@@ -59,7 +59,6 @@ setup(name='trytond_health_calendar',
         'trytond.modules.health_calendar',
         'trytond.modules.health_calendar.tests',
         'trytond.modules.health_calendar.wizard',
-        'trytond.modules.health_calendar.report',
         ],
 
     package_data={

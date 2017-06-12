@@ -58,8 +58,6 @@ setup(name='trytond_health_mdg6',
     packages=[
         'trytond.modules.health_mdg6',
         'trytond.modules.health_mdg6.tests',
-        'trytond.modules.health_mdg6.wizard',
-        'trytond.modules.health_mdg6.report',
         ],
 
     package_data={

@@ -59,7 +59,6 @@ setup(name='trytond_health_imaging',
         'trytond.modules.health_imaging',
         'trytond.modules.health_imaging.tests',
         'trytond.modules.health_imaging.wizard',
-        'trytond.modules.health_imaging.report',
         ],
 
     package_data={

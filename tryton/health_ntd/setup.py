@@ -58,8 +58,6 @@ setup(name='trytond_health_ntd',
     packages=[
         'trytond.modules.health_ntd',
         'trytond.modules.health_ntd.tests',
-        'trytond.modules.health_ntd.wizard',
-        'trytond.modules.health_ntd.report',
         ],
 
     package_data={

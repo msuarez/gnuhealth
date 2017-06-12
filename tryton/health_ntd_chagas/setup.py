@@ -58,8 +58,6 @@ setup(name='trytond_health_ntd_chagas',
     packages=[
         'trytond.modules.health_ntd_chagas',
         'trytond.modules.health_ntd_chagas.tests',
-        'trytond.modules.health_ntd_chagas.wizard',
-        'trytond.modules.health_ntd_chagas.report',
         ],
 
     package_data={

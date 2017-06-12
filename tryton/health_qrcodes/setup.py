@@ -58,7 +58,6 @@ setup(name='trytond_health_qrcodes',
     packages=[
         'trytond.modules.health_qrcodes',
         'trytond.modules.health_qrcodes.tests',
-        'trytond.modules.health_qrcodes.wizard',
         'trytond.modules.health_qrcodes.report',
         ],
 

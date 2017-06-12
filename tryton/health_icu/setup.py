@@ -58,8 +58,6 @@ setup(name='trytond_health_icu',
     packages=[
         'trytond.modules.health_icu',
         'trytond.modules.health_icu.tests',
-        'trytond.modules.health_icu.wizard',
-        'trytond.modules.health_icu.report',
         ],
 
     package_data={

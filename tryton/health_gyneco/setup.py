@@ -58,8 +58,6 @@ setup(name='trytond_health_gyneco',
     packages=[
         'trytond.modules.health_gyneco',
         'trytond.modules.health_gyneco.tests',
-        'trytond.modules.health_gyneco.wizard',
-        'trytond.modules.health_gyneco.report',
         ],
 
     package_data={

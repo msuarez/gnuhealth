@@ -58,8 +58,6 @@ setup(name='trytond_health_who_essential_medicines',
     packages=[
         'trytond.modules.health_who_essential_medicines',
         'trytond.modules.health_who_essential_medicines.tests',
-        'trytond.modules.health_who_essential_medicines.wizard',
-        'trytond.modules.health_who_essential_medicines.report',
         ],
 
     package_data={

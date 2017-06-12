@@ -58,8 +58,6 @@ setup(name='trytond_health_lifestyle',
     packages=[
         'trytond.modules.health_lifestyle',
         'trytond.modules.health_lifestyle.tests',
-        'trytond.modules.health_lifestyle.wizard',
-        'trytond.modules.health_lifestyle.report',
         ],
 
     package_data={
