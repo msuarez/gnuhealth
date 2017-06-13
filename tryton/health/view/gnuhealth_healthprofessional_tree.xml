@@ -4,4 +4,5 @@
     <field name="code" expand="1"/>
     <field name="puid" expand="1"/>
     <field name="institution" expand="1"/>
+    <field name="active" tree_invisible="1"/>
 </tree>

@@ -1517,6 +1517,11 @@ class HealthProfessional(ModelSQL, ModelView):
         fields.Char('PUID', help="Person Unique Identifier"),
         'get_hp_puid', searcher='search_hp_puid')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
 
     def get_hp_puid(self, name):
         return self.name.ref
