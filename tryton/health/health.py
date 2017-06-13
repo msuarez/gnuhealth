@@ -1747,6 +1747,12 @@ class Medicament(ModelSQL, ModelView):
     storage = fields.Text('Storage Conditions')
     is_vaccine = fields.Boolean('Vaccine')
     notes = fields.Text('Extra Info')
+
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
     
     # Show the icon depending on the pregnancy category
     pregnancy_cat_icon = \
@@ -1778,8 +1784,6 @@ class Medicament(ModelSQL, ModelView):
     @classmethod
     def check_xml_record(cls, records, values):
         return True
-
-
 
 class ImmunizationScheduleDose(ModelSQL, ModelView):
     'Immunization Schedule Dose'

@@ -48,6 +48,8 @@
             <field name="indications" colspan="4"/>
             <label name="is_vaccine"/>
             <field name="is_vaccine"/>
+            <label name="active"/>
+            <field name="active"/>
 
         </page>
         <page string="Presentation" id="medicament_presentation">

@@ -7,4 +7,5 @@
     <field name="pregnancy_warning" expand="1"/>
     <field name="pregnancy_category" icon="pregnancy_cat_icon" expand="1"/>
     <field name="adverse_reaction" expand="1"/>
+    <field name="active" tree_invisible="1"/>
 </tree>

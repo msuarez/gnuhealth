@@ -28,3 +28,10 @@ ALTER TABLE product_template DROP COLUMN category;
 
 UPDATE account_tax_template SET credit_note_base_sign = credit_note_base_sign * -1, credit_note_tax_sign = credit_note_tax_sign * -1;
 UPDATE account_tax SET credit_note_base_sign = credit_note_base_sign * -1, credit_note_tax_sign = credit_note_tax_sign * -1;
+
+/* Set the new active attribute to the following models */
+
+/* Medicament */
+
+update gnuhealth_medicament set active=True;
+
