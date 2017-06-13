@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <form>
-    <label name="code"/>
-    <field name="code"/>
-    <label name="name"/>
-    <field name="name"/>
+    <group id="imaging_test_header" col="6" colspan="4">
+        <label name="name"/>
+        <field name="name"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="active"/>
+        <field name="active"/>
+    </group>
     <label name="test_type"/>
     <field name="test_type"/>
     <label name="product"/>

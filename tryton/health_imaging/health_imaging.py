@@ -69,6 +69,11 @@ class ImagingTest(ModelSQL, ModelView):
         required=True)
     product = fields.Many2One('product.product', 'Service', required=True)
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
 
 class ImagingTestRequest(Workflow, ModelSQL, ModelView):
     'Imaging Test Request'
