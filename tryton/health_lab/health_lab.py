@@ -65,6 +65,12 @@ class TestType(ModelSQL, ModelView):
     critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'test_type_id',
         'Test Cases')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(TestType, cls).__setup__()
