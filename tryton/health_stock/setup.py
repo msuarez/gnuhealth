@@ -59,7 +59,6 @@ setup(name='trytond_health_stock',
         'trytond.modules.health_stock',
         'trytond.modules.health_stock.tests',
         'trytond.modules.health_stock.wizard',
-        'trytond.modules.health_stock.report',
         ],
 
     package_data={
