@@ -98,6 +98,12 @@ class Ambulance (ModelSQL, ModelView):
 
     vehicle_remarks = fields.Text('Remarks')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @staticmethod
     def default_state():
         return 'available'

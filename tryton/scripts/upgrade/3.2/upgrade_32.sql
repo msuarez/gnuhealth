@@ -36,3 +36,12 @@ update gnuhealth_medicament set active=True;
 
 /* Health Professional */
 update gnuhealth_healthprofessional set active=True;
+
+/* Lab tests */
+update gnuhealth_lab_test_type  set active=True;
+
+/* Dx Imaging */
+update gnuhealth_imaging_test set active=True;
+
+/* Ambulances */
+update gnuhealth_ambulance set active=True;

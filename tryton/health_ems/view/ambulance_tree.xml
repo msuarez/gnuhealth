@@ -5,5 +5,5 @@
     <field name="vehicle_type"/>
     <field name="vehicle_function"/>
     <field name="vehicle_station"/>
-
+    <field name="active" tree_invisible="1"/>
 </tree>
