@@ -50,7 +50,7 @@ TRYTON_BASE_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
-TRYTON_PATCHES="security/user_login.patch"
+TRYTON_PATCHES="security/GNUHEALTH32-SA-2017-1.trytond.patch.asc"
 
 
 #-----------------------------------------------------------------------------

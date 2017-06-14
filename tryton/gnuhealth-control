@@ -23,17 +23,21 @@
 #
 ##############################################################################
 
-VERSION="3.0.4"
+VERSION="3.2.0"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 
+TRYTON_MODULES="account account_invoice account_product company country \
+    currency party product stock stock_lot purchase account_invoice_stock \
+    stock_supply purchase_request"
+
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 
 PATCH_TRYTON=1
 
-TRYTON_PATCHES="GNUHEALTH-SA-2016-1.tryton.patch.asc"
+TRYTON_PATCHES="GNUHEALTH32-SA-2017-1.trytond.patch.asc"
 
 usage()
 {
@@ -137,7 +141,7 @@ get_current_values()
 
 do_backup()
 {
-    
+
     get_current_values
     
     local COMMAND=$1
@@ -233,8 +237,7 @@ check_updates()
     UTIL_DIR="${GNUHEALTH_DIR}/tryton/server/util"
     
     local TRYTOND_PATCHLEVEL=`echo ${TRYTON_VERSION} | cut -d'.' -f3`
-    
-    local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
+        
     TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
 
     GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
@@ -281,9 +284,13 @@ check_updates()
     fi
     
     # Check latest tryton modules against local version
+    cd ${GNUHEALTH_DIR}/tryton/server/modules
+    
     for MODULE in ${TRYTON_MODULES}; do
-        MODNAME=`echo $MODULE | cut -d'-' -f1`
-        MODULE_PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
+        MOD=`ls -1d trytond_${MODULE}-*`
+        cli_msg "INFO" "Checking MODULE ${MOD}"
+        MODNAME=`echo $MOD | cut -d'-' -f1`
+        MODULE_PATCHLEVEL=`echo $MOD | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
         LATEST_MODULE=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o ${MODNAME}-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
         LATEST_MODULE_PATCHLEVEL=`echo ${LATEST_MODULE} | cut -d'.' -f3`
         if (( ${MODULE_PATCHLEVEL} < ${LATEST_MODULE_PATCHLEVEL} )); then
@@ -335,9 +342,8 @@ check_updates()
                 cli_msg "INFO" "Downloading patch for Tryton server : ${n}"
                 wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/security/${n} || exit 1
                 cli_msg "INFO" "Checking elegibility of the patch"                
-                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
-                
-                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}*
+                patch --dry-run --silent -N -p0 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
                     cli_msg "WARNING" "Patch ${n} needs to be applied"
                     NEED_PATCH_TRYTON=1
@@ -373,6 +379,9 @@ install_updates()
         wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || exit 1
         cli_msg "INFO" "--> Uncompressing TRYTON SERVER $LATEST_TRYTOND"
         tar -xzf ${UPDATE_DOWNLOAD_DIR}/trytond/${LATEST_TRYTOND} --directory ${GNUHEALTH_DIR}/tryton/server || exit 1
+        cli_msg "INFO" "--> Converting to Python3"
+        cd ${GNUHEALTH_DIR}/tryton/server
+        find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || exit 1
     fi
 
     if [ $NEED_UPDATE_MODULES -eq 1 ]; then
@@ -382,6 +391,9 @@ install_updates()
             wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || exit 1
             cli_msg "INFO" "--> Uncompressing ${mod}"
             tar -xzf ${UPDATE_DOWNLOAD_DIR}/modules/${mod} --directory ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
+            cli_msg "INFO" "--> Converting to Python3... ${mod}"
+            cd ${GNUHEALTH_DIR}/tryton/server/modules
+            find ${mod} -name "*.py" -exec 2to3 -wn {} \; || exit 1
         done
     fi
 
