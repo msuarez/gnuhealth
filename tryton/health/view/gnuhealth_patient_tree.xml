@@ -3,4 +3,5 @@
     <field name="name" expand="1"/>
     <field name="puid" expand="1"/>
     <field name="lastname" tree_invisible="1"/>
+    <field name="active" tree_invisible="1"/>
 </tree>

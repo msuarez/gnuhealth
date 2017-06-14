@@ -31,6 +31,9 @@ UPDATE account_tax SET credit_note_base_sign = credit_note_base_sign * -1, credi
 
 /* Set the new active attribute to the following models */
 
+/* Patient */
+update gnuhealth_patient set active=True;
+
 /* Medicament */
 update gnuhealth_medicament set active=True;
 

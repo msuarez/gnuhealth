@@ -2741,6 +2741,12 @@ class PatientData(ModelSQL, ModelView):
     appointments = fields.One2Many(
         'gnuhealth.appointment', 'patient', 'Appointments')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(PatientData, cls).__setup__()
