@@ -57,13 +57,15 @@ TRYTON_PATCHES="security/GNUHEALTH32-SA-2017-1.trytond.patch.asc"
 # Functions
 #-----------------------------------------------------------------------------
 
-message () {
-    # $1 : Message
-    # $2 : Color
-    # return : Message colorized
-    local NOW="[$(date +%H:%M:%S)]"
-
-    echo -e "${2}${NOW}${1}${NONE}"
+message()
+{
+    local UTC="$(date -u +'%Y-%m-%d %H:%M:%S')"
+    
+    case $1 in
+      ERROR ) echo -e "\e[00;31m${UTC} [ERROR] $2\e[00m";;
+      WARNING ) echo -e "\e[0;33m${UTC} [WARNING] $2\e[m" ;;
+      INFO ) echo -e "\e[0;36m${UTC} [INFO] $2\e[m" ;;
+    esac
 }
 
 help()
@@ -86,18 +88,18 @@ EOF
 
 show_version () {
     case $1 in
-        version) message "[INFO] This is is GNU Health install v ${VERSION}" ${WHITE}; exit 0;;
+        version) message "[INFO]" "This is is GNU Health install v ${VERSION}"; exit 0;;
     esac
 
 }
 
 check_requirements() {
     # WGET command
-    message "[INFO] Checking requirements" ${WHITE}
+    message "[INFO]" "Checking requirements"
     echo -n " -> Looking for wget... "
 
     if ! type wget 2>/dev/null ; then
-        message "[ERROR] wget command not found. Please install it or check your PATH variable" ${RED}
+        message "[ERROR]" "wget command not found. Please install it or check your PATH variable"
         bailout
     fi
 
@@ -105,17 +107,17 @@ check_requirements() {
     echo -n " -> Looking for the Python Interpreter command... "
 
     if ! type python 2>/dev/null ; then
-        message "[ERROR] Python interpreter not found. Please install it or check your PATH variable." ${RED}
+        message "[ERROR]" "Python interpreter not found. Please install it or check your PATH variable."
         bailout
     fi
 
     local PVERSION=$(python -V 2>&1 | grep 3.[4-9].[0-9])
 
     if test "${PVERSION}" ; then
-        message "[INFO] Found ${PVERSION}" ${WHITE}
+        message "[INFO]" "Found ${PVERSION}"
     else
         python -V
-        message "[ERROR] Found an Incompatible Python version." ${RED}
+        message "[ERROR]" "Found an Incompatible Python version."
         bailout
     fi
 
@@ -133,36 +135,36 @@ check_requirements() {
     done
 
     if [[ ! ${PIP_NAME} ]]; then
-        message "[ERROR] PIP command not found. Please install it or check your PATH variable." ${RED}
+        message "[ERROR]" "PIP command not found. Please install it or check your PATH variable."
         bailout
     fi
 
     # Check main operating system
     case "$OSTYPE" in
         freebsd*)
-            message "[INFO] Running on FreeBSD" ${GREEN}
+            message "[INFO]" "Running on FreeBSD"
             OS="FREEBSD"
             ;;
         linux*)
-            message "[INFO] Running on GNU/LINUX" ${GREEN}
+            message "[INFO]" "Running on GNU/LINUX"
             OS="GNULINUX"
             # Check for GNU/Linux Distros
             echo -n " -> Looking for lsb_release ... "
             if ! type lsb_release 2>/dev/null ; then
-                message "[WARNING] lsb_release not found" ${YELLOW}
+                message "[WARNING]" "lsb_release not found"
 
             else
                 GNU_LINUX_DISTRO=$(lsb_release -i -s)
             fi
 
-            message "[INFO] GNU / Linux distro: $GNU_LINUX_DISTRO" ${GREEN}
+            message "[INFO]" "GNU / Linux distro: $GNU_LINUX_DISTRO"
             ;;
         *)
-            message "[INFO] Running on Other OS: $OSTYPE" ${YELLOW}
+            message "[INFO]" "Running on Other OS: $OSTYPE"
             ;;
     esac
 
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 }
 
 
@@ -170,23 +172,23 @@ install_directories() {
     #
     # Temporary/staging area.
     #
-    message "[INFO] Creating temporary directory..." ${YELLOW}
+    message "[INFO]" "Creating temporary directory..."
 
     # global variable
     TMP_DIR="/tmp/gnuhealth_installer"
 
     if [[ -e ${TMP_DIR} ]]; then
-        message "[ERROR] Directory ${TMP_DIR} exists. You need to delete it." ${RED}
+        message "[ERROR]" "Directory ${TMP_DIR} exists. You need to delete it."
         bailout
     else
         mkdir ${TMP_DIR} || bailout
     fi
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     #
     # Create the destination directories.
     #
-    message "[INFO] Creating destination directories..." ${YELLOW}
+    message "[INFO]" "Creating destination directories..."
 
     # global variables
     BASEDIR="$HOME/gnuhealth"
@@ -202,17 +204,17 @@ install_directories() {
 
     # Create GNU Health directories
     if [[ -e ${BASEDIR} ]]; then
-        message "[ERROR] Directory ${BASEDIR} exists. You need to delete it." ${RED}
+        message "[ERROR]" "Directory ${BASEDIR} exists. You need to delete it."
         bailout
     else
         mkdir -p ${MODULES_DIR} ${LOG_DIR} ${ATTACH_DIR} ${LOCAL_MODS_DIR} ${CONFIG_DIR} ${UTIL_DIR} ${DOC_DIR}||  bailout
     fi
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 }
 
 
 install_python_dependencies() {
-    message "[INFO] Updating Python dependencies..." ${YELLOW}
+    message "[INFO]" "Updating Python dependencies..."
     check_requirements
 
     local PIP_CMD=$(which $PIP_NAME)
@@ -245,17 +247,17 @@ install_python_dependencies() {
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
     
-    message "[WARNING] Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it" ${YELLOW}
+    message "[WARNING]" "Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it"
 
     local PIP_PKGS="$PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
         $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER $PIP_PYMONGO"
     
-    message "[INFO] Installing python dependencies with pip-${PIP_VERSION} ..." ${YELLOW}
+    message "[INFO]" "Installing python dependencies with pip-${PIP_VERSION} ..."
 
     for PKG in ${PIP_PKGS}; do
-        message " >> ${PKG}" ${WHITE}
+        message " >> ${PKG}"
         ${PIP_CMD} ${PIP_ARGS} ${PKG} || bailout
-        message " >> OK" ${GREEN}
+        message " >> OK"
     done
 }
 
@@ -271,7 +273,7 @@ install_tryton_modules() {
     #
     # Get the lastest revision number for each Tryton module.
     #
-    message "[INFO] Getting list of lastest Tryton packages..." ${YELLOW}
+    message "[INFO]" "Getting list of lastest Tryton packages..."
 
     local TRYTOND_URL=$(get_url trytond)
     local TRYTOND_FILE=$(basename ${TRYTOND_URL})
@@ -288,64 +290,64 @@ install_tryton_modules() {
         TRYTON_MODULES_FILE="${TRYTON_MODULES_FILE} $(basename ${AUX})"
     done
 
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     #
     # Download Tryton packages.
     #
-    message "[INFO] Changing to temporary directory." ${WHITE}
+    message "[INFO]" "Changing to temporary directory."
     cd ${TMP_DIR} || bailout
 
-    message "[INFO] Downloading the Tryton server..." ${YELLOW}
+    message "[INFO]" "Downloading the Tryton server..."
     wget ${TRYTOND_URL} || bailout
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
-    message "[INFO] Downloading Tryton modules..." ${YELLOW}
+    message "[INFO]" "Downloading Tryton modules..."
     local URL=""
     for URL in ${TRYTON_MODULES_URL}; do
         wget ${URL} || bailout
     done
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     #
     # Uncompress the Tryton packages.
     #
-    message "[INFO] Uncompressing the Tryton server..." ${YELLOW}
+    message "[INFO]" "Uncompressing the Tryton server..."
     cd ${TRYTOND_DIR}
     tar -xzf ${TMP_DIR}/${TRYTOND_FILE} || bailout
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
-    message "[INFO] Uncompressing the Tryton modules..." ${YELLOW}
+    message "[INFO]" "Uncompressing the Tryton modules..."
     cd ${MODULES_DIR} || bailout
     for MODULE in $(ls ${TMP_DIR}/trytond_*); do
         tar -xzf ${MODULE} || bailout
     done
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     #
     # Links to modules.
     #
-    message "[INFO] Changing directory to <../trytond/modules>." ${WHITE}
+    message "[INFO]" "Changing directory to <../trytond/modules>."
     local TRYTOND_FOLDER=$(basename ${TRYTOND_FILE} .tar.gz)
     cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
 
-    message "[INFO] Linking the Tryton modules..." ${YELLOW}
+    message "[INFO]" "Linking the Tryton modules..."
     local LNMOD=""
     for LNMOD in ${TRYTON_MODULES}; do
         ln -si ${MODULES_DIR}/trytond_${LNMOD}-* ${LNMOD} || bailout
     done
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
-    message "[INFO] Copying GNU Health modules to the Tryton modules directory..." ${YELLOW}
+    message "[INFO]" "Copying GNU Health modules to the Tryton modules directory..."
     cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
     ln -si ${MODULES_DIR}/health* .
 
-    message "[INFO] Installing WebDAV packages..." ${YELLOW}
+    message "[INFO]" "Installing WebDAV packages..."
     cp -a ${GNUHEALTH_INST_DIR}/trytond_*webdav3* ${MODULES_DIR} || bailout
     ln -si ${MODULES_DIR}/trytond_webdav3 ./webdav
     ln -si ${MODULES_DIR}/trytond_calendar_webdav3 ./calendar
 
-    message "[INFO] Setting up GNU Health PyWebDAV3 library..." ${YELLOW}
+    message "[INFO]" "Setting up GNU Health PyWebDAV3 library..."
     cd ${GNUHEALTH_INST_DIR}/pywebdav3-gnuhealth || bailout
     python3 setup.py install --user || bailout
     cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
@@ -361,36 +363,36 @@ install_tryton_modules() {
     
     cp ${GNUHEALTH_INST_DIR}/config/* ${CONFIG_DIR} || bailout
 
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     # Copy gnuhealth-control
     
     cp ${GNUHEALTH_INST_DIR}/gnuhealth-control ${UTIL_DIR} || bailout
 
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     # Copy documentation directory
     
     cp -a ${GNUHEALTH_INST_DIR}/doc/* ${DOC_DIR} || bailout
 
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
 }
 
 convert_to_python3 () {
     local MODULES_PYTHON2="account account_invoice account_product company country currency party product stock stock_lot purchase account_invoice_stock stock_supply purchase_request"
-    message "[INFO] Converting to Python3 the Tryton Modules" ${WHITE}
+    message "[INFO]" "Converting to Python3 the Tryton Modules"
 
     cd ${MODULES_DIR} || bailout
     for module in ${MODULES_PYTHON2}
         do
         mod="./trytond_${module}-*" 
-        message "INFO" "Converting module : ${module}" ${WHITE}
+        message "INFO" "Converting module : ${module}"
         find ${mod} -name "*.py" -exec 2to3 -wn {} \; || bailout
         done
-    message "INFO" "Conversion of standard Tryton modules done" ${WHITE}
+    message "INFO" "Conversion of standard Tryton modules done"
 
-    message "INFO" "Converting to Python3 the Tryton Kernel" ${WHITE}
+    message "INFO" "Converting to Python3 the Tryton Kernel"
     cd .. 
     find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || bailout
 
@@ -400,17 +402,17 @@ convert_to_python3 () {
 
 apply_patches() {
 
-        message "[INFO] APPLY SECURITY AND OTHER PATCHES TO THE STANDARD TRYTON KERNEL" ${WHITE}
+        message "[INFO]" "APPLY SECURITY AND OTHER PATCHES TO THE STANDARD TRYTON KERNEL"
         for n in ${TRYTON_PATCHES}
         do
             cd ${BASEDIR}/tryton/server/trytond-${TRYTON_VERSION}*
             patch --dry-run --silent -N -p0 < ${GNUHEALTH_INST_DIR}/patches/${n}
             if [ $? -eq 0 ]; then
-                message "[WARNING] Applying patch ${n} to Tryton kernel" ${YELLOW}
+                message "[WARNING]" "Applying patch ${n} to Tryton kernel"
                 patch -p0 < ${GNUHEALTH_INST_DIR}/patches/${n} || exit 1
-                message "[INFO] Tryton kernel sucessfully patched" ${GREEN}
+                message "[INFO]" "Tryton kernel sucessfully patched"
             else
-                message "[INFO] Patch ${n} already applied or not elegible" ${YELLOW}
+                message "[INFO]" "Patch ${n} already applied or not elegible"
             fi
 
             done
@@ -419,7 +421,7 @@ apply_patches() {
 
 bash_profile () {
 
-    message "[INFO] Creating or Updating the BASH profile for GNU Health" ${WHITE}
+    message "[INFO]" "Creating or Updating the BASH profile for GNU Health"
 
     cd $INSTDIR
 
@@ -427,7 +429,7 @@ bash_profile () {
 
     if [[ -e ${PROFILE} ]]; then
         # Make a backup copy of the GNU Health BASH profile if it exists
-        message "[INFO] GNU Health BASH Profile exists. Making backup to ${PROFILE}.bak ." ${YELLOW}
+        message "[INFO]" "GNU Health BASH Profile exists. Making backup to ${PROFILE}.bak ."
         cp ${PROFILE} ${PROFILE}.bak || bailout
     fi
 
@@ -450,26 +452,26 @@ bash_profile () {
 }
 
 cleanup() {
-    message "[INFO] Cleaning Up..." ${YELLOW}
+    message "[INFO]" "Cleaning Up..."
     rm -rf ${TMP_DIR} || bailout
-    message "[INFO] OK." ${GREEN}
+    message "[INFO]" "OK."
 
     installation_ok
 }
 
 installation_ok() {
     touch ${BASEDIR}/.installation_ok || bailout
-    message "[INFO] Installation of GNU Health version ${GNUHEALTH_VERSION} successful !" ${GREEN}
+    message "[INFO]" "Installation of GNU Health version ${GNUHEALTH_VERSION} successful !"
 }
 
 bailout() {
-    message "[INFO] Bailing out !" ${WHITE}
-    message "[INFO] Cleaning up temp directories at ${TMP_DIR}" ${WHITE}
+    message "[INFO]" "Bailing out !"
+    message "[INFO]" "Cleaning up temp directories at ${TMP_DIR}"
     rm -rf ${TMP_DIR}
     if [ -e ${BASEDIR}/.installation_ok ];then
-        message "[WARNING] Previous successful installation found. NOT removing base dir at ${BASEDIR}" ${YELLOW}
+        message "[WARNING]" "Previous successful installation found. NOT removing base dir at ${BASEDIR}"
     else
-        message "[INFO] removing base dir at ${BASEDIR}" ${WHITE}
+        message "[INFO]" "removing base dir at ${BASEDIR}"
         rm -rf ${BASEDIR}
     fi
     exit 1
@@ -481,7 +483,7 @@ bailout() {
 
 install() {
     
-    message "[INFO] Starting GNU Health ${GNUHEALTH_VERSION} installation..." ${WHITE}
+    message "[INFO]" "Starting GNU Health ${GNUHEALTH_VERSION} installation..."
 
     # (1) Check requirements.
     check_requirements
