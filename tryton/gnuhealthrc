@@ -1,5 +1,5 @@
 # GNU Health BASH environment
-# 2013-2015 Luis Falcon <falcon@gnu.org>
+# 2013-2017 Luis Falcon <falcon@gnu.org>
 
 # File Editor 
 
@@ -26,10 +26,12 @@ export TRYTOND_CONFIG=${GNUHEALTH_DIR}/tryton/server/config/trytond.conf
 # Aliases
 alias cdlogs='cd ${GNUHEALTH_DIR}/logs'
 alias cdexe='cd ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/bin'
+alias cdutil='cd ${GNUHEALTH_DIR}/tryton/server/util'
 alias cdconf='cd ${GNUHEALTH_DIR}/tryton/server/config'
 alias cdmods='cd ${GNUHEALTH_DIR}/tryton/server/modules'
 alias editconf='${EDITOR} ${TRYTOND_CONFIG}'
 
+# Protect from accidental deletions 
 alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
