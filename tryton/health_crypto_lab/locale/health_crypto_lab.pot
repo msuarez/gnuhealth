@@ -1,0 +1,77 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:gnuhealth.lab,digest_current:"
+msgid "Current Hash"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,digest_status:"
+msgid "Altered"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,digital_signature:"
+msgid "Digital Signature"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,document_digest:"
+msgid "Digest"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,done_by:"
+msgid "Done by"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,done_date:"
+msgid "Finished on"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,serializer:"
+msgid "Doc String"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,serializer_current:"
+msgid "Current Doc"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,state:"
+msgid "State"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,validated_by:"
+msgid "Validated by"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,validation_date:"
+msgid "Validated on"
+msgstr ""
+
+msgctxt "help:gnuhealth.lab,digest_status:"
+msgid ""
+"This field will be set whenever parts of the main original document has been"
+" changed. Please note that the verification is done only on selected fields."
+msgstr ""
+
+msgctxt "help:gnuhealth.lab,document_digest:"
+msgid "Original Document Digest"
+msgstr ""
+
+msgctxt "help:gnuhealth.lab,done_by:"
+msgid "Professional who processes this lab test"
+msgstr ""
+
+msgctxt "help:gnuhealth.lab,validated_by:"
+msgid "Professional who validates this lab test"
+msgstr ""
+
+msgctxt "selection:gnuhealth.lab,state:"
+msgid "Done"
+msgstr ""
+
+msgctxt "selection:gnuhealth.lab,state:"
+msgid "Draft"
+msgstr ""
+
+msgctxt "selection:gnuhealth.lab,state:"
+msgid "Validated"
+msgstr ""
