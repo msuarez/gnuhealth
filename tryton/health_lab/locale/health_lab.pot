@@ -58,6 +58,10 @@ msgctxt "field:gnuhealth.lab,rec_name:"
 msgid "Name"
 msgstr ""
 
+msgctxt "field:gnuhealth.lab,request_order:"
+msgid "Request"
+msgstr ""
+
 msgctxt "field:gnuhealth.lab,requestor:"
 msgid "Physician"
 msgstr ""
@@ -194,6 +198,10 @@ msgctxt "field:gnuhealth.lab.test.units,write_uid:"
 msgid "Write User"
 msgstr ""
 
+msgctxt "field:gnuhealth.lab.test_type,active:"
+msgid "Active"
+msgstr ""
+
 msgctxt "field:gnuhealth.lab.test_type,code:"
 msgid "Code"
 msgstr ""
@@ -275,7 +283,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.lab.test,request:"
-msgid "Request"
+msgid "Order"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.lab.test,state:"
@@ -422,6 +430,10 @@ msgctxt ""
 msgid "Bacteria"
 msgstr ""
 
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_bas"
+msgid "BAS"
+msgstr ""
+
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_bas0"
 msgid "BAS%"
@@ -497,9 +509,13 @@ msgctxt ""
 msgid "Direct Bilirubin"
 msgstr ""
 
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_eo"
+msgid "EO"
+msgstr ""
+
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_eos0"
-msgid "EOS%"
+msgid "EO%"
 msgstr ""
 
 msgctxt ""
@@ -544,7 +560,7 @@ msgstr ""
 
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_haemoglobin0"
-msgid "Hemoglobin"
+msgid "HGB"
 msgstr ""
 
 msgctxt ""
@@ -583,7 +599,7 @@ msgstr ""
 
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_lym1"
-msgid "LYM#"
+msgid "LYM"
 msgstr ""
 
 msgctxt ""
@@ -616,6 +632,10 @@ msgctxt ""
 msgid "Microscopic Examination"
 msgstr ""
 
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_mon"
+msgid "MON"
+msgstr ""
+
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_mon0"
 msgid "MON%"
@@ -631,9 +651,17 @@ msgctxt ""
 msgid "Motility"
 msgstr ""
 
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_mpv"
+msgid "MPV"
+msgstr ""
+
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_mucus0"
 msgid "Mucus"
+msgstr ""
+
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_neu"
+msgid "NEU"
 msgstr ""
 
 msgctxt ""
@@ -664,6 +692,20 @@ msgstr ""
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ovacyst0"
 msgid "Ova/Cyst"
+msgstr ""
+
+msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_pct"
+msgid "PCT"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_pdwcv"
+msgid "PDWcv"
+msgstr ""
+
+msgctxt ""
+"model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_pdwsd"
+msgid "PDWsd"
 msgstr ""
 
 msgctxt "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_ph0"
@@ -752,12 +794,12 @@ msgstr ""
 
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_rdwcv0"
-msgid "RDW-CV"
+msgid "RDWcv"
 msgstr ""
 
 msgctxt ""
 "model:gnuhealth.lab.test.critearea,name:gnuhealth_test_critearea_rdwsd0"
-msgid "RDW-SD"
+msgid "RDWsd"
 msgstr ""
 
 msgctxt ""
@@ -914,11 +956,11 @@ msgid "Request - Test"
 msgstr ""
 
 msgctxt "model:ir.action,name:act_create_lab_test"
-msgid "Create Lab Test"
+msgid "Lab: Create test"
 msgstr ""
 
 msgctxt "model:ir.action,name:act_patient_lab_history_form1"
-msgid "Lab Reports"
+msgid "Lab: Reports"
 msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_lab_test_request"
@@ -938,7 +980,7 @@ msgid "Lab Tests Results"
 msgstr ""
 
 msgctxt "model:ir.action,name:patient_lab_test_request"
-msgid "Request Lab Test"
+msgid "Lab: Request new order"
 msgstr ""
 
 msgctxt "model:ir.action,name:report_patient_labtest_report"
@@ -986,7 +1028,7 @@ msgid "Lab Test Types"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_patient_lab_test_request"
-msgid "Request Lab Test"
+msgid "Lab: Request new order"
 msgstr ""
 
 msgctxt "model:product.category,name:product_category_labservices0"
@@ -1039,10 +1081,6 @@ msgstr ""
 
 msgctxt "model:res.group,name:group_health_lab_admin"
 msgid "Health lab Administration"
-msgstr ""
-
-msgctxt "model:res.user,name:user_demo_lab"
-msgid "Health Lab"
 msgstr ""
 
 msgctxt "selection:gnuhealth.patient.lab.test,state:"
