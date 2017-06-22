@@ -71,7 +71,7 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'PatientECG']
+    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate']
 
 
 def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
@@ -4938,3 +4938,13 @@ class PatientECG(ModelSQL, ModelView):
             'health_professional_warning':
                 'No health professional associated to this user',
         })
+
+class ProductTemplate(ModelSQL, ModelView):
+    __name__ = 'product.template'
+    """
+    Allow to change the values from the product templates 
+    coming from XML files
+    """
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True
