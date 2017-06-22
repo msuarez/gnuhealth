@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-# This file is part of Tryton.  The COPYRIGHT file at the top level of
-# this repository contains the full copyright notices and license terms.
 
 from setuptools import setup
 import re
@@ -31,18 +29,14 @@ version = info.get('version', '0.0.1')
 major_version, minor_version, _ = version.split('.', 2)
 major_version = int(major_version)
 minor_version = int(minor_version)
-name = 'trytond_calendar'
+name = 'trytond_calendar_webdav3'
 
-download_url = 'http://downloads.tryton.org/%s.%s/' % (
-    major_version, minor_version)
 if minor_version % 2:
     version = '%s.%s.dev0' % (major_version, minor_version)
-    download_url = (
-        'hg+http://hg.tryton.org/modules/%s#egg=%s-%s' % (
-            name[8:], name, version))
 
-requires = ['vobject >= 0.8.0', 'PyWebDAV3 >= 0.9.8', 'python-dateutil', 'pytz',
-    'python-sql >= 0.4']
+requires = ['vobject >= 0.8.0', 'PyWebDAV3-GNUHealth >= 0.10.1', 
+    'python-dateutil', 'pytz', 'python-sql >= 0.4']
+    
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res)(\W|$)', dep):
         requires.append(get_require_version('trytond_%s' % dep))
@@ -50,13 +44,13 @@ requires.append(get_require_version('trytond'))
 
 setup(name=name,
     version=version,
-    description='Tryton module for CalDAV',
+    description='CalDAV module for Tryton Python3',
     long_description=read('README'),
-    author='Tryton',
-    author_email='issue_tracker@tryton.org',
-    url='http://www.tryton.org/',
-    download_url=download_url,
-    keywords='tryton calendar caldav',
+    author='Tryton - Ported by GNU Health team',
+    maintainer='GNU Health team',
+    maintainer_email='health@gnusolidario.org',
+    url='http://health.gnu.org',
+    keywords='tryton GNUHealth calendar caldav',
     package_dir={'trytond.modules.calendar': '.'},
     packages=[
         'trytond.modules.calendar',
@@ -67,7 +61,7 @@ setup(name=name,
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po']),
         },
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 4 - Beta',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',
@@ -91,7 +85,7 @@ setup(name=name,
         'Natural Language :: Slovenian',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Office/Business',

@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-# This file is part of Tryton.  The COPYRIGHT file at the top level of
-# this repository contains the full copyright notices and license terms.
 
 from setuptools import setup
 import re
@@ -31,17 +29,12 @@ version = info.get('version', '0.0.1')
 major_version, minor_version, _ = version.split('.', 2)
 major_version = int(major_version)
 minor_version = int(minor_version)
-name = 'trytond_webdav'
+name = 'trytond_webdav3'
 
-download_url = 'http://downloads.tryton.org/%s.%s/' % (
-    major_version, minor_version)
 if minor_version % 2:
     version = '%s.%s.dev0' % (major_version, minor_version)
-    download_url = (
-        'hg+http://hg.tryton.org/modules/%s#egg=%s-%s' % (
-            name[8:], name, version))
 
-requires = ['PyWebDAV3 >= 0.9.8']
+requires = ['PyWebDAV3-GNUHealth >= 0.10.1']
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res)(\W|$)', dep):
         requires.append(get_require_version('trytond_%s' % dep))
@@ -58,9 +51,6 @@ setup(name=name,
     description='Tryton webdav for Python 3',
     long_description=read('README'),
     author='Tryton',
-    author_email='issue_tracker@tryton.org',
-    url='http://www.tryton.org/',
-    download_url=download_url,
     keywords='tryton webdav',
     package_dir={'trytond.modules.webdav': '.'},
     packages=[

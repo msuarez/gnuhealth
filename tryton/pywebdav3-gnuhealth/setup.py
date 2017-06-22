@@ -10,49 +10,17 @@ VERSION = VERSION.replace('\n', '')
 CHANGES = open('doc/Changes', 'r', encoding='utf-8').read()
 
 DOC = """
-WebDAV library for python3.
 
-Consists of a *server* that is ready to run
-Serve and the DAV package that provides WebDAV server(!) functionality.
+Port from Andrew Leech PyWebDAV3 library to Support GNU Health.
 
-Currently supports
+It has been tested under Tryton server and Python3.
 
-    * WebDAV level 1
-    * Level 2 (LOCK, UNLOCK)
-    * Experimental iterator support
+Some of the clients known to work:
 
-It plays nice with
-
-    * Mac OS X Finder
-    * Windows Explorer
-    * iCal
-    * cadaver
-    * Nautilus
-
-This package does *not* provide client functionality.
-
-Installation
-============
-
-After installation of this package you will have a new script in you
-$PYTHON/bin directory called *davserver*. This serves as the main entry point
-to the server.
-
-Examples
-========
-
-Example (using pip)::
-
-    pip install PyWebDAV3
-    davserver -D /tmp -n
-
-Example (unpacking file locally)::
-
-    tar xvzf PyWebDAV3-$VERSION.tar.gz
-    cd pywebdav
-    python setup.py develop
-    davserver -D /tmp -n
-
+- Mozilla Thunderbird (Lightning)
+- Cadaver
+- Konqueror
+- Evolution
 
 Changes
 =======
@@ -60,14 +28,16 @@ Changes
 %s
 """ % CHANGES
 
-setup(name='PyWebDAV3',
-      description='WebDAV library for python3 - GNU Health version',
-      author='Andrew Leech (Ported to GNU Health by Luis Falcon)',
+setup(name='PyWebDAV3-GNUHealth',
+      description='WebDAV library for Python3 - GNU Health port',
+      author='GNU Solidario',
+      author_email='health@gnusolidario.org',
+      download_url='http://ftp.gnu.org/gnu/health/',
       maintainer='GNU Health team',
       maintainer_email='health@gnusolidario.org',
       url='http://health.gnu.org',
       platforms=['Unix'],
-      license='LGPL v2',
+      license='GPL v3',
       version=VERSION,
       long_description=DOC,
       classifiers=[
@@ -77,7 +47,6 @@ setup(name='PyWebDAV3',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Operating System :: MacOS :: MacOS X',
         'Operating System :: POSIX',
         'Programming Language :: Python',
         'Topic :: Software Development :: Libraries',
