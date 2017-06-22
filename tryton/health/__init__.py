@@ -92,6 +92,7 @@ def register():
         SignsAndSymptoms,
         PatientECG,
         CheckImmunizationStatusInit,
+        ProductTemplate,
         module='health', type_='model')
     Pool.register(
         OpenAppointmentReport,
