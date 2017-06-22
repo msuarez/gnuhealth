@@ -48,7 +48,7 @@ if minor_version % 2:
 
 setup(name=name,
     version=version,
-    description='Tryton webdav for Python 3',
+    description='Tryton WebDAV server for Python 3',
     long_description=read('README'),
     author='Tryton',
     keywords='tryton webdav',

@@ -243,6 +243,7 @@ install_python_dependencies() {
     local PIP_SIMPLEEVAL="simpleeval"
     local PIP_CONFIGPARSER="configparser"
     local PIP_PYMONGO="pymongo"
+    local PIP_PYMONGO="pywebdav3-gnuhealth"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
@@ -342,15 +343,10 @@ install_tryton_modules() {
     cp -a ${GNUHEALTH_INST_DIR}/health* ${MODULES_DIR} || bailout
     ln -si ${MODULES_DIR}/health* .
 
-    message "INFO" "Installing WebDAV packages..."
+    message "INFO" "Installing Tryton WebDAV related packages..."
     cp -a ${GNUHEALTH_INST_DIR}/trytond_*webdav3* ${MODULES_DIR} || bailout
     ln -si ${MODULES_DIR}/trytond_webdav3 ./webdav
     ln -si ${MODULES_DIR}/trytond_calendar_webdav3 ./calendar
-
-    message "INFO" "Setting up GNU Health PyWebDAV3 library..."
-    cd ${GNUHEALTH_INST_DIR}/pywebdav3-gnuhealth || bailout
-    python3 setup.py install --user || bailout
-    cd "${TRYTOND_DIR}/${TRYTOND_FOLDER}/trytond/modules" || bailout
 
     # Copy LICENSE README and version files
     
