@@ -103,6 +103,20 @@ check_requirements() {
         bailout
     fi
 
+    echo -n " -> Looking for 2to3... "
+
+    if ! type 2to3 2>/dev/null ; then
+        message "ERROR" "2to3 command not found. Please install it or check your PATH variable"
+        bailout
+    fi
+
+    echo -n " -> Looking for patch... "
+
+    if ! type patch 2>/dev/null ; then
+        message "ERROR" "patch command not found. Please install it or check your PATH variable"
+        bailout
+    fi
+
     # PYTHON version [3.x]
     echo -n " -> Looking for the Python Interpreter command... "
 
