@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+    <!-- Add Tab with the Serialized information about the prescription -->
+
+        <record model="ir.ui.view" id="view_lab_form">
+            <field name="model">gnuhealth.lab</field>
+            <field name="inherit" ref="health_lab.gnuhealth_lab_view"/>
+            <field name="name">gnuhealth_lab_form</field>
+        </record>
+
+    <!-- Add the Lab test completion status to the tree -->
+
+        <record id="gnuhealth_lab_test_extd_tree" model="ir.ui.view">
+            <field name="model">gnuhealth.lab</field>
+            <field name="inherit" ref="health_lab.gnuhealth_lab_tree"/>
+            <field name="name">gnuhealth_lab_tree</field>
+        </record>
+
+
+    </data>
+</tryton>

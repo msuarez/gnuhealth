@@ -1,1 +1,1 @@
-from test_health_icu import suite
+from .test_health_icu import suite

@@ -1,4 +1,4 @@
-from flask.ext.restful import Resource
+from flask_restful import Resource
 from server.health_fhir import health_Conformance
 from server.common import tryton
 

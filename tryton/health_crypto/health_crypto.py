@@ -40,11 +40,11 @@ class HealthCrypto:
     def serialize(self,data_to_serialize):
         """ Format to JSON """
         json_output = \
-            json.dumps(data_to_serialize, ensure_ascii=False).encode('utf-8')
+            json.dumps(data_to_serialize, ensure_ascii=False)
         return json_output
 
     def gen_hash(self, serialized_doc):
-        return hashlib.sha512(serialized_doc).hexdigest()
+        return str(hashlib.sha512(serialized_doc.encode('utf-8')).hexdigest())
 
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
@@ -57,13 +57,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     document_digest = fields.Char('Digest', readonly=True,
         help="Original Document Digest")
-
-    state = fields.Selection([
-        ('draft', 'Draft'),
-        ('done', 'Done'),        
-        ('validated', 'Validated'),        
-        ], 'State', readonly=True, sort=False)
-
 
     digest_status = fields.Function(fields.Boolean('Altered',
         states={
@@ -90,13 +83,14 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
-        
+
     @staticmethod
     def default_state():
         return 'draft'
 
     @classmethod
     def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
         cls._buttons.update({
             'generate_prescription': {
                 'invisible': Equal(Eval('state'), 'validated'),
@@ -117,12 +111,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     def generate_prescription(cls, prescriptions):
         prescription = prescriptions[0]
 
-        # Change the state of the evaluation to "Done"
-        # and write the name of the signing health professional
+        # Change the state of the prescription to "Validated"
 
         serial_doc=cls.get_serial(prescription)
         
-
         cls.write(prescriptions, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
@@ -145,16 +137,16 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             presc_line.append(line_elements)
 
         data_to_serialize = { 
-            'Prescription': unicode(prescription.prescription_id) or '',
-            'Date': unicode(prescription.prescription_date) or '',
-            'HP': unicode(prescription.healthprof.rec_name),
-            'Patient': prescription.patient.rec_name,
-            'Patient_ID': unicode(prescription.patient.name.ref) or '',
-            'Prescription_line': presc_line,
-            'Notes': unicode(prescription.notes),
+            'Prescription': str(prescription.prescription_id) or '',
+            'Date': str(prescription.prescription_date) or '',
+            'HP': str(prescription.healthprof.rec_name),
+            'Patient': str(prescription.patient.rec_name),
+            'Patient_ID': str(prescription.patient.name.ref) or '',
+            'Prescription_line': str(presc_line),
+            'Notes': str(prescription.notes),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -235,7 +227,9 @@ class BirthCertificate(ModelSQL, ModelView):
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
     @classmethod
+
     def __setup__(cls):
+        super(BirthCertificate, cls).__setup__()
         cls._buttons.update({
             'generate_birth_certificate': {
                 'invisible': Not(Equal(Eval('state'), 'signed'))},
@@ -270,24 +264,24 @@ class BirthCertificate(ModelSQL, ModelView):
     def get_serial(cls,certificate):
 
         data_to_serialize = { 
-            'certificate': unicode(certificate.code) or '',
-            'Date': unicode(certificate.dob) or '',
+            'certificate': str(certificate.code) or '',
+            'Date': str(certificate.dob) or '',
             'HP': certificate.signed_by \
-                and unicode(certificate.signed_by.rec_name) or '',
-            'Person':unicode(certificate.name.rec_name),
-            'Person_dob':unicode(certificate.name.dob) or '',
-            'Person_ID': unicode(certificate.name.ref) or '',
-            'Country': unicode(certificate.country.rec_name) or '',
+                and str(certificate.signed_by.rec_name) or '',
+            'Person':str(certificate.name.rec_name),
+            'Person_dob':str(certificate.name.dob) or '',
+            'Person_ID': str(certificate.name.ref) or '',
+            'Country': str(certificate.country.rec_name) or '',
             'Country_subdivision': certificate.country_subdivision \
-                and unicode(certificate.country_subdivision.rec_name) or '',
+                and str(certificate.country_subdivision.rec_name) or '',
             'Mother': certificate.mother \
-                and unicode(certificate.mother.rec_name) or '',
+                and str(certificate.mother.rec_name) or '',
             'Father': certificate.father \
-                and unicode(certificate.father.rec_name) or '',
-            'Observations': unicode(certificate.observations),
+                and str(certificate.father.rec_name) or '',
+            'Observations': str(certificate.observations),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -363,6 +357,7 @@ class DeathCertificate(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(DeathCertificate, cls).__setup__()
         cls._buttons.update({
             'generate_death_certificate': {
                 'invisible': Not(Equal(Eval('state'), 'signed')),
@@ -401,32 +396,32 @@ class DeathCertificate(ModelSQL, ModelView):
         
         for condition in certificate.underlying_conditions:
             cond = []
-            cond = [condition.condition.rec_name,
+            cond = [str(condition.condition.rec_name),
                 condition.interval,
                 condition.unit_of_time]
                 
             underlying_conds.append(cond)
 
         data_to_serialize = { 
-            'certificate': unicode(certificate.code) or '',
-            'Date': unicode(certificate.dod) or '',
+            'certificate': str(certificate.code) or '',
+            'Date': str(certificate.dod) or '',
             'HP': certificate.signed_by \
-                and unicode(certificate.signed_by.rec_name) or '',
-            'Person': unicode(certificate.name.rec_name),
-            'Person_dob':unicode(certificate.name.dob) or '',
-            'Person_ID': unicode(certificate.name.ref) or '',
-            'Cod': unicode(certificate.cod.rec_name),
+                and str(certificate.signed_by.rec_name) or '',
+            'Person': str(certificate.name.rec_name),
+            'Person_dob':str(certificate.name.dob) or '',
+            'Person_ID': str(certificate.name.ref) or '',
+            'Cod': str(certificate.cod.rec_name),
             'Underlying_conditions': underlying_conds or '',    
             'Autopsy': certificate.autopsy,
-            'Type_of_death': certificate.type_of_death,
-            'Place_of_death': certificate.place_of_death,
-            'Country': unicode(certificate.country.rec_name) or '',
+            'Type_of_death': str(certificate.type_of_death),
+            'Place_of_death': str(certificate.place_of_death),
+            'Country': str(certificate.country.rec_name) or '',
             'Country_subdivision': certificate.country_subdivision \
-                and unicode(certificate.country_subdivision.rec_name) or '',
-            'Observations': unicode(certificate.observations),
+                and str(certificate.country_subdivision.rec_name) or '',
+            'Observations': str(certificate.observations),
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -451,7 +446,7 @@ class DeathCertificate(ModelSQL, ModelView):
                 ''' Return true if the document has been altered'''
                 result = True
         if (name=='digest_current'):
-            result = HealthCrypto().gen_hash(serial_doc)
+            result = HealthCrypto().gen_hash(serial_doc.encode('uft-8'))
 
         if (name=='serializer_current'):
             result = serial_doc
@@ -501,6 +496,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(PatientEvaluation, cls).__setup__()
         cls._buttons.update({
             'sign_evaluation': {
                 'invisible': Not(Equal(Eval('state'), 'done')),
@@ -573,21 +569,21 @@ class PatientEvaluation(ModelSQL, ModelView):
             procedures.append(proc)
 
         data_to_serialize = { 
-            'Patient': unicode(evaluation.patient.rec_name) or '',
-            'Start': unicode(evaluation.evaluation_start) or '',
-            'End': unicode(evaluation.evaluation_endtime) or '',
-            'Initiated_by': unicode(evaluation.healthprof.rec_name),
+            'Patient': str(evaluation.patient.rec_name) or '',
+            'Start': str(evaluation.evaluation_start) or '',
+            'End': str(evaluation.evaluation_endtime) or '',
+            'Initiated_by': str(evaluation.healthprof.rec_name),
             'Signed_by': evaluation.signed_by and
-                unicode(evaluation.signed_by.rec_name) or '',
+                str(evaluation.signed_by.rec_name) or '',
             'Specialty': evaluation.specialty and
-                unicode(evaluation.specialty.rec_name) or '',
-            'Visit_type': unicode(evaluation.visit_type) or '',
-            'Urgency': unicode(evaluation.urgency) or '',
-            'Information_source': unicode(evaluation.information_source) or '',
+                str(evaluation.specialty.rec_name) or '',
+            'Visit_type': str(evaluation.visit_type) or '',
+            'Urgency': str(evaluation.urgency) or '',
+            'Information_source': str(evaluation.information_source) or '',
             'Reliable_info': evaluation.reliable_info,
-            'Chief_complaint': unicode(evaluation.chief_complaint) or '',
-            'Present_illness': unicode(evaluation.present_illness) or '',
-            'Evaluation_summary': unicode(evaluation.evaluation_summary),
+            'Chief_complaint': str(evaluation.chief_complaint) or '',
+            'Present_illness': str(evaluation.present_illness) or '',
+            'Evaluation_summary': str(evaluation.evaluation_summary),
             'Signs_and_Symptoms': signs_symptoms or '',
             'Glycemia': evaluation.glycemia or '',
             'Hba1c': evaluation.hba1c or '',
@@ -618,7 +614,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'Loc_motor': evaluation.loc_motor or '',
             'Tremor': evaluation.tremor,
             'Violent': evaluation.violent,
-            'Mood': unicode(evaluation.mood) or '',
+            'Mood': str(evaluation.mood) or '',
             'Orientation':evaluation.orientation,
             'Orientation':evaluation.orientation,
             'Memory':evaluation.memory,
@@ -630,21 +626,21 @@ class PatientEvaluation(ModelSQL, ModelView):
             'Object_recognition':evaluation.object_recognition,
             'Praxis':evaluation.praxis,
             'Diagnosis':evaluation.diagnosis and
-                unicode(evaluation.diagnosis.rec_name) or '',
+                str(evaluation.diagnosis.rec_name) or '',
             'Secondary_conditions': secondary_conditions or '',
             'DDX': diagnostic_hypotheses or '',
-            'Info_Diagnosis':unicode(evaluation.info_diagnosis) or '',
-            'Treatment_plan':unicode(evaluation.directions) or '',
+            'Info_Diagnosis':str(evaluation.info_diagnosis) or '',
+            'Treatment_plan':str(evaluation.directions) or '',
             'Procedures': procedures or '',
             'Institution': evaluation.institution and
-                unicode(evaluation.institution.rec_name) or '',
+                str(evaluation.institution.rec_name) or '',
             'Derived_from': evaluation.derived_from and
-                unicode(evaluation.derived_from.rec_name) or '',
+                str(evaluation.derived_from.rec_name) or '',
             'Derived_to':evaluation.derived_to and
-                unicode(evaluation.derived_to.rec_name) or '',
+                str(evaluation.derived_to.rec_name) or '',
              }
 
-        serialized_doc = HealthCrypto().serialize(data_to_serialize)
+        serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
         
         return serialized_doc
     
@@ -661,7 +657,7 @@ class PatientEvaluation(ModelSQL, ModelView):
 
     def check_digest (self,name):
         result=''
-        serial_doc=self.get_serial(self)
+        serial_doc=str(self.get_serial(self))
         if (name == 'digest_status' and self.document_digest):
             if (HealthCrypto().gen_hash(serial_doc) == self.document_digest):
                 result = False

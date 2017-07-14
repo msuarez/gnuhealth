@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Prescription Line">
+<form>
     <group colspan="4" string="Medication and Condition" id="prescription_medication">
         <label name="medicament"/>
         <field name="medicament"/>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//field[@name=&quot;critearea&quot;]" position="after">
+        <newline/>
+        <group colspan="4" col="6" id="document_generate">
+            <label name="state"/>
+            <field name="state"/>            
+            <button name="generate_document" help="The lab test is done and results are waiting to be validated" string="Done" icon="tryton-go-next" confirm="Are the results ready ?"/>
+            <button name="set_to_draft" help="Reverse the document to draft state." string="Draft" icon="tryton-go-next" confirm="Set to Draft ?"/>
+            <button name="sign_document" help="Validate and Sign the lab test" string="Validate" icon="tryton-go-next" confirm="Are you sure to sign this lab results ?"/>
+        </group>
+        <newline/>
+        <group colspan="4" id="document_professionals">
+            <label name="done_by"/>
+            <field name="done_by"/>            
+            <label name="done_date"/>
+            <field name="done_date"/>
+            <newline/>            
+            <label name="validated_by"/>
+            <field name="validated_by"/>            
+            <label name="validation_date"/>
+            <field name="validation_date"/>            
+        </group>
+        
+
+    </xpath>
+
+    <xpath expr="/form/notebook/page[@id=&quot;lab_extra_info&quot;]" position="after">
+        <page string="Validation" id="document_evaluation_validation_page">
+
+        <separator colspan="4" string="Document validation" id="separator_docvalidation"/>
+        <newline/>
+        <group colspan="4" id="labtest_digest">
+            <label name="document_digest"/>
+            <field name="document_digest"/>
+            <label name="digest_status"/>
+            <field name="digest_status"/>
+            <newline/>
+            <label name="serializer"/>
+            <field name="serializer"/>
+            <label name="serializer_current"/>
+            <field name="serializer_current"/>
+            <newline/>
+            <label name="digest_current"/>
+            <field colspan="3" name="digest_current"/>
+            <newline/>
+            <separator colspan="4" string="Digital Signature" id="digital_signature"/>
+            <newline/>            
+            <field name="digital_signature" colspan="4"/>
+        </group>
+        </page>
+    </xpath>
+</data>

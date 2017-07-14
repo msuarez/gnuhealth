@@ -1,6 +1,657 @@
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 01 22:40:37 2017 +0100
+summary:     gnuhealth-setup : Update version to 3.2.0
+
+changeset:   2740:df1062d091cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 01 22:06:27 2017 +0100
+summary:     Update Changelog and version to 3.2.0
+
+
+changeset:   2739:91c437a1732c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 24 21:52:26 2017 +0100
+summary:     PyWebDAV3-GNUHealth in the backend directory
+
+changeset:   2738:3516c2d0434c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 24 21:38:54 2017 +0100
+summary:     gnuhealth-setup : Check for 2to3 and patch commands
+
+changeset:   2737:a278e6ad9726
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 24 21:27:51 2017 +0100
+summary:     health_services_lab : Replace tab by spaces
+
+changeset:   2736:605fd37bce59
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 24 21:25:39 2017 +0100
+summary:     health_services_lab : Add super function on __setup__ PatientLabTestRequest classmethod
+
+changeset:   2735:ae3dfd726c17
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 24 01:11:50 2017 +0100
+summary:     GNU Health 3.2 RC1
+
+changeset:   2734:caeace4be986
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 22 19:10:01 2017 +0100
+summary:     translation : Fix error on translation msgctxt odt -> report
+
+changeset:   2733:2945d2a13379
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 22 18:44:42 2017 +0100
+summary:     health : Allow to change the product coming from the XML
+
+changeset:   2732:bfa71afed212
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 22 17:37:09 2017 +0100
+summary:     gnuhealth-setup : Include PyWebDAV3-GNUHealth now as a dependency
+
+changeset:   2731:1bbe8ce3e983
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 22 17:11:54 2017 +0100
+summary:     pywebdav3-gnuhealth : Move to a separate directory
+
+changeset:   2730:f2dd5aa78146
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 22 14:08:17 2017 +0100
+summary:     update PyWebDav-gnuhealth and caldav packages
+
+changeset:   2729:975e79807cae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 21 19:06:30 2017 +0100
+summary:     Update languages and templates to GNU Health 3.2
+
+changeset:   2728:62cb70044429
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 15:07:23 2017 +0100
+summary:     Update translation language code : Move el_GR -> el
+
+changeset:   2727:c652be3eff1d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 15:05:19 2017 +0100
+summary:     Update translation language code : Remove kn
+
+changeset:   2726:cb1e8cd66fdb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 15:02:14 2017 +0100
+summary:     Update translation language code : Remove en_GB
+
+changeset:   2725:7e7e17a75c1c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 14:56:48 2017 +0100
+summary:     Update translation language code : Move lo_LA -> lo
+
+changeset:   2724:e3e36e472b67
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 14:52:51 2017 +0100
+summary:     Update translation language code : Move de_AT -> de
+
+changeset:   2723:318be09ea494
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 14:50:11 2017 +0100
+summary:     Update translation language code : Move fr_FR -> fr
+
+changeset:   2722:e0cd24262d31
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 14:43:09 2017 +0100
+summary:     Update translation language code : Move es_ES -> es . Remove old regional language files
+
+changeset:   2721:334978debdb7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 13:37:53 2017 +0100
+summary:     Update translation templates for 3.2 : QRcodes, services, socioeconomics and surgery packages
+
+changeset:   2720:cf60d4982492
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 13:31:25 2017 +0100
+summary:     Update translation templates for 3.2 : Lab, nursing and ophthalmology packages
+
+changeset:   2719:04c0ce688556
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 13:17:54 2017 +0100
+summary:     Update translation templates for 3.2 : ICD10, Dx Imaging, Inpatient, Insurance and ISS packages
+
+changeset:   2718:01f6d384a77d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 13:08:08 2017 +0100
+summary:     Update translation templates for 3.2 : disability, EMS, genetics and genetics_uniprot packages
+
+changeset:   2717:2cc6543c1347
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 19 12:46:29 2017 +0100
+summary:     Update translation templates for 3.2 : archives, calendar, crypto and crypto_lab packages
+
+changeset:   2716:96abbb8fa1fe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 17 13:55:30 2017 +0100
+summary:     health : rename language es_ES to neutral es
+
+changeset:   2715:06d35eb9cd19
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 17 13:50:44 2017 +0100
+summary:     health: Update health.pot translation file
+
+changeset:   2714:482c2d01ffbd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 17 13:49:40 2017 +0100
+summary:     remove lingering PyWebDAV3.egg-info dir
+
+changeset:   2713:d196f572ad49
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 15 13:18:32 2017 +0100
+summary:     Update GNU Health control center and setup tools
+
+changeset:   2712:561d2e1e8c34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 15 11:59:43 2017 +0100
+summary:     GNUHealth RC file : Include cdutil alias
+
+changeset:   2711:4cf95ce5764d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 15 09:56:58 2017 +0100
+summary:     gnuhealth-control, gnuhealth-setup : Update messaging subsystem
+
+changeset:   2710:f6d57156168e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 14 22:45:39 2017 +0100
+summary:     update gnuhealth-control, gnuhealth-setup and security patches
+
+changeset:   2709:225bd1a39c1f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 14 10:01:31 2017 +0100
+summary:     health : Add active attribute to patient
+
+changeset:   2708:b80f8c6e7b7e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 12:33:06 2017 +0100
+summary:     health_ems : Add active attribute to Ambulances
+
+changeset:   2707:5eea05912c9f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 12:32:29 2017 +0100
+summary:     health_imaging : Add active attribute to Dx Imaging tests
+
+changeset:   2706:7e20787633d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 11:59:05 2017 +0100
+summary:     health_lab : Add active attribute to Lab tests
+
+changeset:   2705:b841b59bea07
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 11:37:28 2017 +0100
+summary:     health : Add active attribute to Health Professional
+
+changeset:   2704:4e5045de5109
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 10:35:21 2017 +0100
+summary:     health : Add active attribute to Medicament
+
+changeset:   2703:8ab0b7c31bf3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 13 09:29:01 2017 +0100
+summary:     health_stock : Remove non-existing report package from setup.py
+
+changeset:   2702:7a910fd75ee4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 16:43:06 2017 +0100
+summary:     Remove outdated modules from default branch
+
+changeset:   2701:7b2413cd05d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 16:39:34 2017 +0100
+summary:     Update README files
+
+changeset:   2700:66b42f280f6c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 16:27:45 2017 +0100
+summary:     health_history : Add README file
+
+changeset:   2699:54761a7677e1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 16:15:04 2017 +0100
+summary:     Remove non-existing packages dirs
+
+changeset:   2698:619dbd62c5ed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 13:57:12 2017 +0100
+summary:     Python packaging . Explicit unicode declaration in setup open method for webdav tryton related modules
+
+changeset:   2697:88a8487befa4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 12 13:54:46 2017 +0100
+summary:     Python packaging . Explicit unicode declaration in setup open method
+
+changeset:   2696:470fad6f21f0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 10 16:16:49 2017 +0100
+summary:     health_federation : remove obsolete view. It now resides in core healthj package
+
+changeset:   2695:410939bcba46
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 10 16:15:28 2017 +0100
+summary:     health: Include the federation party information in core health package
+
+changeset:   2694:bd99f6cc1925
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 10 12:44:10 2017 +0100
+summary:     Federation : Move thalamus, FRL and health_federation packages to federation dir
+
+changeset:   2693:c7b5e0938eef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 09 17:52:18 2017 +0100
+summary:     Health : Fix patient ID card report so it shows the patient photo
+
+changeset:   2692:1906af74201d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 09 12:58:10 2017 +0100
+summary:     Configuration file : Update section jsonrpc to web
+
+changeset:   2691:e9483f532941
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 09 10:59:21 2017 +0100
+summary:     Remove 2to3 from remaining modules setup
+
+changeset:   2690:7aceffba5f44
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 07 19:00:17 2017 +0100
+summary:     Include default port to configuration file
+
+changeset:   2689:49e853099d88
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 07 18:55:31 2017 +0100
+summary:     health: Remove odt key from translation file
+
+changeset:   2688:718065bc8e88
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 07 18:53:26 2017 +0100
+summary:     Add security patch for Tryton server
+
+changeset:   2687:da8e4f7216a6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 07 18:52:11 2017 +0100
+summary:     Update gnuhealth-setup script
+
+changeset:   2686:92184ea5ec14
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 06 20:19:26 2017 +0100
+summary:     gnuhealth-setup : Fix missing curly brace in script
+
+changeset:   2685:7f01344fe001
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 06 19:40:36 2017 +0100
+summary:     Update Tryton configuration template
+
+changeset:   2684:104e9f1fba30
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 06 18:55:20 2017 +0100
+summary:     gnuhealth-setup : Add pywebdav-gnuhealth to installation script
+
+changeset:   2683:b7752e7ca9c6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 06 16:48:05 2017 +0100
+summary:     pywebdav3 : Use http.server and configparser for Python3. Fix obsolete unicode test
+
+changeset:   2682:479029baf83a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 05 19:09:58 2017 +0100
+summary:     Rename pywebdav3 GNU Health library
+
+changeset:   2681:8a68e2001efb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 05 16:22:38 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_profile package
+
+changeset:   2680:855ca6a46565
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 05 14:18:59 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_inpatient_calendar. Optimize information on event
+
+changeset:   2679:a51f4d9397af
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 04 23:15:54 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Migrate Health_reporting package
+
+changeset:   2678:b07a5e517c92
+parent:      2676:cc489a40bef2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 04 20:18:10 2017 +0100
+summary:     WebDAV : Inlcude patched PyWebDAV3 library for GNU Health . Add tryton webdav, calendar modules for Python 3
+
+changeset:   2677:a2249edda76d
+branch:      stable
+parent:      2614:5296f3ad3d07
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 31 17:53:44 2017 +0100
+summary:     gnuhealth-control: Include the backup of both DB and kernel in a tarball
+
+changeset:   2676:cc489a40bef2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 31 17:53:44 2017 +0100
+summary:     gnuhealth-control: Include the backup of both DB and kernel in a tarball
+
+changeset:   2675:7fc7aed68d49
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 24 17:04:40 2017 +0100
+summary:     health_calendar : Include appointment details on the Calendar event. Use rec_name in patient
+
+changeset:   2674:f330b5a49a75
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 21 16:49:29 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_calendar module - Add tree view for calendar appointments
+
+changeset:   2673:e1d238e3ab5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 17 19:35:14 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate WHO essential medicines package
+
+changeset:   2672:79601c40b0a3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed May 17 18:59:56 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate and optimize health_qrcodes and lab views
+
+changeset:   2671:a28e80899e5f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 16 23:19:35 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_pediatrics and growth charts modules
+
+changeset:   2670:228cf5a7bca9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 16 22:15:45 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_ophthalmogoly package
+
+changeset:   2669:e4c7b6dcab08
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 16 15:23:56 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_ntd , health_ntd_dengue and health_ntd_chagas modules
+
+changeset:   2668:3b67291e0bca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 16 12:51:02 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_mdg6
+
+changeset:   2667:8def2f4e62ad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 23:35:16 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_iss
+
+changeset:   2666:ffce5a2f38f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 23:23:12 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_imaging
+
+changeset:   2665:020bd9b6473f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 22:13:33 2017 +0100
+summary:     Fix setup.py in updated packages to include correct name
+
+changeset:   2664:84aa31abd96b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 21:17:37 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_services, health_insurance, health_stock
+
+changeset:   2663:82847ad82f39
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 17:18:45 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_icu, health_nursing and health_inpatient packages
+
+changeset:   2662:7de967ba173d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 15:57:58 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_icpm, health_icd10pcs and health_icd9procs packages
+
+changeset:   2661:235831fcf2b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 14:02:15 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_history, health_lifestyle and health_surgery packages
+
+changeset:   2660:2c3cbe12f206
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 14 10:46:07 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_gyneco
+
+changeset:   2659:72cda3d7c7f8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 13 23:07:27 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_ems package
+
+changeset:   2658:137396f524e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 13 15:52:38 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_disability package
+
+changeset:   2657:4eb92bb42d15
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 13 11:17:02 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_socioeconomics package
+
+changeset:   2656:97aa778199cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 12 13:24:02 2017 +0100
+summary:     task #14253: Migration to Python 3 . Update crypto serializer and gen_hash in prescription and patient evaluation
+
+changeset:   2655:ffd20a0b369d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 11 21:14:09 2017 +0100
+summary:     Add psql script for upgrade
+
+changeset:   2654:eac6f4012b8e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 11 21:06:02 2017 +0100
+summary:     task #14253: Migration to Python 3 / Update health_crypto_lab to python3
+
+changeset:   2653:bbc39ae9e1df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 11 18:15:10 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate health_lab package
+
+changeset:   2652:c4eae2862301
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 09 13:25:42 2017 +0100
+summary:     health_archives : Update setup.py
+
+changeset:   2651:d46c4ee194b2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 09 12:50:04 2017 +0100
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . migrate health_archives
+
+changeset:   2650:20d78a67d348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 09 12:33:08 2017 +0100
+summary:     GNU Health Installer : Include option update-deps to install the python dependencies
+
+changeset:   2649:43379a483af1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 02 23:18:18 2017 +0100
+summary:     Thalamus : Add DELETE method on Person // Include root role
+
+changeset:   2648:750f32213636
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 01 18:49:58 2017 +0100
+summary:     Thalamus : Update version and documentation
+
+changeset:   2647:a5880542ea6c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 01 18:45:54 2017 +0100
+summary:     Thalamus : Implement initial PATCH method in Person resource
+
+changeset:   2646:7fb06bf3cfc4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 01 15:36:03 2017 +0100
+summary:     Thalamus : Check password length after validating not null
+
+changeset:   2645:30839f31f348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 01 15:32:13 2017 +0100
+summary:     Thalamus : Add errors argument to msgs in abort method
+
+changeset:   2644:9a6757775e8c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 30 13:10:04 2017 +0100
+summary:     Thalamus: Implement post method in Person resource
+
+changeset:   2643:d08a52284c76
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 29 08:56:08 2017 +0100
+summary:     Thalamus : Update documentation
+
+changeset:   2642:18c9446be63f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 23 19:42:49 2017 +0100
+summary:     Thalamus : Update documentation
+
+changeset:   2641:8ab4ae8f1117
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 21 19:13:57 2017 +0100
+summary:     thalamus : Update documentation and version
+
+changeset:   2640:16b5a5144627
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 21 17:18:19 2017 +0100
+summary:     Thalamus : Grant access when the user role permits the given method and endpoint combination
+
+changeset:   2639:9c8de523d026
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 21 16:11:15 2017 +0100
+summary:     Thalamus : Verify access to resources depending on the scope. Global vs user self records
+
+changeset:   2638:7ce6253e0927
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 20 22:40:36 2017 +0100
+summary:     Thalamus : Implement authorization and basic ACL, with roles, methods and endpoints
+
+changeset:   2637:c6d87b6b1dee
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 20 22:39:02 2017 +0100
+summary:     Thalamus : Update passwords in demo datafile
+
+changeset:   2636:8f854e27f596
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 13 13:50:15 2017 +0100
+summary:     Thalamus : Initial work on Access Control List and roles
+
+changeset:   2635:60194d1ffc77
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 11 22:12:11 2017 +0100
+summary:     thalamus : Create setup.py and package distribution environment
+
+changeset:   2634:8e7c55cd0c01
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 11 21:07:15 2017 +0100
+summary:     Thalamus : Include __init__.py
+
+changeset:   2633:cde8ea0f4b13
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 11 21:05:50 2017 +0100
+summary:     Thalamus : create thalamus dir / package
+
+changeset:   2632:b714782e1f87
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 11 20:42:41 2017 +0100
+summary:     Thalamus : Integrate authentication into thalamus module
+
+changeset:   2631:d566560e4e92
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 10 23:15:29 2017 +0100
+summary:     thalamus : cleanup empty class for future authorization
+
+changeset:   2630:14518aa0d958
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 10 23:03:16 2017 +0100
+summary:     Thalamus : use directory etc to hold the main configuration file
+
+changeset:   2629:4893c3819d4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 10 23:01:27 2017 +0100
+summary:     Thalamus : Update documentation
+
+changeset:   2628:0005454c8698
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 10 23:00:20 2017 +0100
+summary:     Thalamus : Update demo data file
+
+changeset:   2627:8e1ca749f533
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 10 22:58:03 2017 +0100
+summary:     Thalamus : Move thalamus.cfg to etc directory
+
+changeset:   2626:37d6d2ff1a42
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 08 22:58:40 2017 +0100
+summary:     Thalamus : Update documentation
+
+changeset:   2625:72cc5b546750
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 08 21:49:19 2017 +0100
+summary:     Thalamus : remove templates and login form
+
+changeset:   2624:54cedf269210
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 08 21:48:38 2017 +0100
+summary:     Thalamus : Update documentation
+
+changeset:   2623:18f28af5bd96
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 08 21:39:35 2017 +0100
+summary:     Thalamus : create security module
+
+changeset:   2622:b00b1f75da67
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 06 22:39:41 2017 +0100
+summary:     Thalamus : Update demo data with Ana Betz basic demographics
+
+changeset:   2621:02983091108a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 06 22:06:47 2017 +0100
+summary:     Thalamus : add person resource instance class and GET operation
+
+changeset:   2620:418c3e7fafb9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 06 20:13:34 2017 +0100
+summary:     Federation Resource Locator : Use people collection instead of demographics
+
+changeset:   2619:2f8482438530
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 06 18:07:37 2017 +0100
+summary:     Plugins : Move the GNU Health Tryton plugins dir from tryton/backends
+
+changeset:   2618:21d56e437c0e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 04 20:23:59 2017 +0100
+summary:     Thalamus : Implement authentication for people resource
+
+changeset:   2617:dd48e6d4128f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 04 11:26:40 2017 +0100
+summary:     Thalamus : Use the people collection to fecth demographics info
+
+changeset:   2616:a57f05e54573
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 03 22:05:31 2017 +0100
+summary:     Thalamus : add Gunicorn support and documentation
+
+changeset:   2615:a832d0690417
+parent:      2609:b361dc0bfdb9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 02 20:40:19 2017 +0100
+summary:     Thalamus : The GNU Health Federation message server. Initial commit
+
+changeset:   2614:5296f3ad3d07
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 25 20:56:25 2017 +0000
+summary:     Update Changelog
+
+changeset:   2613:e745b5211970
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 25 20:55:45 2017 +0000
+summary:     Added tag 3.0.8 for changeset 92ab8d5a13ca
+
 changeset:   2612:92ab8d5a13ca
 branch:      stable
-tag:         tip
+tag:         3.0.8
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Mar 25 18:42:48 2017 +0000
 summary:     Update to version 3.0.8
@@ -18,9 +669,31 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Mar 25 18:04:04 2017 +0000
 summary:     health_disability : Fix bug bug #50635: Missing declaration of view directory on setup.py
 
+changeset:   2609:b361dc0bfdb9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 22 12:42:38 2017 +0000
+summary:     MyGNUHealth : Improve main view
+
+changeset:   2608:ce98746a04d8
+parent:      2602:a6fb0106f131
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 20 21:54:09 2017 +0000
+summary:     MyGNUHEalth: Initial commit
+
+changeset:   2607:c4a186a5837e
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 06 00:21:32 2017 +0000
+summary:     Fix bug #50464: Official given and family names not updating on party
+
+changeset:   2606:994acf36c46f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 12 12:58:27 2017 +0000
+summary:     Update Changelog
+
 changeset:   2605:d8994d4f7870
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Mar 12 12:56:41 2017 +0000
 summary:     Update version on modules
@@ -38,6 +711,12 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Mar 12 11:55:52 2017 +0000
 summary:     Update GPL headers
 
+changeset:   2602:a6fb0106f131
+parent:      2599:44e8d4bb59c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Mar 06 00:21:32 2017 +0000
+summary:     Fix bug #50464: Official given and family names not updating on party
+
 changeset:   2601:6762f6dd00b4
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
@@ -51,44 +730,386 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Mar 04 17:57:14 2017 +0000
 summary:     Fix bug #50437: Missing declaration of view directory on setup.py
 
+changeset:   2599:44e8d4bb59c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 04 19:47:28 2017 +0000
+summary:     Fix bug #50460: Use of gender when using growth charts in transgender population
+
+changeset:   2598:f8b031dd1ae2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 04 17:57:14 2017 +0000
+summary:     Fix bug #50437: Missing declaration of view directory on setup.py
+
+changeset:   2597:c1f309a29a78
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 23 22:42:29 2017 +0000
+summary:     task #14384: New genetics module with UNIPROT data. Initial commit and data migration from core genetics module
+
+changeset:   2596:8acdc1b57115
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 23 22:03:10 2017 +0000
+summary:     health_genetics : Move the gene variants, protein related health conditions and variant phenotypes to the new health_genetics_uniprot module
+
+changeset:   2595:493bb45ced5d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 23 21:58:46 2017 +0000
+summary:     health_genetics : task #14253: Migration to Python3 - Tryton 4.2
+
+changeset:   2594:c7fbe9cf1244
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Feb 20 18:28:45 2017 +0000
+summary:     health_genetics: remove duplicated protein_uri model attribute
+
+changeset:   2593:fb0d0d57ed9f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 12 18:20:25 2017 +0000
+summary:     Fix bug #50288: Wrong widget for mealtime field. // Fix validation for meal order warning
+
+changeset:   2592:51184e991026
+parent:      2585:53b988cf0dd5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 12 19:55:10 2017 +0000
+summary:     Remove readonly from patient meal order warning, to correctly save state of the field
+
+changeset:   2591:3fa71e15925b
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 15 22:17:14 2017 +0000
+summary:     Added tag 3.0.6 for changeset 16aa2c080f95
+
+changeset:   2590:16aa2c080f95
+branch:      stable
+tag:         3.0.6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 12 20:24:09 2017 +0000
+summary:     Update version to 3.0.6
+
 changeset:   2589:d003cfcd2132
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 12 19:55:10 2017 +0000
-summary:     Remove readonly from patient meal order warning, to correctly
-save state of the field
+summary:     Remove readonly from patient meal order warning, to correctly save state of the field
 
 changeset:   2588:d1087e220fc0
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 12 18:20:25 2017 +0000
-summary:     Fix bug #50288: Wrong widget for mealtime field. // Fix
-validation for meal order warning
-
+summary:     Fix bug #50288: Wrong widget for mealtime field. // Fix validation for meal order warning
 
 changeset:   2587:d1547dcfc868
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Feb 11 21:30:39 2017 +0000
-summary:     Fix bug #50281: Traceback when displaying patient critical info
-in non-english languages
+summary:     Fix bug #50281: Traceback when displaying patient critical info in non-english languages
 
 changeset:   2586:be122a734730
 branch:      stable
 parent:      2555:7ab93f4847aa
 user:        Luis Falcon <falcon@gnu.org>
 date:        Thu Feb 09 21:58:55 2017 +0000
-summary:     health_inpatient : Fix bug #50269: Traceback when assigning a new
-meal order
+summary:     health_inpatient : Fix bug #50269: Traceback when assigning a new meal order
+
+changeset:   2585:53b988cf0dd5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 11 21:30:39 2017 +0000
+summary:     Fix bug #50281: Traceback when displaying patient critical info in non-english languages
+
+changeset:   2584:2d0a9340cd86
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 09 21:58:55 2017 +0000
+summary:     health_inpatient : Fix bug #50269: Traceback when assigning a new meal order
+
+changeset:   2583:af57d9ac2298
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 29 18:23:40 2017 +0000
+summary:     task #14276 : Include person Federation ID on the search list on Tryton nodes
+
+changeset:   2582:a23385c30521
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 29 18:15:42 2017 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Fix xpath for product tree view
+
+changeset:   2581:ce16e554e2e8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 20 17:22:33 2017 +0000
+summary:     task #14276 : Include Federation account as a unique, independent entity
+
+changeset:   2580:66bad90b25f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 13 23:31:04 2017 +0000
+summary:     task #14276 : Check if the Federation ID exists in the local node (in any of the identifiers of the person)
+
+changeset:   2579:21535175a5e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 12 23:32:41 2017 +0000
+summary:     task #14276 : Get GNU Health Federation ID from the selection
+
+changeset:   2578:659e1b7b0e40
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 10 20:06:51 2017 +0000
+summary:     task #14276 : Select one row only in the resource locator
+
+changeset:   2577:e3c2eb1753ef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 08 16:44:23 2017 +0000
+summary:     task #14276 : Allow SSL connections to MongoDB from the FRL and Tryton nodes
+
+changeset:   2576:4020e31a675f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 08 14:09:35 2017 +0000
+summary:     gnuhealth-setup : Remove static versioning on python module dependencies until stable release
+
+changeset:   2575:abe9b3213372
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 06 00:05:08 2017 +0000
+summary:     task #14294: Add concentration on liquid / suspension drugs
+
+changeset:   2574:c466cb702926
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 04 13:00:25 2017 +0000
+summary:     all : update GPL headers
+
+changeset:   2573:64d474744d1d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 01 22:29:26 2017 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Show result when using determistic search algorithm
+
+changeset:   2572:8c7773e4e1d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 01 22:28:18 2017 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Add plugin icon
+
+changeset:   2571:49838abfec53
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 29 23:23:19 2016 +0000
+summary:     task #14276: Federation Resource Locator - Initial deterministic search for person federation ID
+
+changeset:   2570:cae94e740f76
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 28 23:04:13 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Initial commit for Federation Resource Locator - FRL - plugin
+
+changeset:   2569:2bdcaea92969
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 28 22:51:52 2016 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Migrate healt_crypto module - Migrate setup method
+
+changeset:   2568:be41f66fb0df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 26 14:14:18 2016 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Migrate healt_crypto module
+
+changeset:   2567:94363bac26f0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 22 18:46:03 2016 +0000
+summary:     health_federation: optimize view
+
+changeset:   2566:3a8e08a43f7f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 22 17:53:15 2016 +0000
+summary:     health_federation : Fix col attribute
+
+changeset:   2565:06369cb31ded
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Dec 21 16:49:45 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Test connection to Storage server
+
+changeset:   2564:c370e3e0fe45
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 19 11:42:57 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Include SSL connection in the form
+
+changeset:   2563:9daf84a7360d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 17 20:18:20 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Include icons and reorder menuitems
+
+changeset:   2562:c738413d8d8a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 17 11:24:22 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Commit initial health_federation module structure
+
+changeset:   2561:7820549f1bcc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 16 21:06:47 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Add GNUHealth Federation ID in alternative ids
+
+changeset:   2560:c5e4d3c69bca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 16 21:04:44 2016 +0000
+summary:     task #14276: Interface to GNU Health Federation from Tryton node. Include pymongo package in the dependencies list
+
+changeset:   2559:89404ecc4480
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 12 21:55:17 2016 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Migrate health conditions report to new API and use new format
+
+changeset:   2558:9a8e45ac0eee
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 12 20:12:42 2016 +0000
+summary:     health: Use Date and Time as strings in evaluation tree
+
+changeset:   2557:14f8ac83d01b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 12 16:11:00 2016 +0000
+summary:     Complete task #14266: allow searching by health condition code.
+
+changeset:   2556:fac021be38a7
+parent:      2552:7bb315fc014a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 12 15:44:45 2016 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2. Migrate health_icd10
+
+changeset:   2555:7ab93f4847aa
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 12 10:36:55 2016 +0000
+summary:     Added tag 3.0.5 for changeset f8207ec58bc8
+
+changeset:   2554:f8207ec58bc8
+branch:      stable
+tag:         3.0.5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 11 22:31:35 2016 +0000
+summary:     Update stable branch Changelog
 
 changeset:   2553:e63d83a97100
 branch:      stable
-tag:         tip
 parent:      2526:ab2fca5748ea
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Dec 11 22:28:05 2016 +0000
 summary:     Update to ICD10 version 2016
+
+changeset:   2552:7bb315fc014a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 11 18:59:50 2016 +0000
+summary:     task #14262, Update to ICD10 - 2016 version. Update datafile including new entries from 2016, updating descriptions, deactivating obsolete codes and include active tag in XML
+
+changeset:   2551:aa6b1f6a75ee
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 11 18:43:17 2016 +0000
+summary:     GNU Health - Tasks: task #14262, Update to ICD10 - 2016 version. use active=True for each new health condition
+
+changeset:   2550:c4402f17b5ae
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 10 23:10:08 2016 +0000
+summary:     task #14262: Update to ICD10 - 2016 version . Update categories and health conditions with the latest 2016 data
+
+changeset:   2549:4e2d47c93b5d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 09 15:25:29 2016 +0000
+summary:     task #14262: Update to ICD10 - 2016 version. Health: Include active field to hide obsolete / deprecated conditions
+
+changeset:   2548:41c8d90243f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 05 22:04:43 2016 +0000
+summary:     health : task #14253: Migration to Python 3 and Tryton 4.2 . Rename field vat_code -> tax_idenfier in views
+
+changeset:   2547:136e3aff027a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 04 20:53:17 2016 +0000
+summary:     health : task #14253: Migration to Python 3 and Tryton 4.2 . Update views definitions
+
+changeset:   2546:65492a0b805e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 04 19:20:51 2016 +0000
+summary:     Initial migration to python3 and Tryton 4.2 of health core module
+
+changeset:   2545:7c213a169ef0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 30 18:05:41 2016 +0000
+summary:     task #14253: Migration to Python 3 and Tryton 4.2 . Migrate serverpass to Python3 . Initial migration of gnuhealth-setup
+
+changeset:   2544:a79b7bf2aa28
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 29 18:39:20 2016 +0000
+summary:     health_genetics : Return the variant phenotype name (associated uniprot human disease db) and search by disease on the variant phenotype model
+
+changeset:   2543:ff627604d525
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 29 13:34:53 2016 +0000
+summary:     health_genetics : Use domains to restrict to given gene the natural variants, same for the phenotypes
+
+changeset:   2542:7506f33b9a81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 29 12:52:57 2016 +0000
+summary:     health_genetics : Include natural variant, phenotype and age at onset on patient genetic information
+
+changeset:   2541:5aa5377ef477
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 19:54:37 2016 +0000
+summary:     health_services_lab : update documentation file
+
+changeset:   2540:9825d1bf7e7b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 19:52:33 2016 +0000
+summary:     health_services_lab : update setup.py
+
+changeset:   2539:65504f0cfde2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 19:45:02 2016 +0000
+summary:     health_services_lab : Include generic name for health service document
+
+changeset:   2538:bc68354481f7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 18:07:10 2016 +0000
+summary:     health_services_lab : Automatic include the service on each of the lab test types from the main laboratory order
+
+changeset:   2537:0adf9d5f11d7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 14:08:56 2016 +0000
+summary:     health_services_lab : Add field in the Lab request order
+
+changeset:   2536:54fedd614b60
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 12 11:01:27 2016 +0000
+summary:     healt_lab_services : Initial draft for health lab services
+
+changeset:   2535:3d87d72aeff7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 08 05:21:15 2016 +0000
+summary:     health_crypto_lab : Include validation status on the view
+
+changeset:   2534:6006b936c45b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 04 23:30:34 2016 +0000
+summary:     Update analyte RDW-SD , RDW-CV tags on CBC
+
+changeset:   2533:6ee514d34803
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 04 10:31:43 2016 +0000
+summary:     health_lab : Update CBC analytes and codes
+
+changeset:   2532:638ec8e9616a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 04 05:54:03 2016 +0000
+summary:     task #14208: Add a new label report with just the Code39 barcode and patient ID
+
+changeset:   2531:a7854e9e2235
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 04 00:06:25 2016 +0000
+summary:     task #14208: Add Code39 barcode to labels
+
+changeset:   2530:bd9aae2acfc2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 25 13:19:53 2016 +0100
+summary:     Laboratory interfaces initial documentation and sample program
+
+changeset:   2529:787ffc3231c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 25 11:34:54 2016 +0100
+summary:     remove obsolete synchro sample dir
+
+changeset:   2528:924f6002fad2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 22 11:16:51 2016 +0100
+summary:     health: fix bug #49414: Error when printing prescription using review dates
+
+changeset:   2527:b095ab638a64
+parent:      2519:ba59e6c5df1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 21 12:09:22 2016 +0100
+summary:     Fix bug #49405: Error on summary report when no date of birh is assigned to the person
 
 changeset:   2526:ab2fca5748ea
 branch:      stable
@@ -96,23 +1117,33 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Oct 23 16:29:55 2016 +0100
 summary:     Update Changelog
 
+changeset:   2525:924e2236425d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 23 16:29:45 2016 +0100
+summary:     Added tag 3.0.4 for changeset 7eb479318d68
 
 changeset:   2524:7eb479318d68
 branch:      stable
+tag:         3.0.4
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Oct 22 11:16:51 2016 +0100
 summary:     health: fix bug #49414: Error when printing prescription using review dates
 
 changeset:   2523:a160745168a2
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Oct 21 12:09:22 2016 +0100
 summary:     Fix bug #49405: Error on summary report when no date of birh is assigned to the person
 
+changeset:   2522:167887e6feeb
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 18 12:25:49 2016 +0100
+summary:     Update Changelog
+
 changeset:   2521:23c296b94193
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Oct 18 12:21:51 2016 +0100
 summary:     Update version to 3.0.4
@@ -124,17 +1155,282 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Sep 25 14:46:25 2016 +0000
 summary:     health_inpatient: Fix #49181, Check admission date with UTC
 
+changeset:   2519:ba59e6c5df1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 18 10:08:19 2016 +0100
+summary:     remove .hgignore from branch
+
+changeset:   2518:d9e8001a6cb1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 12 13:39:15 2016 +0100
+summary:     health_insurance : task #14067. Check for discount value key
+
+changeset:   2517:43f477008ad0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 12 12:32:15 2016 +0100
+summary:     health_insurance : task #14067. use plan as rec_name. This will be default on 3.2
+
+changeset:   2516:80b0a80bdfde
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 12 12:24:04 2016 +0100
+summary:     health_insurance : task #14067. Add better validation and set required fields
+
+changeset:   2515:c414eabb24a5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 07 14:25:13 2016 +0100
+summary:     health_insurance : task #14067. Traverse the insurance policy lines in search of products (specific) and if not found, search for categories (general)
+
+changeset:   2514:b59c0279f9b3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 07 13:55:54 2016 +0100
+summary:     health_insurance : task #14067. Check and apply discount on service related products belonging to an specific category that are contained in the insurance policy
+
+changeset:   2513:469218fd86cf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 07 12:11:32 2016 +0100
+summary:     health_insurance : task #14067. Apply discount from the insurance policy on invoice
+
+changeset:   2512:753bec75433a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 07 10:17:11 2016 +0100
+summary:     health_insurance : task #14067. Use float for discount percentage, and validate the value in insurance product policy
+
+changeset:   2511:eb68cc697183
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 05 19:30:35 2016 +0100
+summary:     health_insurance : task #14067. Match the service line with the insurance policy when invoicing
+
+changeset:   2510:fe63b5369814
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 03 19:14:20 2016 +0000
+summary:     health_insurance : task #14067. Include plan product category in plan policy
+
+changeset:   2509:f7f3cf917e13
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 03 16:06:20 2016 +0000
+summary:     health_insurance : task #14067. Include Insurance plan product policies in party view
+
+changeset:   2508:1bd63e365efd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 01 18:09:03 2016 +0000
+summary:     health_insurance : task #14067. Include insurance policy holder on the health service document
+
+changeset:   2507:017fa2e08f98
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 01 11:55:07 2016 +0000
+summary:     task #14067: Module Health Insurance Policy. Create module structure and basic models
+
+changeset:   2506:789669500d9a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 25 14:46:25 2016 +0000
+summary:     health_inpatient: Fix #49181, Check admission date with UTC
+
+changeset:   2505:52c0fb22779b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 15 10:20:48 2016 +0000
+summary:     health_ems : task #14049. Rename pot file from to health_ems.pot
+
+changeset:   2504:3dc14bc8f7c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 14:55:32 2016 +0000
+summary:     health_ems : task #14049 . Use support request code as rec_name
+
+changeset:   2503:d236fab9e60f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 14:34:00 2016 +0000
+summary:     health_ems : task #14049 . Include address field in addtion to the georeference info. Optimize view
+
+changeset:   2502:ba241f091fba
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 14:16:10 2016 +0000
+summary:     health_ems : task #14049 . Append ambulance status for each different stages on the support activity log
+
+changeset:   2501:76bec205cc0b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 12:34:08 2016 +0000
+summary:     health_ems : task #14049 . Add Support Request activity log / history view files
+
+changeset:   2500:53a7d8d7fc70
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 12:33:45 2016 +0000
+summary:     health_ems : task #14049 . Add Support Request activity log / history
+
+changeset:   2499:d6ae85355bb2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 10:57:42 2016 +0000
+summary:     health_ems : task #14049 . Include event type in the tree view for support request
+
+changeset:   2498:ba599f20a929
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 10:27:13 2016 +0000
+summary:     health_ems : task #14049 . Make SR required in ambulance dispatching. Default value available for ambulance. Limit domain to available ambulances when dispatching a new one
+
+changeset:   2497:dd9bf6b4f716
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 13 10:12:03 2016 +0000
+summary:     health_ems : task #14049 . Add general support request status management
+
+changeset:   2496:151e7a76a4ed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 11 19:06:42 2016 +0000
+summary:     health_ems : task #14049 . Add update_ambulance_status method to change the status on both the ambulance model and the current support request
+
+changeset:   2495:2a15a6790eb2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 09 21:45:53 2016 +0000
+summary:     health_ems : task #14049 . Add Support state in tree view. Include default date-time
+
+changeset:   2494:ef7827b21bb7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 08 17:36:23 2016 +0000
+summary:     health_ems : task #14049 . Rename module to health_ems
+
+changeset:   2493:800e42da1dc5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 08 12:09:43 2016 +0000
+summary:     health_ambulance : task #14049 . Include action buttons to update the status of the ambulance on the support request.
+
+changeset:   2492:b48751e1548c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 08 09:07:24 2016 +0000
+summary:     health_ambulance : task #14049 . Update vehicle states
+
+changeset:   2491:a9b3705c3b5b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 07 19:26:53 2016 +0000
+summary:     health_ambulance : task #14049 . Include health professionals associated to a particular ambulance in a support request
+
+changeset:   2490:23f56300a369
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 06 20:58:03 2016 +0000
+summary:     health_ambulance : task #14049 . Add ambulance in support request views
+
+changeset:   2489:091a07fae4c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 06 20:57:09 2016 +0000
+summary:     health_ambulance : task #14049 . Include ambulances involved / dispatched in a Support Request
+
+changeset:   2488:afe070742211
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 06 17:44:53 2016 +0000
+summary:     health_ambulance : task #14049 . Update event types and include ICD10 or other coding for specific conditions
+
+changeset:   2487:fa736db9b82b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 05 19:36:43 2016 +0000
+summary:     health_ambulance : task #14049 . Add urgency, multiple-casualties scenarios, incident type. Improve view
+
+changeset:   2486:c79c3d18e3b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 02 19:08:29 2016 +0000
+summary:     health_ambulance : task #14049 . Include sequence for Health Support Request -SR-
+
+changeset:   2485:0d544ea9287c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 02 14:56:00 2016 +0000
+summary:     health_ambulance : task #14049 . Add views for ambulance model. Include odometer
+
+changeset:   2484:74cbcfb8fab2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 01 20:28:13 2016 +0000
+summary:     task #14049: Create ambulance module . Initial model for ambulance vehicle / status / station ..
+
+changeset:   2483:9e52df027d5d
+parent:      2479:6a3eebc5b348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 21 16:59:28 2016 +0000
+summary:     health: Improve appointment w/ dx report. Allow to show the appointments from all health professionals. Add HP field on tree
+
+changeset:   2482:f424359039d2
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 21 15:09:31 2016 +0000
+summary:     Added tag 3.0.3 for changeset 663a0ca40910
+
+changeset:   2481:663a0ca40910
+branch:      stable
+tag:         3.0.3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 13 22:57:00 2016 +0000
+summary:     Update Changelog
+
 changeset:   2480:c48e969ae425
 branch:      stable
-tag:         tip
 parent:      2467:19ccd9d942d3
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Aug 13 22:15:42 2016 +0000
 summary:     fix bug #48695: Error when adding attribute in existing person to health professional // Update version
 
+changeset:   2479:6a3eebc5b348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Aug 04 02:24:09 2016 +0000
+summary:     health: fix bug #48695: Error when adding attribute in existing person to health professional
+
+changeset:   2478:4a4963951ba6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 02 01:17:08 2016 +0000
+summary:     health_genetics: Migrate domiance to gene variant phenotype
+
+changeset:   2477:b92d24213b37
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 31 20:52:14 2016 +0000
+summary:     health_genetics : Include and allow search by gene in variant phenotypes. task #13992: Expand person medical and clinical genetics information
+
+changeset:   2476:2e2c11046a6b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 30 23:30:27 2016 +0000
+summary:     health: Place emergency info after the value. task #13929, Include emergency and other info
+
+changeset:   2475:188e72957233
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 30 21:16:57 2016 +0000
+summary:     health :Include remarks on contact mechanism. task #13929, Include emergency and other info...
+
+changeset:   2474:0f2261cd31f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 27 16:10:30 2016 +0000
+summary:     health_crypto_lab: Fix visibility of the set-to-draft button depening on the state of the document
+
+changeset:   2473:1f2786b298d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 27 15:36:13 2016 +0000
+summary:     health_crypto_lab : Add process finish date and validation time
+
+changeset:   2472:c166bdd15687
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 27 15:18:23 2016 +0000
+summary:     health_crypto_lab: Add hp who processes the lab test and the one who validates / signs de document
+
+changeset:   2471:a0ed5c8525e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 27 13:19:13 2016 +0000
+summary:     health_crypto_lab : Add lab test result state to the list view
+
+changeset:   2470:d06831f97d4b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 25 12:53:16 2016 +0000
+summary:     health_crypto_lab : Initial commit for module . task #14066: Include crypto functionality for laboratory
+
+changeset:   2469:98d5713cd480
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 20 14:41:05 2016 +0000
+summary:     Added tag 3.0.2 for changeset 19ccd9d942d3
+
+changeset:   2468:e445debe2923
+parent:      2464:c5713f2fa950
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 17 15:35:55 2016 +0000
+summary:     health_surgery : Complete task #14090, Include main procedure on surgery
+
+changeset:   2467:19ccd9d942d3
+branch:      stable
+tag:         3.0.2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 13 12:18:56 2016 +0000
+summary:     all : Update Changelog and version for 3.0.2
+
 changeset:   2466:771d0837f63b
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Jul 13 12:05:24 2016 +0000
 summary:     health : bug #47583: WIndows client crashes rendering SVG files. Include updated stop.svg
@@ -146,6 +1442,82 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Jul 12 21:45:13 2016 +0000
 summary:     health_iss: Fix bug #48491: Remove TimeDelta for age and use patient gender
 
+changeset:   2464:c5713f2fa950
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 12 21:45:13 2016 +0000
+summary:     health_iss: Fix bug #48491: Remove TimeDelta for age and use patient gender
+
+changeset:   2463:f23dcea8460f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jul 11 19:49:27 2016 +0000
+summary:     health_genetics : task #13992 . Include gene variants and associated phenotypes. Improve views and model relations
+
+changeset:   2462:988de1b98d0b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 10 16:45:52 2016 +0000
+summary:     health_genetics : task #13992: Include protein diseases datafile. Make link among models from protein related diseases and gene sequence variants
+
+changeset:   2461:4aaf4986a9f6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 09 15:24:58 2016 +0000
+summary:     health_genetics : task #13992: Update disease genes with UniProt latest data, add models and views for gene variant phenotypes, protein related diseases
+
+changeset:   2460:ee6368455895
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 30 10:35:15 2016 +0000
+summary:     health_genetics : task #13992: Add model for gene sequence variant
+
+changeset:   2459:add48fd0fe1c
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Wed Jun 29 09:47:19 2016 -0700
+summary:     health: strip whitespace
+
+changeset:   2458:d908729583dd
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue Jun 28 22:44:08 2016 -0700
+summary:     health: Cleanup the OSM url generation for the domiciliary unit
+
+changeset:   2457:d1bfc0164778
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 27 16:56:53 2016 +0000
+summary:     task #13992: Expand person medical and clinical genetics information. Add related protein name and automatic UniProt URL
+
+changeset:   2456:a44ee0c39cde
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 25 14:51:02 2016 +0000
+summary:     task #14049: Create ambulance module. Include automatic date and time of call. Improve view
+
+changeset:   2455:287efd46a4cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 23 11:17:39 2016 +0000
+summary:     health_ambulance : Check for patient and evaluation before returning the values
+
+changeset:   2454:746e7158f904
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 23 11:00:33 2016 +0000
+summary:     health_ambulance: Include Operator name in support request automatically
+
+changeset:   2453:eb85ed69947b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jun 23 10:28:35 2016 +0000
+summary:     health_ambulance : Add ambulance and operator icons. Thank you Leonardo D\'acchille !
+
+changeset:   2452:1453d74b8df6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 22 19:20:20 2016 +0000
+summary:     health_ambulance: push initial module structure
+
+changeset:   2451:f471437e336d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 15 12:58:32 2016 +0000
+summary:     Task #14045: Use window domains in Health Service. DOne
+
+changeset:   2450:03ebca5e3379
+parent:      2448:3cfe429e9824
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Jun 03 14:07:24 2016 -0500
+summary:     FHIR: Update Flask imports for 0.11
+
 changeset:   2449:22bee4098855
 branch:      stable
 parent:      2440:fa5d8465cbeb
@@ -153,12 +1525,144 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun May 22 18:58:28 2016 +0000
 summary:     health : Fix bug #47983: Performance and scalability issues on party address
 
+changeset:   2448:3cfe429e9824
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 22 18:58:28 2016 +0000
+summary:     health : Fix bug #47983: Performance and scalability issues on party address
+
+changeset:   2447:ac5f1257c582
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 06 01:33:28 2016 +0100
+summary:     task #13989, Include altitude in the DU model. Done
+
+changeset:   2446:2229d702bff8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 05 08:58:23 2016 +0100
+summary:     health_services : Include shortcut from Patient to the health services
+
+changeset:   2445:f7450a0f7052
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Tue May 03 16:23:32 2016 -0500
+summary:     FHIR: Start converting to new name fields
+
+changeset:   2444:85952a31ba38
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue May 03 06:19:53 2016 +0100
+summary:     health_genetics: Remove CR on disease genes descriptions
+
+changeset:   2443:ae45a20edaf2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 01 14:16:26 2016 +0100
+summary:     health_lab : Group lab relate actions
+
+changeset:   2442:52e130f8035c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 25 00:51:37 2016 +0100
+summary:     health_socioeconomics : Show Domiciliary Unit history in tree view
+
+changeset:   2441:475d2b8d913a
+parent:      2439:01d54c1d3f41
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 24 11:26:54 2016 +0100
+summary:     health_stock : bug #47739: Allow to use storage for pharmacy
+
 changeset:   2440:fa5d8465cbeb
 branch:      stable
 parent:      2421:cc10981636c8
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Apr 24 11:26:54 2016 +0100
 summary:     health_stock : bug #47739: Allow to use storage for pharmacy
+
+changeset:   2439:01d54c1d3f41
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 22 12:48:23 2016 +0100
+summary:     health_qrcodes: done task #13964, Include QR Code in appointment
+
+changeset:   2438:aac361bc37c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 21 11:16:39 2016 +0100
+summary:     task #13977: Allow to search a medicament by name, active component or category
+
+changeset:   2437:d76ff3d1d75a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Apr 17 18:05:06 2016 +0100
+summary:     health_synchro : Update demo synchro module for GNU Health 3.0
+
+changeset:   2436:ccda3e54c0a1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Apr 16 08:27:13 2016 +0100
+summary:     health_qrcodes : task #13953: Generate lab test labels
+
+changeset:   2435:aa63cdfd2bed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 15 18:31:13 2016 +0100
+summary:     health: task #13963: Show the DU address in the main person demographic - Automatic fill-in address upon enterin the DU
+
+changeset:   2434:9434719c7141
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 15 17:40:50 2016 +0100
+summary:     health: task #13963: Show the DU address in the main person demographics info
+
+changeset:   2433:707bfec6e09e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 15 10:42:44 2016 +0100
+summary:     health : Address representation with subdivision in tree view, instead of free text for city
+
+changeset:   2432:3b8cec34a2d2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 14 21:30:51 2016 +0100
+summary:     health : Update the DU address representation upon change on main fields
+
+changeset:   2431:32643bd26d62
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 14 13:11:29 2016 +0100
+summary:     health_lab : task #13953: Generate lab test labels
+
+changeset:   2430:df06e29e6cf0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Apr 14 10:48:03 2016 +0100
+summary:     health : Improve OSM bindings
+
+changeset:   2429:6ca50d03cca5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Apr 12 17:26:04 2016 +0100
+summary:     health: replace str to unicode in domiciliary unit methods
+
+changeset:   2428:75341de81557
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Fri Apr 08 21:20:29 2016 -0700
+summary:     FHIR: Update README
+
+changeset:   2427:5932cc4bec8c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 04 23:58:52 2016 +0100
+summary:     health : task #13951: Auto-fill domiciliary unit address based on subdivision
+
+changeset:   2426:13b367e45b07
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Apr 04 15:03:38 2016 +0100
+summary:     camera plugin : Add version and README files
+
+changeset:   2425:612fad060f22
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Mon Apr 04 07:17:08 2016 -0500
+summary:     FHIR: Fix dependency version
+
+changeset:   2424:f230b8cb60f5
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Apr 03 14:31:47 2016 -0500
+summary:     Bug #45970: Support newer flask-login versions
+
+changeset:   2423:4b38f11f40f8
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Apr 03 11:48:10 2016 -0500
+summary:     FHIR: Update requirements file
+
+changeset:   2422:a72bce9a7d70
+parent:      2418:5c12b2d8547b
+user:        Chris Zimmerman <siv@riseup.net>
+date:        Sun Apr 03 11:38:11 2016 -0500
+summary:     scripts: Update script to use 3.0.1 db dump
 
 changeset:   2421:cc10981636c8
 branch:      stable
@@ -179,6 +1683,77 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Thu Mar 31 22:03:12 2016 +0100
 summary:     health : Fix bug #47583: WIndows client crashes rendering SVG files. Thank you Mario Puntin !
 
+changeset:   2418:5c12b2d8547b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 31 21:45:48 2016 +0100
+summary:     health : Fix bug #47583: WIndows client crashes rendering SVG files. Thank you Mario Puntin !
+
+changeset:   2417:da0fba3a124f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 31 20:16:04 2016 +0100
+summary:     camera plugin : Add help / instructions message
+
+changeset:   2416:ca5a8051dfb3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 31 19:25:17 2016 +0100
+summary:     health: Work on bug bug #47583: Windows client crashes rendering SVG files
+
+changeset:   2415:fc5354aaf9eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Mar 29 13:15:19 2016 +0100
+summary:     health : Fix bug #47562: Domain error when modifying a party name
+
+changeset:   2414:3195a6cc7312
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 27 20:02:43 2016 +0100
+summary:     health : task #13937: Allow to search a person by other contact mechanisms
+
+changeset:   2413:5d67c2b8ca02
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 27 18:26:53 2016 +0100
+summary:     health : task #13929: Include emergency and other info in contact mechanism. Add emergency field in party form
+
+changeset:   2412:aa5ce82bf92e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 26 12:55:17 2016 +0000
+summary:     health : task #13929: Include emergency and other info in contact mechanism. Add emergency field
+
+changeset:   2411:b0d382c42f34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 26 12:06:01 2016 +0000
+summary:     gnuhealth-control : Fix update download dir
+
+changeset:   2410:1067ee0f13c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Mar 22 18:08:46 2016 +0000
+summary:     all : update version to development series 3.1
+
+changeset:   2409:766955b96dc4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Mar 22 18:07:14 2016 +0000
+summary:     gnuhealth-contol : Update to version 3.0.3
+
+changeset:   2408:165b2477086a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Mar 16 19:08:52 2016 +0000
+summary:     gnuhealth-control : Check and automatically update to the latest control center version
+
+changeset:   2407:139fc5b889d9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 05 18:28:31 2016 +0000
+summary:     plugin:camera task #13902: Create plugin to register pictures / videos. Add timestamp in the attachment name
+
+changeset:   2406:c36a7b940c71
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 05 13:20:29 2016 +0000
+summary:     Plugin:camera . Include message when saving an attachment. Better validation
+
+changeset:   2405:a4edb8010f9c
+parent:      2402:253a8a30f091
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 03 16:50:21 2016 +0000
+summary:     plugin:camera: task #13902: Create plugin to register pictures / videos. Add functionality to store the media as attachment
+
 changeset:   2404:2af04ec39a90
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
@@ -192,18 +1767,138 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Feb 28 12:10:16 2016 +0000
 summary:     task #13904: Use user specific date format in reports. Include DoB validation
 
+changeset:   2402:253a8a30f091
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 28 12:10:16 2016 +0000
+summary:     task #13904: Use user specific date format in reports. Include DoB validation
+
+changeset:   2401:dd9380afac3b
+parent:      2399:7630555b1b3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 27 14:46:29 2016 +0000
+summary:     task #13904: Use user specific date format in reports . Update Patient ID, QR ID and Patient Appointment receipt
+
 changeset:   2400:9273cedfd4b7
 branch:      stable
 parent:      2384:62b5c4172d42
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Feb 27 12:39:33 2016 +0000
 summary:     health_socioeconomics : Remove TimeDelta function and use standard GNU Health age computation in Family and Socioeconomic assessment
+
+changeset:   2399:7630555b1b3e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Feb 27 12:39:33 2016 +0000
+summary:     health_socioeconomics : Remove TimeDelta function and use standard GNU Health age computation in Family and Socioeconomic assessment
+
+changeset:   2398:62bd55d62a82
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 25 13:38:31 2016 +0000
+summary:     Plugin:camera Show preview of the picture to be saved
+
+changeset:   2397:8b6a37408348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 25 10:14:53 2016 +0000
+summary:     Plugin:camera : Add record selection validarion
+
+changeset:   2396:cd615bd7d1b3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 24 11:22:19 2016 +0000
+summary:     Update task #13902: Create plugin to register pictures / videos
+
+changeset:   2395:94d58c18c27b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Feb 21 22:44:43 2016 +0000
+summary:     plugin:gnuhealth-camera:task #13902, Create plugin to register pictures. Init webcam and plugin
+
+changeset:   2394:8509ad9cc316
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 18 14:05:43 2016 +0000
+summary:     gnuhealth-control : Use new GNU Solidario translation server, and custom Pootle tar.gz export format
+
+changeset:   2393:f2669599ffad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Feb 17 10:23:32 2016 +0000
+summary:     health_services : task #13888: Include taxes on from the service lines to invoice. Update tax summary
+
+changeset:   2392:57ffc47883e6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 16 12:06:25 2016 +0000
+summary:     gnuhealth-control : Update to 3.0.1 from stable branch
+
+changeset:   2391:5ee4b8151c58
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Feb 12 18:37:16 2016 +0000
+summary:     health_lab : task #13882: Include the request test ID in lab results - Add lab test order ID to report
+
+changeset:   2390:2fc509d3b3e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 11 22:19:27 2016 +0000
+summary:     health_lab : task #13882: Include the request test ID in lab results
+
+changeset:   2389:40f8af6c84f2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Feb 11 12:38:22 2016 +0000
+summary:     health_services : task #13888: Include taxes on from the service lines to invoice
+
+changeset:   2388:252e3ff57768
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 09 22:03:14 2016 +0000
+summary:     localization : Remove original naming convention from Lao Language lo
+
+changeset:   2387:317f727a50c4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 09 21:58:55 2016 +0000
+summary:     localization : Rename Lao language translation files from lo to lo_LA
+
+changeset:   2386:8d9b654f7817
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 09 21:23:25 2016 +0000
+summary:     health : complete task #13884: Include sample report template with header, footer and company logo
+
+changeset:   2385:d7babedc48ca
+parent:      2381:9b8e21ef10ea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 09 21:17:06 2016 +0000
+summary:     health : complete task #13884: Include sample report template with header, footer and company logo
+
+changeset:   2384:62b5c4172d42
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 31 16:23:03 2016 +0000
+summary:     Added tag 3.0.1 for changeset a375f111cbcb
+
+changeset:   2383:a375f111cbcb
+branch:      stable
+tag:         3.0.1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 31 16:17:44 2016 +0000
+summary:     all : update version to 3.0.1 and Changelog
+
+changeset:   2382:ae3f106d7a6e
+branch:      stable
+parent:      2380:6bd21991ba27
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 31 11:46:58 2016 +0000
+summary:     Fix bug #47031: gnuhealth-control status error when multiple instances are running
+
+changeset:   2381:9b8e21ef10ea
+parent:      2379:8c150c8e1b0d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 30 11:25:50 2016 +0000
+summary:     health_lifestyle: Fix bug #47023: Patient CAGE score not available to admin group
+
 changeset:   2380:6bd21991ba27
 branch:      stable
 parent:      2378:0058c39312cb
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Jan 30 11:25:50 2016 +0000
 summary:     health_lifestyle: Fix bug #47023: Patient CAGE score not available to admin group
+
+changeset:   2379:8c150c8e1b0d
+parent:      2377:611e8694c8a2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 29 07:04:02 2016 +0000
+summary:     gnuhealth-setup : Updated vobject and relatorio packages . See bug https://savannah.gnu.org/bugs/index.php?46996
 
 changeset:   2378:0058c39312cb
 branch:      stable
@@ -212,12 +1907,34 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Jan 29 07:04:02 2016 +0000
 summary:     gnuhealth-setup : Updated vobject and relatorio packages . See bug https://savannah.gnu.org/bugs/index.php?46996
 
+changeset:   2377:611e8694c8a2
+parent:      2375:0ffe750c8b63
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 28 12:07:00 2016 +0000
+summary:     Fix bug #46996: vobject version name changed
+
 changeset:   2376:6e74c0945df7
 branch:      stable
 parent:      2372:e8045a607405
 user:        Luis Falcon <falcon@gnu.org>
 date:        Thu Jan 28 12:07:00 2016 +0000
 summary:     Fix bug #46996: vobject version name changed
+
+changeset:   2375:0ffe750c8b63
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 27 10:55:14 2016 +0000
+summary:     health : Fix health : gnuhealth.patient has no attribute patient_age at immunization status report
+
+changeset:   2374:a49f97fc5b74
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 25 13:47:22 2016 +0700
+summary:     health_history, health_nursing : Fix timedelta related issues in reports. bug #46961: Use relative delta for age
+
+changeset:   2373:af0cb1c2cdf9
+parent:      2370:ad6e086e4e0d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 28 08:38:38 2016 +0000
+summary:     Complete task task #13872: Add Spanish - Venezuela language
 
 changeset:   2372:e8045a607405
 branch:      stable
@@ -231,6 +1948,12 @@ parent:      2369:21316ff1da75
 user:        Luis Falcon <falcon@gnu.org>
 date:        Mon Jan 25 13:47:22 2016 +0700
 summary:     health_history, health_nursing : Fix timedelta related issues in reports. bug #46961: Use relative delta for age
+
+changeset:   2370:ad6e086e4e0d
+parent:      2366:958f31c1fda8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 23:53:26 2016 +0700
+summary:     health : optimize date precision for ages
 
 changeset:   2369:21316ff1da75
 branch:      stable
@@ -250,6 +1973,17 @@ parent:      2364:d4404b5bec91
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sun Jan 24 06:58:00 2016 +0700
 summary:     all: Use relativedelta for person ages
+
+changeset:   2366:958f31c1fda8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 06:58:00 2016 +0700
+summary:     all: Use relativedelta for person ages
+
+changeset:   2365:c44622573cad
+parent:      2360:36a5a5113b94
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jan 24 01:55:58 2016 +0700
+summary:     health_calendar : Fix bug #46953: Error on creating appointment if healthprof.name.internal_user == None
 
 changeset:   2364:d4404b5bec91
 branch:      stable
@@ -276,6 +2010,17 @@ user:        Luis Falcon <falcon@gnu.org>
 date:        Thu Jan 21 07:15:59 2016 +0700
 summary:     health: Remove patient age from prescription . Use rec_name for patient and health professional
 
+changeset:   2360:36a5a5113b94
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 21 21:23:07 2016 +0700
+summary:     health_services : Fix bug bug #46947: Traceback when generating the invoice associated to a prescription service
+
+changeset:   2359:612e9be5448a
+parent:      2356:a7390b2660f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 21 07:15:59 2016 +0700
+summary:     health: Remove patient age from prescription . Use rec_name for patient and health professional
+
 changeset:   2358:1b2026fba224
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
@@ -289,6 +2034,37 @@ parent:      2354:c1c0a7204143
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Jan 15 14:28:07 2016 +0000
 summary:     Merge version 3.0.0 in stable branch
+
+changeset:   2356:a7390b2660f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 15 11:07:35 2016 +0000
+summary:     health_gyneco : Look for biological sex and hide GYN/OB page if biological sex is male
+
+changeset:   2355:f3e132791b38
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 11 02:43:31 2016 +0000
+summary:     Added tag 3.0.0 for changeset c1c0a7204143
+
+changeset:   2354:c1c0a7204143
+tag:         3.0.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 11 01:52:35 2016 +0000
+summary:     qrcode : remove StringIO for images in report
+
+changeset:   2353:dae5df0d7af5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 11 01:44:29 2016 +0000
+summary:     health ophthalmo, lab : Fix timedelta issue in reports
+
+changeset:   2352:1b79c80b54f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 11 01:12:46 2016 +0000
+summary:     health lab, opthalmology : Update gender in report
+
+changeset:   2351:8aa8ebd475d5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 11 00:10:47 2016 +0000
+summary:     all : Update Changelog and version
 
 changeset:   2350:05b820a94cb0
 tag:         tip

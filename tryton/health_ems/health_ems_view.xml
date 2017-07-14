@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Icons  -->
+        <record model="ir.ui.icon" id="gnuhealth_ambulance_icon">
+            <field name="name">gnuhealth-ambulance</field>
+            <field name="path">icons/ambulance.svg</field>
+        </record>
+
+        <record model="ir.ui.icon" id="gnuhealth_operator_icon">
+            <field name="name">gnuhealth-operator</field>
+            <field name="path">icons/operator.svg</field>
+        </record>
+
+<!-- Health Support Request Registration -->
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_form">
+            <field name="model">gnuhealth.support_request</field>
+            <field name="type">form</field>
+            <field name="name">support_request_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_tree">
+            <field name="model">gnuhealth.support_request</field>
+            <field name="type">tree</field>
+            <field name="name">support_request_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_support_request">
+            <field name="name">Support Center</field>
+            <field name="res_model">gnuhealth.support_request</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_support_request_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_support_request_tree"/>
+            <field name="act_window" ref="gnuhealth_action_support_request"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_support_request_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_support_request_form"/>
+            <field name="act_window" ref="gnuhealth_action_support_request"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_support_request" sequence="900" icon="gnuhealth-operator"
+            id="gnuhealth_support_request" parent="health.gnuhealth_menu"/>
+
+
+<!-- Ambulance configuration Registration -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_form">
+            <field name="model">gnuhealth.ambulance</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_tree">
+            <field name="model">gnuhealth.ambulance</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_ambulance">
+            <field name="name">Ambulances</field>
+            <field name="res_model">gnuhealth.ambulance</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_ambulance_tree"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_ambulance_form"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_ambulance" sequence="910" icon="gnuhealth-ambulance"
+            id="gnuhealth_ambulance" parent="health.gnuhealth_menu"/>
+
+<!-- Ambulances in Support Request -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_support_form">
+            <field name="model">gnuhealth.ambulance.support</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_support_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_support_tree">
+            <field name="model">gnuhealth.ambulance.support</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_support_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_ambulance_support">
+            <field name="name">Ambulance in Support Requests</field>
+            <field name="res_model">gnuhealth.ambulance.support</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_support_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_ambulance_support_tree"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance_support"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_ambulance_support_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_ambulance_support_form"/>
+            <field name="act_window" ref="gnuhealth_action_ambulance_support"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_ambulance_support" sequence="920"
+            id="gnuhealth_ambulance_sr" parent="health.gnuhealth_menu"/>
+
+<!-- Health Professionals involved in Ambulances in Support Request -->
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_healthprofessional_form">
+            <field name="model">gnuhealth.ambulance_hp</field>
+            <field name="type">form</field>
+            <field name="name">ambulance_healthprofessional_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_ambulance_healthprofessional_tree">
+            <field name="model">gnuhealth.ambulance_hp</field>
+            <field name="type">tree</field>
+            <field name="name">ambulance_healthprofessional_tree</field>
+        </record>
+
+<!-- Health Support Request Log -->
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_log_form">
+            <field name="model">gnuhealth.support_request.log</field>
+            <field name="type">form</field>
+            <field name="name">support_request_log_form</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_support_request_log_tree">
+            <field name="model">gnuhealth.support_request.log</field>
+            <field name="type">tree</field>
+            <field name="name">support_request_log_tree</field>
+        </record>
+
+    </data>
+</tryton>

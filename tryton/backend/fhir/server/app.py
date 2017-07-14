@@ -1,5 +1,5 @@
 from flask import Flask, g
-from flask.ext.login import current_user
+from flask_login import current_user
 from server.common import tryton, login_manager, Api, recordConverter
 
 def before_request():

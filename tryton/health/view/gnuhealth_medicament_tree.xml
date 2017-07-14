@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="medicament">
+<tree>
     <field name="name" expand="1"/>
     <field name="active_component" expand="1"/>
     <field name="is_vaccine" expand="1"/>
@@ -7,4 +7,5 @@
     <field name="pregnancy_warning" expand="1"/>
     <field name="pregnancy_category" icon="pregnancy_cat_icon" expand="1"/>
     <field name="adverse_reaction" expand="1"/>
+    <field name="active" tree_invisible="1"/>
 </tree>

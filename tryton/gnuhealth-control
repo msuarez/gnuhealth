@@ -23,17 +23,21 @@
 #
 ##############################################################################
 
-VERSION="3.0.4"
+VERSION="3.2.0"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 
+TRYTON_MODULES="account account_invoice account_product company country \
+    currency party product stock stock_lot purchase account_invoice_stock \
+    stock_supply purchase_request"
+
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 
 PATCH_TRYTON=1
 
-TRYTON_PATCHES="GNUHEALTH-SA-2016-1.tryton.patch.asc"
+TRYTON_PATCHES="GNUHEALTH32-SA-2017-1.trytond.patch.asc"
 
 usage()
 {
@@ -93,7 +97,7 @@ EOF
     exit 0
 }
 
-cli_msg()
+message()
 {
     local UTC="$(date -u +'%Y-%m-%d %H:%M:%S')"
     
@@ -109,35 +113,35 @@ get_current_values()
     # Bail out if no GNU Health profile exists
     if [ ! -e $HOME/.gnuhealthrc ]
     then
-        cli_msg "ERROR" "No GNU Health profile found !"
-        exit 1
+        message "ERROR" "No GNU Health profile found !"
+        bailout
     fi
     
     # Stop if it can't find the GNU Health version
     if [ -z "$GNUHEALTH_VERSION" ]
     then
-        cli_msg "ERROR" "Could not find the GNU Health version env. variable"
-        exit 1
+        message "ERROR" "Could not find the GNU Health version env. variable"
+        bailout
     fi
 
     # Stop if current GNU Health version < 3.0.0
     local raw_ver=`echo $GNUHEALTH_VERSION | tr -d '.'`
     if [ $raw_ver -lt 300 ]
     then
-        cli_msg "ERROR" "GNU Health version must be at least 3.0"
-        exit 1
+        message "ERROR" "GNU Health version must be at least 3.0"
+        bailout
     fi
     
-    cli_msg "INFO" "Environment variables"
-    cli_msg "INFO" "GNUHEALTH_VERSION = ${GNUHEALTH_VERSION}"
-    cli_msg "INFO" "TRYTON VERSION = ${TRYTON_VERSION}"
-    cli_msg "INFO" "PYTHONPATH = $PYTHONPATH"
+    message "INFO" "Environment variables"
+    message "INFO" "GNUHEALTH_VERSION = ${GNUHEALTH_VERSION}"
+    message "INFO" "TRYTON VERSION = ${TRYTON_VERSION}"
+    message "INFO" "PYTHONPATH = $PYTHONPATH"
     
 }
 
 do_backup()
 {
-    
+
     get_current_values
     
     local COMMAND=$1
@@ -166,40 +170,40 @@ do_backup()
     
     if [ -f $LOCKFILE ]
     then
-        cli_msg "ERROR" "Backup in progress or stale lock file found ..." | tee -a $INFOFILE
-        exit 1
+        message "ERROR" "Backup in progress or stale lock file found ..." | tee -a $INFOFILE
+        bailout
     fi
 
 
     if [ ! -e ${BACKDIR} ]
     then
-        cli_msg "ERROR" "Backup directory ${BACKDIR} not found !"
-        exit 1
+        message "ERROR" "Backup directory ${BACKDIR} not found !"
+        bailout
     fi
 
     touch $LOCKFILE
     
     # Backup start
 
-    cli_msg "INFO" "START Database Backup" | tee -a $INFOFILE
+    message "INFO" "START Database Backup" | tee -a $INFOFILE
     
     pg_dump $DB > $BACKDIR/backup\_$DB\_$BACKDATE || bailout 
 
-    cli_msg "INFO" "Compressing Database Backup" | tee -a $INFOFILE
+    message "INFO" "Compressing Database Backup" | tee -a $INFOFILE
 
     gzip "${BACKDIR}/backup_${DB}_${BACKDATE}" || bailout
     
-    cli_msg "INFO" "Compressing GNU Health home / Kernel directory" | tee -a $INFOFILE
+    message "INFO" "Compressing GNU Health home / Kernel directory" | tee -a $INFOFILE
 
     tar -cvzf "${BACKDIR}/gnuhealth_${DB}_fs_backup_${BACKDATE}.tar.gz" $HOME || bailout
 
-    cli_msg "INFO" "Creating tarball with compressed DB and GNU Health home directory" | tee -a $INFOFILE
+    message "INFO" "Creating tarball with compressed DB and GNU Health home directory" | tee -a $INFOFILE
 
     tar -cvf "${BACKDIR}/gnuhealth_${DB}_with_fs_backup_${BACKDATE}.tar" \
         ${BACKDIR}/backup_${DB}_${BACKDATE}.gz ${BACKDIR}/gnuhealth_${DB}_fs_backup_${BACKDATE}.tar.gz \
         || bailout
 
-    cli_msg "INFO" "Backup Successful" | tee -a $INFOFILE
+    message "INFO" "Backup Successful" | tee -a $INFOFILE
 
     #Remove lock file
     rm $LOCKFILE
@@ -211,10 +215,10 @@ check_status()
     TRYTOND_PIDS=`pgrep -f "^.*python.*trytond.*$"`
     if [ $? = 0 ]
     then
-        cli_msg "INFO" "GNU Health / Tryton instance(s) with PID(s) :"
+        message "INFO" "GNU Health / Tryton instance(s) with PID(s) :"
         echo $TRYTOND_PIDS
     else
-        cli_msg "INFO" "No GNU Health instance seems to be running"
+        message "INFO" "No GNU Health instance seems to be running"
     fi
 
 }
@@ -222,8 +226,8 @@ check_status()
 check_download_dir()
 {
     if [ -d $UPDATE_DOWNLOAD_DIR ]; then
-        echo "Update download directory exists. Bailing out"
-        exit 1
+        message "ERROR" "Update download directory exists. Bailing out"
+        bailout
     fi
 }
 
@@ -233,8 +237,7 @@ check_updates()
     UTIL_DIR="${GNUHEALTH_DIR}/tryton/server/util"
     
     local TRYTOND_PATCHLEVEL=`echo ${TRYTON_VERSION} | cut -d'.' -f3`
-    
-    local TRYTON_MODULES=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond*`
+        
     TRYTON_MAJOR_MINOR=`echo $TRYTON_VERSION | cut -d'.' -f1-2`
 
     GNUHEALTH_MAJOR_MINOR=`echo $GNUHEALTH_VERSION | cut -d'.' -f1-2`
@@ -251,65 +254,73 @@ check_updates()
     NEED_DELETE=0
     TO_DELETE=""
 
-    cli_msg "INFO" "GNUHEALTH-CONTROL VERSION : ${VERSION}"
+    message "INFO" "GNUHEALTH-CONTROL VERSION : ${VERSION}"
 
     # Retrieve the latest control center that is compatible with the current GNU Health version
     LATEST_GHCONTROL=`wget --quiet -O - ${GNUHEALTH_URL} | egrep -o gnuhealth-control-${GNUHEALTH_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
     local LATEST_GHCONTROL_PATCHSET=`echo ${LATEST_GHCONTROL} | cut -d'.' -f3`
     local GHCONTROL_PATCHSET=`echo $VERSION | cut -d'.' -f3`
     
-    if (( ${GHCONTROL_PATCHSET} < ${LATEST_GHCONTROL_PATCHSET} )); then
-        cli_msg "WARNING" "Current version ${VERSION} is outdated. A new version (${LATEST_GHCONTROL}) is available"
-        NEED_UPDATE_GCONTROL=1
+    if (test ${LATEST_GHCONTROL}); then
+        if (( ${GHCONTROL_PATCHSET} < ${LATEST_GHCONTROL_PATCHSET} )); then
+            message "WARNING" "Current version ${VERSION} is outdated. A new version (${LATEST_GHCONTROL}) is available"
+            NEED_UPDATE_GCONTROL=1
+        else
+            message "INFO" "GNU Health control center is at the latest version ${VERSION}"
+        fi
     else
-        cli_msg "INFO" "GNU Health control center is at the latest version ${VERSION}"
+        message "ERROR" "Error on getting the latest GNU Health Control Verion. Maybe a development release"
     fi
-
-    cli_msg "INFO" "TRYTON SERVER : Checking latest patchlevel"
+    
+    message "INFO" "TRYTON SERVER : Checking latest patchlevel"
     
     LATEST_TRYTOND=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o trytond-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
     local LATEST_TRYTOND_PATCHLEVEL=`echo ${LATEST_TRYTOND} | cut -d'.' -f3`
 
     # Check latest tryton server against local version
     if (( ${TRYTOND_PATCHLEVEL} < ${LATEST_TRYTOND_PATCHLEVEL} )); then
-        cli_msg "WARNING" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_TRYTOND})"
+        message "WARNING" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_TRYTOND})"
         NEED_DELETE=1
         TO_DELETE="${TO_DELETE} ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_MAJOR_MINOR}.${TRYTOND_PATCHLEVEL}"
         NEED_UPDATE_TRYTOND=1
     else
-        cli_msg "INFO" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is at the latest version"
+        message "INFO" "TRYTON SERVER patchlevel ${TRYTOND_PATCHLEVEL} is at the latest version"
     fi
     
     # Check latest tryton modules against local version
+    cd ${GNUHEALTH_DIR}/tryton/server/modules
+    
     for MODULE in ${TRYTON_MODULES}; do
-        MODNAME=`echo $MODULE | cut -d'-' -f1`
-        MODULE_PATCHLEVEL=`echo $MODULE | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
+        MOD=`ls -1d trytond_${MODULE}-*`
+        message "INFO" "Checking MODULE ${MOD}"
+        MODNAME=`echo $MOD | cut -d'-' -f1`
+        MODULE_PATCHLEVEL=`echo $MOD | sed  's/^.*\.\([[:digit:]]*\)$/\1/'`
         LATEST_MODULE=`wget --quiet -O - ${TRYTON_URL}/${TRYTON_MAJOR_MINOR} | egrep -o ${MODNAME}-${TRYTON_MAJOR_MINOR}.[0-9\.]+.tar.gz | sort -V | tail -1`
         LATEST_MODULE_PATCHLEVEL=`echo ${LATEST_MODULE} | cut -d'.' -f3`
         if (( ${MODULE_PATCHLEVEL} < ${LATEST_MODULE_PATCHLEVEL} )); then
-            cli_msg "WARNING" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_MODULE})"
+            message "WARNING" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is outdated ! A newer version is available (${LATEST_MODULE})"
             NEED_UPDATE_MODULES=1
             MOD_UPDATES="${MOD_UPDATES} ${LATEST_MODULE}"
             NEED_DELETE=1
             TO_DELETE="${TO_DELETE} ${GNUHEALTH_DIR}/tryton/server/modules/${MODNAME}-${TRYTON_MAJOR_MINOR}.${MODULE_PATCHLEVEL}"
         else
-            cli_msg "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
+            message "INFO" "${MODNAME} patchlevel ${MODULE_PATCHLEVEL} is at the latest version"
         fi
     done
 
     # Check latest GNU HEALTH PATCHSETS against local version
-    cli_msg "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
+    message "INFO" "GNU HEALTH KERNEL : Checking latest PATCHSETS"
     
     PATCHSETS_NUM=`wget --quiet -O - ${GNUHEALTH_URL}/ | egrep -o gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}\.[0-9\.]+.tar.gz | uniq | wc -l | tr -d ' '`
     
     if (( ${PATCHSETS_NUM} > 0 )); then
-        cli_msg "INFO" "Number of Patchsets for this version : ${PATCHSETS_NUM}"
+        message "INFO" "Number of Patchsets for this version : ${PATCHSETS_NUM}"
 
         LATEST_GNUHEALTH=`wget --quiet -O - ${GNUHEALTH_URL}/ | egrep -o gnuhealth_patchset-${GNUHEALTH_MAJOR_MINOR}\.[0-9\.]+.tar.gz | sort -V | tail -1`
         LATEST_GNUHEALTH_PATCHSET=`echo ${LATEST_GNUHEALTH} | cut -d'.' -f3`
 
         if (( ${GNUHEALTH_PATCHSET} < ${LATEST_GNUHEALTH_PATCHSET} )); then
-            cli_msg "WARNING" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is outdated ! A newer version is available (${LATEST_GNUHEALTH})"
+            message "WARNING" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is outdated ! A newer version is available (${LATEST_GNUHEALTH})"
             NEED_UPDATE_PATCHSETS=1
             let PSET=GNUHEALTH_PATCHSET+1 
             for n in `seq $PSET $LATEST_GNUHEALTH_PATCHSET`
@@ -318,80 +329,85 @@ check_updates()
             done
             
         else
-            cli_msg "INFO" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is at the latest version"
+            message "INFO" "GNU HEALTH patchset ${GNUHEALTH_PATCHSET} is at the latest version"
         fi
 
     else
-        cli_msg "INFO" "** NO GNU HEALTH PATCHSETS FOUND FOR THIS VERSION **"
+        message "INFO" "** NO GNU HEALTH PATCHSETS FOUND FOR THIS VERSION **"
     fi
 
     # CHECK SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL   
     
     if (( ${PATCH_TRYTON} == 1 )); then
-        cli_msg "INFO" "Checking Security Advisories and other patches not present in the standard tryton kernel"
+        message "INFO" "Checking Security Advisories and other patches not present in the standard tryton kernel"
 
             for n in ${TRYTON_PATCHES}
             do
-                cli_msg "INFO" "Downloading patch for Tryton server : ${n}"
-                wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/security/${n} || exit 1
-                cli_msg "INFO" "Checking elegibility of the patch"                
-                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
-                
-                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                message "INFO" "Downloading patch for Tryton server : ${n}"
+                wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/security/${n} || message "ERROR" "Could not get patch"
+                message "INFO" "Checking elegibility of the patch"                
+                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}*
+                patch --dry-run --silent -N -p0 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
-                    cli_msg "WARNING" "Patch ${n} needs to be applied"
+                    message "WARNING" "Patch ${n} needs to be applied"
                     NEED_PATCH_TRYTON=1
                 else
-                    cli_msg "INFO" "Patch ${n} already applied or not elegible"
+                    message "INFO" "Patch ${n} already applied or not elegible"
                 fi
                 
             done
             
     else
-        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
+        message "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
     fi
-
 }
 
 install_updates()
 {
     if [ $NEED_UPDATE_GCONTROL -eq 1 ]; then
-        cli_msg "INFO" "Downloading ${LATEST_GHCONTROL} ..."
-        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/${LATEST_GHCONTROL} || exit 1
-        cli_msg "INFO" "Uncompressing ${LATEST_GHCONTROL} ..."        
-        tar -xzf ${UPDATE_DOWNLOAD_DIR}/${LATEST_GHCONTROL} --directory ${UTIL_DIR}|| exit 1
-        cli_msg "INFO" "Sucessfully installed ${LATEST_GHCONTROL} "
-        cli_msg "INFO" "Removing temporary download directory "
-        rm -rf ${UPDATE_DOWNLOAD_DIR} || exit 1
-        cli_msg "INFO" "Please restart now the update with the new control center"
+        message "INFO" "Downloading ${LATEST_GHCONTROL} ..."
+        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/${LATEST_GHCONTROL} || bailout
+        message "INFO" "Uncompressing ${LATEST_GHCONTROL} ..."        
+        tar -xzf ${UPDATE_DOWNLOAD_DIR}/${LATEST_GHCONTROL} --directory ${UTIL_DIR}|| bailout
+        message "INFO" "Sucessfully installed ${LATEST_GHCONTROL} "
+        message "INFO" "Removing temporary download directory "
+        rm -rf ${UPDATE_DOWNLOAD_DIR} || bailout
+        message "INFO" "Please restart now the update with the new control center"
         exit 0
 
     fi
 
     if [ $NEED_UPDATE_TRYTOND -eq 1 ]; then
-        cli_msg "INFO" "Downloading TRYTON SERVER $LATEST_TRYTOND"
-        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || exit 1
-        cli_msg "INFO" "--> Uncompressing TRYTON SERVER $LATEST_TRYTOND"
-        tar -xzf ${UPDATE_DOWNLOAD_DIR}/trytond/${LATEST_TRYTOND} --directory ${GNUHEALTH_DIR}/tryton/server || exit 1
+        message "INFO" "Downloading TRYTON SERVER $LATEST_TRYTOND"
+        wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/trytond ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${LATEST_TRYTOND} || bailout
+        message "INFO" "--> Uncompressing TRYTON SERVER $LATEST_TRYTOND"
+        tar -xzf ${UPDATE_DOWNLOAD_DIR}/trytond/${LATEST_TRYTOND} --directory ${GNUHEALTH_DIR}/tryton/server || bailout
+        message "INFO" "--> Converting to Python3"
+        cd ${GNUHEALTH_DIR}/tryton/server
+        find ./trytond-* -name "*.py" -exec 2to3 -wn {} \; || bailout
     fi
 
     if [ $NEED_UPDATE_MODULES -eq 1 ]; then
         for mod in ${MOD_UPDATES}
         do
-            cli_msg "INFO" "Downloading $mod"
-            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || exit 1
-            cli_msg "INFO" "--> Uncompressing ${mod}"
-            tar -xzf ${UPDATE_DOWNLOAD_DIR}/modules/${mod} --directory ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
+            message "INFO" "Downloading $mod"
+            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/modules ${TRYTON_URL}/${TRYTON_MAJOR_MINOR}/${mod} || bailout
+            message "INFO" "--> Uncompressing ${mod}"
+            tar -xzf ${UPDATE_DOWNLOAD_DIR}/modules/${mod} --directory ${GNUHEALTH_DIR}/tryton/server/modules || bailout
+            message "INFO" "--> Converting to Python3... ${mod}"
+            cd ${GNUHEALTH_DIR}/tryton/server/modules
+            local moddir=$(basename ${mod} .tar.gz)
+            find ${moddir} -name "*.py" -exec 2to3 -wn {} \; || bailout
         done
     fi
 
     if [ $NEED_UPDATE_PATCHSETS -eq 1 ]; then
         for patchset in ${PATCHSETS}
         do
-            cli_msg "INFO" "Downloading $patchset"
-            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/patchsets ${GNUHEALTH_URL}/${patchset} || exit 1
-            cli_msg "INFO" "--> Applying PATCHSET $patchset"
-            tar -xzf ${UPDATE_DOWNLOAD_DIR}/patchsets/${patchset} --directory ${HOME} || exit 1
+            message "INFO" "Downloading $patchset"
+            wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/patchsets ${GNUHEALTH_URL}/${patchset} || bailout
+            message "INFO" "--> Applying PATCHSET $patchset"
+            tar -xzf ${UPDATE_DOWNLOAD_DIR}/patchsets/${patchset} --directory ${HOME} || bailout
         done
     fi
 
@@ -399,25 +415,25 @@ install_updates()
     
     if (( ${PATCH_TRYTON} == 1 )); then
         if (( ${NEED_PATCH_TRYTON} == 1 )); then
-            cli_msg "INFO" "APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL"
+            message "INFO" "APPLY SECURITY ADVISORIES AND OTHER PATCHES NOT PRESENT IN THE STANDARD TRYTON KERNEL"
             for n in ${TRYTON_PATCHES}
             do
-                cli_msg "INFO" "Checking elegibility of the patch"                
-                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}/trytond/res
+                message "INFO" "Checking elegibility of the patch"                
+                cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}
                 
-                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                patch --dry-run --silent -N -p0 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
-                    cli_msg "WARNING" "Applying patch ${n} to Tryton kernel"
-                    patch -p1 < ${UPDATE_DOWNLOAD_DIR}/${n} || exit 1
-                    cli_msg "INFO" "Tryton kernel sucessfully patched"
+                    message "WARNING" "Applying patch ${n} to Tryton kernel"
+                    patch -p0 < ${UPDATE_DOWNLOAD_DIR}/${n} || bailout
+                    message "INFO" "Tryton kernel sucessfully patched"
                 else
-                    cli_msg "INFO" "Patch ${n} already applied or not elegible"
+                    message "INFO" "Patch ${n} already applied or not elegible"
                 fi
                 
             done
         fi
     else
-        cli_msg "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
+        message "WARNING" "PATCHING STANDARD TRYTON IS DISABLED. NO EXTRA SECURITY PATCHES OR FUNCTIONALITY WILL BE APPLIED"
     fi
 
 }
@@ -425,7 +441,7 @@ install_updates()
 remove_old()
 {
     if [ ${NEED_DELETE} -eq 1 ]; then
-        cli_msg "WARNING" "Removing obsolete kernel and/or modules : ${TO_DELETE}"
+        message "WARNING" "Removing obsolete kernel and/or modules : ${TO_DELETE}"
         rm -rf ${TO_DELETE}
     fi
 }
@@ -435,26 +451,25 @@ relink_mods()
     source $HOME/.gnuhealthrc
     
     if [ ${NEED_DELETE} -eq 1 ]; then
-        local TRYTON_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d trytond_*`
-        for mod in ${TRYTON_MODS}; do
-            local modname=`echo ${mod} | cut -d'-' -f1 | cut -d'_' -f2-`
-            cli_msg "INFO" "Relinking : ${mod}"
-            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/${modname} || exit 1
+        for mod in ${TRYTON_MODULES}; do
+            local modname=`ls -1d trytond_${mod}-*`
+            message "INFO" "Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${modname} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/${mod} || bailout
         done
         
-        cli_msg "INFO" "Relinking GNU Health modules ..."
+        message "INFO" "Relinking GNU Health modules ..."
         local HEALTH_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules; ls -1d health*`
         for mod in ${HEALTH_MODS}; do
-            cli_msg "INFO" "--> Relinking : ${mod}"
-            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || exit 1
+            message "INFO" "--> Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || bailout
         done
 
-        cli_msg "INFO" "Relinking local modules and customizations ..."
+        message "INFO" "Relinking local modules and customizations ..."
 
         local LOCAL_MODS=`cd ${GNUHEALTH_DIR}/tryton/server/modules/local; ls -A`
         for mod in ${LOCAL_MODS}; do
-            cli_msg "INFO" "--> Relinking : ${mod}"
-            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/local/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || exit 1
+            message "INFO" "--> Relinking : ${mod}"
+            ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/local/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || bailout
         done
 
     fi
@@ -464,8 +479,8 @@ do_update()
 {
     if [ $# -gt 1 ];then
         if [ $2 != "--dry-run" ];then
-        cli_msg "ERROR" "Unrecognized update option"
-        exit 1
+        message "ERROR" "Unrecognized update option"
+        bailout
         fi
     fi
 
@@ -491,23 +506,23 @@ getlang() {
     
     local lang_to_install=$2
     local lang_file=${lang_to_install}.zip
-    source $HOME/.gnuhealthrc || exit 1
-    cli_msg "INFO" "Going to modules directory..."
+    source $HOME/.gnuhealthrc || bailout
+    message "INFO" "Going to modules directory..." 
 
-    cd ${GNUHEALTH_DIR}/tryton/server/modules || exit 1
-    cli_msg "INFO" "Retrieving language pack file for ${lang_to_install}"
-    wget ${TRANSLATE_URL}/export/?path=/${lang_to_install}/GNUHEALTH/ -O /tmp/${lang_file} || exit 1
-    cli_msg "INFO" "Installing / Updating language files for ${lang_to_install} ..."
+    cd ${GNUHEALTH_DIR}/tryton/server/modules || bailout
+    message "INFO" "Retrieving language pack file for ${lang_to_install}" 
+    wget ${TRANSLATE_URL}/export/?path=/${lang_to_install}/GNUHEALTH/ -O /tmp/${lang_file} || bailout
+    message "INFO" "Installing / Updating language files for ${lang_to_install} ..."
 
-    tar --strip-components 3 -xzf /tmp/${lang_file} || exit 1
-    cli_msg "INFO" "Language pack ${lang_to_install} sucessfully installed / updated"
-    cli_msg "INFO" "You now need to update the database modules"
+    tar --strip-components 3 -xzf /tmp/${lang_file} || bailout
+    message "INFO" "Language pack ${lang_to_install} sucessfully installed / updated"
+    message "INFO" "You now need to update the database modules"
     cd
 }
 
 bailout() {
-    cli_msg "ERROR"  "Bailing out !"
-    cli_msg "ERROR"  "Removing backup lock file"
+    message "ERROR" "Bailing out !"
+    message "ERROR" "Removing lock files"
     rm -f $LOCKFILE
     exit 1
 }
@@ -515,7 +530,7 @@ bailout() {
 cleanup()
 {
     # Delete temporary download directory
-    rm -rf ${UPDATE_DOWNLOAD_DIR} || exit 1
+    rm -rf ${UPDATE_DOWNLOAD_DIR} || bailout
     exit 0
 }
 

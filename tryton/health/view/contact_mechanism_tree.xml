@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/tree/field[@name=&quot;value&quot;]" position="after">
+        <field name="emergency"/>
+        <field name="remarks" expand="1"/>
+    </xpath>
+</data>

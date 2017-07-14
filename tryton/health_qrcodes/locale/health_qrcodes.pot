@@ -2,12 +2,36 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:gnuhealth.appointment,qr:"
+msgid "QR Code"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,bar:"
+msgid "Bar Code39"
+msgstr ""
+
+msgctxt "field:gnuhealth.lab,qr:"
+msgid "QR Code"
+msgstr ""
+
 msgctxt "field:gnuhealth.newborn,qr:"
 msgid "QR Code"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient,qr:"
 msgid "QR Code"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_appointment_qrcode"
+msgid "Appointment QRCODE"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_labtest_barcode39"
+msgid "Code39 barcode label"
+msgstr ""
+
+msgctxt "model:ir.action,name:report_labtest_qrcode"
+msgid "Test Labels"
 msgstr ""
 
 msgctxt "model:ir.action,name:report_newborn_qrcard"

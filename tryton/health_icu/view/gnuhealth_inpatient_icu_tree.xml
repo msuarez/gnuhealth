@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Intensive Care Unit">
+<tree>
     <field name="name"/>
     <field name="admitted" expand="1"/>
     <field name="icu_admission_date" widget="date"/>

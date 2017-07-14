@@ -1,0 +1,3624 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tryton>
+<data noupdate="0" skiptest="1">
+<!-- Genes and associated proteins from UniProt -->
+<record model="gnuhealth.disease.gene" id="health_genetics.AARS2">
+	<field name="protein_name">Q5JTZ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ABCB6">
+	<field name="protein_name">Q9NP58</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ABCD4">
+	<field name="protein_name">O14678</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACD">
+	<field name="protein_name">Q96AP0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACO2">
+	<field name="protein_name">Q99798</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACP5">
+	<field name="protein_name">P13686</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACSF3">
+	<field name="protein_name">Q4G176</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACTG2">
+	<field name="protein_name">P63267</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ACTN1">
+	<field name="protein_name">P12814</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAM10">
+	<field name="protein_name">O14672</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAMTS18">
+	<field name="protein_name">Q8TE60</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAT3">
+	<field name="protein_name">Q96EY9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADCK3">
+	<field name="protein_name">Q8NI60</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADCK4">
+	<field name="protein_name">Q96D53</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADCY5">
+	<field name="protein_name">O95622</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADGRG1">
+	<field name="protein_name">Q9Y653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADK">
+	<field name="protein_name">P55263</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AFF4">
+	<field name="protein_name">Q9UHB7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AFG3L2">
+	<field name="protein_name">Q9Y4W6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AGBL1">
+	<field name="protein_name">Q96MI9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AGRN">
+	<field name="protein_name">O00468</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AIFM1">
+	<field name="protein_name">O95831</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AKT3">
+	<field name="protein_name">Q9Y243</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALDH18A1">
+	<field name="protein_name">P54886</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALDH1A3">
+	<field name="protein_name">P47895</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALG11">
+	<field name="protein_name">Q2TAA5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALG13">
+	<field name="protein_name">Q9NP73</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALG14">
+	<field name="protein_name">Q96F25</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALX3">
+	<field name="protein_name">O95076</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AMPD2">
+	<field name="protein_name">Q01433</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANKRD1">
+	<field name="protein_name">Q15327</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANKS6">
+	<field name="protein_name">Q68DC2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANLN">
+	<field name="protein_name">Q9NQW6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANO10">
+	<field name="protein_name">Q9NW15</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANO3">
+	<field name="protein_name">Q9BYT9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANO5">
+	<field name="protein_name">Q75V66</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANOS1">
+	<field name="protein_name">P23352</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP1S3">
+	<field name="protein_name">Q96PC3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP2S1">
+	<field name="protein_name">P53680</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.APCDD1">
+	<field name="protein_name">Q8J025</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.APPL1">
+	<field name="protein_name">Q9UKG1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARL2BP">
+	<field name="protein_name">Q9Y2Y0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARMC4">
+	<field name="protein_name">Q5T2S8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARMC5">
+	<field name="protein_name">Q96C12</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASAH1">
+	<field name="protein_name">Q13510</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASNS">
+	<field name="protein_name">P08243</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASPH">
+	<field name="protein_name">Q12797</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASS1">
+	<field name="protein_name">P00966</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATL1">
+	<field name="protein_name">Q8WXF7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATL3">
+	<field name="protein_name">Q6DD88</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATOH7">
+	<field name="protein_name">Q8N100</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP2B3">
+	<field name="protein_name">Q16720</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP5A1">
+	<field name="protein_name">P25705</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP5E">
+	<field name="protein_name">P56381</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP6V1B1">
+	<field name="protein_name">P15313</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP6V1B2">
+	<field name="protein_name">P21281</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATP8A2">
+	<field name="protein_name">Q9NTI2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B3GALNT2">
+	<field name="protein_name">Q8NCR0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B3GALT6">
+	<field name="protein_name">Q96L58</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B3GAT3">
+	<field name="protein_name">O94766</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B4GALNT1">
+	<field name="protein_name">Q00973</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B4GAT1">
+	<field name="protein_name">O43505</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B9D2">
+	<field name="protein_name">Q9BPU9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BAG3">
+	<field name="protein_name">O95817</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BANF1">
+	<field name="protein_name">O75531</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BCKDK">
+	<field name="protein_name">O14874</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BCO1">
+	<field name="protein_name">Q9HAY6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BHLHA9">
+	<field name="protein_name">Q7RTU4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BICC1">
+	<field name="protein_name">Q9H694</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BICD2">
+	<field name="protein_name">Q8TD16</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BMP1">
+	<field name="protein_name">P13497</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BMPER">
+	<field name="protein_name">Q8N8U9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BMS1">
+	<field name="protein_name">Q14692</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BRF1">
+	<field name="protein_name">Q92994</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BVES">
+	<field name="protein_name">Q8NE79</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C12orf57">
+	<field name="protein_name">Q99622</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C15orf41">
+	<field name="protein_name">Q9Y2V0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C19orf12">
+	<field name="protein_name">Q9NSK7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C1QC">
+	<field name="protein_name">P02747</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C2CD3">
+	<field name="protein_name">Q4AC94</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C2orf71">
+	<field name="protein_name">A6NGG8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C5orf42">
+	<field name="protein_name">Q9H799</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C8orf37">
+	<field name="protein_name">Q96NL8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CA12">
+	<field name="protein_name">O43570</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CA5A">
+	<field name="protein_name">P35218</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CA8">
+	<field name="protein_name">P35219</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CACNA1B">
+	<field name="protein_name">Q00975</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CACNA1D">
+	<field name="protein_name">Q01668</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CAD">
+	<field name="protein_name">P27708</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CANT1">
+	<field name="protein_name">Q8WVQ1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CAPN5">
+	<field name="protein_name">O15484</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CARD11">
+	<field name="protein_name">Q9BXL7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CARD14">
+	<field name="protein_name">Q9BXL6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CARD9">
+	<field name="protein_name">Q9H257</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CARS2">
+	<field name="protein_name">Q9HA77</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CASC5">
+	<field name="protein_name">Q8NG31</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CASQ1">
+	<field name="protein_name">P31415</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CBX2">
+	<field name="protein_name">Q14781</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCBE1">
+	<field name="protein_name">Q6UXH8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC103">
+	<field name="protein_name">Q8IW40</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC115">
+	<field name="protein_name">Q96NT0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC22">
+	<field name="protein_name">O60826</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC88C">
+	<field name="protein_name">Q9P219</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCND2">
+	<field name="protein_name">P30279</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCNO">
+	<field name="protein_name">P22674</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CD27">
+	<field name="protein_name">P26842</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDC73">
+	<field name="protein_name">Q6P1J9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDHR1">
+	<field name="protein_name">Q96JP9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDK6">
+	<field name="protein_name">Q00534</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDKN3">
+	<field name="protein_name">Q16667</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDON">
+	<field name="protein_name">Q4KMG0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDT1">
+	<field name="protein_name">Q9H211</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEACAM16">
+	<field name="protein_name">Q2WEN9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CECR1">
+	<field name="protein_name">Q9NZK5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CELSR1">
+	<field name="protein_name">Q9NYQ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CENPE">
+	<field name="protein_name">Q02224</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CENPJ">
+	<field name="protein_name">Q9HC77</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP120">
+	<field name="protein_name">Q8N960</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP152">
+	<field name="protein_name">O94986</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP164">
+	<field name="protein_name">Q9UPV0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP41">
+	<field name="protein_name">Q9BYV8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP83">
+	<field name="protein_name">Q9Y592</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CERS1">
+	<field name="protein_name">P27544</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CFI">
+	<field name="protein_name">P05156</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CFP">
+	<field name="protein_name">P27918</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHCHD10">
+	<field name="protein_name">Q8WYQ3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHRDL1">
+	<field name="protein_name">Q9BU40</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHST14">
+	<field name="protein_name">Q8NCH0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHST8">
+	<field name="protein_name">Q9H2A9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHSY1">
+	<field name="protein_name">Q86X52</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CIB2">
+	<field name="protein_name">O75838</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CIITA">
+	<field name="protein_name">P33076</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CIZ1">
+	<field name="protein_name">Q9ULV3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLIC2">
+	<field name="protein_name">O15247</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLMP">
+	<field name="protein_name">Q9H6B4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLP1">
+	<field name="protein_name">Q92989</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLPB">
+	<field name="protein_name">Q9H078</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLPP">
+	<field name="protein_name">Q16740</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLRN1">
+	<field name="protein_name">P58418</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CNNM2">
+	<field name="protein_name">Q9H8M5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COA5">
+	<field name="protein_name">Q86WW8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COA6">
+	<field name="protein_name">Q5JTJ3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COASY">
+	<field name="protein_name">Q13057</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COG4">
+	<field name="protein_name">Q9H9E3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COG6">
+	<field name="protein_name">Q9Y2V7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COL12A1">
+	<field name="protein_name">Q99715</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COL25A1">
+	<field name="protein_name">Q9BXS0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COL27A1">
+	<field name="protein_name">Q8IZC6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COL4A2">
+	<field name="protein_name">P08572</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COL4A3BP">
+	<field name="protein_name">Q9Y5P4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COLEC11">
+	<field name="protein_name">Q9BWP8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COPA">
+	<field name="protein_name">P53621</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COQ4">
+	<field name="protein_name">Q9Y3A0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COQ6">
+	<field name="protein_name">Q9Y2Z9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CORIN">
+	<field name="protein_name">Q9Y5Q5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CORO1A">
+	<field name="protein_name">P31146</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CPA6">
+	<field name="protein_name">Q8N4T0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CPT1C">
+	<field name="protein_name">Q8TCG5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CRADD">
+	<field name="protein_name">P78560</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CRB2">
+	<field name="protein_name">Q5IJ48</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CRYBA2">
+	<field name="protein_name">P53672</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CTC1">
+	<field name="protein_name">Q2NKJ3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CTCF">
+	<field name="protein_name">P49711</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CTSF">
+	<field name="protein_name">Q9UBX1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CUL3">
+	<field name="protein_name">Q13618</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYC1">
+	<field name="protein_name">P08574</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYLD">
+	<field name="protein_name">Q9NQC7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP11A1">
+	<field name="protein_name">P05108</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP24A1">
+	<field name="protein_name">Q07973</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP26B1">
+	<field name="protein_name">Q9NR63</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP2U1">
+	<field name="protein_name">Q7Z449</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DACT1">
+	<field name="protein_name">Q9NYF0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DARS">
+	<field name="protein_name">P14868</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCAF8">
+	<field name="protein_name">Q5TAQ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCDC2">
+	<field name="protein_name">Q9UHG0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCHS1">
+	<field name="protein_name">Q96JQ0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCPS">
+	<field name="protein_name">Q96C86</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDHD2">
+	<field name="protein_name">O94830</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDOST">
+	<field name="protein_name">P39656</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDR2">
+	<field name="protein_name">Q16832</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDX11">
+	<field name="protein_name">Q96FC9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDX3X">
+	<field name="protein_name">O00571</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDX58">
+	<field name="protein_name">O95786</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDX59">
+	<field name="protein_name">Q5T1V6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DEAF1">
+	<field name="protein_name">O75398</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DEPDC5">
+	<field name="protein_name">O75140</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DGKE">
+	<field name="protein_name">P52429</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DHDDS">
+	<field name="protein_name">Q86SQ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DHODH">
+	<field name="protein_name">Q02127</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DHTKD1">
+	<field name="protein_name">Q96HY7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DIABLO">
+	<field name="protein_name">Q9NR28</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DICER1">
+	<field name="protein_name">Q9UPY3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DIS3L2">
+	<field name="protein_name">Q8IYB7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DLL4">
+	<field name="protein_name">Q9NR61</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DLX5">
+	<field name="protein_name">P56178</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNA2">
+	<field name="protein_name">P51530</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAAF1">
+	<field name="protein_name">Q8NEP3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAAF3">
+	<field name="protein_name">Q8N9W5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAAF5">
+	<field name="protein_name">Q86Y56</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJB2">
+	<field name="protein_name">P25686</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJB6">
+	<field name="protein_name">O75190</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJC13">
+	<field name="protein_name">O75165</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJC5">
+	<field name="protein_name">Q9H3Z4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAL1">
+	<field name="protein_name">Q4LDG9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNM1">
+	<field name="protein_name">Q05193</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNMT1">
+	<field name="protein_name">P26358</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNMT3A">
+	<field name="protein_name">Q9Y6K1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DOCK2">
+	<field name="protein_name">Q92608</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DOLK">
+	<field name="protein_name">Q9UPQ8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DPAGT1">
+	<field name="protein_name">Q9H3H5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DPM2">
+	<field name="protein_name">O94777</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DPM3">
+	<field name="protein_name">Q9P2X0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DPP6">
+	<field name="protein_name">P42658</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DSE">
+	<field name="protein_name">Q9UL01</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DSTYK">
+	<field name="protein_name">Q6XUX3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DUSP6">
+	<field name="protein_name">Q16828</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DYNC1H1">
+	<field name="protein_name">Q14204</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DYNC2H1">
+	<field name="protein_name">Q8NCM8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DYRK1B">
+	<field name="protein_name">Q9Y463</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EARS2">
+	<field name="protein_name">Q5JPH6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ECEL1">
+	<field name="protein_name">O95672</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ECHS1">
+	<field name="protein_name">P30084</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EDC3">
+	<field name="protein_name">Q96F86</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EEF1A2">
+	<field name="protein_name">Q05639</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EEF2">
+	<field name="protein_name">P13639</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EFTUD2">
+	<field name="protein_name">Q15029</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EHHADH">
+	<field name="protein_name">Q08426</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EIF2AK4">
+	<field name="protein_name">Q9P2K8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EIF4A3">
+	<field name="protein_name">P38919</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EIF4G1">
+	<field name="protein_name">Q04637</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ELANE">
+	<field name="protein_name">P08246</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ELMOD3">
+	<field name="protein_name">Q96FG2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ELOVL5">
+	<field name="protein_name">Q9NYP7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EMG1">
+	<field name="protein_name">Q92979</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EML1">
+	<field name="protein_name">O00423</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EMP2">
+	<field name="protein_name">P54851</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ENTPD1">
+	<field name="protein_name">P49961</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EOGT">
+	<field name="protein_name">Q5NDL2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EPB41L1">
+	<field name="protein_name">Q9H4G0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EPCAM">
+	<field name="protein_name">P16422</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EPG5">
+	<field name="protein_name">Q9HCE0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ERMARD">
+	<field name="protein_name">Q5T6L9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EXOSC3">
+	<field name="protein_name">Q9NQT5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EXOSC8">
+	<field name="protein_name">Q96B26</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EZH2">
+	<field name="protein_name">Q15910</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FADD">
+	<field name="protein_name">Q13158</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM111A">
+	<field name="protein_name">Q96PZ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM111B">
+	<field name="protein_name">Q6SJ93</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM175A">
+	<field name="protein_name">Q6UWZ7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM20A">
+	<field name="protein_name">Q96MK3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAN1">
+	<field name="protein_name">Q9Y2M0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAR1">
+	<field name="protein_name">Q8WVX9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FARS2">
+	<field name="protein_name">O95363</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FASLG">
+	<field name="protein_name">P48023</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAT4">
+	<field name="protein_name">Q6V0I7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FBXL4">
+	<field name="protein_name">Q9UKA2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FBXO38">
+	<field name="protein_name">Q6PIJ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FDPS">
+	<field name="protein_name">P14324</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FERMT1">
+	<field name="protein_name">Q9BQL6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FEZF1">
+	<field name="protein_name">A0PJY2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FGF16">
+	<field name="protein_name">O43320</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FGF17">
+	<field name="protein_name">O60258</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FGF5">
+	<field name="protein_name">P12034</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FKBP10">
+	<field name="protein_name">Q96AY3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FLRT3">
+	<field name="protein_name">Q9NZU0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FLVCR1">
+	<field name="protein_name">Q9Y5Y0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FLVCR2">
+	<field name="protein_name">Q9UPI3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXF1">
+	<field name="protein_name">Q12946</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXG1">
+	<field name="protein_name">P55316</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXP1">
+	<field name="protein_name">Q9H334</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXRED1">
+	<field name="protein_name">Q96CU9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FREM1">
+	<field name="protein_name">Q5H8C1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FYCO1">
+	<field name="protein_name">Q9BQS8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FZD6">
+	<field name="protein_name">O60353</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GALNT12">
+	<field name="protein_name">Q8IXK2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GAL">
+	<field name="protein_name">P22466</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GATA5">
+	<field name="protein_name">Q9BWX5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GATA6">
+	<field name="protein_name">Q92908</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GATAD1">
+	<field name="protein_name">Q8WUU5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GBA2">
+	<field name="protein_name">Q9HCG7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GCM2">
+	<field name="protein_name">O75603</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GDF2">
+	<field name="protein_name">Q9UK05</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GDF3">
+	<field name="protein_name">Q9NR23</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GFER">
+	<field name="protein_name">P55789</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GFPT1">
+	<field name="protein_name">Q06210</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GIPC3">
+	<field name="protein_name">Q8TF64</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GLYCTK">
+	<field name="protein_name">Q8IVS8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GMPPA">
+	<field name="protein_name">Q96IJ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GMPPB">
+	<field name="protein_name">Q9Y5P6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNA11">
+	<field name="protein_name">P29992</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNAI3">
+	<field name="protein_name">P08754</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNAL">
+	<field name="protein_name">P38405</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNAO1">
+	<field name="protein_name">P09471</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNB4">
+	<field name="protein_name">Q9HAV0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GNPTG">
+	<field name="protein_name">Q9UJJ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GOSR2">
+	<field name="protein_name">O14653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPD1">
+	<field name="protein_name">P21695</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPHN">
+	<field name="protein_name">Q9NQX3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPR101">
+	<field name="protein_name">Q96P66</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPR126">
+	<field name="protein_name">Q86SQ4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPR179">
+	<field name="protein_name">Q6PRD1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPT2">
+	<field name="protein_name">Q8TD30</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRHL3">
+	<field name="protein_name">Q8TE85</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRID2">
+	<field name="protein_name">O43424</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRIN1">
+	<field name="protein_name">Q05586</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRXCR1">
+	<field name="protein_name">A8MXD5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GTPBP3">
+	<field name="protein_name">Q969Y2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GUCY2C">
+	<field name="protein_name">P25092</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GYG1">
+	<field name="protein_name">P46976</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HADH">
+	<field name="protein_name">Q16836</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HARS2">
+	<field name="protein_name">P49590</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HCFC1">
+	<field name="protein_name">P51610</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HCN1">
+	<field name="protein_name">O60741</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HDAC8">
+	<field name="protein_name">Q9BY41</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HEPACAM">
+	<field name="protein_name">Q14CZ8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HFM1">
+	<field name="protein_name">A2PYH4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HINT1">
+	<field name="protein_name">P49773</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HNRNPA1">
+	<field name="protein_name">P09651</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HNRNPA2B1">
+	<field name="protein_name">P22626</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HNRNPDL">
+	<field name="protein_name">O14979</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HOGA1">
+	<field name="protein_name">Q86XE5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HOMER2">
+	<field name="protein_name">Q9NSB8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HOXB13">
+	<field name="protein_name">Q92826</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HOXB1">
+	<field name="protein_name">P14653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HPCA">
+	<field name="protein_name">P84074</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HS6ST1">
+	<field name="protein_name">O60243</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HSPB3">
+	<field name="protein_name">Q12988</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IARS2">
+	<field name="protein_name">Q9NSE4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IBA57">
+	<field name="protein_name">Q5T440</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IDH2">
+	<field name="protein_name">P48735</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IER3IP1">
+	<field name="protein_name">Q9Y5U9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFITM5">
+	<field name="protein_name">A6NNB3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFT122">
+	<field name="protein_name">Q9HBG6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFT140">
+	<field name="protein_name">Q96RY7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFT172">
+	<field name="protein_name">Q9UG01</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFT27">
+	<field name="protein_name">Q9BW83</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IGSF1">
+	<field name="protein_name">Q8N6C5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL11RA">
+	<field name="protein_name">Q14626</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL17RD">
+	<field name="protein_name">Q8NFM7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL21">
+	<field name="protein_name">Q9HBE4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL31RA">
+	<field name="protein_name">Q8NI17</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL36RN">
+	<field name="protein_name">Q9UBH0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ILDR1">
+	<field name="protein_name">Q86SU0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IMPAD1">
+	<field name="protein_name">Q9NX62</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IMPG1">
+	<field name="protein_name">Q17R60</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IMPG2">
+	<field name="protein_name">Q9BZV3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.INF2">
+	<field name="protein_name">Q27J81</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ING3">
+	<field name="protein_name">Q9NXR8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.INPP5E">
+	<field name="protein_name">Q9NRR6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.INPPL1">
+	<field name="protein_name">O15357</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IQSEC2">
+	<field name="protein_name">Q5JU85</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IRF3">
+	<field name="protein_name">Q14653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IRF7">
+	<field name="protein_name">Q92985</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IRF8">
+	<field name="protein_name">Q02556</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IRX5">
+	<field name="protein_name">P78411</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ISCA2">
+	<field name="protein_name">Q86U28</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ISPD">
+	<field name="protein_name">A4D126</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITGA3">
+	<field name="protein_name">P26006</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITGA8">
+	<field name="protein_name">P53708</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITGB6">
+	<field name="protein_name">P18564</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITK">
+	<field name="protein_name">Q08881</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITPR2">
+	<field name="protein_name">Q14571</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.JAGN1">
+	<field name="protein_name">Q8N5M9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.JAM3">
+	<field name="protein_name">Q9BX67</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KANK2">
+	<field name="protein_name">Q63ZY3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KARS">
+	<field name="protein_name">Q15046</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KATNB1">
+	<field name="protein_name">Q9BVA0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KBTBD13">
+	<field name="protein_name">C9JR72</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNA2">
+	<field name="protein_name">P16389</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNB1">
+	<field name="protein_name">Q14721</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNC1">
+	<field name="protein_name">P48547</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCND3">
+	<field name="protein_name">Q9UK17</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNH1">
+	<field name="protein_name">O95259</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNJ18">
+	<field name="protein_name">B7U540</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNJ5">
+	<field name="protein_name">P48544</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNJ6">
+	<field name="protein_name">P48051</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNK3">
+	<field name="protein_name">O14649</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNN4">
+	<field name="protein_name">O15554</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNT1">
+	<field name="protein_name">Q5JUK3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCTD17">
+	<field name="protein_name">Q8N5Z5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCTD1">
+	<field name="protein_name">Q719H9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KDM5C">
+	<field name="protein_name">P41229</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIAA0586">
+	<field name="protein_name">Q9BVV6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIAA1033">
+	<field name="protein_name">Q2M389</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF11">
+	<field name="protein_name">P52732</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF1A">
+	<field name="protein_name">Q12756</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF1C">
+	<field name="protein_name">O43896</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF22">
+	<field name="protein_name">Q14807</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF2A">
+	<field name="protein_name">O00139</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF5C">
+	<field name="protein_name">O60282</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF7">
+	<field name="protein_name">Q2M1P5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHL10">
+	<field name="protein_name">Q6JEL2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHL3">
+	<field name="protein_name">Q9UH77</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHL40">
+	<field name="protein_name">Q2TBA0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHL41">
+	<field name="protein_name">O60662</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHL7">
+	<field name="protein_name">Q8IXQ5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KMT2D">
+	<field name="protein_name">O14686</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KRAS">
+	<field name="protein_name">P01116</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KRT6C">
+	<field name="protein_name">P48668</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KRT71">
+	<field name="protein_name">Q3SY84</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KRT74">
+	<field name="protein_name">Q7RTS7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KYNU">
+	<field name="protein_name">Q16719</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LAMC3">
+	<field name="protein_name">Q9Y6N6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LARS">
+	<field name="protein_name">Q9P2J5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LIAS">
+	<field name="protein_name">O43766</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LIPT1">
+	<field name="protein_name">Q9Y234</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LMOD3">
+	<field name="protein_name">Q0VAK6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LONP1">
+	<field name="protein_name">P36776</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LPAR6">
+	<field name="protein_name">P43657</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRBA">
+	<field name="protein_name">P50851</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRIT3">
+	<field name="protein_name">Q3SXY7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRP4">
+	<field name="protein_name">O75096</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRRC6">
+	<field name="protein_name">Q86X45</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LSS">
+	<field name="protein_name">P48449</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LTBP4">
+	<field name="protein_name">Q8N2S1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LYRM4">
+	<field name="protein_name">Q9HD34</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LYRM7">
+	<field name="protein_name">Q5U5X0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LZTFL1">
+	<field name="protein_name">Q9NQ48</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LZTR1">
+	<field name="protein_name">Q8N653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAB21L2">
+	<field name="protein_name">Q9Y586</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAFB">
+	<field name="protein_name">Q9Y5Q3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAK">
+	<field name="protein_name">P20794</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAN1B1">
+	<field name="protein_name">Q9UKM7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAP3K1">
+	<field name="protein_name">Q13233</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MARS2">
+	<field name="protein_name">Q96GW9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MARS">
+	<field name="protein_name">P56192</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MASTL">
+	<field name="protein_name">Q96GX5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MATR3">
+	<field name="protein_name">P43243</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MBTPS2">
+	<field name="protein_name">O43462</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MCM8">
+	<field name="protein_name">Q9UJA3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MED13L">
+	<field name="protein_name">Q71F56</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MED17">
+	<field name="protein_name">Q9NVC6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MED23">
+	<field name="protein_name">Q9ULK4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MED25">
+	<field name="protein_name">Q71SY5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MEGF10">
+	<field name="protein_name">Q96KG7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MEGF8">
+	<field name="protein_name">Q7Z7M0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MFAP5">
+	<field name="protein_name">Q13361</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MFSD2A">
+	<field name="protein_name">Q8NA29</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MGME1">
+	<field name="protein_name">Q9BQP7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MIB1">
+	<field name="protein_name">Q86YT6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MID2">
+	<field name="protein_name">Q9UJV3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MKRN3">
+	<field name="protein_name">Q13064</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MMP14">
+	<field name="protein_name">P50281</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MNX1">
+	<field name="protein_name">P50219</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MOCOS">
+	<field name="protein_name">Q96EN8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MOG">
+	<field name="protein_name">Q16653</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MOGS">
+	<field name="protein_name">Q13724</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MPC1">
+	<field name="protein_name">Q9Y5U8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MPLKIP">
+	<field name="protein_name">Q8TAP9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MRPL3">
+	<field name="protein_name">P09001</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MRPL44">
+	<field name="protein_name">Q9H9J2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MSRB3">
+	<field name="protein_name">Q8IXL7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ATP6">
+	<field name="protein_name">P00846</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ATP8">
+	<field name="protein_name">P03928</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-CO1">
+	<field name="protein_name">P00395</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-CO2">
+	<field name="protein_name">P00403</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-CO3">
+	<field name="protein_name">P00414</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-CYB">
+	<field name="protein_name">P00156</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTFMT">
+	<field name="protein_name">Q96DP5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTHFD1">
+	<field name="protein_name">P11586</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND1">
+	<field name="protein_name">P03886</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND2">
+	<field name="protein_name">P03891</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND3">
+	<field name="protein_name">P03897</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND4L">
+	<field name="protein_name">P03901</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND4">
+	<field name="protein_name">P03905</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND5">
+	<field name="protein_name">P03915</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MT-ND6">
+	<field name="protein_name">P03923</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTO1">
+	<field name="protein_name">Q9Y2Z2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTOR">
+	<field name="protein_name">P42345</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTPAP">
+	<field name="protein_name">Q9NVV4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTTP">
+	<field name="protein_name">P55157</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MTUS1">
+	<field name="protein_name">Q9ULD2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MVD">
+	<field name="protein_name">P53602</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MXRA5">
+	<field name="protein_name">Q9NR99</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MYLK">
+	<field name="protein_name">Q15746</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MYO1E">
+	<field name="protein_name">Q12965</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MYPN">
+	<field name="protein_name">Q86TC9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NAA10">
+	<field name="protein_name">P41227</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NALCN">
+	<field name="protein_name">Q8IZF0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NARS2">
+	<field name="protein_name">Q96I59</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NBAS">
+	<field name="protein_name">A2RRP1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NBEAL2">
+	<field name="protein_name">Q6ZNJ1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NBN">
+	<field name="protein_name">O60934</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NCF4">
+	<field name="protein_name">Q15080</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NCSTN">
+	<field name="protein_name">Q92542</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDST1">
+	<field name="protein_name">P52848</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDUFAF3">
+	<field name="protein_name">Q9BU61</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDUFAF4">
+	<field name="protein_name">Q9P032</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDUFAF5">
+	<field name="protein_name">Q5TEU4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDUFAF6">
+	<field name="protein_name">Q330K2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NECTIN4">
+	<field name="protein_name">Q96NY8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NEK1">
+	<field name="protein_name">Q96PY6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NEXN">
+	<field name="protein_name">Q0ZGT2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NFIX">
+	<field name="protein_name">Q14938</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NFU1">
+	<field name="protein_name">Q9UMS0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NHP2">
+	<field name="protein_name">Q9NX24</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NIN">
+	<field name="protein_name">Q8N4C6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NIPAL4">
+	<field name="protein_name">Q0D2K0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NKX2-5">
+	<field name="protein_name">P52952</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLRC4">
+	<field name="protein_name">Q9NPP4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLRP1">
+	<field name="protein_name">Q9C000</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLRP3">
+	<field name="protein_name">Q96P20</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLRP7">
+	<field name="protein_name">Q8WX94</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NMNAT1">
+	<field name="protein_name">Q9HAN9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NNT">
+	<field name="protein_name">Q13423</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NOL3">
+	<field name="protein_name">O60936</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NR0B1">
+	<field name="protein_name">P51843</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NR2F1">
+	<field name="protein_name">P10589</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NR2F2">
+	<field name="protein_name">P24468</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NR5A1">
+	<field name="protein_name">Q13285</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NSMF">
+	<field name="protein_name">Q6X4W1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NSUN2">
+	<field name="protein_name">Q08J23</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NT5C3A">
+	<field name="protein_name">Q9H0P0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NT5E">
+	<field name="protein_name">P21589</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NTRK3">
+	<field name="protein_name">Q16288</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NUBPL">
+	<field name="protein_name">Q8TB37</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NUS1">
+	<field name="protein_name">Q96E22</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OCLN">
+	<field name="protein_name">Q16625</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OGT">
+	<field name="protein_name">O15294</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ORAI1">
+	<field name="protein_name">Q96D31</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ORC1">
+	<field name="protein_name">Q13415</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ORC4">
+	<field name="protein_name">O43929</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ORC6">
+	<field name="protein_name">Q9Y5N6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OTOG">
+	<field name="protein_name">Q6ZRI0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.P2RX2">
+	<field name="protein_name">Q9UBL9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.P3H2">
+	<field name="protein_name">Q8IVL5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.P4HA2">
+	<field name="protein_name">O15460</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.P4HB">
+	<field name="protein_name">P07237</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PACS1">
+	<field name="protein_name">Q6VY07</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PAM16">
+	<field name="protein_name">Q9Y3D7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PARN">
+	<field name="protein_name">O95453</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PCBD1">
+	<field name="protein_name">P61457</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PCNA">
+	<field name="protein_name">P12004</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PCYT1A">
+	<field name="protein_name">P49585</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDE3A">
+	<field name="protein_name">Q14432</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDE6C">
+	<field name="protein_name">P51160</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDK3">
+	<field name="protein_name">Q15120</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PEO1">
+	<field name="protein_name">Q96RR1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PEX2">
+	<field name="protein_name">P28328</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PFN1">
+	<field name="protein_name">P07737</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PGAP2">
+	<field name="protein_name">Q9UHJ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PGAP3">
+	<field name="protein_name">Q96FM1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PGM1">
+	<field name="protein_name">P36871</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PGM3">
+	<field name="protein_name">O95394</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PHC1">
+	<field name="protein_name">P78364</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PHYKPL">
+	<field name="protein_name">Q8IUZ5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PI4KA">
+	<field name="protein_name">P42356</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIBF1">
+	<field name="protein_name">Q8WXW3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIEZO1">
+	<field name="protein_name">Q92508</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIEZO2">
+	<field name="protein_name">Q9H5I5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGL">
+	<field name="protein_name">Q9Y2B2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGN">
+	<field name="protein_name">O95427</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGO">
+	<field name="protein_name">Q8TEQ8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGT">
+	<field name="protein_name">Q969N2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGV">
+	<field name="protein_name">Q9NUD9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIGW">
+	<field name="protein_name">Q7Z7B1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIK3R2">
+	<field name="protein_name">O00459</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIK3R5">
+	<field name="protein_name">Q8WYR1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PIKFYVE">
+	<field name="protein_name">Q9Y2I7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLA2G5">
+	<field name="protein_name">P39877</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLCB4">
+	<field name="protein_name">Q15147</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLCG2">
+	<field name="protein_name">P16885</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLEC">
+	<field name="protein_name">Q15149</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNKP">
+	<field name="protein_name">Q96T60</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNPLA1">
+	<field name="protein_name">Q8N8W4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNP">
+	<field name="protein_name">P00491</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNPT1">
+	<field name="protein_name">Q8TCS8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POC1A">
+	<field name="protein_name">Q8NBT0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POC1B">
+	<field name="protein_name">Q8TC44</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POF1B">
+	<field name="protein_name">Q8WVV4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POGZ">
+	<field name="protein_name">Q7Z3K3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLE">
+	<field name="protein_name">Q07864</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLR1A">
+	<field name="protein_name">O95602</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLR1C">
+	<field name="protein_name">O15160</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLR1D">
+	<field name="protein_name">Q9Y2S0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLR3A">
+	<field name="protein_name">O14802</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POLR3B">
+	<field name="protein_name">Q9NW08</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POMGNT2">
+	<field name="protein_name">Q8NAT1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POMK">
+	<field name="protein_name">Q9H5K3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POT1">
+	<field name="protein_name">Q9NUX5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PPIB">
+	<field name="protein_name">P23284</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PPP2R1A">
+	<field name="protein_name">P30153</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PPP2R5D">
+	<field name="protein_name">Q14738</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRDM12">
+	<field name="protein_name">Q9H4Q4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRDM16">
+	<field name="protein_name">Q9HAZ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRDM5">
+	<field name="protein_name">Q9NQX1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRDM8">
+	<field name="protein_name">Q9NQV8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRIMPOL">
+	<field name="protein_name">Q96LW4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRKACA">
+	<field name="protein_name">P17612</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRKACG">
+	<field name="protein_name">P22612</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRKG1">
+	<field name="protein_name">Q13976</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRPF3">
+	<field name="protein_name">O43395</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRPF4">
+	<field name="protein_name">O43172</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRPF6">
+	<field name="protein_name">O94906</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRRT2">
+	<field name="protein_name">Q7Z6L0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRRX1">
+	<field name="protein_name">P54821</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRSS56">
+	<field name="protein_name">P0CW18</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PSPH">
+	<field name="protein_name">P78330</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTDSS1">
+	<field name="protein_name">P48651</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTH1R">
+	<field name="protein_name">Q03431</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTPRQ">
+	<field name="protein_name">Q9UMZ3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTRH2">
+	<field name="protein_name">Q9Y3E5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PUF60">
+	<field name="protein_name">Q9UHX1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PURA">
+	<field name="protein_name">Q00577</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PXDN">
+	<field name="protein_name">Q92626</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PYCR1">
+	<field name="protein_name">P32322</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PYCR2">
+	<field name="protein_name">Q96C36</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.QARS">
+	<field name="protein_name">P47897</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB18">
+	<field name="protein_name">Q9NP72</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB33B">
+	<field name="protein_name">Q9H082</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB39B">
+	<field name="protein_name">Q96DA2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB40AL">
+	<field name="protein_name">P0C0E4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB7A">
+	<field name="protein_name">P51149</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAD21">
+	<field name="protein_name">O60216</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAD51C">
+	<field name="protein_name">O43502</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RARB">
+	<field name="protein_name">P10826</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RARS">
+	<field name="protein_name">P54136</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RASGRP2">
+	<field name="protein_name">Q7LDG7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAX2">
+	<field name="protein_name">Q96IS3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBCK1">
+	<field name="protein_name">Q9BYM8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBM20">
+	<field name="protein_name">Q5T481</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBP3">
+	<field name="protein_name">P10745</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBPJ">
+	<field name="protein_name">Q06330</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.REEP2">
+	<field name="protein_name">Q9BRK0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RFX6">
+	<field name="protein_name">Q8HWS3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RHBDF2">
+	<field name="protein_name">Q6PJF5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RIPK4">
+	<field name="protein_name">P57078</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RIT1">
+	<field name="protein_name">Q92963</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RMND1">
+	<field name="protein_name">Q9NWS8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNASEH1">
+	<field name="protein_name">O60930</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNASET2">
+	<field name="protein_name">O00584</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNF125">
+	<field name="protein_name">Q96EQ8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNF170">
+	<field name="protein_name">Q96K19</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNF213">
+	<field name="protein_name">Q63HN8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNF216">
+	<field name="protein_name">Q9NWF9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RORC">
+	<field name="protein_name">P51449</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RP1L1">
+	<field name="protein_name">Q8IWN7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPL21">
+	<field name="protein_name">P46778</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPS26">
+	<field name="protein_name">P62854</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPS29">
+	<field name="protein_name">P62273</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPSA">
+	<field name="protein_name">P08865</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RSPH1">
+	<field name="protein_name">Q8WYR4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RSPRY1">
+	<field name="protein_name">Q96DX4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RTEL1">
+	<field name="protein_name">Q9NZ71</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RTN2">
+	<field name="protein_name">O75298</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RTTN">
+	<field name="protein_name">Q86VV8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RXFP2">
+	<field name="protein_name">Q8WXD0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SAMHD1">
+	<field name="protein_name">Q9Y3Z3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SARS2">
+	<field name="protein_name">Q9NP81</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SASS6">
+	<field name="protein_name">Q6UVJ0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SBF1">
+	<field name="protein_name">O95248</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SC5D">
+	<field name="protein_name">O75845</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SCARF2">
+	<field name="protein_name">Q96GP6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SCN10A">
+	<field name="protein_name">Q9Y5Y9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SCN11A">
+	<field name="protein_name">Q9UI33</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SCN2B">
+	<field name="protein_name">O60939</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SCN3B">
+	<field name="protein_name">Q9NY72</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SDHAF1">
+	<field name="protein_name">A6NFY7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SDHAF2">
+	<field name="protein_name">Q9NX18</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SEC23B">
+	<field name="protein_name">Q15437</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SEC24D">
+	<field name="protein_name">O94855</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SEMA3A">
+	<field name="protein_name">Q14563</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SEPSECS">
+	<field name="protein_name">Q9HD40</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SEPT12">
+	<field name="protein_name">Q8IYM1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERAC1">
+	<field name="protein_name">Q96JX3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERPINA7">
+	<field name="protein_name">P05543</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERPINC1">
+	<field name="protein_name">P01008</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERPINH1">
+	<field name="protein_name">P50454</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SGOL1">
+	<field name="protein_name">Q5FBB7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SH3PXD2B">
+	<field name="protein_name">A1X283</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SHOC2">
+	<field name="protein_name">Q9UQ13</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SIAE">
+	<field name="protein_name">Q9HAT2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SIGMAR1">
+	<field name="protein_name">Q99720</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SIK1">
+	<field name="protein_name">P57059</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SIPA1L3">
+	<field name="protein_name">O60292</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SKIV2L">
+	<field name="protein_name">Q15477</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC11A2">
+	<field name="protein_name">P49281</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC12A5">
+	<field name="protein_name">Q9H2X9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC17A9">
+	<field name="protein_name">Q9BYT1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC1A4">
+	<field name="protein_name">P43007</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC20A2">
+	<field name="protein_name">Q08357</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC22A18">
+	<field name="protein_name">Q96BI1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC24A4">
+	<field name="protein_name">Q8NFF2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC25A12">
+	<field name="protein_name">O75746</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC25A1">
+	<field name="protein_name">P53007</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC25A38">
+	<field name="protein_name">Q96DW6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC25A46">
+	<field name="protein_name">Q96AG3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC26A8">
+	<field name="protein_name">Q96RN1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC30A10">
+	<field name="protein_name">Q6XR72</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC35A2">
+	<field name="protein_name">P78381</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC36A2">
+	<field name="protein_name">Q495M3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC38A8">
+	<field name="protein_name">A6NNN8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC39A5">
+	<field name="protein_name">Q6ZMH5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC52A2">
+	<field name="protein_name">Q9HAB3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC52A3">
+	<field name="protein_name">Q9NQ40</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC6A17">
+	<field name="protein_name">Q9H1V8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC7A14">
+	<field name="protein_name">Q8TBB6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC9A1">
+	<field name="protein_name">P19634</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLCO2A1">
+	<field name="protein_name">Q92959</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLFN14">
+	<field name="protein_name">P0C7P3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMAD6">
+	<field name="protein_name">O43541</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMAD9">
+	<field name="protein_name">O15198</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMARCA2">
+	<field name="protein_name">P51531</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMARCA4">
+	<field name="protein_name">P51532</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMC1A">
+	<field name="protein_name">Q14683</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMCHD1">
+	<field name="protein_name">A6NHR9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMOC1">
+	<field name="protein_name">Q9H4F8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNAP25">
+	<field name="protein_name">P60880</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNIP1">
+	<field name="protein_name">Q8TAD8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNRNP200">
+	<field name="protein_name">O75643</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNRPB">
+	<field name="protein_name">P14678</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNRPE">
+	<field name="protein_name">P62304</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNTA1">
+	<field name="protein_name">Q13424</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNX10">
+	<field name="protein_name">Q9Y5X0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SOS2">
+	<field name="protein_name">Q07890</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SOX11">
+	<field name="protein_name">P35716</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SOX17">
+	<field name="protein_name">Q9H6I2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPARC">
+	<field name="protein_name">P09486</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPATA5">
+	<field name="protein_name">Q8NB90</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPECC1L">
+	<field name="protein_name">Q69YQ0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPEG">
+	<field name="protein_name">Q15772</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPRTN">
+	<field name="protein_name">Q9H040</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPRY4">
+	<field name="protein_name">Q9C004</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPTLC2">
+	<field name="protein_name">O15270</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SRP72">
+	<field name="protein_name">O76094</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ST3GAL3">
+	<field name="protein_name">Q11203</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STAC3">
+	<field name="protein_name">Q96MF2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STAMBP">
+	<field name="protein_name">O95630</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STK10">
+	<field name="protein_name">O94804</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STT3A">
+	<field name="protein_name">P46977</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STUB1">
+	<field name="protein_name">Q9UNE7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STX1B">
+	<field name="protein_name">P61266</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STXBP2">
+	<field name="protein_name">Q15833</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SUGCT">
+	<field name="protein_name">Q9HAC7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYNGAP1">
+	<field name="protein_name">Q96PV0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYNJ1">
+	<field name="protein_name">O43426</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYP">
+	<field name="protein_name">P08247</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYT1">
+	<field name="protein_name">P21579</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYT2">
+	<field name="protein_name">Q8N9I0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TAB2">
+	<field name="protein_name">Q9NYJ8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TAF2">
+	<field name="protein_name">Q6P1X5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TARS2">
+	<field name="protein_name">Q9BW92</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBC1D24">
+	<field name="protein_name">Q9ULP9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBK1">
+	<field name="protein_name">Q9UHD2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBX18">
+	<field name="protein_name">O95935</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBX19">
+	<field name="protein_name">O60806</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TCF12">
+	<field name="protein_name">Q99081</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TCTN3">
+	<field name="protein_name">Q6NUS6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TECR">
+	<field name="protein_name">Q9NZ01</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TEX11">
+	<field name="protein_name">Q8IYF3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TGDS">
+	<field name="protein_name">O95455</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TGIF1">
+	<field name="protein_name">Q15583</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TGM5">
+	<field name="protein_name">O43548</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.THOC2">
+	<field name="protein_name">Q8NI27</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.THOC6">
+	<field name="protein_name">Q86W42</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TIA1">
+	<field name="protein_name">P31483</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TICAM1">
+	<field name="protein_name">Q8IUC6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM127">
+	<field name="protein_name">O75204</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM132E">
+	<field name="protein_name">Q6IEE7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM138">
+	<field name="protein_name">Q9NPI0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM165">
+	<field name="protein_name">Q9HC07</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM173">
+	<field name="protein_name">Q86WV6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM199">
+	<field name="protein_name">Q8N511</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM216">
+	<field name="protein_name">Q9P0N5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM231">
+	<field name="protein_name">Q9H6L2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM240">
+	<field name="protein_name">Q5SV17</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM5">
+	<field name="protein_name">Q9Y2B1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM98">
+	<field name="protein_name">Q9Y2Y6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TNNI3K">
+	<field name="protein_name">Q59H18</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TNPO3">
+	<field name="protein_name">Q9Y5L0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TPK1">
+	<field name="protein_name">Q9H3S4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAF3IP1">
+	<field name="protein_name">Q8TDR0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAF3IP2">
+	<field name="protein_name">O43734</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAF3">
+	<field name="protein_name">Q13114</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAPPC11">
+	<field name="protein_name">Q7Z392</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRDN">
+	<field name="protein_name">Q13061</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRIM2">
+	<field name="protein_name">Q9C040</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRMT10A">
+	<field name="protein_name">Q8TBZ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRMT5">
+	<field name="protein_name">Q32P41</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRPA1">
+	<field name="protein_name">O75762</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRPC3">
+	<field name="protein_name">Q13507</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRPM4">
+	<field name="protein_name">Q8TD43</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRPV3">
+	<field name="protein_name">Q8NET8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TSPAN12">
+	<field name="protein_name">O95859</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TSPAN7">
+	<field name="protein_name">P41732</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TSR2">
+	<field name="protein_name">Q969E8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTC21B">
+	<field name="protein_name">Q7Z4L5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTC37">
+	<field name="protein_name">Q6PGP7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTC7A">
+	<field name="protein_name">Q9ULT0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTI2">
+	<field name="protein_name">Q6NXR4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTLL5">
+	<field name="protein_name">Q6EMB2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBA4A">
+	<field name="protein_name">P68366</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB1">
+	<field name="protein_name">Q9H4B7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB2A">
+	<field name="protein_name">Q13885</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB2B">
+	<field name="protein_name">Q9BVA1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB3">
+	<field name="protein_name">Q13509</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB4A">
+	<field name="protein_name">P04350</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBB">
+	<field name="protein_name">P07437</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBG1">
+	<field name="protein_name">P23258</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TWIST1">
+	<field name="protein_name">Q15672</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TWIST2">
+	<field name="protein_name">Q8WVJ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TYMP">
+	<field name="protein_name">P19971</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UBA1">
+	<field name="protein_name">P22314</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UBE2T">
+	<field name="protein_name">Q9NPD8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UBE3B">
+	<field name="protein_name">Q7Z3V4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UBQLN2">
+	<field name="protein_name">Q9UHD9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UFSP2">
+	<field name="protein_name">Q9NUQ7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UNC45B">
+	<field name="protein_name">Q8IWX7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UNC80">
+	<field name="protein_name">Q8N2C7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UQCC3">
+	<field name="protein_name">Q6UW78</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UQCRC2">
+	<field name="protein_name">P22695</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UROC1">
+	<field name="protein_name">Q96N76</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.USP9X">
+	<field name="protein_name">Q93008</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UTP4">
+	<field name="protein_name">Q969X6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UVSSA">
+	<field name="protein_name">Q2YD98</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VANGL2">
+	<field name="protein_name">Q9ULK5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VARS2">
+	<field name="protein_name">Q5ST30</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VIM">
+	<field name="protein_name">P08670</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VPS13B">
+	<field name="protein_name">Q7Z7G8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VPS35">
+	<field name="protein_name">Q96QK1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VPS37A">
+	<field name="protein_name">Q8NEZ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VPS45">
+	<field name="protein_name">Q9NRW7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VPS53">
+	<field name="protein_name">Q5VIR6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VSX2">
+	<field name="protein_name">P58304</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VWA3B">
+	<field name="protein_name">Q502W6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDPCP">
+	<field name="protein_name">O95876</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR11">
+	<field name="protein_name">Q9BZH6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR19">
+	<field name="protein_name">Q8NEZ3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR34">
+	<field name="protein_name">Q96EX3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR35">
+	<field name="protein_name">Q9P2L0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR60">
+	<field name="protein_name">Q8WVS4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR62">
+	<field name="protein_name">O43379</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR81">
+	<field name="protein_name">Q562E7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WNT1">
+	<field name="protein_name">P04628</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WNT5A">
+	<field name="protein_name">P41221</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WRAP53">
+	<field name="protein_name">Q9BUR4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.XPNPEP3">
+	<field name="protein_name">Q9NQH7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.XPR1">
+	<field name="protein_name">Q9UBH6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.YARS2">
+	<field name="protein_name">Q9Y2Z4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZBTB20">
+	<field name="protein_name">Q9HC78</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZBTB24">
+	<field name="protein_name">O43167</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZBTB42">
+	<field name="protein_name">B2RXF5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZC4H2">
+	<field name="protein_name">Q9NQZ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZMYND10">
+	<field name="protein_name">O75800</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF141">
+	<field name="protein_name">Q15928</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF335">
+	<field name="protein_name">Q9H4Z2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF408">
+	<field name="protein_name">Q9H9D4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF423">
+	<field name="protein_name">Q2M1K9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF513">
+	<field name="protein_name">Q8N8E2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF644">
+	<field name="protein_name">Q9H582</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZSWIM6">
+	<field name="protein_name">Q9HCJ5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NT5C2">
+	<field name="protein_name">P49902</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AAGAB">
+	<field name="protein_name">Q6PD74</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ABHD12">
+	<field name="protein_name">Q8N2K0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HLA-DRB1">
+	<field name="protein_name">P04229</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAM33">
+	<field name="protein_name">Q9BZ11</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADCY1">
+	<field name="protein_name">Q08828</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AGK">
+	<field name="protein_name">Q53H12</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAM17">
+	<field name="protein_name">P78536</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAM9">
+	<field name="protein_name">Q13443</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AFF2">
+	<field name="protein_name">P51816</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADNP">
+	<field name="protein_name">Q9H2P0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ALX1">
+	<field name="protein_name">Q15699</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AMER1">
+	<field name="protein_name">Q5JTC6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADCY10">
+	<field name="protein_name">Q96PN6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AMBN">
+	<field name="protein_name">Q9NP70</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AIMP1">
+	<field name="protein_name">Q12904</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP4M1">
+	<field name="protein_name">O00189</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP4B1">
+	<field name="protein_name">Q9Y6B7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP5Z1">
+	<field name="protein_name">O43299</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AHDC1">
+	<field name="protein_name">Q5TGY3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANGPTL8">
+	<field name="protein_name">Q6UXH0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANK3">
+	<field name="protein_name">Q12955</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANKRD11">
+	<field name="protein_name">Q6UB99</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP4S1">
+	<field name="protein_name">Q9Y587</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP1S1">
+	<field name="protein_name">P61966</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARL6IP1">
+	<field name="protein_name">Q15041</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ANO6">
+	<field name="protein_name">Q4KMQ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARID5B">
+	<field name="protein_name">Q14865</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AP4E1">
+	<field name="protein_name">Q9UPM8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARID1A">
+	<field name="protein_name">O14497</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARID1B">
+	<field name="protein_name">Q8NFD5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASB10">
+	<field name="protein_name">Q8WXI3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASCC1">
+	<field name="protein_name">Q8N9N2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARMS2">
+	<field name="protein_name">P0C7Q2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARNT2">
+	<field name="protein_name">Q9HBZ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASXL1">
+	<field name="protein_name">Q8IXJ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ATXN8">
+	<field name="protein_name">Q156A1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ASXL3">
+	<field name="protein_name">Q9C0F0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ADAMTS17">
+	<field name="protein_name">Q8TE56</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AUTS2">
+	<field name="protein_name">Q8WXX7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B3GLCT">
+	<field name="protein_name">Q6Y288</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJC6">
+	<field name="protein_name">O75061</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BEAN1">
+	<field name="protein_name">Q3B7T3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.B9D1">
+	<field name="protein_name">Q9UPM9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BCAP31">
+	<field name="protein_name">P51572</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BBIP1">
+	<field name="protein_name">A8MTZ0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.AURKC">
+	<field name="protein_name">Q9UQB9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BAP1">
+	<field name="protein_name">Q92560</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BOLA3">
+	<field name="protein_name">Q53S33</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BLOC1S6">
+	<field name="protein_name">Q9UL45</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BRAT1">
+	<field name="protein_name">Q6PJG6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CABP2">
+	<field name="protein_name">Q9NPB3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.BLVRA">
+	<field name="protein_name">P53004</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CWF19L1">
+	<field name="protein_name">Q69YN2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC39">
+	<field name="protein_name">Q9UFE4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C4orf26">
+	<field name="protein_name">Q17RF5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MS4A1">
+	<field name="protein_name">P11836</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CD81">
+	<field name="protein_name">P60033</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC8">
+	<field name="protein_name">Q9H0W5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC28B">
+	<field name="protein_name">Q9BUN5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC151">
+	<field name="protein_name">A5D8V7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC78">
+	<field name="protein_name">A2IDD5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CDK5">
+	<field name="protein_name">Q00535</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP104">
+	<field name="protein_name">O60308</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC114">
+	<field name="protein_name">Q96M63</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC65">
+	<field name="protein_name">Q8IXS2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CD320">
+	<field name="protein_name">Q9NPF0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP63">
+	<field name="protein_name">Q96MT8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CERS3">
+	<field name="protein_name">Q8IU89</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHD8">
+	<field name="protein_name">Q9HCK8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CCDC40">
+	<field name="protein_name">Q4G0X9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CGNL1">
+	<field name="protein_name">Q0VF96</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CKAP2L">
+	<field name="protein_name">Q8IYA6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CENPF">
+	<field name="protein_name">P49454</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLIC5">
+	<field name="protein_name">Q9NZA1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CFAP53">
+	<field name="protein_name">Q96M91</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHMP1A">
+	<field name="protein_name">Q9HD42</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP19">
+	<field name="protein_name">Q96LK0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP57">
+	<field name="protein_name">Q86XR8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHAMP1">
+	<field name="protein_name">Q96JM3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CNBP">
+	<field name="protein_name">P62633</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C12orf65">
+	<field name="protein_name">Q9H3J6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CLEC7A">
+	<field name="protein_name">Q9BXN2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDE6G">
+	<field name="protein_name">P18545</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CNTN2">
+	<field name="protein_name">Q02246</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C9orf72">
+	<field name="protein_name">Q96LT7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CIDEC">
+	<field name="protein_name">Q96AQ7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C10orf11">
+	<field name="protein_name">Q9H2I8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CAMTA1">
+	<field name="protein_name">Q9Y6Y1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CEP135">
+	<field name="protein_name">Q66GS9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP4F2">
+	<field name="protein_name">P78329</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CNTNAP1">
+	<field name="protein_name">P78357</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COG5">
+	<field name="protein_name">Q9UP83</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CYP26C1">
+	<field name="protein_name">Q6V0L0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CRYGB">
+	<field name="protein_name">P07316</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CSPP1">
+	<field name="protein_name">Q1MSJ5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COQ9">
+	<field name="protein_name">O75208</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VCAN">
+	<field name="protein_name">P13611</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COX7B">
+	<field name="protein_name">P24311</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CATSPER2">
+	<field name="protein_name">Q96P56</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CREB3L1">
+	<field name="protein_name">Q96BA8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CRIPT">
+	<field name="protein_name">Q9P021</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.COX6A1">
+	<field name="protein_name">P12074</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CATSPER1">
+	<field name="protein_name">Q8NEC5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.C21orf59">
+	<field name="protein_name">P57076</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DPY19L2">
+	<field name="protein_name">Q6NUT2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCAF17">
+	<field name="protein_name">Q5H9S7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCLRE1B">
+	<field name="protein_name">Q9H816</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DCXR">
+	<field name="protein_name">Q7Z4W1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DAGLA">
+	<field name="protein_name">Q9Y4D2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DDHD1">
+	<field name="protein_name">Q8NEL9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DIAPH3">
+	<field name="protein_name">Q9NSV4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAL4">
+	<field name="protein_name">O96015</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DMXL2">
+	<field name="protein_name">Q8TDJ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNASE1L3">
+	<field name="protein_name">Q13609</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DOCK7">
+	<field name="protein_name">Q96N67</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DRC1">
+	<field name="protein_name">Q96MC2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DSC3">
+	<field name="protein_name">Q14574</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAJC3">
+	<field name="protein_name">Q13217</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DVL1">
+	<field name="protein_name">O14640</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DOCK6">
+	<field name="protein_name">Q96HP0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMPRSS15">
+	<field name="protein_name">P98073</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EPS8">
+	<field name="protein_name">Q12929</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ERLIN2">
+	<field name="protein_name">O94905</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ERCC6L2">
+	<field name="protein_name">Q5T890</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EXPH5">
+	<field name="protein_name">Q8NEV8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ERG">
+	<field name="protein_name">P11308</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM161A">
+	<field name="protein_name">Q3B820</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM65B">
+	<field name="protein_name">Q9Y4F9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FCRL3">
+	<field name="protein_name">Q96P31</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FAM134B">
+	<field name="protein_name">Q9H6L5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FKBP14">
+	<field name="protein_name">Q9NWM8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FBXO31">
+	<field name="protein_name">Q5XUX0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CFHR5">
+	<field name="protein_name">Q9BXR6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FXYD6">
+	<field name="protein_name">Q9H0Q3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXJ1">
+	<field name="protein_name">Q92949</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FMN2">
+	<field name="protein_name">Q9NZ56</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FOXO1">
+	<field name="protein_name">Q12778</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBGCP6">
+	<field name="protein_name">Q96RT7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GUCY1A3">
+	<field name="protein_name">Q02108</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARHGDIA">
+	<field name="protein_name">P52565</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GFI1B">
+	<field name="protein_name">Q5VTD9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBGCP4">
+	<field name="protein_name">Q9UGJ1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GLMN">
+	<field name="protein_name">Q92990</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRXCR2">
+	<field name="protein_name">A6NFK2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GRM1">
+	<field name="protein_name">Q13255</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPC6">
+	<field name="protein_name">Q9Y625</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GSC">
+	<field name="protein_name">P56915</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GORAB">
+	<field name="protein_name">Q5T7V8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GPSM2">
+	<field name="protein_name">P81274</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GREM1">
+	<field name="protein_name">O60565</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HDAC6">
+	<field name="protein_name">Q9UBN7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HMGB3">
+	<field name="protein_name">O15347</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HDAC4">
+	<field name="protein_name">P56524</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HPSE2">
+	<field name="protein_name">Q8WWQ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PSMC3IP">
+	<field name="protein_name">Q9P2W1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HNRNPK">
+	<field name="protein_name">P61978</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IGFBP7">
+	<field name="protein_name">Q16270</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL10RB">
+	<field name="protein_name">Q08334</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.EIF4E">
+	<field name="protein_name">P06730</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HYDIN">
+	<field name="protein_name">Q4G0P3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL17RC">
+	<field name="protein_name">Q8NAC3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IFT43">
+	<field name="protein_name">Q96FT9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IL17RA">
+	<field name="protein_name">Q96F46</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IGSF3">
+	<field name="protein_name">O75054</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IKBKB">
+	<field name="protein_name">O14920</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.HOXC13">
+	<field name="protein_name">P31276</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ISG15">
+	<field name="protein_name">P05161</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CHUK">
+	<field name="protein_name">O15111</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIAA2022">
+	<field name="protein_name">Q5QGS0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ITCH">
+	<field name="protein_name">Q96J02</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.IMMP2L">
+	<field name="protein_name">Q96T52</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KANK1">
+	<field name="protein_name">Q14678</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KAT6A">
+	<field name="protein_name">Q92794</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KALRN">
+	<field name="protein_name">O60229</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF1BP">
+	<field name="protein_name">Q96EK5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIAA0556">
+	<field name="protein_name">O60303</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIF14">
+	<field name="protein_name">Q15058</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KAT6B">
+	<field name="protein_name">Q8WYB5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KIZ">
+	<field name="protein_name">Q2M2Z5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLHDC8B">
+	<field name="protein_name">Q8IXV7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KCNK18">
+	<field name="protein_name">Q7Z418</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KHDC3L">
+	<field name="protein_name">Q587J8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PRKCD">
+	<field name="protein_name">Q05655</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KMT2A">
+	<field name="protein_name">Q03164</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KDM6A">
+	<field name="protein_name">O15550</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KLLN">
+	<field name="protein_name">B2CW77</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.KPTN">
+	<field name="protein_name">Q9Y664</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.DNAAF2">
+	<field name="protein_name">Q9NVR5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LAMA1">
+	<field name="protein_name">P25391</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LARP7">
+	<field name="protein_name">Q4G0J3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LINS1">
+	<field name="protein_name">Q8NG48</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRRC8A">
+	<field name="protein_name">Q8IWT6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LIPN">
+	<field name="protein_name">Q5VXI9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRIG2">
+	<field name="protein_name">O94898</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LOXHD1">
+	<field name="protein_name">Q8IVV2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LRSAM1">
+	<field name="protein_name">Q6UWE0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MASP1">
+	<field name="protein_name">P48740</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MAGEL2">
+	<field name="protein_name">Q9UJ55</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LTBP3">
+	<field name="protein_name">Q9NS15</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.LAMTOR2">
+	<field name="protein_name">Q9Y2Q5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MCM4">
+	<field name="protein_name">P33991</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MEOX1">
+	<field name="protein_name">P50221</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MCM9">
+	<field name="protein_name">Q9NXL9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MEF2C">
+	<field name="protein_name">Q06413</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MEIS1">
+	<field name="protein_name">O00470</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.METTL23">
+	<field name="protein_name">Q86XA0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MMP19">
+	<field name="protein_name">Q99542</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MPDZ">
+	<field name="protein_name">O75970</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MICU1">
+	<field name="protein_name">Q9BPX6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MIR17HG">
+	<field name="protein_name">Q75NE6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MUC5B">
+	<field name="protein_name">Q9HC84</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MUC1">
+	<field name="protein_name">P15941</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.MYT1L">
+	<field name="protein_name">Q9UL68</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NANOS1">
+	<field name="protein_name">Q8WY41</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NAT8L">
+	<field name="protein_name">Q8N9F0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLRP12">
+	<field name="protein_name">P59046</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NECTIN1">
+	<field name="protein_name">Q15223</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDE1">
+	<field name="protein_name">Q9NXR1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NEK2">
+	<field name="protein_name">P51955</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NGLY1">
+	<field name="protein_name">Q96IV0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NDUFB11">
+	<field name="protein_name">Q9NX14</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NLGN4X">
+	<field name="protein_name">Q8N0W4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NOP56">
+	<field name="protein_name">O00567</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NECAP1">
+	<field name="protein_name">Q8NC96</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NOTCH2">
+	<field name="protein_name">Q04721</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NOTCH3">
+	<field name="protein_name">Q9UM47</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NOTCH1">
+	<field name="protein_name">P46531</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NKX3-2">
+	<field name="protein_name">P78367</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NTF4">
+	<field name="protein_name">P34130</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NTHL1">
+	<field name="protein_name">P78549</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OBSL1">
+	<field name="protein_name">O75147</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDHX">
+	<field name="protein_name">O00330</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POFUT1">
+	<field name="protein_name">Q9H488</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.P3H1">
+	<field name="protein_name">Q32P28</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OPLAH">
+	<field name="protein_name">O14841</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OSBPL2">
+	<field name="protein_name">Q9H1P3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.OTOGL">
+	<field name="protein_name">Q3ZCN5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PCLO">
+	<field name="protein_name">Q9Y6V0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.GATAD2B">
+	<field name="protein_name">Q8WXI9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDP1">
+	<field name="protein_name">Q9P0J1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POGLUT1">
+	<field name="protein_name">Q8NBL1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PDE6D">
+	<field name="protein_name">O43924</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PGAP1">
+	<field name="protein_name">Q75T13</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNPLA3">
+	<field name="protein_name">Q9NST1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLK4">
+	<field name="protein_name">O00444</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLCB1">
+	<field name="protein_name">Q9NQ66</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PLIN1">
+	<field name="protein_name">O60240</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PNPLA8">
+	<field name="protein_name">Q9NP80</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PPM1K">
+	<field name="protein_name">Q8N3J5</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.POMP">
+	<field name="protein_name">Q9Y244</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SRD5A3">
+	<field name="protein_name">Q9H8P0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PMVK">
+	<field name="protein_name">Q15126</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PREPL">
+	<field name="protein_name">Q4J6C6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTPRO">
+	<field name="protein_name">Q16827</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTRF">
+	<field name="protein_name">Q6NZI2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTCHD1">
+	<field name="protein_name">Q96NR3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PTPN14">
+	<field name="protein_name">Q15678</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.CTPS1">
+	<field name="protein_name">P17812</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.PEX11B">
+	<field name="protein_name">O96011</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAB28">
+	<field name="protein_name">P51157</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBM10">
+	<field name="protein_name">P98175</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RBMX">
+	<field name="protein_name">P38159</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RNF113A">
+	<field name="protein_name">O15541</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RAD51D">
+	<field name="protein_name">O75771</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RDH11">
+	<field name="protein_name">Q8TC12</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ARHGAP31">
+	<field name="protein_name">Q2M1Z3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPL15">
+	<field name="protein_name">P61313</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RIN2">
+	<field name="protein_name">Q8WYP3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RIPPLY2">
+	<field name="protein_name">Q5TAB7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPL26">
+	<field name="protein_name">P61254</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ROGDI">
+	<field name="protein_name">Q9GZN7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPS10">
+	<field name="protein_name">P46783</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RPS28">
+	<field name="protein_name">P62857</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RSPH3">
+	<field name="protein_name">Q86UC2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.RUBCN">
+	<field name="protein_name">Q92622</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC35A3">
+	<field name="protein_name">Q9Y2D2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC5A7">
+	<field name="protein_name">Q9GZV3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SDCCAG8">
+	<field name="protein_name">Q86SQ7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLC52A1">
+	<field name="protein_name">Q9NWF4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SALL2">
+	<field name="protein_name">Q9Y467</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLX4">
+	<field name="protein_name">Q8IY92</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SETD5">
+	<field name="protein_name">Q9C0A6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SFXN4">
+	<field name="protein_name">Q6P4A7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ST3GAL5">
+	<field name="protein_name">Q9UNP4</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMOC2">
+	<field name="protein_name">Q9H3U7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SF3B4">
+	<field name="protein_name">Q15427</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SGO1">
+	<field name="protein_name">Q5FBB7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SLITRK6">
+	<field name="protein_name">Q9H5Y7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SNX14">
+	<field name="protein_name">Q9Y5W7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SP7">
+	<field name="protein_name">Q8TDD2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPAG1">
+	<field name="protein_name">Q07617</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SHANK2">
+	<field name="protein_name">Q9UPX8</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMARCAD1">
+	<field name="protein_name">Q9H4L7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VIPAS39">
+	<field name="protein_name">Q9H9C1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMARCE1">
+	<field name="protein_name">Q969G3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SOBP">
+	<field name="protein_name">A7XYQ1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERPINB6">
+	<field name="protein_name">P35237</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SMPX">
+	<field name="protein_name">Q9UHP9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SSR4">
+	<field name="protein_name">P51571</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STAG3">
+	<field name="protein_name">Q9UJ98</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SPTAN1">
+	<field name="protein_name">Q13813</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SERPINB7">
+	<field name="protein_name">O75635</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STEAP3">
+	<field name="protein_name">Q658P3</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SRCAP">
+	<field name="protein_name">Q6ZRS2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STT3B">
+	<field name="protein_name">Q8TCJ2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.STK4">
+	<field name="protein_name">Q13043</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SYNE4">
+	<field name="protein_name">Q8N205</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TM4SF20">
+	<field name="protein_name">Q53R12</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUBA8">
+	<field name="protein_name">Q9NY65</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM126A">
+	<field name="protein_name">Q9H061</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TAF4B">
+	<field name="protein_name">Q92750</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBC1D20">
+	<field name="protein_name">Q96BZ9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBC1D4">
+	<field name="protein_name">O60343</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBX6">
+	<field name="protein_name">O95947</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TDRD7">
+	<field name="protein_name">Q8NHU6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.SZT2">
+	<field name="protein_name">Q5T011</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAC">
+	<field name="protein_name">P01848</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TCTN2">
+	<field name="protein_name">Q96GX1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TBC1D7">
+	<field name="protein_name">Q9P0N9</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TCTN1">
+	<field name="protein_name">Q2MV58</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TECPR2">
+	<field name="protein_name">O15040</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TENM3">
+	<field name="protein_name">Q9P273</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMC8">
+	<field name="protein_name">Q8IU68</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM237">
+	<field name="protein_name">Q96Q45</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TPRN">
+	<field name="protein_name">Q4KMQ1</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMEM38B">
+	<field name="protein_name">Q9NVV0</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMCO1">
+	<field name="protein_name">Q9UM00</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TMLHE">
+	<field name="protein_name">Q9NVH6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRIP11">
+	<field name="protein_name">Q15643</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TRAPPC9">
+	<field name="protein_name">Q96Q05</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TSHZ1">
+	<field name="protein_name">Q6ZSZ6</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TTC19">
+	<field name="protein_name">Q6DKK2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TUB">
+	<field name="protein_name">P50607</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TXNL4A">
+	<field name="protein_name">P83876</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.TSPEAR">
+	<field name="protein_name">Q8WU66</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.NME8">
+	<field name="protein_name">Q8N427</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.UQCC2">
+	<field name="protein_name">Q9BRT2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.FERMT3">
+	<field name="protein_name">Q86UX7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VRK1">
+	<field name="protein_name">Q99986</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VEGFA">
+	<field name="protein_name">P15692</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR73">
+	<field name="protein_name">Q6P4I2</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.USB1">
+	<field name="protein_name">Q9BQ65</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR72">
+	<field name="protein_name">Q3MJ13</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WDR45">
+	<field name="protein_name">Q9Y484</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VAMP1">
+	<field name="protein_name">P23763</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VMA21">
+	<field name="protein_name">Q3ZAQ7</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.WIPF1">
+	<field name="protein_name">O43516</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.VEGFC">
+	<field name="protein_name">P49767</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.YAP1">
+	<field name="protein_name">P46937</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZBTB18">
+	<field name="protein_name">Q99592</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZMYND11">
+	<field name="protein_name">Q15326</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZMYND15">
+	<field name="protein_name">Q9H091</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZP1">
+	<field name="protein_name">P60852</field>
+</record>
+<record model="gnuhealth.disease.gene" id="health_genetics.ZNF711">
+	<field name="protein_name">Q9Y462</field>
+</record>
+</data>
+</tryton>

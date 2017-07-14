@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Insurances">
+<form>
     <group col="6" colspan="4" id="insurance_header">
         <label name="number"/>
         <field name="number"/>

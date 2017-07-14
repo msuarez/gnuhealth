@@ -1,1 +1,1 @@
-from test_health_lifestyle import suite
+from .test_health_lifestyle import suite

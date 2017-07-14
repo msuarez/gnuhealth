@@ -28,5 +28,7 @@ from .health_qrcodes import *
 def register():
     Pool.register(
         Patient,
+        Appointment,
         Newborn,
+        LabTest,
         module='health_qrcodes', type_='model')

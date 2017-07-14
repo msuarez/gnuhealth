@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Newborn Information">
+<tree>
     <field name="patient"/>
     <field name="mother"/>
     <field name="birth_date" widget="date"/>

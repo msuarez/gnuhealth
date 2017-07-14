@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tryton>
-    <data noupdate="1">
+    <data noupdate="0">
 
         <record id="product_category_labservices0" model="product.category">
             <field name="name">Lab Services</field>
@@ -12,7 +12,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_bloodcounttestcharges0" model="product.template">
@@ -21,7 +20,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_liverfunctiontestcharges0" model="product.template">
@@ -30,7 +28,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_stoolexaminationcharges0" model="product.template">
@@ -39,7 +36,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_renalfunctiontestcharges0" model="product.template">
@@ -48,7 +44,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_haematologycharges0" model="product.template">
@@ -57,7 +52,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_peripheralsmearexaminationcharges0" model="product.template">
@@ -66,7 +60,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_urineanalysischarges0" model="product.template">
@@ -75,7 +68,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
 
         <record id="product_template_endocrinology0" model="product.template">
@@ -84,8 +76,49 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_labservices0"/>
         </record>
+
+        <!-- Categories : New format in GNU Health 3.2 to be compatible with 
+             Tryton 4.2 and allow multiple categories per product 
+        -->
+        <record model="product.template-product.category" id="cat_product_template_semenanalysischarges0">
+                <field name="template" ref="product_template_semenanalysischarges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_bloodcounttestcharges0">
+                <field name="template" ref="product_template_bloodcounttestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_liverfunctiontestcharges0">
+                <field name="template" ref="product_template_liverfunctiontestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_stoolexaminationcharges0">
+                <field name="template" ref="product_template_stoolexaminationcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_renalfunctiontestcharges0">
+                <field name="template" ref="product_template_renalfunctiontestcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_haematologycharges0">
+                <field name="template" ref="product_template_haematologycharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_peripheralsmearexaminationcharges0">
+                <field name="template" ref="product_template_peripheralsmearexaminationcharges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_urineanalysischarges0">
+                <field name="template" ref="product_template_urineanalysischarges0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_endocrinology0">
+                <field name="template" ref="product_template_endocrinology0"/>
+                <field name="category" ref="product_category_labservices0"/>
+        </record>
+
+        <!-- Link products with template -->
 
         <record id="product_product_semenanalysischarges0" model="product.product">
             <field name="template" model="product.template" ref="product_template_semenanalysischarges0"/>
@@ -338,7 +371,7 @@ Post menopausal : 35.0-151.0 &quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_haemoglobin0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;Hemoglobin&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;HGB&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;11.0-16.0&quot;&quot;&quot;" name="normal_range"/>
@@ -641,12 +674,47 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="units" ref="gnuhealth_lab_test_units_gmdl0"/>
         </record>
 
+        <record id="gnuhealth_test_critearea_pct" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;PCT&quot;&quot;&quot;" name="name"/>
+            <field eval="22" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;0.13-0.43&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0.13" name="lower_limit"/>
+            <field eval="0.43" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_mpv" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;MPV&quot;&quot;&quot;" name="name"/>
+            <field eval="23" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;6.3-15.0&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="6.3" name="lower_limit"/>
+            <field eval="15" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_fl0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_pdwsd" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;PDWsd&quot;&quot;&quot;" name="name"/>
+            <field eval="24" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field name="units" ref="gnuhealth_lab_test_units_fl0"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_pdwcv" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;PDWcv&quot;&quot;&quot;" name="name"/>
+            <field eval="25" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field name="units" ref="gnuhealth_lab_test_units_0"/>
+        </record>
+
         <record id="gnuhealth_test_critearea_ph0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;PH&quot;&quot;&quot;" name="name"/>
             <field eval="6" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_urineanalysis0"/>
             <field eval="&quot;&quot;&quot;Acidic&quot;&quot;&quot;" name="normal_range"/>
         </record>
+
 
         <record id="gnuhealth_test_critearea_microscopicexamination1" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Microscopic Examination&quot;&quot;&quot;" name="name"/>
@@ -655,7 +723,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_rdwcv0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;RDW-CV&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;RDWcv&quot;&quot;&quot;" name="name"/>
             <field eval="7" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;11.5-14.5&quot;&quot;&quot;" name="normal_range"/>
@@ -716,7 +784,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_rdwsd0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;RDW-SD&quot;&quot;&quot;" name="name"/>
+            <field eval="&quot;&quot;&quot;RDWsd&quot;&quot;&quot;" name="name"/>
             <field eval="8" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;35-56&quot;&quot;&quot;" name="normal_range"/>
@@ -775,6 +843,16 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
         </record>
 
+        <record id="gnuhealth_test_critearea_neu" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;NEU&quot;&quot;&quot;" name="name"/>
+            <field eval="11" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;2-7&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="2" name="lower_limit"/>
+            <field eval="7" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
+        </record>
+
         <record id="gnuhealth_test_critearea_gammagt0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Gamma GT&quot;&quot;&quot;" name="name"/>
             <field eval="10" name="sequence"/>
@@ -815,9 +893,9 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_neu0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;NEU%&quot;&quot;&quot;" name="name"/>
-            <field eval="11" name="sequence"/>
+            <field eval="16" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
-            <field eval="&quot;&quot;&quot;40-70&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="&quot;&quot;&quot;45-70&quot;&quot;&quot;" name="normal_range"/>
             <field eval="40" name="lower_limit"/>
             <field eval="70" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_0"/>
@@ -838,7 +916,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_lym0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;LYM%&quot;&quot;&quot;" name="name"/>
-            <field eval="12" name="sequence"/>
+            <field eval="17" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;20-45&quot;&quot;&quot;" name="normal_range"/>
             <field eval="20" name="lower_limit"/>
@@ -871,7 +949,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_mon0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;MON%&quot;&quot;&quot;" name="name"/>
-            <field eval="13" name="sequence"/>
+            <field eval="18" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;2-10&quot;&quot;&quot;" name="normal_range"/>
             <field eval="2" name="lower_limit"/>
@@ -894,8 +972,8 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_eos0" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;EOS%&quot;&quot;&quot;" name="name"/>
-            <field eval="14" name="sequence"/>
+            <field eval="&quot;&quot;&quot;EO%&quot;&quot;&quot;" name="name"/>
+            <field eval="19" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;1-6&quot;&quot;&quot;" name="normal_range"/>
             <field eval="1" name="lower_limit"/>
@@ -911,7 +989,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_bas0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;BAS%&quot;&quot;&quot;" name="name"/>
-            <field eval="15" name="sequence"/>
+            <field eval="20" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;0-2&quot;&quot;&quot;" name="normal_range"/>
             <field eval="0" name="lower_limit"/>
@@ -932,14 +1010,45 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
         </record>
 
         <record id="gnuhealth_test_critearea_lym1" model="gnuhealth.lab.test.critearea">
-            <field eval="&quot;&quot;&quot;LYM#&quot;&quot;&quot;" name="name"/>
-            <field eval="16" name="sequence"/>
+            <field eval="&quot;&quot;&quot;LYM&quot;&quot;&quot;" name="name"/>
+            <field eval="12" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;1.5-4.0&quot;&quot;&quot;" name="normal_range"/>
             <field eval="1.5" name="lower_limit"/>
             <field eval="4" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
         </record>
+
+        <record id="gnuhealth_test_critearea_mon" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;MON&quot;&quot;&quot;" name="name"/>
+            <field eval="13" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;0.15-0.70&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0.15" name="lower_limit"/>
+            <field eval="0.70" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_bas" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;BAS&quot;&quot;&quot;" name="name"/>
+            <field eval="14" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;0.0-0.15&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0.0" name="lower_limit"/>
+            <field eval="0.15" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
+        </record>
+
+        <record id="gnuhealth_test_critearea_eo" model="gnuhealth.lab.test.critearea">
+            <field eval="&quot;&quot;&quot;EO&quot;&quot;&quot;" name="name"/>
+            <field eval="15" name="sequence"/>
+            <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
+            <field eval="&quot;&quot;&quot;0.0-0.5&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0.0" name="lower_limit"/>
+            <field eval="0.5" name="upper_limit"/>
+            <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
+        </record>
+
 
         <record id="gnuhealth_test_critearea_puscells2" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Pus Cells&quot;&quot;&quot;" name="name"/>
@@ -969,7 +1078,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_gra0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;GRA#&quot;&quot;&quot;" name="name"/>
-            <field eval="17" name="sequence"/>
+            <field eval="27" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;2.0-7.5&quot;&quot;&quot;" name="normal_range"/>
             <field eval="2" name="lower_limit"/>
@@ -991,7 +1100,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_plt0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;PLT&quot;&quot;&quot;" name="name"/>
-            <field eval="18" name="sequence"/>
+            <field eval="21" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;150-450&quot;&quot;&quot;" name="normal_range"/>
             <field eval="150" name="lower_limit"/>
@@ -1007,13 +1116,14 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
 
         <record id="gnuhealth_test_critearea_esr0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;ESR&quot;&quot;&quot;" name="name"/>
-            <field eval="20" name="sequence"/>
+            <field eval="26" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
             <field eval="&quot;&quot;&quot;Up to 15&quot;&quot;&quot;" name="normal_range"/>
             <field eval="0" name="lower_limit"/>
             <field eval="15" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_mmhr0"/>
         </record>
+
 
         <record id="gnuhealth_test_critearea_casts0" model="gnuhealth.lab.test.critearea">
             <field eval="&quot;&quot;&quot;Casts&quot;&quot;&quot;" name="name"/>
@@ -1032,6 +1142,7 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field eval="22" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_urineanalysis0"/>
         </record>
+
 
     </data>
 </tryton>

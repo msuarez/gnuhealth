@@ -28,6 +28,9 @@ from .health_genetics import *
 def register():
     Pool.register(
         DiseaseGene,
+        ProteinDisease,
+        GeneVariant,
+        GeneVariantPhenotype,
         PatientGeneticRisk,
         FamilyDiseases,
         GnuHealthPatient,

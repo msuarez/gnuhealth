@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="medicaments">
+<form>
     <group colspan="4" col="10" string="Main" id="medicament_presentation">
         <group col="7" string="Product" id="medicament_product">
             <field name="name"/>
@@ -25,6 +25,19 @@
             <field name="category"/>
         </group>
 
+        <newline/>
+
+        <group colspan="4" col="8" string="Solution" id="medicament_concentration">
+            <label name="sol_conc"/>
+            <field name="sol_conc"/>
+            <label name="sol_conc_unit"/>
+            <field name="sol_conc_unit"/>
+            <label name="sol_vol"/>
+            <field name="sol_vol"/>
+            <label name="sol_vol_unit"/>
+            <field name="sol_vol_unit"/>
+        </group>
+
     </group>
     <newline/>
 
@@ -35,6 +48,8 @@
             <field name="indications" colspan="4"/>
             <label name="is_vaccine"/>
             <field name="is_vaccine"/>
+            <label name="active"/>
+            <field name="active"/>
 
         </page>
         <page string="Presentation" id="medicament_presentation">

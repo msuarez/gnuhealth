@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<tree editable="top">
+    <field name="sr" expand="1"/>
+    <field name="timestamp" expand="1" widget="date" string="Date"/>
+    <field name="timestamp" expand="1" widget="time"/>
+    <field name="action" expand="1"/>
+    <field name="remarks" expand="1"/>
+</tree>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Prescription lines" editable="top">
+<tree>
     <field name="quantity"/>
     <field name="review" widget="date"/>
     <field name="add_to_history"/>

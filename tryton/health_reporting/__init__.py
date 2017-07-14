@@ -20,8 +20,8 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from wizard import *
-from report import *
+from .wizard import *
+from .report import *
 
 def register():
     Pool.register(

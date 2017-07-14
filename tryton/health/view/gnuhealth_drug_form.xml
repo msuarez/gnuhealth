@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Drug Form">
+<form>
     <group id="drug_form_header">
         <label name="name"/>
         <field name="name"/>

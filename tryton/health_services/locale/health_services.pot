@@ -191,6 +191,10 @@ msgctxt "model:ir.action,name:act_invoice_related_form1"
 msgid "Related Invoice"
 msgstr ""
 
+msgctxt "model:ir.action,name:act_service_form1"
+msgid "Services"
+msgstr ""
+
 msgctxt "model:ir.action,name:gnuhealth_action_health_service"
 msgid "Health services"
 msgstr ""
@@ -201,6 +205,21 @@ msgstr ""
 
 msgctxt "model:ir.action,name:report_health_services_report"
 msgid "Services Report"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_service_domain_all"
+msgid "All"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_service_domain_draft"
+msgid "Draft"
+msgstr ""
+
+msgctxt ""
+"model:ir.action.act_window.domain,name:act_gnuhealth_service_domain_invoiced"
+msgid "Invoiced"
 msgstr ""
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_health_service"

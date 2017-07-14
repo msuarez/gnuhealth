@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="variant"/>
+    <field name="variant"/>
+    <newline/>
+    <label name="aa_change"/>
+    <field name="aa_change"/>
+    <newline/>
+    <field colspan="4" name="phenotypes"/>
+</form>

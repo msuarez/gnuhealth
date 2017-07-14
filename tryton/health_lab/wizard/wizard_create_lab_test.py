@@ -70,6 +70,7 @@ class CreateLabTestOrder(Wizard):
             if lab_test_order.doctor_id:
                 test_report_data['requestor'] = lab_test_order.doctor_id.id
             test_report_data['date_requested'] = lab_test_order.date
+            test_report_data['request_order'] = lab_test_order.request
 
             for critearea in lab_test_order.name.critearea:
                 test_cases.append(('create', [{

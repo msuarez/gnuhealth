@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Death Certificate">
+<form>
     <group colspan="4" col="6" string="Main" id="group_death_cert_header">
         <label name="name"/>
         <field name="name"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="APGAR score" editable="top">
+<tree editable="top">
     <field name="apgar_minute" expand="1"/>
     <field name="apgar_appearance" expand="1"/>
     <field name="apgar_pulse" expand="1"/>

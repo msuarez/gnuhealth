@@ -1,0 +1,186 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:ir.attachment:"
+msgid ""
+"You can not create an attachment named \"%(attachment)s\" in collection "
+"\"%(collection)s\" because there is already a collection with that name."
+msgstr ""
+
+msgctxt "error:webdav.collection:"
+msgid "The collection name must be unique inside a collection!"
+msgstr ""
+
+msgctxt "error:webdav.collection:"
+msgid ""
+"You can not create a collection named \"%(parent)s\" in collection "
+"\"%(child)s\" because there is already a file with that name."
+msgstr ""
+
+msgctxt "field:ir.attachment,path:"
+msgid "Path"
+msgstr ""
+
+msgctxt "field:ir.attachment,shares:"
+msgid "Shares"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:ir.attachment,url:"
+msgid "URL"
+msgstr "ທີ່ຢູ່ເວບ"
+
+#, fuzzy
+msgctxt "field:webdav.collection,childs:"
+msgid "Children"
+msgstr "ໝວດຍ່ອຍ"
+
+msgctxt "field:webdav.collection,complete_name:"
+msgid "Complete Name"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.collection,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີ"
+
+#, fuzzy
+msgctxt "field:webdav.collection,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້ງານ"
+
+msgctxt "field:webdav.collection,domain:"
+msgid "Domain"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.collection,id:"
+msgid "ID"
+msgstr "ເລດລຳດັບ"
+
+msgctxt "field:webdav.collection,model:"
+msgid "Model"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.collection,name:"
+msgid "Name"
+msgstr "ຊື່"
+
+#, fuzzy
+msgctxt "field:webdav.collection,parent:"
+msgid "Parent"
+msgstr "ຮ່ວງ"
+
+#, fuzzy
+msgctxt "field:webdav.collection,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+#, fuzzy
+msgctxt "field:webdav.collection,write_date:"
+msgid "Write Date"
+msgstr "ວັນທີບັນທຶກ"
+
+#, fuzzy
+msgctxt "field:webdav.collection,write_uid:"
+msgid "Write User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+#, fuzzy
+msgctxt "field:webdav.share,create_date:"
+msgid "Create Date"
+msgstr "ສ້າງວັນທີ"
+
+#, fuzzy
+msgctxt "field:webdav.share,create_uid:"
+msgid "Create User"
+msgstr "ສ້າງຜູ້ໃຊ້ງານ"
+
+msgctxt "field:webdav.share,expiration_date:"
+msgid "Expiration Date"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.share,id:"
+msgid "ID"
+msgstr "ເລດລຳດັບ"
+
+msgctxt "field:webdav.share,key:"
+msgid "Key"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.share,note:"
+msgid "Note"
+msgstr "ໝາຍເຫດ"
+
+msgctxt "field:webdav.share,path:"
+msgid "Path"
+msgstr ""
+
+#, fuzzy
+msgctxt "field:webdav.share,rec_name:"
+msgid "Name"
+msgstr "ຊື່"
+
+#, fuzzy
+msgctxt "field:webdav.share,url:"
+msgid "URL"
+msgstr "ທີ່ຢູ່ເວບ"
+
+#, fuzzy
+msgctxt "field:webdav.share,user:"
+msgid "User"
+msgstr "ຜູ້ໃຊ້"
+
+#, fuzzy
+msgctxt "field:webdav.share,write_date:"
+msgid "Write Date"
+msgstr "ວັນທີບັນທຶກ"
+
+#, fuzzy
+msgctxt "field:webdav.share,write_uid:"
+msgid "Write User"
+msgstr "ສ້າງຜູ້ໃຊ້"
+
+msgctxt "model:ir.action,name:act_collection_list"
+msgid "Collections"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_collection_tree"
+msgid "Collections"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_share_list"
+msgid "Shares"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_collection_list"
+msgid "Collections"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_collection_tree"
+msgid "Collections"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_share_list"
+msgid "Shares"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:menu_webdav"
+msgid "WebDAV"
+msgstr ""
+
+msgctxt "model:webdav.collection,name:"
+msgid "Collection"
+msgstr ""
+
+msgctxt "model:webdav.share,name:"
+msgid "Share"
+msgstr ""
+
+msgctxt "view:ir.attachment:"
+msgid "WebDAV"
+msgstr ""

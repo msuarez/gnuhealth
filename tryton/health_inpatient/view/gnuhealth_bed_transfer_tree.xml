@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree editable="top" string="Bed Transfer History">
+<tree editable="top">
     <field name="transfer_date" widget="date"/>
     <field name="transfer_date" widget="time"/>
     <field name="bed_from" expand="1"/>

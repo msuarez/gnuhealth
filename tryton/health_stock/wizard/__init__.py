@@ -21,5 +21,5 @@
 #
 ##############################################################################
 
-from wizard_create_prescription_stock_move import *
-from wizard_create_vaccination_stock_move import *
+from .wizard_create_prescription_stock_move import *
+from .wizard_create_vaccination_stock_move import *

@@ -24,7 +24,7 @@
 
 from trytond.pool import Pool
 from .health_stock import *
-from wizard import *
+from .wizard import *
 
 def register():
     Pool.register(

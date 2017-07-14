@@ -98,13 +98,49 @@
             <field name="action" ref="act_invoice_related_form1"/>
         </record>
 
+        
+<!-- Window domains for Draft and Invoiced Documents -->
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_draft">
+            <field name="name">Draft</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'draft')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_invoiced">
+            <field name="name">Invoiced</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'invoiced')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_service_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="100"/>
+            <field name="domain"></field>/>
+            <field name="act_window" ref="gnuhealth_action_health_service"/>
+        </record>
+
+<!-- Shortcut to services from the patient -->
+
+        <record model="ir.action.act_window" id="act_service_form1">
+            <field name="name">Services</field>
+            <field name="res_model">gnuhealth.health_service</field>
+            <field name="domain" eval="[('patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword" id="act_open_service_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_service_form1"/>
+        </record>
+
 
 <!-- Extend prescription view to include the service -->
 
         <record model="ir.ui.view" id="view_prescription_form">
             <field name="model">gnuhealth.prescription.order</field>
             <field name="inherit" ref="health.gnuhealth_prescription_view" />
-            <field name="type">form</field>
             <field name="name">gnuhealth_prescription</field>
         </record> 
 

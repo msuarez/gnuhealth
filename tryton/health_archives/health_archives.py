@@ -21,7 +21,6 @@
 #
 ##############################################################################
 from trytond.model import ModelView, ModelSQL, fields, Unique
-from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 

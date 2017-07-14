@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Domicilary Unit">
+<form>
     <group id="du_header">
         <group col="6" id="du_address">
             <label name="name"/>
@@ -13,19 +13,13 @@
             <field name="address_street_number"/>
             <label name="address_street_bis"/>
             <field name="address_street_bis"/>
-            <label name="address_district"/>
-            <field name="address_district"/>
-            <label name="address_municipality"/>
-            <field name="address_municipality"/>
-            <label name="address_city"/>
-            <field name="address_city"/>
             <label name="address_zip"/>
             <field name="address_zip"/>
             <label name="address_country"/>
             <field name="address_country"/>
             <label name="address_subdivision"/>
             <field name="address_subdivision"/>
-        </group>
+        </group>       
         <group id="du_picture">
             <field xfill="0" xexpand="1" name="picture" height="200" width="200" widget="image"/>
         </group>
@@ -35,10 +29,17 @@
             <field name="latitude"/>
             <label name="longitude"/>
             <field name="longitude"/>
+            <label name="altitude"/>
+            <field name="altitude"/>
             <label name="urladdr"/>
             <field name="urladdr" widget="url"/>
         </group>
         <newline/>
+        <group colspan="4" id="du_repr">
+            <field name="address_repr"/>
+        </group>
+        <newline/>
+            
         <group colspan="4" col="6" id="du_living_conditions">
             <label name="housing"/>
             <field name="housing"/>

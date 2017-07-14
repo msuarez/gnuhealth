@@ -24,6 +24,9 @@
 ##############################################################################
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
+from urllib.parse import urlencode
+from urllib.parse import urlunparse
+from collections import OrderedDict
 from io import BytesIO
 
 try:
@@ -50,9 +53,9 @@ import pytz
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation',
     'Ethnicity','DomiciliaryUnit','BirthCertificate','DeathCertificate',
-    'PartyPatient', 'PersonName','PartyAddress','DrugDoseUnits',
-    'MedicationFrequency', 'DrugForm', 'DrugRoute', 'MedicalSpecialty',
-    'HealthInstitution', 'HealthInstitutionSpecialties',
+    'Party','ContactMechanism', 'PersonName','PartyAddress',
+    'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute', 
+    'MedicalSpecialty','HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
     'HospitalBuilding', 'HospitalUnit','HospitalOR', 'HospitalWard',
     'HospitalBed', 'HealthProfessional','HealthProfessionalSpecialties',
@@ -68,7 +71,7 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'PatientECG']
+    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate']
 
 
 def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
@@ -126,6 +129,36 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
     __name__ = 'gnuhealth.du'
 
+    def get_parent(self, subdivision):
+        # Recursively get the parent subdivisions
+        if (subdivision.parent):
+            return str(subdivision.rec_name) +'\n'+ \
+                str(self.get_parent(subdivision.parent))
+        else:
+            return subdivision.rec_name
+        
+    def get_du_address(self, name):
+        du_addr=''
+        # Street
+        if (self.address_street):
+            du_addr = str(self.address_street) + ' ' + \
+                str(self.address_street_number) + "\n"
+            
+        # Grab the parent subdivisions
+        if (self.address_subdivision):
+            du_addr = du_addr + \
+                str(self.get_parent(subdivision=self.address_subdivision))
+        
+        # Zip Code
+        if (self.address_zip):
+            du_addr = du_addr +" - "+ self.address_zip
+
+        # Country
+        if (self.address_country):
+            du_addr = du_addr +"\n"+ self.address_country.rec_name
+
+        return du_addr
+
     name = fields.Char('Code', required=True)
     desc = fields.Char('Desc')
     address_street = fields.Char('Street')
@@ -154,11 +187,16 @@ class DomiciliaryUnit(ModelSQL, ModelView):
 
     latitude = fields.Numeric('Latitude', digits=(3, 14))
     longitude = fields.Numeric('Longitude', digits=(4, 14))
+    altitude = fields.Integer('Altitude', help="Altitude in meters")
 
     urladdr = fields.Char(
         'OSM Map',
         help="Locates the DU on the Open Street Map by default")
 
+    # Text Representation
+    address_repr = fields.Function(fields.Text("DU Address"),
+        'get_du_address')
+        
     # Infrastructure
 
     dwelling = fields.Selection([
@@ -221,38 +259,57 @@ class DomiciliaryUnit(ModelSQL, ModelView):
         'address_country')
     def on_change_with_urladdr(self):
         # Generates the URL to be used in OpenStreetMap
-        # The address will be mapped to the URL in the following way
-        # If the latitud and longitude of the DU are given, then those
-        # parameters will be used.
-        # Otherwise, it will try to find the address by the
-        # Street, municipality, city, postalcode, state and country.
+        #   If latitude and longitude are known, use them.
+        #   Otherwise, use street, municipality, city, and so on.
+
+
+        parts = OrderedDict()
+        parts['scheme'] = 'http'
+        parts['netloc'] = ''
+        parts['path'] = ''
+        parts['params'] = ''
+        parts['query'] = ''
+        parts['fragment'] = ''
 
         if (self.latitude and self.longitude):
-            ret_url = 'http://openstreetmap.org/?mlat=' + \
-                str(self.latitude) + '&mlon=' + str(self.longitude)
+            parts['netloc'] = 'openstreetmap.org'
+            parts['path'] = '/'
+            parts['query'] = urlencode({'mlat': self.latitude,
+                                        'mlon': self.longitude})
 
         else:
-            state = ''
-            country = ''
-            street_number = str(self.address_street_number).encode('utf-8') \
-                or ''
-            street = (self.address_street).encode('utf-8') or ''
-            municipality = (self.address_municipality).encode('utf-8') or ''
-            city = (self.address_city).encode('utf-8') or ''
-            if (self.address_subdivision):
-                state = (self.address_subdivision.name).encode('utf-8') or ''
-            postalcode = (self.address_zip).encode('utf-8') or ''
+            state = country = postalcode = city = municipality = street = number = ''
+            if self.address_street_number is not None:
+                number = str(self.address_street_number)
+            if self.address_street:
+                street = self.address_street
+            if self.address_municipality:
+                municipality = self.address_municipality
+            if self.address_city:
+                city = self.address_city
+            if self.address_zip:
+                postalcode = self.address_zip
+            if self.address_subdivision:
+                state = self.address_subdivision.name
+            if self.address_country:
+                country = self.address_country.code
 
-            if (self.address_country):
-                country = (self.address_country.code).encode('utf-8') or ''
+            parts['netloc'] = 'nominatim.openstreetmap.org'
+            parts['path'] = 'search'
+            parts['query'] = urlencode({'street': ' '.join([number, street]).strip(),
+                                        'county': municipality,
+                                        'city': city,
+                                        'state': state,
+                                        'postalcode': postalcode,
+                                        'country': country})
 
-            ret_url = 'http://nominatim.openstreetmap.org/search?' + \
-                'street=' + street_number + ' ' + \
-                street + '&county=' + municipality \
-                + '&city=' + city + '&state=' + state \
-                + '&postalcode=' + postalcode + '&country=' + country
+        return urlunparse(list(parts.values()))
 
-        return ret_url
+    # Show the resulting Address representation in realtime
+    @fields.depends('address_street', 'address_subdivision', 
+        'address_street_number', 'address_country')
+    def on_change_with_address_repr(self):
+        return self.get_du_address(name=None)
 
     @classmethod
     def __setup__(cls):
@@ -263,14 +320,17 @@ class DomiciliaryUnit(ModelSQL, ModelView):
              'The Domiciliary Unit must be unique !')
         ]
  
-class PartyPatient (ModelSQL, ModelView):
-    'Party'
+class Party(ModelSQL, ModelView):
     __name__ = 'party.party'
-
 
     def person_age(self, name):
         return compute_age_from_dates(self.dob, self.deceased,
                               self.dod, self.gender, name, None)
+
+
+    def get_du_address(self, name):
+        if (self.du):
+            return self.du.address_repr
 
     person_names = fields.One2Many('gnuhealth.person_name','party',
         'Person Names',
@@ -287,6 +347,8 @@ class PartyPatient (ModelSQL, ModelView):
 
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
+
+    federation_account = fields.Char('Federation ID')
 
     ref = fields.Char(
         'PUID',
@@ -382,6 +444,10 @@ class PartyPatient (ModelSQL, ModelView):
 
     du = fields.Many2One('gnuhealth.du', 'DU', help="Domiciliary Unit")
 
+    du_address = fields.Function(
+        fields.Text('Main address', 
+        help="Main Address, based on the associated DU"),'get_du_address')
+
     birth_certificate = fields.Many2One('gnuhealth.birth_certificate',
         'Birth Certificate', readonly=True)
 
@@ -463,6 +529,9 @@ class PartyPatient (ModelSQL, ModelView):
             if vals.get('ref') == '':
                 vals['ref'] = None
 
+            if vals.get('federation_account') == '':
+                vals['federation_account'] = None
+
             if 'photo' in vals:
                 vals['photo'] = cls.convert_photo(vals['photo'])
             
@@ -479,7 +548,7 @@ class PartyPatient (ModelSQL, ModelView):
 
             args.append(parties)
             args.append(vals)
-        return super(PartyPatient, cls).write(*args)
+        return super(Party, cls).write(*args)
 
     @classmethod
     def update_person_official_name(cls,person_id,given_name,family_name):
@@ -550,6 +619,10 @@ class PartyPatient (ModelSQL, ModelView):
                 # a country / region
                 values['code'] = '%s-%s' % (uuid4(), suffix)
 
+            if not 'federation_account' in values or \
+                values['federation_account'] == '':
+                    values['federation_account'] = None
+            
             values.setdefault('addresses', None)
 
             if 'photo' in values:
@@ -578,16 +651,19 @@ class PartyPatient (ModelSQL, ModelView):
 
                     values['person_names'] = official_name
                 
-        return super(PartyPatient, cls).create(vlist)
+        return super(Party, cls).create(vlist)
 
     @classmethod
     def __setup__(cls):
-        super(PartyPatient, cls).__setup__()
+        super(Party, cls).__setup__()
         t = cls.__table__()
         cls._sql_constraints += [
             ('ref_uniq', Unique(t,t.ref), 'The PUID must be unique'),
             ('internal_user_uniq', Unique(t,t.internal_user),
-                'This internal user is already assigned to a party')]
+                'This internal user is already assigned to a party'),
+            ('federation_account_uniq', 
+                Unique(t,t.federation_account),
+                'The Federation Account must be unique'),]
 
         cls._order.insert(0, ('lastname', 'ASC'))
         cls._order.insert(1, ('name', 'ASC'))
@@ -649,6 +725,8 @@ class PartyPatient (ModelSQL, ModelView):
         return [bool_op,
             ('ref',) + tuple(clause[1:]),
             ('alternative_ids.code',) + tuple(clause[1:]),
+            ('federation_account',) + tuple(clause[1:]),
+            ('contact_mechanisms.value',) + tuple(clause[1:]),
             ('person_names.family',) + tuple(clause[1:]),            
             ('person_names.given',) + tuple(clause[1:]),            
             ('name',) + tuple(clause[1:]),
@@ -661,9 +739,14 @@ class PartyPatient (ModelSQL, ModelView):
         if (self.is_healthprof or self.is_patient or self.is_person):
             return True
 
+    @fields.depends('du')
+    def on_change_with_du_address(self):
+        if (self.du):
+            return self.get_du_address(name=None)
+
     @classmethod
     def validate(cls, parties):
-        super(PartyPatient, cls).validate(parties)
+        super(Party, cls).validate(parties)
         for party in parties:
             party.check_person()
             party.validate_official_name()
@@ -697,38 +780,16 @@ class PartyPatient (ModelSQL, ModelView):
                 'invisible': ~Eval('is_person'),
                 })]
                 
+class ContactMechanism(ModelSQL, ModelView):
+    __name__ = 'party.contact_mechanism'
 
-    @classmethod
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-
-        # Update to version 2.4
-        # Rename is_doctor to a more general term is_healthprof
-
-        if table.column_exist('is_doctor'):
-            table.column_rename('is_doctor', 'is_healthprof')
-
-        # Update to 3.0
-        # Alias column was giving issues with python sql
-        if table.column_exist('alias'):
-            if not(table.column_exist('nick')):
-                table.column_rename('alias', 'nick')
-
-
-        # Update to 3.0
-        # Move Sex to Gender for the party demographics / legal gender
-        if table.column_exist('sex'):
-            table.column_rename('sex', 'gender')
-        
-        super(PartyPatient, cls).__register__(module_name)
+    emergency = fields.Boolean('Emergency', select=True)
+    remarks = fields.Char('Remarks',help="Enter the name of the contact"
+        " or other remarks")
 
 
 class PersonName(ModelSQL, ModelView):
-    'Person Name'
+    "Person Name"
     __name__ = 'gnuhealth.person_name'
     
     """ We are using the concept of HumanName on HL7 FHIR
@@ -762,50 +823,6 @@ class PersonName(ModelSQL, ModelView):
     suffix = fields.Char('Suffix')
     date_from = fields.Date('From')
     date_to = fields.Date('To')
-
-
-    @classmethod
-    def __register__(cls, module_name):
-        pool = Pool()
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = cls.__table__()
-        Party = pool.get('party.party')
-        party = Party.__table__()
-
-        super(PersonName, cls).__register__(module_name)
-
-        # Update to version GNU Health 3.0
-        # Add the current person nick (alias) in the person names nicknames 
-        # remove alias column
-        
-        party_h = TableHandler(cursor, Party, module_name)
-        if (party_h.column_exist('nick')):
-            person_names = []
-            cursor.execute(*party.select(
-                    party.id, party.nick, where=(party.nick != '')))
-            
-            for party_id, party_nick in cursor.fetchall():                
-                person_names.append(
-                    cls(party=party_id, given=party_nick, use='nickname'))
-            cls.save(person_names)
-            party_h.drop_column('nick')
-
-
-        # Upgrade to GNU Health 3.0
-        # RUN ONCE
-        # Copy given and family names to the official names
-        # when the party is a physical person
-        # It will be executed if the target table person_name is empty
-        cursor.execute(*table.select(table.id, limit=1))
-        records = cursor.fetchone()
-        if not records:
-            cursor.execute(*table.insert(
-                    [table.party, table.use, table.given, table.family],
-                    party.select(
-                        party.id, Literal('official'), party.name,
-                        party.lastname,
-                        where=party.is_person == True)))
 
 
 class PartyAddress(ModelSQL, ModelView):
@@ -1002,12 +1019,12 @@ class HealthInstitution(ModelSQL, ModelView):
         
         company = Transaction().context.get('company')
         
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         cursor.execute('SELECT party FROM company_company WHERE id=%s \
             LIMIT 1', (company,))
         party_id = cursor.fetchone()
         if party_id:
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             cursor.execute('SELECT id FROM gnuhealth_institution WHERE \
                 name = %s LIMIT 1', (party_id[0],))
             institution_id = cursor.fetchone()
@@ -1083,151 +1100,6 @@ class HealthInstitution(ModelSQL, ModelView):
             ('name_uniq', Unique(t,t.name), 'This Institution already exists !'),
             ('code_uniq', Unique(t,t.code), 'This CODE already exists !'),
         ]
-
-    @classmethod
-    def __register__(cls, module_name):
-
-        super(HealthInstitution, cls).__register__(module_name)
-
-        # Upgrade to GNU Health 2.6
-        # Insert to the gnuhealth.institution model the existing
-        # institutions in party 
-
-        # Users need to specify the new type and plublic level attributes of 
-        # the institution after the upgrade.
-        
-        # The code will be executed if the gnuhealth.institution model is
-        # empty. Normally there are two conditions for this to happen:
-        # 1) Upgrade from versions < 2.6.0 (the model did not exist)
-        # 2) The party / company / institution was not created during the
-        # installation. Although users should always finnish the installation
-        # wizards, sometimes it just does not happens. 
-
-         
-        cursor = Transaction().cursor
-        cursor.execute("select name from gnuhealth_institution limit 1;")
-        records = cursor.fetchone()
-        if not records:
-            cursor.execute(
-                "INSERT INTO gnuhealth_institution \
-                (name, code, institution_type, public_level) \
-                SELECT id, id,\'set_me\',\'set_me\' \
-                from party_party where is_institution='true';")
-
-            # Drop old foreign key from institution building
-            
-            TableHandler = backend.get('TableHandler')
-
-            if TableHandler.table_exist(cursor,'gnuhealth_hospital_building'):
-                try:
-                    cursor.execute("ALTER TABLE gnuhealth_hospital_building DROP \
-                        CONSTRAINT IF EXISTS \
-                        gnuhealth_hospital_building_institution_fkey;")
-                except:
-                    pass 
-                    
-                # Link building with new institution model
-                
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_HOSPITAL_BUILDING '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_HOSPITAL_BUILDING.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass 
-
-
-                # Drop old foreign key from institution UNIT
-                
-                cursor = Transaction().cursor
-                
-                if TableHandler.table_exist(cursor,'gnuhealth_hospital_unit'):
-                    try:
-                        cursor.execute("ALTER TABLE gnuhealth_hospital_unit DROP \
-                            CONSTRAINT IF EXISTS \
-                            gnuhealth_hospital_unit_institution_fkey;")
-                    except:
-                        pass
-                # Link unit with new institution model
-                
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_HOSPITAL_UNIT '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_HOSPITAL_UNIT.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass 
-
-
-            # Drop old foreign key from institution WARD
-            
-            if TableHandler.table_exist(cursor,'gnuhealth_hospital_ward'):
-                try:
-                    cursor.execute("ALTER TABLE gnuhealth_hospital_ward DROP \
-                        CONSTRAINT IF EXISTS \
-                        gnuhealth_hospital_ward_institution_fkey;")
-                except:
-                    pass
-                    
-                # Link ward with new institution model
-  
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_HOSPITAL_WARD '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_HOSPITAL_WARD.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass 
-
-
-                # Drop old foreign key from institution OR
-                      
-            if TableHandler.table_exist(cursor,'gnuhealth_hospital_or'):
-                try:
-                    cursor.execute("ALTER TABLE gnuhealth_hospital_or DROP \
-                        CONSTRAINT IF EXISTS \
-                        gnuhealth_hospital_or_institution_fkey;")
-                except:
-                    pass
-                    
-                # Link Operating Room with new institution model
-                
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_HOSPITAL_OR '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_HOSPITAL_OR.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass
-
-            # Drop old foreign key from Appointment
-            
-            if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
-                try:
-                    cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
-                        CONSTRAINT IF EXISTS \
-                        gnuhealth_appointment_institution_fkey;")
-                except:
-                    pass
-                # Link Appointment with new institution model
-                
-                try:
-                    cursor.execute(
-                        'UPDATE GNUHEALTH_APPOINTMENT '
-                        'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                        'FROM GNUHEALTH_INSTITUTION '
-                        'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
-                        GNUHEALTH_INSTITUTION.NAME')
-                except:
-                    pass 
 
 
 class HealthInstitutionSpecialties(ModelSQL, ModelView):
@@ -1605,7 +1477,7 @@ class HealthProfessional(ModelSQL, ModelView):
     def get_health_professional(cls):
         # Get the professional associated to the internal user id
         # that logs into GNU Health
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         User = Pool().get('res.user')
         user = User(Transaction().user)
         login_user_id = int(user.id)
@@ -1613,7 +1485,7 @@ class HealthProfessional(ModelSQL, ModelView):
             internal_user = %s LIMIT 1', (login_user_id,))
         partner_id = cursor.fetchone()
         if partner_id:
-            cursor = Transaction().cursor
+            cursor = Transaction().connection.cursor()
             cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
                 name = %s LIMIT 1', (partner_id[0],))
             healthprof_id = cursor.fetchone()
@@ -1645,6 +1517,11 @@ class HealthProfessional(ModelSQL, ModelView):
         fields.Char('PUID', help="Person Unique Identifier"),
         'get_hp_puid', searcher='search_hp_puid')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
 
     def get_hp_puid(self, name):
         return self.name.ref
@@ -1678,20 +1555,6 @@ class HealthProfessional(ModelSQL, ModelView):
                 res = self.name.lastname + ', ' + self.name.name
         return res
 
-    @classmethod
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        # Upgrade to 2.4
-        # Rename gnuhealth_physician to gnuhealth_healthprofessional
-
-        if TableHandler.table_exist(cursor,'gnuhealth_physician'):
-            TableHandler.table_rename(cursor,'gnuhealth_physician', 'gnuhealth_healthprofessional')
-
-        super(HealthProfessional, cls).__register__(module_name)
-
-
 class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
     __name__ = 'gnuhealth.hp_specialty'
@@ -1716,27 +1579,6 @@ class PhysicianSP(ModelSQL, ModelView):
         states={'readonly': Eval('id', 0) < 0},
         depends=['id'])
 
-    @classmethod
-    # Update to version 2.2
-    def __register__(cls, module_name):
-        super(PhysicianSP, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Insert the current "specialty" associated to the HP in the
-        # table that keeps the specialties associated to different health
-        # professionals, gnuhealth.hp_specialty
-
-        if table.column_exist('specialty'):
-            # Update the list of specialties of that health professional
-            # with the current specialty
-            cursor.execute(
-                "INSERT INTO gnuhealth_hp_specialty (name, specialty) \
-                SELECT id, specialty from gnuhealth_healthprofessional;")
-            # Drop old specialty column, replaced by main_specialty
-            table.drop_column('specialty')
-
 
 class Family(ModelSQL, ModelView):
     'Family'
@@ -1756,22 +1598,6 @@ class Family(ModelSQL, ModelView):
         cls._sql_constraints = [
             ('name_uniq', Unique(t,t.name), 'The Family Code must be unique !'),
         ]
-
-    @classmethod
-    # Update to version 2.0
-    def __register__(cls, module_name):
-        super(Family, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Remove Operational Sector from the family model
-        # The operational Sector is linked to the Domiciliary Unit
-        # Since GHealth 2.0 , the family model will contain their
-        # members and their role.
-
-        if table.column_exist('operational_sector'):
-            table.drop_column('operational_sector')
 
 
 class FamilyMember(ModelSQL, ModelView):
@@ -1860,6 +1686,23 @@ class Medicament(ModelSQL, ModelView):
         'gnuhealth.drug.form', 'Form',
         help='Drug form, such as tablet, suspension, liquid ..')
 
+    sol_conc = fields.Float(
+        'Concentration',
+        help='Solution drug concentration')
+
+    sol_conc_unit = fields.Many2One(
+        'gnuhealth.dose.unit', 'Unit',
+        help='Unit of the drug concentration')
+    
+    sol_vol = fields.Float(
+        'Volume',
+        help='Solution concentration volume')
+
+    sol_vol_unit = fields.Many2One(
+        'gnuhealth.dose.unit', 'Unit',
+        help='Unit of the solution volume')
+
+
     dosage = fields.Text('Dosage Instructions', help='Dosage / Indications')
     overdosage = fields.Text('Overdosage', help='Overdosage')
     pregnancy_warning = fields.Boolean(
@@ -1909,6 +1752,12 @@ class Medicament(ModelSQL, ModelView):
     storage = fields.Text('Storage Conditions')
     is_vaccine = fields.Boolean('Vaccine')
     notes = fields.Text('Extra Info')
+
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
     
     # Show the icon depending on the pregnancy category
     pregnancy_cat_icon = \
@@ -1920,14 +1769,26 @@ class Medicament(ModelSQL, ModelView):
         if (self.pregnancy_category == 'D' or self.pregnancy_category == "C"):
             return 'gnuhealth-warning'
 
-        
+      
     def get_rec_name(self, name):
         return self.name.name
+
+    # Allow to search by name, active component or category
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('active_component',) + tuple(clause[1:]),
+            ('category',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def check_xml_record(cls, records, values):
         return True
-
 
 class ImmunizationScheduleDose(ModelSQL, ModelView):
     'Immunization Schedule Dose'
@@ -2102,33 +1963,13 @@ class PathologyGroup(ModelSQL, ModelView):
             'The Pathology Group code must be unique'),
         ]
 
-    @classmethod
-    def __register__(cls, module_name):
-        # Upgrade from GNU Health 1.4.5
-        super(PathologyGroup, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        # Drop old foreign key and change to char name
-        table.drop_fk('name')
-
-        table.alter_type('name', 'varchar')
-
-        # Drop group column. No longer required
-        table.drop_column('group')
-
-        # Migration from 2.4: drop required on sequence
-        table.not_null_action('sequence', action='remove')
-
 
 class Pathology(ModelSQL, ModelView):
     'Health Conditions'
     __name__ = 'gnuhealth.pathology'
 
     name = fields.Char(
-        'Name', required=True, translate=True, help='Disease name')
+        'Name', required=True, translate=True, help='Health condition name')
     code = fields.Char(
         'Code', required=True,
         help='Specific Code for the Disease (eg, ICD-10)')
@@ -2154,6 +1995,22 @@ class Pathology(ModelSQL, ModelView):
     @staticmethod
     def default_active():
         return True
+
+    # Include code + description in result
+    def get_rec_name(self, name):
+        return (self.code + ' : ' + self.name)
+
+    # Search by the health condition code or the description
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('code',) + tuple(clause[1:]),
+            ('name',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def __setup__(cls):
@@ -2452,6 +2309,7 @@ class AlternativePersonID (ModelSQL, ModelView):
             ('country_id', 'Country of origin ID'),
             ('passport', 'Passport'),
             ('medical_record', 'Medical Record'),
+            ('ghealth_federation', 'GNU Health Federation'),
             ('other', 'Other'),
         ], 'ID type', required=True, sort=False,)
 
@@ -2883,6 +2741,12 @@ class PatientData(ModelSQL, ModelView):
     appointments = fields.One2Many(
         'gnuhealth.appointment', 'patient', 'Appointments')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(PatientData, cls).__setup__()
@@ -2982,81 +2846,6 @@ class PatientData(ModelSQL, ModelView):
             ('name',) + tuple(clause[1:]),
             ('lastname',) + tuple(clause[1:]),
             ]
-
-    @classmethod
-    # Update to version 2.0
-    def __register__(cls, module_name):
-        super(PatientData, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Move Date of Birth from patient to party
-
-        if table.column_exist('dob'):
-            cursor.execute(
-                'UPDATE PARTY_PARTY '
-                'SET DOB = GNUHEALTH_PATIENT.DOB '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('dob')
-
-        # Move Patient Gender from patient to party
-
-        if table.column_exist('sex'):
-            cursor.execute(
-                'UPDATE PARTY_PARTY '
-                'SET SEX = GNUHEALTH_PATIENT.SEX '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('sex')
-
-        # Move Patient Photo from patient to party
-
-        if table.column_exist('photo'):
-            cursor.execute(
-                'UPDATE PARTY_PARTY '
-                'SET PHOTO = GNUHEALTH_PATIENT.PHOTO '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('photo')
-
-        # Move Patient Ethnic Group from patient to party
-
-        if table.column_exist('ethnic_group'):
-            cursor.execute(
-                'UPDATE PARTY_PARTY '
-                'SET ETHNIC_GROUP = GNUHEALTH_PATIENT.ETHNIC_GROUP '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('ethnic_group')
-
-        # Move Patient Marital Status from patient to party
-
-        if table.column_exist('marital_status'):
-            cursor.execute(
-                'UPDATE PARTY_PARTY '
-                'SET MARITAL_STATUS = GNUHEALTH_PATIENT.MARITAL_STATUS '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('marital_status')
-
-        # 2.6 Move Identification Code from patient to party
-
-
-        if table.column_exist('identification_code'):
-            cursor.execute(
-                "INSERT INTO GNUHEALTH_PERSON_ALTERNATIVE_IDENTIFICATION \
-                (NAME, ALTERNATIVE_ID_TYPE, CODE) \
-                SELECT name, 'medical_record', IDENTIFICATION_CODE \
-                FROM GNUHEALTH_PATIENT;")
-
-            table.drop_column('identification_code')
 
 
 # PATIENT CONDITIONS INFORMATION
@@ -3191,21 +2980,6 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
                             self.date_start_treatment,
                             language.code, language.date),
                         })
-
-
-    # Update to version 2.4
-    @classmethod
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename doctor to healthprof
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-
-        super(PatientDiseaseInfo, cls).__register__(module_name)
 
 
     # Show warning on infectious disease
@@ -3429,79 +3203,6 @@ class Appointment(ModelSQL, ModelView):
         return self.name
 
 
-    @classmethod
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename doctor to healthprof
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-        
-        '''
-        Fix bug on upgrade to 2.6
-        Check whether the FK is still referencing the old party table
-        If it does, update the references to the corresponding institution
-        ids
-        '''
-
-        if backend_name() == 'postgresql':
-            cursor.execute("select keycol.table_name \
-                from information_schema.referential_constraints referential \
-                join information_schema.key_column_usage keycol on \
-                keycol.constraint_name = referential.unique_constraint_name \
-                and referential.constraint_name = \
-                \'gnuhealth_appointment_institution_fkey\' \
-                and keycol.table_name=\'party_party\';")
-
-            old_reference = cursor.fetchone()
-
-            if (old_reference):
-
-                # Drop old foreign key from Appointment
-
-                if TableHandler.table_exist(cursor,'gnuhealth_appointment'):
-                    try:
-                        cursor.execute("ALTER TABLE gnuhealth_appointment DROP \
-                            CONSTRAINT IF EXISTS \
-                            gnuhealth_appointment_institution_fkey;")
-                    except:
-                        pass
-                    # Link Appointment with new institution model
-
-                    try:
-                        cursor.execute(
-                            'UPDATE GNUHEALTH_APPOINTMENT '
-                            'SET INSTITUTION = GNUHEALTH_INSTITUTION.ID '
-                            'FROM GNUHEALTH_INSTITUTION '
-                            'WHERE GNUHEALTH_APPOINTMENT.INSTITUTION = \
-                            GNUHEALTH_INSTITUTION.NAME')
-                    except:
-                        pass 
-
-
-
-        # Upgrade to 3.0
-        # Marge all ambulatory appointments to outpatient
-        
-        app_h = cls.__table__()
-        
-        if table.column_exist('appointment_type'):
-            cursor.execute(*app_h.update(columns=[app_h.appointment_type], 
-                values=[Literal('outpatient')], 
-                where=app_h.appointment_type == Literal('ambulatory')))
-
-            
-        # Merge "chronic" checkups visit types into followup       
-        if table.column_exist('visit_type'):
-            cursor.execute(*app_h.update(columns=[app_h.visit_type], 
-                values=[Literal('followup')], 
-                where=app_h.visit_type == Literal('chronic')))
-
-        super(Appointment, cls).__register__(module_name)
-
 class AppointmentReport(ModelSQL, ModelView):
     'Appointment Report'
     __name__ = 'gnuhealth.appointment.report'
@@ -3600,8 +3301,7 @@ class OpenAppointmentReportStart(ModelView):
     __name__ = 'gnuhealth.appointment.report.open.start'
     date_start = fields.Date('Date Start', required=True)
     date_end = fields.Date('Date End', required=True)
-    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof',
-        required=True)
+    healthprof = fields.Many2One('gnuhealth.healthprofessional', 'Health Prof')
 
     @staticmethod
     def default_date_start():
@@ -3631,13 +3331,24 @@ class OpenAppointmentReport(Wizard):
     open_ = StateAction('health.act_appointments_report_view_tree')
 
     def do_open_(self, action):
+        health_prof = ''
+        if self.start.healthprof:
+            health_prof = self.start.healthprof.id
+            
         action['pyson_context'] = PYSONEncoder().encode({
             'date_start': self.start.date_start,
             'date_end': self.start.date_end,
-            'healthprof': self.start.healthprof.id,
+            'healthprof': health_prof,
             })
-        action['name'] += ' - %s, %s' % (self.start.healthprof.name.lastname,
-                                         self.start.healthprof.name.name)
+
+        # Show action name depending on whether is an specific hp
+        # or for all professionals
+        
+        if health_prof:
+            action['name'] += ' - %s' % (self.start.healthprof.rec_name)
+        else:
+            action['name'] += ' - %s' % "All Health Professionals"
+        
         return action, {}
 
     def transition_open_(self):
@@ -3793,51 +3504,6 @@ class PatientMedication(ModelSQL, ModelView):
             })
         cls._order.insert(0, ('is_active', 'DESC'))
         cls._order.insert(1, ('start_treatment', 'DESC'))
-
-    @classmethod
-    def __register__(cls, module_name):
-
-        # Rename doctor to healthprof
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-
-
-        super(PatientMedication, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        # Update to version 2.0
-        # Move data from template to patient medication
-        if table.column_exist('template'):
-            cursor.execute(
-                'UPDATE gnuhealth_patient_medication '
-                'SET medicament = gmt.medicament, '
-                'indication = gmt.indication, '
-                'dose = gmt.dose, '
-                'dose_unit = gmt.dose_unit, '
-                'route = gmt.route, '
-                'form = gmt.form, '
-                'qty = gmt.qty, '
-                'common_dosage = gmt.common_dosage, '
-                'frequency = gmt.frequency, '
-                'frequency_unit = gmt.frequency_unit, '
-                'frequency_prn = gmt.frequency_prn, '
-                'admin_times = gmt.admin_times, '
-                'duration = gmt.duration, '
-                'duration_period = gmt.duration_period, '
-                'start_treatment = gmt.start_treatment, '
-                'end_treatment = gmt.end_treatment '
-                'FROM gnuhealth_medication_template gmt '
-                'WHERE gnuhealth_patient_medication.template = gmt.id')
-
-            table.drop_column('template')
 
     @fields.depends('discontinued', 'course_completed')
     def on_change_with_is_active(self):
@@ -4064,58 +3730,6 @@ class PatientVaccination(ModelSQL, ModelView):
             if (self.next_dose_date < self.date):
                 self.raise_user_error('next_dose_before_first')
 
-    @classmethod
-    def __register__(cls, module_name):
-
-        # Upgrade to 2.8
-        # Link vaccine with the vaccine model instead of the product directly
-
-        super(PatientVaccination, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        if backend_name() == 'postgresql':
-            cursor.execute("select keycol.table_name \
-                from information_schema.referential_constraints referential \
-                join information_schema.key_column_usage keycol on \
-                keycol.constraint_name = referential.unique_constraint_name \
-                and referential.constraint_name = \
-                \'gnuhealth_vaccination_vaccine_fkey\' \
-                and keycol.table_name=\'product_product\';")
-
-            old_reference = cursor.fetchone()
-
-            # RUN ONCE :This code block within the if statement should 
-            # be met only once.
-            # Check that the reference of the vaccine is to the product model
-            # If that is the case :
-            # - Delete the foreign key
-            # - Assign the new ids to the vaccine field, referencing the 
-            # medicament model, instead of the product.
-
-            if (old_reference):
-
-                cursor.execute("ALTER TABLE gnuhealth_vaccination \
-                    DROP CONSTRAINT IF EXISTS \
-                    gnuhealth_vaccination_vaccine_fkey;")
-
-                cursor.execute(
-                    'UPDATE GNUHEALTH_VACCINATION '
-                    'SET VACCINE = GNUHEALTH_MEDICAMENT.ID '
-                    'FROM GNUHEALTH_MEDICAMENT '
-                    'WHERE GNUHEALTH_VACCINATION.VACCINE = \
-                    GNUHEALTH_MEDICAMENT.NAME')
-
-                # It didn't take it from the new model attribute definition
-                # when running the update process, so just to be safe
-                # force the FK creation once.
-                cursor.execute(
-                    'alter table gnuhealth_vaccination add constraint \
-                    gnuhealth_vaccination_vaccine_fkey foreign key (vaccine) \
-                    references gnuhealth_medicament')
-
 
 class PatientPrescriptionOrder(ModelSQL, ModelView):
     'Prescription Order'
@@ -4163,6 +3777,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
     state = fields.Selection([
         ('draft', 'Draft'),
         ('done', 'Done'),        
+        ('validated', 'Validated'),        
         ], 'State', readonly=True, sort=False, states = STATES)
 
     @classmethod
@@ -4288,21 +3903,6 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         return super(PatientPrescriptionOrder, cls).copy(
             prescriptions, default=default)
 
-
-    @classmethod
-    # Update to version 2.4
-
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename doctor to a healthprof
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-
-        super(PatientPrescriptionOrder, cls).__register__(module_name)
 
     @classmethod
     @ModelView.button
@@ -4507,41 +4107,6 @@ class PrescriptionLine(ModelSQL, ModelView):
                 Medication.create(med)
  
         return super(PrescriptionLine, cls).create(vlist)
-
-    @classmethod
-    def __register__(cls, module_name):
-        super(PrescriptionLine, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        # Update to version 2.0
-        # Move data from template to prescription line
-        if table.column_exist('template'):
-            cursor.execute(
-                'UPDATE gnuhealth_prescription_line '
-                'SET medicament = gmt.medicament, '
-                'indication = gmt.indication, '
-                'dose = gmt.dose, '
-                'dose_unit = gmt.dose_unit, '
-                'route = gmt.route, '
-                'form = gmt.form, '
-                'qty = gmt.qty, '
-                'common_dosage = gmt.common_dosage, '
-                'frequency = gmt.frequency, '
-                'frequency_unit = gmt.frequency_unit, '
-                'frequency_prn = gmt.frequency_prn, '
-                'admin_times = gmt.admin_times, '
-                'duration = gmt.duration, '
-                'duration_period = gmt.duration_period, '
-                'start_treatment = gmt.start_treatment, '
-                'end_treatment = gmt.end_treatment '
-                'FROM gnuhealth_medication_template gmt '
-                'WHERE gnuhealth_prescription_line.template = gmt.id')
-
-            table.drop_column('template')
-
 
 
 class PatientEvaluation(ModelSQL, ModelView):
@@ -5130,37 +4695,6 @@ class PatientEvaluation(ModelSQL, ModelView):
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
     @classmethod
-
-    def __register__(cls, module_name):
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Update to version 2.4
-        # Rename doctor to a healthprof
-
-        if table.column_exist('doctor'):
-            table.column_rename('doctor', 'healthprof')
-
-        # Update to version 3.0
-        # Rename evaluation_date to appointment
-
-        if table.column_exist('evaluation_date'):
-            table.column_rename('evaluation_date', 'appointment')
-
-        # Merge "chronic" checkups visit types into followup       
-        eval_h = cls.__table__()
-        if table.column_exist('visit_type'):
-            cursor.execute(*eval_h.update(columns=[eval_h.evaluation_type], 
-                values=[Literal('outpatient')], 
-                where=eval_h.evaluation_type == Literal('ambulatory')))
-
-
-        super(PatientEvaluation, cls).__register__(module_name)
-
-
-
-    @classmethod
     def __setup__(cls):
         super(PatientEvaluation, cls).__setup__()
         
@@ -5404,3 +4938,13 @@ class PatientECG(ModelSQL, ModelView):
             'health_professional_warning':
                 'No health professional associated to this user',
         })
+
+class ProductTemplate(ModelSQL, ModelView):
+    __name__ = 'product.template'
+    """
+    Allow to change the values from the product templates 
+    coming from XML files
+    """
+    @classmethod
+    def check_xml_record(cls, records, values):
+        return True

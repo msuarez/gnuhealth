@@ -77,6 +77,9 @@ class HealthService(ModelSQL, ModelView):
                 'draft')}
             })
 
+        cls._order.insert(0, ('state', 'ASC'))
+        cls._order.insert(1, ('name', 'DESC'))
+
     @staticmethod
     def default_state():
         return 'draft'
@@ -164,6 +167,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
+        super(PatientPrescriptionOrder, cls).__setup__()
         cls._buttons.update({
             'update_service': {
                 'readonly': Equal(Eval('state'), 'done'),

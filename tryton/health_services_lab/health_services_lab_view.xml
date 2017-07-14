@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+<!-- Extend lab request view to include the service -->
+
+        <record model="ir.ui.view" id="view_lab_request_form">
+            <field name="model">gnuhealth.patient.lab.test</field>
+            <field name="inherit" ref="health_lab.gnuhealth_lab_test_request_form" />
+            <field name="name">gnuhealth_lab_request</field>
+        </record> 
+
+<!-- Include the service to the lab test request -->
+        <record model="ir.ui.view" id="view_lab_request_start_form">
+            <field name="model">gnuhealth.patient.lab.test.request.start</field>
+            <field name="inherit" ref="health_lab.patient_lab_test_request_start_view_form" />
+            <field name="name">gnuhealth_lab_start_request</field>
+        </record> 
+
+    </data>
+</tryton>

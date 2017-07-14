@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<tree string="Disease Genes">
+<tree>
     <field name="name" expand="1"/>
     <field name="long_name" expand="1"/>
     <field name="chromosome" expand="1"/>
-    <field name="dominance" expand="1"/>
+    <field name="variants" expand="1"/>
 </tree>

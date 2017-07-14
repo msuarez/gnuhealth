@@ -23,7 +23,7 @@
 
 from trytond.pool import Pool
 from .health_surgery import *
-from report import *
+from .report import *
 
 def register():
     Pool.register(
@@ -31,6 +31,7 @@ def register():
         RCRI,
         Surgery,
         Operation,
+        SurgeryMainProcedure,
         SurgerySupply,
         PatientData,
         SurgeryTeam,

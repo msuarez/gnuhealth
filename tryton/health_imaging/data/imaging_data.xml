@@ -12,7 +12,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_imagingservices"/>
         </record>
 
         <record id="product_template_mricharges" model="product.template">
@@ -21,7 +20,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_imagingservices"/>
         </record>
 
         <record id="product_template_xraycharges" model="product.template">
@@ -30,7 +28,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_imagingservices"/>
         </record>
 
         <record id="product_template_ctscancharges" model="product.template">
@@ -39,7 +36,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_imagingservices"/>
         </record>
 
         <record id="product_template_petscancharges" model="product.template">
@@ -48,7 +44,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="product_category_imagingservices"/>
         </record>
 
         <record id="product_product_ultrasoundcharges" model="product.product">
@@ -95,6 +90,30 @@
             <field name="code">PET</field>
             <field name="name">PET Scan</field>
         </record>
+
+        <!-- Categories -->
+
+        <record model="product.template-product.category" id="cat_product_template_ultrasoundcharges">
+                <field name="template" ref="product_template_ultrasoundcharges"/>
+                <field name="category" ref="product_category_imagingservices"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_mricharges">
+                <field name="template" ref="product_template_mricharges"/>
+                <field name="category" ref="product_category_imagingservices"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_xraycharges">
+                <field name="template" ref="product_template_xraycharges"/>
+                <field name="category" ref="product_category_imagingservices"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_ctscancharges">
+                <field name="template" ref="product_template_ctscancharges"/>
+                <field name="category" ref="product_category_imagingservices"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_petscancharges">
+                <field name="template" ref="product_template_petscancharges"/>
+                <field name="category" ref="product_category_imagingservices"/>
+        </record>
+
 
     </data>
 </tryton>

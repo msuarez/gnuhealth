@@ -175,25 +175,6 @@ class InpatientRegistration(ModelSQL, ModelView):
         res.append(('patient.name.ref', clause[1], value))
         return res
 
-
-    @classmethod
-    def __register__(cls, module_name):
-        super(InpatientRegistration, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-
-        # Update to version 3.0
-        # The diets based on religion and philosophy
-        # are now in the lifestyle module
-        if table.column_exist('diet_vegetarian'):
-            table.drop_column('diet_vegetarian')
-
-        if table.column_exist('diet_belief'):
-            table.drop_column('diet_belief')
-
-
     @classmethod
     def __setup__(cls):
         super(InpatientRegistration, cls).__setup__()
@@ -236,7 +217,7 @@ class InpatientRegistration(ModelSQL, ModelView):
     def confirmed(cls, registrations):
         registration_id = registrations[0]
         Bed = Pool().get('gnuhealth.hospital.bed')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         bed_id = registration_id.bed.id
         cursor.execute("SELECT COUNT(*) \
             FROM gnuhealth_inpatient_registration \
@@ -250,8 +231,8 @@ class InpatientRegistration(ModelSQL, ModelView):
         res = cursor.fetchone()
         if (registration_id.discharge_date.date() <
             registration_id.hospitalization_date.date()):
-            cls.raise_user_error("The Discharge date must later than the \
-                Admission")
+            cls.raise_user_error("The Discharge date must later than the " \
+                "Admission")
         if res[0] > 0:
             cls.raise_user_error('bed_is_not_available')
         else:
@@ -415,69 +396,6 @@ class ECG(ModelSQL, ModelView):
         'gnuhealth.inpatient.registration', 'Inpatient Registration',
         help="Enter the patient hospitalization code")
 
-    @classmethod
-    def __register__(cls, module_name):
-
-        # Upgrade to release 3.0 
-        # Move existing ICU EGC records to the generic gnuhealth.patient.ecg
-        # model
-        
-        super(ECG, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-
-        
-        if TableHandler.table_exist(cursor, 'gnuhealth_icu_ecg'):
-
-            table = TableHandler(cursor, cls, module_name)
-
-            # Retrieve IDs from ECGs at ICU
-
-            cursor.execute('select id,name from gnuhealth_icu_ecg')
-            
-            icu_ecg_ids = cursor.fetchall()
-
-            # Traverse each record on the icu_ecg table
-            for icu_ecg in icu_ecg_ids:
-
-                registration = str(icu_ecg[1])
-
-                # Get the patient ID related to the registration
-                cursor.execute('select patient FROM \
-                gnuhealth_inpatient_registration \
-                where id = %s',registration)
-                
-                patient_id = cursor.fetchone()
-
-                cursor.execute('select name, ecg_date, lead, axis, rate,\
-                rhythm, pacemaker, pr, qrs, qt, st_segment, twave_inversion, \
-                interpretation, ecg_strip FROM gnuhealth_icu_ecg where \
-                name = %s and id = %s', (registration, icu_ecg[0]))
-                
-                ecg = cursor.fetchone()
-                                
-                (name, ecg_date, lead, axis, rate, rhythm, \
-                pacemaker, pr, qrs, qt, st_segment, twave_inversion, \
-                interpretation, ecg_strip) = ecg
-
-                # Insert the values on the new ECG table
-                cursor.execute('insert into gnuhealth_patient_ecg \
-                (name, inpatient_registration_code, ecg_date, lead, axis, \
-                rate,rhythm,pacemaker, pr, qrs, qt, st_segment, \
-                twave_inversion, interpretation, ecg_strip) \
-                VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',
-                (patient_id, registration, ecg_date, lead, axis, rate, \
-                rhythm, pacemaker, pr, qrs, qt, st_segment, \
-                twave_inversion, interpretation, ecg_strip))
-
-
-                # Rename obsolete table gnuhealth_icu_ecg
-                # Once we know everything is OK we can drop it
-                
-                cursor.execute('alter table gnuhealth_icu_ecg rename \
-                to old_icu_ecg')
-                
 
 class PatientData(ModelSQL, ModelView):
     'Inherit patient model and add the patient status to the patient.'
@@ -489,13 +407,13 @@ class PatientData(ModelSQL, ModelView):
 
     @classmethod
     def get_patient_status(cls, patients, name):
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         pool = Pool()
         Registration = pool.get('gnuhealth.inpatient.registration')
         registration = Registration.__table__()
 
         # Will store statuses {patient: True/False, ...}
-        ids = map(int, patients)
+        ids = list(map(int, patients))
         result = dict.fromkeys(ids, False)
 
         for sub_ids in grouped_slice(ids):

@@ -1,0 +1,10 @@
+vobject >= 0.8.0
+PyWebDAV >= 0.9.8
+python-dateutil
+pytz
+python-sql >= 0.4
+trytond_webdav >= 4.2, < 4.3
+trytond >= 4.2, < 4.3
+
+[test]
+caldav

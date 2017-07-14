@@ -22,7 +22,7 @@
 ##############################################################################
 
 from trytond.pool import Pool
-from report import *
+from .report import *
 
 def register():
     Pool.register(

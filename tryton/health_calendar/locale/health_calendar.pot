@@ -95,11 +95,15 @@ msgid "Calendar"
 msgstr ""
 
 msgctxt "field:res.user,use_caldav:"
-msgid "Use CalDAV ?"
+msgid "CalDAV"
 msgstr ""
 
 msgctxt "help:gnuhealth.appointment,event:"
 msgid "Calendar Event"
+msgstr ""
+
+msgctxt "help:res.user,use_caldav:"
+msgid "The user has a CalDav account"
 msgstr ""
 
 msgctxt "model:gnuhealth.calendar.create.appointment.start,name:"
@@ -120,14 +124,6 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:menu_gnuhealth_appointment_calendar"
 msgid "Appointments Calendar"
-msgstr ""
-
-msgctxt "view:gnuhealth.appointment:"
-msgid "Patient appointments"
-msgstr ""
-
-msgctxt "view:gnuhealth.calendar.create.appointment.start:"
-msgid "New Work Schedule"
 msgstr ""
 
 msgctxt "wizard_button:gnuhealth.calendar.create.appointment,start,create_:"

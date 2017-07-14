@@ -23,7 +23,6 @@
 from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, date
 from trytond.model import ModelView, ModelSQL, fields
-from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond.pool import Pool
 
@@ -369,82 +368,3 @@ class GnuHealthPatient(ModelSQL, ModelView):
     def get_patient_housing(self, name):
         if (self.name.du):
             return self.name.du.housing
-
-    @classmethod
-    # Update to version 2.0
-    def __register__(cls, module_name):
-        super(GnuHealthPatient, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Move occupation from patient to party
-
-        if table.column_exist('occupation'):
-            cursor.execute ('UPDATE PARTY_PARTY '
-                'SET OCCUPATION = GNUHEALTH_PATIENT.OCCUPATION '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('occupation')
-
-        # Move education from patient to party
-
-        if table.column_exist('education'):
-            cursor.execute ('UPDATE PARTY_PARTY '
-                'SET EDUCATION = GNUHEALTH_PATIENT.EDUCATION '
-                'FROM GNUHEALTH_PATIENT '
-                'WHERE GNUHEALTH_PATIENT.NAME = PARTY_PARTY.ID')
-
-            table.drop_column('education')
-
-        # The following indicators are now part of the Domiciliary Unit
-
-        if table.column_exist('sewers'):
-            table.drop_column ('sewers')
-
-        if table.column_exist('water'):
-            table.drop_column ('water')
-
-        if table.column_exist('trash'):
-            table.drop_column ('trash')
-
-        if table.column_exist('electricity'):
-            table.drop_column ('electricity')
-
-        if table.column_exist('gas'):
-            table.drop_column ('gas')
-
-        if table.column_exist('telephone'):
-            table.drop_column ('telephone')
-
-        if table.column_exist('internet'):
-            table.drop_column ('internet')
-
-        if table.column_exist('housing'):
-            table.drop_column ('housing')
-
-        # GNU Health 3.0
-        # Move SES determinants and family APGAR to new assessment model
-        # Drop ses and family apgar related columns from gnuhealth.patient
-        if table.column_exist('ses'):
-            cursor.execute(
-                "INSERT INTO GNUHEALTH_SES_ASSESSMENT \
-                (PATIENT, SES, FAM_APGAR_HELP, FAM_APGAR_DISCUSSION, \
-                FAM_APGAR_DECISIONS, FAM_APGAR_TIMESHARING, \
-                FAM_APGAR_AFFECTION, FAM_APGAR_SCORE, NOTES, STATE) \
-                SELECT ID, SES, FAM_APGAR_HELP, FAM_APGAR_DISCUSSION, \
-                FAM_APGAR_DECISIONS, FAM_APGAR_TIMESHARING, \
-                FAM_APGAR_AFFECTION, FAM_APGAR_SCORE, \
-                'Data collected from previous GNU HEALTH version. \
-                Please update if necessary.','in_progress' \
-                FROM GNUHEALTH_PATIENT WHERE SES IS NOT NULL OR \
-                FAM_APGAR_SCORE IS NOT NULL;")
-            
-            table.drop_column('ses')
-            table.drop_column('fam_apgar_help')
-            table.drop_column('fam_apgar_discussion')
-            table.drop_column('fam_apgar_decisions')
-            table.drop_column('fam_apgar_timesharing')
-            table.drop_column('fam_apgar_affection')
-            table.drop_column('fam_apgar_score')

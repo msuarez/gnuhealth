@@ -6,7 +6,6 @@
 
         <record model="ir.ui.view" id="gnuhealth_calendar_hospital_bed_view">
             <field name="model">gnuhealth.hospital.bed</field>
-            <field name="type">form</field>
             <field name="inherit" ref="health.gnuhealth_hospital_bed_view"/>
             <field name="name">gnuhealth_calendar_hospital_bed</field>
         </record>
@@ -15,7 +14,6 @@
 
         <record model="ir.ui.view" id="gnuhealth_calendar_inpatient_registration_view">
             <field name="model">gnuhealth.inpatient.registration</field>
-            <field name="type">form</field>
             <field name="inherit" ref="health_inpatient.gnuhealth_inpatient_registration_view"/>
             <field name="name">gnuhealth_calendar_inpatient_registration</field>
         </record>

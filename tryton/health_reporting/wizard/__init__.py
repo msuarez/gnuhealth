@@ -21,6 +21,6 @@
 #
 ##############################################################################
 
-from wizard_top_diseases import *
-from wizard_evaluations import *
-from wizard_summary_report import *
+from .wizard_top_diseases import *
+from .wizard_evaluations import *
+from .wizard_summary_report import *

@@ -9,7 +9,7 @@
         </record>
 
         <record model="ir.action.wizard" id="act_create_lab_test">
-            <field name="name">Create Lab Test</field>
+            <field name="name">Lab: Create test</field>
             <field name="wiz_name">gnuhealth.lab.test.create</field>
             <field name="model">gnuhealth.patient.lab.test</field>
         </record>
@@ -25,14 +25,9 @@
             <field name="name">patient_lab_test_request_start_form</field>
         </record>
         <record model="ir.action.wizard" id="patient_lab_test_request">
-            <field name="name">Request Lab Test</field>
+            <field name="name">Lab: Request new order</field>
             <field name="wiz_name">gnuhealth.patient.lab.test.request</field>
         </record>
-
-        <menuitem parent="health_lab.gnuhealth_laboratory_menu"
-            action="patient_lab_test_request"
-            id="menu_patient_lab_test_request" sequence="10"
-            icon="gnuhealth-execute"/>
 
         <record model="ir.action.keyword"
                 id="act_open_patient_lab_request_keyword1">
@@ -40,6 +35,11 @@
             <field name="model">gnuhealth.patient,-1</field>
             <field name="action" ref="patient_lab_test_request"/>
         </record>
+
+        <menuitem parent="health_lab.gnuhealth_laboratory_menu"
+            action="patient_lab_test_request"
+            id="menu_patient_lab_test_request" sequence="10"
+            icon="gnuhealth-execute"/>
 
     </data>
 </tryton>

@@ -13,7 +13,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -54,7 +53,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -95,7 +93,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -135,7 +132,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -177,7 +173,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -219,7 +214,6 @@
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
-            <field name="category" ref="health_lab.product_category_labservices0"/>
         </record>
 
 <!-- PRODUCTS DEFINITION-->
@@ -251,6 +245,34 @@
         </record>
 
 <!-- END OF PCR  TEST -->
+
+<!-- Categories -->
+
+        <record model="product.template-product.category" id="cat_product_template_chagas_xenodiagnosis_analysischarges0">
+                <field name="template" ref="product_template_chagas_xenodiagnosis_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_chagas_strout_analysischarges0">
+                <field name="template" ref="product_template_chagas_strout_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_chagas_bsmear_analysischarges0">
+                <field name="template" ref="product_template_chagas_bsmear_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_chagas_elisa_analysischarges0">
+                <field name="template" ref="product_template_chagas_elisa_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_chagas_ifa_analysischarges0">
+                <field name="template" ref="product_template_chagas_ifa_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+        <record model="product.template-product.category" id="cat_product_template_chagas_pcr_analysischarges0">
+                <field name="template" ref="product_template_chagas_pcr_analysischarges0"/>
+                <field name="category" ref="health_lab.product_category_labservices0"/>
+        </record>
+
 
     </data>
 </tryton>

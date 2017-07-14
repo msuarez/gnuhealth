@@ -21,11 +21,12 @@
 #
 ##############################################################################
 import qrcode
-import StringIO
+import barcode
+import io
 from trytond.model import ModelView, ModelSQL, fields
 
 
-__all__ = ['Patient', 'Newborn']
+__all__ = ['Patient', 'Appointment', 'Newborn','LabTest']
 
 
 # Add the QR field and QR image in the patient model
@@ -71,14 +72,59 @@ class Patient(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
 
         return bytearray(qr_png)
         
-# Add the QR code field and image to the Newborn
+
+# Add the QR field and QR image in the appointment model
+
+class Appointment(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.appointment'
+
+    # Add the QR Code to the Appointment
+    qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
+
+    def make_qrcode(self, name):
+    # Create the QR code
+
+        appointment_healthprof = ''
+        appointment_speciality = ''
+        
+        appointment = self.name or ''
+
+        if (self.healthprof):
+            appointment_healthprof = str(self.healthprof.rec_name) or ''
+
+        appointment_patient = self.patient.rec_name or ''
+
+        appointment_date = str(self.appointment_date) or ''
+
+        if (self.speciality):
+            appointment_speciality = str(self.speciality.rec_name) or ''
+
+        qr_string = 'ID: ' + appointment \
+            + '\nName: ' + appointment_patient \
+            + '\nPUID: ' + appointment_patient.ref \
+            + '\nSpecialty: ' + appointment_speciality \
+            + '\nhealth Prof: ' + appointment_healthprof \
+            + '\nDate: ' + appointment_date 
+        
+        qr_image = qrcode.make(qr_string)
+         
+        # Make a PNG image from PIL without the need to create a temp file
+
+        holder = io.BytesIO()
+        qr_image.save(holder)
+        qr_png = holder.getvalue()
+        holder.close()
+
+        return bytearray(qr_png)
+
+
 
 class Newborn(ModelSQL, ModelView):
     'NewBorn'
@@ -123,7 +169,7 @@ class Newborn(ModelSQL, ModelView):
          
         # Make a PNG image from PIL without the need to create a temp file
 
-        holder = StringIO.StringIO()
+        holder = io.BytesIO()
         qr_image.save(holder)
         qr_png = holder.getvalue()
         holder.close()
@@ -131,3 +177,56 @@ class Newborn(ModelSQL, ModelView):
         return bytearray(qr_png)
 
         
+class LabTest(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.lab'
+
+    # Add the QR Code to the Lab Test
+    qr = fields.Function(fields.Binary('QR Code'), 'make_qrcode')
+    bar = fields.Function(fields.Binary('Bar Code39'), 'make_barcode')
+    
+    def make_qrcode(self, name):
+    # Create the QR code
+
+        labtest_id = self.name or ''
+        labtest_type = self.test or ''
+
+        patient_puid = self.patient.puid or ''
+        patient_name = self.patient.rec_name or ''
+
+        requestor_name = self.requestor.rec_name or ''
+
+        qr_string = 'Test ID' + labtest_id \
+            + 'Test: ' + labtest_type.rec_name \
+            + 'Patient ID: ' + patient_puid \
+            + '\nPatient: ' + patient_name \
+            + '\nRequestor: ' + requestor_name 
+        
+        qr_image = qrcode.make(qr_string)
+         
+        # Make a PNG image from PIL without the need to create a temp file
+
+        holder = io.BytesIO()
+        qr_image.save(holder)
+        qr_png = holder.getvalue()
+        holder.close()
+
+        return bytearray(qr_png)
+
+
+    def make_barcode(self, name):
+    # Create the Code39 bar code to encode the TEST ID 
+    
+        labtest_id = self.name or ''
+        
+        CODE39 = barcode.get_barcode_class('code39')
+        
+        code39 = CODE39(labtest_id, add_checksum=False)
+        
+        # Make a PNG image from PIL without the need to create a temp file
+
+        holder = io.BytesIO()
+        code39.write(holder)
+        code39_png = holder.getvalue()
+        holder.close()
+
+        return bytearray(code39_png)

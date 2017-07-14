@@ -137,7 +137,7 @@ class PatientPregnancy(ModelSQL, ModelView):
     def check_patient_current_pregnancy(self):
         ''' Check for only one current pregnancy in the patient '''
         pregnancy = Table('gnuhealth_patient_pregnancy')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
         patient_id = int(self.name.id)
         
         cursor.execute (*pregnancy.select(Count(pregnancy.name),
@@ -419,25 +419,6 @@ class Perinatal(ModelSQL, ModelView):
             gestational_age = datetime.datetime.date(self.admission_date) - \
                 self.name.lmp
             return (gestational_age.days) / 7
-
-
-
-    @classmethod
-    def __register__(cls, module_name):
-        super(Perinatal, cls).__register__(module_name)
-
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Upgrade to GNU Health 3.0
-        # Remove deprecated fields since 1.6.4
-
-        if table.column_exist('dismissed'):
-            table.drop_column('dismissed')
-        if table.column_exist('place_of_death'):
-            table.drop_column('place_of_death')
-        if table.column_exist('mother_deceased'):
-            table.drop_column('mother_deceased')
 
 
 class PerinatalMonitor(ModelSQL, ModelView):

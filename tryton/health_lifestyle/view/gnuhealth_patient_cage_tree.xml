@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree editable="top" string="Patient CAGE SCORE">
+<tree editable="top">
     <field name="evaluation_date" widget="date"  expand="1"/>
     <field name="cage_c" expand="1"/>
     <field name="cage_a" expand="1"/>

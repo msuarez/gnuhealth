@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form>
+    <label name="gene"/>
+    <field name="gene"/>
+    <label name="variant"/>
+    <field name="variant"/>
+    <newline/>
+    <label name="phenotype"/>
+    <field colspan="3" name="phenotype"/>
+</form>

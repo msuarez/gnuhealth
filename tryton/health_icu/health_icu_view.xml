@@ -200,7 +200,6 @@
         <record model="ir.ui.view" id="gnuhealth_patient_icu_rounding_view">
             <field name="model">gnuhealth.patient.rounding</field>
             <field name="inherit" ref="health_nursing.gnuhealth_patient_rounding_view" />
-            <field name="type">form</field>
             <field name="name">gnuhealth_patient_icu_rounding</field>
         </record>
 
@@ -224,7 +223,7 @@
 
         <menuitem action="action_gnuhealth_inpatient_icu_form"
             id="menu_gnuhealth_inpatient_icu_list" icon="gnuhealth-list"
-            parent="gnuhealth_icu_menu"/>
+            parent="gnuhealth_icu_menu" sequence="1"/>
 
     </data>
 </tryton>

@@ -29,10 +29,7 @@ class Practitioner_Map:
                 'role': 'name.occupation.name',
                 'gender': 'name.sex',
                 'identifier': 'name.puid',
-                'given': 'name.name',
-                'family': 'name.lastname',
-                'nickname': 'name.alias',
-                'name': 'name'}}
+                'name': 'name.person_names'}}
 
     resource_search_params={
                     '_id': 'token',
@@ -108,30 +105,24 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map, ExportXMLMixi
                     'title': self.practitioner.name.rec_name
                         }
 
-    def set_name(self, name):
+    def set_name(self, names):
         """Extends superclass for convenience
 
         Keyword arguments:
-        name -- patient party model (Health model)
+        names -- names from model
         """
 
-        if name:
-            family=[]
-            full_given_name = name.name
-            full_family_name = name.lastname
-            given=[supermod.string(value=x) for x in full_given_name.split()]
-            after_names=[supermod.string(value=x) for x in full_family_name.split()]
-            if len(after_names) > 1:
-                family=after_names[-1:]
-                given.extend(after_names[:-1])
-            else:
-                family=after_names
-            name=supermod.HumanName(
-                        use=supermod.NameUse(value='usual'),
-                        family=family,
-                        given=given)
+        for name in names:
+            if name.use in ('official', 'usual'):
+                given=[supermod.string(value=x) for x in name.given.split()]
+                family=[supermod.string(value=x) for x in name.family.split()]
+                super(health_Practitioner, self).set_name(
+                            supermod.HumanName(
+                            use=supermod.NameUse(value=name.use),
+                            family=family,
+                            given=given))
+                return
 
-            super(health_Practitioner, self).set_name(name)
 
     def set_identifier(self, identifier):
         """Extends superclass for convenience
@@ -146,7 +137,6 @@ class health_Practitioner(supermod.Practitioner, Practitioner_Map, ExportXMLMixi
                         label=supermod.string(value='PUID'),
                         value=supermod.string(value=identifier))
             super(health_Practitioner, self).add_identifier(ident)
-
 
     def set_gender(self, gender):
         """Extends superclass for convenience

@@ -1,9 +1,16 @@
 <?xml version="1.0"?>
-<form string="Patient Genetic Risks">
+<form>
     <label name="patient"/>
     <field name="patient"/>
     <label name="disease_gene"/>
     <field name="disease_gene"/>
+    <newline/>
+    <label name="natural_variant"/>
+    <field name="natural_variant"/>
+    <label name="variant_phenotype"/>
+    <field name="variant_phenotype"/>
+    <label name="onset"/>
+    <field name="onset"/>
     <newline/>
     <label name="notes" colspan="4"/>
     <field name="notes" colspan="4"/>

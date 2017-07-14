@@ -21,5 +21,5 @@
 #
 ##############################################################################
 
-from wizard_appointment_evaluation import *
-from wizard_check_immunization_status import *
+from .wizard_appointment_evaluation import *
+from .wizard_check_immunization_status import *

@@ -134,6 +134,11 @@ class CreateServiceInvoice(Wizard):
                     unit_price = line.product.list_price
 
                 if line.to_invoice:
+                    taxes = []
+                    #Include taxes related to the product on the invoice line
+                    for product_tax_line in line.product.customer_taxes_used:
+                        taxes.append(product_tax_line.id)
+                        
                     invoice_lines.append(('create', [{
                             'origin': str(line),
                             'product': line.product.id,
@@ -143,12 +148,13 @@ class CreateServiceInvoice(Wizard):
                             'unit': line.product.default_uom.id,
                             'unit_price': unit_price,
                             'sequence': seq,
+                            'taxes': [('add',taxes)],
                         }]))
                 invoice_data['lines'] = invoice_lines
 
             invoices.append(invoice_data)
 
-        Invoice.create(invoices)
+        Invoice.update_taxes(Invoice.create(invoices))
 
         # Change to invoiced the status on the service document.
         HealthService.write(services, {'state': 'invoiced'})

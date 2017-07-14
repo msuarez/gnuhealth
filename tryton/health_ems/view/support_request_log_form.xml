@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<form>
+    <label name="timestamp"/>
+    <field name="timestamp"/>
+    <label name="sr"/>
+    <field name="sr"/>
+    <label name="action"/>
+    <field name="action"/>
+    <newline/>
+    <label name="remarks"/>
+    <field name="remarks"/>
+</form>

@@ -21,7 +21,7 @@
 #
 ##############################################################################
 
-from health_disability import *
+from .health_disability import *
 from trytond.pool import Pool
 
 def register():

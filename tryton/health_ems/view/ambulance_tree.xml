@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tree>
+    <field name="vehicle_identifier"/>
+    <field name="state"/>
+    <field name="vehicle_type"/>
+    <field name="vehicle_function"/>
+    <field name="vehicle_station"/>
+    <field name="active" tree_invisible="1"/>
+</tree>

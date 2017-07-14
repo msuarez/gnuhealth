@@ -30,7 +30,7 @@ from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 
 __all__ = ['SurgerySequences', 'RCRI', 'Surgery', 'Operation',
-    'SurgerySupply', 'PatientData', 'SurgeryTeam']
+    'SurgeryMainProcedure','SurgerySupply', 'PatientData', 'SurgeryTeam']
 
 
 
@@ -423,18 +423,6 @@ class Surgery(ModelSQL, ModelView):
 
 
     @classmethod
-    # Update to version 2.0
-    def __register__(cls, module_name):
-        cursor = Transaction().cursor
-        TableHandler = backend.get('TableHandler')
-        table = TableHandler(cursor, cls, module_name)
-        # Rename the date column to surgery_surgery_date
-        if table.column_exist('date'):
-            table.column_rename('date', 'surgery_date')
-
-        super(Surgery, cls).__register__(module_name)
-
-    @classmethod
     def __setup__(cls):
         super(Surgery, cls).__setup__()
         cls._error_messages.update({
@@ -503,7 +491,7 @@ class Surgery(ModelSQL, ModelView):
     def confirmed(cls, surgeries):
         surgery_id = surgeries[0]
         Operating_room = Pool().get('gnuhealth.hospital.or')
-        cursor = Transaction().cursor
+        cursor = Transaction().connection.cursor()
 
         # Operating Room and end surgery time check
         if (not surgery_id.operating_room or not surgery_id.surgery_end_date):
@@ -629,6 +617,17 @@ class Operation(ModelSQL, ModelView):
         help="Procedure Code, for example ICD-10-PCS or ICPM")
     notes = fields.Text('Notes')
 
+    def get_rec_name(self, name):
+        return self.procedure.rec_name
+
+
+class SurgeryMainProcedure(ModelSQL, ModelView):
+    __name__ = 'gnuhealth.surgery'
+
+    main_procedure = fields.Many2One('gnuhealth.operation','Main Proc',
+        domain=[('name', '=', Eval('active_id'))],
+        states={'readonly': Or(~Eval('procedures'), Eval('id', 0) < 0)},
+        depends=['procedures'])
 
 class SurgerySupply(ModelSQL, ModelView):
     'Supplies related to the surgery'

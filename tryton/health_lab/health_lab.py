@@ -65,6 +65,12 @@ class TestType(ModelSQL, ModelView):
     critearea = fields.One2Many('gnuhealth.lab.test.critearea', 'test_type_id',
         'Test Cases')
 
+    active = fields.Boolean('Active', select=True)
+
+    @staticmethod
+    def default_active():
+        return True
+
     @classmethod
     def __setup__(cls):
         super(TestType, cls).__setup__()
@@ -112,6 +118,7 @@ class Lab(ModelSQL, ModelView):
     date_requested = fields.DateTime('Date requested', required=True,
         select=True)
     date_analysis = fields.DateTime('Date of the Analysis', select=True)
+    request_order = fields.Integer('Request', readonly=True)
 
     @classmethod
     def __setup__(cls):
@@ -229,7 +236,7 @@ class GnuHealthTestCritearea(ModelSQL, ModelView):
 class GnuHealthPatientLabTest(ModelSQL, ModelView):
     'Patient Lab Test'
     __name__ = 'gnuhealth.patient.lab.test'
-
+    
     name = fields.Many2One('gnuhealth.lab.test_type', 'Test Type',
         required=True, select=True)
     date = fields.DateTime('Date', select=True)
@@ -243,7 +250,7 @@ class GnuHealthPatientLabTest(ModelSQL, ModelView):
      select=True)
     doctor_id = fields.Many2One('gnuhealth.healthprofessional', 'Doctor',
         help="Doctor who Request the lab test.", select=True)
-    request = fields.Integer('Request', readonly=True)
+    request = fields.Integer('Order', readonly=True)
     urgent = fields.Boolean('Urgent')
 
     @classmethod

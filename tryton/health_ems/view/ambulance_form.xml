@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<form>
+    <group colspan="4" col="8" id="vehicle_information" string="Identification">
+        <label name="vehicle_identifier"/>
+        <field name="vehicle_identifier"/>
+        <label name="vehicle_brand"/>
+        <field name="vehicle_brand"/>
+        <label name="vehicle_model"/>
+        <field name="vehicle_model"/>
+        <label name="active"/>
+        <field name="active"/>
+    </group>
+    <newline/>
+    <group colspan="4" col="4" id="vehicle_function" string="Functionality">
+        <label name="vehicle_type"/>
+        <field name="vehicle_type"/>
+        <label name="vehicle_function"/>
+        <field name="vehicle_function"/>
+    </group>
+    <newline/>
+    <group id="vehicle_base" colspan="6" col="8" string="Station and Status">
+        <label name="vehicle_station"/>
+        <field name="vehicle_station"/>
+        <label name="state"/>
+        <field name="state"/>
+        <label name="vehicle_odometer"/>
+        <field name="vehicle_odometer"/>
+    </group>
+    <newline/>
+    <separator id="vehicle_details" colspan="4" string="Remarks"/>
+    <newline/>
+    <field colspan="4" name="vehicle_remarks"/>
+</form>

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#    Copyright (C) 2011-2017 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify
@@ -18,19 +19,19 @@
 from setuptools import setup
 import re
 import os
-import ConfigParser
+import configparser
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(os.path.dirname(__file__), fname), encoding="UTF-8").read()
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 8
+major_version, minor_version = 4, 2
 
 requires = ['pytz']
 
@@ -47,7 +48,7 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health core module'),
+    description=info.get('description', 'GNU Health - The Free/Libre Hospital and Health Information System core package for Tryton'),
     long_description=read('README'),
     author='GNU Solidario',
     author_email='health@gnusolidario.org',
@@ -78,7 +79,7 @@ setup(name='trytond_health',
         'Natural Language :: English',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],

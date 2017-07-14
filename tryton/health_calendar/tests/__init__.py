@@ -1,1 +1,1 @@
-from test_health_calendar import suite
+from .test_health_calendar import suite

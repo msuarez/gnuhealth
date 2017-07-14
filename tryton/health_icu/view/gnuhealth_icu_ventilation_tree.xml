@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<tree string="Patient Mechanical Ventilation">
+<tree>
     <field name="current_mv"/>
     <field name="ventilation"/>
     <field name="mv_start" widget="date"/>

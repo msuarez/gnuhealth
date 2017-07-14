@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#    Copyright (C) 2011-2017 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify
@@ -18,21 +19,21 @@
 from setuptools import setup
 import re
 import os
-import ConfigParser
+import configparser
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(os.path.dirname(__file__), fname), encoding="UTF-8").read()
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 3, 8
+major_version, minor_version = 4, 2
 
-requires = []
+requires = ['pytz']
 
 for dep in info.get('depends', []):
     if dep.startswith('health'):
@@ -47,15 +48,18 @@ requires.append('trytond >= %s.%s, < %s.%s' %
 
 setup(name='trytond_health_ntd_dengue',
     version=info.get('version', '0.0.1'),
-    description=info.get('description', 'GNU Health Neglected Tropical Diseases. Dengue Module'),
-    author=info.get('author', 'GNU Solidario'),
-    author_email=info.get('email', 'health@gnusolidario.org'),
-    url=info.get('website', 'http://health.gnu.org/'),
+    description=info.get('description', 'GNU Health Neglected Tropical Diseases. Dengue package'),
+    long_description=read('README'),
+    author='GNU Solidario',
+    author_email='health@gnusolidario.org',
+    url='http://health.gnu.org',
     download_url='http://ftp.gnu.org/gnu/health/',
     package_dir={'trytond.modules.health_ntd_dengue': '.'},
     packages=[
         'trytond.modules.health_ntd_dengue',
+        'trytond.modules.health_ntd_dengue.tests',
         ],
+
     package_data={
         'trytond.modules.health_ntd_dengue': info.get('xml', []) \
             + info.get('translation', []) \
@@ -73,7 +77,7 @@ setup(name='trytond_health_ntd_dengue',
         'Natural Language :: English',
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],

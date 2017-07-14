@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Patient Disability Assessment">
+<form>
     <group string="Header" colspan="4" col="8" id="patient_disability_header">
         <label name="patient"/>
         <field name="patient"/>

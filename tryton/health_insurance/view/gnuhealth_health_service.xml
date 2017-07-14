@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="/form/group/field[@name=&quot;invoice_to&quot;]" position="after">
+        <newline/>
+        <label name="insurance_holder"/>
+        <field name="insurance_holder"/>
+        <label name="insurance_plan"/>
+        <field name="insurance_plan"/>
+    </xpath>
+</data>
+ 

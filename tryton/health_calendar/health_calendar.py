@@ -2,6 +2,11 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#                           
+#                            CALENDAR PACKAGE
+#
+#    Copyright (C) 2008-2017  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2017  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -24,13 +29,12 @@ from trytond.pool import Pool, PoolMeta
 
 
 __all__ = ['User', 'Appointment']
-__metaclass__ = PoolMeta
 
 
-class User:
+class User(metaclass=PoolMeta):
     __name__ = "res.user"
 
-    use_caldav = fields.Boolean('Use CalDAV ?')
+    use_caldav = fields.Boolean('CalDAV', help="The user has a CalDav account")
     calendar = fields.Many2One('calendar.calendar', 'Calendar',
         states={
             'invisible': Not(Bool(Eval('use_caldav'))),
@@ -38,7 +42,7 @@ class User:
             })
 
 
-class Appointment:
+class Appointment(metaclass=PoolMeta):
     __name__ = 'gnuhealth.appointment'
 
     event = fields.Many2One(
@@ -71,8 +75,8 @@ class Appointment:
                             'dtend': appointment_date_end,
                             'calendar':
                                 healthprof.name.internal_user.calendar.id,
-                            'summary': patient.name.lastname + ', ' +
-                            patient.name.name,
+                            'summary': patient.name.rec_name,
+                            'description': values['comments'],
                             }])
                         values['event'] = events[0].id
         return super(Appointment, cls).create(vlist)
@@ -103,7 +107,7 @@ class Appointment:
                     if 'patient' in values:
                         patient = Patient(values['patient'])
                         Event.write([appointment.event], {
-                            'summary': patient.name.name,
+                            'summary': patient.name.rec_name,
                             })
                 else:
                     if appointment.healthprof:
@@ -115,8 +119,8 @@ class Appointment:
                                 'calendar':
                                     appointment.healthprof.name.internal_user.calendar.id,
                                 'summary':
-                                    patient.name.lastname + ', '
-                                    + patient.name.name,
+                                    patient.name.rec_name,
+                                'description': values['comments'],
                                 }])
                             values['event'] = events[0].id
         return super(Appointment, cls).write(appointments, values)

@@ -106,9 +106,9 @@
         <menuitem name="Medicaments" id="gnuhealth_conf_medicaments"
             parent="gnuhealth_conf_menu" sequence="50" icon="gnuhealth-medicament"/>
         <menuitem name="Misc" id="gnuhealth_conf_misc"
-            parent="gnuhealth_conf_menu" sequence="70" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_menu" sequence="999" icon="gnuhealth-open"/>
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
-            parent="gnuhealth_conf_misc" sequence="80" icon="gnuhealth-open"/>
+            parent="gnuhealth_conf_misc" icon="gnuhealth-open"/>
 
 
 <!-- Person Names -->
@@ -786,12 +786,14 @@
             <field name="name">gnuhealth_medicament_category_form</field>
         </record>
 
+        <!--
         <record model="ir.ui.view" id="gnuhealth_medicament_category_list">
             <field name="model">gnuhealth.medicament.category</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_medicament_category_list</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_medicament_category_tree">
             <field name="model">gnuhealth.medicament.category</field>
             <field name="type">tree</field>
@@ -918,12 +920,14 @@
             <field name="type">form</field>
             <field name="name">gnuhealth_pathology_category_form</field>
         </record>
+        <!--
         <record model="ir.ui.view" id="gnuhealth_pathology_category_list">
             <field name="model">gnuhealth.pathology.category</field>
             <field name="type">tree</field>
             <field name="name">gnuhealth_pathology_category_list</field>
         </record>
-
+        -->
+        
         <record model="ir.ui.view" id="gnuhealth_pathology_category_tree">
             <field name="model">gnuhealth.pathology.category</field>
             <field name="type">tree</field>
@@ -1052,7 +1056,6 @@
         <record model="ir.ui.view" id="view_party_form">
             <field name="model">party.party</field>
             <field name="inherit" ref="party.party_view_form"/>
-            <field name="type">form</field>
             <field name="name">party_form</field>
         </record>
         
@@ -1083,7 +1086,6 @@
         <record model="ir.ui.view" id="view_party_address_form">
             <field name="model">party.address</field>
             <field name="inherit" ref="party.address_view_form"/>
-            <field name="type">form</field>
             <field name="name">party_address_form</field>
         </record>
 
@@ -1091,6 +1093,21 @@
             <field name="model">party.address</field>
             <field name="inherit" ref="party.address_view_tree"/>
             <field name="name">address_tree</field>
+        </record>
+
+
+<!-- Add Emergency type for contact mechanism -->
+
+        <record model="ir.ui.view" id="contact_mechanism_view_tree">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_tree"/>
+            <field name="name">contact_mechanism_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="party_contact_mechanism_view_tree">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_tree_sequence"/>
+            <field name="name">party_contact_mechanism_tree</field>
         </record>
 
 
@@ -1190,7 +1207,6 @@
         <record model="ir.ui.view" id="view_gnuhealth_product_form">
             <field name="model">product.product</field>
             <field name="inherit" ref="product.product_view_form"/>
-            <field name="type">form</field>
             <field name="name">gnuhealth_product_form</field>
         </record>
         <record model="ir.ui.view" id="view_gnuhealth_product_tree">
@@ -1336,7 +1352,7 @@
         </record>
         <record model="ir.action.act_window"
             id="act_appointments_report_view_tree">
-            <field name="name">Appointments Report</field>
+            <field name="name">Appointments with Dx Report</field>
             <field name="res_model">gnuhealth.appointment.report</field>
         </record>
         <record model="ir.action.act_window.view"
@@ -1352,7 +1368,7 @@
             <field name="name">appointments_report_open_start_form</field>
         </record>
         <record model="ir.action.wizard" id="appointments_report_open">
-            <field name="name">Appointments Report</field>
+            <field name="name">Appointments with Dx Report</field>
             <field name="wiz_name">gnuhealth.appointment.report.open</field>
         </record>
 

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<form>
+    <group colspan="4" col="8" id="request_header">
+        <label name="request_date"/>
+        <field name="request_date"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="urgency"/>
+        <field name="urgency"/>
+        <label name="state"/>
+        <field name="state"/>
+        <label name="event_type"/>
+        <field name="event_type"/>
+        <label name="event_specific"/>
+        <field name="event_specific"/>
+        <label name="place_occurrance"/>
+        <field name="place_occurrance"/>
+        <label name="multiple_casualties"/>
+        <field name="multiple_casualties"/>
+    </group>
+    <newline/>
+    <group id="request_place" string="Location">
+        <label name="operational_sector"/>
+        <field name="operational_sector"/>
+        <newline/>
+        <label name="latitude"/>
+        <field name="latitude"/>
+        <label name="longitude"/>
+        <field name="longitude"/>
+        <label name="urladdr"/>
+        <field name="urladdr" widget="url"/>
+    </group>
+    <group id="request_address" string="Address">
+        <field name="address"/>
+    </group>
+
+    <newline/>
+    <group colspan="4" col="6" id="patient_demographics" string="Patient Demographics">
+        <label name="patient"/>
+        <field name="patient"/>
+        <label name="patient_sex"/>
+        <field name="patient_sex"/>
+        <label name="patient_age"/>
+        <field name="patient_age"/>
+    </group>
+    <newline/>
+    <group id="request_deatils" string="Evaluation Specifics">
+        <label name="evaluation"/>
+        <field name="evaluation"/>
+        <label name="complaint"/>
+        <field name="complaint"/>
+    </group>
+    <newline/>
+    <separator id="sep_details" colspan="4" string="Details"/>
+    <newline/>
+    <field colspan="4" name="request_extra_info"/>
+    <newline/>
+    <field colspan="4" name="request_actions"/>
+    <field colspan="4" name="ambulances"/>
+    <newline/>
+    <group id="request_footer" colspan="4" col="8">
+        <label name="requestor"/>
+        <field name="requestor"/>
+        <label name="healthcenter"/>
+        <field name="healthcenter"/>
+        <label name="operator"/>
+        <field name="operator"/>
+        <button name="open_support" help="Set this support request to open" string="Open" confirm="Open the request ?"/>
+        <button name="close_support" help="Set this support request to closed" string="Close" confirm="Close the request ?"/>
+    </group>
+</form>

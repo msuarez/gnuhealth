@@ -1,1 +1,1 @@
-from test_health_ophthalmology import suite
+from .test_health_ophthalmology import suite

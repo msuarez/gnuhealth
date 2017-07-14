@@ -34,31 +34,6 @@
             <field name="name">gnuhealth_pediatric_symptoms_checklist_tree</field>
         </record>
 
-<!-- Add the Pediatric Symptoms Checklist to the Patient form -->
-<!--
-        <record model="ir.ui.view" id="gnuhealth_patient_view">
-            <field name="model">gnuhealth.patient</field>
-            <field name="inherit" ref="health.gnuhealth_patient_view_form" />
-            <field name="type">form</field>
-            <field name="arch" type="xml">
-                <![CDATA[
-                <data>
-                    <xpath
-                        expr="/form/notebook/page[@id=&quot;patient_diseases&quot;]"
-                        position="after">
-
-                        <page string="PSC" id="page_psc">
-                            <field name="psc"/>
-                        </page>
-
-                    </xpath>
-                </data>
-                ]]>
-            </field>
-        </record>
--->
-
-
         <record model="ir.action.act_window" id="gnuhealth_action_psc">
             <field name="name">PSC</field>
             <field name="res_model">gnuhealth.patient.psc</field>

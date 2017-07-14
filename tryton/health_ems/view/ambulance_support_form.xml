@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<form>
+    <group id="ambulance_support_group" colspan="4" col="6" string="Main">
+        <label name="sr"/>
+        <field name="sr"/>
+        <label name="ambulance"/>
+        <field name="ambulance"/>
+        <label name="state"/>
+        <field name="state"/>
+    </group>
+    <newline/>
+    <field colspan="4" name="healthprofs"/>
+    <newline/>
+    <group id="ambulance_states_group" colspan="4" col="14" string="Status">
+        <button name="available" help="The ambulance has arrived to base / is available" string="Available" confirm="Mark vehicle as available ?"/>
+        <button name="dispatched" help="The ambulance has been dispatched" string="Dispatched" confirm="Dispatch ambulance ?"/>
+        <button name="en_route" help="The ambulance is going to the incident" string="En Route" confirm="Set as En Route to the incident ?"/>
+        <button name="on_location" help="The ambulance has arrived at the incident location" string="On Location" confirm="Confirm arrival to the incident location ?"/>
+        <button name="to_hospital" help="The ambulance going to the hospital from the incident location" string="To Hospital" confirm="Going to hospital from incident location ?"/>
+        <button name="at_hospital" help="The ambulance has arrived to hospital" string="At Hospital" confirm="Has the ambulance arrived to hospital ?"/>
+        <button name="returning" help="The ambulance is returning to base" string="Returning" confirm="Is the ambulance returning to the station ?"/>
+        <button name="out_of_service" help="The ambulance is out of service" string="Out of Service" confirm="Set the ambulance as Out of Service ?"/>
+    </group>
+</form>

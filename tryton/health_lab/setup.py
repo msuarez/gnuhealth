@@ -18,12 +18,12 @@
 from setuptools import setup
 import re
 import os
-import ConfigParser
+import configparser
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    return open(os.path.join(os.path.dirname(__file__), fname), encoding="UTF-8").read()
 
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
 
@@ -55,8 +55,8 @@ setup(name='trytond_health_lab',
     package_dir={'trytond.modules.health_lab': '.'},
     packages=[
         'trytond.modules.health_lab',
-        'trytond.modules.health_lab.report',
         'trytond.modules.health_lab.tests',
+        'trytond.modules.health_lab.report',
         'trytond.modules.health_lab.wizard',
         ],
     package_data={

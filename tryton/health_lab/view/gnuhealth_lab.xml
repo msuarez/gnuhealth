@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="Laboratory Test">
+<form>
     <notebook>
         <page string="Main Info" id="lab_main_info">
             <label name="name"/>
@@ -18,14 +18,18 @@
             <field name="date_requested"/>
             <label name="requestor"/>
             <field name="requestor"/>
+            <label name="request_order"/>
+            <field name="request_order"/>
             <field name="critearea" colspan="4" view_ids="health_lab.test_critearea_view_tree_lab,health_lab.test_critearea_view_form_lab"/>
         </page>
         <page string="Extra Info" id="lab_extra_info">
-            <label name="results"/>
-            <field name="results"/>
-            <newline/>
-            <label name="diagnosis"/>
-            <field name="diagnosis"/>
+            <group id="lab_result_extra_info" colspan="4">
+                <separator colspan="4" string="Notes"/>
+                <field name="results"/>
+                <newline/>
+                <separator colspan="4" string="Diagnosis"/>
+                <field name="diagnosis"/>
+        </group>
         </page>
     </notebook>
 </form>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<form string="patient">
+<form>
     <!-- Main Info -->
     <group string="Main Info" id="patient_main_info">
         <group colspan="3" id="patient_main_info_name">
@@ -40,37 +40,28 @@
                         <field height="100" name="general_info"/>
                     </group>
                     <newline/>
-                    <group colspan="4" col="10" id="patient_info_2">
+                    <group colspan="4" col="12" id="patient_info_2">
                         <label name="dob"/>
                         <field name="dob"/>
-<!--
-From 2.6 we use the "PUID" (ref) field as the main code.
-We go towards the Unique Person Identifier
-If your patient has different clinical history codes (from different centers)
-you can put them in the Clinical History Number in the alternative IDs of the
-associated Party.
-
-You might also want to use the Health_archives module, to associate the legacy
-code with the unique patient ID.
-
-                        <label name="identification_code"/>
-                        <label name="identification_code"/>
--->
                         <label name="puid"/>
                         <field name="puid"/>
 
                         <label name="blood_type"/>
-                        <field name="blood_type" width="20"/>
-                        <field name="rh" width="20"/>
+                        <field name="blood_type"/>
+                        <field name="rh"/>
+                        <label name="active"/>
+                        <field name="active"/>
                     </group>
                 </page>
                 <page string="Misc" id="misc_info_page">
                     <group colspan="4" id="misc_info_group">
                         <label name="biological_sex"/>
                         <field name="biological_sex"/>
-                          
+
+                        <!-- Deprecated 
                         <label name="current_address"/>
                         <field name="current_address"/>
+                        -->
                     </group>
                     <newline/>
                     <group colspan="4" col="6" id="misc_info_deceased">

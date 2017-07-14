@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<tree string="Lab test type">
+<tree>
     <field name="name" expand="1"/>
     <field name="test" expand="1"/>
+    <field name="request_order" expand="1"/>
     <field name="patient" expand="1"/>
     <field name="date_analysis" widget="date" expand="1"/>
 </tree>
