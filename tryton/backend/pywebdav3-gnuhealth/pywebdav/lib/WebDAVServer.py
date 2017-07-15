@@ -338,7 +338,7 @@ class DAVRequestHandler(AuthServer.AuthRequestHandler, LockManager):
             return self.send_status(400)
 
         try:
-            DATA = b'%s\n' % pf.createResponse()
+            DATA = pf.createResponse()
 
         except DAV_Error as error:
             (ec, dd) = error.args
