@@ -1,3 +1,10 @@
+changeset:   2751:06600b12ba82
+branch:      stable
+parent:      2747:7a4e7a016c3c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 12:52:05 2017 +0100
+summary:     health_lab: Fix bug #51537: Missing ID on lab separator view
+
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Jul 01 22:40:37 2017 +0100
 summary:     gnuhealth-setup : Update version to 3.2.0

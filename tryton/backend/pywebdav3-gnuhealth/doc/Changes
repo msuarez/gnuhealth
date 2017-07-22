@@ -1,3 +1,8 @@
+0.10.2 (July 15 2017)
+---------------------
+Fix WebDAVServer data string conversion to make it compatible with older 
+Python 3.x versions. Tested on Python 3.6 and Python 3.4
+
 0.10.1 (June 6 2017)
 ---------------------
 Fix encoding / decoding issues
