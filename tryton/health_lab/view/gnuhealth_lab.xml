@@ -24,10 +24,10 @@
         </page>
         <page string="Extra Info" id="lab_extra_info">
             <group id="lab_result_extra_info" colspan="4">
-                <separator colspan="4" string="Notes"/>
+                <separator colspan="4" string="Notes" id="separator_notes"/>
                 <field name="results"/>
                 <newline/>
-                <separator colspan="4" string="Diagnosis"/>
+                <separator colspan="4" string="Diagnosis" id="separator_diagnosis"/>
                 <field name="diagnosis"/>
         </group>
         </page>
