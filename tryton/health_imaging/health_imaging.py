@@ -22,7 +22,6 @@
 from datetime import datetime
 from trytond.model import Workflow, ModelView, ModelSingleton, ModelSQL, fields
 from trytond.pyson import Eval
-from trytond.transaction import Transaction
 from trytond.pool import Pool
 
 
@@ -122,19 +121,10 @@ class ImagingTestRequest(Workflow, ModelSQL, ModelView):
 
     @staticmethod
     def default_doctor():
-        cursor = Transaction().cursor
-        User = Pool().get('res.user')
-        user = User(Transaction().user)
-        login_user_id = int(user.id)
-        cursor.execute('SELECT id FROM party_party WHERE is_healthprof=True AND \
-            internal_user = %s LIMIT 1', (login_user_id,))
-        partner_id = cursor.fetchone()
-        if partner_id:
-            cursor = Transaction().cursor
-            cursor.execute('SELECT id FROM gnuhealth_healthprofessional WHERE \
-                name = %s LIMIT 1', (partner_id[0],))
-            doctor_id = cursor.fetchone()
-            return int(doctor_id[0])
+        pool = Pool()
+        HealthProf= pool.get('gnuhealth.healthprofessional')
+        hp = HealthProf.get_health_professional()
+        return hp
 
     @classmethod
     def create(cls, vlist):
