@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.2.0"
+VERSION="3.2.1"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
@@ -471,6 +471,13 @@ relink_mods()
             message "INFO" "--> Relinking : ${mod}"
             ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/local/${mod} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/ || bailout
         done
+
+        # WEBDAV3 ports for GNU Health.
+        message "INFO" "Relinking WebDAV3 related modules"
+        local WEBDAV3="trytond_webdav3"
+        local CALENDAR_WEBDAV3="trytond_calendar_webdav3"
+        ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${WEBDAV3} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/webdav || bailout
+        ln -sf ${GNUHEALTH_DIR}/tryton/server/modules/${CALENDAR_WEBDAV3} ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/trytond/modules/calendar || bailout
 
     fi
 }
