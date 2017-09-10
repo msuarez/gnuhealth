@@ -26,44 +26,29 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
+import requests
 
 
-__all__ = ['Party','FederationNodeConfig']
-
-class Party(ModelSQL, ModelView):
-    __name__ = 'party.party'
-
-    @classmethod
-    def search_rec_name(cls, name, clause):
-        """ Search for the name, lastname, PUID, any alternative IDs,
-            Federation account, and any family and / or 
-            given name from the person_names
-        """
-        if clause[1].startswith('!') or clause[1].startswith('not '):
-            bool_op = 'AND'
-        else:
-            bool_op = 'OR'
-        return [bool_op,
-            ('ref',) + tuple(clause[1:]),
-            ('federation_account',) + tuple(clause[1:]),
-            ('alternative_ids.code',) + tuple(clause[1:]),
-            ('contact_mechanisms.value',) + tuple(clause[1:]),
-            ('person_names.family',) + tuple(clause[1:]),            
-            ('person_names.given',) + tuple(clause[1:]),            
-            ('name',) + tuple(clause[1:]),
-            ('lastname',) + tuple(clause[1:]),
-            ]
+__all__ = ['FederationNodeConfig']
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
     __name__ = 'gnuhealth.federation.config'
 
-    host = fields.Char('Host', required=True, help="Federation HIS server")
-    port = fields.Integer('Port', required=True, help="MongoDB port")
-    database = fields.Char('DB',required=True, help="database name")
-    user = fields.Char('User',required=True, help="User")
-    password = fields.Char('Password', required=True, help="Password")
-    ssl = fields.Boolean('SSL', help="Use encrypted communication via SSL")
+    host = fields.Char('Host', required=True,
+        help="GNU Health Thalamus server")
+    port = fields.Integer('Port', required=True, help="Thalamus port")
+    user = fields.Char('user',required=True,
+        help="Admin associated to this institution")
+    password = fields.Char('Password', required=True,
+        help="Password of the institution admin user in the Federation")
+    ssl = fields.Boolean('SSL',
+        help="Use encrypted communication via SSL")
+    self_signed = fields.Boolean('Self-signed certificate',
+        help="Check it if your SSL certificate have been self-signed")
+    
+    # TODO: Check the associated institution and use as
+    # a default value its id
     
     @staticmethod
     def default_host():
@@ -71,15 +56,11 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
 
     @staticmethod
     def default_port():
-        return 27017
+        return 8443
 
     @staticmethod
     def default_database():
         return 'federation'
-
-    @staticmethod
-    def default_user():
-        return 'gnuhealth'
 
     @classmethod
     def __setup__(cls):
@@ -92,20 +73,28 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     @classmethod
     @ModelView.button
     def test_connection(cls, argvs):
-        
-        host, port, database, user, password, ssl_conn = \
-            argvs[0].host, argvs[0].port, argvs[0].database, \
-            argvs[0].user, argvs[0].password, argvs[0].ssl
-        
+        """ Make the connection test to Thalamus Server
+            from the GNU Health HMIS using the institution 
+            associated admin and the related credentials
+        """
 
-        dbconn = MongoClient(host, port, ssl=ssl_conn, \
-            ssl_cert_reqs=ssl.CERT_NONE)
-
-        db = dbconn[database]
+        host, port, user, password, ssl_conn, self_signed = \
+            argvs[0].host, argvs[0].port,  \
+            argvs[0].user, argvs[0].password, argvs[0].ssl, \
+            argvs[0].self_signed
+        
+        
+        if (ssl_conn):
+            protocol = 'https://'
+        else:
+            protocol = 'http://'
+            
+        url = protocol + host + ':' + port + '/institution' + institution
 
         try:
-            auth = db.authenticate(user, password)
-  
+            conn = requests.get(url,
+                auth=(user, password), verify=self_signed)        
+
         except:
             cls.raise_user_error("ERROR authenticating to Server")
         
