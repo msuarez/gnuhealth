@@ -29,7 +29,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_federation_config">
-            <field name="name">Federation Config</field>
+            <field name="name">GNU Health Federation Node Config</field>
             <field name="res_model">gnuhealth.federation.config</field>
         </record>
 

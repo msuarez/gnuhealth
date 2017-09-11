@@ -283,6 +283,18 @@ class Hospitalizations(Resource):
 
 api.add_resource(Hospitalizations, '/hospitalizations')
 
+# Institutions resource
+class Institutions(Resource):
+    "Health and other institutions"
     
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self):
+        institutions = list(mongo.db.institution.find())
+        return jsonify(institutions)
+
+api.add_resource(Institutions, '/institutions')
+
+
 if __name__ == '__main__':
     app.run()

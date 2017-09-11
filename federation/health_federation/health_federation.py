@@ -35,17 +35,19 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
     __name__ = 'gnuhealth.federation.config'
 
-    host = fields.Char('Host', required=True,
+    host = fields.Char('Thalamus server', required=True,
         help="GNU Health Thalamus server")
     port = fields.Integer('Port', required=True, help="Thalamus port")
-    user = fields.Char('user',required=True,
+    user = fields.Char('User',required=True,
         help="Admin associated to this institution")
     password = fields.Char('Password', required=True,
         help="Password of the institution admin user in the Federation")
     ssl = fields.Boolean('SSL',
         help="Use encrypted communication via SSL")
-    self_signed = fields.Boolean('Self-signed certificate',
-        help="Check it if your SSL certificate have been self-signed")
+    verify_ssl = fields.Boolean('Verify SSL cert',
+        help="Check this option if your certificate has been emitted" \
+            " by a CA authority. If it is a self-signed certifiate" \
+            " leave it unchecked")
     
     # TODO: Check the associated institution and use as
     # a default value its id
@@ -57,6 +59,10 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     @staticmethod
     def default_port():
         return 8443
+
+    @staticmethod
+    def default_verify_ssl():
+        return False
 
     @staticmethod
     def default_database():
@@ -78,10 +84,10 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
             associated admin and the related credentials
         """
 
-        host, port, user, password, ssl_conn, self_signed = \
+        host, port, user, password, ssl_conn, verify_ssl = \
             argvs[0].host, argvs[0].port,  \
             argvs[0].user, argvs[0].password, argvs[0].ssl, \
-            argvs[0].self_signed
+            argvs[0].verify_ssl
         
         
         if (ssl_conn):
@@ -89,14 +95,17 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         else:
             protocol = 'http://'
             
-        url = protocol + host + ':' + port + '/institution' + institution
-
+        url = protocol + host + ':' + str(port) + '/people/' + user
+       
         try:
             conn = requests.get(url,
-                auth=(user, password), verify=self_signed)        
-
+                auth=(user, password), verify=verify_ssl)        
+            
         except:
             cls.raise_user_error("ERROR authenticating to Server")
         
-        if auth:
-            cls.raise_user_error("Connection OK")
+        if conn:
+            cls.raise_user_error("Connection to Thalamus Server OK !")
+
+        else:
+            cls.raise_user_error("ERROR authenticating to Server")

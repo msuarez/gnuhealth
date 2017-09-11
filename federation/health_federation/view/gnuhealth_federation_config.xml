@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <form>
-    <group id="federation_config_header" colspan="4" col="6">
+    <group id="federation_config_header" colspan="4" col="8">
         <label name="host"/>
         <field name="host"/>
         <label name="port"/>
         <field name="port"/>
         <label name="ssl"/>
         <field name="ssl"/>
+        <label name="verify_ssl"/>
+        <field name="verify_ssl"/>
         <newline/>
         <label name="user"/>
         <field name="user"/>
