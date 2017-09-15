@@ -1,3 +1,23 @@
+changeset:   2766:5f2948a685c0
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 15 12:37:15 2017 +0100
+summary:     health: Fix bug #52038: Field history is repeated in the tree view of the prescription line
+
+changeset:   2765:a7f3aa138162
+branch:      stable
+parent:      2760:a7c49354cdad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 14 17:11:11 2017 +0100
+summary:     gnuhealth-setup : Fix bug #52020 Missing bcrypt dependency in gnuhealth-setup
+
+changeset:   2760:a7c49354cdad
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 30 18:32:15 2017 +0100
+summary:     Update gnuhealth-control to 3.2.1
+
 changeset:   2757:acd2d96ef319
 branch:      stable
 parent:      2754:9d0b1f07e41c
