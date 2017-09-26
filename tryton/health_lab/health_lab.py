@@ -120,6 +120,24 @@ class Lab(ModelSQL, ModelView):
     date_analysis = fields.DateTime('Date of the Analysis', select=True)
     request_order = fields.Integer('Request', readonly=True)
 
+    analytes_summary = \
+        fields.Function(fields.Text('Summary'),
+         'get_analytes_summary')
+
+    def get_analytes_summary(self, name):
+            summ = ""
+            for analyte in self.critearea:
+                if analyte.result or analyte.result_text:
+                    res = ""
+                    res_text = ""
+                    if analyte.result_text:
+                        res_text = analyte.result_text
+                    if analyte.result:
+                        res = str(analyte.result) + " "
+                    summ = summ + analyte.rec_name + " "  + \
+                        res +  res_text + "\n"
+            return summ
+
     @classmethod
     def __setup__(cls):
         super(Lab, cls).__setup__()
