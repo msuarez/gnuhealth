@@ -118,7 +118,11 @@
                 <field name="tag"/>
             </group>
         </page>
-        <page string="Mental Status" id="page_patient_evaluation_mental">
+        <page string="Mental" id="page_patient_evaluation_mental">
+            <group string="Psychological Assessment" colspan="4" id="group_psychological_assessment">
+                <field name="psychological_assessment" height="200"/>
+            </group>
+            <newline/>
             <group string="Glasgow Coma Scale" colspan="4" id="group_patient_evaluation_glasgow">
                 <label name="loc"/>
                 <field name="loc"/>

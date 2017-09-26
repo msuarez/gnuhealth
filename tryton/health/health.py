@@ -4502,6 +4502,9 @@ class PatientEvaluation(ModelSQL, ModelView):
         ' for the patient in this evaluation.',
         states = STATES)
 
+    psychological_assessment = fields.Text("Psychological Assessment",
+        states = STATES)
+
     info_diagnosis = fields.Text('Presumptive Diagnosis: Extra Info',
         states = STATES)
     directions = fields.Text('Plan',
