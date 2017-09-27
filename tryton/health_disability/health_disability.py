@@ -505,7 +505,7 @@ class PatientAmputation(ModelSQL, ModelView):
 
 # Patient Protheses Information
 class PatientProthesis(ModelSQL, ModelView):
-    'Amputation'
+    'Prothesis'
     __name__ = 'gnuhealth.patient.prothesis'
     
     patient = fields.Many2One('gnuhealth.patient','Patient', required=True)
