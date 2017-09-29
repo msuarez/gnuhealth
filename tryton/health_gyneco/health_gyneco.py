@@ -21,6 +21,7 @@
 #
 ##############################################################################
 import datetime
+from dateutil.relativedelta import relativedelta
 from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pyson import Eval, Not, Bool, Equal
 from trytond.pool import Pool
@@ -39,9 +40,29 @@ __all__ = ['PatientPregnancy', 'PrenatalEvaluation', 'PuerperiumMonitor',
 class PatientPregnancy(ModelSQL, ModelView):
     'Patient Pregnancy'
     __name__ = 'gnuhealth.patient.pregnancy'
+    
+    # Show paient age at the moment of LMP 
+    def patient_age_at_pregnancy(self, name):
+        if (self.name.dob and self.lmp):
+            rdelta = relativedelta (self.lmp,
+                self.name.dob)
+            years = str(rdelta.years)
+            return years
+        else:
+            return None
 
-    name = fields.Many2One('gnuhealth.patient', 'Patient ID')
+
+    name = fields.Many2One('gnuhealth.patient', 'Patient', 
+        domain=[('name.gender', '=', 'f')])
+        
     gravida = fields.Integer('Pregnancy #', required=True)
+    
+    computed_age = fields.Function(
+        fields.Char(
+            'Age',
+            help="Computed patient age at the moment of LMP"),
+        'patient_age_at_pregnancy')
+
     warning = fields.Boolean('Warn', help='Check this box if this is pregancy'
         ' is or was NOT normal')
     warning_icon = fields.Function(fields.Char('Pregnancy warning icon'), 'get_warn_icon')
@@ -114,6 +135,66 @@ class PatientPregnancy(ModelSQL, ModelView):
     healthprof = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
         help="Health Professional who created this initial obstetric record")
+
+
+    gravidae = fields.Function(fields.Integer('Pregnancies',
+        help="Number of pregnancies, computed from Obstetric history"),
+        'patient_obstetric_info')
+    premature = fields.Function(fields.Integer('Premature',
+     help="Preterm < 37 wks live births"),'patient_obstetric_info')
+     
+    abortions = fields.Function(fields.Integer('Abortions'),
+        'patient_obstetric_info')
+    stillbirths = fields.Function(fields.Integer('Stillbirths'),
+        'patient_obstetric_info')
+
+    blood_type = fields.Function(fields.Selection([
+        (None, ''),
+        ('A', 'A'),
+        ('B', 'B'),
+        ('AB', 'AB'),
+        ('O', 'O'),
+        ], 'Blood Type', sort=False),
+        'patient_blood_info')
+
+    rh = fields.Function(fields.Selection([
+        (None, ''),
+        ('+', '+'),
+        ('-', '-'),
+        ], 'Rh'),
+        'patient_blood_info')
+
+    # Retrieve the info from the patient current GPA status
+    def patient_obstetric_info(self,name):
+        if (name == "gravidae"):
+            return self.name.gravida 
+        if (name == "premature"):
+            return self.name.premature
+        if (name == "abortions"):
+            return self.name.abortions
+        if (name == "stillbirths"):
+            return self.name.stillbirths
+
+    # Retrieve Blood type and Rh
+    def patient_blood_info(self,name):
+        blood_type=""
+        if (name == "blood_type"):
+            return self.name.blood_type 
+        if (name == "rh"):
+            return self.name.rh 
+
+    # Show the values from patient upon entering the history 
+
+    @fields.depends('name')
+    def on_change_name(self):
+        # Obsterics info
+        self.gravidae = self.name.gravida
+        self.premature = self.name.premature
+        self.abortions = self.name.abortions
+        self.stillbirths = self.name.stillbirths
+        # Rh
+        self.blood_type = self.name.blood_type
+        self.rh = self.name.rh
 
     @classmethod
     def __setup__(cls):

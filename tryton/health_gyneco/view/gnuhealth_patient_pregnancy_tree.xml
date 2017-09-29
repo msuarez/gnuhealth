@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <tree>
+    <field name="name"/>
     <field name="gravida"/>
+    <field name="computed_age"/>
     <field name="lmp" expand="1"/>
     <field name="pdd" expand="1"/>
     <field name="current_pregnancy" expand="1"/>

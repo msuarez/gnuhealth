@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <form>
-    <group id="group_pregnancy_header" colspan="4" col="8">
+    <group id="group_pregnancy_header" colspan="4" col="10">
         <label name="name"/>
         <field name="name"/>
         <label name="healthprof"/>
@@ -12,10 +12,27 @@
         <field name="gravida"/>
         <label name="lmp"/>
         <field name="lmp"/>
+        <label name="computed_age"/>
+        <field name="computed_age"/>        
         <label name="pdd"/>
         <field name="pdd"/>
         <label name="current_pregnancy"/>
         <field name="current_pregnancy"/>
+        <newline/>
+        <label name="gravidae"/>
+        <field name="gravidae"/>
+        <label name="premature"/>
+        <field name="premature"/>
+        <label name="abortions"/>
+        <field name="abortions"/>
+        <label name="stillbirths"/>
+        <field name="stillbirths"/>
+        <newline/>
+        <label name="blood_type"/>
+        <field name="blood_type"/>
+        <label name="rh"/>
+        <field name="rh"/>
+        
     </group>
     <newline/>
     <field colspan="4" name="prenatal_evaluations"/>
