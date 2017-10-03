@@ -91,9 +91,10 @@ class CreateServiceInvoice(Wizard):
             invoice_data = {}
             invoice_data['description'] = service.desc
             invoice_data['party'] = party.id
-            invoice_data['type'] = 'out_invoice'
+            invoice_data['type'] = 'out'
             invoice_data['invoice_date'] = datetime.date.today()
             invoice_data['account'] = party.account_receivable.id
+            invoice_data['company'] = service.company.id
 
             ctx = {}
             sale_price_list = None
@@ -156,18 +157,19 @@ class CreateServiceInvoice(Wizard):
                         discount = \
                             self.discount_policy(service.insurance_plan, \
                                 line.product)
-                        
-                        if 'value' in list(discount.keys()):
-                            if discount['value']:
-                                if (discount['type'] == 'pct'):
-                                    unit_price *= (1 - 
-                                        decimal.Decimal(discount['value'])/100)
-                                    
-                                    # Add a remark on the description discount
-                                    str_disc = str(discount['value']) + '%'
-                                    desc = line.desc + " (Discnt " + \
-                                      str (str_disc) + ")"
-                            
+
+                        if discount:
+                            if 'value' in list(discount.keys()):
+                                if discount['value']:
+                                    if (discount['type'] == 'pct'):
+                                        unit_price *= (1 - 
+                                            decimal.Decimal(discount['value'])/100)
+
+                                        # Add a remark on the description discount
+                                        str_disc = str(discount['value']) + '%'
+                                        desc = line.desc + " (Discnt " + \
+                                          str (str_disc) + ")"
+
                     invoice_lines.append(('create', [{
                             'origin': str(line),
                             'product': line.product.id,
