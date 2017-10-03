@@ -81,9 +81,10 @@ class CreateServiceInvoice(Wizard):
             invoice_data = {}
             invoice_data['description'] = service.desc
             invoice_data['party'] = party.id
-            invoice_data['type'] = 'out_invoice'
+            invoice_data['type'] = 'out'
             invoice_data['invoice_date'] = datetime.date.today()
             invoice_data['account'] = party.account_receivable.id
+            invoice_data['company'] = service.company.id
 
             ctx = {}
             sale_price_list = None

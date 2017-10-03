@@ -23,6 +23,7 @@
 ##############################################################################
 import datetime
 from trytond.model import ModelView, ModelSQL, fields, ModelSingleton, Unique
+from trytond.transaction import Transaction
 from trytond.pyson import Eval, Equal
 from trytond.pool import Pool
 
@@ -53,6 +54,7 @@ class HealthService(ModelSQL, ModelView):
             'Patient', required=True,
             states=STATES)
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
+    company = fields.Many2One('company.company', 'Company')
 
     service_date = fields.Date('Date')
     service_line = fields.One2Many('gnuhealth.health_service.line',
@@ -83,6 +85,10 @@ class HealthService(ModelSQL, ModelView):
     @staticmethod
     def default_state():
         return 'draft'
+
+    @staticmethod
+    def default_company():
+        return Transaction().context.get('company')
 
     @staticmethod
     def default_service_date():
