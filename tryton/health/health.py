@@ -2680,6 +2680,26 @@ class PatientData(ModelSQL, ModelView):
         ('-', '-'),
         ], 'Rh')
 
+    hb = fields.Selection([
+        (None, ''),
+        ('aa', 'AA'),
+        ('as', 'AS'),
+        ('ss', 'SS'),
+        ('sc', 'SC'),
+        ('cc', 'CC'),
+        ('athal', 'A-THAL'),
+        ('bthal', 'B-THAL'),
+        ], 'Hb',
+        help="Clinically relevant Hemoglobin types\n" \
+            "AA = Normal Hemoglobin\n"
+            "AS = Sickle Cell Trait\n"
+            "SS = Sickle Cell Anemia\n"
+            "AC = Sickle Cell Hemoglobin C Disease\n"
+            "CC = Hemoglobin C Disease\n"
+            "A-THAL = A Thalassemia groups\n"
+            "B-THAL = B Thalassemia groups\n"
+        )
+
     # Removed in 2.0 . ETHNIC GROUP is on the party model now
 
     # ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')

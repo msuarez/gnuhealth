@@ -163,6 +163,15 @@ class PatientPregnancy(ModelSQL, ModelView):
         ('-', '-'),
         ], 'Rh'),
         'patient_blood_info')
+    
+    hb = fields.Function(fields.Selection([
+        (None, ''),
+        ('aa', 'AA'),
+        ('as', 'AS'),
+        ('ss', 'SS'),
+        ], 'Hb'),
+        'patient_blood_info')
+
 
     # Retrieve the info from the patient current GPA status
     def patient_obstetric_info(self,name):
@@ -175,13 +184,16 @@ class PatientPregnancy(ModelSQL, ModelView):
         if (name == "stillbirths"):
             return self.name.stillbirths
 
-    # Retrieve Blood type and Rh
+    # Retrieve Blood type and Rh and Hemoglobin
     def patient_blood_info(self,name):
         blood_type=""
         if (name == "blood_type"):
             return self.name.blood_type 
         if (name == "rh"):
             return self.name.rh 
+        if (name == "hb"):
+            return self.name.hb 
+
 
     # Show the values from patient upon entering the history 
 
@@ -195,6 +207,9 @@ class PatientPregnancy(ModelSQL, ModelView):
         # Rh
         self.blood_type = self.name.blood_type
         self.rh = self.name.rh
+        #Hb
+        self.hb = self.name.hb
+        
 
     @classmethod
     def __setup__(cls):
@@ -321,6 +336,14 @@ class PrenatalEvaluation(ModelSQL, ModelView):
     polihydramnios = fields.Boolean('Polihydramnios')
     iugr = fields.Boolean('IUGR', help="Intra Uterine Growth Restriction")
 
+    urinary_activity_signs = fields.Boolean("SUA", 
+        help="Signs of Urinary System Activity")
+
+    digestive_activity_signs = fields.Boolean("SDA", 
+        help="Signs of Digestive Systen Activity")
+         
+    notes = fields.Text("Notes")
+    
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
 
     healthprof = fields.Many2One(

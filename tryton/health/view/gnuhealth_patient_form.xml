@@ -40,7 +40,7 @@
                         <field height="100" name="general_info"/>
                     </group>
                     <newline/>
-                    <group colspan="4" col="12" id="patient_info_2">
+                    <group colspan="4" col="14" id="patient_info_2">
                         <label name="dob"/>
                         <field name="dob"/>
                         <label name="puid"/>
@@ -49,6 +49,8 @@
                         <label name="blood_type"/>
                         <field name="blood_type"/>
                         <field name="rh"/>
+                        <label name="hb"/>
+                        <field name="hb"/>
                         <label name="active"/>
                         <field name="active"/>
                     </group>
