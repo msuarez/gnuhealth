@@ -1,6 +1,25 @@
-changeset:   2766:5f2948a685c0
+changeset:   2782:4a1592c9173e
 branch:      stable
 tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 03 19:28:52 2017 +0100
+summary:     health_services: Fix bug #52160: Issues related to invoice type and domain when creating the service invoice
+
+changeset:   2781:94707bbefed3
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 27 15:53:14 2017 +0100
+summary:     health_disability : Rename anf fix  Amputation model description from Amputation to Prothesis
+
+changeset:   2780:d9e0d993db9b
+branch:      stable
+parent:      2768:d95031fa24a8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 23 06:03:33 2017 +0100
+summary:     health : Prescription report . Include duration frequency selections strings for translation. Update conditional op. to Python3 (!=)
+
+changeset:   2766:5f2948a685c0
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Sep 15 12:37:15 2017 +0100
 summary:     health: Fix bug #52038: Field history is repeated in the tree view of the prescription line
