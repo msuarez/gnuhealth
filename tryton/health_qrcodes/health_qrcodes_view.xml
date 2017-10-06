@@ -23,5 +23,12 @@
             <field name="name">lab_form</field>
         </record>
 
+<!-- APPOINTMENT -->
+        <record model="ir.ui.view" id="gnuhealth_appointment_form">
+            <field name="model">gnuhealth.appointment</field>
+            <field name="inherit" ref="health.gnuhealth_appointment_form"/>
+            <field name="name">gnuhealth_appointment</field>
+        </record>
+
     </data>
 </tryton>
