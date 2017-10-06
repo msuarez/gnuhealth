@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data>
+    <xpath expr="//field[@name=&quot;comments&quot;]" position="after">
+        <newline/>
+        <group id="group_qr">
+            <field xfill="0" xexpand="1" name="qr" widget="image"/>
+        </group>
+    </xpath>
+</data>

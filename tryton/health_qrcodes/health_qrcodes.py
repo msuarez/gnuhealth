@@ -93,6 +93,7 @@ class Appointment(ModelSQL, ModelView):
 
         appointment_healthprof = ''
         appointment_speciality = ''
+        appointment_date = ''
         
         appointment = self.name or ''
 
@@ -101,17 +102,18 @@ class Appointment(ModelSQL, ModelView):
 
         appointment_patient = self.patient.rec_name or ''
 
-        appointment_date = str(self.appointment_date) or ''
+        if (self.appointment_date):
+            appointment_date = str(self.appointment_date)
 
         if (self.speciality):
             appointment_speciality = str(self.speciality.rec_name) or ''
 
-        qr_string = 'ID: ' + appointment \
+        qr_string = 'ID: ' + self.name or '' \
             + '\nName: ' + appointment_patient \
-            + '\nPUID: ' + appointment_patient.ref \
-            + '\nSpecialty: ' + appointment_speciality \
-            + '\nhealth Prof: ' + appointment_healthprof \
-            + '\nDate: ' + appointment_date 
+            + '\nPUID: ' + self.patient.puid or ''\
+            + '\nSpecialty: ' + appointment.speciality or ''\
+            + '\nhealth Prof: ' + appointment_healthprof or ''\
+            + '\nDate: ' + appointment_date or ''
         
         qr_image = qrcode.make(qr_string)
          
