@@ -1,6 +1,13 @@
-changeset:   2782:4a1592c9173e
+changeset:   2786:93201a27bc44
 branch:      stable
 tag:         tip
+parent:      2784:4234c966f3e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 06 16:42:40 2017 +0100
+summary:     health, health_qrcodes : Fix bug #52179: Traceback due to obsolete unicode method in reports
+
+changeset:   2782:4a1592c9173e
+branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
 date:        Tue Oct 03 19:28:52 2017 +0100
 summary:     health_services: Fix bug #52160: Issues related to invoice type and domain when creating the service invoice
