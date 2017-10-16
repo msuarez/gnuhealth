@@ -48,5 +48,12 @@
         <field name="fetal_ac"/>
         <label name="fetal_fl"/>
         <field name="fetal_fl"/>
+        <label name="urinary_activity_signs"/>
+        <field name="urinary_activity_signs"/>
+        <label name="digestive_activity_signs"/>
+        <field name="digestive_activity_signs"/>
     </group>
+    <newline/>
+    <field name="notes" colspan="4" xfill="1" xexpand="1"/>
+
 </form>
