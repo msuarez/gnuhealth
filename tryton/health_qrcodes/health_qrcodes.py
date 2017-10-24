@@ -92,26 +92,32 @@ class Appointment(ModelSQL, ModelView):
     # Create the QR code
 
         appointment_healthprof = ''
-        appointment_speciality = ''
+        appointment_patient = ''
+        patient_puid = ''
+        appointment_specialty = ''
         appointment_date = ''
+        appointment = ''
         
-        appointment = self.name or ''
+        if (self.name):
+            appointment = self.name
 
         if (self.healthprof):
             appointment_healthprof = str(self.healthprof.rec_name) or ''
 
-        appointment_patient = self.patient.rec_name or ''
-
+        if (self.patient):
+            appointment_patient = self.patient.rec_name or ''
+            patient_puid = self.patient.puid
+            
         if (self.appointment_date):
             appointment_date = str(self.appointment_date)
 
         if (self.speciality):
-            appointment_speciality = str(self.speciality.rec_name) or ''
+            appointment_specialty = str(self.speciality.rec_name) or ''
 
-        qr_string = 'ID: ' + self.name or '' \
+        qr_string = 'ID: ' + appointment \
             + '\nName: ' + appointment_patient \
-            + '\nPUID: ' + self.patient.puid or ''\
-            + '\nSpecialty: ' + appointment.speciality or ''\
+            + '\nPUID: ' + patient_puid \
+            + '\nSpecialty: ' + appointment_specialty \
             + '\nhealth Prof: ' + appointment_healthprof or ''\
             + '\nDate: ' + appointment_date or ''
         
