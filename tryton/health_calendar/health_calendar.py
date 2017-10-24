@@ -113,6 +113,9 @@ class Appointment(metaclass=PoolMeta):
                     if appointment.healthprof:
                         if appointment.healthprof.name.internal_user.calendar:
                             patient = Patient(values['patient'])
+                            comments = ''
+                            if 'comments' in values:
+                                comments = values['comments']
                             events = Event.create([{
                                 'dtstart': appointment.appointment_date,
                                 'dtend': appointment.appointment_date_end,
@@ -120,7 +123,7 @@ class Appointment(metaclass=PoolMeta):
                                     appointment.healthprof.name.internal_user.calendar.id,
                                 'summary':
                                     patient.name.rec_name,
-                                'description': values['comments'],
+                                'description': comments,
                                 }])
                             values['event'] = events[0].id
         return super(Appointment, cls).write(appointments, values)
