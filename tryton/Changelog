@@ -1,6 +1,25 @@
+changeset:   2793:41e2be2f62cc
+branch:      stable
+parent:      2790:eb3891af4c21
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 27 20:40:18 2017 +0100
+summary:     fix bug #52298: Traceback generating an invoice from service with an insurance policy plan
+
+changeset:   2790:eb3891af4c21
+branch:      stable
+parent:      2787:1e554137dbec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 24 18:34:21 2017 +0100
+summary:     Fix bug #52275: Traceback when creating a free slot in appointments or work schedule
+
+changeset:   2787:1e554137dbec
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 07 17:40:46 2017 +0100
+summary:     all : Update to 3.2.5
+
 changeset:   2786:93201a27bc44
 branch:      stable
-tag:         tip
 parent:      2784:4234c966f3e3
 user:        Luis Falcon <falcon@gnu.org>
 date:        Fri Oct 06 16:42:40 2017 +0100
