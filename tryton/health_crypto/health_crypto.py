@@ -446,7 +446,7 @@ class DeathCertificate(ModelSQL, ModelView):
                 ''' Return true if the document has been altered'''
                 result = True
         if (name=='digest_current'):
-            result = HealthCrypto().gen_hash(serial_doc.encode('uft-8'))
+            result = HealthCrypto().gen_hash(serial_doc)
 
         if (name=='serializer_current'):
             result = serial_doc
