@@ -44,10 +44,10 @@ requires.append(get_require_version('trytond'))
 
 setup(name=name,
     version=version,
-    description='CalDAV module for Tryton Python3',
+    description='CalDAV module for GNU Health and Python3',
     long_description=read('README'),
-    author='Tryton - Ported by GNU Health team',
-    maintainer='GNU Health team',
+    author='GNU Solidario',
+    maintainer='GNU Solidario',
     maintainer_email='health@gnusolidario.org',
     url='http://health.gnu.org',
     keywords='tryton GNUHealth calendar caldav',
