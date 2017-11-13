@@ -48,9 +48,9 @@ if minor_version % 2:
 
 setup(name=name,
     version=version,
-    description='Tryton WebDAV server for Python 3',
+    description='GNU Health WebDAV server for Python 3',
     long_description=read('README'),
-    author='Tryton',
+    author='GNU Solidario',
     keywords='tryton webdav',
     package_dir={'trytond.modules.webdav': '.'},
     packages=[
