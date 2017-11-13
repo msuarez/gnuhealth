@@ -51,7 +51,7 @@ setup(name=name,
     description='GNU Health WebDAV server for Python 3',
     long_description=read('README'),
     author='GNU Solidario',
-    keywords='tryton webdav',
+    keywords='webdav GNUHealth',
     package_dir={'trytond.modules.webdav': '.'},
     packages=[
         'trytond.modules.webdav',
