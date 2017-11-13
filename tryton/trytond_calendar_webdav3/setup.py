@@ -50,7 +50,7 @@ setup(name=name,
     maintainer='GNU Solidario',
     maintainer_email='health@gnusolidario.org',
     url='http://health.gnu.org',
-    keywords='tryton GNUHealth calendar caldav',
+    keywords='GNUHealth calendar caldav',
     package_dir={'trytond.modules.calendar': '.'},
     packages=[
         'trytond.modules.calendar',
