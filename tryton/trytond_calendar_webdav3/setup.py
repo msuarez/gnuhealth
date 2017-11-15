@@ -35,10 +35,11 @@ if minor_version % 2:
     version = '%s.%s.dev0' % (major_version, minor_version)
 
 requires = ['vobject >= 0.8.0', 'PyWebDAV3-GNUHealth >= 0.10.1', 
-    'python-dateutil', 'pytz', 'python-sql >= 0.4']
+    'python-dateutil', 'pytz', 'python-sql >= 0.4',
+    'trytond_webdav3']
     
 for dep in info.get('depends', []):
-    if not re.match(r'(ir|res)(\W|$)', dep):
+    if not re.match(r'(ir|res|webdav)(\W|$)', dep):
         requires.append(get_require_version('trytond_%s' % dep))
 requires.append(get_require_version('trytond'))
 
@@ -47,9 +48,9 @@ setup(name=name,
     description='CalDAV module for GNU Health and Python3',
     long_description=read('README'),
     author='GNU Solidario',
-    maintainer='GNU Solidario',
-    maintainer_email='health@gnusolidario.org',
+    author_email='health@gnusolidario.org',
     url='http://health.gnu.org',
+    download_url='http://ftp.gnu.org/gnu/health/',
     keywords='GNUHealth calendar caldav',
     package_dir={'trytond.modules.calendar': '.'},
     packages=[
