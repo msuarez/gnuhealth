@@ -1,3 +1,29 @@
+changeset:   2801:75bd85d99589
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 14:00:41 2017 +0000
+summary:     remove lingering egg-info dirs from webdav3
+
+changeset:   2800:8e38ccb0b63d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:48:14 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Remove tryton from keywords
+
+changeset:   2799:27662b57388d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:41:02 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Update descriptions
+
+changeset:   2798:7e1be40f2edb
+branch:      stable
+parent:      2795:e0b3df7c45c8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 08 13:46:58 2017 +0000
+summary:     health_crypto. Fix bug #52366: Error when signing the death certificate
+
 changeset:   2793:41e2be2f62cc
 branch:      stable
 parent:      2790:eb3891af4c21
