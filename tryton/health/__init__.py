@@ -76,6 +76,7 @@ def register():
         AlternativePersonID,
         Product,
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         PatientData,
         PatientDiseaseInfo,
         Appointment,

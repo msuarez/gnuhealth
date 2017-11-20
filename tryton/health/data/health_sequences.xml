@@ -16,12 +16,7 @@
             <field name="number_increment" eval="1"/>
         </record>
 
-        <record model="ir.property" id="property_patient_evaluation_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'patient_evaluation_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_patient_evaluation'))"/>
-        </record>
-
+        
 <!-- Sequences for Prescriptions -->
 
         <record id="seq_type_gnuhealth_prescription" model="ir.sequence.type">
@@ -34,12 +29,6 @@
             <field name="prefix">PRES ${year}/</field>
             <field name="padding">6</field>
             <field name="number_increment" eval="1"/>
-        </record>
-
-        <record model="ir.property" id="property_prescription_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'prescription_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_prescription'))"/>
         </record>
 
 <!-- Sequences for Appointments -->
@@ -55,12 +44,7 @@
             <field eval="0" name="padding"/>
         </record>
 
-        <record model="ir.property" id="property_appointment_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'appointment_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_appointment'))"/>
-        </record>
-
+        
 <!-- Sequences for Patient -->
 
         <record id="seq_type_gnuhealth_patient" model="ir.sequence.type">
@@ -73,12 +57,6 @@
             <field name="prefix">PAC</field>
             <field name="padding">3</field>
         </record>
-
-        <record model="ir.property" id="property_party_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'patient_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_patient'))"/>
-        </record>
-
+        
     </data>
 </tryton>

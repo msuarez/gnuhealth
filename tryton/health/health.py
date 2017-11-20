@@ -36,7 +36,8 @@ except ImportError:
 from sql import Literal, Join, Table, Null
 from sql.functions import Overlay, Position
 
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
+from trytond.model import ModelView, ModelSingleton, ModelSQL, \
+    ValueMixin, fields, Unique
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
@@ -44,6 +45,8 @@ from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond.pool import Pool
 from trytond.tools import grouped_slice, reduce_ids
 from trytond.backend import name as backend_name
+from trytond.tools.multivalue import migrate_property
+
 
 from uuid import uuid4
 import string
@@ -65,7 +68,7 @@ __all__ = [
     'Pathology', 'DiseaseMembers', 'ProcedureCode', 
     'BirthCertExtraInfo','DeathCertExtraInfo', 'DeathUnderlyingCondition',
     'InsurancePlan', 'Insurance', 'AlternativePersonID',
-    'Product', 'GnuHealthSequences', 'PatientData', 
+    'Product', 'GnuHealthSequences', 'GnuHealthSequenceSetup','PatientData', 
     'PatientDiseaseInfo','Appointment', 'AppointmentReport',
     'OpenAppointmentReportStart', 'OpenAppointmentReport',
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
@@ -73,6 +76,9 @@ __all__ = [
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'PatientECG', 'ProductTemplate']
 
+
+sequences = ['patient_sequence', 'patient_evaluation_sequence',
+            'appointment_sequence', 'prescription_sequence']
 
 def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
     """ Get the person's age.
@@ -123,7 +129,9 @@ def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
 
     else:
         return None
-        
+
+
+
 
 class DomiciliaryUnit(ModelSQL, ModelView):
     'Domiciliary Unit'
@@ -2526,25 +2534,131 @@ class Product(ModelSQL, ModelView):
 
 
 # GNU HEALTH SEQUENCES
-class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView, ValueMixin):
     'Standard Sequences for GNU Health'
     __name__ = 'gnuhealth.sequences'
 
-    patient_sequence = fields.Property(fields.Many2One(
+    patient_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Patient Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.patient')]))
 
-    patient_evaluation_sequence = fields.Property(fields.Many2One(
+    patient_evaluation_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Patient Evaluation Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.patient.evaluation')]))
-
-    appointment_sequence = fields.Property(fields.Many2One(
+    
+    appointment_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Appointment Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.appointment')]))
 
-    prescription_sequence = fields.Property(fields.Many2One(
+    prescription_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Prescription Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.prescription.order')]))
+
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_patient_sequence(cls):
+        return cls.multivalue_model(
+            'patient_sequence').default_patient_sequence()
+
+
+    @classmethod
+    def default_patient_evaluation_sequence(cls):
+        return cls.multivalue_model(
+            'patient_evaluation_sequence').default_patient_evaluation_sequence()
+
+    @classmethod
+    def default_appointment_sequence(cls):
+        return cls.multivalue_model(
+            'appointment_sequence').default_appointment_sequence()
+
+    @classmethod
+    def default_prescription_sequence(cls):
+        return cls.multivalue_model(
+            'prescription_sequence').default_prescription_sequence()
+
+
+    
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    "GNU Health Sequence Setup"
+    __name__ = 'gnuhealth.sequence.setup'
+
+    patient_sequence = fields.Many2One('ir.sequence', 'Patient Sequence',
+        required=True,
+        domain=[('code', '=', 'gnuhealth.patient')])
+
+
+    patient_evaluation_sequence = fields.Many2One('ir.sequence',
+        'Patient Evaluation Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.evaluation')])
+
+    
+    appointment_sequence = fields.Many2One('ir.sequence', 
+        'Appointment Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.appointment')])
+
+    prescription_sequence = fields.Many2One('ir.sequence',
+        'Prescription Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.prescription.order')])
+    
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_property([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_patient_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health', 'seq_gnuhealth_patient')
+
+    @classmethod
+    def default_patient_evaluation_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health', 'seq_gnuhealth_patient_evaluation')
+
+    @classmethod
+    def default_appointment_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health', 'seq_gnuhealth_appointment')
+
+    @classmethod
+    def default_prescription_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health', 'seq_gnuhealth_prescription')
+
+
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.PROPERTY
+
 
 
 # PATIENT GENERAL INFORMATION
