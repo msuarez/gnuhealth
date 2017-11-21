@@ -21,34 +21,116 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
+from trytond.model import ModelView, ModelSingleton, ModelSQL, \
+    ValueMixin, fields, Unique
 from trytond.transaction import Transaction
 from trytond.tools import grouped_slice, reduce_ids
 from sql import Literal, Table
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, And, Equal, Or
 from trytond import backend
+from trytond.tools.multivalue import migrate_property
+
 import pytz
 
 
-__all__ = ['InpatientSequences', 'DietTherapeutic','InpatientRegistration', 
+
+__all__ = ['GnuHealthSequences', 'GnuHealthSequenceSetup',
+    'DietTherapeutic','InpatientRegistration', 
     'BedTransfer', 'Appointment', 'PatientEvaluation', 'PatientData',
     'InpatientMedication', 'InpatientMedicationAdminTimes',
     'InpatientMedicationLog', 'InpatientDiet', 'InpatientMeal',
     'InpatientMealOrder','InpatientMealOrderItem', 'ECG']
 
 
-class InpatientSequences(ModelSingleton, ModelSQL, ModelView):
-    "Inpatient Registration Sequences for GNU Health"
-    __name__ = "gnuhealth.sequences"
+sequences = ['inpatient_registration_sequence',
+            'inpatient_meal_order_sequence']
 
-    inpatient_registration_sequence = fields.Property(fields.Many2One(
+
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView, ValueMixin):
+    'GNU Health Sequences'
+    __name__ = 'gnuhealth.sequences'
+
+    inpatient_registration_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Inpatient Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.inpatient.registration')]))
 
-    inpatient_meal_order_sequence = fields.Property(fields.Many2One(
+    inpatient_meal_order_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Inpatient Meal Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.inpatient.meal.order')]))
+
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_inpatient_registration_sequence(cls):
+        return cls.multivalue_model(
+            'inpatient_registration_sequence').default_inpatient_registration_sequence()
+
+
+    @classmethod
+    def default_inpatient_meal_order_sequence(cls):
+        return cls.multivalue_model(
+            'inpatient_meal_order_sequence').default_inpatient_meal_order_sequence()
+
+    
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    inpatient_registration_sequence = fields.Many2One('ir.sequence', 
+        'Inpatient Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.inpatient.registration')])
+
+
+    inpatient_meal_order_sequence = fields.Many2One('ir.sequence',
+        'Inpatient Meal Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.inpatient.meal.order')])
+
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_property([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_inpatient_registration_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_inpatient', 'seq_gnuhealth_inpatient_registration')
+
+    @classmethod
+    def default_inpatient_meal_order_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_inpatient', 'seq_gnuhealth_inpatient_meal_order')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.PROPERTY
+
+
 
 
 # Therapeutic Diet types

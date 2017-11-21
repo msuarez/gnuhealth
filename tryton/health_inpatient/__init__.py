@@ -28,7 +28,8 @@ from .wizard import *
 
 def register():
     Pool.register(
-        InpatientSequences,
+        GnuHealthSequences,
+        GnuHealthSequenceSetup,
         DietTherapeutic,
         InpatientRegistration,
         BedTransfer,
