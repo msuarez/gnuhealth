@@ -16,11 +16,5 @@
             <field name="padding">5</field>
         </record>
 
-        <record model="ir.property" id="property_support_request_code_sequence">
-            <field name="field" 
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'support_request_code_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_support_request_code'))"/>
-        </record>
-
     </data>
 </tryton>

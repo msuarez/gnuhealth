@@ -26,6 +26,7 @@ from .health_ems import *
 def register():
     Pool.register(
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         Ambulance,
         SupportRequest,
         AmbulanceSupport,
