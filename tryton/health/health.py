@@ -2940,8 +2940,9 @@ class PatientData(ModelSQL, ModelView):
     def on_change_name(self):
         gender=None
         age=None
-        self.gender = self.name.gender
-        self.age = self.name.age
+        if (self.name):
+            self.gender = self.name.gender
+            self.age = self.name.age
 
 
     @classmethod
