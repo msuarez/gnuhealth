@@ -4659,11 +4659,12 @@ class PatientEvaluation(ModelSQL, ModelView):
     def on_change_with_whr(self):
         waist = self.abdominal_circ
         hip = self.hip
-        if (hip > 0):
-            whr = round((waist / hip),2)
-        else:
-            whr = 0
-        return whr
+        if waist and hip:
+            if (hip > 0):
+                whr = round((waist / hip),2)
+            else:
+                whr = 0
+            return whr
 
     def get_rec_name(self, name):
         return str(self.evaluation_start)
