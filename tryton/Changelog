@@ -1,6 +1,24 @@
+changeset:   2819:086b1b7aba01
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:37:31 2017 +0000
+summary:     Fix bug #52580: Removing the patient field before saving the record generates an error
+
+changeset:   2818:9bc93b909d82
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:23:44 2017 +0000
+summary:     fix bug #52579: some on_change numeric method operations generate traceback
+
+changeset:   2817:206182f73a91
+branch:      stable
+parent:      2811:5b6f5ed0a7b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 02 20:44:41 2017 +0000
+summary:     Fix bug #52578: WHR should be on the same line as hip and waist fields
+
 changeset:   2801:75bd85d99589
 branch:      stable
-tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
 date:        Mon Nov 13 14:00:41 2017 +0000
 summary:     remove lingering egg-info dirs from webdav3
