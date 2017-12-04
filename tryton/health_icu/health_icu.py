@@ -296,10 +296,10 @@ class ApacheII(ModelSQL, ModelView):
 
         # FIO2
         if (self.fio2):
-            # If Fi02 is greater than 0.5, we measure the AaDO2 gradient
+            # If FiO2 is greater than 0.5, we measure the AaDO2 gradient
             # Otherwise, we take into account the Pa02 value
 
-            if (self.fio2 >= 0.5):
+            if (self.aado2 and self.fio2 >= 0.5):
                 if (self.aado2 >= 200 and self.aado2 < 350):
                     total = total + 2
 
@@ -310,14 +310,15 @@ class ApacheII(ModelSQL, ModelView):
                     total = total + 4
 
             else:
-                if (self.pao2 >= 61 and self.pao2 < 71):
-                    total = total + 1
+                if (self.pao2):
+                    if (self.pao2 >= 61 and self.pao2 < 71):
+                        total = total + 1
 
-                elif (self.pao2 >= 55 and self.pao2 < 61):
-                    total = total + 3
+                    elif (self.pao2 >= 55 and self.pao2 < 61):
+                        total = total + 3
 
-                elif (self.pao2 < 55):
-                    total = total + 4
+                    elif (self.pao2 < 55):
+                        total = total + 4
 
         # Arterial pH
         if (self.ph):
