@@ -2,7 +2,10 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
+#    MODULE : Diagnostic Imaging
+#
 #    Copyright (C) 2008-2017 Luis Falcon <lfalcon@gnu.org>
+#    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2013  Sebastián Marro <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -20,33 +23,106 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import Workflow, ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import Workflow, ModelView, ModelSingleton, ModelSQL, \
+    fields, ValueMixin
 from trytond.pyson import Eval
 from trytond.pool import Pool
+from trytond import backend
+from trytond.tools.multivalue import migrate_property
 
 
 __all__ = [
-    'GnuHealthSequences', 'ImagingTestType', 'ImagingTest',
-    'ImagingTestRequest', 'ImagingTestResult']
+    'GnuHealthSequences', 'GnuHealthSequenceSetup','ImagingTestType', 
+    'ImagingTest', 'ImagingTestRequest', 'ImagingTestResult']
+
+sequences = ['imaging_request_sequence', 'imaging_sequence']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
-    "Standard Sequences for GNU Health"
+    "GNU Health Sequences"
     __name__ = "gnuhealth.sequences"
 
-    imaging_request_sequence = fields.Property(
+    imaging_request_sequence = fields.MultiValue(
         fields.Many2One(
             'ir.sequence',
             'Imaging Request Sequence',
             domain=[('code', '=', 'gnuhealth.imaging.test.request')],
             required=True))
 
-    imaging_sequence = fields.Property(
+    imaging_sequence = fields.MultiValue(
         fields.Many2One(
             'ir.sequence',
             'Imaging Sequence',
             domain=[('code', '=', 'gnuhealth.imaging.test.result')],
             required=True))
+
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_imaging_request_sequence(cls):
+        return cls.multivalue_model(
+            'imaging_request_sequence').default_imaging_request_sequence()
+
+    @classmethod
+    def default_imaging_sequence(cls):
+        return cls.multivalue_model(
+            'imaging_sequence').default_imaging_sequence()
+
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    imaging_request_sequence = fields.Many2One('ir.sequence', 
+        'Imaging Request Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.imaging.test.request')])
+
+
+    imaging_sequence = fields.Many2One('ir.sequence', 
+        'Imaging Result Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.imaging.test.result')])
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_property([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_imaging_request_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_imaging', 'seq_type_gnuhealth_imaging_test_request')
+
+    @classmethod
+    def default_imaging_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_imaging', 'seq_type_gnuhealth_imaging_test')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.PROPERTY
 
 
 class ImagingTestType(ModelSQL, ModelView):

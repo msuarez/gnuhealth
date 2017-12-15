@@ -14,12 +14,6 @@
             <field name="padding">3</field>
         </record>
 
-        <record model="ir.property" id="property_imaging_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'imaging_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_imaging_test'))"/>
-        </record>
-
         <!-- Sequences for imaging request -->
         <record id="seq_type_gnuhealth_imaging_test_request" model="ir.sequence.type">
             <field name="name">Imaging Test Request</field>
@@ -29,12 +23,6 @@
             <field name="name">Imaging Test Request</field>
             <field name="code">gnuhealth.imaging.test.request</field>
             <field name="padding">3</field>
-        </record>
-
-        <record model="ir.property" id="property_imaging_request_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'imaging_request_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_imaging_test_request'))"/>
         </record>
 
     </data>

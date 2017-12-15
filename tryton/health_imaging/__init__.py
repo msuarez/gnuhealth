@@ -30,6 +30,7 @@ from .wizard import *
 def register():
     Pool.register(
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         ImagingTestType,
         ImagingTest,
         ImagingTestRequest,
