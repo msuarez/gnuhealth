@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1"?>
 <tryton>
     <data noupdate="0">
 
@@ -8,72 +8,72 @@
 
         <record id="product_template_semenanalysischarges0" model="product.template">
             <field name="name">Semen Analysis Charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_bloodcounttestcharges0" model="product.template">
             <field name="name">Blood count test charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_liverfunctiontestcharges0" model="product.template">
             <field name="name">Liver Function test charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_stoolexaminationcharges0" model="product.template">
             <field name="name">Stool Examination Charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_renalfunctiontestcharges0" model="product.template">
             <field name="name">Renal Function test charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_haematologycharges0" model="product.template">
             <field name="name">Haematology Charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_peripheralsmearexaminationcharges0" model="product.template">
             <field name="name">Peripheral Smear Examination Charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_urineanalysischarges0" model="product.template">
             <field name="name">Urine Analysis charges</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
 
         <record id="product_template_endocrinology0" model="product.template">
             <field name="name">Endocrinology</field>
-            <field eval="1.0" name="list_price"/>
-            <field eval="0.0" name="cost_price"/>
+            <field eval="1" name="list_price"/>
+            <field eval="0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
         </record>
@@ -322,9 +322,9 @@
             <field eval="&quot;&quot;&quot;Follicular Phase   : 3.0-12.0
 Midcycle              : 8.0-22.0
 Luteal phase        : 2.0-12.0
-Post menopausal : 35.0-151.0 &quot;&quot;&quot;" name="normal_range"/>
+Post menopausal : 35.0-151 &quot;&quot;&quot;" name="normal_range"/>
             <field eval="2.0" name="lower_limit"/>
-            <field eval="151.0" name="upper_limit"/>
+            <field eval="151" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_iul0"/>
         </record>
 
@@ -374,7 +374,7 @@ Post menopausal : 35.0-151.0 &quot;&quot;&quot;" name="normal_range"/>
             <field eval="&quot;&quot;&quot;HGB&quot;&quot;&quot;" name="name"/>
             <field eval="1" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
-            <field eval="&quot;&quot;&quot;11.0-16.0&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="&quot;&quot;&quot;11-16.0&quot;&quot;&quot;" name="normal_range"/>
             <field eval="11" name="lower_limit"/>
             <field eval="16" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_gmdl0"/>
@@ -491,7 +491,7 @@ Post menopausal : 8.2-40.8&quot;&quot;&quot;" name="normal_range"/>
             <field eval="&quot;&quot;&quot;HCT&quot;&quot;&quot;" name="name"/>
             <field eval="3" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
-            <field eval="&quot;&quot;&quot;37.0-50.0&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="&quot;&quot;&quot;37.0-50&quot;&quot;&quot;" name="normal_range"/>
             <field eval="37" name="lower_limit"/>
             <field eval="50" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_0"/>
@@ -626,9 +626,9 @@ Postmenopausal  : 1.5-18.5&quot;&quot;&quot;" name="normal_range"/>
             <field eval="&quot;&quot;&quot;Specific Gravity&quot;&quot;&quot;" name="name"/>
             <field eval="5" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_urineanalysis0"/>
-            <field eval="&quot;&quot;&quot;1.003-1.030&quot;&quot;&quot;" name="normal_range"/>
-            <field eval="1.003" name="lower_limit"/>
-            <field eval="1.030" name="upper_limit"/>
+            <field eval="&quot;&quot;&quot;103-130&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="103" name="lower_limit"/>
+            <field eval="130" name="upper_limit"/>
         </record>
 
         <record id="gnuhealth_test_critearea_testosterone0" model="gnuhealth.lab.test.critearea">
@@ -1033,8 +1033,8 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field eval="&quot;&quot;&quot;BAS&quot;&quot;&quot;" name="name"/>
             <field eval="14" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
-            <field eval="&quot;&quot;&quot;0.0-0.15&quot;&quot;&quot;" name="normal_range"/>
-            <field eval="0.0" name="lower_limit"/>
+            <field eval="&quot;&quot;&quot;0-0.15&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
             <field eval="0.15" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
         </record>
@@ -1043,8 +1043,8 @@ Postmenopause : &lt; 0.8&quot;&quot;&quot;" name="normal_range"/>
             <field eval="&quot;&quot;&quot;EO&quot;&quot;&quot;" name="name"/>
             <field eval="15" name="sequence"/>
             <field name="test_type_id" ref="gnuhealth_test_completebloodcount0"/>
-            <field eval="&quot;&quot;&quot;0.0-0.5&quot;&quot;&quot;" name="normal_range"/>
-            <field eval="0.0" name="lower_limit"/>
+            <field eval="&quot;&quot;&quot;0-0.5&quot;&quot;&quot;" name="normal_range"/>
+            <field eval="0" name="lower_limit"/>
             <field eval="0.5" name="upper_limit"/>
             <field name="units" ref="gnuhealth_lab_test_units_ul1"/>
         </record>

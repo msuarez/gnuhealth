@@ -21,26 +21,100 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, Unique
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, \
+    Unique, ValueMixin
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from trytond import backend
+from trytond.tools.multivalue import migrate_property
 
 
-__all__ = ['GnuHealthSequences', 'PatientData', 'TestType', 'Lab',
+__all__ = ['GnuHealthSequences', 'GnuHealthSequenceSetup',
+    'PatientData', 'TestType', 'Lab',
     'GnuHealthLabTestUnits', 'GnuHealthTestCritearea',
     'GnuHealthPatientLabTest']
 
+sequences = ['lab_sequence', 'lab_request_sequence']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
     __name__ = "gnuhealth.sequences"
 
-    lab_sequence = fields.Property(fields.Many2One('ir.sequence',
+    lab_sequence = fields.MultiValue(fields.Many2One('ir.sequence',
         'Lab Sequence', domain=[('code', '=', 'gnuhealth.lab')],
         required=True))
-    lab_request_sequence = fields.Property(fields.Many2One('ir.sequence',
+    lab_request_sequence = fields.MultiValue(fields.Many2One('ir.sequence',
         'Patient Lab Request Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.patient.lab.test')]))
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_lab_request_sequence(cls):
+        return cls.multivalue_model(
+            'lab_request_sequence').default_lab_request_sequence()
+
+    @classmethod
+    def default_lab_sequence(cls):
+        return cls.multivalue_model(
+            'lab_sequence').default_lab_sequence()
+
+
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    lab_request_sequence = fields.Many2One('ir.sequence', 
+        'Lab Request Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.lab.test')])
+
+
+    lab_sequence = fields.Many2One('ir.sequence', 
+        'Lab Result Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.lab')])
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_MultiValue([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_lab_request_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_lab', 'seq_type_gnuhealth_lab_request')
+
+    @classmethod
+    def default_lab_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_lab', 'seq_type_gnuhealth_lab_test')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
+
 
 
 class PatientData(ModelSQL, ModelView):
