@@ -22,26 +22,81 @@
 ##############################################################################
 import pytz
 from dateutil.relativedelta import relativedelta
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, \
+    ValueMixin
 from datetime import datetime
 from trytond.transaction import Transaction
 from trytond import backend
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
-
-__all__ = ['SurgerySequences', 'RCRI', 'Surgery', 'Operation',
-    'SurgeryMainProcedure','SurgerySupply', 'PatientData', 'SurgeryTeam']
-
+from trytond import backend
+from trytond.tools.multivalue import migrate_property
 
 
-class SurgerySequences(ModelSingleton, ModelSQL, ModelView):
-    "Inpatient Registration Sequences for GNU Health"
+__all__ = ['GnuHealthSequences', 'GnuHealthSequenceSetup','RCRI', 
+    'Surgery', 'Operation', 'SurgeryMainProcedure','SurgerySupply',
+    'PatientData', 'SurgeryTeam']
+
+sequences = ['surgery_code_sequence']
+
+
+class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     __name__ = "gnuhealth.sequences"
 
-    surgery_code_sequence = fields.Property(fields.Many2One(
+    surgery_code_sequence = fields.MultiValue(fields.Many2One(
         'ir.sequence', 'Surgery Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.surgery')]))
 
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_surgery_code_sequence(cls):
+        return cls.multivalue_model(
+            'surgery_code_sequence').default_surgery_code_sequence()
+
+
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    surgery_code_sequence = fields.Many2One('ir.sequence', 
+        'Surgery Code Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.surgery')])
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_MultiValue([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_surgery_code_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_surgery', 'seq_gnuhealth_surgery_code')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
 
 class RCRI(ModelSQL, ModelView):
     'Revised Cardiac Risk Index'

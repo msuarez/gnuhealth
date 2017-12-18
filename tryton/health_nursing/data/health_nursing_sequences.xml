@@ -14,12 +14,6 @@
             <field name="padding">3</field>
         </record>
 
-        <record model="ir.property" id="property_ambulatory_care_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'ambulatory_care_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_ambulatory_care'))"/>
-        </record>
-
         <!-- Sequences for patient_rounding -->
         <record id="seq_type_gnuhealth_patient_rounding" model="ir.sequence.type">
             <field name="name">Patient Rounding</field>
@@ -30,12 +24,6 @@
             <field name="code">gnuhealth.patient_rounding</field>
             <field name="prefix">ROUND ${year}/</field>
             <field name="padding">4</field>
-        </record>
-
-        <record model="ir.property" id="property_patient_rounding_sequence">
-            <field name="field"
-                search="[('model.model', '=', 'gnuhealth.sequences'), ('name', '=', 'patient_rounding_sequence')]"/>
-            <field name="value" eval="'ir.sequence,' + str(ref('seq_gnuhealth_patient_rounding'))"/>
         </record>
 
     </data>

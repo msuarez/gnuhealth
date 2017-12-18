@@ -27,7 +27,8 @@ from .report import *
 
 def register():
     Pool.register(
-		SurgerySequences,
+		GnuHealthSequences,
+        GnuHealthSequenceSetup,
         RCRI,
         Surgery,
         Operation,

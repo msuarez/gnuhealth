@@ -30,6 +30,7 @@ from .invoice import *
 def register():
     Pool.register(
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         HealthService,
         HealthServiceLine,
         CreateServiceInvoiceInit,

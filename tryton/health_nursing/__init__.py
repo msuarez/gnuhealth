@@ -28,6 +28,7 @@ from .health_nursing import *
 def register():
     Pool.register(
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         PatientRounding,
         RoundingProcedure,
         PatientAmbulatoryCare,

@@ -21,30 +21,103 @@
 #
 ##############################################################################
 import pytz
-from trytond.model import ModelView, ModelSQL, ModelSingleton, fields
+from trytond.model import ModelView, ModelSQL, ModelSingleton, fields, \
+    ValueMixin
 from datetime import datetime
 from trytond.pool import Pool
 from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
+from trytond import backend
+from trytond.tools.multivalue import migrate_property
 
 
-__all__ = ['GnuHealthSequences', 'PatientRounding', 'RoundingProcedure',
+__all__ = ['GnuHealthSequences', 'GnuHealthSequenceSetup',
+    'PatientRounding', 'RoundingProcedure',
     'PatientAmbulatoryCare', 'AmbulatoryCareProcedure']
 
+sequences = ['ambulatory_care_sequence', 'patient_rounding_sequence']
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     "Standard Sequences for GNU Health"
     __name__ = "gnuhealth.sequences"
 
-    ambulatory_care_sequence = fields.Property(fields.Many2One('ir.sequence',
+    ambulatory_care_sequence = fields.MultiValue(fields.Many2One('ir.sequence',
         'Health Ambulatory Care', domain=[
             ('code', '=', 'gnuhealth.ambulatory_care')
         ]))
 
-    patient_rounding_sequence = fields.Property(fields.Many2One('ir.sequence',
+    patient_rounding_sequence = fields.MultiValue(fields.Many2One('ir.sequence',
         'Health Rounding', domain=[
             ('code', '=', 'gnuhealth.patient.rounding')
         ]))
+
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+    @classmethod
+    def default_patient_rounding_sequence(cls):
+        return cls.multivalue_model(
+            'patient_rounding_sequence').default_patient_rounding_sequence()
+
+    @classmethod
+    def default_ambulatory_care_sequence(cls):
+        return cls.multivalue_model(
+            'ambulatory_care_sequence').default_ambulatory_care_sequence()
+
+
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    patient_rounding_sequence = fields.Many2One('ir.sequence', 
+        'Patient Rounding Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.rounding')])
+
+
+    ambulatory_care_sequence = fields.Many2One('ir.sequence', 
+        'Ambulatory Care Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.patient.ambulatory_care')])
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_MultiValue([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_patient_rounding_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_nursing', 'seq_gnuhealth_patient_rounding')
+
+    @classmethod
+    def default_ambulatory_care_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_nursing', 'seq_gnuhealth_ambulatory_care')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
+
 
 # Class : PatientRounding
 # Assess the patient and evironment periodically
