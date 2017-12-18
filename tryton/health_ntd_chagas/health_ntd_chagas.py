@@ -21,21 +21,76 @@
 #
 ##############################################################################
 from datetime import datetime
-from trytond.model import ModelView, ModelSingleton, ModelSQL, fields
+from trytond.model import ModelView, ModelSingleton, ModelSQL, fields, \
+    ValueMixin
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.pool import Pool
+from trytond import backend
+from trytond.tools.multivalue import migrate_property
 
 
-__all__ = ['GnuHealthSequences','ChagasDUSurvey']
+__all__ = ['GnuHealthSequences','GnuHealthSequenceSetup','ChagasDUSurvey']
+
+sequences = ['chagas_du_survey_sequence']
 
 
 class GnuHealthSequences(ModelSingleton, ModelSQL, ModelView):
     __name__ = 'gnuhealth.sequences'
 
-    chagas_du_survey_sequence = fields.Property(fields.Many2One('ir.sequence',
+    chagas_du_survey_sequence = fields.MultiValue(fields.Many2One('ir.sequence',
         'Chagas Survey Sequence', required=True,
         domain=[('code', '=', 'gnuhealth.chagas_du_survey')]))
 
+    @classmethod
+    def multivalue_model(cls, field):
+        pool = Pool()
+
+        if field in sequences:
+            return pool.get('gnuhealth.sequence.setup')
+        return super(GnuHealthSequences, cls).multivalue_model(field)
+
+
+    @classmethod
+    def default_chagas_du_survey_sequence(cls):
+        return cls.multivalue_model(
+            'chagas_du_survey_sequence').default_chagas_du_survey_sequence()
+
+
+# SEQUENCE SETUP
+class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
+    'GNU Health Sequences Setup'
+    __name__ = 'gnuhealth.sequence.setup'
+
+    chagas_du_survey_sequence = fields.Many2One('ir.sequence', 
+        'Chagas DU Survey Sequence', required=True,
+        domain=[('code', '=', 'gnuhealth.chagas_du_survey')])
+  
+    @classmethod
+    def __register__(cls, module_name):
+        TableHandler = backend.get('TableHandler')
+        exist = TableHandler.table_exist(cls._table)
+
+        super(GnuHealthSequenceSetup, cls).__register__(module_name)
+
+        if not exist:
+            cls._migrate_MultiValue([], [], [])
+
+    @classmethod
+    def _migrate_property(cls, field_names, value_names, fields):
+        field_names.extend(sequences)
+        value_names.extend(sequences)
+        migrate_property(
+            'gnuhealth.sequences', field_names, cls, value_names,
+            fields=fields)
+
+    @classmethod
+    def default_chagas_du_survey_sequence(cls):
+        pool = Pool()
+        ModelData = pool.get('ir.model.data')
+        return ModelData.get_id(
+            'health_ntd_chagas', 'seq_type_gnuhealth_du_survey')
+    
+# END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
 
 class ChagasDUSurvey(ModelSQL, ModelView):
     'Chagas DU Entomological Survey'
