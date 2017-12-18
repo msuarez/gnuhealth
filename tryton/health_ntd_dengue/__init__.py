@@ -28,4 +28,5 @@ def register():
     Pool.register(
         DengueDUSurvey,
         GnuHealthSequences,
+        GnuHealthSequenceSetup,
         module='health_ntd_dengue', type_='model')

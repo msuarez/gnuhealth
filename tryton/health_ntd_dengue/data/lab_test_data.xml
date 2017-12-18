@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1"?>
 <tryton>
     <data skiptest="1" noupdate="0">
 
@@ -10,7 +10,7 @@
 
         <record id="product_template_dengue_elisa_igm_analysischarges0" model="product.template">
             <field name="name">Dengue ELISA MAC Ig-M Charges</field>
-            <field eval="1.0" name="list_price"/>
+            <field eval="1" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
@@ -47,7 +47,7 @@
 
         <record id="product_template_dengue_elisa_igg_analysischarges0" model="product.template">
             <field name="name">Dengue IgG Charges</field>
-            <field eval="1.0" name="list_price"/>
+            <field eval="1" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
@@ -83,7 +83,7 @@
 
         <record id="product_template_dengue_pcr_analysischarges0" model="product.template">
             <field name="name">Dengue PCR Charges</field>
-            <field eval="1.0" name="list_price"/>
+            <field eval="1" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
@@ -119,7 +119,7 @@
 
         <record id="product_template_dengue_prnt_analysischarges0" model="product.template">
             <field name="name">Dengue PRNT Charges</field>
-            <field eval="1.0" name="list_price"/>
+            <field eval="1" name="list_price"/>
             <field eval="0.0" name="cost_price"/>
             <field name="default_uom" ref="product.uom_unit"/>
             <field name="type">service</field>
