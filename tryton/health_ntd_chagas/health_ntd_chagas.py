@@ -88,7 +88,7 @@ class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_ntd_chagas', 'seq_type_gnuhealth_du_survey')
+            'health_ntd_chagas', 'seq_gnuhealth_du_survey')
     
 # END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
 

@@ -104,14 +104,14 @@ class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_lab', 'seq_type_gnuhealth_lab_request')
+            'health_lab', 'seq_gnuhealth_lab_request')
 
     @classmethod
     def default_lab_sequence(cls):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_lab', 'seq_type_gnuhealth_lab_test')
+            'health_lab', 'seq_gnuhealth_lab_test')
     
 # END SEQUENCE SETUP , MIGRATION FROM FIELDS.MultiValue
 
