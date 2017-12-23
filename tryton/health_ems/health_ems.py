@@ -100,7 +100,7 @@ class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_ems', 'seq_gnuhealth_support')
+            'health_ems', 'seq_gnuhealth_support_request_code')
 
     
 # END SEQUENCE SETUP , MIGRATION FROM FIELDS.PROPERTY
