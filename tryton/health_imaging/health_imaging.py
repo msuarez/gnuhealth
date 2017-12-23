@@ -113,14 +113,14 @@ class GnuHealthSequenceSetup(ModelSQL, ValueMixin):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_imaging', 'seq_type_gnuhealth_imaging_test_request')
+            'health_imaging', 'seq_gnuhealth_imaging_test_request')
 
     @classmethod
     def default_imaging_sequence(cls):
         pool = Pool()
         ModelData = pool.get('ir.model.data')
         return ModelData.get_id(
-            'health_imaging', 'seq_type_gnuhealth_imaging_test')
+            'health_imaging', 'seq_gnuhealth_imaging_test')
     
 # END SEQUENCE SETUP , MIGRATION FROM FIELDS.PROPERTY
 
