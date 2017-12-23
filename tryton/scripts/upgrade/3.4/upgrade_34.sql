@@ -22,3 +22,5 @@
 UPDATE party_address_format SET format_ = REPLACE(format_, '${district}', '${subdivision}');
 
 DELETE FROM ir_model_data WHERE model = 'ir.property';
+
+DELETE from ir_property where res like 'party.party,%' and SUBSTRING(res, POSITION(',' IN res) + 1)::integer not in (select id from party_party);
