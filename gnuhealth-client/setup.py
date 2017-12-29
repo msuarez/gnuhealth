@@ -42,13 +42,15 @@ data_files = []
 
 version = open('version').read().strip()
 
+lic = open('COPYRIGHT')
+
 name = 'gnuhealth-client'
 
 download_url = 'https://ftp.gnu.org/gnu/health'
 
 dist = setup(name=name,
     version=version,
-    description='GNU Health client',
+    description='GNU Health GTK client',
     long_description=read('README.rst'),
     author='GNU Solidario',
     author_email='health@gnu.org',
@@ -62,31 +64,16 @@ dist = setup(name=name,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: X11 Applications :: GTK',
-        'Framework :: Tryton',
+        'Framework :: GTK',
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Natural Language :: Bulgarian',
-        'Natural Language :: Catalan',
-        'Natural Language :: Chinese (Simplified)',
-        'Natural Language :: Czech',
-        'Natural Language :: Dutch',
-        'Natural Language :: English',
-        'Natural Language :: French',
-        'Natural Language :: German',
-        'Natural Language :: Hungarian',
-        'Natural Language :: Italian',
-        'Natural Language :: Polish',
-        'Natural Language :: Portuguese (Brazilian)',
-        'Natural Language :: Russian',
-        'Natural Language :: Slovenian',
-        'Natural Language :: Spanish',
-        'Natural Language :: Japanese',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
-        'Topic :: Office/Business',
+        'Topic :: Scientific/Engineering :: Bio-Informatics',
+        'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
     platforms='any',
-    license='GPL-3',
+    license=lic,
     install_requires=[
         # "pygtk >= 2.6",
         "python-dateutil",
