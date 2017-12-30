@@ -61,8 +61,6 @@ class ConfigManager(object):
             'client.email': '',
             'client.can_change_accelerators': False,
             'client.limit': 1000,
-            'roundup.url': 'http://bugs.tryton.org/',
-            'roundup.xmlrpc': 'roundup-xmlrpc.tryton.org',
             'menu.pane': 200,
             'menu.expanded': True,
         }
