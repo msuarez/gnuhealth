@@ -3,42 +3,8 @@
 # this repository contains the full copyright notices and license terms.
 
 from setuptools import setup, find_packages
-import os
-import re
 
-
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
-
-args = {}
-
-try:
-    from babel.messages import frontend as babel
-
-    args['cmdclass'] = {
-        'compile_catalog': babel.compile_catalog,
-        'extract_messages': babel.extract_messages,
-        'init_catalog': babel.init_catalog,
-        'update_catalog': babel.update_catalog,
-        }
-
-    args['message_extractors'] = {
-        'tryton': [
-            ('**.py', 'python', None),
-            ],
-        }
-
-except ImportError:
-        pass
-
-package_data = {
-    'tryton': ['data/pixmaps/tryton/*.png',
-        'data/pixmaps/tryton/*.svg',
-        'data/locale/*/LC_MESSAGES/*.mo',
-        'data/locale/*/LC_MESSAGES/*.po',
-        ]
-    }
-data_files = []
+long_desc = open('README.rst').read()
 
 version = open('version').read().strip()
 
@@ -51,15 +17,12 @@ download_url = 'https://ftp.gnu.org/gnu/health'
 dist = setup(name=name,
     version=version,
     description='GNU Health GTK client',
-    long_description=read('README.rst'),
+    long_description=long_desc,
     author='GNU Solidario',
     author_email='health@gnu.org',
-    url='http://health.gnu.org/',
+    url='http://health.gnu.org',
     download_url=download_url,
     keywords='eHealth ERM HMIS LIMS',
-    packages=find_packages(),
-    package_data=package_data,
-    data_files=data_files,
     scripts=['bin/gnuhealth-client'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -77,7 +40,6 @@ dist = setup(name=name,
     platforms='any',
     license=lic,
     install_requires=[
-        # "pygtk >= 2.6",
         "python-dateutil",
         "chardet",
         ],
@@ -85,6 +47,8 @@ dist = setup(name=name,
         'cdecimal': ['cdecimal'],
         'calendar': ['GooCalendar'],
         },
+    packages=find_packages(),
+    include_package_data=True,
     zip_safe=False,
-    **args
+    python_requires='>=2.7,<3',
     )

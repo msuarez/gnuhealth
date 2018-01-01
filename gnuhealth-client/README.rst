@@ -1,5 +1,5 @@
 The GNU Health GTK Client
-=========================
+=======================================================================
 
 The GTK client allows to connect to the GNU Health server from the
 desktop.
@@ -42,8 +42,9 @@ GNU Health Plugins
 You can download GNU Health plugins for specific functionality.
 
 For example:
-* The GNU Health Crypto plugin to digitally sign documents using GNUPG
-* The GNU Health Camera to use cameras and store them directly 
+
+* The GNU Health **Crypto** plugin to digitally sign documents using GNUPG
+* The GNU Health **Camera** to use cameras and store them directly 
   on the system (person registration, histological samples, etc..)
 
 More information about the GNU Health plugins at :
