@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file if part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
 from setuptools import setup, find_packages
@@ -64,8 +64,10 @@ dist = setup(name=name,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: X11 Applications :: GTK',
-        'Framework :: GTK',
+        'Framework :: Tryton',
         'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Healthcare Industry',
+        'Intended Audience :: Science/Research',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',

@@ -88,7 +88,7 @@ http://health.gnu.org
 
 Documentation
 -------------
-The Thalamus documentation will be at the corresponding
+The GNU Health GTK documentation will be at the corresponding
 chapter in the GNU Health Wikibook
 
 https://en.wikibooks.org/wiki/GNU_Health
