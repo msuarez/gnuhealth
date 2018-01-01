@@ -8,15 +8,13 @@ long_desc = open('README.rst').read()
 
 version = open('version').read().strip()
 
-lic = open('COPYRIGHT')
-
 name = 'gnuhealth-client'
 
 download_url = 'https://ftp.gnu.org/gnu/health'
 
-dist = setup(name=name,
+setup(name=name,
     version=version,
-    description='GNU Health GTK client',
+    description='The GNU Health GTK client',
     long_description=long_desc,
     author='GNU Solidario',
     author_email='health@gnu.org',
@@ -38,7 +36,7 @@ dist = setup(name=name,
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
     platforms='any',
-    license=lic,
+    license='GPL v3',
     install_requires=[
         "python-dateutil",
         "chardet",
@@ -51,4 +49,4 @@ dist = setup(name=name,
     include_package_data=True,
     zip_safe=False,
     python_requires='>=2.7,<3',
-    )
+)

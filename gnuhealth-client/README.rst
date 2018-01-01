@@ -32,10 +32,10 @@ The default profile
 The GNU Health client comes with a pre-defined profile, which points to
 the GNU Health community demo server 
 
-Server : health.gnusolidario.org
-Port : 8000
-User : admin
-Passwd : gnusolidario
+| Server : health.gnusolidario.org
+| Port : 8000
+| User : admin
+| Passwd : gnusolidario
 
 GNU Health Plugins
 ------------------
@@ -67,8 +67,8 @@ of the png file.
 
 Something like
 
-[client]
-banner = /home/yourlogin/myhospitalbanner.png
+| [client]
+| banner = /home/yourlogin/myhospitalbanner.png
 
 The default resolution of the banner is 500 x 128 pixels. Adjust yours
 to approximately this size.
@@ -93,4 +93,3 @@ The GNU Health GTK documentation will be at the corresponding
 chapter in the GNU Health Wikibook
 
 https://en.wikibooks.org/wiki/GNU_Health
-
