@@ -1,0 +1,19 @@
+global-include *.py
+global-include *.cfg
+global-include *.rst
+
+global-include *.mo
+global-include *.po
+
+global-include *.svg
+global-include *.png
+
+global-exclude *.pyc
+
+include COPYING
+include version
+include COPYRIGHT
+include README.rst  
+include Changelog
+include gnuhealth-client.desktop
+

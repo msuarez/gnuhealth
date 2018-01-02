@@ -1,0 +1,39 @@
+1/1/2018
+* Release 3.2 on pypi
+* Update README.rst
+* Update version and setup.py
+
+12/30/2017
+* Remove roundup default entries from gnuhealth-client.conf
+* Native GNU Health client. Remove roundup / Tryton bug tracker
+
+12/23/2017 - Initial port from Tryton client 4.2.9
+* Add COPYING
+* Include version file
+* Move LICENSE -> COPYING
+* Update setup.py
+* Rename CHANGELOG -> Changelog
+* Remove PKG-INFO
+* Remove setup.cfg
+* Remove .hgtags
+* Update GNU Health login banner and icon
+* Include the GNUHEALTH_ICON variable for the icon
+* Replace TRYTON_ICON var by GNUHEALTH_ICON
+* Include BANNER variable for the greetings login . 
+* include the "banner.png" 
+* Include SERVER_VERSION on __init__ to match the Tryton server 
+* Update client.title value
+* Use .config/gnuhealth as the configuration directory 
+* Use gnuhealth-client.conf as the config options
+* Update the demo server information
+* Force Python2 on gnuhealth-client
+* include the "banner" client configuration parameter for custom greeter
+* Remove windows and Mac installation files
+* Remove "tips" section
+* Remove PDA mode
+
+TODO :
+
+- Test setup.py
+- Generate a rst file for documentation and pypi
+- remove the roundup information about bugs (config.py)
