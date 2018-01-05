@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import datetime
 import os
@@ -172,6 +172,7 @@ class Affix(Cell):
 
 
 class GenericText(Cell):
+    align = 0
 
     def __init__(self, view, attrs, renderer=None):
         super(GenericText, self).__init__()
@@ -211,13 +212,6 @@ class GenericText(Cell):
 
         field = record[self.attrs['name']]
 
-        if self.attrs.get('type', field.attrs.get('type')) in \
-                ('float', 'integer', 'biginteger', 'boolean',
-                'numeric', 'timedelta'):
-            align = 1
-        else:
-            align = 0
-
         editable = getattr(self.view.treeview, 'editable', False)
         states = ('invisible',)
         if editable:
@@ -244,7 +238,7 @@ class GenericText(Cell):
             if isinstance(cell, CellRendererToggle):
                 cell.set_property('activatable', False)
 
-        cell.set_property('xalign', align)
+        cell.set_property('xalign', self.align)
 
     def open_remote(self, record, create, changed=False, text=None,
             callback=None):
@@ -285,6 +279,7 @@ class Text(GenericText):
 
 
 class Int(GenericText):
+    align = 1
 
     def __init__(self, view, attrs, renderer=None):
         if renderer is None:
@@ -306,6 +301,7 @@ class Int(GenericText):
 
 
 class Boolean(GenericText):
+    align = 0.5
 
     def __init__(self, view, attrs=None,
             renderer=None):
@@ -395,7 +391,7 @@ class Time(Date):
 
 
 class TimeDelta(GenericText):
-    pass
+    align = 1
 
 
 class Float(Int):
@@ -415,6 +411,7 @@ class Float(Int):
 
 
 class Binary(GenericText):
+    align = 0.5
 
     def __init__(self, view, attrs, renderer=None):
         self.filename = attrs.get('filename')
@@ -515,6 +512,7 @@ class Binary(GenericText):
 
 
 class Image(GenericText):
+    align = 0.5
 
     def __init__(self, view, attrs=None, renderer=None):
         if renderer is None:
@@ -564,7 +562,7 @@ class M2O(GenericText):
 
         relation = record[self.attrs['name']].attrs['relation']
         domain = record[self.attrs['name']].domain_get(record)
-        context = record[self.attrs['name']].context_get(record)
+        context = record[self.attrs['name']].get_context(record)
         win = self.search_remote(record, relation, text, domain=domain,
             context=context, callback=callback)
         if len(win.screen.group) == 1:
@@ -585,7 +583,7 @@ class M2O(GenericText):
             return
 
         domain = field.domain_get(record)
-        context = field.context_get(record)
+        context = field.get_context(record)
         if create:
             obj_id = None
         elif not changed:
@@ -698,11 +696,7 @@ class O2O(M2O):
 
 
 class O2M(GenericText):
-
-    @realized
-    def setter(self, column, cell, store, iter):
-        super(O2M, self).setter(column, cell, store, iter)
-        cell.set_property('xalign', 0.5)
+    align = 0.5
 
     def get_textual_value(self, record):
         return '( ' + str(len(record[self.attrs['name']]
@@ -717,7 +711,7 @@ class O2M(GenericText):
         group = record.value[self.attrs['name']]
         field = record.group.fields[self.attrs['name']]
         relation = field.attrs['relation']
-        context = field.context_get(record)
+        context = field.get_context(record)
 
         access = common.MODELACCESS[relation]
         if not access['read']:
@@ -743,7 +737,7 @@ class M2M(O2M):
         group = record.value[self.attrs['name']]
         field = record.group.fields[self.attrs['name']]
         relation = field.attrs['relation']
-        context = field.context_get(record)
+        context = field.get_context(record)
         domain = field.domain_get(record)
 
         screen = Screen(relation, mode=['tree', 'form'],
@@ -836,6 +830,7 @@ class Reference(GenericText, SelectionMixin):
 
 
 class ProgressBar(object):
+    align = 0.5
     orientations = {
         'left_to_right': gtk.PROGRESS_LEFT_TO_RIGHT,
         'right_to_left': gtk.PROGRESS_RIGHT_TO_LEFT,

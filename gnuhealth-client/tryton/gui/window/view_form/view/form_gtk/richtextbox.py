@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from gettext import gettext as _
 
@@ -116,6 +116,14 @@ class RichTextBox(TextBox):
         else:
             return serialize(
                 self.text_buffer, self.text_buffer, start, end, None)
+
+    def set_value(self, record, field):
+        # avoid modification of not normalized value
+        value = self.get_value()
+        prev_value = field.get_client(record) or ''
+        if value == normalize_markup(prev_value):
+            value = prev_value
+        field.set_client(record, value)
 
     @property
     def modified(self):

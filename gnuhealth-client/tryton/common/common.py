@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
 import gtk
@@ -38,8 +38,7 @@ except ImportError:
 from threading import Lock
 import dateutil.tz
 
-from tryton.exceptions import (TrytonServerError, TrytonError,
-    TrytonServerUnavailable)
+from tryton.exceptions import TrytonServerError, TrytonError
 from tryton.pyson import PYSONEncoder
 
 _ = gettext.gettext
@@ -237,7 +236,7 @@ def request_server(server_widget):
     result = False
     parent = get_toplevel_window()
     dialog = gtk.Dialog(
-        title=_('Tryton Connection'),
+        title=_('GNU Health Connection'),
         parent=parent,
         flags=gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT |
         gtk.WIN_POS_CENTER_ON_PARENT |
@@ -783,9 +782,11 @@ class ConcurrencyDialog(UniqueDialog):
             return True
         if res == gtk.RESPONSE_APPLY:
             from tryton.gui.window import Window
-            Window.create(False, resource, res_id=obj_id,
+            Window.create(resource,
+                res_id=obj_id,
                 domain=[('id', '=', obj_id)],
-                context=context, mode=['form', 'tree'])
+                context=context,
+                mode=['form', 'tree'])
         return False
 
 concurrency = ConcurrencyDialog()
@@ -840,7 +841,7 @@ class ErrorDialog(UniqueDialog):
         hbox.pack_start(scrolledwindow)
 
         vbox.pack_start(hbox)
-        
+
         dialog.vbox.pack_start(vbox)
         dialog.set_default_size(600, 400)
         return dialog
@@ -852,8 +853,121 @@ class ErrorDialog(UniqueDialog):
         log.error(details + '\n' + title)
 
         response = super(ErrorDialog, self).__call__(title, details)
+        if response == gtk.RESPONSE_OK:
+            send_bugtracker(title, details)
 
 error = ErrorDialog()
+
+
+def send_bugtracker(title, msg):
+    from tryton import rpc
+    parent = get_toplevel_window()
+    win = gtk.Dialog(_('Bug Tracker'), parent,
+            gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
+            (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                gtk.STOCK_OK, gtk.RESPONSE_OK))
+    win.set_icon(GNUHEALTH_ICON)
+    win.set_default_response(gtk.RESPONSE_OK)
+
+    hbox = gtk.HBox()
+    image = gtk.Image()
+    image.set_from_stock('tryton-dialog-information',
+            gtk.ICON_SIZE_DIALOG)
+    hbox.pack_start(image, False, False)
+
+    table = gtk.Table(2, 2)
+    table.set_col_spacings(3)
+    table.set_row_spacings(3)
+    table.set_border_width(1)
+    label_user = gtk.Label(_('User:'))
+    label_user.set_alignment(1.0, 0.5)
+    table.attach(label_user, 0, 1, 0, 1, yoptions=False,
+            xoptions=gtk.FILL)
+    entry_user = gtk.Entry()
+    entry_user.set_activates_default(True)
+    table.attach(entry_user, 1, 2, 0, 1, yoptions=False,
+            xoptions=gtk.FILL)
+    label_password = gtk.Label(_('Password:'))
+    label_password.set_alignment(1.0, 0.5)
+    table.attach(label_password, 0, 1, 1, 2, yoptions=False,
+            xoptions=gtk.FILL)
+    entry_password = gtk.Entry()
+    entry_password.set_activates_default(True)
+    entry_password.set_visibility(False)
+    table.attach(entry_password, 1, 2, 1, 2, yoptions=False,
+            xoptions=gtk.FILL)
+    hbox.pack_start(table)
+
+    win.vbox.pack_start(hbox)
+    win.show_all()
+    if rpc._USERNAME:
+        entry_user.set_text(rpc._USERNAME)
+        entry_password.grab_focus()
+    else:
+        entry_user.grab_focus()
+
+    response = win.run()
+    parent.present()
+    user = entry_user.get_text()
+    password = entry_password.get_text()
+    win.destroy()
+    if response == gtk.RESPONSE_OK:
+        try:
+            msg = msg.encode('ascii', 'replace')
+            protocol = 'http'
+            if ssl or hasattr(socket, 'ssl'):
+                protocol = 'https'
+            quote = partial(urllib.quote, safe="!$&'()*+,;=:")
+            server = xmlrpclib.Server(
+                ('%s://%s:%s@' + CONFIG['roundup.xmlrpc'])
+                % (protocol, quote(user), quote(password)), allow_none=True)
+            if hashlib:
+                msg_md5 = hashlib.md5(msg + '\n' + title).hexdigest()
+            else:
+                msg_md5 = md5.new(msg + '\n' + title).hexdigest()
+            if not title:
+                title = '[no title]'
+            issue_id = None
+            msg_ids = server.filter('msg', None, {'summary': str(msg_md5)})
+            for msg_id in msg_ids:
+                summary = server.display(
+                    'msg%s' % msg_id, 'summary')['summary']
+                if summary == msg_md5:
+                    issue_ids = server.filter(
+                        'issue', None, {'messages': msg_id})
+                    if issue_ids:
+                        issue_id = issue_ids[0]
+                        break
+            if issue_id:
+                # issue to same message already exists, add user to nosy-list
+                server.set('issue' + str(issue_id), *['nosy=+' + user])
+                message(
+                    _('The same bug was already reported by another user.\n'
+                        'To keep you informed your username is added '
+                        'to the nosy-list of this issue') + '%s' % issue_id)
+            else:
+                # create a new issue for this error-message
+                # first create message
+                msg_id = server.create('msg', *['content=' + msg,
+                    'author=' + user, 'summary=' + msg_md5])
+                # second create issue with this message
+                issue_id = server.create('issue', *['messages=' + str(msg_id),
+                    'nosy=' + user, 'title=' + title, 'priority=bug'])
+                message(_('Created new bug with ID ')
+                    + 'issue%s' % issue_id)
+            webbrowser.open(CONFIG['roundup.url'] + 'issue%s' % issue_id,
+                new=2)
+        except (socket.error, xmlrpclib.Fault), exception:
+            if (isinstance(exception, xmlrpclib.Fault)
+                    and 'roundup.cgi.exceptions.Unauthorised' in
+                    exception.faultString):
+                message(_('Connection error.\nBad username or password.'))
+                return send_bugtracker(title, msg)
+            tb_s = reduce(lambda x, y: x + y,
+                    traceback.format_exception(sys.exc_type,
+                        sys.exc_value, sys.exc_traceback))
+            message(_('Exception:') + '\n' + tb_s, msg_type=gtk.MESSAGE_ERROR)
+
 
 def to_xml(string):
     return string.replace('&', '&amp;'
@@ -866,20 +980,7 @@ def process_exception(exception, *args, **kwargs):
 
     rpc_execute = kwargs.get('rpc_execute', rpc.execute)
 
-    if isinstance(exception, TrytonError):
-        if exception.faultCode == 'BadFingerprint':
-            warning(
-                _('The server fingerprint has changed since last connection.\n'
-                'The application will stop connecting to this server '
-                'until its fingerprint is fixed.'), _('Security risk.'))
-            from tryton.gui.main import Main
-            Main.sig_quit()
-        elif exception.faultCode.startswith('403'):
-            if rpc.CONNECTION is None:
-                message(_('Connection error.\n'
-                        'Unable to connect to the server.'))
-                return False
-    elif isinstance(exception, TrytonServerError):
+    if isinstance(exception, TrytonServerError):
         if exception.faultCode == 'UserWarning':
             name, msg, description = exception.args
             res = userwarning(description, msg)
@@ -899,12 +1000,9 @@ def process_exception(exception, *args, **kwargs):
                     except TrytonServerError, exception:
                         return process_exception(exception, *args,
                             rpc_execute=rpc_execute)
-                return True
-            return False
         elif exception.faultCode == 'UserError':
             msg, description = exception.args
             warning(description, msg)
-            return False
         elif exception.faultCode == 'ConcurrencyException':
             if len(args) >= 6:
                 if concurrency(args[1], args[3][0], args[5]):
@@ -915,14 +1013,13 @@ def process_exception(exception, *args, **kwargs):
                     except TrytonServerError, exception:
                         return process_exception(exception, *args,
                             rpc_execute=rpc_execute)
-                return False
             else:
                 message(_('Concurrency Exception'), msg_type=gtk.MESSAGE_ERROR)
-                return False
-        elif exception.faultCode.startswith('403'):
+        elif (exception.faultCode.startswith('403')
+                or exception.faultCode.startswith('401')):
             from tryton.gui.main import Main
             if not PLOCK.acquire(False):
-                return False
+                return
             language = CONFIG['client.lang']
             func = lambda parameters: rpc.login(
                 rpc._HOST, rpc._PORT, rpc._DATABASE, rpc._USERNAME, parameters,
@@ -941,17 +1038,7 @@ def process_exception(exception, *args, **kwargs):
                 except TrytonServerError, exception:
                     return process_exception(exception, *args,
                         rpc_execute=rpc_execute)
-    elif isinstance(exception, (socket.error, TrytonServerUnavailable)):
-        warning(str(exception), _('Network Error.'))
-        return False
-
-    if isinstance(exception, TrytonServerError):
-        error_title, error_detail = exception.faultCode, exception.faultString
-    else:
-        error_title = str(exception)
-        error_detail = traceback.format_exc()
-    error(error_title, error_detail)
-    return False
+    raise RPCException(exception)
 
 
 class Login(object):
@@ -1035,6 +1122,7 @@ def generateColorscheme(masterColor, keys, light=0.1):
 class RPCException(Exception):
 
     def __init__(self, exception):
+        super(RPCException, self).__init__(exception)
         self.exception = exception
 
 
@@ -1087,14 +1175,9 @@ class RPCProgress(object):
             if self.process_exception_p:
                 def rpc_execute(*args):
                     return RPCProgress('execute',
-                        args).run(self.process_exception_p)
-                result = process_exception(self.exception, *self.args,
+                        args).run(self.process_exception_p, self.callback)
+                return process_exception(self.exception, *self.args,
                     rpc_execute=rpc_execute)
-                if result is False:
-                    self.exception = RPCException(self.exception)
-                else:
-                    self.exception = None
-                    self.res = result
 
         def return_():
             if self.exception:
@@ -1265,8 +1348,14 @@ def get_label_attributes(readonly, required):
             weight = pango.WEIGHT_NORMAL
     attrlist = pango.AttrList()
     if hasattr(pango, 'AttrWeight'):
-        # FIXME when Pango.attr_weight_new is introspectable
         attrlist.change(pango.AttrWeight(weight, 0, -1))
     if hasattr(pango, 'AttrStyle'):
         attrlist.change(pango.AttrStyle(style, 0, -1))
     return attrlist
+
+
+def ellipsize(string, length):
+    if len(string) <= length:
+        return string
+    ellipsis = _('...')
+    return string[:length - len(ellipsis)] + ellipsis

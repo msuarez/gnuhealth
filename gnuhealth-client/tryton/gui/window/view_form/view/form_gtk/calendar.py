@@ -1,5 +1,7 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
+import datetime
+
 import gtk
 import gettext
 
@@ -45,10 +47,17 @@ class Date(Widget):
         else:
             self.widget.unset_focus_chain()
 
+    @classmethod
+    def cast(cls, value):
+        if isinstance(value, datetime.datetime):
+            value = value.date()
+        return value
+
     @property
     def modified(self):
         if self.record and self.field:
-            return self.field.get_client(self.record) != self.entry.props.value
+            field_value = self.cast(self.field.get_client(self.record))
+            return field_value != self.entry.props.value
         return False
 
     def sig_key_press(self, widget, event):
@@ -64,7 +73,7 @@ class Date(Widget):
         if field and record:
             format_ = field.date_format(record)
         else:
-            format_ = self.view.screen.context.get('date_format', '%x')
+            format_ = self.view.screen.date_format
         self.entry.props.format = format_
 
     def display(self, record, field):
@@ -85,6 +94,12 @@ class Time(Date):
 
     def _set_editable(self, value):
         self.entry.set_sensitive(value)
+
+    @classmethod
+    def cast(cls, value):
+        if isinstance(value, datetime.datetime):
+            value = value.time()
+        return value
 
     @property
     def real_entry(self):
@@ -128,6 +143,10 @@ class DateTime(Date):
             child.connect('focus-out-event', lambda x, y: self._focus_out())
         self.widget.pack_start(self.entry, expand=False, fill=False)
 
+    @classmethod
+    def cast(cls, value):
+        return value
+
     def _set_editable(self, value):
         for child in self.entry.get_children():
             if isinstance(child, gtk.Entry):
@@ -142,7 +161,7 @@ class DateTime(Date):
             date_format = field.date_format(record)
             time_format = field.time_format(record)
         else:
-            date_format = self.view.screen.context.get('date_format', '%x')
+            date_format = self.view.screen.date_format
             time_format = '%X'
         self.entry.props.date_format = date_format
         self.entry.props.time_format = time_format

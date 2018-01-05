@@ -1,4 +1,7 @@
 #!/usr/bin/env python2
+# This file if part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
+
 import sys
 import os
 try:
@@ -23,19 +26,10 @@ if hasattr(sys, 'frozen'):
             etc, 'gtk-2.0', 'gdk-pixbuf.loaders')
     os.environ['GTK_IM_MODULE_FILE'] = os.path.join(
             etc, 'gtk-2.0', 'gtk.immodules')
-    if sys.platform == 'win32':
-        # cx_freeze >= 5 put python modules under lib directory
-        sys.path.append(os.path.join(prefix, 'lib'))
-        os.environ.setdefault('SSL_CERT_FILE',
-            os.path.join(etc, 'ssl', 'cert.pem'))
-        os.environ.setdefault('SSL_CERT_DIR',
-            os.path.join(etc, 'ssl', 'certs'))
-
-    # On first launch the MacOSX app launcher may append an extra unique
-    # argument starting with -psn_. This must be filtered to not crash the
-    # option parser.
-    if sys.platform == 'darwin':
-        sys.argv = [a for a in sys.argv if not a.startswith('-psn_')]
+    os.environ.setdefault('SSL_CERT_FILE',
+        os.path.join(etc, 'ssl', 'cert.pem'))
+    os.environ.setdefault('SSL_CERT_DIR',
+        os.path.join(etc, 'ssl', 'certs'))
 
 
 # Disable dbusmenu to show second menu in tabs

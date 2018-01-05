@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 'Action'
 import gtk
@@ -29,7 +29,7 @@ class Action(SignalEvent):
         except RPCException:
             raise
 
-        view_ids = None
+        view_ids = []
         self.action['view_mode'] = None
         if self.action.get('views', []):
             view_ids = [x[0] for x in self.action['views']]

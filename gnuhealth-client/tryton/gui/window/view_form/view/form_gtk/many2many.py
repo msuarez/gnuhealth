@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 
@@ -11,6 +11,7 @@ import gettext
 from tryton.common.placeholder_entry import PlaceholderEntry
 from tryton.common.completion import get_completion, update_completion
 from tryton.common.domain_parser import quote
+from tryton.common.widget_style import widget_class
 
 _ = gettext.gettext
 
@@ -95,7 +96,8 @@ class Many2Many(Widget):
         self.screen = Screen(attrs['relation'],
             view_ids=attrs.get('view_ids', '').split(','),
             mode=['tree'], views_preload=attrs.get('views', {}),
-            row_activate=self._on_activate)
+            row_activate=self._on_activate,
+            limit=None)
         self.screen.signal_connect(self, 'record-message', self._sig_label)
 
         vbox.pack_start(self.screen.widget, expand=True, fill=True)
@@ -141,7 +143,7 @@ class Many2Many(Widget):
         add_remove = self.record.expr_eval(self.attrs.get('add_remove'))
         if add_remove:
             domain = [domain, add_remove]
-        context = self.field.context_get(self.record)
+        context = self.field.get_context(self.record)
         value = self.wid_text.get_text().decode('utf-8')
 
         self.focus_out = False
@@ -174,11 +176,9 @@ class Many2Many(Widget):
         add_remove = self.record.expr_eval(self.attrs.get('add_remove'))
         if add_remove:
             domain = [domain, add_remove]
-        context = self.field.context_get(self.record)
-        view_ids = self.attrs.get('view_ids', '').split(',')
-        if view_ids:
-            # Remove the first tree view as mode is form only
-            view_ids.pop(0)
+        context = self.field.get_context(self.record)
+        # Remove the first tree view as mode is form only
+        view_ids = self.attrs.get('view_ids', '').split(',')[1:]
         return Screen(self.attrs['relation'], domain=domain,
             view_ids=view_ids,
             mode=['form'], views_preload=self.attrs.get('views', {}),
@@ -229,6 +229,8 @@ class Many2Many(Widget):
     def _set_label_state(self):
         attrlist = common.get_label_attributes(self._readonly, self._required)
         self.title.set_attributes(attrlist)
+        widget_class(self.title, 'readonly', self._readonly)
+        widget_class(self.title, 'required', self._required)
 
     def _set_button_sensitive(self):
         if self.record and self.field:

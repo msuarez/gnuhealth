@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Attachment"
 import os
@@ -36,7 +36,7 @@ class Attachment(WinForm):
             resource = self.screen.group.fields['resource']
             for record in self.screen.group:
                 resource.set_client(record, self.resource)
-            self.screen.group.save()
+            self.screen.save_current()
         if self.attachment_callback:
             self.attachment_callback()
 

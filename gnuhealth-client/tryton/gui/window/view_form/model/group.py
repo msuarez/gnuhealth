@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from record import Record
 from field import Field, M2OField, ReferenceField
@@ -124,10 +124,12 @@ class Group(SignalEvent, list):
         del self.__id2record[record.id]
 
     def clear(self):
-        for record in self[:]:
+        # Use reversed order to minimize the cursor reposition as the cursor
+        # has more chances to be on top of the list.
+        for record in reversed(self[:]):
             self.signal('group-list-changed', ('record-removed', record))
             record.destroy()
-            self.pop(0)
+            self.pop()
         self.__id2record = {}
         self.record_removed, self.record_deleted = [], []
 
@@ -161,7 +163,11 @@ class Group(SignalEvent, list):
         for record in self:
             saved.append(record.save(force_reload=False))
         if self.record_deleted:
+            for record in self.record_deleted:
+                self._remove(record)
+                record.destroy()
             self.delete(self.record_deleted)
+            del self.record_deleted[:]
         return saved
 
     def delete(self, records):
@@ -237,6 +243,8 @@ class Group(SignalEvent, list):
             self.signal('group-cleared')
 
         if new_records and modified:
+            for record in new_records:
+                record.modified_fields.setdefault('id')
             new_records[0].signal('record-modified')
             new_records[0].signal('record-changed')
 
@@ -247,10 +255,10 @@ class Group(SignalEvent, list):
     def context(self):
         ctx = self._context.copy()
         if self.parent:
-            ctx.update(self.parent.context_get())
+            ctx.update(self.parent.get_context())
             if self.child_name in self.parent.group.fields:
                 field = self.parent.group.fields[self.child_name]
-                ctx.update(field.context_get(self.parent))
+                ctx.update(field.get_context(self.parent))
         ctx.update(self._context)
         if self.parent_datetime_field:
             ctx['_datetime'] = self.parent.get_eval(
@@ -365,7 +373,7 @@ class Group(SignalEvent, list):
         if modified:
             record.modified_fields.setdefault('id')
             record.signal('record-modified')
-        if not record.parent or self[idx].id < 0 or force_remove:
+        if self[idx].id < 0 or force_remove:
             self._remove(self[idx])
 
         if len(self):

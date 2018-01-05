@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Form"
 import gettext
@@ -28,109 +28,21 @@ _ = gettext.gettext
 class Form(SignalEvent, TabContent):
     "Form"
 
-    toolbar_def = [
-        ('new', 'tryton-new', _('New'), _('Create a new record'),
-            'sig_new'),
-        ('save', 'tryton-save', _('Save'), _('Save this record'),
-            'sig_save'),
-        ('switch', 'tryton-fullscreen', _('Switch'), _('Switch view'),
-            'sig_switch'),
-        ('reload', 'tryton-refresh', _('_Reload'), _('Reload'),
-            'sig_reload'),
-        (None,) * 5,
-        ('previous', 'tryton-go-previous', _('Previous'),
-            _('Previous Record'), 'sig_previous'),
-        ('next', 'tryton-go-next', _('Next'), _('Next Record'),
-            'sig_next'),
-        (None,) * 5,
-        ('attach', 'tryton-attachment', _('Attachment(0)'),
-            _('Add an attachment to the record'), 'sig_attach'),
-        ('note', 'tryton-note', _('Note(0)'),
-            _('Add a note to the record'), 'sig_note'),
-    ]
-    menu_def = [
-        (_('_New'), 'tryton-new', 'sig_new', '<tryton>/Form/New'),
-        (_('_Save'), 'tryton-save', 'sig_save', '<tryton>/Form/Save'),
-        (_('_Switch View'), 'tryton-fullscreen', 'sig_switch',
-            '<tryton>/Form/Switch View'),
-        (_('_Reload/Undo'), 'tryton-refresh', 'sig_reload',
-            '<tryton>/Form/Reload'),
-        (_('_Duplicate'), 'tryton-copy', 'sig_copy',
-            '<tryton>/Form/Duplicate'),
-        (_('_Delete...'), 'tryton-delete', 'sig_remove',
-            '<tryton>/Form/Delete'),
-        (None,) * 4,
-        (_('_Previous'), 'tryton-go-previous', 'sig_previous',
-            '<tryton>/Form/Previous'),
-        (_('_Next'), 'tryton-go-next', 'sig_next', '<tryton>/Form/Next'),
-        (_('_Search'), 'tryton-find', 'sig_search', '<tryton>/Form/Search'),
-        (_('View _Logs...'), None, 'sig_logs', None),
-        (_('Show revisions...'), 'tryton-clock', 'revision', None),
-        (None,) * 4,
-        (_('_Close Tab'), 'tryton-close', 'sig_win_close',
-            '<tryton>/Form/Close'),
-        (None,) * 4,
-        (_('A_ttachments...'), 'tryton-attachment', 'sig_attach',
-            '<tryton>/Form/Attachments'),
-        (_('_Notes...'), 'tryton-note', 'sig_note', '<tryton>/Form/Notes'),
-        (_('_Actions...'), 'tryton-executable', 'sig_action',
-            '<tryton>/Form/Actions'),
-        (_('_Relate...'), 'tryton-go-jump', 'sig_relate',
-            '<tryton>/Form/Relate'),
-        (None,) * 4,
-        (_('_Report...'), 'tryton-print-open', 'sig_print_open',
-            '<tryton>/Form/Report'),
-        (_('_E-Mail...'), 'tryton-print-email', 'sig_print_email',
-            '<tryton>/Form/Email'),
-        (_('_Print...'), 'tryton-print', 'sig_print',
-            '<tryton>/Form/Print'),
-        (None,) * 4,
-        (_('_Export Data...'), 'tryton-save-as', 'sig_save_as',
-            '<tryton>/Form/Export Data'),
-        (_('_Import Data...'), None, 'sig_import',
-            '<tryton>/Form/Import Data'),
-    ]
-
-    def __init__(self, model, res_id=False, domain=None, order=None, mode=None,
-            view_ids=None, context=None, name='', limit=None,
-            search_value=None, tab_domain=None, context_model=None):
+    def __init__(self, model, res_id=None, name='', **attributes):
         super(Form, self).__init__()
-
-        if not mode:
-            mode = ['tree', 'form']
-        if domain is None:
-            domain = []
-        if view_ids is None:
-            view_ids = []
 
         self.model = model
         self.res_id = res_id
-        self.domain = domain
-        self.mode = mode
-        self.context = context
-        self.view_ids = view_ids
+        self.mode = attributes.get('mode')
+        self.view_ids = attributes.get('view_ids')
         self.dialogs = []
 
-        self.screen = Screen(self.model, mode=mode, context=context,
-            view_ids=view_ids, domain=domain, limit=limit, order=order,
-            search_value=search_value, tab_domain=tab_domain,
-            context_model=context_model)
+        self.screen = Screen(self.model, **attributes)
         self.screen.widget.show()
 
         self.name = name
 
-        if self.model not in common.MODELHISTORY:
-            self.menu_def = self.menu_def[:]
-            # Remove callback to revision
-            self.menu_def[11] = (self.menu_def[11][:2] + (None,)
-                + self.menu_def[11][3:])
-
         self.create_tabcontent()
-
-        self.url_entry = url_entry = gtk.Entry()
-        url_entry.show()
-        url_entry.set_editable(False)
-        self.widget.pack_start(url_entry, False, False)
 
         self.set_buttons_sensitive()
 
@@ -174,7 +86,7 @@ class Form(SignalEvent, TabContent):
             return False
         return (self.model == value.model
             and self.res_id == value.res_id
-            and self.domain == value.domain
+            and self.screen.domain == value.screen.domain
             and self.mode == value.mode
             and self.view_ids == value.view_ids
             and self.screen.context == value.screen.context
@@ -282,7 +194,7 @@ class Form(SignalEvent, TabContent):
         message(message_str)
         return True
 
-    def revision(self, widget=None):
+    def sig_revision(self, widget=None):
         if not self.modified_save():
             return
         current_id = (self.screen.current_record.id
@@ -328,12 +240,23 @@ class Form(SignalEvent, TabContent):
     def set_buttons_sensitive(self, revision=None):
         if not revision:
             access = common.MODELACCESS[self.model]
-            self.buttons['new'].props.sensitive = access['create']
-            self.buttons['save'].props.sensitive = (
-                access['create'] or access['write'])
+            for name, sensitive in [
+                    ('new', access['create']),
+                    ('save', access['create'] or access['write']),
+                    ('remove', access['delete']),
+                    ('copy', access['create']),
+                    ('import', access['create']),
+                    ]:
+                if name in self.buttons:
+                    self.buttons[name].props.sensitive = sensitive
+                if name in self.menu_buttons:
+                    self.menu_buttons[name].props.sensitive = sensitive
         else:
-            for button in ['new', 'save']:
-                self.buttons[button].props.sensitive = False
+            for name in ['new', 'save', 'remove', 'copy', 'import']:
+                if name in self.buttons:
+                    self.buttons[name].props.sensitive = False
+                if name in self.menu_buttons:
+                    self.menu_buttons[name].props.sensitive = False
 
     def sig_remove(self, widget=None):
         if not common.MODELACCESS[self.model]['delete']:
@@ -352,7 +275,7 @@ class Form(SignalEvent, TabContent):
     def sig_import(self, widget=None):
         WinImport(self.model, self.screen.context)
 
-    def sig_save_as(self, widget=None):
+    def sig_export(self, widget=None):
         export = WinExport(self.model,
             [r.id for r in self.screen.selected_records],
             context=self.screen.context)
@@ -451,6 +374,10 @@ class Form(SignalEvent, TabContent):
         if self.buttons['relate'].props.sensitive:
             self.buttons['relate'].props.active = True
 
+    def sig_copy_url(self, widget):
+        if self.buttons['copy_url'].props.sensitive:
+            self.buttons['copy_url'].props.active = True
+
     def sig_search(self, widget):
         search_container = self.screen.screen_container
         if hasattr(search_container, 'search_entry'):
@@ -497,7 +424,6 @@ class Form(SignalEvent, TabContent):
         self.status_label.set_text(msg)
         self.message_info()
         self.activate_save()
-        self.url_entry.set_text(self.screen.get_url())
 
     def _record_modified(self, screen, signal_data):
         # As it is called via idle_add, the form could have been destroyed in
@@ -590,6 +516,23 @@ class Form(SignalEvent, TabContent):
                 tbutton = gtk.SeparatorToolItem()
             gtktoolbar.insert(tbutton, -1)
 
+        gtktoolbar.insert(gtk.SeparatorToolItem(), -1)
+
+        url_button = gtk.ToggleToolButton('tryton-web-browser')
+        url_button.set_label(_('_Copy URL'))
+        url_button.set_use_underline(True)
+        self.tooltips.set_tip(
+            url_button, _('Copy URL into clipboard'))
+        url_button._menu = url_menu = gtk.Menu()
+        url_menuitem = gtk.MenuItem()
+        url_menuitem.connect('activate', self.url_copy)
+        url_menu.add(url_menuitem)
+        url_menu.show_all()
+        url_menu.connect('deactivate', self._popup_menu_hide, url_button)
+        url_button.connect('toggled', self.url_set, url_menuitem)
+        url_button.connect('toggled', self.action_popup)
+        self.buttons['copy_url'] = url_button
+        gtktoolbar.insert(url_button, -1)
         return gtktoolbar
 
     def _create_popup_menu(self, widget, keyword, actions, special_action):
@@ -664,6 +607,19 @@ class Form(SignalEvent, TabContent):
                             }), func)
                 menuitem._update_action = True
                 menu.add(menuitem)
+
+    def url_copy(self, menuitem):
+        url = self.screen.get_url(self.name)
+        for selection in [gtk.CLIPBOARD_PRIMARY, gtk.CLIPBOARD_CLIPBOARD]:
+            clipboard = gtk.clipboard_get(selection)
+            clipboard.set_text(url, -1)
+
+    def url_set(self, button, menuitem):
+        url = self.screen.get_url(self.name)
+        size = 80
+        if len(url) > size:
+            url = url[:size // 2] + '...' + url[-size // 2:]
+        menuitem.set_label(url)
 
     def set_cursor(self):
         if self.screen:

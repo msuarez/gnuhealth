@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import csv
 import gettext
@@ -157,9 +157,10 @@ class WinImport(WinCSV):
 
     def sig_unsel(self, *args):
         store, paths = self.view2.get_selection().get_selected_rows()
-        while paths:
-            store.remove(store.get_iter(paths[0]))
-            store, paths = self.view2.get_selection().get_selected_rows()
+        # Convert first into TreeIter before removing from the store
+        iters = [store.get_iter(p) for p in paths]
+        for i in iters:
+            store.remove(i)
 
     def sig_unsel_all(self, *args):
         self.model2.clear()

@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import os
 from itertools import chain
@@ -58,10 +58,10 @@ class Field(object):
     def validation_domains(self, record, pre_validate=None):
         return concat(*self.domains_get(record, pre_validate))
 
-    def context_get(self, record):
-        context = record.context_get().copy()
+    def get_context(self, record):
+        context = record.get_context().copy()
         if record.parent:
-            context.update(record.parent.context_get())
+            context.update(record.parent.get_context())
         context.update(record.expr_eval(self.attrs.get('context', {})))
         return context
 
@@ -229,7 +229,7 @@ class DateTimeField(Field):
             return common.timezoned_date(value)
 
     def date_format(self, record):
-        context = self.context_get(record)
+        context = self.get_context(record)
         return context.get('date_format', '%x')
 
     def time_format(self, record):
@@ -248,7 +248,7 @@ class DateField(Field):
             force_change=force_change)
 
     def date_format(self, record):
-        context = self.context_get(record)
+        context = self.get_context(record)
         return context.get('date_format', '%x')
 
 
@@ -427,8 +427,8 @@ class M2OField(Field):
         record.value[self.name + '.rec_name'] = rec_name
         record.value[self.name] = value
 
-    def context_get(self, record):
-        context = super(M2OField, self).context_get(record)
+    def get_context(self, record):
+        context = super(M2OField, self).get_context(record)
         if self.attrs.get('datetime_field'):
             context['_datetime'] = record.get_eval(
                 )[self.attrs.get('datetime_field')]
@@ -530,11 +530,12 @@ class O2MField(Field):
             if record2 in record_removed or record2 in record_deleted:
                 continue
             if record2.id >= 0:
-                values = record2.get()
-                values.pop(parent_name, None)
-                if record2.modified and values:
-                    to_write.extend(([record2.id], values))
-                to_add.append(record2.id)
+                if record2.modified:
+                    values = record2.get()
+                    values.pop(parent_name, None)
+                    if values:
+                        to_write.extend(([record2.id], values))
+                    to_add.append(record2.id)
             else:
                 values = record2.get()
                 values.pop(parent_name, None)
@@ -555,9 +556,10 @@ class O2MField(Field):
         if record.value.get(self.name) is None:
             return {}
         result = {}
-        for record2 in (record.value[self.name]
-                + record.value[self.name].record_removed
-                + record.value[self.name].record_deleted):
+        record_modified = (r for r in record.value[self.name] if r.modified)
+        for record2 in chain(record_modified,
+                record.value[self.name].record_removed,
+                record.value[self.name].record_deleted):
             result.update(record2.get_timestamp())
         return result
 
@@ -580,7 +582,7 @@ class O2MField(Field):
                         skip={self.attrs.get('relation_field', '')}))
         return result
 
-    def _set_value(self, record, value, default=False):
+    def _set_value(self, record, value, default=False, modified=False):
         self._set_default_value(record)
         group = record.value[self.name]
         if value is None:
@@ -591,7 +593,7 @@ class O2MField(Field):
             mode = 'list values'
 
         if mode == 'list values':
-            context = self.context_get(record)
+            context = self.get_context(record)
             field_names = set(f for v in value for f in v
                 if f not in group.fields and '.' not in f)
             if field_names:
@@ -606,7 +608,7 @@ class O2MField(Field):
             for old_record in group:
                 if old_record.id not in value:
                     group.remove(old_record, remove=True, signal=False)
-            group.load(value)
+            group.load(value, modified=modified)
         else:
             for vals in value:
                 new_record = record.value[self.name].new(default=False)
@@ -651,9 +653,10 @@ class O2MField(Field):
             value = [value]
 
         previous_ids = self.get_eval(record)
-        self._set_value(record, value)
         # The order of the ids is not significant
-        if set(previous_ids) != set(value):
+        modified = set(previous_ids) != set(value)
+        self._set_value(record, value, modified=modified)
+        if modified:
             record.modified_fields.setdefault(self.name)
             record.signal('record-modified')
             self.sig_changed(record)
@@ -672,11 +675,11 @@ class O2MField(Field):
         record.modified_fields.setdefault(self.name)
         self._set_default_value(record)
         if isinstance(value, (list, tuple)):
-            self._set_value(record, value)
+            self._set_value(record, value, modified=True)
             return
 
         if value and (value.get('add') or value.get('update')):
-            context = self.context_get(record)
+            context = self.get_context(record)
             fields = record.value[self.name].fields
             values = chain(value.get('update', []),
                 (d for _, d in value.get('add', [])))
@@ -769,6 +772,12 @@ class ReferenceField(Field):
 
     _default = None
 
+    def _is_empty(self, record):
+        result = super(ReferenceField, self)._is_empty(record)
+        if not result and record.value[self.name][1] < 0:
+            result = True
+        return result
+
     def get_client(self, record):
         if record.value.get(self.name):
             model, _ = record.value[self.name]
@@ -837,8 +846,8 @@ class ReferenceField(Field):
         record.value[self.name] = ref_model, ref_id
         record.value[self.name + '.rec_name'] = rec_name
 
-    def context_get(self, record):
-        context = super(ReferenceField, self).context_get(record)
+    def get_context(self, record):
+        context = super(ReferenceField, self).get_context(record)
         if self.attrs.get('datetime_field'):
             context['_datetime'] = record.get_eval(
                 )[self.attrs.get('datetime_field')]
@@ -912,7 +921,7 @@ class BinaryField(Field):
                 (basestring, bytes, bytearray, _FileCache)):
             if record.id < 0:
                 return ''
-            context = record.context_get()
+            context = record.get_context()
             try:
                 values, = RPCExecute('model', record.model_name, 'read',
                     [record.id], [self.name], context=context)
@@ -945,7 +954,7 @@ class DictField(Field):
             attr_domain)
 
     def date_format(self, record):
-        context = self.context_get(record)
+        context = self.get_context(record)
         return context.get('date_format', '%x')
 
     def time_format(self, record):

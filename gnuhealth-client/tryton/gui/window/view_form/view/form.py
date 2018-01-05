@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import operator
 import gtk
@@ -42,6 +42,8 @@ class Container(object):
     def __init__(self, col=4):
         if CONFIG['client.modepda']:
             col = 1
+        if col < 0:
+            col = 0
         self.col = col
         self.table = gtk.Table(1, col)
         self.table.set_homogeneous(False)
@@ -54,19 +56,27 @@ class Container(object):
 
     def add_row(self):
         height, width = self.last
-        self.table.resize(height + 1, self.col)
+        self.table.resize(height + 1, self.col or width)
         self.last = (height + 1, 0)
 
-    def add(self, widget, attributes):
+    def add_col(self):
         height, width = self.last
+        self.table.resize(height or 1, width + 1)
+        self.last = (height, width + 1)
+
+    def add(self, widget, attributes):
 
         colspan = attributes.get('colspan', 1)
-        if colspan > self.col:
-            colspan = self.col
-
-        if width + colspan > self.col:
-            self.add_row()
+        if self.col > 0:
             height, width = self.last
+            if colspan > self.col:
+                colspan = self.col
+
+            if width + colspan > self.col:
+                self.add_row()
+        else:
+            self.add_col()
+        height, width = self.last
         self.last = height, width + colspan
 
         if not widget:

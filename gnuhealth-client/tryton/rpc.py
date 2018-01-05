@@ -1,8 +1,9 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import httplib
 import logging
 import socket
+import ssl
 import os
 from functools import partial
 from tryton.jsonrpc import ServerProxy, ServerPool, Fault
@@ -43,7 +44,7 @@ def db_list(host, port):
     except Fault, exception:
         if exception.faultCode == 'AccessDenied':
             logging.getLogger(__name__).debug('AccessDenied')
-            return None
+            return []
         else:
             logging.getLogger(__name__).debug(repr(None))
             return None
@@ -57,7 +58,8 @@ def server_version(host, port):
         result = connection.common.server.version()
         logging.getLogger(__name__).debug(repr(result))
         return result
-    except (Fault, socket.error):
+    except (Fault, socket.error, ssl.SSLError, ssl.CertificateError), e:
+        logging.getLogger(__name__).error(e)
         return None
 
 

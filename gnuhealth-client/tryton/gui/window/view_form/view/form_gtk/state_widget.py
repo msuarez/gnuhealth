@@ -1,8 +1,9 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 
 import tryton.common as common
+from tryton.common.widget_style import widget_class
 
 
 class StateMixin(object):
@@ -46,6 +47,8 @@ class Label(StateMixin, gtk.Label):
                 or state_changes.get('readonly'))
         attrlist = common.get_label_attributes(readonly, required)
         self.set_attributes(attrlist)
+        widget_class(self, 'readonly', readonly)
+        widget_class(self, 'required', required)
 
 
 class VBox(StateMixin, gtk.VBox):

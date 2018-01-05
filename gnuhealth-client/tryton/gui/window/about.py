@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -8,9 +8,7 @@ from tryton.config import GNUHEALTH_ICON, CONFIG
 from tryton.common import get_toplevel_window
 from tryton import __version__
 
-COMMENTS = '''\
-Freedom and Equity in Healthcare
-
+POWERED_BY = '''\
 GTK Client based on Tryton
 '''
 LICENSE = '''                    GNU GENERAL PUBLIC LICENSE
@@ -706,9 +704,10 @@ class About(object):
         self.win.set_transient_for(parent)
         self.win.set_name(CONFIG['client.title'])
         self.win.set_version(__version__)
-        self.win.set_comments(COMMENTS)
+        self.win.set_comments(POWERED_BY)
         self.win.set_license(LICENSE)
         self.win.set_website('http://health.gnu.org/')
+        # self.win.set_authors(AUTHORS)
         self.win.set_logo(GNUHEALTH_ICON)
 
         self.win.run()

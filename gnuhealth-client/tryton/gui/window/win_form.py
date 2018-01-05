@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from tryton.common import GNUHEALTH_ICON
 import tryton.common as common
@@ -65,7 +65,7 @@ class WinForm(NoModal, InfoBar):
             self.but_new.set_accel_path('<tryton>/Form/New', self.accel_group)
 
         if self.save_current:
-            self.but_ok = gtk.Button(_('_Save'))
+            self.but_ok = gtk.Button(_('_Save'), use_underline=True)
             img_save = gtk.Image()
             img_save.set_from_stock('tryton-save', gtk.ICON_SIZE_BUTTON)
             self.but_ok.set_image(img_save)

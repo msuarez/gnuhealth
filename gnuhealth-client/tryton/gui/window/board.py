@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Board"
 import gettext
@@ -15,41 +15,20 @@ _ = gettext.gettext
 class Board(SignalEvent, TabContent):
     'Board'
 
-    toolbar_def = [
-        ('new', 'tryton-new', _('New'), _('Create a new record'), None),
-        ('save', 'tryton-save', _('Save'), _('Save this record'), None),
-        ('switch', 'tryton-fullscreen', _('Switch'), _('Switch view'),
-            None),
-        ('reload', 'tryton-refresh', _('_Reload'), _('Reload'),
-            'sig_reload'),
-    ]
-
-    menu_def = [
-        (_('_New'), 'tryton-new', None, '<tryton>/Form/New'),
-        (_('_Save'), 'tryton-save', None, '<tryton>/Form/Save'),
-        (_('_Switch View'), 'tryton-fullscreen', None,
-            '<tryton>/Form/Switch View'),
-        (_('_Reload/Undo'), 'tryton-refresh', 'sig_reload',
-            '<tryton>/Form/Reload'),
-        (_('_Delete...'), 'tryton-delete', None, '<tryton>/Form/Delete'),
-        (None,) * 4,
-        (_('_Close Tab'), 'tryton-close', 'sig_win_close',
-            '<tryton>/Form/Close'),
-    ]
-
-    def __init__(self, model, view_id, context=None, name=False):
+    def __init__(self, model, name='', **attributes):
         super(Board, self).__init__()
+
+        context = attributes.get('context')
+        self.view_ids = attributes.get('view_ids')
 
         try:
             view, = RPCExecute('model', 'ir.ui.view', 'read',
-                [view_id], ['arch'], context=context)
+                self.view_ids, ['arch'], context=context)
         except RPCException:
             raise
 
         self.board = ViewBoard(view['arch'], context=context)
         self.model = model
-        self.view_id = view_id
-        self.context = context
         self.dialogs = []
         if not name:
             self.name = self.board.name
@@ -77,8 +56,8 @@ class Board(SignalEvent, TabContent):
         if not isinstance(value, Board):
             return False
         return (self.model == value.model
-            and self.view_id == value.view_id
-            and self.context == value.context
+            and self.view_ids == value.view_ids
+            and self.board.context == value.board.context
             and self.name == value.name)
 
     def sig_win_close(self, widget):

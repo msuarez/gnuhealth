@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -17,10 +17,14 @@ class WinSearch(NoModal):
             domain=None, view_ids=None, views_preload=None, new=True,
             title=''):
         NoModal.__init__(self)
+        if view_ids is None:
+            view_ids = []
         if views_preload is None:
             views_preload = {}
         self.domain = domain or []
         self.context = context or {}
+        self.view_ids = view_ids
+        self.views_preload = views_preload
         self.sel_multi = sel_multi
         self.callback = callback
         self.title = title
@@ -56,9 +60,8 @@ class WinSearch(NoModal):
 
         self.screen = Screen(model, domain=domain, mode=['tree'],
             context=context, view_ids=view_ids, views_preload=views_preload,
-            row_activate=self.sig_activate)
+            row_activate=self.sig_activate, readonly=True)
         self.view = self.screen.current_view
-        self.view.unset_editable()
         # Prevent to set tree_state
         self.screen.tree_states_done.add(id(self.view))
         sel = self.view.treeview.get_selection()
@@ -110,18 +113,23 @@ class WinSearch(NoModal):
             self.screen.search_filter(self.screen.screen_container.get_text())
             return
         elif response_id == gtk.RESPONSE_ACCEPT:
+            # Remove first tree view as mode if form only
+            view_ids = self.view_ids[1:]
             screen = Screen(self.model_name, domain=self.domain,
-                context=self.context, mode=['form'])
+                context=self.context, mode=['form'],
+                view_ids=view_ids, views_preload=self.views_preload)
 
             def callback(result):
-                if result and screen.save_current():
+                if result:
                     record = screen.current_record
                     res = [(record.id, record.value.get('rec_name', ''))]
                     self.callback(res)
                 else:
                     self.callback(None)
             self.destroy()
-            WinForm(screen, callback, new=True, title=self.title)
+            WinForm(
+                screen, callback, new=True, save_current=True,
+                title=self.title)
             return
         if res:
             group = self.screen.group

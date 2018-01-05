@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 
@@ -10,9 +10,10 @@ _ = gettext.gettext
 
 def translate_view(datas):
     model = datas['model']
-    Window.create(False, 'ir.translation', res_id=False,
-            domain=[('model', '=', model)],
-            mode=['tree', 'form'])
+    Window.create('ir.translation',
+        res_id=False,
+        domain=[('model', '=', model)],
+        mode=['tree', 'form'])
 
 
 def get_plugins(model):

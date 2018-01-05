@@ -1,8 +1,10 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
+import logging
+import gettext
+
 import gtk
 import pango
-import gettext
 
 from tryton.signal_event import SignalEvent
 import tryton.common as common
@@ -14,7 +16,9 @@ from tryton.common.button import Button
 from tryton.common import RPCExecute, RPCException
 from tryton.common import GNUHEALTH_ICON
 from .infobar import InfoBar
+
 _ = gettext.gettext
+logger = logging.getLogger(__name__)
 
 
 class Wizard(InfoBar):
@@ -131,8 +135,13 @@ class Wizard(InfoBar):
             self.screen.destroy()
 
     def end(self, callback=None):
-        RPCExecute('wizard', self.action, 'delete', self.session_id,
-            process_exception=False, callback=callback)
+        try:
+            RPCExecute('wizard', self.action, 'delete', self.session_id,
+                process_exception=False, callback=callback)
+        except Exception:
+            logger.warn(
+                _("Unable to delete wizard %s") % self.session_id,
+                exc_info=True)
 
     def clean(self):
         for widget in self.widget.get_children():
@@ -160,7 +169,7 @@ class Wizard(InfoBar):
         button.show()
         return button
 
-    def _record_modified(self, screen, record):
+    def _record_changed(self, screen, record):
         self.update_buttons(record)
 
     def update_buttons(self, record):
@@ -175,8 +184,8 @@ class Wizard(InfoBar):
         self.screen.add_view(view)
         self.screen.switch_view()
         self.screen.widget.show()
-        self.screen.signal_connect(self, 'record-modified',
-            self._record_modified)
+        self.screen.signal_connect(self, 'group-changed',
+            self._record_changed)
 
         title = gtk.Label()
         title.modify_font(pango.FontDescription("bold 14"))

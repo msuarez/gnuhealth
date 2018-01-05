@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 
@@ -35,6 +35,6 @@ class Note(WinForm):
                     resource.set_client(record, self.resource)
                     if 'unread' not in record.modified_fields:
                         unread.set_client(record, False)
-            self.screen.group.save()
+            self.screen.save_current()
         if self.note_callback:
             self.note_callback()

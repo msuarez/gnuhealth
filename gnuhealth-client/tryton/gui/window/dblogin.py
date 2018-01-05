@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
 import ConfigParser
@@ -10,8 +10,8 @@ import threading
 
 from tryton import __version__, SERVER_VERSION
 import tryton.common as common
-from tryton.config import CONFIG, GNUHEALTH_ICON, BANNER, PIXMAPS_DIR, \
-    get_config_dir
+from tryton.config import CONFIG, GNUHEALTH_ICON, BANNER, \
+    PIXMAPS_DIR, get_config_dir
 import tryton.rpc as rpc
 from tryton.exceptions import TrytonError
 
@@ -315,10 +315,12 @@ class DBListEditor(object):
             if index == -1:
                 index = 0
             self.database_combo.set_active(index)
-            dbs = len(dbs)
             self.database_entry.set_text(self.current_database
                 if self.current_database else '')
-            self.database_combo.show()
+            if dbs:
+                self.database_combo.show()
+            else:
+                self.database_entry.show()
         self.db_cache = (host, port, self.current_profile['name'])
 
         self.add_button.set_sensitive(True)
@@ -388,14 +390,14 @@ class DBLogin(object):
         img_cancel.set_from_stock('gtk-cancel', gtk.ICON_SIZE_BUTTON)
         button_cancel.set_image(img_cancel)
         tooltips.set_tip(button_cancel,
-            _('Cancel connection to the GNU Health server'))
+            _('Cancel connection to the Tryton server'))
         self.dialog.add_action_widget(button_cancel, gtk.RESPONSE_CANCEL)
         self.button_connect = gtk.Button(_('C_onnect'), use_underline=True)
         img_connect = gtk.Image()
         img_connect.set_from_stock('tryton-connect', gtk.ICON_SIZE_BUTTON)
         self.button_connect.set_image(img_connect)
         self.button_connect.set_can_default(True)
-        tooltips.set_tip(self.button_connect, _('Connect the GNU Health server'))
+        tooltips.set_tip(self.button_connect, _('Connect the Tryton server'))
         self.dialog.add_action_widget(self.button_connect, gtk.RESPONSE_OK)
         self.dialog.set_default_response(gtk.RESPONSE_OK)
         alignment = gtk.Alignment(yalign=0, yscale=0, xscale=1)
@@ -407,11 +409,7 @@ class DBLogin(object):
         self.dialog.vbox.pack_start(alignment, True, True, 0)
 
         image = gtk.Image()
-        # Use custom banner if set in the custom_banner param
-        if (CONFIG['client.banner']):
-            image.set_from_file(CONFIG['client.banner'])
-        else:
-            image.set_from_file(os.path.join(PIXMAPS_DIR, BANNER))
+        image.set_from_file(os.path.join(PIXMAPS_DIR, BANNER))
         image.set_alignment(0.5, 1)
         ebox = gtk.EventBox()
         ebox.modify_bg(gtk.STATE_NORMAL, gtk.gdk.color_parse("#1b2019"))
@@ -480,20 +478,19 @@ class DBLogin(object):
 
         # Profile informations
         self.profile_cfg = os.path.join(get_config_dir(), 'profiles.cfg')
-        self.profiles = ConfigParser.SafeConfigParser({'port': '8000'})
+        self.profiles = ConfigParser.SafeConfigParser()
         if not os.path.exists(self.profile_cfg):
             short_version = '.'.join(__version__.split('.', 2)[:2])
             name = 'health.gnusolidario.org'
             self.profiles.add_section(name)
             self.profiles.set(name, 'host', name)
-            self.profiles.set(name, 'port', '8000')
-            self.profiles.set(name, 'database', 'health32')
+            self.profiles.set(name, 'database', 'health%s' % short_version)
             self.profiles.set(name, 'username', 'admin')
         else:
             self.profiles.read(self.profile_cfg)
         for section in self.profiles.sections():
             active = all(self.profiles.has_option(section, option)
-                for option in ('host', 'port', 'database'))
+                for option in ('host', 'database'))
             self.profile_store.append([section, active])
 
     def profile_manage(self, widget):
@@ -532,7 +529,7 @@ class DBLogin(object):
         else:
             self.entry_login.set_text('')
 
-    def clear_profile_combo(self, entry, event):
+    def clear_profile_combo(self, *args):
         netloc = self.entry_host.get_text()
         host = common.get_hostname(netloc)
         port = common.get_port(netloc)
@@ -563,8 +560,10 @@ class DBLogin(object):
         profile_name = CONFIG['login.profile']
         can_use_profile = self.profiles.has_section(profile_name)
         if can_use_profile:
-            for (configname, sectionname) in (('login.server', 'host'),
-                    ('login.port', 'port'), ('login.db', 'database')):
+            for (configname, sectionname) in [
+                    ('login.host', 'host'),
+                    ('login.db', 'database'),
+                    ]:
                 if (self.profiles.get(profile_name, sectionname)
                         != CONFIG[configname]):
                     can_use_profile = False
@@ -577,15 +576,12 @@ class DBLogin(object):
                     break
         else:
             self.combo_profile.set_active(-1)
-            if ':' in CONFIG['login.server']:
-                host = '[%s]' % CONFIG['login.server']
-            else:
-                host = CONFIG['login.server']
-            self.entry_host.set_text('%s:%s' % (host,
-                CONFIG['login.port']))
+            host = CONFIG['login.host'] if CONFIG['login.host'] else ''
+            self.entry_host.set_text(host)
             db = CONFIG['login.db'] if CONFIG['login.db'] else ''
             self.entry_database.set_text(db)
             self.entry_login.set_text(CONFIG['login.login'])
+            self.clear_profile_combo()
         self.dialog.show_all()
 
         self.entry_login.grab_focus()
@@ -601,35 +597,33 @@ class DBLogin(object):
             response = self.dialog.run()
             if response != gtk.RESPONSE_OK:
                 break
+            self.clear_profile_combo()
             active_profile = self.combo_profile.get_active()
             if active_profile != -1:
                 profile = self.profile_store[active_profile][0]
-                CONFIG['login.profile'] = profile
-            netloc = self.entry_host.get_text()
-            host = common.get_hostname(netloc)
-            port = common.get_port(netloc)
-            try:
-                test = DBListEditor.test_server_version(host, port)
-                if not test:
-                    if test is False:
-                        common.warning('',
-                            _(u'Incompatible version of the server'))
-                    else:
-                        common.warning('',
-                            _(u'Could not connect to the server'))
-                    continue
-            except Exception, exception:
-                common.process_exception(exception)
+            else:
+                profile = ''
+            host = self.entry_host.get_text()
+            hostname = common.get_hostname(host)
+            port = common.get_port(host)
+            test = DBListEditor.test_server_version(hostname, port)
+            if not test:
+                if test is False:
+                    common.warning('',
+                        _(u'Incompatible version of the server'))
+                else:
+                    common.warning('',
+                        _(u'Could not connect to the server'))
                 continue
             database = self.entry_database.get_text()
             login = self.entry_login.get_text()
-            CONFIG['login.server'] = host
-            CONFIG['login.port'] = port
+            CONFIG['login.profile'] = profile
+            CONFIG['login.host'] = host
             CONFIG['login.db'] = database
             CONFIG['login.expanded'] = self.expander.props.expanded
             CONFIG['login.login'] = login
             result = (
-                host, port, database, self.entry_login.get_text())
+                hostname, port, database, self.entry_login.get_text())
 
         self.parent.present()
         self.dialog.destroy()

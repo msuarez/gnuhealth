@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -12,7 +12,7 @@ from tryton.gui.window.note import Note
 _ = gettext.gettext
 
 
-def populate(menu, model, record, title='', field=None):
+def populate(menu, model, record, title='', field=None, context=None):
     '''
     Fill menu with the actions of model for the record.
     If title is filled, the actions will be put in a submenu.
@@ -27,7 +27,7 @@ def populate(menu, model, record, title='', field=None):
 
     def load(record):
         if isinstance(record, (int, long)):
-            screen = Screen(model)
+            screen = Screen(model, context=context)
             screen.load([record])
             record = screen.current_record
         return record
@@ -51,7 +51,7 @@ def populate(menu, model, record, title='', field=None):
                 or event.state & gtk.gdk.MOD1_MASK):
             allow_similar = True
         with Window(hide_current=True, allow_similar=allow_similar):
-            Action._exec_action(action, data, {})
+            Action._exec_action(action, data, rec.get_context())
 
     def attachment(menuitem):
         Attachment(load(record), None)
@@ -61,9 +61,11 @@ def populate(menu, model, record, title='', field=None):
 
     def edit(menuitem):
         with Window(hide_current=True, allow_similar=True):
-            Window.create(
-                field.attrs.get('view_ids', '').split(','), model, id_(record),
-                mode=['form'], name=field.attrs.get('string'))
+            Window.create(model,
+                view_ids=field.attrs.get('view_ids', '').split(','),
+                res_id=id_(record),
+                mode=['form'],
+                name=field.attrs.get('string'))
 
     if title:
         if len(menu):

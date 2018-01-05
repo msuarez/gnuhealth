@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 
@@ -106,6 +106,8 @@ class Char(Widget, TranslateMixin, PopdownMixin):
         super(Char, self).display(record, field)
         if self.autocomplete:
             if record:
+                if self.field_name not in record.autocompletion:
+                    record.do_autocomplete(self.field_name)
                 selection = record.autocompletion.get(self.field_name, [])
             else:
                 selection = []
@@ -140,11 +142,12 @@ class Char(Widget, TranslateMixin, PopdownMixin):
         sensitivity = {True: gtk.SENSITIVITY_OFF, False: gtk.SENSITIVITY_AUTO}
         super(Char, self)._readonly_set(value)
         if self.autocomplete:
-            self.entry.get_child().set_editable(not value)
+            entry_editable = self.entry.get_child()
             self.entry.set_button_sensitivity(sensitivity[value])
         else:
-            self.entry.set_editable(not value)
-        set_widget_style(self.entry, not value)
+            entry_editable = self.entry
+        entry_editable.set_editable(not value)
+        set_widget_style(entry_editable, not value)
         if value and CONFIG['client.fast_tabbing']:
             self.widget.set_focus_chain([])
         else:

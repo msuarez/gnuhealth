@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -12,6 +12,7 @@ import tryton.common as common
 from tryton.common.placeholder_entry import PlaceholderEntry
 from tryton.common.completion import get_completion, update_completion
 from tryton.common.domain_parser import quote
+from tryton.common.widget_style import widget_class
 
 _ = gettext.gettext
 
@@ -42,6 +43,43 @@ class One2Many(Widget):
         hbox.pack_start(gtk.VSeparator(), expand=False, fill=True)
 
         tooltips = common.Tooltips()
+
+        but_switch = gtk.Button()
+        tooltips.set_tip(but_switch, _('Switch'))
+        but_switch.connect('clicked', self.switch_view)
+        img_switch = gtk.Image()
+        img_switch.set_from_stock('tryton-fullscreen',
+            gtk.ICON_SIZE_SMALL_TOOLBAR)
+        img_switch.set_alignment(0.5, 0.5)
+        but_switch.add(img_switch)
+        but_switch.set_relief(gtk.RELIEF_NONE)
+        hbox.pack_start(but_switch, expand=False, fill=False)
+
+        self.but_pre = gtk.Button()
+        tooltips.set_tip(self.but_pre, _('Previous'))
+        self.but_pre.connect('clicked', self._sig_previous)
+        img_pre = gtk.Image()
+        img_pre.set_from_stock('tryton-go-previous',
+            gtk.ICON_SIZE_SMALL_TOOLBAR)
+        img_pre.set_alignment(0.5, 0.5)
+        self.but_pre.add(img_pre)
+        self.but_pre.set_relief(gtk.RELIEF_NONE)
+        hbox.pack_start(self.but_pre, expand=False, fill=False)
+
+        self.label = gtk.Label('(0,0)')
+        hbox.pack_start(self.label, expand=False, fill=False)
+
+        self.but_next = gtk.Button()
+        tooltips.set_tip(self.but_next, _('Next'))
+        self.but_next.connect('clicked', self._sig_next)
+        img_next = gtk.Image()
+        img_next.set_from_stock('tryton-go-next', gtk.ICON_SIZE_SMALL_TOOLBAR)
+        img_next.set_alignment(0.5, 0.5)
+        self.but_next.add(img_next)
+        self.but_next.set_relief(gtk.RELIEF_NONE)
+        hbox.pack_start(self.but_next, expand=False, fill=False)
+
+        hbox.pack_start(gtk.VSeparator(), expand=False, fill=True)
 
         self.focus_out = True
         self.wid_completion = None
@@ -131,45 +169,6 @@ class One2Many(Widget):
         self.but_undel.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_undel, expand=False, fill=False)
 
-        hbox.pack_start(gtk.VSeparator(), expand=False, fill=True)
-
-        self.but_pre = gtk.Button()
-        tooltips.set_tip(self.but_pre, _('Previous'))
-        self.but_pre.connect('clicked', self._sig_previous)
-        img_pre = gtk.Image()
-        img_pre.set_from_stock('tryton-go-previous',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_pre.set_alignment(0.5, 0.5)
-        self.but_pre.add(img_pre)
-        self.but_pre.set_relief(gtk.RELIEF_NONE)
-        hbox.pack_start(self.but_pre, expand=False, fill=False)
-
-        self.label = gtk.Label('(0,0)')
-        hbox.pack_start(self.label, expand=False, fill=False)
-
-        self.but_next = gtk.Button()
-        tooltips.set_tip(self.but_next, _('Next'))
-        self.but_next.connect('clicked', self._sig_next)
-        img_next = gtk.Image()
-        img_next.set_from_stock('tryton-go-next', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_next.set_alignment(0.5, 0.5)
-        self.but_next.add(img_next)
-        self.but_next.set_relief(gtk.RELIEF_NONE)
-        hbox.pack_start(self.but_next, expand=False, fill=False)
-
-        hbox.pack_start(gtk.VSeparator(), expand=False, fill=True)
-
-        but_switch = gtk.Button()
-        tooltips.set_tip(but_switch, _('Switch'))
-        but_switch.connect('clicked', self.switch_view)
-        img_switch = gtk.Image()
-        img_switch.set_from_stock('tryton-fullscreen',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_switch.set_alignment(0.5, 0.5)
-        but_switch.add(img_switch)
-        but_switch.set_relief(gtk.RELIEF_NONE)
-        hbox.pack_start(but_switch, expand=False, fill=False)
-
         if attrs.get('add_remove'):
             hbox.set_focus_chain([self.wid_text])
         else:
@@ -187,7 +186,8 @@ class One2Many(Widget):
             view_ids=attrs.get('view_ids', '').split(','),
             views_preload=attrs.get('views', {}),
             row_activate=self._on_activate,
-            exclude_field=attrs.get('relation_field', None))
+            exclude_field=attrs.get('relation_field', None),
+            limit=None)
         self.screen.pre_validate = bool(int(attrs.get('pre_validate', 0)))
         self.screen.signal_connect(self, 'record-message', self._sig_label)
 
@@ -254,6 +254,8 @@ class One2Many(Widget):
     def _set_label_state(self):
         attrlist = common.get_label_attributes(self._readonly, self._required)
         self.title.set_attributes(attrlist)
+        widget_class(self.title, 'readonly', self._readonly)
+        widget_class(self.title, 'required', self._required)
 
     def _set_button_sensitive(self):
         access = common.MODELACCESS[self.screen.model_name]
@@ -325,6 +327,13 @@ class One2Many(Widget):
                 return False
         return True
 
+    def _sequence(self):
+        for view in self.screen.views:
+            if view.view_type == 'tree':
+                sequence = view.attributes.get('sequence')
+                if sequence:
+                    return sequence
+
     def _sig_new(self, *args):
         if not common.MODELACCESS[self.screen.model_name]['create']:
             return
@@ -338,13 +347,8 @@ class One2Many(Widget):
 
     def _new_single(self):
         ctx = {}
-        ctx.update(self.field.context_get(self.record))
-        sequence = None
-        for view in self.screen.views:
-            if view.view_type == 'tree':
-                sequence = view.attributes.get('sequence')
-                if sequence:
-                    break
+        ctx.update(self.field.get_context(self.record))
+        sequence = self._sequence()
 
         def update_sequence():
             if sequence:
@@ -377,7 +381,7 @@ class One2Many(Widget):
                 search_set()
 
             domain = field.domain_get(first)
-            context = field.context_get(first)
+            context = field.get_context(first)
 
             def callback(result):
                 if result:
@@ -407,6 +411,10 @@ class One2Many(Widget):
                     default_value[field] = id_
                     default_value[field + '.rec_name'] = rec_name
                 record.set_default(default_value)
+
+            sequence = self._sequence()
+            if sequence:
+                self.screen.group.set_sequence(field=sequence)
 
         search_set()
 
@@ -451,7 +459,7 @@ class One2Many(Widget):
             return
         self.view.set_value()
         domain = self.field.domain_get(self.record)
-        context = self.field.context_get(self.record)
+        context = self.field.get_context(self.record)
         domain = [domain, self.record.expr_eval(self.attrs.get('add_remove'))]
         removed_ids = self.field.get_removed_ids(self.record)
         domain = ['OR', domain, ('id', 'in', removed_ids)]
@@ -459,9 +467,7 @@ class One2Many(Widget):
 
         self.focus_out = False
 
-        sequence = None
-        if self.screen.current_view.view_type == 'tree':
-            sequence = self.screen.current_view.attributes.get('sequence')
+        sequence = self._sequence()
 
         def callback(result):
             self.focus_out = True

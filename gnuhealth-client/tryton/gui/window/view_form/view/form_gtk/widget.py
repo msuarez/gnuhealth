@@ -1,4 +1,4 @@
-# This file is part of GNU Health.  The COPYRIGHT file at the top level of
+# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
@@ -8,6 +8,7 @@ import tryton.common as common
 from tryton.gui.window.nomodal import NoModal
 from tryton.common import GNUHEALTH_ICON
 from tryton.common import RPCExecute, RPCException
+from tryton.common.widget_style import widget_class
 
 _ = gettext.gettext
 
@@ -98,15 +99,20 @@ class Widget(object):
             self.invisible_set(self.attrs.get('invisible', False))
             self._required_set(False)
             return
-        readonly = self.attrs.get('readonly',
-            field.get_state_attrs(record).get('readonly', False))
+        states = field.get_state_attrs(record)
+        readonly = self.attrs.get('readonly', states.get('readonly', False))
         if self.view.screen.readonly:
             readonly = True
         self._readonly_set(readonly)
-        self.invisible_set(self.attrs.get('invisible',
-            field.get_state_attrs(record).get('invisible', False)))
-        self._required_set(
-            field.get_state_attrs(record).get('required', False))
+        widget_class(self.widget, 'readonly', readonly)
+        self._required_set(not readonly and states.get('required', False))
+        widget_class(
+            self.widget, 'required',
+            not readonly and states.get('required', False))
+        invalid = states.get('invalid', False)
+        widget_class(self.widget, 'invalid', not readonly and invalid)
+        self.invisible_set(self.attrs.get(
+                'invisible', states.get('invisible', False)))
 
     def set_value(self, record, field):
         pass
@@ -171,7 +177,7 @@ class TranslateDialog(NoModal):
             label.set_mnemonic_widget(widget)
             self.widget.translate_widget_set(widget, fuzzy_value)
             self.widget.translate_widget_set_readonly(widget, True)
-            yopt = 0
+            yopt = None
             if self.widget.expand:
                 yopt = gtk.EXPAND | gtk.FILL
             table.attach(widget, 1, 2, i, i + 1, yoptions=yopt)
