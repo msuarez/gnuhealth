@@ -139,7 +139,11 @@ class Main(object):
         self.global_search_entry = None
         self.menuitem_user = None
         self.menuitem_favorite = None
-
+        
+        # Init GNU HEalth CLI
+        self.cli = None
+        self.cli = gtk.Entry()
+        
         self.buttons = {}
 
         self.pane = gtk.HPaned()
@@ -892,6 +896,9 @@ class Main(object):
         self.favorite_unset()
         self.menuitem_favorite.set_sensitive(True)
         self.menuitem_user.set_sensitive(True)
+        
+        self.set_cli()
+        
         if CONFIG.arguments:
             url = CONFIG.arguments.pop()
             self.open_url(url)
@@ -929,9 +936,15 @@ class Main(object):
         self.favorite_unset()
         self.menuitem_favorite.set_sensitive(False)
         self.menuitem_user.set_sensitive(False)
+
+        # Remove Gnu Health CLI
+        if self.cli:
+            self.cli.destroy()
+
         if disconnect:
             rpc.logout()
         return True
+        
 
     def sig_about(self, widget):
         About()
@@ -1372,3 +1385,17 @@ class Main(object):
                 self._open_url(url)
                 return False
         gobject.idle_add(idle_open_url)
+
+
+    # Add GNU Health Command Line
+    def set_cli(self):
+        cli = self.cli
+        # Maximum of 64 chars
+        cli.set_max_length(64)
+        cli.connect('activate', self.activate_cli)
+        self.vbox.pack_start(cli, False, True)
+        self.vbox.show_all()
+
+    # Parse the CLI arguments
+    def activate_cli(self, widget):
+        command = widget.get_text()
