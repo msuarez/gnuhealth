@@ -33,6 +33,11 @@ from tryton.common.cellrendererclickablepixbuf import \
 import tryton.translate as translate
 import tryton.plugins
 from tryton.common.placeholder_entry import PlaceholderEntry
+
+import time
+from tryton.gui.window.activity import Activity
+
+
 if os.environ.get('GTKOSXAPPLICATION'):
     import gtkosx_application
 else:
@@ -909,6 +914,10 @@ class Main(object):
         self.set_footer()
         
         self.statusbar.push(self.context_id, "Connected")
+        msg = "Connected to GNU Health Server"
+
+        #Add connection successful entry to the Activity log
+        self.activity_log_entry(msg, 'info')
         
         if CONFIG.arguments:
             url = CONFIG.arguments.pop()
@@ -1427,3 +1436,17 @@ class Main(object):
     # Parse the CLI arguments
     def activate_cli(self, widget, data):
         command = widget.get_text()
+
+    def activity_log_entry (self, msg, msg_type):
+        time_stamp = time.strftime("%m/%d/%Y - %H:%M:%S")
+        if (msg_type == "info"):
+            mtype = "[INFO]"
+        elif (msg_type == "info"):
+            mtype = "[WARN]"
+        else:
+            mtype = "[ERROR]"
+
+        log_entry = time_stamp + "  " + mtype + ": " + msg
+
+        Activity.textbuffer.set_text(log_entry)
+
