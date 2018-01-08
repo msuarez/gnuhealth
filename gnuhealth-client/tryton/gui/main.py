@@ -144,6 +144,14 @@ class Main(object):
         self.cli = None
         self.cli = gtk.Entry()
         
+        # Init the GNU Health Status Bar
+        self.statusbar = None
+        self.statusbar = gtk.Statusbar()
+        self.context_id = self.statusbar.get_context_id("Statusbar")
+        
+        # Pack CLI and status bar
+        self.footer = gtk.HBox()
+        
         self.buttons = {}
 
         self.pane = gtk.HPaned()
@@ -897,7 +905,10 @@ class Main(object):
         self.menuitem_favorite.set_sensitive(True)
         self.menuitem_user.set_sensitive(True)
         
-        self.set_cli()
+        # Set GNU Health Footer
+        self.set_footer()
+        
+        self.statusbar.push(self.context_id, "Connected")
         
         if CONFIG.arguments:
             url = CONFIG.arguments.pop()
@@ -937,10 +948,10 @@ class Main(object):
         self.menuitem_favorite.set_sensitive(False)
         self.menuitem_user.set_sensitive(False)
 
-        # Remove Gnu Health CLI
+        # Remove Gnu Health CLI and Statusbar from footer
         if self.cli:
             self.cli.destroy()
-
+       
         if disconnect:
             rpc.logout()
         return True
@@ -1387,15 +1398,32 @@ class Main(object):
         gobject.idle_add(idle_open_url)
 
 
-    # Add GNU Health Command Line
-    def set_cli(self):
+    # Add GNU Health Command Line and Status Bar in footer 
+    def set_footer(self):
         cli = self.cli
+        statusbar = self.statusbar
+        
         # Maximum of 64 chars
         cli.set_max_length(64)
-        cli.connect('activate', self.activate_cli)
-        self.vbox.pack_start(cli, False, True)
+        
+        # Create initally a 1x3 table for the footer, leaving the
+        # middle column empty
+        footer_contents = gtk.Table(1,3,True)
+        
+        footer_contents.attach(cli, 0, 1, 0, 1)
+        footer_contents.attach(statusbar,2, 3, 0, 1)
+        
+        self.footer.pack_start(footer_contents, True, True )
+        
+        # Pack the footer table in main vbox
+        self.vbox.pack_start (self.footer, False, False)
+        
+        self.footer.show_all()
         self.vbox.show_all()
 
+        cli.connect('activate', self.activate_cli, self.context_id)
+
+
     # Parse the CLI arguments
-    def activate_cli(self, widget):
+    def activate_cli(self, widget, data):
         command = widget.get_text()
