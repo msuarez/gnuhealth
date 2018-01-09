@@ -144,19 +144,8 @@ class Main(object):
         self.global_search_entry = None
         self.menuitem_user = None
         self.menuitem_favorite = None
-        
-        # Init GNU HEalth CLI
-        self.cli = None
-        self.cli = gtk.Entry()
-        
-        # Init the GNU Health Status Bar
-        self.statusbar = None
-        self.statusbar = gtk.Statusbar()
-        self.context_id = self.statusbar.get_context_id("Statusbar")
-        
-        # Pack CLI and status bar
-        self.footer = gtk.HBox()
-        
+   
+
         self.buttons = {}
 
         self.pane = gtk.HPaned()
@@ -218,6 +207,8 @@ class Main(object):
             self.macapp.ready()
 
         _MAIN.append(self)
+
+        self.cli = self.statusbar = self.footer_contents = self.footer = None
 
     def set_menubar(self):
         if self.menubar:
@@ -910,14 +901,14 @@ class Main(object):
         self.menuitem_favorite.set_sensitive(True)
         self.menuitem_user.set_sensitive(True)
         
-        # Set GNU Health Footer
-        self.set_footer()
-        
-        self.statusbar.push(self.context_id, "Connected")
-        msg = "Connected to GNU Health Server"
-
         #Add connection successful entry to the Activity log
+        msg = "Connected to GNU Health Server"
         self.activity_log_entry(msg, 'info')
+        
+        # Set the footer
+        self.init_gnuhealth_env()
+
+        self.statusbar.push(self.context_id, "Connected")
         
         if CONFIG.arguments:
             url = CONFIG.arguments.pop()
@@ -957,10 +948,13 @@ class Main(object):
         self.menuitem_favorite.set_sensitive(False)
         self.menuitem_user.set_sensitive(False)
 
-        # Remove Gnu Health CLI and Statusbar from footer
-        if self.cli:
-            self.cli.destroy()
-       
+        # Reset GNU Health environment from client
+        self.reset_gnuhealth_env()
+
+        #Add disconnection entry to the Activity log
+        msg = "Disconnected from GNU Health Server"
+        self.activity_log_entry(msg, 'info')
+
         if disconnect:
             rpc.logout()
         return True
@@ -1407,38 +1401,59 @@ class Main(object):
         gobject.idle_add(idle_open_url)
 
 
+    # Initialize GNU Health environment
+    def init_gnuhealth_env(self):
+        # Init GNU HEalth CLI
+        self.cli = None
+        self.cli = gtk.Entry()
+
+        # Init the GNU Health Status Bar
+        self.statusbar = None
+        self.footer = None
+        self.footer_contents = None
+        self.statusbar = gtk.Statusbar()
+        self.context_id = self.statusbar.get_context_id("Statusbar")
+
+        # Pack CLI and status bar
+        self.footer = gtk.HBox()
+
+        # Create initally a 1x3 table for the footer, leaving the
+        # middle column empty
+        self.footer_contents = gtk.Table(1,3,True)
+
+        # Set GNU Health Footer
+        self.set_footer()
+
+
     # Add GNU Health Command Line and Status Bar in footer 
     def set_footer(self):
         cli = self.cli
         statusbar = self.statusbar
-        
+        footer_contents = self.footer_contents
+
         # Maximum of 64 chars
         cli.set_max_length(64)
-        
-        # Create initally a 1x3 table for the footer, leaving the
-        # middle column empty
-        footer_contents = gtk.Table(1,3,True)
-        
+
         footer_contents.attach(cli, 0, 1, 0, 1)
         footer_contents.attach(statusbar,2, 3, 0, 1)
         
         self.footer.pack_start(footer_contents, True, True )
-        
+
         # Pack the footer table in main vbox
         self.vbox.pack_start (self.footer, False, False)
-        
+
         self.footer.show_all()
         self.vbox.show_all()
 
         cli.connect('activate', self.activate_cli, self.context_id)
 
-
     # Parse the CLI arguments
     def activate_cli(self, widget, data):
         command = widget.get_text()
 
+    # GNU Health system activity and status logger
     def activity_log_entry (self, msg, msg_type):
-        time_stamp = time.strftime("%m/%d/%Y - %H:%M:%S")
+        time_stamp = time.strftime("%Y/%m/%d - %H:%M:%S")
         if (msg_type == "info"):
             mtype = "[INFO]"
         elif (msg_type == "info"):
@@ -1450,3 +1465,17 @@ class Main(object):
 
         Activity.textbuffer.set_text(log_entry)
 
+
+    # Reset and clean GNU Health environment
+    def reset_gnuhealth_env(self):
+        if self.cli:
+            self.cli.destroy()
+
+        if self.statusbar:
+            self.statusbar.remove_all(self.context_id)
+
+        if self.footer_contents:
+            self.footer_contents.destroy()
+
+        if self.footer:
+            self.footer.destroy()
