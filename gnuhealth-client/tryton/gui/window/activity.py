@@ -17,6 +17,7 @@
 #  MA 02110-1301, USA.
 #  
 
+from tryton.config import GNUHEALTH_ICON
 import gtk
 
 class Activity():
@@ -25,7 +26,8 @@ class Activity():
     activity_window = gtk.Window()
     activity_window.set_default_size(500, 500)
     activity_window.set_title("Activity log - GNU Health ")
-        
+    activity_window.set_icon(GNUHEALTH_ICON)
+
     sw = gtk.ScrolledWindow()
     sw.set_policy(gtk.POLICY_AUTOMATIC, False)
 
