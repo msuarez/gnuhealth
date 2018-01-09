@@ -1461,9 +1461,11 @@ class Main(object):
         else:
             mtype = "[ERROR]"
 
-        log_entry = time_stamp + "  " + mtype + ": " + msg
+        log_entry = time_stamp + "  " + mtype + ": " + msg + "\n"
 
-        Activity.textbuffer.set_text(log_entry)
+        next_line = Activity.textbuffer.get_end_iter()
+
+        Activity.textbuffer.insert(next_line, log_entry)
 
 
     # Reset and clean GNU Health environment
