@@ -35,6 +35,7 @@ import tryton.plugins
 from tryton.common.placeholder_entry import PlaceholderEntry
 
 import time
+import platform
 from tryton.gui.window.activity import Activity
 
 
@@ -1450,6 +1451,18 @@ class Main(object):
     # Parse the CLI arguments
     def activate_cli(self, widget, data):
         command = widget.get_text()
+        if (command == 'sysinfo'):
+            info = "Request : " + command + "\n"
+            client_info = '** Client information **\n'
+            server_info = '** Server information **\n'
+            client_info = client_info + self.get_host_info() + "\n"
+            
+            server_info = server_info + \
+                RPCExecute('model','gnuhealth.command',command)
+            
+            info = info + client_info + server_info
+            self.activity_log_entry (info, "info")
+
 
     # GNU Health system activity and status logger
     def activity_log_entry (self, msg, msg_type):
@@ -1481,3 +1494,10 @@ class Main(object):
 
         if self.footer:
             self.footer.destroy()
+
+    def get_host_info(self):
+            info = ''
+            uname = platform.uname()
+            pversion = "Python version :" + platform.python_version()
+            info = info + str(uname) + '\n' + str(pversion)
+            return info

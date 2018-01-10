@@ -28,6 +28,7 @@ from urllib.parse import urlencode
 from urllib.parse import urlunparse
 from collections import OrderedDict
 from io import BytesIO
+import platform
 
 try:
     from PIL import Image
@@ -46,6 +47,8 @@ from trytond.pool import Pool
 from trytond.tools import grouped_slice, reduce_ids
 from trytond.backend import name as backend_name
 from trytond.tools.multivalue import migrate_property
+from trytond.rpc import RPC
+
 
 
 from uuid import uuid4
@@ -74,7 +77,7 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate']
+    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate', 'Commands']
 
 
 sequences = ['patient_sequence', 'patient_evaluation_sequence',
@@ -5087,3 +5090,25 @@ class ProductTemplate(ModelSQL, ModelView):
     @classmethod
     def check_xml_record(cls, records, values):
         return True
+
+class Commands(ModelView):
+    'GNU Health Commands'
+    __name__ = "gnuhealth.command"
+    """
+    Commands to be executed from the CLI
+    """
+
+    def sysinfo():
+        # Get Server side information
+        info = ''
+        uname = platform.uname()
+        pversion = "Python version: " + platform.python_version() + "\n"
+        info = info + str(uname) + '\n' + str(pversion)
+        return info
+    
+    @classmethod
+    def __setup__(cls):
+        super(Commands, cls).__setup__()
+        cls.__rpc__.update({
+                'sysinfo': RPC(check_access=False),
+                })
