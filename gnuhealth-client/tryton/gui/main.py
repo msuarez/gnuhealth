@@ -37,6 +37,7 @@ from tryton.common.placeholder_entry import PlaceholderEntry
 import time
 import platform
 from tryton.gui.window.activity import Activity
+from tryton import __version__
 
 
 if os.environ.get('GTKOSXAPPLICATION'):
@@ -1408,6 +1409,10 @@ class Main(object):
         self.cli = None
         self.cli = gtk.Entry()
 
+        #CLI colors
+        self.cli.modify_base(gtk.STATE_NORMAL, gtk.gdk.color_parse("#03656B"))
+        self.cli.modify_text(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))
+
         # Init the GNU Health Status Bar
         self.statusbar = None
         self.footer = None
@@ -1453,8 +1458,8 @@ class Main(object):
         command = widget.get_text()
         if (command == 'sysinfo'):
             info = "Request : " + command + "\n"
-            client_info = '** Client information **\n'
-            server_info = '** Server information **\n'
+            client_info = '\n********* CLIENT INFORMATION *********\n\n'
+            server_info = '\n********* SERVER INFORMATION *********\n\n'
             client_info = client_info + self.get_host_info() + "\n"
             
             server_info = server_info + \
@@ -1496,14 +1501,15 @@ class Main(object):
             self.footer.destroy()
 
     def get_host_info(self):
-            info = ""
-            os_header = "-- Operating System / Distribution --\n"
-            uname = platform.uname()
-            pversion = "Python version :" + platform.python_version()
-            if (os.path.isfile('/etc/os-release')):
-                os_version = open('/etc/os-release').read()
+        info = ""
+        os_header = "\n-- Operating System / Distribution --\n"
+        uname = platform.uname()
+        client_version = "GNU Health GTK Client version: " + __version__
+        pversion = "Python version :" + platform.python_version()
+        if (os.path.isfile('/etc/os-release')):
+            os_version = open('/etc/os-release').read()
 
-            info = info + str(uname) + '\n' + str(pversion) + \
-                '\n' + os_header + os_version
+        info = info + pversion + '\n' + client_version + '\n' + \
+             os_header + os_version + "Platform / Kernel Info: " + str(uname)
 
-            return info
+        return info

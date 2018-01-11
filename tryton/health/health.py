@@ -5102,22 +5102,22 @@ class Commands(ModelView):
     def sysinfo():
         # Get Server side information
         info = ''
-        os_header = "-- Operating System / Distribution --\n"
+        os_header = "\n-- Operating System / Distribution --\n"
         uname = platform.uname()
-        pversion = "Python version: " + platform.python_version() + "\n"
+        pversion = "Python version: " + str(platform.python_version()) + "\n\n"
         #Get OS version.
         if (os.path.isfile('/etc/os-release')):
             os_version = open('/etc/os-release').read()
         # Get relevant environment variables
         gnuhealth_os_user = "GNU Health user: " + os.environ['USER'] + "\n"
-        gnuhealth_version = "GNU Health version: " + \
+        gnuhealth_version = "GNU Health Server version: " + \
             os.environ['GNUHEALTH_VERSION'] + "\n"
 
         tryton_version = "Tryton server: " + os.environ['TRYTON_VERSION'] + "\n"
 
-        info = info + str(uname) + '\n' + str(pversion) + \
-            os_header + os_version + '\n' + gnuhealth_os_user + \
-            gnuhealth_version + tryton_version
+        info = info + gnuhealth_version + tryton_version + gnuhealth_os_user + \
+            pversion + \
+            os_header + os_version + "Platform / Kernel Info: " + str(uname) + '\n'
 
         return info
     
