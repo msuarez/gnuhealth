@@ -29,6 +29,7 @@ from urllib.parse import urlunparse
 from collections import OrderedDict
 from io import BytesIO
 import platform
+import os
 
 try:
     from PIL import Image
@@ -5101,9 +5102,23 @@ class Commands(ModelView):
     def sysinfo():
         # Get Server side information
         info = ''
+        os_header = "-- Operating System / Distribution --\n"
         uname = platform.uname()
         pversion = "Python version: " + platform.python_version() + "\n"
-        info = info + str(uname) + '\n' + str(pversion)
+        #Get OS version.
+        if (os.path.isfile('/etc/os-release')):
+            os_version = open('/etc/os-release').read()
+        # Get relevant environment variables
+        gnuhealth_os_user = "GNU Health user: " + os.environ['USER'] + "\n"
+        gnuhealth_version = "GNU Health version: " + \
+            os.environ['GNUHEALTH_VERSION'] + "\n"
+
+        tryton_version = "Tryton server: " + os.environ['TRYTON_VERSION'] + "\n"
+
+        info = info + str(uname) + '\n' + str(pversion) + \
+            os_header + os_version + '\n' + gnuhealth_os_user + \
+            gnuhealth_version + tryton_version
+
         return info
     
     @classmethod

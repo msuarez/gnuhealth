@@ -1496,8 +1496,14 @@ class Main(object):
             self.footer.destroy()
 
     def get_host_info(self):
-            info = ''
+            info = ""
+            os_header = "-- Operating System / Distribution --\n"
             uname = platform.uname()
             pversion = "Python version :" + platform.python_version()
-            info = info + str(uname) + '\n' + str(pversion)
+            if (os.path.isfile('/etc/os-release')):
+                os_version = open('/etc/os-release').read()
+
+            info = info + str(uname) + '\n' + str(pversion) + \
+                '\n' + os_header + os_version
+
             return info
