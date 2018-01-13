@@ -37,6 +37,7 @@ from tryton.common.placeholder_entry import PlaceholderEntry
 import time
 import platform
 from tryton.gui.window.activity import Activity
+from string import lower
 from tryton import __version__
 
 
@@ -1455,7 +1456,8 @@ class Main(object):
 
     # Parse the CLI arguments
     def activate_cli(self, widget, data):
-        command = widget.get_text()
+        #Make the command case-insensitive
+        command = lower((widget.get_text()))
         if (command == 'sysinfo'):
             info = "Request : " + command + "\n"
             client_info = '\n********* CLIENT INFORMATION *********\n\n'
