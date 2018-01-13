@@ -142,12 +142,10 @@ class Main(object):
 
         self.vbox = gtk.VBox()
         self.window.add(self.vbox)
-
         self.menubar = None
         self.global_search_entry = None
         self.menuitem_user = None
         self.menuitem_favorite = None
-   
 
         self.buttons = {}
 
@@ -212,6 +210,8 @@ class Main(object):
         _MAIN.append(self)
 
         self.cli = self.statusbar = self.footer_contents = self.footer = None
+
+        self.cli_position = CONFIG['client.cli_position']
 
     def set_menubar(self):
         if self.menubar:
@@ -1409,6 +1409,8 @@ class Main(object):
         # Init GNU HEalth CLI
         self.cli = None
         self.cli = gtk.Entry()
+        # Maximum of 64 chars
+        self.cli.set_max_length(64)
 
         #CLI colors
         self.cli.modify_base(gtk.STATE_NORMAL, gtk.gdk.color_parse("#03656B"))
@@ -1417,20 +1419,41 @@ class Main(object):
         # Init the GNU Health Status Bar
         self.statusbar = None
         self.footer = None
+        self.header = None
+        self.header_contents = None
         self.footer_contents = None
         self.statusbar = gtk.Statusbar()
         self.context_id = self.statusbar.get_context_id("Statusbar")
+        self.header = gtk.HBox()
+        self.header.set_size_request(200,-1)
 
-        # Pack CLI and status bar
+
+        # Main header
+        self.header = gtk.HBox()
+
+        # Main footer
         self.footer = gtk.HBox()
 
         # Create initally a 1x3 table for the footer, leaving the
         # middle column empty
         self.footer_contents = gtk.Table(1,3,True)
 
+        # Create initally a 1x3 table for the header
+        self.header_contents = gtk.Table(1,3,True)
+
         # Set GNU Health Footer
         self.set_footer()
 
+        cli_position = self.cli_position
+
+        #Default CLI position at top
+        if (not cli_position or cli_position == 'top'):
+            self.header_contents.attach(self.cli, 0, 1, 0, 1)
+            self.header.pack_start(self.header_contents, True, True)
+            self.vbox.pack_start (self.header, False, False)
+
+            self.vbox.reorder_child(self.header, 1)
+            self.header.show_all()
 
     # Add GNU Health Command Line and Status Bar in footer 
     def set_footer(self):
@@ -1438,10 +1461,9 @@ class Main(object):
         statusbar = self.statusbar
         footer_contents = self.footer_contents
 
-        # Maximum of 64 chars
-        cli.set_max_length(64)
+        if (self.cli_position == 'bottom'):
+            footer_contents.attach(cli, 0, 1, 0, 1)
 
-        footer_contents.attach(cli, 0, 1, 0, 1)
         footer_contents.attach(statusbar,2, 3, 0, 1)
         
         self.footer.pack_start(footer_contents, True, True )
