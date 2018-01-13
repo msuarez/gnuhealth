@@ -21,9 +21,9 @@ def get_config_dir():
         appdata = os.environ['APPDATA']
         if not isinstance(appdata, unicode):
             appdata = unicode(appdata, sys.getfilesystemencoding())
-        return os.path.join(appdata, '.config', 'tryton',
+        return os.path.join(appdata, '.config', 'gnuhealth',
                 __version__.rsplit('.', 1)[0])
-    return os.path.join(os.environ['HOME'], '.config', 'tryton',
+    return os.path.join(os.environ['HOME'], '.config', 'gnuhealth',
             __version__.rsplit('.', 1)[0])
 if not os.path.isdir(get_config_dir()):
     os.makedirs(get_config_dir(), 0700)
@@ -57,6 +57,7 @@ class ConfigManager(object):
             'client.email': '',
             'client.can_change_accelerators': False,
             'client.limit': 1000,
+            'client.cli_position' : 'top',
             'menu.pane': 200,
             'menu.expanded': True,
         }
