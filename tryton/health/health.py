@@ -5092,12 +5092,16 @@ class ProductTemplate(ModelSQL, ModelView):
     def check_xml_record(cls, records, values):
         return True
 
-class Commands(ModelView):
+class Commands(ModelSQL, ModelView):
     'GNU Health Commands'
     __name__ = "gnuhealth.command"
-    """
-    Commands to be executed from the CLI
-    """
+    
+    name = fields.Char('Command')
+    label = fields.Char('Label')
+    internal = fields.Boolean('Internal', help="Internal, Kernel commands")
+    model = fields.Many2One('ir.model','Model')
+    domain = fields.Char('Domain')
+    description = fields.Char("Description")
 
     def sysinfo():
         # Get Server side information

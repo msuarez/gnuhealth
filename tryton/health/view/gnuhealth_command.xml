@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form>
+    <label name="name"/>
+    <field name="name"/>
+    <label name="model"/>
+    <field name="model"/>
+    <label name="label"/>
+    <field name="label"/>
+    <label name="description"/>
+    <field name="description"/>
+    <label name="domain"/>
+    <field name="domain"/>
+    <label name="internal"/>
+    <field name="internal"/>
+</form>

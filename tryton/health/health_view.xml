@@ -110,7 +110,6 @@
         <menuitem name="Insurances" id="gnuhealth_conf_insurances"
             parent="gnuhealth_conf_misc" icon="gnuhealth-open"/>
 
-
 <!-- Person Names -->
 
         <record model="ir.ui.view" id="gnuhealth_person_name_view">
@@ -2020,6 +2019,42 @@
         <menuitem action="action_gnuhealth_hospital_or_view"
             id="gnuhealth_conf_institution_or_add" icon="gnuhealth-list"
             parent="gnuhealth_conf_institution" sequence="5"/>
+
+
+<!-- GNU Health Commands -->
+
+        <record model="ir.ui.view" id="gnuhealth_command_view">
+            <field name="model">gnuhealth.command</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_command</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_command_tree">
+            <field name="model">gnuhealth.command</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_command_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="action_gnuhealth_command_view">
+            <field name="name">GNU Health Commands</field>
+            <field name="res_model">gnuhealth.command</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_command_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_command_tree"/>
+            <field name="act_window" ref="action_gnuhealth_command_view"/>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_command_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_command_view"/>
+            <field name="act_window" ref="action_gnuhealth_command_view"/>
+        </record>
+
+        <menuitem action="action_gnuhealth_command_view"
+            name="GNU Health Commands" id="gnuhealth_conf_commands"
+            parent="gnuhealth_conf_misc"/>
 
     </data>
 </tryton>
