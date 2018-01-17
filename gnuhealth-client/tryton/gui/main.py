@@ -37,8 +37,9 @@ from tryton.common.placeholder_entry import PlaceholderEntry
 import time
 import platform
 from tryton.gui.window.activity import Activity
-from string import lower
+from string import lower, split
 from tryton import __version__
+import ast
 
 
 if os.environ.get('GTKOSXAPPLICATION'):
@@ -54,7 +55,6 @@ _ = gettext.gettext
 
 
 _MAIN = []
-
 
 class Main(object):
     window = None
@@ -1485,13 +1485,14 @@ class Main(object):
             client_info = '\n********* CLIENT INFORMATION *********\n\n'
             server_info = '\n********* SERVER INFORMATION *********\n\n'
             client_info = client_info + self.get_host_info() + "\n"
-            
+
             server_info = server_info + \
                 RPCExecute('model','gnuhealth.command',command)
-            
+
             info = info + client_info + server_info
             self.activity_log_entry (info, "info")
-
+        else:
+            self.gnuhealth_cmd(command)
 
     # GNU Health system activity and status logger
     def activity_log_entry (self, msg, msg_type):
@@ -1537,3 +1538,35 @@ class Main(object):
              os_header + os_version + "Platform / Kernel Info: " + str(uname)
 
         return info
+
+
+    def gnuhealth_cmd(self,command):
+
+        cmd = split(command)[0]
+        args = split(command)[1:]
+        domain_name = domain = None
+        search_string = '%'
+
+        res = RPCExecute('model', 'gnuhealth.command', 'search_read',
+                [('name', '=', cmd)], limit=1,field_names='model.name')
+
+        if (res):
+            res = res[0]
+            if (res['domain']):
+                domain_name = ast.literal_eval(res['domain'])
+            model_name = res['model']
+            label = res['label']
+            if args:
+                arg1 = args.pop()
+                search_string = "%" + arg1 + "%"
+
+            Window.create(model_name,
+                mode=['tree','form'],
+                name=label,
+                domain=domain_name,
+                limit = CONFIG['client.limit'],
+                search_value = [('rec_name', 'ilike', search_string)]
+                )
+
+        else:
+            common.message(_('Command not found.'))
