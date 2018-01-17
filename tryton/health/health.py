@@ -5099,7 +5099,7 @@ class Commands(ModelSQL, ModelView):
     name = fields.Char('Command')
     label = fields.Char('Label')
     internal = fields.Boolean('Internal', help="Internal, Kernel commands")
-    model = fields.Many2One('ir.model','Model')
+    model = fields.Char('Model')
     domain = fields.Char('Domain')
     description = fields.Char("Description")
 
