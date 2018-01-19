@@ -40,6 +40,4 @@ class Activity():
     textbuffer = activity.get_buffer()
     
     activity_window.add(sw)
-    
-    activity_window.show_all()
- 
+

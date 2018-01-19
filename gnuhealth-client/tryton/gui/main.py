@@ -136,6 +136,9 @@ class Main(object):
         gtk.accel_map_add_entry('<tryton>/Form/Search', gtk.keysyms.F,
             gtk.gdk.CONTROL_MASK)
 
+        gtk.accel_map_add_entry('<tryton>/Window/Activity Log', gtk.keysyms.F12,
+            gtk.gdk.SHIFT_MASK)
+
         gtk.accel_map_load(os.path.join(get_config_dir(), 'accel.map'))
 
         self.tooltips = common.Tooltips()
@@ -269,6 +272,17 @@ class Main(object):
                 self.favorite_set()
         menuitem_favorite.connect('select', favorite_activate)
 
+        #GNU Health Window menu entry
+        menuitem_window = gtk.MenuItem(
+            _('Window'), use_underline=True)
+        menubar.add(menuitem_window)
+
+        menu_window = self._set_menu_window()
+        menuitem_window.set_submenu(menu_window)
+        menu_window.set_accel_group(self.accel_group)
+        menu_window.set_accel_path('<tryton>/Window')
+
+        #Help menu entry
         menuitem_help = gtk.MenuItem(_('_Help'), use_underline=True)
         menubar.add(menuitem_help)
 
@@ -286,6 +300,7 @@ class Main(object):
             menuitem_options.show_all()
             menuitem_favorite.show_all()
             menuitem_help.show_all()
+            menuitem_activity.show_all()
         else:
             self.menubar.show_all()
 
@@ -713,6 +728,23 @@ class Main(object):
 
         return menu_help
 
+    # GNU Health Windows entries, including Activity Log
+    def _set_menu_window(self):
+        menu_activity = gtk.Menu()
+
+        imagemenuitem_activity = gtk.ImageMenuItem(
+            _('_Toggle Activity Log'))
+        imagemenuitem_activity.set_use_underline(True)
+        image = gtk.Image()
+        image.set_from_stock('gtk-about', gtk.ICON_SIZE_MENU)
+        imagemenuitem_activity.set_image(image)
+        imagemenuitem_activity.connect('activate', self.sig_activity)
+        imagemenuitem_activity.set_accel_path(
+            '<tryton>/Window/Activity Log')
+        menu_activity.add(imagemenuitem_activity)
+
+        return menu_activity
+
     @staticmethod
     def get_main():
         return _MAIN[0]
@@ -968,6 +1000,14 @@ class Main(object):
 
     def sig_shortcuts(self, widget):
         Shortcuts().run()
+
+    #Toggle GNU Health Activity window
+    def sig_activity(self, widget):
+        if Activity().activity_window.get_visible():
+            Activity().activity_window.hide()
+        else:
+            Activity().activity_window.show_all()
+
 
     def menu_toggle(self):
         expander = self.pane.get_child1()
@@ -1492,7 +1532,8 @@ class Main(object):
             info = info + client_info + server_info
             self.activity_log_entry (info, "info")
         else:
-            self.gnuhealth_cmd(command)
+            if command:
+                self.gnuhealth_cmd(command)
 
     # GNU Health system activity and status logger
     def activity_log_entry (self, msg, msg_type):
