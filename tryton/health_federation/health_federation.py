@@ -61,6 +61,10 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         return 8443
 
     @staticmethod
+    def default_ssl():
+        return True
+
+    @staticmethod
     def default_verify_ssl():
         return False
 
