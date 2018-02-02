@@ -28,4 +28,5 @@ from .health_federation import *
 def register():
     Pool.register(
         FederationNodeConfig,
+        FederationQueue,
         module='health_federation', type_='model')

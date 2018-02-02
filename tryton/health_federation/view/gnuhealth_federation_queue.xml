@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form>
+    <label name="msgid"/>
+    <field name="msgid"/>
+    <label name="model"/>
+    <field name="model"/>
+    <newline/>
+    <label name="method"/>
+    <field name="method"/>
+    <label name="args"/>
+    <field name="args"/>
+    <newline/>
+    <label name="status"/>
+    <field name="status"/>
+</form>

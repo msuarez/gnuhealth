@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2017 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2018 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ from pymongo.errors import ConnectionFailure
 import requests
 
 
-__all__ = ['FederationNodeConfig']
+__all__ = ['FederationNodeConfig','FederationQueue']
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
@@ -113,3 +113,28 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
 
         else:
             cls.raise_user_error("ERROR authenticating to Server")
+
+
+class FederationQueue(ModelSQL, ModelView):
+    'Federation Queue'
+    __name__ = 'gnuhealth.federation.queue'
+
+    msgid = fields.Char('Message ID', required=True,
+        help="Message UID")
+    model = fields.Char('Model', help="Source Model")
+    args = fields.Text('Arguments', required=True,
+        help="Arguments")
+    method = fields.Selection([
+        (None, ''),
+        ('POST', 'POST'),
+        ('PATCH', 'PATCH'),
+        ('DELETE', 'DELETE'),
+        ('GET', 'GET'),
+        ], 'Method', required=True,sort=False)
+
+    status = fields.Selection([
+        (None, ''),
+        ('queued', 'Queued'),
+        ('sent', 'Sent'),
+        ('failed', 'Failed'),
+        ], 'Status', sort=False)

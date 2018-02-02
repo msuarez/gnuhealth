@@ -47,5 +47,39 @@
         <menuitem action="gnuhealth_action_federation_config" icon="gnuhealth-list"
             id="gnuhealth_conf_federation_config" parent="gnuhealth_conf_federation"/>
 
+
+<!-- GNU Health Federation Queue -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_queue_view">
+            <field name="model">gnuhealth.federation.queue</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_queue</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_queue_tree">
+            <field name="model">gnuhealth.federation.queue</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_queue_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_queue">
+            <field name="name">Federation Queue Manager</field>
+            <field name="res_model">gnuhealth.federation.queue</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_queue_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_queue_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_queue_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_queue_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_federation_queue" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_queue" parent="gnuhealth_conf_federation"/>
+
     </data>
 </tryton>
