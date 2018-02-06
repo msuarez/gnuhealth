@@ -2,6 +2,8 @@
 <form>
     <label name="model"/>
     <field name="model"/>
+    <label name="enabled"/>
+    <field name="enabled"/>
     <newline/>
     <label name="fields"/>
     <field name="fields"/>

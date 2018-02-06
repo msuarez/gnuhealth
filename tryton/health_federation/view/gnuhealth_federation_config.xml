@@ -14,6 +14,8 @@
         <field name="user"/>
         <label name="password"/>
         <field name="password" widget="password"/>
+        <label name="enabled"/>
+        <field name="enabled"/>
     </group>
     <newline/>
     <button string="Test Connection" name="test_connection" icon="tryton-ok"/>

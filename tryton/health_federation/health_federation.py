@@ -48,6 +48,8 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         help="Check this option if your certificate has been emitted" \
             " by a CA authority. If it is a self-signed certifiate" \
             " leave it unchecked")
+    enabled = fields.Boolean('Enabled', help="Mark if the node is active" \
+        " in the Federation")
     
     # TODO: Check the associated institution and use as
     # a default value its id
@@ -62,6 +64,10 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
 
     @staticmethod
     def default_ssl():
+        return True
+
+    @staticmethod
+    def default_enabled():
         return True
 
     @staticmethod
@@ -144,10 +150,17 @@ class FederationObject(ModelSQL, ModelView):
     __name__ = 'gnuhealth.federation.object'
 
     model = fields.Char('Model', help="Local Model")
+
+    enabled = fields.Boolean('Enabled', help="Check if the model" \
+        " is active to participate on the Federation")
+
     fields = fields.Text('Fields', help="Contains a list of "
         "the local model fields that participate on the federation.\n" \
-        "Field, endpoint in Thalamus" \
-        " and key in the federation, with the form field:endpoint:key")
+        "Each line will have the format field:endpoint:key")
+
+    @staticmethod
+    def default_enabled():
+        return True
 
     @classmethod
     def __setup__(cls):
