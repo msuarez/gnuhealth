@@ -29,7 +29,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_federation_config">
-            <field name="name">GNU Health Federation Node Config</field>
+            <field name="name">Federation Node Config</field>
             <field name="res_model">gnuhealth.federation.config</field>
         </record>
 
@@ -80,6 +80,39 @@
 
         <menuitem action="gnuhealth_action_federation_queue" icon="gnuhealth-list"
             id="gnuhealth_conf_federation_queue" parent="gnuhealth_conf_federation"/>
+
+<!-- GNU Health Federation Object -->
+
+        <record model="ir.ui.view" id="gnuhealth_federation_object_view">
+            <field name="model">gnuhealth.federation.object</field>
+            <field name="type">form</field>
+            <field name="name">gnuhealth_federation_object</field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_federation_object_tree">
+            <field name="model">gnuhealth.federation.object</field>
+            <field name="type">tree</field>
+            <field name="name">gnuhealth_federation_object_tree</field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_federation_object">
+            <field name="name">Federation Objects</field>
+            <field name="res_model">gnuhealth.federation.object</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_federation_object_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_federation_object_tree"/>
+            <field name="act_window" ref="gnuhealth_action_federation_object"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_federation_object_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_federation_object_view"/>
+            <field name="act_window" ref="gnuhealth_action_federation_object"/>
+        </record>
+
+        <menuitem action="gnuhealth_action_federation_object" icon="gnuhealth-list"
+            id="gnuhealth_conf_federation_object" parent="gnuhealth_conf_federation"/>
 
     </data>
 </tryton>

@@ -29,7 +29,7 @@ from pymongo.errors import ConnectionFailure
 import requests
 
 
-__all__ = ['FederationNodeConfig','FederationQueue']
+__all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject']
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
@@ -138,3 +138,23 @@ class FederationQueue(ModelSQL, ModelView):
         ('sent', 'Sent'),
         ('failed', 'Failed'),
         ], 'Status', sort=False)
+
+class FederationObject(ModelSQL, ModelView):
+    'Federation Object'
+    __name__ = 'gnuhealth.federation.object'
+
+    model = fields.Char('Model', help="Local Model")
+    fields = fields.Text('Fields', help="Contains a list of "
+        "the local model fields that participate on the federation.\n" \
+        "Field, endpoint in Thalamus" \
+        " and key in the federation, with the form field:endpoint:key")
+
+    @classmethod
+    def __setup__(cls):
+        super(FederationObject, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('model_uniq', Unique(t, t.model),
+             'The Model is already defined !')
+        ]
+
