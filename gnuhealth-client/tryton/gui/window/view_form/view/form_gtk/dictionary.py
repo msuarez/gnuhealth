@@ -93,6 +93,8 @@ class DictSelectionEntry(DictEntry):
             lambda w: self.parent_widget._focus_out())
         widget.connect('notify::active',
             lambda w, e: self.parent_widget._focus_out())
+        widget.connect(
+            'scroll-event', lambda c, e: c.emit_stop_by_name('scroll-event'))
         selection_shortcuts(widget)
 
         # setting completion and selection
@@ -451,6 +453,7 @@ class DictWidget(Widget):
         for widget in self.fields.values():
             widget.set_readonly(readonly)
         self.wid_text.set_sensitive(not readonly)
+        self.wid_text.set_editable(not readonly)
 
     def _set_button_sensitive(self):
         self.but_add.set_sensitive(bool(
