@@ -149,12 +149,12 @@ class FederationQueue(ModelSQL, ModelView):
 
 
     @classmethod
-    def enqueue(cls,model, values, action):
+    def enqueue(cls,model, fed_acct, values, action):
         print ("Checking model in Federation objects....")
         fields = FederationObject.get_object_fields(model)
         # Enqueue at once all changes in the record fields
         # in the same queue ID.
-        print (values, fields)
+        print (fed_acct, values, fields)
         
         
 class FederationObject(ModelSQL, ModelView):
@@ -202,8 +202,9 @@ class Party(ModelSQL):
     def write(cls, parties, values):
         for party in parties:
             action = "PATCH"
+            fed_acct = values.get('federation_account')
+            if (fed_acct):
+                FederationQueue.enqueue(cls.__name__, fed_acct, values,action)
             
-            FederationQueue.enqueue(cls.__name__,values,action)
-
         return super(Party, cls).write(parties, values)
     
