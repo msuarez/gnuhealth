@@ -29,8 +29,10 @@ from pymongo.errors import ConnectionFailure
 import requests
 
 
-__all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject']
+__all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
+    'Party']
 
+   
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
     __name__ = 'gnuhealth.federation.config'
@@ -145,6 +147,16 @@ class FederationQueue(ModelSQL, ModelView):
         ('failed', 'Failed'),
         ], 'Status', sort=False)
 
+
+    @classmethod
+    def enqueue(cls,model, values, action):
+        print ("Checking model in Federation objects....")
+        fields = FederationObject.get_object_fields(model)
+        # Enqueue at once all changes in the record fields
+        # in the same queue ID.
+        print (values, fields)
+        
+        
 class FederationObject(ModelSQL, ModelView):
     'Federation Object'
     __name__ = 'gnuhealth.federation.object'
@@ -163,6 +175,17 @@ class FederationObject(ModelSQL, ModelView):
         return True
 
     @classmethod
+    def get_object_fields(cls, obj):
+        model, = cls.search_read([("model", "=", obj)],
+            limit=1, fields_names=['fields','enabled'])
+        
+        # If the model exist on the Federation Object, 
+        # and is currently enabled, return the field names and their
+        # equivalents on the Federation
+        if (model and model['enabled']):
+            return model['fields']
+        
+    @classmethod
     def __setup__(cls):
         super(FederationObject, cls).__setup__()
         t = cls.__table__()
@@ -171,3 +194,16 @@ class FederationObject(ModelSQL, ModelView):
              'The Model is already defined !')
         ]
 
+
+class Party(ModelSQL):
+    __name__ = 'party.party'
+    
+    @classmethod
+    def write(cls, parties, values):
+        for party in parties:
+            action = "PATCH"
+            
+            FederationQueue.enqueue(cls.__name__,values,action)
+
+        return super(Party, cls).write(parties, values)
+    

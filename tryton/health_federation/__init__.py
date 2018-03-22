@@ -30,4 +30,5 @@ def register():
         FederationNodeConfig,
         FederationQueue,
         FederationObject,
+        Party,
         module='health_federation', type_='model')
