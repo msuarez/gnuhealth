@@ -5,6 +5,11 @@
     <label name="model"/>
     <field name="model"/>
     <newline/>
+    <label name="origin"/>
+    <field name="origin"/>
+    <label name="time_stamp"/>
+    <field name="time_stamp"/>
+    <newline/>
     <label name="method"/>
     <field name="method"/>
     <label name="args"/>

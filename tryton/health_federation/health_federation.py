@@ -129,9 +129,14 @@ class FederationQueue(ModelSQL, ModelView):
 
     msgid = fields.Char('Message ID', required=True,
         help="Message UID")
-    model = fields.Char('Model', help="Source Model")
+    model = fields.Char('Model', required=True, help="Source Model")
+    origin = fields.Char('Origin', required=True,  help="The originating node id")
+
+    time_stamp = fields.Char('Timestamp', required=True, help="UTC timestamp")
+
     args = fields.Text('Arguments', required=True,
         help="Arguments")
+
     method = fields.Selection([
         (None, ''),
         ('POST', 'POST'),
@@ -149,14 +154,16 @@ class FederationQueue(ModelSQL, ModelView):
 
 
     @classmethod
-    def enqueue(cls,model, fed_acct, values, action):
-        print ("Checking model in Federation objects....")
+    def enqueue(cls,model, fed_acct, time_stamp, node, values, action):
         fields = FederationObject.get_object_fields(model)
         # Enqueue at once all changes in the record fields
         # in the same queue ID.
-        print (fed_acct, values, fields)
-        
-        
+        if (fields):
+            # Continue the enqueue process with the fields
+            print (fed_acct, time_stamp, node, values, fields)
+            # Write the enqueue record.
+
+
 class FederationObject(ModelSQL, ModelView):
     'Federation Object'
     __name__ = 'gnuhealth.federation.object'
@@ -178,7 +185,7 @@ class FederationObject(ModelSQL, ModelView):
     def get_object_fields(cls, obj):
         model, = cls.search_read([("model", "=", obj)],
             limit=1, fields_names=['fields','enabled'])
-        
+
         # If the model exist on the Federation Object, 
         # and is currently enabled, return the field names and their
         # equivalents on the Federation
@@ -200,11 +207,16 @@ class Party(ModelSQL):
     
     @classmethod
     def write(cls, parties, values):
+        #First exec the Party class write method from health package
+        super(Party, cls).write(parties, values)
         for party in parties:
             action = "PATCH"
-            fed_acct = values.get('federation_account')
+            # Retrieve federation account (for people only)
+            fed_acct = party.federation_account
+            # Verify that the person has a Federation account.
             if (fed_acct):
-                FederationQueue.enqueue(cls.__name__, fed_acct, values,action)
-            
-        return super(Party, cls).write(parties, values)
-    
+                # Start Enqueue process
+                node=None
+                time_stamp = party.write_date
+                FederationQueue.enqueue(cls.__name__, 
+                    fed_acct, time_stamp, node, values,action)
