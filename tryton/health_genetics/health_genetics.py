@@ -188,7 +188,7 @@ class GeneVariant(ModelSQL, ModelView):
             ]
 
     def get_rec_name(self, name):
-        return self.name.rec_name + " : " + self.variant + " : " + self.aa_change
+        return ' : '.join([self.name.rec_name, self.variant, self.aa_change])
 
 
 class GeneVariantPhenotype(ModelSQL, ModelView):

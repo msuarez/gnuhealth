@@ -4329,7 +4329,7 @@ class PatientEvaluation(ModelSQL, ModelView):
     signed_by = fields.Many2One(
         'gnuhealth.healthprofessional', 'Health Prof', readonly=True,
         states={'invisible': Equal(Eval('state'), 'in_progress')},
-        help="Health Professional that finnished the patient evaluation")
+        help="Health Professional that finished the patient evaluation")
 
     specialty = fields.Many2One('gnuhealth.specialty', 'Specialty',
         states = STATES)
