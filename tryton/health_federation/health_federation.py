@@ -130,9 +130,11 @@ class FederationQueue(ModelSQL, ModelView):
     msgid = fields.Char('Message ID', required=True,
         help="Message UID")
     model = fields.Char('Model', required=True, help="Source Model")
-    origin = fields.Char('Origin', required=True,  help="The originating node id")
+    origin = fields.Char('Origin', required=True,
+        help="The originating node id")
 
-    time_stamp = fields.Char('Timestamp', required=True, help="UTC timestamp")
+    time_stamp = fields.Char('Timestamp', required=True,
+        help="UTC timestamp at the moment of writing record on the node")
 
     args = fields.Text('Arguments', required=True,
         help="Arguments")
@@ -154,13 +156,40 @@ class FederationQueue(ModelSQL, ModelView):
 
 
     @classmethod
+    def parse_fields(cls,values,action,fields):
+        ''' Returns depending on the action the fields that will be
+            passed as arguments to Thalamus
+        '''
+        field_mapping = fields.split(',')
+        # Fedvals : Values to send to the federation, that contain the
+        # resource, the field, and the value of such field.
+        fedvals = []
+        for value in values:
+            #Check that the local field is on shared federation list
+            #and retrieve the equivalent federation field name
+            for val in field_mapping:
+                #Retrieve the field name, the federation resource name
+                #and the associated federation resource field .
+                #string of the form field:fed_resource:fed_field
+                field, fed_resource, fed_field = val.split(':')
+                if (field == value):
+                    fed_key = {
+                        "resource": fed_resource,
+                        "field": fed_field,
+                        "value": values[value]
+                        }
+                    fedvals.append(fed_key)
+                    break
+        print ("Values to enqueue", fedvals)
+
+    @classmethod
     def enqueue(cls,model, fed_acct, time_stamp, node, values, action):
         fields = FederationObject.get_object_fields(model)
         # Enqueue at once all changes in the record fields
         # in the same queue ID.
         if (fields):
             # Continue the enqueue process with the fields
-            print (fed_acct, time_stamp, node, values, fields)
+            cls.parse_fields(values,action,fields)
             # Write the enqueue record.
 
 
