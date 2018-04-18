@@ -159,6 +159,15 @@ class FederationQueue(ModelSQL, ModelView):
         ('failed', 'Failed'),
         ], 'Status', sort=False)
 
+    @staticmethod
+    def default_origin():
+        # Get the Institution code as the originating node.
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        institution_code, = HealthInst.search_read([("name", "=", institution)],
+            limit=1, fields_names=['code'])
+        return institution_code['code']
+
 
     @classmethod
     def parse_fields(cls,values,action,fields):
@@ -204,7 +213,7 @@ class FederationQueue(ModelSQL, ModelView):
             vals['msgid'] = str(uuid4())
             vals['model'] = model
             vals['time_stamp'] = str(time_stamp)
-            vals['origin'] = "node"
+            # vals['origin'] = "node"
             vals['args'] = str(fields_to_enqueue)
             vals['method'] = action
             vals['status'] = 'queued'
