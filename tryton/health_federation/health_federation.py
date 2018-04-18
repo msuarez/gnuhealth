@@ -27,6 +27,7 @@ from trytond.pool import Pool
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 import requests
+from uuid import uuid4
 
 
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
@@ -136,6 +137,10 @@ class FederationQueue(ModelSQL, ModelView):
     time_stamp = fields.Char('Timestamp', required=True,
         help="UTC timestamp at the moment of writing record on the node")
 
+    federation_locator = fields.Char('Fed ID',
+        help="Unique locator in Federation, " 
+        "such as person Federation account or institution Code")
+
     args = fields.Text('Arguments', required=True,
         help="Arguments")
 
@@ -180,17 +185,33 @@ class FederationQueue(ModelSQL, ModelView):
                         }
                     fedvals.append(fed_key)
                     break
-        print ("Values to enqueue", fedvals)
+        return fedvals
 
     @classmethod
-    def enqueue(cls,model, fed_acct, time_stamp, node, values, action):
+    def enqueue(cls,model, federation_loc, time_stamp, node, values, action):
         fields = FederationObject.get_object_fields(model)
-        # Enqueue at once all changes in the record fields
-        # in the same queue ID.
+        # Federation locator : Unique ID of the resource
+        # such as personal federation account or institution ID
+        # it depends on the resource (people, institution, ... )
+        
         if (fields):
+            # retrieve the federation field names and values in a dict
+            fields_to_enqueue = cls.parse_fields(values,action,fields)
+            print (fields_to_enqueue)
             # Continue the enqueue process with the fields
-            cls.parse_fields(values,action,fields)
-            # Write the enqueue record.
+            rec = []
+            vals = {}
+            vals['msgid'] = str(uuid4())
+            vals['model'] = model
+            vals['time_stamp'] = str(time_stamp)
+            vals['origin'] = "node"
+            vals['args'] = str(fields_to_enqueue)
+            vals['method'] = action
+            vals['status'] = 'queued'
+            vals['federation_locator'] = federation_loc
+            rec.append(vals)
+            #Write the record to the enqueue list
+            cls.create(rec)
 
 
 class FederationObject(ModelSQL, ModelView):
