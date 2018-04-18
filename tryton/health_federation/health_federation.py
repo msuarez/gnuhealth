@@ -24,6 +24,7 @@ import ssl
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 import requests
@@ -168,6 +169,10 @@ class FederationQueue(ModelSQL, ModelView):
             limit=1, fields_names=['code'])
         return institution_code['code']
 
+    @classmethod
+    def send_record(cls,record):
+        # TODO: Send the record to Thalamus
+        return True
 
     @classmethod
     def parse_fields(cls,values,action,fields):
@@ -213,7 +218,6 @@ class FederationQueue(ModelSQL, ModelView):
             vals['msgid'] = str(uuid4())
             vals['model'] = model
             vals['time_stamp'] = str(time_stamp)
-            # vals['origin'] = "node"
             vals['args'] = str(fields_to_enqueue)
             vals['method'] = action
             vals['status'] = 'queued'
@@ -222,6 +226,26 @@ class FederationQueue(ModelSQL, ModelView):
             #Write the record to the enqueue list
             cls.create(rec)
 
+    @classmethod
+    def __setup__(cls):
+        super(FederationQueue, cls).__setup__()
+
+        cls._buttons.update({
+            'send': {'invisible': Equal(Eval('status'), 'sent')}
+            })
+
+    @classmethod
+    @ModelView.button
+    def send(cls, records):
+        # Verify and send each record to Thalamus individually
+        # It allows to get specific status on each operation
+        for record in records:
+            rec = []
+            print (record)
+            res = cls.send_record(record)
+            if res:
+                rec.append(record)
+                cls.write(rec, {'status': 'sent'})
 
 class FederationObject(ModelSQL, ModelView):
     'Federation Object'
