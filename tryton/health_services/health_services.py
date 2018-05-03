@@ -195,6 +195,10 @@ class HealthServiceLine(ModelSQL, ModelView):
     def default_qty():
         return 1
 
+    @staticmethod
+    def default_to_invoice():
+        return True
+
     @fields.depends('product', 'desc')
     def on_change_product(self, name=None):
         if self.product:
