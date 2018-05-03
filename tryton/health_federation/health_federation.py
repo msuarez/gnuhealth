@@ -124,6 +124,18 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         else:
             cls.raise_user_error("ERROR authenticating to Server")
 
+    @classmethod
+    def get_conn_params(cls):
+        # Retrieve the connection information for Thalamus
+        #Retrieve the information from the Singleton object
+        TInfo = Pool().get(cls)(1)
+        host = TInfo.host
+        user = TInfo.user
+        password = TInfo.password
+        ssl_conn = TInfo.ssl
+        verify_ssl = TInfo.verify_ssl
+
+        return host, user, password, ssl_conn, verify_ssl
 
 class FederationQueue(ModelSQL, ModelView):
     'Federation Queue'
@@ -172,7 +184,17 @@ class FederationQueue(ModelSQL, ModelView):
     @classmethod
     def send_record(cls,record):
         # TODO: Send the record to Thalamus
-        return True
+        host, user, password, ssl_conn, verify_ssl = \
+            FederationNodeConfig.get_conn_params()
+
+        if (record.method == 'PATCH'):
+            # TODO: Check for the Federation Locator to patch
+            if (record.federation_locator):
+                print ("Updating the record ", record.federation_locator)
+            else:
+                print ("No federation record locator found .. no update")
+
+        return False
 
     @classmethod
     def parse_fields(cls,values,action,fields):

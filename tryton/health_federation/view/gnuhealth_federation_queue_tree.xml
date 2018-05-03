@@ -5,6 +5,7 @@
     <field name="model"/>
     <field name="origin"/>
     <field name="method"/>
+    <field name="federation_locator"/>
     <field name="args"/>
     <field name="status"/>
     <button name="send" help="Send the record to the Federation" string="Send"/>
