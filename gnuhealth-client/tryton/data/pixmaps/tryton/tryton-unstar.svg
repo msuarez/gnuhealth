@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 97 97" style="enable-background:new 0 0 97 97;" xml:space="preserve">
 <g id="star">
-	
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-15.4505" y1="-25.1917" x2="-77.7015" y2="-86.8679" gradientTransform="matrix(1 -0.2 -0.2 -1 62 18.6)">
-		<stop  offset="0" style="stop-color:#F08701;stop-opacity:0"/>
-		<stop  offset="0.4546" style="stop-color:#F08701"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="25.2948" y1="79.2114" x2="88.7741" y2="15.7322">
+		<stop  offset="0" style="stop-color:#C4C4C4"/>
+		<stop  offset="1" style="stop-color:#FFFFFF"/>
 	</linearGradient>
-	<polygon style="fill:url(#SVGID_1_);" points="78.411,92.488 48.454,77.433 18.461,92.424 24.224,60.612 0,38.052 33.518,33.445 
-		48.539,4.512 63.493,33.477 97,38.155 72.724,60.663 	"/>
-	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="28.0517" y1="95.9146" x2="59.8247" y2="8.619">
-		<stop  offset="0.2414" style="stop-color:#007C84"/>
-		<stop  offset="0.67" style="stop-color:#007C84;stop-opacity:0.25"/>
-	</linearGradient>
-	<path style="fill:url(#SVGID_2_);" d="M48.534,8.883l13.173,25.516l1.508,1.068l29.314,4.093L71.357,59.19l-0.612,1.827
-		l4.981,27.873l-26.37-13.252l-1.801-0.002L21.155,88.831l5.046-27.861l-0.608-1.829L4.468,39.466l29.324-4.03l1.51-1.065
-		L48.534,8.883 M48.54,4.512L33.518,33.445L0,38.052l24.224,22.56l-5.762,31.812l29.992-14.991l29.957,15.055l-5.687-31.825
-		L97,38.155l-33.507-4.678L48.54,4.512L48.54,4.512z"/>
+	<polygon style="fill:url(#SVGID_1_);" points="48.905,77 48.004,77 19.808,90.86 25.212,60.906 24.908,59.934 2.234,38.788 
+		33.655,34.455 34.41,33.915 48.537,6.701 62.601,33.94 63.354,34.474 94.765,38.858 72.04,59.926 71.734,60.84 77.069,90.921 	"/>
+	<path style="fill:#BABABA;" d="M48.534,8.883l13.173,25.516l1.508,1.068l29.314,4.093L71.357,59.19l-0.612,1.827l4.981,27.873
+		l-26.37-13.252l-1.801-0.002L21.155,88.831l5.046-27.861l-0.608-1.829L4.468,39.466l29.324-4.03l1.51-1.065L48.534,8.883
+		 M48.54,4.512L33.518,33.445L0,38.052l24.224,22.56l-5.762,31.812l29.992-14.991l29.957,15.055l-5.687-31.825L97,38.155
+		l-33.507-4.678L48.54,4.512L48.54,4.512z"/>
 </g>
 <g id="ol" style="enable-background:new    ;">
 	<path style="fill:#FFFFFF;" d="M48.522,14.33l11.496,22.247c0.336,0.65,0.967,1.097,1.692,1.198l25.251,3.532L68.762,58.204
