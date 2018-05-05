@@ -86,6 +86,34 @@
             <field name="path">icons/stop.svg</field>
         </record>
 
+
+<!-- Replace default Tryton module icons -->
+        
+        <!-- Party -->
+        <record model="ir.ui.icon" id="party_icon">
+            <field name="name">gnuhealth-party</field>
+            <field name="path">icons/tryton-party.svg</field>
+        </record>
+        <menuitem name="Party" sequence="0" id="party.menu_party"
+            icon="gnuhealth-party"/>
+
+        <!-- Currency -->
+        <record model="ir.ui.icon" id="currency_icon">
+            <field name="name">gnuhealth-currency</field>
+            <field name="path">icons/tryton-currency.svg</field>
+        </record>
+        <menuitem name="Currency" id="currency.menu_currency" sequence="3"
+            icon="gnuhealth-currency"/>
+
+        <!-- Product -->
+        <record model="ir.ui.icon" id="product_icon">
+            <field name="name">gnuhealth-product</field>
+            <field name="path">icons/tryton-product.svg</field>
+        </record>
+        <menuitem name="Product" id="product.menu_main_product" sequence="1"
+            icon="gnuhealth-product"/>
+
+
 <!-- Initial Menu -->
         <menuitem name="Health" id="gnuhealth_menu" icon="gnuhealth"/>
         <menuitem name="Demographics" id="gnuhealth_demographics_menu"

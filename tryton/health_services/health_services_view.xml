@@ -14,6 +14,16 @@
             <field name="path">../health/icons/tryton-list.svg</field>
         </record>
 
+
+<!-- Replace icons -->
+
+        <record model="ir.ui.icon" id="financial_icon">
+            <field name="name">gnuhealth-financial</field>
+            <field name="path">icons/tryton-financial.svg</field>
+        </record>
+        <menuitem name="Financial" id="account.menu_account" sequence="2"
+            icon="gnuhealth-financial"/>
+
 <!-- Health Services Menu -->
 
         <menuitem name="Health Services" id="gnuhealth_services_menu"
