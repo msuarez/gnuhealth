@@ -198,27 +198,21 @@ class FederationQueue(ModelSQL, ModelView):
         if (record.method == 'PATCH'):
             if (record.federation_locator):
                 #Traverse each resource and its data fields.
-                print ("Updating the record ", record.federation_locator)
-                print ("Data to be sent", record.args)
                 # arg : Dictionary for each of the data elements in the
                 # list of values
                 for arg in literal_eval(record.args):
                     url = protocol + host + ':' + str(port)
                     resource, field, value = arg['resource'],\
                         arg['field'], arg['value']
-                    print (resource, field, value)
                     # Add resource and instance to URL
                     url = url + '/' + resource + '/' + record.federation_locator
 
                     vals = {}
                     vals[field]=value
-                    print ("VALUES TO PATCH...",vals)
-                    print (url)
 
                     send_data = requests.request('PATCH',url, data=json.dumps(vals), \
                         auth=(user, password), verify=verify_ssl)
 
-                print (send_data)
             else:
                 print ("No federation record locator found .. no update")
 
@@ -261,7 +255,6 @@ class FederationQueue(ModelSQL, ModelView):
         if (fields):
             # retrieve the federation field names and values in a dict
             fields_to_enqueue = cls.parse_fields(values,action,fields)
-            print (fields_to_enqueue)
             # Continue the enqueue process with the fields
             rec = []
             vals = {}
@@ -291,7 +284,6 @@ class FederationQueue(ModelSQL, ModelView):
         # It allows to get specific status on each operation
         for record in records:
             rec = []
-            print (record)
             res = cls.send_record(record)
             if res:
                 rec.append(record)
