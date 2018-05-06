@@ -28,6 +28,8 @@ from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 import requests
+import json
+from ast import literal_eval
 from uuid import uuid4
 
 
@@ -102,8 +104,7 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
             argvs[0].host, argvs[0].port,  \
             argvs[0].user, argvs[0].password, argvs[0].ssl, \
             argvs[0].verify_ssl
-        
-        
+
         if (ssl_conn):
             protocol = 'https://'
         else:
@@ -128,14 +129,21 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     def get_conn_params(cls):
         # Retrieve the connection information for Thalamus
         #Retrieve the information from the Singleton object
-        TInfo = Pool().get(cls)(1)
+
+        TInfo = Pool().get(cls.__name__)(1)
         host = TInfo.host
+        port = TInfo.port
         user = TInfo.user
         password = TInfo.password
         ssl_conn = TInfo.ssl
         verify_ssl = TInfo.verify_ssl
 
-        return host, user, password, ssl_conn, verify_ssl
+        if (ssl_conn):
+            protocol = 'https://'
+        else:
+            protocol = 'http://'
+
+        return host, port, user, password, ssl_conn, verify_ssl, protocol
 
 class FederationQueue(ModelSQL, ModelView):
     'Federation Queue'
@@ -184,13 +192,33 @@ class FederationQueue(ModelSQL, ModelView):
     @classmethod
     def send_record(cls,record):
         # TODO: Send the record to Thalamus
-        host, user, password, ssl_conn, verify_ssl = \
+        host, port, user, password, ssl_conn, verify_ssl, protocol = \
             FederationNodeConfig.get_conn_params()
 
         if (record.method == 'PATCH'):
-            # TODO: Check for the Federation Locator to patch
             if (record.federation_locator):
+                #Traverse each resource and its data fields.
                 print ("Updating the record ", record.federation_locator)
+                print ("Data to be sent", record.args)
+                # arg : Dictionary for each of the data elements in the
+                # list of values
+                for arg in literal_eval(record.args):
+                    url = protocol + host + ':' + str(port)
+                    resource, field, value = arg['resource'],\
+                        arg['field'], arg['value']
+                    print (resource, field, value)
+                    # Add resource and instance to URL
+                    url = url + '/' + resource + '/' + record.federation_locator
+
+                    vals = {}
+                    vals[field]=value
+                    print ("VALUES TO PATCH...",vals)
+                    print (url)
+
+                    send_data = requests.request('PATCH',url, data=json.dumps(vals), \
+                        auth=(user, password), verify=verify_ssl)
+
+                print (send_data)
             else:
                 print ("No federation record locator found .. no update")
 
