@@ -30,6 +30,7 @@ from flask_restful import Resource, Api, abort
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
 import json
+from ast import literal_eval
 import bcrypt
 import logging
 
@@ -174,48 +175,24 @@ class Person(Resource):
         """
         Updates the person instance 
         """
-        parameters = request.args
 
-        if '_id' in parameters:
+        # Convert from bytes to dictionary the information
+        # coming from the node (Python Requests library)
+        values = literal_eval(request.data.decode())
+
+        if '_id' in values:
             # Avoid changing the user ID
             abort(422, error="Not allowed to change the person ID")
-        
-        """
-        Create a dictionary with the values from the params
-        since the initial object is an ImmutableDict
-        We need to parse the keys, to manipulate and
-        convert them when needed
-        """
-
-        args = {}
-        """
-        TODO: use raw arguments directly in the update command
-              instead of args{}
-        """
-
-        for param in parameters:
-            args[param]=request.args.get(param)
-
-            if (param == 'roles'):
-                args['roles']= request.args.getlist('roles')
-
-            if (param == 'active'):
-                if (request.args.get('active') == "True"):
-                    args['active']= True
-                else:
-                    args['active']= False
-
-            if 'password' in args:
-                # TODO: Verify that the password has been bcrypted 
-                pass
+            # TO be discussed...
+            # Check if the new ID exist in the Federation, and if it
+            # does not, we may be able to update it.
             
- 
         if check_person(person_id): 
             update_person = mongo.db.people.update_one({"_id":person_id},
-                {"$set": args})
+                {"$set": values})
         else:
             abort (404, error="User not found")
-            
+
     def delete(self, person_id):
         """
         Delete the user instance. This will be 
