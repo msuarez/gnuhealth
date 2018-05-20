@@ -6,7 +6,8 @@
             <field name="enabled">1</field>
             <field name="fields">name:people:name,
 lastname:people:lastname,
-dob:people:dob</field>
+dob:people:dob,
+federation_account:people:_id</field>
         </record>
     </data>
 </tryton>
