@@ -13,6 +13,11 @@
             sequence="990" parent="health.gnuhealth_conf_menu" 
             icon="health-federation"/>
 
+<!-- GNU Health Federation main menu -->
+
+        <menuitem name="Federation" id="gnuhealth_federation"
+            sequence="990" parent="health.gnuhealth_menu" 
+            icon="health-federation"/>
 
 <!-- GNU Health Federation Config -->
 
@@ -78,8 +83,10 @@
             <field name="act_window" ref="gnuhealth_action_federation_queue"/>
         </record>
 
+<!-- GNU Health Federation Queue Manager -->
+
         <menuitem action="gnuhealth_action_federation_queue" icon="gnuhealth-list"
-            id="gnuhealth_conf_federation_queue" parent="gnuhealth_conf_federation"/>
+            id="gnuhealth_conf_federation_queue" parent="gnuhealth_federation"/>
 
 <!-- GNU Health Federation Object -->
 
