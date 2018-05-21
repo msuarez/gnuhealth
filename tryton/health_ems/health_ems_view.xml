@@ -114,7 +114,7 @@
         </record>
 
         <menuitem action="gnuhealth_action_ambulance_support" sequence="920"
-            id="gnuhealth_ambulance_sr" parent="health.gnuhealth_menu"/>
+            id="gnuhealth_ambulance_sr" parent="gnuhealth_ambulance"/>
 
 <!-- Health Professionals involved in Ambulances in Support Request -->
 
