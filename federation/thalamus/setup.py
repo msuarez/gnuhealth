@@ -28,17 +28,19 @@
 
 from setuptools import setup, find_packages
 
-long_desc = open('README.rst').read()
+with open("README.rst", "r") as fh:
+    long_desc = fh.read()
 
-lic = open('LICENSE').read()
+lic = open("LICENSE", "r").read()
 
-version = open('version').read().strip()
+version = open("version").read().strip()
 
 setup(name='thalamus',
     version=version,
     description = 'The GNU Health Federation Message and Authentication Server',
     keywords='health API REST',
     long_description = long_desc,
+    long_description_content_type="text/markdown",
     platforms='any',
     author='GNU Solidario',
     author_email='health@gnusolidario.org',
