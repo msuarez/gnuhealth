@@ -28,10 +28,7 @@
 
 from setuptools import setup, find_packages
 
-with open("README.rst", "r") as fh:
-    long_desc = fh.read()
-
-lic = open("LICENSE", "r").read()
+long_desc = open("README.rst", "r").read()
 
 version = open("version").read().strip()
 
@@ -40,7 +37,6 @@ setup(name='thalamus',
     description = 'The GNU Health Federation Message and Authentication Server',
     keywords='health API REST',
     long_description = long_desc,
-    long_description_content_type="text/markdown",
     platforms='any',
     author='GNU Solidario',
     author_email='health@gnusolidario.org',
@@ -52,14 +48,13 @@ setup(name='thalamus',
         'Framework :: Flask',
         'Intended Audience :: Science/Research',
         'Intended Audience :: Healthcare Industry',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
         'Topic :: Scientific/Engineering :: Bio-Informatics',
         'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
-    license=lic,
     install_requires = [
         "flask", 
         "flask_httpauth",
@@ -70,5 +65,4 @@ setup(name='thalamus',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
- )      
-
+ )
