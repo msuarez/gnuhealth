@@ -2,6 +2,12 @@
 <tryton>
     <data>
 
+<!-- Add obstetrics icon -->
+        <record model="ir.ui.icon" id="gnuhealth_obstetrics_icon">
+            <field name="name">gnuhealth-obstetrics</field>
+            <field name="path">icons/gnuhealth_obstetrics.svg</field>
+        </record>
+
 
 <!-- Patient Pregnancies -->
 
@@ -24,9 +30,12 @@
             <field name="res_model">gnuhealth.patient.pregnancy</field>
         </record>
 
+        <menuitem name="Obstetrics" id="gnuhealth_obstetrics" icon="gnuhealth-obstetrics"
+            parent="health.gnuhealth_menu" sequence="65"/>
+
         <menuitem action="act_pregnancy_form"
             id="gnuhealth_patient_pregnancy" icon="gnuhealth-list"
-            parent="health.gnuhealth_menu" sequence="65"/>
+            parent="gnuhealth_obstetrics"/>
 
         <record model="ir.action.act_window.view" id="act_patient_pregnancy_list_view">
             <field name="sequence" eval="10"/>
