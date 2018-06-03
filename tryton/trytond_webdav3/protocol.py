@@ -586,7 +586,7 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
     def get_userinfo(self, user, password, command=''):
         path = urllib.parse.urlparse(self.path).path
         dbname = urllib.parse.unquote_plus(path.split('/', 2)[1])
-        with Transaction().start(None, 0, close=True) as transaction:
+        with Transaction().start(dbname, 0, close=True) as transaction:
             databases = transaction.database.list()
         if not dbname or dbname not in databases:
             return True
