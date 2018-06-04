@@ -5,8 +5,8 @@
 #                           
 #                            CALENDAR PACKAGE
 #
-#    Copyright (C) 2008-2017  Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2017  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2018  Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2018  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011-2014  Sebastián Marró <smarro@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -86,46 +86,65 @@ class Appointment(metaclass=PoolMeta):
         pool = Pool()
         Event = pool.get('calendar.event')
         Patient = pool.get('gnuhealth.patient')
-        Healtprof = pool.get('gnuhealth.healthprofessional')
+        Healthprof = pool.get('gnuhealth.healthprofessional')
 
         for appointment in appointments:
-            if values.get('patient'):
-                if appointment.event:
-                    if 'appointment_date' in values:
-                        Event.write([appointment.event], {
-                            'dtstart': values['appointment_date'],
-                            })
-                    if 'appointment_date_end' in values:
-                        Event.write([appointment.event], {
-                            'dtend': values['appointment_date_end'],
-                            })
-                    if 'healthprof' in values:
-                        healthprof = Healtprof(values['healthprof'])
-                        Event.write([appointment.event], {
-                            'calendar': healthprof.calendar.id,
-                            })
-                    if 'patient' in values:
-                        patient = Patient(values['patient'])
-                        Event.write([appointment.event], {
-                            'summary': patient.name.rec_name,
-                            })
-                else:
-                    if appointment.healthprof:
-                        if appointment.healthprof.name.internal_user.calendar:
-                            patient = Patient(values['patient'])
+            #Update caldav event
+            if appointment.event and ('healthprof' not in values):
+                if 'appointment_date' in values:
+                    Event.write([appointment.event], {
+                        'dtstart': values['appointment_date'],
+                        })
+                if 'appointment_date_end' in values:
+                    Event.write([appointment.event], {
+                        'dtend': values['appointment_date_end'],
+                        })
+                if 'patient' in values:
+                    patient = Patient(values['patient'])
+                    Event.write([appointment.event], {
+                        'summary': patient.name.rec_name,
+                        })
+                if 'comments' in values:
+                    Event.write([appointment.event], {
+                        'description': values['comments'],
+                        })
+
+            else:
+                #Move the event to the new health professional
+                if appointment.event and ('healthprof' in values):
+                    current_event = [appointment.event]
+                    if appointment.healthprof.name.internal_user:
+                        healthprof = Healthprof(values['healthprof'])
+                        if healthprof.name.internal_user.calendar:
+                            #Health professional has calendar
+                            patient = appointment.patient.name.rec_name
                             comments = ''
                             if 'comments' in values:
                                 comments = values['comments']
+                            else:
+                                comments = appointment.comments
+                            if 'appointment_date' in values:
+                                appointment_date = values['appointment_date']
+                            else:
+                                appointment_date = appointment.appointment_date
+                            if 'appointment_date_end' in values:
+                                appointment_date_end = values['appointment_date_end']
+                            else:
+                                appointment_date_end = appointment.appointment_date_end
                             events = Event.create([{
-                                'dtstart': appointment.appointment_date,
-                                'dtend': appointment.appointment_date_end,
+                                'dtstart': appointment_date,
+                                'dtend': appointment_date_end,
                                 'calendar':
-                                    appointment.healthprof.name.internal_user.calendar.id,
+                                    healthprof.name.internal_user.calendar.id,
                                 'summary':
-                                    patient.name.rec_name,
+                                    patient,
                                 'description': comments,
                                 }])
                             values['event'] = events[0].id
+
+                    # Delete the event from the current health professional
+                    # after it has been transfer to the new healthpfof
+                    Event.delete(current_event)
         return super(Appointment, cls).write(appointments, values)
 
     @classmethod
