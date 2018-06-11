@@ -256,7 +256,6 @@ install_python_dependencies() {
     local PIP_STDNUM="python-stdnum"
     local PIP_SIMPLEEVAL="simpleeval"
     local PIP_CONFIGPARSER="configparser"
-    local PIP_PYMONGO="pymongo"
     local PIP_WEBDAV3="pywebdav3-gnuhealth"
     local PIP_BCRYPT="bcrypt"
     local PIP_NUMPY="numpy"
@@ -267,7 +266,7 @@ install_python_dependencies() {
     message "WARNING" "Skipping local PYTHON-LDAP installation. Please refer to the Wikibook to install it"
 
     local PIP_PKGS="$PIP_NUMPY $PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
-        $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER $PIP_PYMONGO \
+        $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER \
         $PIP_WEBDAV3 $PIP_BCRYPT"
     
     message "INFO" "Installing python dependencies with pip-${PIP_VERSION} ..."
