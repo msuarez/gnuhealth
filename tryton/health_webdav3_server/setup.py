@@ -90,7 +90,6 @@ setup(name='gnuhealth_webdav3_server',
         ],
     license='GPL-3',
     install_requires=requires,
-    dependency_links=dependency_links,
     zip_safe=False,
     entry_points="""
     [trytond.modules]
@@ -98,5 +97,4 @@ setup(name='gnuhealth_webdav3_server',
     """,
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
-    tests_require=tests_require,
     )
