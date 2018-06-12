@@ -1,4 +1,21 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+#    Copyright (C) 2017-2018 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2017-2018 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2012-2017 Cédric Krier
+
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from setuptools import setup
 import re
@@ -9,45 +26,36 @@ import configparser
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname), encoding="UTF-8").read()
 
-
-def get_require_version(name):
-    if minor_version % 2:
-        require = '%s >= %s.%s.dev0, < %s.%s'
-    else:
-        require = '%s >= %s.%s, < %s.%s'
-    require %= (name, major_version, minor_version,
-        major_version, minor_version + 1)
-    return require
-
 config = configparser.ConfigParser()
 config.readfp(open('tryton.cfg'))
 info = dict(config.items('tryton'))
+
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-version = info.get('version', '0.0.1')
-major_version, minor_version, _ = version.split('.', 2)
-major_version = int(major_version)
-minor_version = int(minor_version)
-name = 'trytond_webdav3'
+major_version, minor_version = 4, 6
 
-if minor_version % 2:
-    version = '%s.%s.dev0' % (major_version, minor_version)
+requires = []
+
+for dep in info.get('depends', []):
+    if (dep == 'health'):
+        requires.append('gnuhealth == %s' % (info.get('version')))
+
+    elif dep.startswith('health_'):
+        health_package = dep.split('_',1)[1]
+        requires.append('gnuhealth_%s == %s' %
+            (health_package, info.get('version')))
+    else: 
+        if not re.match(r'(ir|res|webdav)(\W|$)', dep):
+            requires.append('trytond_%s >= %s.%s, < %s.%s' %
+                (dep, major_version, minor_version, major_version,
+                    minor_version + 1))
+
 
 requires = ['PyWebDAV3-GNUHealth >= 0.10.1']
-for dep in info.get('depends', []):
-    if not re.match(r'(ir|res)(\W|$)', dep):
-        requires.append(get_require_version('trytond_%s' % dep))
-requires.append(get_require_version('trytond'))
 
-tests_require = []
-dependency_links = []
-if minor_version % 2:
-    # Add development index for testing with proteus
-    dependency_links.append('https://trydevpi.tryton.org/')
-
-setup(name=name,
-    version=version,
+setup(name='gnuhealth_webdav3_server',
+    version=info.get('version', '0.0.1'),
     description='GNU Health WebDAV server for Python 3',
     long_description=read('README'),
     author='GNU Solidario',
@@ -65,7 +73,7 @@ setup(name=name,
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po', '*.odt',
                 'icons/*.svg', 'tests/*.rst']),
         },
-    scripts=['bin/trytond-webdav'],
+    scripts=['bin/gnuhealth-webdav-server'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
@@ -75,24 +83,10 @@ setup(name=name,
         'Intended Audience :: Legal Industry',
         'Intended Audience :: Manufacturing',
         'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Natural Language :: Bulgarian',
-        'Natural Language :: Catalan',
-        'Natural Language :: Chinese (Simplified)',
-        'Natural Language :: Czech',
-        'Natural Language :: Dutch',
-        'Natural Language :: English',
-        'Natural Language :: French',
-        'Natural Language :: German',
-        'Natural Language :: Hungarian',
-        'Natural Language :: Italian',
-        'Natural Language :: Polish',
-        'Natural Language :: Portuguese (Brazilian)',
-        'Natural Language :: Russian',
-        'Natural Language :: Slovenian',
-        'Natural Language :: Spanish',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Topic :: Office/Business',
+        'Topic :: Scientific/Engineering :: Bio-Informatics',
+        'Topic :: Scientific/Engineering :: Medical Science Apps.',
         ],
     license='GPL-3',
     install_requires=requires,

@@ -2,7 +2,7 @@ WebDAV Module
 =============
 
 The WebDAV module provides a WebDAV_ network interface.
-The server is started by running `trytond-webdav`.
+The server is started by running `gnuhealth-webdav-server`.
 
 Configuration
 -------------

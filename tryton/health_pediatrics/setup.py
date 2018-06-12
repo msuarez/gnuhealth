@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2011-2017 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2018 Luis Falcon <falcon@gnu.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify
@@ -31,22 +31,25 @@ info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
         info[key] = info[key].strip().splitlines()
-major_version, minor_version = 4, 2
+major_version, minor_version = 4, 6
 
-requires = ['pytz']
+requires = []
 
 for dep in info.get('depends', []):
-    if dep.startswith('health'):
-        requires.append('trytond_%s == %s' %
-            (dep, info.get('version')))
-    elif not re.match(r'(ir|res|webdav)(\W|$)', dep):
-        requires.append('trytond_%s >= %s.%s, < %s.%s' %
-            (dep, major_version, minor_version, major_version,
-                minor_version + 1))
-requires.append('trytond >= %s.%s, < %s.%s' %
-    (major_version, minor_version, major_version, minor_version + 1))
+    if (dep == 'health'):
+        requires.append('gnuhealth == %s' % (info.get('version')))
 
-setup(name='trytond_health_pediatrics',
+    elif dep.startswith('health_'):
+        health_package = dep.split('_',1)[1]
+        requires.append('gnuhealth_%s == %s' %
+            (health_package, info.get('version')))
+    else: 
+        if not re.match(r'(ir|res|webdav)(\W|$)', dep):
+            requires.append('trytond_%s >= %s.%s, < %s.%s' %
+                (dep, major_version, minor_version, major_version,
+                    minor_version + 1))
+
+setup(name='gnuhealth_pediatrics',
     version=info.get('version', '0.0.1'),
     description=info.get('description', 'GNU Health pediatrics package'),
     long_description=read('README'),
