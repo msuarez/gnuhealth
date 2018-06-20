@@ -57,7 +57,7 @@ setup(name='gnuhealth_caldav',
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po']),
         },
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 3 - Alpha',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',

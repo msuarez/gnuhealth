@@ -75,7 +75,7 @@ setup(name='gnuhealth_webdav3_server',
         },
     scripts=['bin/gnuhealth-webdav-server'],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',

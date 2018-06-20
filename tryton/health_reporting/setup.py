@@ -73,7 +73,7 @@ setup(name='gnuhealth_reporting',
         },
 
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',
