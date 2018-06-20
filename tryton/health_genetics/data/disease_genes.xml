@@ -40284,5 +40284,2502 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<!-- New entries from UniprotKB dataset version 195 - 2018-04-25 -->
+<record model="gnuhealth.disease.gene" id="ROR1">
+	<field name="name">ROR1</field>
+	<field name="protein_name">Q01973</field>
+	<field name="long_name">Inactive tyrosine-protein kinase transmembrane receptor ROR1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RLIM">
+	<field name="name">RLIM</field>
+	<field name="protein_name">Q9NVW2</field>
+	<field name="long_name">E3 ubiquitin-protein ligase RLIM</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RNF43">
+	<field name="name">RNF43</field>
+	<field name="protein_name">Q68DV7</field>
+	<field name="long_name">E3 ubiquitin-protein ligase RNF43</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RPS23">
+	<field name="name">RPS23</field>
+	<field name="protein_name">P62266</field>
+	<field name="long_name">40S ribosomal protein S23</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RPS27">
+	<field name="name">RPS27</field>
+	<field name="protein_name">P42677</field>
+	<field name="long_name">40S ribosomal protein S27</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ARV1">
+	<field name="name">ARV1</field>
+	<field name="protein_name">Q9H2C2</field>
+	<field name="long_name">Protein ARV1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATG5">
+	<field name="name">ATG5</field>
+	<field name="protein_name">Q9H1Y0</field>
+	<field name="long_name">Autophagy protein 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ASXL2">
+	<field name="name">ASXL2</field>
+	<field name="protein_name">Q76L83</field>
+	<field name="long_name">Putative Polycomb group protein ASXL2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATAD3A">
+	<field name="name">ATAD3A</field>
+	<field name="protein_name">Q9NVI7</field>
+	<field name="long_name">ATPase family AAA domain-containing protein 3A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="BCL11B">
+	<field name="name">BCL11B</field>
+	<field name="protein_name">Q9C0K0</field>
+	<field name="long_name">B-cell lymphoma/leukemia 11B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MRPS7">
+	<field name="name">MRPS7</field>
+	<field name="protein_name">Q9Y2R9</field>
+	<field name="long_name">28S ribosomal protein S7, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MRPS34">
+	<field name="name">MRPS34</field>
+	<field name="protein_name">P82930</field>
+	<field name="long_name">28S ribosomal protein S34, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RTN4IP1">
+	<field name="name">RTN4IP1</field>
+	<field name="protein_name">Q8WWV3</field>
+	<field name="long_name">Reticulon-4-interacting protein 1, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SAMD9L">
+	<field name="name">SAMD9L</field>
+	<field name="protein_name">Q8IVG5</field>
+	<field name="long_name">Sterile alpha motif domain-containing protein 9-like</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="S1PR2">
+	<field name="name">S1PR2</field>
+	<field name="protein_name">O95136</field>
+	<field name="long_name">Sphingosine 1-phosphate receptor 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC39A14">
+	<field name="name">SLC39A14</field>
+	<field name="protein_name">Q15043</field>
+	<field name="long_name">Zinc transporter ZIP14</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC26A1">
+	<field name="name">SLC26A1</field>
+	<field name="protein_name">Q9H2B4</field>
+	<field name="long_name">Sulfate anion transporter 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC39A8">
+	<field name="name">SLC39A8</field>
+	<field name="protein_name">Q9C0K1</field>
+	<field name="long_name">Zinc transporter ZIP8</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC45A1">
+	<field name="name">SLC45A1</field>
+	<field name="protein_name">Q9Y2W3</field>
+	<field name="long_name">Proton-associated sugar transporter A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SEC61A1">
+	<field name="name">SEC61A1</field>
+	<field name="protein_name">P61619</field>
+	<field name="long_name">Protein transport protein Sec61 subunit alpha isoform 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC13A5">
+	<field name="name">SLC13A5</field>
+	<field name="protein_name">Q86YT5</field>
+	<field name="long_name">Solute carrier family 13 member 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC25A26">
+	<field name="name">SLC25A26</field>
+	<field name="protein_name">Q70HW3</field>
+	<field name="long_name">S-adenosylmethionine mitochondrial carrier protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC6A9">
+	<field name="name">SLC6A9</field>
+	<field name="protein_name">P48067</field>
+	<field name="long_name">Sodium- and chloride-dependent glycine transporter 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SCYL1">
+	<field name="name">SCYL1</field>
+	<field name="protein_name">Q96KG9</field>
+	<field name="long_name">N-terminal kinase-like protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RERE">
+	<field name="name">RERE</field>
+	<field name="protein_name">Q9P2R6</field>
+	<field name="long_name">Arginine-glutamic acid dipeptide repeats protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PUS3">
+	<field name="name">PUS3</field>
+	<field name="protein_name">Q9BZE2</field>
+	<field name="long_name">tRNA pseudouridine(38/39) synthase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RELB">
+	<field name="name">RELB</field>
+	<field name="protein_name">Q01201</field>
+	<field name="long_name">Transcription factor RelB</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PPP1R15B">
+	<field name="name">PPP1R15B</field>
+	<field name="protein_name">Q5SWA1</field>
+	<field name="long_name">Protein phosphatase 1 regulatory subunit 15B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="REEP6">
+	<field name="name">REEP6</field>
+	<field name="protein_name">Q96HR9</field>
+	<field name="long_name">Receptor expression-enhancing protein 6</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="STAG1">
+	<field name="name">STAG1</field>
+	<field name="protein_name">Q8WVM7</field>
+	<field name="long_name">Cohesin subunit SA-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="STAT2">
+	<field name="name">STAT2</field>
+	<field name="protein_name">P52630</field>
+	<field name="long_name">Signal transducer and activator of transcription 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="STN1">
+	<field name="name">STN1</field>
+	<field name="protein_name">Q9H668</field>
+	<field name="long_name">CST complex subunit STN1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SUN5">
+	<field name="name">SUN5</field>
+	<field name="protein_name">Q8TC36</field>
+	<field name="long_name">SUN domain-containing protein 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SMG9">
+	<field name="name">SMG9</field>
+	<field name="protein_name">Q9H0W8</field>
+	<field name="long_name">Protein SMG9</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SYCE1">
+	<field name="name">SYCE1</field>
+	<field name="protein_name">Q8N0S2</field>
+	<field name="long_name">Synaptonemal complex central element protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TTC25">
+	<field name="name">TTC25</field>
+	<field name="protein_name">Q96NG3</field>
+	<field name="long_name">Tetratricopeptide repeat protein 25</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATP6AP1">
+	<field name="name">ATP6AP1</field>
+	<field name="protein_name">Q15904</field>
+	<field name="long_name">V-type proton ATPase subunit S1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TCHH">
+	<field name="name">TCHH</field>
+	<field name="protein_name">Q07283</field>
+	<field name="long_name">Trichohyalin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRIM36">
+	<field name="name">TRIM36</field>
+	<field name="protein_name">Q9NQ86</field>
+	<field name="long_name">E3 ubiquitin-protein ligase TRIM36</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRIP4">
+	<field name="name">TRIP4</field>
+	<field name="protein_name">Q15650</field>
+	<field name="long_name">Activating signal cointegrator 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WAC">
+	<field name="name">WAC</field>
+	<field name="protein_name">Q9BTA9</field>
+	<field name="long_name">WW domain-containing adapter protein with coiled-coil</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WBP2">
+	<field name="name">WBP2</field>
+	<field name="protein_name">Q969T9</field>
+	<field name="long_name">WW domain-binding protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WDFY3">
+	<field name="name">WDFY3</field>
+	<field name="protein_name">Q8IZQ1</field>
+	<field name="long_name">WD repeat and FYVE domain-containing protein 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WDR26">
+	<field name="name">WDR26</field>
+	<field name="protein_name">Q9H7D7</field>
+	<field name="long_name">WD repeat-containing protein 26</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SFRP4">
+	<field name="name">SFRP4</field>
+	<field name="protein_name">Q6FHJ7</field>
+	<field name="long_name">Secreted frizzled-related protein 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SGPL1">
+	<field name="name">SGPL1</field>
+	<field name="protein_name">O95470</field>
+	<field name="long_name">Sphingosine-1-phosphate lyase 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SHPK">
+	<field name="name">SHPK</field>
+	<field name="protein_name">Q9UHJ6</field>
+	<field name="long_name">Sedoheptulokinase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SOHLH1">
+	<field name="name">SOHLH1</field>
+	<field name="protein_name">Q5JUK2</field>
+	<field name="long_name">Spermatogenesis- and oogenesis-specific basic helix-loop-helix-containing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SPTBN4">
+	<field name="name">SPTBN4</field>
+	<field name="protein_name">Q9H254</field>
+	<field name="long_name">Spectrin beta chain, non-erythrocytic 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NANS">
+	<field name="name">NANS</field>
+	<field name="protein_name">Q9NR45</field>
+	<field name="long_name">Sialic acid synthase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SOX5">
+	<field name="name">SOX5</field>
+	<field name="protein_name">P35711</field>
+	<field name="long_name">Transcription factor SOX-5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SON">
+	<field name="name">SON</field>
+	<field name="protein_name">P18583</field>
+	<field name="long_name">Protein SON</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SERPINB8">
+	<field name="name">SERPINB8</field>
+	<field name="protein_name">P50452</field>
+	<field name="long_name">Serpin B8</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SMARCD2">
+	<field name="name">SMARCD2</field>
+	<field name="protein_name">Q92925</field>
+	<field name="long_name">SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily D member 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="REST">
+	<field name="name">REST</field>
+	<field name="protein_name">Q13127</field>
+	<field name="long_name">RE1-silencing transcription factor</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TSEN15">
+	<field name="name">TSEN15</field>
+	<field name="protein_name">Q8WW01</field>
+	<field name="long_name">tRNA-splicing endonuclease subunit Sen15</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RPL27">
+	<field name="name">RPL27</field>
+	<field name="protein_name">P61353</field>
+	<field name="long_name">60S ribosomal protein L27</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TANGO2">
+	<field name="name">TANGO2</field>
+	<field name="protein_name">Q6ICL3</field>
+	<field name="long_name">Transport and Golgi organization protein 2 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TNIK">
+	<field name="name">TNIK</field>
+	<field name="protein_name">Q9UKE5</field>
+	<field name="long_name">TRAF2 and NCK-interacting protein kinase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMEM107">
+	<field name="name">TMEM107</field>
+	<field name="protein_name">Q6UX40</field>
+	<field name="long_name">Transmembrane protein 107</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRAIP">
+	<field name="name">TRAIP</field>
+	<field name="protein_name">Q9BWF2</field>
+	<field name="long_name">E3 ubiquitin-protein ligase TRAIP</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TAF6">
+	<field name="name">TAF6</field>
+	<field name="protein_name">P49848</field>
+	<field name="long_name">Transcription initiation factor TFIID subunit 6</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TCTEX1D2">
+	<field name="name">TCTEX1D2</field>
+	<field name="protein_name">Q8WW35</field>
+	<field name="long_name">Tctex1 domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TECRL">
+	<field name="name">TECRL</field>
+	<field name="protein_name">Q5HYJ1</field>
+	<field name="long_name">Trans-2,3-enoyl-CoA reductase-like</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TENM4">
+	<field name="name">TENM4</field>
+	<field name="protein_name">Q6N022</field>
+	<field name="long_name">Teneurin-4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMTC3">
+	<field name="name">TMTC3</field>
+	<field name="protein_name">Q6ZXV5</field>
+	<field name="long_name">Transmembrane and TPR repeat-containing protein 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TPRKB">
+	<field name="name">TPRKB</field>
+	<field name="protein_name">Q9Y3C4</field>
+	<field name="long_name">EKC/KEOPS complex subunit TPRKB</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRIM44">
+	<field name="name">TRIM44</field>
+	<field name="protein_name">Q96DX7</field>
+	<field name="long_name">Tripartite motif-containing protein 44</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WARS">
+	<field name="name">WARS</field>
+	<field name="protein_name">P23381</field>
+	<field name="long_name">Tryptophan--tRNA ligase, cytoplasmic</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TAPT1">
+	<field name="name">TAPT1</field>
+	<field name="protein_name">Q6NXT6</field>
+	<field name="long_name">Transmembrane anterior posterior transformation protein 1 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TUBB6">
+	<field name="name">TUBB6</field>
+	<field name="protein_name">Q9BUF5</field>
+	<field name="long_name">Tubulin beta-6 chain</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TUBB8">
+	<field name="name">TUBB8</field>
+	<field name="protein_name">Q3ZCM7</field>
+	<field name="long_name">Tubulin beta-8 chain</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TBC1D23">
+	<field name="name">TBC1D23</field>
+	<field name="protein_name">Q9NUY8</field>
+	<field name="long_name">TBC1 domain family member 23</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TBCD">
+	<field name="name">TBCD</field>
+	<field name="protein_name">Q9BTW9</field>
+	<field name="long_name">Tubulin-specific chaperone D</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TBCK">
+	<field name="name">TBCK</field>
+	<field name="protein_name">Q8TEA7</field>
+	<field name="long_name">TBC domain-containing protein kinase-like protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="VAC14">
+	<field name="name">VAC14</field>
+	<field name="protein_name">Q08AM6</field>
+	<field name="long_name">Protein VAC14 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATP6V1A">
+	<field name="name">ATP6V1A</field>
+	<field name="protein_name">P38606</field>
+	<field name="long_name">V-type proton ATPase catalytic subunit A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="VPS11">
+	<field name="name">VPS11</field>
+	<field name="protein_name">Q9H270</field>
+	<field name="long_name">Vacuolar protein sorting-associated protein 11 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC18A3">
+	<field name="name">SLC18A3</field>
+	<field name="protein_name">Q16572</field>
+	<field name="long_name">Vesicular acetylcholine transporter</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EPHB4">
+	<field name="name">EPHB4</field>
+	<field name="protein_name">P54760</field>
+	<field name="long_name">Ephrin type-B receptor 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="BGN">
+	<field name="name">BGN</field>
+	<field name="protein_name">P21810</field>
+	<field name="long_name">Biglycan</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ACP4">
+	<field name="name">ACP4</field>
+	<field name="protein_name">Q9BZG2</field>
+	<field name="long_name">Testicular acid phosphatase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TP53RK">
+	<field name="name">TP53RK</field>
+	<field name="protein_name">Q96S44</field>
+	<field name="long_name">EKC/KEOPS complex subunit TP53RK</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PSMD12">
+	<field name="name">PSMD12</field>
+	<field name="protein_name">O00232</field>
+	<field name="long_name">26S proteasome non-ATPase regulatory subunit 12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PIGG">
+	<field name="name">PIGG</field>
+	<field name="protein_name">Q5H8A4</field>
+	<field name="long_name">GPI ethanolamine phosphate transferase 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLAA">
+	<field name="name">PLAA</field>
+	<field name="protein_name">Q9Y263</field>
+	<field name="long_name">Phospholipase A-2-activating protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLCZ1">
+	<field name="name">PLCZ1</field>
+	<field name="protein_name">Q86YW0</field>
+	<field name="long_name">1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase zeta-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PPP1CB">
+	<field name="name">PPP1CB</field>
+	<field name="protein_name">P62140</field>
+	<field name="long_name">Serine/threonine-protein phosphatase PP1-beta catalytic subunit</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PPP3CA">
+	<field name="name">PPP3CA</field>
+	<field name="protein_name">Q08209</field>
+	<field name="long_name">Serine/threonine-protein phosphatase 2B catalytic subunit alpha isoform</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PRUNE1">
+	<field name="name">PRUNE1</field>
+	<field name="protein_name">Q86TP1</field>
+	<field name="long_name">Exopolyphosphatase PRUNE1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLPBP">
+	<field name="name">PLPBP</field>
+	<field name="protein_name">O94903</field>
+	<field name="long_name">Pyridoxal phosphate homeostasis protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="POP1">
+	<field name="name">POP1</field>
+	<field name="protein_name">Q99575</field>
+	<field name="long_name">Ribonucleases P/MRP protein subunit POP1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PRDM6">
+	<field name="name">PRDM6</field>
+	<field name="protein_name">Q9NQX0</field>
+	<field name="long_name">Putative histone-lysine N-methyltransferase PRDM6</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MSMO1">
+	<field name="name">MSMO1</field>
+	<field name="protein_name">Q15800</field>
+	<field name="long_name">Methylsterol monooxygenase 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MYMK">
+	<field name="name">MYMK</field>
+	<field name="protein_name">A6NI61</field>
+	<field name="long_name">Protein myomaker</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CD164">
+	<field name="name">CD164</field>
+	<field name="protein_name">Q04900</field>
+	<field name="long_name">Sialomucin core protein 24</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KIAA0753">
+	<field name="name">KIAA0753</field>
+	<field name="protein_name">Q2KHM9</field>
+	<field name="long_name">Protein moonraker</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MSH5">
+	<field name="name">MSH5</field>
+	<field name="protein_name">O43196</field>
+	<field name="long_name">MutS protein homolog 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MIPEP">
+	<field name="name">MIPEP</field>
+	<field name="protein_name">Q99797</field>
+	<field name="long_name">Mitochondrial intermediate peptidase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MSTO1">
+	<field name="name">MSTO1</field>
+	<field name="protein_name">Q9BUK6</field>
+	<field name="long_name">Protein misato homolog 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KRT25">
+	<field name="name">KRT25</field>
+	<field name="protein_name">Q7Z3Z0</field>
+	<field name="long_name">Keratin, type I cytoskeletal 25</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LGI4">
+	<field name="name">LGI4</field>
+	<field name="protein_name">Q8N135</field>
+	<field name="long_name">Leucine-rich repeat LGI family member 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LIMS2">
+	<field name="name">LIMS2</field>
+	<field name="protein_name">Q7Z4I7</field>
+	<field name="long_name">LIM and senescent cell antigen-like-containing domain protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LIPT2">
+	<field name="name">LIPT2</field>
+	<field name="protein_name">A6NK58</field>
+	<field name="long_name">Putative lipoyltransferase 2, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NSMCE3">
+	<field name="name">NSMCE3</field>
+	<field name="protein_name">Q96MG7</field>
+	<field name="long_name">Non-structural maintenance of chromosomes element 3 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NUP93">
+	<field name="name">NUP93</field>
+	<field name="protein_name">Q8N1F7</field>
+	<field name="long_name">Nuclear pore complex protein Nup93</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NUP205">
+	<field name="name">NUP205</field>
+	<field name="protein_name">Q92621</field>
+	<field name="long_name">Nuclear pore complex protein Nup205</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="OTUD6B">
+	<field name="name">OTUD6B</field>
+	<field name="protein_name">Q8N6M0</field>
+	<field name="long_name">Deubiquitinase OTUD6B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="OTULIN">
+	<field name="name">OTULIN</field>
+	<field name="protein_name">Q96BN8</field>
+	<field name="long_name">Ubiquitin thioesterase otulin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PADI6">
+	<field name="name">PADI6</field>
+	<field name="protein_name">Q6TGC4</field>
+	<field name="long_name">Protein-arginine deiminase type-6</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="OSGEP">
+	<field name="name">OSGEP</field>
+	<field name="protein_name">Q9NPF4</field>
+	<field name="long_name">Probable tRNA N6-adenosine threonylcarbamoyltransferase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NSMCE2">
+	<field name="name">NSMCE2</field>
+	<field name="protein_name">Q96MF7</field>
+	<field name="long_name">E3 SUMO-protein ligase NSE2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NUP107">
+	<field name="name">NUP107</field>
+	<field name="protein_name">P57740</field>
+	<field name="long_name">Nuclear pore complex protein Nup107</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KDF1">
+	<field name="name">KDF1</field>
+	<field name="protein_name">Q8NAX2</field>
+	<field name="long_name">Keratinocyte differentiation factor 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KDM1A">
+	<field name="name">KDM1A</field>
+	<field name="protein_name">O60341</field>
+	<field name="long_name">Lysine-specific histone demethylase 1A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KLHL24">
+	<field name="name">KLHL24</field>
+	<field name="protein_name">Q6TFL4</field>
+	<field name="long_name">Kelch-like protein 24</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LAGE3">
+	<field name="name">LAGE3</field>
+	<field name="protein_name">Q14657</field>
+	<field name="long_name">EKC/KEOPS complex subunit LAGE3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HNRNPH2">
+	<field name="name">HNRNPH2</field>
+	<field name="protein_name">P55795</field>
+	<field name="long_name">Heterogeneous nuclear ribonucleoprotein H2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EIF2S3">
+	<field name="name">EIF2S3</field>
+	<field name="protein_name">P41091</field>
+	<field name="long_name">Eukaryotic translation initiation factor 2 subunit 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KDSR">
+	<field name="name">KDSR</field>
+	<field name="protein_name">Q06136</field>
+	<field name="long_name">3-ketodihydrosphingosine reductase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KREMEN1">
+	<field name="name">KREMEN1</field>
+	<field name="protein_name">Q96MU8</field>
+	<field name="long_name">Kremen protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KLC2">
+	<field name="name">KLC2</field>
+	<field name="protein_name">Q9H0B6</field>
+	<field name="long_name">Kinesin light chain 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KLHL15">
+	<field name="name">KLHL15</field>
+	<field name="protein_name">Q96M94</field>
+	<field name="long_name">Kelch-like protein 15</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KMT2B">
+	<field name="name">KMT2B</field>
+	<field name="protein_name">Q9UMN6</field>
+	<field name="long_name">Histone-lysine N-methyltransferase 2B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KMT2C">
+	<field name="name">KMT2C</field>
+	<field name="protein_name">Q8NEZ4</field>
+	<field name="long_name">Histone-lysine N-methyltransferase 2C</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LMAN2L">
+	<field name="name">LMAN2L</field>
+	<field name="protein_name">Q9H0V9</field>
+	<field name="long_name">VIP36-like protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PIGP">
+	<field name="name">PIGP</field>
+	<field name="protein_name">P57054</field>
+	<field name="long_name">Phosphatidylinositol N-acetylglucosaminyltransferase subunit P</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PIH1D3">
+	<field name="name">PIH1D3</field>
+	<field name="protein_name">Q9NQM4</field>
+	<field name="long_name">Protein PIH1D3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLEKHG2">
+	<field name="name">PLEKHG2</field>
+	<field name="protein_name">Q9H7P9</field>
+	<field name="long_name">Pleckstrin homology domain-containing family G member 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLD1">
+	<field name="name">PLD1</field>
+	<field name="protein_name">Q13393</field>
+	<field name="long_name">Phospholipase D1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRIP13">
+	<field name="name">TRIP13</field>
+	<field name="protein_name">Q15645</field>
+	<field name="long_name">Pachytene checkpoint protein 2 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PDE10A">
+	<field name="name">PDE10A</field>
+	<field name="protein_name">Q9Y233</field>
+	<field name="long_name">cAMP and cAMP-inhibited cGMP 3',5'-cyclic phosphodiesterase 10A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PCDH12">
+	<field name="name">PCDH12</field>
+	<field name="protein_name">Q9NPG4</field>
+	<field name="long_name">Protocadherin-12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PADI3">
+	<field name="name">PADI3</field>
+	<field name="protein_name">Q9ULW8</field>
+	<field name="long_name">Protein-arginine deiminase type-3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PER3">
+	<field name="name">PER3</field>
+	<field name="protein_name">P56645</field>
+	<field name="long_name">Period circadian protein homolog 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PIGY">
+	<field name="name">PIGY</field>
+	<field name="protein_name">Q3MUY2</field>
+	<field name="long_name">Phosphatidylinositol N-acetylglucosaminyltransferase subunit Y</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PATL2">
+	<field name="name">PATL2</field>
+	<field name="protein_name">C9JE40</field>
+	<field name="long_name">Protein PAT1 homolog 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LEMD2">
+	<field name="name">LEMD2</field>
+	<field name="protein_name">Q8NC56</field>
+	<field name="long_name">LEM domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MBOAT7">
+	<field name="name">MBOAT7</field>
+	<field name="protein_name">Q96N66</field>
+	<field name="long_name">Lysophospholipid acyltransferase 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MCM5">
+	<field name="name">MCM5</field>
+	<field name="protein_name">P33992</field>
+	<field name="long_name">DNA replication licensing factor MCM5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MFF">
+	<field name="name">MFF</field>
+	<field name="protein_name">Q9GZY8</field>
+	<field name="long_name">Mitochondrial fission factor</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC25A32">
+	<field name="name">SLC25A32</field>
+	<field name="protein_name">Q9H2D1</field>
+	<field name="long_name">Mitochondrial folate transporter/carrier</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAGI2">
+	<field name="name">MAGI2</field>
+	<field name="protein_name">Q86UL8</field>
+	<field name="long_name">Membrane-associated guanylate kinase, WW and PDZ domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MECOM">
+	<field name="name">MECOM</field>
+	<field name="protein_name">Q03112</field>
+	<field name="long_name">MDS1 and EVI1 complex locus protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAPRE2">
+	<field name="name">MAPRE2</field>
+	<field name="protein_name">Q15555</field>
+	<field name="long_name">Microtubule-associated protein RP/EB family member 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MORC2">
+	<field name="name">MORC2</field>
+	<field name="protein_name">Q9Y6X9</field>
+	<field name="long_name">MORC family CW-type zinc finger protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MMP21">
+	<field name="name">MMP21</field>
+	<field name="protein_name">Q8N119</field>
+	<field name="long_name">Matrix metalloproteinase-21</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NACC1">
+	<field name="name">NACC1</field>
+	<field name="protein_name">Q96RE7</field>
+	<field name="long_name">Nucleus accumbens-associated protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NEK9">
+	<field name="name">NEK9</field>
+	<field name="protein_name">Q8TD19</field>
+	<field name="long_name">Serine/threonine-protein kinase Nek9</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NPRL2">
+	<field name="name">NPRL2</field>
+	<field name="protein_name">Q8WTW4</field>
+	<field name="long_name">GATOR complex protein NPRL2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NPRL3">
+	<field name="name">NPRL3</field>
+	<field name="protein_name">Q12980</field>
+	<field name="long_name">GATOR complex protein NPRL3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NR1H4">
+	<field name="name">NR1H4</field>
+	<field name="protein_name">Q96RI1</field>
+	<field name="long_name">Bile acid receptor</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MYL4">
+	<field name="name">MYL4</field>
+	<field name="protein_name">P12829</field>
+	<field name="long_name">Myosin light chain 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NKX6-2">
+	<field name="name">NKX6-2</field>
+	<field name="protein_name">Q9C056</field>
+	<field name="long_name">Homeobox protein Nkx-6.2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GRIN2D">
+	<field name="name">GRIN2D</field>
+	<field name="protein_name">O15399</field>
+	<field name="long_name">Glutamate receptor ionotropic, NMDA 2D</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NONO">
+	<field name="name">NONO</field>
+	<field name="protein_name">Q15233</field>
+	<field name="long_name">Non-POU domain-containing octamer-binding protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NAXE">
+	<field name="name">NAXE</field>
+	<field name="protein_name">Q8NCW5</field>
+	<field name="long_name">NAD(P)H-hydrate epimerase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PMPCA">
+	<field name="name">PMPCA</field>
+	<field name="protein_name">Q10713</field>
+	<field name="long_name">Mitochondrial-processing peptidase subunit alpha</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HIKESHI">
+	<field name="name">HIKESHI</field>
+	<field name="protein_name">Q53FT3</field>
+	<field name="long_name">Protein Hikeshi</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="IFT52">
+	<field name="name">IFT52</field>
+	<field name="protein_name">Q9Y366</field>
+	<field name="long_name">Intraflagellar transport protein 52 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="IMPA1">
+	<field name="name">IMPA1</field>
+	<field name="protein_name">P29218</field>
+	<field name="long_name">Inositol monophosphatase 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PPA2">
+	<field name="name">PPA2</field>
+	<field name="protein_name">Q9H2U2</field>
+	<field name="long_name">Inorganic pyrophosphatase 2, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="IFT74">
+	<field name="name">IFT74</field>
+	<field name="protein_name">Q96LB3</field>
+	<field name="long_name">Intraflagellar transport protein 74 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAP3K7">
+	<field name="name">MAP3K7</field>
+	<field name="protein_name">O43318</field>
+	<field name="long_name">Mitogen-activated protein kinase kinase kinase 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAGED2">
+	<field name="name">MAGED2</field>
+	<field name="protein_name">Q9UNF1</field>
+	<field name="long_name">Melanoma-associated antigen D2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAPKAPK3">
+	<field name="name">MAPKAPK3</field>
+	<field name="protein_name">Q16644</field>
+	<field name="long_name">MAP kinase-activated protein kinase 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MCM2">
+	<field name="name">MCM2</field>
+	<field name="protein_name">P49736</field>
+	<field name="long_name">DNA replication licensing factor MCM2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAD2L2">
+	<field name="name">MAD2L2</field>
+	<field name="protein_name">Q9UI95</field>
+	<field name="long_name">Mitotic spindle assembly checkpoint protein MAD2B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MDH2">
+	<field name="name">MDH2</field>
+	<field name="protein_name">P40926</field>
+	<field name="long_name">Malate dehydrogenase, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAP3K20">
+	<field name="name">MAP3K20</field>
+	<field name="protein_name">Q9NYL2</field>
+	<field name="long_name">Mitogen-activated protein kinase kinase kinase 20</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAPKBP1">
+	<field name="name">MAPKBP1</field>
+	<field name="protein_name">O60336</field>
+	<field name="long_name">Mitogen-activated protein kinase-binding protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ISCA1">
+	<field name="name">ISCA1</field>
+	<field name="protein_name">Q9BUE6</field>
+	<field name="long_name">Iron-sulfur cluster assembly 1 homolog, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MEIOB">
+	<field name="name">MEIOB</field>
+	<field name="protein_name">Q8N635</field>
+	<field name="long_name">Meiosis-specific with OB domain-containing protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MEIS2">
+	<field name="name">MEIS2</field>
+	<field name="protein_name">O14770</field>
+	<field name="long_name">Homeobox protein Meis2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="INPP5K">
+	<field name="name">INPP5K</field>
+	<field name="protein_name">Q9BT40</field>
+	<field name="long_name">Inositol polyphosphate 5-phosphatase K</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CHD4">
+	<field name="name">CHD4</field>
+	<field name="protein_name">Q14839</field>
+	<field name="long_name">Chromodomain-helicase-DNA-binding protein 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="COL13A1">
+	<field name="name">COL13A1</field>
+	<field name="protein_name">Q5TAT6</field>
+	<field name="long_name">Collagen alpha-1(XIII) chain</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ARCN1">
+	<field name="name">ARCN1</field>
+	<field name="protein_name">P48444</field>
+	<field name="long_name">Coatomer subunit delta</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="COG2">
+	<field name="name">COG2</field>
+	<field name="protein_name">Q14746</field>
+	<field name="long_name">Conserved oligomeric Golgi complex subunit 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="COQ7">
+	<field name="name">COQ7</field>
+	<field name="protein_name">Q99807</field>
+	<field name="long_name">5-demethoxyubiquinone hydroxylase, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EBF3">
+	<field name="name">EBF3</field>
+	<field name="protein_name">Q9H4W6</field>
+	<field name="long_name">Transcription factor COE3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CLDN10">
+	<field name="name">CLDN10</field>
+	<field name="protein_name">P78369</field>
+	<field name="long_name">Claudin-10</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HAAO">
+	<field name="name">HAAO</field>
+	<field name="protein_name">P46952</field>
+	<field name="long_name">3-hydroxyanthranilate 3,4-dioxygenase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ELMO2">
+	<field name="name">ELMO2</field>
+	<field name="protein_name">Q96JJ3</field>
+	<field name="long_name">Engulfment and cell motility protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EXTL3">
+	<field name="name">EXTL3</field>
+	<field name="protein_name">O43909</field>
+	<field name="long_name">Exostosin-like 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ERLIN1">
+	<field name="name">ERLIN1</field>
+	<field name="protein_name">O75477</field>
+	<field name="long_name">Erlin-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FYB1">
+	<field name="name">FYB1</field>
+	<field name="protein_name">O15117</field>
+	<field name="long_name">FYN-binding protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GANAB">
+	<field name="name">GANAB</field>
+	<field name="protein_name">Q14697</field>
+	<field name="long_name">Neutral alpha-glucosidase AB</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FRMD4A">
+	<field name="name">FRMD4A</field>
+	<field name="protein_name">Q9P2Q2</field>
+	<field name="long_name">FERM domain-containing protein 4A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GABRB1">
+	<field name="name">GABRB1</field>
+	<field name="protein_name">P18505</field>
+	<field name="long_name">Gamma-aminobutyric acid receptor subunit beta-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DAB1">
+	<field name="name">DAB1</field>
+	<field name="protein_name">O75553</field>
+	<field name="long_name">Disabled homolog 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DENND5A">
+	<field name="name">DENND5A</field>
+	<field name="protein_name">Q6IQ26</field>
+	<field name="long_name">DENN domain-containing protein 5A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DNAJC12">
+	<field name="name">DNAJC12</field>
+	<field name="protein_name">Q9UKB3</field>
+	<field name="long_name">DnaJ homolog subfamily C member 12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CWC27">
+	<field name="name">CWC27</field>
+	<field name="protein_name">Q6UX04</field>
+	<field name="long_name">Peptidyl-prolyl cis-trans isomerase CWC27 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DDX41">
+	<field name="name">DDX41</field>
+	<field name="protein_name">Q9UJV9</field>
+	<field name="long_name">Probable ATP-dependent RNA helicase DDX41</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DNAJB13">
+	<field name="name">DNAJB13</field>
+	<field name="protein_name">P59910</field>
+	<field name="long_name">DnaJ homolog subfamily B member 13</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DYNC2LI1">
+	<field name="name">DYNC2LI1</field>
+	<field name="protein_name">Q8TCX1</field>
+	<field name="long_name">Cytoplasmic dynein 2 light intermediate chain 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GLDN">
+	<field name="name">GLDN</field>
+	<field name="protein_name">Q6ZMI3</field>
+	<field name="long_name">Gliomedin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GUF1">
+	<field name="name">GUF1</field>
+	<field name="protein_name">Q8N442</field>
+	<field name="long_name">Translation factor GUF1, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HECW2">
+	<field name="name">HECW2</field>
+	<field name="protein_name">Q9P2P5</field>
+	<field name="long_name">E3 ubiquitin-protein ligase HECW2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HELLS">
+	<field name="name">HELLS</field>
+	<field name="protein_name">Q9NRZ9</field>
+	<field name="long_name">Lymphoid-specific helicase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HERC1">
+	<field name="name">HERC1</field>
+	<field name="protein_name">Q15751</field>
+	<field name="long_name">Probable E3 ubiquitin-protein ligase HERC1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HIST1H1E">
+	<field name="name">HIST1H1E</field>
+	<field name="protein_name">P10412</field>
+	<field name="long_name">Histone H1.4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HACE1">
+	<field name="name">HACE1</field>
+	<field name="protein_name">Q8IYU2</field>
+	<field name="long_name">E3 ubiquitin-protein ligase HACE1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GPR88">
+	<field name="name">GPR88</field>
+	<field name="protein_name">Q9GZN0</field>
+	<field name="long_name">Probable G-protein coupled receptor 88</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CCDC88A">
+	<field name="name">CCDC88A</field>
+	<field name="protein_name">Q3V6T2</field>
+	<field name="long_name">Girdin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GZF1">
+	<field name="name">GZF1</field>
+	<field name="protein_name">Q9H116</field>
+	<field name="long_name">GDNF-inducible zinc finger protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HNRNPU">
+	<field name="name">HNRNPU</field>
+	<field name="protein_name">Q00839</field>
+	<field name="long_name">Heterogeneous nuclear ribonucleoprotein U</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="BRPF1">
+	<field name="name">BRPF1</field>
+	<field name="protein_name">P55201</field>
+	<field name="long_name">Peregrin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="C1QBP">
+	<field name="name">C1QBP</field>
+	<field name="protein_name">Q07021</field>
+	<field name="long_name">Complement component 1 Q subcomponent-binding protein, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CDC42">
+	<field name="name">CDC42</field>
+	<field name="protein_name">P60953</field>
+	<field name="long_name">Cell division control protein 42 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CEP78">
+	<field name="name">CEP78</field>
+	<field name="protein_name">Q5JTW2</field>
+	<field name="long_name">Centrosomal protein of 78 kDa</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CEP55">
+	<field name="name">CEP55</field>
+	<field name="protein_name">Q53EZ4</field>
+	<field name="long_name">Centrosomal protein of 55 kDa</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CASP14">
+	<field name="name">CASP14</field>
+	<field name="protein_name">P31944</field>
+	<field name="long_name">Caspase-14</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CDK10">
+	<field name="name">CDK10</field>
+	<field name="protein_name">Q15131</field>
+	<field name="long_name">Cyclin-dependent kinase 10</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="BRDT">
+	<field name="name">BRDT</field>
+	<field name="protein_name">Q58F21</field>
+	<field name="long_name">Bromodomain testis-specific protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ADD3">
+	<field name="name">ADD3</field>
+	<field name="protein_name">Q9UEY8</field>
+	<field name="long_name">Gamma-adducin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FDXR">
+	<field name="name">FDXR</field>
+	<field name="protein_name">P22570</field>
+	<field name="long_name">NADPH:adrenodoxin oxidoreductase, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ABCA7">
+	<field name="name">ABCA7</field>
+	<field name="protein_name">Q8IZY2</field>
+	<field name="long_name">ATP-binding cassette sub-family A member 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ACOX2">
+	<field name="name">ACOX2</field>
+	<field name="protein_name">Q99424</field>
+	<field name="long_name">Peroxisomal acyl-coenzyme A oxidase 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ADGRG2">
+	<field name="name">ADGRG2</field>
+	<field name="protein_name">Q8IZP9</field>
+	<field name="long_name">Adhesion G-protein coupled receptor G2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="YWHAG">
+	<field name="name">YWHAG</field>
+	<field name="protein_name">P61981</field>
+	<field name="long_name">14-3-3 protein gamma</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="AP3B2">
+	<field name="name">AP3B2</field>
+	<field name="protein_name">Q13367</field>
+	<field name="long_name">AP-3 complex subunit beta-2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="AGBL5">
+	<field name="name">AGBL5</field>
+	<field name="protein_name">Q8NDL9</field>
+	<field name="long_name">Cytosolic carboxypeptidase-like protein 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CDC14A">
+	<field name="name">CDC14A</field>
+	<field name="protein_name">Q9UNH5</field>
+	<field name="long_name">Dual specificity protein phosphatase CDC14A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CCDC174">
+	<field name="name">CCDC174</field>
+	<field name="protein_name">Q6PII3</field>
+	<field name="long_name">Coiled-coil domain-containing protein 174</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CDCA7">
+	<field name="name">CDCA7</field>
+	<field name="protein_name">Q9BWT1</field>
+	<field name="long_name">Cell division cycle-associated protein 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CDK13">
+	<field name="name">CDK13</field>
+	<field name="protein_name">Q14004</field>
+	<field name="long_name">Cyclin-dependent kinase 13</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CHCHD2">
+	<field name="name">CHCHD2</field>
+	<field name="protein_name">Q9Y6H1</field>
+	<field name="long_name">Coiled-coil-helix-coiled-coil-helix domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CLCN4">
+	<field name="name">CLCN4</field>
+	<field name="protein_name">P51793</field>
+	<field name="long_name">H(+)/Cl(-) exchange transporter 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC44A4">
+	<field name="name">SLC44A4</field>
+	<field name="protein_name">Q53GD3</field>
+	<field name="long_name">Choline transporter-like protein 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CTNNA1">
+	<field name="name">CTNNA1</field>
+	<field name="protein_name">P35221</field>
+	<field name="long_name">Catenin alpha-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="C21orf2">
+	<field name="name">C21orf2</field>
+	<field name="protein_name">O43822</field>
+	<field name="long_name">Protein C21orf2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CPAMD8">
+	<field name="name">CPAMD8</field>
+	<field name="protein_name">Q8IZJ3</field>
+	<field name="long_name">C3 and PZP-like alpha-2-macroglobulin domain-containing protein 8</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CTNND1">
+	<field name="name">CTNND1</field>
+	<field name="protein_name">O60716</field>
+	<field name="long_name">Catenin delta-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CIC">
+	<field name="name">CIC</field>
+	<field name="protein_name">Q96RK0</field>
+	<field name="long_name">Protein capicua homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CSNK2A1">
+	<field name="name">CSNK2A1</field>
+	<field name="protein_name">P68400</field>
+	<field name="long_name">Casein kinase II subunit alpha</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CRY1">
+	<field name="name">CRY1</field>
+	<field name="protein_name">Q16526</field>
+	<field name="long_name">Cryptochrome-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="COLEC10">
+	<field name="name">COLEC10</field>
+	<field name="protein_name">Q9Y6Z7</field>
+	<field name="long_name">Collectin-10</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HSPA9">
+	<field name="name">HSPA9</field>
+	<field name="protein_name">P38646</field>
+	<field name="long_name">Stress-70 protein, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MPIG6B">
+	<field name="name">MPIG6B</field>
+	<field name="protein_name">O95866</field>
+	<field name="long_name">Megakaryocyte and platelet inhibitory receptor G6b</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GREM2">
+	<field name="name">GREM2</field>
+	<field name="protein_name">Q9H772</field>
+	<field name="long_name">Gremlin-2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GMNN">
+	<field name="name">GMNN</field>
+	<field name="protein_name">O75496</field>
+	<field name="long_name">Geminin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GNB5">
+	<field name="name">GNB5</field>
+	<field name="protein_name">O14775</field>
+	<field name="long_name">Guanine nucleotide-binding protein subunit beta-5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FIBP">
+	<field name="name">FIBP</field>
+	<field name="protein_name">O43427</field>
+	<field name="long_name">Acidic fibroblast growth factor intracellular-binding protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FLI1">
+	<field name="name">FLI1</field>
+	<field name="protein_name">Q01543</field>
+	<field name="long_name">Friend leukemia integration 1 transcription factor</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FRRS1L">
+	<field name="name">FRRS1L</field>
+	<field name="protein_name">Q9P0K9</field>
+	<field name="long_name">DOMON domain-containing protein FRRS1L</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DLX4">
+	<field name="name">DLX4</field>
+	<field name="protein_name">Q92988</field>
+	<field name="long_name">Homeobox protein DLX-4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="POLA1">
+	<field name="name">POLA1</field>
+	<field name="protein_name">P09884</field>
+	<field name="long_name">DNA polymerase alpha catalytic subunit</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DVL3">
+	<field name="name">DVL3</field>
+	<field name="protein_name">Q92997</field>
+	<field name="long_name">Segment polarity protein dishevelled homolog DVL-3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DZIP1L">
+	<field name="name">DZIP1L</field>
+	<field name="protein_name">Q8IYY4</field>
+	<field name="long_name">Zinc finger protein DZIP1L</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DNAJC21">
+	<field name="name">DNAJC21</field>
+	<field name="protein_name">Q5F1R6</field>
+	<field name="long_name">DnaJ homolog subfamily C member 21</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DONSON">
+	<field name="name">DONSON</field>
+	<field name="protein_name">Q9NYP3</field>
+	<field name="long_name">Protein downstream neighbor of Son</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EED">
+	<field name="name">EED</field>
+	<field name="protein_name">O75530</field>
+	<field name="long_name">Polycomb protein EED</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EMC1">
+	<field name="name">EMC1</field>
+	<field name="protein_name">Q8N766</field>
+	<field name="long_name">ER membrane protein complex subunit 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SDR9C7">
+	<field name="name">SDR9C7</field>
+	<field name="protein_name">Q8NEX9</field>
+	<field name="long_name">Short-chain dehydrogenase/reductase family 9C member 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DPH1">
+	<field name="name">DPH1</field>
+	<field name="protein_name">Q9BZG8</field>
+	<field name="long_name">2-(3-amino-3-carboxypropyl)histidine synthase subunit 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GAS8">
+	<field name="name">GAS8</field>
+	<field name="protein_name">O95995</field>
+	<field name="long_name">Dynein regulatory complex subunit 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ELP2">
+	<field name="name">ELP2</field>
+	<field name="protein_name">Q6IA86</field>
+	<field name="long_name">Elongator complex protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CSB-PGBD3">
+	<field name="name">CSB-PGBD3</field>
+	<field name="protein_name">P0DP91</field>
+	<field name="long_name">Chimeric ERCC6-PGBD3 protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ERAL1">
+	<field name="name">ERAL1</field>
+	<field name="protein_name">O75616</field>
+	<field name="long_name">GTPase Era, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="EPS8L2">
+	<field name="name">EPS8L2</field>
+	<field name="protein_name">Q9H6S3</field>
+	<field name="long_name">Epidermal growth factor receptor kinase substrate 8-like protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FRMPD4">
+	<field name="name">FRMPD4</field>
+	<field name="protein_name">Q14CM0</field>
+	<field name="long_name">FERM and PDZ domain-containing protein 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FGF12">
+	<field name="name">FGF12</field>
+	<field name="protein_name">P61328</field>
+	<field name="long_name">Fibroblast growth factor 12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FLAD1">
+	<field name="name">FLAD1</field>
+	<field name="protein_name">Q8NFF5</field>
+	<field name="long_name">FAD synthase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ARHGEF18">
+	<field name="name">ARHGEF18</field>
+	<field name="protein_name">Q6ZSZ5</field>
+	<field name="long_name">Rho guanine nucleotide exchange factor 18</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ARHGEF2">
+	<field name="name">ARHGEF2</field>
+	<field name="protein_name">Q92974</field>
+	<field name="long_name">Rho guanine nucleotide exchange factor 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="AP3D1">
+	<field name="name">AP3D1</field>
+	<field name="protein_name">O14617</field>
+	<field name="long_name">AP-3 complex subunit delta-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ADGRE2">
+	<field name="name">ADGRE2</field>
+	<field name="protein_name">Q9UHX3</field>
+	<field name="long_name">Adhesion G protein-coupled receptor E2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="AMTN">
+	<field name="name">AMTN</field>
+	<field name="protein_name">Q6UX39</field>
+	<field name="long_name">Amelotin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ANKLE2">
+	<field name="name">ANKLE2</field>
+	<field name="protein_name">Q86XL3</field>
+	<field name="long_name">Ankyrin repeat and LEM domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PRMT7">
+	<field name="name">PRMT7</field>
+	<field name="protein_name">Q9NVM4</field>
+	<field name="long_name">Protein arginine N-methyltransferase 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ARPC1B">
+	<field name="name">ARPC1B</field>
+	<field name="protein_name">O15143</field>
+	<field name="long_name">Actin-related protein 2/3 complex subunit 1B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="APC2">
+	<field name="name">APC2</field>
+	<field name="protein_name">O95996</field>
+	<field name="long_name">Adenomatous polyposis coli protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ZNHIT3">
+	<field name="name">ZNHIT3</field>
+	<field name="protein_name">Q15649</field>
+	<field name="long_name">Zinc finger HIT domain-containing protein 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="YME1L1">
+	<field name="name">YME1L1</field>
+	<field name="protein_name">Q96TA2</field>
+	<field name="long_name">ATP-dependent zinc metalloprotease YME1L1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ZP3">
+	<field name="name">ZP3</field>
+	<field name="protein_name">P21754</field>
+	<field name="long_name">Zona pellucida sperm-binding protein 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ADSSL1">
+	<field name="name">ADSSL1</field>
+	<field name="protein_name">Q8N142</field>
+	<field name="long_name">Adenylosuccinate synthetase isozyme 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="HIVEP2">
+	<field name="name">HIVEP2</field>
+	<field name="protein_name">P31629</field>
+	<field name="long_name">Transcription factor HIVEP2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ZNF687">
+	<field name="name">ZNF687</field>
+	<field name="protein_name">Q8N1G0</field>
+	<field name="long_name">Zinc finger protein 687</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC30A9">
+	<field name="name">SLC30A9</field>
+	<field name="protein_name">Q6PML9</field>
+	<field name="long_name">Zinc transporter 9</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="YY1AP1">
+	<field name="name">YY1AP1</field>
+	<field name="protein_name">Q9H869</field>
+	<field name="long_name">YY1-associated protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ZC3H14">
+	<field name="name">ZC3H14</field>
+	<field name="protein_name">Q6PJT7</field>
+	<field name="long_name">Zinc finger CCCH domain-containing protein 14</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TDP2">
+	<field name="name">TDP2</field>
+	<field name="protein_name">O95551</field>
+	<field name="long_name">Tyrosyl-DNA phosphodiesterase 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="UBA5">
+	<field name="name">UBA5</field>
+	<field name="protein_name">Q9GZZ9</field>
+	<field name="long_name">Ubiquitin-like modifier-activating enzyme 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="YY1">
+	<field name="name">YY1</field>
+	<field name="protein_name">P25490</field>
+	<field name="long_name">Transcriptional repressor protein YY1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="USP27X">
+	<field name="name">USP27X</field>
+	<field name="protein_name">A6NNY8</field>
+	<field name="long_name">Ubiquitin carboxyl-terminal hydrolase 27</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="USP18">
+	<field name="name">USP18</field>
+	<field name="protein_name">Q9UMW8</field>
+	<field name="long_name">Ubl carboxyl-terminal hydrolase 18</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="UBTF">
+	<field name="name">UBTF</field>
+	<field name="protein_name">P17480</field>
+	<field name="long_name">Nucleolar transcription factor 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATP6V1E1">
+	<field name="name">ATP6V1E1</field>
+	<field name="protein_name">P36543</field>
+	<field name="long_name">V-type proton ATPase subunit E 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TIMM50">
+	<field name="name">TIMM50</field>
+	<field name="protein_name">Q3ZCQ8</field>
+	<field name="long_name">Mitochondrial import inner membrane translocase subunit TIM50</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRAPPC12">
+	<field name="name">TRAPPC12</field>
+	<field name="protein_name">Q8WVT3</field>
+	<field name="long_name">Trafficking protein particle complex subunit 12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="VPS13C">
+	<field name="name">VPS13C</field>
+	<field name="protein_name">Q709C8</field>
+	<field name="long_name">Vacuolar protein sorting-associated protein 13C</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="VPS33A">
+	<field name="name">VPS33A</field>
+	<field name="protein_name">Q96AX1</field>
+	<field name="long_name">Vacuolar protein sorting-associated protein 33A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PYROXD1">
+	<field name="name">PYROXD1</field>
+	<field name="protein_name">Q8WU10</field>
+	<field name="long_name">Pyridine nucleotide-disulfide oxidoreductase domain-containing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RBM12">
+	<field name="name">RBM12</field>
+	<field name="protein_name">Q9NTZ6</field>
+	<field name="long_name">RNA-binding protein 12</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RCBTB1">
+	<field name="name">RCBTB1</field>
+	<field name="protein_name">Q8NDN9</field>
+	<field name="long_name">RCC1 and BTB domain-containing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KCNQ5">
+	<field name="name">KCNQ5</field>
+	<field name="protein_name">Q9NR82</field>
+	<field name="long_name">Potassium voltage-gated channel subfamily KQT member 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KIDINS220">
+	<field name="name">KIDINS220</field>
+	<field name="protein_name">Q9ULH0</field>
+	<field name="long_name">Kinase D-interacting substrate of 220 kDa</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PRKD1">
+	<field name="name">PRKD1</field>
+	<field name="protein_name">Q15139</field>
+	<field name="long_name">Serine/threonine-protein kinase D1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GTF2E2">
+	<field name="name">GTF2E2</field>
+	<field name="protein_name">P29084</field>
+	<field name="long_name">Transcription initiation factor IIE subunit beta</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TAF13">
+	<field name="name">TAF13</field>
+	<field name="protein_name">Q15543</field>
+	<field name="long_name">Transcription initiation factor TFIID subunit 13</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TKT">
+	<field name="name">TKT</field>
+	<field name="protein_name">P29401</field>
+	<field name="long_name">Transketolase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRMT10C">
+	<field name="name">TRMT10C</field>
+	<field name="protein_name">Q7L0Y3</field>
+	<field name="long_name">tRNA methyltransferase 10 homolog C</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMEM260">
+	<field name="name">TMEM260</field>
+	<field name="protein_name">Q9NX78</field>
+	<field name="long_name">Transmembrane protein 260</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TOE1">
+	<field name="name">TOE1</field>
+	<field name="protein_name">Q96GM8</field>
+	<field name="long_name">Target of EGR1 protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TOR1AIP1">
+	<field name="name">TOR1AIP1</field>
+	<field name="protein_name">Q5JTV8</field>
+	<field name="long_name">Torsin-1A-interacting protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WARS2">
+	<field name="name">WARS2</field>
+	<field name="protein_name">Q9UGM6</field>
+	<field name="long_name">Tryptophan--tRNA ligase, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TLE6">
+	<field name="name">TLE6</field>
+	<field name="protein_name">Q9H808</field>
+	<field name="long_name">Transducin-like enhancer protein 6</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TELO2">
+	<field name="name">TELO2</field>
+	<field name="protein_name">Q9Y4R8</field>
+	<field name="long_name">Telomere length regulation protein TEL2 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TGM3">
+	<field name="name">TGM3</field>
+	<field name="protein_name">Q08188</field>
+	<field name="long_name">Protein-glutamine gamma-glutamyltransferase E</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TBL1XR1">
+	<field name="name">TBL1XR1</field>
+	<field name="protein_name">Q9BZK7</field>
+	<field name="long_name">F-box-like/WD repeat-containing protein TBL1XR1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 </data>
 </tryton>
