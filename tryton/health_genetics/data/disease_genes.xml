@@ -37015,13 +37015,6 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
-<record model="gnuhealth.disease.gene" id="TAB2">
-	<field name="name">TAB2</field>
-	<field name="long_name"></field>
-	<field name="chromosome"></field>
-	<field name="location"></field>
-	<field name="info"></field>
-</record>
 <record model="gnuhealth.disease.gene" id="TAF2">
 	<field name="name">TAF2</field>
 	<field name="long_name"></field>
@@ -37360,13 +37353,6 @@ Refsum disease, infantile [MIM:266510]</field>
 </record>
 <record model="gnuhealth.disease.gene" id="TTC7A">
 	<field name="name">TTC7A</field>
-	<field name="long_name"></field>
-	<field name="chromosome"></field>
-	<field name="location"></field>
-	<field name="info"></field>
-</record>
-<record model="gnuhealth.disease.gene" id="TTI2">
-	<field name="name">TTI2</field>
 	<field name="long_name"></field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
@@ -40285,6 +40271,7 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="info"></field>
 </record>
 <!-- New entries from UniprotKB dataset version 195 - 2018-04-25 -->
+
 <record model="gnuhealth.disease.gene" id="ROR1">
 	<field name="name">ROR1</field>
 	<field name="protein_name">Q01973</field>
@@ -40333,6 +40320,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ATP5F1E">
+	<field name="name">ATP5F1E</field>
+	<field name="protein_name">P56381</field>
+	<field name="long_name">ATP synthase subunit epsilon, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="ATG5">
 	<field name="name">ATG5</field>
 	<field name="protein_name">Q9H1Y0</field>
@@ -40353,6 +40348,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">ATAD3A</field>
 	<field name="protein_name">Q9NVI7</field>
 	<field name="long_name">ATPase family AAA domain-containing protein 3A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ATP5F1A">
+	<field name="name">ATP5F1A</field>
+	<field name="protein_name">P25705</field>
+	<field name="long_name">ATP synthase subunit alpha, mitochondrial</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40385,6 +40388,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">RTN4IP1</field>
 	<field name="protein_name">Q8WWV3</field>
 	<field name="long_name">Reticulon-4-interacting protein 1, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RXYLT1">
+	<field name="name">RXYLT1</field>
+	<field name="protein_name">Q9Y2B1</field>
+	<field name="long_name">Ribitol-5-phosphate xylosyltransferase 1</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40445,6 +40456,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="SLC6A20">
+	<field name="name">SLC6A20</field>
+	<field name="protein_name">Q9NP91</field>
+	<field name="long_name">Sodium- and chloride-dependent transporter XTRP3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="SLC13A5">
 	<field name="name">SLC13A5</field>
 	<field name="protein_name">Q86YT5</field>
@@ -40485,6 +40504,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="RIPOR2">
+	<field name="name">RIPOR2</field>
+	<field name="protein_name">Q9Y4F9</field>
+	<field name="long_name">Rho family-interacting cell polarization regulator 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="PUS3">
 	<field name="name">PUS3</field>
 	<field name="protein_name">Q9BZE2</field>
@@ -40497,6 +40524,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">RELB</field>
 	<field name="protein_name">Q01201</field>
 	<field name="long_name">Transcription factor RelB</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RETREG1">
+	<field name="name">RETREG1</field>
+	<field name="protein_name">Q9H6L5</field>
+	<field name="long_name">Reticulophagy regulator 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RGS4">
+	<field name="name">RGS4</field>
+	<field name="protein_name">P49798</field>
+	<field name="long_name">Regulator of G-protein signaling 4</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40557,10 +40600,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="SPART">
+	<field name="name">SPART</field>
+	<field name="protein_name">Q8N0X7</field>
+	<field name="long_name">Spartin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SRGAP1">
+	<field name="name">SRGAP1</field>
+	<field name="protein_name">Q7Z6B7</field>
+	<field name="long_name">SLIT-ROBO Rho GTPase-activating protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="SYCE1">
 	<field name="name">SYCE1</field>
 	<field name="protein_name">Q8N0S2</field>
 	<field name="long_name">Synaptonemal complex central element protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="IARS">
+	<field name="name">IARS</field>
+	<field name="protein_name">P41252</field>
+	<field name="long_name">Isoleucine--tRNA ligase, cytoplasmic</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40605,10 +40672,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="WASHC5">
+	<field name="name">WASHC5</field>
+	<field name="protein_name">Q12768</field>
+	<field name="long_name">WASH complex subunit 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WHRN">
+	<field name="name">WHRN</field>
+	<field name="protein_name">Q9P202</field>
+	<field name="long_name">Whirlin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="WAC">
 	<field name="name">WAC</field>
 	<field name="protein_name">Q9BTA9</field>
 	<field name="long_name">WW domain-containing adapter protein with coiled-coil</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="WASHC4">
+	<field name="name">WASHC4</field>
+	<field name="protein_name">Q2M389</field>
+	<field name="long_name">WASH complex subunit 4</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40685,10 +40776,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="SETD2">
+	<field name="name">SETD2</field>
+	<field name="protein_name">Q9BYW2</field>
+	<field name="long_name">Histone-lysine N-methyltransferase SETD2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLCO1B3">
+	<field name="name">SLCO1B3</field>
+	<field name="protein_name">Q9NPD5</field>
+	<field name="long_name">Solute carrier organic anion transporter family member 1B3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="SOX5">
 	<field name="name">SOX5</field>
 	<field name="protein_name">P35711</field>
 	<field name="long_name">Transcription factor SOX-5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SELENON">
+	<field name="name">SELENON</field>
+	<field name="protein_name">Q9NZV5</field>
+	<field name="long_name">Selenoprotein N</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40733,6 +40848,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="SLC9A3">
+	<field name="name">SLC9A3</field>
+	<field name="protein_name">P48764</field>
+	<field name="long_name">Sodium/hydrogen exchanger 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="RPL27">
 	<field name="name">RPL27</field>
 	<field name="protein_name">P61353</field>
@@ -40745,6 +40868,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">TANGO2</field>
 	<field name="protein_name">Q6ICL3</field>
 	<field name="long_name">Transport and Golgi organization protein 2 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMC6">
+	<field name="name">TMC6</field>
+	<field name="protein_name">Q7Z403</field>
+	<field name="long_name">Transmembrane channel-like protein 6</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -40805,6 +40936,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="TMEM175">
+	<field name="name">TMEM175</field>
+	<field name="protein_name">Q9BSA9</field>
+	<field name="long_name">Endosomal/lysosomal potassium channel TMEM175</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMEM230">
+	<field name="name">TMEM230</field>
+	<field name="protein_name">Q96A57</field>
+	<field name="long_name">Transmembrane protein 230</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="TMTC3">
 	<field name="name">TMTC3</field>
 	<field name="protein_name">Q6ZXV5</field>
@@ -40833,6 +40980,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">WARS</field>
 	<field name="protein_name">P23381</field>
 	<field name="long_name">Tryptophan--tRNA ligase, cytoplasmic</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TMEM106B">
+	<field name="name">TMEM106B</field>
+	<field name="protein_name">Q9NUM4</field>
+	<field name="long_name">Transmembrane protein 106B</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TACO1">
+	<field name="name">TACO1</field>
+	<field name="protein_name">Q9BSH4</field>
+	<field name="long_name">Translational activator of cytochrome c oxidase 1</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41005,10 +41168,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="PRKN">
+	<field name="name">PRKN</field>
+	<field name="protein_name">O60260</field>
+	<field name="long_name">E3 ubiquitin-protein ligase parkin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="PLPBP">
 	<field name="name">PLPBP</field>
 	<field name="protein_name">O94903</field>
 	<field name="long_name">Pyridoxal phosphate homeostasis protein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PLS3">
+	<field name="name">PLS3</field>
+	<field name="protein_name">P13797</field>
+	<field name="long_name">Plastin-3</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41041,6 +41220,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">MYMK</field>
 	<field name="protein_name">A6NI61</field>
 	<field name="long_name">Protein myomaker</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NADK2">
+	<field name="name">NADK2</field>
+	<field name="protein_name">Q4G0N4</field>
+	<field name="long_name">NAD kinase 2, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NDUFB3">
+	<field name="name">NDUFB3</field>
+	<field name="protein_name">O43676</field>
+	<field name="long_name">NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 3</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41093,10 +41288,42 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="KY">
+	<field name="name">KY</field>
+	<field name="protein_name">Q8NBH2</field>
+	<field name="long_name">Kyphoscoliosis peptidase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LARGE1">
+	<field name="name">LARGE1</field>
+	<field name="protein_name">O95461</field>
+	<field name="long_name">LARGE xylosyl- and glucuronyltransferase 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LAS1L">
+	<field name="name">LAS1L</field>
+	<field name="protein_name">Q9Y4W2</field>
+	<field name="long_name">Ribosomal biogenesis protein LAS1L</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="LGI4">
 	<field name="name">LGI4</field>
 	<field name="protein_name">Q8N135</field>
 	<field name="long_name">Leucine-rich repeat LGI family member 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LGR4">
+	<field name="name">LGR4</field>
+	<field name="protein_name">Q9BXB1</field>
+	<field name="long_name">Leucine-rich repeat-containing G-protein coupled receptor 4</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41133,10 +41360,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ORMDL3">
+	<field name="name">ORMDL3</field>
+	<field name="protein_name">Q8N138</field>
+	<field name="long_name">ORM1-like protein 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="NUP205">
 	<field name="name">NUP205</field>
 	<field name="protein_name">Q92621</field>
 	<field name="long_name">Nuclear pore complex protein Nup205</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="OVOL2">
+	<field name="name">OVOL2</field>
+	<field name="protein_name">Q9BRP0</field>
+	<field name="long_name">Transcription factor Ovo-like 2</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41181,10 +41424,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ODAPH">
+	<field name="name">ODAPH</field>
+	<field name="protein_name">Q17RF5</field>
+	<field name="long_name">Odontogenesis associated phosphoprotein</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="NUP107">
 	<field name="name">NUP107</field>
 	<field name="protein_name">P57740</field>
 	<field name="long_name">Nuclear pore complex protein Nup107</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LACC1">
+	<field name="name">LACC1</field>
+	<field name="protein_name">Q8IV20</field>
+	<field name="long_name">Laccase domain-containing protein 1</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41209,6 +41468,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">KLHL24</field>
 	<field name="protein_name">Q6TFL4</field>
 	<field name="long_name">Kelch-like protein 24</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KNL1">
+	<field name="name">KNL1</field>
+	<field name="protein_name">Q8NG31</field>
+	<field name="long_name">Kinetochore scaffold 1</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41309,6 +41576,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="PJVK">
+	<field name="name">PJVK</field>
+	<field name="protein_name">Q0ZLH3</field>
+	<field name="long_name">Pejvakin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="PLEKHG2">
 	<field name="name">PLEKHG2</field>
 	<field name="protein_name">Q9H7P9</field>
@@ -41373,10 +41648,42 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="PBRM1">
+	<field name="name">PBRM1</field>
+	<field name="protein_name">Q86U86</field>
+	<field name="long_name">Protein polybromo-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PDZD7">
+	<field name="name">PDZD7</field>
+	<field name="protein_name">Q9H5P4</field>
+	<field name="long_name">PDZ domain-containing protein 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="PARD3">
+	<field name="name">PARD3</field>
+	<field name="protein_name">Q8TEW0</field>
+	<field name="long_name">Partitioning defective 3 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="PATL2">
 	<field name="name">PATL2</field>
 	<field name="protein_name">C9JE40</field>
 	<field name="long_name">Protein PAT1 homolog 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TWNK">
+	<field name="name">TWNK</field>
+	<field name="protein_name">Q96RR1</field>
+	<field name="long_name">Twinkle protein, mitochondrial</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41389,10 +41696,50 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="MCF2L2">
+	<field name="name">MCF2L2</field>
+	<field name="protein_name">Q86YR7</field>
+	<field name="long_name">Probable guanine nucleotide exchange factor MCF2L2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MSN">
+	<field name="name">MSN</field>
+	<field name="protein_name">P26038</field>
+	<field name="long_name">Moesin</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC16A11">
+	<field name="name">SLC16A11</field>
+	<field name="protein_name">Q8NCK7</field>
+	<field name="long_name">Monocarboxylate transporter 11</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SLC16A13">
+	<field name="name">SLC16A13</field>
+	<field name="protein_name">Q7RTY0</field>
+	<field name="long_name">Monocarboxylate transporter 13</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="MBOAT7">
 	<field name="name">MBOAT7</field>
 	<field name="protein_name">Q96N66</field>
 	<field name="long_name">Lysophospholipid acyltransferase 7</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MECR">
+	<field name="name">MECR</field>
+	<field name="protein_name">Q9BV79</field>
+	<field name="long_name">Enoyl-[acyl-carrier-protein] reductase, mitochondrial</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41425,6 +41772,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">MAGI2</field>
 	<field name="protein_name">Q86UL8</field>
 	<field name="long_name">Membrane-associated guanylate kinase, WW and PDZ domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MBNL1">
+	<field name="name">MBNL1</field>
+	<field name="protein_name">Q9NR56</field>
+	<field name="long_name">Muscleblind-like protein 1</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41469,10 +41824,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="NDUFA4">
+	<field name="name">NDUFA4</field>
+	<field name="protein_name">O00483</field>
+	<field name="long_name">Cytochrome c oxidase subunit NDUFA4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NDUFA10">
+	<field name="name">NDUFA10</field>
+	<field name="protein_name">O95299</field>
+	<field name="long_name">NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 10, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="NEK9">
 	<field name="name">NEK9</field>
 	<field name="protein_name">Q8TD19</field>
 	<field name="long_name">Serine/threonine-protein kinase Nek9</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NEXMIF">
+	<field name="name">NEXMIF</field>
+	<field name="protein_name">Q5QGS0</field>
+	<field name="long_name">Neurite extension and migration factor</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41505,6 +41884,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">MYL4</field>
 	<field name="protein_name">P12829</field>
 	<field name="long_name">Myosin light chain 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NDUFA9">
+	<field name="name">NDUFA9</field>
+	<field name="protein_name">Q16795</field>
+	<field name="long_name">NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 9, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="NDUFAF2">
+	<field name="name">NDUFAF2</field>
+	<field name="protein_name">Q8N183</field>
+	<field name="long_name">NADH dehydrogenase [ubiquinone] 1 alpha subcomplex assembly factor 2</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41549,6 +41944,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="MRAP2">
+	<field name="name">MRAP2</field>
+	<field name="protein_name">Q96G30</field>
+	<field name="long_name">Melanocortin-2 receptor accessory protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="HIKESHI">
 	<field name="name">HIKESHI</field>
 	<field name="protein_name">Q53FT3</field>
@@ -41585,6 +41988,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">IFT74</field>
 	<field name="protein_name">Q96LB3</field>
 	<field name="long_name">Intraflagellar transport protein 74 homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="LRMDA">
+	<field name="name">LRMDA</field>
+	<field name="protein_name">Q9H2I8</field>
+	<field name="long_name">Leucine-rich melanocyte differentiation-associated protein</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41709,6 +42120,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="COQ8A">
+	<field name="name">COQ8A</field>
+	<field name="protein_name">Q8NI60</field>
+	<field name="long_name">Atypical kinase COQ8A, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CLEC16A">
+	<field name="name">CLEC16A</field>
+	<field name="protein_name">Q2KHT3</field>
+	<field name="long_name">Protein CLEC16A</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="COG2">
 	<field name="name">COG2</field>
 	<field name="protein_name">Q14746</field>
@@ -41729,6 +42156,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">EBF3</field>
 	<field name="protein_name">Q9H4W6</field>
 	<field name="long_name">Transcription factor COE3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CAPN1">
+	<field name="name">CAPN1</field>
+	<field name="protein_name">P07384</field>
+	<field name="long_name">Calpain-1 catalytic subunit</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CCNQ">
+	<field name="name">CCNQ</field>
+	<field name="protein_name">Q8N1B3</field>
+	<field name="long_name">Cyclin-Q</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41757,6 +42200,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="EPHA3">
+	<field name="name">EPHA3</field>
+	<field name="protein_name">P29320</field>
+	<field name="long_name">Ephrin type-A receptor 3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ETV1">
+	<field name="name">ETV1</field>
+	<field name="protein_name">P50549</field>
+	<field name="long_name">ETS translocation variant 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="EXTL3">
 	<field name="name">EXTL3</field>
 	<field name="protein_name">O43909</field>
@@ -41781,6 +42240,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ELP1">
+	<field name="name">ELP1</field>
+	<field name="protein_name">O95163</field>
+	<field name="long_name">Elongator complex protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="GANAB">
 	<field name="name">GANAB</field>
 	<field name="protein_name">Q14697</field>
@@ -41797,6 +42264,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="GNB1">
+	<field name="name">GNB1</field>
+	<field name="protein_name">P62873</field>
+	<field name="long_name">Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GUCY1A1">
+	<field name="name">GUCY1A1</field>
+	<field name="protein_name">Q02108</field>
+	<field name="long_name">Guanylate cyclase soluble subunit alpha-1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="GABRB1">
 	<field name="name">GABRB1</field>
 	<field name="protein_name">P18505</field>
@@ -41805,10 +42288,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="CAVIN1">
+	<field name="name">CAVIN1</field>
+	<field name="protein_name">Q6NZI2</field>
+	<field name="long_name">Caveolae-associated protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CHD1">
+	<field name="name">CHD1</field>
+	<field name="protein_name">O14646</field>
+	<field name="long_name">Chromodomain-helicase-DNA-binding protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="DAB1">
 	<field name="name">DAB1</field>
 	<field name="protein_name">O75553</field>
 	<field name="long_name">Disabled homolog 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DAZ3">
+	<field name="name">DAZ3</field>
+	<field name="protein_name">Q9NR90</field>
+	<field name="long_name">Deleted in azoospermia protein 3</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41837,10 +42344,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="DNAAF4">
+	<field name="name">DNAAF4</field>
+	<field name="protein_name">Q8WXU2</field>
+	<field name="long_name">Dynein assembly factor 4, axonemal</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="DDX41">
 	<field name="name">DDX41</field>
 	<field name="protein_name">Q9UJV9</field>
 	<field name="long_name">Probable ATP-dependent RNA helicase DDX41</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DENND1B">
+	<field name="name">DENND1B</field>
+	<field name="protein_name">Q6P3S1</field>
+	<field name="long_name">DENN domain-containing protein 1B</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -41901,6 +42424,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="HACD1">
+	<field name="name">HACD1</field>
+	<field name="protein_name">B0YJ81</field>
+	<field name="long_name">Very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="HIST1H1E">
 	<field name="name">HIST1H1E</field>
 	<field name="protein_name">P10412</field>
@@ -41941,10 +42472,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="HIST1H3A">
+	<field name="name">HIST1H3A</field>
+	<field name="protein_name">P68431</field>
+	<field name="long_name">Histone H3.1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="H3F3A">
+	<field name="name">H3F3A</field>
+	<field name="protein_name">P84243</field>
+	<field name="long_name">Histone H3.3</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="HNRNPU">
 	<field name="name">HNRNPU</field>
 	<field name="protein_name">Q00839</field>
 	<field name="long_name">Heterogeneous nuclear ribonucleoprotein U</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="CALM2">
+	<field name="name">CALM2</field>
+	<field name="protein_name">P0DP24</field>
+	<field name="long_name">Calmodulin-2</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42029,6 +42584,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ABRAXAS1">
+	<field name="name">ABRAXAS1</field>
+	<field name="protein_name">Q6UWZ7</field>
+	<field name="long_name">BRCA1-A complex subunit Abraxas 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="ABCA7">
 	<field name="name">ABCA7</field>
 	<field name="protein_name">Q8IZY2</field>
@@ -42045,10 +42608,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="ADA2">
+	<field name="name">ADA2</field>
+	<field name="protein_name">Q9NZK5</field>
+	<field name="long_name">Adenosine deaminase 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="ADGRG2">
 	<field name="name">ADGRG2</field>
 	<field name="protein_name">Q8IZP9</field>
 	<field name="long_name">Adhesion G-protein coupled receptor G2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ADGRG6">
+	<field name="name">ADGRG6</field>
+	<field name="protein_name">Q86SQ4</field>
+	<field name="long_name">Adhesion G-protein coupled receptor G6</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42125,6 +42704,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="CTHRC1">
+	<field name="name">CTHRC1</field>
+	<field name="protein_name">Q96CG8</field>
+	<field name="long_name">Collagen triple helix repeat-containing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="SLC44A4">
 	<field name="name">SLC44A4</field>
 	<field name="protein_name">Q53GD3</field>
@@ -42165,10 +42752,26 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="CIT">
+	<field name="name">CIT</field>
+	<field name="protein_name">O14578</field>
+	<field name="long_name">Citron Rho-interacting kinase</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="CIC">
 	<field name="name">CIC</field>
 	<field name="protein_name">Q96RK0</field>
 	<field name="long_name">Protein capicua homolog</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="COQ8B">
+	<field name="name">COQ8B</field>
+	<field name="protein_name">Q96D53</field>
+	<field name="long_name">Atypical kinase COQ8B, mitochondrial</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42197,6 +42800,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="COX20">
+	<field name="name">COX20</field>
+	<field name="protein_name">Q5RI15</field>
+	<field name="long_name">Cytochrome c oxidase assembly protein COX20, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="HSPA9">
 	<field name="name">HSPA9</field>
 	<field name="protein_name">P38646</field>
@@ -42205,10 +42816,42 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="GSDME">
+	<field name="name">GSDME</field>
+	<field name="protein_name">O60443</field>
+	<field name="long_name">Gasdermin-E</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="MPIG6B">
 	<field name="name">MPIG6B</field>
 	<field name="protein_name">O95866</field>
 	<field name="long_name">Megakaryocyte and platelet inhibitory receptor G6b</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GRIP1">
+	<field name="name">GRIP1</field>
+	<field name="protein_name">Q9Y3R0</field>
+	<field name="long_name">Glutamate receptor-interacting protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="RASGRP1">
+	<field name="name">RASGRP1</field>
+	<field name="protein_name">O95267</field>
+	<field name="long_name">RAS guanyl-releasing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="GPX7">
+	<field name="name">GPX7</field>
+	<field name="protein_name">Q96SL4</field>
+	<field name="long_name">Glutathione peroxidase 7</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42253,6 +42896,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="FRG1">
+	<field name="name">FRG1</field>
+	<field name="protein_name">Q14331</field>
+	<field name="long_name">Protein FRG1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="FRRS1L">
 	<field name="name">FRRS1L</field>
 	<field name="protein_name">Q9P0K9</field>
@@ -42273,6 +42924,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">POLA1</field>
 	<field name="protein_name">P09884</field>
 	<field name="long_name">DNA polymerase alpha catalytic subunit</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="POLQ">
+	<field name="name">POLQ</field>
+	<field name="protein_name">O75417</field>
+	<field name="long_name">DNA polymerase theta</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DPP10">
+	<field name="name">DPP10</field>
+	<field name="protein_name">Q8N608</field>
+	<field name="long_name">Inactive dipeptidyl peptidase 10</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42325,6 +42992,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="DAZ1">
+	<field name="name">DAZ1</field>
+	<field name="protein_name">Q9NQZ3</field>
+	<field name="long_name">Deleted in azoospermia protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DAZ4">
+	<field name="name">DAZ4</field>
+	<field name="protein_name">Q86SG3</field>
+	<field name="long_name">Deleted in azoospermia protein 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="SDR9C7">
 	<field name="name">SDR9C7</field>
 	<field name="protein_name">Q8NEX9</field>
@@ -42345,6 +43028,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">GAS8</field>
 	<field name="protein_name">O95995</field>
 	<field name="long_name">Dynein regulatory complex subunit 4</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="DNAH1">
+	<field name="name">DNAH1</field>
+	<field name="protein_name">Q9P2D7</field>
+	<field name="long_name">Dynein heavy chain 1, axonemal</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42377,6 +43068,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">EPS8L2</field>
 	<field name="protein_name">Q9H6S3</field>
 	<field name="long_name">Epidermal growth factor receptor kinase substrate 8-like protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="FGGY">
+	<field name="name">FGGY</field>
+	<field name="protein_name">Q96C11</field>
+	<field name="long_name">FGGY carbohydrate kinase domain-containing protein</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42449,6 +43148,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">ANKLE2</field>
 	<field name="protein_name">Q86XL3</field>
 	<field name="long_name">Ankyrin repeat and LEM domain-containing protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="ANKRD26">
+	<field name="name">ANKRD26</field>
+	<field name="protein_name">Q9UPS8</field>
+	<field name="long_name">Ankyrin repeat domain-containing protein 26</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42557,10 +43264,34 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="USP8">
+	<field name="name">USP8</field>
+	<field name="protein_name">P40818</field>
+	<field name="long_name">Ubiquitin carboxyl-terminal hydrolase 8</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="U2AF1">
+	<field name="name">U2AF1</field>
+	<field name="protein_name">Q01081</field>
+	<field name="long_name">Splicing factor U2AF 35 kDa subunit</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="UBA5">
 	<field name="name">UBA5</field>
 	<field name="protein_name">Q9GZZ9</field>
 	<field name="long_name">Ubiquitin-like modifier-activating enzyme 5</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TTI2">
+	<field name="name">TTI2</field>
+	<field name="protein_name">Q6NXR4</field>
+	<field name="long_name">TELO2-interacting protein 2</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42645,6 +43376,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="RABGAP1L">
+	<field name="name">RABGAP1L</field>
+	<field name="protein_name">Q5R372</field>
+	<field name="long_name">Rab GTPase-activating protein 1-like</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="RBM12">
 	<field name="name">RBM12</field>
 	<field name="protein_name">Q9NTZ6</field>
@@ -42657,6 +43396,14 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="name">RCBTB1</field>
 	<field name="protein_name">Q8NDN9</field>
 	<field name="long_name">RCC1 and BTB domain-containing protein 1</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="KCNE5">
+	<field name="name">KCNE5</field>
+	<field name="protein_name">Q9UJ90</field>
+	<field name="long_name">Potassium voltage-gated channel subfamily E regulatory beta subunit 5</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
@@ -42749,6 +43496,22 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="location"></field>
 	<field name="info"></field>
 </record>
+<record model="gnuhealth.disease.gene" id="TAB2">
+	<field name="name">TAB2</field>
+	<field name="protein_name">Q9NYJ8</field>
+	<field name="long_name">TGF-beta-activated kinase 1 and MAP3K7-binding protein 2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TXN2">
+	<field name="name">TXN2</field>
+	<field name="protein_name">Q99757</field>
+	<field name="long_name">Thioredoxin, mitochondrial</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
 <record model="gnuhealth.disease.gene" id="TLE6">
 	<field name="name">TLE6</field>
 	<field name="protein_name">Q9H808</field>
@@ -42780,6 +43543,46 @@ Refsum disease, infantile [MIM:266510]</field>
 	<field name="chromosome"></field>
 	<field name="location"></field>
 	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TET2">
+	<field name="name">TET2</field>
+	<field name="protein_name">Q6N021</field>
+	<field name="long_name">Methylcytosine dioxygenase TET2</field>
+	<field name="chromosome"></field>
+	<field name="location"></field>
+	<field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="TRIO">
+        <field name="name">TRIO</field>
+        <field name="protein_name">O75962</field>
+        <field name="long_name">Triple functional domain protein</field>
+        <field name="chromosome"></field>
+        <field name="location"></field>
+        <field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MRE11">
+        <field name="name">MRE11</field>
+        <field name="protein_name">P49959</field>
+        <field name="long_name">Double-strand break repair protein MRE11</field>
+        <field name="chromosome"></field>
+        <field name="location"></field>
+        <field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="MAX">
+        <field name="name">MAX</field>
+        <field name="protein_name">P61244</field>
+        <field name="long_name">Protein max</field>
+        <field name="chromosome"></field>
+        <field name="location"></field>
+        <field name="info"></field>
+</record>
+<record model="gnuhealth.disease.gene" id="SARS">
+        <field name="name">SARS</field>
+        <field name="protein_name">P49591</field>
+        <field name="long_name">Serine--tRNA ligase, cytoplasmic</field>
+        <field name="chromosome"></field>
+        <field name="location"></field>
+        <field name="info"></field>
 </record>
 </data>
 </tryton>
