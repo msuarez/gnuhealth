@@ -919,7 +919,7 @@ class DrugRoute(ModelSQL, ModelView):
     'Drug Administration Route'
     __name__ = 'gnuhealth.drug.route'
 
-    name = fields.Char('Unit', required=True, select=True, translate=True)
+    name = fields.Char('Route', required=True, select=True, translate=True)
     code = fields.Char('Code', required=True,
         help="Please use CAPITAL LETTERS and no spaces")
 
