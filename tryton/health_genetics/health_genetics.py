@@ -77,10 +77,10 @@ class DiseaseGene(ModelSQL, ModelView):
         # Search for the official and long name
         field = None
         for field in ('name', 'long_name'):
-            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if parties:
+            disease_genes = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if disease_genes:
                 break
-        if parties:
+        if disease_genes:
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
@@ -116,7 +116,7 @@ class ProteinDisease(ModelSQL, ModelView):
     disease_uri = fields.Function(fields.Char("Disease URI"),
      'get_disease_uri')
 
-    mim_reference = fields.Char('MIM', help="MIM -Mendelian Inheritance in Man- DB reference)")
+    mim_reference = fields.Char('MIM', help="MIM -Mendelian Inheritance in Man- DB reference")
 
     gene_variant = fields.One2Many('gnuhealth.gene.variant.phenotype', 'phenotype',
         'Gene Variants', help="Gene variants involved in this condition")
