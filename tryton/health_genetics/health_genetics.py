@@ -157,10 +157,10 @@ class ProteinDisease(ModelSQL, ModelView):
         # Search for the disease code or disease name
         field = None
         for field in ('name', 'disease_name'):
-            parties = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if parties:
+            protein_diseases = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if protein_diseases:
                 break
-        if parties:
+        if protein_diseases:
             return [(field,) + tuple(clause[1:])]
         return [(cls._rec_name,) + tuple(clause[1:])]
 
