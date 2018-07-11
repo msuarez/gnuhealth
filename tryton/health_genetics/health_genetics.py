@@ -190,6 +190,18 @@ class GeneVariant(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return ' : '.join([self.name.rec_name, self.variant, self.aa_change])
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        # Search for the gene or variant code
+        field = None
+        for field in ('name', 'variant'):
+            gene_variants = cls.search([(field,) + tuple(clause[1:])], limit=1)
+            if gene_variants:
+                break
+        if gene_variants:
+            return [(field,) + tuple(clause[1:])]
+        return [(cls._rec_name,) + tuple(clause[1:])]
+
 
 class GeneVariantPhenotype(ModelSQL, ModelView):
     'Gene Sequence Variant Phenotypes'
