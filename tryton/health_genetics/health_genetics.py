@@ -74,15 +74,14 @@ class DiseaseGene(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        # Search for the official and long name
-        field = None
-        for field in ('name', 'long_name'):
-            disease_genes = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if disease_genes:
-                break
-        if disease_genes:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('long_name',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     # Update to version 3.2
@@ -154,15 +153,14 @@ class ProteinDisease(ModelSQL, ModelView):
 
     @classmethod
     def search_rec_name(cls, name, clause):
-        # Search for the disease code or disease name
-        field = None
-        for field in ('name', 'disease_name'):
-            protein_diseases = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if protein_diseases:
-                break
-        if protein_diseases:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('disease_name',) + tuple(clause[1:]),
+            ]
 
 class GeneVariant(ModelSQL, ModelView):
     'Gene Sequence Variant'
@@ -190,17 +188,18 @@ class GeneVariant(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return ' : '.join([self.name.rec_name, self.variant, self.aa_change])
 
+    # Allow to search by gene and variant or amino acid change
     @classmethod
     def search_rec_name(cls, name, clause):
-        # Search for the gene or variant code
-        field = None
-        for field in ('name', 'variant'):
-            gene_variants = cls.search([(field,) + tuple(clause[1:])], limit=1)
-            if gene_variants:
-                break
-        if gene_variants:
-            return [(field,) + tuple(clause[1:])]
-        return [(cls._rec_name,) + tuple(clause[1:])]
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('variant',) + tuple(clause[1:]),
+            ('aa_change',) + tuple(clause[1:]),
+            ]
 
 
 class GeneVariantPhenotype(ModelSQL, ModelView):
@@ -230,15 +229,24 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
             return self.phenotype.rec_name
 
     @classmethod
-    def search_rec_name(cls, name, clause):
-        return [('phenotype',) + tuple(clause[1:])]
-
-    @classmethod
     def search_gene(cls, name, clause):
         res = []
         value = clause[2]
         res.append(('variant.name', clause[1], value))
         return res
+
+    # Allow to search by gene, variant or phenotype
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('variant',) + tuple(clause[1:]),
+            ('phenotype',) + tuple(clause[1:]),
+            ('gene',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def __setup__(cls):
