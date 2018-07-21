@@ -68,7 +68,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_gene_variant">
-            <field name="name">Gene Variants</field>
+            <field name="name">Natural Variants</field>
             <field name="res_model">gnuhealth.gene.variant</field>
         </record>
 
@@ -102,7 +102,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_gene_variant_phenotype">
-            <field name="name">Gene Variant Phenotypes</field>
+            <field name="name">Variant Phenotypes</field>
             <field name="res_model">gnuhealth.gene.variant.phenotype</field>
         </record>
 
