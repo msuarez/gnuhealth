@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <tree editable="top">
-    <field name="time_stamp"/>
-    <field name="msgid"/>
-    <field name="model"/>
-    <field name="origin"/>
-    <field name="method"/>
-    <field name="federation_locator"/>
-    <field name="args"/>
     <field name="status"/>
     <button name="send" help="Send the record to the Federation" string="Send"/>
+    <field name="time_stamp"/>
+    <field name="model"/>
+    <field name="federation_locator"/>
+    <field name="method"/>
+    <field name="msgid"/>
+    <field name="origin"/>
+    <field name="args"/>
 </tree>

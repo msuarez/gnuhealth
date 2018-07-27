@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <form>
-    <label name="msgid"/>
-    <field name="msgid"/>
-    <label name="model"/>
-    <field name="model"/>
+    <group id="fed_queue_header" colspan="4" col="6">
+        <label name="msgid"/>
+        <field name="msgid"/>
+        <label name="model"/>
+        <field name="model"/>
+        <label name="status"/>
+        <field name="status"/>
+        <label name="origin"/>
+        <field name="origin"/>
+        <label name="time_stamp"/>
+        <field name="time_stamp"/>
+        <label name="method"/>
+        <field name="method"/>
+    </group>
     <newline/>
-    <label name="origin"/>
-    <field name="origin"/>
-    <label name="time_stamp"/>
-    <field name="time_stamp"/>
-    <newline/>
-    <label name="method"/>
-    <field name="method"/>
-    <label name="args"/>
-    <field name="args"/>
-    <newline/>
-    <label name="status"/>
-    <field name="status"/>
+    <separator string="Arguments" colspan="4" id="separator_fedqueue_args"/>
+    <field colspan="4" name="args"/>
 </form>
