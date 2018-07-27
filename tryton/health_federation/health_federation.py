@@ -191,7 +191,8 @@ class FederationQueue(ModelSQL, ModelView):
 
     @classmethod
     def send_record(cls,record):
-        # TODO: Send the record to Thalamus
+        rc = False
+        
         host, port, user, password, ssl_conn, verify_ssl, protocol = \
             FederationNodeConfig.get_conn_params()
 
@@ -210,13 +211,16 @@ class FederationQueue(ModelSQL, ModelView):
                     vals = {}
                     vals[field]=value
 
-                    send_data = requests.request('PATCH',url, data=json.dumps(vals), \
+                    send_data = requests.request('PATCH',url, 
+                        data=json.dumps(vals), \
                         auth=(user, password), verify=verify_ssl)
-
+                    
+                    if (send_data):
+                        rc = True
             else:
                 print ("No federation record locator found .. no update")
 
-        return False
+        return rc
 
     @classmethod
     def parse_fields(cls,values,action,fields):
