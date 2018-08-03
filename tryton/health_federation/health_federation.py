@@ -200,7 +200,7 @@ class FederationQueue(ModelSQL, ModelView):
             if (record.federation_locator):
                 #Traverse each resource and its data fields.
                 # arg : Dictionary for each of the data elements in the
-                # list of values
+                #       list of values
                 for arg in literal_eval(record.args):
                     url = protocol + host + ':' + str(port)
                     resource, field, value = arg['resource'],\
@@ -224,7 +224,7 @@ class FederationQueue(ModelSQL, ModelView):
 
     @classmethod
     def parse_fields(cls,values,action,fields):
-        ''' Returns depending on the action the fields that will be
+        ''' Returns, depending on the action, the fields that will be
             passed as arguments to Thalamus
         '''
         field_mapping = fields.split(',')
@@ -243,7 +243,7 @@ class FederationQueue(ModelSQL, ModelView):
                     fed_key = {
                         "resource": fed_resource,
                         "field": fed_field,
-                        "value": values[value]
+                        "value": str(values[value])
                         }
                     fedvals.append(fed_key)
                     break
