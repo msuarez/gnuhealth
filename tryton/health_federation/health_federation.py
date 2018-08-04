@@ -349,3 +349,23 @@ class Party(ModelSQL):
                 time_stamp = party.write_date
                 FederationQueue.enqueue(cls.__name__, 
                     fed_acct, time_stamp, node, values,action)
+
+
+    @classmethod
+    def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
+        # Execute first the creation of party
+        parties = super(Party, cls).create(vlist)
+
+        for values in vlist:
+            fed_acct = values.get('federation_account')
+
+            # If the user has a federation ID, then enqueue the 
+            # record to be sent and created in the Federation
+            if fed_acct:
+                action="POST"
+                node=None
+                time_stamp = parties[0].create_date
+                FederationQueue.enqueue(cls.__name__,
+                    fed_acct, time_stamp, node, values,action)
+        return parties
