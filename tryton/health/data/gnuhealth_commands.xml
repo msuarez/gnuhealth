@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="ppl">
+            <field name="name">ppl</field>
+            <field name="model">party.party</field>
+            <field name="label">People</field>
+            <field name="description">Demographics</field>
+            <field name="domain">[('is_person', '=', True)]</field>
+            <field name="internal">False</field>
+        </record>
+        
+        <record model="gnuhealth.command" id="pat">
+            <field name="name">pat</field>
+            <field name="model">gnuhealth.patient</field>
+            <field name="label">Patient</field>
+            <field name="description">Patients</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="sysinfo">
+            <field name="name">sysinfo</field>
+            <field name="description">Technical information for client and server</field>
+            <field name="internal">True</field>
+        </record>
+
+    </data>
+</tryton>
