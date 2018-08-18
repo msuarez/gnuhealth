@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="lab">
+            <field name="name">lab</field>
+            <field name="model">gnuhealth.lab</field>
+            <field name="label">Lab Tests</field>
+            <field name="description">Lab Test Results</field>
+            <field name="internal">False</field>
+        </record>       
+    </data>
+</tryton>
