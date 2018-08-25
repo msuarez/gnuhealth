@@ -463,6 +463,24 @@ bash_profile () {
 
 }
 
+startup_script () {
+
+    message "INFO" "Creating or Updating the startup script for GNU Health"
+
+    cd $INSTDIR
+
+    START_GNUHEALTH="$HOME/start_gnuhealth.sh"
+
+    if [[ -e ${START_GNUHEALTH} ]]; then
+        # Make a backup copy of the GNU Health startup script if it exists
+        message "INFO" "GNU Health startup script exists. Making backup to ${START_GNUHEALTH}.bak ."
+        cp ${START_GNUHEALTH} ${START_GNUHEALTH}.bak || bailout
+    fi
+
+    cp start_gnuhealth.sh ${START_GNUHEALTH} ||  bailout
+
+}
+
 cleanup() {
     message "INFO" "Cleaning Up..."
     rm -rf ${TMP_DIR} || bailout
@@ -517,8 +535,11 @@ install() {
 
     # (7) BASH Profile
     bash_profile
+
+    # (8) Startup script
+    startup_script
     
-    # (8) Clean
+    # (9) Clean
     cleanup
 }
 
