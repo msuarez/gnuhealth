@@ -2,4 +2,5 @@
 <tree>
     <field name="host"/>
     <field name="enabled"/>
+    <button name="test_connection" help="Test Connection to Thalamus server" string="Test Thalamus connection"/>
 </tree>
