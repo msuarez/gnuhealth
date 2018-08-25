@@ -2,7 +2,6 @@
 <tryton>
     <data>
 
-
 <!-- Create the GNU HEALTH Federation icon -->
         <record model="ir.ui.icon" id="gnuhealth_federation_icon">
             <field name="name">health-federation</field>
@@ -34,7 +33,7 @@
         </record>
 
         <record model="ir.action.act_window" id="gnuhealth_action_federation_config">
-            <field name="name">Federation Node Config</field>
+            <field name="name">Node Configuration</field>
             <field name="res_model">gnuhealth.federation.config</field>
         </record>
 
@@ -50,7 +49,8 @@
         </record>
 
         <menuitem action="gnuhealth_action_federation_config" icon="gnuhealth-list"
-            id="gnuhealth_conf_federation_config" parent="gnuhealth_conf_federation"/>
+            id="gnuhealth_conf_federation_config" sequence="10"
+            parent="gnuhealth_conf_federation"/>
 
 
 <!-- GNU Health Federation Queue -->
@@ -119,7 +119,8 @@
         </record>
 
         <menuitem action="gnuhealth_action_federation_object" icon="gnuhealth-list"
-            id="gnuhealth_conf_federation_object" parent="gnuhealth_conf_federation"/>
+            id="gnuhealth_conf_federation_object" sequence="20" 
+            parent="gnuhealth_conf_federation"/>
 
     </data>
 </tryton>
