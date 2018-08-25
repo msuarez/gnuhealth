@@ -1,5 +1,5 @@
 # GNU Health BASH environment
-# 2013-2017 Luis Falcon <falcon@gnu.org>
+# 2013-2018 Luis Falcon <falcon@gnu.org>
 
 # File Editor 
 
@@ -20,9 +20,12 @@ export TRYTON_VERSION=`echo $TRYTOND | cut -d'-' -f2`
 # Add PYTHONPATH environment variable 
 export PYTHONPATH=${GNUHEALTH_DIR}/tryton/server/${TRYTOND}:${GNUHEALTH_DIR}/tryton/server/config
 
-# Add Tryton server configuration file
+# Include local directory (gunicorn and other python executables)
+export PATH=$PATH:$HOME/.local/bin
 
+# Add Tryton server configuration file
 export TRYTOND_CONFIG=${GNUHEALTH_DIR}/tryton/server/config/trytond.conf
+
 # Aliases
 alias cdlogs='cd ${GNUHEALTH_DIR}/logs'
 alias cdexe='cd ${GNUHEALTH_DIR}/tryton/server/${TRYTOND}/bin'
