@@ -20,6 +20,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+"""
+health_federation package: HMIS Federation manager
+
+This package is responsible to communicate the GNU Health HMIS 
+with Thalamus, the Federation message server.
+
+The main functionalities of the package are :
+    * HMIS configuration to connect to Thalamus message server
+    * Define the models that will participate on the Federation
+    * Define which fields of each model will be shared on the Federation
+    * Queue manager: Manages the local node queue to be sent to the Federation.
+    * Defines the classes for each model and specific methods to interact
+      with Thalamus
+"""
 
 from trytond.pool import Pool
 from .health_federation import *
@@ -30,5 +44,5 @@ def register():
         FederationNodeConfig,
         FederationQueue,
         FederationObject,
-        Party,
+        PartyFed,
         module='health_federation', type_='model')
