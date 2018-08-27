@@ -19,7 +19,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+
 import ssl
 from trytond.model import ModelView, ModelSQL, ModelSingleton, fields, Unique
 from trytond.transaction import Transaction
@@ -34,7 +34,7 @@ from uuid import uuid4
 
 
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
-    'Party']
+    'PartyFed']
 
    
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
@@ -331,7 +331,13 @@ class FederationObject(ModelSQL, ModelView):
         ]
 
 
-class Party(ModelSQL):
+class PartyFed(ModelSQL):
+    """
+    Demographics Model to participate on the Federation
+    
+    Methods : write (PATCH), create (POST)
+    """
+
     __name__ = 'party.party'
     
     @classmethod
