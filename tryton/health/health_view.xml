@@ -2082,7 +2082,7 @@
 
         <menuitem action="action_gnuhealth_command_view"
             name="GNU Health Commands" id="gnuhealth_conf_commands"
-            parent="gnuhealth_conf_misc"/>
+            parent="gnuhealth_conf_misc" icon="gnuhealth-list"/>
 
     </data>
 </tryton>
