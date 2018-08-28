@@ -18,6 +18,14 @@
             <field name="internal">False</field>
         </record>
 
+        <record model="gnuhealth.command" id="med">
+            <field name="name">med</field>
+            <field name="model">gnuhealth.medicament</field>
+            <field name="label">Medicament</field>
+            <field name="description">Medicaments</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="sysinfo">
             <field name="name">sysinfo</field>
             <field name="description">Technical information for client and server</field>
