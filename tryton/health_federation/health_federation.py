@@ -36,7 +36,7 @@ from uuid import uuid4
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
     'PartyFed']
 
-   
+
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
     __name__ = 'gnuhealth.federation.config'
@@ -220,6 +220,31 @@ class FederationQueue(ModelSQL, ModelView):
             else:
                 print ("No federation record locator found .. no update")
 
+        # Create the record on the Federation
+        if (record.method == 'POST'):
+            if (record.federation_locator):
+                #Traverse each resource and its data fields.
+                # arg : Dictionary for each of the data elements in the
+                #       list of values
+                for arg in literal_eval(record.args):
+                    url = protocol + host + ':' + str(port)
+                    resource, field, value = arg['resource'],\
+                        arg['field'], arg['value']
+                    # Add resource and instance to URL
+                    url = url + '/' + resource + '/' + record.federation_locator
+
+                    vals = {}
+                    vals[field]=value
+
+                    send_data = requests.request('POST',url, 
+                        data=json.dumps(vals), \
+                        auth=(user, password), verify=verify_ssl)
+
+                    if (send_data):
+                        rc = True
+            else:
+                print ("No federation record locator found .. no update")
+
         return rc
 
     @classmethod
@@ -339,11 +364,11 @@ class PartyFed(ModelSQL):
     """
 
     __name__ = 'party.party'
-    
+
     @classmethod
     def write(cls, parties, values):
         #First exec the Party class write method from health package
-        super(Party, cls).write(parties, values)
+        super(PartyFed, cls).write(parties, values)
         for party in parties:
             action = "PATCH"
             # Retrieve federation account (for people only)
@@ -360,8 +385,9 @@ class PartyFed(ModelSQL):
     @classmethod
     def create(cls, vlist):
         vlist = [x.copy() for x in vlist]
+
         # Execute first the creation of party
-        parties = super(Party, cls).create(vlist)
+        parties = super(PartyFed, cls).create(vlist)
 
         for values in vlist:
             fed_acct = values.get('federation_account')
