@@ -47,6 +47,14 @@ auth = HTTPBasicAuth()
 
 ACL = json.load(open(app.config['ACL'],'r'))
 
+# Use Gunicorn logging system when Thalamus is run through it
+# use the gunicorn argument --log-level to specify the starting
+# level of the application (eg, --log-level=debug)
+if __name__ != '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
+
 def check_person(person_id):
     """
     Checks if the Federation ID exists on the GNU Health HIS
@@ -114,7 +122,7 @@ def access_control(username, roles, method, endpoint, view_args):
         
 # People Resource
 class People(Resource):
-    "Holds the person demographics information"
+    """Collection resource for demographic information"""
     
     decorators = [auth.login_required] # Use the decorator from httpauth
     def get(self):
@@ -127,7 +135,7 @@ class People(Resource):
 
 # Person 
 class Person(Resource):
-    "Holds the person demographics information"
+    """Class that manages the person demographics"""
     
     decorators = [auth.login_required] # Use the decorator from httpauth
 
@@ -145,6 +153,9 @@ class Person(Resource):
         Initially just the Federation ID and the bcrypted
         hashed password
         """
+
+        hashed_pw = ''
+
         bcrypt_prefixes = ["$2b$", "$2y$"]
 
         if check_person(person_id):
@@ -158,6 +169,7 @@ class Person(Resource):
 
         roles = request.args.getlist('roles')
 
+
         if (pw):
             if (len(pw) > 64):
                 abort (422, error="Password is too long")
@@ -166,17 +178,19 @@ class Person(Resource):
             if (pw[0:4] in bcrypt_prefixes):
                 hashed_pw = pw
             else:
-                hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),
-                    bcrypt.gensalt())
+                hashed_pw = (bcrypt.hashpw(pw.encode('utf-8'),
+                    bcrypt.gensalt())).decode('utf-8')
 
-            person = mongo.db.people.insert({'_id' : person_id,
-                'password' : hashed_pw.decode('utf-8'),
-                'roles' : roles,
-                'active' : active})
-            return jsonify(person)
+        #If no roles are supplied, assign "end_user"
+        if not roles:
+            roles = ["end_user"]
+        person = mongo.db.people.insert({'_id' : person_id,
+            'password' : hashed_pw,
+            'roles' : roles,
+            'active' : active})
 
-        else:
-            abort (422, error="No password provided")
+        return jsonify(person)
+
 
     def patch(self, person_id):
         """
@@ -215,7 +229,7 @@ class Person(Resource):
             abort (422, error="The user is active.") 
 
         delete_person = mongo.db.people.delete_one({"_id":person_id})
- 
+
 api.add_resource(People, '/people') #Add resource for People
 
 api.add_resource(Person, '/people/<person_id>') #Add person instance
@@ -281,4 +295,5 @@ api.add_resource(Institutions, '/institutions')
 
 
 if __name__ == '__main__':
+    app.logger.warning("Running Thalamus without gunicorn ...")
     app.run()
