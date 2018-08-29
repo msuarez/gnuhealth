@@ -145,6 +145,8 @@ class Person(Resource):
         Initially just the Federation ID and the bcrypted
         hashed password
         """
+        bcrypt_prefixes = ["$2b$", "$2y$"]
+
         if check_person(person_id):
             abort (422, error="User already exists")
 
@@ -160,8 +162,13 @@ class Person(Resource):
             if (len(pw) > 64):
                 abort (422, error="Password is too long")
 
-            hashed_pw = bcrypt.hashpw(pw.encode('utf-8'), 
+            # Check if the password is already in bcrypt format
+            if (pw[0:4] in bcrypt_prefixes):
+                hashed_pw = pw
+            else:
+                hashed_pw = bcrypt.hashpw(pw.encode('utf-8'),
                     bcrypt.gensalt())
+
             person = mongo.db.people.insert({'_id' : person_id,
                 'password' : hashed_pw.decode('utf-8'),
                 'roles' : roles,
