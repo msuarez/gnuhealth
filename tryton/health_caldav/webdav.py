@@ -557,14 +557,18 @@ class Collection(metaclass=PoolMeta):
                 raise DAV_Forbidden
             event_id = cls.event(uri, calendar_id=calendar_id)
             if not event_id:
-                ical = vobject.readOne(data)
+                #Update an existing event
+                #Convert to data str from binary 
+                ical = vobject.readOne(data.decode())
                 values = Event.ical2values(None, ical, calendar_id)
                 event, = Event.create([values])
                 calendar = Calendar(calendar_id)
                 return (Transaction().database.name + '/Calendars/' +
                         calendar.name + '/' + event.uuid + '.ics')
             else:
-                ical = vobject.readOne(data)
+                #Update an existing event
+                #Convert to data str from binary 
+                ical = vobject.readOne(data.decode())
                 values = Event.ical2values(event_id, ical, calendar_id)
                 Event.write([Event(event_id)], values)
                 return
