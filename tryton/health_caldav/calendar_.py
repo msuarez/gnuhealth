@@ -1013,7 +1013,7 @@ class Event(ModelSQL, ModelView):
                     if ical.vtimezone.tzid.value.endswith(timezone):
                         res['timezone'] = timezone
 
-        res['vevent'] = vevent.serialize()
+        res['vevent'] = vevent.serialize().encode()
 
         occurences_todel = []
         if event:
@@ -1056,7 +1056,7 @@ class Event(ModelSQL, ModelView):
         ical = vobject.iCalendar()
         vevent = ical.add('vevent')
         if self.vevent:
-            ical.vevent = vobject.readOne(str(self.vevent))
+            ical.vevent = vobject.readOne(self.vevent.decode())
             vevent = ical.vevent
             ical.vevent.transformToNative()
         if self.summary:
