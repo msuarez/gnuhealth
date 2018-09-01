@@ -1,4 +1,4 @@
-# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import vobject
 import urllib.request, urllib.parse, urllib.error
@@ -557,7 +557,7 @@ class Collection(metaclass=PoolMeta):
                 raise DAV_Forbidden
             event_id = cls.event(uri, calendar_id=calendar_id)
             if not event_id:
-                #Update an existing event
+                #Create a new event 
                 #Convert to data str from binary 
                 ical = vobject.readOne(data.decode())
                 values = Event.ical2values(None, ical, calendar_id)

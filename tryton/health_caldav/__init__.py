@@ -1,5 +1,15 @@
-# This file is part of Tryton.  The COPYRIGHT file at the top level of
-# this repository contains the full copyright notices and license terms.
+"""GNU Health Calendar for WebDAV3
+
+The package is the continuation of the CalDAV functionality
+for the discontinued Tryton package.
+
+It has been ported to Python 3 and GNU Health.
+
+It contains the models to use Calendars in GNU Health HMIS.
+
+
+
+"""
 
 from trytond.pool import Pool
 from . import caldav
