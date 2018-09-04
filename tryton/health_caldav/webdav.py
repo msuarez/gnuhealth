@@ -559,7 +559,11 @@ class Collection(metaclass=PoolMeta):
             if not event_id:
                 #Create a new event 
                 #Convert to data str from binary 
-                ical = vobject.readOne(data.decode())
+                if (isinstance(data, bytes)):
+                    ical = vobject.readOne(data.decode())
+                else:
+                    ical = vobject.readOne(data)
+
                 values = Event.ical2values(None, ical, calendar_id)
                 event, = Event.create([values])
                 calendar = Calendar(calendar_id)

@@ -302,7 +302,7 @@ class TrytonDAVInterface(iface.dav_interface):
             raise DAV_Error(500)
         if res:
             uparts = list(urllib.parse.urlsplit(uri))
-            uparts[2] = res
+            uparts[2] = res.encode()
             res = urllib.parse.urlunsplit(uparts)
         return res
 
