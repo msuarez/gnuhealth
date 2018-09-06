@@ -551,6 +551,8 @@ class Collection(metaclass=PoolMeta):
         Event = pool.get('calendar.event')
         Calendar = pool.get('calendar.calendar')
 
+        Appointment = pool.get('gnuhealth.appointment')
+
         calendar_id = cls.calendar(uri)
         if calendar_id:
             if not (uri[10:].split('/', 1) + [None])[1]:
@@ -575,6 +577,27 @@ class Collection(metaclass=PoolMeta):
                 ical = vobject.readOne(data.decode())
                 values = Event.ical2values(event_id, ical, calendar_id)
                 Event.write([Event(event_id)], values)
+
+                # Check if the event is an appointment in GNU Health
+                dtstart = values['dtstart']
+                dtend = values['dtend']
+                summary = values['summary']
+                description = values['description']
+
+                # Check if there is an appointment in GNU Health
+                # associated to this event
+                # If it finds it, then update the current date
+                # and description
+
+                appointment = Appointment.search(
+                    [('event', '=', event_id)], limit=1)
+                if (appointment):
+                    app = appointment[0]
+                    app_vals = {'appointment_date':dtstart,
+                        'appointment_date_end':dtend,'comments':description}
+
+                    Appointment.write([app],app_vals)
+
                 return
         calendar_ics_id = cls.calendar(uri, ics=True)
         if calendar_ics_id:
