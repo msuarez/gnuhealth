@@ -546,6 +546,25 @@ class Collection(metaclass=PoolMeta):
         return cls.get_schedule_inbox_URL(uri, cache=cache)
 
     @classmethod
+    def appointment_from_event(cls,values, Appointment):
+        """ Creates the patient appointment associated to the event
+            The patient ID is the first word from the summary field
+        """
+        Party = Pool().get('party.party')
+        appointment_id = values['uuid']
+        summary = values['summary']
+        patient_id = summary.split()[0]
+
+        res = Party.search(
+                    [('ref', '=', patient_id)], limit=1)
+
+        if (res):
+            print("Found the patient ...creating the appointment")
+
+        else:
+            print ("Not found... skipping")
+
+    @classmethod
     def put(cls, uri, data, content_type, cache=None):
         pool = Pool()
         Event = pool.get('calendar.event')
@@ -568,6 +587,12 @@ class Collection(metaclass=PoolMeta):
 
                 values = Event.ical2values(None, ical, calendar_id)
                 event, = Event.create([values])
+
+                # Create the appointment associated to the Event
+                # Checks the patient name based on the first word
+                # of the summary field.
+                cls.appointment_from_event(values, Appointment)
+
                 calendar = Calendar(calendar_id)
                 return (Transaction().database.name + '/Calendars/' +
                         calendar.name + '/' + event.uuid + '.ics')
