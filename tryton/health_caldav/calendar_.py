@@ -472,21 +472,6 @@ class Event(ModelSQL, ModelView):
                 'invalid_recurrence': 'Recurrence "%s" can not be recurrent.',
                 })
 
-    @classmethod
-    def __register__(cls, module_name):
-        # Migrate from 1.4: remove classification_public
-        ModelData = Pool().get('ir.model.data')
-        Rule = Pool().get('ir.rule')
-        with Transaction().set_user(0):
-            models_data = ModelData.search([
-                    ('fs_id', '=', 'rule_group_read_calendar_line3'),
-                    ('module', '=', module_name),
-                    ], limit=1)
-            if models_data:
-                model_data, = models_data
-                Rule.delete([Rule(model_data.db_id)])
-        return super(Event, cls).__register__(module_name)
-
     @staticmethod
     def default_uuid():
         return str(uuid.uuid4())
