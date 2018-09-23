@@ -550,19 +550,46 @@ class Collection(metaclass=PoolMeta):
         """ Creates the patient appointment associated to the event
             The patient ID is the first word from the summary field
         """
-        Party = Pool().get('party.party')
+        Patient = Pool().get('gnuhealth.patient')
         appointment_id = values['uuid']
         summary = values['summary']
+        desc = values['description']
         patient_id = summary.split()[0]
+        app_date = values['dtstart']
+        app_end = values['dtend']
 
-        res = Party.search(
-                    [('ref', '=', patient_id)], limit=1)
+        app = []
+        app_values = {}
+        comments = ''
+
+        
+        if desc:
+            comments = summary[1] +'\n'+ desc
+
+        res = Patient.search(
+                    [('puid', '=', patient_id)], limit=1)
 
         if (res):
             print("Found the patient ...creating the appointment")
+                
+            # TODO : Assign healthprof and event UUID
+            
+            app_values = {
+                'patient': res[0],
+                'healthprof': 1,
+                'comments': comments,
+                'state': 'confirmed',
+                'appointment_date': app_date,
+                'appointment_date_end': app_end
+                }
+
+            app.append(app_values)
+            Appointment.create(app)
 
         else:
             print ("Not found... skipping")
+
+
 
     @classmethod
     def put(cls, uri, data, content_type, cache=None):
