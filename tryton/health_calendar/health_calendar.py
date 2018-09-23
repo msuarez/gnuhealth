@@ -59,7 +59,13 @@ class Appointment(metaclass=PoolMeta):
         Healthprof = pool.get('gnuhealth.healthprofessional')
 
         vlist = [x.copy() for x in vlist]
+
         for values in vlist:
+            # Check if the event exists (eg, created from a caldav client)
+            # If so, then do not create it again.
+            if 'event' in values:
+                break
+
             if values['state'] == 'confirmed':
                 if values['healthprof']:
                     healthprof = Healthprof(values['healthprof'])

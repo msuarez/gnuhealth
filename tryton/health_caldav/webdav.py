@@ -546,7 +546,14 @@ class Collection(metaclass=PoolMeta):
         return cls.get_schedule_inbox_URL(uri, cache=cache)
 
     @classmethod
-    def appointment_from_event(cls,values, Appointment):
+    def get_event_hprof(cls, values):
+        """ Returns the health professional ID associated to the event
+        """
+        print ("On get_event_hprof", values)
+        return True
+
+    @classmethod
+    def appointment_from_event(cls,values, Appointment, event):
         """ Creates the patient appointment associated to the event
             The patient ID is the first word from the summary field
         """
@@ -570,13 +577,13 @@ class Collection(metaclass=PoolMeta):
                     [('puid', '=', patient_id)], limit=1)
 
         if (res):
-            print("Found the patient ...creating the appointment")
-                
-            # TODO : Assign healthprof and event UUID
-            
+            # TODO : Assign healthprof
+            cls.get_event_hprof(values)
+
             app_values = {
                 'patient': res[0],
                 'healthprof': 1,
+                'event': event,
                 'comments': comments,
                 'state': 'confirmed',
                 'appointment_date': app_date,
@@ -618,7 +625,7 @@ class Collection(metaclass=PoolMeta):
                 # Create the appointment associated to the Event
                 # Checks the patient name based on the first word
                 # of the summary field.
-                cls.appointment_from_event(values, Appointment)
+                cls.appointment_from_event(values, Appointment, event)
 
                 calendar = Calendar(calendar_id)
                 return (Transaction().database.name + '/Calendars/' +
