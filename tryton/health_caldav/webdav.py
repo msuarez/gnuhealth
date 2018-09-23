@@ -546,11 +546,21 @@ class Collection(metaclass=PoolMeta):
         return cls.get_schedule_inbox_URL(uri, cache=cache)
 
     @classmethod
-    def get_event_hprof(cls, values):
+    def get_event_hprof(cls, event):
         """ Returns the health professional ID associated to the event
         """
-        print ("On get_event_hprof", values)
-        return True
+        Party = Pool().get('party.party')
+        Hprof = Pool().get('gnuhealth.healthprofessional')
+
+        event_owner =  event.calendar.owner.id
+
+        party, = Party.search(
+                [('internal_user', '=', event_owner)], limit=1)
+
+        hprof, = Hprof.search(
+                [('name', '=', party)], limit=1)
+
+        return hprof
 
     @classmethod
     def appointment_from_event(cls,values, Appointment, event):
@@ -561,7 +571,9 @@ class Collection(metaclass=PoolMeta):
         appointment_id = values['uuid']
         summary = values['summary']
         desc = values['description']
-        patient_id = summary.split()[0]
+        header = summary.split(" ")
+        patient_id = header[0]
+        header_suffix = " ".join(header[1:])
         app_date = values['dtstart']
         app_end = values['dtend']
 
@@ -569,20 +581,22 @@ class Collection(metaclass=PoolMeta):
         app_values = {}
         comments = ''
 
-        
         if desc:
-            comments = summary[1] +'\n'+ desc
+            comments = header_suffix + '\n' + desc
 
-        res = Patient.search(
+        patient, = Patient.search(
                     [('puid', '=', patient_id)], limit=1)
 
-        if (res):
-            # TODO : Assign healthprof
-            cls.get_event_hprof(values)
+        # If the ID is associated to a patient
+        # create the appointment related to her / him
+        if (patient):
+
+            # Get the Health professional associated to the calendar event
+            hprof = cls.get_event_hprof(event)
 
             app_values = {
-                'patient': res[0],
-                'healthprof': 1,
+                'patient': patient,
+                'healthprof': hprof,
                 'event': event,
                 'comments': comments,
                 'state': 'confirmed',
@@ -592,9 +606,6 @@ class Collection(metaclass=PoolMeta):
 
             app.append(app_values)
             Appointment.create(app)
-
-        else:
-            print ("Not found... skipping")
 
 
 
