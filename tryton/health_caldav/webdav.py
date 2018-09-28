@@ -584,8 +584,9 @@ class Collection(metaclass=PoolMeta):
         if desc:
             comments = header_suffix + '\n' + desc
 
-        patient, = Patient.search(
-                    [('puid', '=', patient_id)], limit=1)
+        if (patient_id):
+            patient, = Patient.search(
+                        [('puid', '=', patient_id)], limit=1)
 
         # If the ID is associated to a patient
         # create the appointment related to her / him
