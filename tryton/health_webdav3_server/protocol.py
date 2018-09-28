@@ -9,7 +9,7 @@ import urllib.request, urllib.parse, urllib.error
 import logging
 from threading import local, Thread
 import xml.dom.minidom
-import base64
+from base64 import decodebytes
 from pywebdav.lib import WebDAVServer, iface
 from pywebdav.lib.errors import DAV_Error, DAV_NotFound, DAV_Secret, \
     DAV_Forbidden, DAV_Requested_Range_Not_Satisfiable
@@ -570,7 +570,7 @@ class WebDAVAuthRequestHandler(WebDAVServer.DAVRequestHandler):
             if scheme != 'Basic':
                 self.send_error(501)
                 return False
-            credentials = base64.decodestring(credentials.encode('utf-8')).decode('utf-8')
+            credentials = decodebytes(credentials.encode()).decode()
 
             user, password = credentials.split(':', 2)
 
