@@ -226,14 +226,17 @@ class FederationQueue(ModelSQL, ModelView):
                 #Traverse each resource and its data fields.
                 # arg : Dictionary for each of the data elements in the
                 #       list of values
+                vals = {}
+                url = protocol + host + ':' + str(port)
+
                 for arg in literal_eval(record.args):
-                    url = protocol + host + ':' + str(port)
+
                     resource, field, value = arg['resource'],\
                         arg['field'], arg['value']
+
                     # Add resource and instance to URL
                     url = url + '/' + resource + '/' + record.federation_locator
 
-                    vals = {}
                     vals[field]=value
 
                     send_data = requests.request('POST',url, 
@@ -252,26 +255,49 @@ class FederationQueue(ModelSQL, ModelView):
         ''' Returns, depending on the action, the fields that will be
             passed as arguments to Thalamus
         '''
-        field_mapping = fields.split(',')
         # Fedvals : Values to send to the federation, that contain the
         # resource, the field, and the value of such field.
+
+        field_mapping = fields.split(',')
+        resources = []
         fedvals = []
-        for value in values:
-            #Check that the local field is on shared federation list
-            #and retrieve the equivalent federation field name
-            for val in field_mapping:
-                #Retrieve the field name, the federation resource name
-                #and the associated federation resource field .
-                #string of the form field:fed_resource:fed_field
-                field, fed_resource, fed_field = val.split(':')
-                if (field == value):
+
+        fed_key = {}
+        n=0
+        for val in field_mapping:
+            #Retrieve the field name, the federation resource name
+            #and the associated federation resource field .
+            #string of the form field:fed_resource:fed_field
+            field, fed_resource, fed_field = val.split(':')
+            if (field in values):
+                #Check that the local field is on shared federation list
+                #and retrieve the equivalent federation field name
+
+                # If the resource is not in the list
+                # create a new item 
+                if fed_resource not in resources:
                     fed_key = {
                         "resource": fed_resource,
-                        "field": fed_field,
-                        "value": str(values[value])
+                        "fields":[
+                            {
+                            "name": fed_field,
+                            "value": str(values[field])
+                            }]
                         }
+
+                    resources.append(fed_resource)
                     fedvals.append(fed_key)
-                    break
+
+                else:
+                    # Otherwise, if the resource exists, we add
+                    # the new field values to it.
+                    n=0
+                    for record in fedvals:
+                        if fed_resource == record['resource']:
+                            fedvals[n]['fields'].append({"name": fed_field, \
+                                "value": str(values[field])})
+                        n=n+1
+
         return fedvals
 
     @classmethod
