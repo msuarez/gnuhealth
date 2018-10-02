@@ -201,20 +201,27 @@ class FederationQueue(ModelSQL, ModelView):
                 #Traverse each resource and its data fields.
                 # arg : Dictionary for each of the data elements in the
                 #       list of values
+                # [{resource, fields[{name, value}]
+
                 for arg in literal_eval(record.args):
+                    vals = {}
+
                     url = protocol + host + ':' + str(port)
-                    resource, field, value = arg['resource'],\
-                        arg['field'], arg['value']
+
+                    resource, fields = arg['resource'],\
+                        arg['fields']
+
                     # Add resource and instance to URL
                     url = url + '/' + resource + '/' + record.federation_locator
 
-                    vals = {}
-                    vals[field]=value
+                    for field in fields:
+                        fname, fvalue = field['name'], field['value']
+                        vals[fname]= fvalue
 
                     send_data = requests.request('PATCH',url, 
                         data=json.dumps(vals), \
                         auth=(user, password), verify=verify_ssl)
-                    
+
                     if (send_data):
                         rc = True
             else:
@@ -337,6 +344,8 @@ class FederationQueue(ModelSQL, ModelView):
     def send(cls, records):
         # Verify and send each record to Thalamus individually
         # It allows to get specific status on each operation
+        
+        # record: individual record on gnuhealth.federation.queue model
         for record in records:
             rec = []
             res = cls.send_record(record)
