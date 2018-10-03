@@ -233,18 +233,22 @@ class FederationQueue(ModelSQL, ModelView):
                 #Traverse each resource and its data fields.
                 # arg : Dictionary for each of the data elements in the
                 #       list of values
-                vals = {}
-                url = protocol + host + ':' + str(port)
+                # [{resource, fields[{name, value}]
 
                 for arg in literal_eval(record.args):
+                    vals = {}
 
-                    resource, field, value = arg['resource'],\
-                        arg['field'], arg['value']
+                    url = protocol + host + ':' + str(port)
+
+                    resource, fields = arg['resource'],\
+                        arg['fields']
 
                     # Add resource and instance to URL
                     url = url + '/' + resource + '/' + record.federation_locator
 
-                    vals[field]=value
+                    for field in fields:
+                        fname, fvalue = field['name'], field['value']
+                        vals[fname]= fvalue
 
                     send_data = requests.request('POST',url, 
                         data=json.dumps(vals), \
