@@ -153,22 +153,27 @@ class Person(Resource):
         Initially just the Federation ID and the bcrypted
         hashed password
         """
+        # Convert from bytes to dictionary the information
+        # coming from the node (Python Requests library)
+        values = literal_eval(request.data.decode())
 
-        hashed_pw = ''
+        # Initialize to inactive the newly created person
+        values['active'] = False
 
         bcrypt_prefixes = ["$2b$", "$2y$"]
 
         if check_person(person_id):
             abort (422, error="User already exists")
 
-        pw = request.args.get('password',type=str)
-        if (request.args.get('active') == "True"):
-            active= True
-        else:
-            active= False
+        values['_id'] = person_id
 
-        roles = request.args.getlist('roles')
+        #If no roles are supplied, assign "end_user"
+        if not ('roles' in values.keys()):
+            values['roles'] = ["end_user"]
 
+
+        if ('password' in values.keys()):
+            pw = values['password']
 
         if (pw):
             if (len(pw) > 64):
@@ -181,13 +186,10 @@ class Person(Resource):
                 hashed_pw = (bcrypt.hashpw(pw.encode('utf-8'),
                     bcrypt.gensalt())).decode('utf-8')
 
-        #If no roles are supplied, assign "end_user"
-        if not roles:
-            roles = ["end_user"]
-        person = mongo.db.people.insert({'_id' : person_id,
-            'password' : hashed_pw,
-            'roles' : roles,
-            'active' : active})
+            values['password'] = hashed_pw
+
+        # Insert the newly created person in MongoDB
+        person = mongo.db.people.insert(values)
 
         return jsonify(person)
 
@@ -207,7 +209,7 @@ class Person(Resource):
             # TO be discussed...
             # Check if the new ID exist in the Federation, and if it
             # does not, we may be able to update it.
-            
+
         if check_person(person_id): 
             update_person = mongo.db.people.update_one({"_id":person_id},
                 {"$set": values})
