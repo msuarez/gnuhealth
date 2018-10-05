@@ -206,6 +206,14 @@ class FederationQueue(ModelSQL, ModelView):
 
                 for arg in literal_eval(record.args):
                     vals = {}
+                    modification_info = {}
+
+                    # Include the modification information
+                    modification_info = {'user':user, \
+                        'timestamp': record.time_stamp,
+                        'node': record.node}
+
+                    vals['modification_info'] = modification_info
 
                     url = protocol + host + ':' + str(port)
 
