@@ -152,7 +152,7 @@ class FederationQueue(ModelSQL, ModelView):
     msgid = fields.Char('Message ID', required=True,
         help="Message UID")
     model = fields.Char('Model', required=True, help="Source Model")
-    origin = fields.Char('Origin', required=True,
+    node = fields.Char('Node', required=True,
         help="The originating node id")
 
     time_stamp = fields.Char('Timestamp', required=True,
@@ -181,7 +181,7 @@ class FederationQueue(ModelSQL, ModelView):
         ], 'Status', sort=False)
 
     @staticmethod
-    def default_origin():
+    def default_node():
         # Get the Institution code as the originating node.
         HealthInst = Pool().get('gnuhealth.institution')
         institution = HealthInst.get_institution()
@@ -195,6 +195,7 @@ class FederationQueue(ModelSQL, ModelView):
         
         host, port, user, password, ssl_conn, verify_ssl, protocol = \
             FederationNodeConfig.get_conn_params()
+
 
         if (record.method == 'PATCH'):
             if (record.federation_locator):
@@ -237,7 +238,15 @@ class FederationQueue(ModelSQL, ModelView):
 
                 for arg in literal_eval(record.args):
                     vals = {}
-
+                    creation_info = {}
+                    
+                    # Include the creation information 
+                    creation_info = {'user':user, \
+                        'timestamp': record.time_stamp,
+                        'node': record.node}
+                    
+                    vals['creation_info'] = creation_info
+                    
                     url = protocol + host + ':' + str(port)
 
                     resource, fields = arg['resource'],\
