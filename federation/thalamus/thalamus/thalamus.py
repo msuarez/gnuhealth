@@ -159,7 +159,8 @@ class Person(Resource):
 
         # Initialize to inactive the newly created person
         values['active'] = False
-
+        pw = None
+        
         bcrypt_prefixes = ["$2b$", "$2y$"]
 
         if check_person(person_id):
