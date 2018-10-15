@@ -145,6 +145,10 @@ class Person(Resource):
         """
         person = mongo.db.people.find_one({'_id' : person_id})
 
+        # Return a 404 if the person ID is not found
+        if not person:
+            return '', 404
+
         return jsonify(person)
 
     def post(self, person_id):
@@ -235,7 +239,7 @@ class Person(Resource):
 
 api.add_resource(People, '/people') #Add resource for People
 
-api.add_resource(Person, '/people/<person_id>') #Add person instance
+api.add_resource(Person, '/people/<string:person_id>') #Add person instance
 
 
 # Personal Documents resource
