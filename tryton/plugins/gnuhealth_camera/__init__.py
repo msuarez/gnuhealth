@@ -30,7 +30,14 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 from datetime import datetime
-import cv2
+try: 
+    import cv2
+except:
+    warning(
+        ('Install CV2 libraries for the Camera'
+         '\nPlease install the CV2 libraries '),
+        ('No CV2 library found !'),
+    )
 
 
 _ = gettext.gettext
