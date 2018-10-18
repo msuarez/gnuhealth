@@ -119,8 +119,11 @@ class FederationResourceLocator():
         model = 'party.party'
         get_record=rpc.execute(
             'model', model , 'search',
-            ['OR',[("alternative_ids", "=", federation_id)],
-             ("ref", "=", federation_id)],
+            ['OR',
+                ("federation_account", "=", federation_id),
+                ("ref", "=", federation_id),
+                [("alternative_ids", "=", federation_id)],
+            ],
             rpc.CONTEXT)
         res = get_record
         return res
@@ -133,11 +136,12 @@ class FederationResourceLocator():
         federation_id = model.get_value(tree_iter,0)
         if (self.check_local_record (federation_id)):
             already_exists_msg="At least one record exists LOCALLY " \
-                "with this ID"
+                "with this ID.\n"
             message(_(already_exists_msg))
         else:
             not_found_locally_msg="The person exists on the Federation" \
-                "but not locally...  \nWould you like to transfer it ?"
+                " but not locally...  \n" \
+                "Would you like to transfer it ?"
             message (_(not_found_locally_msg))
 
     def __init__(self):
