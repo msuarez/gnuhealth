@@ -37,6 +37,12 @@ __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
     'PartyFed']
 
 
+def set_fsync(model, records, flag):
+    #Sets or disables the fsync flag that enables the record to be
+    #enter in the Federation queue
+    vals = {'fsync': flag}
+    model.write(recods, vals)
+
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
     __name__ = 'gnuhealth.federation.config'
@@ -411,7 +417,6 @@ class FederationObject(ModelSQL, ModelView):
              'The Model is already defined !')
         ]
 
-
 class PartyFed(ModelSQL):
     """
     Demographics Model to participate on the Federation
@@ -421,22 +426,39 @@ class PartyFed(ModelSQL):
 
     __name__ = 'party.party'
 
+    # Controls if the updated information will be sent to the Federation.
+    #   True: Info will be sent to the federation queue
+    #   False: The info is up-todate with the federation or is local
+    fsync = fields.Boolean('Fsync',
+        help="If active, this record information will" \
+            " be sent to the Federation")
+
+    @staticmethod
+    def default_ssl():
+        return True
+
     @classmethod
     def write(cls, parties, values):
         #First exec the Party class write method from health package
         super(PartyFed, cls).write(parties, values)
+
         for party in parties:
             action = "PATCH"
             # Retrieve federation account (for people only)
             fed_acct = party.federation_account
+            fsync = party.fsync
             # Verify that the person has a Federation account.
-            if (fed_acct):
+            # and the fsync flag is set for the record
+            if (fed_acct and fsync):
                 # Start Enqueue process
                 node=None
                 time_stamp = party.write_date
                 FederationQueue.enqueue(cls.__name__, 
                     fed_acct, time_stamp, node, values,action)
 
+                #Unset the fsync flag locally once the info has been
+                #sent to the Federation queue
+                set_fsync(cls, parties, False)
 
     @classmethod
     def create(cls, vlist):
@@ -448,12 +470,22 @@ class PartyFed(ModelSQL):
         for values in vlist:
             fed_acct = values.get('federation_account')
 
+            # Check if the record has just been imported of modified
+            # from the federation. In that case, skip sending it
+            # to the federation queue
+
+            fsync = values.get('fsync')
             # If the user has a federation ID, then enqueue the 
             # record to be sent and created in the Federation
-            if fed_acct:
+            if fed_acct and fsync:
                 action="POST"
                 node=None
                 time_stamp = parties[0].create_date
                 FederationQueue.enqueue(cls.__name__,
                     fed_acct, time_stamp, node, values,action)
+
+                #Unset the fsync flag locally once the info has been
+                #sent to the Federation queue
+                set_fsync(cls, parties, False)
+
         return parties
