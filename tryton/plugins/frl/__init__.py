@@ -21,7 +21,7 @@
 #
 ##############################################################################
 import tryton.rpc as rpc
-from tryton.common import RPCExecute, warning, message
+from tryton.common import RPCExecute, warning, message, sur
 from tryton.gui.window.form import Form
 from tryton.common import MODELACCESS
 
@@ -34,6 +34,7 @@ import requests
 _ = gettext.gettext
 
 class FederationResourceLocator():
+    # Import person information from Federation
 
     # Callback method to access Thalamus and retrieve the records
     def search_resource(self, widget, *data):
@@ -80,10 +81,10 @@ class FederationResourceLocator():
             else:
                 # Find the federation ID using deterministic algorithm
                 # (exact match, return at most one record)
-                get_data = requests.get(res, params=query,
+                self.get_data = requests.get(res, params=query,
                     auth=(user, password), verify=verify_ssl)
 
-                if not get_data:
+                if not self.get_data:
                     not_found_msg = "The ID "+ query +\
                         " does not exist on Federation"
                     message(_(not_found_msg))
@@ -94,7 +95,7 @@ class FederationResourceLocator():
                     fields = ['_id','name', 'lastname', 'gender',
                         'dob', 'phone', 'address']
 
-                    record = get_data.json()
+                    record = self.get_data.json()
 
                     for fname in fields:
                         if fname in record.keys():
@@ -142,7 +143,13 @@ class FederationResourceLocator():
             not_found_locally_msg="The person exists on the Federation" \
                 " but not locally...  \n" \
                 "Would you like to transfer it ?"
-            message (_(not_found_locally_msg))
+            response = sur (_(not_found_locally_msg))
+
+            # Create the record locally from the information
+            # retrieved from the Federation
+            if (response):
+                print ("Data", self.get_data.json())
+
 
     def __init__(self):
 
