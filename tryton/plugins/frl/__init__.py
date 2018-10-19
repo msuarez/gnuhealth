@@ -114,6 +114,25 @@ class FederationResourceLocator():
     def destroy(self, widget, data=None):
         gtk.main_quit()
 
+    def create_local_record(self, model, values):
+            # Create local record from the information
+            # gathered from the Federation
+            gender = values['gender']
+            if gender == 'female':
+                gender = 'f'
+            vals = {'federation_account':values['_id'],
+                'name':values['name'],
+                'lastname':values['lastname'],
+                'gender':gender,
+                'is_person': True,
+                'fsync':False}
+
+            clocal =rpc.execute(
+                'model', model , 'create',
+                [vals],
+                rpc.CONTEXT)
+            return clocal
+
     # Check if the Federation ID exists in the local Tryton node
     # Looks for any ID (both the PUID and the alternative IDs)
     def check_local_record(self, federation_id):
@@ -149,6 +168,9 @@ class FederationResourceLocator():
             # retrieved from the Federation
             if (response):
                 print ("Data", self.get_data.json())
+                vals = self.get_data.json()
+                model = 'party.party'
+                local_record = self.create_local_record (model, vals)
 
 
     def __init__(self):
