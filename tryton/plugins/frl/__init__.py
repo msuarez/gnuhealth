@@ -155,8 +155,8 @@ class FederationResourceLocator():
         # Get GNU Health Federation ID (column 0)
         federation_id = model.get_value(tree_iter,0)
         if (self.check_local_record (federation_id)):
-            already_exists_msg="At least one record exists LOCALLY " \
-                "with this ID.\n"
+            already_exists_msg="A record exists LOCALLY with this ID" 
+
             message(_(already_exists_msg))
         else:
             not_found_locally_msg="The person exists on the Federation" \
@@ -167,11 +167,9 @@ class FederationResourceLocator():
             # Create the record locally from the information
             # retrieved from the Federation
             if (response):
-                print ("Data", self.get_data.json())
                 vals = self.get_data.json()
                 model = 'party.party'
                 local_record = self.create_local_record (model, vals)
-
 
     def __init__(self):
 
@@ -267,4 +265,3 @@ def get_plugins(model):
             (_('Federation Resource Locator'), frl_main),]
     else:
         print ("Not enough access. Disabling FRL")
-

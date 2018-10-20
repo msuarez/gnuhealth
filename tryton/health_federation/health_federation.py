@@ -41,7 +41,7 @@ def set_fsync(model, records, flag):
     #Sets or disables the fsync flag that enables the record to be
     #enter in the Federation queue
     vals = {'fsync': flag}
-    model.write(recods, vals)
+    model.write(records, vals)
 
 class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
     'Federation Node Configuration'
@@ -340,23 +340,24 @@ class FederationQueue(ModelSQL, ModelView):
         # Federation locator : Unique ID of the resource
         # such as personal federation account or institution ID
         # it depends on the resource (people, institution, ... )
-        
+
         if (fields):
             # retrieve the federation field names and values in a dict
             fields_to_enqueue = cls.parse_fields(values,action,fields)
             # Continue the enqueue process with the fields
-            rec = []
-            vals = {}
-            vals['msgid'] = str(uuid4())
-            vals['model'] = model
-            vals['time_stamp'] = str(time_stamp)
-            vals['args'] = str(fields_to_enqueue)
-            vals['method'] = action
-            vals['status'] = 'queued'
-            vals['federation_locator'] = federation_loc
-            rec.append(vals)
-            #Write the record to the enqueue list
-            cls.create(rec)
+            if fields_to_enqueue:
+                rec = []
+                vals = {}
+                vals['msgid'] = str(uuid4())
+                vals['model'] = model
+                vals['time_stamp'] = str(time_stamp)
+                vals['args'] = str(fields_to_enqueue)
+                vals['method'] = action
+                vals['status'] = 'queued'
+                vals['federation_locator'] = federation_loc
+                rec.append(vals)
+                #Write the record to the enqueue list
+                cls.create(rec)
 
     @classmethod
     def __setup__(cls):
@@ -434,7 +435,7 @@ class PartyFed(ModelSQL):
             " be sent to the Federation")
 
     @staticmethod
-    def default_ssl():
+    def default_fsync():
         return True
 
     @classmethod
@@ -449,16 +450,17 @@ class PartyFed(ModelSQL):
             fsync = party.fsync
             # Verify that the person has a Federation account.
             # and the fsync flag is set for the record
-            if (fed_acct and fsync):
-                # Start Enqueue process
-                node=None
-                time_stamp = party.write_date
-                FederationQueue.enqueue(cls.__name__, 
-                    fed_acct, time_stamp, node, values,action)
+            if (fed_acct and values):
+                if (fsync or 'fsync' not in values.keys()):
+                    # Start Enqueue process
+                    node=None
+                    time_stamp = party.write_date
+                    FederationQueue.enqueue(cls.__name__,
+                        fed_acct, time_stamp, node, values,action)
 
-                #Unset the fsync flag locally once the info has been
-                #sent to the Federation queue
-                set_fsync(cls, parties, False)
+                    #Unset the fsync flag locally once the info has been
+                    #sent to the Federation queue
+                    set_fsync(cls, parties, False)
 
     @classmethod
     def create(cls, vlist):
@@ -474,9 +476,10 @@ class PartyFed(ModelSQL):
             # from the federation. In that case, skip sending it
             # to the federation queue
 
-            fsync = values.get('fsync')
+            fsync = parties[0].fsync
             # If the user has a federation ID, then enqueue the 
             # record to be sent and created in the Federation
+
             if fed_acct and fsync:
                 action="POST"
                 node=None
@@ -486,6 +489,7 @@ class PartyFed(ModelSQL):
 
                 #Unset the fsync flag locally once the info has been
                 #sent to the Federation queue
-                set_fsync(cls, parties, False)
+                if (fsync):
+                    set_fsync(cls, parties, False)
 
         return parties
