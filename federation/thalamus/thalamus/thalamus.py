@@ -170,7 +170,8 @@ class Person(Resource):
         if check_person(person_id):
             abort (422, error="User already exists")
 
-        values['_id'] = person_id
+        #Use upper case on the person federation account
+        values['_id'] = person_id.upper()
 
         #If no roles are supplied, assign "end_user"
         if not ('roles' in values.keys()):

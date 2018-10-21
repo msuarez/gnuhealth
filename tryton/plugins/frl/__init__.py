@@ -41,6 +41,7 @@ class FederationResourceLocator():
         resource, query, fuzzy_search = data[0].get_text(), \
             data[1].get_text(), data[2].get_active()
 
+        query = query.upper()
         if resource:
             model='gnuhealth.federation.config'
             # Retrieve the connection params for Thalamus
