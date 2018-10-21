@@ -116,23 +116,43 @@ class FederationResourceLocator():
         gtk.main_quit()
 
     def create_local_record(self, model, values):
-            # Create local record from the information
-            # gathered from the Federation
-            gender = values['gender']
-            if gender == 'female':
-                gender = 'f'
-            vals = {'federation_account':values['_id'],
-                'name':values['name'],
-                'lastname':values['lastname'],
-                'gender':gender,
-                'is_person': True,
-                'fsync':False}
+        # Create local record from the information
+        # gathered from the Federation
+        gender = values['gender']
+        if gender == 'female':
+            gender = 'f'
+        vals = {'federation_account':values['_id'],
+            'name':values['name'],
+            'lastname':values['lastname'],
+            'gender':gender,
+            'is_person': True,
+            'fsync':False}
 
-            clocal =rpc.execute(
-                'model', model , 'create',
-                [vals],
-                rpc.CONTEXT)
-            return clocal
+        create_local =rpc.execute(
+            'model', model , 'create',
+            [vals],
+            rpc.CONTEXT)
+        return create_local
+
+
+    def update_local_record(self, model, local_record, values):
+        # Update local record from the information
+        # gathered from the Federation
+        gender = values['gender']
+        if gender == 'female':
+            gender = 'f'
+        vals = {'federation_account':values['_id'],
+            'name':values['name'],
+            'lastname':values['lastname'],
+            'gender':gender,
+            'is_person': True,
+            'fsync':False}
+
+        update_local =rpc.execute(
+            'model', model , 'write', local_record,
+            vals,
+            rpc.CONTEXT)
+        return update_local
 
     # Check if the Federation ID exists in the local Tryton node
     # Looks for any ID (both the PUID and the alternative IDs)
@@ -155,19 +175,32 @@ class FederationResourceLocator():
         tree_iter = model.get_iter(row)
         # Get GNU Health Federation ID (column 0)
         federation_id = model.get_value(tree_iter,0)
-        if (self.check_local_record (federation_id)):
-            already_exists_msg="A record exists LOCALLY with this ID" 
+        local_record = self.check_local_record (federation_id)
+        if (local_record):
+            already_exists_msg= \
+                "A record exists LOCALLY with this ID \n\n" \
+                "Would you like to update it \n" \
+                "with the data from the Federation ?"
 
-            message(_(already_exists_msg))
+            resp_update = sur (_(already_exists_msg))
+            # Create the record locally from the information
+            # retrieved from the Federation
+            if (resp_update):
+                vals = self.get_data.json()
+                model = 'party.party'
+                local_record = \
+                    self.update_local_record (model, local_record, vals)
+
         else:
-            not_found_locally_msg="The person exists on the Federation" \
+            not_found_locally_msg= \
+                "The person exists on the Federation" \
                 " but not locally...  \n" \
                 "Would you like to transfer it ?"
-            response = sur (_(not_found_locally_msg))
+            resp_create = sur (_(not_found_locally_msg))
 
             # Create the record locally from the information
             # retrieved from the Federation
-            if (response):
+            if (resp_create):
                 vals = self.get_data.json()
                 model = 'party.party'
                 local_record = self.create_local_record (model, vals)
