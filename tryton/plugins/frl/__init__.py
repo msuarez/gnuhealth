@@ -36,6 +36,9 @@ _ = gettext.gettext
 class FederationResourceLocator():
     # Import person information from Federation
 
+    # Map the resource with the local model
+    modinfo = {'people':'party.party'}
+
     # Callback method to access Thalamus and retrieve the records
     def search_resource(self, widget, *data):
         resource, query, fuzzy_search = data[0].get_text(), \
@@ -82,10 +85,10 @@ class FederationResourceLocator():
             else:
                 # Find the federation ID using deterministic algorithm
                 # (exact match, return at most one record)
-                self.get_data = requests.get(res, params=query,
+                self.federation_data = requests.get(res, params=query,
                     auth=(user, password), verify=verify_ssl)
 
-                if not self.get_data:
+                if not self.federation_data:
                     not_found_msg = "The ID "+ query +\
                         " does not exist on Federation"
                     message(_(not_found_msg))
@@ -96,7 +99,7 @@ class FederationResourceLocator():
                     fields = ['_id','name', 'lastname', 'gender',
                         'dob', 'phone', 'address']
 
-                    record = self.get_data.json()
+                    record = self.federation_data.json()
 
                     for fname in fields:
                         if fname in record.keys():
@@ -118,19 +121,10 @@ class FederationResourceLocator():
     def create_local_record(self, model, values):
         # Create local record from the information
         # gathered from the Federation
-        gender = values['gender']
-        if gender == 'female':
-            gender = 'f'
-        vals = {'federation_account':values['_id'],
-            'name':values['name'],
-            'lastname':values['lastname'],
-            'gender':gender,
-            'is_person': True,
-            'fsync':False}
 
         create_local =rpc.execute(
             'model', model , 'create',
-            [vals],
+            [values],
             rpc.CONTEXT)
         return create_local
 
@@ -138,23 +132,14 @@ class FederationResourceLocator():
     def update_local_record(self, model, local_record, values):
         # Update local record from the information
         # gathered from the Federation
-        gender = values['gender']
-        if gender == 'female':
-            gender = 'f'
-        vals = {'federation_account':values['_id'],
-            'name':values['name'],
-            'lastname':values['lastname'],
-            'gender':gender,
-            'is_person': True,
-            'fsync':False}
 
         update_local =rpc.execute(
             'model', model , 'write', local_record,
-            vals,
+            values,
             rpc.CONTEXT)
         return update_local
 
-    # Check if the Federation ID exists in the local Tryton node
+    # Check if the Federation ID exists in the local node
     # Looks for any ID (both the PUID and the alternative IDs)
     def check_local_record(self, federation_id):
         model = 'party.party'
@@ -169,12 +154,50 @@ class FederationResourceLocator():
         res = get_record
         return res
 
-    # Get the values from the selection
+    def set_local_data(self,local_model, fed_data):
+        # Retrieve the fields mapping from the federation
+        # resource and local model.
+
+        model_fields = \
+            rpc.execute('model', 'gnuhealth.federation.object', \
+            'get_object_fields',local_model,rpc.CONTEXT)
+
+        #Initialize dictionary values for model-specific fields
+        #needed locally only.
+        if local_model == 'party.party':
+            local_vals = {'federation_account':fed_data['_id'], 'is_person':True}
+
+        local_vals['fsync'] = False
+        field_mapping = model_fields.split(',')
+        resources = []
+        fedvals = []
+        fed_key = {}
+        n=0
+        for val in field_mapping:
+            #Retrieve the field name, the federation resource name
+            #and the associated federation resource field .
+            #string of the form field:fed_resource:fed_field
+            field, fed_resource, fed_field = val.split(':')
+
+            local_vals[field] = fed_data[fed_field]
+        return local_vals
+
+    # Get the values from the selection on the FRL list view
     def get_values(self, treeview, row, column):
-        model = treeview.get_model()
-        tree_iter = model.get_iter(row)
+        treemod = treeview.get_model()
+        tree_iter = treemod.get_iter(row)
         # Get GNU Health Federation ID (column 0)
-        federation_id = model.get_value(tree_iter,0)
+        federation_id = treemod.get_value(tree_iter,0)
+
+        #Federation Resource name
+        resource = self.resource.get_text()
+
+        #local model associated to federation resource
+        model = self.modinfo[resource]
+
+        local_vals = self.set_local_data(model,
+            self.federation_data.json())
+
         local_record = self.check_local_record (federation_id)
         if (local_record):
             already_exists_msg= \
@@ -186,10 +209,8 @@ class FederationResourceLocator():
             # Create the record locally from the information
             # retrieved from the Federation
             if (resp_update):
-                vals = self.get_data.json()
-                model = 'party.party'
                 local_record = \
-                    self.update_local_record (model, local_record, vals)
+                    self.update_local_record (model, local_record, local_vals)
 
         else:
             not_found_locally_msg= \
@@ -201,9 +222,7 @@ class FederationResourceLocator():
             # Create the record locally from the information
             # retrieved from the Federation
             if (resp_create):
-                vals = self.get_data.json()
-                model = 'party.party'
-                local_record = self.create_local_record (model, vals)
+                local_record = self.create_local_record (model, local_vals)
 
     def __init__(self):
 
