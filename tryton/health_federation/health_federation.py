@@ -31,6 +31,7 @@ import requests
 import json
 from ast import literal_eval
 from uuid import uuid4
+from trytond.rpc import RPC
 
 
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
@@ -417,6 +418,9 @@ class FederationObject(ModelSQL, ModelView):
             ('model_uniq', Unique(t, t.model),
              'The Model is already defined !')
         ]
+        cls.__rpc__.update({
+                'get_object_fields': RPC(check_access=False),
+                })
 
 class PartyFed(ModelSQL):
     """
