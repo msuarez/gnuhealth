@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<form>
+    <group id="bol_header">
+        <label name="page"/>
+        <field name="page"/>
+        <label name="name"/>
+        <field name="name"/>
+        <label name="federation_account"/>
+        <field name="federation_account"/>
+        <label name="summary"/>
+        <field name="summary"/>
+        <label name="severity"/>
+        <field name="severity"/>
+        <label name="author"/>
+        <field name="author"/>
+        <label name="node"/>
+        <field name="node"/>
+    </group>
+    <newline/>
+    <separator string="Context" id="separator_context"/>
+    <newline/>
+    <label name="page_date"/>
+    <field name="page_date"/>
+    <label name="computed_age"/>
+    <field name="computed_age"/>
+    <label name="page_type"/>
+    <field name="page_type"/>
+    <label name="medical_context"/>
+    <field name="medical_context"/>
+    <newline/>
+    <label name="health_condition"/>
+    <field name="health_condition"/>
+    <label name="health_condition_text"/>
+    <field name="health_condition_text"/>
+    <label name="health_condition_code"/>
+    <field name="health_condition_code"/>
+    <label name="procedure"/>
+    <field name="procedure"/>
+    <label name="procedure_text"/>
+    <field name="procedure_text"/>
+    <label name="procedure_code"/>
+    <field name="procedure_code"/>
+
+    <separator string="Extended Information" id="separator_extra_info"/>
+    <newline/>
+    <field name="info"/>
+</form>

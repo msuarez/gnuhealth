@@ -78,7 +78,8 @@ __all__ = [
     'PatientPrescriptionOrder', 'PrescriptionLine', 'PatientMedication', 
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
-    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate', 'Commands']
+    'SignsAndSymptoms', 'PatientECG', 'ProductTemplate', 'PageOfLife',
+    'BookOfLife','Commands']
 
 
 sequences = ['patient_sequence', 'patient_evaluation_sequence',
@@ -792,7 +793,122 @@ class Party(ModelSQL, ModelView):
         return [('//group[@id="person_details"]', 'states', {
                 'invisible': ~Eval('is_person'),
                 })]
-                
+      
+      
+class PageOfLife(ModelSQL, ModelView):
+    'Page of Life'
+    __name__ = 'gnuhealth.pol'
+
+    def age_at_page(self, name):
+        if (self.patient.name.dob and self.page_date):
+            return compute_age_from_dates(self.name.dob, None,
+                        None, None, 'age', self.page_date.date())
+
+    name = fields.Many2One('party.party','Person',  
+        domain=[('is_person', '=', True)], help="Related person")
+
+    federation_account = fields.Function(
+        fields.Char('PUID', help="Person Unique Identifier"),
+        'get_federation_account', searcher='search_federation_account')
+
+    page = fields.Char('Page', help="Page of Life", readonly=True)
+    
+    page_date = fields.DateTime('Start', required=True)
+
+    computed_age = fields.Function(fields.Char(
+            'Age',
+            help="Age at the moment of creating the person page of life"),
+            'age_at_page')
+
+    page_type = fields.Selection([
+        (None, ''),
+        ('biographic', 'Biographical'),
+        ('medical', 'Medical'),
+        ('demographic', 'Demographical'),
+        ('social', 'Social'),
+        ], 'Page type', sort=False, required=True)
+
+    medical_context = fields.Selection([
+        (None, ''),
+        ('health_condition', 'Health Condition'),
+        ('procedure', 'Procedure'),
+        ('prescription', 'Prescription'),
+        ('surgery', 'Surgery'),
+        ('hospitalization', 'Hospitalization'),
+        ('lab', 'lab'),
+        ('genetics', 'Genetics'),
+        ('family', 'Family history'),
+        ], 'Medical Context', sort=False)
+
+    severity = fields.Selection([
+        (None, ''),
+        ('informational', 'Informational'),
+        ('mild', 'Mild'),
+        ('severe', 'Severe'),
+        ], 'Severity', sort=False)
+
+    summary = fields.Char("Summary")
+    health_condition = fields.Many2One(
+        'gnuhealth.pathology', 'Health Condition')
+
+    health_condition_code = fields.Char("Code")
+    health_condition_text = fields.Char("Health Condition")
+    procedure_text = fields.Char("Procedure")
+    procedure = fields.Many2One(
+        'gnuhealth.procedure', 'Procedure', help="Procedure code")
+
+    procedure_text = fields.Char("Procedure")
+    procedure_code = fields.Char("Procedure Code")
+
+    protein = fields.Char("Protein")
+    natural_variant = fields.Char("Natural variant")
+    summary = fields.Char("Summary")
+    info = fields.Text("Extended Information")
+
+    node = fields.Char("Node")
+    author = fields.Char("Author")
+    
+    @staticmethod
+    def default_page():
+        return uuid4()
+
+    @staticmethod
+    def default_node():
+        return HealthInstitution().get_institution()
+
+    def get_federation_account(self, name):
+        return self.name.federation_account
+
+    @classmethod
+    def search_federation_account(cls, name, clause):
+        res = []
+        value = clause[2]
+        res.append(('name.federation_account', clause[1], value))
+        return res
+
+    # Get the text representation of the health condition 
+    @fields.depends('health_condition')
+    def on_change_health_condition(self):
+        health_condition_text=None
+        health_condition_code=None
+        if (self.health_condition):
+            self.health_condition_text = self.health_condition.get_rec_name()
+            self.health_code = self.health_condition.code
+
+    # Get the text representation of the procedure 
+    @fields.depends('procedure')
+    def on_change_procedure(self):
+        procedure_text=None
+        procedure_code=None
+        if (self.procedure):
+            self.procedure_text = self.procedure.get_rec_name()
+            self.health_code = self.procedure.code
+
+
+class BookOfLife(ModelSQL, ModelView):
+    'Book of Life'
+    __name__ = 'gnuhealth.bol'
+
 class ContactMechanism(ModelSQL, ModelView):
     __name__ = 'party.contact_mechanism'
 
@@ -2713,13 +2829,6 @@ class PatientData(ModelSQL, ModelView):
         fields.Char('PUID', help="Person Unique Identifier"),
         'get_patient_puid', searcher='search_patient_puid')
 
-    # 2.6 Removed from the patient model and code moved to
-    # the patient alternative id as "medical_record"
-    # identification_code = fields.Char(
-    #    'Code', readonly=True,
-    #    help='Patient Identifier provided by the Health Center.Is not the'
-    #    ' Social Security Number')
-
     family = fields.Many2One(
         'gnuhealth.family', 'Family', help='Family Code')
 
@@ -2845,13 +2954,6 @@ class PatientData(ModelSQL, ModelView):
         help='Write any important information on the patient\'s condition,'
         ' surgeries, allergies, ...')
 
-
-# Removed it in 1.6
-# Not used anymore . Now we relate with a shortcut. Clearer
-#    evaluation_ids = fields.One2Many('gnuhealth.patient.evaluation',
-#        'patient', 'Evaluation')
-#    admissions_ids = fields.One2Many('gnuhealth.patient.admission', 'name',
-#        'Admission / Discharge')
 
     general_info = fields.Text(
         'General Information',
