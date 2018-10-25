@@ -799,38 +799,36 @@ class PageOfLife(ModelSQL, ModelView):
     'Page of Life'
     __name__ = 'gnuhealth.pol'
 
-    def age_at_page(self, name):
-        if (self.patient.name.dob and self.page_date):
+    def age_at_page(self):
+        if (self.name.dob and self.page_date):
             return compute_age_from_dates(self.name.dob, None,
                         None, None, 'age', self.page_date.date())
 
     name = fields.Many2One('party.party','Person',  
-        domain=[('is_person', '=', True)], help="Related person")
+        domain=[('is_person', '=', True)], required=True, 
+        help="Related person")
 
-    federation_account = fields.Function(
-        fields.Char('PUID', help="Person Unique Identifier"),
-        'get_federation_account', searcher='search_federation_account')
+    federation_account = fields.Char('Account', help="Federation Account")
 
     page = fields.Char('Page', help="Page of Life", readonly=True)
-    
-    page_date = fields.DateTime('Start', required=True)
 
-    computed_age = fields.Function(fields.Char(
-            'Age',
-            help="Age at the moment of creating the person page of life"),
-            'age_at_page')
+    page_date = fields.DateTime('Date', help="Date of this page / event")
+
+    age = fields.Char('Age',
+            help="Age at the moment of this page of life")
 
     page_type = fields.Selection([
         (None, ''),
-        ('biographic', 'Biographical'),
+        ('biographical', 'Biographical'),
         ('medical', 'Medical'),
-        ('demographic', 'Demographical'),
+        ('demographical', 'Demographical'),
         ('social', 'Social'),
         ], 'Page type', sort=False, required=True)
 
     medical_context = fields.Selection([
         (None, ''),
         ('health_condition', 'Health Condition'),
+        ('encounter', 'Encounter'),
         ('procedure', 'Procedure'),
         ('prescription', 'Prescription'),
         ('surgery', 'Surgery'),
@@ -838,14 +836,17 @@ class PageOfLife(ModelSQL, ModelView):
         ('lab', 'lab'),
         ('genetics', 'Genetics'),
         ('family', 'Family history'),
-        ], 'Medical Context', sort=False)
+        ], 'Medical Context', sort=False,
+        states={'required': Equal(Eval('page_type'), 'medical'),
+            'invisible': Not(Equal(Eval('page_type'), 'medical'))
+            })
 
-    severity = fields.Selection([
+    relevance = fields.Selection([
         (None, ''),
         ('informational', 'Informational'),
-        ('mild', 'Mild'),
-        ('severe', 'Severe'),
-        ], 'Severity', sort=False)
+        ('important', 'Important'),
+        ('critical', 'Critical'),
+        ], 'Relevance', sort=False, required=True)
 
     summary = fields.Char("Summary")
     health_condition = fields.Many2One(
@@ -860,31 +861,30 @@ class PageOfLife(ModelSQL, ModelView):
     procedure_text = fields.Char("Procedure")
     procedure_code = fields.Char("Procedure Code")
 
-    protein = fields.Char("Protein")
-    natural_variant = fields.Char("Natural variant")
+    protein = fields.Char("Protein",
+        states={'invisible': Not(Equal(Eval('medical_context'), 'genetics'))})
+
+    natural_variant = fields.Char("Natural variant",
+        states={'invisible': Not(Equal(Eval('medical_context'), 'genetics'))})
+
     summary = fields.Char("Summary")
     info = fields.Text("Extended Information")
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
     node = fields.Char("Node")
     author = fields.Char("Author")
     
     @staticmethod
     def default_page():
-        return uuid4()
+        return str(uuid4())
 
     @staticmethod
-    def default_node():
+    def default_institution():
         return HealthInstitution().get_institution()
 
     def get_federation_account(self, name):
         return self.name.federation_account
 
-    @classmethod
-    def search_federation_account(cls, name, clause):
-        res = []
-        value = clause[2]
-        res.append(('name.federation_account', clause[1], value))
-        return res
 
     # Get the text representation of the health condition 
     @fields.depends('health_condition')
@@ -892,8 +892,8 @@ class PageOfLife(ModelSQL, ModelView):
         health_condition_text=None
         health_condition_code=None
         if (self.health_condition):
-            self.health_condition_text = self.health_condition.get_rec_name()
-            self.health_code = self.health_condition.code
+            self.health_condition_text = self.health_condition.name
+            self.health_condition_code = self.health_condition.code
 
     # Get the text representation of the procedure 
     @fields.depends('procedure')
@@ -901,8 +901,29 @@ class PageOfLife(ModelSQL, ModelView):
         procedure_text=None
         procedure_code=None
         if (self.procedure):
-            self.procedure_text = self.procedure.get_rec_name()
-            self.health_code = self.procedure.code
+            self.procedure_text = self.procedure.description
+            self.procedure_code = self.procedure.name
+
+    # Get the text representation of the institution
+    @fields.depends('institution')
+    def on_change_institution(self):
+        node=None
+        if (self.institution):
+            self.node = str(self.institution.name.name)
+
+    # Retrieve the federation account
+    @fields.depends('name')
+    def on_change_name(self):
+        federation_account=None
+        if (self.name):
+            self.federation_account = self.name.federation_account
+
+
+    @fields.depends('name','page_date')
+    def on_change_with_age(self):
+        if (self.name and self.page_date):
+            computed_age = self.age_at_page()
+            return computed_age
 
 
 class BookOfLife(ModelSQL, ModelView):

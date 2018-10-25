@@ -1,47 +1,61 @@
 <?xml version="1.0"?>
 <form>
-    <group id="bol_header">
-        <label name="page"/>
-        <field name="page"/>
+    <group id="pol_header" colspan="4" col="6">
         <label name="name"/>
         <field name="name"/>
+        <label name="page_type"/>
+        <field name="page_type"/>
+        <label name="page_date"/>
+        <field name="page_date"/>
+        <newline/>
+        <label name="age"/>
+        <field name="age"/>
+        <label name="relevance"/>
+        <field name="relevance"/>
+        <label name="institution"/>
+        <field name="institution"/>
+        <newline/>
+        <label name="summary"/>
+        <field name="summary" colspan="4"/>
+    </group>
+    <newline/>
+    <separator string="Context" id="separator_context" colspan="4"/>
+    <newline/>
+    <group id="pol_body" colspan="4" col="6">
+        <label name="medical_context"/>
+        <field name="medical_context"/>
+    </group>
+
+    <newline/>
+
+    <group id="pol_medical" colspan="4" col="6">
+        <label name="health_condition"/>
+        <field name="health_condition"/>
+        <field name="health_condition_text"/>
+        <label name="health_condition_code"/>
+        <field name="health_condition_code"/>
+        <newline/>
+        <label name="procedure"/>
+        <field name="procedure"/>
+        <field name="procedure_text"/>
+        <label name="procedure_code"/>
+        <field name="procedure_code"/>
+    </group>
+
+    <newline/>
+
+    <separator string="Extended Information" id="separator_extra_info" colspan="4"/>
+    <newline/>
+    <field name="info" colspan="4"/>
+    <group id="pol_footer" colspan="4" col="8">
+        <label name="page"/>
+        <field name="page"/>
         <label name="federation_account"/>
         <field name="federation_account"/>
-        <label name="summary"/>
-        <field name="summary"/>
-        <label name="severity"/>
-        <field name="severity"/>
         <label name="author"/>
         <field name="author"/>
         <label name="node"/>
         <field name="node"/>
     </group>
-    <newline/>
-    <separator string="Context" id="separator_context"/>
-    <newline/>
-    <label name="page_date"/>
-    <field name="page_date"/>
-    <label name="computed_age"/>
-    <field name="computed_age"/>
-    <label name="page_type"/>
-    <field name="page_type"/>
-    <label name="medical_context"/>
-    <field name="medical_context"/>
-    <newline/>
-    <label name="health_condition"/>
-    <field name="health_condition"/>
-    <label name="health_condition_text"/>
-    <field name="health_condition_text"/>
-    <label name="health_condition_code"/>
-    <field name="health_condition_code"/>
-    <label name="procedure"/>
-    <field name="procedure"/>
-    <label name="procedure_text"/>
-    <field name="procedure_text"/>
-    <label name="procedure_code"/>
-    <field name="procedure_code"/>
 
-    <separator string="Extended Information" id="separator_extra_info"/>
-    <newline/>
-    <field name="info"/>
 </form>
