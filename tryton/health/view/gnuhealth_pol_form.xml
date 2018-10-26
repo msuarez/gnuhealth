@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <form>
     <group id="pol_header" colspan="4" col="6">
-        <label name="name"/>
-        <field name="name"/>
+        <label name="book"/>
+        <field name="book"/>
         <label name="page_type"/>
         <field name="page_type"/>
         <label name="page_date"/>

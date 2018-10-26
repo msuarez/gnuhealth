@@ -800,12 +800,11 @@ class PageOfLife(ModelSQL, ModelView):
     __name__ = 'gnuhealth.pol'
 
     def age_at_page(self):
-        if (self.name.dob and self.page_date):
-            return compute_age_from_dates(self.name.dob, None,
+        if (self.book.name.dob and self.page_date):
+            return compute_age_from_dates(self.book.name.dob, None,
                         None, None, 'age', self.page_date.date())
 
-    name = fields.Many2One('party.party','Person',  
-        domain=[('is_person', '=', True)], required=True, 
+    book = fields.Many2One('gnuhealth.bol','Book', required=True, 
         help="Related person")
 
     federation_account = fields.Char('Account', help="Federation Account")
@@ -882,10 +881,6 @@ class PageOfLife(ModelSQL, ModelView):
     def default_institution():
         return HealthInstitution().get_institution()
 
-    def get_federation_account(self, name):
-        return self.name.federation_account
-
-
     # Get the text representation of the health condition 
     @fields.depends('health_condition')
     def on_change_health_condition(self):
@@ -912,16 +907,16 @@ class PageOfLife(ModelSQL, ModelView):
             self.node = str(self.institution.name.name)
 
     # Retrieve the federation account
-    @fields.depends('name')
-    def on_change_name(self):
+    @fields.depends('book')
+    def on_change_book(self):
         federation_account=None
-        if (self.name):
-            self.federation_account = self.name.federation_account
+        if (self.book):
+            self.federation_account = self.book.name.federation_account
 
 
-    @fields.depends('name','page_date')
+    @fields.depends('book','page_date')
     def on_change_with_age(self):
-        if (self.name and self.page_date):
+        if (self.book and self.page_date):
             computed_age = self.age_at_page()
             return computed_age
 
@@ -930,6 +925,32 @@ class BookOfLife(ModelSQL, ModelView):
     'Book of Life'
     __name__ = 'gnuhealth.bol'
 
+    name = fields.Many2One('party.party','Book',  
+        domain=[('is_person', '=', True)], required=True,
+        states = {'readonly': Eval('id', 0) > 0}, 
+        help="Related person")
+
+    federation_account = fields.Char('Account', required=True, 
+        help="Name of the Book / Federation Account")
+
+
+    # Add Specialties to the Health Institution
+    pages = fields.One2Many('gnuhealth.pol',
+        'book','Pages',
+        help="Pages of the book")
+
+    title = fields.Char("Title")
+
+    synopsis = fields.Text("Synopsis")
+
+    # Retrieve the federation account
+    @fields.depends('name')
+    def on_change_name(self):
+        federation_account=None
+        if (self.name):
+            self.federation_account = self.name.federation_account
+
+    
 class ContactMechanism(ModelSQL, ModelView):
     __name__ = 'party.contact_mechanism'
 
@@ -2949,17 +2970,10 @@ class PatientData(ModelSQL, ModelView):
             "B-THAL = B Thalassemia groups\n"
         )
 
-    # Removed in 2.0 . ETHNIC GROUP is on the party model now
-
-    # ethnic_group = fields.Many2One('gnuhealth.ethnicity', 'Ethnic group')
     vaccinations = fields.One2Many(
         'gnuhealth.vaccination', 'name', 'Vaccinations', readonly=True)
     medications = fields.One2Many(
         'gnuhealth.patient.medication', 'name', 'Medications')
-
-# Removed in 1.6
-#    prescriptions = fields.One2Many('gnuhealth.prescription.order', 'name',
-#        'Prescriptions')
 
     diseases = fields.One2Many('gnuhealth.patient.disease', 'name',
      'Conditions', readonly=True)
