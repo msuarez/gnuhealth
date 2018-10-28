@@ -6,12 +6,12 @@
         <label name="federation_account"/>
         <field name="federation_account"/>
         <newline/>
-        <label name="title"/>
-        <field name="title" colspan="2"/>
+        <group id="bol_title" colspan="4" string="Title">
+        <field name="title"/>
+        </group>
     </group>
     <newline/>
     <group id="bol_synopsis" colspan="4" string="Synopsis">
-        <label name="synopsis"/>
         <field name="synopsis"/>
     </group>
     <newline/>
