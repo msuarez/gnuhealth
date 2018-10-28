@@ -79,7 +79,7 @@ __all__ = [
     'PatientVaccination','PatientEvaluation',
     'Directions', 'SecondaryCondition', 'DiagnosticHypothesis',
     'SignsAndSymptoms', 'PatientECG', 'ProductTemplate', 'PageOfLife',
-    'BookOfLife','Commands']
+    'Commands']
 
 
 sequences = ['patient_sequence', 'patient_evaluation_sequence',
@@ -800,14 +800,20 @@ class PageOfLife(ModelSQL, ModelView):
     __name__ = 'gnuhealth.pol'
 
     def age_at_page(self):
-        if (self.book.name.dob and self.page_date):
-            return compute_age_from_dates(self.book.name.dob, None,
+        if (self.person.dob and self.page_date):
+            return compute_age_from_dates(self.person.dob, None,
                         None, None, 'age', self.page_date.date())
 
-    book = fields.Many2One('gnuhealth.bol','Book', required=True, 
-        help="Related person")
+    person = fields.Many2One(
+        'party.party', 'Person', required=True,
+        domain=[
+            ('is_person', '=', True),
+            ],
+        states = {'readonly': Eval('id', 0) > 0},
+        help="Person")
 
-    federation_account = fields.Char('Account', help="Federation Account")
+    federation_account = fields.Char('Account',
+        required=True, help="Federation Account")
 
     page = fields.Char('Page', help="Page of Life", readonly=True)
 
@@ -910,16 +916,16 @@ class PageOfLife(ModelSQL, ModelView):
             self.node = str(self.institution.name.name)
 
     # Retrieve the federation account
-    @fields.depends('book')
-    def on_change_book(self):
+    @fields.depends('person')
+    def on_change_person(self):
         federation_account=None
-        if (self.book):
-            self.federation_account = self.book.name.federation_account
+        if (self.person):
+            self.federation_account = self.person.federation_account
 
 
-    @fields.depends('book','page_date')
+    @fields.depends('person','page_date')
     def on_change_with_age(self):
-        if (self.book and self.page_date):
+        if (self.person and self.page_date):
             computed_age = self.age_at_page()
             return computed_age
 
@@ -931,53 +937,10 @@ class PageOfLife(ModelSQL, ModelView):
             page.validate_account()
 
     def validate_account(self):
-        if (self.book.name.federation_account != self.federation_account):
+        if (self.person.federation_account != self.federation_account):
                         self.raise_user_error(
                 "The account differs from the person federation account !")
 
-class BookOfLife(ModelSQL, ModelView):
-    'Book of Life'
-    __name__ = 'gnuhealth.bol'
-
-    name = fields.Many2One('party.party','Book',  
-        domain=[('is_person', '=', True)], required=True,
-        states = {'readonly': Eval('id', 0) > 0}, 
-        help="Related person")
-
-    federation_account = fields.Char('Account', required=True, 
-        help="Name of the Book / Federation Account")
-
-
-    # Show pages of the book
-    pages = fields.One2Many('gnuhealth.pol',
-        'book','Pages',
-        help="Pages of the book")
-
-    title = fields.Char("Title")
-
-    synopsis = fields.Text("Synopsis")
-
-    # Retrieve the federation account
-    @fields.depends('name')
-    def on_change_name(self):
-        federation_account=None
-        if (self.name):
-            self.federation_account = self.name.federation_account
-
-    @classmethod
-    def validate(cls, books):
-        super(BookOfLife, cls).validate(books)
-        for book in books:
-            book.validate_account()
-
-    def validate_account(self):
-        if (self.name.federation_account != self.federation_account):
-                        self.raise_user_error(
-                "The account differs from the person federation account !")
-
-    def get_rec_name(self, name):
-        if self.name:
-            return self.name.name
 
 class ContactMechanism(ModelSQL, ModelView):
     __name__ = 'party.contact_mechanism'

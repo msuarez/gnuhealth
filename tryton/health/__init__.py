@@ -95,7 +95,6 @@ def register():
         CheckImmunizationStatusInit,
         ProductTemplate,
         PageOfLife,
-        BookOfLife,
         Commands,
         module='health', type_='model')
     Pool.register(

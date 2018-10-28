@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <form>
-    <group id="pol_header" colspan="4" col="6">
-        <label name="book"/>
-        <field name="book"/>
+    <group id="pol_header" colspan="4" col="8">
+        <label name="person"/>
+        <field name="person"/>
         <label name="page_type"/>
         <field name="page_type"/>
         <label name="page_date"/>
         <field name="page_date"/>
+        <label name="relevance"/>
+        <field name="relevance"/>
         <newline/>
         <label name="age"/>
         <field name="age"/>
-        <label name="relevance"/>
-        <field name="relevance"/>
         <label name="institution"/>
         <field name="institution"/>
         <newline/>
