@@ -829,12 +829,16 @@ class PageOfLife(ModelSQL, ModelView):
         ('health_condition', 'Health Condition'),
         ('encounter', 'Encounter'),
         ('procedure', 'Procedure'),
+        ('immunization','Immunization'),
         ('prescription', 'Prescription'),
         ('surgery', 'Surgery'),
         ('hospitalization', 'Hospitalization'),
         ('lab', 'lab'),
+        ('dx_imaging', 'Dx Imaging'),
         ('genetics', 'Genetics'),
         ('family', 'Family history'),
+        ('birth', 'Birth'),
+        ('death', 'Death'),
         ], 'Medical Context', sort=False,
         states={'required': Equal(Eval('page_type'), 'medical'),
             'invisible': Not(Equal(Eval('page_type'), 'medical'))
@@ -921,6 +925,17 @@ class PageOfLife(ModelSQL, ModelView):
             return computed_age
 
 
+    @classmethod
+    def validate(cls, pages):
+        super(PageOfLife, cls).validate(pages)
+        for page in pages:
+            page.validate_account()
+
+    def validate_account(self):
+        if (self.book.name.federation_account != self.federation_account):
+                        self.raise_user_error(
+                "The account differs from the person federation account !")
+
 class BookOfLife(ModelSQL, ModelView):
     'Book of Life'
     __name__ = 'gnuhealth.bol'
@@ -934,7 +949,7 @@ class BookOfLife(ModelSQL, ModelView):
         help="Name of the Book / Federation Account")
 
 
-    # Add Specialties to the Health Institution
+    # Show pages of the book
     pages = fields.One2Many('gnuhealth.pol',
         'book','Pages',
         help="Pages of the book")
@@ -950,7 +965,21 @@ class BookOfLife(ModelSQL, ModelView):
         if (self.name):
             self.federation_account = self.name.federation_account
 
-    
+    @classmethod
+    def validate(cls, books):
+        super(BookOfLife, cls).validate(books)
+        for book in books:
+            book.validate_account()
+
+    def validate_account(self):
+        if (self.name.federation_account != self.federation_account):
+                        self.raise_user_error(
+                "The account differs from the person federation account !")
+
+    def get_rec_name(self, name):
+        if self.name:
+            return self.name.name
+
 class ContactMechanism(ModelSQL, ModelView):
     __name__ = 'party.contact_mechanism'
 
@@ -4023,8 +4052,7 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         readonly=True, help='Type in the ID of this prescription')
 
     prescription_date = fields.DateTime('Prescription Date', states = STATES)
-# In 1.8 we associate the prescribing doctor to the physician name
-# instead to the old user_id (res.user)
+
     user_id = fields.Many2One('res.user', 'Prescribing Doctor', readonly=True)
 
     pharmacy = fields.Many2One(
