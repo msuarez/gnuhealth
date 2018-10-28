@@ -249,7 +249,7 @@ class Life(Resource):
         """
         Retrieves the pages of life from the person
         """
-        pages = list(mongo.db.lives.find({'book' : person_id}))
+        pages = list(mongo.db.pols.find({'book' : person_id}))
 
         # Return a 404 if the person ID is not found
         if not pages:
@@ -268,7 +268,7 @@ class Page(Resource):
         """
         Retrieves the page instance associated to the book(person)
         """
-        page = mongo.db.lives.find_one({'_id': page_id ,'book': person_id})
+        page = mongo.db.pols.find_one({'_id': page_id ,'book': person_id})
 
         # Return a 404 if the person ID is not found
         if not page:
