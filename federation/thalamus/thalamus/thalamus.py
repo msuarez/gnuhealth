@@ -34,7 +34,7 @@ from ast import literal_eval
 import bcrypt
 import logging
 
-__all__ = ["People","Person"]
+__all__ = ["People","Person","Life","Page"]
 
 app = Flask(__name__)
 app.config.from_pyfile('etc/thalamus.cfg')
@@ -75,7 +75,6 @@ def verify_password(username, password):
     """ 
     user = mongo.db.people.find_one({'_id' : username})
     if (user):
-        # account = mongo.db.people.find_one({'_id' : username})
         person = user['_id']
         hashed_password = user['password']
         roles = user['roles']
@@ -103,7 +102,8 @@ def access_control(username, roles, method, endpoint, view_args):
     Takes the logged in user roles, method and endpoint as arguments
     Verifies them against the ACL and returns either True or False
     """
-    for user_role in roles:
+
+    for user_role in roles:        
         for acl_entry in ACL:
             if (acl_entry["role"] == user_role):
                 actions = acl_entry["permissions"]
@@ -135,7 +135,8 @@ class People(Resource):
 
 # Person 
 class Person(Resource):
-    """Class that manages the person demographics"""
+    """Class that manages the person demographics.
+    """
     
     decorators = [auth.login_required] # Use the decorator from httpauth
 
@@ -238,10 +239,53 @@ class Person(Resource):
 
         delete_person = mongo.db.people.delete_one({"_id":person_id})
 
-api.add_resource(People, '/people') #Add resource for People
+# Book of Life Resource
+class Life(Resource):
+    """Collection resource for a person life information"""
+    
+    decorators = [auth.login_required] # Use the decorator from httpauth
 
+    def get(self, person_id):
+        """
+        Retrieves the pages of life from the person
+        """
+        pages = list(mongo.db.lives.find({'book' : person_id}))
+
+        # Return a 404 if the person ID is not found
+        if not pages:
+            return '', 404
+
+        return jsonify(pages)
+
+
+# Page of Life 
+class Page(Resource):
+    """Information and events that make and shape a person life"""
+    
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self, person_id, page_id):
+        """
+        Retrieves the page instance associated to the book(person)
+        """
+        page = mongo.db.lives.find_one({'_id': page_id ,'book': person_id})
+
+        # Return a 404 if the person ID is not found
+        if not page:
+            abort (404, error="Book or page or not found")
+
+        return jsonify(page)
+
+# Add resources and endpoints
+# The endpoints are the class names in lower case (eg, people, life, page...)
+
+#People and person
+api.add_resource(People, '/people') #Add resource for People
 api.add_resource(Person, '/people/<string:person_id>') #Add person instance
 
+#Life and pages of life
+api.add_resource(Life, '/life/<string:person_id>') 
+api.add_resource(Page, '/life/<string:person_id>/<string:page_id>') 
 
 # Personal Documents resource
 class PersonalDocs(Resource):
@@ -261,33 +305,6 @@ class DomiciliaryUnits(Resource):
 
 api.add_resource(DomiciliaryUnits, '/domiciliary-units')
 
-# Health Encounters resource
-class Encounters(Resource):
-    "Events related to person"
-    def get(self):
-        events = list(mongo.db.encounter.find())
-        return jsonify(encounters)
-
-api.add_resource(Encounters, '/encounters')
-
-# Vital signs, anthropometrics and other measurements
-class Measurements(Resource):
-    "Vital signs and anthropometrics"
-    def get(self):
-        events = list(mongo.db.measurements.find())
-        return jsonify(measurements)
-
-api.add_resource(Measurements, '/measurements')
-
-
-# Hospitalizations resource
-class Hospitalizations(Resource):
-    "Hospitalization history"
-    def get(self):
-        hospitalizations = list(mongo.db.hospitalization.find())
-        return jsonify(hospitalizations)
-
-api.add_resource(Hospitalizations, '/hospitalizations')
 
 # Institutions resource
 class Institutions(Resource):
