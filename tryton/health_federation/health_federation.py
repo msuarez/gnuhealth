@@ -520,6 +520,7 @@ class PoLFed(ModelSQL):
 
     @classmethod
     def write(cls, pols, values):
+        super(PoLFed, cls).write(pols, values)
 
         for pol in pols:
             action = "PATCH"
@@ -540,7 +541,6 @@ class PoLFed(ModelSQL):
                     #sent to the Federation queue
                     set_fsync(cls, pols, False)
 
-        super(PolFed, cls).write(pols, values)
 
     @classmethod
     def create(cls, vlist):
