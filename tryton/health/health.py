@@ -857,7 +857,6 @@ class PageOfLife(ModelSQL, ModelView):
 
     health_condition_code = fields.Char("Code")
     health_condition_text = fields.Char("Health Condition")
-    procedure_text = fields.Char("Procedure")
     procedure = fields.Many2One(
         'gnuhealth.procedure', 'Procedure', help="Procedure code")
 

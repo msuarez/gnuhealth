@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
     <data skiptest="1">
+<!-- People -->
         <record model="gnuhealth.federation.object" id="party">
             <field name="model">party.party</field>
             <field name="enabled">1</field>
@@ -9,6 +10,31 @@ lastname:people:lastname,
 dob:people:dob,
 gender:people:gender,
 federation_account:people:_id</field>
+        </record>
+
+<!-- Page of Life -->
+
+        <record model="gnuhealth.federation.object" id="pol">
+            <field name="model">gnuhealth.pol</field>
+            <field name="enabled">1</field>
+            <field name="fields">federation_account:pols:book,
+page:pols:page,
+page_date:pols:page_date,
+age:pols:age,
+page_type:pols:page_type,
+relevance:pols:relevance,
+medical_context:pols:medical_context,
+health_condition_text:pols:health_condition_text,
+health_condition_code:pols:health_condition_code,
+procedure_text:pols:procedure_text,
+procedure_code:pols:procedure_code,
+protein:pols:protein,
+protein:pols:protein,
+natural_variant:pols:natural_variant,
+summary:pols:summary,
+info:pols:info,
+node:pols:node,
+author:pols:author</field>
         </record>
     </data>
 </tryton>

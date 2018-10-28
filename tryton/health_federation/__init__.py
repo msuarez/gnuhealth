@@ -45,4 +45,5 @@ def register():
         FederationQueue,
         FederationObject,
         PartyFed,
+        PoLFed,
         module='health_federation', type_='model')

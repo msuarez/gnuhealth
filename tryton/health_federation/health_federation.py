@@ -35,7 +35,7 @@ from trytond.rpc import RPC
 
 
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
-    'PartyFed']
+    'PartyFed','PoLFed']
 
 
 def set_fsync(model, records, flag):
@@ -497,3 +497,79 @@ class PartyFed(ModelSQL):
                     set_fsync(cls, parties, False)
 
         return parties
+
+class PoLFed(ModelSQL):
+    """
+    Page of Life Model to participate on the Federation
+    
+    Methods : write (PATCH), create (POST)
+    """
+
+    __name__ = 'gnuhealth.pol'
+
+    # Controls if the updated information will be sent to the Federation.
+    #   True: Info will be sent to the federation queue
+    #   False: The info is up-todate with the federation or is local
+    fsync = fields.Boolean('Fsync',
+        help="If active, this record information will" \
+            " be sent to the Federation")
+
+    @staticmethod
+    def default_fsync():
+        return True
+
+    @classmethod
+    def write(cls, pols, values):
+
+        for pol in pols:
+            action = "PATCH"
+            # Retrieve federation account (for people only)
+            fed_acct = pol.federation_account
+            fsync = pol.fsync
+            # Verify that the person has a Federation account.
+            # and the fsync flag is set for the record
+            if (fed_acct and values):
+                if (fsync or 'fsync' not in values.keys()):
+                    # Start Enqueue process
+                    node=None
+                    time_stamp = pol.write_date
+                    FederationQueue.enqueue(cls.__name__,
+                        fed_acct, time_stamp, node, values,action)
+
+                    #Unset the fsync flag locally once the info has been
+                    #sent to the Federation queue
+                    set_fsync(cls, pols, False)
+
+        super(PolFed, cls).write(pols, values)
+
+    @classmethod
+    def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
+
+        # Execute first the creation of PoL
+        pols = super(PoLFed, cls).create(vlist)
+
+        for values in vlist:
+            fed_acct = values.get('federation_account')
+
+            # Check if the record has just been imported of modified
+            # from the federation. In that case, skip sending it
+            # to the federation queue
+
+            fsync = pols[0].fsync
+            # If the user has a federation ID, then enqueue the 
+            # record to be sent and created in the Federation
+
+            if fed_acct and fsync:
+                action="POST"
+                node=None
+                time_stamp = pols[0].create_date
+                FederationQueue.enqueue(cls.__name__,
+                    fed_acct, time_stamp, node, values,action)
+
+                #Unset the fsync flag locally once the info has been
+                #sent to the Federation queue
+                if (fsync):
+                    set_fsync(cls, pols, False)
+
+        return pols
