@@ -34,7 +34,7 @@ from ast import literal_eval
 import bcrypt
 import logging
 
-__all__ = ["People","Person","Life","Page"]
+__all__ = ["People","Person","Book","Page"]
 
 app = Flask(__name__)
 app.config.from_pyfile('etc/thalamus.cfg')
@@ -72,13 +72,13 @@ def verify_password(username, password):
     Takes the username and password from the client
     and checks them against the entry on the people db collection
     The password is bcrypt hashed
-    """ 
+    """
     user = mongo.db.people.find_one({'_id' : username})
     if (user):
         person = user['_id']
         hashed_password = user['password']
         roles = user['roles']
-        if bcrypt.checkpw(password.encode('utf-8'), 
+        if bcrypt.checkpw(password.encode('utf-8'),
             hashed_password.encode('utf-8')):
             """ Authentication OK
             Now check the access level for the resource
@@ -87,10 +87,10 @@ def verify_password(username, password):
             endpoint = request.endpoint
             view_args = request.view_args
             return access_control(username,roles, method, endpoint, view_args)
-                
+
         else:
             return False
-        
+
     else:
        return False
 
@@ -103,14 +103,14 @@ def access_control(username, roles, method, endpoint, view_args):
     Verifies them against the ACL and returns either True or False
     """
 
-    for user_role in roles:        
+    for user_role in roles:
         for acl_entry in ACL:
             if (acl_entry["role"] == user_role):
                 actions = acl_entry["permissions"]
                 if (endpoint in actions[method]):
                     """Check if the method allows to access the endpoint"""
                     if view_args:
-                        """If there are arguments (eg, person_id), check 
+                        """If there are arguments (eg, person_id), check
                             whether the user role has global access
                             or just can see his/her records"""
                         if (username == view_args["person_id"] or
@@ -119,11 +119,11 @@ def access_control(username, roles, method, endpoint, view_args):
                     else:
                         return True
     return False
-        
+
 # People Resource
 class People(Resource):
     """Collection resource for demographic information"""
-    
+
     decorators = [auth.login_required] # Use the decorator from httpauth
     def get(self):
         """
@@ -133,16 +133,16 @@ class People(Resource):
 
         return jsonify(people)
 
-# Person 
+# Person
 class Person(Resource):
     """Class that manages the person demographics.
     """
-    
+
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self, person_id):
         """
-        Retrieves the person instance 
+        Retrieves the person instance
         """
         person = mongo.db.people.find_one({'_id' : person_id})
 
@@ -154,7 +154,7 @@ class Person(Resource):
 
     def post(self, person_id):
         """
-        Create a new instance on the Person resource 
+        Create a new instance on the Person resource
         Initially just the Federation ID and the bcrypted
         hashed password
         """
@@ -165,7 +165,7 @@ class Person(Resource):
         # Initialize to inactive the newly created person
         values['active'] = False
         pw = None
-        
+
         bcrypt_prefixes = ["$2b$", "$2y$"]
 
         if check_person(person_id):
@@ -203,7 +203,7 @@ class Person(Resource):
 
     def patch(self, person_id):
         """
-        Updates the person instance 
+        Updates the person instance
         """
 
         # Convert from bytes to dictionary the information
@@ -217,7 +217,7 @@ class Person(Resource):
             # Check if the new ID exist in the Federation, and if it
             # does not, we may be able to update it.
 
-        if check_person(person_id): 
+        if check_person(person_id):
             update_person = mongo.db.people.update_one({"_id":person_id},
                 {"$set": values})
         else:
@@ -225,8 +225,8 @@ class Person(Resource):
 
     def delete(self, person_id):
         """
-        Delete the user instance. This will be 
-        used in exceptional cases only, and the 
+        Delete the user instance. This will be
+        used in exceptional cases only, and the
         instance must be inactive.
         """
         person = check_person(person_id)
@@ -235,14 +235,14 @@ class Person(Resource):
 
         else:
            if person['active']:
-            abort (422, error="The user is active.") 
+            abort (422, error="The user is active.")
 
         delete_person = mongo.db.people.delete_one({"_id":person_id})
 
 # Book of Life Resource
-class Life(Resource):
+class Book(Resource):
     """Collection resource for a person life information"""
-    
+
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self, person_id):
@@ -258,21 +258,34 @@ class Life(Resource):
         return jsonify(pages)
 
 
-# Page of Life 
+# Page of Life
 class Page(Resource):
     """Information and events that make and shape a person life"""
-    
+
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self, person_id, page_id):
         """
-        Retrieves the page instance associated to the book(person)
+        Retrieves the page instance
         """
-        page = mongo.db.pols.find_one({'_id': page_id ,'book': person_id})
+        page = mongo.db.pols.find_one({'_id': page_id})
 
         # Return a 404 if the person ID is not found
         if not page:
             abort (404, error="Book or page or not found")
+
+        return jsonify(page)
+
+    def post(self, person_id, page_id):
+        """
+        Create a new instance on the Page resource
+        """
+        # Convert from bytes to dictionary the information
+        # coming from the node (Python Requests library)
+        values = literal_eval(request.data.decode())
+
+        # Insert the newly created PoL in MongoDB
+        page = mongo.db.pols.insert(values)
 
         return jsonify(page)
 
@@ -283,9 +296,9 @@ class Page(Resource):
 api.add_resource(People, '/people') #Add resource for People
 api.add_resource(Person, '/people/<string:person_id>') #Add person instance
 
-#Life and pages of life
-api.add_resource(Life, '/life/<string:person_id>') 
-api.add_resource(Page, '/life/<string:person_id>/<string:page_id>') 
+#Book and pages of life resources (in pols collection)
+api.add_resource(Book, '/pols/<string:person_id>')
+api.add_resource(Page, '/pols/<string:person_id>/<string:page_id>')
 
 # Personal Documents resource
 class PersonalDocs(Resource):
@@ -309,7 +322,7 @@ api.add_resource(DomiciliaryUnits, '/domiciliary-units')
 # Institutions resource
 class Institutions(Resource):
     "Health and other institutions"
-    
+
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self):
