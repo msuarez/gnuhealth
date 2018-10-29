@@ -63,10 +63,10 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
             " leave it unchecked")
     enabled = fields.Boolean('Enabled', help="Mark if the node is active" \
         " in the Federation")
-    
+
     # TODO: Check the associated institution and use as
     # a default value its id
-    
+
     @staticmethod
     def default_host():
         return 'localhost'
@@ -98,12 +98,12 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         cls._buttons.update({
                 'test_connection': {}
                     }),
-    
+
     @classmethod
     @ModelView.button
     def test_connection(cls, argvs):
         """ Make the connection test to Thalamus Server
-            from the GNU Health HMIS using the institution 
+            from the GNU Health HMIS using the institution
             associated admin and the related credentials
         """
 
@@ -116,16 +116,16 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
             protocol = 'https://'
         else:
             protocol = 'http://'
-            
+
         url = protocol + host + ':' + str(port) + '/people/' + user
-       
+
         try:
             conn = requests.get(url,
-                auth=(user, password), verify=verify_ssl)        
-            
+                auth=(user, password), verify=verify_ssl)
+
         except:
             cls.raise_user_error("ERROR authenticating to Server")
-        
+
         if conn:
             cls.raise_user_error("Connection to Thalamus Server OK !")
 
@@ -166,7 +166,7 @@ class FederationQueue(ModelSQL, ModelView):
         help="UTC timestamp at the moment of writing record on the node")
 
     federation_locator = fields.Char('Fed ID',
-        help="Unique locator in Federation, " 
+        help="Unique locator in Federation, "
         "such as person Federation account or institution Code")
 
     args = fields.Text('Arguments', required=True,
@@ -187,6 +187,9 @@ class FederationQueue(ModelSQL, ModelView):
         ('failed', 'Failed'),
         ], 'Status', sort=False)
 
+    url_suffix = fields.Char('URL suffix',
+        help="suffix to be passed to the URL")
+
     @staticmethod
     def default_node():
         # Get the Institution code as the originating node.
@@ -199,7 +202,7 @@ class FederationQueue(ModelSQL, ModelView):
     @classmethod
     def send_record(cls,record):
         rc = False
-        
+
         host, port, user, password, ssl_conn, verify_ssl, protocol = \
             FederationNodeConfig.get_conn_params()
 
@@ -228,13 +231,13 @@ class FederationQueue(ModelSQL, ModelView):
                         arg['fields']
 
                     # Add resource and instance to URL
-                    url = url + '/' + resource + '/' + record.federation_locator
+                    url = url + '/' + resource + '/' + record.url_suffix
 
                     for field in fields:
                         fname, fvalue = field['name'], field['value']
                         vals[fname]= fvalue
 
-                    send_data = requests.request('PATCH',url, 
+                    send_data = requests.request('PATCH',url,
                         data=json.dumps(vals), \
                         auth=(user, password), verify=verify_ssl)
 
@@ -254,27 +257,27 @@ class FederationQueue(ModelSQL, ModelView):
                 for arg in literal_eval(record.args):
                     vals = {}
                     creation_info = {}
-                    
-                    # Include the creation information 
+
+                    # Include the creation information
                     creation_info = {'user':user, \
                         'timestamp': record.time_stamp,
                         'node': record.node}
-                    
+
                     vals['creation_info'] = creation_info
-                    
+
                     url = protocol + host + ':' + str(port)
 
                     resource, fields = arg['resource'],\
                         arg['fields']
 
                     # Add resource and instance to URL
-                    url = url + '/' + resource + '/' + record.federation_locator
+                    url = url + '/' + resource + '/' + record.url_suffix
 
                     for field in fields:
                         fname, fvalue = field['name'], field['value']
                         vals[fname]= fvalue
 
-                    send_data = requests.request('POST',url, 
+                    send_data = requests.request('POST',url,
                         data=json.dumps(vals), \
                         auth=(user, password), verify=verify_ssl)
 
@@ -309,7 +312,7 @@ class FederationQueue(ModelSQL, ModelView):
                 #and retrieve the equivalent federation field name
 
                 # If the resource is not in the list
-                # create a new item 
+                # create a new item
                 if fed_resource not in resources:
                     fed_key = {
                         "resource": fed_resource,
@@ -336,7 +339,9 @@ class FederationQueue(ModelSQL, ModelView):
         return fedvals
 
     @classmethod
-    def enqueue(cls,model, federation_loc, time_stamp, node, values, action):
+    def enqueue(cls,model, federation_loc, time_stamp, node, values,
+        action, url_suffix):
+
         fields = FederationObject.get_object_fields(model)
         # Federation locator : Unique ID of the resource
         # such as personal federation account or institution ID
@@ -359,6 +364,7 @@ class FederationQueue(ModelSQL, ModelView):
                 vals['method'] = action
                 vals['status'] = 'queued'
                 vals['federation_locator'] = federation_loc
+                vals['url_suffix'] = url_suffix
                 rec.append(vals)
                 #Write the record to the enqueue list
                 cls.create(rec)
@@ -376,7 +382,6 @@ class FederationQueue(ModelSQL, ModelView):
     def send(cls, records):
         # Verify and send each record to Thalamus individually
         # It allows to get specific status on each operation
-        
         # record: individual record on gnuhealth.federation.queue model
         for record in records:
             rec = []
@@ -407,12 +412,12 @@ class FederationObject(ModelSQL, ModelView):
         model, = cls.search_read([("model", "=", obj)],
             limit=1, fields_names=['fields','enabled'])
 
-        # If the model exist on the Federation Object, 
+        # If the model exist on the Federation Object,
         # and is currently enabled, return the field names and their
         # equivalents on the Federation
         if (model and model['enabled']):
             return model['fields']
-        
+
     @classmethod
     def __setup__(cls):
         super(FederationObject, cls).__setup__()
@@ -428,7 +433,7 @@ class FederationObject(ModelSQL, ModelView):
 class PartyFed(ModelSQL):
     """
     Demographics Model to participate on the Federation
-    
+
     Methods : write (PATCH), create (POST)
     """
 
@@ -462,8 +467,10 @@ class PartyFed(ModelSQL):
                     # Start Enqueue process
                     node=None
                     time_stamp = party.write_date
+                    url_suffix = fed_acct
                     FederationQueue.enqueue(cls.__name__,
-                        fed_acct, time_stamp, node, values,action)
+                        fed_acct, time_stamp, node, values,action,
+                        url_suffix)
 
                     #Unset the fsync flag locally once the info has been
                     #sent to the Federation queue
@@ -484,15 +491,17 @@ class PartyFed(ModelSQL):
             # to the federation queue
 
             fsync = parties[0].fsync
-            # If the user has a federation ID, then enqueue the 
+            # If the user has a federation ID, then enqueue the
             # record to be sent and created in the Federation
 
             if fed_acct and fsync:
                 action="POST"
                 node=None
+                url_suffix = fed_acct
                 time_stamp = parties[0].create_date
                 FederationQueue.enqueue(cls.__name__,
-                    fed_acct, time_stamp, node, values,action)
+                    fed_acct, time_stamp, node, values,
+                    action,url_suffix)
 
                 #Unset the fsync flag locally once the info has been
                 #sent to the Federation queue
@@ -504,7 +513,7 @@ class PartyFed(ModelSQL):
 class PoLFed(ModelSQL):
     """
     Page of Life Model to participate on the Federation
-    
+
     Methods : write (PATCH), create (POST)
     """
 
@@ -527,18 +536,20 @@ class PoLFed(ModelSQL):
 
         for pol in pols:
             action = "PATCH"
-            # Retrieve federation account (for people only)
-            fed_acct = pol.federation_account
+            # Retrieve page of live unique ID into fed_identifier
+            fed_identifier = pol.page
             fsync = pol.fsync
-            # Verify that the person has a Federation account.
+            # Verify that the page has the federation identifier.
             # and the fsync flag is set for the record
-            if (fed_acct and values):
+            if (fed_identifier and values):
                 if (fsync or 'fsync' not in values.keys()):
                     # Start Enqueue process
                     node=None
                     time_stamp = pol.write_date
+                    url_suffix = federation_account
                     FederationQueue.enqueue(cls.__name__,
-                        fed_acct, time_stamp, node, values,action)
+                        fed_identifier, time_stamp, node, values,
+                        action, url_suffix)
 
                     #Unset the fsync flag locally once the info has been
                     #sent to the Federation queue
@@ -553,22 +564,24 @@ class PoLFed(ModelSQL):
         pols = super(PoLFed, cls).create(vlist)
 
         for values in vlist:
-            fed_acct = values.get('federation_account')
-
+            fed_identifier = pols[0].page
+            federation_account = pols[0].federation_account
             # Check if the record has just been imported of modified
             # from the federation. In that case, skip sending it
             # to the federation queue
 
             fsync = pols[0].fsync
-            # If the user has a federation ID, then enqueue the 
+            # If the page has a federation ID, then enqueue the
             # record to be sent and created in the Federation
 
-            if fed_acct and fsync:
+            if fed_identifier and fsync:
                 action="POST"
                 node=None
                 time_stamp = pols[0].create_date
+                url_suffix = federation_account + '/' + fed_identifier
                 FederationQueue.enqueue(cls.__name__,
-                    fed_acct, time_stamp, node, values,action)
+                    fed_identifier, time_stamp, node, values,
+                    action, url_suffix)
 
                 #Unset the fsync flag locally once the info has been
                 #sent to the Federation queue

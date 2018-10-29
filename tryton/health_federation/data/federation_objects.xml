@@ -5,11 +5,13 @@
         <record model="gnuhealth.federation.object" id="party">
             <field name="model">party.party</field>
             <field name="enabled">1</field>
-            <field name="fields">name:people:name,
+            <field name="fields">
+name:people:name,
 lastname:people:lastname,
 dob:people:dob,
 gender:people:gender,
-federation_account:people:_id</field>
+federation_account:people:_id
+            </field>
         </record>
 
 <!-- Page of Life -->
@@ -17,8 +19,9 @@ federation_account:people:_id</field>
         <record model="gnuhealth.federation.object" id="pol">
             <field name="model">gnuhealth.pol</field>
             <field name="enabled">1</field>
-            <field name="fields">federation_account:pols:book,
-page:pols:page,
+            <field name="fields">
+page:pols:_id,
+federation_account:pols:book,
 page_date:pols:page_date,
 age:pols:age,
 page_type:pols:page_type,
