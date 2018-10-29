@@ -304,7 +304,7 @@ class FederationQueue(ModelSQL, ModelView):
             #and the associated federation resource field .
             #string of the form field:fed_resource:fed_field
             field, fed_resource, fed_field = val.split(':')
-            if (field in values):
+            if (field in values.keys()):
                 #Check that the local field is on shared federation list
                 #and retrieve the equivalent federation field name
 
@@ -341,6 +341,9 @@ class FederationQueue(ModelSQL, ModelView):
         # Federation locator : Unique ID of the resource
         # such as personal federation account or institution ID
         # it depends on the resource (people, institution, ... )
+
+        #Remove spaces and newlines from fields
+        fields = fields.replace(" ","").replace("\n","")
 
         if (fields):
             # retrieve the federation field names and values in a dict
