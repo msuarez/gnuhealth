@@ -5072,6 +5072,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'relevance':'important',
             'summary': evaluation.chief_complaint,
             'info': evaluation.evaluation_summary,
+            'author': evaluation.healthprof.name.name,
             'node': evaluation.institution.name.name,
             }
         if (evaluation.diagnosis):
