@@ -857,7 +857,6 @@ class PageOfLife(ModelSQL, ModelView):
         ('critical', 'Critical'),
         ], 'Relevance', sort=False, required=True)
 
-    summary = fields.Char("Summary")
     health_condition = fields.Many2One(
         'gnuhealth.pathology', 'Health Condition')
 
@@ -5034,6 +5033,41 @@ class PatientEvaluation(ModelSQL, ModelView):
             Appointment.write(patient_app, {
                 'state': 'done',
                 })
+
+        # Create an entry in the page of life
+        # It will create the entry at the moment of
+        # discharging the patient
+        # The patient needs to have a federation account
+        if (evaluation_id.patient.name.federation_account):
+            cls.create_evaluation_pol (evaluation_id)
+
+    @classmethod
+    def create_evaluation_pol(cls, evaluation):
+        """ Adds an entry in the person Page of Life
+            related to this medical evaluation.
+        """
+        pol = []
+
+        vals = {
+            'person': evaluation.patient.name,
+            'page_date': evaluation.evaluation_start,
+            'federation_account': evaluation.patient.name.federation_account,
+            'page_type':'medical',
+            'medical_context':'encounter',
+            'relevance':'important',
+            'summary': evaluation.chief_complaint,
+            'info': evaluation.evaluation_summary,
+            'author': evaluation.healthprof.name.name
+            }
+        if (evaluation.diagnosis):
+            vals['health_condition_text'] = str(evaluation.diagnosis.name)
+            vals['health_condition_code'] = evaluation.diagnosis.code
+
+        Pol = Pool().get('gnuhealth.pol')
+        pol.append(vals)
+        Pol.create(pol)
+
+        print ("Evaluation Summary", vals)
 
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
