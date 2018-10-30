@@ -5065,13 +5065,14 @@ class PatientEvaluation(ModelSQL, ModelView):
             'page': str(uuid4()),
             'person': evaluation.patient.name.id,
             'page_date': evaluation.evaluation_start,
+            'age': evaluation.computed_age,
             'federation_account': evaluation.patient.name.federation_account,
             'page_type':'medical',
             'medical_context':'encounter',
             'relevance':'important',
             'summary': evaluation.chief_complaint,
             'info': evaluation.evaluation_summary,
-            'author': evaluation.healthprof.name.name
+            'node': evaluation.institution.name.name,
             }
         if (evaluation.diagnosis):
             vals['health_condition_text'] = str(evaluation.diagnosis.name)
@@ -5079,8 +5080,6 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         pol.append(vals)
         Pol.create(pol)
-
-        print ("Evaluation Summary", vals)
 
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
