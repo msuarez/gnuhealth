@@ -815,7 +815,7 @@ class PageOfLife(ModelSQL, ModelView):
     federation_account = fields.Char('Account',
         required=True, help="Federation Account")
 
-    page = fields.Char('Page', help="Page of Life")
+    page = fields.Char('Page', help="Page of Life", readonly=True)
 
     page_date = fields.DateTime('Date', help="Date of this page / event")
 
@@ -882,10 +882,6 @@ class PageOfLife(ModelSQL, ModelView):
     author = fields.Char("Author")
 
     @staticmethod
-    def default_page():
-        return str(uuid4())
-
-    @staticmethod
     def default_institution():
         return HealthInstitution().get_institution()
 
@@ -939,6 +935,22 @@ class PageOfLife(ModelSQL, ModelView):
         if (self.person.federation_account != self.federation_account):
                         self.raise_user_error(
                 "The account differs from the person federation account !")
+
+
+    @classmethod
+    def create(cls, vlist):
+        Party = Pool().get('party.party')
+        vlist = [x.copy() for x in vlist]
+        for values in vlist:
+            if values.get('federation_account') and not values.get('person'):
+                party, = Party.search([("name", "=",
+                values.get('federation_account'))],limit=1)
+
+                values['person'] = party
+
+            if not values.get('page'):
+                values['page'] = str(uuid4())
+        return super(PageOfLife, cls).create(vlist)
 
 
 class ContactMechanism(ModelSQL, ModelView):
@@ -5046,10 +5058,12 @@ class PatientEvaluation(ModelSQL, ModelView):
         """ Adds an entry in the person Page of Life
             related to this medical evaluation.
         """
+        Pol = Pool().get('gnuhealth.pol')
         pol = []
 
         vals = {
-            'person': evaluation.patient.name,
+            'page': str(uuid4()),
+            'person': evaluation.patient.name.id,
             'page_date': evaluation.evaluation_start,
             'federation_account': evaluation.patient.name.federation_account,
             'page_type':'medical',
@@ -5063,7 +5077,6 @@ class PatientEvaluation(ModelSQL, ModelView):
             vals['health_condition_text'] = str(evaluation.diagnosis.name)
             vals['health_condition_code'] = evaluation.diagnosis.code
 
-        Pol = Pool().get('gnuhealth.pol')
         pol.append(vals)
         Pol.create(pol)
 
