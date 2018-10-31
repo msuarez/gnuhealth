@@ -868,7 +868,7 @@ class PageOfLife(ModelSQL, ModelView):
     procedure_text = fields.Char("Procedure")
     procedure_code = fields.Char("Procedure Code")
 
-    protein = fields.Char("Protein",
+    gene = fields.Char("Gene",help = "Gene / protein",
         states={'invisible': Not(Equal(Eval('medical_context'), 'genetics'))})
 
     natural_variant = fields.Char("Natural variant",
