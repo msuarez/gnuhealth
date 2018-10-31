@@ -14,4 +14,11 @@
     <newline/>
     <label name="notes" colspan="4"/>
     <field name="notes" colspan="4"/>
+    <newline/>
+    <group id="genetics_info_footer" colspan="4">
+        <label name="healthprof"/>
+        <field name="healthprof"/>
+        <label name="institution"/>
+        <field name="institution"/>
+    </group>
 </form>

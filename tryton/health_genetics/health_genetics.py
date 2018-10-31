@@ -24,6 +24,8 @@ from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
 from trytond import backend
+from trytond.pool import Pool
+from uuid import uuid4
 
 
 __all__ = ['DiseaseGene', 'ProteinDisease', 'GeneVariant','GeneVariantPhenotype',
@@ -35,8 +37,8 @@ class DiseaseGene(ModelSQL, ModelView):
     __name__ = 'gnuhealth.disease.gene'
 
     name = fields.Char('Gene Name', required=True,select=True)
-    protein_name = fields.Char('Protein Code', 
-        help="Encoding Protein Code, such as UniProt protein name", 
+    protein_name = fields.Char('Protein Code',
+        help="Encoding Protein Code, such as UniProt protein name",
         select=True)
     long_name = fields.Char('Official Long Name', translate=True)
     gene_id = fields.Char('Gene ID',
@@ -48,10 +50,10 @@ class DiseaseGene(ModelSQL, ModelView):
     info = fields.Text('Information', help="Extra Information")
     variants = fields.One2Many('gnuhealth.gene.variant', 'name',
      'Variants')
-        
+
     protein_uri = fields.Function(fields.Char("Protein URI"),
      'get_protein_uri')
-    
+
     def get_protein_uri(self, name):
         ret_url=''
         if (self.protein_name):
@@ -110,7 +112,7 @@ class ProteinDisease(ModelSQL, ModelView):
 
     name = fields.Char('Disease', required=True,select=True,
         help="Uniprot Disease Code")
-        
+
     disease_name = fields.Char('Disease name', translate=True)
     acronym = fields.Char('Acronym', required=True,select=True,
         help="Disease acronym / mnemonics")
@@ -118,14 +120,14 @@ class ProteinDisease(ModelSQL, ModelView):
     disease_uri = fields.Function(fields.Char("Disease URI"),
      'get_disease_uri')
 
-    mim_reference = fields.Char('MIM', 
+    mim_reference = fields.Char('MIM',
         help="MIM -Mendelian Inheritance in Man- DB reference")
 
-    gene_variant = fields.One2Many('gnuhealth.gene.variant.phenotype', 
+    gene_variant = fields.One2Many('gnuhealth.gene.variant.phenotype',
         'phenotype',
         'Natural Variant',
         help="Protein sequence variant(s) involved in this condition")
-        
+
     dominance = fields.Selection([
         (None, ''),
         ('d', 'dominant'),
@@ -134,8 +136,8 @@ class ProteinDisease(ModelSQL, ModelView):
         ], 'Dominance', select=True)
 
 
-    description = fields.Text('Description')        
-    
+    description = fields.Text('Description')
+
 
     def get_disease_uri(self, name):
         ret_url=''
@@ -178,7 +180,7 @@ class GeneVariant(ModelSQL, ModelView):
     aa_change = fields.Char('Change', help="Resulting amino acid change")
     phenotypes = fields.One2Many('gnuhealth.gene.variant.phenotype', 'variant',
      'Phenotypes')
-        
+
     @classmethod
     def __setup__(cls):
         super(GeneVariant, cls).__setup__()
@@ -216,7 +218,7 @@ class GeneVariantPhenotype(ModelSQL, ModelView):
     name = fields.Char('Code', required=True)
     variant = fields.Many2One('gnuhealth.gene.variant', 'Variant',
         required=True)
- 
+
     gene = fields.Function(fields.Many2One(
         'gnuhealth.disease.gene', 'Gene & Protein',
         depends=['variant'],
@@ -283,8 +285,63 @@ class PatientGeneticRisk(ModelSQL, ModelView):
         domain=[('variant', '=', Eval('natural_variant'))],
         depends=['natural_variant'])
     onset = fields.Integer('Onset', help="Age in years")
-    
+
     notes = fields.Char("Notes")
+
+    healthprof = fields.Many2One(
+        'gnuhealth.healthprofessional', 'Health prof',
+        help="Health professional")
+
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+    @classmethod
+    def create_genetics_pol(cls,genetic_info):
+        """ Adds an entry in the person Page of Life
+            related to this medical evaluation.
+        """
+        Pol = Pool().get('gnuhealth.pol')
+        pol = []
+
+
+        vals = {
+            'page': str(uuid4()),
+            'person': genetic_info.patient.name.id,
+            'age': genetic_info.onset and str(genetic_info.onset) + 'y' or '',
+            'federation_account': genetic_info.patient.name.federation_account,
+            'page_type':'medical',
+            'medical_context':'genetics',
+            'relevance':'important',
+            'gene':genetic_info.disease_gene.rec_name,
+            'natural_variant':genetic_info.natural_variant and \
+                genetic_info.natural_variant.aa_change,
+            'summary': genetic_info.notes,
+            'author': genetic_info.healthprof and genetic_info.healthprof.name.name,
+            'node': genetic_info.institution and genetic_info.institution.name.name
+            }
+        if (genetic_info.variant_phenotype):
+            vals['health_condition_text'] = \
+                genetic_info.variant_phenotype.phenotype.rec_name
+
+        print (vals)
+        pol.append(vals)
+        Pol.create(pol)
+
+    @classmethod
+    def create(cls, vlist):
+
+        # Execute first the creation of PoL
+        genetic_info = super(PatientGeneticRisk, cls).create(vlist)
+
+        cls.create_genetics_pol(genetic_info[0])
+
+        return genetic_info
+
 
 class FamilyDiseases(ModelSQL, ModelView):
     'Family History'

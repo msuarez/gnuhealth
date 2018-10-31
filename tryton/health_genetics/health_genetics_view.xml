@@ -9,8 +9,12 @@
             <field name="path">icons/dna.svg</field>
         </record>
 
+        <menuitem name="Genetics" parent="health.gnuhealth_menu"
+            id="gnuhealth_genetics" icon="icon-dna"/>
+
         <menuitem name="Genetics" parent="health.gnuhealth_conf_menu"
             id="gnuhealth_conf_genetics" icon="icon-dna"/>
+
 
 <!-- Add other relevant icons -->
 
@@ -170,6 +174,30 @@
             <field name="type">tree</field>
             <field name="name">gnuhealth_genetic_risk_tree</field>
         </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_patient_genetics">
+            <field name="name">Person genetic information</field>
+            <field name="res_model">gnuhealth.patient.genetic.risk</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_patient_genetics_list_view">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_genetic_risk_tree"/>
+            <field name="act_window" ref="gnuhealth_action_patient_genetics"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_patient_genetics_form_view">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_genetic_risk_view"/>
+            <field name="act_window" ref="gnuhealth_action_patient_genetics"/>
+        </record>
+
+        <menuitem parent="health.gnuhealth_menu"
+            name="Genetics" 
+            id="gnuhealth_genetics" icon="icon-dna"/>
+
+        <menuitem parent="gnuhealth_genetics"
+            action="gnuhealth_action_patient_genetics"
+            id="gnuhealth_patient_genetics" icon="gnuhealth-list"/>
 
 <!-- Family Diseases -->
 
