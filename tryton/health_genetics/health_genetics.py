@@ -303,7 +303,7 @@ class PatientGeneticRisk(ModelSQL, ModelView):
     @classmethod
     def create_genetics_pol(cls,genetic_info):
         """ Adds an entry in the person Page of Life
-            related to this medical evaluation.
+            related to this genetic finding
         """
         Pol = Pool().get('gnuhealth.pol')
         pol = []
@@ -321,14 +321,13 @@ class PatientGeneticRisk(ModelSQL, ModelView):
             'natural_variant':genetic_info.natural_variant and \
                 genetic_info.natural_variant.aa_change,
             'summary': genetic_info.notes,
-            'author': genetic_info.healthprof and genetic_info.healthprof.name.name,
-            'node': genetic_info.institution and genetic_info.institution.name.name
+            'author': genetic_info.healthprof and genetic_info.healthprof.name.rec_name,
+            'node': genetic_info.institution and genetic_info.institution.name.rec_name
             }
         if (genetic_info.variant_phenotype):
             vals['health_condition_text'] = \
                 genetic_info.variant_phenotype.phenotype.rec_name
 
-        print (vals)
         pol.append(vals)
         Pol.create(pol)
 
