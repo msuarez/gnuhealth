@@ -4205,6 +4205,35 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
 
     @classmethod
+    def create_prescription_pol(cls,prescription_info):
+        """ Adds an entry in the person Page of Life
+            related to this person prescription
+        """
+        Pol = Pool().get('gnuhealth.pol')
+        pol = []
+
+        plines = ""
+        for line in prescription_info.prescription_line:
+            plines = plines + line.rec_name + "\n"
+
+        vals = {
+            'page': str(uuid4()),
+            'person': prescription_info.patient.name.id,
+            'page_date': prescription_info.prescription_date,
+            'federation_account': \
+                prescription_info.patient.name.federation_account,
+            'page_type':'medical',
+            'medical_context':'prescription',
+            'relevance':'important',
+            'info': plines,
+            'author': prescription_info.healthprof and \
+                prescription_info.healthprof.name.rec_name,
+            }
+
+        pol.append(vals)
+        Pol.create(pol)
+
+    @classmethod
     def create(cls, vlist):
         Sequence = Pool().get('ir.sequence')
         Config = Pool().get('gnuhealth.sequences')
@@ -4238,6 +4267,10 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
 
         cls.write(prescriptions, {
             'state': 'done',})
+
+        # Create prescription PoL if the person has a federation account.
+        if (prescription.patient.name.federation_account):
+            cls.create_prescription_pol (prescription)
 
 
 
@@ -4367,6 +4400,16 @@ class PrescriptionLine(ModelSQL, ModelView):
         ], 'Unit Rate',
         states={'invisible': Not(Bool(Eval('infusion')))},
         select=True, sort=False)
+
+    def get_rec_name(self, name):
+        dose = ""
+        if (self.dose):
+            dose_unit = ""
+            dose = str(self.dose)
+            if self.dose_unit:
+                dose_unit = self.dose_unit.rec_name
+            dose = dose + dose_unit
+        return str(self.medicament.rec_name + " " + dose)
 
     @staticmethod
     def default_qty():
