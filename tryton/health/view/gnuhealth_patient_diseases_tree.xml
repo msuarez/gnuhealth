@@ -11,4 +11,6 @@
     <field name="diagnosed_date"/>
     <field name="healed_date"/>
     <field name="short_comment" expand="1"/>
+    <field name="institution"/>
+
 </tree>

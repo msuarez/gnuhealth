@@ -22,6 +22,8 @@
         <field name="age"/>
         <label name="healthprof"/>
         <field name="healthprof"/>
+        <label name="institution"/>
+        <field name="institution"/>
     </group>
     <newline/>
     <group string="Allergies" id="group_patient_allergies">

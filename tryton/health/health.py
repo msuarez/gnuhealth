@@ -3202,6 +3202,15 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
         'Related Evaluations', readonly=True)
 
 
+    institution = fields.Many2One('gnuhealth.institution', 'Institution')
+
+    @staticmethod
+    def default_institution():
+        HealthInst = Pool().get('gnuhealth.institution')
+        institution = HealthInst.get_institution()
+        return institution
+
+
     @classmethod
     def __setup__(cls):
         super(PatientDiseaseInfo, cls).__setup__()
@@ -3277,6 +3286,44 @@ class PatientDiseaseInfo(ModelSQL, ModelView):
 
     def get_rec_name(self, name):
         return self.pathology.rec_name
+
+    @classmethod
+    def create_health_condition_pol(cls,condition_info):
+        """ Adds an entry in the person Page of Life
+            related to this person health condition
+        """
+        Pol = Pool().get('gnuhealth.pol')
+        pol = []
+
+        vals = {
+            'page': str(uuid4()),
+            'person': condition_info.name.name.id,
+            'age': condition_info.age and str(condition_info.age) + 'y' or '',
+            'federation_account': condition_info.name.name.federation_account,
+            'page_type':'medical',
+            'medical_context':'health_condition',
+            'relevance':'important',
+            'summary': condition_info.short_comment,
+            'info': condition_info.extra_info,
+            'author': condition_info.healthprof and condition_info.healthprof.name.rec_name,
+            'node': condition_info.institution and condition_info.institution.name.rec_name
+            }
+        if (condition_info.pathology):
+            vals['health_condition_text'] = condition_info.pathology.rec_name
+            vals['health_condition_code'] = condition_info.pathology.code
+
+        pol.append(vals)
+        Pol.create(pol)
+
+    @classmethod
+    def create(cls, vlist):
+
+        # Execute first the creation of PoL
+        health_condition_info = super(PatientDiseaseInfo, cls).create(vlist)
+
+        cls.create_health_condition_pol(health_condition_info[0])
+
+        return health_condition_info
 
 # PATIENT APPOINTMENT
 class Appointment(ModelSQL, ModelView):
@@ -5076,7 +5123,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'node': evaluation.institution.name.name,
             }
         if (evaluation.diagnosis):
-            vals['health_condition_text'] = str(evaluation.diagnosis.name)
+            vals['health_condition_text'] = evaluation.diagnosis.rec_name
             vals['health_condition_code'] = evaluation.diagnosis.code
 
         pol.append(vals)
