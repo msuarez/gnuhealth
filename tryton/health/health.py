@@ -511,7 +511,9 @@ class Party(ModelSQL, ModelView):
         "AAA to AAZ, QMA to QZZ, XAA to XZZ, and ZZA to ZZZ."
         "For example XXX is unidentified nationality and XXB is a refugee."
         "By default, it will use the code of the emiting institution country"
-        "Refer to the GNU Health manual for further information")
+        "Refer to the GNU Health manual for further information",
+        states={'invisible': Not(Bool(Eval('is_person')))})
+
 
         
         
@@ -648,10 +650,11 @@ class Party(ModelSQL, ModelView):
         tmp_act = cls.generate_puid()
 
         for values in vlist:
-            print (values)
             if not values.get('ref'):
                 if values.get('federation_account'):
-                        values['ref'] = values.get('federation_account')
+                        #Strip the country code from the fed account
+                        #and pass it to the local PUID
+                        values['ref'] = values.get('federation_account')[3:]
                 else:
                     values['ref'] = tmp_act
                 if 'unidentified' in values and values['unidentified']:
