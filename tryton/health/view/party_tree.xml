@@ -2,7 +2,8 @@
 <data>
 
     <xpath expr="/tree/field[@name=&quot;code&quot;]" position="replace">
-        <field name="ref"/>
+        <field name="ref" tree_invisible="1"/>
+        <field name="federation_account"/>        
     </xpath>
 
     <xpath expr="/tree/field[@name=&quot;name&quot;]" position="after">

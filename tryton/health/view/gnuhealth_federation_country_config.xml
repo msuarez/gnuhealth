@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form>
+    <group id="federation_country_header" colspan="6">
+        <label name="country"/>
+        <field name="country"/>
+        <label name="code"/>
+        <field name="code"/>
+        <label name="use_citizenship"/>
+        <field name="use_citizenship"/>
+    </group>
+</form>

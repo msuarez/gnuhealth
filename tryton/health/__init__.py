@@ -31,6 +31,7 @@ def register():
         OperationalArea,
         OperationalSector,
         DomiciliaryUnit,
+        FederationCountryConfig,
         Occupation,
         Ethnicity,
         BirthCertificate,

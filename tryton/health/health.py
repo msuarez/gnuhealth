@@ -59,9 +59,10 @@ import pytz
 
 __all__ = [
     'OperationalArea', 'OperationalSector', 'Occupation',
-    'Ethnicity','DomiciliaryUnit','BirthCertificate','DeathCertificate',
-    'Party','ContactMechanism', 'PersonName','PartyAddress',
-    'DrugDoseUnits', 'MedicationFrequency', 'DrugForm', 'DrugRoute',
+    'Ethnicity','DomiciliaryUnit','FederationCountryConfig',
+    'BirthCertificate','DeathCertificate','Party','ContactMechanism',
+    'PersonName','PartyAddress','DrugDoseUnits', 'MedicationFrequency',
+    'DrugForm', 'DrugRoute',
     'MedicalSpecialty','HealthInstitution', 'HealthInstitutionSpecialties',
     'HealthInstitutionOperationalSector','HealthInstitutionO2M',
     'HospitalBuilding', 'HospitalUnit','HospitalOR', 'HospitalWard',
@@ -134,8 +135,6 @@ def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
 
     else:
         return None
-
-
 
 
 class DomiciliaryUnit(ModelSQL, ModelView):
@@ -333,6 +332,22 @@ class DomiciliaryUnit(ModelSQL, ModelView):
              'The Domiciliary Unit must be unique !')
         ]
 
+class FederationCountryConfig(ModelSingleton, ModelSQL, ModelView):
+    'Federation Account Country'
+    __name__ = 'gnuhealth.federation.country.config'
+
+    country = fields.Many2One('country.country','Country', required=True,
+        help="Country code to be use as the prefix for the Federation"
+            "ID account.")
+    code = fields.Function(fields.Char('Code'),'get_country_code')
+
+    use_citizenship = fields.Boolean('Use Citizenship',
+        help="If this option is set"
+            "the country code will be the person citizenship")
+
+    def get_country_code(self, name):
+        return self.country.code3
+                              
 class Party(ModelSQL, ModelView):
     __name__ = 'party.party'
 
@@ -361,7 +376,9 @@ class Party(ModelSQL, ModelView):
     activation_date = fields.Date(
         'Activation date', help='Date of activation of the party')
 
-    federation_account = fields.Char('Federation ID')
+    federation_account = fields.Char('Federation ID',
+        help='Federation Account',
+        states={'invisible': Not(Bool(Eval('is_person')))})
 
     ref = fields.Char(
         'PUID',
@@ -486,6 +503,18 @@ class Party(ModelSQL, ModelView):
         fields.Many2One('party.party','Father',
         help="Father from the Birth Certificate"),'get_father')
 
+    fed_country = fields.Char('Prefix',
+        help="3-letter Country code"
+        "in ISO 3166-1 alpha-3 standard that will become the prefix"
+        "of the federation account. The following user-assigned codes"
+        "ranges can be also used"
+        "AAA to AAZ, QMA to QZZ, XAA to XZZ, and ZZA to ZZZ."
+        "For example XXX is unidentified nationality and XXB is a refugee."
+        "By default, it will use the code of the emiting institution country"
+        "Refer to the GNU Health manual for further information")
+
+        
+        
     def get_mother(self, name):
         if (self.birth_certificate and self.birth_certificate.mother):
             return self.birth_certificate.mother.id
@@ -498,6 +527,11 @@ class Party(ModelSQL, ModelView):
         if (self.deceased):
             return self.death_certificate.dod
 
+    @staticmethod
+    def default_fed_country():
+        Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
+        return Fedcountry.code
+        
     @staticmethod
     def default_activation_date():
         return date.today()
@@ -536,7 +570,7 @@ class Party(ModelSQL, ModelView):
             given_name=family_name=''
             vals = vals.copy()
             person_id = parties[0].id
-            # We use this method overwrite to make the fields that have a
+            # We set the value to None to make the fields that have a
             # unique constraint get the NULL value at PostgreSQL level, and not
             # the value '' coming from the client
             if vals.get('ref') == '':
@@ -610,14 +644,38 @@ class Party(ModelSQL, ModelView):
         Configuration = Pool().get('party.configuration')
 
         vlist = [x.copy() for x in vlist]
-        for values in vlist:
 
-            if not 'ref' in values or values['ref'] == '':
-                values['ref'] = cls.generate_puid()
+        tmp_act = cls.generate_puid()
+
+        for values in vlist:
+            print (values)
+            if not values.get('ref'):
+                if values.get('federation_account'):
+                        values['ref'] = values.get('federation_account')
+                else:
+                    values['ref'] = tmp_act
                 if 'unidentified' in values and values['unidentified']:
                     values['ref'] = 'NN-' + values.get('ref')
                 if 'is_person' in values and not values['is_person']:
                     values['ref'] = 'NP-' + values['ref']
+
+            # Generate the Federation account ID
+            # with the ISO 3166-1 alpha-3 as prefix
+            # using the same code as in the newly created PUID
+            # If the person is NN or there is no country assigned
+            # use the prefix XXX
+            if not values.get('federation_account') and values.get('is_person'):
+                    federation_account = tmp_act
+                    values['federation_account'] = \
+                        values['fed_country'] + federation_account
+
+            # Set the value to None to make the fields that have a
+            # unique constraint get the NULL value at PostgreSQL level, and not
+            # the value '' coming from the client
+            if values.get('federation_account') == '':
+                values['federation_account'] = None
+
+            #Generate internal code 
             if not values.get('code'):
                 config = Configuration(1)
                 # Use the company name . Initially, use the name
@@ -632,12 +690,9 @@ class Party(ModelSQL, ModelView):
                 # environments, with multiple GNU Health instances across
                 # a country / region
                 values['code'] = '%s-%s' % (uuid4(), suffix)
-
-            if not 'federation_account' in values or \
-                values['federation_account'] == '':
-                    values['federation_account'] = None
-
+                
             values.setdefault('addresses', None)
+
 
             if 'photo' in values:
                 values['photo'] = cls.convert_photo(values['photo'])
