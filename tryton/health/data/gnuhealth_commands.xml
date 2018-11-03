@@ -84,9 +84,18 @@
 
         <record model="gnuhealth.command" id="inv">
             <field name="name">inv</field>
-            <field name="model">gnuhealth.pol</field>
+            <field name="model">account.invoice</field>
             <field name="label">Invoices</field>
             <field name="description">Invoices</field>
+            <field name="domain">[('type', '=', 'out')]</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="prd">
+            <field name="name">prd</field>
+            <field name="model">product.template</field>
+            <field name="label">Products</field>
+            <field name="description">Products</field>
             <field name="internal">False</field>
         </record>
 
