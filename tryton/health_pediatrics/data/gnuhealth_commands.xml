@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="neo">
+            <field name="name">neo</field>
+            <field name="model">gnuhealth.newborn</field>
+            <field name="label">Newborns</field>
+            <field name="description">Newborn / Neonatal Information</field>
+            <field name="internal">False</field>
+        </record>
+    </data>
+</tryton>

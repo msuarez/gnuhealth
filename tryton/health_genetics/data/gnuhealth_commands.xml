@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="gen">
+            <field name="name">gen</field>
+            <field name="model">gnuhealth.patient.genetic.risk</field>
+            <field name="label">Genetic Info</field>
+            <field name="description">Genetic Info</field>
+            <field name="internal">False</field>
+        </record>
+    </data>
+</tryton>

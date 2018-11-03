@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tryton>
     <data>
+        <record model="gnuhealth.command" id="du">
+            <field name="name">du</field>
+            <field name="model">gnuhealth.du</field>
+            <field name="label">Domiciliary Units</field>
+            <field name="description">Domiciliary Units</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="ppl">
             <field name="name">ppl</field>
             <field name="model">party.party</field>
             <field name="label">People</field>
             <field name="description">Demographics</field>
             <field name="domain">[('is_person', '=', True)]</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="hp">
+            <field name="name">hp</field>
+            <field name="model">gnuhealth.healthprofessional</field>
+            <field name="label">Health Professionals</field>
+            <field name="description">Health Professionals</field>
             <field name="internal">False</field>
         </record>
         
@@ -18,11 +34,59 @@
             <field name="internal">False</field>
         </record>
 
+        <record model="gnuhealth.command" id="rx">
+            <field name="name">rx</field>
+            <field name="model">gnuhealth.prescription.order</field>
+            <field name="label">Prescription</field>
+            <field name="description">Prescription Orders</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="med">
             <field name="name">med</field>
             <field name="model">gnuhealth.medicament</field>
-            <field name="label">Medicament</field>
-            <field name="description">Medicaments</field>
+            <field name="label">Medicaments</field>
+            <field name="description">Patient Medicaments</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="evl">
+            <field name="name">evl</field>
+            <field name="model">gnuhealth.patient.evaluation</field>
+            <field name="label">Evaluations</field>
+            <field name="description">Patient Evaluations</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="dx">
+            <field name="name">dx</field>
+            <field name="model">gnuhealth.patient.disease</field>
+            <field name="label">Health Conditions</field>
+            <field name="description">Health Conditions</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="app">
+            <field name="name">app</field>
+            <field name="model">gnuhealth.appointment</field>
+            <field name="label">Appointments</field>
+            <field name="description">Appointments</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="pol">
+            <field name="name">pol</field>
+            <field name="model">gnuhealth.pol</field>
+            <field name="label">Pages of Life</field>
+            <field name="description">Pages of Life</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="inv">
+            <field name="name">inv</field>
+            <field name="model">gnuhealth.pol</field>
+            <field name="label">Invoices</field>
+            <field name="description">Invoices</field>
             <field name="internal">False</field>
         </record>
 

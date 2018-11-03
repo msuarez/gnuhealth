@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="sur">
+            <field name="name">sur</field>
+            <field name="model">gnuhealth.surgery</field>
+            <field name="label">Surgeries</field>
+            <field name="description">Surgeries</field>
+            <field name="internal">False</field>
+        </record>
+    </data>
+</tryton>
