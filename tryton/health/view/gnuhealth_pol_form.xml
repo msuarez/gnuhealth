@@ -40,6 +40,13 @@
         <field name="procedure_text"/>
         <label name="procedure_code"/>
         <field name="procedure_code"/>
+        <newline/>
+        <label name="gene"/>
+        <field name="gene"/>
+        <label name="natural_variant"/>
+        <field name="natural_variant"/>
+        <label name="phenotype"/>
+        <field name="phenotype"/>
     </group>
 
     <newline/>

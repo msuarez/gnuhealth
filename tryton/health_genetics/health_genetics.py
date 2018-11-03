@@ -320,6 +320,7 @@ class PatientGeneticRisk(ModelSQL, ModelView):
             'gene':genetic_info.disease_gene.rec_name,
             'natural_variant':genetic_info.natural_variant and \
                 genetic_info.natural_variant.aa_change,
+            'phenotype':genetic_info.variant_phenotype.rec_name,
             'summary': genetic_info.notes,
             'author': genetic_info.healthprof and genetic_info.healthprof.name.rec_name,
             'node': genetic_info.institution and genetic_info.institution.name.rec_name

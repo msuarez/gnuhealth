@@ -932,6 +932,9 @@ class PageOfLife(ModelSQL, ModelView):
     natural_variant = fields.Char("Natural variant",
         states={'invisible': Not(Equal(Eval('medical_context'), 'genetics'))})
 
+    phenotype = fields.Char("Phenotype",
+        states={'invisible': Not(Equal(Eval('medical_context'), 'genetics'))})
+
     summary = fields.Char("Summary")
     info = fields.Text("Extended Information")
 
