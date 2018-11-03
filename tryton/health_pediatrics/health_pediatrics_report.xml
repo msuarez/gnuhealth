@@ -6,6 +6,7 @@
             <field name="model">gnuhealth.newborn</field>
             <field name="report_name">newborn.card</field>
             <field name="report">health_pediatrics/report/newborn_card.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_card_newborn">
             <field name="keyword">form_print</field>

@@ -6,6 +6,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="report_name">patient.card</field>
             <field name="report">health/report/patient_card.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_card_patient">
             <field name="keyword">form_print</field>
@@ -17,6 +18,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="report_name">patient.medication</field>
             <field name="report">health/report/patient_medication_history.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_medication_patient">
             <field name="keyword">form_print</field>
@@ -29,6 +31,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="report_name">patient.vaccination</field>
             <field name="report">health/report/patient_vaccination_history.odt</field>
+            <field name="extension">pdf</field>
         </record>
 
         <record model="ir.action.keyword" id="report_vaccination_patient">
@@ -42,6 +45,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="report_name">patient.conditions_history</field>
             <field name="report">health/report/patient_conditions_history.odt</field>
+            <field name="extension">pdf</field>
         </record>
 
         <record model="ir.action.keyword" id="report_disease_patient">
@@ -55,6 +59,7 @@
             <field name="model">gnuhealth.prescription.order</field>
             <field name="report_name">prescription.order</field>
             <field name="report">health/report/prescription_orders.odt</field>
+            <field name="extension">pdf</field>
         </record>
 
         <record model="ir.action.keyword" id="keyword_prescription_order">
@@ -68,6 +73,7 @@
             <field name="model">gnuhealth.appointment</field>
             <field name="report_name">appointment.receipt</field>
             <field name="report">health/report/appointment_receipt.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_receipt_appointment">
             <field name="keyword">form_print</field>
@@ -80,6 +86,7 @@
             <field name="model">gnuhealth.patient</field>
             <field name="report_name">gnuhealth.immunization_status_report</field>
             <field name="report">health/report/immunization_status_report.odt</field>
+            <field name="extension">pdf</field>
         </record>
 
         <record model="ir.action.report" id="report_patient_evaluation">
@@ -87,13 +94,12 @@
             <field name="model">gnuhealth.patient.evaluation</field>
             <field name="report_name">gnuhealth.patient_evaluation</field>
             <field name="report">health/report/patient_evaluation.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_evaluation_patient">
             <field name="keyword">form_print</field>
             <field name="model">gnuhealth.patient.evaluation,-1</field>
             <field name="action" ref="report_patient_evaluation"/>
         </record>
-
-        
     </data>
 </tryton>

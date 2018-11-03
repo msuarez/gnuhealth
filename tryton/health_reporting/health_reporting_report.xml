@@ -6,6 +6,7 @@
             <field name="name">Summary Report</field>
             <field name="report_name">gnuhealth.summary.report</field>
             <field name="report">health_reporting/report/summary_report.odt</field>
+            <field name="extension">pdf</field>
         </record>
 
     </data>

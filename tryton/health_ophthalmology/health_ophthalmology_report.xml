@@ -6,6 +6,7 @@
             <field name="model">gnuhealth.ophthalmology.evaluation</field>
             <field name="report_name">ophthalmology.card</field>
             <field name="report">health_ophthalmology/report/ophthalmology.odt</field>
+            <field name="extension">pdf</field>
         </record>
         <record model="ir.action.keyword" id="report_ophthalmology_card">
             <field name="keyword">form_print</field>
