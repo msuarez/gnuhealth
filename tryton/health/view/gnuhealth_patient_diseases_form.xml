@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <form>
     <group string="Main" id="group_diseases_main">
+        <label name="name"/>
+        <field name="name"/>
         <label name="pathology"/>
         <field name="pathology"/>
         <label name="disease_severity"/>
@@ -52,11 +54,6 @@
         <newline/>
         <label name="pcs_code"/>
         <field name="pcs_code"/>
-    </group>
-    <newline/>
-    <group colspan="4" id="group_disease_health_prof_info">
-        <label name="healthprof"/>
-        <field name="healthprof"/>
     </group>
     <newline/>
     <group string="Related Evaluations" colspan="4" id="group_related_evaluations" yfill="1" yexpand="1">
