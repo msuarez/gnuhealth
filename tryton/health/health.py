@@ -873,7 +873,7 @@ class PageOfLife(ModelSQL, ModelView):
     federation_account = fields.Char('Account',
         required=True, help="Federation Account")
 
-    page = fields.Char('Page', help="Page of Life", readonly=True)
+    page = fields.Char('Page', help="Page of Life")
 
     page_date = fields.DateTime('Date', help="Date of this page / event")
 
@@ -887,6 +887,7 @@ class PageOfLife(ModelSQL, ModelView):
         ('demographical', 'Demographical'),
         ('social', 'Social'),
         ], 'Page type', sort=False, required=True)
+
 
     medical_context = fields.Selection([
         (None, ''),
@@ -907,6 +908,32 @@ class PageOfLife(ModelSQL, ModelView):
         states={'required': Equal(Eval('page_type'), 'medical'),
             'invisible': Not(Equal(Eval('page_type'), 'medical'))
             })
+
+    social_context = fields.Selection([
+        (None, ''),
+        ('social_gradient', 'Social Gradient / Equity'),
+        ('stress', 'Stress'),
+        ('early_life_development', 'Early life development'),
+        ('social_exclusion','Social exclusion'),
+        ('working_conditions', 'Working conditions'),
+        ('education', 'Education'),
+        ('physical_environment', 'Physical environment'),
+        ('unemployment', 'unemployment'),
+        ('social_support', 'Social Support'),
+        ('addiction', 'Addiction'),
+        ('food', 'Food'),
+        ('transport', 'transport'),
+        ('health_services', 'Health services'),
+        ('uninsured', 'uninsured'),
+        ('family_functionality', 'Family functionality'),
+        ('family_violence', 'Family violence'),
+        ('bullying', 'Bullying'),
+        ('war', 'War'),
+        ], 'Social Context', sort=False,
+        states={'required': Equal(Eval('page_type'), 'social'),
+            'invisible': Not(Equal(Eval('page_type'), 'social'))
+            })
+
 
     relevance = fields.Selection([
         (None, ''),
@@ -945,6 +972,10 @@ class PageOfLife(ModelSQL, ModelView):
     @staticmethod
     def default_institution():
         return HealthInstitution().get_institution()
+
+    @staticmethod
+    def default_page():
+        return str(uuid4())
 
     # Get the text representation of the health condition
     @fields.depends('health_condition')
@@ -1009,7 +1040,7 @@ class PageOfLife(ModelSQL, ModelView):
 
                 values['person'] = party
 
-            if not values.get('page'):
+            if 'page' not in values:
                 values['page'] = str(uuid4())
         return super(PageOfLife, cls).create(vlist)
 

@@ -6,8 +6,9 @@
     <field name="relevance"/>
     <field name="page_date"  widget="date"/>
     <field name="age"/>
-    <field name="page_type"/>
-    <field name="medical_context"/>
+    <field name="page_type" expand="1"/>
+    <field name="medical_context" expand="1"/>
+    <field name="social_context" expand="1"/>
     <field name="summary"/>
     <field name="node"/>
 </tree>

@@ -167,7 +167,7 @@ class FederationQueue(ModelSQL, ModelView):
 
     federation_locator = fields.Char('Fed ID',
         help="Unique locator in Federation, "
-        "such as person Federation account or institution Code")
+        "such as person Federation account or Page of Life code")
 
     args = fields.Text('Arguments', required=True,
         help="Arguments")
@@ -345,7 +345,7 @@ class FederationQueue(ModelSQL, ModelView):
         fields = FederationObject.get_object_fields(model)
         # Federation locator : Unique ID of the resource
         # such as personal federation account or institution ID
-        # it depends on the resource (people, institution, ... )
+        # it depends on the resource (people, PoL, institution, ... )
 
         #Remove spaces and newlines from fields
         fields = fields.replace(" ","").replace("\n","")
@@ -546,7 +546,7 @@ class PoLFed(ModelSQL):
                     # Start Enqueue process
                     node=None
                     time_stamp = pol.write_date
-                    url_suffix = federation_account
+                    url_suffix = fed_identifier
                     FederationQueue.enqueue(cls.__name__,
                         fed_identifier, time_stamp, node, values,
                         action, url_suffix)

@@ -24,6 +24,8 @@
     <group id="pol_body" colspan="4" col="6">
         <label name="medical_context"/>
         <field name="medical_context"/>
+        <label name="social_context"/>
+        <field name="social_context"/>
     </group>
 
     <newline/>
