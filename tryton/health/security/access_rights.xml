@@ -376,6 +376,16 @@
             <field name="perm_delete" eval="True"/>
         </record>
 
+        <record model="ir.model.access" id="access_pol_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.pol')]"/>
+            <field name="group" ref="group_health_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+
 <!-- END OF ADMINISTRATION GROUP ACCESS RIGHTS -->
 
 
@@ -952,6 +962,15 @@
             <field name="perm_read" eval="True"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_pol_doctor">
+            <field name="model" search="[('model', '=', 'gnuhealth.pol')]"/>
+            <field name="group" ref="group_health_doctor"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
             <field name="perm_delete" eval="False"/>
         </record>
 
