@@ -484,7 +484,8 @@ class PartyFed(ModelSQL):
         parties = super(PartyFed, cls).create(vlist)
 
         for values in vlist:
-            fed_acct = values.get('federation_account')
+
+            fed_acct = parties[0].federation_account
 
             # Check if the record has just been imported of modified
             # from the federation. In that case, skip sending it

@@ -513,9 +513,6 @@ class Party(ModelSQL, ModelView):
         "By default, it will use the code of the emiting institution country"
         "Refer to the GNU Health manual for further information",
         states={'invisible': Not(Bool(Eval('is_person')))})
-
-
-        
         
     def get_mother(self, name):
         if (self.birth_certificate and self.birth_certificate.mother):
