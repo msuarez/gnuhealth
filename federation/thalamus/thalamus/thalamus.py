@@ -171,8 +171,12 @@ class Person(Resource):
         if check_person(person_id):
             abort (422, error="User already exists")
 
-        #Use upper case on the person federation account
-        values['_id'] = person_id.upper()
+        if (person_id):
+            if (type(person_id) is str):
+                #Use upper case on the person federation account
+                values['_id'] = person_id.upper()
+        else:
+            abort (422, error="wrong format on person ID")
 
         #If no roles are supplied, assign "end_user"
         if not ('roles' in values.keys()):
@@ -284,8 +288,16 @@ class Page(Resource):
         # coming from the node (Python Requests library)
         values = literal_eval(request.data.decode())
 
-        # Insert the newly created PoL in MongoDB
-        page = mongo.db.pols.insert(values)
+
+
+        # Basic validation on page ID exsistance and string type
+        if (person_id and '_id' in values):
+            if (type(person_id) is str and type(values['_id'])):
+                # Insert the newly created PoL in MongoDB
+                page = mongo.db.pols.insert(values)
+        else:
+            print ("wrong format on person or page ID")
+            abort (422, error="wrong format on person or page ID")
 
         return jsonify(page)
 
