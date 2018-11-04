@@ -1,3 +1,110 @@
+changeset:   3031:e9656a25f34b
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:48:58 2018 +0000
+summary:     gnuhealth-client: Update to 3.4rc1
+
+changeset:   2939:88b48386656e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 12:12:36 2018 +0100
+summary:     GNU Health client : Update Changelog
+
+changeset:   2889:deff33e5ad41
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 05 20:08:29 2018 +0100
+summary:     gnuhealth-client : Update icons for save, save as, and unstar
+
+changeset:   2887:3d96743b336d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 05 11:38:31 2018 +0100
+summary:     gnuhealth-client : New GTK client icons for upcoming v 3.4
+
+changeset:   2865:7cc8070d23e8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 24 11:54:03 2018 +0000
+summary:     gnuhealth-client : Update default greeter banner
+
+changeset:   2864:4e863ba13060
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 19 13:52:41 2018 +0000
+summary:     GNU Health client : Include Activity logger window menu entry. Toggle Activity Log
+
+changeset:   2863:f76650e09f81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 17 18:39:25 2018 +0000
+summary:     gnuhealth CLI : implement execution of commands with arguments. Use the gnuhealth.command model to set the command attributes
+
+changeset:   2860:a52adc9ccb8a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 20:54:54 2018 +0000
+summary:     gnuhealth command line : Add parameter client.cli_position to allow setting the CLI either at top of within the footer at the bottom
+
+changeset:   2859:ee8646d809b2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 20:53:25 2018 +0000
+summary:     gnuhealth-client : Fix configuration directory
+
+changeset:   2858:c9d745556231
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 18:34:38 2018 +0000
+summary:     GNU Health cli - make the command case-insensitive
+
+changeset:   2857:0d5f2232d615
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 11 17:16:20 2018 +0000
+summary:     GNU Health CLI : Reformat SYSINFO output information
+
+changeset:   2856:ae00b5f8193a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 11 13:17:30 2018 +0000
+summary:     GNU Health CLI : Update SYSINFO command with server-side information
+
+changeset:   2855:c547ddbb2537
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 10 23:23:51 2018 +0000
+summary:     task #14727: Implement Action and Command codes - The GNU Health Command Line. Implementation of initial SYSINFO command
+
+changeset:   2854:8bd132f90832
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 19:41:50 2018 +0000
+summary:     gnuhealth-client :Include GNU Health logo as icon for Activity log window
+
+changeset:   2853:364fdcbfc5ec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 19:32:04 2018 +0000
+summary:     Use append mode for messages in Activiy log
+
+changeset:   2852:ee8f5fdcc740
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 18:54:04 2018 +0000
+summary:     gnuhealth-client : cleanup code, use new methods for initialize and reset gnu health environment in client
+
+changeset:   2851:3500483e12fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 20:19:16 2018 +0000
+summary:     gnuhealth-client : fix gpl to v3 in actity log
+
+changeset:   2850:8ea0785f00fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 20:15:13 2018 +0000
+summary:     gnuhealth-client : Add initial Activity log and activity log window
+
+changeset:   2849:070d82b5dfb5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 10:38:21 2018 +0000
+summary:     gnuhealth-client : Add initial CLI and status bar
+
+changeset:   2848:ef6f94229750
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 06 23:14:17 2018 +0000
+summary:     task #14727: Implement Action and Command codes - The GNU Health Command Line. Initial widget
+
+changeset:   2847:0d9f786603ec
+parent:      2843:9dc86e798ec1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 05 15:46:44 2018 +0000
+summary:     gnuhealth-client: Initial development for 3.4 series
+
 1/3/2018
 v 3.2.5
 * Update gnuhealth-client.desktop with the existing categories
