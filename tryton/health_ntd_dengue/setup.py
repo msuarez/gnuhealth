@@ -71,7 +71,7 @@ setup(name='gnuhealth_ntd_dengue',
         },
 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',

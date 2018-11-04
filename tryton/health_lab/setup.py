@@ -70,7 +70,7 @@ setup(name='gnuhealth_lab',
                'report/*.odt', 'icons/*.svg'],
         },
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',

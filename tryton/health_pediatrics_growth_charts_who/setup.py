@@ -73,7 +73,7 @@ setup(name='gnuhealth_pediatrics_growth_charts_who',
         },
 
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',
