@@ -30,7 +30,6 @@ from flask_restful import Resource, Api, abort
 from flask_pymongo import PyMongo
 from flask_httpauth import HTTPBasicAuth
 import json
-from ast import literal_eval
 import bcrypt
 import logging
 
@@ -158,9 +157,9 @@ class Person(Resource):
         Initially just the Federation ID and the bcrypted
         hashed password
         """
-        # Convert from bytes to dictionary the information
-        # coming from the node (Python Requests library)
-        values = literal_eval(request.data.decode())
+
+        #Grab the data coming from the client, in JSON format
+        values = json.loads(request.data)
 
         # Initialize to inactive the newly created person
         values['active'] = False
@@ -210,9 +209,8 @@ class Person(Resource):
         Updates the person instance
         """
 
-        # Convert from bytes to dictionary the information
-        # coming from the node (Python Requests library)
-        values = literal_eval(request.data.decode())
+        #Grab all the data coming from the node client, in JSON format
+        values = json.loads(request.data)
 
         if '_id' in values:
             # Avoid changing the user ID
@@ -284,9 +282,8 @@ class Page(Resource):
         """
         Create a new instance on the Page resource
         """
-        # Convert from bytes to dictionary the information
-        # coming from the node (Python Requests library)
-        values = literal_eval(request.data.decode())
+        #Grab the data coming from the client, in JSON format
+        values = json.loads(request.data)
 
 
 

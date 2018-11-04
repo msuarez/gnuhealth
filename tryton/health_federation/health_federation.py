@@ -29,10 +29,9 @@ from pymongo import MongoClient
 from pymongo.errors import ConnectionFailure
 import requests
 import json
-from ast import literal_eval
 from uuid import uuid4
 from trytond.rpc import RPC
-
+from datetime import datetime, date
 
 __all__ = ['FederationNodeConfig','FederationQueue', 'FederationObject',
     'PartyFed','PoLFed']
@@ -214,7 +213,7 @@ class FederationQueue(ModelSQL, ModelView):
                 #       list of values
                 # [{resource, fields[{name, value}]
 
-                for arg in literal_eval(record.args):
+                for arg in json.loads(record.args):
                     vals = {}
                     modification_info = {}
 
@@ -254,7 +253,7 @@ class FederationQueue(ModelSQL, ModelView):
                 #       list of values
                 # [{resource, fields[{name, value}]
 
-                for arg in literal_eval(record.args):
+                for arg in json.loads(record.args):
                     vals = {}
                     creation_info = {}
 
@@ -311,15 +310,23 @@ class FederationQueue(ModelSQL, ModelView):
                 #Check that the local field is on shared federation list
                 #and retrieve the equivalent federation field name
 
-                # If the resource is not in the list
-                # create a new item
+                # Optimize the process, by not duplicating the resources
+                # Each resource will appear just once, with the list of
+                # its fields.
+                # Create a new item in the resource list
+                # to be returned, if this is not yet there.
+
+                # Serialize the date, datetime objects to be JSON compat
+                if isinstance(values[field], (datetime, date)):
+                    values[field] = values[field].isoformat()
+
                 if fed_resource not in resources:
                     fed_key = {
                         "resource": fed_resource,
                         "fields":[
                             {
                             "name": fed_field,
-                            "value": str(values[field])
+                            "value": values[field]
                             }]
                         }
 
@@ -327,13 +334,14 @@ class FederationQueue(ModelSQL, ModelView):
                     fedvals.append(fed_key)
 
                 else:
-                    # Otherwise, if the resource exists, we add
-                    # the new field values to it.
+                    # Otherwise, if the resource exists on the list,
+                    # we add the new field values to it.
+
                     n=0
                     for record in fedvals:
                         if fed_resource == record['resource']:
                             fedvals[n]['fields'].append({"name": fed_field, \
-                                "value": str(values[field])})
+                                "value": values[field]})
                         n=n+1
 
         return fedvals
@@ -354,13 +362,14 @@ class FederationQueue(ModelSQL, ModelView):
             # retrieve the federation field names and values in a dict
             fields_to_enqueue = cls.parse_fields(values,action,fields)
             # Continue the enqueue process with the fields
+
             if fields_to_enqueue:
                 rec = []
                 vals = {}
                 vals['msgid'] = str(uuid4())
                 vals['model'] = model
                 vals['time_stamp'] = str(time_stamp)
-                vals['args'] = str(fields_to_enqueue)
+                vals['args'] = json.dumps(fields_to_enqueue)
                 vals['method'] = action
                 vals['status'] = 'queued'
                 vals['federation_locator'] = federation_loc
@@ -484,7 +493,6 @@ class PartyFed(ModelSQL):
         parties = super(PartyFed, cls).create(vlist)
 
         for values in vlist:
-
             fed_acct = parties[0].federation_account
 
             # Check if the record has just been imported of modified

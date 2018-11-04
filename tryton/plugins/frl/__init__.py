@@ -121,7 +121,7 @@ class FederationResourceLocator():
     def create_local_record(self, model, values):
         # Create local record from the information
         # gathered from the Federation
-
+        
         create_local =rpc.execute(
             'model', model , 'create',
             [values],

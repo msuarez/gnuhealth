@@ -347,7 +347,7 @@ class FederationCountryConfig(ModelSingleton, ModelSQL, ModelView):
 
     def get_country_code(self, name):
         return self.country.code3
-                              
+
 class Party(ModelSQL, ModelView):
     __name__ = 'party.party'
 
@@ -513,7 +513,7 @@ class Party(ModelSQL, ModelView):
         "By default, it will use the code of the emiting institution country"
         "Refer to the GNU Health manual for further information",
         states={'invisible': Not(Bool(Eval('is_person')))})
-        
+
     def get_mother(self, name):
         if (self.birth_certificate and self.birth_certificate.mother):
             return self.birth_certificate.mother.id
@@ -530,7 +530,7 @@ class Party(ModelSQL, ModelView):
     def default_fed_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
         return Fedcountry.code
-        
+
     @staticmethod
     def default_activation_date():
         return date.today()
@@ -675,7 +675,7 @@ class Party(ModelSQL, ModelView):
             if values.get('federation_account') == '':
                 values['federation_account'] = None
 
-            #Generate internal code 
+            #Generate internal code
             if not values.get('code'):
                 config = Configuration(1)
                 # Use the company name . Initially, use the name
@@ -690,7 +690,7 @@ class Party(ModelSQL, ModelView):
                 # environments, with multiple GNU Health instances across
                 # a country / region
                 values['code'] = '%s-%s' % (uuid4(), suffix)
-                
+
             values.setdefault('addresses', None)
 
 
