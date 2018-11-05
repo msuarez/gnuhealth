@@ -61,15 +61,13 @@ setup(name='gnuhealth_federation',
     packages=[
         'trytond.modules.health_federation',
         'trytond.modules.health_federation.tests',
-        'trytond.modules.health_federation.wizard',
-        'trytond.modules.health_federation.report',
         ],
 
     package_data={
         'trytond.modules.health_federation': info.get('xml', []) \
             + info.get('translation', []) \
             + ['tryton.cfg', 'view/*.xml', 'doc/*.rst', 'locale/*.po',
-               'report/*.odt', 'icons/*.svg'],
+               'icons/*.svg'],
         },
 
     classifiers=[
