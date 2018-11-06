@@ -99,6 +99,14 @@
             <field name="internal">False</field>
         </record>
 
+        <record model="gnuhealth.command" id="cmd">
+            <field name="name">cmd</field>
+            <field name="model">gnuhealth.command</field>
+            <field name="label">Commands</field>
+            <field name="description">GNU Health Commands</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="sysinfo">
             <field name="name">sysinfo</field>
             <field name="description">Technical information for client and server</field>
