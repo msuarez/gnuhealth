@@ -5,7 +5,7 @@
 #
 #    Copyright (C) 2012-2014  Sebastian Marro <smarro@gnusolidario.org>
 #    Copyright (C) 2013-2017 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2017 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify

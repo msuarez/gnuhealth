@@ -1,7 +1,7 @@
 #  gnuhealth_csv_lab_interface.py
 #  
 #  Copyright 2017 Luis Falcon <falcon@gnu.org>
-#  Copyright 2011-2017 GNU Solidario <health@gnusolidario.org>
+#  Copyright 2011-2018 GNU Solidario <health@gnusolidario.org>
 #  
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
