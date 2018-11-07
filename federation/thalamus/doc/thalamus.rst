@@ -52,16 +52,9 @@ Some resources and end-points are:
 
 * People (/people)
 
+* Pages of Life (/pols)
+
 * DomiciliaryUnits (/domiciliary-units)
-
-* Institutions (/institutions)
-
-* Encounters (/encounters)
-
-* Events (/events)
-
-* PersonalDocs (/personal-documents)
-
 
 Running Thalamus from a WSGI Container
 --------------------------------------

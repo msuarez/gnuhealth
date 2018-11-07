@@ -1,5 +1,5 @@
-Thalamus: The GNU Health Federation Message and Authentication Server
-=====================================================================
+Thalamus: The GNU Health Message and Authentication Server
+==========================================================
 
 The Thalamus project provides a RESTful API hub to all the GNU Health 
 Federation nodes. The main functions are:
@@ -56,8 +56,6 @@ Some resources and end-points are:
 
 * DomiciliaryUnits (/domiciliary-units)
 
-
-
 Running Thalamus from a WSGI Container
 --------------------------------------
 In production settings, for performance reasons you should use a HTTP server.
@@ -84,7 +82,7 @@ Examples
 
 Retrieve the demographic information of person::
 
-  $ http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people/ESGNU777ORG
+  $ http --verify no --auth ITAPYT999HON:gnusolidario https://localhost:8443/people/ESPGNU777ORG
 
 Yields to::
 
@@ -96,7 +94,7 @@ Yields to::
     Server: gunicorn/19.7.1
 
     {
-        "_id": "ESGNU777ORG",
+        "_id": "ESPGNU777ORG",
         "active": true,
         "biological_sex": "female",
         "dob": "Fri, 04 Oct 1985 13:05:00 GMT",
@@ -116,7 +114,7 @@ Yields to::
 
 **Retrieve the demographics information globally**::
 
-  $ http --verify no --auth ITPYT999HON:gnusolidario https://localhost:8443/people
+  $ http --verify no --auth ITAPYT999HON:gnusolidario https://localhost:8443/people
 
 Yields to::
 
@@ -129,7 +127,7 @@ Yields to::
 
     [
         {
-            "_id": "ITPYT999HON",
+            "_id": "ITAPYT999HON",
             "active": true,
             "biological_sex": "female",
             "dob": "Fri, 05 Oct 1984 09:00:00 GMT",
@@ -149,7 +147,7 @@ Yields to::
         },
         
         {
-            "_id": "ESGNU777ORG",
+            "_id": "ESPGNU777ORG",
             "active": true,
             "biological_sex": "female",
             "dob": "Fri, 04 Oct 1985 13:05:00 GMT",
@@ -173,14 +171,14 @@ Yields to::
 **Using Python requests**::
 
   >>> import requests
-  >>> person = requests.get('https://localhost:8443/people/ESGNU777ORG', auth=('ITPYT999HON', 'gnusolidario'), verify=False)
+  >>> person = requests.get('https://localhost:8443/people/ESPGNU777ORG', auth=('ITAPYT999HON', 'gnusolidario'), verify=False)
   >>> person.json()
-    {'_id': 'ESGNU777ORG', 'active': True, 'biological_sex': 'female','dob': 'Fri, 04 Oct 1985 13:05:00 GMT',
+    {'_id': 'ESPGNU777ORG', 'active': True, 'biological_sex': 'female','dob': 'Fri, 04 Oct 1985 13:05:00 GMT',
     'education': 'tertiary', 'ethnicity': 'latino', 'gender': 'female', 'lastname': 'Betz', 'marital_status': 'married',
     'name': 'Ana', 'password': '$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW', 'profession': 'teacher',
     'roles': ['end_user']}
 
-*Note*: The demo user "ITPYT999HON" is a health professional (health_professional role),
+*Note*: The demo user "ITAPYT999HON" is a health professional (health_professional role),
 so she has global access to demographic information. Check the ``roles.cfg`` file for
 examples information about roles and ACLs.
 
