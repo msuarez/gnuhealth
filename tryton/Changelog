@@ -1,3 +1,1628 @@
+changeset:   3044:fe4e3d2fd527
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 07 12:48:09 2018 +0000
+summary:     health_calendar : Update dependencies
+
+changeset:   3043:9bf0530d501f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 07 11:41:57 2018 +0000
+summary:     health : Use default country for citizenship, residence and Domiciliary Unit taking the value from the Federation country
+
+changeset:   3042:9b925130fe7b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 22:50:40 2018 +0000
+summary:     Update header dates
+
+changeset:   3041:ca29ea23907a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 22:31:06 2018 +0000
+summary:     gnuhealth-control : Update program to match the new caldav and webdav3 server packages
+
+changeset:   3040:609f53faf55e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 22:14:57 2018 +0000
+summary:     health_calendar, health_inpatient_calendar : Fix dependencies
+
+changeset:   3039:7fc6837acaf4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 22:14:05 2018 +0000
+summary:     gnuhealth-setup : Update links for caldav and webdav3 packages
+
+changeset:   3038:ba5669da926b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 20:40:01 2018 +0000
+summary:     GNU Health command line : Add cmd command
+
+changeset:   3037:9e77de6da973
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 20:11:32 2018 +0000
+summary:     Thalamus : Update demo data with the new 3-letter country code federation ID prefix
+
+changeset:   3036:0c341847de5a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 19:39:49 2018 +0000
+summary:     Added tag 34RC1 for changeset ac8636cec038
+
+changeset:   3035:9e38bc236b4b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 06 13:47:05 2018 +0000
+summary:     pywebdav3-gnuhealth : Update version and history
+
+changeset:   3034:540440679bdf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 05 18:55:22 2018 +0000
+summary:     remove non-existat wizard package from setup.py declaration
+
+changeset:   3033:62075dfa7c78
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 22:19:27 2018 +0000
+summary:     Thalamus : Update RST doc
+
+changeset:   3032:4c36cfd8de09
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 22:05:31 2018 +0000
+summary:     gnuhealth-client : Update Changelog
+
+changeset:   3031:e9656a25f34b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:48:58 2018 +0000
+summary:     gnuhealth-client: Update to 3.4rc1
+
+changeset:   3030:d2c0f157dc9a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:45:19 2018 +0000
+summary:     Update README
+
+changeset:   3029:140dd4128bce
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:45:00 2018 +0000
+summary:     Thalamus : Update to 0.9.0 Beta
+
+changeset:   3028:ac8636cec038
+tag:         34RC1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:35:26 2018 +0000
+summary:     Update development status to Beta / RC1
+
+changeset:   3027:d04bd6a574df
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:31:47 2018 +0000
+summary:     Update to release 34 Release Candidate 1
+
+changeset:   3026:39ce5506bcc8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:27:53 2018 +0000
+summary:     health : Include PoL access control list
+
+changeset:   3025:e96708071b40
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 21:26:33 2018 +0000
+summary:     health_mdg6 : cast to integer the lab product prices
+
+changeset:   3024:b74a61dc0874
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 18:04:56 2018 +0000
+summary:     Thalamus, health_federation: Use JSON dumps - loads instead of literal_eval. Serialize date and datetime objects to ISO format
+
+changeset:   3023:961340b6689e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 12:46:09 2018 +0000
+summary:     health_federation HMIS node: Fix assignment of federation account on party creation
+
+changeset:   3022:217eb357e739
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 12:43:59 2018 +0000
+summary:     Thalamus : Add field validation on page and id
+
+changeset:   3021:f8c3e0ae1b23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 00:56:31 2018 +0000
+summary:     PoL : Include Socioeconomic determinants of Health context
+
+changeset:   3020:755874d35eab
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Nov 04 00:55:05 2018 +0000
+summary:     health : Add patient in generic health condition form
+
+changeset:   3019:5fdd6d3ad5ee
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 03 21:57:52 2018 +0000
+summary:     health_federation, genetics : Update form and genetic info. Gene and phenotype
+
+changeset:   3018:32335c190355
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 03 21:11:16 2018 +0000
+summary:     health : add products and invoices to commands
+
+changeset:   3017:4d993a3663e7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 03 19:45:54 2018 +0000
+summary:     Update GNU Health command line codes
+
+changeset:   3016:de4ffb2b7396
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 03 19:45:08 2018 +0000
+summary:     health : Lint
+
+changeset:   3015:dad7e46b959a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Nov 03 19:44:03 2018 +0000
+summary:     task #14797: Use PDF instead of ODT in reports
+
+changeset:   3014:e165f271bc11
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 02 21:47:48 2018 +0000
+summary:     health : remove debugging info. Make invisible the country code when the party is not a person
+
+changeset:   3013:eae86e5ccc7b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Nov 02 19:07:46 2018 +0000
+summary:     health, health_federation HMIS: Create the configuration for default country. Generate the Federation ID nomenclature  on person creation
+
+changeset:   3012:813eca503b90
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 01 20:41:28 2018 +0000
+summary:     health : Create PoL from prescription document
+
+changeset:   3011:09d71234b942
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 01 17:51:14 2018 +0000
+summary:     health: Automation of health conditions to PoL
+
+changeset:   3010:efc80e4966d3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Nov 01 17:50:06 2018 +0000
+summary:     health_genetics : lint
+
+changeset:   3009:696064fc06e8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 31 23:00:17 2018 +0000
+summary:     health_genetics : Include health professional and institution. Create menu for person genetic info. Automate the creation of PoL at creation time of patient genetic info
+
+changeset:   3008:0b65ef8cd4c3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 31 22:58:32 2018 +0000
+summary:     health : Include gene / protein description
+
+changeset:   3007:9b786f486979
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 30 23:55:16 2018 +0000
+summary:     health : Include Node in the PoL arguments from the patient evaluation / encounter
+
+changeset:   3006:a09a4f7b6a3d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 30 23:46:52 2018 +0000
+summary:     health : Include Node in the PoL arguments
+
+changeset:   3005:7d3c8c4472c4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 30 22:39:46 2018 +0000
+summary:     health, health_federation : Make PoL field readonly and generate it at record creation time
+
+changeset:   3004:b162845d5af9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 30 18:40:31 2018 +0000
+summary:     health : automatically create the PoL from the evaluation / encounter
+
+changeset:   3003:213699777353
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 29 20:56:39 2018 +0000
+summary:     health_federation HMIS node : Use url suffix as argument to enqueue. Update data file. Lint
+
+changeset:   3002:834d271e7380
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 29 20:50:11 2018 +0000
+summary:     health : Lint. Strip trailing spaces
+
+changeset:   3001:06d76d3c8ceb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 29 20:47:08 2018 +0000
+summary:     Thalamus : Update Book and Page resources. Lint
+
+changeset:   3000:80d8fa5ae1c2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 29 11:47:08 2018 +0000
+summary:     health_federation : Remove spaces and newlines from the feeration object values datafile
+
+changeset:   2999:9a185873e1bc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 22:39:36 2018 +0000
+summary:     health_federation HMIS node : Write before evaluation
+
+changeset:   2998:4023ce90ef26
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 22:37:53 2018 +0000
+summary:     health: Link page of life directly to person
+
+changeset:   2997:0deec09582e2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 16:45:50 2018 +0000
+summary:     health_federation HMIS node : Add PoL initial class and federation model object mapping
+
+changeset:   2996:1fbb7d7b90bb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 16:09:49 2018 +0000
+summary:     Thalamus: Use pols name for pages of lives collection
+
+changeset:   2995:e4834c3a00d1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 14:49:23 2018 +0000
+summary:     Health : Update BoL form
+
+changeset:   2994:3f9cc4d3851b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 14:47:27 2018 +0000
+summary:     health : Include valudation for page and book of life. Add new items on medical context
+
+changeset:   2993:1a1d6dfeead5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 14:45:37 2018 +0000
+summary:     Thalamus : Update user roles
+
+changeset:   2992:83d2043c02c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 14:39:35 2018 +0000
+summary:     Thalamus : Include initial demo data for Books of Life
+
+changeset:   2991:80166d7b382d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 28 14:24:12 2018 +0000
+summary:     Thalamus : Add Lives and Pages resources and endpoints. Update demo data
+
+changeset:   2990:52b684730f71
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 26 17:12:27 2018 +0100
+summary:     health : Add book of life icon
+
+changeset:   2989:852bf29573b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 26 13:11:04 2018 +0100
+summary:     health: Add BoL and link pages of life to it
+
+changeset:   2988:95f5d4428dc3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 25 23:05:09 2018 +0100
+summary:     health: Update Page of Life model
+
+changeset:   2987:8966f5c85c5b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 24 19:30:10 2018 +0100
+summary:     Book of Life: Initial Page of Life model
+
+changeset:   2986:d8b7b97e2dc5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 22 20:47:59 2018 +0100
+summary:     health_federation local HMIS node. Allow RPC execution on FederationObject method
+
+changeset:   2985:e280c8869096
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 22 20:44:36 2018 +0100
+summary:     FRL: Generic design to fit different local models, their corresponding resource and fields from the federation
+
+changeset:   2984:108d4657f6ba
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 22 18:22:01 2018 +0100
+summary:     thalamus : Exclude biological sex from demographics demo data. Use m or f for gender
+
+changeset:   2983:1dc0288685c3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 21 19:31:06 2018 +0100
+summary:     FRL : Initial method on updating a record on the local HMIS system from the Federation HIS
+
+changeset:   2982:0a3d64f5981d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 21 11:30:01 2018 +0100
+summary:     FRL, health federation HMIS node : Use upper case to query and store the federation ID in mongodb
+
+changeset:   2981:6d393b683154
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 20 18:24:46 2018 +0100
+summary:     health_federation HMIS node : enqueue records from local node and exclude the newly imported information coming from the federation
+
+changeset:   2980:aa0c9a817152
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 19 14:04:40 2018 +0100
+summary:     FRL : Initial creation process of local record imported from the federation
+
+changeset:   2979:b67e5885e5a1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 19 13:41:49 2018 +0100
+summary:     health federation HMIS node: Add gender field to people party federation datafile
+
+changeset:   2978:662c154c7e0e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 19 12:37:29 2018 +0100
+summary:     FRL: Use confirmation dialog to create the record at HMIS when importing it from the Federation
+
+changeset:   2977:2d5956b210cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 18:45:32 2018 +0100
+summary:     FRL : Include federation account in the search fields
+
+changeset:   2976:79b2772529d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 17:34:15 2018 +0100
+summary:     FRL: Move application to plugins dir
+
+changeset:   2975:1e899c8e8b81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 17:33:33 2018 +0100
+summary:     FRL : Update application icon
+
+changeset:   2974:f56d052002ce
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 17:32:49 2018 +0100
+summary:     GNU Health Camera. Check for CV2 libraries
+
+changeset:   2973:2f3104856822
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 17:29:49 2018 +0100
+summary:     health_federation HMIS node. Initial enqueue control for HIS imported records
+
+changeset:   2972:0fea1bc36324
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Oct 18 17:19:31 2018 +0100
+summary:     FRL: Plugin for HMIS interfacing with Thalamus
+
+changeset:   2971:52c44833a5d0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 15 16:04:52 2018 +0100
+summary:     Thalamus: Enforce string type for person ID. Return 404 if person not found
+
+changeset:   2970:2643d2867ce8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 05 21:16:12 2018 +0100
+summary:     health_federation HMIS node: Include modification info in PATCH methods
+
+changeset:   2969:63d0ca3b3aa3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 05 12:45:45 2018 +0100
+summary:     thalamus : initialiaze user password
+
+changeset:   2968:d9d31515172f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 05 12:44:40 2018 +0100
+summary:     health_federation HMIS node : Include creation information in POST method. Use *node* as field name in federation queue
+
+changeset:   2967:16332121d8e4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 03 13:57:16 2018 +0100
+summary:     health_federation HMIS node : update POST method
+
+changeset:   2966:b3b185f9e66c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 03 13:55:03 2018 +0100
+summary:     Thalamus: Optimize POST method and vale packing
+
+changeset:   2965:4e9379b9e9fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 02 11:46:30 2018 +0100
+summary:     health_federation: Update packing for PATCH methods
+
+changeset:   2964:4b0b08477218
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 29 22:20:04 2018 +0100
+summary:     health_federation HMIS node : Optimize data packing to send each each resource at once
+
+changeset:   2963:2f20d0a14e78
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 28 11:17:46 2018 +0100
+summary:     health_caldav : Fix traceback on appointment creation when the patient ID is not an argument on the event
+
+changeset:   2962:4ca91ebb76e5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 28 11:16:41 2018 +0100
+summary:     webdav_server: Use decodebytes instead of decodesring
+
+changeset:   2961:e908b70a17ac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 23 18:48:29 2018 +0100
+summary:     health_caldav: Create appointment from calendar event from patient ID. Lint code
+
+changeset:   2960:1d721fb32008
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 23 13:55:06 2018 +0100
+summary:     health_calendar, health_caldav: Assign the event ID to the new appointment
+
+changeset:   2959:9ce62d3521fe
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 23 11:15:15 2018 +0100
+summary:     health_caldav : Initial creation of appointment from event
+
+changeset:   2958:370db21236c8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 19 09:57:44 2018 +0100
+summary:     health_caldav : Check for existance of the patient unique id when creating the event from the caldav client
+
+changeset:   2957:9158ee9c686e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 19 08:09:07 2018 +0100
+summary:     health_caldav: Remove obsolete register method
+
+changeset:   2956:31d3671f36eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 06 18:26:29 2018 +0100
+summary:     health_caldav : Update the appointment related to associated event when changes are made from the caldav client
+
+changeset:   2955:e61d8858b774
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 04 19:10:48 2018 +0100
+summary:     GNU Health webdav server : Fix encoding issue  when creating a new event from the caldav client
+
+changeset:   2954:0d6d43637ffd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 01 15:53:34 2018 +0100
+summary:     Caldav server : Fix escape str to binary error when updating an event
+
+changeset:   2953:6595dadca31a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 01 15:52:06 2018 +0100
+summary:     pywebdav3-gnuhealth : Check for binary type before encoding
+
+changeset:   2952:01267a50d693
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 01 12:21:32 2018 +0100
+summary:     WebDAV and CalDAV: Initial documentation on packages
+
+changeset:   2951:bd1178460d53
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 31 23:28:07 2018 +0100
+summary:     gnuhealth caldav: Allow creation and updates of documents from the client to the GNU Health HMIS caldav server
+
+changeset:   2950:0b02b4637e85
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 29 20:51:55 2018 +0100
+summary:     health_federation : Include initial POST on people enqueue process. Fix PartyFed class name
+
+changeset:   2949:80b5e8d83348
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 29 20:49:01 2018 +0100
+summary:     Thalamus: Use gunicorn logging when available. Allow POST on person without passwd. Default end_user role for newly created person
+
+changeset:   2948:00ef27d343fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 29 11:44:07 2018 +0100
+summary:     Thalamus : Check if the new user password is in bcrypt format
+
+changeset:   2947:b2c374662421
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 28 13:08:14 2018 +0100
+summary:     health : Use gnu health list icon for command line menu
+
+changeset:   2946:323c570c91ea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Aug 28 13:02:36 2018 +0100
+summary:     health: Include med command
+
+changeset:   2945:d239469256ce
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 27 14:19:09 2018 +0100
+summary:     health_federation: Use the format <Class_name><Fed> for each participating class on the health federation
+
+changeset:   2944:2cace2874d1c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 27 14:17:09 2018 +0100
+summary:     health_federation: Documentation on health_federation package
+
+changeset:   2943:310ed24330d4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 21:22:58 2018 +0100
+summary:     health_federation : Update menu entry for Federation Node configuration
+
+changeset:   2942:e020afe99a74
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 15:50:44 2018 +0100
+summary:     health_federation : Add test connectivity to Thalamus in the tree view
+
+changeset:   2941:2f40205ca499
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 13:12:20 2018 +0100
+summary:     GNU Health setup : Install startup script
+
+changeset:   2940:54edea53390a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 13:02:29 2018 +0100
+summary:     GNU Health : Include start_gnuhealth script
+
+changeset:   2939:88b48386656e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 12:12:36 2018 +0100
+summary:     GNU Health client : Update Changelog
+
+changeset:   2938:a851006fc1a8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 25 12:10:59 2018 +0100
+summary:     gnuhealthrc profile : Include user local home bin directory in PATH
+
+changeset:   2937:f52b4feda19e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 18 16:12:43 2018 +0100
+summary:     health_federation: Include gnuhealth commands datafile, with FEDQ cmd
+
+changeset:   2936:29d880c64e3d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 18 16:05:07 2018 +0100
+summary:     health_lab: Include gnuhealth commands datafile, with lab cmd
+
+changeset:   2935:2956c5d221fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 18 15:49:47 2018 +0100
+summary:     health: Include datafile for gnuhealth commands. Add sysinfo and pat cmds
+
+changeset:   2934:9d0e220465c7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 17 21:45:15 2018 +0100
+summary:     health: Create initial datafile for GNU Health commands, and ppl as the initial command
+
+changeset:   2933:57db2506d65b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Aug 04 16:59:12 2018 +0100
+summary:     health_federation : Initial enqueue process for create / post methods coming from the HMIS
+
+changeset:   2932:5e7098f68208
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Aug 03 13:18:03 2018 +0100
+summary:     health_federation : Use string representation for all fields to be enqueued
+
+changeset:   2931:95852365df62
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 27 11:08:37 2018 +0100
+summary:     health_federation: Set the queue element to sent upon correct delivery of the record to thalamus
+
+changeset:   2930:27760b9091dd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 27 09:49:34 2018 +0100
+summary:     health_federation : Optimize views on federation queue manager
+
+changeset:   2929:0bdcb212b78a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jul 24 18:46:25 2018 +0100
+summary:     Update pre-release development version to 3.3a3
+
+changeset:   2928:feff5dc4f3c0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 22 00:15:58 2018 +0100
+summary:     health_genetics : Update natural variant labels. Fix requirements
+
+changeset:   2927:dc5db8bdc808
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 15 19:09:45 2018 +0100
+summary:     health_genetics : Include variant phenotype code in view
+
+changeset:   2926:3b9397351a32
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 15 19:08:35 2018 +0100
+summary:     health_genetics : Update field search methods
+
+changeset:   2925:4acc042fbc19
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 13 23:33:32 2018 +0100
+summary:     health_genetics_uniprot: Update proteins associated to genes from latest UniProtKB
+
+changeset:   2924:9cff4261c6b0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 11 15:02:07 2018 +0100
+summary:     health_genetics : Include variant name directly from the generic search field
+
+changeset:   2923:70faaf47fe48
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 11 13:03:40 2018 +0100
+summary:     health_genetics : Use proper variable naming for search method on protein disease model
+
+changeset:   2922:c36c28d961cc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jul 11 13:00:30 2018 +0100
+summary:     health_genetics : Use proper variable naming for search method on disease genes model
+
+changeset:   2921:5ce65a79e7a3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 07 13:05:03 2018 +0100
+summary:     health: Fix drug administration route label
+
+changeset:   2920:25633eb6d5de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 25 14:12:40 2018 +0100
+summary:     health_genetics_uniprot: Update natural variant phenotypes to uniprotkb v 195 . Fix, revise protein related dataset
+
+changeset:   2919:c3d6b6eddc18
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 20 15:39:58 2018 +0100
+summary:     health_genetics : Update gene and protein information related to human conditions from UniProtKB dataset v 195
+
+changeset:   2918:92f713c9674e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 20 13:08:55 2018 +0100
+summary:     Update version and development status to 3.3a2
+
+changeset:   2917:2aeaff518575
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jun 20 12:46:19 2018 +0100
+summary:     health_genetics_uniprot : Update Protein related diseases to UniprotKB dataset version 195 - 2018-04-25
+
+changeset:   2916:0373581d6421
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 12 18:13:38 2018 +0100
+summary:     update development pre-release version to 3.3a1 - conforming PEP440
+
+changeset:   2915:7578f90819bc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 12 17:49:57 2018 +0100
+summary:     health_webdav3_server: fix setup.py
+
+changeset:   2914:63ba407ee8d8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 12 11:11:10 2018 +0100
+summary:     Upgrade : Update setup files and webdav related packages for upcoming 3.4
+
+changeset:   2913:a3aeecc31978
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 11 12:14:31 2018 +0100
+summary:     gnuhealth-setup : Remove pymongo from dependencies, since it is now managed by Thalamus
+
+changeset:   2912:1129cd8d5418
+parent:      2905:ed2d2dfd21d3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 11 12:12:38 2018 +0100
+summary:     gnuhealth-setup : Add numpy dependency
+
+changeset:   2911:6ab1893f0266
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 05 11:55:49 2018 +0100
+summary:     Added tag 3.2.10 for changeset 45c6a6efc48f
+
+changeset:   2910:45c6a6efc48f
+branch:      stable
+tag:         3.2.10
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jun 05 11:55:22 2018 +0100
+summary:     Update to GNU Health version 3.2.10
+
+changeset:   2909:27e1ca52f574
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 04 23:09:29 2018 +0100
+summary:     gnuhealth-setup : Update copyright date
+
+changeset:   2908:f88169e22714
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 04 22:55:40 2018 +0100
+summary:     gnuhealth-setup : Update gnuhealth-setup version
+
+changeset:   2907:2d684ecfce27
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 04 22:36:33 2018 +0100
+summary:     gnuhealth-setup : Include numpy requirement for pytools
+
+changeset:   2906:bec0951c76a8
+branch:      stable
+parent:      2875:0624f1ec6502
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 04 16:22:37 2018 +0100
+summary:     Fix bug #54055: Caldav event does not update after changing the appointment
+
+changeset:   2905:ed2d2dfd21d3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jun 04 16:22:37 2018 +0100
+summary:     Fix bug #54055: Caldav event does not update after changing the appointment
+
+changeset:   2904:f51f9e5137d2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jun 03 18:37:39 2018 +0100
+summary:     HMIS webdav server : add dbname in Transaction
+
+changeset:   2903:0206a543527e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jun 02 18:38:26 2018 +0100
+summary:     health gyneco : Update svg obstetrics icon
+
+changeset:   2902:2b071e110669
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 01 21:50:14 2018 +0100
+summary:     health gyneco : Update icon for obstetrics
+
+changeset:   2901:af31a7513210
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jun 01 17:15:41 2018 +0100
+summary:     health stock package: Update icon
+
+changeset:   2900:6354702b5fd4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri May 25 11:31:02 2018 +0100
+summary:     health_gyneco : Add obstetrics menu and icon
+
+changeset:   2899:79b77eb3b6f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 21 16:02:39 2018 +0100
+summary:     Thalamus : Update setup, version and trove classifiers
+
+changeset:   2898:22ce26155a35
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 21 13:55:35 2018 +0100
+summary:     Update thalamus version
+
+changeset:   2897:237e0d5b9566
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 21 11:08:50 2018 +0100
+summary:     health_ems : Use GNU Health list icon ambulances in support requests menu
+
+changeset:   2896:54f90a8abe81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 21 11:04:10 2018 +0100
+summary:     health_ems : Include ambulances in support requests in main ambulance menu
+
+changeset:   2895:99c60721e9e6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon May 21 10:47:13 2018 +0100
+summary:     task #14276 Federation HMIS node. Move queue manager to main menu
+
+changeset:   2894:97f8aa9bb5c1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 20 18:33:57 2018 +0100
+summary:     task #14276 Federation HMIS node. Add demographics federation_account on objects datafile
+
+changeset:   2893:fd55e3f5e459
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 20 18:21:08 2018 +0100
+summary:     task #14276 Federation HMIS node. Fix typo in federation objects filename
+
+changeset:   2892:3ffa6b41e189
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 06 23:33:41 2018 +0100
+summary:     task #14276 Federation HMIS node. Remove some debug info
+
+changeset:   2891:9984616fec55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 06 19:16:29 2018 +0100
+summary:     task #14276 Federation HMIS node. Update requests patch method to send to Thalamus
+
+changeset:   2890:fff526065e35
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun May 06 19:15:11 2018 +0100
+summary:     Thalamus : Initial patch method. Avoid modifying its own user ID
+
+changeset:   2889:deff33e5ad41
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 05 20:08:29 2018 +0100
+summary:     gnuhealth-client : Update icons for save, save as, and unstar
+
+changeset:   2888:10c75488f26a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 05 19:50:42 2018 +0100
+summary:     Update icons for finance, party, product, currency and stock modules
+
+changeset:   2887:3d96743b336d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat May 05 11:38:31 2018 +0100
+summary:     gnuhealth-client : New GTK client icons for upcoming v 3.4
+
+changeset:   2886:28e3ba084c11
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 03 12:56:36 2018 +0100
+summary:     task #14276 Federation HMIS node. Retrieve the conn. params and include federation locator
+
+changeset:   2885:314a2d53e8ca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu May 03 12:31:47 2018 +0100
+summary:     health_services : default invoice to true on services line
+
+changeset:   2884:caaf9ca33a73
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 18 20:02:55 2018 +0100
+summary:     task #14276 Federation HIS node. Add send button for each record on the queue to be sent to the Federation
+
+changeset:   2883:2645fbd81d7d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 18 18:05:58 2018 +0100
+summary:     task #14276 Federation HIS node. Retrieve the health center code from the institution model
+
+changeset:   2882:599b13de451b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Apr 18 15:26:11 2018 +0100
+summary:     task #14276 Federation HIS node. Initial creation of enqueue record with arguments to Thalamus
+
+changeset:   2881:19db88826491
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 13 11:08:57 2018 +0100
+summary:     task #14276 Federation HIS node. Add parsing and mapping methods from local node to federation
+
+changeset:   2880:827464834295
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Fri Mar 30 16:20:53 2018 -0400
+summary:     Typo; refactor
+
+changeset:   2879:b76705cb0acd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 25 17:34:56 2018 +0100
+summary:     task #14276 Federation HIS node. Add fields for model, origin and timestamp. Update enqueue method
+
+changeset:   2878:a1129c885661
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 22 18:19:00 2018 +0000
+summary:     task #14276 Federation HIS node . Check for Federation account before enqueuing
+
+changeset:   2877:818ccf0a4d14
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 22 14:43:52 2018 +0000
+summary:     task #14276 Federation : HMIS node  Work on demographics initial checks for enqueue management
+
+changeset:   2876:c89bded5e7bc
+parent:      2873:48dfc8e578b8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 18 11:32:46 2018 +0000
+summary:     Documentation : Add sample script for importing products
+
+changeset:   2875:0624f1ec6502
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 15 09:40:18 2018 +0000
+summary:     Added tag GNU Health GTK client 3.2.6 for changeset 229e03315706
+
+changeset:   2874:229e03315706
+branch:      stable
+tag:         GNU Health GTK client 3.2.6
+parent:      2846:524358b0457a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Mar 15 09:29:01 2018 +0000
+summary:     gnuhealth-client : Update to v 3.2.6
+
+changeset:   2873:48dfc8e578b8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Mar 04 19:47:28 2018 +0000
+summary:     task #14276: Federation : HMIS node. Add xml to hold standard node obects
+
+changeset:   2872:46065ffa8e47
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 06 05:50:10 2018 +0000
+summary:     task #14276: Federation : HMIS node. Include the enable attribute both for the node and models
+
+changeset:   2871:5e03f1f1fbeb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 06 05:03:26 2018 +0000
+summary:     Update README
+
+changeset:   2870:c8edc268d2b6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Feb 06 05:01:12 2018 +0000
+summary:     task #14276: Federation : HMIS node. Initial model for the Federation object
+
+changeset:   2869:cc52cffea9dd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Feb 02 21:53:36 2018 +0000
+summary:     task #14276: Federation : HMIS node. Iclude initial model for the Federation queue
+
+changeset:   2868:c1dd5ee44c28
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 24 19:40:42 2018 +0000
+summary:     health_federation : use SSL as default to test connection to Thalamus
+
+changeset:   2867:260be43eddf2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 24 17:26:11 2018 +0000
+summary:     Thalamus : Update year in GPL notice
+
+changeset:   2866:830dfb46b1f8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 24 16:56:44 2018 +0000
+summary:     GNU Health Federation : Move HIS Federation module to tryton dir
+
+changeset:   2865:7cc8070d23e8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 24 11:54:03 2018 +0000
+summary:     gnuhealth-client : Update default greeter banner
+
+changeset:   2864:4e863ba13060
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 19 13:52:41 2018 +0000
+summary:     GNU Health client : Include Activity logger window menu entry. Toggle Activity Log
+
+changeset:   2863:f76650e09f81
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 17 18:39:25 2018 +0000
+summary:     gnuhealth CLI : implement execution of commands with arguments. Use the gnuhealth.command model to set the command attributes
+
+changeset:   2862:d224b5d3b443
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 17 00:24:45 2018 +0000
+summary:     GNU Health commands : Update Model from M2O to Char
+
+changeset:   2861:d1cdebdc41b9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 15 21:35:39 2018 +0000
+summary:     GNU Health CLI : Add GNU Health command views
+
+changeset:   2860:a52adc9ccb8a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 20:54:54 2018 +0000
+summary:     gnuhealth command line : Add parameter client.cli_position to allow setting the CLI either at top of within the footer at the bottom
+
+changeset:   2859:ee8646d809b2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 20:53:25 2018 +0000
+summary:     gnuhealth-client : Fix configuration directory
+
+changeset:   2858:c9d745556231
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 13 18:34:38 2018 +0000
+summary:     GNU Health cli - make the command case-insensitive
+
+changeset:   2857:0d5f2232d615
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 11 17:16:20 2018 +0000
+summary:     GNU Health CLI : Reformat SYSINFO output information
+
+changeset:   2856:ae00b5f8193a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Jan 11 13:17:30 2018 +0000
+summary:     GNU Health CLI : Update SYSINFO command with server-side information
+
+changeset:   2855:c547ddbb2537
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 10 23:23:51 2018 +0000
+summary:     task #14727: Implement Action and Command codes - The GNU Health Command Line. Implementation of initial SYSINFO command
+
+changeset:   2854:8bd132f90832
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 19:41:50 2018 +0000
+summary:     gnuhealth-client :Include GNU Health logo as icon for Activity log window
+
+changeset:   2853:364fdcbfc5ec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 19:32:04 2018 +0000
+summary:     Use append mode for messages in Activiy log
+
+changeset:   2852:ee8f5fdcc740
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 09 18:54:04 2018 +0000
+summary:     gnuhealth-client : cleanup code, use new methods for initialize and reset gnu health environment in client
+
+changeset:   2851:3500483e12fb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 20:19:16 2018 +0000
+summary:     gnuhealth-client : fix gpl to v3 in actity log
+
+changeset:   2850:8ea0785f00fd
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 20:15:13 2018 +0000
+summary:     gnuhealth-client : Add initial Activity log and activity log window
+
+changeset:   2849:070d82b5dfb5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 08 10:38:21 2018 +0000
+summary:     gnuhealth-client : Add initial CLI and status bar
+
+changeset:   2848:ef6f94229750
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jan 06 23:14:17 2018 +0000
+summary:     task #14727: Implement Action and Command codes - The GNU Health Command Line. Initial widget
+
+changeset:   2847:0d9f786603ec
+parent:      2843:9dc86e798ec1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jan 05 15:46:44 2018 +0000
+summary:     gnuhealth-client: Initial development for 3.4 series
+
+changeset:   2846:524358b0457a
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 03 21:11:57 2018 +0000
+summary:     Added tag GNU Health GTK client 3.2.5 for changeset e0737d2bc5cf
+
+changeset:   2845:e0737d2bc5cf
+branch:      stable
+tag:         GNU Health GTK client 3.2.5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Jan 03 20:59:29 2018 +0000
+summary:     gnuhealth-client : Update desktop software categories. Thanks Axel !
+
+changeset:   2844:1a00119c4c67
+branch:      stable
+parent:      2825:5e4c565a86de
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Jan 02 18:30:52 2018 +0000
+summary:     Add gnuhealth-client 3.2 to stable branch
+
+changeset:   2843:9dc86e798ec1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 01 22:10:14 2018 +0000
+summary:     Added tag GNU Health GTK client 3.2.4 for changeset 39b3fce077da
+
+changeset:   2842:39b3fce077da
+tag:         GNU Health GTK client 3.2.4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 01 22:09:42 2018 +0000
+summary:     task #14731: Native GNU Health client. Update setup due to issues with pypi
+
+changeset:   2841:b71b007598dc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 01 20:11:55 2018 +0000
+summary:     task #14731: Native GNU Health client. Update version and setup.pu
+
+changeset:   2840:9492180df7ea
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 01 16:09:12 2018 +0000
+summary:     task #14731: Native GNU Health client. Update doc and setup.py, add new .ico file
+
+changeset:   2839:a0d7fb311c4c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 30 21:04:31 2017 +0000
+summary:     task #14731: Native GNU Health client. Remove roundup default entries from gnuhealth-client.conf
+
+changeset:   2838:5f97e907e94a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 30 19:29:10 2017 +0000
+summary:     task #14731: Native GNU Health client. Remove roundup / Tryton bug tracker
+
+changeset:   2837:517c32d9f963
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 29 00:28:25 2017 +0000
+summary:     task #14731: Native GNU Health client. Update setup.py
+
+changeset:   2836:43102ccac365
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Dec 28 00:02:34 2017 +0000
+summary:     task #14731: Native GNU Health client. Add initial package for 3.2 series
+
+changeset:   2835:1d254d399a06
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 23 16:08:50 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Update update SQL script
+
+changeset:   2834:e7724acc6173
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 23 16:05:42 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Fix sequence reference in health_ems
+
+changeset:   2833:9e99d6e75a25
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 23 12:08:33 2017 +0000
+summary:     health_federation: Update version to dev 3.3
+
+changeset:   2832:26691ede820c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 23 11:57:12 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Fix the reference to sequence instead of type in health_imaging
+
+changeset:   2831:207fc6167451
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 18 20:31:34 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate health_nursing, health_services and health_surgery
+
+changeset:   2830:3e3cb84f5e2f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 18 19:10:52 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Fix the reference to sequence instead of type in health_lab and health_ntd_chagas
+
+changeset:   2829:f7818ca49cf3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 18 18:37:51 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate health_ntd_dengue
+
+changeset:   2828:74334b388daf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 18 17:30:59 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate health_ntd and health_ntd_chagas
+
+changeset:   2827:ba6372735921
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 15 21:39:34 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate health_imaging
+
+changeset:   2826:75bf4e4ad75a
+parent:      2822:101e97525bc2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Dec 15 20:35:13 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate health_lab
+
+changeset:   2825:5e4c565a86de
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 04 22:04:43 2017 +0000
+summary:     Added tag 3.2.9 for changeset 84a99cd70897
+
+changeset:   2824:84a99cd70897
+branch:      stable
+tag:         3.2.9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 04 21:52:13 2017 +0000
+summary:     Update to version 3.2.9
+
+changeset:   2823:3e93bd26c077
+branch:      stable
+parent:      2819:086b1b7aba01
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Dec 04 16:59:01 2017 +0000
+summary:     Fix bug #52579: Fix on_change on APACHE II score
+
+changeset:   2822:101e97525bc2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:37:31 2017 +0000
+summary:     Fix bug #52580: Removing the patient field before saving the record generates an error
+
+changeset:   2821:f34dfe7ee564
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:23:44 2017 +0000
+summary:     fix bug #52579: some on_change numeric method operations generate traceback
+
+changeset:   2820:371f04db5437
+parent:      2816:f97291778488
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 02 20:44:41 2017 +0000
+summary:     Fix bug #52578: WHR should be on the same line as hip and waist fields
+
+changeset:   2819:086b1b7aba01
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:37:31 2017 +0000
+summary:     Fix bug #52580: Removing the patient field before saving the record generates an error
+
+changeset:   2818:9bc93b909d82
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Dec 03 11:23:44 2017 +0000
+summary:     fix bug #52579: some on_change numeric method operations generate traceback
+
+changeset:   2817:206182f73a91
+branch:      stable
+parent:      2811:5b6f5ed0a7b4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 02 20:44:41 2017 +0000
+summary:     Fix bug #52578: WHR should be on the same line as hip and waist fields
+
+changeset:   2816:f97291778488
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 22 14:12:45 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Update health_ems
+
+changeset:   2815:8ec54fc6e030
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Nov 21 04:10:17 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Update health_inpatient
+
+changeset:   2814:5e0328ea823b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 20 19:58:00 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Include SQL upgrade script
+
+changeset:   2813:fc5617186ca8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 20 17:49:01 2017 +0000
+summary:     gnuhealth-setup : Update to 3.3 development - pre-3.4 w/ tryton 4.6 kernel
+
+changeset:   2812:a0ed9d683c19
+parent:      2808:e8678dd7cbca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 20 17:41:31 2017 +0000
+summary:     task #14735: Upgrade to Tryton 4.6 Kernel. Migrate core module
+
+changeset:   2811:5b6f5ed0a7b4
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 18:44:55 2017 +0000
+summary:     Added tag 3.2.8 for changeset 05d7ad956537
+
+changeset:   2810:05d7ad956537
+branch:      stable
+tag:         3.2.8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 18:43:53 2017 +0000
+summary:     Update to 3.2.8
+
+changeset:   2809:5ff5fea88ef9
+branch:      stable
+parent:      2803:afb543ba324c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 16:50:50 2017 +0000
+summary:     Fix deps on calendar_webdav3 and update versions
+
+changeset:   2808:e8678dd7cbca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 16:19:47 2017 +0000
+summary:     webdav3 : Update setup and package description
+
+changeset:   2807:17ed39430500
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 16:19:04 2017 +0000
+summary:     Calendar webdav3 : Fix dependency issue
+
+changeset:   2806:7b3a9c1dc53e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 14:00:41 2017 +0000
+summary:     remove lingering egg-info dirs from webdav3
+
+changeset:   2805:ca32d6cbca24
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:48:14 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Remove tryton from keywords
+
+changeset:   2804:41034e899a4c
+parent:      2797:0073a53daca7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:41:02 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Update descriptions
+
+changeset:   2803:afb543ba324c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 15:39:59 2017 +0000
+summary:     Added tag 3.2.7 for changeset 33e56a70f607
+
+changeset:   2802:33e56a70f607
+branch:      stable
+tag:         3.2.7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 15 15:39:31 2017 +0000
+summary:     Update to 3.2.7
+
+changeset:   2801:75bd85d99589
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 14:00:41 2017 +0000
+summary:     remove lingering egg-info dirs from webdav3
+
+changeset:   2800:8e38ccb0b63d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:48:14 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Remove tryton from keywords
+
+changeset:   2799:27662b57388d
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 13 13:41:02 2017 +0000
+summary:     task #14626: Renaming Package names prefix trytond_ from Pypi. Update descriptions
+
+changeset:   2798:7e1be40f2edb
+branch:      stable
+parent:      2795:e0b3df7c45c8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 08 13:46:58 2017 +0000
+summary:     health_crypto. Fix bug #52366: Error when signing the death certificate
+
+changeset:   2797:0073a53daca7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 08 13:46:58 2017 +0000
+summary:     health_crypto. Fix bug #52366: Error when signing the death certificate
+
+changeset:   2796:0f0bf1c7dff4
+parent:      2792:02e211b40aef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Nov 06 19:04:31 2017 +0000
+summary:     lab report : Include warning sign and use bold font in analytes when results are outside the normal range
+
+changeset:   2795:e0b3df7c45c8
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 28 22:48:41 2017 +0100
+summary:     Added tag 3.2.6 for changeset 31d2c04781ae
+
+changeset:   2794:31d2c04781ae
+branch:      stable
+tag:         3.2.6
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 28 19:52:40 2017 +0100
+summary:     Update to version 3.2.6
+
+changeset:   2793:41e2be2f62cc
+branch:      stable
+parent:      2790:eb3891af4c21
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 27 20:40:18 2017 +0100
+summary:     fix bug #52298: Traceback generating an invoice from service with an insurance policy plan
+
+changeset:   2792:02e211b40aef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 27 20:40:18 2017 +0100
+summary:     fix bug #52298: Traceback generating an invoice from service with an insurance policy plan
+
+changeset:   2791:4ab78954dc6d
+parent:      2789:bd8fd02e9a6e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Oct 15 17:39:56 2017 +0100
+summary:     Update setup.py
+
+changeset:   2790:eb3891af4c21
+branch:      stable
+parent:      2787:1e554137dbec
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 24 18:34:21 2017 +0100
+summary:     Fix bug #52275: Traceback when creating a free slot in appointments or work schedule
+
+changeset:   2789:bd8fd02e9a6e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 24 18:34:21 2017 +0100
+summary:     Fix bug #52275: Traceback when creating a free slot in appointments or work schedule
+
+changeset:   2788:e0da7fde59f7
+parent:      2785:8ebbc95114af
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Oct 16 11:49:23 2017 +0100
+summary:     health_gyneco : Include fetal signs of urinary and digestive activity in obstetric evaluation
+
+changeset:   2787:1e554137dbec
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Oct 07 17:40:46 2017 +0100
+summary:     all : Update to 3.2.5
+
+changeset:   2786:93201a27bc44
+branch:      stable
+parent:      2784:4234c966f3e3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 06 16:42:40 2017 +0100
+summary:     health, health_qrcodes : Fix bug #52179: Traceback due to obsolete unicode method in reports
+
+changeset:   2785:8ebbc95114af
+parent:      2779:cbc002f73779
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Oct 06 16:42:40 2017 +0100
+summary:     health, health_qrcodes : Fix bug #52179: Traceback due to obsolete unicode method in reports
+
+changeset:   2784:4234c966f3e3
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 04 19:21:51 2017 +0100
+summary:     Added tag 3.2.4 for changeset 8bde09cbdd85
+
+changeset:   2783:8bde09cbdd85
+branch:      stable
+tag:         3.2.4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 04 17:44:17 2017 +0100
+summary:     all : Update to 3.2.4 version
+
+changeset:   2782:4a1592c9173e
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 03 19:28:52 2017 +0100
+summary:     health_services: Fix bug #52160: Issues related to invoice type and domain when creating the service invoice
+
+changeset:   2781:94707bbefed3
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 27 15:53:14 2017 +0100
+summary:     health_disability : Rename anf fix  Amputation model description from Amputation to Prothesis
+
+changeset:   2780:d9e0d993db9b
+branch:      stable
+parent:      2768:d95031fa24a8
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 23 06:03:33 2017 +0100
+summary:     health : Prescription report . Include duration frequency selections strings for translation. Update conditional op. to Python3 (!=)
+
+changeset:   2779:cbc002f73779
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 04 13:14:28 2017 +0100
+summary:     health: Add main clinical relevan hemoglobin types
+
+changeset:   2778:b4ade3dae68e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Oct 04 13:13:35 2017 +0100
+summary:     health_icd10 : Set noupdate=1 in datafile
+
+changeset:   2777:212a70f45984
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Oct 03 19:28:52 2017 +0100
+summary:     health_services: Fix bug #52160: Issues related to invoice type and domain when creating the service invoice
+
+changeset:   2776:130b9c272d55
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 29 11:27:38 2017 +0100
+summary:     health_gyneco : Obstetrics evaluation . Add indicators, menu, and improve ergonomy
+
+changeset:   2775:b9ee5d7eacd2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Sep 27 15:53:14 2017 +0100
+summary:     health_disability : Rename anf fix  Amputation model description from Amputation to Prothesis
+
+changeset:   2774:0147b8c3849f
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 26 16:18:00 2017 +0100
+summary:     health : Add psychological assessment withing patient evaluation
+
+changeset:   2773:955067805691
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 26 14:09:22 2017 +0100
+summary:     health : Include patient age in treeview
+
+changeset:   2772:4a61a88f0eb4
+user:        Luis Falcon <falcon@gnu.org>
+date:        Tue Sep 26 11:23:24 2017 +0100
+summary:     health_lab: Include analytes results in tree view
+
+changeset:   2771:b4be410c6e22
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 23 06:03:33 2017 +0100
+summary:     health : Prescription report . Include duration frequency selections strings for translation. Update conditional op. to Python3 (!=)
+
+changeset:   2770:bac67f770f89
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 15 12:37:15 2017 +0100
+summary:     health: Fix bug #52038: Field history is repeated in the tree view of the prescription line
+
+changeset:   2769:31eb10e110da
+parent:      2764:7dc166c2a642
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 14 17:11:11 2017 +0100
+summary:     gnuhealth-setup : Fix bug #52020 Missing bcrypt dependency in gnuhealth-setup
+
+changeset:   2768:d95031fa24a8
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 15 19:47:47 2017 +0100
+summary:     Added tag 3.2.3 for changeset ab0e4b8db99b
+
+changeset:   2767:ab0e4b8db99b
+branch:      stable
+tag:         3.2.3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 15 16:01:53 2017 +0100
+summary:     Update packages to 3.2.3 and Changelog
+
+changeset:   2766:5f2948a685c0
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Sep 15 12:37:15 2017 +0100
+summary:     health: Fix bug #52038: Field history is repeated in the tree view of the prescription line
+
+changeset:   2765:a7f3aa138162
+branch:      stable
+parent:      2760:a7c49354cdad
+user:        Luis Falcon <falcon@gnu.org>
+date:        Thu Sep 14 17:11:11 2017 +0100
+summary:     gnuhealth-setup : Fix bug #52020 Missing bcrypt dependency in gnuhealth-setup
+
+changeset:   2764:7dc166c2a642
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Sep 11 19:12:07 2017 +0100
+summary:     health_federation : Update Tryton node for connection to GNU Health Federation Message Server - Thalamus
+
+changeset:   2763:eddb033271b5
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Sep 10 23:16:26 2017 +0100
+summary:     health_federation : Use institution root / admin to check connection to Thalamus. Add support for both official and self-signed SSL certs
+
+changeset:   2762:c71762b946bc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Sep 09 21:28:06 2017 +0100
+summary:     Federation : Update gunicorn configuration SSL certificates for GNU Health
+
+changeset:   2761:42a6373082f8
+parent:      2756:161cdad089c3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 30 18:32:15 2017 +0100
+summary:     Update gnuhealth-control to 3.2.1
+
+changeset:   2760:a7c49354cdad
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Aug 30 18:32:15 2017 +0100
+summary:     Update gnuhealth-control to 3.2.1
+
+changeset:   2759:1e5ee2008e48
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 27 13:49:12 2017 +0100
+summary:     Added tag 3.2.2 for changeset 7113844b6806
+
+changeset:   2758:7113844b6806
+branch:      stable
+tag:         3.2.2
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 27 13:48:08 2017 +0100
+summary:     Update to version 3.2.2
+
+changeset:   2757:acd2d96ef319
+branch:      stable
+parent:      2754:9d0b1f07e41c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 21 16:26:41 2017 +0100
+summary:     health_imaging : Update health professional retrieval to the current standard method
+
+changeset:   2756:161cdad089c3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Aug 21 16:26:41 2017 +0100
+summary:     health_imaging : Update health professional retrieval to the current standard method
+
+changeset:   2755:a91c5ab4df56
+parent:      2750:c7c9ed1e70bf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Aug 13 17:23:58 2017 +0100
+summary:     New development version 3.3
+
+changeset:   2754:9d0b1f07e41c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 14:45:24 2017 +0100
+summary:     Added tag 3.2.1 for changeset 6c5753b743d8
+
+changeset:   2753:6c5753b743d8
+branch:      stable
+tag:         3.2.1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 13:20:50 2017 +0100
+summary:     Update Changelog
+
+changeset:   2752:60617b4c6b33
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 13:18:57 2017 +0100
+summary:     Update version and changelog. Update pywebdav3-gnuhealth to latest version
+
+changeset:   2751:06600b12ba82
+branch:      stable
+parent:      2747:7a4e7a016c3c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 12:52:05 2017 +0100
+summary:     health_lab: Fix bug #51537: Missing ID on lab separator view
+
+changeset:   2750:c7c9ed1e70bf
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 22 12:52:05 2017 +0100
+summary:     health_lab: Fix bug #51537: Missing ID on lab separator view
+
+changeset:   2749:9a290e0218a7
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 15 19:19:30 2017 +0100
+summary:     update README
+
+changeset:   2748:2efe4ed5699d
+parent:      2742:6a9b86767b34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 15 19:18:51 2017 +0100
+summary:     pywebdav3-gnuhealth : Make the PyWebDAV3-GNUHealth library compatible in Python 3.4
+
+changeset:   2747:7a4e7a016c3c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 14 18:37:01 2017 +0100
+summary:     Added tag 3.2.0 for changeset 280200cb142b
+
+changeset:   2746:280200cb142b
+branch:      stable
+tag:         3.2.0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 14 18:36:25 2017 +0100
+summary:     remove lingering pot file on report
+
+changeset:   2745:e140a3ee050c
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 14 18:27:18 2017 +0100
+summary:     Removed tag 3.2.0
+
+changeset:   2744:86562484ee60
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 14 18:01:48 2017 +0100
+summary:     Added tag 3.2.0 for changeset 98895213851c
+
+changeset:   2743:98895213851c
+branch:      stable
+parent:      2677:a2249edda76d
+parent:      2742:6a9b86767b34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Jul 14 17:45:26 2017 +0100
+summary:     Merge default branch to stable 3.2.0
+
+changeset:   2742:6a9b86767b34
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sun Jul 02 09:04:36 2017 +0100
+summary:     Update Changelog
+
+changeset:   2741:5618816a2617
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 01 22:40:37 2017 +0100
+summary:     gnuhealth-setup : Update version to 3.2.0
+
+changeset:   2740:df1062d091cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Jul 01 22:06:27 2017 +0100
+summary:     Update Changelog and version to 3.2.0
+
+
 user:        Luis Falcon <falcon@gnu.org>
 date:        Sat Jul 01 22:40:37 2017 +0100
 summary:     gnuhealth-setup : Update version to 3.2.0
