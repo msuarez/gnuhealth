@@ -323,6 +323,12 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     def on_change_with_address_repr(self):
         return self.get_du_address(name=None)
 
+    # Use the value from the Federation country for newly created DUs
+    @staticmethod
+    def default_address_country():
+        Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
+        return int(Fedcountry.country)
+
     @classmethod
     def __setup__(cls):
         super(DomiciliaryUnit, cls).__setup__()
@@ -530,6 +536,18 @@ class Party(ModelSQL, ModelView):
     def default_fed_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
         return Fedcountry.code
+
+    # Use the Federation country as default value for citizenship
+    # and residence for newly created people
+    @staticmethod
+    def default_citizenship():
+        Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
+        return int(Fedcountry.country)
+
+    @staticmethod
+    def default_residence():
+        Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
+        return int(Fedcountry.country)
 
     @staticmethod
     def default_activation_date():
