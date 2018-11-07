@@ -39,15 +39,9 @@ for dep in info.get('depends', []):
     if (dep == 'health'):
         requires.append('gnuhealth == %s' % (info.get('version')))
 
-    elif dep.startswith('health_'):
-        health_package = dep.split('_',1)[1]
-        requires.append('gnuhealth_%s == %s' %
-            (health_package, info.get('version')))
-    else: 
-        if not re.match(r'(ir|res|webdav)(\W|$)', dep):
-            requires.append('trytond_%s >= %s.%s, < %s.%s' %
-                (dep, major_version, minor_version, major_version,
-                    minor_version + 1))
+    if (dep == 'calendar'):
+        requires.append('gnuhealth_caldav == %s' % (info.get('version')))
+
 
 requires.append('trytond >= %s.%s, < %s.%s' %
     (major_version, minor_version, major_version, minor_version + 1))
