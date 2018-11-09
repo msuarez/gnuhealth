@@ -5,8 +5,41 @@
             <field name="name">gen</field>
             <field name="model">gnuhealth.patient.genetic.risk</field>
             <field name="label">Genetic Info</field>
-            <field name="description">Genetic Info</field>
+            <field name="description">Personal Genetic Info</field>
             <field name="internal">False</field>
         </record>
+
+        <record model="gnuhealth.command" id="gdis">
+            <field name="name">gdis</field>
+            <field name="model">gnuhealth.disease.gene</field>
+            <field name="label">Disease genes</field>
+            <field name="description">Disease Genes</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="var">
+            <field name="name">var</field>
+            <field name="model">gnuhealth.gene.variant</field>
+            <field name="label">Gene variant</field>
+            <field name="description">Natural variant phenotypes</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="varp">
+            <field name="name">varp</field>
+            <field name="model">gnuhealth.gene.variant.phenotype</field>
+            <field name="label">Variant Phenotypes</field>
+            <field name="description">Natural variant phenotypes</field>
+            <field name="internal">False</field>
+        </record>
+
+        <record model="gnuhealth.command" id="pdis">
+            <field name="name">pdis</field>
+            <field name="model">gnuhealth.protein.disease</field>
+            <field name="label">Protein related diseases</field>
+            <field name="description">Protein related diseases</field>
+            <field name="internal">False</field>
+        </record>
+
     </data>
 </tryton>
