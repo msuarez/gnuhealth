@@ -285,8 +285,6 @@ class Page(Resource):
         #Grab the data coming from the client, in JSON format
         values = json.loads(request.data)
 
-
-
         # Basic validation on page ID exsistance and string type
         if (person_id and '_id' in values):
             if (type(person_id) is str and type(values['_id'])):
@@ -297,6 +295,27 @@ class Page(Resource):
             abort (422, error="wrong format on person or page ID")
 
         return jsonify(page)
+
+    def patch(self, person_id, page_id):
+        """
+        Updates the Page of Life
+        """
+
+        #Grab all the data coming from the node client, in JSON format
+        values = json.loads(request.data)
+
+        if '_id' in values:
+            # Avoid changing the user ID
+            abort(422, error="Not allowed to change the page ID")
+            # TO be discussed...
+            # Check if the new ID exist in the Federation, and if it
+            # does not, we may be able to update it.
+
+        if check_person(person_id):
+            update_page = mongo.db.pols.update_one({"_id":page_id},
+                {"$set": values})
+        else:
+            abort (404, error="Page not found")
 
 # Add resources and endpoints
 # The endpoints are the class names in lower case (eg, people, life, page...)
