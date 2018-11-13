@@ -545,8 +545,10 @@ class PoLFed(ModelSQL):
 
         for pol in pols:
             action = "PATCH"
-            # Retrieve page of live unique ID into fed_identifier
+            # Retrieve page of life unique ID into fed_identifier
             fed_identifier = pol.page
+            federation_account = pol.federation_account
+
             fsync = pol.fsync
             # Verify that the page has the federation identifier.
             # and the fsync flag is set for the record
@@ -555,7 +557,7 @@ class PoLFed(ModelSQL):
                     # Start Enqueue process
                     node=None
                     time_stamp = pol.write_date
-                    url_suffix = fed_identifier
+                    url_suffix = federation_account + '/' + fed_identifier
                     FederationQueue.enqueue(cls.__name__,
                         fed_identifier, time_stamp, node, values,
                         action, url_suffix)
