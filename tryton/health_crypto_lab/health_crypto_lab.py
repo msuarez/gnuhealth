@@ -29,6 +29,7 @@ from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or
 import hashlib
 import json
+from uuid import uuid4
 
 __all__ = ['LabTest']
 
@@ -46,8 +47,8 @@ class LabTest(ModelSQL, ModelView):
 
     state = fields.Selection([
         ('draft', 'Draft'),
-        ('done', 'Done'),        
-        ('validated', 'Validated'),        
+        ('done', 'Done'),
+        ('validated', 'Validated'),
         ], 'State', readonly=True, sort=False)
 
 
@@ -64,7 +65,7 @@ class LabTest(ModelSQL, ModelView):
             }),
         'check_digest')
 
-        
+
     digest_current = fields.Function(fields.Char('Current Hash',
             states={
             'invisible': Not(Bool(Eval('digest_status'))),
@@ -74,7 +75,7 @@ class LabTest(ModelSQL, ModelView):
     digital_signature = fields.Text('Digital Signature', readonly=True)
 
     done_by = fields.Many2One(
-        'gnuhealth.healthprofessional', 
+        'gnuhealth.healthprofessional',
         'Done by', readonly=True, help='Professional who processes this'
         ' lab test',
         states = STATES )
@@ -83,14 +84,14 @@ class LabTest(ModelSQL, ModelView):
         states = STATES )
 
     validated_by = fields.Many2One(
-        'gnuhealth.healthprofessional', 
+        'gnuhealth.healthprofessional',
         'Validated by', readonly=True, help='Professional who validates this'
         ' lab test',
         states = STATES )
 
     validation_date = fields.DateTime('Validated on', readonly=True,
         states = STATES )
-        
+
     @staticmethod
     def default_state():
         return 'draft'
@@ -163,7 +164,7 @@ class LabTest(ModelSQL, ModelView):
                 "No health professional associated to this user !")
 
         serial_doc=cls.get_serial(document)
-        
+
         cls.write(documents, {
             'serializer': serial_doc,
             'document_digest': HealthCrypto().gen_hash(serial_doc),
@@ -171,21 +172,24 @@ class LabTest(ModelSQL, ModelView):
             'validation_date': datetime.now(),
             'state': 'validated',})
 
+        # Create lab PoL if the person has a federation account.
+        if (document.patient.name.federation_account):
+            cls.create_lab_pol (document)
 
     @classmethod
     def get_serial(cls,document):
 
         analyte_line=[]
-        
+
         for line in document.critearea:
             line_elements=[line.name or '',
-                line.result or '', 
+                line.result or '',
                 line.result_text or '',
                 line.remarks or '']
-                
+
             analyte_line.append(line_elements)
 
-        data_to_serialize = { 
+        data_to_serialize = {
             'Lab_test': str(document.name) or '',
             'Test': str(document.test.rec_name) or '',
             'HP': str(document.requestor.rec_name),
@@ -195,9 +199,9 @@ class LabTest(ModelSQL, ModelView):
              }
 
         serialized_doc = str(HealthCrypto().serialize(data_to_serialize))
-        
+
         return serialized_doc
-    
+
     @classmethod
     def set_signature(cls, data, signature):
         """
@@ -205,7 +209,7 @@ class LabTest(ModelSQL, ModelView):
         """
 
         doc_id = data['id']
-        
+
         cls.write([cls(doc_id)], {
             'digital_signature': signature,
             })
@@ -225,19 +229,47 @@ class LabTest(ModelSQL, ModelView):
 
         if (name=='serializer_current'):
             result = serial_doc
-            
+
         return result
- 
-    # Hide the group holding validation information when state is 
+
+    # Hide the group holding validation information when state is
     # not validated
-    
+
     @classmethod
     def view_attributes(cls):
         return [('//group[@id="document_digest"]', 'states', {
                 'invisible': Not(Eval('state') == 'validated'),
                 })]
-       
 
+
+    @classmethod
+    def create_lab_pol(cls,lab_info):
+        """ Adds an entry in the person Page of Life
+            related to this person lab
+        """
+        Pol = Pool().get('gnuhealth.pol')
+        pol = []
+
+        test_lines = ""
+        for line in lab_info.critearea:
+            test_lines = test_lines + line.rec_name + "\n"
+
+        vals = {
+            'page': str(uuid4()),
+            'person': lab_info.patient.name.id,
+            'page_date': lab_info.date_analysis,
+            'federation_account': \
+                lab_info.patient.name.federation_account,
+            'page_type':'medical',
+            'medical_context':'lab',
+            'relevance':'important',
+            'info': lab_info.analytes_summary,
+            'author': lab_info.requestor and \
+                lab_info.requestor.rec_name
+            }
+
+        pol.append(vals)
+        Pol.create(pol)
 
 
 class HealthCrypto:
