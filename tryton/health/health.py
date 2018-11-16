@@ -106,7 +106,7 @@ def compute_age_from_dates(dob, deceased, dod, gender, caller, extra_date):
         if extra_date:
             end = datetime.strptime(str(extra_date), '%Y-%m-%d')
 
-        if deceased:
+        if deceased and dod:
             end = datetime.strptime(
                         str(dod), '%Y-%m-%d %H:%M:%S')
 
@@ -529,25 +529,28 @@ class Party(ModelSQL, ModelView):
             return self.birth_certificate.father.id
 
     def get_dod(self, name):
-        if (self.deceased):
+        if (self.deceased and self.death_certificate):
             return self.death_certificate.dod
 
     @staticmethod
     def default_fed_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        return Fedcountry.code
+        if (Fedcountry):
+            return Fedcountry.code
 
     # Use the Federation country as default value for citizenship
     # and residence for newly created people
     @staticmethod
     def default_citizenship():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        return int(Fedcountry.country)
+        if (Fedcountry):
+            return int(Fedcountry.country)
 
     @staticmethod
     def default_residence():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        return int(Fedcountry.country)
+        if (Fedcountry):
+            return int(Fedcountry.country)
 
     @staticmethod
     def default_activation_date():
@@ -837,6 +840,24 @@ class Party(ModelSQL, ModelView):
         for party in parties:
             party.check_person()
             party.validate_official_name()
+            party.validate_dob()
+
+    def validate_dob(self):
+        """
+            Check that the date is sane
+                * The person is alive
+                * Non-negative years, months or days
+                * < 200 (future generations :) )
+        """
+        if (self.dob):
+            years,months,days = \
+                compute_age_from_dates(self.dob, self.deceased,
+                              self.dod, self.gender, 'raw_age', None)
+
+            if (not self.deceased):
+                if (years < 0 or months < 0 or days < 0) or years > 200:
+                    self.raise_user_error(
+                        "Wrong date of birth for a living person")
 
     def check_person(self):
         # Verify that health professional and patient
