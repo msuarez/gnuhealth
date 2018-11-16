@@ -139,6 +139,9 @@ class Main(object):
         gtk.accel_map_add_entry('<tryton>/Window/Activity Log', gtk.keysyms.F12,
             gtk.gdk.SHIFT_MASK)
 
+        gtk.accel_map_add_entry('<tryton>/User/Command Line', gtk.keysyms.Z,
+            gtk.gdk.SHIFT_MASK)
+
         gtk.accel_map_load(os.path.join(get_config_dir(), 'accel.map'))
 
         self.tooltips = common.Tooltips()
@@ -513,6 +516,16 @@ class Main(object):
         imagemenuitem_global_search.set_accel_path(
             '<tryton>/User/Global Search')
         menu_user.add(imagemenuitem_global_search)
+
+        #GNU Health Command line
+        imagemenuitem_command_line = gtk.ImageMenuItem(_('_Command Line'),
+                self.accel_group)
+        imagemenuitem_command_line.set_use_underline(True)
+        imagemenuitem_command_line.connect('activate',
+            lambda *a: self.command_line())
+        imagemenuitem_command_line.set_accel_path('<tryton>/User/Command Line')
+        menu_user.add(imagemenuitem_command_line)
+
         return menu_user
 
     def _set_menu_options(self):
@@ -608,7 +621,7 @@ class Main(object):
         radiomenuitem_pda.set_accel_path('<tryton>/Options/Mode/PDA')
         menu_mode.add(radiomenuitem_pda)
         '''
-        
+
         menuitem_form = gtk.MenuItem(_('_Form'), use_underline=True)
         menu_options.add(menuitem_form)
 
@@ -935,16 +948,16 @@ class Main(object):
         self.favorite_unset()
         self.menuitem_favorite.set_sensitive(True)
         self.menuitem_user.set_sensitive(True)
-        
+
         #Add connection successful entry to the Activity log
         msg = "Connected to GNU Health Server"
         self.activity_log_entry(msg, 'info')
-        
+
         # Set the footer
         self.init_gnuhealth_env()
 
         self.statusbar.push(self.context_id, "Connected")
-        
+
         if CONFIG.arguments:
             url = CONFIG.arguments.pop()
             self.open_url(url)
@@ -993,7 +1006,7 @@ class Main(object):
         if disconnect:
             rpc.logout()
         return True
-        
+
 
     def sig_about(self, widget):
         About()
@@ -1013,6 +1026,11 @@ class Main(object):
         expander = self.pane.get_child1()
         if expander:
             expander.set_expanded(not expander.get_expanded())
+
+    def command_line(self):
+        self.cli.grab_focus()
+
+        print ("Command line widget")
 
     @property
     def menu_expander_size(self):
@@ -1495,7 +1513,7 @@ class Main(object):
             self.vbox.reorder_child(self.header, 1)
             self.header.show_all()
 
-    # Add GNU Health Command Line and Status Bar in footer 
+    # Add GNU Health Command Line and Status Bar in footer
     def set_footer(self):
         cli = self.cli
         statusbar = self.statusbar
@@ -1505,7 +1523,7 @@ class Main(object):
             footer_contents.attach(cli, 0, 1, 0, 1)
 
         footer_contents.attach(statusbar,2, 3, 0, 1)
-        
+
         self.footer.pack_start(footer_contents, True, True )
 
         # Pack the footer table in main vbox
