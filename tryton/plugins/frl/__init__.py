@@ -311,10 +311,6 @@ def frl_main(data):
     args = frl.main()
 
 def get_plugins(model):
-    access = MODELACCESS['gnuhealth.federation.config']
-
-    if access['read']:
-        return [
-            (_('Federation Resource Locator'), frl_main),]
-    else:
-        print ("Not enough access. Disabling FRL")
+    return [
+        (_('Federation Resource Locator'), frl_main),
+        ]
