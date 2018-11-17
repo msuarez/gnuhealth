@@ -25,15 +25,19 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_restful import Resource, Api, abort
 from flask_pymongo import PyMongo
+
+from flask_wtf import FlaskForm
+from wtforms import BooleanField, StringField, PasswordField, SubmitField, validators
+
 from flask_httpauth import HTTPBasicAuth
 import json
 import bcrypt
 import logging
 
-__all__ = ["People","Person","Book","Page"]
+__all__ = ["People","Person","Book","Page", "PasswordForm","Password"]
 
 app = Flask(__name__)
 app.config.from_pyfile('etc/thalamus.cfg')
@@ -100,8 +104,7 @@ def access_control(username, roles, method, endpoint, view_args):
     """
     Takes the logged in user roles, method and endpoint as arguments
     Verifies them against the ACL and returns either True or False
-    """
-
+    """    
     for user_role in roles:
         for acl_entry in ACL:
             if (acl_entry["role"] == user_role):
@@ -358,6 +361,25 @@ class Institutions(Resource):
         return jsonify(institutions)
 
 api.add_resource(Institutions, '/institutions')
+
+class PasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[validators.DataRequired()])
+    update = SubmitField('Update')
+   
+
+# Update the password of the user with a form
+@app.route('/password/<person_id>', methods=('GET', 'POST'))
+@auth.login_required
+def password(person_id):
+   form = PasswordForm()
+   if (request.method == 'POST'):
+            pwd = form.password.data.encode()
+            enc_pwd = bcrypt.hashpw(pwd, bcrypt.gensalt()).decode()
+            values = {'password': enc_pwd}
+            update_passwd = \
+                mongo.db.people.update_one({"_id":person_id},{"$set": values})
+
+   return render_template('password.html', form=form, fed_account=person_id)
 
 
 if __name__ == '__main__':
