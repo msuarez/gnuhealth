@@ -25,12 +25,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, redirect, request, jsonify, render_template, url_for
 from flask_restful import Resource, Api, abort
 from flask_pymongo import PyMongo
 
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, PasswordField, SubmitField, validators
+from wtforms import BooleanField, StringField, PasswordField, SubmitField, \
+    validators
 
 from flask_httpauth import HTTPBasicAuth
 import json
@@ -363,7 +364,11 @@ class Institutions(Resource):
 api.add_resource(Institutions, '/institutions')
 
 class PasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[validators.DataRequired()])
+    password = PasswordField('Password',
+        validators=[validators.DataRequired(),
+        validators.Length(min=6, max=30),
+        validators.EqualTo('pconfirm', message='Password mistmatch')])
+    pconfirm = PasswordField('Confirm Password')
     update = SubmitField('Update')
    
 
@@ -371,15 +376,25 @@ class PasswordForm(FlaskForm):
 @app.route('/password/<person_id>', methods=('GET', 'POST'))
 @auth.login_required
 def password(person_id):
-   form = PasswordForm()
-   if (request.method == 'POST'):
+    error = None
+    form = PasswordForm()
+    if (request.method == 'POST' and form.validate()):
             pwd = form.password.data.encode()
             enc_pwd = bcrypt.hashpw(pwd, bcrypt.gensalt()).decode()
             values = {'password': enc_pwd}
-            update_passwd = \
+            update_password = \
                 mongo.db.people.update_one({"_id":person_id},{"$set": values})
 
-   return render_template('password.html', form=form, fed_account=person_id)
+            if update_password:
+                return redirect(url_for('index'))
+            else:
+                error = "Error updating the password"
+    return render_template('password.html', form=form, \
+        fed_account=person_id, error=error)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
