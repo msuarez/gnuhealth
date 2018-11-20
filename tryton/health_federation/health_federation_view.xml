@@ -74,6 +74,37 @@
             <field name="act_window" ref="gnuhealth_action_federation_queue"/>
         </record>
 
+
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_queued">
+            <field name="name">Queued</field>
+            <field name="sequence" eval="10"/>
+            <field name="domain" eval="[('state', '=', 'queued')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_sent">
+            <field name="name">Sent</field>
+            <field name="sequence" eval="20"/>
+            <field name="domain" eval="[('state', '=', 'sent')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_failed">
+            <field name="name">Failed</field>
+            <field name="sequence" eval="30"/>
+            <field name="domain" eval="[('state', '=', 'failed')]" pyson="1"/>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+        <record model="ir.action.act_window.domain" id="act_gnuhealth_fedq_domain_all">
+            <field name="name">All</field>
+            <field name="sequence" eval="9999"/>
+            <field name="domain"></field>
+            <field name="act_window" ref="gnuhealth_action_federation_queue"/>
+        </record>
+
+
+
+
+
+
 <!-- GNU Health Federation Queue Manager -->
 
         <menuitem action="gnuhealth_action_federation_queue" icon="gnuhealth-list"

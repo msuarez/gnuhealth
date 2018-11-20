@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <tree editable="top">
-    <field name="status"/>
+    <field name="state"/>
     <button name="send" help="Send the record to the Federation" string="Send"/>
     <field name="time_stamp"/>
     <field name="model"/>

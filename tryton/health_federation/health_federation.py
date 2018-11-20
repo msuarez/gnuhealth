@@ -179,7 +179,7 @@ class FederationQueue(ModelSQL, ModelView):
         ('GET', 'GET'),
         ], 'Method', required=True,sort=False)
 
-    status = fields.Selection([
+    state = fields.Selection([
         (None, ''),
         ('queued', 'Queued'),
         ('sent', 'Sent'),
@@ -371,7 +371,7 @@ class FederationQueue(ModelSQL, ModelView):
                 vals['time_stamp'] = str(time_stamp)
                 vals['args'] = json.dumps(fields_to_enqueue)
                 vals['method'] = action
-                vals['status'] = 'queued'
+                vals['state'] = 'queued'
                 vals['federation_locator'] = federation_loc
                 vals['url_suffix'] = url_suffix
                 rec.append(vals)
@@ -383,7 +383,7 @@ class FederationQueue(ModelSQL, ModelView):
         super(FederationQueue, cls).__setup__()
 
         cls._buttons.update({
-            'send': {'invisible': Equal(Eval('status'), 'sent')}
+            'send': {'invisible': Equal(Eval('state'), 'sent')}
             })
 
     @classmethod
@@ -397,7 +397,10 @@ class FederationQueue(ModelSQL, ModelView):
             res = cls.send_record(record)
             if res:
                 rec.append(record)
-                cls.write(rec, {'status': 'sent'})
+                cls.write(rec, {'state': 'sent'})
+            else:
+                cls.write(rec, {'state': 'failed'})
+                
 
 class FederationObject(ModelSQL, ModelView):
     'Federation Object'
