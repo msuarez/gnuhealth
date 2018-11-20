@@ -219,6 +219,7 @@ class PatientPregnancy(ModelSQL, ModelView):
             ('gravida_uniq', Unique(t,t.name, t.gravida),
                 'This pregnancy code for this patient already exists'),
         ]
+        cls._order.insert(0, ('lmp', 'DESC'))
 
         cls._error_messages.update({
             'patient_already_pregnant': 'Our records indicate that the patient'
