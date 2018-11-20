@@ -4401,6 +4401,17 @@ class PatientPrescriptionOrder(ModelSQL, ModelView):
             cls.create_prescription_pol (prescription)
 
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('prescription_id',) + tuple(clause[1:]),
+            ]
+
 
 # PRESCRIPTION LINE
 class PrescriptionLine(ModelSQL, ModelView):
