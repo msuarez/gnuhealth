@@ -245,6 +245,16 @@ class Lab(ModelSQL, ModelView):
 
         return super(Lab, cls).create(vlist)
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('name',) + tuple(clause[1:]),
+            ]
 
 class GnuHealthLabTestUnits(ModelSQL, ModelView):
     'Lab Test Units'
