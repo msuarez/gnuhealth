@@ -120,11 +120,11 @@ class Newborn(ModelSQL, ModelView):
         states = STATES)
     neonatal_palmar_crease = fields.Boolean('Transversal Palmar Crease',
         states = STATES)
-    
+
     #Deprecated. Use Patient medication direcly
     medication = fields.One2Many('gnuhealth.patient.medication',
         'newborn_id', 'Medication')
-    
+
     healthprof = fields.Many2One('gnuhealth.healthprofessional',
         'Health Professional',
         help="Health professional", readonly=True)
@@ -135,18 +135,18 @@ class Newborn(ModelSQL, ModelView):
             'invisible': Not(Equal(Eval('state'), 'signed'))
             },
         help="Health Professional that signed this document")
-        
+
     dismissed = fields.DateTime('Discharged', states = STATES)
     notes = fields.Text('Notes', states = STATES)
 
     # Deprecated. the following fields will be removed in 2.8
-    # Decease information on fetus / newborn are linked now in 
+    # Decease information on fetus / newborn are linked now in
     # the obstetrics evaluation (prenatal) or patient if result of pregnancy
     # was a live birth.
     # The information is no longer shown at the view.
     # Fields to be removed : bd, died_at_delivery, died_at_the_hospital
     # died_being_transferred, tod, cod
-    
+
     bd = fields.Boolean('Stillbirth')
     died_at_delivery = fields.Boolean('Died at delivery room')
     died_at_the_hospital = fields.Boolean('Died at the hospital')
@@ -179,6 +179,7 @@ class Newborn(ModelSQL, ModelView):
             ('patient_uniq', Unique(t, t.patient),
              'There is already a newborn record for this patient'),
             ]
+        cls._order.insert(0, ('birth_date', 'DESC'))
 
         cls._buttons.update({
             'sign_newborn': {'invisible': Equal(Eval('state'), 'signed')}
@@ -190,15 +191,15 @@ class Newborn(ModelSQL, ModelView):
         pool = Pool()
         HealthProfessional = pool.get('gnuhealth.healthprofessional')
         Appointment = pool.get('gnuhealth.appointment')
-        
+
         newborn_id = newborns[0]
 
         patient_app=[]
-        
+
         # Change the state of the newborn to "Done"
 
         signing_hp = HealthProfessional.get_health_professional()
-        
+
         cls.write(newborns, {
             'state': 'signed',
             'signed_by': signing_hp,
@@ -209,41 +210,41 @@ class Newborn(ModelSQL, ModelView):
     def write(cls, newborns, values):
         pool = Pool()
 
-        cursor = Transaction().connection.cursor() 
+        cursor = Transaction().connection.cursor()
         Patient = pool.get('gnuhealth.patient')
         Party = pool.get('party.party')
 
         party = []
         patient = []
-        
-        cursor = Transaction().connection.cursor() 
+
+        cursor = Transaction().connection.cursor()
 
 
         for newborn in newborns:
-            
+
             newborn_patient_id = newborn.patient.id
-            
+
             person = Patient.browse([newborn_patient_id])[0].name
             pat = Patient.browse([newborn_patient_id])[0]
 
-            # Update the birth date on the party model upon WRITING it on the 
+            # Update the birth date on the party model upon WRITING it on the
             # newborn model
 
             born_date = datetime.date(newborn.birth_date)
 
             party.append(person)
-            
+
             Party.write(party, {
             'dob': born_date })
 
-            # Update the biological sex on the patient model upon WRITING 
-            # it on the newborn model 
+            # Update the biological sex on the patient model upon WRITING
+            # it on the newborn model
 
             if values.get('sex'):
                 biological_sex = values.get('sex')
 
                 patient.append(pat)
-            
+
                 Patient.write(patient, {
                 'biological_sex': biological_sex })
 
@@ -259,7 +260,7 @@ class Newborn(ModelSQL, ModelView):
 
         party = []
         patient = []
-        
+
         cursor = Transaction().connection.cursor()
 
         for values in vlist:
@@ -267,30 +268,40 @@ class Newborn(ModelSQL, ModelView):
 
             person = Patient.browse([newborn_patient_id])[0].name
             pat = Patient.browse([newborn_patient_id])[0]
-            
-            # Update the birth date on the party model upon CREATING it on the 
+
+            # Update the birth date on the party model upon CREATING it on the
             # newborn model
 
             born_date = datetime.date(values['birth_date'])
 
             party.append(person)
-            
+
             Party.write(party, {
             'dob': born_date })
 
-            # Update the biological sex on the patient model upon CREATING 
-            # it on the newborn model 
+            # Update the biological sex on the patient model upon CREATING
+            # it on the newborn model
 
             if values.get('sex'):
                 biological_sex = values.get('sex')
 
                 patient.append(pat)
-            
+
                 Patient.write(patient, {
                 'biological_sex': biological_sex })
-        
+
         return super(Newborn, cls).create(vlist)
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('patient',) + tuple(clause[1:]),
+            ]
 
 class NeonatalApgar(ModelSQL, ModelView):
     'Neonatal APGAR Score'
@@ -347,7 +358,7 @@ class NeonatalApgar(ModelSQL, ModelView):
         return apgar_score
 
 
-# Deprecated in 3.0 - Use the main patient form  
+# Deprecated in 3.0 - Use the main patient form
 class NeonatalMedication(ModelSQL, ModelView):
     'Neonatal Medication. Inherit and Add field to Medication model'
     __name__ = 'gnuhealth.patient.medication'
