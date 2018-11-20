@@ -24,7 +24,7 @@
 ##############################################################################
 from datetime import datetime
 from trytond.model import Workflow, ModelView, ModelSingleton, ModelSQL, \
-    fields, ValueMixin
+    fields, Unique, ValueMixin
 from trytond.pyson import Eval
 from trytond.pool import Pool
 from trytond import backend
@@ -273,3 +273,24 @@ class ImagingTestResult(ModelSQL, ModelView):
                     config.imaging_sequence.id)
 
         return super(ImagingTestResult, cls).create(vlist)
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('number',) + tuple(clause[1:]),
+            ]
+
+    @classmethod
+    def __setup__(cls):
+        super(ImagingTestResult, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('number_uniq', Unique(t, t.number),
+             'The test ID code must be unique')
+        ]
+        cls._order.insert(0, ('date', 'DESC'))
