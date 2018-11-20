@@ -485,6 +485,8 @@ class Surgery(ModelSQL, ModelView):
                 'surgery date "%(surgery_date)s"',
             'or_is_not_available': 'Operating Room is not available'})
 
+        cls._order.insert(0, ('surgery_date', 'DESC'))
+
         cls._buttons.update({
             'confirmed': {
                 'invisible': And(Not(Equal(Eval('state'), 'draft')),
@@ -658,6 +660,17 @@ class Surgery(ModelSQL, ModelView):
 
         dt = self.surgery_date
         return datetime.astimezone(dt.replace(tzinfo=pytz.utc), timezone).time()
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('code',) + tuple(clause[1:]),
+            ]
 
 
 
