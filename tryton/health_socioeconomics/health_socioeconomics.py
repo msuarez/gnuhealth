@@ -292,8 +292,18 @@ class PatientSESAssessment(ModelSQL, ModelView):
         cls._buttons.update({
             'end_assessment': {'invisible': Equal(Eval('state'), 'done')}
             })
+        cls._order.insert(0, ('assessment_date', 'DESC'))
 
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ]
 
 class GnuHealthPatient(ModelSQL, ModelView):
     __name__ = 'gnuhealth.patient'

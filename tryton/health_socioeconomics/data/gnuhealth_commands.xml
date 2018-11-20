@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <record model="gnuhealth.command" id="ses">
+            <field name="name">ses</field>
+            <field name="model">gnuhealth.ses.assessment</field>
+            <field name="label">Socioeconomic Assesment</field>
+            <field name="description">SES - Socioeconomic and Family Functionality Assessment</field>
+            <field name="internal">False</field>
+        </record>
+    </data>
+</tryton>
