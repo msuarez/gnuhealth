@@ -173,7 +173,7 @@ class TestType(ModelSQL, ModelView):
 
 
 class Lab(ModelSQL, ModelView):
-    'Lab Test'
+    'Patient Lab Test Results'
     __name__ = 'gnuhealth.lab'
 
     name = fields.Char('ID', help="Lab result ID", readonly=True)
@@ -220,6 +220,8 @@ class Lab(ModelSQL, ModelView):
             ('id_uniq', Unique(t, t.name),
              'The test ID code must be unique')
         ]
+        cls._order.insert(0, ('date_requested', 'DESC'))
+
 
     @staticmethod
     def default_date_requested():
