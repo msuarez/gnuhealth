@@ -341,6 +341,18 @@ class PatientGeneticRisk(ModelSQL, ModelView):
 
         return genetic_info
 
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('disease_gene',) + tuple(clause[1:]),
+            ('variant_phenotype',) + tuple(clause[1:]),
+            ]
+
 
 class FamilyDiseases(ModelSQL, ModelView):
     'Family History'
