@@ -5227,6 +5227,7 @@ class PatientEvaluation(ModelSQL, ModelView):
                 'The evaluation code must be unique !'),
             ]
 
+        cls._order.insert(0, ('evaluation_start', 'DESC'))
 
         cls._error_messages.update({
             'health_professional_warning':
@@ -5322,6 +5323,18 @@ class PatientEvaluation(ModelSQL, ModelView):
 
         pol.append(vals)
         Pol.create(pol)
+
+    # Search by the health condition code or the description
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ('code',) + tuple(clause[1:]),
+            ]
 
 # PATIENT EVALUATION DIRECTIONS
 class Directions(ModelSQL, ModelView):
