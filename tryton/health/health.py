@@ -3524,7 +3524,7 @@ class Appointment(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(Appointment, cls).__setup__()
-        cls._order.insert(0, ('appointment_date', 'ASC'))
+        cls._order.insert(0, ('appointment_date', 'DESC'))
 
         cls._buttons.update({
             'checked_in': {'invisible': Not(Equal(Eval('state'), 'confirmed'))}
@@ -3545,6 +3545,18 @@ class Appointment(ModelSQL, ModelView):
     def no_show(cls, appointments):
         cls.write(appointments, {
             'state': 'no_show'})
+
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ('patient',) + tuple(clause[1:]),
+            ]
 
     @classmethod
     def create(cls, vlist):

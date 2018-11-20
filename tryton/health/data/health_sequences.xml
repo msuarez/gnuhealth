@@ -40,7 +40,7 @@
         <record id="seq_gnuhealth_appointment" model="ir.sequence">
             <field name="name">Appointment</field>
             <field name="code">gnuhealth.appointment</field>
-            <field name="prefix">APP ${year} - </field>
+            <field name="prefix">APP ${year}/</field>
             <field eval="0" name="padding"/>
         </record>
 
