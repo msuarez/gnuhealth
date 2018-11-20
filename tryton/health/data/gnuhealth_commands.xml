@@ -82,6 +82,14 @@
             <field name="internal">False</field>
         </record>
 
+        <record model="gnuhealth.command" id="ecg">
+            <field name="name">ecg</field>
+            <field name="model">gnuhealth.patient.ecg</field>
+            <field name="label">ECGs</field>
+            <field name="description">ECGs - Electrocardiograms</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="inv">
             <field name="name">inv</field>
             <field name="model">account.invoice</field>

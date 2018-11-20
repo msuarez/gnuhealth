@@ -5510,6 +5510,17 @@ class PatientECG(ModelSQL, ModelView):
             'health_professional_warning':
                 'No health professional associated to this user',
         })
+        cls._order.insert(0, ('ecg_date', 'DESC'))
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('name',) + tuple(clause[1:]),
+            ]
 
 class ProductTemplate(ModelSQL, ModelView):
     __name__ = 'product.template'
