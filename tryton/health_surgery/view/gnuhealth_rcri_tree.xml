@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <tree>
+    <field name="patient"/>
+    <field name="rcri_date" widget="date"/>
+    <field name="rcri_high_risk_surgery"/>
+    <field name="rcri_ischemic_history"/>
+    <field name="rcri_congestive_history"/>
+    <field name="rcri_diabetes_history"/>
+    <field name="rcri_cerebrovascular_history"/>
+    <field name="rcri_kidney_history"/>
     <field name="rcri_total"/>
     <field name="rcri_class"/>
 </tree>

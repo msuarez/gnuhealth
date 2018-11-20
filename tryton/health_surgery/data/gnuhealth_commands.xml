@@ -8,5 +8,13 @@
             <field name="description">Surgeries</field>
             <field name="internal">False</field>
         </record>
+
+        <record model="gnuhealth.command" id="rcri">
+            <field name="name">rcri</field>
+            <field name="model">gnuhealth.rcri</field>
+            <field name="label">RCRI</field>
+            <field name="description">Revised Cardiac Risk Index scores</field>
+            <field name="internal">False</field>
+        </record>
     </data>
 </tryton>

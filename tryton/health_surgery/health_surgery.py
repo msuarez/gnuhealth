@@ -221,6 +221,21 @@ class RCRI(ModelSQL, ModelView):
             str(self.rcri_class) + ')'
         return res
 
+    @classmethod
+    def __setup__(cls):
+        super(RCRI, cls).__setup__()
+        cls._order.insert(0, ('rcri_date', 'DESC'))
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('patient',) + tuple(clause[1:]),
+            ]
+
 
 class Surgery(ModelSQL, ModelView):
     'Surgery'
