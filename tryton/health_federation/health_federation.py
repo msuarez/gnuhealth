@@ -404,7 +404,7 @@ class FederationQueue(ModelSQL, ModelView):
                 cls.write(rec, {'state': 'sent'})
             else:
                 cls.write(rec, {'state': 'failed'})
-                
+
 
 class FederationObject(ModelSQL, ModelView):
     'Federation Object'
@@ -482,6 +482,10 @@ class PartyFed(ModelSQL):
                 if (fsync or 'fsync' not in values.keys()):
                     # Start Enqueue process
                     node=None
+                    #Because du_address is a functional field
+                    # does not exist at DB level, we always pass the
+                    # latest / current value
+                    values['du_address'] = party.du_address
                     time_stamp = party.write_date
                     url_suffix = fed_acct
                     FederationQueue.enqueue(cls.__name__,
@@ -513,6 +517,12 @@ class PartyFed(ModelSQL):
             if fed_acct and fsync:
                 action="POST"
                 node=None
+
+                #Because du_address is a functional field
+                # does not exist at DB level, we always pass the
+                # latest / current value
+                values['du_address'] = parties[0].du_address
+
                 url_suffix = fed_acct
                 time_stamp = parties[0].create_date
                 FederationQueue.enqueue(cls.__name__,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tryton>
-    <data skiptest="1">
+<tryton noupdate="0">
+    <data>
 <!-- People -->
         <record model="gnuhealth.federation.object" id="party">
             <field name="model">party.party</field>
