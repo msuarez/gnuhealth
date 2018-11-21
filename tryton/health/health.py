@@ -911,7 +911,12 @@ class PageOfLife(ModelSQL, ModelView):
 
     page = fields.Char('Page', help="Page of Life")
 
-    page_date = fields.DateTime('Date', help="Date of this page / event")
+    page_date = fields.DateTime('Date',
+        help="Date of this page / event. By default it takes"
+            "the current date / time when creating the event,"
+            "but it can be a past date "
+            "and it can also be empty, or used in combination with"
+            "the person age at that moment")
 
     age = fields.Char('Age',
             help="Age at the moment of this page of life")
@@ -1013,6 +1018,10 @@ class PageOfLife(ModelSQL, ModelView):
     def default_page():
         return str(uuid4())
 
+    @staticmethod
+    def default_page_date():
+        return datetime.now()
+
     # Get the text representation of the health condition
     @fields.depends('health_condition')
     def on_change_health_condition(self):
@@ -1079,6 +1088,17 @@ class PageOfLife(ModelSQL, ModelView):
             if 'page' not in values:
                 values['page'] = str(uuid4())
         return super(PageOfLife, cls).create(vlist)
+
+    @classmethod
+    def __setup__(cls):
+        super(PageOfLife, cls).__setup__()
+        t = cls.__table__()
+
+        cls._sql_constraints = [
+            ('page_uniq', Unique(t,t.page), 'The Page must be unique !'),
+        ]
+
+        cls._order.insert(0, ('page_date', 'DESC'))
 
 
 class ContactMechanism(ModelSQL, ModelView):

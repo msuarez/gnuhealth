@@ -381,6 +381,10 @@ class FederationQueue(ModelSQL, ModelView):
     @classmethod
     def __setup__(cls):
         super(FederationQueue, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('msgid_uniq', Unique(t,t.msgid), \
+                'The Message ID must be unique !'),]
 
         cls._buttons.update({
             'send': {'invisible': Equal(Eval('state'), 'sent')}
