@@ -50,7 +50,7 @@ TRYTON_BASE_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
-TRYTON_PATCHES=""
+TRYTON_PATCHES="security/get_login_trytond-46.patch.asc"
 
 
 #-----------------------------------------------------------------------------
@@ -420,10 +420,10 @@ apply_patches() {
         for n in ${TRYTON_PATCHES}
         do
             cd ${BASEDIR}/tryton/server/trytond-${TRYTON_VERSION}*
-            patch --dry-run --silent -N -p0 < ${GNUHEALTH_INST_DIR}/patches/${n}
+            patch --dry-run --silent -N -p1 < ${GNUHEALTH_INST_DIR}/patches/${n}
             if [ $? -eq 0 ]; then
                 message "WARNING" "Applying patch ${n} to Tryton kernel"
-                patch -p0 < ${GNUHEALTH_INST_DIR}/patches/${n} || exit 1
+                patch -p1 < ${GNUHEALTH_INST_DIR}/patches/${n} || exit 1
                 message "INFO" "Tryton kernel sucessfully patched"
             else
                 message "INFO" "Patch ${n} already applied or not elegible"

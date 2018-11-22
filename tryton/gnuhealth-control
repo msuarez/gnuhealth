@@ -35,9 +35,9 @@ TRYTON_MODULES="account account_invoice account_product company country \
 
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 
-PATCH_TRYTON=0
+PATCH_TRYTON=1
 
-TRYTON_PATCHES=""
+TRYTON_PATCHES="get_login_trytond-46.patch.asc"
 
 usage()
 {
@@ -347,7 +347,7 @@ check_updates()
                 wget --quiet --directory-prefix=${UPDATE_DOWNLOAD_DIR}/ ${GNUHEALTH_URL}/security/${n} || message "ERROR" "Could not get patch"
                 message "INFO" "Checking elegibility of the patch"                
                 cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}*
-                patch --dry-run --silent -N -p0 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
                     message "WARNING" "Patch ${n} needs to be applied"
                     NEED_PATCH_TRYTON=1
@@ -421,10 +421,10 @@ install_updates()
                 message "INFO" "Checking elegibility of the patch"                
                 cd ${GNUHEALTH_DIR}/tryton/server/trytond-${TRYTON_VERSION}
                 
-                patch --dry-run --silent -N -p0 < ${UPDATE_DOWNLOAD_DIR}/${n}
+                patch --dry-run --silent -N -p1 < ${UPDATE_DOWNLOAD_DIR}/${n}
                 if [ $? -eq 0 ]; then
                     message "WARNING" "Applying patch ${n} to Tryton kernel"
-                    patch -p0 < ${UPDATE_DOWNLOAD_DIR}/${n} || bailout
+                    patch -p1 < ${UPDATE_DOWNLOAD_DIR}/${n} || bailout
                     message "INFO" "Tryton kernel sucessfully patched"
                 else
                     message "INFO" "Patch ${n} already applied or not elegible"
