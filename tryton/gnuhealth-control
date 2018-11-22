@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.4RC1"
+VERSION="3.4.0"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
@@ -35,9 +35,9 @@ TRYTON_MODULES="account account_invoice account_product company country \
 
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 
-PATCH_TRYTON=1
+PATCH_TRYTON=0
 
-TRYTON_PATCHES="GNUHEALTH32-SA-2017-1.trytond.patch.asc"
+TRYTON_PATCHES=""
 
 usage()
 {

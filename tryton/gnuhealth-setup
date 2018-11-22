@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health installer version
-VERSION="3.3.0"
+VERSION="3.4.0"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -50,7 +50,7 @@ TRYTON_BASE_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
 TRANSLATE_URL="http://translate.gnusolidario.org"
 UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
-TRYTON_PATCHES="security/GNUHEALTH32-SA-2017-1.trytond.patch.asc"
+TRYTON_PATCHES=""
 
 
 #-----------------------------------------------------------------------------
@@ -259,6 +259,7 @@ install_python_dependencies() {
     local PIP_WEBDAV3="pywebdav3-gnuhealth"
     local PIP_BCRYPT="bcrypt"
     local PIP_NUMPY="numpy"
+    local PIP_UNOCONV="unoconv"
 
     # Operating System specific package selection
     # Skip PYTHON-LDAP installation since it tries to install / compile it system-wide
@@ -267,7 +268,7 @@ install_python_dependencies() {
 
     local PIP_PKGS="$PIP_NUMPY $PIP_PYTZ $PIP_WRAPT $PIP_WERKZEUG $PIP_SIX $PIP_LXML $PIP_RELATORIO $PIP_DATEUTIL $PIP_PSYCOPG2 $PIP_VOBJECT \
         $PIP_QRCODE $PIP_PYBARCODE $PIP_PILLOW $PIP_CALDAV $PIP_POLIB $PIP_SQL $PIP_STDNUM $PIP_SIMPLEEVAL $PIP_CONFIGPARSER \
-        $PIP_WEBDAV3 $PIP_BCRYPT"
+        $PIP_WEBDAV3 $PIP_BCRYPT $PIP_UNOCONV"
     
     message "INFO" "Installing python dependencies with pip-${PIP_VERSION} ..."
 
