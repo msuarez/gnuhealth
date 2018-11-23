@@ -162,6 +162,10 @@ class FederationResourceLocator():
             rpc.execute('model', 'gnuhealth.federation.object', \
             'get_object_fields',local_model,rpc.CONTEXT)
 
+        if (model_fields):
+            #Remove spaces and newlines from fields
+            model_fields = model_fields.replace(" ","").replace("\n","")
+
         #Initialize dictionary values for model-specific fields
         #needed locally only.
         if local_model == 'party.party':
