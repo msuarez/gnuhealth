@@ -535,7 +535,7 @@ class Party(ModelSQL, ModelView):
     @staticmethod
     def default_fed_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        if (Fedcountry):
+        if (Fedcountry and Fedcountry.country):
             return Fedcountry.code
 
     # Use the Federation country as default value for citizenship
@@ -543,13 +543,13 @@ class Party(ModelSQL, ModelView):
     @staticmethod
     def default_citizenship():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        if (Fedcountry):
+        if (Fedcountry and Fedcountry.country):
             return int(Fedcountry.country)
 
     @staticmethod
     def default_residence():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        if (Fedcountry):
+        if (Fedcountry and Fedcountry.country):
             return int(Fedcountry.country)
 
     @staticmethod
