@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is part of GNU Health. GPL v3+ -->
+<!-- Luis Falcon . GNU Solidario -->
+<!-- Default template for permission groups -->
+
+<tryton>
+    <data>
+
+<!-- BEGIN FEDERATION ADMINISTRATION GROUP ACCESS RIGHTS -->
+
+<!-- Create the Health Federation Administration group -->
+        <record model="res.group" id="group_health_federation_admin">
+            <field name="name">Health Federation Administration</field>
+        </record>
+
+<!-- Assign the Group to the "admin" user -->
+
+        <record model="res.user-res.group" id="user_admin_group_health_federation">
+            <field name="user" ref="res.user_admin"/>
+            <field name="group" ref="group_health_federation_admin"/>
+        </record>
+
+<!-- Access to Menus -->
+
+<!-- Access rights to models for the health federation admin group -->
+
+        <record model="ir.model.access" id="access_health_federation_operation_admin">
+            <field name="model" search="[('model', '=', 'gnuhealth.federation.config')]"/>
+            <field name="group" ref="group_health_federation_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>
