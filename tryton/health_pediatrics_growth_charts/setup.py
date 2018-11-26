@@ -71,7 +71,7 @@ setup(name='gnuhealth_pediatrics_growth_charts',
         },
 
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
         'Framework :: Tryton',
         'Intended Audience :: Developers',
