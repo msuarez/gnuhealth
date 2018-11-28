@@ -25,8 +25,6 @@ from trytond.model import ModelView, ModelSQL, ModelSingleton, fields, Unique
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from trytond.pyson import Eval, Not, Bool, PYSONEncoder, Equal, And, Or, If
-from pymongo import MongoClient
-from pymongo.errors import ConnectionFailure
 import requests
 import json
 from uuid import uuid4
