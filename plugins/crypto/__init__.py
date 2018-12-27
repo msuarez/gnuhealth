@@ -24,18 +24,17 @@
 import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message
 from tryton.gui.window.form import Form
+import sys
+
 import gettext
 
-try: 
+try:
     import gnupg
 except:
-    warning(
-        ('Document Encryption / Signing disabled'
-         '\nPlease install the gnupg library '),
-        ('No GNU Privacy Guard library found !'),
-    )
-    
-    
+    print ("No GNU Privacy Guard library found !\n"
+        "Document Encryption / Signing disabled'")
+
+
 _ = gettext.gettext
 
 def sign_document(data):
@@ -46,7 +45,7 @@ def sign_document(data):
     gpg = gnupg.GPG()
 
     gpg.encoding = 'utf-8'
-    
+
     document_model = data['model']
 
     """ Don't allow signing more than one document at a time
@@ -86,12 +85,12 @@ def sign_document(data):
         )
         return
 
-   
+
 
     # Check that the document has the digest before trying to
     # to sign it.
     if digest:
-        
+
         try:
             gpg_signature = gpg.sign(digest, clearsign=True)
 
@@ -109,7 +108,7 @@ def sign_document(data):
 
             )
             return
-        
+
     """
     Set the clearsigned digest
     """
@@ -161,9 +160,9 @@ def verify_document(data):
 
     # Verify signature
     digital_signature = record_vals[0]['digital_signature']
-    
+
     # Check that the document has a digital signature associated to it
-    
+
     if not digital_signature:
         warning(
             _('Unsigned document'),
@@ -192,7 +191,13 @@ def verify_document(data):
             )
 
 def get_plugins(model):
-    return [
-        (_('Digitally Sign Document'), sign_document),
-        (_('Verify Digital Signature'), verify_document),
-    ]
+
+    # Only show the options if the GNUPG plugin is available
+    if "gnupg" in sys.modules:
+        return [
+            (_('Digitally Sign Document'), sign_document),
+            (_('Verify Digital Signature'), verify_document),
+        ]
+    else:
+        return []
+
