@@ -1,3 +1,163 @@
+changeset:   3141:0b752d18e083
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:14:56 2018 +0000
+summary:     Apply patch from Tryton client changeset 5969: Store in memory the tree state even if save_tree_state option is not set
+
+changeset:   3140:5c5def4b51eb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:13:53 2018 +0000
+summary:     Apply patch from Tryton client changeset 5964: Set the state on tree view without tree_state
+
+changeset:   3139:5b6e8b35d7a0
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:13:01 2018 +0000
+summary:     Apply patch from Tryton client changeset 5957: Use right new_order list when calling rows_reordered
+
+changeset:   3138:a4ced88f42ac
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:11:51 2018 +0000
+summary:     Apply patch from Tryton client changeset 5934: Domain with ids are not stringable
+
+changeset:   3137:6bc16591381d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:09:59 2018 +0000
+summary:     Apply patch from Tryton client changeset 5921: Fix activate and value format of Times in filter
+
+changeset:   3136:fd7822e64804
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:08:25 2018 +0000
+summary:     Apply patch from Tryton client changeset 5916: Show ScrolledWindow before setting the states
+
+changeset:   3135:01cdaed4cbc1
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:07:03 2018 +0000
+summary:     Apply patch from Tryton client changeset 5911: Add quick return when evaluate simple expression
+
+changeset:   3134:6762c501336d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:05:47 2018 +0000
+summary:     Apply patch from Tryton client changeset 5864: Do not set text property on CellRendererToggle
+
+changeset:   3133:51e3455eeec3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 22:04:27 2018 +0000
+summary:     Apply patch from Tryton client changeset 5856: Force empty text property on no visible cell
+
+changeset:   3132:8c50b233b707
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:59:00 2018 +0000
+summary:     Apply patch from Tryton client changeset 5832: Compute Group readonly with the full context
+
+changeset:   3131:4dcf7ff469fc
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:57:04 2018 +0000
+summary:     Apply patch from Tryton client changeset 5808: Grab the focus when clicking on icon of Date widget
+
+changeset:   3130:3780fe82efef
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:55:33 2018 +0000
+summary:     Apply patch from Tryton client changeset 5771: Do not fail on next/previous on missing or empty calendar view
+
+changeset:   3129:b610e80f460a
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:53:35 2018 +0000
+summary:     Apply patch from Tryton client changeset 5767: Do not compare sequence value against index if it is None
+
+changeset:   3128:df7e719a2854
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:52:38 2018 +0000
+summary:     Apply patch from Tryton client changeset 5739: Catch ProtocolError on second EPIPE call in jsonrpc
+
+changeset:   3127:8d6b82a2f3f3
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:50:45 2018 +0000
+summary:     Apply patch from Tryton client changeset 5717: Do not create new group when search_filter is called only for ids
+
+changeset:   3126:4f7444dc52ed
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:46:35 2018 +0000
+summary:     Apply patch from Tryton client changeset 5670: Correctly evaluate domain with reference field and list/tuple values
+
+changeset:   3125:a577b1bbbc94
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:43:34 2018 +0000
+summary:     Apply patch from Tryton client changeset 5662: Let domain inversion set resource field value
+
+changeset:   3124:52b60f54d39e
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:41:26 2018 +0000
+summary:     Apply patch from Tryton client changeset 5631: Always convert to timezone datetime in domain parser
+
+changeset:   3123:b5cfebda86f9
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:39:22 2018 +0000
+summary:     Apply patch from Tryton client changeset 5621: Implement workaround for GTK bug with InfoBar and revealer
+
+changeset:   3122:87925e2bd053
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:36:55 2018 +0000
+summary:     Apply patch from Tryton client changeset 5616: Support Decimal in PYSONEncoder
+
+changeset:   3121:afd5a84f5f23
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:35:05 2018 +0000
+summary:     Apply patch from Tryton client changeset 5586: Disconnect focus-out callback when xxx2many widget is destroyed Once destroyed, the linked screen has no view to call set_value on
+
+changeset:   3120:66dfce5b3928
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:32:52 2018 +0000
+summary:     Apply patch from Tryton client changeset 5579: Raise exception when the Lock for Login could not be acquired
+
+changeset:   3119:d7231a24ae60
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:29:34 2018 +0000
+summary:     Apply patch from Tryton client changeset 5551: Correctly evaluate domain between xxx2many and None
+
+changeset:   3118:84ec4e337105
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:23:49 2018 +0000
+summary:     Apply patch from Tryton client changeset 5531: Ensure right exceptions are raised by RPCExecute callback
+
+changeset:   3117:3d36b0fdd2ca
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:21:06 2018 +0000
+summary:     Apply patch from Tryton client changeset 551: Set also editable property when setting sensitive on Entry
+
+changeset:   3116:97a38ab22f87
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:15:05 2018 +0000
+summary:     Apply patch from Tryton client changeset 5484:Catch all exceptions when evaluating the pyson value
+
+changeset:   3115:726edb78e8cb
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 21:11:44 2018 +0000
+summary:     Apply patch from Tryton client changeset 5479: Do not return empty action list for X2M field when getting a record value
+
+changeset:   3114:6cd9250ca37d
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 19:18:39 2018 +0000
+summary:     Apply patch from Tryton client changeset 5447 :Process exception during the callback
+
+changeset:   3113:38459dbd7a1b
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 19:16:22 2018 +0000
+summary:     Apply patch from Tryton client changeset 5444 :Use 0 as default value for yoptions of Table.attach
+
+changeset:   3112:85775b59e16c
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 19:13:36 2018 +0000
+summary:     Apply patch from Tryton client changeset 5441 :Ensure path is converted into tuple to allow comparison in check_recursion
+
+changeset:   3111:47a56cfdee54
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 19:09:05 2018 +0000
+summary:     Apply Tryton client changeset 5432: Popup error dialog when processing unknown exception
+
+changeset:   3110:99637c24f042
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Dec 22 18:52:29 2018 +0000
+summary:     Apply patch from Tryton client changeset 5602: Destroy dialogs in reversed order
+
 changeset:   3031:e9656a25f34b
 tag:         tip
 user:        Luis Falcon <falcon@gnu.org>
