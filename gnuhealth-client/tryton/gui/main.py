@@ -140,7 +140,7 @@ class Main(object):
             gtk.gdk.SHIFT_MASK)
 
         gtk.accel_map_add_entry('<tryton>/User/Command Line', gtk.keysyms.Z,
-            gtk.gdk.SHIFT_MASK)
+            gtk.gdk.CONTROL_MASK | gtk.gdk.SHIFT_MASK)
 
         gtk.accel_map_load(os.path.join(get_config_dir(), 'accel.map'))
 
@@ -1029,8 +1029,6 @@ class Main(object):
 
     def command_line(self):
         self.cli.grab_focus()
-
-        print ("Command line widget")
 
     @property
     def menu_expander_size(self):
