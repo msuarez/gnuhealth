@@ -12,11 +12,11 @@ Installation
 
 For a system-wide installation (you need to be root)
 
-  # pip install gnuhealth-client
+  # pip2 install gnuhealth-client
 
 Alternatively, you can do a local installation :
 
-  $ pip install --user gnuhealth-client
+  $ pip2 install --user gnuhealth-client
 
 
 Technology
