@@ -32,7 +32,7 @@ The default profile
 The GNU Health client comes with a pre-defined profile, which points to
 the GNU Health community demo server 
 
-| Server : health.gnusolidario.org
+| Server : federation.gnuhealth.org
 | Port : 8000
 | User : admin
 | Passwd : gnusolidario
@@ -46,6 +46,8 @@ For example:
 * The GNU Health **Crypto** plugin to digitally sign documents using GNUPG
 * The GNU Health **Camera** to use cameras and store them directly 
   on the system (person registration, histological samples, etc..)
+* The **Federation Record Locator**, that communicates with **thalamus**
+  and interacts with the GNU Health Information System and Person Master Index.
 
 More information about the GNU Health plugins at :
 
