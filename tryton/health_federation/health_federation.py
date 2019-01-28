@@ -192,9 +192,16 @@ class FederationQueue(ModelSQL, ModelView):
         # Get the Institution code as the originating node.
         HealthInst = Pool().get('gnuhealth.institution')
         institution = HealthInst.get_institution()
-        institution_code, = HealthInst.search_read([("name", "=", institution)],
-            limit=1, fields_names=['code'])
-        return institution_code['code']
+
+        if (institution):
+            #Get the institution code associated to the ID
+            institution_code = HealthInst(institution).code
+
+        else:
+            FederationQueue.raise_user_error(
+                "You need to create a health Institution first")
+
+        return institution_code
 
     @classmethod
     def send_record(cls,record):
