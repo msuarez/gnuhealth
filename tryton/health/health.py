@@ -348,8 +348,9 @@ class FederationCountryConfig(ModelSingleton, ModelSQL, ModelView):
     code = fields.Function(fields.Char('Code'),'get_country_code')
 
     use_citizenship = fields.Boolean('Use Citizenship',
-        help="If this option is set"
-            "the country code will be the person citizenship")
+        help="If this option is set\n"
+            "the default country code will be the person citizenship.\n"
+            "This feature is reserved for future use")
 
     def get_country_code(self, name):
         return self.country.code3
