@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<form>
+    <notebook>
+        <page string="General">
+            <label name="patient"/>
+            <field name="patient"/>
+            <label name="name"/>
+            <field name="name"/>
+            <label name="bd"/>
+            <field name="bd"/>
+            <label name="ident"/>
+            <field name="ident"/>
+            <label name="uuid"/>
+            <field name="uuid"/>
+        </page>
+        <page string="Studies">
+            <field name="studies" mode="tree,form"/>
+        </page>
+    </notebook>
+</form>

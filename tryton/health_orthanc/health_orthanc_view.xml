@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+        <!-- Orthanc icon -->
+        <record model="ir.ui.icon" id="orthanc_icon">
+            <field name="name">orthanc</field>
+            <field name="path">icons/orthanc_logo.svg</field>
+        </record>
+
+        <!-- Orthanc Study -->
+        <record model="ir.ui.view" id="orthanc_view_study_tree">
+            <field name="model">gnuhealth.orthanc.study</field>
+            <field name="type">tree</field>
+            <field name="name">study_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="orthanc_view_study_form">
+            <field name="model">gnuhealth.orthanc.study</field>
+            <field name="type">form</field>
+            <field name="name">study_form</field>
+        </record>
+
+        <!-- Orthanc Patient -->
+        <record model="ir.ui.view" id="orthanc_view_patient_tree">
+            <field name="model">gnuhealth.orthanc.patient</field>
+            <field name="type">tree</field>
+            <field name="name">patient_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="orthanc_view_patient_form">
+            <field name="model">gnuhealth.orthanc.patient</field>
+            <field name="type">form</field>
+            <field name="name">patient_form</field>
+        </record>
+
+        <!-- Orthanc config  -->
+        <record model="ir.ui.view" id="orthanc_view_config_tree">
+            <field name="model">gnuhealth.orthanc.config</field>
+            <field name="type">tree</field>
+            <field name="name">config_tree</field>
+        </record>
+
+        <record model="ir.ui.view" id="orthanc_view_config_form">
+            <field name="model">gnuhealth.orthanc.config</field>
+            <field name="type">form</field>
+            <field name="name">config_form</field>
+        </record>
+
+        <!-- Orthanc config menu -->
+        <menuitem name="Orthanc" parent="health.gnuhealth_conf_menu" id="orthanc_config_menu" icon="orthanc"/>
+
+        <record model="ir.action.act_window" id="act_orthanc_server_view">
+            <field name="name">Servers</field>
+            <field name="res_model">gnuhealth.orthanc.config</field>
+        </record>
+
+        <menuitem name="Servers" sequence="20" parent="orthanc_config_menu" action="act_orthanc_server_view" id="orthanc_server_menu" icon="gnuhealth-list"/>
+
+        <!-- Orthanc Menu -->
+        <menuitem name="Orthanc" sequence="0" id="orthanc_menu" parent="health_imaging.menu_imaging" icon="orthanc"/>
+
+        <record model="ir.action.act_window" id="act_orthanc_patient_view">
+            <field name="name">Patients</field>
+            <field name="res_model">gnuhealth.orthanc.patient</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_orthanc_study_view">
+            <field name="name">Studies</field>
+            <field name="res_model">gnuhealth.orthanc.study</field>
+        </record>
+
+        <menuitem parent="orthanc_menu" action="act_orthanc_patient_view" id="orthanc_menu_patient_view" icon="gnuhealth-patient" sequence="20"/>
+        <menuitem parent="orthanc_menu" action="act_orthanc_study_view" id="orthanc_menu_study_view" icon="gnuhealth.imaging" sequence="30"/>
+
+        <!-- Shortcut to related patient studies -->
+        <record model="ir.action.act_window" id="act_relate_orthanc_studies">
+            <field name="name">Orthanc Studies</field>
+            <field name="res_model">gnuhealth.orthanc.study</field>
+            <field name="domain" eval="[('patient.patient', '=', Eval('active_id'))]" pyson="1"/>
+        </record>
+        <record model="ir.action.keyword" id="act_open_relate_orthanc_studies">
+            <field name="keyword">form_relate</field>
+            <field name="model">gnuhealth.patient,-1</field>
+            <field name="action" ref="act_relate_orthanc_studies"/>
+        </record>
+    </data>
+</tryton>
