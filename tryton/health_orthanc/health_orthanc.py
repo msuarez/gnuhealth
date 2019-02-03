@@ -57,6 +57,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
                ]
        cls._buttons.update({
               'do_sync': {},
+              'do_full_sync': {},
               })
 
     @classmethod
@@ -65,7 +66,14 @@ class OrthancServerConfig(ModelSQL, ModelView):
         cls.sync(servers)
 
     @classmethod
+    @ModelView.button
+    def do_full_sync(cls, servers):
+        cls.full_sync(servers)
+
+    @classmethod
     def sync(cls, servers=None):
+        """Sync from changes endpoint"""
+
         pool = Pool()
         patient = pool.get('gnuhealth.orthanc.patient')
         study = pool.get('gnuhealth.orthanc.study')
@@ -73,21 +81,26 @@ class OrthancServerConfig(ModelSQL, ModelView):
         if not servers:
             servers = cls.search(['domain', '!=', None])
 
+        logger.info('Starting sync')
         for server in servers:
+            logger.info('Getting new changes for {}'.format(server.label))
             orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
             curr = server.last
             new_studies = []
+            update_studies = []
             new_patients = []
-            logger.info('Getting new changes')
+            update_patients = []
             while True:
                 changes = orthanc.get_changes(since=curr)
                 for change in changes['Changes']:
                     if change['ChangeType'] == 'NewStudy':
                         new_studies.append(orthanc.get_study(change['ID']))
-                        logger.info('New Study {}'.format(change['ID']))
+                    elif change['ChangeType'] == 'StableStudy':
+                        update_studies.append(orthanc.get_study(change['ID']))
                     elif change['ChangeType'] == 'NewPatient':
                         new_patients.append(orthanc.get_patient(change['ID']))
-                        logger.info('New Patient {}'.format(change['ID']))
+                    elif change['ChangeType'] == 'StablePatient':
+                        update_patients.append(orthanc.get_patient(change['ID']))
                     else:
                         pass
                 curr = changes['Last']
@@ -98,8 +111,34 @@ class OrthancServerConfig(ModelSQL, ModelView):
             study.create_studies(new_studies, server)
             server.last = curr
             server.sync_time = datetime.now()
+            logger.info('{} sync complete: {} new patients, {} new studies'.format(server.label, len(new_patients), len(new_studies)))
         cls.save(servers)
-        logger.info('Sync complete: {} new patients, {} new studies'.format(len(new_patients), len(new_studies)))
+
+    @classmethod
+    def full_sync(cls, servers=None):
+        """Import and create all current patients and studies on remote DICOM server
+
+                Useful for first sync on adding new server
+        """
+
+        pool = Pool()
+        Patient = pool.get('gnuhealth.orthanc.patient')
+        Study = pool.get('gnuhealth.orthanc.study')
+
+        if not servers:
+            servers = cls.search(['domain', '!=', None])
+
+        for server in servers:
+            logger.info('Full sync for {}'.format(server.label))
+            orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
+            patients = [p for p in orthanc.get_patients(params={'expand': ''})]
+            studies = [s for s in orthanc.get_studies(params={'expand': ''})]
+            Patient.create_patients(patients, server)
+            Study.create_studies(studies, server)
+            server.last = orthanc.get_changes(last=True).get('Last')
+            server.sync_time = datetime.now()
+            logger.info('{} sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
+        cls.save(servers)
 
     def get_since_sync(self, name):
         return datetime.now() - self.sync_time
@@ -124,32 +163,45 @@ class OrthancPatient(ModelSQL, ModelView):
     studies = fields.One2Many('gnuhealth.orthanc.study', 'patient', 'Studies', readonly=True)
     server = fields.Many2One('gnuhealth.orthanc.config', 'Server', readonly=True)
 
-    @classmethod
-    def create_patients(cls, patients, server=None):
-        '''Add patients'''
-        pool = Pool()
-        Patient = pool.get('gnuhealth.patient')
+    @staticmethod
+    def get_info_from_dicom(patients):
+        """Extract information for writing to database"""
 
-        create = []
+        data = []
         for patient in patients:
             try:
                 bd = datetime.strptime(patient['MainDicomTags']['PatientBirthDate'], '%Y%m%d').date()
             except:
                 bd = None
-            try:
-                g_patient = Patient.search([('puid', '=', patient['MainDicomTags']['PatientID'])], limit=1)[0]
-                logger.info('Matching PUID found for {}'.format(patient['ID']))
-            except:
-                g_patient = None
-            create.append({
+            data.append({
                     'name': patient.get('MainDicomTags').get('PatientName'),
                     'bd': bd,
                     'ident': patient.get('MainDicomTags').get('PatientID'),
                     'uuid': patient.get('ID'),
-                    'patient': g_patient,
-                    'server': server,
                     })
-        cls.create(create)
+        return data
+
+    @classmethod
+    def update_patients(cls, patients, server):
+        pass
+
+    @classmethod
+    def create_patients(cls, patients, server):
+        """Create patients"""
+
+        pool = Pool()
+        Patient = pool.get('gnuhealth.patient')
+
+        entries = cls.get_info_from_dicom(patients)
+        for entry in entries:
+            try:
+                g_patient = Patient.search([('puid', '=', entry['ident'])], limit=1)[0]
+                logger.info('Matching PUID found for {}'.format(entry['uuid']))
+            except:
+                g_patient = None
+            entry['server'] = server
+            entry['patient'] = g_patient
+        cls.create(entries)
 
 class OrthancStudy(ModelSQL, ModelView):
     '''Orthanc study'''
@@ -169,19 +221,13 @@ class OrthancStudy(ModelSQL, ModelView):
     def get_rec_name(self, name):
         return ': '.join((self.ident or self.uuid, self.description or ''))
 
-    @classmethod
-    def create_studies(cls, studies, server=None):
-        '''Add studies'''
-        create = []
-        pool = Pool()
-        Patient = pool.get('gnuhealth.orthanc.patient')
+    @staticmethod
+    def get_info_from_dicom(studies):
+        """Extract information for writing to database"""
+
+        data = []
 
         for study in studies:
-            try:
-                patient = Patient.search([('uuid', '=', study['ParentPatient'])], limit=1)[0]
-            except:
-                patient = None
-                logger.warning('No parent patient found for study {}'.format(study['ID']))
             try:
                 date = datetime.strptime(study['MainDicomTags']['StudyDate'], '%Y%m%d').date()
             except:
@@ -190,8 +236,8 @@ class OrthancStudy(ModelSQL, ModelView):
                 description = study['MainDicomTags']['RequestedProcedureDescription']
             except:
                 description = None
-            create.append({
-                'patient': patient,
+            data.append({
+                'parent_patient': study['ParentPatient'],
                 'uuid': study['ID'],
                 'description': description,
                 'date': date,
@@ -199,9 +245,32 @@ class OrthancStudy(ModelSQL, ModelView):
                 'institution': study.get('MainDicomTags').get('InstitutionName'),
                 'ref_phys': study.get('MainDicomTags').get('ReferringPhysicianName'),
                 'req_phys': study.get('MainDicomTags').get('RequestingPhysician'),
-                'server': server,
                 })
-        cls.create(create)
+        return data
+
+    @classmethod
+    def update_studies(cls, studies, server):
+        pass
+
+    @classmethod
+    def create_studies(cls, studies, server):
+        """Create studies"""
+
+        pool = Pool()
+        Patient = pool.get('gnuhealth.orthanc.patient')
+
+        entries = cls.get_info_from_dicom(studies)
+        for entry in entries:
+            try:
+                patient = Patient.search([('uuid', '=', entry['parent_patient']),
+                                            ('server', '=', server)], limit=1)[0]
+            except:
+                patient = None
+                logger.warning('No parent patient found for study {}'.format(entry['ID']))
+            entry.pop('parent_patient')
+            entry['server'] = server
+            entry['patient'] = patient
+        cls.create(entries)
 
 class Orthanc(ModelSQL, ModelView):
     '''Add Orthanc patient(s) to the main patient data'''

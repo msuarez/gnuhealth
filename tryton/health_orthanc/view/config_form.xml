@@ -22,4 +22,6 @@
     </group>
     <newline/>
     <button name="do_sync" help="Synchronize from Orthanc server" string="Sync" icon="gnuhealth-execute" confirm="Synchronize?"/>
+    <newline/>
+    <button name="do_full_sync" help="Fully synchronize from Orthanc server" string="Full sync" icon="gnuhealth-execute" confirm="Synchronize?"/>
 </form>
