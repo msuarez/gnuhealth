@@ -20,6 +20,7 @@
 
 from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pool import Pool
+from trytond.transaction import Transaction
 from orthanc_rest_client import Orthanc as RestClient
 import pendulum
 from requests.auth import HTTPBasicAuth as auth
@@ -78,8 +79,8 @@ class OrthancServerConfig(ModelSQL, ModelView):
             curr = server.last
             new_studies = []
             new_patients = []
+            logger.info('Getting new changes')
             while True:
-                logger.info('Getting new changes')
                 changes = orthanc.get_changes(params={'since': curr}, auth=a)
                 for change in changes['Changes']:
                     if change['ChangeType'] == 'NewStudy':
@@ -94,7 +95,6 @@ class OrthancServerConfig(ModelSQL, ModelView):
                 if changes['Done'] == True:
                     logger.info('Up-to-date on changelog')
                     break
-            logger.info('Creating patients and studies')
             patient.create_patients(new_patients, server)
             study.create_studies(new_studies, server)
             server.last = curr
@@ -108,7 +108,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
     def get_since_sync_readable(self, name):
         try:
             d = pendulum.now() - pendulum.instance(self.sync_time)
-            return d.in_words()
+            return d.in_words(Transaction().language)
         except:
             return ''
 
@@ -139,9 +139,9 @@ class OrthancPatient(ModelSQL, ModelView):
                 bd = None
             try:
                 g_patient = Patient.search([('puid', '=', patient['MainDicomTags']['PatientID'])], limit=1)[0]
+                logger.info('Matching PUID found for {}'.format(patient['ID']))
             except:
                 g_patient = None
-                logger.warning('No matching PUID found for {}'.format(patient['ID']))
             create.append({
                     'name': patient.get('MainDicomTags').get('PatientName'),
                     'bd': bd,
