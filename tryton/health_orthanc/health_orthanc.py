@@ -71,23 +71,22 @@ class OrthancServerConfig(ModelSQL, ModelView):
         study = pool.get('gnuhealth.orthanc.study')
 
         if not servers:
-            servers = cls.search(['domain', '!=', None],)
+            servers = cls.search(['domain', '!=', None])
 
         for server in servers:
-            orthanc = RestClient(server.domain)
-            a = auth(server.user, server.password)
+            orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
             curr = server.last
             new_studies = []
             new_patients = []
             logger.info('Getting new changes')
             while True:
-                changes = orthanc.get_changes(params={'since': curr}, auth=a)
+                changes = orthanc.get_changes(since=curr)
                 for change in changes['Changes']:
                     if change['ChangeType'] == 'NewStudy':
-                        new_studies.append(orthanc.get_study(change['ID'], auth=a))
+                        new_studies.append(orthanc.get_study(change['ID']))
                         logger.info('New Study {}'.format(change['ID']))
                     elif change['ChangeType'] == 'NewPatient':
-                        new_patients.append(orthanc.get_patient(change['ID'], auth=a))
+                        new_patients.append(orthanc.get_patient(change['ID']))
                         logger.info('New Patient {}'.format(change['ID']))
                     else:
                         pass
@@ -117,7 +116,7 @@ class OrthancPatient(ModelSQL, ModelView):
 
     __name__ = 'gnuhealth.orthanc.patient'
 
-    patient = fields.Many2One('gnuhealth.patient', 'Patient')
+    patient = fields.Many2One('gnuhealth.patient', 'Patient', help="Local linked patient")
     name = fields.Char('PatientName', readonly=True)
     bd = fields.Date('Birthdate', readonly=True)
     ident = fields.Char('PatientID', readonly=True)
@@ -162,7 +161,7 @@ class OrthancStudy(ModelSQL, ModelView):
     description = fields.Char('Description', readonly=True)
     date = fields.Date('Date', readonly=True)
     ident = fields.Char('ID', readonly=True)
-    institution = fields.Char('Institution', readonly=True)
+    institution = fields.Char('Institution', readonly=True, help="Imaging center where study was undertaken")
     ref_phys = fields.Char('Referring Physician', readonly=True)
     req_phys = fields.Char('Requesting Physician', readonly=True)
     server = fields.Many2One('gnuhealth.orthanc.config', 'Server', readonly=True)
