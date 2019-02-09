@@ -24,6 +24,7 @@ from trytond.transaction import Transaction
 from orthanc_rest_client import Orthanc as RestClient
 import pendulum
 from requests.auth import HTTPBasicAuth as auth
+from requests.exceptions import HTTPError, ConnectionError
 from datetime import datetime
 import logging
 
@@ -43,6 +44,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
     password = fields.Char('Password', required=True, help="Password for Orthanc REST server")
     last = fields.BigInteger('Last Index', readonly=True, help="Index of last change")
     sync_time = fields.DateTime('Sync Time', readonly=True, help="Time of last server sync")
+    confirmed = fields.Boolean('Confirmed', help="The server details have been successfully checked")
     since_sync = fields.Function(fields.TimeDelta('Since last sync', help="Time since last sync"), 'get_since_sync')
     since_sync_readable = fields.Function(fields.Char('Since last sync', help="Time since last sync"), 'get_since_sync_readable')
     patients = fields.One2Many('gnuhealth.orthanc.patient', 'server', 'Patients')
@@ -83,7 +85,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
 
         logger.info('Starting sync')
         for server in servers:
-            logger.info('Getting new changes for {}'.format(server.label))
+            logger.info('Getting new changes for <{}>'.format(server.label))
             orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
             curr = server.last
             new_studies = []
@@ -105,7 +107,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
                         pass
                 curr = changes['Last']
                 if changes['Done'] == True:
-                    logger.info('Up-to-date on changelog')
+                    logger.info('<{}> at newest change'.format(server.label))
                     break
             patient.create_patients(new_patients, server)
             study.create_studies(new_studies, server)
@@ -118,7 +120,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
     def full_sync(cls, servers=None):
         """Import and create all current patients and studies on remote DICOM server
 
-                Useful for first sync on adding new server
+                 Used as first sync on adding new server
         """
 
         pool = Pool()
@@ -129,16 +131,44 @@ class OrthancServerConfig(ModelSQL, ModelView):
             servers = cls.search(['domain', '!=', None])
 
         for server in servers:
-            logger.info('Full sync for {}'.format(server.label))
+            logger.info('Full sync for <{}>'.format(server.label))
             orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
-            patients = [p for p in orthanc.get_patients(params={'expand': ''})]
-            studies = [s for s in orthanc.get_studies(params={'expand': ''})]
-            Patient.create_patients(patients, server)
-            Study.create_studies(studies, server)
-            server.last = orthanc.get_changes(last=True).get('Last')
-            server.sync_time = datetime.now()
-            logger.info('{} sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
+            try:
+                patients = [p for p in orthanc.get_patients(params={'expand': ''})]
+                studies = [s for s in orthanc.get_studies(params={'expand': ''})]
+            except HTTPError as err:
+                if err.response.status_code == 401:
+                    cls.raise_user_error("Invalid credentials for {}".format(server.label))
+                else:
+                    cls.raise_user_error("Invalid domain {}".format(server.domain))
+            except:
+                cls.raise_user_error("Invalid domain {}".format(server.domain))
+            else:
+                Patient.create_patients(patients, server)
+                Study.create_studies(studies, server)
+                server.last = orthanc.get_changes(last=True).get('Last')
+                server.sync_time = datetime.now()
+                server.confirmed = True
+                logger.info('<{}> sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
+            finally:
+                pass
         cls.save(servers)
+
+    @staticmethod
+    def quick_check(domain, user, password):
+        """Confirm server details"""
+
+        try:
+            orthanc = RestClient(domain, auth=auth(user, password))
+            orthanc.get_changes(last=True)
+        except:
+            return False
+        else:
+            return True
+
+    @fields.depends('domain', 'user', 'password')
+    def on_change_with_confirmed(self):
+        return self.quick_check(self.domain, self.user, self.password)
 
     def get_since_sync(self, name):
         return datetime.now() - self.sync_time
