@@ -94,7 +94,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
                 except:
                     server.validated = False
                     logger.info('Invalid details for <{}>'.format(server.label))
-                    continue
+                    break
                 for change in changes['Changes']:
                     type_ = change['ChangeType']
                     if type_ == 'NewStudy':
