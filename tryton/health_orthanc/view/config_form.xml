@@ -12,8 +12,8 @@
             <field name="since_sync_readable"/>
             <label name="last"/>
             <field name="last"/>
-            <label name="confirmed"/>
-            <field name="confirmed" readonly="1"/>
+            <label name="validated"/>
+            <field name="validated" readonly="1"/>
         </group>
         <group string="User" yfill="1">
             <label name="user"/>

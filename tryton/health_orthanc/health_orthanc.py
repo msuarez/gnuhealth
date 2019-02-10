@@ -44,7 +44,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
     password = fields.Char('Password', required=True, help="Password for Orthanc REST server")
     last = fields.BigInteger('Last Index', readonly=True, help="Index of last change")
     sync_time = fields.DateTime('Sync Time', readonly=True, help="Time of last server sync")
-    confirmed = fields.Boolean('Confirmed', help="The server details have been successfully checked")
+    validated = fields.Boolean('Validated', help="The server details have been successfully checked")
     since_sync = fields.Function(fields.TimeDelta('Since last sync', help="Time since last sync"), 'get_since_sync')
     since_sync_readable = fields.Function(fields.Char('Since last sync', help="Time since last sync"), 'get_since_sync_readable')
     patients = fields.One2Many('gnuhealth.orthanc.patient', 'server', 'Patients')
@@ -81,10 +81,12 @@ class OrthancServerConfig(ModelSQL, ModelView):
         study = pool.get('gnuhealth.orthanc.study')
 
         if not servers:
-            servers = cls.search(['domain', '!=', None])
+            servers = cls.search([('domain', '!=', None),
+                                    ('validated', '=', True)])
 
         logger.info('Starting sync')
         for server in servers:
+            if not server.validated: continue
             logger.info('Getting new changes for <{}>'.format(server.label))
             orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
             curr = server.last
@@ -95,13 +97,14 @@ class OrthancServerConfig(ModelSQL, ModelView):
             while True:
                 changes = orthanc.get_changes(since=curr)
                 for change in changes['Changes']:
-                    if change['ChangeType'] == 'NewStudy':
+                    type_ = change['ChangeType']
+                    if type_ == 'NewStudy':
                         new_studies.append(orthanc.get_study(change['ID']))
-                    elif change['ChangeType'] == 'StableStudy':
+                    elif type_ == 'StableStudy':
                         update_studies.append(orthanc.get_study(change['ID']))
-                    elif change['ChangeType'] == 'NewPatient':
+                    elif type_ == 'NewPatient':
                         new_patients.append(orthanc.get_patient(change['ID']))
-                    elif change['ChangeType'] == 'StablePatient':
+                    elif type_ == 'StablePatient':
                         update_patients.append(orthanc.get_patient(change['ID']))
                     else:
                         pass
@@ -128,7 +131,8 @@ class OrthancServerConfig(ModelSQL, ModelView):
         Study = pool.get('gnuhealth.orthanc.study')
 
         if not servers:
-            servers = cls.search(['domain', '!=', None])
+            servers = cls.search([('domain', '!=', None),
+                                    ('validated', '=', True)])
 
         for server in servers:
             logger.info('Full sync for <{}>'.format(server.label))
@@ -148,7 +152,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
                 Study.create_studies(studies, server)
                 server.last = orthanc.get_changes(last=True).get('Last')
                 server.sync_time = datetime.now()
-                server.confirmed = True
+                server.validated = True
                 logger.info('<{}> sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
             finally:
                 pass
@@ -156,7 +160,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
 
     @staticmethod
     def quick_check(domain, user, password):
-        """Confirm server details"""
+        """Validate the server details"""
 
         try:
             orthanc = RestClient(domain, auth=auth(user, password))
@@ -167,7 +171,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
             return True
 
     @fields.depends('domain', 'user', 'password')
-    def on_change_with_confirmed(self):
+    def on_change_with_validated(self):
         return self.quick_check(self.domain, self.user, self.password)
 
     def get_since_sync(self, name):
