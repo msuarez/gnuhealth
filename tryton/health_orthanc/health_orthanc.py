@@ -59,18 +59,12 @@ class OrthancServerConfig(ModelSQL, ModelView):
                ]
        cls._buttons.update({
               'do_sync': {},
-              'do_full_sync': {},
               })
 
     @classmethod
     @ModelView.button
     def do_sync(cls, servers):
         cls.sync(servers)
-
-    @classmethod
-    @ModelView.button
-    def do_full_sync(cls, servers):
-        cls.full_sync(servers)
 
     @classmethod
     def sync(cls, servers=None):
@@ -119,44 +113,6 @@ class OrthancServerConfig(ModelSQL, ModelView):
             logger.info('{} sync complete: {} new patients, {} new studies'.format(server.label, len(new_patients), len(new_studies)))
         cls.save(servers)
 
-    @classmethod
-    def full_sync(cls, servers=None):
-        """Import and create all current patients and studies on remote DICOM server
-
-                 Used as first sync on adding new server
-        """
-
-        pool = Pool()
-        Patient = pool.get('gnuhealth.orthanc.patient')
-        Study = pool.get('gnuhealth.orthanc.study')
-
-        if not servers:
-            servers = cls.search([('domain', '!=', None),
-                                    ('validated', '=', True)])
-
-        for server in servers:
-            logger.info('Full sync for <{}>'.format(server.label))
-            orthanc = RestClient(server.domain, auth=auth(server.user, server.password))
-            try:
-                patients = [p for p in orthanc.get_patients(params={'expand': ''})]
-                studies = [s for s in orthanc.get_studies(params={'expand': ''})]
-            except HTTPError as err:
-                if err.response.status_code == 401:
-                    cls.raise_user_error("Invalid credentials for {}".format(server.label))
-                else:
-                    cls.raise_user_error("Invalid domain {}".format(server.domain))
-            except:
-                cls.raise_user_error("Invalid domain {}".format(server.domain))
-            else:
-                Patient.create_patients(patients, server)
-                Study.create_studies(studies, server)
-                server.last = orthanc.get_changes(last=True).get('Last')
-                server.sync_time = datetime.now()
-                server.validated = True
-                logger.info('<{}> sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
-            finally:
-                pass
-        cls.save(servers)
 
     @staticmethod
     def quick_check(domain, user, password):

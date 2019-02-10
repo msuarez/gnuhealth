@@ -83,5 +83,22 @@
             <field name="model">gnuhealth.patient,-1</field>
             <field name="action" ref="act_relate_orthanc_studies"/>
         </record>
+
+        <!-- Wizard and Views to add server -->
+        <record model="ir.ui.view" id="view_orthanc_add_init">
+            <field name="model">gnuhealth.orthanc.add.init</field>
+            <field name="type">form</field>
+            <field name="name">add_orthanc_server</field>
+        </record>
+        <record model="ir.ui.view" id="view_orthanc_add_result">
+            <field name="model">gnuhealth.orthanc.add.result</field>
+            <field name="type">form</field>
+            <field name="name">add_orthanc_server_result</field>
+        </record>
+        <record model="ir.action.wizard" id="orthanc_add_server_init">
+            <field name="name">Add Orthanc Server</field>
+            <field name="wiz_name">gnuhealth.orthanc.wizard.full_sync</field>
+        </record>
+        <menuitem parent="orthanc_config_menu" action="orthanc_add_server_init" id="orthanc_add_server_menu" sequence="10" icon="gnuhealth-execute"/>
     </data>
 </tryton>

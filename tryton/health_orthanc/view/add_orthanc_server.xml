@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<form>
+    <group string="Server information" yfill="1">
+        <label name="label"/>
+        <field name="label"/>
+        <label name="domain"/>
+        <field name="domain"/>
+    </group>
+    <group string="User credentials" yfill="1">
+        <label name="user"/>
+        <field name="user"/>
+        <label name="password"/>
+        <field name="password"/>
+    </group>
+</form>

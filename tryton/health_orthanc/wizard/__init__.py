@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
+#
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,19 +19,4 @@
 #
 ##############################################################################
 
-from trytond.pool import Pool
-from .health_orthanc import *
 from .wizard import *
-
-def register():
-    Pool.register(
-        AddOrthancInit,
-        AddOrthancResult,
-        OrthancServerConfig,
-        OrthancStudy,
-        OrthancPatient,
-        Orthanc,
-        module='health_orthanc', type_='model')
-    Pool.register(
-        FullSyncOrthanc,
-        module='health_orthanc', type_='wizard')
