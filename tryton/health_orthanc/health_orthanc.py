@@ -89,7 +89,12 @@ class OrthancServerConfig(ModelSQL, ModelView):
             new_patients = []
             update_patients = []
             while True:
-                changes = orthanc.get_changes(since=curr)
+                try:
+                    changes = orthanc.get_changes(since=curr)
+                except:
+                    server.validated = False
+                    logger.info('Invalid details for <{}>'.format(server.label))
+                    continue
                 for change in changes['Changes']:
                     type_ = change['ChangeType']
                     if type_ == 'NewStudy':
