@@ -1,5 +1,6 @@
+[
 {
-"_id": "ITAPYT999HON", 
+"id": "ITAPYT999HON", 
 "lastname": "Cordara", 
 "name": "Cameron", 
 "gender": "f",
@@ -11,9 +12,9 @@
 "password": "$2b$12$Y9rX7PoTHRXhTO1H78Tan.8mVmyayGAUIveiYxu2Qeo0ZDRvJQ8/2",
 "roles":["end_user","health_professional"],
 "active": true
-}
+},
 {
-"_id": "ESPGNU777ORG", 
+"id": "ESPGNU777ORG", 
 "lastname": "Betz", 
 "name": "Ana", 
 "gender": "f",
@@ -26,4 +27,4 @@
 "roles":["end_user"],
 "active": true
 }
-
+]

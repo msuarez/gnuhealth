@@ -8,8 +8,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2018 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -27,7 +27,8 @@
 ##############################################################################
 from flask import Flask, redirect, request, jsonify, render_template, url_for
 from flask_restful import Resource, Api, abort
-from flask_pymongo import PyMongo
+
+import psycopg2
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField, PasswordField, SubmitField, \
@@ -45,8 +46,6 @@ app.config.from_pyfile('etc/thalamus.cfg')
 
 api = Api(app)
 
-mongo = PyMongo(app)
-
 auth = HTTPBasicAuth()
 
 ACL = json.load(open(app.config['ACL'],'r'))
@@ -59,12 +58,22 @@ if __name__ != '__main__':
     app.logger.handlers = gunicorn_logger.handlers
     app.logger.setLevel(gunicorn_logger.level)
 
+
+#Open a connection to PG Server
+conn = psycopg2.connect(app.config['POSTGRESQL_URI'])
+
 def check_person(person_id):
     """
     Checks if the Federation ID exists on the GNU Health HIS
     Returns the instance or null
     """
-    person = mongo.db.people.find_one({'_id' : person_id})
+    cur = conn.cursor()
+    cur.execute ('SELECT id from people \
+        where id = %s limit(1)', (person_id,))
+    try:
+        person, = cur.fetchone()
+    except:
+        person = None
 
     return person
 
@@ -77,9 +86,16 @@ def verify_password(username, password):
     and checks them against the entry on the people db collection
     The password is bcrypt hashed
     """
-    user = mongo.db.people.find_one({'_id' : username})
+    cur = conn.cursor()
+    cur.execute ('SELECT data from people \
+        where id = %s limit(1)', (username,))
+    try:
+        user, = cur.fetchone()
+    except:
+        user = None
+    # user = db.people.find_one({'_id' : username})
     if (user):
-        person = user['_id']
+        person = user['id']
         hashed_password = user['password']
         roles = user['roles']
         if bcrypt.checkpw(password.encode('utf-8'),
@@ -132,7 +148,9 @@ class People(Resource):
         """
         Retrieves all the people on the person collection
         """
-        people = list(mongo.db.people.find())
+        cur = conn.cursor()
+        cur.execute ('SELECT data from people')
+        people = cur.fetchall()
 
         return jsonify(people)
 
@@ -147,13 +165,17 @@ class Person(Resource):
         """
         Retrieves the person instance
         """
-        person = mongo.db.people.find_one({'_id' : person_id})
+        cur = conn.cursor()
+        cur.execute ('SELECT data from people \
+            where id = %s limit(1)', (person_id,))
+
+        person = cur.fetchone()
 
         # Return a 404 if the person ID is not found
         if not person:
             return '', 404
 
-        return jsonify(person)
+        return jsonify(person,)
 
     def post(self, person_id):
         """
@@ -177,7 +199,7 @@ class Person(Resource):
         if (person_id):
             if (type(person_id) is str):
                 #Use upper case on the person federation account
-                values['_id'] = person_id.upper()
+                values['id'] = person_id.upper()
         else:
             abort (422, error="wrong format on person ID")
 
@@ -203,7 +225,7 @@ class Person(Resource):
             values['password'] = hashed_pw
 
         # Insert the newly created person in MongoDB
-        person = mongo.db.people.insert(values)
+        person = db.people.insert(values)
 
         return jsonify(person)
 
@@ -216,7 +238,7 @@ class Person(Resource):
         #Grab all the data coming from the node client, in JSON format
         values = json.loads(request.data)
 
-        if '_id' in values:
+        if 'id' in values:
             # Avoid changing the user ID
             abort(422, error="Not allowed to change the person ID")
             # TO be discussed...
@@ -224,7 +246,7 @@ class Person(Resource):
             # does not, we may be able to update it.
 
         if check_person(person_id):
-            update_person = mongo.db.people.update_one({"_id":person_id},
+            update_person = db.people.update_one({"id":person_id},
                 {"$set": values})
         else:
             abort (404, error="User not found")
@@ -243,7 +265,7 @@ class Person(Resource):
            if person['active']:
             abort (422, error="The user is active.")
 
-        delete_person = mongo.db.people.delete_one({"_id":person_id})
+        delete_person = db.people.delete_one({"id":person_id})
 
 # Book of Life Resource
 class Book(Resource):
@@ -255,7 +277,7 @@ class Book(Resource):
         """
         Retrieves the pages of life from the person
         """
-        pages = list(mongo.db.pols.find({'book' : person_id}))
+        pages = list(db.pols.find({'book' : person_id}))
 
         # Return a 404 if the person ID is not found
         if not pages:
@@ -274,7 +296,7 @@ class Page(Resource):
         """
         Retrieves the page instance
         """
-        page = mongo.db.pols.find_one({'_id': page_id})
+        page = db.pols.find_one({'id': page_id})
 
         # Return a 404 if the person ID is not found
         if not page:
@@ -290,10 +312,10 @@ class Page(Resource):
         values = json.loads(request.data)
 
         # Basic validation on page ID exsistance and string type
-        if (person_id and '_id' in values):
-            if (type(person_id) is str and type(values['_id'])):
+        if (person_id and 'id' in values):
+            if (type(person_id) is str and type(values['id'])):
                 # Insert the newly created PoL in MongoDB
-                page = mongo.db.pols.insert(values)
+                page = db.pols.insert(values)
         else:
             print ("wrong format on person or page ID")
             abort (422, error="wrong format on person or page ID")
@@ -308,7 +330,7 @@ class Page(Resource):
         #Grab all the data coming from the node client, in JSON format
         values = json.loads(request.data)
 
-        if '_id' in values:
+        if 'id' in values:
             # Avoid changing the user ID
             abort(422, error="Not allowed to change the page ID")
             # TO be discussed...
@@ -316,7 +338,7 @@ class Page(Resource):
             # does not, we may be able to update it.
 
         if check_person(person_id):
-            update_page = mongo.db.pols.update_one({"_id":page_id},
+            update_page = db.pols.update_one({"id":page_id},
                 {"$set": values})
         else:
             abort (404, error="Page not found")
@@ -336,7 +358,7 @@ api.add_resource(Page, '/pols/<string:person_id>/<string:page_id>')
 class PersonalDocs(Resource):
     "Documents associated to the person (scanned info, birth certs, ..)"
     def get(self):
-        documents = list(mongo.db.personal_document.find())
+        documents = list(db.personal_document.find())
         return jsonify(documents)
 
 api.add_resource(PersonalDocs, '/personal-documents')
@@ -345,7 +367,7 @@ api.add_resource(PersonalDocs, '/personal-documents')
 class DomiciliaryUnits(Resource):
     "Domiciliary Units"
     def get(self):
-        dus = list(mongo.db.domiciliary_unit.find())
+        dus = list(db.domiciliary_unit.find())
         return jsonify(dus)
 
 api.add_resource(DomiciliaryUnits, '/domiciliary-units')
@@ -358,7 +380,7 @@ class Institutions(Resource):
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self):
-        institutions = list(mongo.db.institution.find())
+        institutions = list(db.institution.find())
         return jsonify(institutions)
 
 api.add_resource(Institutions, '/institutions')
@@ -383,7 +405,7 @@ def password(person_id):
             enc_pwd = bcrypt.hashpw(pwd, bcrypt.gensalt()).decode()
             values = {'password': enc_pwd}
             update_password = \
-                mongo.db.people.update_one({"_id":person_id},{"$set": values})
+                db.people.update_one({"id":person_id},{"$set": values})
 
             if update_password:
                 return redirect(url_for('index'))
