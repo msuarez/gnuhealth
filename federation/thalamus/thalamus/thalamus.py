@@ -93,7 +93,7 @@ def verify_password(username, password):
         user, = cur.fetchone()
     except:
         user = None
-    # user = db.people.find_one({'_id' : username})
+
     if (user):
         person = user['id']
         hashed_password = user['password']
@@ -169,13 +169,16 @@ class Person(Resource):
         cur.execute ('SELECT data from people \
             where id = %s limit(1)', (person_id,))
 
-        person = cur.fetchone()
+        try:
+            person, = cur.fetchone()
+        except:
+            person = None
 
         # Return a 404 if the person ID is not found
         if not person:
             return '', 404
 
-        return jsonify(person,)
+        return jsonify(person)
 
     def post(self, person_id):
         """
