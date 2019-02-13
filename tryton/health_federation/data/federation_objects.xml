@@ -10,7 +10,7 @@ name:people:name,
 lastname:people:lastname,
 dob:people:dob,
 gender:people:gender,
-federation_account:people:_id
+federation_account:people:id
             </field>
         </record>
 
@@ -20,7 +20,7 @@ federation_account:people:_id
             <field name="model">gnuhealth.pol</field>
             <field name="enabled">1</field>
             <field name="fields">
-page:pols:_id,
+page:pols:id,
 federation_account:pols:book,
 page_date:pols:page_date,
 age:pols:age,
