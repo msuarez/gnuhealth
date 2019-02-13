@@ -232,8 +232,8 @@ class Person(Resource):
         cur.execute("INSERT INTO people (ID, DATA) VALUES (%(id)s, \
             %(data)s)", {'id': person_id, 'data':json.dumps(values)})
         res = conn.commit()
-
-        return jsonify(res)
+     
+        return res
 
 
     def patch(self, person_id):
@@ -246,14 +246,21 @@ class Person(Resource):
 
         if 'id' in values:
             # Avoid changing the user ID
+            print ("Not allowed to change the person ID")
             abort(422, error="Not allowed to change the person ID")
             # TO be discussed...
             # Check if the new ID exist in the Federation, and if it
             # does not, we may be able to update it.
 
         if check_person(person_id):
-            update_person = db.people.update_one({"id":person_id},
-                {"$set": values})
+            jdata = json.dumps(values)
+            # UPDATE the information from the person
+            # associated to the federation ID
+            cur = conn.cursor()
+            cur.execute("UPDATE PEOPLE SET data = data || %s where id = %s", \
+                (jdata,person_id))
+            conn.commit()
+
         else:
             abort (404, error="User not found")
 
