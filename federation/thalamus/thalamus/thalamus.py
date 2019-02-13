@@ -227,10 +227,13 @@ class Person(Resource):
 
             values['password'] = hashed_pw
 
-        # Insert the newly created person in MongoDB
-        person = db.people.insert(values)
+        # Insert the newly created person
+        cur = conn.cursor()
+        cur.execute("INSERT INTO people (ID, DATA) VALUES (%(id)s, \
+            %(data)s)", {'id': person_id, 'data':json.dumps(values)})
+        res = conn.commit()
 
-        return jsonify(person)
+        return jsonify(res)
 
 
     def patch(self, person_id):
