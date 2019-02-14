@@ -278,7 +278,10 @@ class Person(Resource):
            if person['active']:
             abort (422, error="The user is active.")
 
-        delete_person = db.people.delete_one({"id":person_id})
+        #Delete the person
+        cur = conn.cursor()
+        cur.execute("DELETE FROM people WHERE id = %s", (person_id,))
+        conn.commit()
 
 # Book of Life Resource
 class Book(Resource):
