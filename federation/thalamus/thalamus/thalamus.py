@@ -420,10 +420,17 @@ def password(person_id):
             pwd = form.password.data.encode()
             enc_pwd = bcrypt.hashpw(pwd, bcrypt.gensalt()).decode()
             values = {'password': enc_pwd}
-            update_password = \
-                db.people.update_one({"id":person_id},{"$set": values})
 
-            if update_password:
+            jdata = json.dumps(values)
+            # UPDATE the information from the person
+            # associated to the federation ID
+            cur = conn.cursor()
+            cur.execute("UPDATE PEOPLE SET data = data || %s where id = %s", \
+                (jdata,person_id))
+            update_password = cur.rowcount
+            conn.commit()
+
+            if update_password > 0:
                 return redirect(url_for('index'))
             else:
                 error = "Error updating the password"
