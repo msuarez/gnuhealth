@@ -77,6 +77,21 @@ def check_person(person_id):
 
     return person
 
+def check_pol(page_id):
+    """
+    Checks if the Federation ID exists on the GNU Health HIS
+    Returns the instance or null
+    """
+    cur = conn.cursor()
+    cur.execute ('SELECT id from pols \
+        where id = %s limit(1)', (page_id,))
+    try:
+        pol, = cur.fetchone()
+    except:
+        pol = None
+
+    return pol
+
 # Authentication
 
 @auth.verify_password
@@ -121,7 +136,7 @@ def access_control(username, roles, method, endpoint, view_args):
     """
     Takes the logged in user roles, method and endpoint as arguments
     Verifies them against the ACL and returns either True or False
-    """    
+    """
     for user_role in roles:
         for acl_entry in ACL:
             if (acl_entry["role"] == user_role):
@@ -232,7 +247,7 @@ class Person(Resource):
         cur.execute("INSERT INTO people (ID, DATA) VALUES (%(id)s, \
             %(data)s)", {'id': person_id, 'data':json.dumps(values)})
         res = conn.commit()
-     
+
         return res
 
 
@@ -361,20 +376,23 @@ class Page(Resource):
         """
         Updates the Page of Life
         """
-
         #Grab all the data coming from the node client, in JSON format
         values = json.loads(request.data)
 
         if 'id' in values:
-            # Avoid changing the user ID
+            # Avoid changing the page ID
             abort(422, error="Not allowed to change the page ID")
-            # TO be discussed...
-            # Check if the new ID exist in the Federation, and if it
-            # does not, we may be able to update it.
 
-        if check_person(person_id):
-            update_page = db.pols.update_one({"id":page_id},
-                {"$set": values})
+        if check_pol(page_id):
+
+            jdata = json.dumps(values)
+            # UPDATE the information from the page
+            # associated to the federation ID book
+            cur = conn.cursor()
+            cur.execute("UPDATE pols SET data = data || %s where id = %s", \
+                (jdata,page_id))
+            conn.commit()
+
         else:
             abort (404, error="Page not found")
 
@@ -427,7 +445,7 @@ class PasswordForm(FlaskForm):
         validators.EqualTo('pconfirm', message='Password mistmatch')])
     pconfirm = PasswordField('Confirm Password')
     update = SubmitField('Update')
-   
+
 
 # Update the password of the user with a form
 @app.route('/password/<person_id>', methods=('GET', 'POST'))
