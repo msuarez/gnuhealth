@@ -24,7 +24,8 @@ conn.commit()
 
 print ("Creating the POLS schema...")
 cur.execute("""CREATE TABLE IF NOT EXISTS \
-    pols (id VARCHAR PRIMARY KEY, DATA JSONB);""")
+    pols (id VARCHAR PRIMARY KEY, book VARCHAR not null, DATA JSONB);""")
+
 conn.commit()
 
 for person in people_data:
@@ -34,9 +35,10 @@ for person in people_data:
         %(data)s)", {'id': id, 'data':json.dumps(person)})
     conn.commit()
 
+
 for pol in pols_data:
     id = pol['id']
-    print ("Inserting", id)
-    cur.execute("INSERT INTO pols (ID, DATA) VALUES (%(id)s, \
-        %(data)s)", {'id': id, 'data':json.dumps(pol)})
+    book = pol['book']
+    print ("Inserting", id, book)
+    cur.execute("INSERT INTO pols (ID, BOOK, DATA) VALUES (%(id)s, %(book)s, %(data)s)", {'id': id, 'book': book, 'data':json.dumps(pol)})
     conn.commit()
