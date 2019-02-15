@@ -293,8 +293,6 @@ class Book(Resource):
         """
         Retrieves the pages of life from the person
         """
-        # pages = list(db.pols.find({'book' : person_id}))
-
         cur = conn.cursor()
         cur.execute ('SELECT data from pols where book = %s', (person_id,))
         pages = cur.fetchall()
@@ -319,9 +317,16 @@ class Page(Resource):
         """
         Retrieves the page instance
         """
-        page = db.pols.find_one({'id': page_id})
+        cur = conn.cursor()
+        cur.execute ('SELECT data from pols \
+            where id = %s limit(1)', (page_id,))
+        try:
+            page, = cur.fetchone()
+        except:
+            page = None
 
-        # Return a 404 if the person ID is not found
+
+        # Return a 404 if the page ID is not found
         if not page:
             abort (404, error="Book or page or not found")
 
