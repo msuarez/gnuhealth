@@ -293,7 +293,14 @@ class Book(Resource):
         """
         Retrieves the pages of life from the person
         """
-        pages = list(db.pols.find({'book' : person_id}))
+        # pages = list(db.pols.find({'book' : person_id}))
+
+        cur = conn.cursor()
+        cur.execute ('SELECT data from pols where book = %s', (person_id,))
+        pages = cur.fetchall()
+
+        return jsonify(pages)
+
 
         # Return a 404 if the person ID is not found
         if not pages:
