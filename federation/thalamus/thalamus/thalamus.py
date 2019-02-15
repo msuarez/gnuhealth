@@ -342,13 +342,20 @@ class Page(Resource):
         # Basic validation on page ID exsistance and string type
         if (person_id and 'id' in values):
             if (type(person_id) is str and type(values['id'])):
-                # Insert the newly created PoL in MongoDB
-                page = db.pols.insert(values)
+
+                # Insert the newly created Page of Life from the person Book
+                cur = conn.cursor()
+                cur.execute("INSERT INTO pols (ID, BOOK, DATA) \
+                    VALUES (%(id)s, %(book)s, %(data)s)", \
+                    {'id': page_id, 'book': person_id, \
+                    'data':json.dumps(values)})
+                res = conn.commit()
+
         else:
             print ("wrong format on person or page ID")
             abort (422, error="wrong format on person or page ID")
 
-        return jsonify(page)
+        return jsonify(res)
 
     def patch(self, person_id, page_id):
         """
