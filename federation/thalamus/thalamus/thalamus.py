@@ -62,35 +62,20 @@ if __name__ != '__main__':
 #Open a connection to PG Server
 conn = psycopg2.connect(app.config['POSTGRESQL_URI'])
 
-def check_person(person_id):
+def check_id(table, resid):
     """
     Checks if the Federation ID exists on the GNU Health HIS
     Returns the instance or null
     """
     cur = conn.cursor()
-    cur.execute ('SELECT id from people \
-        where id = %s limit(1)', (person_id,))
+    cur.execute ('SELECT id from %s \
+        where id = %s limit(1)', (table, resid))
     try:
-        person, = cur.fetchone()
+        res, = cur.fetchone()
     except:
-        person = None
+        res = None
 
-    return person
-
-def check_pol(page_id):
-    """
-    Checks if the Federation ID exists on the GNU Health HIS
-    Returns the instance or null
-    """
-    cur = conn.cursor()
-    cur.execute ('SELECT id from pols \
-        where id = %s limit(1)', (page_id,))
-    try:
-        pol, = cur.fetchone()
-    except:
-        pol = None
-
-    return pol
+    return res
 
 # Authentication
 
@@ -211,7 +196,7 @@ class Person(Resource):
 
         bcrypt_prefixes = ["$2b$", "$2y$"]
 
-        if check_person(person_id):
+        if check_id('people', person_id):
             abort (422, error="User already exists")
 
         if (person_id):
@@ -267,7 +252,7 @@ class Person(Resource):
             # Check if the new ID exist in the Federation, and if it
             # does not, we may be able to update it.
 
-        if check_person(person_id):
+        if check_id('people',person_id):
             jdata = json.dumps(values)
             # UPDATE the information from the person
             # associated to the federation ID
@@ -285,7 +270,7 @@ class Person(Resource):
         used in exceptional cases only, and the
         instance must be inactive.
         """
-        person = check_person(person_id)
+        person = check_id('people', person_id)
         if not person:
             abort (404, error="User does not exist")
 
@@ -383,7 +368,7 @@ class Page(Resource):
             # Avoid changing the page ID
             abort(422, error="Not allowed to change the page ID")
 
-        if check_pol(page_id):
+        if check_id('pols',page_id):
 
             jdata = json.dumps(values)
             # UPDATE the information from the page
