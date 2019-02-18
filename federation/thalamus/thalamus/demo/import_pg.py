@@ -3,8 +3,11 @@ import json
 import sys
 import psycopg2
 
+#Modify to meet your needs
+PG_URI = "postgresql://localhost/federation"
+
 try:
-    conn = psycopg2.connect("postgresql://localhost/federation")
+    conn = psycopg2.connect(PG_URI)
 except:
     print ("Unable to connect to the database")
 
@@ -15,18 +18,6 @@ pols_file = open('pols.json', 'r')
 pols_data = json.load(pols_file)
 
 cur = conn.cursor()
-
-# Create the schemas
-print ("Creating the people schema...")
-cur.execute("""CREATE TABLE IF NOT EXISTS \
-    people (ID VARCHAR PRIMARY KEY, DATA JSONB);""")
-conn.commit()
-
-print ("Creating the POLS schema...")
-cur.execute("""CREATE TABLE IF NOT EXISTS \
-    pols (id VARCHAR PRIMARY KEY, book VARCHAR not null, DATA JSONB);""")
-
-conn.commit()
 
 for person in people_data:
     id = person['id']
