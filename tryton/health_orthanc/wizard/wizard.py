@@ -18,7 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import logging
 from datetime import datetime
 from trytond.model import ModelView, fields
 from trytond.wizard import Wizard, StateTransition, StateView, Button
@@ -27,55 +26,75 @@ from trytond.pool import Pool
 from requests.auth import HTTPBasicAuth as auth
 from requests.exceptions import HTTPError, ConnectionError
 from orthanc_rest_client import Orthanc as RestClient
+import logging
 
 logger = logging.getLogger(__name__)
 
-__all__ = ['AddOrthancInit', 'FullSyncOrthanc', 'AddOrthancResult']
+__all__ = ["AddOrthancInit", "FullSyncOrthanc", "AddOrthancResult"]
+
 
 class AddOrthancInit(ModelView):
     """Init Full Orthanc Sync"""
-    __name__ = 'gnuhealth.orthanc.add.init'
 
-    label = fields.Char('Label', required=True, help="The label of the Orthanc server. Must be unique")
-    domain = fields.Char('URL', required=True, help="The full URL of the Orthanc server")
-    user = fields.Char('Username', required=True, help="Username for Orthanc REST server")
-    password = fields.Char('Password', required=True, help="Password for Orthanc REST server")
+    __name__ = "gnuhealth.orthanc.add.init"
+
+    label = fields.Char(
+        "Label", required=True, help="The label of the Orthanc server. Must be unique"
+    )
+    domain = fields.Char(
+        "URL", required=True, help="The full URL of the Orthanc server"
+    )
+    user = fields.Char(
+        "Username", required=True, help="Username for Orthanc REST server"
+    )
+    password = fields.Char(
+        "Password", required=True, help="Password for Orthanc REST server"
+    )
+
 
 class AddOrthancResult(ModelView):
     """Display Result"""
-    __name__ = 'gnuhealth.orthanc.add.result'
 
-    result = fields.Text('Result', help="Information")
+    __name__ = "gnuhealth.orthanc.add.result"
+
+    result = fields.Text("Result", help="Information")
+
 
 class FullSyncOrthanc(Wizard):
-    'Full sync new orthanc server'
-    __name__ = 'gnuhealth.orthanc.wizard.full_sync'
+    "Full sync new orthanc server"
+    __name__ = "gnuhealth.orthanc.wizard.full_sync"
 
-    start = StateView('gnuhealth.orthanc.add.init', 'health_orthanc.view_orthanc_add_init',
-            [
-                Button('Cancel', 'end', 'tryton-cancel'),
-                Button('Begin', 'first_sync', 'tryton-ok', default=True),
-            ])
+    start = StateView(
+        "gnuhealth.orthanc.add.init",
+        "health_orthanc.view_orthanc_add_init",
+        [
+            Button("Cancel", "end", "tryton-cancel"),
+            Button("Begin", "first_sync", "tryton-ok", default=True),
+        ],
+    )
 
     first_sync = StateTransition()
-    result = StateView('gnuhealth.orthanc.add.result', 'health_orthanc.view_orthanc_add_result',
-            [
-                Button('Close', 'end', 'tryton-close'),
-            ])
+    result = StateView(
+        "gnuhealth.orthanc.add.result",
+        "health_orthanc.view_orthanc_add_result",
+        [Button("Close", "end", "tryton-close")],
+    )
 
     def transition_first_sync(self):
         """Import and create all current patients and studies on remote DICOM server
         """
 
         pool = Pool()
-        Patient = pool.get('gnuhealth.orthanc.patient')
-        Study = pool.get('gnuhealth.orthanc.study')
-        Config = pool.get('gnuhealth.orthanc.config')
+        Patient = pool.get("gnuhealth.orthanc.patient")
+        Study = pool.get("gnuhealth.orthanc.study")
+        Config = pool.get("gnuhealth.orthanc.config")
 
-        orthanc = RestClient(self.start.domain, auth=auth(self.start.user, self.start.password))
+        orthanc = RestClient(
+            self.start.domain, auth=auth(self.start.user, self.start.password)
+        )
         try:
-            patients = [p for p in orthanc.get_patients(params={'expand': ''})]
-            studies = [s for s in orthanc.get_studies(params={'expand': ''})]
+            patients = [p for p in orthanc.get_patients(params={"expand": ""})]
+            studies = [s for s in orthanc.get_studies(params={"expand": ""})]
         except HTTPError as err:
             if err.response.status_code == 401:
                 self.result.result = "Invalid credentials provided"
@@ -85,24 +104,28 @@ class FullSyncOrthanc(Wizard):
             self.result.result = "Invalid domain provided"
         else:
             new_server = {
-                    'label': self.start.label,
-                    'domain': self.start.domain,
-                    'user': self.start.user,
-                    'password': self.start.password
-                    }
+                "label": self.start.label,
+                "domain": self.start.domain,
+                "user": self.start.user,
+                "password": self.start.password,
+            }
             server, = Config.create([new_server])
             Patient.create_patients(patients, server)
             Study.create_studies(studies, server)
-            server.last = orthanc.get_changes(last=True).get('Last')
+            server.last = orthanc.get_changes(last=True).get("Last")
             server.sync_time = datetime.now()
             server.validated = True
-            logger.info('<{}> sync complete: {} new patients, {} new studies'.format(server.label, len(patients), len(studies)))
+            logger.info(
+                "<{}> sync complete: {} new patients, {} new studies".format(
+                    server.label, len(patients), len(studies)
+                )
+            )
             Config.save([server])
-            self.result.result = "Successfully added and synced <{}>".format(server.label)
+            self.result.result = "Successfully added and synced <{}>".format(
+                server.label
+            )
         finally:
-            return 'result'
+            return "result"
 
     def default_result(self, fields):
-        return {
-                'result': self.result.result
-                }
+        return {"result": self.result.result}

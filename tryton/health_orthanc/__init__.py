@@ -23,6 +23,7 @@ from trytond.pool import Pool
 from .health_orthanc import *
 from .wizard import *
 
+
 def register():
     Pool.register(
         AddOrthancInit,
@@ -31,7 +32,7 @@ def register():
         OrthancStudy,
         OrthancPatient,
         Orthanc,
-        module='health_orthanc', type_='model')
-    Pool.register(
-        FullSyncOrthanc,
-        module='health_orthanc', type_='wizard')
+        module="health_orthanc",
+        type_="model",
+    )
+    Pool.register(FullSyncOrthanc, module="health_orthanc", type_="wizard")
