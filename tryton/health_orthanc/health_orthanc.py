@@ -130,14 +130,22 @@ class OrthancServerConfig(ModelSQL, ModelView):
 
             update_patients -= new_patients
             update_studies -= new_studies
-            patient.create_patients(
-                [orthanc.get_patient(p) for p in new_patients], server
-            )
-            patient.update_patients(
-                [orthanc.get_patient(p) for p in update_patients], server
-            )
-            study.create_studies([orthanc.get_study(s) for s in new_studies], server)
-            study.update_studies([orthanc.get_study(s) for s in update_studies], server)
+            if new_patients:
+                patient.create_patients(
+                    [orthanc.get_patient(p) for p in new_patients], server
+                )
+            if update_patients:
+                patient.update_patients(
+                    [orthanc.get_patient(p) for p in update_patients], server
+                )
+            if new_studies:
+                study.create_studies(
+                    [orthanc.get_study(s) for s in new_studies], server
+                )
+            if update_studies:
+                study.update_studies(
+                    [orthanc.get_study(s) for s in update_studies], server
+                )
             server.last = curr
             server.sync_time = datetime.now()
             logger.info(
@@ -221,6 +229,8 @@ class OrthancPatient(ModelSQL, ModelView):
     def update_patients(cls, patients, server):
         """Update patients"""
 
+        Patient = pool.get("gnuhealth.patient")
+
         entries = cls.get_info_from_dicom(patients)
         updates = []
         for entry in entries:
@@ -230,7 +240,15 @@ class OrthancPatient(ModelSQL, ModelView):
                 )[0]
                 patient.name = entry["name"]
                 patient.bd = entry["bd"]
-                patient.ident = entry["ident"]  # TODO Look for matching record
+                patient.ident = entry["ident"]
+                try:
+                    g_patient = Patient.search(
+                        [("puid", "=", entry["ident"])], limit=1
+                    )[0]
+                    patient.patient = g_patient
+                    logger.info("New Matching PUID found for {}".format(entry["uuid"]))
+                except:
+                    pass
                 updates.append(patient)
                 logger.info("Updating {}".format(entry["ident"]))
             except:
