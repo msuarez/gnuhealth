@@ -241,14 +241,17 @@ class OrthancPatient(ModelSQL, ModelView):
                 patient.name = entry["name"]
                 patient.bd = entry["bd"]
                 patient.ident = entry["ident"]
-                try:
-                    g_patient = Patient.search(
-                        [("puid", "=", entry["ident"])], limit=1
-                    )[0]
-                    patient.patient = g_patient
-                    logger.info("New Matching PUID found for {}".format(entry["uuid"]))
-                except:
-                    pass
+                if not patient.patient:  # don't update unless no patient attached
+                    try:
+                        g_patient = Patient.search(
+                            [("puid", "=", entry["ident"])], limit=1
+                        )[0]
+                        patient.patient = g_patient
+                        logger.info(
+                            "New Matching PUID found for {}".format(entry["uuid"])
+                        )
+                    except:
+                        pass
                 updates.append(patient)
                 logger.info("Updating {}".format(entry["ident"]))
             except:
