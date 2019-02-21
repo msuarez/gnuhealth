@@ -236,7 +236,7 @@ class OrthancPatient(ModelSQL, ModelView):
         for entry in entries:
             try:
                 patient = cls.search(
-                    [("uuid", "=", entry["ident"]), ("server", "=", server)], limit=1
+                    [("uuid", "=", entry["uuid"]), ("server", "=", server)], limit=1
                 )[0]
                 patient.name = entry["name"]
                 patient.bd = entry["bd"]
@@ -248,15 +248,15 @@ class OrthancPatient(ModelSQL, ModelView):
                         )[0]
                         patient.patient = g_patient
                         logger.info(
-                            "New Matching PUID found for {}".format(entry["uuid"])
+                            "New Matching PUID found for {}".format(entry["ident"])
                         )
                     except:
                         pass
                 updates.append(patient)
-                logger.info("Updating {}".format(entry["ident"]))
+                logger.info("Updating patient {}".format(entry["uuid"]))
             except:
                 continue
-                logger.warning("Unable to update patient {}".format(entry["ident"]))
+                logger.warning("Unable to update patient {}".format(entry["uuid"]))
         cls.save(updates)
 
     @classmethod
@@ -340,7 +340,7 @@ class OrthancStudy(ModelSQL, ModelView):
         for entry in entries:
             try:
                 study = cls.search(
-                    [("uuid", "=", entry["ident"]), ("server", "=", server)], limit=1
+                    [("uuid", "=", entry["uuid"]), ("server", "=", server)], limit=1
                 )[0]
                 study.description = entry["description"]
                 study.date = entry["date"]
@@ -349,10 +349,10 @@ class OrthancStudy(ModelSQL, ModelView):
                 study.ref_phys = entry["ref_phys"]
                 study.req_phys = entry["req_phys"]
                 updates.append(study)
-                logger.info("Updating {}".format(entry["ident"]))
+                logger.info("Updating study {}".format(entry["uuid"]))
             except:
                 continue
-                logger.warning("Unable to update study {}".format(entry["ident"]))
+                logger.warning("Unable to update study {}".format(entry["uuid"]))
         cls.save(updates)
 
     @classmethod
