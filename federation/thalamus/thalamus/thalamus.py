@@ -395,17 +395,55 @@ api.add_resource(Page, '/pols/<string:person_id>/<string:page_id>')
 # Personal Documents resource
 class PersonalDocs(Resource):
     "Documents associated to the person (scanned info, birth certs, ..)"
-    def get(self):
-        documents = list(db.personal_document.find())
+
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self, person_id):
+        """
+        Retrieves the documents of a person
+        """
+        cur = conn.cursor()
+        cur.execute ('SELECT fedacct, pol, data, document from personal_docs \
+            where fedacct = %s', (person_id,))
+        documents = cur.fetchall()
+
         return jsonify(documents)
 
-api.add_resource(PersonalDocs, '/personal-documents')
+api.add_resource(PersonalDocs, '/personal_docs/<string:person_id>')
+
+# Documents associated to a Page of Life
+class PolDocs(Resource):
+    "Documents associated to the person in the context of a Page of Life"
+
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self, person_id, pol_id):
+        """
+        Retrieves the documents of a person
+        """
+        cur = conn.cursor()
+        cur.execute ('SELECT fedacct, pol, data, document from personal_docs \
+            where fedacct = %s', (person_id,pol_id))
+        documents = cur.fetchall()
+
+        return jsonify(documents)
+
+api.add_resource(PolDocs, '/personal_docs/<string:person_id>/<string:pol_id>')
 
 # Domiciliary Units resource
 class DomiciliaryUnits(Resource):
     "Domiciliary Units"
+
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
     def get(self):
-        dus = list(db.domiciliary_unit.find())
+        """
+        Retrieves the Domiciliary Units
+        """
+        cur = conn.cursor()
+        cur.execute ('SELECT data from dus')
+        dus = cur.fetchall()
+
         return jsonify(dus)
 
 api.add_resource(DomiciliaryUnits, '/domiciliary-units')
@@ -416,9 +454,14 @@ class Institutions(Resource):
     "Health and other institutions"
 
     decorators = [auth.login_required] # Use the decorator from httpauth
-
     def get(self):
-        institutions = list(db.institution.find())
+        """
+        Retrieves the Institutions
+        """
+        cur = conn.cursor()
+        cur.execute ('SELECT data from institutions')
+        institutions = cur.fetchall()
+
         return jsonify(institutions)
 
 api.add_resource(Institutions, '/institutions')
@@ -445,7 +488,7 @@ def password(person_id):
 
             jdata = json.dumps(values)
             # UPDATE the information from the person
-            # associated to the federation ID
+            # associated to the federation ID 
             cur = conn.cursor()
             cur.execute("UPDATE PEOPLE SET data = data || %s where id = %s", \
                 (jdata,person_id))
