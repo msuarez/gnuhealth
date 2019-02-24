@@ -73,7 +73,7 @@
         <record model="ir.model.access" id="orthanc_access_config_provider">
             <field name="model" search="[('model', '=', 'gnuhealth.orthanc.config')]"/>
             <field name="group" ref="health.group_health_doctor"/>
-            <field name="perm_read" eval="True"/>
+            <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="False"/>
             <field name="perm_create" eval="False"/>
             <field name="perm_delete" eval="False"/>

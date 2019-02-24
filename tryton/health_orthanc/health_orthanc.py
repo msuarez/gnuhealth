@@ -69,7 +69,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
 
     @classmethod
     def __setup__(cls):
-        super(OrthancServerConfig, cls).__setup__()
+        super().__setup__()
         t = cls.__table__()
         cls._sql_constraints = [
             ("label_unique", Unique(t, t.label), "The label must be unique.")
@@ -203,6 +203,14 @@ class OrthancPatient(ModelSQL, ModelView):
     )
     server = fields.Many2One("gnuhealth.orthanc.config", "Server", readonly=True)
 
+    @classmethod
+    def __setup__(cls):
+        super().__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ("uuid_unique", Unique(t, t.server, t.uuid), "UUID must be unique for a given server")
+        ]
+
     @staticmethod
     def get_info_from_dicom(patients):
         """Extract information for writing to database"""
@@ -294,6 +302,14 @@ class OrthancStudy(ModelSQL, ModelView):
     ref_phys = fields.Char("Referring Physician", readonly=True)
     req_phys = fields.Char("Requesting Physician", readonly=True)
     server = fields.Many2One("gnuhealth.orthanc.config", "Server", readonly=True)
+
+    @classmethod
+    def __setup__(cls):
+        super().__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ("uuid_unique", Unique(t, t.server, t.uuid), "UUID must be unique for a given server")
+        ]
 
     def get_rec_name(self, name):
         return ": ".join((self.ident or self.uuid, self.description or ""))

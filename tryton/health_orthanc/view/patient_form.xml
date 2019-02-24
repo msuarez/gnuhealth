@@ -12,6 +12,8 @@
             <field name="ident"/>
             <label name="uuid"/>
             <field name="uuid"/>
+            <label name="server"/>
+            <field name="server"/>
         </page>
         <page string="Studies">
             <field name="studies" mode="tree,form"/>
