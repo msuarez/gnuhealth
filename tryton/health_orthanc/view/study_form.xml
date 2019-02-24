@@ -14,6 +14,8 @@
     <field name="ident"/>
     <label name="uuid"/>
     <field name="uuid"/>
+    <label name="link"/>
+    <field name="link" widget="url"/>
     <label name="server"/>
     <field name="server"/>
 </form>

@@ -25,6 +25,7 @@ from orthanc_rest_client import Orthanc as RestClient
 from requests.auth import HTTPBasicAuth as auth
 from requests.exceptions import HTTPError, ConnectionError
 from datetime import datetime
+from urllib.parse import urljoin
 import logging
 import pendulum
 
@@ -66,6 +67,14 @@ class OrthancServerConfig(ModelSQL, ModelView):
     )
     patients = fields.One2Many("gnuhealth.orthanc.patient", "server", "Patients")
     studies = fields.One2Many("gnuhealth.orthanc.study", "server", "Studies")
+    link = fields.Function(
+        fields.Char("URL", help="Link to server in Orthanc Explorer"), "get_link"
+    )
+
+    def get_link(self, name):
+        pre = "".join([self.domain.rstrip("/"), "/"])
+        add = "app/explorer.html"
+        return urljoin(pre, add)
 
     @classmethod
     def __setup__(cls):
@@ -202,13 +211,25 @@ class OrthancPatient(ModelSQL, ModelView):
         "gnuhealth.orthanc.study", "patient", "Studies", readonly=True
     )
     server = fields.Many2One("gnuhealth.orthanc.config", "Server", readonly=True)
+    link = fields.Function(
+        fields.Char("URL", help="Link to patient in Orthanc Explorer"), "get_link"
+    )
+
+    def get_link(self, name):
+        pre = "".join([self.server.domain.rstrip("/"), "/"])
+        add = "app/explorer.html#patient?uuid={}".format(self.uuid)
+        return urljoin(pre, add)
 
     @classmethod
     def __setup__(cls):
         super().__setup__()
         t = cls.__table__()
         cls._sql_constraints = [
-            ("uuid_unique", Unique(t, t.server, t.uuid), "UUID must be unique for a given server")
+            (
+                "uuid_unique",
+                Unique(t, t.server, t.uuid),
+                "UUID must be unique for a given server",
+            )
         ]
 
     @staticmethod
@@ -302,13 +323,25 @@ class OrthancStudy(ModelSQL, ModelView):
     ref_phys = fields.Char("Referring Physician", readonly=True)
     req_phys = fields.Char("Requesting Physician", readonly=True)
     server = fields.Many2One("gnuhealth.orthanc.config", "Server", readonly=True)
+    link = fields.Function(
+        fields.Char("URL", help="Link to study in Orthanc Explorer"), "get_link"
+    )
+
+    def get_link(self, name):
+        pre = "".join([self.server.domain.rstrip("/"), "/"])
+        add = "app/explorer.html#study?uuid={}".format(self.uuid)
+        return urljoin(pre, add)
 
     @classmethod
     def __setup__(cls):
         super().__setup__()
         t = cls.__table__()
         cls._sql_constraints = [
-            ("uuid_unique", Unique(t, t.server, t.uuid), "UUID must be unique for a given server")
+            (
+                "uuid_unique",
+                Unique(t, t.server, t.uuid),
+                "UUID must be unique for a given server",
+            )
         ]
 
     def get_rec_name(self, name):

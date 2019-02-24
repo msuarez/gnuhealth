@@ -14,6 +14,8 @@
             <field name="last"/>
             <label name="validated"/>
             <field name="validated" readonly="1"/>
+            <label name="link"/>
+            <field name="link" widget="url"/>
         </group>
         <group string="User" yfill="1">
             <label name="user"/>
