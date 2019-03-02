@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-VERSION="3.4.0"
+VERSION="3.4.1"
 
 TRYTON_URL="http://downloads.tryton.org"
 GNUHEALTH_URL="https://ftp.gnu.org/gnu/health"
@@ -38,6 +38,8 @@ UPDATE_DOWNLOAD_DIR="/tmp/gnuhealth_update"
 PATCH_TRYTON=1
 
 TRYTON_PATCHES="get_login_trytond-46.patch.asc"
+
+BSDTAR="bsdtar"
 
 usage()
 {
@@ -526,7 +528,7 @@ getlang() {
     wget ${TRANSLATE_URL}/export/?path=/${lang_to_install}/GNUHEALTH/ -O /tmp/${lang_file} || bailout
     message "INFO" "Installing / Updating language files for ${lang_to_install} ..."
 
-    tar --strip-components 3 -xzf /tmp/${lang_file} || bailout
+    ${BSDTAR} --strip-components 3 -xzf /tmp/${lang_file} || bailout
     message "INFO" "Language pack ${lang_to_install} sucessfully installed / updated"
     message "INFO" "You now need to update the database modules"
     cd
