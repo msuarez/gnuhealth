@@ -4,9 +4,9 @@ global-include *.rst
 global-include *.html
 global-include *.css
 
-include demo/*.json
-include demo/populate.sh
-inclue doc/*.rst
+include thalamus/demo/*.json
+include thalamus/demo/populate.sh
+include thalamus/doc/*.rst
 
 include MANIFEST.in
 include LICENSE
