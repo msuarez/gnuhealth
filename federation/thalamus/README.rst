@@ -6,7 +6,7 @@ Federation nodes. The main functions are:
 
 #. **Message server**: A concentrator and message relay from and to  
    the participating nodes in the GNU Health Federation and the GNU Health
-   Information System (MongoDB). Some of the participating nodes include 
+   Information System (PgSQL). Some of the participating nodes include 
    the GNU Health HMIS, MyGNUHealth mobile PHR application,
    laboratories, research institutions and civil offices.
 
@@ -55,6 +55,8 @@ Some resources and end-points are:
 * Pages of Life (/pols)
 
 * DomiciliaryUnits (/domiciliary-units)
+
+* PersonalDocs (/personal_docs)
 
 Running Thalamus from a WSGI Container
 --------------------------------------
