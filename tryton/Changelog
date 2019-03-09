@@ -1,3 +1,36 @@
+changeset:   3259:e856b91b8528
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 02 19:02:10 2019 +0000
+summary:     Update gnuhealth-control header
+
+changeset:   3258:06ce4c633e79
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 28 19:36:38 2019 +0000
+summary:     Fix bug #55595: Remove unimplemented functionality fields from Federation Country
+
+changeset:   3257:7d8fb4d80ba6
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Mon Jan 28 19:13:25 2019 +0000
+summary:     Fix bug #55594: Traceback when creating a person without a system institution
+
+changeset:   3256:8fc8554b4538
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Sat Mar 02 18:47:09 2019 +0000
+summary:     Fix bug #55813: Latest Pootle version not compatible with GNU Health control
+
+
+changeset:   3100:5063e49b09bb
+branch:      stable
+parent:      3097:321d577c1e50
+user:        Luis Falcon <falcon@gnu.org>
+date:        Wed Nov 28 13:04:17 2018 +0000
+summary:     health_federation: remove unused pymongo library
+
 changeset:   3044:fe4e3d2fd527
 user:        Luis Falcon <falcon@gnu.org>
 date:        Wed Nov 07 12:48:09 2018 +0000
