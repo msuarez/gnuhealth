@@ -7,8 +7,8 @@
 #
 #    GNU Health Installer
 #
-#    Copyright (C) 2008-2018  Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2008-2018  GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2019  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2019  GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2014 Bruno M. Villasanti <bvillasanti@thymbra.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 #-----------------------------------------------------------------------------
 
 #GNU Health installer version
-VERSION="3.4.0"
+VERSION="3.4.1"
 
 # Colors constants
 NONE="$(tput sgr0)"
@@ -247,7 +247,7 @@ install_python_dependencies() {
     local PIP_LDAP="python-ldap"
     local PIP_VOBJECT="vobject"
     local PIP_QRCODE="qrcode"
-    local PIP_PYBARCODE="pybarcode"
+    local PIP_PYBARCODE="python-barcode"
     local PIP_SIX="six"
     local PIP_PILLOW="Pillow"
     local PIP_CALDAV="caldav"
