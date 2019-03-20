@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2008-2018 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011 Cédric Krier
 
 #    This program is free software: you can redistribute it and/or modify

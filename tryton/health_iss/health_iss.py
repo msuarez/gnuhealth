@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2018 Luis Falcon <falcon@gnu.org>
-#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #
 #    MODULE : INJURY SURVEILLANCE SYSTEM
 # 
