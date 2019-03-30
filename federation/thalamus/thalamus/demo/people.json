@@ -26,5 +26,19 @@
 "password": "$2b$12$cjrKVGYEKUwCmVDCtEnwcegcrmECTmeBz526AAD/ZqMGPWFpHJ4FW",
 "roles":["end_user"],
 "active": true
+},
+{
+"id": "ARGBUE111FAV",
+"lastname": "Root",
+"name": "Admin",
+"gender": "f",
+"dob": "2008-10-12",
+"marital_status":"married",
+"ethnicity":"latino",
+"education":"tertiary",
+"profession":"System Administrator",
+"password": "$2b$12$McKDNgArdHKbUssD1fj64ecpdbJGMIt29ns7DGvqzqIT26W0dtJzi",
+"roles":["root"],
+"active": true
 }
 ]
