@@ -31,7 +31,8 @@ def register():
         OrthancServerConfig,
         OrthancStudy,
         OrthancPatient,
-        Orthanc,
+        TestResult,
+        Patient,
         module="health_orthanc",
         type_="model",
     )

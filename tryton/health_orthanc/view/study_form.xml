@@ -18,4 +18,6 @@
     <field name="link" widget="url"/>
     <label name="server"/>
     <field name="server"/>
+    <label name="imaging_test"/>
+    <field name="imaging_test"/>
 </form>

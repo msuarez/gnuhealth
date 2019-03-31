@@ -20,6 +20,13 @@
             <field name="name">study_form</field>
         </record>
 
+        <!-- Add Studies to Imaging Result Form -->
+        <record model="ir.ui.view" id="imaging_study_view_orthanc">
+            <field name="model">gnuhealth.imaging.test.result</field>
+            <field name="inherit" ref="health_imaging.view_imaging_test_result_form"/>
+            <field name="name">imaging_form</field>
+        </record>
+
         <!-- Orthanc Patient -->
         <record model="ir.ui.view" id="orthanc_view_patient_tree">
             <field name="model">gnuhealth.orthanc.patient</field>

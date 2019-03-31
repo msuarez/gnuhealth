@@ -29,7 +29,13 @@ from urllib.parse import urljoin
 import logging
 import pendulum
 
-__all__ = ["OrthancServerConfig", "OrthancPatient", "OrthancStudy", "Orthanc"]
+__all__ = [
+    "OrthancServerConfig",
+    "OrthancPatient",
+    "OrthancStudy",
+    "Patient",
+    "TestResult",
+]
 
 logger = logging.getLogger(__name__)
 
@@ -326,6 +332,7 @@ class OrthancStudy(ModelSQL, ModelView):
     link = fields.Function(
         fields.Char("URL", help="Link to study in Orthanc Explorer"), "get_link"
     )
+    imaging_test = fields.Many2One("gnuhealth.imaging.test.result", "Test")
 
     def get_link(self, name):
         pre = "".join([self.server.domain.rstrip("/"), "/"])
@@ -429,7 +436,17 @@ class OrthancStudy(ModelSQL, ModelView):
         cls.create(entries)
 
 
-class Orthanc(ModelSQL, ModelView):
+class TestResult(ModelSQL, ModelView):
+    """Add Orthanc imaging studies to imaging test result"""
+
+    __name__ = "gnuhealth.imaging.test.result"
+
+    studies = fields.One2Many(
+        "gnuhealth.orthanc.study", "imaging_test", "Studies", readonly=True
+    )
+
+
+class Patient(ModelSQL, ModelView):
     """Add Orthanc patient(s) to the main patient data"""
 
     __name__ = "gnuhealth.patient"
