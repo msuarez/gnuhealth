@@ -1470,7 +1470,7 @@ class Main(object):
 
         #CLI colors
         self.cli.modify_base(gtk.STATE_NORMAL, gtk.gdk.color_parse("#03656B"))
-        self.cli.modify_text(gtk.STATE_NORMAL, gtk.gdk.color_parse("#FFFFFF"))
+        self.cli.modify_text(gtk.STATE_NORMAL, gtk.gdk.color_parse("#000000"))
 
         # Init the GNU Health Status Bar
         self.statusbar = None
