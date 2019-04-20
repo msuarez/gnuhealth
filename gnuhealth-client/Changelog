@@ -1,3 +1,58 @@
+changeset:   3308:1d22c3ad3303
+branch:      stable
+tag:         tip
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 14:52:33 2019 +0100
+summary:     gnuhealth client : use black as the text color in the GNU Health command line
+
+changeset:   3307:ff8521d939f1
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:10:48 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4516: Do not override exception variable in 'except as'
+
+changeset:   3306:15d4997faa4f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:06:56 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4514: Allow to click button on readonly record in tree view
+
+changeset:   3305:a4ccfe557104
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:05:59 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4510: Use string from node attribute
+
+changeset:   3304:d6b6ae8ebb80
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:04:49 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4509: Use idle_add to set active on combobox from match selected of dropdown
+
+changeset:   3303:6c5836c9cf2f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:03:33 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4508: Do not use set_text of Many2One and Reference when setting only string
+
+changeset:   3302:fc69cc78f43f
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:02:11 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4507: Clean active_* keys from context when executing an action
+
+changeset:   3301:d3c1b46768ca
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 13:01:07 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4506: Delay execution of CellRendererBinary callbacks
+
+changeset:   3300:a70ccc5f6bdd
+branch:      stable
+user:        Luis Falcon <falcon@gnu.org>
+date:        Fri Apr 19 12:59:58 2019 +0100
+summary:     gnuhealth client: Apply Tryton changeset 4502: Ensure sort key always return an integer
+
 changeset:   3179:c30614e0d942
 branch:      stable
 user:        Luis Falcon <falcon@gnu.org>
