@@ -476,7 +476,6 @@ class Login(Resource):
     decorators = [auth.login_required] # Use the decorator from httpauth
 
     def get(self):
-        print ("Got here")
         return True 
 
 api.add_resource(Login, '/login')
