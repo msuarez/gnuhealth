@@ -39,7 +39,7 @@ import json
 import bcrypt
 import logging
 
-__all__ = ["People","Person","Book","Page", "PasswordForm","Password"]
+__all__ = ["People","Person","Book","Page", "Login", "PasswordForm","Password"]
 
 app = Flask(__name__)
 app.config.from_pyfile('etc/thalamus.cfg')
@@ -466,6 +466,23 @@ class Institutions(Resource):
 
 api.add_resource(Institutions, '/institutions')
 
+# Login 
+class Login(Resource):
+    """"
+    Main class for loggin in from another resources, such the GH Federation Portal
+    At this point, with the decorator auth.login_required is enough
+    """
+    
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self):
+        print ("Got here")
+        return True 
+
+api.add_resource(Login, '/login')
+
+
+
 class PasswordForm(FlaskForm):
     password = PasswordField('Password',
         validators=[validators.DataRequired(),
@@ -473,7 +490,6 @@ class PasswordForm(FlaskForm):
         validators.EqualTo('pconfirm', message='Password mistmatch')])
     pconfirm = PasswordField('Confirm Password')
     update = SubmitField('Update')
-
 
 # Update the password of the user with a form
 @app.route('/password/<person_id>', methods=('GET', 'POST'))
