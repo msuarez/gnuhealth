@@ -29,6 +29,7 @@ from flask import Flask, redirect, request, jsonify, render_template, url_for
 from flask_restful import Resource, Api, abort
 
 import psycopg2
+from psycopg2 import sql
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField, PasswordField, SubmitField, \
@@ -68,8 +69,9 @@ def check_id(table, resid):
     Returns the instance or null
     """
     cur = conn.cursor()
-    cur.execute ('SELECT id from %s \
-        where id = %s limit(1)', (table, resid))
+    cur.execute (
+        sql.SQL("SELECT id from {} where id = %s limit(1)").format(sql.Identifier(table)), \
+            (resid,))
     try:
         res, = cur.fetchone()
     except:
