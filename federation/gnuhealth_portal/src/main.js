@@ -6,7 +6,7 @@ import store from './store'
 Vue.config.productionTip = false
 
 // Add global objects
-Vue.prototype.$thalamus_server = 'http://localhost:5000'
+Vue.prototype.$thalamus_server = 'https://localhost:8443'
 
 new Vue({
   router,
