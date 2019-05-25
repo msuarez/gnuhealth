@@ -38,7 +38,6 @@ import axios from 'axios';
                     // call the vuex mutation function to store the user credentials
                     this.$store.commit('set_credentials', this.authinfo);
                     // Set authenticated state & credentials
-                    // this.$emit("authenticated", true);
                     this.$router.replace({ name: "workplace" });
                     
                 },
