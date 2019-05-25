@@ -1,11 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link v-if=this.$store.state.authenticated to="/" 
-        v-on:click.native="logout()" replace>Logout </router-link>
-    <router-link v-else to="/login">Login </router-link> |
-    <router-link to="/about">About</router-link>
+    <span v-if=this.$store.state.authenticated>
+        <router-link to="/" v-on:click.native="logout()" 
+            replace>Logout </router-link>
+    </span>
+    <span v-else>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/login">Login </router-link> |
+        <router-link to="/about">About</router-link>
+    </span>
     <!-- Show the entry page ("Home") -->
     <router-view/>
     <br/>
@@ -22,15 +26,9 @@
             }
         },
         methods: {
-            /*
-            setAuthenticated(status) {
-                this.authenticated = status;
-            },
-            */
             logout() {
                 // call the vuex mutation function to reset user credentials
                 this.$store.commit('reset_credentials');
-
             }
         }
     }
