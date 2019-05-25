@@ -2,8 +2,8 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2018 Luis Falcon <lfalcon@gnusolidario.org>
-#    Copyright (C) 2011-2018 GNU Solidario <health@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -96,7 +96,7 @@ class FederationResourceLocator():
                 else:
                     #Populate and pack the result
                     r = []
-                    fields = ['_id','name', 'lastname', 'gender',
+                    fields = ['id','name', 'lastname', 'gender',
                         'dob', 'phone', 'address']
 
                     record = self.federation_data.json()
@@ -169,7 +169,7 @@ class FederationResourceLocator():
         #Initialize dictionary values for model-specific fields
         #needed locally only.
         if local_model == 'party.party':
-            local_vals = {'federation_account':fed_data['_id'], 'is_person':True}
+            local_vals = {'federation_account':fed_data['id'], 'is_person':True}
 
         local_vals['fsync'] = False
         field_mapping = model_fields.split(',')
