@@ -37,15 +37,13 @@ import axios from 'axios';
             set_authenticated () {
                     // call the vuex mutation function to store the user credentials
                     this.$store.commit('set_credentials', this.authinfo);
-                    // Set authenticated state & credentials
+                    // redirect to the "Workplace" component
                     this.$router.replace({ name: "workplace" });
                     
                 },
             
             /* Connects to the Thalamus server */
             thalamus_login () {
-                // Debugging info
-
                 axios({
                     headers: {
                         'Content-Type': 'application/json',

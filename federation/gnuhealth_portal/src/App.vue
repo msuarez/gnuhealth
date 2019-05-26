@@ -35,23 +35,23 @@
 </script>
 
 <style>
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #51717e;
-}
-#nav {
-  padding: 30px;
-}
+    #app {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #51717e;
+    }
+    #nav {
+    padding: 30px;
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #51717e;
-}
+    #nav a {
+    font-weight: bold;
+    color: #51717e;
+    }
 
-#nav a.router-link-exact-active {
-  color: #08a8b3;
-}
+    #nav a.router-link-exact-active {
+    color: #08a8b3;
+    }
 </style>
