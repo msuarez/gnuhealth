@@ -1,5 +1,6 @@
 <template>
     <div id="login">
+        <input type="text" name="thalamus_servera" v-model="authinfo.thalamus_server" />
         <input type="text" name="federation_acct" v-model="authinfo.federation_acct" placeholder="Federation ID" />
         <input type="password" name="password" v-model="authinfo.password" placeholder="Password" />
         <button type="button" v-on:click="login()">Login</button>
@@ -15,10 +16,10 @@ import axios from 'axios';
         data() {
             return {
                 authinfo: {
+                    thalamus_server: this.$default_thalamus_server,
                     federation_acct: "",
                     password: ""
                 },
-                login_url: this.$thalamus_server + "/login",
                 errors: []
             }
         },
@@ -49,7 +50,8 @@ import axios from 'axios';
                         'Content-Type': 'application/json',
                     },
                     method: 'get',
-                    url: this.login_url,
+                    url: this.authinfo.thalamus_server + "/login",
+
                     auth: {
                         username: this.authinfo.federation_acct,
                         password: this.authinfo.password
