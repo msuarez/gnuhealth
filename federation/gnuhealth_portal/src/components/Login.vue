@@ -1,6 +1,6 @@
 <template>
     <div id="login">
-        <input type="text" name="thalamus_servera" v-model="authinfo.thalamus_server" />
+        <input type="text" name="thalamus_server" v-model="authinfo.thalamus_server" />
         <input type="text" name="federation_acct" v-model="authinfo.federation_acct" placeholder="Federation ID" />
         <input type="password" name="password" v-model="authinfo.password" placeholder="Password" />
         <button type="button" v-on:click="login()">Login</button>
