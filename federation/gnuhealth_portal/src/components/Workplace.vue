@@ -1,7 +1,8 @@
 <template>
 <div id="workplace">
 
-    <demographics></demographics>
+    <demographics/>
+    <accounts/>
     
     <div id="stderror">
         <ul>
@@ -17,11 +18,13 @@
 <script>
 
 import Demographics from '@/components/Demographics.vue'
+import Accounts from '@/components/Accounts.vue'
 
 export default {
     name: "Workplace",
     components: {
-        Demographics
+        Demographics,
+        Accounts
     }
 
 }
