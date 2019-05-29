@@ -1,10 +1,19 @@
 <template>
-    <div id="login">
-        <input type="text" name="thalamus_server" v-model="authinfo.thalamus_server" />
-        <input type="text" name="federation_acct" v-model="authinfo.federation_acct" placeholder="Federation ID" />
-        <input type="password" name="password" v-model="authinfo.password" placeholder="Password" />
-        <button type="button" v-on:click="login()">Login</button>
-    </div>
+    <form @submit.prevent="validateLoginForm">
+
+        <div id="login">
+            <input type="text" name="thalamus_server"
+                v-model="authinfo.thalamus_server"
+                v-validate="'required'" 
+                :class = '{required: IsEmpty}' />
+            <input type="text" name="federation_acct" v-model="authinfo.federation_acct" placeholder="Federation ID"
+            v-validate="'required|min:9|max:16'" />
+            <span>{{ errors.first('fedacct') }}</span>
+            <input type="password" name="password" v-model="authinfo.password" placeholder="Password"
+            v-validate="'required|min:6|max:16'" />
+            <button type="button" v-on:click="validateLoginForm()">Login</button>
+        </div>
+    </form>
 </template>
 
 
@@ -20,21 +29,18 @@ import axios from 'axios';
                     federation_acct: "",
                     password: ""
                 },
-                errors: []
+                stderr: []
             }
         },
+        computed: {
+            IsEmpty () {
+            const empty = this.authinfo.thalamus_server.length == 0
+            return empty ? true : false
+            }
+        },
+        
         methods: {
-            login() {
-                // Check that both user and password fields are not empy
-                if(this.authinfo.federation_acct != "" && this.authinfo.password != "") {
-                    // Login to Thalamus
-                    this.thalamus_login ();
-                    } 
-                    else {
-                        alert("Enter Federation ID and password");
-                    }
-                },
-                
+            
             set_authenticated () {
                     // call the vuex mutation function to store the user credentials
                     this.$store.commit('set_credentials', this.authinfo);
@@ -70,7 +76,20 @@ import axios from 'axios';
                     alert("Access denied");
                 }
                 )
+            },
+
+            validateLoginForm() {
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        this.thalamus_login ();
+                    }
+                    else {
+                        alert('Please check the errors in the form');
+                    }
+                });
             }
+
+
         }
     }
     
