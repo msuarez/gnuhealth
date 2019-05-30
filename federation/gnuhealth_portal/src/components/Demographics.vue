@@ -1,12 +1,11 @@
 <template>
 <div>
     <div class="leftmenu">
-        <button v-on:click='demographics'>
-            Demographics
-        </button>
+        <tr><td>
+            <a href='#' v-on:click="toggle_form">Demographics </a>
+        </td></tr>
     </div>
     <div class="mainarea">
-          
     <div v-if="render_form">
         <table class="restable">
             <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
@@ -46,7 +45,6 @@ export default {
     // Using Axios 
     methods: {
         demographics () {
-            this.render_form = true,
             axios({
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,6 +59,13 @@ export default {
             .then(response => {this.people = response.data})
             .catch(e => { this.errors.push(e)} );
         },
+        toggle_form () {
+            this.render_form = !this.render_form;
+            if (this.render_form == true) {
+                this.demographics();
+            }
+        }
+
     },
 }
 </script>

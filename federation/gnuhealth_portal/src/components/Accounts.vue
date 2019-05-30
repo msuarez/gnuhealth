@@ -1,12 +1,13 @@
 <template>
 <div>
     <div class="leftmenu">
-        <button v-on:click='render_form=true'>
-            Accounts
-        </button>
+        <tr><td>
+            <a href='#' v-on:click='toggle_form()'>Accounts</a>
+        </td></tr>
     </div>
     <div v-if="render_form" class="mainarea">
         <div id="new_account">
+            <form id="new_fed_account">
             <label>Federation Account</label>
             <input type="text" name="account_id" v-model="account_id" />
             <br/>
@@ -16,6 +17,7 @@
             <input type="password" name="password" v-model="account_info.password" />
             <input type="text" name="roles" v-model="account_info.roles" />           
             <button type="button" v-on:click="create_federation_account()">New account</button>
+            </form>
         </div>
     </div>
 </div>
@@ -49,7 +51,7 @@ export default {
                     'Content-Type': 'application/json',
                 },
                 method: 'post',
-                url: this.$store.state.credentials.thalamus_server + "/person/ITAFOO555FAA" + this.account_id,
+                url: this.$store.state.credentials.thalamus_server + "/people/" + this.account_id,
                 auth: {
                     username: this.$store.state.credentials.fedacct,
                     password: this.$store.state.credentials.password
@@ -60,8 +62,12 @@ export default {
                     },
             })
             .then(response => {this.people = response.data})
-            .catch(e => { this.errors.push(e)} );
+            .catch(e => { console.log(e)} );
         },
+        toggle_form () {
+            this.render_form = !this.render_form;
+        }
+ 
     },
 }
 </script>
