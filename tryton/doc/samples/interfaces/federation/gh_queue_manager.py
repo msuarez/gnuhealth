@@ -34,17 +34,39 @@ port = '8000'
 health_server = \
     'http://'+user+':'+password+'@'+hostname+':'+port+'/'+dbname+'/'
 
-def check_federation_queue():
+
+usage = """
+   Usage : gh_queue_manager <action> [args]
+    Actions:
+        * check: View messages in queue
+        * push: Send messages to the federation
+    """
+def federation_queue(action):
     Queue = Model.get('gnuhealth.federation.queue')
 
     mqueued = Queue.find ([('state', '=', 'queued')])
     queued_messages = len(mqueued)
     
     print ("Number of messages in the queue", queued_messages)
+    if (action == "check"):
+        exit (0)
 
-            
+    if (action == "push"):
+        print ("Sending messages with status Queued...")
+        for msg in mqueued:
+            print (msg.msgid, msg.federation_locator, msg.time_stamp, msg.model, msg.node)
+            try:
+                msg.click('send')
+            except:
+                print ("Failed to send message ", msg.msgid)
+
+
+
+if (len(sys.argv) < 2):
+    exit (usage)
     
 print ("Connecting to GNU Health Server ...")
 conf = config.set_xmlrpc(health_server)
 print ("Connected !")
-check_federation_queue()
+
+federation_queue(action=sys.argv[1])
