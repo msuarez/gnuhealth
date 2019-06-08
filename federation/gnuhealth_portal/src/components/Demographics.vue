@@ -1,29 +1,27 @@
 <template>
 <div>
     <div class="leftmenu">
-        <tr><td>
-            <a href='#' v-on:click="toggle_form">Demographics </a>
-        </td></tr>
+        <a href='#demographics' v-on:click="toggle_form">Demographics</a>
     </div>
     <div class="mainarea">
-    <div v-if="render_form">
-        <table class="restable">
-            <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
-            <th>Marital Status</th><th>Profession</th><th>Active</th>
-            <tr v-for="person in people" v-bind:key="person.id">
-                <td > {{ person[0].id }} </td>
-                <td > {{ person[0].name }} </td>
-                <td > {{ person[0].lastname }} </td>
-                <td > {{ person[0].gender }} </td>
-                <td > {{ person[0].dob }} </td>
-                <td > {{ person[0].marital_status }} </td>
-                <td > {{ person[0].profession }} </td>
-                <td > {{ person[0].active }} </td>
-            </tr>
-        </table>
+        <div v-if="render_form">
+            <table class="restable">
+                <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
+                <th>Marital Status</th><th>Profession</th><th>Active</th>
+                <tr v-for="person in people" v-bind:key="person.id">
+                    <td > {{ person[0].id }} </td>
+                    <td > {{ person[0].name }} </td>
+                    <td > {{ person[0].lastname }} </td>
+                    <td > {{ person[0].gender }} </td>
+                    <td > {{ person[0].dob }} </td>
+                    <td > {{ person[0].marital_status }} </td>
+                    <td > {{ person[0].profession }} </td>
+                    <td > {{ person[0].active }} </td>
+                </tr>
+            </table>
+        </div>
     </div>
-    </div>
-    
+
 </div>
 </template>
 
@@ -39,7 +37,7 @@ export default {
             render_form:false,
             people: [],
             pfields: [],
-            errors: [],
+            axios_errors: [],
         }
     },
     // Using Axios 
@@ -55,9 +53,9 @@ export default {
                     username: this.$store.state.credentials.fedacct,
                     password: this.$store.state.credentials.password
                 },
-            })                        
+            })
             .then(response => {this.people = response.data})
-            .catch(e => { this.errors.push(e)} );
+            .catch(e => { this.axios_errors.push(e)} );
         },
         toggle_form () {
             this.render_form = !this.render_form;
@@ -69,12 +67,3 @@ export default {
     },
 }
 </script>
-
-<style>
-    .restable {
-        table, td, tr, th {
-            border: 1px solid black;
-            padding: 15px;
-        }
-    }
-</style>

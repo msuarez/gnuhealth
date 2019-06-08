@@ -1,10 +1,9 @@
 <template>
 <div>
     <div class="leftmenu">
-        <tr><td>
-            <a href='#' v-on:click='toggle_form()'>Accounts</a>
-        </td></tr>
+        <a href='#accounts' v-on:click='toggle_form()'>Accounts</a>
     </div>
+
     <div v-if="render_form" class="mainarea">
         <div id="new_account">
             <form id="new_fed_account">
@@ -15,7 +14,7 @@
             <input type="text" name="lastname" v-model="account_info.lastname" />
             <br/>
             <input type="password" name="password" v-model="account_info.password" />
-            <input type="text" name="roles" v-model="account_info.roles" />           
+            <input type="text" name="roles" v-model="account_info.roles" />
             <button type="button" v-on:click="create_federation_account()">New account</button>
             </form>
         </div>
@@ -25,7 +24,6 @@
 
 <script>
 import axios from 'axios';
-
 
 export default {
     name: "Accounts",

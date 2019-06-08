@@ -1,17 +1,7 @@
 <template>
 <div id="workplace">
-
     <demographics/>
     <accounts/>
-    
-    <div id="stderror">
-        <ul>
-            <li v-for="error of errors" v-bind:key="error.id">
-            {{error.message}}
-            </li>
-        </ul>
-    </div>
-
 </div>
 </template>
 
@@ -26,28 +16,40 @@ export default {
         Demographics,
         Accounts
     }
-
 }
 </script>
 
 <style>
     #workplace {
         text-align: left;
+        background-color: white;
     }
-    
+
     .leftmenu {
-    font-weight: bold;
-    width: 150px;
-    float: left;
+        float: left;
+        border: 1px;
+        font-size: 12px;
+        width: 200px;
     }
-    
+
+    .leftmenu a {
+        background-color: #eee;
+        display: block;
+        color: black;
+        padding: 12px;
+        text-decoration: none;
+    }
+    .leftmenu a:hover { background-color: #ccc; }
+
+    .leftmenu a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
     .mainarea {
-        border: 1px solid #CCCCCC;
-        padding: 20px;
-        margin-top: 10px;
+        margin-top: 50px;
         background-color: white;
         width: 75%;
         float: right;
     }
-
 </style>
