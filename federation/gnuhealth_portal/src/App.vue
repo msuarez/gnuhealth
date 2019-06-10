@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <div id="nav">
-    <span v-if=this.$store.state.authenticated>
-        <router-link to="/" v-on:click.native="logout()" 
-            replace>Logout </router-link>
-    </span>
-    <span v-else>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/login">Login </router-link> |
-        <router-link to="/about">About</router-link>
-    </span>
-    <!-- Show the entry page ("Home") -->
-    <router-view/>
-    <br/>
+        <span v-if=this.$store.state.authenticated>
+            <router-link to="/" v-on:click.native="logout()"
+                replace>Logout </router-link>
+        </span>
+        <span v-else>
+            <router-link to="/">Home</router-link> |
+            <router-link to="/login">Login </router-link> |
+            <router-link to="/about">About</router-link>
+        </span>
+        <!-- Show the entry page ("Home") -->
+        <router-view/>
+        <br/>
     </div>
   </div>
 </template>
@@ -57,4 +57,13 @@
     .required {
         background: #51717e;
     }
+
+.ghbutton {
+    border: none;
+    background: #00bec6;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 20px;
+    margin-right: 10px;
+}
 </style>

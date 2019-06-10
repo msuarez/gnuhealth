@@ -1,9 +1,13 @@
 <template>
 <div>
-    <div class="leftmenu">
-        <a href='#demographics' v-on:click="toggle_form">Demographics</a>
+    <div>
+        <leftmenu/>
     </div>
+
+
     <div class="mainarea">
+        <button class='ghbutton'
+            v-on:click="toggle_form()">Show users</button>
         <div v-if="render_form">
             <table class="restable">
                 <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
@@ -21,13 +25,12 @@
             </table>
         </div>
     </div>
-
 </div>
 </template>
 
 <script>
 import axios from 'axios';
-
+import Leftmenu from '@/components/Leftmenu.vue'
 
 export default {
     name: "Demographics",
@@ -40,6 +43,11 @@ export default {
             axios_errors: [],
         }
     },
+
+    components: {
+      Leftmenu
+    },
+
     // Using Axios 
     methods: {
         demographics () {

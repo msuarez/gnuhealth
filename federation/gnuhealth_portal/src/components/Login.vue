@@ -3,15 +3,20 @@
         <div id="login">
             <input type="text" name="thalamus_server"
                 v-model="authinfo.thalamus_server"
-                v-validate="'required'"
                 :class = '{required: IsEmpty}' />
-            <input type="text" name="federation_acct" v-model="authinfo.federation_acct"
-                placeholder="Federation ID" v-validate="'required|min:9|max:16'" />
+
+            <input type="text" name="federation_acct"
+                v-model="authinfo.federation_acct"
+                placeholder="Federation ID"
+                v-validate="'required|min:9|max:16'" />
+
             <input type="password" name="password" v-model="authinfo.password"
                 placeholder="Password" v-on:keyup.enter="validateLoginForm()"
                 v-validate="'required|min:6|max:16'" />
 
-            <button type="button" v-on:click="validateLoginForm()">Login</button>
+            <button class='ghbutton'
+                v-on:click="validateLoginForm()">Login</button>
+
         </div>
     </form>
 </template>
@@ -41,9 +46,9 @@ import axios from 'axios';
         },
 
         methods: {
-
             set_authenticated () {
-                    // call the vuex mutation function to store the user credentials
+                    // call the vuex mutation function
+                    //    to store the user credentials
                     this.$store.commit('set_credentials', this.authinfo);
                     // redirect to the "Workplace" component
                     this.$router.replace({ name: "workplace" });
@@ -65,13 +70,15 @@ import axios from 'axios';
                 })
                 // Use arrow functions within the .then block
                 .then((response) => {
-                    console.log ("User Autenthicated:", this.authinfo.federation_acct,
+                    console.log ("User Autenthicated:",
+                                 this.authinfo.federation_acct,
                                  response.data);
                     this.set_authenticated ();
                     }
                 )
                 .catch((response) => {
-                    console.log ("Wrong credentials from:", this.authinfo.federation_acct,
+                    console.log ("Wrong credentials from:",
+                                 this.authinfo.federation_acct,
                                  response.data);
                     alert("Access denied");
                 }
@@ -91,5 +98,4 @@ import axios from 'axios';
 
         }
     }
-
 </script>

@@ -1,10 +1,10 @@
 <template>
 <div>
-    <div class="leftmenu">
-        <a href='#accounts' v-on:click='toggle_form()'>Accounts</a>
+    <div>
+        <leftmenu/>
     </div>
 
-    <div v-if="render_form" class="mainarea">
+    <div class="mainarea">
         <div id="new_account">
             <form id="new_fed_account">
             <label>Federation Account</label>
@@ -15,7 +15,7 @@
             <br/>
             <input type="password" name="password" v-model="account_info.password" />
             <input type="text" name="roles" v-model="account_info.roles" />
-            <button type="button" v-on:click="create_federation_account()">New account</button>
+            <button class="ghbutton" v-on:click="create_federation_account()">New account</button>
             </form>
         </div>
     </div>
@@ -24,6 +24,7 @@
 
 <script>
 import axios from 'axios';
+import Leftmenu from '@/components/Leftmenu.vue'
 
 export default {
     name: "Accounts",
@@ -41,6 +42,11 @@ export default {
             }
         }
     },
+
+    components: {
+      Leftmenu
+    },
+
     // Using Axios 
     methods: {
         create_federation_account () {
@@ -49,7 +55,8 @@ export default {
                     'Content-Type': 'application/json',
                 },
                 method: 'post',
-                url: this.$store.state.credentials.thalamus_server + "/people/" + this.account_id,
+                url: this.$store.state.credentials.thalamus_server +
+                    "/people/" + this.account_id,
                 auth: {
                     username: this.$store.state.credentials.fedacct,
                     password: this.$store.state.credentials.password
