@@ -66,7 +66,7 @@ export default {
       Leftmenu
     },
 
-    // Using Axios 
+    // Using Axios
     methods: {
         create_federation_account () {
             axios({

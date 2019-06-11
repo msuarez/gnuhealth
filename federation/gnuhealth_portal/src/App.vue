@@ -65,6 +65,9 @@
         background: #51717e;
     }
 
+/* Buttons */
+
+
 .ghbutton {
     border: none;
     background: #00bec6;
@@ -73,8 +76,6 @@
     border-radius: 20px;
     margin-right: 10px;
 }
-
-// Buttons
 
 .ghbuttondark {
     border: none;
@@ -89,7 +90,7 @@
     float: right;
 }
 
-// Forms
+/* Forms */
 
 .gh-form {
     margin:10px auto;
@@ -114,6 +115,7 @@
 .gh-form input[type=date],
 .gh-form input[type=datetime],
 .gh-form input[type=number],
+.gh-form input[type=password],
 .gh-form input[type=search],
 .gh-form input[type=time],
 .gh-form input[type=url],
@@ -136,6 +138,7 @@ select{
 .gh-form input[type=date]:focus,
 .gh-form input[type=datetime]:focus,
 .gh-form input[type=number]:focus,
+.gh-form input[type=password]:focus,
 .gh-form input[type=search]:focus,
 .gh-form input[type=time]:focus,
 .gh-form input[type=url]:focus,
