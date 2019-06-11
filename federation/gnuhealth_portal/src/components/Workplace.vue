@@ -23,12 +23,12 @@ export default {
         background-color: white;
     }
 
-
     .mainarea {
         margin-top: 50px;
         background-color: white;
         width: 75%;
         display: inline-block;
+        text-align: left;
         float: right;
     }
 </style>

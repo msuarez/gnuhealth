@@ -7,15 +7,34 @@
     <div class="mainarea">
         <div id="new_account">
             <form id="new_fed_account">
-            <label>Federation Account</label>
-            <input type="text" name="account_id" v-model="account_id" />
-            <br/>
-            <input type="text" name="name" v-model="account_info.name" />
-            <input type="text" name="lastname" v-model="account_info.lastname" />
-            <br/>
-            <input type="password" name="password" v-model="account_info.password" />
-            <input type="text" name="roles" v-model="account_info.roles" />
-            <button class="ghbutton" v-on:click="create_federation_account()">New account</button>
+            <ul class="gh-form">
+                <li>
+                <label>Account<span class="red">*</span></label>
+                <input type="text" name="account_id" v-model="account_id"
+                    placeholder="Federation Account" required />
+                </li>
+                <li>
+                <label>Name</label>
+                <input type="text" name="name" v-model="account_info.name"
+                    placeholder="First"/>
+                <input type="text" name="lastname" v-model="account_info.lastname"
+                    placeholder="Last"/>
+                </li>
+                <li>
+                <label>Password<span class="red">*</span></label>
+                <input type="password" name="password"
+                    v-model="account_info.password" />
+                </li>
+                <li>
+                <label>Roles<span class="red">*</span></label>
+                <input type="text" name="roles" v-model="account_info.roles"
+                    required />
+                <li/>
+                <li>
+                <button class="ghbutton"
+                    v-on:click="create_federation_account()">Create</button>
+                </li>
+                </ul>
             </form>
         </div>
     </div>
@@ -72,16 +91,6 @@ export default {
         toggle_form () {
             this.render_form = !this.render_form;
         }
- 
     },
 }
 </script>
-
-<style>
-    .restable {
-        table, td, tr, th {
-            border: 1px solid black;
-            padding: 15px;
-        }
-    }
-</style>
