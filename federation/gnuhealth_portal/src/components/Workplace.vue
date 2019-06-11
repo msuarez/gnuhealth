@@ -30,5 +30,7 @@ export default {
         display: inline-block;
         text-align: left;
         float: right;
+        border: 1px solid #276777;
+
     }
 </style>

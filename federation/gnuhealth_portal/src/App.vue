@@ -94,7 +94,6 @@
 
 .gh-form {
     margin:10px auto;
-    max-width: 400px;
     padding: 20px 12px 10px 20px;
     font: 13px;
     text-align: left;
@@ -143,7 +142,7 @@ select{
 .gh-form input[type=time]:focus,
 .gh-form input[type=url]:focus,
 .gh-form input[type=email]:focus,
-.gh-form textarea:focus, 
+.gh-form textarea:focus,
 .gh-form select:focus{
     -moz-box-shadow: 0 0 8px #00bec6;
     -webkit-box-shadow: 0 0 8px #00bec6;

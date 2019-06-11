@@ -1,10 +1,14 @@
 <template>
-    <form @submit.prevent="validateLoginForm">
-        <div id="login">
+    <div id="login">
+        <br/>
+        <form @submit.prevent="validateLoginForm" class="gh-login-box">
+        <ul class="gh-form">
+            <li>
             <input type="text" name="thalamus_server"
                 v-model="authinfo.thalamus_server"
                 :class = '{required: IsEmpty}' />
-
+            </li>
+            <li>
             <input type="text" name="federation_acct"
                 v-model="authinfo.federation_acct"
                 placeholder="Federation ID"
@@ -13,12 +17,14 @@
             <input type="password" name="password" v-model="authinfo.password"
                 placeholder="Password" v-on:keyup.enter="validateLoginForm()"
                 v-validate="'required|min:6|max:16'" />
-
+            </li>
+            <li>
             <button class='ghbutton'
                 v-on:click="validateLoginForm()">Login</button>
-
-        </div>
-    </form>
+            </li>
+        </ul>
+        </form>
+    </div>
 </template>
 
 
@@ -99,3 +105,12 @@ import axios from 'axios';
         }
     }
 </script>
+
+<style>
+.gh-login-box {
+    margin-top: 50px;
+    margin: auto;
+    max-width: 250px;
+    border: 1px solid #276777;
+}
+</style>

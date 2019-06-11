@@ -15,6 +15,7 @@ export default {
 
 <style>
     .leftmenu {
+        margin-top: 50px;
         float: left;
         border: 1px;
         font-size: 12px;
@@ -27,6 +28,7 @@ export default {
         color: black;
         padding: 12px;
         text-decoration: none;
+        text-align: left;
     }
     .leftmenu a:hover { background-color: #ccc; }
 
