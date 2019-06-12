@@ -10,9 +10,17 @@
             <ul class="gh-form">
                 <li>
                     <label>Account<span class="red">*</span></label>
-                    <input type="text" name="account_id" v-model="account_id"
-                        placeholder="Federation Account"
-                        v-validate="'required'"/>
+                    <!-- ************* NOTE *************
+                        This applies only to the account field, where we
+                        need to force uppercase always.
+
+                        We can not use v-model or CSS on input field
+                        so, we use toUpperCase method directly
+                    -->
+                    <input type="text" :value="account_id.toUpperCase()"
+                        placeholder="Federation Account" name="account_id"
+                        v-validate="'required'"
+                        @input="account_id = $event.target.value.toUpperCase()"/>
                 </li>
                 <li>
                     <label>Name</label>
