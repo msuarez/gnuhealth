@@ -204,7 +204,8 @@ class Person(Resource):
         if (person_id):
             if (type(person_id) is str):
                 #Use upper case on the person federation account
-                values['id'] = person_id.upper()
+                person_id = person_id.upper()
+                values['id'] = person_id
         else:
             abort (422, error="wrong format on person ID")
 
