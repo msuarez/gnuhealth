@@ -21,6 +21,9 @@
                         placeholder="Federation Account" name="account_id"
                         v-validate="'required'"
                         @input="account_id = $event.target.value.toUpperCase()"/>
+                    <button class="ghbutton"
+                        v-on:click="generate_fedid()">Generate</button>
+
                 </li>
                 <li>
                     <label>Name</label>
@@ -79,7 +82,7 @@ export default {
         return {
             account_id: "",
             account_info: {
-                gender:'Gender',
+                gender:'',
                 name: "",
                 lastname: "",
                 password: "" ,
@@ -132,6 +135,30 @@ export default {
                 alert("User creation failed !");
             }
             )
+        },
+
+        /**
+            # Add a default random string in the ref field.
+            # The STRSIZE constant provides the length of the PUID
+            # The format of the PUID is XXXNNNXXX
+        */
+        generate_fedid() {
+            const STRSIZE = 9;
+            var letter;
+            const alphabet = "ABCDEFGHIJKLMNPQRSTUVWXYZ";
+            var x;
+            var puid = this.$store.state.country_code ;
+
+            for (x = 0; x < STRSIZE; x++){
+                if ( x < 3 || x > 5 ) {
+                    letter = Math.floor(Math.random() * alphabet.length)
+                    puid += alphabet.charAt(letter)
+                }
+                else {
+                    puid += Math.floor(Math.random()*10)
+                }
+            }
+            this.account_id = puid;
         },
 
         validateForm() {
