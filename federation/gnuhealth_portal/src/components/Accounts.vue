@@ -61,10 +61,9 @@
                 <li/>
                 <li>
                 <button class="ghbutton"
-                    v-on:click="create_federation_account()">Create</button>
+                    v-on:click.prevent="create_federation_account">Create</button>
                 </li>
                 </ul>
-                {{ account_info }}
             </form>
         </div>
     </div>

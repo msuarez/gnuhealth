@@ -15,12 +15,12 @@
                 v-validate="'required|min:9|max:16'" />
 
             <input type="password" name="password" v-model="authinfo.password"
-                placeholder="Password" v-on:keyup.enter="validateLoginForm()"
+                placeholder="Password" v-on:keyup.enter="validateLoginForm"
                 v-validate="'required|min:6|max:16'" />
             </li>
             <li>
             <button class='ghbutton'
-                v-on:click="validateLoginForm()">Login</button>
+                v-on:click.prevent="validateLoginForm">Login</button>
             </li>
         </ul>
         </form>
@@ -63,9 +63,6 @@ import axios from 'axios';
             /* Connects to the Thalamus server */
             thalamus_login () {
                 axios({
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
                     method: 'get',
                     url: this.authinfo.thalamus_server + "/login",
 
@@ -101,7 +98,6 @@ import axios from 'axios';
                     }
                 });
             }
-
         }
     }
 </script>
