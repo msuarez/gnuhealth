@@ -27,6 +27,7 @@
 ##############################################################################
 from flask import Flask, redirect, request, jsonify, render_template, url_for
 from flask_restful import Resource, Api, abort
+from flask_cors import CORS
 
 import psycopg2
 from psycopg2 import sql
@@ -43,6 +44,10 @@ import logging
 __all__ = ["People","Person","Book","Page", "Login", "PasswordForm","Password"]
 
 app = Flask(__name__)
+
+# Allow CORS requests from JS frontends, such as the GH Federation Portal
+CORS(app)
+
 app.config.from_pyfile('etc/thalamus.cfg')
 
 api = Api(app)
@@ -523,16 +528,6 @@ def password(person_id):
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
-# Allow CORS requests from JS frontends, such as the GH Federation Portal
-@app.after_request
-def after_request(response):
-  response.headers.add('Access-Control-Allow-Origin', '*')
-  response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,PATCH,POST,DELETE,OPTIONS')
-  return response
-
 
 if __name__ == '__main__':
     app.logger.warning("Running Thalamus without gunicorn ...")
