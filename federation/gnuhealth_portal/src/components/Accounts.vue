@@ -45,14 +45,14 @@
                         placeholder="Date of Birth" />
 
                 <li>
-                    <label>Password<span class="red">*</span></label>
-                    <input type="password" name="password"
-                        v-model="account_info.password"
+                    <input type="password" name="password" placeholder="Password"
+                        v-model="account_info.password" ref="password"
                         v-validate="'required'"/>
 
                     <input type="password" name="pass_confirm"
-                        placeholder="confirm password"
-                        v-model="pass_confirm" v-validate="'required'"/>
+                        placeholder="Confirm password"
+                        v-model="pass_confirm" data-vv-as="password"
+                        v-validate="'required|confirmed:password'"/>
                 </li>
                 <li>
                     <label>Roles<span class="red">*</span></label>
@@ -61,7 +61,7 @@
                 <li/>
                 <li>
                 <button class="ghbutton"
-                    v-on:click.prevent="create_federation_account">Create</button>
+                    v-on:click.prevent="validateForm">Create</button>
                 </li>
                 </ul>
             </form>
