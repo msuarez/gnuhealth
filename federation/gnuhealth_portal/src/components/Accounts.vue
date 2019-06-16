@@ -22,7 +22,7 @@
                         v-validate="'required'"
                         @input="account_id = $event.target.value.toUpperCase()"/>
                     <button class="ghbutton"
-                        v-on:click="generate_fedid()">Generate</button>
+                        v-on:click.prevent="generate_fedid">Generate</button>
 
                 </li>
                 <li>
