@@ -9,7 +9,7 @@
             <form id="new_fed_account" @submit.prevent="validateForm">
             <ul class="gh-form">
                 <li>
-                    <label>Account<span class="red">*</span></label>
+                    <label>Account<span class="red">*</span></label><br/>
                     <!-- ************* NOTE *************
                         This applies only to the account field, where we
                         need to force uppercase always.
@@ -26,14 +26,14 @@
 
                 </li>
                 <li>
-                    <label>Name</label>
+                    <label>Name</label><br/>
                     <input type="text" name="name" v-model="account_info.name"
                         placeholder="First"/>
                     <input type="text" name="lastname" v-model="account_info.lastname"
                         placeholder="Last"/>
                 </li>
                 <li>
-                    <label>Gender</label>
+                    <label>Gender & DoB</label><br/>
                     <select name="gender" v-model="account_info.gender"
                         v-validate="'required'">
                         <option v-for="option in goptions"
@@ -58,6 +58,12 @@
                     <label>Roles<span class="red">*</span></label>
                     <input type="text" name="roles" v-model="account_info.roles"
                         v-validate="'required'"/>
+                    <label>Active</label>
+                    <input type="checkbox" name="active"
+                        v-model="account_info.active"/>
+                    <label>Deceased</label>
+                    <input type="checkbox" name="deceased"
+                        v-model="account_info.deceased"/>
                 <li/>
                 <li>
                 <button class="ghbutton"

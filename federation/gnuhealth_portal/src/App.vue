@@ -100,7 +100,6 @@
 }
 .gh-form li {
     padding: 0;
-    display: block;
     list-style: none;
     margin: 10px 0 0 0;
 }
@@ -108,8 +107,9 @@
 .gh-form label{
     margin:0 0 3px 0;
     padding:0px;
-    display:block;
+    display:inline-block;
 }
+
 .gh-form input[type=text],
 .gh-form input[type=date],
 .gh-form input[type=datetime],
@@ -126,7 +126,7 @@ select{
     -moz-box-sizing: border-box;
     border:1px solid #BEBEBE;
     padding: 7px;
-    margin:0px;
+    margin:2px;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
