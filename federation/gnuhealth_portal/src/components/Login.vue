@@ -15,7 +15,7 @@
                 v-validate="'required|min:9|max:16'" />
 
             <input type="password" name="password" v-model="authinfo.password"
-                placeholder="Password" v-on:keyup.enter="validateLoginForm"
+                placeholder="Password" v-on:keydown.enter.prevent="validateLoginForm"
                 v-validate="'required|min:6|max:16'" />
             </li>
             <li>
