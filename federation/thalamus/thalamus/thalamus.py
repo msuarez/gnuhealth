@@ -198,7 +198,7 @@ class Person(Resource):
         values = json.loads(request.data)
 
         # Initialize to inactive the newly created person
-        values['active'] = False
+        #values['active'] = False
         pw = None
 
         bcrypt_prefixes = ["$2b$", "$2y$"]
