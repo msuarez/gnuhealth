@@ -1,23 +1,43 @@
 <template>
   <div class="about">
     <h1>About GNU Health</h1>
-<h3> GNU Health: (C) GNU Solidario 2011-2019 GPL v3+ </h3>
-  <pre>
-<p align="left">
-GNU HEALTH is a Free / Libre, Health and Hospital Information System
-that provides the following functionality:
-
-    * Hospital Management Information System (HMIS)
-    * Electronic Medical Record (EMR)
-    * Health Information System (HIS)
-    * Laboratory Information System (LIS)
-
-GNU Health combines the daily medical practice with state-of-the-art 
+<p>
+<strong>GNU HEALTH is a Free / Libre, Health and Hospital Information System</strong>
+that provides the following functionality:</p>
+<div class="functionality">
+    • Hospital Management Information System <strong>(HMIS)</strong><br/>
+    • Electronic Medical Record <strong>(EMR)</strong><br/>
+    • Health Information System <strong>(HIS)</strong><br/>
+    • Laboratory Information System <strong>(LIS)</strong><br/>
+</div>
+<p>GNU Health combines the daily medical practice with state-of-the-art 
 technology in bioinformatics and genetics. It provides a holistic approach 
 to the  person, from the biological and molecular basis of disease to 
 the social and environmental determinants of health.
 </p>
-</pre>
+
 </div>
 
 </template>
+<style>
+h1 {
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: -1px;
+    color:#00acc6;
+    margin-bottom: 0px;
+}
+div.functionality {
+    color:#ffffff;
+    background-color:#00acc6;
+    padding-top: 25px;
+    padding-bottom:25px;
+    margin-top:40px;
+    margin-bottom:40px;
+    line-height: 1.5;
+}
+
+div.about p:last-child {
+    margin-bottom: 60px;
+}
+</style>
