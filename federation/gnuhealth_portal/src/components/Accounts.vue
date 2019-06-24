@@ -21,7 +21,7 @@
                         placeholder="Federation Account" name="account_id"
                         v-validate="'required'"
                         @input="account_id = $event.target.value.toUpperCase()"/>
-                    <button class="ghbutton"
+                    <button class="ghbutton greybutton"
                         v-on:click.prevent="generate_fedid">Generate</button>
 
                 </li>
@@ -55,7 +55,7 @@
                         v-validate="'required|confirmed:password'"/>
                 </li>
                 <li>
-                    <label>Roles<span class="red">*</span></label>
+                    <label>Roles<span class="red">*</span></label><br/>
                     <input type="text" name="roles" v-model="account_info.roles"
                         v-validate="'required'"/>
                     <label>Active</label>
