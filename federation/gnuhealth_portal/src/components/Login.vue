@@ -104,9 +104,12 @@ import axios from 'axios';
 
 <style>
 .gh-login-box {
-    margin-top: 50px;
     margin: auto;
+    margin-top: 30px;
+    margin-bottom: 50px;
     max-width: 250px;
-    border: 1px solid #276777;
+    border: 1px solid #bedfe4;
+    padding: 15px;
+    border-radius: 6px;
 }
 </style>

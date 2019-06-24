@@ -15,25 +15,59 @@ export default {
 
 <style>
     .leftmenu {
-        margin-top: 50px;
+        margin-top: 40px;
+        margin-bottom: 50px;
         float: left;
         border: 1px;
-        font-size: 12px;
+        font-size: 16px;
         width: 200px;
+        padding: 15px;
+        background-color: #cfdee0;
+        border-radius: 4px;
     }
 
     .leftmenu a {
-        background-color: #eee;
+        background-color: #cfdee0;
         display: block;
-        color: black;
+        color: inherit;
         padding: 12px;
         text-decoration: none;
         text-align: left;
+        font-weight: bold;
+        margin-bottom: 4px;
     }
-    .leftmenu a:hover { background-color: #ccc; }
+     
+    .leftmenu a::before {
+        border-style: solid;
+        border-width: 0.13em 0.13em 0 0;
+        content: '';
+        display: inline-block;
+        height: 0.35em;
+        position: relative;
+        top: 0.30em;
+        vertical-align: top;
+        width: 0.35em;
+        left: 0;
+        transform: rotate(45deg);
+        margin-right:5px;
+    }
 
-    .leftmenu a.active {
-        background-color: #4CAF50;
-        color: white;
+
+    .leftmenu a:hover { 
+        background-color: #00acc6; 
+        border-radius: 4px;
+        color: #ffffff;
     }
+
+    div.leftmenu a:hover {
+    
+        color: #ffffff;
+    }
+
+    div.leftmenu a.router-link-exact-active {
+        color: #ffffff;
+        background-color: #00acc6;
+        border-radius: 4px;
+    }
+
 </style>

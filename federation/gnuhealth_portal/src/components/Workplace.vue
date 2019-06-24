@@ -24,13 +24,17 @@ export default {
     }
 
     .mainarea {
-        margin-top: 50px;
+        margin-top: 40px;
+        margin-bottom:50px;
         background-color: white;
         width: 75%;
         display: inline-block;
         text-align: left;
         float: right;
-        border: 1px solid #276777;
+        border-left: 1px solid #bedfe4;
+        padding-left: 35px;
+
+
 
     }
 </style>
