@@ -3,7 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VeeValidate from 'vee-validate'
-
+// Add CSS grid responsive
+import './assets/css/normalize.css'
+import './assets/css/skeleton.css'
 // Form validation support
 Vue.use(VeeValidate)
 

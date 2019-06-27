@@ -1,15 +1,18 @@
 <template>
-<div>
+<div class="container">
+<div class="row">
+
+<div class="three columns">
     <div>
         <leftmenu/>
     </div>
-
-
-    <div class="mainarea">
+</div>
+<div class="nine columns">
+    <div class="mainarea mt-4">
         <button class='ghbutton'
             v-on:click="toggle_form()">Show users</button>
         <div v-if="render_form">
-            <table class="restable">
+            <table class="u-full-width">
                 <th>ID</th><th>Name</th><th>Lastname</th><th>Gender</th><th>DoB</th>
                 <th>Marital Status</th><th>Profession</th><th>Active</th>
                 <tr v-for="person in people" v-bind:key="person.id">
@@ -25,6 +28,9 @@
             </table>
         </div>
     </div>
+</div>
+
+</div>
 </div>
 </template>
 

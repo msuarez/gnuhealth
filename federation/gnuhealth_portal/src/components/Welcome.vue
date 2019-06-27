@@ -1,21 +1,24 @@
 <template>
   <div class="home">
+  
   <div class="banner-home">
+  <div class="container text-center">
     <h1>{{ msg }}</h1>
-    <img alt="GNU Health Federation" src="../assets/banner-home.png">
+    <img alt="GNU Health Federation" src="../assets/banner-home.png" class="u-max-full-width">
+    </div>
   </div>
-
+<div class="container text-center">
   <div class="row">
-  <div class="col-sm-6">
+  <div class="six columns">
     <p><strong>GNU Health Documentation:</strong><br/>
     <a href="https://en.wikibooks.org/wiki/GNU_Health" target="_blank" rel="noopener"> Check out the GNU Health documentation project</a></p>
   </div>	
-  <div class="col-sm-6">
+  <div class="six columns">
   <p><strong>Community Resources:</strong><br/>
   <a href="http://www.gnuhealth.org" target="_blank" rel="noopener">GNU Health</a> | <a href="https://twitter.com/gnuhealth" target="_blank" rel="noopener">Follow us on Twitter</a></p>
   </div>
   </div>
-
+</div>
   </div>
 </template>
 
@@ -31,17 +34,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 a {
   color: #42b983;
 }
@@ -50,23 +43,12 @@ a {
     background-color: #00acc6;
     padding-top: 25px;
     padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 div.banner-home h1 {
     color:#ffffff;
-    font-size: 40px;
-    font-weight: normal;
-    margin-top:0px;
-    letter-spacing: -1px;
 }
-.col-sm-6 {
-    width: 50%;
-    float:left;
- }
-.row {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    overflow:auto;
-}
+
 
 div.home a {
     color: #007191;

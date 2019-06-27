@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="leftmenu">
+        <div class="leftmenu u-full-width">
             <router-link to="/demographics">Demographics</router-link>
             <router-link to="/accounts">Accounts</router-link>
         </div>
@@ -15,12 +15,11 @@ export default {
 
 <style>
     .leftmenu {
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 50px;
         float: left;
         border: 1px;
         font-size: 16px;
-        width: 200px;
         padding: 15px;
         background-color: #cfdee0;
         border-radius: 4px;
@@ -44,7 +43,7 @@ export default {
         display: inline-block;
         height: 0.35em;
         position: relative;
-        top: 0.30em;
+        top: 0.55em;
         vertical-align: top;
         width: 0.35em;
         left: 0;

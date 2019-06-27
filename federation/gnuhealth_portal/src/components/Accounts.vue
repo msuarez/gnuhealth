@@ -1,40 +1,51 @@
 <template>
-<div>
+<div class="container">
+<div class="row">
+<div class="three columns">
     <div>
         <leftmenu/>
     </div>
-
-    <div class="mainarea">
+</div>
+<div class="nine columns">
+    <div class="mainarea mt-4">
         <div id="new_account">
             <form id="new_fed_account" @submit.prevent="validateForm">
-            <ul class="gh-form">
-                <li>
-                    <label>Account<span class="red">*</span></label><br/>
+            <div class="row">
+                    <div class="six columns">
+                    <label>Account<span class="red">*</span></label>
                     <!-- ************* NOTE *************
                         This applies only to the account field, where we
                         need to force uppercase always.
-
                         We can not use v-model or CSS on input field
                         so, we use toUpperCase method directly
                     -->
-                    <input type="text" :value="account_id.toUpperCase()"
+                    <input class="u-full-width" type="text" :value="account_id.toUpperCase()"
                         placeholder="Federation Account" name="account_id"
                         v-validate="'required'"
                         @input="account_id = $event.target.value.toUpperCase()"/>
+                    </div>
+                    <div class="six columns">
+                    <label class="hide-sm">&nbsp;</label>
                     <button class="ghbutton greybutton"
                         v-on:click.prevent="generate_fedid">Generate</button>
-
-                </li>
-                <li>
-                    <label>Name</label><br/>
-                    <input type="text" name="name" v-model="account_info.name"
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="six columns">
+                    <label>Name</label>
+                    <input class="u-full-width" type="text" name="name" v-model="account_info.name"
                         placeholder="First"/>
-                    <input type="text" name="lastname" v-model="account_info.lastname"
+                    </div>
+                    <div class="six columns">
+                    <label class="hide-sm">&nbsp;</label>
+                    <input class="u-full-width" type="text" name="lastname" v-model="account_info.lastname"
                         placeholder="Last"/>
-                </li>
-                <li>
-                    <label>Gender & DoB</label><br/>
-                    <select name="gender" v-model="account_info.gender"
+                    </div>
+                    </div>
+                     <div class="row">
+                    <div class="six columns">
+                    <label>Gender & DoB</label>
+                    <select class="mr-4" name="gender" v-model="account_info.gender"
                         v-validate="'required'">
                         <option v-for="option in goptions"
                             v-bind:key="option.value">
@@ -43,36 +54,48 @@
                     </select>
                     <input type="date" name="dob" v-model="account_info.dob"
                         placeholder="Date of Birth" />
-
-                <li>
-                    <input type="password" name="password" placeholder="Password"
+                      </div>
+                      </div>
+                    <div class="row">
+                    <div class="six columns">
+                    <label>Password</label>
+                    <input class="u-full-width" type="password" name="password" placeholder="Password"
                         v-model="account_info.password" ref="password"
                         v-validate="'required'"/>
-
-                    <input type="password" name="pass_confirm"
+                        </div>
+                    <div class="six columns">
+                    <label class="hide-sm">&nbsp;</label>
+                    <input class="u-full-width" type="password" name="pass_confirm"
                         placeholder="Confirm password"
                         v-model="pass_confirm" data-vv-as="password"
                         v-validate="'required|confirmed:password'"/>
-                </li>
-                <li>
-                    <label>Roles<span class="red">*</span></label><br/>
-                    <input type="text" name="roles" v-model="account_info.roles"
+                        </div>
+                        </div>
+                    <div class="row">
+                    <div class="six columns">
+                    <label>Roles<span class="red">*</span></label>
+                    <input class="u-full-width" type="text" name="roles" v-model="account_info.roles"
                         v-validate="'required'"/>
-                    <label>Active</label>
-                    <input type="checkbox" name="active"
-                        v-model="account_info.active"/>
-                    <label>Deceased</label>
-                    <input type="checkbox" name="deceased"
-                        v-model="account_info.deceased"/>
-                <li/>
-                <li>
+                    </div>
+                    <div class="six columns">
+                    <label class="hide-sm">&nbsp;</label>
+                    <label class="u-pull-left mr-4">
+                    <input type="checkbox" name="active" v-model="account_info.active"/>
+                    <span class="label-body">Active</span>	
+                    </label>
+                    <label>
+                    <input type="checkbox" name="deceased" v-model="account_info.deceased"/>
+                    <span class="label-body">Deceased</span>
+                    </label>
+                    </div>
+                    </div>
                 <button class="ghbutton"
                     v-on:click.prevent="validateForm">Create</button>
-                </li>
-                </ul>
             </form>
         </div>
     </div>
+    </div>
+</div>	
 </div>
 </template>
 

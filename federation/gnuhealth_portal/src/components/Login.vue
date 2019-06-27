@@ -1,32 +1,34 @@
 <template>
     <div id="login">
         <br/>
+        <div class="container">
         <form @submit.prevent="validateLoginForm" class="gh-login-box">
-        <ul class="gh-form">
-            <li>
-            <input type="text" name="thalamus_server"
+         <div class="row">
+        <div class="offset-by-four four columns">
+            <input class="u-full-width" type="text" name="thalamus_server"
                 v-model="authinfo.thalamus_server"
                 :class = '{required: IsEmpty}' />
-            </li>
-            <li>
-            <input type="text" name="federation_acct"
+         </div>
+         <div class="offset-by-four four columns">
+            <input class="u-full-width" type="text" name="federation_acct"
                 v-model="authinfo.federation_acct"
                 placeholder="Federation ID"
                 v-validate="'required|min:9|max:16'" />
-
-            <input type="password" name="password" v-model="authinfo.password"
+             </div>
+             <div class="offset-by-four four columns">
+            <input class="u-full-width" type="password" name="password" v-model="authinfo.password"
                 placeholder="Password" v-on:keydown.enter.prevent="validateLoginForm"
                 v-validate="'required|min:6|max:16'" />
-            </li>
-            <li>
+                </div>
+             <div class="offset-by-four four columns">
             <button class='ghbutton'
                 v-on:click.prevent="validateLoginForm">Login</button>
-            </li>
-        </ul>
+           </div>
+           </div>
         </form>
+        </div>
     </div>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -101,15 +103,3 @@ import axios from 'axios';
         }
     }
 </script>
-
-<style>
-.gh-login-box {
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    max-width: 250px;
-    border: 1px solid #bedfe4;
-    padding: 15px;
-    border-radius: 6px;
-}
-</style>
