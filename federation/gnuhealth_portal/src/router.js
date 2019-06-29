@@ -34,12 +34,11 @@ export default new Router({
       component: Demographics
     },
 
-        {
+    {
       path: '/accounts',
       name: 'accounts',
       component: Accounts
     },
-
 
     {
       path: '/about',

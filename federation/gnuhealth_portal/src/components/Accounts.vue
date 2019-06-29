@@ -8,8 +8,14 @@
 </div>
 <div class="nine columns">
     <div class="mainarea mt-4">
-        <div id="new_account">
-            <form id="new_fed_account" @submit.prevent="validateForm">
+        <button class="ghbutton"
+            v-on:click.prevent="set_active_form(new_acct=true,edit_acct=false)">New</button>
+
+        <button class="ghbutton"
+            v-on:click.prevent="set_active_form(new_acct=false,edit_acct=true)">Edit</button>
+
+        <div v-if="render_new_acct" id="new_account">
+            <form id="new_fed_account" @submit.prevent="validateCreateForm">
             <div class="row">
                     <div class="six columns">
                     <label>Account<span class="red">*</span></label>
@@ -19,33 +25,37 @@
                         We can not use v-model or CSS on input field
                         so, we use toUpperCase method directly
                     -->
-                    <input class="u-full-width" type="text" :value="account_id.toUpperCase()"
+                    <input class="u-full-width" type="text" 
+                        :value="account_id.toUpperCase()"
                         placeholder="Federation Account" name="account_id"
                         v-validate="'required'"
                         @input="account_id = $event.target.value.toUpperCase()"/>
                     </div>
                     <div class="six columns">
-                    <label class="hide-sm">&nbsp;</label>
-                    <button class="ghbutton greybutton"
-                        v-on:click.prevent="generate_fedid">Generate</button>
+                        <label class="hide-sm">&nbsp;</label>
+                        <button class="ghbutton greybutton"
+                            v-on:click.prevent="generate_fedid">Generate</button>
                     </div>
                     </div>
                     <div class="row">
                     <div class="six columns">
-                    <label>Name</label>
-                    <input class="u-full-width" type="text" name="name" v-model="account_info.name"
-                        placeholder="First"/>
+                        <label>Name</label>
+                        <input class="u-full-width" type="text" name="name"
+                            v-model="account_info.name"
+                            placeholder="First"/>
                     </div>
                     <div class="six columns">
                     <label class="hide-sm">&nbsp;</label>
-                    <input class="u-full-width" type="text" name="lastname" v-model="account_info.lastname"
+                    <input class="u-full-width" type="text" name="lastname"
+                        v-model="account_info.lastname"
                         placeholder="Last"/>
                     </div>
                     </div>
                      <div class="row">
                     <div class="six columns">
                     <label>Gender & DoB</label>
-                    <select class="mr-4" name="gender" v-model="account_info.gender"
+                    <select class="mr-4" name="gender"
+                        v-model="account_info.gender"
                         v-validate="'required'">
                         <option v-for="option in goptions"
                             v-bind:key="option.value">
@@ -57,42 +67,64 @@
                       </div>
                       </div>
                     <div class="row">
-                    <div class="six columns">
-                    <label>Password</label>
-                    <input class="u-full-width" type="password" name="password" placeholder="Password"
-                        v-model="account_info.password" ref="password"
-                        v-validate="'required'"/>
+                        <div class="six columns">
+                            <label>Password</label>
+                            <input class="u-full-width" type="password"
+                                name="password" placeholder="Password"
+                                v-model="account_info.password" ref="password"
+                                v-validate="'required'"/>
                         </div>
-                    <div class="six columns">
-                    <label class="hide-sm">&nbsp;</label>
-                    <input class="u-full-width" type="password" name="pass_confirm"
-                        placeholder="Confirm password"
-                        v-model="pass_confirm" data-vv-as="password"
-                        v-validate="'required|confirmed:password'"/>
+                        <div class="six columns">
+                            <label class="hide-sm">&nbsp;</label>
+                            <input class="u-full-width" type="password"
+                                name="pass_confirm"
+                                placeholder="Confirm password"
+                                v-model="pass_confirm" data-vv-as="password"
+                                v-validate="'required|confirmed:password'"/>
                         </div>
-                        </div>
+                    </div>
                     <div class="row">
-                    <div class="six columns">
-                    <label>Roles<span class="red">*</span></label>
-                    <input class="u-full-width" type="text" name="roles" v-model="account_info.roles"
-                        v-validate="'required'"/>
-                    </div>
-                    <div class="six columns">
-                    <label class="hide-sm">&nbsp;</label>
-                    <label class="u-pull-left mr-4">
-                    <input type="checkbox" name="active" v-model="account_info.active"/>
-                    <span class="label-body">Active</span>	
-                    </label>
-                    <label>
-                    <input type="checkbox" name="deceased" v-model="account_info.deceased"/>
-                    <span class="label-body">Deceased</span>
-                    </label>
-                    </div>
+                        <div class="six columns">
+                            <label>Roles<span class="red">*</span></label>
+                            <input class="u-full-width" type="text" name="roles"
+                                v-model="account_info.roles"
+                                v-validate="'required'"/>
+                        </div>
+                        <div class="six columns">
+                            <label class="hide-sm">&nbsp;</label>
+                            <label class="u-pull-left mr-4">
+                            <input type="checkbox" name="active"
+                                v-model="account_info.active"/>
+                            <span class="label-body">Active</span>	
+                            </label>
+                            <label>
+                            <input type="checkbox" name="deceased"
+                                v-model="account_info.deceased"/>
+                            <span class="label-body">Deceased</span>
+                            </label>
+                        </div>
                     </div>
                 <button class="ghbutton"
-                    v-on:click.prevent="validateForm">Create</button>
+                    v-on:click.prevent="validateCreateForm">Create</button>
             </form>
         </div>
+
+<!-- Edit account form -->
+
+        <div v-if="render_edit_acct" id="edit_account">
+            <form id="edit_fed_account" @submit.prevent="validateCreateForm">
+                <ul class="gh-form">
+                        <label>Account<span class="red">*</span></label><br/>
+                        <input type="search" :value="account_id.toUpperCase()"
+                            placeholder="Federation Account" name="account_id"
+                            v-validate="'required'"
+                            @input="account_id = $event.target.value.toUpperCase()"/>                    <button class="ghbutton"
+                        v-on:click.prevent="validateEditForm">Search</button>
+
+                </ul>
+            </form>
+        </div>
+
     </div>
     </div>
 </div>	
@@ -120,6 +152,8 @@ export default {
                 deceased: false
             },
             // local variables not to be passed
+            render_new_acct: false,
+            render_edit_acct: false,
             pass_confirm: "",
             goptions: [
                     { text: 'Gender', value: '' },
@@ -135,6 +169,11 @@ export default {
 
     // Using Axios
     methods: {
+        set_active_form (new_acct, edit_acct) {
+            this.render_new_acct = new_acct
+            this.render_edit_acct = edit_acct
+        },
+
         create_federation_account () {
             axios({
                 headers: {
@@ -165,6 +204,24 @@ export default {
             )
         },
 
+        search_federation_account () {
+            axios({
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: 'get',
+                url: this.$store.state.credentials.thalamus_server +
+                    '/people/' + this.account_id,
+                auth: {
+                    username: this.$store.state.credentials.fedacct,
+                    password: this.$store.state.credentials.password
+                },
+
+            })
+            .then(response => {this.accounts = response.data})
+            .catch(e => { this.axios_errors.push(e)} );
+        },
+
         /**
             # Add a default random string in the ref field.
             # The STRSIZE constant provides the length of the PUID
@@ -189,7 +246,7 @@ export default {
             this.account_id = puid;
         },
 
-        validateForm() {
+        validateCreateForm() {
             this.$validator.validateAll().then((result) => {
                 if (result) {
                     this.create_federation_account ();
@@ -198,7 +255,19 @@ export default {
                     alert('Please check the errors in the form');
                 }
             });
+        },
+
+        validateEditForm() {
+            this.$validator.validateAll().then((result) => {
+                if (result) {
+                    this.search_federation_account ();
+                }
+                else {
+                    alert('Please check the errors in the form');
+                }
+            });
         }
+
     },
 }
 </script>
