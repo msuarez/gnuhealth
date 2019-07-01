@@ -8,12 +8,13 @@
 </div>
 <div class="nine columns">
     <div class="mainarea mt-4">
+    <div class="ghtopbar">
         <button class="ghbutton"
             v-on:click.prevent="set_active_form(new_acct=true,edit_acct=false)">New</button>
 
         <button class="ghbutton"
             v-on:click.prevent="set_active_form(new_acct=false,edit_acct=true)">Edit</button>
-
+    </div>
         <div v-if="render_new_acct" id="new_account">
             <form id="new_fed_account" @submit.prevent="validateCreateForm">
             <div class="row">
@@ -114,13 +115,20 @@
         <div v-if="render_edit_acct" id="edit_account">
             <form id="edit_fed_account" @submit.prevent="validateCreateForm">
                 <ul class="gh-form">
-                        <label>Account<span class="red">*</span></label><br/>
-                        <input type="search" :value="account_id.toUpperCase()"
+                        <div class="row">
+                        <div class="six columns">
+                        <label>Account<span class="red">*</span></label>
+                        <input class="u-full-width" type="search" :value="account_id.toUpperCase()"
                             placeholder="Federation Account" name="account_id"
                             v-validate="'required'"
-                            @input="account_id = $event.target.value.toUpperCase()"/>                    <button class="ghbutton"
+                            @input="account_id = $event.target.value.toUpperCase()"/>                    
+                        </div>
+                        <div class="six columns">
+                        <label class="hide-sm">&nbsp;</label>
+                        <button class="ghbutton"
                         v-on:click.prevent="validateEditForm">Search</button>
-
+                        </div>
+                        </div>
                 </ul>
             </form>
         </div>

@@ -4,7 +4,7 @@
 <div class="header">
  <div class="row">
  <div class="four columns">
- <img alt="GNU Health Federation" src="./assets/logo-gnu-health-federation.png" class="u-max-full-width">
+ <img alt="GNU Health Federation" src="./assets/logo-gnu-health-federation.png" class="u-max-full-width mb-3">
 </div>
 <div id="nav" class="eight columns">
  <ul class="u-pull-right">
@@ -95,6 +95,10 @@
     color: #00acc6;
 }
 
+.ghbutton:active {
+border-color: #ffffff;
+}
+
 .ghbuttondark {
     border: none;
     color: white;
@@ -109,7 +113,15 @@
     cursor: pointer;
 }
 
-.ghbuttondark:hover, .ghbuttondark:focus, .ghbuttondark:active {
+.ghbuttondark:hover, .ghbuttondark:focus {
+
+    background: #00acc6;
+    border-color: #00acc6;
+ 
+}
+
+
+.ghbuttondark:active {
 
     background: #00acc6;
     border-color: #ffffff;
@@ -120,14 +132,19 @@
     border-top: 1px solid #bedfe4;
 }
 
-
 .greybutton {
     background: #95b5bc;
     color: #ffffff;
     border-color: #95b5bc;
 }
 
-.greybutton:hover, .greybutton:focus, .greybutton:active   {
+.greybutton:hover, .greybutton:focus   {
+    background: #95b5bc;
+    border-color: #95b5bc;
+}
+
+
+.greybutton:active   {
     background: #95b5bc;
     border-color: #ffffff;
 }
@@ -138,5 +155,45 @@ table tr:nth-child(even) {
 table tr:nth-child(odd) {
     background: #ecf2f3;
     }
+.ghtopbar {
+    background-color: #cfdee0;
+    padding: 10px;
+    padding-bottom:0px;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+}
 
+div.ghtopbar button.ghbutton {
+
+    margin-right: 12px;
+    margin-left: 12px;
+    height: 30px;
+    line-height: 20px;
+    background-color: #e7eff0;
+    border-color: #e7eff0;
+    font-size: 15px;
+    color: #007191;
+    letter-spacing: 0px;
+    font-weight: bold;
+}
+
+div.ghtopbar button.ghbutton:active {
+
+    border-color: #cfdee0;
+
+}
+
+div.ghtopbar button.ghbutton::after {
+    content: '|';
+    position: relative; 
+    top: 0px;
+    right: -45px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00acc6;
+}
+div.ghtopbar button.ghbutton:last-child::after {
+     content: none;
+  
+}
 </style>

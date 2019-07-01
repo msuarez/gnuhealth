@@ -15,11 +15,11 @@ export default {
 
 <style>
     .leftmenu {
-        margin-top: 20px;
-        margin-bottom: 50px;
+        margin-top: 15px;
+        margin-bottom: 25px;
         float: left;
         border: 1px;
-        font-size: 16px;
+        font-size: 17px;
         padding: 15px;
         background-color: #cfdee0;
         border-radius: 4px;
