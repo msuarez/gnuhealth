@@ -27,8 +27,10 @@
 ##############################################################################
 from flask import Flask, redirect, request, jsonify, render_template, url_for
 from flask_restful import Resource, Api, abort
+from flask_cors import CORS
 
 import psycopg2
+from psycopg2 import sql
 
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField, PasswordField, SubmitField, \
@@ -39,9 +41,13 @@ import json
 import bcrypt
 import logging
 
-__all__ = ["People","Person","Book","Page", "PasswordForm","Password"]
+__all__ = ["People","Person","Book","Page", "Login", "PasswordForm","Password"]
 
 app = Flask(__name__)
+
+# Allow CORS requests from JS frontends, such as the GH Federation Portal
+CORS(app)
+
 app.config.from_pyfile('etc/thalamus.cfg')
 
 api = Api(app)
@@ -68,8 +74,9 @@ def check_id(table, resid):
     Returns the instance or null
     """
     cur = conn.cursor()
-    cur.execute ('SELECT id from %s \
-        where id = %s limit(1)', (table, resid))
+    cur.execute (
+        sql.SQL("SELECT id from {} where id = %s limit(1)").format(sql.Identifier(table)), \
+            (resid,))
     try:
         res, = cur.fetchone()
     except:
@@ -112,7 +119,7 @@ def verify_password(username, password):
             return False
 
     else:
-       return False
+        return False
 
 
 
@@ -191,7 +198,7 @@ class Person(Resource):
         values = json.loads(request.data)
 
         # Initialize to inactive the newly created person
-        values['active'] = False
+        #values['active'] = False
         pw = None
 
         bcrypt_prefixes = ["$2b$", "$2y$"]
@@ -202,7 +209,8 @@ class Person(Resource):
         if (person_id):
             if (type(person_id) is str):
                 #Use upper case on the person federation account
-                values['id'] = person_id.upper()
+                person_id = person_id.upper()
+                values['id'] = person_id
         else:
             abort (422, error="wrong format on person ID")
 
@@ -466,6 +474,22 @@ class Institutions(Resource):
 
 api.add_resource(Institutions, '/institutions')
 
+# Login 
+class Login(Resource):
+    """"
+    Main class for loggin in from another resources, such the GH Federation Portal
+    At this point, with the decorator auth.login_required is enough
+    """
+    
+    decorators = [auth.login_required] # Use the decorator from httpauth
+
+    def get(self):
+        return True 
+
+api.add_resource(Login, '/login')
+
+
+
 class PasswordForm(FlaskForm):
     password = PasswordField('Password',
         validators=[validators.DataRequired(),
@@ -473,7 +497,6 @@ class PasswordForm(FlaskForm):
         validators.EqualTo('pconfirm', message='Password mistmatch')])
     pconfirm = PasswordField('Confirm Password')
     update = SubmitField('Update')
-
 
 # Update the password of the user with a form
 @app.route('/password/<person_id>', methods=('GET', 'POST'))
@@ -505,7 +528,6 @@ def password(person_id):
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 if __name__ == '__main__':
     app.logger.warning("Running Thalamus without gunicorn ...")
