@@ -94,6 +94,9 @@ class FederationResourceLocator():
                     message(_(not_found_msg))
 
                 else:
+                    #Cleanup the results liststore at every search
+                    self.results.clear()
+
                     #Populate and pack the result
                     r = []
                     fields = ['id','name', 'lastname', 'gender',
