@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import gtk
+import os
 import gettext
-import webbrowser
-from tryton.config import GNUHEALTH_ICON, CONFIG
+from gi.repository import Gtk, GdkPixbuf
+
+from tryton.config import PIXMAPS_DIR, CONFIG, GNUHEALTH_ICON
 from tryton.common import get_toplevel_window
 from tryton import __version__
+
+COPYRIGHT = '''\
+Copyright (C) 2004-2019 Tryton.
+'''
 
 POWERED_BY = '''\
 GTK Client based on Tryton
@@ -686,33 +691,22 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.'''
 
-
 _ = gettext.gettext
 
 
 class About(object):
 
     def __init__(self):
-        if hasattr(gtk, 'about_dialog_set_email_hook'):
-            gtk.about_dialog_set_email_hook(lambda widget, link:
-                    webbrowser.open(link, new=2))
-        if hasattr(gtk, 'about_dialog_set_url_hook'):
-            gtk.about_dialog_set_url_hook(lambda widget, link:
-                    webbrowser.open(link, new=2))
         parent = get_toplevel_window()
-        self.win = gtk.AboutDialog()
+        self.win = Gtk.AboutDialog()
         self.win.set_transient_for(parent)
         self.win.set_name(CONFIG['client.title'])
         self.win.set_version(__version__)
         self.win.set_comments(POWERED_BY)
         self.win.set_license(LICENSE)
-        self.win.set_website('http://health.gnu.org/')
-        # self.win.set_authors(AUTHORS)
+        self.win.set_website('http://www.gnuhealth.org/')
         self.win.set_logo(GNUHEALTH_ICON)
 
         self.win.run()
         parent.present()
         self.win.destroy()
-
-    def open(self, dialog, link):
-        webbrowser.open(link, new=2)

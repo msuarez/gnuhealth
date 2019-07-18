@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 
@@ -8,10 +8,9 @@ from tryton.gui.window.win_search import WinSearch
 from tryton.gui.window.win_form import WinForm
 import tryton.common as common
 import gettext
-from tryton.common.placeholder_entry import PlaceholderEntry
 from tryton.common.completion import get_completion, update_completion
 from tryton.common.domain_parser import quote
-from tryton.common.widget_style import widget_class
+from tryton.common.underline import set_underline
 
 _ = gettext.gettext
 
@@ -34,7 +33,8 @@ class Many2Many(Widget):
         hbox = gtk.HBox(homogeneous=False, spacing=0)
         hbox.set_border_width(2)
 
-        self.title = gtk.Label(attrs.get('string', ''))
+        self.title = gtk.Label(set_underline(attrs.get('string', '')))
+        self.title.set_use_underline(True)
         self.title.set_alignment(0.0, 0.5)
         hbox.pack_start(self.title, expand=True, fill=True)
 
@@ -42,7 +42,7 @@ class Many2Many(Widget):
 
         tooltips = common.Tooltips()
 
-        self.wid_text = PlaceholderEntry()
+        self.wid_text = gtk.Entry()
         self.wid_text.set_placeholder_text(_('Search'))
         self.wid_text.set_property('width_chars', 13)
         self.wid_text.connect('focus-out-event', self._focus_out)
@@ -65,22 +65,16 @@ class Many2Many(Widget):
         self.but_add = gtk.Button()
         tooltips.set_tip(self.but_add, _('Add existing record'))
         self.but_add.connect('clicked', self._sig_add)
-        img_add = gtk.Image()
-        img_add.set_from_stock('tryton-list-add',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_add.set_alignment(0.5, 0.5)
-        self.but_add.add(img_add)
+        self.but_add.add(common.IconFactory.get_image(
+                'tryton-add', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_add.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_add, expand=False, fill=False)
 
         self.but_remove = gtk.Button()
         tooltips.set_tip(self.but_remove, _('Remove selected record <Del>'))
         self.but_remove.connect('clicked', self._sig_remove)
-        img_remove = gtk.Image()
-        img_remove.set_from_stock('tryton-list-remove',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_remove.set_alignment(0.5, 0.5)
-        self.but_remove.add(img_remove)
+        self.but_remove.add(common.IconFactory.get_image(
+                'tryton-remove', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_remove.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_remove, expand=False, fill=False)
 
@@ -101,6 +95,9 @@ class Many2Many(Widget):
         self.screen.signal_connect(self, 'record-message', self._sig_label)
 
         vbox.pack_start(self.screen.widget, expand=True, fill=True)
+
+        self.title.set_mnemonic_widget(
+            self.screen.current_view.mnemonic_widget)
 
         self.screen.widget.connect('key_press_event', self.on_keypress)
         self.wid_text.connect('key_press_event', self.on_keypress)
@@ -144,8 +141,9 @@ class Many2Many(Widget):
         add_remove = self.record.expr_eval(self.attrs.get('add_remove'))
         if add_remove:
             domain = [domain, add_remove]
-        context = self.field.get_context(self.record)
-        value = self.wid_text.get_text().decode('utf-8')
+        context = self.field.get_search_context(self.record)
+        order = self.field.get_search_order(self.record)
+        value = self.wid_text.get_text()
 
         self.focus_out = False
 
@@ -158,13 +156,16 @@ class Many2Many(Widget):
             self.screen.set_cursor()
             self.wid_text.set_text('')
         win = WinSearch(self.attrs['relation'], callback, sel_multi=True,
-            context=context, domain=domain,
+            context=context, domain=domain, order=order,
             view_ids=self.attrs.get('view_ids', '').split(','),
             views_preload=self.attrs.get('views', {}),
             new=self.attrs.get('create', True),
             title=self.attrs.get('string'))
         win.screen.search_filter(quote(value))
-        win.show()
+        if len(win.screen.group) == 1:
+            win.response(None, gtk.RESPONSE_OK)
+        else:
+            win.show()
 
     def _sig_remove(self, *args):
         self.screen.remove(remove=True)
@@ -229,10 +230,8 @@ class Many2Many(Widget):
         self._set_label_state()
 
     def _set_label_state(self):
-        attrlist = common.get_label_attributes(self._readonly, self._required)
-        self.title.set_attributes(attrlist)
-        widget_class(self.title, 'readonly', self._readonly)
-        widget_class(self.title, 'required', self._required)
+        common.apply_label_attributes(
+            self.title, self._readonly, self._required)
 
     def _set_button_sensitive(self):
         if self.record and self.field:

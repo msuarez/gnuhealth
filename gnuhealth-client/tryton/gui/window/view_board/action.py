@@ -1,7 +1,8 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 'Action'
 import gtk
+import gobject
 from tryton.gui.window.view_form.screen import Screen
 import tryton.rpc as rpc
 import tryton.common as common
@@ -57,7 +58,7 @@ class Action(SignalEvent):
         search_context['context'] = self.context
         search_context['_user'] = rpc._USER
         search_value = PYSONDecoder(search_context).decode(
-            self.action['pyson_search_value'] or '{}')
+            self.action['pyson_search_value'] or '[]')
 
         self.widget = gtk.Frame()
         self.widget.set_border_width(0)
@@ -100,7 +101,8 @@ class Action(SignalEvent):
                     'id': (self.screen.current_record.id
                         if self.screen.current_record else None),
                     'ids': [r.id for r in self.screen.selected_records],
-                    }, context=self.screen.context.copy(), warning=False)
+                    }, context=self.screen.group._context.copy(),
+                warning=False)
         else:
             def callback(result):
                 if result:
@@ -144,4 +146,4 @@ class Action(SignalEvent):
             def display():
                 if self.screen.widget.props.window:
                     self.display()
-            gtk.idle_add(display)
+            gobject.idle_add(display)

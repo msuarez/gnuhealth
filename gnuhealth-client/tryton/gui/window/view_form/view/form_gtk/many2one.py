@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
@@ -13,7 +13,6 @@ from tryton.common.popup_menu import populate
 from tryton.common.completion import get_completion, update_completion
 from tryton.common.entry_position import reset_position
 from tryton.common.domain_parser import quote
-from tryton.common.widget_style import set_widget_style
 from tryton.config import CONFIG
 
 _ = gettext.gettext
@@ -62,7 +61,6 @@ class Many2One(Widget):
 
     def _set_button_sensitive(self):
         self.wid_text.set_editable(not self._readonly)
-        set_widget_style(self.wid_text, not self._readonly)
         self.wid_text.set_icon_sensitive(
             gtk.ENTRY_ICON_PRIMARY, self.read_access)
         self.wid_text.set_icon_sensitive(
@@ -121,8 +119,9 @@ class Many2One(Widget):
                         or self.field.get_state_attrs(
                             self.record)['required'])):
                 domain = self.field.domain_get(self.record)
-                context = self.field.get_context(self.record)
-                text = self.wid_text.get_text().decode('utf-8')
+                context = self.field.get_search_context(self.record)
+                order = self.field.get_search_order(self.record)
+                text = self.wid_text.get_text()
 
                 def callback(result):
                     if result:
@@ -134,7 +133,7 @@ class Many2One(Widget):
                     self.changed = True
 
                 win = WinSearch(model, callback, sel_multi=False,
-                    context=context, domain=domain,
+                    context=context, domain=domain, order=order,
                     view_ids=self.attrs.get('view_ids', '').split(','),
                     views_preload=self.attrs.get('views', {}),
                     new=self.create_access,
@@ -211,8 +210,9 @@ class Many2One(Widget):
             return
         if not self._readonly:
             domain = self.field.domain_get(self.record)
-            context = self.field.get_context(self.record)
-            text = self.wid_text.get_text().decode('utf-8')
+            context = self.field.get_search_context(self.record)
+            order = self.field.get_search_order(self.record)
+            text = self.wid_text.get_text()
 
             def callback(result):
                 if result:
@@ -221,7 +221,7 @@ class Many2One(Widget):
                 self.focus_out = True
                 self.changed = True
             win = WinSearch(model, callback, sel_multi=False,
-                context=context, domain=domain,
+                context=context, domain=domain, order=order,
                 view_ids=self.attrs.get('view_ids', '').split(','),
                 views_preload=self.attrs.get('views', {}),
                 new=self.create_access, title=self.attrs.get('string'))
@@ -302,16 +302,22 @@ class Many2One(Widget):
             return False
         self.set_text(field.get_client(record))
         if self.has_target(field.get(record)):
-            stock1, tooltip1 = 'tryton-open', _('Open the record <F2>')
-            stock2, tooltip2 = 'tryton-clear', _('Clear the record <Del>')
+            icon1, tooltip1 = 'tryton-open', _('Open the record <F2>')
+            icon2, tooltip2 = 'tryton-clear', _('Clear the field <Del>')
         else:
-            stock1, tooltip1 = None, ''
-            stock2, tooltip2 = 'tryton-find', _('Search a record <F2>')
+            icon1, tooltip1 = None, ''
+            icon2, tooltip2 = 'tryton-search', _('Search a record <F2>')
         if not self.wid_text.get_editable():
-            stock2, tooltip2 = None, ''
-        for pos, stock, tooltip in [(gtk.ENTRY_ICON_PRIMARY, stock1, tooltip1),
-                (gtk.ENTRY_ICON_SECONDARY, stock2, tooltip2)]:
-            self.wid_text.set_icon_from_stock(pos, stock)
+            icon2, tooltip2 = None, ''
+        for pos, icon, tooltip in [
+                (gtk.ENTRY_ICON_PRIMARY, icon1, tooltip1),
+                (gtk.ENTRY_ICON_SECONDARY, icon2, tooltip2)]:
+            if icon:
+                pixbuf = common.IconFactory.get_pixbuf(
+                    icon, gtk.ICON_SIZE_MENU)
+            else:
+                pixbuf = None
+            self.wid_text.set_icon_from_pixbuf(pos, pixbuf)
             self.wid_text.set_icon_tooltip_text(pos, tooltip)
         self.changed = True
 

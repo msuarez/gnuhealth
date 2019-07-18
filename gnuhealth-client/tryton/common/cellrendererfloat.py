@@ -1,9 +1,9 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
 import locale
-from cellrendererinteger import CellRendererInteger
+from .cellrendererinteger import CellRendererInteger
 
 
 class CellRendererFloat(CellRendererInteger):
@@ -12,12 +12,9 @@ class CellRendererFloat(CellRendererInteger):
         super(CellRendererFloat, self).__init__()
         self.digits = None
 
-    def do_start_editing(self, event, widget, path, background_area,
-            cell_area, flags):
-        editable = super(CellRendererFloat, self).do_start_editing(event,
-            widget, path, background_area, cell_area, flags)
+    def on_editing_started(self, editable, path):
+        super().on_editing_started(editable, path)
         editable.connect('key-press-event', self.key_press_event)
-        return editable
 
     def key_press_event(self, widget, event):
         for name in ('KP_Decimal', 'KP_Separator'):

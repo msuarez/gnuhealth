@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import operator
 import math
@@ -94,7 +94,7 @@ class SelectionMixin(object):
 
         def _model_evaluator(allowed_models):
             def test(value):
-                return value[0] in allowed_models
+                return value[0] in allowed_models or not allowed_models
             return test
 
         if field.attrs['type'] == 'reference':
@@ -134,7 +134,7 @@ def selection_shortcuts(entry):
 def freeze_value(value):
     if isinstance(value, dict):
         return tuple(sorted((k, freeze_value(v))
-                for k, v in value.iteritems()))
+                for k, v in value.items()))
     elif isinstance(value, (list, set)):
         return tuple(freeze_value(v) for v in value)
     else:

@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 # This code is inspired by the pycha project
 # (http://www.lorenzogil.com/projects/pycha/)
@@ -16,8 +16,6 @@ import tryton.rpc as rpc
 import cairo
 from tryton.action import Action
 from tryton.gui.window import Window
-
-gtk_version = getattr(gtk, 'get_major_version', lambda: 2)()
 
 
 class Popup(object):
@@ -72,10 +70,7 @@ class Popup(object):
 class Graph(gtk.DrawingArea):
     'Graph'
 
-    if gtk_version == 2:
-        __gsignals__ = {"expose-event": "override"}
-    else:
-        __gsignals__ = {"draw": "override"}
+    __gsignals__ = {"draw": "override"}
 
     def __init__(self, view, xfield, yfields):
         super(Graph, self).__init__()
@@ -110,36 +105,17 @@ class Graph(gtk.DrawingArea):
     def leave(self, widget, event):
         self.popup.hide()
 
-    if gtk_version == 2:
-        # Handle the expose-event by drawing
-        def do_expose_event(self, event):
+    def do_draw(self, cr):
+        cr = self.window.cairo_create()
+        width = self.get_allocated_width()
+        height = self.get_allocated_height()
 
-            # Create the cairo context
-            cr = self.window.cairo_create()
-
-            # Restrict Cairo to the exposed area; avoid extra work
-            cr.rectangle(event.area.x, event.area.y,
-                    event.area.width, event.area.height)
-            cr.clip()
-
-            self.updateArea(cr, *self.window.get_size())
-            self.drawBackground(cr, *self.window.get_size())
-            self.drawLines(cr, *self.window.get_size())
-            self.drawGraph(cr, *self.window.get_size())
-            self.drawAxis(cr, *self.window.get_size())
-            self.drawLegend(cr, *self.window.get_size())
-    else:
-        def do_draw(self, cr):
-            cr = self.window.cairo_create()
-            width = self.get_allocated_width()
-            height = self.get_allocated_height()
-
-            self.updateArea(cr, width, height)
-            self.drawBackground(cr, width, height)
-            self.drawLines(cr, width, height)
-            self.drawGraph(cr, width, height)
-            self.drawAxis(cr, width, height)
-            self.drawLegend(cr, width, height)
+        self.updateArea(cr, width, height)
+        self.drawBackground(cr, width, height)
+        self.drawLines(cr, width, height)
+        self.drawGraph(cr, width, height)
+        self.drawAxis(cr, width, height)
+        self.drawLegend(cr, width, height)
 
     def export_png(self, filename, width, height):
         surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, width, height)
@@ -151,7 +127,7 @@ class Graph(gtk.DrawingArea):
         self.drawGraph(cx, width, height)
         self.drawAxis(cx, width, height)
         self.drawLegend(cx, width, height)
-        surface.write_to_png(filename.encode('utf-8'))
+        surface.write_to_png(filename)
 
         self.queue_draw()
 
@@ -161,7 +137,7 @@ class Graph(gtk.DrawingArea):
     def action_keyword(self, ids):
         if not ids:
             return
-        ctx = self.group.context.copy()
+        ctx = self.group._context.copy()
         if 'active_ids' in ctx:
             del ctx['active_ids']
         if 'active_id' in ctx:
@@ -200,7 +176,7 @@ class Graph(gtk.DrawingArea):
             base = 1
         else:
             base = 10 ** int(math.log(self.yrange, 10))
-        for i in xrange(int(self.yrange / base) + 1):
+        for i in range(int(self.yrange / base) + 1):
             val = int(self.minyval / base) * base + i * base
             h = (val - self.minyval) * self.yscale
             label = locale.format('%.2f', val, True)
@@ -210,7 +186,7 @@ class Graph(gtk.DrawingArea):
     def XLabels(self):
         xlabels = []
         i = 0.0
-        keys = self.datas.keys()
+        keys = list(self.datas.keys())
         keys.sort()
         for key in keys:
             if self.xrange == 0:
@@ -463,7 +439,7 @@ class Graph(gtk.DrawingArea):
         else:
             self.xscale = 1.0 / self.xrange
 
-        if not self.datas.values():
+        if not list(self.datas.values()):
             self.maxyval = 0.0
             self.minyval = 0.0
         else:

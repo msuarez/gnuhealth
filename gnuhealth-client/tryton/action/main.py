@@ -1,15 +1,13 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import tryton.rpc as rpc
-from tryton.common import message, selection, file_open, mailto
-from tryton.gui.window import Window
-from tryton.pyson import PYSONDecoder
 import gettext
-import tempfile
-import os
 import webbrowser
-from tryton.common import RPCProgress, RPCExecute, RPCException, slugify
+
+import tryton.rpc as rpc
+from tryton.common import RPCProgress, RPCExecute, RPCException
+from tryton.common import message, selection, file_write, file_open, mailto
 from tryton.config import CONFIG
+from tryton.pyson import PYSONDecoder
 
 _ = gettext.gettext
 
@@ -39,12 +37,8 @@ class Action(object):
         (type, data, print_p, name) = res
         if not print_p and direct_print:
             print_p = True
-        dtemp = tempfile.mkdtemp(prefix='tryton_')
 
-        fp_name = os.path.join(dtemp,
-            slugify(name) + os.extsep + slugify(type))
-        with open(fp_name, 'wb') as file_d:
-            file_d.write(data)
+        fp_name = file_write((name, type), data)
         if email_print:
             mailto(to=email.get('to'), cc=email.get('cc'),
                 subject=email.get('subject'), body=email.get('body'),
@@ -75,6 +69,7 @@ class Action(object):
 
     @staticmethod
     def _exec_action(action, data=None, context=None):
+        from tryton.gui.window import Window
         if context is None:
             context = {}
         else:
@@ -90,15 +85,16 @@ class Action(object):
         context.pop('active_ids', None)
         context.pop('active_model', None)
 
-        def add_name_suffix(name):
+        def add_name_suffix(name, context=None):
             if not data.get('ids') or not data.get('model'):
                 return name
             max_records = 5
             rec_names = RPCExecute('model', data['model'],
-                'read', data['ids'][:max_records], ['rec_name'])
+                'read', data['ids'][:max_records], ['rec_name'],
+                context=context)
             name_suffix = _(', ').join([x['rec_name'] for x in rec_names])
             if len(data['ids']) > max_records:
-                name_suffix += _(u',\u2026')
+                name_suffix += _(',\u2026')
             return _('%s (%s)') % (name, name_suffix)
 
         data['action_id'] = action['id']
@@ -135,8 +131,8 @@ class Action(object):
                 for n, d, c in action['domains']]
 
             name = action.get('name', '')
-            if action.get('keyword', '') == 'form_relate':
-                name = add_name_suffix(name)
+            if action.get('keyword', ''):
+                name = add_name_suffix(name, action_ctx)
 
             res_model = action.get('res_model', data.get('res_model'))
             res_id = action.get('res_id', data.get('res_id'))
@@ -161,7 +157,7 @@ class Action(object):
         elif action['type'] == 'ir.action.wizard':
             name = action.get('name', '')
             if action.get('keyword', 'form_action') == 'form_action':
-                name = add_name_suffix(name)
+                name = add_name_suffix(name, context)
             Window.create_wizard(action['wiz_name'], data,
                 direct_print=action.get('direct_print', False),
                 email_print=action.get('email_print', False),

@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import os
 import imp
@@ -19,7 +19,7 @@ def register():
         os.path.join(get_config_dir(), 'plugins'),
         os.path.join(CURRENT_DIR, 'plugins'),
         ]
-    paths = filter(os.path.isdir, paths)
+    paths = list(filter(os.path.isdir, paths))
 
     imported = set()
     for path in paths:

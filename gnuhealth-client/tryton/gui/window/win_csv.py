@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import locale
 import os
@@ -8,8 +8,10 @@ import gtk
 import gobject
 import gettext
 
-from tryton.common import center_window
+from tryton.common import IconFactory
+from tryton.common.underline import set_underline
 from tryton.config import GNUHEALTH_ICON
+from tryton.gui import Main
 from tryton.gui.window.nomodal import NoModal
 
 _ = gettext.gettext
@@ -37,13 +39,12 @@ class WinCSV(NoModal):
 
         self.dialog = gtk.Dialog(
             parent=self.parent, flags=gtk.DIALOG_DESTROY_WITH_PARENT)
+        Main().add_window(self.dialog)
         self.dialog.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
         self.dialog.set_icon(GNUHEALTH_ICON)
         self.dialog.connect('response', self.response)
 
         dialog_vbox = gtk.VBox()
-
-        self.add_header(dialog_vbox)
 
         hbox_mapping = gtk.HBox(True)
         dialog_vbox.pack_start(hbox_mapping, True, True, 0)
@@ -66,28 +67,25 @@ class WinCSV(NoModal):
         hbox_mapping.pack_start(vbox_buttons, False, True, 0)
 
         button_add = gtk.Button(_('_Add'), stock=None, use_underline=True)
-        button_add.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-list-add', gtk.ICON_SIZE_BUTTON)
-        button_add.set_image(img_button)
+        button_add.set_image(IconFactory.get_image(
+                'tryton-add', gtk.ICON_SIZE_BUTTON))
+        button_add.set_always_show_image(True)
         button_add.connect_after('clicked', self.sig_sel)
         vbox_buttons.pack_start(button_add, False, False, 0)
 
         button_remove = gtk.Button(
             _('_Remove'), stock=None, use_underline=True)
-        button_remove.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-list-remove', gtk.ICON_SIZE_BUTTON)
-        button_remove.set_image(img_button)
+        button_remove.set_image(IconFactory.get_image(
+                'tryton-remove', gtk.ICON_SIZE_BUTTON))
+        button_remove.set_always_show_image(True)
         button_remove.connect_after('clicked', self.sig_unsel)
         vbox_buttons.pack_start(button_remove, False, False, 0)
 
         button_remove_all = gtk.Button(
             _('_Clear'), stock=None, use_underline=True)
-        button_remove_all.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-clear', gtk.ICON_SIZE_BUTTON)
-        button_remove_all.set_image(img_button)
+        button_remove_all.set_image(IconFactory.get_image(
+                'tryton-clear', gtk.ICON_SIZE_BUTTON))
+        button_remove_all.set_always_show_image(True)
         button_remove_all.connect_after('clicked', self.sig_unsel_all)
         vbox_buttons.pack_start(button_remove_all, False, False, 0)
 
@@ -171,11 +169,15 @@ class WinCSV(NoModal):
 
         self.add_csv_header_param(table)
 
-        button_cancel = gtk.Button("gtk-cancel", stock="gtk-cancel")
-        self.dialog.add_action_widget(button_cancel, gtk.RESPONSE_CANCEL)
+        button_cancel = self.dialog.add_button(
+            set_underline(_("Cancel")), gtk.RESPONSE_CANCEL)
+        button_cancel.set_image(IconFactory.get_image(
+                'tryton-cancel', gtk.ICON_SIZE_BUTTON))
 
-        button_ok = gtk.Button("gtk-ok", stock="gtk-ok")
-        self.dialog.add_action_widget(button_ok, gtk.RESPONSE_OK)
+        button_ok = self.dialog.add_button(
+            set_underline(_("OK")), gtk.RESPONSE_OK)
+        button_ok.set_image(IconFactory.get_image(
+                'tryton-ok', gtk.ICON_SIZE_BUTTON))
 
         self.dialog.vbox.pack_start(dialog_vbox)
 
@@ -207,12 +209,8 @@ class WinCSV(NoModal):
         self.view2.set_model(self.model2)
         self.view2.connect('row-activated', self.sig_unsel)
 
-        sensible_allocation = self.sensible_widget.get_allocation()
-        self.dialog.set_default_size(
-            int(sensible_allocation.width * 0.9),
-            int(sensible_allocation.height * 0.9))
         self.dialog.show_all()
-        center_window(self.dialog, self.parent, self.sensible_widget)
+        self.show()
 
         self.register()
 
@@ -264,7 +262,7 @@ class WinCSV(NoModal):
         if not data:
             return
         data = ','.join(str(x) for x in data)
-        selection.set(selection.get_target(), 8, data)
+        selection.set(selection.get_target(), 8, data.encode('utf-8'))
         return True
 
     def drag_data_received(self, treeview, context, x, y, selection,
@@ -276,6 +274,7 @@ class WinCSV(NoModal):
             selection_data = selection.get_data()
         if not selection_data:
             return
+        selection_data = selection_data.decode('utf-8')
         store = treeview.get_model()
 
         data_iters = [store.get_iter((int(i),))

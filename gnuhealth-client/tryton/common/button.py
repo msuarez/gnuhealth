@@ -1,15 +1,15 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 
-import gtk
+from gi.repository import Gtk
 
-from tryton.common import ICONFACTORY
+from tryton.common import IconFactory
 
 _ = gettext.gettext
 
 
-class Button(gtk.Button):
+class Button(Gtk.Button):
 
     def __init__(self, attrs=None):
         self.attrs = attrs or {}
@@ -19,18 +19,16 @@ class Button(gtk.Button):
         self._set_icon(attrs.get('icon'))
 
     def _set_icon(self, stock):
+        self.set_always_show_image(bool(stock))
         image = self.get_image()
         if not image and not stock:
             return
         elif image and image.get_stock()[0] == stock:
             return
         if not stock:
-            self.set_image(gtk.Image())
+            self.set_image(None)
             return
-        ICONFACTORY.register_icon(stock)
-        icon = gtk.Image()
-        icon.set_from_stock(stock, gtk.ICON_SIZE_SMALL_TOOLBAR)
-        self.set_image(icon)
+        self.set_image(IconFactory.get_image(stock, Gtk.IconSize.BUTTON))
 
     def state_set(self, record):
         if record:
@@ -53,7 +51,7 @@ class Button(gtk.Button):
                     label += ' (%s)' % len(clicks)
                     if tip:
                         tip += '\n'
-                    tip += _('By: ') + _(', ').join(clicks.itervalues())
+                    tip += _('By: ') + _(', ').join(iter(clicks.values()))
             self.set_label(label)
             self.set_tooltip_text(tip)
 

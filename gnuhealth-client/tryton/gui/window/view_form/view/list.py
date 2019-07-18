@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gobject
 import gtk
@@ -15,7 +15,6 @@ from tryton.gui.window import Window
 from tryton.common.popup_menu import populate
 from tryton.common import RPCExecute, RPCException, node_attributes, Tooltips
 from tryton.common import domain_inversion, simplify, unique_value
-from tryton.common.widget_style import widget_class
 from tryton.pyson import PYSONDecoder
 import tryton.common as common
 from . import View
@@ -267,6 +266,7 @@ class ViewTree(View):
         else:
             self.treeview = TreeView(self)
             grid_lines = gtk.TREE_VIEW_GRID_LINES_VERTICAL
+        self.mnemonic_widget = self.treeview
 
         self.parse(xml)
 
@@ -290,7 +290,7 @@ class ViewTree(View):
         self.set_drag_and_drop()
 
         self.widget = gtk.VBox()
-        scroll = gtk.ScrolledWindow()
+        self.scroll = scroll = gtk.ScrolledWindow()
         scroll.add(self.treeview)
         scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
         scroll.set_placement(gtk.CORNER_TOP_LEFT)
@@ -445,10 +445,7 @@ class ViewTree(View):
         if field and self.editable:
             required = field.attrs.get('required')
             readonly = field.attrs.get('readonly')
-            attrlist = common.get_label_attributes(readonly, required)
-            label.set_attributes(attrlist)
-            widget_class(label, 'readonly', readonly)
-            widget_class(label, 'required', required)
+            common.apply_label_attributes(label, readonly, required)
         label.show()
         help = None
         if field and field.attrs.get('help'):
@@ -545,7 +542,7 @@ class ViewTree(View):
                 column.arrow.set(gtk.ARROW_NONE, gtk.SHADOW_NONE)
         model = self.treeview.get_model()
         unsaved_records = [x for x in model.group if x.id < 0]
-        search_string = self.screen.screen_container.get_text() or u''
+        search_string = self.screen.screen_container.get_text() or ''
         if (self.screen.search_count == len(model)
                 or unsaved_records
                 or self.screen.parent):
@@ -637,6 +634,10 @@ class ViewTree(View):
 
     def test_expand_row(self, widget, iter_, path):
         model = widget.get_model()
+        if model.iter_n_children(iter_) > CONFIG['client.limit']:
+            self.screen.current_record = model.get_value(iter_, 0)
+            self.screen.switch_view('form')
+            return True
         iter_ = model.iter_children(iter_)
         if not iter_:
             return False
@@ -656,25 +657,10 @@ class ViewTree(View):
         for clipboard_type in (gtk.gdk.SELECTION_CLIPBOARD,
                 gtk.gdk.SELECTION_PRIMARY):
             clipboard = self.treeview.get_clipboard(clipboard_type)
-            targets = [
-                ('STRING', 0, 0),
-                ('TEXT', 0, 1),
-                ('COMPOUND_TEXT', 0, 2),
-                ('UTF8_STRING', 0, 3)
-            ]
             selection = self.treeview.get_selection()
-            # Set to clipboard directly if not too much selected rows
-            # to speed up paste
-            # Don't use set_with_data on mac see:
-            # http://bugzilla.gnome.org/show_bug.cgi?id=508601
-            if selection.count_selected_rows() < 100 \
-                    or sys.platform == 'darwin':
-                data = []
-                selection.selected_foreach(self.copy_foreach, data)
-                clipboard.set_text('\n'.join(data), -1)
-            else:
-                clipboard.set_with_data(targets, self.copy_get_func,
-                        self.copy_clear_func, selection)
+            data = []
+            selection.selected_foreach(self.copy_foreach, data)
+            clipboard.set_text('\n'.join(data), -1)
 
     def copy_foreach(self, treemodel, path, iter, data):
         record = treemodel.get_value(iter, 0)
@@ -687,17 +673,6 @@ class ViewTree(View):
                 + str(widget.get_textual_value(record)).replace('"', '""')
                 + '"')
         data.append('\t'.join(values))
-        return
-
-    def copy_get_func(self, clipboard, selectiondata, info, selection):
-        data = []
-        selection.selected_foreach(self.copy_foreach, data)
-        clipboard.set_text('\n'.join(data), -1)
-        del data
-        return
-
-    def copy_clear_func(self, clipboard, selection):
-        del selection
         return
 
     def on_paste(self):
@@ -767,8 +742,7 @@ class ViewTree(View):
         treeselection.selected_foreach(_func_sel_get, data)
         if not data:
             return
-        data = str(data[0])
-        selection.set(selection.get_target(), 8, data)
+        selection.set(selection.get_target(), 8, data[0].encode('utf-8'))
         return True
 
     def drag_data_received(self, treeview, context, x, y, selection,
@@ -786,6 +760,7 @@ class ViewTree(View):
             selection_data = selection.get_data()
         if not selection_data:
             return
+        selection_data = selection_data.decode('utf-8')
 
         # Don't received if the treeview was editing because it breaks the
         # internal state of the cursor.
@@ -833,6 +808,9 @@ class ViewTree(View):
             gtk.gdk.drop_finish(context, False, etime)
         else:
             context.drop_finish(False, etime)
+        selection = self.treeview.get_selection()
+        selection.unselect_all()
+        selection.select_path(record.get_index_path(model.group))
         if self.attributes.get('sequence'):
             record.group.set_sequence(field=self.attributes['sequence'])
         return True
@@ -911,9 +889,8 @@ class ViewTree(View):
                 gobject.idle_add(pop, menu, group, record)
             return True  # Don't change the selection
         elif event.button == 2:
-            event.button = 1
-            event.state |= gtk.gdk.MOD1_MASK
-            treeview.emit('button-press-event', event)
+            with Window(allow_similar=True):
+                self.screen.row_activate()
             return True
         return False
 
@@ -950,7 +927,7 @@ class ViewTree(View):
         if last_col and last_col.name in fields:
             del fields[last_col.name]
 
-        if fields and any(fields.itervalues()):
+        if fields and any(fields.values()):
             model_name = self.screen.model_name
             try:
                 RPCExecute('model', 'ir.ui.view_tree_width', 'set_width',
@@ -1126,8 +1103,7 @@ class ViewTree(View):
 
             if loaded:
                 if field.attrs['type'] == 'timedelta':
-                    converter = self.screen.context.get(
-                        field.attrs.get('converter'))
+                    converter = field.converter(self.screen.group)
                     selected_sum = common.timedelta.format(
                         selected_sum, converter)
                     sum_ = common.timedelta.format(sum_, converter)

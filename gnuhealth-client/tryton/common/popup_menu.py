@@ -1,8 +1,8 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
-from tryton.common import RPCExecute, RPCException
+from tryton.common import RPCExecute, RPCException, IconFactory
 from tryton.gui.window.view_form.screen import Screen
 from tryton.action import Action
 from tryton.gui.window import Window
@@ -19,21 +19,21 @@ def populate(menu, model, record, title='', field=None, context=None):
     '''
     if record is None:
         return
-    elif isinstance(record, (int, long)):
+    elif isinstance(record, int):
         if record < 0:
             return
     elif record.id < 0:
         return
 
     def load(record):
-        if isinstance(record, (int, long)):
+        if isinstance(record, int):
             screen = Screen(model, context=context)
             screen.load([record])
             record = screen.current_record
         return record
 
     def id_(record):
-        if not isinstance(record, (int, long)):
+        if not isinstance(record, int):
             return record.id
         return record
 
@@ -87,16 +87,14 @@ def populate(menu, model, record, title='', field=None, context=None):
         action_menu.append(gtk.SeparatorMenuItem())
     attachment_item = gtk.ImageMenuItem()
     attachment_item.set_label(_('Attachments...'))
-    attachment_icon = gtk.Image()
-    attachment_icon.set_from_stock('tryton-attachment', gtk.ICON_SIZE_MENU)
-    attachment_item.set_image(attachment_icon)
+    attachment_item.set_image(IconFactory.get_image(
+            'tryton-attach', gtk.ICON_SIZE_MENU))
     action_menu.append(attachment_item)
     attachment_item.connect('activate', attachment)
     note_item = gtk.ImageMenuItem()
     note_item.set_label(_('Notes...'))
-    note_icon = gtk.Image()
-    note_icon.set_from_stock('tryton-note', gtk.ICON_SIZE_MENU)
-    note_item.set_image(note_icon)
+    note_item.set_image(IconFactory.get_image(
+            'tryton-note', gtk.ICON_SIZE_MENU))
     action_menu.append(note_item)
     note_item.connect('activate', note)
 
@@ -106,19 +104,18 @@ def populate(menu, model, record, title='', field=None, context=None):
         except RPCException:
             return
         for atype, icon, label, flavor in (
-                ('action', 'tryton-executable', _('Actions...'), None),
-                ('relate', 'tryton-go-jump', _('Relate...'), None),
-                ('print', 'tryton-print-open', _('Report...'), 'open'),
-                ('print', 'tryton-print-email', _('E-Mail...'), 'email'),
+                ('action', 'tryton-launch', _('Actions...'), None),
+                ('relate', 'tryton-link', _('Relate...'), None),
+                ('print', 'tryton-open', _('Report...'), 'open'),
+                ('print', 'tryton-email', _('E-Mail...'), 'email'),
                 ('print', 'tryton-print', _('Print...'), 'print'),
                 ):
             if len(action_menu):
                 action_menu.append(gtk.SeparatorMenuItem())
             title_item = gtk.ImageMenuItem()
             title_item.set_label(label)
-            title_icon = gtk.Image()
-            title_icon.set_from_stock(icon, gtk.ICON_SIZE_MENU)
-            title_item.set_image(title_icon)
+            title_item.set_image(IconFactory.get_image(
+                    icon, gtk.ICON_SIZE_MENU))
             action_menu.append(title_item)
             if not toolbar[atype]:
                 title_item.set_sensitive(False)

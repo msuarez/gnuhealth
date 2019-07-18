@@ -1,12 +1,14 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Attachment"
 import os
-import urllib
-import urlparse
-import sys
+from urllib.request import urlopen
+from urllib.parse import urlparse, unquote
 import gettext
+import webbrowser
+from functools import partial
 
+from tryton.common import RPCExecute, RPCException, file_write, file_open
 from tryton.gui.window.view_form.screen import Screen
 from tryton.gui.window.win_form import WinForm
 
@@ -38,13 +40,51 @@ class Attachment(WinForm):
             self.attachment_callback()
 
     def add_uri(self, uri):
-        self.screen.switch_view('form')
         data_field = self.screen.group.fields['data']
         name_field = self.screen.group.fields[data_field.attrs['filename']]
         new_record = self.screen.new()
-        file_name = os.path.basename(urlparse.urlparse(uri).path)
+        uri = unquote(uri)
+        file_name = os.path.basename(urlparse(uri).path)
         name_field.set_client(new_record, file_name)
-        uri = urllib.unquote(uri)
-        uri = uri.decode('utf-8').encode(sys.getfilesystemencoding())
-        data_field.set_client(new_record, urllib.urlopen(uri).read())
+        data_field.set_client(new_record, urlopen(uri).read())
         self.screen.display()
+
+    def add_file(self, filename):
+        self.add_uri('file:///' + filename)
+
+    @staticmethod
+    def get_attachments(record):
+        attachments = []
+        context = {}
+        if record and record.id >= 0:
+            context = record.get_context()
+            try:
+                attachments = RPCExecute('model', 'ir.attachment',
+                    'search_read', [
+                        ('resource', '=', '%s,%s' % (
+                                record.model_name, record.id)),
+                        ], 0, 20, None, ['rec_name', 'name', 'type', 'link'],
+                    context=context)
+            except RPCException:
+                pass
+        for attachment in attachments:
+            name = attachment['rec_name']
+            callback = getattr(
+                Attachment, 'open_' + attachment['type'], Attachment.open_data)
+            yield name, partial(
+                callback, attachment=attachment, context=context)
+
+    @staticmethod
+    def open_link(attachment, context):
+        if attachment['link']:
+            webbrowser.open(attachment['link'], new=2)
+
+    @staticmethod
+    def open_data(attachment, context):
+        try:
+            value, = RPCExecute('model', 'ir.attachment', 'read',
+                [attachment['id']], ['data'], context=context)
+        except RPCException:
+            return
+        filepath = file_write(attachment['name'], value['data'])
+        file_open(filepath)

@@ -1,9 +1,8 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import csv
 import os
 import tempfile
-import types
 
 import gtk
 import gobject
@@ -19,15 +18,32 @@ _ = gettext.gettext
 class WinExport(WinCSV):
     "Window export"
 
-    def __init__(self, model, ids, context=None):
+    def __init__(self, name, model, ids, context=None):
+        self.name = name
         self.ids = ids
         self.model = model
         self.context = context
         self.fields = {}
         super(WinExport, self).__init__()
-        self.dialog.set_title(_('Export to CSV'))
+        self.dialog.set_title(_('CSV Export: %s') % name)
 
-    def add_header(self, box):
+    def add_buttons(self, box):
+        button_save_export = gtk.Button(
+            _('_Save Export'), stock=None, use_underline=True)
+        button_save_export.set_image(common.IconFactory.get_image(
+                'tryton-save', gtk.ICON_SIZE_BUTTON))
+        button_save_export.set_always_show_image(True)
+        button_save_export.connect_after('clicked', self.addreplace_predef)
+        box.pack_start(button_save_export, False, False, 0)
+
+        button_del_export = gtk.Button(
+            _('_Delete Export'), stock=None, use_underline=True)
+        button_del_export.set_image(common.IconFactory.get_image(
+                'tryton-delete', gtk.ICON_SIZE_BUTTON))
+        button_del_export.set_always_show_image(True)
+        button_del_export.connect_after('clicked', self.remove_predef)
+        box.pack_start(button_del_export, False, False, 0)
+
         frame_predef_exports = gtk.Frame()
         frame_predef_exports.set_border_width(2)
         frame_predef_exports.set_shadow_type(gtk.SHADOW_NONE)
@@ -55,25 +71,6 @@ class WinExport(WinCSV):
                 gobject.TYPE_STRING)
         self.fill_predefwin()
 
-    def add_buttons(self, box):
-        button_save_export = gtk.Button(
-            _('_Save Export'), stock=None, use_underline=True)
-        button_save_export.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-save', gtk.ICON_SIZE_BUTTON)
-        button_save_export.set_image(img_button)
-        button_save_export.connect_after('clicked', self.addreplace_predef)
-        box.pack_start(button_save_export, False, False, 0)
-
-        button_del_export = gtk.Button(
-            _('_Delete Export'), stock=None, use_underline=True)
-        button_del_export.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-delete', gtk.ICON_SIZE_BUTTON)
-        button_del_export.set_image(img_button)
-        button_del_export.connect_after('clicked', self.remove_predef)
-        box.pack_start(button_del_export, False, False, 0)
-
     def add_chooser(self, box):
         hbox_csv_export = gtk.HBox()
         box.pack_start(hbox_csv_export, False, True, 0)
@@ -93,8 +90,10 @@ class WinExport(WinCSV):
 
     def model_populate(self, fields, parent_node=None, prefix_field='',
             prefix_name=''):
-        key = lambda (n, f): f.get('string') or n
-        for name, field in sorted(fields.items(), key=key, reverse=True):
+
+        def key(n_f):
+            return n_f[1].get('string') or n_f[0]
+        for name, field in sorted(list(fields.items()), key=key, reverse=True):
 
             string_ = field['string'] or name
 
@@ -297,7 +296,8 @@ class WinExport(WinCSV):
                 data = []
 
             if action == 0:
-                fileno, fname = tempfile.mkstemp('.csv', 'tryton_')
+                fileno, fname = tempfile.mkstemp(
+                    '.csv', common.slugify(self.name) + '_')
                 self.export_csv(fname, fields2, data, popup=False)
                 os.close(fileno)
                 common.file_open(fname, 'csv')
@@ -313,7 +313,7 @@ class WinExport(WinCSV):
 
         try:
             writer = csv.writer(
-                open(fname, 'wb+'),
+                open(fname, 'w', encoding=encoding, newline=''),
                 quotechar=self.get_quotechar(),
                 delimiter=self.get_delimiter())
             if self.add_field_names.get_active():
@@ -321,9 +321,6 @@ class WinExport(WinCSV):
             for line in data:
                 row = []
                 for val in line:
-                    if isinstance(type(val), types.StringType):
-                        val = val.replace('\n', ' ').replace('\t', ' ')
-                        val = val.encode(encoding)
                     row.append(val)
                 writer.writerow(row)
             if popup:
@@ -332,7 +329,7 @@ class WinExport(WinCSV):
                 else:
                     common.message(_('%d records saved.') % len(data))
             return True
-        except IOError, exception:
+        except IOError as exception:
             common.warning(_("Operation failed.\nError message:\n%s")
                 % exception, _('Error'))
             return False

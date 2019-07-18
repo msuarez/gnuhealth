@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
@@ -6,7 +6,7 @@ import gobject
 
 class CellRendererClickablePixbuf(gtk.CellRendererPixbuf):
     __gsignals__ = {
-        'clicked': (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE,
+        'clicked': (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE,
             (gobject.TYPE_STRING, )),
         }
 

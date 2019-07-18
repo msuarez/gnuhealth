@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
@@ -6,7 +6,6 @@ import gobject
 from .widget import Widget
 from tryton.common.selection import SelectionMixin, selection_shortcuts, \
     PopdownMixin
-from tryton.common.widget_style import set_widget_style
 from tryton.config import CONFIG
 
 
@@ -27,7 +26,8 @@ class Selection(Widget, SelectionMixin, PopdownMixin):
         child.connect('focus-out-event', lambda *a: self._focus_out())
         self.entry.connect('changed', self.changed)
         self.entry.connect('move-active', self._move_active)
-        self.entry.connect('scroll-event', self._scroll_event)
+        self.entry.connect(
+            'scroll-event', lambda c, e: c.emit_stop_by_name('scroll-event'))
         self.widget.pack_start(self.entry)
         self.widget.set_focus_chain([child])
 
@@ -47,14 +47,9 @@ class Selection(Widget, SelectionMixin, PopdownMixin):
         if not combobox.get_child().get_editable():
             combobox.emit_stop_by_name('move-active')
 
-    def _scroll_event(self, combobox, event):
-        if not combobox.get_child().get_editable():
-            combobox.emit_stop_by_name('scroll-event')
-
     def _readonly_set(self, value):
         super(Selection, self)._readonly_set(value)
         self.entry.get_child().set_editable(not value)
-        set_widget_style(self.entry.get_child(), not value)
         self.entry.set_button_sensitivity(
             gtk.SENSITIVITY_OFF if value else gtk.SENSITIVITY_AUTO)
         if value and CONFIG['client.fast_tabbing']:

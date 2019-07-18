@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -115,21 +115,12 @@ class EditableTreeView(TreeView):
 
     def set_value(self):
         path, column = self.get_cursor()
-        model = self.get_model()
         if not path or not column or not column.name:
             return True
-        record = model.get_value(model.get_iter(path), 0)
-        field = record[column.name]
-        if hasattr(field, 'editabletree_entry'):
-            entry = field.editabletree_entry
-            if isinstance(entry, (Date, Time)):
-                entry.activate()
-                txt = entry.props.value
-            elif isinstance(entry, gtk.Entry):
-                txt = entry.get_text()
-            else:
-                txt = entry.get_active_text()
-            self.on_quit_cell(record, column, txt)
+        for renderer in column.get_cell_renderers():
+            if renderer.props.editing:
+                widget = self.view.get_column_widget(column)
+                self.on_editing_done(widget.editable)
         return True
 
     def on_keypressed(self, entry, event):
@@ -142,7 +133,7 @@ class EditableTreeView(TreeView):
         if event.keyval == gtk.keysyms.Right:
             if isinstance(entry, gtk.Entry):
                 if entry.get_position() >= \
-                        len(entry.get_text().decode('utf-8')) \
+                        len(entry.get_text()) \
                         and not entry.get_selection_bounds():
                     leaving = True
             else:
@@ -180,7 +171,7 @@ class EditableTreeView(TreeView):
                         gobject.idle_add(self.set_cursor, path,
                             self.prev_column(path, column), True)
                     elif keyval in self.leaving_record_events:
-                        fields = self.view.widgets.keys()
+                        fields = list(self.view.widgets.keys())
                         if not record.validate(fields):
                             invalid_fields = record.invalid_fields
                             col = None
@@ -235,14 +226,6 @@ class EditableTreeView(TreeView):
             field = record[column.name]
             if isinstance(entry, gtk.Entry):
                 entry.set_max_length(int(field.attrs.get('size', 0)))
-            # store in the record the entry widget to get the value in
-            # set_value
-            field.editabletree_entry = entry
-
-            def remove_widget(widget):
-                if hasattr(field, 'editabletree_entry'):
-                    del field.editabletree_entry
-            entry.connect('remove-widget', remove_widget)
             record.modified_fields.setdefault(column.name)
             return False
 

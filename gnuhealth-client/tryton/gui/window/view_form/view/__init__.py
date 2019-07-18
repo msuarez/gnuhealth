@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from tryton.common import node_attributes
 
@@ -6,10 +6,12 @@ from tryton.common import node_attributes
 class View(object):
     view_type = None
     widget = None
+    mnemonic_widget = None
     view_id = None
     modified = None
     editable = None
     children_field = None
+    scroll = None
 
     def __init__(self, screen, xml):
         self.screen = screen

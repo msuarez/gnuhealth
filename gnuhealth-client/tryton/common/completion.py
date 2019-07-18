@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import logging
 import gettext
@@ -33,7 +33,7 @@ def update_completion(entry, record, field, model, domain=None):
     def update(search_text, domain):
         if not entry.props.window:
             return False
-        if search_text != entry.get_text().decode('utf-8'):
+        if search_text != entry.get_text():
             return False
         completion_model = entry.get_completion().get_model()
         if not search_text or not model:
@@ -44,15 +44,16 @@ def update_completion(entry, record, field, model, domain=None):
             return False
         if domain is None:
             domain = field.domain_get(record)
-        context = field.get_context(record)
+        context = field.get_search_context(record)
         domain = [('rec_name', 'ilike', '%' + search_text + '%'), domain]
+        order = field.get_search_order(record)
 
         def callback(results):
             try:
                 results = results()
             except (TrytonError, TrytonServerError):
                 results = []
-            if search_text != entry.get_text().decode('utf-8'):
+            if search_text != entry.get_text():
                 return False
             completion_model.clear()
             for result in results:
@@ -62,12 +63,12 @@ def update_completion(entry, record, field, model, domain=None):
             entry.emit('changed')
         try:
             RPCExecute('model', model, 'search_read', domain, 0,
-                CONFIG['client.limit'], None, ['rec_name'], context=context,
+                CONFIG['client.limit'], order, ['rec_name'], context=context,
                 process_exception=False, callback=callback)
         except Exception:
             logging.warn(
                 _("Unable to search for completion of %s") % model,
                 exc_info=True)
         return False
-    search_text = entry.get_text().decode('utf-8')
+    search_text = entry.get_text()
     gobject.timeout_add(300, update, search_text, domain)

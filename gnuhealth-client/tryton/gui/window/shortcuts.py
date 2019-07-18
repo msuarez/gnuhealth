@@ -1,10 +1,13 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
 import gtk
 import gettext
+
+from tryton.common import get_toplevel_window, IconFactory
+from tryton.common.underline import set_underline
 from tryton.config import GNUHEALTH_ICON
-from tryton.common import get_toplevel_window
+from tryton.gui import Main
 
 _ = gettext.gettext
 
@@ -16,8 +19,13 @@ class Shortcuts(object):
         self.parent = get_toplevel_window()
         self.dialog = gtk.Dialog(_('Keyboard Shortcuts'), self.parent,
             gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT
-            | gtk.WIN_POS_CENTER_ON_PARENT | gtk.gdk.WINDOW_TYPE_HINT_DIALOG,
-            (gtk.STOCK_OK, gtk.RESPONSE_OK))
+            | gtk.WIN_POS_CENTER_ON_PARENT | gtk.gdk.WINDOW_TYPE_HINT_DIALOG)
+        Main().add_window(self.dialog)
+        ok_button = self.dialog.add_button(
+            set_underline(_("OK")), gtk.RESPONSE_OK)
+        ok_button.set_image(IconFactory.get_image(
+                'tryton-ok', gtk.ICON_SIZE_BUTTON))
+        ok_button.set_always_show_image(True)
         self.dialog.set_icon(GNUHEALTH_ICON)
         self.dialog.set_default_response(gtk.RESPONSE_OK)
         notebook = gtk.Notebook()

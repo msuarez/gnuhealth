@@ -1,10 +1,11 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
-import urllib
+import urllib.request
 
-from tryton.common import resize_pixbuf, data2pixbuf, BIG_IMAGE_SIZE
+from tryton.common import resize_pixbuf, data2pixbuf
+from tryton.config import CONFIG
 from .widget import Widget
 from .binary import BinaryMixin
 
@@ -76,12 +77,14 @@ class Image(BinaryMixin, Widget):
         if info == 0:
             uri = selection.get_text().split('\n')[0]
             if uri:
-                self.field.set_client(self.record, urllib.urlopen(uri).read())
+                self.field.set_client(
+                    self.record, urllib.request.urlopen(uri).read())
             self.update_img()
         elif info == 1:
             uri = selection.data.split('\r\n')[0]
             if uri:
-                self.field.set_client(self.record, urllib.urlopen(uri).read())
+                self.field.set_client(
+                    self.record, urllib.request.urlopen(uri).read())
             self.update_img()
         elif info == 2:
             data = selection.get_pixbuf()
@@ -93,12 +96,14 @@ class Image(BinaryMixin, Widget):
         value = None
         if self.field:
             value = self.field.get_client(self.record)
-        if isinstance(value, (int, long)):
-            if value > BIG_IMAGE_SIZE:
+        if isinstance(value, int):
+            if value > CONFIG['image.max_size']:
                 value = False
             else:
                 value = self.field.get_data(self.record)
-        pixbuf = resize_pixbuf(data2pixbuf(value), self.width, self.height)
+        pixbuf = data2pixbuf(value)
+        if pixbuf:
+            pixbuf = resize_pixbuf(pixbuf, self.width, self.height)
         self.image.set_from_pixbuf(pixbuf)
         return bool(value)
 

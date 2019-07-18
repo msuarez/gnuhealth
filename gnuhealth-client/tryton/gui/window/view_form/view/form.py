@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import operator
 import gtk
@@ -8,7 +8,8 @@ from collections import defaultdict
 from . import View
 from tryton.common.focus import (get_invisible_ancestor, find_focused_child,
     next_focus_widget, find_focusable_child, find_first_focus_widget)
-from tryton.common import Tooltips, node_attributes, ICONFACTORY
+from tryton.common import Tooltips, node_attributes, IconFactory
+from tryton.common.underline import set_underline
 from tryton.common.button import Button
 from tryton.config import CONFIG
 from .form_gtk.calendar import Date, Time, DateTime
@@ -33,20 +34,30 @@ from .form_gtk.dictionary import DictWidget
 from .form_gtk.multiselection import MultiSelection
 from .form_gtk.pyson import PYSON
 from .form_gtk.state_widget import (Label, VBox, Image, Frame, ScrolledWindow,
-    Notebook, Alignment)
+    Notebook, Alignment, Expander)
 
 _ = gettext.gettext
 
 
 class Container(object):
-    def __init__(self, col=4):
+
+    @staticmethod
+    def constructor(col=4, homogeneous=False):
         if CONFIG['client.modepda']:
             col = 1
+        if col <= 0:
+            return HContainer(col, homogeneous)
+        elif col == 1:
+            return VContainer(col, homogeneous)
+        else:
+            return Container(col, homogeneous)
+
+    def __init__(self, col=4, homogeneous=False):
         if col < 0:
             col = 0
         self.col = col
         self.table = gtk.Table(1, col)
-        self.table.set_homogeneous(False)
+        self.table.set_homogeneous(homogeneous)
         self.table.set_col_spacings(0)
         self.table.set_row_spacings(0)
         self.table.set_border_width(0)
@@ -111,6 +122,46 @@ class Container(object):
             ypadding=1, xpadding=2)
 
 
+class VContainer(Container):
+    def __init__(self, col=1, homogeneous=False):
+        self.col = 1
+        self.table = gtk.VBox()
+        self.table.set_homogeneous(homogeneous)
+
+    def add_row(self):
+        pass
+
+    def add_col(self):
+        pass
+
+    def add(self, widget, attributes):
+        if not widget:
+            return
+        expand = bool(int(attributes.get('yexpand', False)))
+        fill = bool(int(attributes.get('yfill', False)))
+        self.table.pack_start(widget, expand=expand, fill=fill, padding=2)
+
+
+class HContainer(Container):
+    def __init__(self, col=0, homogeneous=False):
+        self.col = 0
+        self.table = gtk.HBox()
+        self.table.set_homogeneous(homogeneous)
+
+    def add_row(self):
+        pass
+
+    def add_col(self):
+        pass
+
+    def add(self, widget, attributes):
+        if not widget:
+            return
+        expand = bool(int(attributes.get('xexpand', True)))
+        fill = bool(int(attributes.get('xfill', True)))
+        self.table.pack_start(widget, expand=expand, fill=fill, padding=1)
+
+
 class ViewForm(View):
     editable = True
 
@@ -120,6 +171,7 @@ class ViewForm(View):
         self.widgets = defaultdict(list)
         self.state_widgets = []
         self.notebooks = []
+        self.expandables = []
 
         container = self.parse(xml)
 
@@ -127,7 +179,7 @@ class ViewForm(View):
         vp = gtk.Viewport()
         vp.set_shadow_type(gtk.SHADOW_NONE)
         vp.add(container.table)
-        scroll = gtk.ScrolledWindow()
+        self.scroll = scroll = gtk.ScrolledWindow()
         scroll.add(vp)
         scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
         scroll.set_placement(gtk.CORNER_TOP_LEFT)
@@ -142,7 +194,9 @@ class ViewForm(View):
     def parse(self, node, container=None):
         if not container:
             node_attrs = node_attributes(node)
-            container = Container(int(node_attrs.get('col', 4)))
+            container = Container.constructor(
+                int(node_attrs.get('col', 4)),
+                node_attrs.get('homogeneous', False))
         mnemonics = {}
         for node in node.childNodes:
             if node.nodeType != node.ELEMENT_NODE:
@@ -165,14 +219,14 @@ class ViewForm(View):
                 mnemonics[name] = widget
             if node.tagName == 'field':
                 if name in mnemonics and widget.mnemonic_widget:
-                    mnemonics.pop(name).set_mnemonic_widget(
-                        widget.mnemonic_widget)
+                    label = mnemonics.pop(name)
+                    label.set_label(set_underline(label.get_label()))
+                    label.set_use_underline(True)
+                    label.set_mnemonic_widget(widget.mnemonic_widget)
         return container
 
     def _parse_image(self, node, container, attributes):
-        ICONFACTORY.register_icon(attributes['name'])
         image = Image(attrs=attributes)
-        image.set_from_stock(attributes['name'], gtk.ICON_SIZE_DIALOG)
         self.state_widgets.append(image)
         container.add(image, attributes)
 
@@ -208,7 +262,7 @@ class ViewForm(View):
 
         label = Label(attributes.get('string', ''), attrs=attributes)
         label.set_alignment(float(attributes.get('xalign', 1.0)),
-            float(attributes.get('yalign', 0.0)))
+            float(attributes.get('yalign', 0.5)))
         label.set_angle(int(attributes.get('angle', 0)))
         attributes.setdefault('xexpand', 0)
         self.state_widgets.append(label)
@@ -231,6 +285,10 @@ class ViewForm(View):
         notebook = Notebook(attrs=attributes)
         notebook.set_scrollable(True)
         notebook.set_border_width(3)
+        if attributes.get('height') or attributes.get('width'):
+            notebook.set_size_request(
+                int(attributes.get('width', -1)),
+                int(attributes.get('height', -1)))
 
         # Force to display the first time it switches on a page
         # This avoids glitch in position of widgets
@@ -257,17 +315,13 @@ class ViewForm(View):
             for attr in ('states', 'string'):
                 if attr not in attributes and attr in field.attrs:
                     attributes[attr] = field.attrs[attr]
-        label = gtk.Label('_' + attributes['string'].replace('_', '__'))
+        label = gtk.Label(set_underline(attributes['string']))
         label.set_use_underline(True)
-        tab_box.pack_start(label)
 
         if 'icon' in attributes:
-            ICONFACTORY.register_icon(attributes['icon'])
-            pixbuf = tab_box.render_icon(attributes['icon'],
-                gtk.ICON_SIZE_SMALL_TOOLBAR)
-            icon = gtk.Image()
-            icon.set_from_pixbuf(pixbuf)
-            tab_box.pack_start(icon)
+            tab_box.pack_start(IconFactory.get_image(
+                    attributes['icon'], gtk.ICON_SIZE_SMALL_TOOLBAR))
+        tab_box.pack_start(label)
         tab_box.show_all()
 
         viewport = gtk.Viewport()
@@ -323,7 +377,6 @@ class ViewForm(View):
 
     def _parse_group(self, node, container, attributes):
         group = self.parse(node)
-        group.table.set_homogeneous(attributes.get('homogeneous', False))
         if 'name' in attributes:
             field = self.screen.group.fields[attributes['name']]
             if attributes['name'] == self.screen.exclude_field:
@@ -333,10 +386,18 @@ class ViewForm(View):
                 if attr not in attributes and attr in field.attrs:
                     attributes[attr] = field.attrs[attr]
 
-        frame = Frame(attributes.get('string'), attrs=attributes)
-        frame.add(group.table)
-        self.state_widgets.append(frame)
-        container.add(frame, attributes)
+        can_expand = attributes.get('expandable')
+        if can_expand:
+            widget = Expander(attributes.get('string'), attrs=attributes)
+            widget.add(group.table)
+            widget.set_expanded(can_expand == '1')
+            self.expandables.append(widget)
+        else:
+            widget = Frame(attributes.get('string'), attrs=attributes)
+            widget.add(group.table)
+
+        self.state_widgets.append(widget)
+        container.add(widget, attributes)
 
     def _parse_paned(self, node, container, attributes, Paned):
         attributes.setdefault('yexpand', True)
@@ -365,6 +426,7 @@ class ViewForm(View):
         'date': Date,
         'datetime': DateTime,
         'time': Time,
+        'timestamp': DateTime,
         'float': Float,
         'numeric': Float,
         'integer': Integer,
@@ -398,13 +460,13 @@ class ViewForm(View):
         return cls.WIDGETS[name]
 
     def get_fields(self):
-        return self.widgets.keys()
+        return list(self.widgets.keys())
 
     def __getitem__(self, name):
         return self.widgets[name][0]
 
     def destroy(self):
-        for widget_name in self.widgets.keys():
+        for widget_name in list(self.widgets.keys()):
             for widget in self.widgets[widget_name]:
                 widget.destroy()
         self.widget.destroy()
@@ -412,7 +474,7 @@ class ViewForm(View):
     def set_value(self, focused_widget=False):
         record = self.screen.current_record
         if record:
-            for name, widgets in self.widgets.iteritems():
+            for name, widgets in self.widgets.items():
                 if name in record.group.fields:
                     field = record.group.fields[name]
                     for widget in widgets:
@@ -430,7 +492,7 @@ class ViewForm(View):
 
     @property
     def modified(self):
-        return any(w.modified for widgets in self.widgets.itervalues()
+        return any(w.modified for widgets in self.widgets.values()
             for w in widgets)
 
     def get_buttons(self):
@@ -439,7 +501,7 @@ class ViewForm(View):
     def reset(self):
         record = self.screen.current_record
         if record:
-            for name, widgets in self.widgets.iteritems():
+            for name, widgets in self.widgets.items():
                 field = record.group.fields.get(name)
                 if field and 'invalid' in field.get_state_attrs(record):
                     for widget in widgets:
@@ -450,14 +512,19 @@ class ViewForm(View):
         record = self.screen.current_record
         if record:
             # Force to set fields in record
-            # Get first the lazy one to reduce number of requests
-            fields = [(name, field.attrs.get('loading', 'eager'))
-                    for name, field in record.group.fields.iteritems()]
-            fields.sort(key=operator.itemgetter(1), reverse=True)
-            for field, _ in fields:
+            # Get first the lazy one from the view to reduce number of requests
+            fields = ((name, record.group.fields[name])
+                for name in self.widgets)
+            fields = (
+                (name,
+                    field.attrs.get('loading', 'eager') == 'eager',
+                    len(field.views))
+                for name, field in fields)
+            fields = sorted(fields, key=operator.itemgetter(1, 2))
+            for field, _, _ in fields:
                 record[field].get(record)
         focused_widget = find_focused_child(self.widget)
-        for name, widgets in self.widgets.iteritems():
+        for name, widgets in self.widgets.items():
             field = None
             if record:
                 field = record.group.fields.get(name)
@@ -506,6 +573,9 @@ class ViewForm(View):
                     child = notebook.get_nth_page(i)
                     if focus_widget.is_ancestor(child):
                         notebook.set_current_page(i)
+            for group in self.expandables:
+                if focus_widget.is_ancestor(group):
+                    group.set_expanded(True)
             focus_widget.grab_focus()
 
     def button_clicked(self, widget):

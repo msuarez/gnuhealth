@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import datetime
 import calendar
@@ -16,7 +16,7 @@ class Toolbar(gtk.Toolbar):
     def __init__(self, goocalendar):
         super(Toolbar, self).__init__()
         self.goocalendar = goocalendar
-        self.accel_group = Main.get_main().accel_group
+        self.accel_group = Main().accel_group
 
         today_button = gtk.ToolButton()
         today_button.set_label(_('Today'))

@@ -1,9 +1,12 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 "Form"
 import gettext
 import gtk
 import gobject
+
+from gi.repository import Gtk
+
 from tryton.gui.window.view_form.screen import Screen
 from tryton.action import Action
 from tryton.gui import Main
@@ -20,7 +23,7 @@ from tryton.common import RPCExecute, RPCException
 from tryton.common.datetime_strftime import datetime_strftime
 from tryton import plugins
 
-from tabcontent import TabContent
+from .tabcontent import TabContent
 
 _ = gettext.gettext
 
@@ -29,7 +32,7 @@ class Form(SignalEvent, TabContent):
     "Form"
 
     def __init__(self, model, res_id=None, name='', **attributes):
-        super(Form, self).__init__()
+        super(Form, self).__init__(**attributes)
 
         self.model = model
         self.res_id = res_id
@@ -57,7 +60,7 @@ class Form(SignalEvent, TabContent):
         self.screen.signal_connect(self, 'unread-note', self._unread_note)
 
         if res_id not in (None, False):
-            if isinstance(res_id, (int, long)):
+            if isinstance(res_id, int):
                 res_id = [res_id]
             self.screen.load(res_id)
         else:
@@ -79,20 +82,22 @@ class Form(SignalEvent, TabContent):
     def widget_get(self):
         return self.screen.widget
 
-    def __eq__(self, value):
-        if not value:
+    def compare(self, model, attributes):
+        if not attributes:
             return False
-        if not isinstance(value, Form):
-            return False
-        return (self.model == value.model
-            and self.res_id == value.res_id
-            and self.screen.domain == value.screen.domain
-            and self.mode == value.mode
-            and self.view_ids == value.view_ids
-            and self.screen.context == value.screen.context
-            and self.name == value.name
-            and self.screen.limit == value.screen.limit
-            and self.screen.search_value == value.screen.search_value)
+        return (self.model == model
+            and self.res_id == attributes.get('res_id')
+            and self.attributes.get('domain') == attributes.get('domain')
+            and (self.attributes.get('mode') or []) == (
+                attributes.get('mode') or [])
+            and self.attributes.get('view_ids') == attributes.get('view_ids')
+            and self.attributes.get('context') == attributes.get('context')
+            and self.attributes.get('limit') == attributes.get('limit')
+            and self.attributes.get('search_value') == (
+                attributes.get('search_value')))
+
+    def __hash__(self):
+        return id(self)
 
     def destroy(self):
         super(Form, self).destroy()
@@ -100,11 +105,44 @@ class Form(SignalEvent, TabContent):
         self.screen.destroy()
 
     def sig_attach(self, widget=None):
-        record = self.screen.current_record
-        if not record or record.id < 0:
+        def window(widget):
+            return Attachment(
+                record, lambda: self.update_attachment_count(reload=True))
+
+        def add_file(widget):
+            filenames = common.file_selection(_("Select"), multi=True)
+            if filenames:
+                attachment = window(widget)
+                for filename in filenames:
+                    attachment.add_file(filename)
+
+        def activate(widget, callback):
+            callback()
+
+        button = self.buttons['attach']
+        if widget != button:
+            if button.props.sensitive:
+                button.props.active = True
             return
-        Attachment(record,
-            lambda: self.update_attachment_count(reload=True))
+        record = self.screen.current_record
+        menu = button._menu = Gtk.Menu()
+        for name, callback in Attachment.get_attachments(record):
+            item = Gtk.MenuItem()
+            item.set_label(name)
+            item.connect('activate', activate, callback)
+            menu.add(item)
+        menu.add(Gtk.SeparatorMenuItem())
+        add_item = Gtk.MenuItem()
+        add_item.set_label(_("Add..."))
+        add_item.connect('activate', add_file)
+        menu.add(add_item)
+        manage_item = Gtk.MenuItem()
+        manage_item.set_label(_("Manage..."))
+        manage_item.connect('activate', window)
+        menu.add(manage_item)
+        menu.show_all()
+        menu.connect('deactivate', self._popup_menu_hide, button)
+        self.action_popup(button)
 
     def update_attachment_count(self, reload=False):
         record = self.screen.current_record
@@ -118,9 +156,13 @@ class Form(SignalEvent, TabContent):
         label = _('Attachment(%d)') % signal_data
         self.buttons['attach'].set_label(label)
         if signal_data:
-            self.buttons['attach'].set_stock_id('tryton-attachment-hi')
+            # FIXME
+            icon = 'tryton-attach'
         else:
-            self.buttons['attach'].set_stock_id('tryton-attachment')
+            icon = 'tryton-attach'
+        image = common.IconFactory.get_image(icon, gtk.ICON_SIZE_LARGE_TOOLBAR)
+        image.show()
+        self.buttons['attach'].set_icon_widget(image)
         record = self.screen.current_record
         self.buttons['attach'].props.sensitive = bool(
             record.id >= 0 if record else False)
@@ -227,14 +269,20 @@ class Form(SignalEvent, TabContent):
             self.update_revision()
 
     def update_revision(self):
+        tooltips = common.Tooltips()
         revision = self.screen.context.get('_datetime')
         if revision:
             format_ = self.screen.context.get('date_format', '%x')
             format_ += ' %H:%M:%S.%f'
-            revision = datetime_strftime(revision, format_)
-            self.title.set_label('%s @ %s' % (self.name, revision))
+            revision_label = ' @ %s' % datetime_strftime(revision, format_)
+            label = common.ellipsize(
+                self.name, 80 - len(revision_label)) + revision_label
+            tooltip = self.name + revision_label
         else:
-            self.title.set_label(self.name)
+            label = common.ellipsize(self.name, 80)
+            tooltip = self.name
+        self.title.set_label(label)
+        tooltips.set_tip(self.title, tooltip)
         self.set_buttons_sensitive(revision)
 
     def set_buttons_sensitive(self, revision=None):
@@ -273,14 +321,22 @@ class Form(SignalEvent, TabContent):
                 self.screen.count_tab_domain()
 
     def sig_import(self, widget=None):
-        WinImport(self.model, self.screen.context)
+        WinImport(self.title.get_text(), self.model, self.screen.context)
 
     def sig_export(self, widget=None):
-        export = WinExport(self.model,
+        export = WinExport(
+            self.title.get_text(), self.model,
             [r.id for r in self.screen.selected_records],
             context=self.screen.context)
         for name in self.screen.current_view.get_fields():
-            export.sel_field(name)
+            type = self.screen.group.fields[name].attrs['type']
+            if type == 'selection':
+                export.sel_field(name + '.translated')
+            elif type == 'reference':
+                export.sel_field(name + '.translated')
+                export.sel_field(name + '/rec_name')
+            else:
+                export.sel_field(name)
 
     def sig_new(self, widget=None, autosave=True):
         if not common.MODELACCESS[self.model]['create']:
@@ -413,6 +469,13 @@ class Form(SignalEvent, TabContent):
                 'attach'):
             button = self.buttons[button_id]
             can_be_sensitive = getattr(button, '_can_be_sensitive', True)
+            if button_id in {'print', 'relate', 'email', 'open'}:
+                action_type = button_id
+                if button_id in {'email', 'open'}:
+                    action_type = 'print'
+                can_be_sensitive |= any(
+                    b.attrs.get('keyword', 'action') == action_type
+                    for b in screen.get_buttons())
             button.props.sensitive = (bool(signal_data[0])
                 and can_be_sensitive)
         button_switch = self.buttons['switch']
@@ -456,7 +519,7 @@ class Form(SignalEvent, TabContent):
 
     def _action(self, action, atype):
         action = action.copy()
-        if not self.screen.save_current():
+        if self.screen.modified() and not self.sig_save():
             return
         record_id = (self.screen.current_record.id
             if self.screen.current_record else None)
@@ -467,13 +530,13 @@ class Form(SignalEvent, TabContent):
             'id': record_id,
             'ids': record_ids,
         }
-        Action._exec_action(action, data, self.screen.context)
+        Action._exec_action(action, data, self.screen.group._context.copy())
 
     def activate_save(self):
         self.buttons['save'].props.sensitive = self.screen.modified()
 
     def sig_win_close(self, widget):
-        Main.get_main().sig_win_close(widget)
+        Main().sig_win_close(widget)
 
     def create_toolbar(self, toolbars):
         gtktoolbar = super(Form, self).create_toolbar(toolbars)
@@ -488,10 +551,10 @@ class Form(SignalEvent, TabContent):
 
         iconstock = {
             'print': 'tryton-print',
-            'action': 'tryton-executable',
-            'relate': 'tryton-go-jump',
-            'email': 'tryton-print-email',
-            'open': 'tryton-print-open',
+            'action': 'tryton-launch',
+            'relate': 'tryton-link',
+            'email': 'tryton-email',
+            'open': 'tryton-open',
         }
         for action_type, special_action, action_name, tooltip in (
                 ('action', 'action', _('Action'), _('Launch action')),
@@ -502,7 +565,10 @@ class Form(SignalEvent, TabContent):
                 ('print', 'print', _('Print'), _('Print report')),
         ):
             if action_type is not None:
-                tbutton = gtk.ToggleToolButton(iconstock.get(special_action))
+                tbutton = gtk.ToggleToolButton()
+                tbutton.set_icon_widget(common.IconFactory.get_image(
+                        iconstock.get(special_action),
+                        gtk.ICON_SIZE_LARGE_TOOLBAR))
                 tbutton.set_label(action_name)
                 tbutton._menu = self._create_popup_menu(tbutton,
                     action_type, toolbars[action_type], special_action)
@@ -518,7 +584,10 @@ class Form(SignalEvent, TabContent):
 
         gtktoolbar.insert(gtk.SeparatorToolItem(), -1)
 
-        url_button = gtk.ToggleToolButton('tryton-web-browser')
+        url_button = gtk.ToggleToolButton()
+        url_button.set_icon_widget(
+            common.IconFactory.get_image(
+                'tryton-public', gtk.ICON_SIZE_LARGE_TOOLBAR))
         url_button.set_label(_('_Copy URL'))
         url_button.set_use_underline(True)
         self.tooltips.set_tip(
@@ -538,9 +607,7 @@ class Form(SignalEvent, TabContent):
     def _create_popup_menu(self, widget, keyword, actions, special_action):
         menu = gtk.Menu()
         menu.connect('deactivate', self._popup_menu_hide, widget)
-
-        if keyword == 'action':
-            widget.connect('toggled', self._update_action_popup, menu)
+        widget.connect('toggled', self._update_popup_menu, menu, keyword)
 
         for action in actions:
             new_action = action.copy()
@@ -571,42 +638,54 @@ class Form(SignalEvent, TabContent):
     def _popup_menu_hide(self, menuitem, togglebutton):
         togglebutton.props.active = False
 
-    def _update_action_popup(self, tbutton, menu):
+    def _update_popup_menu(self, tbutton, menu, keyword):
         for item in menu.get_children():
             if (getattr(item, '_update_action', False)
                     or isinstance(item, gtk.SeparatorMenuItem)):
                 menu.remove(item)
 
-        buttons = self.screen.get_buttons()
-        if buttons:
+        buttons = [b for b in self.screen.get_buttons()
+            if keyword == b.attrs.get('keyword', 'action')]
+        if buttons and menu.get_children():
             menu.add(gtk.SeparatorMenuItem())
         for button in buttons:
             menuitem = gtk.ImageMenuItem()
             menuitem.set_label('_' + button.attrs.get('string', _('Unknown')))
             menuitem.set_use_underline(True)
             if button.attrs.get('icon'):
-                icon = gtk.Image()
-                icon.set_from_stock(button.attrs['icon'], gtk.ICON_SIZE_MENU)
-                menuitem.set_image(icon)
+                menuitem.set_image(common.IconFactory.get_image(
+                        button.attrs['icon'], gtk.ICON_SIZE_MENU))
             menuitem.connect('activate',
                 lambda m, attrs: self.screen.button(attrs), button.attrs)
             menuitem._update_action = True
             menu.add(menuitem)
 
-        menu.add(gtk.SeparatorMenuItem())
+        kw_plugins = []
         for plugin in plugins.MODULES:
-            for name, func in plugin.get_plugins(self.model):
-                menuitem = gtk.MenuItem('_' + name)
-                menuitem.set_use_underline(True)
-                menuitem.connect('activate', lambda m, func: func({
-                            'model': self.model,
-                            'ids': [r.id
-                                for r in self.screen.selected_records],
-                            'id': (self.screen.current_record.id
-                                if self.screen.current_record else None),
-                            }), func)
-                menuitem._update_action = True
-                menu.add(menuitem)
+            for plugin_spec in plugin.get_plugins(self.model):
+                name, func = plugin_spec[:2]
+                try:
+                    plugin_keyword = plugin_spec[2]
+                except IndexError:
+                    plugin_keyword = 'action'
+                if keyword != plugin_keyword:
+                    continue
+                kw_plugins.append((name, func))
+
+        if kw_plugins:
+            menu.add(gtk.SeparatorMenuItem())
+        for name, func in kw_plugins:
+            menuitem = gtk.MenuItem('_' + name)
+            menuitem.set_use_underline(True)
+            menuitem.connect('activate', lambda m, func: func({
+                        'model': self.model,
+                        'ids': [r.id
+                            for r in self.screen.selected_records],
+                        'id': (self.screen.current_record.id
+                            if self.screen.current_record else None),
+                        }), func)
+            menuitem._update_action = True
+            menu.add(menuitem)
 
     def url_copy(self, menuitem):
         url = self.screen.get_url(self.name)
@@ -633,7 +712,7 @@ class Form(SignalEvent, TabContent):
         win_attach = Attachment(record,
             lambda: self.update_attachment_count(reload=True))
         if info == 0:
-            for uri in selection.data.splitlines():
+            for uri in selection.get_uris():
                 # Win32 cut&paste terminates the list with a NULL character
                 if not uri or uri == '\0':
                     continue

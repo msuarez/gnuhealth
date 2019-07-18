@@ -1,14 +1,13 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gettext
 
 import gobject
 import gtk
 from .widget import Widget, TranslateMixin
-from tryton.common import Tooltips
+from tryton.common import Tooltips, IconFactory
 from tryton.common.entry_position import reset_position
 from tryton.common.selection import PopdownMixin, selection_shortcuts
-from tryton.common.widget_style import set_widget_style
 from tryton.config import CONFIG
 
 _ = gettext.gettext
@@ -28,6 +27,10 @@ class Char(Widget, TranslateMixin, PopdownMixin):
             focus_entry = self.entry.get_child()
             self.set_popdown([], self.entry)
             self.entry.connect('changed', self.changed)
+            self.entry.connect('move-active', self._move_active)
+            self.entry.connect(
+                'scroll-event',
+                lambda c, e: c.emit_stop_by_name('scroll-event'))
         else:
             self.entry = gtk.Entry()
             focus_entry = self.entry
@@ -43,8 +46,9 @@ class Char(Widget, TranslateMixin, PopdownMixin):
         self.widget.pack_start(self.entry, expand=expand, fill=fill)
 
         if attrs.get('translate'):
-            self.entry.set_icon_from_stock(gtk.ENTRY_ICON_SECONDARY,
-                'tryton-locale')
+            self.entry.set_icon_from_pixbuf(
+                gtk.ENTRY_ICON_SECONDARY,
+                IconFactory.get_pixbuf('tryton-translate', gtk.ICON_SIZE_MENU))
             self.entry.connect('icon-press', self.translate)
 
     def translate_widget(self):
@@ -56,17 +60,14 @@ class Char(Widget, TranslateMixin, PopdownMixin):
             entry.set_max_length(field_size or 0)
         return entry
 
-    @staticmethod
-    def translate_widget_set(widget, value):
+    def translate_widget_set(self, widget, value):
         widget.set_text(value)
         reset_position(widget)
 
-    @staticmethod
-    def translate_widget_get(widget):
+    def translate_widget_get(self, widget):
         return widget.get_text()
 
-    @staticmethod
-    def translate_widget_set_readonly(widget, value):
+    def translate_widget_set_readonly(self, widget, value):
         widget.set_editable(not value)
         widget.props.sensitive = not value
 
@@ -138,6 +139,10 @@ class Char(Widget, TranslateMixin, PopdownMixin):
                 reset_position(child)
             self.entry.handler_unblock_by_func(self.changed)
 
+    def _move_active(self, combobox, scroll_type):
+        if not combobox.get_child().get_editable():
+            combobox.emit_stop_by_name('move-active')
+
     def _readonly_set(self, value):
         sensitivity = {True: gtk.SENSITIVITY_OFF, False: gtk.SENSITIVITY_AUTO}
         super(Char, self)._readonly_set(value)
@@ -147,7 +152,6 @@ class Char(Widget, TranslateMixin, PopdownMixin):
         else:
             entry_editable = self.entry
         entry_editable.set_editable(not value)
-        set_widget_style(entry_editable, not value)
         if value and CONFIG['client.fast_tabbing']:
             self.widget.set_focus_chain([])
         else:

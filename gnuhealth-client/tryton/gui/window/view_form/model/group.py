@@ -1,7 +1,8 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-from record import Record
-from field import Field, M2OField, ReferenceField
+from .record import Record
+from .field import Field, M2OField, ReferenceField
+from tryton import rpc
 from tryton.signal_event import SignalEvent
 from tryton.common.domain_inversion import is_leaf
 from tryton.common import RPCExecute, RPCException, MODELACCESS
@@ -153,7 +154,7 @@ class Group(SignalEvent, list):
         return '<Group %s at %s>' % (self.model_name, id(self))
 
     def load_fields(self, fields):
-        for name, attr in fields.iteritems():
+        for name, attr in fields.items():
             field = Field.get_field(attr['type'])
             attr['name'] = name
             self.fields[name] = field(attr)
@@ -171,7 +172,28 @@ class Group(SignalEvent, list):
         return saved
 
     def delete(self, records):
-        return Record.delete(records)
+        if not records:
+            return
+        root_group = self.root_group
+        assert all(r.model_name == self.model_name for r in records)
+        assert all(r.group.root_group == root_group for r in records)
+        records = [r for r in records if r.id >= 0]
+        ctx = self.context
+        ctx['_timestamp'] = {}
+        for rec in records:
+            ctx['_timestamp'].update(rec.get_timestamp())
+        record_ids = set(r.id for r in records)
+        reload_ids = set(root_group.on_write_ids(list(record_ids)))
+        reload_ids -= record_ids
+        reload_ids = list(reload_ids)
+        try:
+            RPCExecute('model', self.model_name, 'delete', list(record_ids),
+                context=ctx)
+        except RPCException:
+            return False
+        if reload_ids:
+            root_group.reload(reload_ids)
+        return True
 
     @property
     def root_group(self):
@@ -183,7 +205,7 @@ class Group(SignalEvent, list):
         return root
 
     def written(self, ids):
-        if isinstance(ids, (int, long)):
+        if isinstance(ids, int):
             ids = [ids]
         ids = [x for x in self.on_write_ids(ids) or [] if x not in ids]
         if not ids:
@@ -253,12 +275,13 @@ class Group(SignalEvent, list):
 
     @property
     def context(self):
-        ctx = self._context.copy()
+        ctx = rpc.CONTEXT.copy()
         if self.parent:
-            ctx.update(self.parent.get_context())
+            parent_context = self.parent.get_context()
+            ctx.update(parent_context)
             if self.child_name in self.parent.group.fields:
                 field = self.parent.group.fields[self.child_name]
-                ctx.update(field.get_context(self.parent))
+                ctx.update(field.get_context(self.parent, parent_context))
         ctx.update(self._context)
         if self.parent_datetime_field:
             ctx['_datetime'] = self.parent.get_eval(
@@ -399,7 +422,7 @@ class Group(SignalEvent, list):
             return None
         return self[self.current_idx]
 
-    def next(self):
+    def __next__(self):
         if len(self) and self.current_idx is not None:
             self.current_idx = (self.current_idx + 1) % len(self)
         elif len(self):
@@ -410,7 +433,7 @@ class Group(SignalEvent, list):
 
     def add_fields(self, fields):
         to_add = {}
-        for name, attr in fields.iteritems():
+        for name, attr in fields.items():
             if name not in self.fields:
                 to_add[name] = attr
             else:
@@ -428,7 +451,7 @@ class Group(SignalEvent, list):
         if len(new) and len(to_add):
             try:
                 values = RPCExecute('model', self.model_name, 'default_get',
-                    to_add.keys(), context=self.context)
+                    list(to_add.keys()), context=self.context)
             except RPCException:
                 return False
             for record in new:

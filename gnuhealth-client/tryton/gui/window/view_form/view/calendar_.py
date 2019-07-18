@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 from functools import wraps
 
@@ -11,7 +11,7 @@ from . import View
 try:
     from .calendar_gtk.calendar_ import Calendar_
     from .calendar_gtk.toolbar import Toolbar
-except ImportError, e:
+except ImportError as e:
     Calendar_ = None
     Toolbar = None
 
@@ -59,7 +59,7 @@ class ViewCalendar(View):
         goocalendar.connect('day-pressed', self.on_day_pressed)
         goocalendar.connect('day-activated', self.on_day_activated)
         self.widgets['goocalendar'] = goocalendar
-        scrolledWindow = gtk.ScrolledWindow()
+        self.scroll = scrolledWindow = gtk.ScrolledWindow()
         scrolledWindow.add_with_viewport(goocalendar)
         vbox.pack_start(toolbar, False, False)
         vbox.pack_start(scrolledWindow, True, True)

@@ -1,13 +1,11 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
 import os
-import tempfile
 from tryton.common import common
-from tryton.common import file_selection, Tooltips, file_open, slugify
+from tryton.common import file_selection, Tooltips, file_open, file_write
 from tryton.common.entry_position import reset_position
-from tryton.common.widget_style import set_widget_style
 from tryton.config import CONFIG
 from .widget import Widget
 
@@ -26,28 +24,24 @@ class BinaryMixin(Widget):
         tooltips = Tooltips()
 
         self.but_save_as = gtk.Button()
-        img_save_as = gtk.Image()
-        img_save_as.set_from_stock('tryton-save-as',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        self.but_save_as.set_image(img_save_as)
+        self.but_save_as.set_image(common.IconFactory.get_image(
+                'tryton-save', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_save_as.set_relief(gtk.RELIEF_NONE)
         self.but_save_as.connect('clicked', self.save_as)
         tooltips.set_tip(self.but_save_as, _('Save As...'))
         hbox.pack_start(self.but_save_as, expand=False, fill=False)
 
         self.but_select = gtk.Button()
-        img_select = gtk.Image()
-        img_select.set_from_stock('tryton-find', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        self.but_select.set_image(img_select)
+        self.but_select.set_image(common.IconFactory.get_image(
+                'tryton-search', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_select.set_relief(gtk.RELIEF_NONE)
         self.but_select.connect('clicked', self.select)
         tooltips.set_tip(self.but_select, _('Select...'))
         hbox.pack_start(self.but_select, expand=False, fill=False)
 
         self.but_clear = gtk.Button()
-        img_clear = gtk.Image()
-        img_clear.set_from_stock('tryton-clear', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        self.but_clear.set_image(img_clear)
+        self.but_clear.set_image(common.IconFactory.get_image(
+                'tryton-clear', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_clear.set_relief(gtk.RELIEF_NONE)
         self.but_clear.connect('clicked', self.clear)
         tooltips.set_tip(self.but_clear, _('Clear'))
@@ -94,21 +88,22 @@ class BinaryMixin(Widget):
                 self.filename_field.set_client(self.record,
                     os.path.basename(filename))
 
+    def get_data(self):
+        if hasattr(self.field, 'get_data'):
+            data = self.field.get_data(self.record)
+        else:
+            data = self.field.get(self.record)
+        if isinstance(data, str):
+            data = data.encode('utf-8')
+        return data
+
     def open_(self, widget=None):
         if not self.filename_field:
             return
         filename = self.filename_field.get(self.record)
         if not filename:
             return
-        dtemp = tempfile.mkdtemp(prefix='tryton_')
-        root, ext = os.path.splitext(filename)
-        filename = ''.join([slugify(root), os.extsep, slugify(ext)])
-        file_path = os.path.join(dtemp, filename)
-        with open(file_path, 'wb') as fp:
-            if hasattr(self.field, 'get_data'):
-                fp.write(self.field.get_data(self.record))
-            else:
-                fp.write(self.field.get(self.record))
+        file_path = file_write(filename, self.get_data())
         root, type_ = os.path.splitext(filename)
         if type_:
             type_ = type_[1:]
@@ -122,10 +117,7 @@ class BinaryMixin(Widget):
             action=gtk.FILE_CHOOSER_ACTION_SAVE)
         if filename:
             with open(filename, 'wb') as fp:
-                if hasattr(self.field, 'get_data'):
-                    fp.write(self.field.get_data(self.record))
-                else:
-                    fp.write(self.field.get(self.record))
+                fp.write(self.get_data())
 
     def clear(self, widget=None):
         if self.filename_field:
@@ -165,7 +157,6 @@ class Binary(BinaryMixin, Widget):
         self.but_clear.set_sensitive(not value)
         if self.wid_text:
             self.wid_text.set_editable(not value)
-            set_widget_style(self.wid_text, not value)
         if value and CONFIG['client.fast_tabbing']:
             self.widget.set_focus_chain([])
         else:
@@ -206,11 +197,16 @@ class Binary(BinaryMixin, Widget):
             self.wid_text.set_text(self.filename_field.get(record) or '')
             reset_position(self.wid_text)
             if size:
-                stock, tooltip = 'tryton-open', _("Open...")
+                icon, tooltip = 'tryton-open', _("Open...")
             else:
-                stock, tooltip = None, ''
+                icon, tooltip = None, ''
             pos = gtk.ENTRY_ICON_PRIMARY
-            self.wid_text.set_icon_from_stock(pos, stock)
+            if icon:
+                pixbuf = common.IconFactory.get_pixbuf(
+                    icon, gtk.ICON_SIZE_MENU)
+            else:
+                pixbuf = None
+            self.wid_text.set_icon_from_pixbuf(pos, pixbuf)
             self.wid_text.set_icon_tooltip_text(pos, tooltip)
         self.update_buttons(bool(size))
         return True

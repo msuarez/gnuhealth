@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import csv
 import gettext
@@ -15,25 +15,23 @@ _ = gettext.gettext
 class WinImport(WinCSV):
     "Window import"
 
-    def __init__(self, model, context):
+    def __init__(self, name, model, context):
+        self.name = name
         self.model = model
         self.context = context
         self.fields_data = {}
         self.fields = {}
         self.fields_invert = {}
         super(WinImport, self).__init__()
-        self.dialog.set_title(_('Import from CSV'))
-
-    def add_header(self, box):
-        pass
+        self.dialog.set_title(_('CSV Import: %s') % name)
 
     def add_buttons(self, box):
         button_autodetect = gtk.Button(
             _('_Auto-Detect'), stock=None, use_underline=True)
         button_autodetect.set_alignment(0.0, 0.0)
-        img_button = gtk.Image()
-        img_button.set_from_stock('tryton-find', gtk.ICON_SIZE_BUTTON)
-        button_autodetect.set_image(img_button)
+        button_autodetect.set_image(common.IconFactory.get_image(
+                'tryton-search', gtk.ICON_SIZE_BUTTON))
+        button_autodetect.set_always_show_image(True)
         button_autodetect.connect_after('clicked', self.sig_autodetect)
         box.pack_start(button_autodetect, False, False, 0)
 
@@ -58,9 +56,9 @@ class WinImport(WinCSV):
 
     def model_populate(self, fields, parent_node=None, prefix_field='',
             prefix_name=''):
-        fields_order = fields.keys()
-        fields_order.sort(lambda x, y: -cmp(fields[x].get('string', ''),
-                fields[y].get('string', '')))
+        fields_order = list(fields.keys())
+        fields_order.sort(
+            key=lambda x: fields[x].get('string', ''), reverse=True)
         for field in fields_order:
             if not fields[field].get('readonly', False):
                 self.fields_data[prefix_field + field] = fields[field]
@@ -103,21 +101,20 @@ class WinImport(WinCSV):
             common.message(_('You must select an import file first.'))
             return True
 
+        encoding = self.get_encoding()
         self.csv_skip.set_value(1)
         try:
             data = csv.reader(
-                open(fname, 'rb'),
+                open(fname, 'r', encoding=encoding, newline=''),
                 quotechar=self.get_quotechar(),
                 delimiter=self.get_delimiter())
         except IOError:
             common.warning(_('Error opening CSV file'), _('Error'))
             return True
         self.sig_unsel_all()
-        encoding = self.get_encoding()
         word = ''
         for line in data:
             for word in line:
-                word = word.decode(encoding)
                 if word not in self.fields_invert and word not in self.fields:
                     iter = self.model1.get_iter_first()
                     prefix = ''
@@ -183,14 +180,14 @@ class WinImport(WinCSV):
         skip = self.csv_skip.get_value_as_int()
         encoding = self.get_encoding()
         reader = csv.reader(
-            open(fname, 'rb'),
+            open(fname, 'r', encoding=encoding),
             quotechar=self.get_quotechar(),
             delimiter=self.get_delimiter())
         data = []
         for i, line in enumerate(reader):
             if i < skip or not line:
                 continue
-            data.append([x.decode(encoding).encode('utf-8') for x in line])
+            data.append([x for x in line])
         try:
             count = RPCExecute(
                 'model', self.model, 'import_data', fields, data,

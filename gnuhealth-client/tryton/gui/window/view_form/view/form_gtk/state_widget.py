@@ -1,9 +1,8 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 
 import tryton.common as common
-from tryton.common.widget_style import widget_class
 
 
 class StateMixin(object):
@@ -44,11 +43,8 @@ class Label(StateMixin, gtk.Label):
         required = ((field and field.attrs.get('required'))
                 or state_changes.get('required'))
         readonly = ((field and field.attrs.get('readonly'))
-                or state_changes.get('readonly'))
-        attrlist = common.get_label_attributes(readonly, required)
-        self.set_attributes(attrlist)
-        widget_class(self, 'readonly', readonly)
-        widget_class(self, 'required', required)
+                or state_changes.get('readonly', not bool(field)))
+        common.apply_label_attributes(self, readonly, required)
 
 
 class VBox(StateMixin, gtk.VBox):
@@ -56,7 +52,17 @@ class VBox(StateMixin, gtk.VBox):
 
 
 class Image(StateMixin, gtk.Image):
-    pass
+
+    def state_set(self, record):
+        super(Image, self).state_set(record)
+        if not record:
+            return
+        name = self.attrs['name']
+        if name in record.group.fields:
+            field = record.group.fields[name]
+            name = field.get(record)
+        self.set_from_pixbuf(common.IconFactory.get_pixbuf(
+                name, gtk.ICON_SIZE_DIALOG))
 
 
 class Frame(StateMixin, gtk.Frame):
@@ -87,7 +93,7 @@ class Notebook(StateMixin, gtk.Notebook):
         else:
             state_changes = {}
         if state_changes.get('readonly', self.attrs.get('readonly')):
-            for widgets in self.widgets.itervalues():
+            for widgets in self.widgets.values():
                 for widget in widgets:
                     widget._readonly_set(True)
 
@@ -103,3 +109,11 @@ class Alignment(gtk.Alignment):
         self.add(widget)
         widget.connect('show', lambda *a: self.show())
         widget.connect('hide', lambda *a: self.hide())
+
+
+class Expander(StateMixin, gtk.Expander):
+
+    def __init__(self, label=None, attrs=None):
+        if not label:
+            label = None
+        super(Expander, self).__init__(label=label, attrs=attrs)

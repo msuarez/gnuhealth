@@ -1,14 +1,16 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gobject
 import gettext
 
 import tryton.common as common
-from tryton.gui.window.nomodal import NoModal
-from tryton.common import GNUHEALTH_ICON
 from tryton.common import RPCExecute, RPCException
+from tryton.common import GNUHEALTH_ICON
+from tryton.common.underline import set_underline
 from tryton.common.widget_style import widget_class
+from tryton.gui import Main
+from tryton.gui.window.nomodal import NoModal
 
 _ = gettext.gettext
 
@@ -56,6 +58,14 @@ class Widget(object):
         pass
 
     def _invisible_widget(self):
+        return self.widget
+
+    @property
+    def _invalid_widget(self):
+        return self.widget
+
+    @property
+    def _required_widget(self):
         return self.widget
 
     @property
@@ -107,10 +117,10 @@ class Widget(object):
         widget_class(self.widget, 'readonly', readonly)
         self._required_set(not readonly and states.get('required', False))
         widget_class(
-            self.widget, 'required',
+            self._required_widget, 'required',
             not readonly and states.get('required', False))
         invalid = states.get('invalid', False)
-        widget_class(self.widget, 'invalid', not readonly and invalid)
+        widget_class(self._invalid_widget, 'invalid', not readonly and invalid)
         self.invisible_set(self.attrs.get(
                 'invisible', states.get('invisible', False)))
 
@@ -125,15 +135,27 @@ class TranslateDialog(NoModal):
         self.widget = widget
         self.win = gtk.Dialog(_('Translation'), self.parent,
             gtk.DIALOG_DESTROY_WITH_PARENT)
+        Main().add_window(self.win)
         self.win.set_position(gtk.WIN_POS_CENTER_ON_PARENT)
         self.win.set_icon(GNUHEALTH_ICON)
         self.win.connect('response', self.response)
+        parent_allocation = self.parent.get_allocation()
+        self.win.set_default_size(-1, min(400, parent_allocation.height))
 
         self.accel_group = gtk.AccelGroup()
         self.win.add_accel_group(self.accel_group)
 
-        self.win.add_button(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL)
-        self.win.add_button(gtk.STOCK_OK, gtk.RESPONSE_OK).add_accelerator(
+        cancel_button = self.win.add_button(
+            set_underline(_("Cancel")), gtk.RESPONSE_CANCEL)
+        cancel_button.set_image(common.IconFactory.get_image(
+                    'tryton-cancel', gtk.ICON_SIZE_BUTTON))
+        cancel_button.set_always_show_image(True)
+        ok_button = self.win.add_button(
+            set_underline(_("OK")), gtk.RESPONSE_OK)
+        ok_button.set_image(common.IconFactory.get_image(
+                'tryton-ok', gtk.ICON_SIZE_BUTTON))
+        ok_button.set_always_show_image(True)
+        ok_button.add_accelerator(
             'clicked', self.accel_group, gtk.keysyms.Return,
             gtk.gdk.CONTROL_MASK, gtk.ACCEL_VISIBLE)
 
@@ -149,7 +171,7 @@ class TranslateDialog(NoModal):
             label = language['name'] + _(':')
             label = gtk.Label(label)
             label.set_alignment(1.0, 0.0 if self.widget.expand else 0.5)
-            table.attach(label, 0, 1, i, i + 1, xoptions=gtk.FILL)
+            table.attach(label, 0, 1, i, i + 1, xoptions=gtk.FILL, xpadding=2)
 
             context = dict(
                 language=language['code'],
@@ -199,18 +221,14 @@ class TranslateDialog(NoModal):
         viewport.set_shadow_type(gtk.SHADOW_NONE)
         viewport.add(vbox)
         scrolledwindow = gtk.ScrolledWindow()
-        scrolledwindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scrolledwindow.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
         scrolledwindow.set_shadow_type(gtk.SHADOW_NONE)
         scrolledwindow.add(viewport)
         self.win.vbox.pack_start(scrolledwindow, True, True)
-
-        sensible_allocation = self.sensible_widget.get_allocation()
-        self.win.set_default_size(int(sensible_allocation.width * 0.9),
-            int(sensible_allocation.height * 0.9))
+        self.win.show_all()
 
         self.register()
-        self.win.show_all()
-        common.center_window(self.win, self.parent, self.sensible_widget)
+        self.show()
 
     def editing_toggled(self, editing, widget):
         self.widget.translate_widget_set_readonly(widget,
@@ -218,7 +236,7 @@ class TranslateDialog(NoModal):
 
     def response(self, win, response):
         if response == gtk.RESPONSE_OK:
-            for code, widget in self.widgets.iteritems():
+            for code, widget in self.widgets.items():
                 widget, editing, fuzzy = widget
                 if not editing.get_active():
                     continue
@@ -242,14 +260,19 @@ class TranslateDialog(NoModal):
         self.win.destroy()
         NoModal.destroy(self)
 
+    def show(self):
+        self.win.show()
+
+    def hide(self):
+        self.win.hide()
+
 
 class TranslateMixin:
 
     def translate_button(self):
         button = gtk.Button()
-        img = gtk.Image()
-        img.set_from_stock('tryton-locale', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        button.set_image(img)
+        button.set_image(common.IconFactory.get_image(
+                'tryton-translate', gtk.ICON_SIZE_SMALL_TOOLBAR))
         button.set_relief(gtk.RELIEF_NONE)
         button.connect('clicked', self.translate)
         return button
@@ -282,14 +305,11 @@ class TranslateMixin:
     def translate_widget(self):
         raise NotImplemented
 
-    @staticmethod
-    def translate_widget_set(widget, value):
+    def translate_widget_set(self, widget, value):
         raise NotImplemented
 
-    @staticmethod
-    def translate_widget_get(widget):
+    def translate_widget_get(self, widget):
         raise NotImplemented
 
-    @staticmethod
-    def translate_widget_set_readonly(widget, value):
+    def translate_widget_set_readonly(self, widget, value):
         raise NotImplemented

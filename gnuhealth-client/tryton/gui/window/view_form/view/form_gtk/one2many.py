@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import gtk
 import gettext
@@ -9,10 +9,9 @@ from tryton.gui.window.view_form.screen import Screen
 from tryton.gui.window.win_search import WinSearch
 from tryton.gui.window.win_form import WinForm
 import tryton.common as common
-from tryton.common.placeholder_entry import PlaceholderEntry
 from tryton.common.completion import get_completion, update_completion
 from tryton.common.domain_parser import quote
-from tryton.common.widget_style import widget_class
+from tryton.common.underline import set_underline
 
 _ = gettext.gettext
 
@@ -36,7 +35,8 @@ class One2Many(Widget):
         self.title_box = hbox = gtk.HBox(homogeneous=False, spacing=0)
         hbox.set_border_width(2)
 
-        self.title = gtk.Label(attrs.get('string', ''))
+        self.title = gtk.Label(set_underline(attrs.get('string', '')))
+        self.title.set_use_underline(True)
         self.title.set_alignment(0.0, 0.5)
         hbox.pack_start(self.title, expand=True, fill=True)
 
@@ -47,22 +47,16 @@ class One2Many(Widget):
         but_switch = gtk.Button()
         tooltips.set_tip(but_switch, _('Switch'))
         but_switch.connect('clicked', self.switch_view)
-        img_switch = gtk.Image()
-        img_switch.set_from_stock('tryton-fullscreen',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_switch.set_alignment(0.5, 0.5)
-        but_switch.add(img_switch)
+        but_switch.add(common.IconFactory.get_image(
+                'tryton-switch', gtk.ICON_SIZE_SMALL_TOOLBAR))
         but_switch.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(but_switch, expand=False, fill=False)
 
         self.but_pre = gtk.Button()
         tooltips.set_tip(self.but_pre, _('Previous'))
         self.but_pre.connect('clicked', self._sig_previous)
-        img_pre = gtk.Image()
-        img_pre.set_from_stock('tryton-go-previous',
-            gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_pre.set_alignment(0.5, 0.5)
-        self.but_pre.add(img_pre)
+        self.but_pre.add(common.IconFactory.get_image(
+                'tryton-back', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_pre.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_pre, expand=False, fill=False)
 
@@ -72,10 +66,8 @@ class One2Many(Widget):
         self.but_next = gtk.Button()
         tooltips.set_tip(self.but_next, _('Next'))
         self.but_next.connect('clicked', self._sig_next)
-        img_next = gtk.Image()
-        img_next.set_from_stock('tryton-go-next', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_next.set_alignment(0.5, 0.5)
-        self.but_next.add(img_next)
+        self.but_next.add(common.IconFactory.get_image(
+                'tryton-forward', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_next.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_next, expand=False, fill=False)
 
@@ -85,7 +77,7 @@ class One2Many(Widget):
         self.wid_completion = None
         if attrs.get('add_remove'):
 
-            self.wid_text = PlaceholderEntry()
+            self.wid_text = gtk.Entry()
             self.wid_text.set_placeholder_text(_('Search'))
             self.wid_text.set_property('width_chars', 13)
             self.wid_text.connect('focus-out-event', self._focus_out)
@@ -106,11 +98,8 @@ class One2Many(Widget):
             self.but_add = gtk.Button()
             tooltips.set_tip(self.but_add, _('Add existing record'))
             self.but_add.connect('clicked', self._sig_add)
-            img_add = gtk.Image()
-            img_add.set_from_stock('tryton-list-add',
-                gtk.ICON_SIZE_SMALL_TOOLBAR)
-            img_add.set_alignment(0.5, 0.5)
-            self.but_add.add(img_add)
+            self.but_add.add(common.IconFactory.get_image(
+                    'tryton-add', gtk.ICON_SIZE_SMALL_TOOLBAR))
             self.but_add.set_relief(gtk.RELIEF_NONE)
             hbox.pack_start(self.but_add, expand=False, fill=False)
 
@@ -118,11 +107,8 @@ class One2Many(Widget):
             tooltips.set_tip(self.but_remove,
                 _('Remove selected record'))
             self.but_remove.connect('clicked', self._sig_remove, True)
-            img_remove = gtk.Image()
-            img_remove.set_from_stock('tryton-list-remove',
-                gtk.ICON_SIZE_SMALL_TOOLBAR)
-            img_remove.set_alignment(0.5, 0.5)
-            self.but_remove.add(img_remove)
+            self.but_remove.add(common.IconFactory.get_image(
+                    'tryton-remove', gtk.ICON_SIZE_SMALL_TOOLBAR))
             self.but_remove.set_relief(gtk.RELIEF_NONE)
             hbox.pack_start(self.but_remove, expand=False, fill=False)
 
@@ -131,40 +117,32 @@ class One2Many(Widget):
         self.but_new = gtk.Button()
         tooltips.set_tip(self.but_new, _('Create a new record <F3>'))
         self.but_new.connect('clicked', self._sig_new)
-        img_new = gtk.Image()
-        img_new.set_from_stock('tryton-new', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_new.set_alignment(0.5, 0.5)
-        self.but_new.add(img_new)
+        self.but_new.add(common.IconFactory.get_image(
+                'tryton-create', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_new.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_new, expand=False, fill=False)
 
         self.but_open = gtk.Button()
         tooltips.set_tip(self.but_open, _('Edit selected record <F2>'))
         self.but_open.connect('clicked', self._sig_edit)
-        img_open = gtk.Image()
-        img_open.set_from_stock('tryton-open', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_open.set_alignment(0.5, 0.5)
-        self.but_open.add(img_open)
+        self.but_open.add(common.IconFactory.get_image(
+                'tryton-open', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_open.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_open, expand=False, fill=False)
 
         self.but_del = gtk.Button()
         tooltips.set_tip(self.but_del, _('Delete selected record <Del>'))
         self.but_del.connect('clicked', self._sig_remove, False)
-        img_del = gtk.Image()
-        img_del.set_from_stock('tryton-delete', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_del.set_alignment(0.5, 0.5)
-        self.but_del.add(img_del)
+        self.but_del.add(common.IconFactory.get_image(
+                'tryton-delete', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_del.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_del, expand=False, fill=False)
 
         self.but_undel = gtk.Button()
         tooltips.set_tip(self.but_undel, _('Undelete selected record <Ins>'))
         self.but_undel.connect('clicked', self._sig_undelete)
-        img_undel = gtk.Image()
-        img_undel.set_from_stock('tryton-undo', gtk.ICON_SIZE_SMALL_TOOLBAR)
-        img_undel.set_alignment(0.5, 0.5)
-        self.but_undel.add(img_undel)
+        self.but_undel.add(common.IconFactory.get_image(
+                'tryton-undo', gtk.ICON_SIZE_SMALL_TOOLBAR))
         self.but_undel.set_relief(gtk.RELIEF_NONE)
         hbox.pack_start(self.but_undel, expand=False, fill=False)
 
@@ -191,6 +169,9 @@ class One2Many(Widget):
         self.screen.signal_connect(self, 'record-message', self._sig_label)
 
         vbox.pack_start(self.screen.widget, expand=True, fill=True)
+
+        self.title.set_mnemonic_widget(
+            self.screen.current_view.mnemonic_widget)
 
         self.screen.widget.connect('key_press_event', self.on_keypress)
         if self.attrs.get('add_remove'):
@@ -238,6 +219,12 @@ class One2Many(Widget):
 
     def switch_view(self, widget):
         self.screen.switch_view()
+        mnemonic_widget = self.screen.current_view.mnemonic_widget
+        string = self.attrs.get('string', '')
+        if mnemonic_widget:
+            string = set_underline(string)
+        self.title.set_mnemonic_widget(mnemonic_widget)
+        self.title.set_label(string)
 
     @property
     def modified(self):
@@ -253,10 +240,8 @@ class One2Many(Widget):
         self._set_label_state()
 
     def _set_label_state(self):
-        attrlist = common.get_label_attributes(self._readonly, self._required)
-        self.title.set_attributes(attrlist)
-        widget_class(self.title, 'readonly', self._readonly)
-        widget_class(self.title, 'required', self._required)
+        common.apply_label_attributes(
+            self.title, self._readonly, self._required)
 
     def _set_button_sensitive(self):
         access = common.MODELACCESS[self.screen.model_name]
@@ -268,6 +253,11 @@ class One2Many(Widget):
         else:
             o2m_size = None
             size_limit = False
+
+        first = last = False
+        if isinstance(self._position, int):
+            first = self._position <= 1
+            last = self._position >= self._length
 
         self.but_new.set_sensitive(bool(
                 not self._readonly
@@ -288,10 +278,10 @@ class One2Many(Widget):
                 and access['read']))
         self.but_next.set_sensitive(bool(
                 self._position
-                and self._position < self._length))
+                and not last))
         self.but_pre.set_sensitive(bool(
                 self._position
-                and self._position > 1))
+                and not first))
         if self.attrs.get('add_remove'):
             self.but_add.set_sensitive(bool(
                     not self._readonly
@@ -383,14 +373,16 @@ class One2Many(Widget):
                 search_set()
 
             domain = field.domain_get(first)
-            context = field.get_context(first)
+            context = field.get_search_context(first)
+            order = field.get_search_order(first)
 
             def callback(result):
                 if result:
                     product[field.name] = result
 
             win_search = WinSearch(relation, callback, sel_multi=True,
-                context=context, domain=domain, title=self.attrs.get('string'))
+                context=context, domain=domain, order=order,
+                title=self.attrs.get('string'))
             win_search.win.connect('destroy', search_set)
             win_search.screen.search_filter()
             win_search.show()
@@ -400,8 +392,8 @@ class One2Many(Widget):
             if not product:
                 return
 
-            fields = product.keys()
-            for values in itertools.product(*product.values()):
+            fields = list(product.keys())
+            for values in itertools.product(*list(product.values())):
                 record = self.screen.new(default=False)
                 default_value = default.copy()
                 for field, value in zip(fields, values):
@@ -457,11 +449,11 @@ class One2Many(Widget):
             return
         self.view.set_value()
         domain = self.field.domain_get(self.record)
-        context = self.field.get_context(self.record)
+        context = self.field.get_search_context(self.record)
         domain = [domain, self.record.expr_eval(self.attrs.get('add_remove'))]
         removed_ids = self.field.get_removed_ids(self.record)
         domain = ['OR', domain, ('id', 'in', removed_ids)]
-        text = self.wid_text.get_text().decode('utf-8')
+        text = self.wid_text.get_text()
 
         self.focus_out = False
 
@@ -478,8 +470,9 @@ class One2Many(Widget):
             self.screen.set_cursor()
             self.wid_text.set_text('')
 
+        order = self.field.get_search_order(self.record)
         win = WinSearch(self.attrs['relation'], callback, sel_multi=True,
-            context=context, domain=domain,
+            context=context, domain=domain, order=order,
             view_ids=self.attrs.get('view_ids', '').split(','),
             views_preload=self.attrs.get('views', {}),
             new=self.but_new.get_property('sensitive'),
@@ -490,7 +483,7 @@ class One2Many(Widget):
     def _sig_label(self, screen, signal_data):
         self._position = signal_data[0]
         self._length = signal_data[1]
-        if self._position >= 1:
+        if self._position:
             name = str(self._position)
         else:
             name = '_'

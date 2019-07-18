@@ -1,8 +1,7 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import datetime
 import os
-import tempfile
 import gtk
 import gettext
 import webbrowser
@@ -14,7 +13,7 @@ import gobject
 from tryton.gui.window.win_search import WinSearch
 from tryton.gui.window.win_form import WinForm
 from tryton.gui.window.view_form.screen import Screen
-from tryton.common import file_selection, file_open, slugify
+from tryton.common import file_selection, file_open, file_write
 import tryton.common as common
 from tryton.common.cellrendererbutton import CellRendererButton
 from tryton.common.cellrenderertext import CellRendererText, \
@@ -32,6 +31,7 @@ from tryton.common.selection import SelectionMixin, PopdownMixin
 from tryton.common.datetime_ import CellRendererDate, CellRendererTime
 from tryton.common.datetime_strftime import datetime_strftime
 from tryton.common.domain_parser import quote
+from tryton.config import CONFIG
 
 _ = gettext.gettext
 
@@ -129,7 +129,7 @@ class Affix(Cell):
             self.renderer = CellRendererClickablePixbuf()
             self.renderer.connect('clicked', self.clicked)
             if not self.icon:
-                self.icon = 'tryton-web-browser'
+                self.icon = 'tryton-public'
         elif self.icon:
             self.renderer = gtk.CellRendererPixbuf()
         else:
@@ -149,9 +149,7 @@ class Affix(Cell):
                 value = record[self.icon].get_client(record) or ''
             else:
                 value = self.icon
-            common.ICONFACTORY.register_icon(value)
-            pixbuf = self.view.treeview.render_icon(stock_id=value,
-                size=gtk.ICON_SIZE_BUTTON, detail=None)
+            pixbuf = common.IconFactory.get_pixbuf(value, gtk.ICON_SIZE_BUTTON)
             cell.set_property('pixbuf', pixbuf)
         else:
             text = self.attrs.get('string', '')
@@ -175,6 +173,7 @@ class Affix(Cell):
 
 class GenericText(Cell):
     align = 0
+    editable = None
 
     def __init__(self, view, attrs, renderer=None):
         super(GenericText, self).__init__()
@@ -264,6 +263,10 @@ class GenericText(Cell):
             callback()
 
     def editing_started(self, cell, editable, path):
+        def remove(editable):
+            self.editable = None
+        self.editable = editable
+        editable.connect('remove-widget', remove)
         return False
 
     def _get_record_field(self, path):
@@ -483,20 +486,12 @@ class Binary(GenericText):
     def open_binary(self, renderer, path):
         if not self.filename:
             return
-        dtemp = tempfile.mkdtemp(prefix='tryton_')
         record, field = self._get_record_field(path)
         filename_field = record.group.fields.get(self.filename)
         filename = filename_field.get(record)
         if not filename:
             return
-        root, ext = os.path.splitext(filename)
-        filename = ''.join([slugify(root), os.extsep, slugify(ext)])
-        file_path = os.path.join(dtemp, filename)
-        with open(file_path, 'wb') as fp:
-            if hasattr(field, 'get_data'):
-                fp.write(field.get_data(record))
-            else:
-                fp.write(field.get(record))
+        file_path = file_write(filename, self.get_data(record, field))
         root, type_ = os.path.splitext(filename)
         if type_:
             type_ = type_[1:]
@@ -512,10 +507,16 @@ class Binary(GenericText):
             action=gtk.FILE_CHOOSER_ACTION_SAVE)
         if filename:
             with open(filename, 'wb') as fp:
-                if hasattr(field, 'get_data'):
-                    fp.write(field.get_data(record))
-                else:
-                    fp.write(field.get(record))
+                fp.write(self.get_data(record, field))
+
+    def get_data(self, record, field):
+        if hasattr(field, 'get_data'):
+            data = field.get_data(record)
+        else:
+            data = field.get(record)
+        if isinstance(data, str):
+            data = data.encode('utf-8')
+        return data
 
     def clear_binary(self, renderer, path):
         record, field = self._get_record_field(path)
@@ -541,16 +542,16 @@ class Image(GenericText):
         record = store.get_value(iter_, 0)
         field = record[self.field_name]
         value = field.get_client(record)
-        if isinstance(value, (int, long)):
-            if value > common.BIG_IMAGE_SIZE:
+        if isinstance(value, int):
+            if value > CONFIG['image.max_size']:
                 value = None
             else:
                 value = field.get_data(record)
         pixbuf = data2pixbuf(value)
-        if (self.attrs.get('width', -1) != -1 or
-                self.attrs.get('height', -1) != -1):
-            pixbuf = common.resize_pixbuf(pixbuf,
-                self.attrs['width'], self.attrs['height'])
+        width = self.attrs.get('width', -1)
+        height = self.attrs.get('height', -1)
+        if pixbuf and (width != -1 or height != -1):
+            pixbuf = common.resize_pixbuf(pixbuf, width, height)
         cell.set_property('pixbuf', pixbuf)
 
     def get_textual_value(self, record):
@@ -574,15 +575,55 @@ class M2O(GenericText):
                 callback()
             return
 
-        relation = record[self.attrs['name']].attrs['relation']
-        domain = record[self.attrs['name']].domain_get(record)
-        context = record[self.attrs['name']].get_context(record)
-        win = self.search_remote(record, relation, text, domain=domain,
-            context=context, callback=callback)
+        field = record[self.attrs['name']]
+        win = self.search_remote(record, field, text, callback=callback)
         if len(win.screen.group) == 1:
             win.response(None, gtk.RESPONSE_OK)
         else:
             win.show()
+
+    def editing_started(self, cell, editable, path):
+        super(M2O, self).editing_started(cell, editable, path)
+        record, field = self._get_record_field(path)
+
+        def changed(editable):
+            text = editable.get_text()
+            if field.get_client(record) != text:
+                field.set_client(record, (None, ''))
+
+            if field.get(record):
+                icon1, tooltip1 = 'tryton-open', _("Open the record <F2>")
+                icon2, tooltip2 = 'tryton-clear', _("Clear the field <Del>")
+            else:
+                icon1, tooltip1 = None, ''
+                icon2, tooltip2 = 'tryton-search', _("Search a record <F2>")
+            for pos, icon, tooltip in [
+                    (gtk.ENTRY_ICON_PRIMARY, icon1, tooltip1),
+                    (gtk.ENTRY_ICON_SECONDARY, icon2, tooltip2)]:
+                if icon:
+                    pixbuf = common.IconFactory.get_pixbuf(
+                        icon, gtk.ICON_SIZE_MENU)
+                else:
+                    pixbuf = None
+                editable.set_icon_from_pixbuf(pos, pixbuf)
+                editable.set_icon_tooltip_text(pos, tooltip)
+
+        def icon_press(editable, icon_pos, event):
+            value = field.get(record)
+            if icon_pos == gtk.ENTRY_ICON_SECONDARY and value:
+                field.set_client(record, (None, ''))
+                editable.set_text('')
+            elif value:
+                self.open_remote(record, create=False, changed=False)
+            else:
+                self.open_remote(
+                    record, create=False, changed=True,
+                    text=editable.get_text())
+
+        editable.connect('icon-press', icon_press)
+        editable.connect('changed', changed)
+        changed(editable)
+        return False
 
     def open_remote(self, record, create=True, changed=False, text=None,
             callback=None):
@@ -603,9 +644,9 @@ class M2O(GenericText):
         elif not changed:
             obj_id = field.get(record)
         else:
-            self.search_remote(record, relation, text, domain=domain,
-                context=context, callback=callback).show()
+            self.search_remote(record, field, text, callback=callback).show()
             return
+
         screen = Screen(relation, domain=domain, context=context,
             mode=['form'], view_ids=self.attrs.get('view_ids', '').split(','),
             exclude_field=field.attrs.get('relation_field'))
@@ -625,10 +666,11 @@ class M2O(GenericText):
             WinForm(screen, open_callback, new=True, save_current=True,
                 title=field.attrs.get('string'), rec_name=text)
 
-    def search_remote(self, record, relation, text, domain=None,
-            context=None, callback=None):
-        field = record.group.fields[self.attrs['name']]
+    def search_remote(self, record, field, text, callback=None):
         relation = field.attrs['relation']
+        domain = field.domain_get(record)
+        context = field.get_search_context(record)
+        order = field.get_search_order(record)
         access = common.MODELACCESS[relation]
         create_access = self.attrs.get('create', True) and access['create']
 
@@ -641,9 +683,9 @@ class M2O(GenericText):
                 callback()
         win = WinSearch(relation, search_callback, sel_multi=False,
             context=context, domain=domain,
-            view_ids=self.attrs.get('view_ids', '').split(','),
+            order=order, view_ids=self.attrs.get('view_ids', '').split(','),
             new=create_access, title=self.attrs.get('string'))
-        win.screen.search_filter(quote(text.decode('utf-8')))
+        win.screen.search_filter(quote(text))
         return win
 
     def set_completion(self, entry, path):
@@ -797,7 +839,8 @@ class Selection(GenericText, SelectionMixin, PopdownMixin):
         record = store.get_value(store.get_iter(path), 0)
         field = record[self.attrs['name']]
 
-        set_value = lambda *a: self.set_value(editable, record, field)
+        def set_value(*a):
+            return self.set_value(editable, record, field)
         editable.get_child().connect('activate', set_value)
         editable.get_child().connect('focus-out-event', set_value)
         editable.connect('changed', set_value)
