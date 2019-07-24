@@ -30,6 +30,9 @@ from tryton.jsonrpc import object_hook
 from tryton.pyson import PYSONDecoder
 
 #GNU Health client version and other related imports
+import time
+import platform
+from tryton.gui.window.activity import Activity
 from tryton import __version__
 import ast
 
@@ -76,21 +79,26 @@ class Main(Gtk.Application):
         def on_change_action_boolean(action, value, key):
             action.set_state(value)
             CONFIG[key] = value.get_boolean()
-            if key == 'client.check_version' and CONFIG[key]:
-                common.check_version(self.info)
 
         for name, key in [
                 ('save-width-height', 'client.save_width_height'),
                 ('save-tree-state', 'client.save_tree_state'),
                 ('fast-tabbing', 'client.fast_tabbing'),
                 ('spell-checking', 'client.spellcheck'),
-                ('check-version', 'client.check_version'),
                 ]:
             variant = GLib.Variant.new_boolean(CONFIG[key])
             action = Gio.SimpleAction.new_stateful(name, None, variant)
             action.connect('change-state', on_change_action_boolean, key)
             self.add_action(action)
 
+        #GNU Health actions
+        action = Gio.SimpleAction.new('activity-window', None)
+        action.connect('activate', lambda *a: self.win_prev())
+        self.add_action(action)
+        self.add_accelerator('<Primary>Left', 'app.activity_window')
+
+        #End of GNU Health actions
+        
         action = Gio.SimpleAction.new('tab-previous', None)
         action.connect('activate', lambda *a: self.win_prev())
         self.add_action(action)
@@ -142,7 +150,17 @@ class Main(Gtk.Application):
 
         section.append(_("Search Limit..."), 'app.search-limit')
         section.append(_("Email..."), 'app.email')
-        section.append(_("Check Version"), 'app.check-version')
+
+        # GNU Health Command Line section
+        menu.append_section(_("Actions"), section)
+
+        section = Gio.Menu.new()
+        section.append(_("Command Line"), 'app.command_line')
+
+        # GNU Health Activity window section
+        section = Gio.Menu.new()
+        section.append(_("Activity Window"), 'app.activity_window')
+        menu.append_section(None, section)
 
         menu.append_section(_("Options"), section)
 
@@ -230,10 +248,10 @@ class Main(Gtk.Application):
             gtk.gdk.CONTROL_MASK)
 
         #GNU Health Entries
-        gtk.accel_map_add_entry('<tryton>/Window/Activity Log', gtk.keysyms.F12,
+        gtk.accel_map_add_entry('<tryton>/Activity Log', gtk.keysyms.F12,
             gtk.gdk.SHIFT_MASK)
 
-        gtk.accel_map_add_entry('<tryton>/User/Command Line', gtk.keysyms.Z,
+        gtk.accel_map_add_entry('<tryton>/Command Line', gtk.keysyms.Z,
             gtk.gdk.CONTROL_MASK | gtk.gdk.SHIFT_MASK)
         #End of GNU Health Entries
 
@@ -248,11 +266,6 @@ class Main(Gtk.Application):
 
         self.info = gtk.VBox()
         self.vbox.pack_start(self.info, expand=False)
-        if CONFIG['client.check_version']:
-            common.check_version(self.info)
-            GLib.timeout_add_seconds(
-                int(CONFIG['download.frequency']), common.check_version,
-                self.info)
 
         self.pane = gtk.HPaned()
         self.vbox.pack_start(self.pane, True, True)
@@ -293,6 +306,17 @@ class Main(Gtk.Application):
                 common.error(str(exception), traceback.format_exc())
             return self.quit()
         self.get_preferences()
+
+        #GNU Health init
+        #Add connection successful entry to the Activity log
+        msg = "Connected to GNU Health Server"
+        self.activity_log_entry(msg, 'info')
+
+        # Set the footer
+        self.init_gnuhealth_env()
+
+
+
 
     def do_command_line(self, cmd):
         self.do_activate()
@@ -1062,7 +1086,7 @@ class Main(Gtk.Application):
     # Parse the CLI arguments
     def activate_cli(self, widget, data):
         #Make the command case-insensitive
-        command = lower((widget.get_text()))
+        command = widget.get_text().lower()
         if (command == 'sysinfo'):
             info = "Request : " + command + "\n"
             client_info = '\n********* CLIENT INFORMATION *********\n\n'
@@ -1126,8 +1150,8 @@ class Main(Gtk.Application):
 
     def gnuhealth_cmd(self,command):
 
-        cmd = split(command)[0]
-        args = split(command)[1:]
+        cmd = command.split()[0]
+        args = command.split()[1:]
         domain_name = domain = None
         search_string = '%'
 
