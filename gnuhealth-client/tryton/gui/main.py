@@ -440,13 +440,10 @@ class Main(Gtk.Application):
         self.global_search_entry.connect('activate', activate)
 
     def set_title(self, value=''):
-        if CONFIG['login.profile']:
-            login_info = CONFIG['login.profile']
-        else:
-            login_info = '%s@%s/%s' % (
-                CONFIG['login.login'],
-                CONFIG['login.host'],
-                CONFIG['login.db'])
+        login_info = '%s@%s/%s' % (
+            CONFIG['login.login'],
+            CONFIG['login.host'],
+            CONFIG['login.db'])
         titles = [CONFIG['client.title']]
         if value:
             titles.append(value)
@@ -569,7 +566,7 @@ class Main(Gtk.Application):
             self.sig_win_menu(prefs=prefs)
             for action_id in prefs.get('actions', []):
                 Action.execute(action_id, {})
-            self.set_title(prefs.get('status_bar', ''))
+            # self.set_title(prefs.get('status_bar', ''))
             if prefs and 'language' in prefs:
                 translate.setlang(prefs['language'], prefs.get('locale'))
                 if CONFIG['client.lang'] != prefs['language']:
