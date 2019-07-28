@@ -81,7 +81,7 @@ class ConfigManager(object):
                 help=_("specify the server hostname:port"))
         opt, self.arguments = parser.parse_args()
         self.rcfile = opt.config or os.path.join(
-            get_config_dir(), 'tryton.conf')
+            get_config_dir(), 'gnuhealth-client.conf')
         self.load()
 
         self.options['dev'] = opt.dev
