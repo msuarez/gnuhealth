@@ -1,42 +1,59 @@
 # This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-from .char import Char
-import locale
+from gi.repository import Gtk
+
+from tryton.common.entry_position import reset_position
+from tryton.common.number_entry import NumberEntry
+from .widget import Widget
 
 
-class Integer(Char):
+class Integer(Widget):
     "Integer"
 
     def __init__(self, view, attrs):
         super(Integer, self).__init__(view, attrs)
-        self.entry.set_width_chars(8)
-        _, _, padding, pack_type = self.widget.query_child_packing(
-            self.entry)
-        self.widget.set_child_packing(self.entry, False, False,
-            padding, pack_type)
-        self.entry.set_max_length(0)
-        self.entry.set_alignment(1.0)
-        self.entry.connect('insert_text', self.sig_insert_text)
+        self.widget = Gtk.HBox()
+        self.entry = self.mnemonic_widget = NumberEntry()
+        self.entry.props.activates_default = True
+        self.entry.connect('activate', self.sig_activate)
+        self.entry.connect('focus-out-event', lambda *a: self._focus_out())
+        self.entry.connect('key-press-event', self.send_modified)
+        self.widget.pack_start(self.entry, expand=False, fill=False, padding=0)
         self.factor = float(attrs.get('factor', 1))
 
-    def set_value(self, record, field):
-        return field.set_client(record, self.entry.get_text(),
-            factor=self.factor)
+    @property
+    def modified(self):
+        if self.record and self.field:
+            value = self.get_client_value()
+            return value != self.get_value()
+        return False
 
-    def get_client_value(self, record, field):
-        if not field:
+    def set_value(self):
+        return self.field.set_client(
+            self.record, self.entry.get_text(), factor=self.factor)
+
+    def get_value(self):
+        return self.entry.get_text()
+
+    def get_client_value(self):
+        if not self.field:
             value = ''
         else:
-            value = field.get_client(record, factor=self.factor)
+            value = self.field.get_client(self.record, factor=self.factor)
         return value
 
-    def sig_insert_text(self, entry, new_text, new_text_length, position):
-        value = entry.get_text()
-        position = entry.get_position()
-        new_value = value[:position] + new_text + value[position:]
-        if new_value == '-':
-            return
-        try:
-            locale.atoi(new_value)
-        except ValueError:
-            entry.stop_emission('insert-text')
+    @property
+    def width(self):
+        return 8
+
+    def display(self):
+        super().display()
+        if self.record:
+            self.entry.set_width_chars(self.width)
+        value = self.get_client_value()
+        self.entry.set_text(value)
+        reset_position(self.entry)
+
+    def _readonly_set(self, value):
+        super()._readonly_set(value)
+        self.entry.set_editable(not value)

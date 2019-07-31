@@ -2,12 +2,12 @@
 # this repository contains the full copyright notices and license terms.
 from functools import wraps
 
-import gtk
 import datetime
 import gettext
 
-from tryton.common import node_attributes
-from . import View
+from gi.repository import Gtk
+
+from . import View, XMLViewParser
 try:
     from .calendar_gtk.calendar_ import Calendar_
     from .calendar_gtk.toolbar import Toolbar
@@ -28,29 +28,48 @@ def goocalendar_required(func):
     return wrapper
 
 
-class ViewCalendar(View):
+class CalendarXMLViewParser(XMLViewParser):
 
-    def __init__(self, screen, xml):
-        super(ViewCalendar, self).__init__(screen, xml)
-        self.view_type = 'calendar'
-        self.editable = False
-        self.widgets = {}
-        self.widget = self.parse(xml)
+    def __init__(self, view, exclude_field, field_attrs):
+        super().__init__(view, exclude_field, field_attrs)
+        self.calendar_fields = []
 
-    def parse(self, node):
-        vbox = gtk.VBox()
-        if not Calendar_:
-            return vbox
-        fields = []
-        for node in node.childNodes:
-            if node.nodeType != node.ELEMENT_NODE:
-                continue
-            if node.tagName == 'field':
-                fields.append(node_attributes(node))
-        goocalendar = Calendar_(attrs=self.attributes, screen=self.screen,
-            fields=fields)
+    def _parse_calendar(self, node, attributes):
+        for child in node.childNodes:
+            self.parse(child)
+        goocalendar = Calendar_(
+            self.view.attributes, self.view, self.calendar_fields)
         toolbar = Toolbar(goocalendar)
-        self.widgets['toolbar'] = toolbar
+        self.view.scroll.add(goocalendar)
+        self.view.widget.pack_start(
+            toolbar, expand=False, fill=False, padding=0)
+        self.view.widgets['goocalendar'] = goocalendar
+        self.view.widgets['toolbar'] = toolbar
+
+    def _parse_field(self, node, attributes):
+        self.calendar_fields.append(attributes)
+
+
+class ViewCalendar(View):
+    editable = False
+    view_type = 'calendar'
+    xml_parser = CalendarXMLViewParser
+
+    def __init__(self, view_id, screen, xml):
+        self.widget = Gtk.VBox()
+
+        if not Calendar_:
+            self.widgets = {}
+            return
+
+        self.scroll = scrolledWindow = Gtk.ScrolledWindow()
+        self.widget.pack_end(
+            scrolledWindow, expand=True, fill=True, padding=0)
+
+        super().__init__(view_id, screen, xml)
+
+        goocalendar = self.widgets['goocalendar']
+        toolbar = self.widgets['toolbar']
         goocalendar.connect('view-changed', self.on_view_changed, toolbar)
         goocalendar.connect('page-changed', self.on_page_changed, toolbar)
         goocalendar.connect('event-pressed', self.on_event_pressed)
@@ -58,12 +77,6 @@ class ViewCalendar(View):
         goocalendar.connect('event-released', self.on_event_released)
         goocalendar.connect('day-pressed', self.on_day_pressed)
         goocalendar.connect('day-activated', self.on_day_activated)
-        self.widgets['goocalendar'] = goocalendar
-        self.scroll = scrolledWindow = gtk.ScrolledWindow()
-        scrolledWindow.add_with_viewport(goocalendar)
-        vbox.pack_start(toolbar, False, False)
-        vbox.pack_start(scrolledWindow, True, True)
-        return vbox
 
     def on_page_changed(self, goocalendar, day, toolbar):
         toolbar.update_displayed_date()
@@ -76,7 +89,7 @@ class ViewCalendar(View):
             self.screen.search_filter()
 
     def on_event_pressed(self, goocalendar, event):
-        self.screen.current_record = event.record
+        self.record = event.record
 
     def on_event_activated(self, goocalendar, event):
         self.screen.switch_view('form')
@@ -104,7 +117,7 @@ class ViewCalendar(View):
         record.save()
 
     def on_day_pressed(self, goocalendar, day):
-        self.screen.current_record = None
+        self.record = None
 
     def on_day_activated(self, goocalendar, day):
         self.screen.new()
@@ -140,7 +153,7 @@ class ViewCalendar(View):
 
     @goocalendar_required
     def display(self):
-        self.widgets['goocalendar'].display(self.screen.group)
+        self.widgets['goocalendar'].display(self.group)
 
     def set_cursor(self, new=False, reset_view=True):
         pass

@@ -1,12 +1,12 @@
 # This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
-import gtk
 import gettext
+
+from gi.repository import Gtk
 
 from .many2one import Many2One
 from tryton.common.selection import SelectionMixin, PopdownMixin, \
         selection_shortcuts
-from tryton.config import CONFIG
 
 _ = gettext.gettext
 
@@ -16,7 +16,7 @@ class Reference(Many2One, SelectionMixin, PopdownMixin):
     def __init__(self, view, attrs):
         super(Reference, self).__init__(view, attrs)
 
-        self.widget_combo = gtk.ComboBoxEntry()
+        self.widget_combo = Gtk.ComboBox(has_entry=True)
         child = self.widget_combo.get_child()
         child.connect('activate', lambda *a: self._focus_out())
         child.connect('focus-out-event', lambda *a: self._focus_out())
@@ -24,17 +24,15 @@ class Reference(Many2One, SelectionMixin, PopdownMixin):
         self.widget_combo.connect('changed', self.sig_changed_combo)
         self.widget_combo.connect('move-active', self._move_active)
         self.widget_combo.connect(
-            'scroll-event', lambda c, e: c.emit_stop_by_name('scroll-event'))
+            'scroll-event',
+            lambda c, e: c.stop_emission_by_name('scroll-event'))
         selection_shortcuts(self.widget_combo)
-        self.widget_combo.set_focus_chain([child])
 
-        self.widget.pack_start(self.widget_combo, expand=False, fill=True)
-        self.widget.pack_start(gtk.Label('-'), expand=False, fill=False)
+        self.widget.pack_start(
+            self.widget_combo, expand=False, fill=True, padding=0)
 
         self.init_selection()
         self.set_popdown(self.selection, self.widget_combo)
-
-        self.widget.set_focus_chain([self.widget_combo, self.wid_text])
 
     def get_model(self):
         active = self.widget_combo.get_active()
@@ -52,17 +50,14 @@ class Reference(Many2One, SelectionMixin, PopdownMixin):
 
     def _move_active(self, combobox, scroll_type):
         if not combobox.get_child().get_editable():
-            combobox.emit_stop_by_name('move-active')
+            combobox.stop_emission_by_name('move-active')
 
     def _set_button_sensitive(self):
         super(Reference, self)._set_button_sensitive()
         self.widget_combo.get_child().set_editable(not self._readonly)
         self.widget_combo.set_button_sensitivity(
-            gtk.SENSITIVITY_OFF if self._readonly else gtk.SENSITIVITY_AUTO)
-        if self._readonly and CONFIG['client.fast_tabbing']:
-            self.widget.set_focus_chain([])
-        else:
-            self.widget.unset_focus_chain()
+            Gtk.SensitivityType.OFF if self._readonly
+            else Gtk.SensitivityType.AUTO)
 
     @property
     def modified(self):
@@ -110,22 +105,22 @@ class Reference(Many2One, SelectionMixin, PopdownMixin):
             value = ('', '')
         self.field.set_client(self.record, value)
 
-    def set_value(self, record, field):
+    def set_value(self):
         if not self.get_model():
             value = self.wid_text.get_text()
             if not value:
-                field.set_client(record, None)
+                self.field.set_client(self.record, None)
             else:
-                field.set_client(record, ('', value))
+                self.field.set_client(self.record, ('', value))
                 return
         else:
             try:
-                model, name = field.get_client(record)
+                model, name = self.field.get_client(self.record)
             except (ValueError, TypeError):
                 model, name = self.get_empty_value()
             if (model != self.get_model()
                     or name != self.wid_text.get_text()):
-                field.set_client(record, None)
+                self.field.set_client(self.record, None)
                 self.set_text(None)
 
     def set_text(self, value):
@@ -142,7 +137,7 @@ class Reference(Many2One, SelectionMixin, PopdownMixin):
             self.set_popdown_value(self.widget_combo, value)
         self.widget_combo.handler_unblock_by_func(self.sig_changed_combo)
 
-    def display(self, record, field):
-        self.update_selection(record, field)
+    def display(self):
+        self.update_selection(self.record, self.field)
         self.set_popdown(self.selection, self.widget_combo)
-        super(Reference, self).display(record, field)
+        super(Reference, self).display()

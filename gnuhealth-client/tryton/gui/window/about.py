@@ -9,13 +9,13 @@ from tryton.config import PIXMAPS_DIR, CONFIG, GNUHEALTH_ICON
 from tryton.common import get_toplevel_window
 from tryton import __version__
 
-COPYRIGHT = '''\
-Copyright (C) 2004-2019 Tryton.
-'''
+_ = gettext.gettext
+
 
 POWERED_BY = '''\
 GTK Client based on Tryton
 '''
+
 LICENSE = '''                    GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -691,7 +691,6 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.'''
 
-_ = gettext.gettext
 
 
 class About(object):

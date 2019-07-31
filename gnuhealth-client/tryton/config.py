@@ -1,4 +1,4 @@
-# This file is part of the GNU Health GTK Client.  The COPYRIGHT file at the top level of
+# This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import configparser
 import optparse
@@ -7,7 +7,8 @@ import gettext
 import logging
 import sys
 import locale
-import gtk
+
+from gi.repository import GdkPixbuf
 
 from tryton import __version__
 
@@ -15,6 +16,12 @@ _ = gettext.gettext
 
 
 def get_config_dir():
+    if os.name == 'nt':
+        appdata = os.environ['APPDATA']
+        if not isinstance(appdata, str):
+            appdata = str(appdata, sys.getfilesystemencoding())
+        return os.path.join(appdata, '.config', 'tryton',
+                __version__.rsplit('.', 1)[0])
     return os.path.join(os.environ['HOME'], '.config', 'gnuhealth',
             __version__.rsplit('.', 1)[0])
 
@@ -42,7 +49,6 @@ class ConfigManager(object):
             'client.maximize': False,
             'client.save_width_height': True,
             'client.save_tree_state': True,
-            'client.fast_tabbing': True,
             'client.spellcheck': False,
             'client.lang': locale.getdefaultlocale()[0],
             'client.language_direction': 'ltr',
@@ -50,7 +56,7 @@ class ConfigManager(object):
             'client.can_change_accelerators': False,
             'client.limit': 1000,
             'client.bus_timeout': 10 * 60,
-            'icon.color': '#11b0b8',
+            'icon.colors': '#11b0b8',
             'image.max_size': 10 ** 6,
             'client.cli_position' : 'top',
             'menu.pane': 200,
@@ -62,7 +68,7 @@ class ConfigManager(object):
         self.arguments = []
 
     def parse(self):
-        parser = optparse.OptionParser(version=("GNU Health GTK Client %s" % __version__),
+        parser = optparse.OptionParser(version=("GNU Health %s" % __version__),
                 usage="Usage: %prog [options] [url]")
         parser.add_option("-c", "--config", dest="config",
                 help=_("specify alternate config file"))
@@ -163,8 +169,9 @@ if not os.path.isdir(PIXMAPS_DIR):
     PIXMAPS_DIR = pkg_resources.resource_filename(
         'tryton', 'data/pixmaps/tryton')
 
+GNUHEALTH_ICON = GdkPixbuf.Pixbuf.new_from_file(
+    os.path.join(PIXMAPS_DIR, 'gnuhealth-icon.png'))
 
-GNUHEALTH_ICON = gtk.gdk.pixbuf_new_from_file(
-    os.path.join(PIXMAPS_DIR, 'gnuhealth-icon.png').encode('utf-8'))
 
 BANNER = 'banner.png'
+

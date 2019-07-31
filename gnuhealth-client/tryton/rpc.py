@@ -162,3 +162,8 @@ def execute(*args):
 
 def execute_nonblocking(*args):
     return _execute(False, *args)
+
+def clear_cache(prefix=None):
+    if CONNECTION:
+        CONNECTION.clear_cache(prefix)
+

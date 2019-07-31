@@ -1,18 +1,18 @@
 # This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import operator
-import gtk
 import gettext
-from collections import defaultdict
 
-from . import View
+from gi.repository import Gtk
+
+from . import View, XMLViewParser
 from tryton.common.focus import (get_invisible_ancestor, find_focused_child,
     next_focus_widget, find_focusable_child, find_first_focus_widget)
-from tryton.common import Tooltips, node_attributes, IconFactory
+from tryton.common import Tooltips, node_attributes, IconFactory, get_align
 from tryton.common.underline import set_underline
 from tryton.common.button import Button
 from tryton.config import CONFIG
-from .form_gtk.calendar import Date, Time, DateTime
+from .form_gtk.calendar_ import Date, Time, DateTime
 from .form_gtk.float import Float
 from .form_gtk.integer import Integer
 from .form_gtk.selection import Selection
@@ -25,7 +25,7 @@ from .form_gtk.textbox import TextBox
 from .form_gtk.one2many import One2Many
 from .form_gtk.many2many import Many2Many
 from .form_gtk.many2one import Many2One
-from .form_gtk.url import Email, URL, CallTo, SIP
+from .form_gtk.url import Email, URL, CallTo, SIP, HTML
 from .form_gtk.image import Image as Image2
 from .form_gtk.progressbar import ProgressBar
 from .form_gtk.one2one import One2One
@@ -56,23 +56,20 @@ class Container(object):
         if col < 0:
             col = 0
         self.col = col
-        self.table = gtk.Table(1, col)
-        self.table.set_homogeneous(homogeneous)
-        self.table.set_col_spacings(0)
-        self.table.set_row_spacings(0)
-        self.table.set_border_width(0)
+        self.container = Gtk.Grid(
+            column_spacing=3, row_spacing=3,
+            column_homogeneous=homogeneous, row_homogeneous=homogeneous,
+            border_width=3)
         self.last = (0, 0)
         self.tooltips = Tooltips()
         self.tooltips.enable()
 
     def add_row(self):
         height, width = self.last
-        self.table.resize(height + 1, self.col or width)
         self.last = (height + 1, 0)
 
     def add_col(self):
         height, width = self.last
-        self.table.resize(height or 1, width + 1)
         self.last = (height, width + 1)
 
     def add(self, widget, attributes):
@@ -93,40 +90,26 @@ class Container(object):
         if not widget:
             return
 
-        yopt = 0
-        if attributes.get('yexpand'):
-            yopt = gtk.EXPAND
+        widget.set_vexpand(bool(attributes.get('yexpand')))
         if attributes.get('yfill'):
-            if yopt:
-                yopt |= gtk.FILL
-            else:
-                yopt = gtk.FILL
+            widget.set_valign(Gtk.Align.FILL)
 
-        xopt = 0
-        if attributes.get('xexpand', True):
-            xopt = gtk.EXPAND
+        widget.set_hexpand(bool(attributes.get('xexpand', True)))
         if attributes.get('xfill', True):
-            if xopt:
-                xopt |= gtk.FILL
-            else:
-                xopt = gtk.FILL
+            widget.set_valign(Gtk.Align.FILL)
 
         if attributes.get('help'):
             self.tooltips.set_tip(widget, attributes['help'])
 
         widget.show_all()
-        self.table.attach(widget,
-            width, width + colspan,
-            height, height + 1,
-            yoptions=yopt, xoptions=xopt,
-            ypadding=1, xpadding=2)
+        self.container.attach(widget, width, height, colspan, 1)
 
 
 class VContainer(Container):
     def __init__(self, col=1, homogeneous=False):
         self.col = 1
-        self.table = gtk.VBox()
-        self.table.set_homogeneous(homogeneous)
+        self.container = Gtk.VBox()
+        self.container.set_homogeneous(homogeneous)
 
     def add_row(self):
         pass
@@ -139,14 +122,14 @@ class VContainer(Container):
             return
         expand = bool(int(attributes.get('yexpand', False)))
         fill = bool(int(attributes.get('yfill', False)))
-        self.table.pack_start(widget, expand=expand, fill=fill, padding=2)
+        self.container.pack_start(widget, expand=expand, fill=fill, padding=2)
 
 
 class HContainer(Container):
     def __init__(self, col=0, homogeneous=False):
         self.col = 0
-        self.table = gtk.HBox()
-        self.table.set_homogeneous(homogeneous)
+        self.container = Gtk.HBox()
+        self.container.set_homogeneous(homogeneous)
 
     def add_row(self):
         pass
@@ -159,126 +142,144 @@ class HContainer(Container):
             return
         expand = bool(int(attributes.get('xexpand', True)))
         fill = bool(int(attributes.get('xfill', True)))
-        self.table.pack_start(widget, expand=expand, fill=fill, padding=1)
+        self.container.pack_start(widget, expand=expand, fill=fill, padding=1)
 
 
-class ViewForm(View):
-    editable = True
+class FormXMLViewParser(XMLViewParser):
 
-    def __init__(self, screen, xml):
-        super(ViewForm, self).__init__(screen, xml)
-        self.view_type = 'form'
-        self.widgets = defaultdict(list)
-        self.state_widgets = []
-        self.notebooks = []
-        self.expandables = []
+    WIDGETS = {
+        'biginteger': Integer,
+        'binary': Binary,
+        'boolean': CheckBox,
+        'callto': CallTo,
+        'char': Char,
+        'date': Date,
+        'datetime': DateTime,
+        'dict': DictWidget,
+        'email': Email,
+        'float': Float,
+        'html': HTML,
+        'image': Image2,
+        'integer': Integer,
+        'many2many': Many2Many,
+        'many2one': Many2One,
+        'multiselection': MultiSelection,
+        'numeric': Float,
+        'one2many': One2Many,
+        'one2one': One2One,
+        'password': Password,
+        'progressbar': ProgressBar,
+        'pyson': PYSON,
+        'reference': Reference,
+        'richtext': RichTextBox,
+        'selection': Selection,
+        'sip': SIP,
+        'text': TextBox,
+        'time': Time,
+        'timedelta': TimeDelta,
+        'timestamp': DateTime,
+        'url': URL,
+        }
 
-        container = self.parse(xml)
+    def __init__(self, view, exclude_field, field_attrs):
+        super().__init__(view, exclude_field, field_attrs)
+        self._containers = []
+        self._mnemonics = {}
 
-        vbox = gtk.VBox()
-        vp = gtk.Viewport()
-        vp.set_shadow_type(gtk.SHADOW_NONE)
-        vp.add(container.table)
-        self.scroll = scroll = gtk.ScrolledWindow()
-        scroll.add(vp)
-        scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        scroll.set_placement(gtk.CORNER_TOP_LEFT)
-        viewport = gtk.Viewport()
-        viewport.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-        viewport.add(scroll)
-        vbox.pack_start(viewport, expand=True, fill=True)
+    @property
+    def container(self):
+        if self._containers:
+            return self._containers[-1]
+        return None
 
-        self.widget = vbox
-        self._viewport = vp
+    def _parse_form(self, node, attributes):
+        container_attributes = node_attributes(node)
+        container = Container.constructor(
+            int(container_attributes.get('col', 4)),
+            container_attributes.get('homogeneous', False))
+        self.view.viewport.add(container.container)
+        self.parse_child(node, container)
+        assert not self._containers
 
-    def parse(self, node, container=None):
-        if not container:
-            node_attrs = node_attributes(node)
-            container = Container.constructor(
-                int(node_attrs.get('col', 4)),
-                node_attrs.get('homogeneous', False))
-        mnemonics = {}
-        for node in node.childNodes:
-            if node.nodeType != node.ELEMENT_NODE:
-                continue
-            node_attrs = node_attributes(node)
-            for b_field in ('readonly', 'homogeneous'):
-                if b_field in node_attrs:
-                    node_attrs[b_field] = bool(int(node_attrs[b_field]))
-            for i_field in ('yexpand', 'yfill', 'xexpand', 'xfill', 'colspan',
-                    'position'):
-                if i_field in node_attrs:
-                    node_attrs[i_field] = int(node_attrs[i_field])
+    def parse_child(self, node, container=None):
+        if container:
+            self._containers.append(container)
+        for child in node.childNodes:
+            self.parse(child)
+        if container:
+            self._containers.pop()
 
-            parser = getattr(self, '_parse_%s' % node.tagName)
-            widget = parser(node, container, node_attrs)
-            if not widget:
-                continue
-            name = node_attrs.get('name')
-            if node.tagName == 'label' and name:
-                mnemonics[name] = widget
-            if node.tagName == 'field':
-                if name in mnemonics and widget.mnemonic_widget:
-                    label = mnemonics.pop(name)
-                    label.set_label(set_underline(label.get_label()))
-                    label.set_use_underline(True)
-                    label.set_mnemonic_widget(widget.mnemonic_widget)
-        return container
+    def _parse_field(self, node, attributes):
+        name = attributes['name']
+        if name and name == self.exclude_field:
+            self.container.add(None, attributes)
+            return
 
-    def _parse_image(self, node, container, attributes):
+        widget = self.WIDGETS[attributes['widget']](self.view, attributes)
+        self.view.widgets[name].append(widget)
+
+        if widget.expand:
+            attributes.setdefault('yexpand', True)
+            attributes.setdefault('yfill', True)
+
+        if attributes.get('height') or attributes.get('width'):
+            widget.widget.set_size_request(
+                int(attributes.get('width', -1)),
+                int(attributes.get('height', -1)))
+
+        self.container.add(Alignment(widget.widget, attributes), attributes)
+
+        if name in self._mnemonics and widget.mnemonic_widget:
+            label = self._mnemonics.pop(name)
+            label.set_label(set_underline(label.get_label()))
+            label.set_use_underline(True)
+            label.set_mnemonic_widget(widget.mnemonic_widget)
+
+    def _parse_button(self, node, attributes):
+        button = Button(attributes)
+        button.connect('clicked', self.view.button_clicked)
+        self.view.state_widgets.append(button)
+        self.container.add(button, attributes)
+
+    def _parse_image(self, node, attributes):
         image = Image(attrs=attributes)
-        self.state_widgets.append(image)
-        container.add(image, attributes)
+        self.view.state_widgets.append(image)
+        self.container.add(image, attributes)
 
-    def _parse_separator(self, node, container, attributes):
-        if 'name' in attributes:
-            field = self.screen.group.fields[attributes['name']]
-            for attr in ('states', 'string'):
-                if attr not in attributes and attr in field.attrs:
-                    attributes[attr] = field.attrs[attr]
+    def _parse_separator(self, node, attributes):
         vbox = VBox(attrs=attributes)
         if attributes.get('string'):
-            label = Label(attributes['string'], attrs=attributes)
-            label.set_alignment(float(attributes.get('xalign', 0.0)),
-                float(attributes.get('yalign', 0.5)))
-            vbox.pack_start(label)
-            self.state_widgets.append(label)
-        vbox.pack_start(gtk.HSeparator())
-        self.state_widgets.append(vbox)
-        container.add(vbox, attributes)
+            label = Label(label=attributes['string'], attrs=attributes)
+            label.set_halign(get_align(attributes.get('xalign', 0.0)))
+            label.set_valign(get_align(attributes.get('yalign', 0.5)))
+            vbox.pack_start(label, expand=True, fill=True, padding=0)
+            self.view.state_widgets.append(label)
+        vbox.pack_start(Gtk.HSeparator(), expand=True, fill=True, padding=0)
+        self.view.state_widgets.append(vbox)
+        self.container.add(vbox, attributes)
 
-    def _parse_label(self, node, container, attributes):
-        if 'name' in attributes:
-            field = self.screen.group.fields[attributes['name']]
-            if attributes['name'] == self.screen.exclude_field:
-                container.add(None, attributes)
-                return
-            if 'states' not in attributes and 'states' in field.attrs:
-                attributes['states'] = field.attrs['states']
-            if 'string' not in attributes:
-                attributes['string'] = field.attrs['string'] + _(':')
+    def _parse_label(self, node, attributes):
+        name = attributes.get('name')
+        if name and name == self.exclude_field:
+            self.container.add(None, attributes)
+            return
         if CONFIG['client.modepda']:
             attributes['xalign'] = 0.0
 
-        label = Label(attributes.get('string', ''), attrs=attributes)
-        label.set_alignment(float(attributes.get('xalign', 1.0)),
-            float(attributes.get('yalign', 0.5)))
+        label = Label(label=attributes.get('string', ''), attrs=attributes)
+        label.set_halign(get_align(attributes.get('xalign', 1.0)))
+        label.set_valign(get_align(attributes.get('yalign', 0.5)))
         label.set_angle(int(attributes.get('angle', 0)))
         attributes.setdefault('xexpand', 0)
-        self.state_widgets.append(label)
-        container.add(label, attributes)
-        return label
+        self.view.state_widgets.append(label)
+        self.container.add(label, attributes)
+        if name:
+            self._mnemonics[name] = label
 
-    def _parse_newline(self, node, container, attributes):
-        container.add_row()
+    def _parse_newline(self, node, attributes):
+        self.container.add_row()
 
-    def _parse_button(self, node, container, attributes):
-        button = Button(attributes)
-        button.connect('clicked', self.button_clicked)
-        self.state_widgets.append(button)
-        container.add(button, attributes)
-
-    def _parse_notebook(self, node, container, attributes):
+    def _parse_notebook(self, node, attributes):
         attributes.setdefault('yexpand', True)
         attributes.setdefault('yfill', True)
         attributes.setdefault('colspan', 4)
@@ -293,171 +294,126 @@ class ViewForm(View):
         # Force to display the first time it switches on a page
         # This avoids glitch in position of widgets
         def switch(notebook, page, page_num):
-            if not self.widget:
+            if not self.view.widget:
                 # Not yet finish to parse
                 return
             notebook.grab_focus()
-            self.display()
+            self.view.display()
             notebook.disconnect(handler_id)
         handler_id = notebook.connect('switch-page', switch)
-        self.state_widgets.append(notebook)
+        self.view.state_widgets.append(notebook)
 
-        self.notebooks.append(notebook)
-        container.add(notebook, attributes)
-        self.parse(node, notebook)
+        self.view.notebooks.append(notebook)
+        self.container.add(notebook, attributes)
+        self.parse_child(node, notebook)
 
-    def _parse_page(self, node, notebook, attributes):
-        tab_box = gtk.HBox(spacing=3)
-        if 'name' in attributes:
-            field = self.screen.group.fields[attributes['name']]
-            if attributes['name'] == self.screen.exclude_field:
-                return
-            for attr in ('states', 'string'):
-                if attr not in attributes and attr in field.attrs:
-                    attributes[attr] = field.attrs[attr]
-        label = gtk.Label(set_underline(attributes['string']))
+    def _parse_page(self, node, attributes):
+        tab_box = Gtk.HBox(spacing=3)
+        if 'name' in attributes and attributes['name'] == self.exclude_field:
+            return
+        label = Gtk.Label(label=set_underline(attributes['string']))
         label.set_use_underline(True)
 
         if 'icon' in attributes:
             tab_box.pack_start(IconFactory.get_image(
-                    attributes['icon'], gtk.ICON_SIZE_SMALL_TOOLBAR))
-        tab_box.pack_start(label)
+                    attributes['icon'], Gtk.IconSize.SMALL_TOOLBAR),
+                expand=True, fill=True, padding=0)
+        tab_box.pack_start(label, expand=True, fill=True, padding=0)
         tab_box.show_all()
 
-        viewport = gtk.Viewport()
-        viewport.set_shadow_type(gtk.SHADOW_NONE)
+        viewport = Gtk.Viewport()
+        viewport.set_shadow_type(Gtk.ShadowType.NONE)
         scrolledwindow = ScrolledWindow(attrs=attributes)
-        scrolledwindow.set_shadow_type(gtk.SHADOW_NONE)
-        scrolledwindow.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        scrolledwindow.set_shadow_type(Gtk.ShadowType.NONE)
+        scrolledwindow.set_policy(
+            Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         scrolledwindow.add(viewport)
         scrolledwindow.show_all()
-        self.state_widgets.append(scrolledwindow)
-        notebook.append_page(scrolledwindow, tab_box)
-        container = self.parse(node)
-        viewport.add(container.table)
+        self.view.state_widgets.append(scrolledwindow)
+        self.container.append_page(scrolledwindow, tab_box)
+        container = Container.constructor(
+            int(attributes.get('col', 4)),
+            attributes.get('homogeneous', False))
+        self.parse_child(node, container)
+        viewport.add(container.container)
 
-    def _parse_field(self, node, container, attributes):
-        name = attributes['name']
-        field = self.screen.group.fields[name]
+    def _parse_group(self, node, attributes):
+        group = Container.constructor(
+            int(attributes.get('col', 4)),
+            attributes.get('homogeneous', False))
+        self.parse_child(node, group)
 
-        if (name not in self.screen.group.fields
-                or name == self.screen.exclude_field):
-            container.add(None, attributes)
+        if 'name' in attributes and attributes['name'] == self.exclude_field:
+            self.container.add(None, attributes)
             return
-
-        if 'widget' not in attributes:
-            attributes['widget'] = field.attrs['type']
-
-        for i_field in ('width', 'height'):
-            if i_field in attributes:
-                attributes[i_field] = int(attributes[i_field])
-
-        for attr in ('relation', 'domain', 'selection',
-                'relation_field', 'string', 'help', 'views',
-                'add_remove', 'sort', 'context', 'size', 'filename',
-                'autocomplete', 'translate', 'create', 'delete',
-                'selection_change_with', 'schema_model'):
-            if attr in field.attrs and attr not in attributes:
-                attributes[attr] = field.attrs[attr]
-
-        Widget = self.get_widget(attributes['widget'])
-        widget = Widget(self, attributes)
-        self.widgets[name].append(widget)
-
-        if Widget.expand:
-            attributes.setdefault('yexpand', True)
-            attributes.setdefault('yfill', True)
-
-        if attributes.get('height') or attributes.get('width'):
-            widget.widget.set_size_request(
-                int(attributes.get('width', -1)),
-                int(attributes.get('height', -1)))
-        container.add(Alignment(widget.widget, attributes), attributes)
-        return widget
-
-    def _parse_group(self, node, container, attributes):
-        group = self.parse(node)
-        if 'name' in attributes:
-            field = self.screen.group.fields[attributes['name']]
-            if attributes['name'] == self.screen.exclude_field:
-                container.add(None, attributes)
-                return
-            for attr in ('states', 'string'):
-                if attr not in attributes and attr in field.attrs:
-                    attributes[attr] = field.attrs[attr]
 
         can_expand = attributes.get('expandable')
         if can_expand:
-            widget = Expander(attributes.get('string'), attrs=attributes)
-            widget.add(group.table)
+            widget = Expander(label=attributes.get('string'), attrs=attributes)
+            widget.add(group.container)
             widget.set_expanded(can_expand == '1')
-            self.expandables.append(widget)
+            self.view.expandables.append(widget)
         else:
-            widget = Frame(attributes.get('string'), attrs=attributes)
-            widget.add(group.table)
+            widget = Frame(label=attributes.get('string'), attrs=attributes)
+            widget.add(group.container)
 
-        self.state_widgets.append(widget)
-        container.add(widget, attributes)
+        self.view.state_widgets.append(widget)
+        self.container.add(widget, attributes)
 
-    def _parse_paned(self, node, container, attributes, Paned):
+    def _parse_hpaned(self, node, attributes):
+        self._parse_paned(node, attributes, Gtk.HPaned)
+
+    def _parse_vpaned(self, node, attributes):
+        self._parse_paned(node, attributes, Gtk.VPaned)
+
+    def _parse_paned(self, node, attributes, Paned):
         attributes.setdefault('yexpand', True)
         attributes.setdefault('yfill', True)
         paned = Paned()
         if 'position' in attributes:
             paned.set_position(attributes['position'])
-        container.add(paned, attributes)
-        self.parse(node, paned)
+        self.container.add(paned, attributes)
+        self.parse_child(node, paned)
 
-    def _parse_hpaned(self, node, container, attributes):
-        self._parse_paned(node, container, attributes, gtk.HPaned)
-
-    def _parse_vpaned(self, node, container, attributes):
-        self._parse_paned(node, container, attributes, gtk.VPaned)
-
-    def _parse_child(self, node, paned, attributes):
-        container = self.parse(node)
+    def _parse_child(self, node, attributes):
+        paned = self.container
+        container = Container.constructor(
+            int(attributes.get('col', 4)),
+            attributes.get('homogeneous', False))
+        self.parse_child(node, container)
         if not paned.get_child1():
             pack = paned.pack1
         else:
             pack = paned.pack2
-        pack(container.table, resize=True, shrink=True)
+        pack(container.container, resize=True, shrink=True)
 
-    WIDGETS = {
-        'date': Date,
-        'datetime': DateTime,
-        'time': Time,
-        'timestamp': DateTime,
-        'float': Float,
-        'numeric': Float,
-        'integer': Integer,
-        'biginteger': Integer,
-        'selection': Selection,
-        'char': Char,
-        'password': Password,
-        'timedelta': TimeDelta,
-        'boolean': CheckBox,
-        'reference': Reference,
-        'binary': Binary,
-        'text': TextBox,
-        'one2many': One2Many,
-        'many2many': Many2Many,
-        'many2one': Many2One,
-        'email': Email,
-        'url': URL,
-        'callto': CallTo,
-        'sip': SIP,
-        'image': Image2,
-        'progressbar': ProgressBar,
-        'one2one': One2One,
-        'richtext': RichTextBox,
-        'dict': DictWidget,
-        'multiselection': MultiSelection,
-        'pyson': PYSON,
-        }
 
-    @classmethod
-    def get_widget(cls, name):
-        return cls.WIDGETS[name]
+class ViewForm(View):
+    editable = True
+    view_type = 'form'
+    xml_parser = FormXMLViewParser
+
+    def __init__(self, view_id, screen, xml):
+        self.notebooks = []
+        self.expandables = []
+
+        vbox = Gtk.VBox()
+        vp = Gtk.Viewport()
+        vp.set_shadow_type(Gtk.ShadowType.NONE)
+        self.scroll = scroll = Gtk.ScrolledWindow()
+        scroll.add(vp)
+        scroll.set_policy(
+            Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+        scroll.set_placement(Gtk.CornerType.TOP_LEFT)
+        viewport = Gtk.Viewport()
+        viewport.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        viewport.add(scroll)
+        vbox.pack_start(viewport, expand=True, fill=True, padding=0)
+
+        self.widget = vbox
+        self.viewport = vp
+
+        super().__init__(view_id, screen, xml)
 
     def get_fields(self):
         return list(self.widgets.keys())
@@ -472,22 +428,21 @@ class ViewForm(View):
         self.widget.destroy()
 
     def set_value(self, focused_widget=False):
-        record = self.screen.current_record
+        record = self.record
         if record:
             for name, widgets in self.widgets.items():
                 if name in record.group.fields:
-                    field = record.group.fields[name]
                     for widget in widgets:
                         if (not focused_widget
                                 or widget.widget.is_focus()
-                                or (isinstance(widget.widget, gtk.Container)
+                                or (isinstance(widget.widget, Gtk.Container)
                                     and widget.widget.get_focus_child())):
-                            widget.set_value(record, field)
+                            widget.set_value()
 
     @property
     def selected_records(self):
-        if self.screen.current_record:
-            return [self.screen.current_record]
+        if self.record:
+            return [self.record]
         return []
 
     @property
@@ -496,20 +451,20 @@ class ViewForm(View):
             for w in widgets)
 
     def get_buttons(self):
-        return [b for b in self.state_widgets if isinstance(b, gtk.Button)]
+        return [b for b in self.state_widgets if isinstance(b, Gtk.Button)]
 
     def reset(self):
-        record = self.screen.current_record
+        record = self.record
         if record:
             for name, widgets in self.widgets.items():
                 field = record.group.fields.get(name)
                 if field and 'invalid' in field.get_state_attrs(record):
                     for widget in widgets:
                         field.get_state_attrs(record)['invalid'] = False
-                        widget.display(record, field)
+                        widget.display()
 
     def display(self):
-        record = self.screen.current_record
+        record = self.record
         if record:
             # Force to set fields in record
             # Get first the lazy one from the view to reduce number of requests
@@ -531,7 +486,7 @@ class ViewForm(View):
             if field:
                 field.state_set(record)
             for widget in widgets:
-                widget.display(record, field)
+                widget.display()
         for widget in self.state_widgets:
             widget.state_set(record)
         if focused_widget:
@@ -552,10 +507,10 @@ class ViewForm(View):
                 focus_widget = find_focusable_child(self.widgets[
                         self.attributes['cursor']][0].widget)
             else:
-                child = find_focusable_child(self._viewport)
+                child = find_focusable_child(self.viewport)
                 if child:
                     child.grab_focus()
-        record = self.screen.current_record
+        record = self.record
         if record:
             invalid_widgets = []
             for name in record.invalid_fields:
@@ -566,7 +521,7 @@ class ViewForm(View):
                         invalid_widgets.append(invalid_widget)
             if invalid_widgets:
                 focus_widget = find_first_focus_widget(
-                    self._viewport, invalid_widgets)
+                    self.viewport, invalid_widgets)
         if focus_widget:
             for notebook in self.notebooks:
                 for i in range(notebook.get_n_pages()):

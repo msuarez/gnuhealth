@@ -1,7 +1,7 @@
 # This file is part of GNU Health.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import os
-import imp
+import importlib
 import gettext
 
 from tryton.config import get_config_dir, CURRENT_DIR
@@ -23,15 +23,23 @@ def register():
 
     imported = set()
     for path in paths:
+        finder = importlib.machinery.FileFinder(
+            path, (
+                importlib.machinery.SourceFileLoader,
+                importlib.machinery.SOURCE_SUFFIXES))
         for plugin in os.listdir(path):
             module = os.path.splitext(plugin)[0]
-            if module == '__init__' or module in imported:
+            if (module.startswith('_') or module in imported):
                 continue
+            module = 'tryton.plugins.%s' % module
+            spec = finder.find_spec(module)
+            if not spec:
+                continue
+            module = importlib.util.module_from_spec(spec)
             try:
-                module = imp.load_module(module, *imp.find_module(module,
-                        [path]))
-                MODULES.append(module)
+                spec.loader.exec_module(module)
             except ImportError:
                 continue
             else:
+                MODULES.append(module)
                 imported.add(module.__name__)

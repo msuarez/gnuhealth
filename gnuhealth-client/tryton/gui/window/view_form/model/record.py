@@ -28,14 +28,18 @@ class Record(SignalEvent):
         self.state_attrs = {}
         self.modified_fields = {}
         self._timestamp = None
-        self.attachment_count = -1
-        self.unread_note = -1
+        self.resources = None
         self.button_clicks = {}
         self.next = {}  # Used in Group list
         self.value = {}
         self.autocompletion = {}
         self.exception = False
         self.destroyed = False
+
+        # GNU Health client 3.6
+        self.attachment_count = -1
+        self.unread_note = -1
+
 
     def __getitem__(self, name):
         if name not in self._loaded and self.id >= 0:
@@ -135,6 +139,39 @@ class Record(SignalEvent):
                         value.pop(key, None)
                     record.set(value, signal=False)
         return self.group.fields[name]
+
+    #GNU Health 3.6 client notes and attachment counts
+    def get_attachment_count(self, reload=False):
+        if self.id < 0:
+            return 0
+        if self.attachment_count < 0 or reload:
+            try:
+                self.attachment_count = RPCExecute('model', 'ir.attachment',
+                    'search_count', [
+                        ('resource', '=',
+                            '%s,%s' % (self.model_name, self.id)),
+                        ], context=self.get_context())
+            except RPCException:
+                return 0
+        return self.attachment_count
+
+    def get_unread_note(self, reload=False):
+        if self.id < 0:
+            return 0
+        if self.unread_note < 0 or reload:
+            try:
+                self.unread_note = RPCExecute('model', 'ir.note',
+                    'search_count', [
+                        ('resource', '=',
+                            '%s,%s' % (self.model_name, self.id)),
+                        ('unread', '=', True),
+                        ], context=self.get_context())
+            except RPCException:
+                return 0
+        return self.unread_note
+
+
+
 
     def __repr__(self):
         return '<Record %s@%s at %s>' % (self.id, self.model_name, id(self))
@@ -255,7 +292,8 @@ class Record(SignalEvent):
         value = {}
         for name, field in self.group.fields.items():
             if (field.attrs.get('readonly')
-                    and not isinstance(field, fields.O2MField)):
+                    and not (isinstance(field, fields.O2MField)
+                        and not isinstance(field, fields.M2MField))):
                 continue
             if field.name not in self.modified_fields and self.id >= 0:
                 continue
@@ -411,11 +449,8 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                field_rec_name = fieldname + '.rec_name'
-                if field_rec_name in val:
-                    self.value[field_rec_name] = val[field_rec_name]
-                elif field_rec_name in self.value:
-                    del self.value[field_rec_name]
+                related = fieldname + '.'
+                self.value[related] = val.get(related) or {}
             self.group.fields[fieldname].set_default(self, value)
             self._loaded.add(fieldname)
             fieldnames.append(fieldname)
@@ -444,11 +479,8 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                field_rec_name = fieldname + '.rec_name'
-                if field_rec_name in val:
-                    self.value[field_rec_name] = val[field_rec_name]
-                elif field_rec_name in self.value:
-                    del self.value[field_rec_name]
+                related = fieldname + '.'
+                self.value[related] = val.get(related) or {}
             self.group.fields[fieldname].set(self, value)
             self._loaded.add(fieldname)
             fieldnames.append(fieldname)
@@ -466,11 +498,8 @@ class Record(SignalEvent):
                 continue
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                field_rec_name = fieldname + '.rec_name'
-                if field_rec_name in values:
-                    self.value[field_rec_name] = values[field_rec_name]
-                elif field_rec_name in self.value:
-                    del self.value[field_rec_name]
+                related = fieldname + '.'
+                self.value[related] = values.get(related) or {}
             self.group.fields[fieldname].set_on_change(self, value)
 
     def reload(self, fields=None):
@@ -523,7 +552,6 @@ class Record(SignalEvent):
                 scope = scope[i]
             else:
                 res[arg] = scope
-        res['id'] = self.id
         return res
 
     def on_change(self, fieldnames):
@@ -536,8 +564,16 @@ class Record(SignalEvent):
 
         if values:
             try:
-                changes = RPCExecute('model', self.model_name, 'on_change',
-                    values, fieldnames, context=self.get_context())
+                if len(fieldnames) == 1:
+                    fieldname, = fieldnames
+                    changes = []
+                    changes.append(RPCExecute(
+                            'model', self.model_name, 'on_change_' + fieldname,
+                            values, context=self.get_context()))
+                else:
+                    changes = RPCExecute(
+                        'model', self.model_name, 'on_change',
+                        values, fieldnames, context=self.get_context())
             except RPCException:
                 return
             for change in changes:
@@ -562,13 +598,20 @@ class Record(SignalEvent):
             values.update(self._get_on_change_args(on_change_with))
             if isinstance(self.group.fields[fieldname], (fields.M2OField,
                         fields.ReferenceField)):
-                field_rec_name = fieldname + '.rec_name'
-                if field_rec_name in self.value:
-                    del self.value[field_rec_name]
+                self.value.pop(fieldname + '.', None)
         if fieldnames:
             try:
-                result = RPCExecute('model', self.model_name, 'on_change_with',
-                    values, list(fieldnames), context=self.get_context())
+                if len(fieldnames) == 1:
+                    fieldname, = fieldnames
+                    result = {}
+                    result[fieldname] = RPCExecute(
+                        'model', self.model_name,
+                        'on_change_with_' + fieldname,
+                        values, context=self.get_context())
+                else:
+                    result = RPCExecute(
+                        'model', self.model_name, 'on_change_with',
+                        values, list(fieldnames), context=self.get_context())
             except RPCException:
                 return
             self.set_on_change(result)
@@ -613,34 +656,15 @@ class Record(SignalEvent):
             if context:
                 value.context = self.expr_eval(context)
 
-    def get_attachment_count(self, reload=False):
-        if self.id < 0:
-            return 0
-        if self.attachment_count < 0 or reload:
+    def get_resources(self, reload=False):
+        if self.id >= 0 and (not self.resources or reload):
             try:
-                self.attachment_count = RPCExecute('model', 'ir.attachment',
-                    'search_count', [
-                        ('resource', '=',
-                            '%s,%s' % (self.model_name, self.id)),
-                        ], context=self.get_context())
+                self.resources = RPCExecute(
+                    'model', self.model_name, 'resources', self.id,
+                    context=self.get_context())
             except RPCException:
-                return 0
-        return self.attachment_count
-
-    def get_unread_note(self, reload=False):
-        if self.id < 0:
-            return 0
-        if self.unread_note < 0 or reload:
-            try:
-                self.unread_note = RPCExecute('model', 'ir.note',
-                    'search_count', [
-                        ('resource', '=',
-                            '%s,%s' % (self.model_name, self.id)),
-                        ('unread', '=', True),
-                        ], context=self.get_context())
-            except RPCException:
-                return 0
-        return self.unread_note
+                pass
+        return self.resources
 
     def get_button_clicks(self, name):
         if self.id < 0:

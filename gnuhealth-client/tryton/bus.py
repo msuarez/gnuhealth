@@ -10,7 +10,7 @@ import uuid
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
-from gi.repository import GObject
+from gi.repository import GLib
 
 from tryton.jsonrpc import object_hook
 from tryton.config import CONFIG
@@ -64,9 +64,13 @@ def _listen(connection):
             wait = 1
             continue
         except Exception as error:
-            if isinstance(error, HTTPError) and error.code == 501:
-                logger.info("Bus not supported")
-                break
+            if isinstance(error, HTTPError):
+                if error.code in (301, 302, 303, 307, 308):
+                    url = error.headers.get('Location')
+                    continue
+                elif error.code == 501:
+                    logger.info("Bus not supported")
+                    break
             logger.error(
                 "An exception occured while connecting to the bus."
                 "Sleeping for %s seconds",
@@ -81,7 +85,7 @@ def _listen(connection):
         data = json.loads(response.read(), object_hook=object_hook)
         if data['message']:
             last_message = data['message']['message_id']
-            GObject.idle_add(handle, data['message'])
+            GLib.idle_add(handle, data['message'])
 
 
 def handle(message):

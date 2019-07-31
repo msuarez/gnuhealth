@@ -44,7 +44,7 @@ setup(name=name,
         'PyGObject',
         ],
     extras_require={
-        'calendar': ['GooCalendar>=0.4'],
+        'calendar': ['GooCalendar>=0.5'],
         },
     packages=find_packages(),
     include_package_data=True,

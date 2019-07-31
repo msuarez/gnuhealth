@@ -32,6 +32,15 @@ def main():
     label.editable {
         font-style: italic;
     }
+    .window-title, .wizard-title {
+        background-color: white;
+        font-size: large;
+        font-weight: bold;
+    }
+    .window-title .status {
+        font-size: medium;
+        font-weight: normal;
+    }
     """
 
     screen = Gdk.Screen.get_default()
@@ -48,7 +57,7 @@ def main():
             screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
     def excepthook(type_, value, traceback_):
-        common.error(str(value), ''.join(traceback.format_tb(traceback_)))
+        common.error(value, ''.join(traceback.format_tb(traceback_)))
     sys.excepthook = excepthook
 
     CONFIG.parse()
