@@ -81,7 +81,6 @@ class Main(Gtk.Application):
                 common.check_version(self.info)
 
         for name, key in [
-                ('mode-pda', 'client.modepda'),
                 ('save-width-height', 'client.save_width_height'),
                 ('save-tree-state', 'client.save_tree_state'),
                 ('spell-checking', 'client.spellcheck'),
@@ -143,7 +142,6 @@ class Main(Gtk.Application):
         form.append(_("Fast Tabbing"), 'app.fast-tabbing')
         form.append(_("Spell Checking"), 'app.spell-checking')
 
-        section.append(_("PDA Mode"), 'app.mode-pda')
         section.append(_("Search Limit..."), 'app.search-limit')
         section.append(_("Email..."), 'app.email')
         section.append(_("Check Version"), 'app.check-version')

@@ -44,7 +44,6 @@ class ConfigManager(object):
             'login.db': demo_database,
             'login.expanded': True,
             'client.title': 'GNU Health',
-            'client.modepda': False,
             'client.toolbar': 'default',
             'client.maximize': False,
             'client.save_width_height': True,
