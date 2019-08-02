@@ -765,16 +765,6 @@ class ErrorDialog(UniqueDialog):
         dialog.vbox.pack_start(
             scrolledwindow, expand=True, fill=True, padding=0)
 
-        button_roundup = Gtk.LinkButton.new_with_label(
-            CONFIG['bug.url'], _("Report Bug"))
-        button_roundup.get_child().set_halign(Gtk.Align.START)
-        button_roundup.connect('activate-link',
-            lambda widget: webbrowser.open(CONFIG['bug.url'], new=2))
-        dialog.vbox.pack_start(
-            button_roundup, expand=False, fill=False, padding=0)
-
-        return dialog
-
     def __call__(self, title, details):
         if isinstance(title, Exception):
             title = "%s: %s" % (title.__class__.__name__, title)
