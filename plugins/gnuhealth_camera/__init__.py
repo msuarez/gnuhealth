@@ -26,9 +26,6 @@ from tryton.common import RPCExecute, warning, message
 from tryton.gui.window.form import Form
 import gettext
 import numpy as np
-import pygtk
-pygtk.require('2.0')
-import gtk
 from datetime import datetime
 try: 
     import cv2
@@ -62,7 +59,7 @@ def set_attachment(data, frame):
          'description':'From GNU Health camera',
          'data':container,
         }], rpc.CONTEXT)
-    
+
     if save_attach:
         msg = "Attachment saved correctly !\n\n" \
             "Please refresh the view"
@@ -77,7 +74,7 @@ def get_help():
         "[space] = Set the picture in model (when available)\n\n" \
         "h = This help message\n\n" \
         "q = Quit the camera application\n\n" 
-        
+
     message(
         _(msg),
     )
@@ -90,21 +87,21 @@ def set_media(data, frame):
     document_model = data['model']
 
     target_field = None
-    
+
     # Photo in person registration
     if (document_model == 'party.party'):
         target_field = 'photo'
-        
+
     if (target_field):
         rpc.execute(
             'model', document_model, 'write',
             data['ids'],
             {target_field:container}, rpc.CONTEXT)
-        
+
         return True
     else:
         return False
-    
+
 def main (data):
 
     # Allow only one record
@@ -129,49 +126,45 @@ def main (data):
     cap = cv2.VideoCapture(0)
 
     preview = False
-    
+
     while(True):
         # Grab the frames
         try:
             rc, frame = cap.read()
         except:
             cleanup()
-            
+
         # Display the resulting frame
-        
+
         cv2.imshow('== GNU Health Camera ==',frame)
 
         keypressed = cv2.waitKey(1)
 
         if  keypressed == ord(' '):
-            
             cv2.imshow("Preview",frame)
-           
-            # Make a backup copy  
-            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
 
-            # call set media   
+            # Make a backup copy
+            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)
+
+            # call set media
             set_media(data, frame)
-            
             preview = True
 
         if  keypressed == ord('a'):
-            
             cv2.imshow("Preview",frame)
-            
             # Make a backup copy  
-            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)              
+            cv2.imwrite('/tmp/gnuhealth_snapshot_preview.png',frame)
 
             # call set media   
             set_attachment(data, frame)
-            break            
+            break
 
         if keypressed == ord('q'):
             break
 
         if  keypressed == ord('h'):
             get_help()
-            
+
     cleanup(cap)
 
     # Reload the form
@@ -184,6 +177,6 @@ def get_plugins(model):
         ]
 
 def cleanup(cap):
-    #Cleanup 
+    #Cleanup
     cap.release()
     cv2.destroyAllWindows()
