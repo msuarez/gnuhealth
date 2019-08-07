@@ -764,6 +764,7 @@ class ErrorDialog(UniqueDialog):
         scrolledwindow.add(viewport)
         dialog.vbox.pack_start(
             scrolledwindow, expand=True, fill=True, padding=0)
+        return dialog
 
     def __call__(self, title, details):
         if isinstance(title, Exception):
@@ -775,54 +776,6 @@ class ErrorDialog(UniqueDialog):
 
 
 error = ErrorDialog()
-
-
-def check_version(box, version=__version__):
-    def info_bar_response(info_bar, response, box, url):
-        if response == Gtk.ResponseType.ACCEPT:
-            webbrowser.open(url)
-        box.remove(info_bar)
-
-    class HeadRequest(urllib.request.Request):
-        def get_method(self):
-            return 'HEAD'
-
-    version = version.split('.')
-    series = '.'.join(version[:2])
-    version[2] = str(int(version[2]) + 1)
-    version = '.'.join(version)
-    filename = 'tryton-%s.tar.gz' % version
-    if hasattr(sys, 'frozen'):
-        if sys.platform == 'win32':
-            filename = 'tryton-setup-%s.exe' % version
-        elif sys.platform == 'darwin':
-            filename = 'tryton-%s.dmg' % version
-    url = list(urllib.parse.urlparse(CONFIG['download.url']))
-    url[2] = '/%s/%s' % (series, filename)
-    url = urllib.parse.urlunparse(url)
-
-    logger.info(_("Check URL: %s"), url)
-    try:
-        urllib.request.urlopen(
-            HeadRequest(url), timeout=5, cafile=rpc._CA_CERTS)
-    except (urllib.error.HTTPError, socket.timeout):
-        return True
-    except Exception:
-        logger.error(
-            _("Unable to check for new version"), exc_info=True)
-        return True
-    else:
-        if check_version(box, version):
-            info_bar = Gtk.InfoBar()
-            info_bar.get_content_area().pack_start(
-                Gtk.Label(label=_("A new version is available!")),
-                expand=True, fill=True, padding=0)
-            info_bar.set_show_close_button(True)
-            info_bar.add_button(_("Download"), Gtk.ResponseType.ACCEPT)
-            info_bar.connect('response', info_bar_response, box, url)
-            box.pack_start(info_bar, expand=True, fill=True, padding=0)
-            info_bar.show_all()
-        return False
 
 
 def to_xml(string):
