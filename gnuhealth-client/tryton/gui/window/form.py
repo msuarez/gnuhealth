@@ -24,6 +24,7 @@ from tryton.signal_event import SignalEvent
 from tryton.common import message, sur, sur_3b, timezoned_date
 import tryton.common as common
 from tryton.common import RPCExecute, RPCException
+from tryton.common.underline import set_underline
 from tryton import plugins
 
 from .tabcontent import TabContent
@@ -667,9 +668,6 @@ class Form(SignalEvent, TabContent):
             menuitem = Gtk.MenuItem(
                 label=set_underline(button.attrs.get('string', _('Unknown'))),
                 use_underline=True)
-            if button.attrs.get('icon'):
-                menuitem.set_image(common.IconFactory.get_image(
-                        button.attrs['icon'], Gtk.IconSize.LARGE_TOOLBAR))
             menuitem.connect('activate',
                 lambda m, attrs: self.screen.button(attrs), button.attrs)
             menuitem._update_action = True
