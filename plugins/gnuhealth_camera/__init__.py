@@ -27,6 +27,7 @@ from tryton.gui.window.form import Form
 import gettext
 import numpy as np
 from datetime import datetime
+import base64
 try: 
     import cv2
 except:
@@ -44,7 +45,7 @@ _ = gettext.gettext
 def set_attachment(data, frame):
     #Store the frame in a container
     rc, container = cv2.imencode(".png",frame)
-    container = bytearray(container)
+    container = container.tostring()
     document_model = data['model']
     ref=document_model + ',' + str(data['ids'][0])
     timestamp = str(datetime.now())
@@ -83,7 +84,7 @@ def get_help():
 def set_media(data, frame):
     #Store the frame in a container
     rc, container = cv2.imencode(".png",frame)
-    container = bytearray(container)
+    container = container.tostring()
     document_model = data['model']
 
     target_field = None
