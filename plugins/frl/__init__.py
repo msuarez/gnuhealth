@@ -24,9 +24,10 @@ import tryton.rpc as rpc
 from tryton.common import RPCExecute, warning, message, sur
 from tryton.gui.window.form import Form
 from tryton.common import MODELACCESS
+from gi.repository import Gtk
+
 
 import gettext
-import gtk
 import os
 import ssl
 import requests
@@ -119,12 +120,11 @@ class FederationResourceLocator():
 
     # Quit the application
     def destroy(self, widget, data=None):
-        gtk.main_quit()
+        Gtk.main_quit()
 
     def create_local_record(self, model, values):
         # Create local record from the information
         # gathered from the Federation
-        
         create_local =rpc.execute(
             'model', model , 'create',
             [values],
@@ -238,7 +238,7 @@ class FederationResourceLocator():
         icon = os.path.expanduser("~") + \
             '/gnuhealth_plugins/frl/icons/federation.svg'
 
-        self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
+        self.window = Gtk.Window(Gtk.WindowType.TOPLEVEL)
         self.window.set_icon_from_file(icon)
 
         self.window.connect("delete_event", self.delete_event)
@@ -249,51 +249,59 @@ class FederationResourceLocator():
         self.window.set_title("GNU Health Federation Resource Locator")
 
         # Entry for the resource (eg, people)
-        self.resource = gtk.Entry(max=20)
+        self.resource = Gtk.Entry()
+        self.resource.set_max_length(30)
+
         self.resource.set_text("people")
 
         # Entry to find Federation ID or other info when using fuzzy srch
-        self.query = gtk.Entry(max=100)
+        self.query = Gtk.Entry()
+        self.query.set_max_length(100)
 
         # Search Button
-        self.search_button = gtk.Button(label=None, stock=gtk.STOCK_FIND)
+        self.search_button = Gtk.Button(stock=Gtk.STOCK_FIND)
+        self.search_button.set_label("Search")
 
         # Fuzzy search
-        self.fuzzy_search = gtk.CheckButton(label="Fuzzy")
+        self.fuzzy_search = Gtk.CheckButton(label="Fuzzy")
 
         # Call method search_resource upon receiving the clicked signal
         self.search_button.connect("clicked", self.search_resource,
             self.resource, self.query, self.fuzzy_search)
 
-        self.hbox = gtk.HBox (True, 10)
-        self.hbox.pack_start (self.resource)
-        self.hbox.pack_start (self.query)
-        self.hbox.pack_start (self.search_button)
-        self.hbox.pack_start (self.fuzzy_search)
+        self.hbox = Gtk.HBox (True, 10)
+        self.hbox.pack_start (self.resource,
+                              expand=False, fill=False, padding=0)
+        self.hbox.pack_start (self.query,
+                              expand=False, fill=False, padding=0)
+        self.hbox.pack_start (self.search_button,
+                              expand=False, fill=False, padding=0)
+        self.hbox.pack_start (self.fuzzy_search,
+                              expand=False, fill=False, padding=0)
         self.resource.show()
         self.query.show()
         self.search_button.show()
         self.fuzzy_search.show()
 
-        self.search_frame = gtk.Frame()
+        self.search_frame = Gtk.Frame()
         self.search_frame.add (self.hbox)
 
-        self.main_table = gtk.Table(rows=2, columns=2, homogeneous=False)
+        self.main_table = Gtk.Table(rows=2, columns=2, homogeneous=False)
 
         # Create the main tree view for the results
-        self.results = gtk.ListStore(str, str, str, str, str, str, str)
-        self.treeview = gtk.TreeView(self.results)
+        self.results = Gtk.ListStore(str, str, str, str, str, str, str)
+        self.treeview = Gtk.TreeView(self.results)
 
         # Let pick at most one row
-        self.treeselection = self.treeview.get_selection ()
-        self.treeselection.set_mode (gtk.SELECTION_SINGLE)
+        self.treeselection = self.treeview.get_selection()
+        self.treeselection.set_mode(Gtk.SelectionMode(1))
         # Process once the row is activated (double-click or enter)
         self.treeview.connect('row-activated', self.get_values)
 
         # Add and render the columns
         for n in range(len(self.columns)):
-            self.cell = gtk.CellRendererText()
-            self.col = gtk.TreeViewColumn(self.columns[n], self.cell, text=n)
+            self.cell = Gtk.CellRendererText()
+            self.col = Gtk.TreeViewColumn(self.columns[n], self.cell, text=n)
             self.treeview.append_column(self.col)
 
         # attach the query box on the table
@@ -311,7 +319,7 @@ class FederationResourceLocator():
         self.window.show()
 
     def main(self):
-        gtk.main()
+        Gtk.main()
 
 def frl_main(data):
     frl = FederationResourceLocator()
