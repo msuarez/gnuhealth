@@ -1105,61 +1105,58 @@ class Main(Gtk.Application):
         # Init the GNU Health Status Bar
         self.statusbar = None
         self.footer = None
-        self.header = None
-        self.header_contents = None
+        self.ghheader = None
+        self.ghheader_contents = None
         self.footer_contents = None
         self.statusbar = Gtk.Statusbar()
         self.context_id = self.statusbar.get_context_id("Statusbar")
-        self.header = Gtk.HBox()
-        self.header.set_size_request(200,-1)
+        self.ghheader = Gtk.HBox()
+        self.ghheader.set_size_request(200,-1)
 
-
-        # Main header
-        self.header = Gtk.HBox()
 
         # Main footer
-        self.footer = Gtk.HBox()
+        self.ghfooter = Gtk.HBox()
 
         # Create initally a 1x3 table for the footer, leaving the
         # middle column empty
-        self.footer_contents = Gtk.Table(1,3,True)
+        self.ghfooter_contents = Gtk.Table(1,3,True)
 
         # Create initally a 1x3 table for the header
-        self.header_contents = Gtk.Table(1,3,True)
+        self.ghheader_contents = Gtk.Table(1,3,True)
 
         # Set GNU Health Footer
-        self.set_footer()
+        self.set_ghfooter()
 
         cli_position = self.cli_position
 
         #Default CLI position at top
         if (not cli_position or cli_position == 'top'):
-            self.header_contents.attach(self.cli, 0, 1, 0, 1)
-            self.header.pack_start(self.header_contents,expand=True,
+            self.ghheader_contents.attach(self.cli, 0, 1, 0, 1)
+            self.ghheader.pack_start(self.ghheader_contents,expand=True,
                                 fill=True, padding=0)
-            self.vbox.pack_start (self.header,
+            self.vbox.pack_start (self.ghheader,
                                   expand=False, fill=False, padding=0)
 
-            self.vbox.reorder_child(self.header, 1)
-            self.header.show_all()
+            self.vbox.reorder_child(self.ghheader, 1)
+            self.ghheader.show_all()
 
     # Add GNU Health Command Line and Status Bar in footer
-    def set_footer(self):
+    def set_ghfooter(self):
         cli = self.cli
         statusbar = self.statusbar
-        footer_contents = self.footer_contents
+        ghfooter_contents = self.ghfooter_contents
 
         if (self.cli_position == 'bottom'):
-            footer_contents.attach(cli, 0, 1, 0, 1)
+            ghfooter_contents.attach(cli, 0, 1, 0, 1)
 
-        footer_contents.attach(statusbar,2, 3, 0, 1)
+        ghfooter_contents.attach(statusbar,2, 3, 0, 1)
 
-        self.footer.pack_start(footer_contents, expand=True, fill=True, padding=0)
+        self.ghfooter.pack_start(ghfooter_contents, expand=True, fill=True, padding=0)
 
         # Pack the footer table in main vbox
-        self.vbox.pack_start (self.footer, expand=False, fill=False, padding=0)
+        self.vbox.pack_start (self.ghfooter, expand=False, fill=False, padding=0)
 
-        self.footer.show_all()
+        self.ghfooter.show_all()
         self.vbox.show_all()
 
         cli.connect('activate', self.activate_cli, self.context_id)
