@@ -115,6 +115,14 @@
             <field name="internal">False</field>
         </record>
 
+        <record model="gnuhealth.command" id="mod">
+            <field name="name">mod</field>
+            <field name="model">gnuhealth.command</field>
+            <field name="label">Modules</field>
+            <field name="description">GNU Health Modules</field>
+            <field name="internal">False</field>
+        </record>
+
         <record model="gnuhealth.command" id="sysinfo">
             <field name="name">sysinfo</field>
             <field name="description">Technical information for client and server</field>
