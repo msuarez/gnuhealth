@@ -117,7 +117,7 @@
 
         <record model="gnuhealth.command" id="mod">
             <field name="name">mod</field>
-            <field name="model">gnuhealth.command</field>
+            <field name="model">ir.module</field>
             <field name="label">Modules</field>
             <field name="description">GNU Health Modules</field>
             <field name="internal">False</field>
