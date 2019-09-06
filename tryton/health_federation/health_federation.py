@@ -114,6 +114,9 @@ class FederationNodeConfig(ModelSingleton, ModelSQL, ModelView):
         else:
             protocol = 'http://'
 
+        if (not user or not password):
+            cls.raise_user_error("Please setup the login credentials")
+
         url = protocol + host + ':' + str(port) + '/people/' + user
 
         try:
