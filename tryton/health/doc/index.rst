@@ -100,7 +100,7 @@ License
 
 GNU Health is licensed under GPL v3+
 
-Copyright (C) 2008-2019 Luis Falcon <falcon@gnu.org>
+Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
 Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 
 This program is free software: you can redistribute it and/or modify

@@ -4,7 +4,7 @@
 #    GNU Health: The Free Health and Hospital Information System
 #    MODULE : Diagnostic Imaging
 #
-#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnu.org>
+#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnuhealth.org>
 #    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2013  Sebastián Marro <smarro@thymbra.com>
 #

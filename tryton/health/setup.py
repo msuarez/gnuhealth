@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#    Copyright (C) 2011-2019 Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2011-2019 Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2011 Cédric Krier
 

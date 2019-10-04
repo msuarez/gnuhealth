@@ -3,7 +3,7 @@
 #
 #    GNU Health: The Free Health and Hospital Information System
 #    # Package : Health Inpatient Calendar
-#    Copyright (C) 2008-2018  Luis Falcon <falcon@gnu.org>
+#    Copyright (C) 2008-2018  Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2011-2012  Sebastián Marró <smarro@thymbra.com>
 #    Copyright (C) 2008-2018  GNU Solidario <health@gnusolidario.org>
 #

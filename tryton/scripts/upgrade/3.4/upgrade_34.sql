@@ -1,6 +1,6 @@
 /*
 # GNU HEALTH : The Free Health and Hospital Information System
-# (c) 2008-2017 Luis Falcon <falcon@gnu.org>
+# (c) 2008-2017 Luis Falcon <falcon@gnuhealth.org>
 # (c) 2008-2017 GNU Solidario <info@gnusolidario.org>
 
 # Program name : upgrade_34.sql
