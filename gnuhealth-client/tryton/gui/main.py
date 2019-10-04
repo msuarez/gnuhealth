@@ -121,6 +121,15 @@ class Main(Gtk.Application):
         self.add_action(action)
         self.set_accels_for_action('app.quit', ['<Primary>q'])
 
+        #GNU Health block
+        # Add Activity Window action
+        action = Gio.SimpleAction.new('activity', None)
+        action.connect('activate', lambda *a: self.activity_toggle())
+        self.add_action(action)
+        self.set_accels_for_action('app.activity', ['<Shift>F12'])
+
+
+
         menu = Gio.Menu.new()
         menu.append(_("Preferences..."), 'app.preferences')
 
@@ -1257,4 +1266,10 @@ class Main(Gtk.Application):
         else:
             common.message(_('Command not found.'))
 
+    #Toggle GNU Health Activity window
+    def activity_toggle(self):
+        if Activity().activity_window.get_visible():
+            Activity().activity_window.hide()
+        else:
+            Activity().activity_window.show_all()
 
