@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    GNU Health: The Free Health and Hospital Information System
-#    Copyright (C) 2008-2019 Luis Falcon <lfalcon@gnusolidario.org>
+#    Copyright (C) 2008-2019 Luis Falcon <falcon@gnuhealth.org>
 #    Copyright (C) 2011-2019 GNU Solidario <health@gnusolidario.org>
 #    Copyright (C) 2015 Cédric Krier
 #    Copyright (C) 2014-2015 Chris Zimmerman <siv@riseup.net>
@@ -376,7 +376,8 @@ class Party(ModelSQL, ModelView):
         ('pgfs', 'Prefix Given Family, Suffix'),
         ('gf', 'Given Family'),
         ('fg', 'Family, Given'),
-        ], 'Name Representation',
+        ('cjk', 'CJK: Family+Given'),
+        ], 'Name Representation', sort=False,
         states={'invisible': Not(Bool(Eval('is_person')))})
 
 
@@ -789,6 +790,11 @@ class Party(ModelSQL, ModelView):
                     if self.name_representation == 'fg':
                         if pname.family:
                             family = pname.family + ', '
+                        res = family + given
+
+                    if self.name_representation == 'cjk':
+                        if pname.family:
+                            family = pname.family
                         res = family + given
 
                     if not self.name_representation:
