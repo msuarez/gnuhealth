@@ -12,7 +12,7 @@ Vue.use(VeeValidate)
 Vue.config.productionTip = false
 
 // Add global objects
-Vue.prototype.$default_thalamus_server = 'http://localhost:5000'
+Vue.prototype.$default_thalamus_server = 'https://localhost:8443'
 
 new Vue({
   router,
