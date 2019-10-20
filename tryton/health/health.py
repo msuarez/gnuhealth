@@ -1965,11 +1965,6 @@ class MedicamentCategory(ModelSQL, ModelView):
         super(MedicamentCategory, cls).__setup__()
         cls._order.insert(0, ('name', 'ASC'))
 
-    @classmethod
-    def validate(cls, categories):
-        super(MedicamentCategory, cls).validate(categories)
-        cls.check_recursion(categories, rec_name='name')
-
     def get_rec_name(self, name):
         if self.parent:
             return self.parent.get_rec_name(name) + ' / ' + self.name
@@ -2246,7 +2241,6 @@ class PathologyCategory(ModelSQL, ModelView):
     @classmethod
     def validate(cls, categories):
         super(PathologyCategory, cls).validate(categories)
-        cls.check_recursion(categories, rec_name='name')
 
     def get_rec_name(self, name):
         if self.parent:
