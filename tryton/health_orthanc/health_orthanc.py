@@ -21,7 +21,7 @@
 from trytond.model import ModelView, ModelSQL, fields, Unique
 from trytond.pool import Pool
 from trytond.transaction import Transaction
-from orthanc_rest_client import Orthanc as RestClient
+from beren import Orthanc as RestClient
 from requests.auth import HTTPBasicAuth as auth
 from requests.exceptions import HTTPError, ConnectionError
 from datetime import datetime

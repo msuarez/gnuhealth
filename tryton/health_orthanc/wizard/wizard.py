@@ -25,7 +25,7 @@ from trytond.transaction import Transaction
 from trytond.pool import Pool
 from requests.auth import HTTPBasicAuth as auth
 from requests.exceptions import HTTPError, ConnectionError
-from orthanc_rest_client import Orthanc as RestClient
+from beren import Orthanc as RestClient
 import logging
 
 logger = logging.getLogger(__name__)
