@@ -44,7 +44,7 @@ for dep in info.get('depends', []):
         health_package = dep.split('_',1)[1]
         requires.append('gnuhealth_%s == %s' %
             (health_package, info.get('version')))
-    else: 
+    else:
         if not re.match(r'(ir|res|webdav)(\W|$)', dep):
             requires.append('trytond_%s >= %s.%s, < %s.%s' %
                 (dep, major_version, minor_version, major_version,
@@ -61,6 +61,7 @@ setup(name='gnuhealth_orthanc',
     package_dir={'trytond.modules.health_orthanc': '.'},
     packages=[
         'trytond.modules.health_orthanc',
+        'trytond.modules.health_orthanc.wizard',
         ],
 
     package_data={
