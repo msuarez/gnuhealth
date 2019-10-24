@@ -27,7 +27,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance,state:"
@@ -95,7 +95,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance.support,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance.support,sr:"
@@ -135,7 +135,7 @@ msgid "SR"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance_hp,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulance_hp,write_date:"
@@ -144,6 +144,10 @@ msgstr ""
 
 msgctxt "field:gnuhealth.ambulance_hp,write_uid:"
 msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,support_request_code_sequence:"
+msgid "Support Request Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,support_request_code_sequence:"
@@ -231,7 +235,7 @@ msgid "Origin"
 msgstr ""
 
 msgctxt "field:gnuhealth.support_request,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.support_request,request_actions:"
@@ -287,7 +291,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.support_request.log,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.support_request.log,remarks:"

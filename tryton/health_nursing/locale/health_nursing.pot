@@ -35,7 +35,7 @@ msgid "Code"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.ambulatory_care_procedure,write_date:"
@@ -111,7 +111,7 @@ msgid "Procedures"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.ambulatory_care,respiratory_rate:"
@@ -263,7 +263,7 @@ msgid "Pumps"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.rounding,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.rounding,report_end_date:"
@@ -355,7 +355,7 @@ msgid "Code"
 msgstr ""
 
 msgctxt "field:gnuhealth.rounding_procedure,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.rounding_procedure,write_date:"
@@ -364,6 +364,14 @@ msgstr ""
 
 msgctxt "field:gnuhealth.rounding_procedure,write_uid:"
 msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,ambulatory_care_sequence:"
+msgid "Ambulatory Care Sequence"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,patient_rounding_sequence:"
+msgid "Patient Rounding Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,ambulatory_care_sequence:"

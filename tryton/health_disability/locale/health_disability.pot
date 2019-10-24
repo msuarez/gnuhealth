@@ -63,7 +63,7 @@ msgid "Capacity"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity.assessment,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity.assessment,write_date:"
@@ -99,7 +99,7 @@ msgid "A & P"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity_and_participation,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity_and_participation,write_date:"
@@ -131,7 +131,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity_and_participation.category,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.activity_and_participation.category,write_date:"
@@ -167,7 +167,7 @@ msgid "Function"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function,write_date:"
@@ -203,7 +203,7 @@ msgid "Qualifier"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function.assessment,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function.assessment,write_date:"
@@ -235,7 +235,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function.category,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_function.category,write_date:"
@@ -271,7 +271,7 @@ msgid "Structure"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure,write_date:"
@@ -315,7 +315,7 @@ msgid "Nature"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure.assessment,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure.assessment,write_date:"
@@ -347,7 +347,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure.category,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.body_structure.category,write_date:"
@@ -383,7 +383,7 @@ msgid "Barriers"
 msgstr ""
 
 msgctxt "field:gnuhealth.environment.assessment,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.environment.assessment,write_date:"
@@ -419,7 +419,7 @@ msgid "Environment"
 msgstr ""
 
 msgctxt "field:gnuhealth.environmental_factor,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.environmental_factor,write_date:"
@@ -451,7 +451,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.environmental_factor.category,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.environmental_factor.category,write_date:"
@@ -535,7 +535,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.amputation,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.amputation,side:"
@@ -633,7 +633,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.disability_assessment,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.disability_assessment,speech_function:"
@@ -693,7 +693,7 @@ msgid "Prothesis"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.prothesis,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.prothesis,write_date:"
@@ -834,7 +834,7 @@ msgid "Patient Disability Information"
 msgstr ""
 
 msgctxt "model:gnuhealth.patient.prothesis,name:"
-msgid "Amputation"
+msgid "Prothesis"
 msgstr ""
 
 msgctxt "model:ir.action,name:act_patient_disability_assessment_form"

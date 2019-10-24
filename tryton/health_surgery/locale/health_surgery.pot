@@ -35,7 +35,7 @@ msgid "Code"
 msgstr ""
 
 msgctxt "field:gnuhealth.operation,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.operation,write_date:"
@@ -107,7 +107,7 @@ msgid "Score"
 msgstr ""
 
 msgctxt "field:gnuhealth.rcri,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.rcri,write_date:"
@@ -116,6 +116,10 @@ msgstr ""
 
 msgctxt "field:gnuhealth.rcri,write_uid:"
 msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,surgery_code_sequence:"
+msgid "Surgery Code Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,surgery_code_sequence:"
@@ -235,7 +239,7 @@ msgid "Procedures"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery,report_surgery_date:"
@@ -319,7 +323,7 @@ msgid "Used"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery_supply,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery_supply,supply:"
@@ -355,7 +359,7 @@ msgid "Notes"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery_team,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.surgery_team,role:"

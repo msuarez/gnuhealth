@@ -11,7 +11,7 @@ msgid "This code already exists"
 msgstr ""
 
 msgctxt "error:gnuhealth.gene.variant:"
-msgid "The resulting AA change for this gene already exists"
+msgid "The resulting AA change for this protein already exists"
 msgstr ""
 
 msgctxt "error:gnuhealth.gene.variant:"
@@ -67,7 +67,7 @@ msgid "Protein URI"
 msgstr ""
 
 msgctxt "field:gnuhealth.disease.gene,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.disease.gene,variants:"
@@ -99,7 +99,7 @@ msgid "ID"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant,name:"
-msgid "Gene"
+msgid "Gene and Protein"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant,phenotypes:"
@@ -107,11 +107,11 @@ msgid "Phenotypes"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant,variant:"
-msgid "Variant"
+msgid "Protein Variant"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant,write_date:"
@@ -131,7 +131,7 @@ msgid "Create User"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant.phenotype,gene:"
-msgid "Gene"
+msgid "Gene & Protein"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant.phenotype,id:"
@@ -147,7 +147,7 @@ msgid "Phenotype"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant.phenotype,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.gene.variant.phenotype,variant:"
@@ -191,7 +191,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.family.diseases,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.family.diseases,relative:"
@@ -219,11 +219,19 @@ msgid "Create User"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.genetic.risk,disease_gene:"
-msgid "Disease Gene"
+msgid "Gene"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.genetic.risk,healthprof:"
+msgid "Health prof"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.genetic.risk,id:"
 msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient.genetic.risk,institution:"
+msgid "Institution"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.genetic.risk,natural_variant:"
@@ -243,7 +251,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.genetic.risk,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.genetic.risk,variant_phenotype:"
@@ -287,7 +295,7 @@ msgid "Dominance"
 msgstr ""
 
 msgctxt "field:gnuhealth.protein.disease,gene_variant:"
-msgid "Gene Variants"
+msgid "Natural Variant"
 msgstr ""
 
 msgctxt "field:gnuhealth.protein.disease,id:"
@@ -303,7 +311,7 @@ msgid "Disease"
 msgstr ""
 
 msgctxt "field:gnuhealth.protein.disease,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.protein.disease,write_date:"
@@ -338,11 +346,23 @@ msgctxt "help:gnuhealth.gene.variant,aa_change:"
 msgid "Resulting amino acid change"
 msgstr ""
 
+msgctxt "help:gnuhealth.gene.variant,name:"
+msgid "Gene and expressing protein (in parenthesis)"
+msgstr ""
+
+msgctxt "help:gnuhealth.gene.variant.phenotype,gene:"
+msgid "Gene and expressing protein (in parenthesis)"
+msgstr ""
+
 msgctxt "help:gnuhealth.patient.family.diseases,relative:"
 msgid ""
 "First degree = siblings, mother and father\n"
 "Second degree = Uncles, nephews and Nieces\n"
 "Third degree = Grandparents and cousins"
+msgstr ""
+
+msgctxt "help:gnuhealth.patient.genetic.risk,healthprof:"
+msgid "Health professional"
 msgstr ""
 
 msgctxt "help:gnuhealth.patient.genetic.risk,onset:"
@@ -354,11 +374,11 @@ msgid "Disease acronym / mnemonics"
 msgstr ""
 
 msgctxt "help:gnuhealth.protein.disease,gene_variant:"
-msgid "Gene variants involved in this condition"
+msgid "Protein sequence variant(s) involved in this condition"
 msgstr ""
 
 msgctxt "help:gnuhealth.protein.disease,mim_reference:"
-msgid "MIM -Mendelian Inheritance in Man- DB reference)"
+msgid "MIM -Mendelian Inheritance in Man- DB reference"
 msgstr ""
 
 msgctxt "help:gnuhealth.protein.disease,name:"
@@ -474,6 +494,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ABCA4"
 msgid "ATP-binding cassette, sub-family A (ABC1), member 4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ABCA7"
+msgid "ATP-binding cassette sub-family A member 7"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ABCB1"
 msgid "ATP-binding cassette, sub-family B (MDR/TAP), member 1"
 msgstr ""
@@ -578,6 +602,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ABP1"
 msgid "amiloride binding protein 1 (amine oxidase (copper-containing))"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ABRAXAS1"
+msgid "BRCA1-A complex subunit Abraxas 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ACAA1"
 msgid "acetyl-Coenzyme A acyltransferase 1"
 msgstr ""
@@ -662,8 +690,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ACOX1"
 msgid "acyl-Coenzyme A oxidase 1, palmitoyl"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ACOX2"
+msgid "Peroxisomal acyl-coenzyme A oxidase 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ACP2"
 msgid "acid phosphatase 2, lysosomal"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ACP4"
+msgid "Testicular acid phosphatase"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ACP5"
@@ -814,6 +850,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ADA"
 msgid "adenosine deaminase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ADA2"
+msgid "Adenosine deaminase 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ADAM10"
 msgid ""
 msgstr ""
@@ -898,12 +938,28 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ADD1"
 msgid "adducin 1 (alpha)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ADD3"
+msgid "Gamma-adducin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ADFN"
 msgid "albinism-deafness syndrome"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ADGRE2"
+msgid "Adhesion G protein-coupled receptor E2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ADGRG1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ADGRG2"
+msgid "Adhesion G-protein coupled receptor G2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ADGRG6"
+msgid "Adhesion G-protein coupled receptor G6"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ADH1B"
@@ -1022,6 +1078,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ADSL"
 msgid "adenylosuccinate lyase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ADSSL1"
+msgid "Adenylosuccinate synthetase isozyme 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:AFA1"
 msgid "Alopecia, androgenetic"
 msgstr ""
@@ -1060,6 +1120,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:AGBL1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:AGBL5"
+msgid "Cytosolic carboxypeptidase-like protein 5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:AGER"
@@ -1560,6 +1624,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:AMT"
 msgid "aminomethyltransferase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:AMTN"
+msgid "Amelotin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ANBC"
 msgid "Aneurysmal bone cysts"
 msgstr ""
@@ -1660,12 +1728,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ANKK1"
 msgid "ankyrin repeat and kinase domain containing 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ANKLE2"
+msgid "Ankyrin repeat and LEM domain-containing protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ANKRD1"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ANKRD11"
 msgid "Ankyrin repeat domain-containing protein 11"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ANKRD26"
+msgid "Ankyrin repeat domain-containing protein 26"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ANKS6"
@@ -1762,6 +1838,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:AP3B1"
 msgid "adaptor-related protein complex 3, beta 1 subunit"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:AP3B2"
+msgid "AP-3 complex subunit beta-2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:AP3D1"
+msgid "AP-3 complex subunit delta-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:AP4B1"
 msgid "AP-4 complex subunit beta-1"
 msgstr ""
@@ -1800,6 +1884,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:APC"
 msgid "adenomatous polyposis coli"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:APC2"
+msgid "Adenomatous polyposis coli protein 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:APCDD1"
@@ -1938,6 +2026,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ARCC1"
 msgid "Age-related cortical cataract 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ARCN1"
+msgid "Coatomer subunit delta"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:AREI"
 msgid "Exfoliative ichthyosis, autosomal recessive"
 msgstr ""
@@ -1970,6 +2062,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ARHGEF12"
 msgid "Rho guanine nucleotide exchange factor (GEF) 12"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ARHGEF18"
+msgid "Rho guanine nucleotide exchange factor 18"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ARHGEF2"
+msgid "Rho guanine nucleotide exchange factor 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ARHGEF6"
@@ -2040,6 +2140,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ARNT2"
 msgid "Aryl hydrocarbon receptor nuclear translocator 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ARPC1B"
+msgid "Actin-related protein 2/3 complex subunit 1B"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ARSA"
 msgid "arylsulfatase A"
 msgstr ""
@@ -2054,6 +2158,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ART4"
 msgid "ADP-ribosyltransferase 4 (Dombrock blood group)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ARV1"
+msgid "Protein ARV1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ARVD1"
@@ -2188,8 +2296,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ASXL1"
 msgid "Putative Polycomb group protein ASXL1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ASXL2"
+msgid "Putative Polycomb group protein ASXL2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ASXL3"
 msgid "Putative Polycomb group protein ASXL3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ATAD3A"
+msgid "ATPase family AAA domain-containing protein 3A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ATCAY"
@@ -2223,6 +2339,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ATG16L1"
 msgid "ATG16 autophagy related 16-like 1 (S. cerevisiae)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ATG5"
+msgid "Autophagy protein 5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ATHS"
@@ -2319,6 +2439,18 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ATP5E"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ATP5F1A"
+msgid "ATP synthase subunit alpha, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ATP5F1E"
+msgid "ATP synthase subunit epsilon, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ATP6AP1"
+msgid "V-type proton ATPase subunit S1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ATP6AP2"
 msgid "ATPase, H+ transporting, lysosomal accessory protein 2"
 msgstr ""
@@ -2331,12 +2463,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ATP6V0A4"
 msgid "ATPase, H+ transporting, lysosomal V0 subunit a4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ATP6V1A"
+msgid "V-type proton ATPase catalytic subunit A"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ATP6V1B1"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ATP6V1B2"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ATP6V1E1"
+msgid "V-type proton ATPase subunit E 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ATP7A"
@@ -2665,6 +2805,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:BCL11A"
 msgid "B-cell CLL/lymphoma 11A (zinc finger protein)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:BCL11B"
+msgid "B-cell lymphoma/leukemia 11B"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:BCL2"
 msgid "B-cell CLL/lymphoma 2"
 msgstr ""
@@ -2779,6 +2923,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:BFSP2"
 msgid "beaded filament structural protein 2, phakinin"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:BGN"
+msgid "Biglycan"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:BHLHA9"
@@ -3005,6 +3153,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:BRCD2"
 msgid "Breast cancer, ductal (2)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:BRDT"
+msgid "Bromodomain testis-specific protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:BRESEK"
 msgid "BRESHECK syndrome"
 msgstr ""
@@ -3019,6 +3171,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:BRKS"
 msgid "Telopeptide lysyl hydroxylase, bone-specific"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:BRPF1"
+msgid "Peregrin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:BRWD3"
@@ -3143,6 +3299,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:C1QB"
 msgid "complement component 1, q subcomponent, B chain"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:C1QBP"
+msgid "Complement component 1 Q subcomponent-binding protein, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:C1QC"
 msgid ""
 msgstr ""
@@ -3165,6 +3325,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:C20orf7"
 msgid "chromosome 20 open reading frame 7"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:C21orf2"
+msgid "Protein C21orf2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:C21orf33"
@@ -3375,6 +3539,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CALM1"
 msgid "calmodulin 1 (phosphorylase kinase, delta)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CALM2"
+msgid "Calmodulin-2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CALR"
 msgid "calreticulin"
 msgstr ""
@@ -3393,6 +3561,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CANT1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CAPN1"
+msgid "Calpain-1 catalytic subunit"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CAPN10"
@@ -3451,6 +3623,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CASP12"
 msgid "caspase 12 (gene/pseudogene)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CASP14"
+msgid "Caspase-14"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CASP3"
 msgid "caspase 3, apoptosis-related cysteine peptidase"
 msgstr ""
@@ -3497,6 +3673,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CAV3"
 msgid "caveolin 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CAVIN1"
+msgid "Caveolae-associated protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CBFB"
@@ -3565,6 +3745,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CCDC151"
 msgid "Coiled-coil domain-containing protein 151"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CCDC174"
+msgid "Coiled-coil domain-containing protein 174"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CCDC22"
 msgid ""
 msgstr ""
@@ -3599,6 +3783,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CCDC8"
 msgid "Coiled-coil domain-containing protein 8"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CCDC88A"
+msgid "Girdin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CCDC88C"
@@ -3669,6 +3857,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CCNP"
 msgid "Cataract, congenital, nuclear progressive"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CCNQ"
+msgid "Cyclin-Q"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CCR1"
 msgid "chemokine (C-C motif) receptor 1"
 msgstr ""
@@ -3707,6 +3899,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CD151"
 msgid "CD151 molecule (Raph blood group)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CD164"
+msgid "Sialomucin core protein 24"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CD177"
@@ -3862,8 +4058,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CDB2"
 msgid "corneal dystrophy of Bowman layer type II (Thiel-Behnke)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CDC14A"
+msgid "Dual specificity protein phosphatase CDC14A"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CDC2L2"
 msgid "cell division cycle 2-like 2 (PITSLRE proteins)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CDC42"
+msgid "Cell division control protein 42 homolog"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CDC6"
@@ -3872,6 +4076,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CDC73"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CDCA7"
+msgid "Cell division cycle-associated protein 7"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CDH1"
@@ -3896,6 +4104,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CDHR1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CDK10"
+msgid "Cyclin-dependent kinase 10"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CDK13"
+msgid "Cyclin-dependent kinase 13"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CDK4"
@@ -4086,12 +4302,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CEP41"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CEP55"
+msgid "Centrosomal protein of 55 kDa"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CEP57"
 msgid "Centrosomal protein of 57 kDa"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CEP63"
 msgid "Centrosomal protein of 63 kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CEP78"
+msgid "Centrosomal protein of 78 kDa"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CEP83"
@@ -4200,8 +4424,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CHCHD10"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CHCHD2"
+msgid "Coiled-coil-helix-coiled-coil-helix domain-containing protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CHD1"
+msgid "Chromodomain-helicase-DNA-binding protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CHD2"
 msgid "chromodomain helicase DNA binding protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CHD4"
+msgid "Chromodomain-helicase-DNA-binding protein 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CHD7"
@@ -4384,6 +4620,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CIB2"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CIC"
+msgid "Protein capicua homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CIDEC"
 msgid "Cell death activator CIDE-3"
 msgstr ""
@@ -4428,6 +4668,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CISD2"
 msgid "CDGSH iron sulfur domain 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CIT"
+msgid "Citron Rho-interacting kinase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CITED2"
 msgid ""
 "Cbp/p300-interacting transactivator, with Glu/Asp-rich carboxy-terminal "
@@ -4470,6 +4714,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CLCN2"
 msgid "chloride channel 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CLCN4"
+msgid "H(+)/Cl(-) exchange transporter 4"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CLCN5"
 msgid "chloride channel 5"
 msgstr ""
@@ -4494,6 +4742,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CLDN1"
 msgid "claudin 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CLDN10"
+msgid "Claudin-10"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CLDN14"
 msgid "claudin 14"
 msgstr ""
@@ -4504,6 +4756,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CLDN19"
 msgid "claudin 19"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CLEC16A"
+msgid "Protein CLEC16A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CLEC4M"
@@ -4808,6 +5064,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:COG1"
 msgid "component of oligomeric golgi complex 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:COG2"
+msgid "Conserved oligomeric Golgi complex subunit 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:COG4"
 msgid ""
 msgstr ""
@@ -4842,6 +5102,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:COL12A1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:COL13A1"
+msgid "Collagen alpha-1(XIII) chain"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:COL17A1"
@@ -4948,6 +5212,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:COL9A3"
 msgid "collagen, type IX, alpha 3"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:COLEC10"
+msgid "Collectin-10"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:COLEC11"
 msgid ""
 msgstr ""
@@ -4990,6 +5258,18 @@ msgctxt "model:gnuhealth.disease.gene,long_name:COQ6"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:COQ7"
+msgid "5-demethoxyubiquinone hydroxylase, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:COQ8A"
+msgid "Atypical kinase COQ8A, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:COQ8B"
+msgid "Atypical kinase COQ8B, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:COQ9"
 msgid "Ubiquinone biosynthesis protein COQ9, mitochondrial"
 msgstr ""
@@ -5024,6 +5304,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:COX15"
 msgid "COX15 homolog, cytochrome c oxidase assembly protein (yeast)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:COX20"
+msgid "Cytochrome c oxidase assembly protein COX20, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:COX4I2"
 msgid "cytochrome c oxidase subunit IV isoform 2 (lung)"
 msgstr ""
@@ -5050,6 +5334,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CPA6"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CPAMD8"
+msgid "C3 and PZP-like alpha-2-macroglobulin domain-containing protein 8"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CPB2"
@@ -5228,6 +5516,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CRX"
 msgid "cone-rod homeobox"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CRY1"
+msgid "Cryptochrome-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CRYAA"
 msgid "crystallin, alpha A"
 msgstr ""
@@ -5284,6 +5576,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CS"
 msgid "citrate synthase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CSB-PGBD3"
+msgid "Chimeric ERCC6-PGBD3 protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CSE"
 msgid ""
 "choreoathetosis/spasticity, episodic (paroxysmal choreoathetosis/spasticity)"
@@ -5327,6 +5623,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CSNK1E"
 msgid "casein kinase 1, epsilon"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CSNK2A1"
+msgid "Casein kinase II subunit alpha"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CSPP1"
@@ -5387,8 +5687,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:CTHM"
 msgid "cono-truncal heart malformation"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:CTHRC1"
+msgid "Collagen triple helix repeat-containing protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:CTLA4"
 msgid "cytotoxic T-lymphocyte-associated protein 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CTNNA1"
+msgid "Catenin alpha-1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CTNNA3"
@@ -5397,6 +5705,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CTNNB1"
 msgid "catenin (cadherin-associated protein), beta 1, 88kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CTNND1"
+msgid "Catenin delta-1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CTNND2"
@@ -5475,6 +5787,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CVMRF"
 msgid "cubitus valgus with mental retardation and unusual facies"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:CWC27"
+msgid "Peptidyl-prolyl cis-trans isomerase CWC27 homolog"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:CWF19L1"
@@ -5709,6 +6025,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:D2HGDH"
 msgid "D-2-hydroxyglutarate dehydrogenase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DAB1"
+msgid "Disabled homolog 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DACT1"
 msgid ""
 msgstr ""
@@ -5741,8 +6061,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DARS2"
 msgid "aspartyl-tRNA synthetase 2, mitochondrial"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DAZ1"
+msgid "Deleted in azoospermia protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DAZ2"
 msgid "deleted in azoospermia 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DAZ3"
+msgid "Deleted in azoospermia protein 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DAZ4"
+msgid "Deleted in azoospermia protein 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DAZL"
@@ -5873,6 +6205,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DDX3Y"
 msgid "DEAD (Asp-Glu-Ala-Asp) box polypeptide 3, Y-linked"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DDX41"
+msgid "Probable ATP-dependent RNA helicase DDX41"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DDX5"
 msgid "DEAD (Asp-Glu-Ala-Asp) box polypeptide 5"
 msgstr ""
@@ -5911,6 +6247,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DEK"
 msgid "DEK oncogene"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DENND1B"
+msgid "DENN domain-containing protein 1B"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DENND5A"
+msgid "DENN domain-containing protein 5A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DEPDC5"
@@ -6277,6 +6621,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DLX3"
 msgid "distal-less homeobox 3"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DLX4"
+msgid "Homeobox protein DLX-4"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DLX5"
 msgid ""
 msgstr ""
@@ -6331,8 +6679,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DNAAF3"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DNAAF4"
+msgid "Dynein assembly factor 4, axonemal"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAAF5"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DNAH1"
+msgid "Dynein heavy chain 1, axonemal"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAH11"
@@ -6355,6 +6711,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DNAI2"
 msgid "dynein, axonemal, intermediate chain 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DNAJB13"
+msgid "DnaJ homolog subfamily B member 13"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAJB2"
 msgid ""
 msgstr ""
@@ -6363,12 +6723,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DNAJB6"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DNAJC12"
+msgid "DnaJ homolog subfamily C member 12"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAJC13"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAJC19"
 msgid "DnaJ (Hsp40) homolog, subfamily C, member 19"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DNAJC21"
+msgid "DnaJ homolog subfamily C member 21"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DNAJC3"
@@ -6459,8 +6827,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DOLK"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DONSON"
+msgid "Protein downstream neighbor of Son"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DPAGT1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DPH1"
+msgid "2-(3-amino-3-carboxypropyl)histidine synthase subunit 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DPM1"
@@ -6474,6 +6850,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DPM3"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DPP10"
+msgid "Inactive dipeptidyl peptidase 10"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DPP6"
@@ -6620,6 +7000,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DVL1"
 msgid "Segment polarity protein dishevelled homolog DVL-1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DVL3"
+msgid "Segment polarity protein dishevelled homolog DVL-3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:DYM"
 msgid "dymeclin"
 msgstr ""
@@ -6630,6 +7014,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DYNC2H1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:DYNC2LI1"
+msgid "Cytoplasmic dynein 2 light intermediate chain 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:DYRK1A"
@@ -6700,6 +7088,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:DYX9"
 msgid "dyslexia susceptibility 9"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:DZIP1L"
+msgid "Zinc finger protein DZIP1L"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:EA3"
 msgid "Episodic ataxia, type 3"
 msgstr ""
@@ -6710,6 +7102,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EARS2"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:EBF3"
+msgid "Transcription factor COE3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EBP"
@@ -6778,6 +7174,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EEC1"
 msgid "ectrodactyly, ectodermal dysplasia and cleft lip/palate syndrome 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:EED"
+msgid "Polycomb protein EED"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EEF1A2"
@@ -6880,6 +7280,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:EIF2B5"
 msgid "eukaryotic translation initiation factor 2B, subunit 5 epsilon, 82kDa"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:EIF2S3"
+msgid "Eukaryotic translation initiation factor 2 subunit 3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:EIF4A3"
 msgid ""
 msgstr ""
@@ -6957,6 +7361,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ELL"
 msgid "elongation factor RNA polymerase II"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ELMO2"
+msgid "Engulfment and cell motility protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ELMOD3"
 msgid ""
 msgstr ""
@@ -6975,8 +7383,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ELOVL5"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ELP1"
+msgid "Elongator complex protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ELP2"
+msgid "Elongator complex protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ELP4"
 msgid "elongation protein 4 homolog (S. cerevisiae)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:EMC1"
+msgid "ER membrane protein complex subunit 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EMD"
@@ -7095,12 +7515,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:EPHA2"
 msgid "EPH receptor A2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:EPHA3"
+msgid "Ephrin type-A receptor 3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:EPHA5"
 msgid "EPH receptor A5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EPHB2"
 msgid "EPH receptor B2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:EPHB4"
+msgid "Ephrin type-B receptor 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EPHX1"
@@ -7141,8 +7569,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:EPS8"
 msgid "Epidermal growth factor receptor kinase substrate 8"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:EPS8L2"
+msgid "Epidermal growth factor receptor kinase substrate 8-like protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:EPX"
 msgid "eosinophil peroxidase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ERAL1"
+msgid "GTPase Era, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ERBB2"
@@ -7213,6 +7649,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ERG"
 msgid "Transcriptional regulator ERG"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ERLIN1"
+msgid "Erlin-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ERLIN2"
 msgid "Erlin-2"
 msgstr ""
@@ -7273,6 +7713,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ETM2"
 msgid "essential tremor 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ETV1"
+msgid "ETS translocation variant 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ETV6"
 msgid "ets variant 6"
 msgstr ""
@@ -7323,6 +7767,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EXT3"
 msgid "exostoses (multiple) 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:EXTL3"
+msgid "Exostosin-like 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:EYA1"
@@ -7651,6 +8099,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:FDPS"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FDXR"
+msgid "NADPH:adrenodoxin oxidoreductase, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FECH"
 msgid "ferrochelatase (protoporphyria)"
 msgstr ""
@@ -7713,6 +8165,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FGF10"
 msgid "fibroblast growth factor 10"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:FGF12"
+msgid "Fibroblast growth factor 12"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FGF14"
@@ -7781,6 +8237,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:FGG"
 msgid "fibrinogen gamma chain"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FGGY"
+msgid "FGGY carbohydrate kinase domain-containing protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FGS1"
 msgid "FG syndrome 1"
 msgstr ""
@@ -7811,6 +8271,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FHL1"
 msgid "four and a half LIM domains 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:FIBP"
+msgid "Acidic fibroblast growth factor intracellular-binding protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FIG4"
@@ -7849,12 +8313,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:FKTN"
 msgid "fukutin"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FLAD1"
+msgid "FAD synthase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FLCN"
 msgid "folliculin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FLG"
 msgid "filaggrin"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:FLI1"
+msgid "Friend leukemia integration 1 transcription factor"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FLNA"
@@ -8073,12 +8545,28 @@ msgctxt "model:gnuhealth.disease.gene,long_name:FREM2"
 msgid "FRAS1 related extracellular matrix protein 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FRG1"
+msgid "Protein FRG1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FRK"
 msgid "fyn-related kinase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FRMD4A"
+msgid "FERM domain-containing protein 4A"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FRMD7"
 msgid "FERM domain containing 7"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:FRMPD4"
+msgid "FERM and PDZ domain-containing protein 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:FRRS1L"
+msgid "DOMON domain-containing protein FRRS1L"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:FRTS"
@@ -8195,6 +8683,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:FXYD6"
 msgid "FXYD domain-containing ion transport regulator 6"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:FYB1"
+msgid "FYN-binding protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:FYCO1"
 msgid ""
 msgstr ""
@@ -8245,6 +8737,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GABRA2"
 msgid "gamma-aminobutyric acid (GABA) A receptor, alpha 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GABRB1"
+msgid "Gamma-aminobutyric acid receptor subunit beta-1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GABRB3"
@@ -8309,8 +8805,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GAN"
 msgid "gigaxonin"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GANAB"
+msgid "Neutral alpha-glucosidase AB"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GARS"
 msgid "glycyl-tRNA synthetase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GAS8"
+msgid "Dynein regulatory complex subunit 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GATA1"
@@ -8694,6 +9198,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GLDC"
 msgid "glycine dehydrogenase (decarboxylating)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GLDN"
+msgid "Gliomedin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GLE1"
 msgid "GLE1 RNA export mediator homolog (yeast)"
 msgstr ""
@@ -8766,6 +9274,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GMIP"
 msgid "GEM interacting protein"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GMNN"
+msgid "Geminin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GMPPA"
 msgid ""
 msgstr ""
@@ -8824,6 +9336,10 @@ msgid ""
 "polypeptide 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GNB1"
+msgid "Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GNB1L"
 msgid ""
 "guanine nucleotide binding protein (G protein), beta polypeptide 1-like"
@@ -8835,6 +9351,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GNB4"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GNB5"
+msgid "Guanine nucleotide-binding protein subunit beta-5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GNE"
@@ -8979,6 +9499,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GPR68"
 msgid "G protein-coupled receptor 68"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GPR88"
+msgid "Probable G-protein coupled receptor 88"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GPR98"
 msgid "G protein-coupled receptor 98"
 msgstr ""
@@ -9003,6 +9527,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GPX4"
 msgid "glutathione peroxidase 4 (phospholipid hydroperoxidase)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GPX7"
+msgid "Glutathione peroxidase 7"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GRB10"
 msgid "growth factor receptor-bound protein 10"
 msgstr ""
@@ -9017,6 +9545,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GREM1"
 msgid "Gremlin-1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GREM2"
+msgid "Gremlin-2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GRHL2"
@@ -9067,6 +9599,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GRIN2B"
 msgid "glutamate receptor, ionotropic, N-methyl D-aspartate 2B"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GRIN2D"
+msgid "Glutamate receptor ionotropic, NMDA 2D"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GRIP1"
+msgid "Glutamate receptor-interacting protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GRK1"
 msgid "G protein-coupled receptor kinase 1"
 msgstr ""
@@ -9109,6 +9649,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GSC"
 msgid "Homeobox protein goosecoid"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GSDME"
+msgid "Gasdermin-E"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GSK3B"
@@ -9179,6 +9723,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GSTZ1"
 msgid "glutathione transferase zeta 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GTF2E2"
+msgid "Transcription initiation factor IIE subunit beta"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GTF2H1"
 msgid "general transcription factor IIH, polypeptide 1, 62kDa"
 msgstr ""
@@ -9207,6 +9755,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GUCA1B"
 msgid "guanylate cyclase activator 1B (retina)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GUCY1A1"
+msgid "Guanylate cyclase soluble subunit alpha-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GUCY1A3"
 msgid "Guanylate cyclase soluble subunit alpha-3"
 msgstr ""
@@ -9217,6 +9769,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GUCY2D"
 msgid "guanylate cyclase 2D, membrane (retina-specific)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:GUF1"
+msgid "Translation factor GUF1, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:GULOP"
@@ -9255,6 +9811,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:GYS2"
 msgid "glycogen synthase 2 (liver)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:GZF1"
+msgid "GDNF-inducible zinc finger protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:GZMB"
 msgid ""
 "granzyme B (granzyme 2, cytotoxic T-lymphocyte-associated serine esterase 1)"
@@ -9264,12 +9824,28 @@ msgctxt "model:gnuhealth.disease.gene,long_name:H19"
 msgid "H19, imprinted maternally expressed transcript (non-protein coding)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:H3F3A"
+msgid "Histone H3.3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:H6PD"
 msgid "hexose-6-phosphate dehydrogenase (glucose 1-dehydrogenase)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:HAAO"
+msgid "3-hydroxyanthranilate 3,4-dioxygenase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:HABP2"
 msgid "hyaluronan binding protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HACD1"
+msgid "Very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HACE1"
+msgid "E3 ubiquitin-protein ligase HACE1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HADH"
@@ -9446,12 +10022,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:HDPA"
 msgid "Hodgkin disease, susceptibility, pseudoautosomal"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:HECW2"
+msgid "E3 ubiquitin-protein ligase HECW2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HELLS"
+msgid "Lymphoid-specific helicase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:HEMC"
 msgid "hemangioma, capillary, hereditary"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HEPACAM"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HERC1"
+msgid "Probable E3 ubiquitin-protein ligase HERC1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HERC2"
@@ -9536,12 +10124,28 @@ msgctxt "model:gnuhealth.disease.gene,long_name:HIF1AN"
 msgid "hypoxia inducible factor 1, alpha subunit inhibitor"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:HIKESHI"
+msgid "Protein Hikeshi"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:HINT1"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HIP1"
 msgid "huntingtin interacting protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HIST1H1E"
+msgid "Histone H1.4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HIST1H3A"
+msgid "Histone H3.1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HIVEP2"
+msgid "Transcription factor HIVEP2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HJCD"
@@ -9722,8 +10326,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:HNRNPDL"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:HNRNPH2"
+msgid "Heterogeneous nuclear ribonucleoprotein H2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:HNRNPK"
 msgid "Heterogeneous nuclear ribonucleoprotein K"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:HNRNPU"
+msgid "Heterogeneous nuclear ribonucleoprotein U"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:HOGA1"
@@ -10031,6 +10643,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:HSPA5"
 msgid "heat shock 70kDa protein 5 (glucose-regulated protein, 78kDa)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:HSPA9"
+msgid "Stress-70 protein, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:HSPB1"
 msgid "heat shock 27kDa protein 1"
 msgstr ""
@@ -10221,6 +10837,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:IAPP"
 msgid "islet amyloid polypeptide"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:IARS"
+msgid "Isoleucine--tRNA ligase, cytoplasmic"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:IARS2"
@@ -10497,6 +11117,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:IFT43"
 msgid "Intraflagellar transport protein 43 homolog"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:IFT52"
+msgid "Intraflagellar transport protein 52 homolog"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:IFT74"
+msgid "Intraflagellar transport protein 74 homolog"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:IFT80"
@@ -10828,6 +11456,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:IMMP2L"
 msgid "Mitochondrial inner membrane protease subunit 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:IMPA1"
+msgid "Inositol monophosphatase 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:IMPA2"
 msgid "inositol(myo)-1(or 4)-monophosphatase 2"
 msgstr ""
@@ -10884,6 +11516,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:INPP5E"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:INPP5K"
+msgid "Inositol polyphosphate 5-phosphatase K"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:INPPL1"
@@ -10988,6 +11624,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:IS4"
 msgid "Scoliosis, idiopathic, susceptibility to, 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ISCA1"
+msgid "Iron-sulfur cluster assembly 1 homolog, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ISCA2"
@@ -11297,6 +11937,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KCNE4"
 msgid "potassium voltage-gated channel, Isk-related family, member 4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KCNE5"
+msgid "Potassium voltage-gated channel subfamily E regulatory beta subunit 5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KCNH1"
 msgid ""
 msgstr ""
@@ -11405,6 +12049,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KCNQ4"
 msgid "potassium voltage-gated channel, KQT-like subfamily, member 4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KCNQ5"
+msgid "Potassium voltage-gated channel subfamily KQT member 5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KCNS3"
 msgid ""
 "potassium voltage-gated channel, delayed-rectifier, subfamily S, member 3"
@@ -11434,6 +12082,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KCTD7"
 msgid "potassium channel tetramerisation domain containing 7"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KDF1"
+msgid "Keratinocyte differentiation factor 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KDM1A"
+msgid "Lysine-specific histone demethylase 1A"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KDM5C"
 msgid ""
 msgstr ""
@@ -11444,6 +12100,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KDR"
 msgid "kinase insert domain receptor (a type III receptor tyrosine kinase)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KDSR"
+msgid "3-ketodihydrosphingosine reductase"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KEL"
@@ -11490,6 +12150,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KIAA0586"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KIAA0753"
+msgid "Protein moonraker"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KIAA1033"
 msgid ""
 msgstr ""
@@ -11504,6 +12168,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KIAA2022"
 msgid "Protein KIAA2022"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KIDINS220"
+msgid "Kinase D-interacting substrate of 220 kDa"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KIF11"
@@ -11606,6 +12274,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KL"
 msgid "klotho"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KLC2"
+msgid "Kinesin light chain 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KLF1"
 msgid "Kruppel-like factor 1 (erythroid)"
 msgstr ""
@@ -11628,6 +12300,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KLHL10"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KLHL15"
+msgid "Kelch-like protein 15"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KLHL24"
+msgid "Kelch-like protein 24"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KLHL3"
@@ -11678,12 +12358,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KMT2A"
 msgid "Histone-lysine N-methyltransferase 2A"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KMT2B"
+msgid "Histone-lysine N-methyltransferase 2B"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KMT2C"
+msgid "Histone-lysine N-methyltransferase 2C"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KMT2D"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KNG1"
 msgid "kininogen 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KNL1"
+msgid "Kinetochore scaffold 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KNO3"
@@ -11701,6 +12393,10 @@ msgstr ""
 msgctxt "model:gnuhealth.disease.gene,long_name:KRAS1P"
 msgid ""
 "v-Ki-ras1 Kirsten rat sarcoma 1 viral oncogene homolog, processed pseudogene"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KREMEN1"
+msgid "Kremen protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KRIT1"
@@ -11745,6 +12441,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KRT2"
 msgid "keratin 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:KRT25"
+msgid "Keratin, type I cytoskeletal 25"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:KRT3"
@@ -11835,6 +12535,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:KWE"
 msgid "keratolytic winter erythema (Oudtshoorn skin disease)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:KY"
+msgid "Kyphoscoliosis peptidase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:KYNU"
 msgid ""
 msgstr ""
@@ -11851,8 +12555,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:L2HGDH"
 msgid "L-2-hydroxyglutarate dehydrogenase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LACC1"
+msgid "Laccase domain-containing protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LAG5"
 msgid "Leukocyte antigen group 5"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:LAGE3"
+msgid "EKC/KEOPS complex subunit LAGE3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LALL"
@@ -11915,6 +12627,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:LARGE"
 msgid "like-glycosyltransferase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LARGE1"
+msgid "LARGE xylosyl- and glucuronyltransferase 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LARP7"
 msgid "La-related protein 7"
 msgstr ""
@@ -11925,6 +12641,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LARS2"
 msgid "leucyl-tRNA synthetase 2, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:LAS1L"
+msgid "Ribosomal biogenesis protein LAS1L"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LAT"
@@ -12007,6 +12727,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:LEFTY2"
 msgid "left-right determination factor 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LEMD2"
+msgid "LEM domain-containing protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LEMD3"
 msgid "LEM domain containing 3"
 msgstr ""
@@ -12043,6 +12767,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:LGI1"
 msgid "leucine-rich, glioma inactivated 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LGI4"
+msgid "Leucine-rich repeat LGI family member 4"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LGMBF"
 msgid "myopathy, limb-girdle, with bone fragility"
 msgstr ""
@@ -12061,6 +12789,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LGMD2L"
 msgid "limb girdle muscular dystrophy 2L (autosomal recessive)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:LGR4"
+msgid "Leucine-rich repeat-containing G-protein coupled receptor 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LGV1"
@@ -12129,6 +12861,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:LIM2"
 msgid "lens intrinsic membrane protein 2, 19kDa"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LIMS2"
+msgid "LIM and senescent cell antigen-like-containing domain protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LINS1"
 msgid "Protein Lines homolog 1"
 msgstr ""
@@ -12165,12 +12901,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:LIPT1"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:LIPT2"
+msgid "Putative lipoyltransferase 2, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:LITAF"
 msgid "lipopolysaccharide-induced TNF factor"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LMAN1"
 msgid "lectin, mannose-binding, 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:LMAN2L"
+msgid "VIP36-like protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LMBR1"
@@ -12313,6 +13057,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LRIT3"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:LRMDA"
+msgid "Leucine-rich melanocyte differentiation-associated protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:LRP1"
@@ -12480,6 +13228,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MAD1L1"
 msgid "MAD1 mitotic arrest deficient-like 1 (yeast)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MAD2L2"
+msgid "Mitotic spindle assembly checkpoint protein MAD2B"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MAF"
 msgid "v-maf musculoaponeurotic fibrosarcoma oncogene homolog (avian)"
 msgstr ""
@@ -12524,12 +13276,21 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MAG"
 msgid "myelin associated glycoprotein"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MAGED2"
+msgid "Melanoma-associated antigen D2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MAGEE2"
 msgid "melanoma antigen family E, 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MAGEL2"
 msgid "MAGE-like protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MAGI2"
+msgid ""
+"Membrane-associated guanylate kinase, WW and PDZ domain-containing protein 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MAGT1"
@@ -12596,6 +13357,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MAP3K1"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MAP3K20"
+msgid "Mitogen-activated protein kinase kinase kinase 20"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MAP3K7"
+msgid "Mitogen-activated protein kinase kinase kinase 7"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MAP3K8"
 msgid "mitogen-activated protein kinase kinase kinase 8"
 msgstr ""
@@ -12610,6 +13379,18 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MAPK8IP1"
 msgid "mitogen-activated protein kinase 8 interacting protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MAPKAPK3"
+msgid "MAP kinase-activated protein kinase 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MAPKBP1"
+msgid "Mitogen-activated protein kinase-binding protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MAPRE2"
+msgid "Microtubule-associated protein RP/EB family member 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MAPT"
@@ -12652,6 +13433,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MATR3"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MAX"
+msgid "Protein max"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MB"
 msgid "myoglobin"
 msgstr ""
@@ -12670,6 +13455,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MBL2"
 msgid "mannose-binding lectin (protein C) 2, soluble (opsonic defect)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MBNL1"
+msgid "Muscleblind-like protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MBOAT7"
+msgid "Lysophospholipid acyltransferase 7"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MBS1"
@@ -12729,6 +13522,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MCEE"
 msgid "methylmalonyl CoA epimerase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MCF2L2"
+msgid "Probable guanine nucleotide exchange factor MCF2L2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MCFD2"
 msgid "multiple coagulation factor deficiency 2"
 msgstr ""
@@ -12749,8 +13546,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MCKD2"
 msgid "medullary cystic kidney disease 2 (autosomal dominant)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MCM2"
+msgid "DNA replication licensing factor MCM2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MCM4"
 msgid "DNA replication licensing factor MCM4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MCM5"
+msgid "DNA replication licensing factor MCM5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MCM6"
@@ -12817,6 +13622,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MDH1"
 msgid "malate dehydrogenase 1, NAD (soluble)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MDH2"
+msgid "Malate dehydrogenase, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MDM2"
 msgid "Mdm2 p53 binding protein homolog (mouse)"
 msgstr ""
@@ -12841,8 +13650,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MEB"
 msgid "muscle-eye-brain disease"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MECOM"
+msgid "MDS1 and EVI1 complex locus protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MECP2"
 msgid "methyl CpG binding protein 2 (Rett syndrome)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MECR"
+msgid "Enoyl-[acyl-carrier-protein] reductase, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MED12"
@@ -12891,8 +13708,16 @@ msgid ""
 "microcephaly and obesity syndrome"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MEIOB"
+msgid "Meiosis-specific with OB domain-containing protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MEIS1"
 msgid "Homeobox protein Meis1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MEIS2"
+msgid "Homeobox protein Meis2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MEN1"
@@ -12933,6 +13758,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MFAP5"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MFF"
+msgid "Mitochondrial fission factor"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MFHAS1"
@@ -13107,6 +13936,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MIP"
 msgid "major intrinsic protein of lens fiber"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MIPEP"
+msgid "Mitochondrial intermediate peptidase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MIPOL1"
 msgid "mirror-image polydactyly 1"
 msgstr ""
@@ -13250,6 +14083,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MMP20"
 msgid "matrix metallopeptidase 20"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MMP21"
+msgid "Matrix metalloproteinase-21"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MMP3"
 msgid "matrix metallopeptidase 3 (stromelysin 1, progelatinase)"
 msgstr ""
@@ -13336,6 +14173,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MOPD1"
 msgid "Taybi-Linder syndrome"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MORC2"
+msgid "MORC family CW-type zinc finger protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MPC1"
 msgid ""
 msgstr ""
@@ -13366,6 +14207,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MPI"
 msgid "mannose phosphate isomerase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MPIG6B"
+msgid "Megakaryocyte and platelet inhibitory receptor G6b"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MPL"
@@ -13412,6 +14257,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MRAP"
 msgid "melanocortin 2 receptor accessory protein"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MRAP2"
+msgid "Melanocortin-2 receptor accessory protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MRE11"
+msgid "Double-strand break repair protein MRE11"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MRE11A"
 msgid "MRE11 meiotic recombination 11 homolog A (S. cerevisiae)"
 msgstr ""
@@ -13434,6 +14287,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MRPS22"
 msgid "mitochondrial ribosomal protein S22"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MRPS34"
+msgid "28S ribosomal protein S34, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MRPS7"
+msgid "28S ribosomal protein S7, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MRSD"
@@ -13634,12 +14495,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MSH4"
 msgid "mutS homolog 4 (E. coli)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MSH5"
+msgid "MutS protein homolog 5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MSH6"
 msgid "mutS homolog 6 (E. coli)"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MSMB"
 msgid "microseminoprotein, beta-"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MSMO1"
+msgid "Methylsterol monooxygenase 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MSN"
+msgid "Moesin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MSR1"
@@ -13660,6 +14533,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MSTN"
 msgid "myostatin"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MSTO1"
+msgid "Protein misato homolog 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MSX1"
@@ -13965,12 +14842,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:MYL3"
 msgid "myosin, light chain 3, alkali; ventricular, skeletal, slow"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:MYL4"
+msgid "Myosin light chain 4"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:MYLK"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MYLK2"
 msgid "myosin light chain kinase 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:MYMK"
+msgid "Protein myomaker"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:MYMY1"
@@ -14121,6 +15006,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NAA10"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NACC1"
+msgid "Nucleus accumbens-associated protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NADK2"
+msgid "NAD kinase 2, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NAGA"
 msgid "N-acetylgalactosaminidase, alpha-"
 msgstr ""
@@ -14151,6 +15044,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NANOS1"
 msgid "Nanos homolog 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NANS"
+msgid "Sialic acid synthase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NAPB"
 msgid "N-ethylmaleimide-sensitive factor attachment protein, beta"
 msgstr ""
@@ -14173,6 +15070,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NAV2"
 msgid "neuron navigator 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NAXE"
+msgid "NAD(P)H-hydrate epimerase"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NBAS"
@@ -14259,6 +15160,11 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA1"
 msgid "NADH dehydrogenase (ubiquinone) 1 alpha subcomplex, 1, 7.5kDa"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA10"
+msgid ""
+"NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 10, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA11"
 msgid "NADH dehydrogenase (ubiquinone) 1 alpha subcomplex, 11, 14.7kDa"
 msgstr ""
@@ -14275,8 +15181,21 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA2"
 msgid "NADH dehydrogenase (ubiquinone) 1 alpha subcomplex, 2, 8kDa"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA4"
+msgid "Cytochrome c oxidase subunit NDUFA4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NDUFA9"
+msgid ""
+"NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 9, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NDUFAF1"
 msgid "NADH dehydrogenase (ubiquinone) 1 alpha subcomplex, assembly factor 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NDUFAF2"
+msgid "NADH dehydrogenase [ubiquinone] 1 alpha subcomplex assembly factor 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NDUFAF3"
@@ -14298,6 +15217,10 @@ msgstr ""
 msgctxt "model:gnuhealth.disease.gene,long_name:NDUFB11"
 msgid ""
 "NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 11, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NDUFB3"
+msgid "NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NDUFS1"
@@ -14398,6 +15321,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NEK8"
 msgid "NIMA (never in mitosis gene a)- related kinase 8"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NEK9"
+msgid "Serine/threonine-protein kinase Nek9"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NELF"
 msgid "nasal embryonic LHRH factor"
 msgstr ""
@@ -14424,6 +15351,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NEUROG3"
 msgid "neurogenin 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NEXMIF"
+msgid "Neurite extension and migration factor"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NEXN"
@@ -14569,6 +15500,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NKX3-2"
 msgid "Homeobox protein Nkx-3.2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NKX6-2"
+msgid "Homeobox protein Nkx-6.2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NLGN3"
 msgid "neuroligin 3"
 msgstr ""
@@ -14671,6 +15606,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NOL3"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NONO"
+msgid "Non-POU domain-containing octamer-binding protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NOP10"
@@ -14795,6 +15734,14 @@ msgid ""
 " receptor C)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NPRL2"
+msgid "GATOR complex protein NPRL2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NPRL3"
+msgid "GATOR complex protein NPRL3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NPSR1"
 msgid "neuropeptide S receptor 1"
 msgstr ""
@@ -14821,6 +15768,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NR0B2"
 msgid "nuclear receptor subfamily 0, group B, member 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NR1H4"
+msgid "Bile acid receptor"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NR1I2"
@@ -14916,6 +15867,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NSF"
 msgid "N-ethylmaleimide-sensitive factor"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NSMCE2"
+msgid "E3 SUMO-protein ligase NSE2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NSMCE3"
+msgid "Non-structural maintenance of chromosomes element 3 homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NSMF"
 msgid ""
 msgstr ""
@@ -14992,8 +15951,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:NUMBL"
 msgid "numb homolog (Drosophila)-like"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:NUP107"
+msgid "Nuclear pore complex protein Nup107"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:NUP155"
 msgid "nucleoporin 155kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NUP205"
+msgid "Nuclear pore complex protein Nup205"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NUP214"
@@ -15002,6 +15969,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NUP62"
 msgid "nucleoporin 62kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:NUP93"
+msgid "Nuclear pore complex protein Nup93"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:NUP98"
@@ -15086,6 +16057,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:OCRL"
 msgid "oculocerebrorenal syndrome of Lowe"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ODAPH"
+msgid "Odontogenesis associated phosphoprotein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ODC1"
@@ -15251,6 +16226,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ORC6"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ORMDL3"
+msgid "ORM1-like protein 3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ORW3"
 msgid "Osler-Rendu-Weber syndrome 3"
 msgstr ""
@@ -15265,6 +16244,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:OSCS"
 msgid "Osteopathia striata with cranial sclerosis"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:OSGEP"
+msgid "Probable tRNA N6-adenosine threonylcarbamoyltransferase"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:OSMR"
@@ -15327,12 +16310,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:OTSC8"
 msgid "otosclerosis 8"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:OTUD6B"
+msgid "Deubiquitinase OTUD6B"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:OTULIN"
+msgid "Ubiquitin thioesterase otulin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:OTX2"
 msgid "orthodenticle homeobox 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:OVCAS1"
 msgid "Ovarian cancer, epithelial, susceptibility to"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:OVOL2"
+msgid "Transcription factor Ovo-like 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:OXCT1"
@@ -15387,8 +16382,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PACS1"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PADI3"
+msgid "Protein-arginine deiminase type-3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PADI4"
 msgid "peptidyl arginine deiminase, type IV"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PADI6"
+msgid "Protein-arginine deiminase type-6"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PAFAH1B1"
@@ -15461,6 +16464,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PAPSS2"
 msgid "3'-phosphoadenosine 5'-phosphosulfate synthase 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PARD3"
+msgid "Partitioning defective 3 homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PARK10"
 msgid "Parkinson disease 10"
 msgstr ""
@@ -15495,6 +16502,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PASK"
 msgid "PAS domain containing serine/threonine kinase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PATL2"
+msgid "Protein PAT1 homolog 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PAWR"
@@ -15541,6 +16552,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PBCA"
 msgid "Pancreatic beta cell, agenesis of"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PBRM1"
+msgid "Protein polybromo-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PBX1"
 msgid "pre-B-cell leukemia homeobox 1"
 msgstr ""
@@ -15563,6 +16578,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PCCB"
 msgid "propionyl Coenzyme A carboxylase, beta polypeptide"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PCDH12"
+msgid "Protocadherin-12"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PCDH15"
@@ -15639,6 +16658,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PDCD10"
 msgid "programmed cell death 10"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PDE10A"
+msgid "cAMP and cAMP-inhibited cGMP 3',5'-cyclic phosphodiesterase 10A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PDE11A"
@@ -15760,6 +16783,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PDYN"
 msgid "prodynorphin"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PDZD7"
+msgid "PDZ domain-containing protein 7"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PECAM1"
 msgid "platelet/endothelial cell adhesion molecule"
 msgstr ""
@@ -15794,6 +16821,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PER2"
 msgid "period homolog 2 (Drosophila)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PER3"
+msgid "Period circadian protein homolog 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PEX1"
@@ -16025,6 +17056,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PIGA"
 msgid "phosphatidylinositol glycan anchor biosynthesis, class A"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PIGG"
+msgid "GPI ethanolamine phosphate transferase 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PIGL"
 msgid ""
 msgstr ""
@@ -16041,6 +17076,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PIGO"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PIGP"
+msgid "Phosphatidylinositol N-acetylglucosaminyltransferase subunit P"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PIGR"
 msgid "polymeric immunoglobulin receptor"
 msgstr ""
@@ -16055,6 +17094,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PIGW"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PIGY"
+msgid "Phosphatidylinositol N-acetylglucosaminyltransferase subunit Y"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PIH1D3"
+msgid "Protein PIH1D3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PIK3C2G"
@@ -16115,6 +17162,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PITX3"
 msgid "paired-like homeodomain 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PJVK"
+msgid "Pejvakin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PKC"
@@ -16179,6 +17230,10 @@ msgid ""
 "plasma)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PLAA"
+msgid "Phospholipase A-2-activating protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PLAG1"
 msgid "pleiomorphic adenoma gene 1"
 msgstr ""
@@ -16219,6 +17274,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PLCG2"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PLCZ1"
+msgid "1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase zeta-1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PLD1"
+msgid "Phospholipase D1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PLD2"
 msgid "phospholipase D2"
 msgstr ""
@@ -16235,6 +17298,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PLEKHA1"
 msgid ""
 "pleckstrin homology domain containing, family A (phosphoinositide binding "
 "specific) member 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PLEKHG2"
+msgid "Pleckstrin homology domain-containing family G member 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PLEKHG4"
@@ -16298,6 +17365,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PLP2"
 msgid "proteolipid protein 2 (colonic epithelium-enriched)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PLPBP"
+msgid "Pyridoxal phosphate homeostasis protein"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PLS3"
+msgid "Plastin-3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PLSA1"
 msgid "Primary lateral sclerosis, adult, 1"
 msgstr ""
@@ -16320,6 +17395,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PMP22"
 msgid "peripheral myelin protein 22"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PMPCA"
+msgid "Mitochondrial-processing peptidase subunit alpha"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PMS1"
@@ -16410,6 +17489,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:POGZ"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:POLA1"
+msgid "DNA polymerase alpha catalytic subunit"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:POLB"
 msgid "polymerase (DNA directed), beta"
 msgstr ""
@@ -16436,6 +17519,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:POLH"
 msgid "polymerase (DNA directed), eta"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:POLQ"
+msgid "DNA polymerase theta"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:POLR1A"
@@ -16498,6 +17585,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PON3"
 msgid "paraoxonase 3"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:POP1"
+msgid "Ribonucleases P/MRP protein subunit POP1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:POR"
 msgid "P450 (cytochrome) oxidoreductase"
 msgstr ""
@@ -16528,6 +17619,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:POU6F2"
 msgid "POU class 6 homeobox 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PPA2"
+msgid "Inorganic pyrophosphatase 2, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PPARA"
@@ -16586,6 +17681,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PPOX"
 msgid "protoporphyrinogen oxidase"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PPP1CB"
+msgid "Serine/threonine-protein phosphatase PP1-beta catalytic subunit"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PPP1R15B"
+msgid "Protein phosphatase 1 regulatory subunit 15B"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PPP1R3A"
 msgid "protein phosphatase 1, regulatory (inhibitor) subunit 3A"
 msgstr ""
@@ -16606,6 +17709,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PPP2R5D"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PPP3CA"
+msgid ""
+"Serine/threonine-protein phosphatase 2B catalytic subunit alpha isoform"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PPPD1"
@@ -16670,6 +17778,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRDM5"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PRDM6"
+msgid "Putative histone-lysine N-methyltransferase PRDM6"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRDM8"
@@ -16738,12 +17850,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PRKCSH"
 msgid "protein kinase C substrate 80K-H"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PRKD1"
+msgid "Serine/threonine-protein kinase D1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PRKDC"
 msgid "protein kinase, DNA-activated, catalytic polypeptide"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRKG1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PRKN"
+msgid "E3 ubiquitin-protein ligase parkin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRKRA"
@@ -16761,6 +17881,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRM2"
 msgid "protamine 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PRMT7"
+msgid "Protein arginine N-methyltransferase 7"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PRND"
@@ -16883,6 +18007,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PRTH"
 msgid "pituitary resistance to thyroid hormone"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PRUNE1"
+msgid "Exopolyphosphatase PRUNE1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PRX"
 msgid "periaxin"
 msgstr ""
@@ -16933,6 +18061,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PSMC3IP"
 msgid "Homologous-pairing protein 2 homolog"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PSMD12"
+msgid "26S proteasome non-ATPase regulatory subunit 12"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PSNP2"
@@ -17185,6 +18317,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:PUS1"
 msgid "pseudouridylate synthase 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:PUS3"
+msgid "tRNA pseudouridine(38/39) synthase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:PVR"
 msgid "poliovirus receptor"
 msgstr ""
@@ -17219,6 +18355,11 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PYGM"
 msgid "phosphorylase, glycogen, muscle"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:PYROXD1"
+msgid ""
+"Pyridine nucleotide-disulfide oxidoreductase domain-containing protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:PYY"
@@ -17271,6 +18412,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RAB7A"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RABGAP1L"
+msgid "Rab GTPase-activating protein 1-like"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RAC2"
@@ -17379,6 +18524,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RASA1"
 msgid "RAS p21 protein activator (GTPase activating protein) 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RASGRP1"
+msgid "RAS guanyl-releasing protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RASGRP2"
 msgid ""
 msgstr ""
@@ -17415,6 +18564,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RBM10"
 msgid "RNA-binding protein 10"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RBM12"
+msgid "RNA-binding protein 12"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RBM15"
 msgid "RNA binding motif protein 15"
 msgstr ""
@@ -17449,6 +18602,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RCA1"
 msgid "renal carcinoma, familial, associated 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RCBTB1"
+msgid "RCC1 and BTB domain-containing protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RCC1"
@@ -17507,8 +18664,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:REEP2"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:REEP6"
+msgid "Receptor expression-enhancing protein 6"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:REL"
 msgid "v-rel reticuloendotheliosis viral oncogene homolog (avian)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RELB"
+msgid "Transcription factor RelB"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RELN"
@@ -17519,12 +18684,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:REN"
 msgid "renin"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RERE"
+msgid "Arginine-glutamic acid dipeptide repeats protein"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:REST"
+msgid "RE1-silencing transcription factor"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RET"
 msgid "ret proto-oncogene"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RETN"
 msgid "resistin"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RETREG1"
+msgid "Reticulophagy regulator 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:REV3L"
@@ -17573,6 +18750,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RGS2"
 msgid "regulator of G-protein signaling 2, 24kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RGS4"
+msgid "Regulator of G-protein signaling 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RGS5"
@@ -17639,6 +18820,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RIPK4"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RIPOR2"
+msgid "Rho family-interacting cell polarization regulator 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RIPPLY2"
 msgid "Protein ripply2"
 msgstr ""
@@ -17649,6 +18834,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RLBP1"
 msgid "retinaldehyde binding protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RLIM"
+msgid "E3 ubiquitin-protein ligase RLIM"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RLS2"
@@ -17747,6 +18936,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RNF216"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RNF43"
+msgid "E3 ubiquitin-protein ligase RNF43"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RNF6"
 msgid "ring finger protein (C3H2C3 type) 6"
 msgstr ""
@@ -17773,6 +18966,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ROM1"
 msgid "retinal outer segment membrane protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ROR1"
+msgid "Inactive tyrosine-protein kinase transmembrane receptor ROR1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ROR2"
@@ -17895,6 +19092,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RPL26"
 msgid "60S ribosomal protein L26"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RPL27"
+msgid "60S ribosomal protein L27"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RPL35A"
 msgid "ribosomal protein L35a"
 msgstr ""
@@ -17915,12 +19116,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RPS19"
 msgid "ribosomal protein S19"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RPS23"
+msgid "40S ribosomal protein S23"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RPS24"
 msgid "ribosomal protein S24"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RPS26"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:RPS27"
+msgid "40S ribosomal protein S27"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RPS28"
@@ -18029,6 +19238,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RTN2"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RTN4IP1"
+msgid "Reticulon-4-interacting protein 1, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RTN4R"
 msgid "reticulon 4 receptor"
 msgstr ""
@@ -18062,12 +19275,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:RXRG"
 msgid "retinoid X receptor, gamma"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:RXYLT1"
+msgid "Ribitol-5-phosphate xylosyltransferase 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:RYR1"
 msgid "ryanodine receptor 1 (skeletal)"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:RYR2"
 msgid "ryanodine receptor 2 (cardiac)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:S1PR2"
+msgid "Sphingosine 1-phosphate receptor 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SAA1"
@@ -18098,6 +19319,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SAMD9"
 msgid "sterile alpha motif domain containing 9"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SAMD9L"
+msgid "Sterile alpha motif domain-containing protein 9-like"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SAMHD1"
 msgid ""
 msgstr ""
@@ -18108,6 +19333,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SARDH"
 msgid "sarcosine dehydrogenase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SARS"
+msgid "Serine--tRNA ligase, cytoplasmic"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SARS2"
@@ -18351,6 +19580,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SCT"
 msgid "secretin"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SCYL1"
+msgid "N-terminal kinase-like protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SCZD1"
 msgid "schizophrenia disorder 1"
 msgstr ""
@@ -18432,6 +19665,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SDHD"
 msgid "succinate dehydrogenase complex, subunit D, integral membrane protein"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SDR9C7"
+msgid "Short-chain dehydrogenase/reductase family 9C member 7"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SDS"
 msgid "serine dehydratase"
 msgstr ""
@@ -18456,6 +19693,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SEC24D"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SEC61A1"
+msgid "Protein transport protein Sec61 subunit alpha isoform 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SEC63"
 msgid "SEC63 homolog (S. cerevisiae)"
 msgstr ""
@@ -18470,6 +19711,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SELE"
 msgid "selectin E"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SELENON"
+msgid "Selenoprotein N"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SELL"
@@ -18586,6 +19831,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SERPINB7"
 msgid "Serpin B7"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SERPINB8"
+msgid "Serpin B8"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SERPINC1"
 msgid ""
 msgstr ""
@@ -18632,6 +19881,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SETBP1"
 msgid "SET binding protein 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SETD2"
+msgid "Histone-lysine N-methyltransferase SETD2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SETD5"
 msgid "SET domain-containing protein 5"
 msgstr ""
@@ -18650,6 +19903,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SF3B4"
 msgid "Splicing factor 3B subunit 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SFRP4"
+msgid "Secreted frizzled-related protein 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SFRS2IP"
@@ -18710,6 +19967,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SGOL1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SGPL1"
+msgid "Sphingosine-1-phosphate lyase 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SGSH"
@@ -18806,6 +20067,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SHOX"
 msgid "short stature homeobox"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SHPK"
+msgid "Sedoheptulokinase"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SHROOM3"
@@ -18908,6 +20173,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC12A6"
 msgid "solute carrier family 12 (potassium/chloride transporters), member 6"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC13A5"
+msgid "Solute carrier family 13 member 5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC14A1"
 msgid ""
 "solute carrier family 14 (urea transporter), member 1 (Kidd blood group)"
@@ -18925,9 +20194,17 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC16A1"
 msgid "solute carrier family 16, member 1 (monocarboxylic acid transporter 1)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC16A11"
+msgid "Monocarboxylate transporter 11"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC16A12"
 msgid ""
 "solute carrier family 16, member 12 (monocarboxylic acid transporter 12)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC16A13"
+msgid "Monocarboxylate transporter 13"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC16A2"
@@ -18958,6 +20235,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC18A1"
 msgid "solute carrier family 18 (vesicular monoamine), member 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC18A3"
+msgid "Vesicular acetylcholine transporter"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC19A1"
@@ -19089,10 +20370,18 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A22"
 msgid "solute carrier family 25 (mitochondrial carrier: glutamate), member 22"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A26"
+msgid "S-adenosylmethionine mitochondrial carrier protein"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A3"
 msgid ""
 "solute carrier family 25 (mitochondrial carrier; phosphate carrier), member "
 "3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A32"
+msgid "Mitochondrial folate transporter/carrier"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A38"
@@ -19107,6 +20396,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC25A46"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC26A1"
+msgid "Sulfate anion transporter 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC26A2"
@@ -19196,6 +20489,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC30A8"
 msgid "solute carrier family 30 (zinc transporter), member 8"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC30A9"
+msgid "Zinc transporter 9"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC33A1"
 msgid "solute carrier family 33 (acetyl-CoA transporter), member 1"
 msgstr ""
@@ -19250,12 +20547,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC39A13"
 msgid "solute carrier family 39 (zinc transporter), member 13"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC39A14"
+msgid "Zinc transporter ZIP14"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC39A4"
 msgid "solute carrier family 39 (zinc transporter), member 4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC39A5"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC39A8"
+msgid "Zinc transporter ZIP8"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC3A1"
@@ -19267,6 +20572,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC40A1"
 msgid "solute carrier family 40 (iron-regulated transporter), member 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC44A4"
+msgid "Choline transporter-like protein 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC45A1"
+msgid "Proton-associated sugar transporter A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC45A2"
@@ -19345,6 +20658,10 @@ msgid ""
 " 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC6A20"
+msgid "Sodium- and chloride-dependent transporter XTRP3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC6A3"
 msgid ""
 "solute carrier family 6 (neurotransmitter transporter, dopamine), member 3"
@@ -19363,6 +20680,10 @@ msgstr ""
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC6A8"
 msgid ""
 "solute carrier family 6 (neurotransmitter transporter, creatine), member 8"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC6A9"
+msgid "Sodium- and chloride-dependent glycine transporter 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC7A1"
@@ -19397,6 +20718,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SLC9A1"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SLC9A3"
+msgid "Sodium/hydrogen exchanger 3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SLC9A3R1"
 msgid ""
 "solute carrier family 9 (sodium/hydrogen exchanger), member 3 regulator 1"
@@ -19412,6 +20737,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLCO1B1"
 msgid "solute carrier organic anion transporter family, member 1B1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SLCO1B3"
+msgid "Solute carrier organic anion transporter family member 1B3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SLCO2A1"
@@ -19588,6 +20917,12 @@ msgid ""
 "subfamily b, member 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SMARCD2"
+msgid ""
+"SWI/SNF-related matrix-associated actin-dependent regulator of chromatin "
+"subfamily D member 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SMARCE1"
 msgid ""
 "SWI/SNF-related matrix-associated actin-dependent regulator of chromatin "
@@ -19617,6 +20952,10 @@ msgstr ""
 msgctxt "model:gnuhealth.disease.gene,long_name:SMG1"
 msgid ""
 "SMG1 homolog, phosphatidylinositol 3-kinase-related kinase (C. elegans)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SMG9"
+msgid "Protein SMG9"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SMN1"
@@ -19743,6 +21082,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SOD3"
 msgid "superoxide dismutase 3, extracellular"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SOHLH1"
+msgid ""
+"Spermatogenesis- and oogenesis-specific basic helix-loop-helix-containing "
+"protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SON"
+msgid "Protein SON"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SORBS1"
 msgid "sorbin and SH3 domain containing 1"
 msgstr ""
@@ -19791,6 +21140,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SOX3"
 msgid "SRY (sex determining region Y)-box 3"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SOX5"
+msgid "Transcription factor SOX-5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SOX8"
 msgid "SRY (sex determining region Y)-box 8"
 msgstr ""
@@ -19817,6 +21170,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SPARC"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SPART"
+msgid "Spartin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SPAST"
@@ -19991,6 +21348,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SPTBN2"
 msgid "spectrin, beta, non-erythrocytic 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SPTBN4"
+msgid "Spectrin beta chain, non-erythrocytic 4"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SPTBN5"
 msgid "spectrin, beta, non-erythrocytic 5"
 msgstr ""
@@ -20039,6 +21400,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SREBF2"
 msgid "sterol regulatory element binding transcription factor 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SRGAP1"
+msgid "SLIT-ROBO Rho GTPase-activating protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SRI"
@@ -20145,6 +21510,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:STAC3"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:STAG1"
+msgid "Cohesin subunit SA-1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:STAG3"
 msgid "Cohesin subunit SA-3"
 msgstr ""
@@ -20159,6 +21528,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:STAT1"
 msgid "signal transducer and activator of transcription 1, 91kDa"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:STAT2"
+msgid "Signal transducer and activator of transcription 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:STAT3"
@@ -20222,6 +21595,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:STK4"
 msgid "Serine/threonine-protein kinase 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:STN1"
+msgid "CST complex subunit STN1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:STOX1"
@@ -20393,6 +21770,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:SUMO4"
 msgid "SMT3 suppressor of mif two 3 homolog 4 (S. cerevisiae)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:SUN5"
+msgid "SUN domain-containing protein 5"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:SUOX"
 msgid "sulfite oxidase"
 msgstr ""
@@ -20403,6 +21784,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SXI2"
 msgid "X inactivation, familial skewed, 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:SYCE1"
+msgid "Synaptonemal complex central element protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:SYCP3"
@@ -20474,11 +21859,15 @@ msgid "T, brachyury homolog (mouse)"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAB2"
-msgid ""
+msgid "TGF-beta-activated kinase 1 and MAP3K7-binding protein 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAC3"
 msgid "tachykinin 3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TACO1"
+msgid "Translational activator of cytochrome c oxidase 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TACR3"
@@ -20495,6 +21884,10 @@ msgid ""
 "250kDa"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TAF13"
+msgid "Transcription initiation factor TFIID subunit 13"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TAF15"
 msgid ""
 "TAF15 RNA polymerase II, TATA box binding protein (TBP)-associated factor, "
@@ -20507,6 +21900,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAF4B"
 msgid "Transcription initiation factor TFIID subunit 4B"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TAF6"
+msgid "Transcription initiation factor TFIID subunit 6"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAF7L"
@@ -20531,6 +21928,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TAM"
 msgid "Myeloproliferative syndrome, transient (transient abnormal"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TANGO2"
+msgid "Transport and Golgi organization protein 2 homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TAP1"
 msgid "transporter 1, ATP-binding cassette, sub-family B (MDR/TAP)"
 msgstr ""
@@ -20541,6 +21942,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAPBP"
 msgid "TAP binding protein (tapasin)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TAPT1"
+msgid "Transmembrane anterior posterior transformation protein 1 homolog"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TAPVR1"
@@ -20597,6 +22002,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TBC1D20"
 msgid "TBC1 domain family member 20"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TBC1D23"
+msgid "TBC1 domain family member 23"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TBC1D24"
 msgid ""
 msgstr ""
@@ -20609,8 +22018,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TBC1D7"
 msgid "TBC1 domain family member 7"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TBCD"
+msgid "Tubulin-specific chaperone D"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TBCE"
 msgid "tubulin folding cofactor E"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TBCK"
+msgid "TBC domain-containing protein kinase-like protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TBK1"
@@ -20619,6 +22036,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TBL1X"
 msgid "transducin (beta)-like 1X-linked"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TBL1XR1"
+msgid "F-box-like/WD repeat-containing protein TBL1XR1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TBP"
@@ -20710,6 +22131,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TCF7L2"
 msgid "transcription factor 7-like 2 (T-cell specific, HMG-box)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TCHH"
+msgid "Trichohyalin"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TCIRG1"
 msgid ""
 "T-cell, immune regulator 1, ATPase, H+ transporting, lysosomal V0 subunit A3"
@@ -20747,6 +22172,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TCPT"
 msgid "thrombocytopenia, Paris-Trousseau type"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TCTEX1D2"
+msgid "Tctex1 domain-containing protein 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TCTN1"
 msgid "Tectonic-1"
 msgstr ""
@@ -20779,6 +22208,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TDP1"
 msgid "tyrosyl-DNA phosphodiesterase 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TDP2"
+msgid "Tyrosyl-DNA phosphodiesterase 2"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TDRD7"
 msgid "Tudor domain-containing protein 7"
 msgstr ""
@@ -20795,6 +22228,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TECR"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TECRL"
+msgid "Trans-2,3-enoyl-CoA reductase-like"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TECTA"
 msgid "tectorin alpha"
 msgstr ""
@@ -20807,8 +22244,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TELM"
 msgid "telomere length, mean leukocyte"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TELO2"
+msgid "Telomere length regulation protein TEL2 homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TENM3"
 msgid "Teneurin-3"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TENM4"
+msgid "Teneurin-4"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TERC"
@@ -20817,6 +22262,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TERT"
 msgid "telomerase reverse transcriptase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TET2"
+msgid "Methylcytosine dioxygenase TET2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TEX11"
@@ -20928,6 +22377,10 @@ msgid ""
 "glutamyltransferase)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TGM3"
+msgid "Protein-glutamine gamma-glutamyltransferase E"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TGM5"
 msgid ""
 msgstr ""
@@ -21004,6 +22457,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TIMM44"
 msgid "translocase of inner mitochondrial membrane 44 homolog (yeast)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TIMM50"
+msgid "Mitochondrial import inner membrane translocase subunit TIM50"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TIMM8A"
 msgid "translocase of inner mitochondrial membrane 8 homolog A (yeast)"
 msgstr ""
@@ -21038,6 +22495,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TKCR"
 msgid "torticollis, keloids, cryptorchidism and renal dysplasia"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TKT"
+msgid "Transketolase"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TLE6"
+msgid "Transducin-like enhancer protein 6"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TLL1"
@@ -21084,12 +22549,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TMC1"
 msgid "transmembrane channel-like 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TMC6"
+msgid "Transmembrane channel-like protein 6"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TMC8"
 msgid "Transmembrane channel-like protein 8"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMCO1"
 msgid "Transmembrane and coiled-coil domain-containing protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TMEM106B"
+msgid "Transmembrane protein 106B"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TMEM107"
+msgid "Transmembrane protein 107"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM114"
@@ -21120,12 +22597,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TMEM173"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TMEM175"
+msgid "Endosomal/lysosomal potassium channel TMEM175"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM199"
 msgid ""
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM216"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TMEM230"
+msgid "Transmembrane protein 230"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM231"
@@ -21138,6 +22623,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM240"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TMEM260"
+msgid "Transmembrane protein 260"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMEM38B"
@@ -21198,6 +22687,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TMPRSS6"
 msgid "transmembrane protease, serine 6"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TMTC3"
+msgid "Transmembrane and TPR repeat-containing protein 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TNC"
@@ -21272,6 +22765,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TNFSF4"
 msgid "tumor necrosis factor (ligand) superfamily, member 4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TNIK"
+msgid "TRAF2 and NCK-interacting protein kinase"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TNNC1"
 msgid "troponin C type 1 (slow)"
 msgstr ""
@@ -21320,6 +22817,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TOC"
 msgid "tylosis with oesophageal cancer"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TOE1"
+msgid "Target of EGR1 protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TOMM40"
 msgid "translocase of outer mitochondrial membrane 40 homolog (yeast)"
 msgstr ""
@@ -21348,12 +22849,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TOR1A"
 msgid "torsin family 1, member A (torsin A)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TOR1AIP1"
+msgid "Torsin-1A-interacting protein 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TP53"
 msgid "tumor protein p53"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TP53BP1"
 msgid "tumor protein p53 binding protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TP53RK"
+msgid "EKC/KEOPS complex subunit TP53RK"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TP63"
@@ -21408,6 +22917,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TPP1"
 msgid "tripeptidyl peptidase I"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TPRKB"
+msgid "EKC/KEOPS complex subunit TPRKB"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TPRN"
 msgid "Taperin"
 msgstr ""
@@ -21432,12 +22945,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TRAF3IP2"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TRAIP"
+msgid "E3 ubiquitin-protein ligase TRAIP"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TRAK2"
 msgid "trafficking protein, kinesin binding 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TRAPPC11"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TRAPPC12"
+msgid "Trafficking protein particle complex subunit 12"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TRAPPC2"
@@ -21496,12 +23017,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TRIM33"
 msgid "tripartite motif-containing 33"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TRIM36"
+msgid "E3 ubiquitin-protein ligase TRIM36"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TRIM37"
 msgid "tripartite motif-containing 37"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TRIM44"
+msgid "Tripartite motif-containing protein 44"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TRIM5"
 msgid "tripartite motif-containing 5"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TRIO"
+msgid "Triple functional domain protein"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TRIOBP"
@@ -21512,8 +23045,20 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TRIP11"
 msgid "Thyroid receptor-interacting protein 11"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TRIP13"
+msgid "Pachytene checkpoint protein 2 homolog"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TRIP4"
+msgid "Activating signal cointegrator 1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TRMT10A"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TRMT10C"
+msgid "tRNA methyltransferase 10 homolog C"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TRMT5"
@@ -21590,6 +23135,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TSC2"
 msgid "tuberous sclerosis 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TSEN15"
+msgid "tRNA-splicing endonuclease subunit Sen15"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TSEN2"
@@ -21680,6 +23229,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TTC21B"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TTC25"
+msgid "Tetratricopeptide repeat protein 25"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TTC37"
 msgid ""
 msgstr ""
@@ -21701,7 +23254,7 @@ msgid "transcription termination factor, RNA polymerase II"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TTI2"
-msgid ""
+msgid "TELO2-interacting protein 2"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TTLL5"
@@ -21760,6 +23313,14 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TUBB4A"
 msgid ""
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:TUBB6"
+msgid "Tubulin beta-6 chain"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TUBB8"
+msgid "Tubulin beta-8 chain"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:TUBG1"
 msgid ""
 msgstr ""
@@ -21794,6 +23355,14 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TWIST2"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TWNK"
+msgid "Twinkle protein, mitochondrial"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:TXN2"
+msgid "Thioredoxin, mitochondrial"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:TXNDC3"
@@ -21832,6 +23401,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:TYS"
 msgid "sclerotylosis"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:U2AF1"
+msgid "Splicing factor U2AF 35 kDa subunit"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:UAQTL3"
 msgid "Uric acid concentration, serum, QTL3"
 msgstr ""
@@ -21842,6 +23415,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:UBA1"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:UBA5"
+msgid "Ubiquitin-like modifier-activating enzyme 5"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:UBB"
@@ -21882,6 +23459,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:UBR1"
 msgid "ubiquitin protein ligase E3 component n-recognin 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:UBTF"
+msgid "Nucleolar transcription factor 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:UCHL1"
@@ -22072,12 +23653,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:USH2B"
 msgid "Usher syndrome 2B (autosomal recessive, mild)"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:USP18"
+msgid "Ubl carboxyl-terminal hydrolase 18"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:USP24"
 msgid "ubiquitin specific peptidase 24"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:USP26"
 msgid "ubiquitin specific peptidase 26"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:USP27X"
+msgid "Ubiquitin carboxyl-terminal hydrolase 27"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:USP8"
+msgid "Ubiquitin carboxyl-terminal hydrolase 8"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:USP9X"
@@ -22102,6 +23695,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:UVSSA"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:VAC14"
+msgid "Protein VAC14 homolog"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:VAMP1"
@@ -22196,12 +23793,24 @@ msgctxt "model:gnuhealth.disease.gene,long_name:VNN1"
 msgid "vanin 1"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:VPS11"
+msgid "Vacuolar protein sorting-associated protein 11 homolog"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:VPS13A"
 msgid "vacuolar protein sorting 13 homolog A (S. cerevisiae)"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:VPS13B"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:VPS13C"
+msgid "Vacuolar protein sorting-associated protein 13C"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:VPS33A"
+msgid "Vacuolar protein sorting-associated protein 33A"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:VPS33B"
@@ -22268,12 +23877,40 @@ msgctxt "model:gnuhealth.disease.gene,long_name:VWS2"
 msgid "van der Woude syndrome 2"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:WAC"
+msgid "WW domain-containing adapter protein with coiled-coil"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:WAGRO"
 msgid "WAGRO syndrome"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:WARS"
+msgid "Tryptophan--tRNA ligase, cytoplasmic"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WARS2"
+msgid "Tryptophan--tRNA ligase, mitochondrial"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:WAS"
 msgid "Wiskott-Aldrich syndrome (eczema-thrombocytopenia)"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WASHC4"
+msgid "WASH complex subunit 4"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WASHC5"
+msgid "WASH complex subunit 5"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WBP2"
+msgid "WW domain-binding protein 2"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WDFY3"
+msgid "WD repeat and FYVE domain-containing protein 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:WDM"
@@ -22290,6 +23927,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:WDR19"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WDR26"
+msgid "WD repeat-containing protein 26"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:WDR34"
@@ -22334,6 +23975,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:WG"
 msgid "Wegener granulomatosis"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:WHRN"
+msgid "Whirlin"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:WHSC1"
@@ -22558,6 +24203,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:YEATS4"
 msgid "YEATS domain containing 4"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:YME1L1"
+msgid "ATP-dependent zinc metalloprotease YME1L1"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:YTHDF2"
 msgid "YTH domain family, member 2"
 msgstr ""
@@ -22566,6 +24215,18 @@ msgctxt "model:gnuhealth.disease.gene,long_name:YWHAE"
 msgid ""
 "tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, "
 "epsilon polypeptide"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:YWHAG"
+msgid "14-3-3 protein gamma"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:YY1"
+msgid "Transcriptional repressor protein YY1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:YY1AP1"
+msgid "YY1-associated protein 1"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ZAP70"
@@ -22590,6 +24251,10 @@ msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ZBTB42"
 msgid ""
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ZC3H14"
+msgid "Zinc finger CCCH domain-containing protein 14"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ZC4H2"
@@ -22752,6 +24417,10 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ZNF674"
 msgid "zinc finger family member 674"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ZNF687"
+msgid "Zinc finger protein 687"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ZNF711"
 msgid "Zinc finger protein 711"
 msgstr ""
@@ -22764,8 +24433,16 @@ msgctxt "model:gnuhealth.disease.gene,long_name:ZNF81"
 msgid "zinc finger protein 81"
 msgstr ""
 
+msgctxt "model:gnuhealth.disease.gene,long_name:ZNHIT3"
+msgid "Zinc finger HIT domain-containing protein 3"
+msgstr ""
+
 msgctxt "model:gnuhealth.disease.gene,long_name:ZP1"
 msgid "Zona pellucida sperm-binding protein 1"
+msgstr ""
+
+msgctxt "model:gnuhealth.disease.gene,long_name:ZP3"
+msgid "Zona pellucida sperm-binding protein 3"
 msgstr ""
 
 msgctxt "model:gnuhealth.disease.gene,long_name:ZSWIM6"
@@ -22781,15 +24458,15 @@ msgid "Disease Genes"
 msgstr ""
 
 msgctxt "model:gnuhealth.gene.variant,name:"
-msgid "Gene Sequence Variant"
+msgid "Natural Variant"
 msgstr ""
 
 msgctxt "model:gnuhealth.gene.variant.phenotype,name:"
-msgid "Gene Sequence Variant Phenotypes"
+msgid "Variant Phenotypes"
 msgstr ""
 
 msgctxt "model:gnuhealth.patient.family.diseases,name:"
-msgid "Family Diseases"
+msgid "Family History"
 msgstr ""
 
 msgctxt "model:gnuhealth.patient.genetic.risk,name:"
@@ -22805,11 +24482,15 @@ msgid "Disease Genes"
 msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_gene_variant"
-msgid "Gene Variants"
+msgid "Natural Variants"
 msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_gene_variant_phenotype"
-msgid "Gene Variant Phenotypes"
+msgid "Variant Phenotypes"
+msgstr ""
+
+msgctxt "model:ir.action,name:gnuhealth_action_patient_genetics"
+msgid "Person genetic information"
 msgstr ""
 
 msgctxt "model:ir.action,name:gnuhealth_action_protein_disease"
@@ -22821,11 +24502,11 @@ msgid "Disease Genes"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_gene_variant_phenotypes"
-msgid "Gene Variant Phenotypes"
+msgid "Variant Phenotypes"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_gene_variants"
-msgid "Gene Variants"
+msgid "Natural Variants"
 msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_genetics"
@@ -22834,6 +24515,14 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_protein_diseases"
 msgid "Protein related diseases"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_genetics"
+msgid "Genetics"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:gnuhealth_patient_genetics"
+msgid "Person genetic information"
 msgstr ""
 
 msgctxt "model:res.group,name:group_health_genetics_admin"

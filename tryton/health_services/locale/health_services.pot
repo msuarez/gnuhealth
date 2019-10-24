@@ -26,6 +26,10 @@ msgctxt "field:account.invoice,patient:"
 msgid "Patient"
 msgstr ""
 
+msgctxt "field:gnuhealth.health_service,company:"
+msgid "Company"
+msgstr ""
+
 msgctxt "field:gnuhealth.health_service,create_date:"
 msgid "Create Date"
 msgstr ""
@@ -59,7 +63,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service,service_date:"
@@ -119,7 +123,7 @@ msgid "Qty"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service.line,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.health_service.line,to_date:"
@@ -140,6 +144,10 @@ msgstr ""
 
 msgctxt "field:gnuhealth.prescription.order,service:"
 msgid "Service"
+msgstr ""
+
+msgctxt "field:gnuhealth.sequence.setup,health_service_sequence:"
+msgid "Health Service Sequence"
 msgstr ""
 
 msgctxt "field:gnuhealth.sequences,health_service_sequence:"
