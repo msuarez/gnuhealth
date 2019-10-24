@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <form>
     <notebook>
-        <page string="General">
+        <page string="General" id="orthanc_patient_page">
             <label name="patient"/>
             <field name="patient"/>
             <label name="name"/>
@@ -17,7 +17,7 @@
             <label name="server"/>
             <field name="server"/>
         </page>
-        <page string="Studies">
+        <page string="Studies" id="orthanc_patient_studies_page">
             <field name="studies" mode="tree,form"/>
         </page>
     </notebook>
