@@ -30,9 +30,9 @@ if not os.path.isdir(get_config_dir()):
     os.makedirs(get_config_dir(), 0o700)
 
 # Create the GNU Health plugins directory at $HOME
-gh_plugins_dir = os.path.join(os.environ['HOME'], 'gnuhealth_plugins')
-if not os.path.isdir(gh_plugins_dir):
-    os.makedirs(gh_plugins_dir, 0o700)
+GH_PLUGINS_DIR = os.path.join(os.environ['HOME'], 'gnuhealth_plugins')
+if not os.path.isdir(GH_PLUGINS_DIR):
+    os.makedirs(GH_PLUGINS_DIR, 0o700)
 
 
 class ConfigManager(object):

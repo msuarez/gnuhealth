@@ -4,7 +4,7 @@ import os
 import importlib
 import gettext
 
-from tryton.config import get_config_dir, CURRENT_DIR
+from tryton.config import get_config_dir, CURRENT_DIR, GH_PLUGINS_DIR
 
 __all__ = ['MODULES', 'register']
 
@@ -18,6 +18,7 @@ def register():
     paths = [
         os.path.join(get_config_dir(), 'plugins'),
         os.path.join(CURRENT_DIR, 'plugins'),
+        os.path.join(GH_PLUGINS_DIR),
         ]
     paths = list(filter(os.path.isdir, paths))
 
