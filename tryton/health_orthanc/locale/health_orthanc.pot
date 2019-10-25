@@ -1,0 +1,459 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:gnuhealth.orthanc.config:"
+msgid "The label must be unique."
+msgstr ""
+
+msgctxt "error:gnuhealth.orthanc.patient:"
+msgid "UUID must be unique for a given server"
+msgstr ""
+
+msgctxt "error:gnuhealth.orthanc.study:"
+msgid "UUID must be unique for a given server"
+msgstr ""
+
+msgctxt "field:gnuhealth.imaging.test.result,studies:"
+msgid "Studies"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.init,domain:"
+msgid "URL"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.init,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.init,label:"
+msgid "Label"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.init,password:"
+msgid "Password"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.init,user:"
+msgid "Username"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.result,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.add.result,result:"
+msgid "Result"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,domain:"
+msgid "URL"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,label:"
+msgid "Label"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,last:"
+msgid "Last Index"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,link:"
+msgid "URL"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,password:"
+msgid "Password"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,patients:"
+msgid "Patients"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,since_sync:"
+msgid "Since last sync"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,since_sync_readable:"
+msgid "Since last sync"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,studies:"
+msgid "Studies"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,sync_time:"
+msgid "Sync Time"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,user:"
+msgid "Username"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,validated:"
+msgid "Validated"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.config,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,bd:"
+msgid "Birthdate"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,ident:"
+msgid "PatientID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,link:"
+msgid "URL"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,name:"
+msgid "PatientName"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,server:"
+msgid "Server"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,studies:"
+msgid "Studies"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,uuid:"
+msgid "PatientUUID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.patient,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,create_date:"
+msgid "Create Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,create_uid:"
+msgid "Create User"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,date:"
+msgid "Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,description:"
+msgid "Description"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,id:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,ident:"
+msgid "ID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,imaging_test:"
+msgid "Test"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,institution:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,link:"
+msgid "URL"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,patient:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,rec_name:"
+msgid "Record Name"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,ref_phys:"
+msgid "Referring Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,req_phys:"
+msgid "Requesting Physician"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,server:"
+msgid "Server"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,uuid:"
+msgid "UUID"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,write_date:"
+msgid "Write Date"
+msgstr ""
+
+msgctxt "field:gnuhealth.orthanc.study,write_uid:"
+msgid "Write User"
+msgstr ""
+
+msgctxt "field:gnuhealth.patient,orthanc_patients:"
+msgid "Orthanc patients"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.add.init,domain:"
+msgid "The full URL of the Orthanc server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.add.init,label:"
+msgid "The label of the Orthanc server. Must be unique"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.add.init,password:"
+msgid "Password for Orthanc REST server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.add.init,user:"
+msgid "Username for Orthanc REST server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.add.result,result:"
+msgid "Information"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,domain:"
+msgid "The full URL of the Orthanc server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,label:"
+msgid "Label for server (eg., remote1)"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,last:"
+msgid "Index of last change"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,link:"
+msgid "Link to server in Orthanc Explorer"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,password:"
+msgid "Password for Orthanc REST server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,since_sync:"
+msgid "Time since last sync"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,since_sync_readable:"
+msgid "Time since last sync"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,sync_time:"
+msgid "Time of last server sync"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,user:"
+msgid "Username for Orthanc REST server"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.config,validated:"
+msgid "Whether the server details have been successfully checked"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.patient,link:"
+msgid "Link to patient in Orthanc Explorer"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.patient,patient:"
+msgid "Local linked patient"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.study,institution:"
+msgid "Imaging center where study was undertaken"
+msgstr ""
+
+msgctxt "help:gnuhealth.orthanc.study,link:"
+msgid "Link to study in Orthanc Explorer"
+msgstr ""
+
+msgctxt "model:gnuhealth.orthanc.add.init,name:"
+msgid "Init Full Orthanc Sync"
+msgstr ""
+
+msgctxt "model:gnuhealth.orthanc.add.result,name:"
+msgid "Display Result"
+msgstr ""
+
+msgctxt "model:gnuhealth.orthanc.config,name:"
+msgid "Orthanc server details"
+msgstr ""
+
+msgctxt "model:gnuhealth.orthanc.patient,name:"
+msgid "Orthanc patient information"
+msgstr ""
+
+msgctxt "model:gnuhealth.orthanc.study,name:"
+msgid "Orthanc study"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_orthanc_patient_view"
+msgid "Patients"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_orthanc_server_view"
+msgid "Servers"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_orthanc_study_view"
+msgid "Studies"
+msgstr ""
+
+msgctxt "model:ir.action,name:act_relate_orthanc_studies"
+msgid "Orthanc Studies"
+msgstr ""
+
+msgctxt "model:ir.action,name:orthanc_add_server_init"
+msgid "Add Orthanc Server"
+msgstr ""
+
+msgctxt "model:ir.cron,name:cron_orthanc_sync"
+msgid "Sync Orthanc servers"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_add_server_menu"
+msgid "Add Orthanc Server"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_config_menu"
+msgid "Orthanc"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_menu"
+msgid "Orthanc"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_menu_patient_view"
+msgid "Patients"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_menu_study_view"
+msgid "Studies"
+msgstr ""
+
+msgctxt "model:ir.ui.menu,name:orthanc_server_menu"
+msgid "Servers"
+msgstr ""
+
+msgctxt "view:gnuhealth.imaging.test.result:"
+msgid "Studies"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.add.init:"
+msgid "Server information"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.add.init:"
+msgid "User credentials"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "General"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "Server information"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "Sync"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "Synchronize from Orthanc server"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "Synchronize?"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.config:"
+msgid "User"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.patient:"
+msgid "General"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.patient:"
+msgid "Local patient"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.patient:"
+msgid "Orthanc PatientID"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.patient:"
+msgid "Orthanc patient"
+msgstr ""
+
+msgctxt "view:gnuhealth.orthanc.patient:"
+msgid "Studies"
+msgstr ""
+
+msgctxt "wizard_button:gnuhealth.orthanc.wizard.full_sync,result,end:"
+msgid "Close"
+msgstr ""
+
+msgctxt "wizard_button:gnuhealth.orthanc.wizard.full_sync,start,end:"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "wizard_button:gnuhealth.orthanc.wizard.full_sync,start,first_sync:"
+msgid "Begin"
+msgstr ""
