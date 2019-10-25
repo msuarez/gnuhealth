@@ -39,7 +39,7 @@ msgid "Belief"
 msgstr ""
 
 msgctxt "field:gnuhealth.diet.belief,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.diet.belief,write_date:"
@@ -115,7 +115,7 @@ msgid "Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.drugs_recreational,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.drugs_recreational,reinforcement_level:"
@@ -423,7 +423,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.cage,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.cage,write_date:"
@@ -451,7 +451,7 @@ msgid "Patient"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.recreational_drugs,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.patient.recreational_drugs,recreational_drug:"
@@ -491,7 +491,7 @@ msgid "Vegetarian"
 msgstr ""
 
 msgctxt "field:gnuhealth.vegetarian_types,rec_name:"
-msgid "Name"
+msgid "Record Name"
 msgstr ""
 
 msgctxt "field:gnuhealth.vegetarian_types,write_date:"
@@ -1218,4 +1218,80 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient,sexual_preferences:"
 msgid "Transexual"
+msgstr ""
+
+msgctxt "view:gnuhealth.diet.belief:"
+msgid "Diet Description"
+msgstr ""
+
+msgctxt "view:gnuhealth.drugs_recreational:"
+msgid "Additional Info and Effects"
+msgstr ""
+
+msgctxt "view:gnuhealth.drugs_recreational:"
+msgid "Administration Routes"
+msgstr ""
+
+msgctxt "view:gnuhealth.drugs_recreational:"
+msgid "DEA Schedule Level"
+msgstr ""
+
+msgctxt "view:gnuhealth.drugs_recreational:"
+msgid "General Information"
+msgstr ""
+
+msgctxt "view:gnuhealth.drugs_recreational:"
+msgid "Henningfield Rating"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Addictions"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Alcohol"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Diet"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Diet and Exersice"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Drive and Home Safety"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Lifestyle"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Main"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Physical Exercise"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Recreational Drugs"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Safety"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Sexual practices"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Sexuality"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Sleep"
 msgstr ""

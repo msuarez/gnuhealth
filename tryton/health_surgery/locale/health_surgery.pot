@@ -611,6 +611,264 @@ msgctxt "model:res.group,name:group_health_surgery_admin"
 msgid "Health Surgery Administration"
 msgstr ""
 
+msgctxt "report:surgery:"
+msgid "( Class"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "(ID"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ")"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ","
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "1 : Normal healthy patient"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "2 : Patients with mild systemic disease"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "3 : Patients with severe systemic disease"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ""
+"4 : Patients with severe systemic disease that is a constant threat to life"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ""
+"5 : Moribund patients who are not expected to survive without the operation"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ""
+"6 : A declared brain-dead patient who organs are being removed for donor "
+"purposes"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ":"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "ASA"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Age"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Anesthesia Report"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Anesthetist"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Antibiotic Prophylaxis :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Base Condition"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Class 1:"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid ""
+"Class 2: Visibility of hard and soft palate, upper portion of tonsils and "
+"uvula"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Class 3: Soft and hard palate and base of the uvula are visible"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Class 4: Only Hard Palate visible"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Classification"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Date"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Description"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Details"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Emergency"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Female"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Full visibility of tonsils, uvula and soft palate"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Institution"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Main Surgeon"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Male"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Mallampati Score"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Member"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Notes"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Operating Room"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Optional"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Physical Status"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Post-operative Diagnosis"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Pre-operation Checklist"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Pre-operation Information"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Pre-operative"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Print Date"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Procedure Code"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Pulse Oximeter in place :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Qty"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Qty used"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Required"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Revised Cardiac Risk Index (RCRI)"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Risk of Massive bleeding,"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Role"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Sex"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Sterility confirmed :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Supply"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Surgery"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Surgery Report :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Surgery Time"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Surgical Site Marking :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "Urgent"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "at surgery"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "e :"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "i"
+msgstr ""
+
+msgctxt "report:surgery:"
+msgid "ntravenous access and fluids availabl"
+msgstr ""
+
 msgctxt "selection:gnuhealth.rcri,rcri_class:"
 msgid ""
 msgstr ""
@@ -769,4 +1027,100 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.surgery,surgical_wound:"
 msgid "Dirty-Infected . Class IV"
+msgstr ""
+
+msgctxt "view:gnuhealth.operation:"
+msgid "Procedure Details / Incidents"
+msgstr ""
+
+msgctxt "view:gnuhealth.patient:"
+msgid "Surgeries"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Anesthesia"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Cancel"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Cancel surgery ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Cancel the confirmed surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Confirm"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Confirm the scheduled surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Confirm the surgery and reserve the Operating Room ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Details"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "End this surgery ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finish and sign this surgery ? Itwill become read-only !"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finnish"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Finnish the surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Main Procedure"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Patient"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Patient Surgical Risk assessment"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Preoperative checklist"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Sign this surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Start"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Start the Surgery"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Start the surgery ?"
+msgstr ""
+
+msgctxt "view:gnuhealth.surgery:"
+msgid "Time"
 msgstr ""
