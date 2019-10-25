@@ -39,7 +39,7 @@ from sql import Literal, Join, Table, Null
 from sql.functions import Overlay, Position
 
 from trytond.model import ModelView, ModelSingleton, ModelSQL, \
-    ValueMixin, fields, Unique
+    ValueMixin, fields, Unique, tree
 from trytond.wizard import Wizard, StateAction, StateView, Button
 from trytond.transaction import Transaction
 from trytond import backend
@@ -1947,7 +1947,7 @@ class FamilyMember(ModelSQL, ModelView):
 
 
 # Use the template as in Product category.
-class MedicamentCategory(ModelSQL, ModelView):
+class MedicamentCategory(tree(separator=' / '), ModelSQL, ModelView):
     'Medicament Category'
     __name__ = 'gnuhealth.medicament.category'
 
@@ -2222,7 +2222,7 @@ class ImmunizationSchedule(ModelSQL, ModelView):
                 'The schedule code must be unique'),
         ]
 
-class PathologyCategory(ModelSQL, ModelView):
+class PathologyCategory(tree(separator=' / '), ModelSQL, ModelView):
     'Disease Categories'
     __name__ = 'gnuhealth.pathology.category'
 
