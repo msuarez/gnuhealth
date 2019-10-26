@@ -1878,9 +1878,7 @@ class HealthProfessional(ModelSQL, ModelView):
 
     def get_rec_name(self, name):
         if self.name:
-            res = self.name.name
-            if self.name.lastname:
-                res = self.name.lastname + ', ' + self.name.name
+            res = self.name.rec_name
         return res
 
 class HealthProfessionalSpecialties(ModelSQL, ModelView):
@@ -3256,10 +3254,8 @@ class PatientData(ModelSQL, ModelView):
         return res
 
     def get_rec_name(self, name):
-        if self.name.lastname:
-            return self.name.lastname + ', ' + self.name.name
-        else:
-            return self.name.name
+        if self.name:
+            return self.name.rec_name
 
     # Search by the patient name, lastname or PUID
 
