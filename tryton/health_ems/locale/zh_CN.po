@@ -1,470 +1,486 @@
-#
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-25 01:37+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_ems/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43812\n"
 
 msgctxt "error:gnuhealth.ambulance:"
 msgid "This vehicle ID already exists"
-msgstr ""
+msgstr "此交通工具ID已存在"
 
 msgctxt "error:gnuhealth.support_request:"
 msgid "This Request Code already exists"
-msgstr ""
+msgstr "申请编号已经存在"
 
 msgctxt "field:gnuhealth.ambulance,active:"
 msgid "Active"
-msgstr ""
+msgstr "启用"
 
 msgctxt "field:gnuhealth.ambulance,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.ambulance,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.ambulance,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.ambulance,rec_name:"
-msgid "Name"
-msgstr ""
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.ambulance,state:"
 msgid "Status"
-msgstr ""
+msgstr "交通工具状态"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_brand:"
 msgid "Brand"
-msgstr ""
+msgstr "制造商"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_function:"
 msgid "Function"
-msgstr ""
+msgstr "功能"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_identifier:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_model:"
 msgid "Model"
-msgstr ""
+msgstr "型号"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_odometer:"
 msgid "Odometer"
-msgstr ""
+msgstr "里程数"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_remarks:"
 msgid "Remarks"
-msgstr ""
+msgstr "备注"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_station:"
 msgid "Station"
-msgstr ""
+msgstr "车站"
 
 msgctxt "field:gnuhealth.ambulance,vehicle_type:"
 msgid "Type"
-msgstr ""
+msgstr "交通工具类型"
 
 msgctxt "field:gnuhealth.ambulance,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.ambulance,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.ambulance.support,ambulance:"
 msgid "Ambulance"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "field:gnuhealth.ambulance.support,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.ambulance.support,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.ambulance.support,healthprofs:"
 msgid "Health Professionals"
-msgstr ""
+msgstr "健康专家"
 
 msgctxt "field:gnuhealth.ambulance.support,id:"
 msgid "ID"
-msgstr ""
+msgstr "申请编号"
 
 msgctxt "field:gnuhealth.ambulance.support,rec_name:"
-msgid "Name"
-msgstr ""
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.ambulance.support,sr:"
 msgid "SR"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "field:gnuhealth.ambulance.support,state:"
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 msgctxt "field:gnuhealth.ambulance.support,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.ambulance.support,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.ambulance_hp,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.ambulance_hp,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.ambulance_hp,healthprof:"
 msgid "Health Prof"
-msgstr ""
+msgstr "健康专家"
 
 msgctxt "field:gnuhealth.ambulance_hp,id:"
 msgid "ID"
-msgstr ""
+msgstr "救护车编号"
 
 msgctxt "field:gnuhealth.ambulance_hp,name:"
 msgid "SR"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "field:gnuhealth.ambulance_hp,rec_name:"
-msgid "Name"
-msgstr ""
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.ambulance_hp,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.ambulance_hp,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "写入用户"
+
+msgctxt "field:gnuhealth.sequence.setup,support_request_code_sequence:"
+msgid "Support Request Sequence"
+msgstr "救援申请序列"
 
 msgctxt "field:gnuhealth.sequences,support_request_code_sequence:"
 msgid "Support Request Sequence"
-msgstr ""
+msgstr "救援申请序列"
 
 msgctxt "field:gnuhealth.support_request,address:"
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 msgctxt "field:gnuhealth.support_request,ambulances:"
 msgid "Ambulances"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "field:gnuhealth.support_request,code:"
 msgid "Code"
-msgstr ""
+msgstr "申请编号"
 
 msgctxt "field:gnuhealth.support_request,complaint:"
 msgid "Chief Complaint"
-msgstr ""
+msgstr "主诉"
 
 msgctxt "field:gnuhealth.support_request,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.support_request,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.support_request,evaluation:"
 msgid "Evaluation"
-msgstr ""
+msgstr "患者评估"
 
 msgctxt "field:gnuhealth.support_request,event_specific:"
 msgid "Incident"
-msgstr ""
+msgstr "发生事件"
 
 msgctxt "field:gnuhealth.support_request,event_type:"
 msgid "Event type"
-msgstr ""
+msgstr "事件类型"
 
 msgctxt "field:gnuhealth.support_request,healthcenter:"
 msgid "Calling Institution"
-msgstr ""
+msgstr "已联系的医疗机构"
 
 msgctxt "field:gnuhealth.support_request,id:"
 msgid "ID"
-msgstr ""
+msgstr "申请编号"
 
 msgctxt "field:gnuhealth.support_request,latitude:"
 msgid "Latidude"
-msgstr ""
+msgstr "纬度"
 
 msgctxt "field:gnuhealth.support_request,longitude:"
 msgid "Longitude"
-msgstr ""
+msgstr "经度"
 
 msgctxt "field:gnuhealth.support_request,multiple_casualties:"
 msgid "Multiple Casualties"
-msgstr ""
+msgstr "大量伤亡"
 
 msgctxt "field:gnuhealth.support_request,operational_sector:"
 msgid "O. Sector"
-msgstr ""
+msgstr "社区"
 
 msgctxt "field:gnuhealth.support_request,operator:"
 msgid "Operator"
-msgstr ""
+msgstr "操作员"
 
 msgctxt "field:gnuhealth.support_request,patient:"
 msgid "Patient"
-msgstr ""
+msgstr "患者"
 
 msgctxt "field:gnuhealth.support_request,patient_age:"
 msgid "Age"
-msgstr ""
+msgstr "年龄"
 
 msgctxt "field:gnuhealth.support_request,patient_sex:"
 msgid "Sex"
-msgstr ""
+msgstr "性别"
 
 msgctxt "field:gnuhealth.support_request,place_occurrance:"
 msgid "Origin"
-msgstr ""
+msgstr "申请源"
 
 msgctxt "field:gnuhealth.support_request,rec_name:"
-msgid "Name"
-msgstr ""
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.support_request,request_actions:"
 msgid "Activities"
-msgstr ""
+msgstr "申请历史记录"
 
 msgctxt "field:gnuhealth.support_request,request_date:"
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 msgctxt "field:gnuhealth.support_request,request_extra_info:"
 msgid "Details"
-msgstr ""
+msgstr "详细情况"
 
 msgctxt "field:gnuhealth.support_request,requestor:"
 msgid "Requestor"
-msgstr ""
+msgstr "申请人"
 
 msgctxt "field:gnuhealth.support_request,state:"
 msgid "State"
-msgstr ""
+msgstr "状态"
 
 msgctxt "field:gnuhealth.support_request,urgency:"
 msgid "Urgency"
-msgstr ""
+msgstr "紧急"
 
 msgctxt "field:gnuhealth.support_request,urladdr:"
 msgid "OSM Map"
-msgstr ""
+msgstr "Open Street 地图"
 
 msgctxt "field:gnuhealth.support_request,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.support_request,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "写入用户"
 
 msgctxt "field:gnuhealth.support_request.log,action:"
 msgid "Activity"
-msgstr ""
+msgstr "活动记录"
 
 msgctxt "field:gnuhealth.support_request.log,create_date:"
 msgid "Create Date"
-msgstr ""
+msgstr "创建日期"
 
 msgctxt "field:gnuhealth.support_request.log,create_uid:"
 msgid "Create User"
-msgstr ""
+msgstr "创建用户"
 
 msgctxt "field:gnuhealth.support_request.log,id:"
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgctxt "field:gnuhealth.support_request.log,rec_name:"
-msgid "Name"
-msgstr ""
+msgid "Record Name"
+msgstr "记录名称"
 
 msgctxt "field:gnuhealth.support_request.log,remarks:"
 msgid "Remarks"
-msgstr ""
+msgstr "备注"
 
 msgctxt "field:gnuhealth.support_request.log,sr:"
 msgid "SR"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "field:gnuhealth.support_request.log,timestamp:"
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 msgctxt "field:gnuhealth.support_request.log,write_date:"
 msgid "Write Date"
-msgstr ""
+msgstr "写入日期"
 
 msgctxt "field:gnuhealth.support_request.log,write_uid:"
 msgid "Write User"
-msgstr ""
+msgstr "写入用户"
 
 msgctxt "help:gnuhealth.ambulance,state:"
 msgid "Vehicle status"
-msgstr ""
+msgstr "交通工具状态"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_brand:"
 msgid "Ambulance maker"
-msgstr ""
+msgstr "救护车制造商"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_function:"
 msgid "Vehicle main functionality"
-msgstr ""
+msgstr "交通工具主要功能"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_identifier:"
 msgid "Ambulance license number or other type of ID"
-msgstr ""
+msgstr "救护车许可证号码或其他类型ID"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_model:"
 msgid "Ambulance model"
-msgstr ""
+msgstr "救护车辆型号"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_odometer:"
 msgid "Current odometer reading"
-msgstr ""
+msgstr "当前里程表读数"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_station:"
 msgid "Station / Base of the vehicle"
-msgstr ""
+msgstr "交通工具所在车站"
 
 msgctxt "help:gnuhealth.ambulance,vehicle_type:"
 msgid "Type of vehicle"
-msgstr ""
+msgstr "交通工具类型"
 
 msgctxt "help:gnuhealth.ambulance.support,sr:"
 msgid "Support Request"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "help:gnuhealth.ambulance.support,state:"
 msgid "Vehicle status"
-msgstr ""
+msgstr "交通工具状态"
 
 msgctxt "help:gnuhealth.ambulance_hp,healthprof:"
 msgid "Health Professional for this ambulance and support request"
-msgstr ""
+msgstr "与此救护车和救援申请相关的健康专家"
 
 msgctxt "help:gnuhealth.support_request,address:"
 msgid "Free text address / location"
-msgstr ""
+msgstr "地址或者位置（手写文本）"
 
 msgctxt "help:gnuhealth.support_request,ambulances:"
 msgid "Ambulances requested in this Support Request"
-msgstr ""
+msgstr "救援申请对应的救护车"
 
 msgctxt "help:gnuhealth.support_request,code:"
 msgid "Request Code"
-msgstr ""
+msgstr "申请编号"
 
 msgctxt "help:gnuhealth.support_request,evaluation:"
 msgid "Related Patient Evaluation"
-msgstr ""
+msgstr "对应的患者评估"
 
 msgctxt "help:gnuhealth.support_request,operational_sector:"
 msgid "Operational Sector"
-msgstr ""
+msgstr "社区"
 
 msgctxt "help:gnuhealth.support_request,operator:"
 msgid "Operator who took the call / support request"
-msgstr ""
+msgstr "接电话或处理救援申请的操作员"
 
 msgctxt "help:gnuhealth.support_request,place_occurrance:"
 msgid "Place of occurrance"
-msgstr ""
+msgstr "发生地"
 
 msgctxt "help:gnuhealth.support_request,request_actions:"
 msgid "Support request activity log"
-msgstr ""
+msgstr "救援申请记录"
 
 msgctxt "help:gnuhealth.support_request,request_date:"
 msgid "Date and time of the call for help"
-msgstr ""
+msgstr "申请日期和时间"
 
 msgctxt "help:gnuhealth.support_request,requestor:"
 msgid "Related party (person)"
-msgstr ""
+msgstr "相关 party (人)"
 
 msgctxt "help:gnuhealth.support_request,urladdr:"
 msgid "Maps the location on Open Street Map"
-msgstr ""
+msgstr "在 Open Street 地图上定位"
 
 msgctxt "help:gnuhealth.support_request.log,action:"
 msgid "Activity log"
-msgstr ""
+msgstr "活动记录"
 
 msgctxt "help:gnuhealth.support_request.log,remarks:"
 msgid "Remarks for this item"
-msgstr ""
+msgstr "备注"
 
 msgctxt "help:gnuhealth.support_request.log,sr:"
 msgid "Support Request"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "help:gnuhealth.support_request.log,timestamp:"
 msgid "Date and time of activity"
-msgstr ""
+msgstr "活动日期和时间"
 
 msgctxt "model:gnuhealth.ambulance,name:"
 msgid "Ambulance"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "model:gnuhealth.ambulance.support,name:"
 msgid "Ambulance associated to a Support Request"
-msgstr ""
+msgstr "救援申请对应的救护车"
 
 msgctxt "model:gnuhealth.ambulance_hp,name:"
 msgid "Ambulance Health Professionals"
-msgstr ""
+msgstr "跟随救护车的健康专家"
 
 msgctxt "model:gnuhealth.support_request,name:"
 msgid "Support Request Registration"
-msgstr ""
+msgstr "救援申请注册"
 
 msgctxt "model:gnuhealth.support_request.log,name:"
 msgid "Ambulance associated to a Support Request"
-msgstr ""
+msgstr "与救援申请对应的救护车"
 
 msgctxt "model:ir.action,name:gnuhealth_action_ambulance"
 msgid "Ambulances"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "model:ir.action,name:gnuhealth_action_ambulance_support"
 msgid "Ambulance in Support Requests"
-msgstr ""
+msgstr "已申请的救护车"
 
 msgctxt "model:ir.action,name:gnuhealth_action_support_request"
 msgid "Support Center"
-msgstr ""
+msgstr "救援中心"
 
 msgctxt "model:ir.sequence,name:seq_gnuhealth_support_request_code"
 msgid "Support Request"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "model:ir.sequence.type,name:seq_type_gnuhealth_support_request_code"
 msgid "Support Request"
-msgstr ""
+msgstr "救援申请"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_ambulance"
 msgid "Ambulances"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_ambulance_sr"
 msgid "Ambulance in Support Requests"
-msgstr ""
+msgstr "已申请的救护车"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_support_request"
 msgid "Support Center"
-msgstr ""
+msgstr "救援中心"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid ""
@@ -472,35 +488,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "At Hospital"
-msgstr ""
+msgstr "在医院"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "Available / At Station"
-msgstr ""
+msgstr "可用 / 在车站"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "Dispatched"
-msgstr ""
+msgstr "已派出"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "En Route"
-msgstr ""
+msgstr "在途中"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "On Location"
-msgstr ""
+msgstr "在申请地点"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "Out of service"
-msgstr ""
+msgstr "暂停服务"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "Returning"
-msgstr ""
+msgstr "正在返回"
 
 msgctxt "selection:gnuhealth.ambulance,state:"
 msgid "To Hospital"
-msgstr ""
+msgstr "去医院"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_function:"
 msgid ""
@@ -508,15 +524,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_function:"
 msgid "Type A - Patient Transport"
-msgstr ""
+msgstr "A型 - 搬运患者"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_function:"
 msgid "Type B - Emergency"
-msgstr ""
+msgstr "B型 - 突发事件"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_function:"
 msgid "Type C - Mobile ICU"
-msgstr ""
+msgstr "C型 - 移动ICU"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid ""
@@ -524,35 +540,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Airplane"
-msgstr ""
+msgstr "飞机"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Bicycle"
-msgstr ""
+msgstr "自行车"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Boat"
-msgstr ""
+msgstr "船"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Car"
-msgstr ""
+msgstr "汽车"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Drone"
-msgstr ""
+msgstr "无人机"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Helicopter"
-msgstr ""
+msgstr "直升机"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Motorcycle"
-msgstr ""
+msgstr "摩托车"
 
 msgctxt "selection:gnuhealth.ambulance,vehicle_type:"
 msgid "Van"
-msgstr ""
+msgstr "面包车"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid ""
@@ -560,35 +576,35 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "At Hospital"
-msgstr ""
+msgstr "在医院"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "Available / At Station"
-msgstr ""
+msgstr "可用 / 在车站"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "Dispatched"
-msgstr ""
+msgstr "已派出"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "En Route"
-msgstr ""
+msgstr "在路上"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "On Location"
-msgstr ""
+msgstr "到申请地点"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "Out of service"
-msgstr ""
+msgstr "暂停服务"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "Returning"
-msgstr ""
+msgstr "正在返回"
 
 msgctxt "selection:gnuhealth.ambulance.support,state:"
 msgid "To Hospital"
-msgstr ""
+msgstr "去医院"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid ""
@@ -596,123 +612,123 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Acute Coronary Syndrome"
-msgstr ""
+msgstr "急性冠脉综合征"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Acute illness"
-msgstr ""
+msgstr "急性病"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Acute pain"
-msgstr ""
+msgstr "急性疼痛"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Allergic reaction"
-msgstr ""
+msgstr "过敏反应"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Bullying, battering"
-msgstr ""
+msgstr "打架斗殴"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Choke"
-msgstr ""
+msgstr "窒息"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Chronic illness"
-msgstr ""
+msgstr "慢性病"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Deceased person"
-msgstr ""
+msgstr "死者"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Domestic violence"
-msgstr ""
+msgstr "家庭暴力"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Drug intoxication"
-msgstr ""
+msgstr "药物中毒"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Endocrine event (diabetes, adrenal crisis, ..)"
-msgstr ""
+msgstr "内分泌相关事件（糖尿病、肾上腺危象等）"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Environmental event (weather, animals, ...)"
-msgstr ""
+msgstr "环境事件（天气、动物等）"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Explosion"
-msgstr ""
+msgstr "爆炸"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Eye, Ear and Nose event"
-msgstr ""
+msgstr "眼、耳、鼻相关事件"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Fall"
-msgstr ""
+msgstr "跌倒"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Fire"
-msgstr ""
+msgstr "火灾"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Food intoxication"
-msgstr ""
+msgstr "食物中毒"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Gas intoxication"
-msgstr ""
+msgstr "煤气中毒"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Gastrointestinal event"
-msgstr ""
+msgstr "胃肠道事件"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Near drowning"
-msgstr ""
+msgstr "溺水"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Neurological event (stroke, TIA, seizure, ...)"
-msgstr ""
+msgstr "神经事件（中风、短暂性脑缺血发作、癫痫等）"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Other specified"
-msgstr ""
+msgstr "其它事件"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Pregnancy related event"
-msgstr ""
+msgstr "妊娠相关事件"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Psychiatric event"
-msgstr ""
+msgstr "精神病事件"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Respiratory distress"
-msgstr ""
+msgstr "呼吸窘迫"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Robbery, violent assault"
-msgstr ""
+msgstr "抢劫、暴力袭击"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Sexual assault"
-msgstr ""
+msgstr "性侵犯"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Suicide attempt"
-msgstr ""
+msgstr "自杀未遂"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Transportation accident"
-msgstr ""
+msgstr "交通事故"
 
 msgctxt "selection:gnuhealth.support_request,event_type:"
 msgid "Traumatic Injuries"
-msgstr ""
+msgstr "外伤"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid ""
@@ -720,43 +736,43 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Commercial Area"
-msgstr ""
+msgstr "商业区"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Home"
-msgstr ""
+msgstr "家"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Institution"
-msgstr ""
+msgstr "医疗机构"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Public Building"
-msgstr ""
+msgstr "公共建筑"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Public transportation"
-msgstr ""
+msgstr "公共交通工具"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Recreational Area"
-msgstr ""
+msgstr "休闲区"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "School"
-msgstr ""
+msgstr "学校"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Sports event"
-msgstr ""
+msgstr "体育赛事"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Street"
-msgstr ""
+msgstr "街道"
 
 msgctxt "selection:gnuhealth.support_request,place_occurrance:"
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 msgctxt "selection:gnuhealth.support_request,state:"
 msgid ""
@@ -764,11 +780,11 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.support_request,state:"
 msgid "Closed"
-msgstr ""
+msgstr "已关闭"
 
 msgctxt "selection:gnuhealth.support_request,state:"
 msgid "Open"
-msgstr ""
+msgstr "打开"
 
 msgctxt "selection:gnuhealth.support_request,urgency:"
 msgid ""
@@ -776,15 +792,15 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.support_request,urgency:"
 msgid "Emergency"
-msgstr ""
+msgstr "突发事件"
 
 msgctxt "selection:gnuhealth.support_request,urgency:"
 msgid "Low"
-msgstr ""
+msgstr "不紧急"
 
 msgctxt "selection:gnuhealth.support_request,urgency:"
 msgid "Urgent"
-msgstr ""
+msgstr "紧急"
 
 msgctxt "selection:gnuhealth.support_request.log,action:"
 msgid ""
@@ -792,8 +808,176 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.support_request.log,action:"
 msgid "Ambulance"
-msgstr ""
+msgstr "救护车"
 
 msgctxt "selection:gnuhealth.support_request.log,action:"
 msgid "General"
-msgstr ""
+msgstr "非救护车"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "At Hospital"
+msgstr "在医院"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Available"
+msgstr "可用"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Confirm arrival to the incident location ?"
+msgstr "确认到达事故地点? "
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Dispatch ambulance ?"
+msgstr "派救护车？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Dispatched"
+msgstr "已派出"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "En Route"
+msgstr "在途中"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Going to hospital from incident location ?"
+msgstr "正在从事故地点去医院?"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Has the ambulance arrived to hospital ?"
+msgstr "救护车已经到医院了吗？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Is the ambulance returning to the station ?"
+msgstr "救护车已经回车站了吗？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Main"
+msgstr "主要"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Mark vehicle as available ?"
+msgstr "将车辆标记为可用？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "On Location"
+msgstr "在申请地点"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Out of Service"
+msgstr "暂停服务"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Returning"
+msgstr "正在返回"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Set as En Route to the incident ?"
+msgstr "设置为事件发生的路线？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Set the ambulance as Out of Service ?"
+msgstr "设置让救护车停止服务？"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "Status"
+msgstr "交通工具状态"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance going to the hospital from the incident location"
+msgstr "救护车正在从事发地点开往医院"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance has arrived at the incident location"
+msgstr "救护车已到达事发地点"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance has arrived to base / is available"
+msgstr "救护车已到达基地 / 可用"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance has arrived to hospital"
+msgstr "救护车已经到了医院"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance has been dispatched"
+msgstr "救护车已经派去了"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance is going to the incident"
+msgstr "救护车要去事故地点了"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance is out of service"
+msgstr "救护车停止服务"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "The ambulance is returning to base"
+msgstr "救护车正返回基地"
+
+msgctxt "view:gnuhealth.ambulance.support:"
+msgid "To Hospital"
+msgstr "去医院"
+
+msgctxt "view:gnuhealth.ambulance:"
+msgid "Functionality"
+msgstr "功能"
+
+msgctxt "view:gnuhealth.ambulance:"
+msgid "Identification"
+msgstr "识别"
+
+msgctxt "view:gnuhealth.ambulance:"
+msgid "Remarks"
+msgstr "备注"
+
+msgctxt "view:gnuhealth.ambulance:"
+msgid "Station and Status"
+msgstr "站点和状态"
+
+msgctxt "view:gnuhealth.support_request.log:"
+msgid "Date"
+msgstr "日期"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Address"
+msgstr "地址"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Close"
+msgstr "已关闭"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Close the request ?"
+msgstr "关闭申请？"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Details"
+msgstr "详细情况"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Evaluation Specifics"
+msgstr "评估细节"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Location"
+msgstr "位置"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Open"
+msgstr "打开"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Open the request ?"
+msgstr "打开申请？"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Patient Demographics"
+msgstr "患者个人资料"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Set this support request to closed"
+msgstr "将此支持请求设置为关闭状态"
+
+msgctxt "view:gnuhealth.support_request:"
+msgid "Set this support request to open"
+msgstr "将此支持请求设置为打开状态"

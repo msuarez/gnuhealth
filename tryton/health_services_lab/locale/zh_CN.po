@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 11:18+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_services_lab/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43361\n"
+
+msgctxt "field:gnuhealth.patient.lab.test,service:"
+msgid "Service"
+msgstr "服务"
+
+msgctxt "field:gnuhealth.patient.lab.test.request.start,service:"
+msgid "Service"
+msgstr "服务"
+
+msgctxt "help:gnuhealth.patient.lab.test,service:"
+msgid "Service document associated to this Lab Request"
+msgstr "与这个检验申请相关的服务文档"
+
+msgctxt "help:gnuhealth.patient.lab.test.request.start,service:"
+msgid "Service document associated to this Lab Request"
+msgstr "与这个检验申请相关的服务文档"
+
+msgctxt "view:gnuhealth.patient.lab.test:"
+msgid "Transfer lab request to services ?"
+msgstr "将检验申请转化为服务？"
+
+msgctxt "view:gnuhealth.patient.lab.test:"
+msgid "Update Service document with this lab request ?"
+msgstr "更新这个检验申请对应服务的文档"
+
+msgctxt "view:gnuhealth.patient.lab.test:"
+msgid "Update Services"
+msgstr "更新服务"

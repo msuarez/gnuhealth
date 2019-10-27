@@ -1,77 +1,139 @@
-#
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 09:09+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_crypto_lab/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43830\n"
 
 msgctxt "field:gnuhealth.lab,digest_current:"
 msgid "Current Hash"
-msgstr ""
+msgstr "当前哈希值"
 
 msgctxt "field:gnuhealth.lab,digest_status:"
 msgid "Altered"
-msgstr ""
+msgstr "已更改"
 
 msgctxt "field:gnuhealth.lab,digital_signature:"
 msgid "Digital Signature"
-msgstr ""
+msgstr "数字签名"
 
 msgctxt "field:gnuhealth.lab,document_digest:"
 msgid "Digest"
-msgstr ""
+msgstr "数字摘要"
 
 msgctxt "field:gnuhealth.lab,done_by:"
 msgid "Done by"
-msgstr ""
+msgstr "检验医生"
 
 msgctxt "field:gnuhealth.lab,done_date:"
 msgid "Finished on"
-msgstr ""
+msgstr "完成日期"
 
 msgctxt "field:gnuhealth.lab,serializer:"
 msgid "Doc String"
-msgstr ""
+msgstr "文档字符串"
 
 msgctxt "field:gnuhealth.lab,serializer_current:"
 msgid "Current Doc"
-msgstr ""
+msgstr "当前文档"
 
 msgctxt "field:gnuhealth.lab,state:"
 msgid "State"
-msgstr ""
+msgstr "状态"
 
 msgctxt "field:gnuhealth.lab,validated_by:"
 msgid "Validated by"
-msgstr ""
+msgstr "审核医生"
 
 msgctxt "field:gnuhealth.lab,validation_date:"
 msgid "Validated on"
-msgstr ""
+msgstr "审核日期"
 
 msgctxt "help:gnuhealth.lab,digest_status:"
 msgid ""
-"This field will be set whenever parts of the main original document has been"
-" changed. Please note that the verification is done only on selected fields."
+"This field will be set whenever parts of the main original document has been "
+"changed. Please note that the verification is done only on selected fields."
 msgstr ""
+"只要原文档的某些部分被更改，这个字段就会自动设置，需要注意的是，系统只校验所"
+"选的部分字段。"
 
 msgctxt "help:gnuhealth.lab,document_digest:"
 msgid "Original Document Digest"
-msgstr ""
+msgstr "原文档数字摘要"
 
 msgctxt "help:gnuhealth.lab,done_by:"
 msgid "Professional who processes this lab test"
-msgstr ""
+msgstr "做这个检验项目的专家或医生"
 
 msgctxt "help:gnuhealth.lab,validated_by:"
 msgid "Professional who validates this lab test"
-msgstr ""
+msgstr "审核这个检验项目的专家或医生"
 
 msgctxt "selection:gnuhealth.lab,state:"
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 msgctxt "selection:gnuhealth.lab,state:"
 msgid "Draft"
-msgstr ""
+msgstr "草案"
 
 msgctxt "selection:gnuhealth.lab,state:"
 msgid "Validated"
-msgstr ""
+msgstr "已审核"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Are the results ready ?"
+msgstr "检验结果已经准备就绪吗？ "
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Are you sure to sign this lab results ?"
+msgstr "你确定要签署这个检验结果吗? "
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Digital Signature"
+msgstr "数字签名"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Document validation"
+msgstr "文件验证"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Done"
+msgstr "完成"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Draft"
+msgstr "草案"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Reverse the document to draft state."
+msgstr "将文档反转为草稿状态。"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Set to Draft ?"
+msgstr "设置为草案? "
+
+msgctxt "view:gnuhealth.lab:"
+msgid "The lab test is done and results are waiting to be validated"
+msgstr "实验室检验项目已经完成，检验结果正在等待验证"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Validate"
+msgstr "验证"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Validate and Sign the lab test"
+msgstr "验证并签署此实验室检验项目"
+
+msgctxt "view:gnuhealth.lab:"
+msgid "Validation"
+msgstr "验证"

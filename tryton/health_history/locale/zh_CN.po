@@ -1,7 +1,555 @@
-#
 msgid ""
-msgstr "Content-Type: text/plain; charset=utf-8\n"
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-23 01:29+0000\n"
+"PO-Revision-Date: 2019-10-27 10:30+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+"X-Pootle-Path: /zh_CN/GNUHEALTH/health_history/locale/zh_CN.po\n"
+"X-Pootle-Revision: 43352\n"
 
 msgctxt "model:ir.action,name:report_patient_evaluation"
 msgid "Patient Evaluation and History"
+msgstr "患者评估和病史"
+
+msgctxt "report:patient.evaluation:"
+msgid "& history"
+msgstr "& 病历"
+
+msgctxt "report:patient.evaluation:"
+msgid "*"
+msgstr "*"
+
+msgctxt "report:patient.evaluation:"
+msgid ","
+msgstr ","
+
+msgctxt "report:patient.evaluation:"
+msgid ", monogamous"
+msgstr ", 一夫一妻"
+
+msgctxt "report:patient.evaluation:"
+msgid ", poligamous"
+msgstr ", 多妻制"
+
+msgctxt "report:patient.evaluation:"
+msgid "."
+msgstr "."
+
+msgctxt "report:patient.evaluation:"
+msgid "/ 15"
+msgstr "/ 15"
+
+msgctxt "report:patient.evaluation:"
+msgid "/ 4"
+msgstr "/ 4"
+
+msgctxt "report:patient.evaluation:"
+msgid "/ 5"
+msgstr "/ 5"
+
+msgctxt "report:patient.evaluation:"
+msgid "/ 6"
+msgstr "/ 6"
+
+msgctxt "report:patient.evaluation:"
+msgid "/ Reliability :"
+msgstr "/ 可靠性: "
+
+msgctxt "report:patient.evaluation:"
+msgid ":"
+msgstr ":"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Female"
+msgstr ": 女"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Male"
+msgstr ": 男"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Married"
+msgstr ": 已婚"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Separated"
+msgstr ": 分居"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Single"
+msgstr ": 单身"
+
+msgctxt "report:patient.evaluation:"
+msgid ": Widow"
+msgstr ": 寡妇"
+
+msgctxt "report:patient.evaluation:"
+msgid "Active"
+msgstr "启用"
+
+msgctxt "report:patient.evaluation:"
+msgid "Annotations about the patient condition"
+msgstr "患者情况说明"
+
+msgctxt "report:patient.evaluation:"
+msgid "Anthropometry"
+msgstr "人体测量"
+
+msgctxt "report:patient.evaluation:"
+msgid "Automated"
+msgstr "(自动生成)"
+
+msgctxt "report:patient.evaluation:"
+msgid "BMI"
+msgstr "BMI"
+
+msgctxt "report:patient.evaluation:"
+msgid "Blood Pressure"
+msgstr "血压"
+
+msgctxt "report:patient.evaluation:"
+msgid "Care Plan"
+msgstr "护理计划"
+
+msgctxt "report:patient.evaluation:"
+msgid "Chief Complaint"
+msgstr "主诉"
+
+msgctxt "report:patient.evaluation:"
+msgid "Clinical and Physical examination"
+msgstr "临床和体检"
+
+msgctxt "report:patient.evaluation:"
+msgid "Clinical finding"
+msgstr "临床发现"
+
+msgctxt "report:patient.evaluation:"
+msgid "Comfortable and good sanitary conditions"
+msgstr "舒适良好的卫生条件"
+
+msgctxt "report:patient.evaluation:"
+msgid "Comments"
+msgstr "说明"
+
+msgctxt "report:patient.evaluation:"
+msgid "D"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "DU"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Date"
+msgstr "日期"
+
+msgctxt "report:patient.evaluation:"
+msgid "Diagnosed"
+msgstr "已诊断"
+
+msgctxt "report:patient.evaluation:"
+msgid "Diastolic"
+msgstr "舒张期"
+
+msgctxt "report:patient.evaluation:"
+msgid "Disease"
+msgstr "疾病"
+
+msgctxt "report:patient.evaluation:"
+msgid "Diseases"
+msgstr "疾病"
+
+msgctxt "report:patient.evaluation:"
+msgid "DoB:"
+msgstr "出生日期: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Dose"
+msgstr "剂量"
+
+msgctxt "report:patient.evaluation:"
+msgid "Educational Level"
+msgstr "教育水平"
+
+msgctxt "report:patient.evaluation:"
+msgid "End"
+msgstr "结束"
+
+msgctxt "report:patient.evaluation:"
+msgid "Ethnicity:"
+msgstr "种族: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Evaluation Digital Signature"
+msgstr "评估数字签名"
+
+msgctxt "report:patient.evaluation:"
+msgid "Evaluation date:"
+msgstr "评估日期: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Eyes"
+msgstr "眼睛"
+
+msgctxt "report:patient.evaluation:"
+msgid "Family APGAR Functionality"
+msgstr "家庭 APGAR 功能"
+
+msgctxt "report:patient.evaluation:"
+msgid "Family History and Genetic Information"
+msgstr "家族史与遗传信息"
+
+msgctxt "report:patient.evaluation:"
+msgid "Family Information"
+msgstr "家族信息"
+
+msgctxt "report:patient.evaluation:"
+msgid "Family and Socioeconomic assessment history :"
+msgstr "家庭和社会经济评估史: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Heart rate"
+msgstr "心率"
+
+msgctxt "report:patient.evaluation:"
+msgid "Height"
+msgstr "身高"
+
+msgctxt "report:patient.evaluation:"
+msgid "Hip"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "History of Present Illness"
+msgstr "既往病史"
+
+msgctxt "report:patient.evaluation:"
+msgid "Housing conditions"
+msgstr "居住条件"
+
+msgctxt "report:patient.evaluation:"
+msgid "Immunizations"
+msgstr "疫苗接种"
+
+msgctxt "report:patient.evaluation:"
+msgid "Incomplete Primary School"
+msgstr "小学未毕业"
+
+msgctxt "report:patient.evaluation:"
+msgid "Incomplete Secondary School"
+msgstr "中学未毕业"
+
+msgctxt "report:patient.evaluation:"
+msgid "Indication"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Infectious"
+msgstr "传染性的"
+
+msgctxt "report:patient.evaluation:"
+msgid "Information"
+msgstr "信息"
+
+msgctxt "report:patient.evaluation:"
+msgid "Information Source:"
+msgstr "信息来源: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Information about the Diagnosis"
+msgstr "诊断信息"
+
+msgctxt "report:patient.evaluation:"
+msgid "Level of Conciousness / Glasgow Scale"
+msgstr "意识水平 / 格拉斯哥量表"
+
+msgctxt "report:patient.evaluation:"
+msgid "Lifestyle"
+msgstr "生活方式"
+
+msgctxt "report:patient.evaluation:"
+msgid "Luxury and excellent sanitary conditions"
+msgstr "豪华的卫生条件"
+
+msgctxt "report:patient.evaluation:"
+msgid "Marital Status"
+msgstr "婚姻状况"
+
+msgctxt "report:patient.evaluation:"
+msgid "Maternal"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Medicament"
+msgstr "药物"
+
+msgctxt "report:patient.evaluation:"
+msgid "Medication History"
+msgstr "用药史"
+
+msgctxt "report:patient.evaluation:"
+msgid "Motor"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Next Dose"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "None"
+msgstr "无"
+
+msgctxt "report:patient.evaluation:"
+msgid "Observations"
+msgstr "观察"
+
+msgctxt "report:patient.evaluation:"
+msgid "Occupation :"
+msgstr "职业: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Other Hypotheses / DDx"
+msgstr "其他假设 / DDx"
+
+msgctxt "report:patient.evaluation:"
+msgid "Oxygen Saturation"
+msgstr "氧饱和度"
+
+msgctxt "report:patient.evaluation:"
+msgid "PUID:"
+msgstr "PUID: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Paternal"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Patient Genetic"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Patient Name:"
+msgstr "患者姓名: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Personal History"
+msgstr "个人经历"
+
+msgctxt "report:patient.evaluation:"
+msgid "Practices"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Practices safe sex ."
+msgstr "实施安全性行为。"
+
+msgctxt "report:patient.evaluation:"
+msgid "Presumptive Diagnosis"
+msgstr "初步诊断"
+
+msgctxt "report:patient.evaluation:"
+msgid "Primary School"
+msgstr "小学"
+
+msgctxt "report:patient.evaluation:"
+msgid "Print Date:"
+msgstr "打印日期: "
+
+msgctxt "report:patient.evaluation:"
+msgid "Remarks"
+msgstr "评论"
+
+msgctxt "report:patient.evaluation:"
+msgid "Respiratory Rate"
+msgstr "呼吸频率"
+
+msgctxt "report:patient.evaluation:"
+msgid "Roomy and excellent sanitary conditions"
+msgstr "宽敞和优越的卫生条件"
+
+msgctxt "report:patient.evaluation:"
+msgid "SeS"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Secondary School"
+msgstr "中学"
+
+msgctxt "report:patient.evaluation:"
+msgid "Severity"
+msgstr "严重程度"
+
+msgctxt "report:patient.evaluation:"
+msgid "Sex"
+msgstr "性"
+
+msgctxt "report:patient.evaluation:"
+msgid "Sexuality"
+msgstr "性行为"
+
+msgctxt "report:patient.evaluation:"
+msgid "Shanty, deficient sanitary conditions"
+msgstr "棚户区，卫生条件差"
+
+msgctxt "report:patient.evaluation:"
+msgid "Signs and Symptoms"
+msgstr "症状和体征"
+
+msgctxt "report:patient.evaluation:"
+msgid "Small, crowded but with good sanitary conditions"
+msgstr "小而拥挤，但卫生条件好"
+
+msgctxt "report:patient.evaluation:"
+msgid "Socioeconomics"
+msgstr "社会经济学"
+
+msgctxt "report:patient.evaluation:"
+msgid "Start"
+msgstr "开始"
+
+msgctxt "report:patient.evaluation:"
+msgid "Status"
+msgstr "状态"
+
+msgctxt "report:patient.evaluation:"
+msgid "Surgeries"
+msgstr "手术"
+
+msgctxt "report:patient.evaluation:"
+msgid "Systolic"
+msgstr "收缩压"
+
+msgctxt "report:patient.evaluation:"
+msgid "Temperature"
+msgstr "体温"
+
+msgctxt "report:patient.evaluation:"
+msgid "Total Glasgow"
+msgstr "格拉斯哥总分"
+
+msgctxt "report:patient.evaluation:"
+msgid "Type"
+msgstr "类型"
+
+msgctxt "report:patient.evaluation:"
+msgid "University"
+msgstr "大学"
+
+msgctxt "report:patient.evaluation:"
+msgid "Vaccine"
+msgstr "疫苗"
+
+msgctxt "report:patient.evaluation:"
+msgid "Verbal"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Vital Signs"
+msgstr "生命体征"
+
+msgctxt "report:patient.evaluation:"
+msgid "WHR"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "Waist"
+msgstr "腰部"
+
+msgctxt "report:patient.evaluation:"
+msgid "Weight"
+msgstr "体重"
+
+msgctxt "report:patient.evaluation:"
+msgid "bisexual"
+msgstr "双性恋"
+
+msgctxt "report:patient.evaluation:"
+msgid "chronic"
+msgstr "慢性的"
+
+msgctxt "report:patient.evaluation:"
+msgid "healed"
+msgstr "已治愈"
+
+msgctxt "report:patient.evaluation:"
+msgid "heterosexual"
+msgstr "异性恋"
+
+msgctxt "report:patient.evaluation:"
+msgid "homosexual"
+msgstr "同性恋"
+
+msgctxt "report:patient.evaluation:"
+msgid "improving"
+msgstr "正在改善"
+
+msgctxt "report:patient.evaluation:"
+msgid "ischarge reason :"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "lower"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "lower-middle"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "middle"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "middle-upper"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "mild"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "moderate"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "report about patient important conditions"
+msgstr "病人重要情况报告"
+
+msgctxt "report:patient.evaluation:"
+msgid "risky"
+msgstr "风险"
+
+msgctxt "report:patient.evaluation:"
+msgid "s"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "severe"
+msgstr "十分严重"
+
+msgctxt "report:patient.evaluation:"
+msgid "sex ."
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "transexual"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "unchanged"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "upper"
+msgstr ""
+
+msgctxt "report:patient.evaluation:"
+msgid "worsening"
 msgstr ""
