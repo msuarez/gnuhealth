@@ -23,7 +23,6 @@ from trytond.pool import Pool
 from trytond.transaction import Transaction
 from beren import Orthanc as RestClient
 from requests.auth import HTTPBasicAuth as auth
-from requests.exceptions import HTTPError, ConnectionError
 from datetime import datetime
 from urllib.parse import urljoin
 import logging
@@ -124,7 +123,7 @@ class OrthancServerConfig(ModelSQL, ModelView):
                     changes = orthanc.get_changes(since=curr)
                 except:
                     server.validated = False
-                    logger.info("Invalid details for <{}>".format(server.label))
+                    logger.exception("Invalid details for <{}>".format(server.label))
                     break
                 for change in changes["Changes"]:
                     type_ = change["ChangeType"]

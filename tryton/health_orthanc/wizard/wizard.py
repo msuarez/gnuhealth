@@ -24,7 +24,7 @@ from trytond.wizard import Wizard, StateTransition, StateView, Button
 from trytond.transaction import Transaction
 from trytond.pool import Pool
 from requests.auth import HTTPBasicAuth as auth
-from requests.exceptions import HTTPError, ConnectionError
+from requests.exceptions import HTTPError
 from beren import Orthanc as RestClient
 import logging
 
@@ -93,15 +93,18 @@ class FullSyncOrthanc(Wizard):
             self.start.domain, auth=auth(self.start.user, self.start.password)
         )
         try:
-            patients = [p for p in orthanc.get_patients(params={"expand": ""})]
-            studies = [s for s in orthanc.get_studies(params={"expand": ""})]
+            patients = orthanc.get_patients(expand=True)
+            studies = orthanc.get_studies(expand=True)
         except HTTPError as err:
             if err.response.status_code == 401:
                 self.result.result = "Invalid credentials provided"
+                logger.exception("Invalid credentials provided")
             else:
                 self.result.result = "Invalid domain provided"
+                logger.exception("Request returned error status code")
         except:
             self.result.result = "Invalid domain provided"
+            logger.exception("Other error occurred")
         else:
             new_server = {
                 "label": self.start.label,
@@ -115,14 +118,14 @@ class FullSyncOrthanc(Wizard):
             server.last = orthanc.get_changes(last=True).get("Last")
             server.sync_time = datetime.now()
             server.validated = True
+            Config.save([server])
+            self.result.result = "Successfully added and synced <{}>".format(
+                server.label
+            )
             logger.info(
                 "<{}> sync complete: {} new patients, {} new studies".format(
                     server.label, len(patients), len(studies)
                 )
-            )
-            Config.save([server])
-            self.result.result = "Successfully added and synced <{}>".format(
-                server.label
             )
         finally:
             return "result"
