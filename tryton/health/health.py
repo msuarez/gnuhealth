@@ -1016,6 +1016,7 @@ class PageOfLife(ModelSQL, ModelView):
     institution = fields.Many2One('gnuhealth.institution', 'Institution')
     node = fields.Char("Node")
     author = fields.Char("Author")
+    author_acct = fields.Char("Author account")
 
     @staticmethod
     def default_institution():
@@ -5331,7 +5332,8 @@ class PatientEvaluation(ModelSQL, ModelView):
             'relevance':'important',
             'summary': evaluation.chief_complaint,
             'info': evaluation.evaluation_summary,
-            'author': evaluation.healthprof.name.name,
+            'author': evaluation.healthprof.name.rec_name,
+            'author_acct': evaluation.healthprof.name.federation_account,
             'node': evaluation.institution.name.name,
             }
         if (evaluation.diagnosis):
