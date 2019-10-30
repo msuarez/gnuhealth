@@ -5321,6 +5321,14 @@ class PatientEvaluation(ModelSQL, ModelView):
         Pol = Pool().get('gnuhealth.pol')
         pol = []
 
+        # Summarize the encounter note taking as SOAP
+        soap = \
+            "S: " + evaluation.chief_complaint + "\n--\n" + \
+                    evaluation.present_illness +"\n" + \
+            "O: " + evaluation.evaluation_summary + "\n" + \
+            "A: " + evaluation.diagnosis.rec_name + "\n" + \
+            "P: " + evaluation.directions
+
         vals = {
             'page': str(uuid4()),
             'person': evaluation.patient.name.id,
@@ -5330,7 +5338,7 @@ class PatientEvaluation(ModelSQL, ModelView):
             'page_type':'medical',
             'medical_context':'encounter',
             'relevance':'important',
-            'summary': evaluation.chief_complaint,
+            'summary': soap,
             'info': evaluation.evaluation_summary,
             'author': evaluation.healthprof.name.rec_name,
             'author_acct': evaluation.healthprof.name.federation_account,
