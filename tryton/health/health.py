@@ -327,7 +327,8 @@ class DomiciliaryUnit(ModelSQL, ModelView):
     @staticmethod
     def default_address_country():
         Fedcountry = Pool().get('gnuhealth.federation.country.config')(1)
-        return int(Fedcountry.country)
+        if (Fedcountry and Fedcountry.country):
+            return int(Fedcountry.country)
 
     @classmethod
     def __setup__(cls):
