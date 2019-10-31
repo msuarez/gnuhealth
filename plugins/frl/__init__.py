@@ -26,7 +26,6 @@ from tryton.gui.window.form import Form
 from tryton.common import MODELACCESS
 from gi.repository import Gtk
 
-
 import gettext
 import os
 import ssl
@@ -235,8 +234,8 @@ class FederationResourceLocator():
 
         self.columns = ["ID","Name","Lastname","Gender","DoB","Phone","Address"]
 
-        icon = os.path.expanduser("~") + \
-            '/gnuhealth_plugins/frl/icons/federation.svg'
+        icon = os.path.join(os.path.dirname(os.path.realpath(__file__)), \
+                            "icons/federation.svg")
 
         self.window = Gtk.Window(Gtk.WindowType.TOPLEVEL)
         self.window.set_icon_from_file(icon)
