@@ -1887,13 +1887,33 @@ class HealthProfessionalSpecialties(ModelSQL, ModelView):
     'Health Professional Specialties'
     __name__ = 'gnuhealth.hp_specialty'
 
-    name = fields.Many2One('gnuhealth.healthprofessional', 'Health Professional')
+    name = fields.Many2One('gnuhealth.healthprofessional', \
+            'Health Professional', required=True)
 
     specialty = fields.Many2One(
-        'gnuhealth.specialty', 'Specialty', help='Specialty Code')
+        'gnuhealth.specialty', 'Specialty', required=True, \
+            help='Specialty Code')
 
     def get_rec_name(self, name):
         return self.specialty.name
+
+    @classmethod
+    def search_rec_name(cls, name, clause):
+        if clause[1].startswith('!') or clause[1].startswith('not '):
+            bool_op = 'AND'
+        else:
+            bool_op = 'OR'
+        return [bool_op,
+            ('specialty',) + tuple(clause[1:]),
+            ]
+    @classmethod
+    def __setup__(cls):
+        super(HealthProfessionalSpecialties, cls).__setup__()
+        t = cls.__table__()
+        cls._sql_constraints = [
+            ('name_uniq', Unique(t,t.name, t.specialty), \
+                'This specialty is already assigned to the Health Professional'),
+        ]
 
 
 class PhysicianSP(ModelSQL, ModelView):
