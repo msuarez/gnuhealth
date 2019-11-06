@@ -209,7 +209,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.orthanc.study,imaging_test:"
 msgid "Test"
-msgstr "测试"
+msgstr "影像检查"
 
 msgctxt "field:gnuhealth.orthanc.study,institution:"
 msgid "Institution"
@@ -229,7 +229,7 @@ msgstr "记录名称"
 
 msgctxt "field:gnuhealth.orthanc.study,ref_phys:"
 msgid "Referring Physician"
-msgstr "转诊医师"
+msgstr "相关医师"
 
 msgctxt "field:gnuhealth.orthanc.study,req_phys:"
 msgid "Requesting Physician"
@@ -357,7 +357,7 @@ msgstr "患者"
 
 msgctxt "model:ir.action,name:act_orthanc_server_view"
 msgid "Servers"
-msgstr "服务器"
+msgstr "服务器列表"
 
 msgctxt "model:ir.action,name:act_orthanc_study_view"
 msgid "Studies"
@@ -397,7 +397,7 @@ msgstr ""
 
 msgctxt "model:ir.ui.menu,name:orthanc_server_menu"
 msgid "Servers"
-msgstr "服务器"
+msgstr "服务器列表"
 
 msgctxt "view:gnuhealth.imaging.test.result:"
 msgid "Studies"

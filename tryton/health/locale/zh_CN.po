@@ -262,7 +262,7 @@ msgstr "日期和时间"
 
 msgctxt "field:gnuhealth.appointment,appointment_type:"
 msgid "Type"
-msgstr "类型"
+msgstr "患者类型"
 
 msgctxt "field:gnuhealth.appointment,checked_in_date:"
 msgid "Checked-in Time"
@@ -462,7 +462,7 @@ msgstr "人"
 
 msgctxt "field:gnuhealth.birth_certificate,observations:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "field:gnuhealth.birth_certificate,rec_name:"
 msgid "Record Name"
@@ -550,7 +550,7 @@ msgstr "尸检"
 
 msgctxt "field:gnuhealth.death_certificate,certification_date:"
 msgid "Certified on"
-msgstr "认证"
+msgstr "确认日期"
 
 msgctxt "field:gnuhealth.death_certificate,cod:"
 msgid "Cause"
@@ -598,7 +598,7 @@ msgstr "人"
 
 msgctxt "field:gnuhealth.death_certificate,observations:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "field:gnuhealth.death_certificate,operational_sector:"
 msgid "Op. Sector"
@@ -662,7 +662,7 @@ msgstr "ID"
 
 msgctxt "field:gnuhealth.death_underlying_condition,interval:"
 msgid "Interval"
-msgstr "内部"
+msgstr "时间间隔"
 
 msgctxt "field:gnuhealth.death_underlying_condition,rec_name:"
 msgid "Record Name"
@@ -910,7 +910,7 @@ msgstr "公寓"
 
 msgctxt "field:gnuhealth.du,address_street_number:"
 msgid "Number"
-msgstr "保险号"
+msgstr "门牌号"
 
 msgctxt "field:gnuhealth.du,address_subdivision:"
 msgid "Subdivision"
@@ -2442,7 +2442,7 @@ msgstr "保险"
 
 msgctxt "field:gnuhealth.patient,deceased:"
 msgid "Deceased"
-msgstr "死者"
+msgstr "已经死亡"
 
 msgctxt "field:gnuhealth.patient,diseases:"
 msgid "Conditions"
@@ -2546,7 +2546,7 @@ msgstr "开始"
 
 msgctxt "field:gnuhealth.patient.disease,date_stop_treatment:"
 msgid "End"
-msgstr "结束日期"
+msgstr "结束"
 
 msgctxt "field:gnuhealth.patient.disease,diagnosed_date:"
 msgid "Date of Diagnosis"
@@ -2802,7 +2802,7 @@ msgstr "主要疾病"
 
 msgctxt "field:gnuhealth.patient.evaluation,diagnostic_hypothesis:"
 msgid "Hypotheses / DDx"
-msgstr "假设/鉴别诊断"
+msgstr "初步诊断"
 
 msgctxt "field:gnuhealth.patient.evaluation,diastolic:"
 msgid "Diastolic Pressure"
@@ -2814,11 +2814,11 @@ msgstr "计划"
 
 msgctxt "field:gnuhealth.patient.evaluation,discharge_reason:"
 msgid "Discharge Reason"
-msgstr "出院原因"
+msgstr "患者离开原因"
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_endtime:"
 msgid "End"
-msgstr "结束日期"
+msgstr "结束"
 
 msgctxt "field:gnuhealth.patient.evaluation,evaluation_length:"
 msgid "Evaluation length"
@@ -3114,7 +3114,7 @@ msgstr "治疗期"
 
 msgctxt "field:gnuhealth.patient.medication,end_treatment:"
 msgid "End"
-msgstr "结束日期"
+msgstr "结束"
 
 msgctxt "field:gnuhealth.patient.medication,form:"
 msgid "Form"
@@ -3895,7 +3895,7 @@ msgstr "下一个剂量"
 
 msgctxt "field:gnuhealth.vaccination,observations:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "field:gnuhealth.vaccination,picture:"
 msgid "Label"
@@ -4661,7 +4661,7 @@ msgstr "患者的亲戚朋友"
 
 msgctxt "help:gnuhealth.patient,primary_care_doctor:"
 msgid "Current General Practitioner / Family Doctor"
-msgstr "当前患者的全称医生/家庭医生"
+msgstr "当前患者的全科医生/家庭医生"
 
 msgctxt "help:gnuhealth.patient,puid:"
 msgid "Person Unique Identifier"
@@ -4799,7 +4799,7 @@ msgstr "舒张压（mmHg）"
 
 msgctxt "help:gnuhealth.patient.evaluation,discharge_reason:"
 msgid "Reason for patient discharge"
-msgstr "病人出院原因"
+msgstr "患者离开原因"
 
 msgctxt "help:gnuhealth.patient.evaluation,evaluation_length:"
 msgid "Duration of the evaluation"
@@ -9697,7 +9697,7 @@ msgstr "医联体"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_federation_country_config"
 msgid "Federation Country Configuration"
-msgstr "医联体国家设置"
+msgstr "医联体国家信息设置"
 
 msgctxt "model:ir.ui.menu,name:gnuhealth_conf_healthprofessionals"
 msgid "Health Professionals"
@@ -10144,7 +10144,7 @@ msgstr "鉴别诊断"
 
 msgctxt "report:gnuhealth.patient_evaluation:"
 msgid "Discharge Reason"
-msgstr "出院原因"
+msgstr "患者离开原因"
 
 msgctxt "report:gnuhealth.patient_evaluation:"
 msgid "DoB:"
@@ -10244,11 +10244,11 @@ msgstr "体温"
 
 msgctxt "report:gnuhealth.patient_evaluation:"
 msgid "Treatment"
-msgstr "治疗计划"
+msgstr "治疗"
 
 msgctxt "report:gnuhealth.patient_evaluation:"
 msgid "Type"
-msgstr "类型"
+msgstr "患者类型"
 
 msgctxt "report:gnuhealth.patient_evaluation:"
 msgid "ate:"
@@ -10420,7 +10420,7 @@ msgstr "电子邮件: "
 
 msgctxt "report:patient.medication:"
 msgid "End"
-msgstr "结束日期"
+msgstr "结束"
 
 msgctxt "report:patient.medication:"
 msgid "Female"
@@ -10500,7 +10500,7 @@ msgstr "女"
 
 msgctxt "report:patient.vaccination:"
 msgid "HISTORY"
-msgstr "疫苗接种史"
+msgstr "史"
 
 msgctxt "report:patient.vaccination:"
 msgid "ID"
@@ -10516,7 +10516,7 @@ msgstr "下一个剂量"
 
 msgctxt "report:patient.vaccination:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "report:patient.vaccination:"
 msgid "PATIENT"
@@ -10788,23 +10788,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Followup"
-msgstr "随访"
+msgstr "患者随访"
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "New health condition"
-msgstr "新的健康问题"
+msgstr "健康新状况"
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Well Child visit"
-msgstr "觉得身体不错的儿童就诊"
+msgstr "儿童日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Well Man visit"
-msgstr "觉得身体健康的男士就诊"
+msgstr "男性日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.appointment,visit_type:"
 msgid "Well Woman visit"
-msgstr "觉得身体健康的女士就诊"
+msgstr "女性日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.appointment.report,gender:"
 msgid ""
@@ -11308,7 +11308,7 @@ msgstr "A"
 
 msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "AB"
-msgstr "AB血型"
+msgstr "AB"
 
 msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "B"
@@ -11316,7 +11316,7 @@ msgstr "B"
 
 msgctxt "selection:gnuhealth.patient,blood_type:"
 msgid "O"
-msgstr "O型血"
+msgstr "O"
 
 msgctxt "selection:gnuhealth.patient,gender:"
 msgid ""
@@ -11600,11 +11600,11 @@ msgstr "死亡"
 
 msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
 msgid "Home / Selfcare"
-msgstr "家庭 / 自理"
+msgstr "家庭治疗 / 自我护理"
 
 msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
 msgid "Left against medical advice"
-msgstr "拒绝医疗建议"
+msgstr "不听医嘱离开"
 
 msgctxt "selection:gnuhealth.patient.evaluation,discharge_reason:"
 msgid "Transferred to another institution"
@@ -11776,23 +11776,23 @@ msgstr ""
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Followup"
-msgstr "随访"
+msgstr "患者随访"
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "New health condition"
-msgstr "新的健康问题"
+msgstr "健康新状况"
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Well Child visit"
-msgstr "觉得身体健康的儿童就诊"
+msgstr "儿童日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Well Man visit"
-msgstr "觉得身体健康的男士就诊"
+msgstr "男性日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.patient.evaluation,visit_type:"
 msgid "Well Woman visit"
-msgstr "觉得身体健康的女士就诊"
+msgstr "女性日常访视/健康促进/筛查等"
 
 msgctxt "selection:gnuhealth.patient.medication,duration_period:"
 msgid ""
@@ -12386,7 +12386,7 @@ msgstr "主要情况"
 
 msgctxt "view:gnuhealth.birth_certificate:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "view:gnuhealth.birth_certificate:"
 msgid "Sign"
@@ -12414,7 +12414,7 @@ msgstr "主要情况"
 
 msgctxt "view:gnuhealth.death_certificate:"
 msgid "Observations"
-msgstr "意见"
+msgstr "观察结果"
 
 msgctxt "view:gnuhealth.death_certificate:"
 msgid "Other"
@@ -12598,15 +12598,15 @@ msgstr "日期"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Discharge"
-msgstr "出院"
+msgstr "准许患者离开"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Discharge patient / End this evaluation ?"
-msgstr "患者出院 / 结束评估？"
+msgstr "准许患者离开 / 结束此次评估？"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Discharge patient / end this evaluation"
-msgstr "评估持续时间"
+msgstr "准许患者离开/ 结束此次评估？"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Extra Info"
@@ -12638,7 +12638,7 @@ msgstr "主要信息"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Mental"
-msgstr "牙科"
+msgstr "精神"
 
 msgctxt "view:gnuhealth.patient.evaluation:"
 msgid "Mental Assessment and Impairments"
