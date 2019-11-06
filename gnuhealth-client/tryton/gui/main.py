@@ -128,6 +128,11 @@ class Main(Gtk.Application):
         self.add_action(action)
         self.set_accels_for_action('app.activity', ['<Shift>F12'])
 
+        # GNU Health Command Line focus
+        action = Gio.SimpleAction.new('gh_cli', None)
+        action.connect('activate', lambda *a: self.gnuhealth_cli())
+        self.add_action(action)
+        self.set_accels_for_action('app.gh_cli', ['<Shift>Z'])
 
 
         menu = Gio.Menu.new()
@@ -1101,12 +1106,12 @@ class Main(Gtk.Application):
 # GNUHEALTH block
     # Initialize GNU Health environment
     def init_gnuhealth_env(self):
-        # Init GNU HEalth CLI
+        # Init GNU Health CLI
         self.cli = None
         self.cli = Gtk.Entry()
         # Maximum of 64 chars
         self.cli.set_max_length(64)
-        self.cli.set_placeholder_text(_("Command"))
+        self.cli.set_placeholder_text(_("GNU Health Command"))
         #CLI colors
         self.cli.modify_base(Gtk.StateType.NORMAL, Gdk.Color(6,69,72))
         self.cli.modify_text(Gtk.StateType.NORMAL, Gdk.Color(0,0,0))
