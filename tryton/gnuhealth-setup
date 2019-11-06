@@ -238,7 +238,7 @@ install_python_dependencies() {
     local PIP_PSYCOPG2="psycopg2-binary"
     local PIP_PYTZ="pytz"
     local PIP_LDAP="python-ldap"
-    local PIP_VOBJECT="vobject"
+    local PIP_VOBJECT="vobject==0.9.5"
     local PIP_QRCODE="qrcode"
     local PIP_PYBARCODE="python-barcode"
     local PIP_SIX="six"
