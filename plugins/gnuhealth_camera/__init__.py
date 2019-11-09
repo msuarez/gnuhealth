@@ -160,7 +160,12 @@ def main (data):
             set_attachment(data, frame)
             break
 
-        if keypressed == ord('q'):
+        # Cleanup / Destroy window when q key is pressed or when closing
+        # the window via alt+f4
+        if (keypressed == ord('q')):
+            break
+
+        if (cv2.getWindowProperty('== GNU Health Camera ==', cv2.WND_PROP_VISIBLE) < 1):
             break
 
         if  keypressed == ord('h'):
