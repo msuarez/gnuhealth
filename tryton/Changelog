@@ -1,5 +1,148 @@
-changeset:   3414:e01fdfddb541
+changeset:   3442:8c8b27fa3b8f
 tag:         tip
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 09 18:11:02 2019 +0000
+summary:     GH HMIS client plugins : Update version to 3.6
+
+changeset:   3441:fb60f30de213
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 09 17:59:38 2019 +0000
+summary:     GNU Health camera plugin: Allow to close the camera window with Alt+F4 or clickinh on close
+
+changeset:   3440:26a7a43ad340
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Nov 08 06:56:01 2019 +0000
+summary:     HMIS server : update URL and to version RC3
+
+changeset:   3439:88f4b17dc530
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 21:10:43 2019 +0000
+summary:     GNU Health GTK Client. Set focus on GH command line - CLI
+
+changeset:   3438:eb2797610f42
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 19:20:08 2019 +0000
+summary:     HMIS . Use vobject package version 0.9.5
+
+changeset:   3437:c13e27b3bd0f
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 19:14:27 2019 +0000
+summary:     HMIS : health_caldav . log error when the patient ID coming from the caldav client is not found
+
+changeset:   3436:bf9990658f30
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Nov 06 08:03:14 2019 +0000
+summary:     HMIS . Localization. Update Chinese (zh_CN) translation files
+
+changeset:   3435:45f35ec886d6
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 20:17:14 2019 +0000
+summary:     GNU Health webDAV server . Force Python 3
+
+changeset:   3434:77aab2685b1e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 18:04:02 2019 +0000
+summary:     HMIS Demo DB Downloader refactor and allow command line argument for DB version
+
+changeset:   3433:92d543e5131b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 16:22:51 2019 +0000
+summary:     remove obsolete python script for demo db. We use the postgresql dump
+
+changeset:   3432:1f28df8a70b5
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Mon Nov 04 16:20:30 2019 +0000
+summary:     Update service file documentation
+
+changeset:   3431:3a97892bcf1e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Nov 02 11:21:28 2019 +0000
+summary:     HMIS server. health. Fix editable attribute in HP tree view
+
+changeset:   3430:cb5c2094a22e
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Fri Nov 01 14:22:47 2019 +0000
+summary:     HMIS server. health. Fix bug related to HP specialties https://savannah.gnu.org/bugs/?57148
+
+changeset:   3429:8714dec41129
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 23:41:48 2019 +0000
+summary:     Federation Resource Locator plugin : Fix icon path
+
+changeset:   3428:b9fc9d2ad520
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 16:33:01 2019 +0000
+summary:     health: Check for federation country before assigning it to the Domiciliary Unit
+
+changeset:   3427:08f2c468cae7
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Thu Oct 31 09:51:46 2019 +0000
+summary:     HMIS Server: health. Page of Life on patient evaluation. Use info field to hold the SOAP evaluation
+
+changeset:   3426:8602e06a0b51
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Wed Oct 30 19:49:53 2019 +0000
+summary:     HMIS server: health . Summarize the encounter note taking as SOAP for encounter Page of Life
+
+changeset:   3425:6de3ef31b926
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Tue Oct 29 09:31:31 2019 -0700
+summary:     health_orthanc: log exceptions and use new method parameters
+
+changeset:   3424:a2d56948ea9d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 15:39:22 2019 +0000
+summary:     GH HMIS server. health_federation : Fix author account value
+
+changeset:   3423:f58a2069f5e6
+parent:      3421:b61d9bab3600
+parent:      3422:496f16e88c5a
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 12:21:43 2019 +0000
+summary:     Merge Chris beren library update
+
+changeset:   3422:496f16e88c5a
+parent:      3420:a1c5ff440c2d
+user:        Chris Zimmerman <chris@teffalump.com>
+date:        Mon Oct 28 11:17:41 2019 -0700
+summary:     health_orthanc: Update library version
+
+changeset:   3421:b61d9bab3600
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Tue Oct 29 12:15:34 2019 +0000
+summary:     HMIS Server.health_federation, health : Page of Life: Add HP federation account when creating a new evaluation . Use Name representation for health professional in Page of Life.
+
+changeset:   3420:a1c5ff440c2d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sun Oct 27 09:44:29 2019 +0000
+summary:     localization : Update 3.6 strings for Chinese zh_CN
+
+changeset:   3419:3acfd5b4262d
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 19:28:36 2019 +0100
+summary:     GH HMIS server. health core. Update get_rec_name on patient and health professional. Thank you Tumashu !
+
+changeset:   3418:1445baaedd14
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 19:26:33 2019 +0100
+summary:     GH client : Update version to 3.6RC2
+
+changeset:   3417:cb7ccbd498cc
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:41:29 2019 +0100
+summary:     GH HMIS server. Update orthanc library to beren
+
+changeset:   3416:ca0c2b258d7b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:21:00 2019 +0100
+summary:     GNU Health HMIS server. Update to 3.6RC2
+
+changeset:   3415:6ea449e57f4b
+user:        Luis Falcon <falcon@gnuhealth.org>
+date:        Sat Oct 26 16:20:20 2019 +0100
+summary:     Remove obsolete serverpass
+
+changeset:   3414:e01fdfddb541
 user:        Luis Falcon <falcon@gnuhealth.org>
 date:        Fri Oct 25 19:21:53 2019 +0100
 summary:     HMIS server. health_orthanc: Add translation template file
